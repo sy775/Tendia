@@ -18,7 +18,10 @@
         Gérez ici votre bibliothèque, activez un profil, ou partez d'un exemple livré.
       </p>
     </div>
-    <a href="{{ url_for('profil_importer') }}" class="apt-btn apt-btn-ghost">＋ Importer un profil JSON</a>
+    <div class="flex gap-3">
+      <a href="{{ url_for('profil_nouveau') }}" class="apt-btn apt-btn-accent">＋ Nouveau profil</a>
+      <a href="{{ url_for('profil_importer') }}" class="apt-btn apt-btn-ghost">Importer un JSON</a>
+    </div>
   </div>
 
   {# ---------- Carte profil actif ---------- #}

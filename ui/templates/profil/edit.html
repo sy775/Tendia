@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 {% block title %}Éditer {{ profil.identite.raison_sociale or id }} — Tendia{% endblock %}
 
+{% from "profil/_macros.html" import checkboxes_groupees, zones_intervention, ref_btp_block, ref_ing_block with context %}
+
 {# ----------------------------- widgets ----------------------------- #}
 {% macro f_txt(name, label, value, type='text', ph='') %}
 <div class="mb-3">
@@ -12,9 +14,10 @@
 </div>
 {% endmacro %}
 
-{% macro f_area(name, label, valeur, rows=4) %}
+{% macro f_area(name, label, valeur, rows=4, aide=None) %}
 <div class="mb-3">
   <label class="apt-label">{{ label }} <span class="apt-meta">— 1 par ligne</span></label>
+  {% if aide %}<p class="apt-meta mb-1">{{ aide }}</p>{% endif %}
   <textarea name="{{ name }}" rows="{{ rows }}"
     class="block w-full mt-1 px-3 py-2 apt-fs-13 apt-mono"
     style="background: var(--apt-pure); border: 1px solid var(--apt-line); border-radius: 6px;">{{ (valeur or [])|join('\n') }}</textarea>
@@ -25,29 +28,6 @@
 <label class="flex items-center gap-2 mb-2 apt-fs-13" style="cursor:pointer;">
   <input type="checkbox" name="{{ name }}" {% if checked %}checked{% endif %}> {{ label }}
 </label>
-{% endmacro %}
-
-{% macro f_json(name, label, valeur, rows=10) %}
-<div class="mb-3">
-  <label class="apt-label">{{ label }} <span class="apt-meta">— tableau JSON</span></label>
-  <textarea name="{{ name }}" rows="{{ rows }}" spellcheck="false"
-    class="block w-full mt-1 px-3 py-2 apt-fs-12 apt-mono"
-    style="background: var(--apt-pure); border: 1px solid {{ 'var(--apt-rose)' if erreurs_champs.get(name) else 'var(--apt-line)' }}; border-radius: 6px;">{{ valeur|json_pretty }}</textarea>
-  {% if erreurs_champs.get(name) %}<div class="apt-fs-11_5 mt-1" style="color: var(--apt-rose);">{{ erreurs_champs[name] }}</div>{% endif %}
-</div>
-{% endmacro %}
-
-{% macro f_enum(name, label, options, selected) %}
-<div class="mb-3">
-  <label class="apt-label">{{ label }}</label>
-  <div class="mt-1 flex flex-wrap" style="gap: 2px 16px;">
-    {% for opt in options %}
-    <label class="flex items-center gap-1.5 apt-fs-12_5" style="cursor:pointer; width: 30%; min-width: 200px;">
-      <input type="checkbox" name="{{ name }}" value="{{ opt }}" {% if opt in (selected or []) %}checked{% endif %}> {{ opt }}
-    </label>
-    {% endfor %}
-  </div>
-</div>
 {% endmacro %}
 
 {% macro accordeon(titre) %}
@@ -120,7 +100,7 @@
 
   {# ---------- Zones & capacité ---------- #}
   {% call accordeon('Zones & capacité globale') %}
-    {{ f_area('zones_intervention', 'Zones d\'intervention (codes dept/région)', profil.zones_intervention, 6) }}
+    {{ zones_intervention(widgets.zones) }}
     <div class="grid grid-cols-3 gap-4 mt-3">
       <div>{{ f_txt('capacite_globale.ca_annuel_n_moins_1', 'CA N-1 (€)', cap.ca_annuel_n_moins_1, 'number') }}</div>
       <div>{{ f_txt('capacite_globale.ca_annuel_n_moins_2', 'CA N-2 (€)', cap.ca_annuel_n_moins_2, 'number') }}</div>
@@ -167,8 +147,8 @@
   {% if 'btp' in presets %}
   {% call accordeon('Secteur · BTP') %}
     <div class="apt-label mb-2">Qualifications</div>
-    {{ f_area('sect.btp.qualifications.qualibat', 'Codes Qualibat (4 chiffres)', bq.qualibat, 5) }}
-    {{ f_area('sect.btp.qualifications.opqibi', 'Codes OPQIBI', bq.opqibi, 3) }}
+    {{ f_area('sect.btp.qualifications.qualibat', 'Codes Qualibat', bq.qualibat, 5, 'Qualibat = qualifications BTP, codes à 4 chiffres (ex : 5413).') }}
+    {{ f_area('sect.btp.qualifications.opqibi', 'Codes OPQIBI', bq.opqibi, 3, 'OPQIBI = qualifications ingénierie, si vous couvrez aussi de la MOE.') }}
     {{ f_area('sect.btp.qualifications.autres', 'Autres certifications', bq.autres, 3) }}
     {{ f_chk('sect.btp.qualifications.iso_9001', 'ISO 9001', bq.iso_9001) }}
     {{ f_chk('sect.btp.qualifications.iso_14001', 'ISO 14001', bq.iso_14001) }}
@@ -180,9 +160,9 @@
     </div>
     {{ f_area('sect.btp.qualifications.rge.specialites', 'RGE spécialités', (bq.rge or {}).specialites, 2) }}
     <div class="apt-label mt-4 mb-2">Métiers & ouvrages</div>
-    {{ f_area('sect.btp.corps_de_metier', 'Corps de métier', btp.corps_de_metier, 5) }}
-    {{ f_area('sect.btp.types_ouvrages', 'Types d\'ouvrages', btp.types_ouvrages, 4) }}
-    {{ f_area('sect.btp.types_clients_publics', 'Types de clients publics', btp.types_clients_publics, 4) }}
+    {{ checkboxes_groupees('sect.btp.corps_de_metier', widgets.btp.corps_de_metier, 'Corps de métier') }}
+    {{ checkboxes_groupees('sect.btp.types_ouvrages', widgets.btp.types_ouvrages, 'Types d\'ouvrages') }}
+    {{ checkboxes_groupees('sect.btp.types_clients_publics', widgets.btp.types_clients_publics, 'Types de clients publics') }}
     {{ f_area('sect.btp.moyens_materiels', 'Moyens matériels', btp.moyens_materiels, 4) }}
     <div class="apt-label mt-4 mb-2">Capacité chantiers</div>
     <div class="grid grid-cols-3 gap-4">
@@ -193,7 +173,14 @@
       <div>{{ f_txt('sect.btp.capacite_chantiers.rayon_intervention_km', 'Rayon intervention (km)', (btp.capacite_chantiers or {}).rayon_intervention_km, 'number') }}</div>
     </div>
     {{ f_area('sect.btp.rh_chantier.habilitations_diverses', 'Habilitations diverses', (btp.rh_chantier or {}).habilitations_diverses, 3) }}
-    {{ f_json('sect.btp.references_chantiers', 'Références chantiers', btp.references_chantiers, 12) }}
+    <div class="apt-label mt-4 mb-2">Références chantiers</div>
+    <div id="refs-btp">
+      {% for ref in (btp.references_chantiers or []) %}
+        {{ ref_btp_block(loop.index0, ref, widgets.btp.ref_types_ouvrages) }}
+      {% endfor %}
+    </div>
+    <button type="button" class="apt-btn apt-btn-ghost" onclick="ajouterRef('refs-btp','tpl-ref-btp')">＋ Ajouter une référence</button>
+    <template id="tpl-ref-btp">{{ ref_btp_block('__IDX__', {}, widgets.btp.ref_types_ouvrages) }}</template>
   {% endcall %}
   {% endif %}
 
@@ -201,8 +188,8 @@
   {% if 'ingenierie' in presets %}
   {% call accordeon('Secteur · Ingénierie') %}
     <div class="apt-label mb-2">Qualifications</div>
-    {{ f_area('sect.ingenierie.qualifications.opqibi', 'Codes OPQIBI (4 chiffres)', iq.opqibi, 4) }}
-    {{ f_area('sect.ingenierie.qualifications.opqcm', 'Codes OPQCM', iq.opqcm, 2) }}
+    {{ f_area('sect.ingenierie.qualifications.opqibi', 'Codes OPQIBI', iq.opqibi, 4, 'OPQIBI = qualifications ingénierie, codes à 4 chiffres (clé du go/no-go).') }}
+    {{ f_area('sect.ingenierie.qualifications.opqcm', 'Codes OPQCM', iq.opqcm, 2, 'OPQCM = qualification du management de l\'ingénierie.') }}
     {{ f_area('sect.ingenierie.qualifications.autres', 'Autres labels', iq.autres, 2) }}
     {{ f_chk('sect.ingenierie.qualifications.iso_9001', 'ISO 9001', iq.iso_9001) }}
     {{ f_chk('sect.ingenierie.qualifications.iso_14001', 'ISO 14001', iq.iso_14001) }}
@@ -221,10 +208,10 @@
       </div>
     </div>
     <div class="apt-label mt-4 mb-2">Périmètre technique</div>
-    {{ f_enum('sect.ingenierie.typologies_couvertes', 'Typologies couvertes', enum_ingenierie.get('typologies_couvertes', []), ing.typologies_couvertes) }}
-    {{ f_enum('sect.ingenierie.competences_specialisees', 'Compétences spécialisées', enum_ingenierie.get('competences_specialisees', []), ing.competences_specialisees) }}
-    {{ f_enum('sect.ingenierie.types_ouvrages_etudies', 'Types d\'ouvrages étudiés', enum_ingenierie.get('types_ouvrages_etudies', []), ing.types_ouvrages_etudies) }}
-    {{ f_area('sect.ingenierie.types_clients_publics', 'Types de clients publics', ing.types_clients_publics, 4) }}
+    {{ checkboxes_groupees('sect.ingenierie.typologies_couvertes', widgets.ingenierie.typologies_couvertes, 'Typologies couvertes') }}
+    {{ checkboxes_groupees('sect.ingenierie.competences_specialisees', widgets.ingenierie.competences_specialisees, 'Compétences spécialisées') }}
+    {{ checkboxes_groupees('sect.ingenierie.types_ouvrages_etudies', widgets.ingenierie.types_ouvrages_etudies, 'Types d\'ouvrages étudiés') }}
+    {{ checkboxes_groupees('sect.ingenierie.types_clients_publics', widgets.ingenierie.types_clients_publics, 'Types de clients publics') }}
     {{ f_area('sect.ingenierie.outils_logiciels', 'Outils logiciels', ing.outils_logiciels, 4) }}
     <div class="apt-label mt-4 mb-2">Capacité études</div>
     <div class="grid grid-cols-2 gap-4">
@@ -233,7 +220,14 @@
       <div>{{ f_txt('sect.ingenierie.capacite_etudes.nb_missions_simultanees_max', 'Missions simultanées max', (ing.capacite_etudes or {}).nb_missions_simultanees_max, 'number') }}</div>
       <div>{{ f_txt('sect.ingenierie.capacite_etudes.effectif_etudes_etp', 'Effectif études ETP', (ing.capacite_etudes or {}).effectif_etudes_etp, 'number') }}</div>
     </div>
-    {{ f_json('sect.ingenierie.references_etudes', 'Références études', ing.references_etudes, 12) }}
+    <div class="apt-label mt-4 mb-2">Références études</div>
+    <div id="refs-ing">
+      {% for ref in (ing.references_etudes or []) %}
+        {{ ref_ing_block(loop.index0, ref, widgets.ingenierie.ref_types_ouvrages, widgets.ingenierie.ref_typologies, widgets.ingenierie.ref_competences) }}
+      {% endfor %}
+    </div>
+    <button type="button" class="apt-btn apt-btn-ghost" onclick="ajouterRef('refs-ing','tpl-ref-ing')">＋ Ajouter une référence</button>
+    <template id="tpl-ref-ing">{{ ref_ing_block('__IDX__', {}, widgets.ingenierie.ref_types_ouvrages, widgets.ingenierie.ref_typologies, widgets.ingenierie.ref_competences) }}</template>
   {% endcall %}
   {% endif %}
 
@@ -307,6 +301,27 @@ function ajouterAr() {
     '<textarea name="ar_val" rows="2" placeholder="réponse type" class="col-span-8 px-3 py-2 apt-fs-13" style="background:var(--apt-pure);border:1px solid var(--apt-line);border-radius:6px;"></textarea>' +
     '<button type="button" class="col-span-1 apt-btn apt-btn-ghost" onclick="this.closest(\'.ar-row\').remove()">×</button>';
   document.getElementById('ar-rows').appendChild(row);
+}
+
+// Toggle de groupe : cocher/décocher tout un groupe de checkboxes.
+document.addEventListener('change', function (e) {
+  if (e.target && e.target.classList && e.target.classList.contains('cg-toggle')) {
+    var groupe = e.target.closest('.cg-groupe');
+    if (!groupe) return;
+    groupe.querySelectorAll('input[type=checkbox]:not(.cg-toggle)').forEach(function (c) {
+      c.checked = e.target.checked;
+    });
+  }
+});
+
+// Ajout d'un bloc de référence : clone le <template>, attribue un index neuf.
+var refCounter = 1000;
+function ajouterRef(containerId, tplId) {
+  var tpl = document.getElementById(tplId);
+  var html = tpl.innerHTML.replace(/__IDX__/g, String(refCounter++));
+  var wrap = document.createElement('div');
+  wrap.innerHTML = html.trim();
+  document.getElementById(containerId).appendChild(wrap.firstElementChild);
 }
 </script>
 {% endblock %}

@@ -24,6 +24,7 @@ exposant `.get(name)` et `.getlist(name)` (werkzeug MultiDict ou shim de test).
 
 import copy
 import json
+import re
 
 
 # ---------------------------------------------------------------------------
@@ -100,9 +101,9 @@ _SOCLE = [
     ("economie.taux_journalier_moyen_eur", "economie.taux_journalier_moyen_eur", "num"),
     ("economie.frais_de_structure_pct", "economie.frais_de_structure_pct", "num"),
     ("economie.agressivite_commerciale", "economie.agressivite_commerciale", "text"),
-    ("zones_intervention", "zones_intervention", "lignes"),
     ("mots_cles_catalogue", "mots_cles_catalogue", "lignes"),
 ]
+# zones_intervention est rendu en checkboxes (départements) -> getlist, pas textarea.
 
 # Champs sectoriels BTP. Chemin profil relatif au bloc profils_sectoriels.btp
 _BTP = [
@@ -120,9 +121,6 @@ _BTP = [
     ("qualifications.amiante.ss3", "bool"),
     ("qualifications.amiante.ss4", "bool"),
     ("qualifications.amiante.validite_jusqu", "date"),
-    ("corps_de_metier", "lignes"),
-    ("types_ouvrages", "lignes"),
-    ("types_clients_publics", "lignes"),
     ("capacite_chantiers.ca_btp_annuel", "num"),
     ("capacite_chantiers.montant_max_par_chantier", "num"),
     ("capacite_chantiers.nb_chantiers_simultanes_max", "int"),
@@ -136,7 +134,6 @@ _BTP = [
     ("rh_chantier.operationnels.apprentis", "int"),
     ("rh_chantier.habilitations_diverses", "lignes"),
     ("moyens_materiels", "lignes"),
-    ("references_chantiers", "json"),
     ("pratiques_specifiques.clause_insertion_sociale.pratiquee", "bool"),
     ("pratiques_specifiques.clause_insertion_sociale.heures_realisees_annee", "int"),
     ("pratiques_specifiques.clause_insertion_sociale.partenaires", "lignes"),
@@ -162,7 +159,6 @@ _ING = [
     ("assurances.rc_pro.detenue", "bool"),
     ("assurances.rc_pro.plafond_eur", "num"),
     ("assurances.rc_pro.validite_jusqu", "date"),
-    ("types_clients_publics", "lignes"),
     ("capacite_etudes.ca_ingenierie_annuel", "num"),
     ("capacite_etudes.montant_travaux_max_supervisable", "num"),
     ("capacite_etudes.nb_missions_simultanees_max", "int"),
@@ -176,7 +172,6 @@ _ING = [
     ("rh_etudes.production.dessinateur_projeteur", "int"),
     ("rh_etudes.architectes_hmonp", "int"),
     ("outils_logiciels", "lignes"),
-    ("references_etudes", "json"),
     ("pratiques_specifiques.bim.pratique", "bool"),
     ("pratiques_specifiques.bim.niveau_max", "text"),
     ("pratiques_specifiques.bim.certifications_team", "lignes"),
@@ -188,12 +183,46 @@ _ING = [
     ("pratiques_specifiques.clause_insertion_sociale.partenaires", "lignes"),
 ]
 
-# Arrays d'enum rendus en checkboxes (lus via getlist). (form_name_court, path_rel)
+# Arrays d'enum rendus en checkboxes groupées (lus via getlist).
+# (form_name_court, path_rel)
+_BTP_ENUM_ARRAYS = [
+    ("corps_de_metier", "corps_de_metier"),
+    ("types_ouvrages", "types_ouvrages"),
+    ("types_clients_publics", "types_clients_publics"),
+]
 _ING_ENUM_ARRAYS = [
     ("typologies_couvertes", "typologies_couvertes"),
     ("competences_specialisees", "competences_specialisees"),
     ("types_ouvrages_etudies", "types_ouvrages_etudies"),
+    ("types_clients_publics", "types_clients_publics"),
 ]
+
+# ---------------------------------------------------------------------------
+# Sous-formulaires "arrays d'objets" (références). Champs nommés
+# `references_chantiers[N].champ` / `references_etudes[N].champ`.
+# Descripteurs : scalaires (champ, type) ; listes (champ, mode) où mode ∈
+# {"checkbox" (getlist), "lignes" (textarea 1/ligne)} ; requis = champs
+# obligatoires si le bloc est non vide.
+# ---------------------------------------------------------------------------
+
+_REF_BTP = {
+    "prefix": "references_chantiers",
+    "scalaires": [("annee", "int"), ("client", "text"), ("ouvrage", "text"),
+                  ("type_ouvrage", "text"), ("montant_eur_ht", "num"),
+                  ("duree_mois", "int"), ("statut", "text"), ("notes", "text")],
+    "listes": [("corps_etat", "lignes")],
+    "requis": ["annee", "ouvrage", "type_ouvrage"],
+}
+_REF_ING = {
+    "prefix": "references_etudes",
+    "scalaires": [("annee", "int"), ("client", "text"), ("projet", "text"),
+                  ("type_ouvrage", "text"), ("montant_travaux_eur_ht", "num"),
+                  ("honoraires_eur_ht", "num"), ("duree_mois", "int"),
+                  ("statut", "text"), ("notes", "text")],
+    "listes": [("typologies_mission", "checkbox"), ("competences_mobilisees", "checkbox"),
+               ("phases_realisees", "checkbox")],
+    "requis": ["annee", "projet", "type_ouvrage"],
+}
 
 # Champs sectoriels FORMATION (legacy). Chemins relatifs au profil RACINE
 # (le legacy ne range pas sous profils_sectoriels).
@@ -257,6 +286,59 @@ def _getlist(form, name) -> list:
     return v if isinstance(v, list) else ([v] if v else [])
 
 
+def _parse_references(form, descr: dict, erreurs: dict) -> list:
+    """
+    Reconstruit une liste d'objets « références » depuis les champs indexés
+    `prefix[N].champ`. Filtre les blocs entièrement vides. Valide les champs
+    requis des blocs non vides (erreur ciblée par champ). Tolère les trous
+    d'index (suppression d'un bloc côté UI sans réindexation).
+    """
+    prefix = descr["prefix"]
+    pat = re.compile(r"^" + re.escape(prefix) + r"\[(\d+)\]\.")
+    idxs = set()
+    for cle in form.keys():
+        m = pat.match(cle)
+        if m:
+            idxs.add(int(m.group(1)))
+
+    refs = []
+    for i in sorted(idxs):
+        base = f"{prefix}[{i}]."
+        obj = {}
+        vide = True
+        for champ, typ in descr["scalaires"]:
+            brut = form.get(base + champ)
+            if brut is None:
+                continue
+            brut_s = str(brut).strip()
+            if typ in ("int", "num"):
+                if brut_s == "":
+                    obj[champ] = None
+                    continue
+                try:
+                    obj[champ] = _to_int(brut_s) if typ == "int" else _to_num(brut_s)
+                    vide = False
+                except (ValueError, TypeError):
+                    erreurs[base + champ] = f"Valeur numérique invalide : {brut_s!r}"
+                    vide = False
+            else:
+                obj[champ] = brut_s
+                if brut_s:
+                    vide = False
+        for champ, mode in descr["listes"]:
+            vals = _getlist(form, base + champ) if mode == "checkbox" else _lignes(form.get(base + champ))
+            obj[champ] = vals
+            if vals:
+                vide = False
+        if vide:
+            continue
+        for r in descr["requis"]:
+            if obj.get(r) in (None, "", []):
+                erreurs[base + r] = "Champ requis manquant dans cette référence."
+        refs.append(obj)
+    return refs
+
+
 # ---------------------------------------------------------------------------
 # Parse principal
 # ---------------------------------------------------------------------------
@@ -274,6 +356,9 @@ def parse(form, profil_existant: dict):
     # 1) Socle
     for form_name, path, typ in _SOCLE:
         _appliquer(profil, form, form_name, path, typ, erreurs)
+
+    # 1bis) zones d'intervention (checkboxes département -> getlist)
+    profil["zones_intervention"] = _getlist(form, "zones_intervention")
 
     # 2) presets_couverts (checkboxes)
     presets = _getlist(form, "presets_couverts")
@@ -298,6 +383,9 @@ def parse(form, profil_existant: dict):
         bloc = sectoriels.setdefault("btp", {})
         for path_rel, typ in _BTP:
             _appliquer(bloc, form, f"sect.btp.{path_rel}", path_rel, typ, erreurs)
+        for form_court, path_rel in _BTP_ENUM_ARRAYS:
+            _set(bloc, path_rel, _getlist(form, f"sect.btp.{form_court}"))
+        _set(bloc, "references_chantiers", _parse_references(form, _REF_BTP, erreurs))
 
     # 5) Sectoriel INGENIERIE
     if "ingenierie" in presets:
@@ -306,6 +394,7 @@ def parse(form, profil_existant: dict):
             _appliquer(bloc, form, f"sect.ingenierie.{path_rel}", path_rel, typ, erreurs)
         for form_court, path_rel in _ING_ENUM_ARRAYS:
             _set(bloc, path_rel, _getlist(form, f"sect.ingenierie.{form_court}"))
+        _set(bloc, "references_etudes", _parse_references(form, _REF_ING, erreurs))
 
     # 6) Formation legacy (chemins racine)
     legacy = any(form.get(f"sect.formation.{n}") is not None or _getlist(form, f"sect.formation.{n}")

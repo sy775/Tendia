@@ -696,6 +696,32 @@ def dupliquer_profil(id_source: str, source: str) -> dict:
     return {"ok": True, "id_nouveau": pid, "erreurs": []}
 
 
+def creer_profil_bibliotheque(profil: dict) -> dict:
+    """
+    Crée un profil DRAFT dans la bibliothèque (workflow création from scratch).
+
+    Validation volontairement allégée (raison sociale + au moins un preset) : les
+    champs sectoriels requis (corps_de_metier, typologies_couvertes...) sont
+    vides à la création et seront complétés dans l'éditeur, où `valider_profil`
+    impose la validation complète au moment de l'enregistrement. Id slugifié
+    depuis la raison sociale, collision gérée. Retourne {ok, id, erreurs}.
+    """
+    erreurs = []
+    raison = (profil.get("identite") or {}).get("raison_sociale")
+    if not raison or not str(raison).strip():
+        erreurs.append("La raison sociale est requise.")
+    if not (profil.get("presets_couverts")):
+        erreurs.append("Sélectionnez au moins un preset couvert.")
+    if erreurs:
+        return {"ok": False, "id": None, "erreurs": erreurs}
+
+    pid = _id_unique_bibliotheque(_slugify(raison))
+    profil = dict(profil)
+    profil["id"] = pid
+    stockage.ecrire(COLLECTION_BIBLIOTHEQUE, pid, profil)
+    return {"ok": True, "id": pid, "erreurs": []}
+
+
 def migrer_bibliotheque_au_demarrage() -> dict:
     """
     Si `profils_bibliotheque` est vide ET `organisme/principal` existe, copie

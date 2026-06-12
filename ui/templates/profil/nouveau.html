@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% block title %}Nouveau profil — Tendia{% endblock %}
+
+{% block content %}
+<div class="px-10 py-10" style="margin: 0 auto; max-width: 760px;">
+
+  <a href="{{ url_for('page_profil') }}" class="apt-link apt-fs-13">← Tous les profils</a>
+  <h1 class="apt-display apt-fs-34 mt-4 mb-2">Nouveau profil</h1>
+  <p class="apt-prose mb-6" style="max-width: 620px;">
+    Renseignez l'essentiel pour démarrer. Vous compléterez les champs sectoriels
+    (qualifications, références, périmètre technique) à l'étape suivante.
+  </p>
+
+  {% if erreurs %}
+  <div class="apt-block px-5 py-4 mb-6" style="border-left: 4px solid var(--apt-rose); background: var(--apt-rose-soft);">
+    <ul class="apt-fs-13" style="list-style: disc; padding-left: 20px;">
+      {% for e in erreurs %}<li>{{ e }}</li>{% endfor %}
+    </ul>
+  </div>
+  {% endif %}
+
+  <form method="post" class="apt-block px-7 py-6">
+    <div class="mb-3">
+      <label class="apt-label">Raison sociale <span style="color: var(--apt-rose);">*</span></label>
+      <input type="text" name="identite.raison_sociale" value="{{ saisi.raison_sociale }}" required
+        class="block w-full mt-1 px-3 py-2 apt-fs-13" style="background: var(--apt-pure); border: 1px solid var(--apt-line); border-radius: 6px;">
+    </div>
+
+    <div class="grid grid-cols-3 gap-4">
+      <div class="mb-3">
+        <label class="apt-label">Forme juridique</label>
+        <select name="identite.forme_juridique" class="block w-full mt-1 px-3 py-2 apt-fs-13" style="background: var(--apt-pure); border: 1px solid var(--apt-line); border-radius: 6px;">
+          {% for opt in ['SAS', 'SARL', 'SA', 'EURL', 'association', 'EPIC', 'autre'] %}
+          <option value="{{ opt }}" {% if saisi.forme_juridique == opt %}selected{% endif %}>{{ opt }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="mb-3">
+        <label class="apt-label">Effectif salariés</label>
+        <input type="number" name="identite.effectif_salaries" value="{{ saisi.effectif_salaries }}"
+          class="block w-full mt-1 px-3 py-2 apt-fs-13" style="background: var(--apt-pure); border: 1px solid var(--apt-line); border-radius: 6px;">
+      </div>
+      <div class="mb-3">
+        <label class="apt-label">Département siège</label>
+        <input type="text" name="identite.adresse_siege.departement" value="{{ saisi.departement }}"
+          pattern="[0-9]{2,3}|2A|2B" placeholder="ex : 75"
+          class="block w-full mt-1 px-3 py-2 apt-fs-13" style="background: var(--apt-pure); border: 1px solid var(--apt-line); border-radius: 6px;">
+      </div>
+    </div>
+
+    <div class="mt-3 mb-2">
+      <label class="apt-label">Presets couverts <span style="color: var(--apt-rose);">*</span></label>
+      <p class="apt-meta">Au moins un. Les presets sans schéma (conseil, IT, EnR) restent activables pour le matching universel.</p>
+    </div>
+    <div class="flex flex-wrap gap-x-6">
+      {% for code in presets_connus %}
+      <label class="flex items-center gap-2 mb-2 apt-fs-13" style="cursor:pointer;">
+        <input type="checkbox" name="presets_couverts" value="{{ code }}" {% if code in saisi.presets %}checked{% endif %}> {{ code }}
+      </label>
+      {% endfor %}
+    </div>
+
+    <div class="mt-6 flex gap-3">
+      <button type="submit" class="apt-btn apt-btn-accent">Créer et compléter</button>
+      <a href="{{ url_for('page_profil') }}" class="apt-btn apt-btn-ghost">Annuler</a>
+    </div>
+  </form>
+
+</div>
+{% endblock %}

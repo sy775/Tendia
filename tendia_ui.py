@@ -24,6 +24,7 @@ from flask import (Flask, abort, flash, redirect, render_template, request,
 
 import organisme
 import profil_form
+import profil_widgets
 import matching
 import concurrence
 import stockage
@@ -77,6 +78,13 @@ def _injecter_preset_actif():
             "preset_code": "",
             "preset_nom": "",
         }
+
+
+@app.template_filter("enum_label")
+def _enum_label_filter(valeur):
+    """Libellé lisible d'une valeur d'enum (pour les selects/checkboxes)."""
+    import profil_widgets
+    return profil_widgets._label(valeur)
 
 
 @app.template_filter("json_pretty")
@@ -1000,10 +1008,59 @@ def profil_edit(id):
         erreurs_champs=erreurs_champs,
         erreurs_validation=erreurs_validation,
         presets_connus=organisme.PRESETS_CONNUS,
-        enum_ingenierie=_enum_options("ingenierie"),
+        widgets=profil_widgets.contexte_widgets(profil),
+        phases_etudes=profil_widgets.PHASES_ETUDES,
+        statuts_reference=profil_widgets.STATUTS_REFERENCE,
         dr_formation=organisme.DR_FRANCE_TRAVAIL,
         prestations_formation=organisme.PRESTATIONS_FRANCE_TRAVAIL,
         est_legacy=organisme.est_format_legacy(profil),
+    )
+
+
+@app.route("/profil/nouveau", methods=["GET", "POST"])
+def profil_nouveau():
+    """Création d'un profil from scratch (étape 1 : socle minimal + presets)."""
+    erreurs = []
+    saisi = {"raison_sociale": "", "forme_juridique": "SAS",
+             "effectif_salaries": "", "departement": "", "presets": []}
+
+    if request.method == "POST":
+        saisi["raison_sociale"] = (request.form.get("identite.raison_sociale") or "").strip()
+        saisi["forme_juridique"] = request.form.get("identite.forme_juridique") or "SAS"
+        saisi["effectif_salaries"] = (request.form.get("identite.effectif_salaries") or "").strip()
+        saisi["departement"] = (request.form.get("identite.adresse_siege.departement") or "").strip()
+        saisi["presets"] = request.form.getlist("presets_couverts")
+
+        # Construit le profil : socle vide + un bloc sectoriel par preset coché
+        # ({} si schéma non encore défini : conseil/it/energie_renouvelable).
+        profil = organisme.template_socle_vide()
+        profil["presets_couverts"] = saisi["presets"]
+        profil["profils_sectoriels"] = {
+            code: (organisme.template_sectoriel_vide(code) or {})
+            for code in saisi["presets"]
+        }
+        profil["identite"]["raison_sociale"] = saisi["raison_sociale"]
+        profil["identite"]["forme_juridique"] = saisi["forme_juridique"]
+        if saisi["effectif_salaries"]:
+            try:
+                profil["identite"]["effectif_salaries"] = int(saisi["effectif_salaries"])
+            except ValueError:
+                erreurs.append("Effectif salariés : nombre entier invalide.")
+        profil["identite"]["adresse_siege"]["departement"] = saisi["departement"]
+
+        if not erreurs:
+            res = organisme.creer_profil_bibliotheque(profil)
+            if res["ok"]:
+                flash("Profil créé. Complète maintenant les champs sectoriels.", "succes")
+                return redirect(url_for("profil_edit", id=res["id"]))
+            erreurs += res["erreurs"]
+
+    return render_template(
+        "profil/nouveau.html",
+        organisme=organisme.charger_actif(),
+        presets_connus=organisme.PRESETS_CONNUS,
+        erreurs=erreurs,
+        saisi=saisi,
     )
 
 

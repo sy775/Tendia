@@ -1,0 +1,142 @@
+{# Macros de widgets de formulaire profil (Sprint P bis).
+   À importer AVEC contexte pour accéder à erreurs_champs / filtres / globals :
+   {% from "profil/_macros.html" import ... with context %} #}
+
+{# --- Checkboxes groupées par famille (toggle de groupe via JS .cg-toggle) --- #}
+{% macro checkboxes_groupees(name, groupes_data, label, aide=None) %}
+<div class="mb-4">
+  <label class="apt-label">{{ label }}</label>
+  {% if aide %}<p class="apt-meta mb-1">{{ aide }}</p>{% endif %}
+  {% for groupe in groupes_data %}
+  <div class="cg-groupe" style="margin-top: 9px;">
+    <label class="apt-label" style="cursor:pointer; color: var(--apt-ink-3); font-size: 10.5px;">
+      <input type="checkbox" class="cg-toggle"> {{ groupe.famille }}
+    </label>
+    <div class="flex flex-wrap" style="gap: 2px 14px; margin-top: 3px;">
+      {% for opt in groupe.options %}
+      <label class="flex items-center gap-1.5 apt-fs-12_5" style="cursor:pointer; width: 30%; min-width: 185px;">
+        <input type="checkbox" name="{{ name }}" value="{{ opt.value }}" {% if opt.checked %}checked{% endif %}> {{ opt.label }}
+      </label>
+      {% endfor %}
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endmacro %}
+
+{# --- Zones d'intervention : départements groupés par région --- #}
+{% macro zones_intervention(zones_data) %}
+<div class="mb-4">
+  <label class="apt-label">Zones d'intervention</label>
+  <p class="apt-meta mb-1">Cochez les départements. « Toute la région » bascule le groupe.</p>
+  {% for reg in zones_data %}
+  <div class="cg-groupe" style="margin-top: 9px;">
+    <label class="apt-label" style="cursor:pointer; color: var(--apt-accent-2); font-size: 10.5px;">
+      <input type="checkbox" class="cg-toggle"> Toute la région — {{ reg.label }}
+    </label>
+    <div class="flex flex-wrap" style="gap: 2px 14px; margin-top: 3px;">
+      {% for d in reg.departements %}
+      <label class="flex items-center gap-1.5 apt-fs-12" style="cursor:pointer; width: 23%; min-width: 145px;">
+        <input type="checkbox" name="zones_intervention" value="{{ d.code }}" {% if d.checked %}checked{% endif %}>
+        <span class="apt-mono apt-fs-11">{{ d.code }}</span> {{ d.nom }}
+      </label>
+      {% endfor %}
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endmacro %}
+
+{# --- Petits champs réutilisables pour les blocs de référence --- #}
+{% macro _ref_input(name, label, value, type='text') %}
+<div>
+  <label class="apt-label" style="font-size: 9.5px;">{{ label }}</label>
+  <input type="{{ type }}" name="{{ name }}" value="{{ '' if value is none else value }}"
+    class="block w-full mt-0.5 px-2 py-1.5 apt-fs-12_5"
+    style="background: var(--apt-pure); border: 1px solid {{ 'var(--apt-rose)' if erreurs_champs.get(name) else 'var(--apt-line)' }}; border-radius: 5px;">
+</div>
+{% endmacro %}
+
+{% macro _ref_select(name, label, options, valeur) %}
+<div>
+  <label class="apt-label" style="font-size: 9.5px;">{{ label }}</label>
+  <select name="{{ name }}" class="block w-full mt-0.5 px-2 py-1.5 apt-fs-12_5"
+    style="background: var(--apt-pure); border: 1px solid {{ 'var(--apt-rose)' if erreurs_champs.get(name) else 'var(--apt-line)' }}; border-radius: 5px;">
+    <option value="">—</option>
+    {% for opt in options %}
+    <option value="{{ opt }}" {% if opt == valeur %}selected{% endif %}>{{ opt|enum_label }}</option>
+    {% endfor %}
+  </select>
+</div>
+{% endmacro %}
+
+{% macro _ref_checks(name, label, options, selection) %}
+<div>
+  <label class="apt-label" style="font-size: 9.5px;">{{ label }}</label>
+  <div class="flex flex-wrap" style="gap: 1px 12px; margin-top: 2px;">
+    {% for opt in options %}
+    <label class="flex items-center gap-1 apt-fs-11_5" style="cursor:pointer;">
+      <input type="checkbox" name="{{ name }}" value="{{ opt }}" {% if opt in (selection or []) %}checked{% endif %}> {{ opt|enum_label }}
+    </label>
+    {% endfor %}
+  </div>
+</div>
+{% endmacro %}
+
+{# --- Bloc de référence BTP --- #}
+{% macro ref_btp_block(idx, ref, types_ouvrages) %}
+{% set b = 'references_chantiers[' ~ idx ~ '].' %}
+<div class="ref-block apt-block-soft px-4 py-3 mb-3" style="position: relative;">
+  <button type="button" class="apt-btn apt-btn-ghost" style="position:absolute; top:8px; right:8px; padding: 2px 9px;" onclick="this.closest('.ref-block').remove()">× retirer</button>
+  <div class="grid grid-cols-4 gap-3">
+    {{ _ref_input(b ~ 'annee', 'Année *', ref.annee, 'number') }}
+    {{ _ref_input(b ~ 'client', 'Client', ref.client) }}
+    {{ _ref_select(b ~ 'type_ouvrage', 'Type ouvrage *', types_ouvrages, ref.type_ouvrage) }}
+    {{ _ref_select(b ~ 'statut', 'Statut', statuts_reference, ref.statut) }}
+  </div>
+  <div class="grid grid-cols-1 gap-3 mt-2">
+    {{ _ref_input(b ~ 'ouvrage', 'Ouvrage *', ref.ouvrage) }}
+  </div>
+  <div class="grid grid-cols-2 gap-3 mt-2">
+    {{ _ref_input(b ~ 'montant_eur_ht', 'Montant € HT', ref.montant_eur_ht, 'number') }}
+    {{ _ref_input(b ~ 'duree_mois', 'Durée (mois)', ref.duree_mois, 'number') }}
+  </div>
+  <div class="mt-2">
+    <label class="apt-label" style="font-size: 9.5px;">Corps d'état — 1 par ligne</label>
+    <textarea name="{{ b }}corps_etat" rows="2" class="block w-full mt-0.5 px-2 py-1.5 apt-fs-12 apt-mono" style="background: var(--apt-pure); border: 1px solid var(--apt-line); border-radius: 5px;">{{ (ref.corps_etat or [])|join('\n') }}</textarea>
+  </div>
+  <div class="mt-2">
+    <label class="apt-label" style="font-size: 9.5px;">Notes</label>
+    <textarea name="{{ b }}notes" rows="2" class="block w-full mt-0.5 px-2 py-1.5 apt-fs-12_5" style="background: var(--apt-pure); border: 1px solid var(--apt-line); border-radius: 5px;">{{ ref.notes or '' }}</textarea>
+  </div>
+</div>
+{% endmacro %}
+
+{# --- Bloc de référence INGÉNIERIE --- #}
+{% macro ref_ing_block(idx, ref, types_ouvrages, typologies, competences) %}
+{% set b = 'references_etudes[' ~ idx ~ '].' %}
+<div class="ref-block apt-block-soft px-4 py-3 mb-3" style="position: relative;">
+  <button type="button" class="apt-btn apt-btn-ghost" style="position:absolute; top:8px; right:8px; padding: 2px 9px;" onclick="this.closest('.ref-block').remove()">× retirer</button>
+  <div class="grid grid-cols-4 gap-3">
+    {{ _ref_input(b ~ 'annee', 'Année *', ref.annee, 'number') }}
+    {{ _ref_input(b ~ 'client', 'Client', ref.client) }}
+    {{ _ref_select(b ~ 'type_ouvrage', 'Type ouvrage *', types_ouvrages, ref.type_ouvrage) }}
+    {{ _ref_select(b ~ 'statut', 'Statut', statuts_reference, ref.statut) }}
+  </div>
+  <div class="mt-2">
+    {{ _ref_input(b ~ 'projet', 'Projet *', ref.projet) }}
+  </div>
+  <div class="grid grid-cols-3 gap-3 mt-2">
+    {{ _ref_input(b ~ 'montant_travaux_eur_ht', 'Montant travaux € HT', ref.montant_travaux_eur_ht, 'number') }}
+    {{ _ref_input(b ~ 'honoraires_eur_ht', 'Honoraires € HT', ref.honoraires_eur_ht, 'number') }}
+    {{ _ref_input(b ~ 'duree_mois', 'Durée (mois)', ref.duree_mois, 'number') }}
+  </div>
+  <div class="mt-2">{{ _ref_checks(b ~ 'typologies_mission', 'Typologies de mission', typologies, ref.typologies_mission) }}</div>
+  <div class="mt-2">{{ _ref_checks(b ~ 'competences_mobilisees', 'Compétences mobilisées', competences, ref.competences_mobilisees) }}</div>
+  <div class="mt-2">{{ _ref_checks(b ~ 'phases_realisees', 'Phases réalisées', phases_etudes, ref.phases_realisees) }}</div>
+  <div class="mt-2">
+    <label class="apt-label" style="font-size: 9.5px;">Notes</label>
+    <textarea name="{{ b }}notes" rows="2" class="block w-full mt-0.5 px-2 py-1.5 apt-fs-12_5" style="background: var(--apt-pure); border: 1px solid var(--apt-line); border-radius: 5px;">{{ ref.notes or '' }}</textarea>
+  </div>
+</div>
+{% endmacro %}
