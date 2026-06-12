@@ -503,6 +503,17 @@
     {% endif %}
     {% endif %}
     {# ── Fin badges domaines ── #}
+    {% if richesse %}
+    <div class="mb-3">
+      <span style="display:inline-flex; align-items:center; gap:5px; padding:2px 10px; border-radius:999px; font-size:11px; font-weight:600;
+        {% if richesse.niveau == 'complet' %}background:var(--c-green-soft); color:var(--c-green);
+        {% elif richesse.niveau == 'partiel' %}background:var(--c-amber-soft); color:var(--c-amber);
+        {% else %}background:rgba(26,24,20,0.06); color:var(--apt-ink-4);{% endif %}"
+        title="Socle {{ richesse.details.socle }}% · sectoriel {{ richesse.details.sectoriel }}% · DCE {{ 'oui' if richesse.details.dce_complet else 'non' }} · calibration {{ 'oui' if richesse.details.calibre else 'non' }}">
+        ◆ Brief {{ richesse.niveau }} · {{ richesse.score }}/100
+      </span>
+    </div>
+    {% endif %}
     <div class="meta-inline mb-4">
       par <strong>{{ marche.acheteur_nom or '—' }}</strong>
       {% if marche.date_publication %}<span class="sep">·</span>publié le {{ fmt_date(marche.date_publication) }}{% endif %}
@@ -696,6 +707,14 @@
           non communiqué
         {% endif %}
       </div>
+      {% if not montant_marche_eur and not valeur_est_estimee and not calibration and brief %}
+      <form method="post" action="{{ url_for('calibrer_marche', id_marche=marche.id) }}" style="margin-top:7px;">
+        <button type="submit" title="Estimation bottom-up par LLM (~0,1–0,5 €)"
+          style="font-size:10px; padding:3px 9px; border-radius:6px; background:var(--c-violet); color:white; border:0; cursor:pointer; font-weight:600;">
+          Lancer calibration
+        </button>
+      </form>
+      {% endif %}
     </div>
     <div class="kpi-cell kpi-benef">
       <div class="kpi-icon">
@@ -777,7 +796,7 @@
 
     {# Macro récursive : rend un sous-critère technique + ses éventuels sous-sous-critères #}
     {% macro render_sous_critere(sc, niveau) %}
-    <details class="sc-niveau-{{ niveau }}" style="border-radius: 8px; padding: 10px 14px; cursor: pointer;"{% if niveau == 1 and sc.sous_criteres %} open{% endif %}>
+    <details class="sc-niveau-{{ niveau }} sc-repliable" style="border-radius: 8px; padding: 10px 14px; cursor: pointer;">
       <summary style="display: flex; align-items: center; justify-content: space-between; gap: 12px; list-style: none; cursor: pointer;">
         <span style="color: var(--apt-ink); font-weight: {% if niveau == 1 %}600{% else %}500{% endif %}; font-size: {% if niveau == 1 %}13.5px{% else %}12.5px{% endif %};">{{ sc.libelle }}</span>
         <div style="display: flex; align-items: center; gap: 8px; flex-shrink: 0;">
@@ -1517,7 +1536,7 @@
         <svg style="width: 14px; height: 14px;" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
         </svg>
-        Critères{% if teaser_side_parts %} · {{ teaser_side_parts | join(' · ') }}{% endif %}
+        Vigilance · {{ alertes_evaluees | length }} alerte{{ 's' if (alertes_evaluees | length) > 1 else '' }}{% if teaser_side_parts %} · {{ teaser_side_parts | join(' · ') }}{% endif %}
       </div>
       <div class="aside-card-body">
         <div style="display: flex; flex-direction: column; gap: 5px;">

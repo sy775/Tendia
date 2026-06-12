@@ -917,6 +917,29 @@ def detail_marche(id_marche):
     )
 
 
+@app.route("/marche/<id_marche>/calibrer", methods=["POST"])
+def calibrer_marche(id_marche):
+    """Lance une calibration bottom-up à la demande (~0.1-0.5€ LLM)."""
+    marche = (stockage.charger("marches") or {}).get(id_marche)
+    if not marche:
+        abort(404)
+    brief = _charger_extraction_llm(id_marche)
+    if not brief:
+        flash("Aucun brief à calibrer pour ce marché.", "erreur")
+        return redirect(url_for("detail_marche", id_marche=id_marche))
+    try:
+        import llm_calibration
+        res = llm_calibration.calibrer_et_cacher(
+            id_marche, brief, None, {}, force=True, verbose=False, mode="bottom_up")
+        if res:
+            flash("Calibration bottom-up effectuée.", "succes")
+        else:
+            flash("Calibration non aboutie (brief insuffisant pour estimer).", "erreur")
+    except Exception as e:
+        flash(f"Échec de la calibration : {e}", "erreur")
+    return redirect(url_for("detail_marche", id_marche=id_marche))
+
+
 def _trouver_concurrents(marche: dict, limit: int = 5,
                           marches_notifies: dict | None = None) -> list:
     """Top concurrents historiques DECP sur la catégorie/CPV du marché."""
