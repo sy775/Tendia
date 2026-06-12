@@ -581,6 +581,277 @@ def _eval_sectoriel_btp(profil_btp: dict, brief: Optional[dict]) -> list:
     return motifs
 
 
+# ===========================================================================
+# EVALUATEURS SECTORIELS INGENIERIE (Sprint C)
+# ===========================================================================
+# Calque du bloc BTP, adapte au vocabulaire et aux champs de brief ingenierie.
+# Distinction clef : on raisonne ETUDES/MOE (typologie de mission, organigramme
+# de competences, montant TRAVAUX supervise) et non TRAVAUX (corps d'etat,
+# montant marche). Les champs de brief lus proviennent des blocs sectoriels
+# `qualifications_moe` et `caracteristiques_mission_moe` du preset ingenierie.
+
+def _eval_ing_qualifications(profil_ing: dict, brief: Optional[dict]) -> list:
+    """
+    Go/no-go OPQIBI : calque de _eval_btp_qualifications restreint a l'OPQIBI.
+
+    Meme garde-fou que Qualibat (cf piege 10 passation) : on n'evalue que si le
+    marche expose une LISTE de CODES a 4 chiffres. Si le LLM a mis du texte libre
+    ("qualifications OPQIBI requises"), on note en neutre plutot que d'iterer
+    caractere par caractere. Retourne une liste (0 ou 1 motif) pour coherence
+    avec _eval_btp_qualifications.
+    """
+    motifs = []
+    quals_profil = (profil_ing or {}).get("qualifications") or {}
+    qm = (brief or {}).get("qualifications_moe") or {}
+
+    opqibi_marche_raw = qm.get("opqibi")
+    opqibi_marche = []
+    if isinstance(opqibi_marche_raw, list):
+        opqibi_marche = [str(q).strip() for q in opqibi_marche_raw
+                         if isinstance(q, str) and len(str(q).strip()) == 4
+                         and str(q).strip().isdigit()]
+    opqibi_profil_raw = quals_profil.get("opqibi") or []
+    opqibi_profil = [str(q).strip() for q in opqibi_profil_raw
+                     if isinstance(q, str)]
+    if opqibi_marche:
+        manquants = [q for q in opqibi_marche if q not in opqibi_profil]
+        if not manquants:
+            motifs.append(_motif(
+                "ing_opqibi", True, 20,
+                f"Qualifications OPQIBI exigees toutes detenues "
+                f"({', '.join(opqibi_marche)}).",
+                valeur_organisme=opqibi_profil,
+                valeur_marche=opqibi_marche))
+        else:
+            motifs.append(_motif(
+                "ing_opqibi", False, -50,
+                f"OPQIBI manquante(s) : {', '.join(manquants)}. "
+                f"Risque d'irrecevabilite.",
+                valeur_organisme=opqibi_profil,
+                valeur_marche=opqibi_marche))
+    elif opqibi_marche_raw and isinstance(opqibi_marche_raw, str):
+        motifs.append(_motif(
+            "ing_opqibi", None, 0,
+            "OPQIBI mentionnee en texte libre, verifier manuellement.",
+            valeur_marche=opqibi_marche_raw[:80]))
+    return motifs
+
+
+def _eval_ing_assurances(profil_ing: dict, brief: Optional[dict]) -> list:
+    """
+    Decennale ingenierie + RC pro. Retourne 0 a 2 motifs : on n'evalue chaque
+    assurance que si elle est explicitement exigee dans le brief (alertes
+    candidat ou qualifications_moe.autres). Sinon silence.
+    """
+    motifs = []
+    assur = (profil_ing or {}).get("assurances") or {}
+
+    # Detection "exigee" : on scanne les alertes candidat (universel) et le
+    # champ libre qualifications_moe.autres.
+    textes = []
+    for s in ((brief or {}).get("alertes_candidat") or []):
+        if isinstance(s, str):
+            textes.append(s)
+    qm = (brief or {}).get("qualifications_moe") or {}
+    for s in (qm.get("autres") or []):
+        if isinstance(s, str):
+            textes.append(s)
+    blob = _normaliser(" ".join(textes))
+
+    decennale_exigee = "decennale" in blob
+    rc_exigee = ("rc pro" in blob or "rc professionnelle" in blob
+                 or "responsabilite civile" in blob)
+
+    if decennale_exigee:
+        dec = assur.get("decennale_ingenierie") or {}
+        if dec.get("detenue"):
+            motifs.append(_motif(
+                "ing_decennale", True, 10,
+                "Assurance decennale ingenierie exigee et detenue."))
+        else:
+            motifs.append(_motif(
+                "ing_decennale", False, -25,
+                "Assurance decennale ingenierie exigee mais non detenue."))
+    if rc_exigee:
+        rc = assur.get("rc_pro") or {}
+        if rc.get("detenue"):
+            motifs.append(_motif(
+                "ing_rc_pro", True, 5,
+                "RC professionnelle exigee et detenue."))
+        else:
+            motifs.append(_motif(
+                "ing_rc_pro", False, -15,
+                "RC professionnelle exigee mais non detenue."))
+    return motifs
+
+
+def _eval_ing_typologies_mission(profil_ing: dict, brief: Optional[dict]) -> dict:
+    """
+    Adequation entre la typologie de mission du marche (string libre du brief)
+    et les typologies couvertes par le cabinet. Match par tokens partages.
+    Ratio = tokens partages / tokens du brief.
+    """
+    typ_profil = (profil_ing or {}).get("typologies_couvertes") or []
+    if not typ_profil:
+        return _motif("ing_typologies", None, 0,
+                      "Typologies de mission non renseignees sur le profil.")
+    cmm = (brief or {}).get("caracteristiques_mission_moe") or {}
+    typologie = cmm.get("typologie") or ""
+    if not typologie:
+        return _motif("ing_typologies", None, 0,
+                      "Typologie de mission non extraite du brief.")
+    tok_marche = _tokens_metier(str(typologie))
+    if not tok_marche:
+        return _motif("ing_typologies", None, 0,
+                      "Typologie de mission non exploitable (pas de token).")
+    profil_tokens = set()
+    for t in typ_profil:
+        profil_tokens |= _tokens_metier(t)
+    partages = tok_marche & profil_tokens
+    ratio = len(partages) / max(1, len(tok_marche))
+    if ratio >= 0.7:
+        return _motif("ing_typologies", True, 15,
+                      f"Typologie de mission tres bien couverte "
+                      f"({len(partages)}/{len(tok_marche)} tokens).",
+                      valeur_organisme=typ_profil, valeur_marche=typologie)
+    if ratio >= 0.4:
+        return _motif("ing_typologies", True, 8,
+                      f"Typologie de mission partiellement couverte "
+                      f"({len(partages)}/{len(tok_marche)} tokens).",
+                      valeur_marche=typologie)
+    if ratio > 0:
+        return _motif("ing_typologies", False, 0,
+                      f"Typologie de mission faiblement couverte "
+                      f"({len(partages)}/{len(tok_marche)} tokens).",
+                      valeur_marche=typologie)
+    return _motif("ing_typologies", False, -5,
+                  "Typologie de mission hors positionnement.",
+                  valeur_organisme=typ_profil, valeur_marche=typologie)
+
+
+def _eval_ing_competences_specialisees(profil_ing: dict,
+                                       brief: Optional[dict]) -> dict:
+    """
+    Adequation entre les profils exiges dans l'organigramme attendu du marche
+    et les disciplines declarees par le cabinet. Match par tokens partages.
+    ratio = profils couverts / profils exiges.
+
+    Seuil "tres bonne" a 0.8 (vs 0.7 BTP) : un BET de 30-100 ETP couvre
+    rarement 100% des disciplines, 4/5 est le bon palier.
+    """
+    comp_profil = (profil_ing or {}).get("competences_specialisees") or []
+    if not comp_profil:
+        return _motif("ing_competences", None, 0,
+                      "Competences specialisees non renseignees sur le profil.")
+    cmm = (brief or {}).get("caracteristiques_mission_moe") or {}
+    organigramme = cmm.get("organigramme_attendu") or []
+    if not organigramme or not isinstance(organigramme, list):
+        return _motif("ing_competences", None, 0,
+                      "Organigramme attendu non extrait du brief.")
+    profils_exiges = []
+    for o in organigramme:
+        if isinstance(o, dict) and isinstance(o.get("profil"), str):
+            profils_exiges.append(o["profil"])
+        elif isinstance(o, str):
+            profils_exiges.append(o)
+    if not profils_exiges:
+        return _motif("ing_competences", None, 0,
+                      "Aucun profil exploitable dans l'organigramme.")
+    comp_tokens = [_tokens_metier(c) for c in comp_profil]
+    couverts = 0
+    for p in profils_exiges:
+        p_tokens = _tokens_metier(str(p))
+        if any(p_tokens & c_tokens for c_tokens in comp_tokens):
+            couverts += 1
+    ratio = couverts / max(1, len(profils_exiges))
+    if ratio >= 0.8:
+        return _motif("ing_competences", True, 20,
+                      f"Couverture des disciplines exigees tres bonne "
+                      f"({couverts}/{len(profils_exiges)}).",
+                      valeur_organisme=comp_profil)
+    if ratio >= 0.5:
+        return _motif("ing_competences", True, 10,
+                      f"Couverture des disciplines exigees correcte "
+                      f"({couverts}/{len(profils_exiges)}).")
+    if ratio > 0:
+        return _motif("ing_competences", True, 5,
+                      f"Couverture des disciplines exigees partielle "
+                      f"({couverts}/{len(profils_exiges)}).")
+    return _motif("ing_competences", False, -5,
+                  "Aucune discipline exigee couverte par le cabinet.")
+
+
+def _eval_ing_types_ouvrages(profil_ing: dict, brief: Optional[dict]) -> dict:
+    """
+    Compatibilite type d'ouvrage. Strictement calque sur
+    _eval_btp_types_ouvrages, sur types_ouvrages_etudies du profil et
+    caracteristiques_mission_moe.typologie_ouvrage du brief.
+    """
+    types_profil = (profil_ing or {}).get("types_ouvrages_etudies") or []
+    if not types_profil:
+        return _motif("ing_types_ouvrages", None, 0,
+                      "Types d'ouvrages non renseignes sur le profil.")
+    cmm = (brief or {}).get("caracteristiques_mission_moe") or {}
+    typologie = cmm.get("typologie_ouvrage") or ""
+    if not typologie:
+        return _motif("ing_types_ouvrages", None, 0,
+                      "Typologie d'ouvrage non extraite du brief.")
+    tok_marche = _tokens_metier(str(typologie))
+    matches = [t for t in types_profil if _tokens_metier(t) & tok_marche]
+    if matches:
+        return _motif("ing_types_ouvrages", True, 10,
+                      f"Type d'ouvrage compatible : {matches[0]}.",
+                      valeur_organisme=types_profil, valeur_marche=typologie)
+    return _motif("ing_types_ouvrages", False, 0,
+                  f"Type d'ouvrage '{str(typologie)[:60]}' hors specialites.",
+                  valeur_organisme=types_profil, valeur_marche=typologie)
+
+
+def _eval_ing_capacite_etudes(profil_ing: dict, brief: Optional[dict]) -> dict:
+    """
+    Capacite a superviser un projet d'un certain montant TRAVAUX. Strictement
+    calque sur _eval_btp_capacite_chantier, mais sur
+    capacite_etudes.montant_travaux_max_supervisable (profil) et
+    caracteristiques_mission_moe.montant_travaux_estime (brief) — c'est le cout
+    des travaux qui dimensionne la mission MOE, pas le montant honoraires.
+    """
+    cap = (profil_ing or {}).get("capacite_etudes") or {}
+    plafond = cap.get("montant_travaux_max_supervisable")
+    if plafond is None:
+        return _motif("ing_capacite_etudes", None, 0,
+                      "Plafond de montant travaux supervisable non renseigne.")
+    cmm = (brief or {}).get("caracteristiques_mission_moe") or {}
+    montant = cmm.get("montant_travaux_estime")
+    if montant is None:
+        return _motif("ing_capacite_etudes", None, 0,
+                      "Montant travaux du marche inconnu.")
+    if montant > plafond * 1.2:
+        return _motif("ing_capacite_etudes", False, -15,
+                      f"Travaux {int(montant):,} EUR depassent largement le "
+                      f"plafond supervisable {int(plafond):,} EUR. Cotraitance "
+                      f"recommandee.",
+                      valeur_organisme=plafond, valeur_marche=montant)
+    if montant > plafond:
+        return _motif("ing_capacite_etudes", None, -5,
+                      f"Travaux {int(montant):,} EUR au-dessus du plafond "
+                      f"{int(plafond):,} EUR mais accessible.",
+                      valeur_organisme=plafond, valeur_marche=montant)
+    return _motif("ing_capacite_etudes", True, 5,
+                  f"Travaux {int(montant):,} EUR dans le plafond supervisable.",
+                  valeur_marche=montant)
+
+
+def _eval_sectoriel_ingenierie(profil_ing: dict, brief: Optional[dict]) -> list:
+    motifs = []
+    motifs.extend(_eval_ing_qualifications(profil_ing, brief))
+    motifs.extend(_eval_ing_assurances(profil_ing, brief))
+    motifs.append(_eval_ing_typologies_mission(profil_ing, brief))
+    motifs.append(_eval_ing_competences_specialisees(profil_ing, brief))
+    motifs.append(_eval_ing_types_ouvrages(profil_ing, brief))
+    motifs.append(_eval_ing_capacite_etudes(profil_ing, brief))
+    return motifs
+
+
 def _eval_sectoriel_placeholder(code_preset: str, profil_sec: dict,
                                  brief: Optional[dict]) -> list:
     """Stub Sprint C pour ingenierie, conseil, IT, EnR."""
@@ -608,7 +879,7 @@ def _eval_synergie_v2(motifs: list) -> dict:
 
 def _calculer_verdict(score: int, motifs: list) -> str:
     for m in motifs:
-        if m["critere"] in ("btp_qualibat", "qualiopi") and m["satisfait"] is False and m["points"] <= -25:
+        if m["critere"] in ("btp_qualibat", "qualiopi", "ing_opqibi") and m["satisfait"] is False and m["points"] <= -25:
             return "non_pertinent"
     if score >= SEUIL_TRES_PERTINENT:
         return "tres_pertinent"
@@ -650,6 +921,8 @@ def _evaluer_v2(organisme: dict, marche: dict,
         profil_sec = sectoriels.get(code) or {}
         if code == "btp":
             motifs.extend(_eval_sectoriel_btp(profil_sec, brief))
+        elif code == "ingenierie":
+            motifs.extend(_eval_sectoriel_ingenierie(profil_sec, brief))
         else:
             motifs.extend(_eval_sectoriel_placeholder(code, profil_sec, brief))
 

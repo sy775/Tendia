@@ -1,0 +1,232 @@
+{
+  "id": "principal",
+  "_description": "PROFIL DE DEMO INGENIERIE — BET pluridisciplinaire 52 ETP, IDF + departements limitrophes. À adapter avec tes vraies données, import via : python init_profil.py --depuis data/exemples/profil_ingenierie_demo.json",
+  "_creation": "2026-06-12T18:00:00+00:00",
+  "_version_schema": "1.0",
+  "identite": {
+    "raison_sociale": "Tridyne Ingénierie SAS",
+    "forme_juridique": "SAS",
+    "siren": "000000000",
+    "siret_siege": "00000000000000",
+    "naf_principal": "7112B",
+    "effectif_salaries": 52,
+    "annee_creation": 2003,
+    "tva_intracom": "FR00000000000",
+    "adresse_siege": {
+      "rue": "24 quai du Point du Jour",
+      "code_postal": "92100",
+      "ville": "Boulogne-Billancourt",
+      "departement": "92"
+    },
+    "site_web": "https://tridyne-ingenierie.fr",
+    "contact_AO": {
+      "nom": "MERCIER Hélène",
+      "fonction": "Directrice du développement",
+      "email": "ao@tridyne-ingenierie.fr",
+      "telephone": "+33 1 46 21 30 00"
+    }
+  },
+  "zones_intervention": ["75", "77", "78", "91", "92", "93", "94", "95", "60", "28"],
+  "capacite_globale": {
+    "ca_annuel_n_moins_1": 7200000,
+    "ca_annuel_n_moins_2": 6500000,
+    "ca_annuel_n_moins_3": 5800000,
+    "fonds_propres": 1800000,
+    "effectif_total_etp": 52,
+    "capacite_engagement_simultane": 4500000,
+    "seuil_minimum_marche_eur": 25000
+  },
+  "economie": {
+    "marge_brute_cible_pct": 22,
+    "taux_journalier_moyen_eur": 720,
+    "frais_de_structure_pct": 18,
+    "agressivite_commerciale": "neutre"
+  },
+  "mots_cles_catalogue": [
+    "rehabilitation",
+    "energetique",
+    "structure beton",
+    "fluides cvc",
+    "thermique dynamique",
+    "patrimoine",
+    "etablissement scolaire",
+    "ehpad",
+    "bim",
+    "acoustique"
+  ],
+  "presets_couverts": ["ingenierie"],
+  "profils_sectoriels": {
+    "ingenierie": {
+      "qualifications": {
+        "opqibi": ["0203", "0204", "1303", "1304", "1305", "1402", "2003", "2007"],
+        "opqcm": [],
+        "iso_9001": true,
+        "iso_14001": true,
+        "iso_45001": false,
+        "autres": ["HQE Aménagement", "Effinergie"]
+      },
+      "assurances": {
+        "decennale_ingenierie": {
+          "detenue": true,
+          "plafond_eur": 3500000,
+          "validite_jusqu": "2027-09-30"
+        },
+        "rc_pro": {
+          "detenue": true,
+          "plafond_eur": 10000000,
+          "validite_jusqu": "2027-12-31"
+        }
+      },
+      "typologies_couvertes": [
+        "moe_complete_batiment",
+        "moe_partielle_batiment",
+        "bet_structure",
+        "bet_fluides_cvc",
+        "bet_thermique_energie",
+        "amo_technique",
+        "etude_diagnostic"
+      ],
+      "competences_specialisees": [
+        "structure_beton",
+        "structure_beton_precontraint",
+        "structure_bois",
+        "fluides_cvc",
+        "plomberie_sanitaire",
+        "electricite_cfo",
+        "gtb_gtc",
+        "thermique_dynamique",
+        "acoustique_batiment",
+        "economie_construction",
+        "opc",
+        "bim_management"
+      ],
+      "types_ouvrages_etudies": [
+        "batiment_administratif",
+        "etablissement_scolaire",
+        "etablissement_sante",
+        "logement_social",
+        "patrimoine_classe",
+        "equipement_culturel"
+      ],
+      "types_clients_publics": [
+        "commune",
+        "communaute_communes",
+        "communaute_agglo",
+        "conseil_departemental",
+        "conseil_regional",
+        "etablissement_public_local",
+        "sante_etablissement_local",
+        "bailleur_social_OPH",
+        "sem_sapl"
+      ],
+      "capacite_etudes": {
+        "ca_ingenierie_annuel": 7200000,
+        "montant_travaux_max_supervisable": 25000000,
+        "nb_missions_simultanees_max": 14,
+        "effectif_etudes_etp": 35
+      },
+      "rh_etudes": {
+        "encadrement": {
+          "directeur_etudes": 1,
+          "chef_projet": 3,
+          "ingenieur_senior": 5
+        },
+        "production": {
+          "ingenieur_confirme": 12,
+          "ingenieur_junior": 8,
+          "technicien_be": 4,
+          "dessinateur_projeteur": 3
+        },
+        "architectes_hmonp": 2
+      },
+      "outils_logiciels": [
+        "Revit",
+        "Robot SA",
+        "AutoCAD MEP",
+        "Plancal Nova",
+        "Climawin",
+        "Pleiades",
+        "Cype",
+        "Naviswork",
+        "Acoubat"
+      ],
+      "references_etudes": [
+        {
+          "annee": 2025,
+          "client": "Conseil Départemental 92",
+          "projet": "Réhabilitation thermique collège Jean-Jaurès Boulogne-Billancourt",
+          "type_ouvrage": "etablissement_scolaire",
+          "typologies_mission": ["moe_complete_batiment"],
+          "competences_mobilisees": ["structure_beton", "thermique_dynamique", "fluides_cvc", "economie_construction"],
+          "montant_travaux_eur_ht": 9800000,
+          "honoraires_eur_ht": 1050000,
+          "duree_mois": 18,
+          "phases_realisees": ["ESQ", "APS", "APD", "PRO", "DCE", "ACT", "EXE", "AOR"],
+          "statut": "livre",
+          "notes": "Site occupé, phasage été, opération sur fonds Plan de relance"
+        },
+        {
+          "annee": 2024,
+          "client": "Ville de Versailles",
+          "projet": "Diagnostic structure église Saint-Symphorien (patrimoine ABF)",
+          "type_ouvrage": "patrimoine_classe",
+          "typologies_mission": ["etude_diagnostic", "bet_structure"],
+          "competences_mobilisees": ["structure_beton", "structure_bois"],
+          "montant_travaux_eur_ht": null,
+          "honoraires_eur_ht": 95000,
+          "duree_mois": 6,
+          "phases_realisees": ["DIAG"],
+          "statut": "livre",
+          "notes": "Étude pure, coordination avec ABF, rapport publié"
+        },
+        {
+          "annee": 2024,
+          "client": "Plaine Commune Habitat",
+          "projet": "MOE résidentialisation 4 cages d'escalier 212 logements",
+          "type_ouvrage": "logement_social",
+          "typologies_mission": ["moe_complete_batiment"],
+          "competences_mobilisees": ["structure_beton", "fluides_cvc", "thermique_dynamique"],
+          "montant_travaux_eur_ht": 6400000,
+          "honoraires_eur_ht": 720000,
+          "duree_mois": 16,
+          "phases_realisees": ["ESQ", "APS", "APD", "PRO", "DCE", "ACT", "EXE", "AOR"],
+          "statut": "livre",
+          "notes": "Site occupé, clause insertion sociale"
+        },
+        {
+          "annee": 2023,
+          "client": "Région Île-de-France",
+          "projet": "BET fluides + thermique CVC lycée nouveau Massy (cotraitance architecte mandataire)",
+          "type_ouvrage": "etablissement_scolaire",
+          "typologies_mission": ["bet_fluides_cvc", "bet_thermique_energie"],
+          "competences_mobilisees": ["fluides_cvc", "gtb_gtc", "thermique_dynamique", "acoustique_batiment"],
+          "montant_travaux_eur_ht": 22000000,
+          "honoraires_eur_ht": 850000,
+          "duree_mois": 26,
+          "phases_realisees": ["APS", "APD", "PRO", "DCE", "ACT", "EXE", "AOR"],
+          "statut": "livre",
+          "notes": "Cotraitance avec cabinet d'architecte mandataire, label E+C-"
+        }
+      ],
+      "pratiques_specifiques": {
+        "bim": {
+          "pratique": true,
+          "niveau_max": "LOD 300",
+          "certifications_team": ["2 BIM Managers certifiés Autodesk", "1 BIM Coordinator"]
+        },
+        "demarche_environnementale": {
+          "label_rse": "Engagé RSE AFNOR niveau confirmé",
+          "bilan_carbone_realise": true,
+          "hqe_certification": "Référent HQE bâtiment durable"
+        },
+        "clause_insertion_sociale": {
+          "pratiquee": false
+        }
+      }
+    }
+  },
+  "auto_reponses_exigences": {
+    "attestation_russie": "Nous attestons sur l'honneur ne pas etre soumis aux mesures restrictives europeennes vis-a-vis de la Russie au titre du reglement (UE) 833/2014.",
+    "assurance_decennale": "Notre cabinet detient une assurance decennale ingenierie (plafond 3,5 M EUR) et une RC professionnelle (plafond 10 M EUR), attestations disponibles sur demande et jointes au dossier de candidature."
+  }
+}

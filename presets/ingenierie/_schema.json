@@ -1,0 +1,308 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Profil sectoriel Ingénierie",
+  "description": "Champs spécifiques pour un organisme positionné sur les marchés publics d'ingénierie technique (bureaux d'études structure/génie civil, fluides/CVC, environnementale, maîtrise d'œuvre, topographie). Vient compléter le socle commun (identité, zones, capacité globale, économie) défini dans presets/_socle_profil_organisme.json. À distinguer nettement du preset BTP — qui couvre les TRAVAUX (gros œuvre, second œuvre, VRD) là où l'ingénierie couvre les ÉTUDES et la maîtrise d'œuvre — et du preset Conseil — qui couvre l'accompagnement stratégique/organisationnel non technique là où l'ingénierie est une expertise TECHNIQUE livrant des documents d'études (plans, notes de calcul, CCTP).",
+  "type": "object",
+  "properties": {
+    "qualifications": {
+      "type": "object",
+      "description": "Qualifications professionnelles détenues. L'OPQIBI est la clé du go/no-go ingénierie : un marché qui exige une qualification OPQIBI précise filtre l'organisme qui ne la détient pas.",
+      "properties": {
+        "opqibi": {
+          "type": "array",
+          "description": "Codes de qualification OPQIBI détenus (ex: ['0203', '1303']). Format à 4 chiffres.",
+          "items": { "type": "string", "pattern": "^[0-9]{4}$" }
+        },
+        "opqcm": {
+          "type": "array",
+          "description": "Codes OPQCM (qualification du management/conseil en ingénierie) si applicable.",
+          "items": { "type": "string" }
+        },
+        "iso_9001": { "type": "boolean", "description": "Système qualité certifié ISO 9001" },
+        "iso_14001": { "type": "boolean", "description": "Système environnemental certifié ISO 14001" },
+        "iso_45001": { "type": "boolean", "description": "Santé sécurité au travail certifiée ISO 45001" },
+        "autres": {
+          "type": "array",
+          "description": "Autres qualifications/labels pertinents (HQE, Effinergie, certification BIM, etc.).",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "assurances": {
+      "type": "object",
+      "description": "Couvertures assurantielles propres à l'ingénierie. La décennale ingénierie et la RC professionnelle sont fréquemment exigées à peine d'irrecevabilité.",
+      "properties": {
+        "decennale_ingenierie": {
+          "type": "object",
+          "description": "Assurance décennale au titre de la responsabilité de l'ingénierie/MOE.",
+          "properties": {
+            "detenue": { "type": "boolean" },
+            "plafond_eur": { "type": "number", "description": "Plafond de garantie en € HT" },
+            "validite_jusqu": { "type": "string", "description": "Date d'échéance ISO 8601" }
+          }
+        },
+        "rc_pro": {
+          "type": "object",
+          "description": "Assurance responsabilité civile professionnelle.",
+          "properties": {
+            "detenue": { "type": "boolean" },
+            "plafond_eur": { "type": "number", "description": "Plafond de garantie en € HT" },
+            "validite_jusqu": { "type": "string", "description": "Date d'échéance ISO 8601" }
+          }
+        }
+      }
+    },
+    "typologies_couvertes": {
+      "type": "array",
+      "description": "Types de missions d'ingénierie/MOE couverts. Sert au matching sur la typologie de mission du brief.",
+      "items": {
+        "type": "string",
+        "enum": [
+          "moe_complete_batiment",
+          "moe_partielle_batiment",
+          "moe_complete_infrastructure",
+          "moe_partielle_infrastructure",
+          "bet_structure",
+          "bet_fluides_cvc",
+          "bet_thermique_energie",
+          "bet_environnement",
+          "bet_geotechnique",
+          "bet_acoustique",
+          "bet_vrd",
+          "amo_technique",
+          "amo_programmation",
+          "etude_impact",
+          "etude_diagnostic",
+          "topographie",
+          "geometre"
+        ]
+      }
+    },
+    "competences_specialisees": {
+      "type": "array",
+      "description": "Disciplines techniques maîtrisées en interne. Sert au matching avec les profils exigés dans l'organigramme attendu du marché.",
+      "items": {
+        "type": "string",
+        "enum": [
+          "structure_beton",
+          "structure_beton_precontraint",
+          "structure_bois",
+          "structure_acier",
+          "structure_mixte",
+          "fluides_cvc",
+          "plomberie_sanitaire",
+          "electricite_cfo",
+          "electricite_cfa",
+          "gtb_gtc",
+          "thermique_dynamique",
+          "acoustique_batiment",
+          "acoustique_environnement",
+          "geotechnique",
+          "hydraulique_eau_potable",
+          "hydraulique_assainissement",
+          "hydraulique_pluvial",
+          "environnement_etudes_impact",
+          "environnement_icpe",
+          "environnement_loi_eau",
+          "vrd",
+          "ouvrages_art",
+          "economie_construction",
+          "opc",
+          "sps",
+          "bim_management"
+        ]
+      }
+    },
+    "types_ouvrages_etudies": {
+      "type": "array",
+      "description": "Types d'ouvrages habituellement étudiés. Sert au matching sémantique sur la typologie d'ouvrage du brief. Vocabulaire BTP étendu aux ouvrages spécifiques de l'ingénierie.",
+      "items": {
+        "type": "string",
+        "enum": [
+          "batiment_administratif",
+          "etablissement_sante",
+          "etablissement_scolaire",
+          "etablissement_sportif",
+          "equipement_culturel",
+          "logement_social",
+          "logement_prive",
+          "voirie_communale",
+          "ouvrage_art",
+          "reseaux_humides",
+          "reseaux_secs",
+          "espaces_publics",
+          "patrimoine_classe",
+          "datacenter",
+          "industriel",
+          "agricole"
+        ]
+      }
+    },
+    "types_clients_publics": {
+      "type": "array",
+      "description": "Catégories d'acheteurs publics habituels. Reprend le vocabulaire BTP étendu aux donneurs d'ordre spécifiques de l'ingénierie (SEM/SPL, bailleurs sociaux, EPA, syndicats mixtes, concessionnaires).",
+      "items": {
+        "type": "string",
+        "enum": [
+          "commune",
+          "communaute_communes",
+          "communaute_agglo",
+          "metropole",
+          "conseil_departemental",
+          "conseil_regional",
+          "etat_administration_centrale",
+          "etat_service_deconcentre",
+          "etablissement_public_local",
+          "etablissement_public_national",
+          "sante_chu_chr",
+          "sante_etablissement_local",
+          "defense_armees",
+          "justice",
+          "sem_sapl",
+          "bailleur_social_OPH",
+          "epa",
+          "syndicat_mixte",
+          "concessionnaire_reseaux"
+        ]
+      }
+    },
+    "capacite_etudes": {
+      "type": "object",
+      "description": "Capacités opérationnelles côté études.",
+      "properties": {
+        "ca_ingenierie_annuel": {
+          "type": "number",
+          "description": "Part du CA dédiée à l'ingénierie en € HT (utile pour profils multi-sectoriels)."
+        },
+        "montant_travaux_max_supervisable": {
+          "type": "number",
+          "description": "Plafond du MONTANT TRAVAUX d'un projet que le cabinet peut superviser en MOE (≠ CA du cabinet). Au-delà, cotraitance/groupement préférable."
+        },
+        "nb_missions_simultanees_max": { "type": "integer" },
+        "effectif_etudes_etp": {
+          "type": "integer",
+          "description": "ETP affectés à la production d'études (hors administratif/commercial)."
+        }
+      }
+    },
+    "rh_etudes": {
+      "type": "object",
+      "description": "Structure RH dédiée à la production d'études.",
+      "properties": {
+        "encadrement": {
+          "type": "object",
+          "properties": {
+            "directeur_etudes": { "type": "integer" },
+            "chef_projet": { "type": "integer" },
+            "ingenieur_senior": { "type": "integer" }
+          }
+        },
+        "production": {
+          "type": "object",
+          "properties": {
+            "ingenieur_confirme": { "type": "integer" },
+            "ingenieur_junior": { "type": "integer" },
+            "technicien_be": { "type": "integer" },
+            "dessinateur_projeteur": { "type": "integer" }
+          }
+        },
+        "architectes_hmonp": {
+          "type": "integer",
+          "description": "Nombre d'architectes HMONP (habilités à la maîtrise d'œuvre en leur nom propre)."
+        }
+      }
+    },
+    "outils_logiciels": {
+      "type": "array",
+      "description": "Logiciels métier maîtrisés en propre (CAO/DAO, calcul, thermique, BIM). Format libre, à mentionner en réponse. Ex: 'Revit', 'Robot SA', 'Climawin'.",
+      "items": { "type": "string" }
+    },
+    "references_etudes": {
+      "type": "array",
+      "description": "Historique des missions d'études/MOE livrées ou en cours, utilisable comme référence dans les candidatures et pour la calibration LLM.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "annee": { "type": "integer" },
+          "client": { "type": "string", "description": "Acheteur (anonymisable)" },
+          "projet": { "type": "string", "description": "Description courte de la mission" },
+          "type_ouvrage": {
+            "type": "string",
+            "description": "Doit correspondre à une valeur de types_ouvrages_etudies"
+          },
+          "typologies_mission": {
+            "type": "array",
+            "description": "Doit utiliser le vocabulaire de typologies_couvertes",
+            "items": { "type": "string" }
+          },
+          "competences_mobilisees": {
+            "type": "array",
+            "description": "Doit utiliser le vocabulaire de competences_specialisees",
+            "items": { "type": "string" }
+          },
+          "montant_travaux_eur_ht": {
+            "type": "number",
+            "description": "Coût des travaux du projet (≠ honoraires de la mission). null pour une étude pure."
+          },
+          "honoraires_eur_ht": { "type": "number", "description": "Honoraires de la mission d'ingénierie en € HT" },
+          "duree_mois": { "type": "integer" },
+          "phases_realisees": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": ["ESQ", "APS", "APD", "PRO", "DCE", "ACT", "EXE", "OPC", "AOR", "DIAG"]
+            }
+          },
+          "statut": {
+            "type": "string",
+            "enum": ["livre", "en_cours", "abandonne"]
+          },
+          "notes": { "type": "string" }
+        },
+        "required": ["annee", "projet", "type_ouvrage"]
+      }
+    },
+    "pratiques_specifiques": {
+      "type": "object",
+      "description": "Pratiques différenciantes que le cabinet peut mettre en avant.",
+      "properties": {
+        "bim": {
+          "type": "object",
+          "properties": {
+            "pratique": { "type": "boolean" },
+            "niveau_max": {
+              "type": "string",
+              "enum": ["LOD 100", "LOD 200", "LOD 300", "LOD 350", "LOD 400"]
+            },
+            "certifications_team": {
+              "type": "array",
+              "description": "Certifications BIM de l'équipe (ex: 'BIM Manager certifié Autodesk').",
+              "items": { "type": "string" }
+            }
+          }
+        },
+        "demarche_environnementale": {
+          "type": "object",
+          "properties": {
+            "label_rse": { "type": "string", "description": "Ex: 'Engagé RSE AFNOR', 'Label LUCIE'" },
+            "bilan_carbone_realise": { "type": "boolean" },
+            "hqe_certification": { "type": "string", "description": "Référent/certification HQE détenue" }
+          }
+        },
+        "clause_insertion_sociale": {
+          "type": "object",
+          "properties": {
+            "pratiquee": { "type": "boolean" },
+            "heures_realisees_annee": { "type": "integer" },
+            "partenaires": {
+              "type": "array",
+              "description": "Structures partenaires (PLIE, missions locales, SIAE, etc.)",
+              "items": { "type": "string" }
+            }
+          }
+        }
+      }
+    }
+  },
+  "required": ["qualifications", "typologies_couvertes"]
+}
