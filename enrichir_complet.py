@@ -113,7 +113,11 @@ def enrichir(limite: Optional[int] = None,
     import tendia_telecharger_dce as tdce
     import tendia_extraire as textr
 
-    cands = _candidats_mutualises() if mutualise else _candidats()
+    # --id (comme --mutualise) court-circuite le filtre "pertinent" : un marché
+    # ciblé explicitement par son id doit pouvoir être (re)briefé même s'il n'est
+    # pas (ou plus) classé pertinent. On part alors de la base non filtrée, puis
+    # l'intersection --id ci-dessous restreint aux marchés demandés.
+    cands = _candidats_mutualises() if (mutualise or ids) else _candidats()
     if ids:
         ids_set = set(ids)
         cands = [(mid, m) for (mid, m) in cands if mid in ids_set]
