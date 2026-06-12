@@ -25,6 +25,7 @@ from flask import (Flask, abort, flash, redirect, render_template, request,
 import organisme
 import profil_form
 import profil_widgets
+import fiche_marche
 import matching
 import concurrence
 import stockage
@@ -865,11 +866,35 @@ def detail_marche(id_marche):
         calibration, brief
     )
 
+    # --- Sprint UI : structures preset-aware (fiche_marche) ---
+    presets_resolus = fiche_marche.resolve_preset_codes(brief or {})
+    kpi_cards = fiche_marche.kpi_cards_pour_marche(brief, marche, presets_resolus, calibration)
+    # Enrichit la card Valeur avec la fourchette de scénarios si pas de montant direct
+    if kpi_cards and kpi_cards[0]["valeur"] == "—" and scenarios_montant:
+        bas = (scenarios_montant.get("bas") or {}).get("montant_eur")
+        haut = (scenarios_montant.get("haut") or {}).get("montant_eur")
+        if bas and haut:
+            kpi_cards[0]["valeur"] = f"{fiche_marche._fmt_eur(bas)} – {fiche_marche._fmt_eur(haut)}"
+            kpi_cards[0]["hint"] = "estimation Tendia"
+            kpi_cards[0]["classe"] = "val"
+    verrous = fiche_marche.detecter_verrous(brief or {}, profil or {})
+    verdict_90 = fiche_marche.verdict_90_secondes(brief or {}, evaluation, profil or {}, verrous)
+    blocs_sectoriels = fiche_marche.bloc_sectoriel_pour_marche(brief or {}, presets_resolus, profil or {})
+    detail_lots = fiche_marche.tranches_ou_lots(brief or {}, profil or {})
+    richesse = fiche_marche.calculer_richesse_brief(brief or {}, presets_resolus, marche)
+
     return render_template(
         "marche.html",
         marche=marche,
         eval=evaluation,
         brief=brief,
+        presets_resolus=presets_resolus,
+        kpi_cards=kpi_cards,
+        verrous=verrous,
+        verdict_90=verdict_90,
+        blocs_sectoriels=blocs_sectoriels,
+        detail_lots=detail_lots,
+        richesse=richesse,
         brief_type=brief_type,
         concurrents=concurrents,
         zone_prix=zone_prix,

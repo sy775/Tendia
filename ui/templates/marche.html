@@ -630,6 +630,32 @@
 
 {% else %}
 
+  <!-- ============ Verdict 90 secondes ============ -->
+  {% if verdict_90 %}
+  <div class="apt-block mb-5 fade-up fade-up-2" style="padding: 15px 20px;">
+    <div class="kpi-label" style="margin-bottom: 9px;">Verdict 90 secondes</div>
+    {% for l in verdict_90 %}
+    <div style="display:flex; gap:9px; align-items:flex-start; padding:3px 0; font-size:13.5px;">
+      <span style="font-weight:800; line-height:1.4; color: {% if l.icone == '✗' %}var(--c-rose){% elif l.icone == '⚠' %}var(--c-amber){% else %}var(--c-green){% endif %};">{{ l.icone }}</span>
+      <span style="color: var(--apt-ink-2);">{{ l.texte }}</span>
+    </div>
+    {% endfor %}
+  </div>
+  {% endif %}
+
+  <!-- ============ Verrous go/no-go ============ -->
+  {% set verrous_ko = verrous | rejectattr('satisfait') | list %}
+  <div class="apt-block mb-6 fade-up fade-up-2" style="padding: 11px 18px; border-left: 4px solid {% if verrous_ko %}var(--c-rose){% else %}var(--c-green){% endif %}; background: {% if verrous_ko %}var(--c-rose-soft){% else %}var(--c-green-soft){% endif %};">
+    {% if verrous_ko %}
+      <div style="font-weight:700; color: var(--c-rose); font-size:13px; margin-bottom:5px;">🔒 {{ verrous_ko|length }} verrou(x) bloquant(s)</div>
+      {% for v in verrous_ko %}
+      <div style="font-size:12.5px; color: var(--apt-ink-2); padding:2px 0;">✗ <strong>{{ v.type }}</strong> — {{ v.libelle }}{% if v.motif %} · {{ v.motif }}{% endif %}</div>
+      {% endfor %}
+    {% else %}
+      <div style="font-weight:600; color: var(--c-green); font-size:13px;">✓ Pas de verrou bloquant détecté</div>
+    {% endif %}
+  </div>
+
   <!-- ============ KPI Strip — 4 cells tinted ============ -->
   {% set ft_calib = calibration.fourchette_marche_total_estimee if (calibration and calibration.fourchette_marche_total_estimee) else None %}
   {% set ft_brief = brief.montant_marche.fourchette_marche_total_estimee if (brief and brief.montant_marche) else None %}
@@ -675,17 +701,17 @@
       <div class="kpi-icon">
         <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
       </div>
-      <div class="kpi-label">Bénéficiaires</div>
-      <div class="kpi-value">{% if brief.volumes and brief.volumes.nb_beneficiaires_total %}{{ brief.volumes.nb_beneficiaires_total }}{% else %}—{% endif %}</div>
-      <div class="kpi-sub">{% if brief.volumes and brief.volumes.nb_beneficiaires_total %}max{% else %}non précisé{% endif %}</div>
+      <div class="kpi-label">{{ kpi_cards[1].label if kpi_cards else 'Périmètre' }}</div>
+      <div class="kpi-value">{{ kpi_cards[1].valeur if kpi_cards else '—' }}</div>
+      <div class="kpi-sub">{% if kpi_cards and kpi_cards[1].hint %}{{ kpi_cards[1].hint }}{% else %}&nbsp;{% endif %}</div>
     </div>
     <div class="kpi-cell kpi-duree">
       <div class="kpi-icon">
         <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
       </div>
       <div class="kpi-label">Durée</div>
-      <div class="kpi-value">{% if brief.volumes and brief.volumes.duree_marche_mois %}{{ brief.volumes.duree_marche_mois }}<span style="font-size: 14px; font-weight: 400; color: var(--apt-ink-3); margin-left: 3px;">mois</span>{% else %}—{% endif %}</div>
-      <div class="kpi-sub">{% if brief.volumes and brief.volumes.duree_parcours_jours %}parcours {{ brief.volumes.duree_parcours_jours }}j{% else %}&nbsp;{% endif %}</div>
+      <div class="kpi-value">{{ kpi_cards[2].valeur if kpi_cards else '—' }}</div>
+      <div class="kpi-sub">{% if kpi_cards and kpi_cards[2].hint %}{{ kpi_cards[2].hint }}{% else %}&nbsp;{% endif %}</div>
     </div>
     <div class="kpi-cell {% if jours_restants is not none and jours_restants < 7 %}kpi-date-urgent{% else %}kpi-date{% endif %}">
       <div class="kpi-icon">
@@ -1278,6 +1304,63 @@
     </div></details>
     {% endif %}
 
+
+
+    {# ============ BLOC SECTORIEL PRESET-AWARE ============ #}
+    {% for b in (blocs_sectoriels or []) %}
+    {{ sec('Secteur · ' ~ b.label, ((b.pct ~ '%') if b.pct else ''), ('green' if b.preset_code == 'btp' else 'violet'), true, IC_CHECK) }}
+      {% if not b.implemente %}
+        <p style="color: var(--apt-ink-3); font-size: 13px;">{{ b.sections[0].valeur }}</p>
+      {% elif not b.sections %}
+        <p style="color: var(--apt-ink-4); font-size: 13px;">Données sectorielles {{ b.label }} non extraites pour ce marché.</p>
+      {% else %}
+        {% for s in b.sections %}
+        <div style="margin-bottom: 13px;">
+          <div class="kpi-label" style="margin-bottom: 4px;">{{ s.label }}</div>
+          {% if s.type == 'list' %}
+            <div style="display:flex; flex-wrap:wrap; gap:6px;">{% for it in s.valeur %}<span class="apt-chip apt-chip-mono">{{ it }}</span> {% endfor %}</div>
+          {% elif s.type == 'organigramme' %}
+            <table style="width:100%; border-collapse:collapse; font-size:12.5px;">
+              {% for o in s.valeur %}
+              <tr style="border-top:1px solid var(--apt-line-3);">
+                <td style="padding:5px 0;">{{ o.profil }}{% if o.nombre %} ×{{ o.nombre }}{% endif %}</td>
+                <td style="padding:5px 0; text-align:right; white-space:nowrap;">{% if o.couvert %}<span style="color:var(--c-green);">✓ couvert</span>{% else %}<span style="color:var(--c-amber);">non couvert</span>{% endif %}</td>
+              </tr>
+              {% endfor %}
+            </table>
+          {% elif s.type == 'verrou' %}
+            <div style="color: var(--c-rose); font-size:12.5px; font-weight:600;">🔒 {{ s.valeur }}</div>
+          {% else %}
+            <div style="color: var(--apt-ink-2); font-size:13px;">{{ s.valeur }}</div>
+          {% endif %}
+        </div>
+        {% endfor %}
+      {% endif %}
+    </div></details>
+    {% endfor %}
+
+    {# ============ DÉTAIL LOTS / TRANCHES ============ #}
+    {% if detail_lots and detail_lots.mode %}
+    {{ sec(('Détail par lot' if detail_lots.mode == 'lots' else 'Détail par tranche'), (detail_lots.lignes|length ~ (' lots' if detail_lots.mode == 'lots' else ' tranches')), 'blue', false, IC_DOC) }}
+      {% for it in detail_lots.lignes %}
+      <div class="apt-block-soft" style="padding:12px 14px; margin-bottom:10px;">
+        {% if detail_lots.mode == 'lots' %}
+          <div style="display:flex; justify-content:space-between; align-items:center; gap:10px;">
+            <strong style="font-size:13.5px;">{{ it.intitule }}</strong>
+            {% if it.compat == 'coeur' %}<span style="color:var(--c-green); font-size:12px; white-space:nowrap;">✓ cœur de cible</span>
+            {% elif it.compat == 'partielle' %}<span style="color:var(--c-amber); font-size:12px; white-space:nowrap;">△ partielle</span>
+            {% elif it.compat == 'hors' %}<span style="color:var(--apt-ink-4); font-size:12px; white-space:nowrap;">✗ hors cible</span>{% endif %}
+          </div>
+          {% if it.volume %}<div class="apt-meta" style="margin-top:3px;">{{ it.volume }}</div>{% endif %}
+          {% if it.description %}<div style="font-size:12.5px; color:var(--apt-ink-2); margin-top:5px;">{{ it.description[:320] }}</div>{% endif %}
+        {% else %}
+          <div><strong style="font-size:13px;">{{ 'Tranche ferme' if it.type == 'ferme' else 'Tranche optionnelle' }}</strong></div>
+          <div style="font-size:12.5px; color:var(--apt-ink-2); margin-top:4px;">{{ it.libelle[:320] }}</div>
+        {% endif %}
+      </div>
+      {% endfor %}
+    </div></details>
+    {% endif %}
 
 
     {% set diff = brief.points_differenciants_attendus or brief.points_differenciants_probables %}

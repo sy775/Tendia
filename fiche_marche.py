@@ -487,7 +487,7 @@ def _bloc_formation(brief, pct):
 
 def tranches_ou_lots(brief, profil):
     """
-    Retourne {mode, items} où mode ∈ {None, 'lots', 'tranches'}.
+    Retourne {mode, lignes} où mode ∈ {None, 'lots', 'tranches'}.
     Items lots : {numero, intitule, description, volume, exigences, compat}.
     """
     lots = _get(brief, "lots") or []
@@ -504,15 +504,15 @@ def tranches_ou_lots(brief, profil):
                 "numero": l.get("numero"), "intitule": intit, "description": desc,
                 "volume": vol, "exigences": l.get("exigences_specifiques") or l.get("particularites"),
                 "compat": _compat_lot(intit, desc, profil)})
-        return {"mode": "lots", "items": items}
+        return {"mode": "lots", "lignes": items}
     tf = tranches.get("tranche_ferme")
     to = tranches.get("tranches_optionnelles") or []
     if tf or to:
         items = [{"type": "ferme", "libelle": _str(tf)}] if tf else []
         for t in to:
             items.append({"type": "optionnelle", "libelle": _str(t)})
-        return {"mode": "tranches", "items": items}
-    return {"mode": None, "items": []}
+        return {"mode": "tranches", "lignes": items}
+    return {"mode": None, "lignes": []}
 
 
 def _str(v):
