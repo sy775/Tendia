@@ -354,6 +354,12 @@
                 {% if ligne.a_brief_complet %}
                   <span class="badge-source" title="Classifié sur la base du DCE lu">✦ DCE lu</span>
                 {% endif %}
+                {% if ligne.richesse %}
+                  <span title="Score richesse {{ ligne.richesse.score }}/100" style="font-size:10px; font-weight:600; padding:1px 7px; border-radius:999px;
+                    {% if ligne.richesse.niveau == 'complet' %}background:rgba(31,140,92,0.12); color:#1f8c5c;
+                    {% elif ligne.richesse.niveau == 'partiel' %}background:rgba(232,144,72,0.14); color:#b96a1e;
+                    {% else %}background:rgba(26,24,20,0.06); color:#8c8472;{% endif %}">◆ {{ ligne.richesse.niveau }}</span>
+                {% endif %}
               </div>
             </div>
             <div class="echeance {% if ligne.jours_restants is not none and ligne.jours_restants < 7 %}urgent{% elif ligne.jours_restants is not none and ligne.jours_restants < 21 %}proche{% endif %}">

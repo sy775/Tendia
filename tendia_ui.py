@@ -637,9 +637,13 @@ def explorer():
             if filtre_recherche not in haystack:
                 continue
 
+        presets_l = fiche_marche.resolve_preset_codes(brief) if (brief and brief.get("domaines_metier")) else []
+        richesse_l = (fiche_marche.calculer_richesse_brief(brief, presets_l, marche)
+                      if brief else {"score": 0, "niveau": "light"})
         lignes.append({
             "marche": marche,
             "id_marche": id_m,
+            "richesse": richesse_l,
             "titre_court": _titre_court(marche),
             "acheteur": marche.get("acheteur_nom") or "—",
             "perimetre": marche.get("perimetre_geographique") or "",
@@ -655,9 +659,13 @@ def explorer():
             "a_brief_complet": source == "brief_complet",
         })
 
-    # Tri : par famille, puis par date_limite croissante (urgents en haut)
+    # Filtre optionnel : uniquement briefs complets/partiels (Sprint UI L7.3)
+    if request.args.get("complet"):
+        lignes = [l for l in lignes if l["richesse"]["niveau"] in ("complet", "partiel")]
+
+    # Tri par défaut : richesse brief décroissante, puis urgence (jours croissants)
     lignes.sort(key=lambda x: (
-        x["famille"],
+        -x["richesse"]["score"],
         x["jours_restants"] if x["jours_restants"] is not None else 9999,
     ))
 
