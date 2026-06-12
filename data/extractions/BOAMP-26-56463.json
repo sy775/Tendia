@@ -1,0 +1,436 @@
+{
+  "synthese_marche": "Accord-cadre à bons de commande passé par HYDREAULYS (syndicat mixte, Versailles) pour des prestations de contrôles extérieurs des réseaux d'assainissement. Le marché est décomposé en 2 lots : Lot 1 pour les réseaux non-visitables (inspection télévisuelle, essais d'étanchéité, compactage, flexion) et Lot 2 pour les réseaux visitables (inspection, diagnostics génie civil, essais de convenance). Durée initiale de 1 an reconductible 3 fois, soit 4 ans maximum, avec un plafond global de 600 000 € HT (Lot 1) et 900 000 € HT (Lot 2).",
+  "domaines_metier": [
+    {
+      "code": "services_environnement_analyses"
+    }
+  ],
+  "raison_classification": "Le marché porte sur des prestations de contrôle, inspection et diagnostic de réseaux d'assainissement (inspection télévisuelle ITV, essais d'étanchéité, essais de compactage, diagnostic génie civil), relevant des services de contrôle technique et d'inspection (CPV 71630000 et 71631000). Ces prestations s'apparentent à des analyses/contrôles techniques sur infrastructures environnementales (réseaux d'assainissement), ce qui correspond au code 'services_environnement_analyses'. Ce n'est pas du BTP (pas de travaux), ni de l'ingénierie de structure au sens strict.",
+  "caracteristiques_techniques_chantier": {
+    "description": "Prestations de contrôle des états fonctionnels et structurels de réseaux d'assainissement visitables et non-visitables sur le territoire d'HYDREAULYS. Lot 1 : inspection télévisuelle (ITV) des réseaux non-visitables et branchements, essais d'étanchéité, essais de compactage, essais de flexion sur gaine. Lot 2 : inspection des réseaux visitables et branchements, essais d'étanchéité et d'absorption, diagnostic de génie civil, essais de convenance en cours de travaux, traitement et suivi des non-conformités.",
+    "typologie_ouvrage": "Réseaux d'assainissement (collecteurs visitables et non-visitables, branchements)",
+    "surface_volume": null,
+    "site_occupe": false,
+    "corps_etat": [
+      "Inspection télévisuelle (ITV) des réseaux",
+      "Essais d'étanchéité",
+      "Essais de compactage",
+      "Essais de flexion sur gaine",
+      "Diagnostic de génie civil",
+      "Inspection en espaces confinés (réseaux visitables)"
+    ],
+    "contraintes_specifiques": [
+      "Intervention à proximité des réseaux : AIPR obligatoire pour tous les lots",
+      "Certification aptitude travail en espaces confinés (CATEC ou équivalent) obligatoire pour le Lot 2",
+      "Travaux en milieu urbain sur le territoire d'HYDREAULYS (Versailles et communes du syndicat)",
+      "Réseaux en exploitation active"
+    ]
+  },
+  "allotissement": {
+    "description": "Le marché est décomposé en 2 lots distincts, traités en marchés séparés.",
+    "nb_lots": 2,
+    "lots_detailles": [
+      {
+        "numero": 1,
+        "intitule": "Etudes de diagnostics préalables et de réception sur les réseaux non-visitables",
+        "corps_etat": "Inspection télévisuelle, essais d'étanchéité, essais de compactage, essais de flexion sur gaine",
+        "montant_estime": 600000,
+        "description": "Contrôle fonctionnel et structurel des réseaux non-visitables par inspection télévisuelle (ITV) et essais divers (étanchéité, compactage, flexion sur gaine). Plafond accord-cadre 4 ans : 600 000 € HT."
+      },
+      {
+        "numero": 2,
+        "intitule": "Etudes de diagnostics préalables et de réception sur les réseaux visitables",
+        "corps_etat": "Inspection des réseaux visitables, diagnostic génie civil, essais d'étanchéité et d'absorption, essais de convenance",
+        "montant_estime": 900000,
+        "description": "Contrôle fonctionnel et structurel des réseaux visitables incluant inspection, diagnostic génie civil, essais d'étanchéité/absorption, essais de convenance en cours de travaux, suivi des non-conformités. Plafond accord-cadre 4 ans : 900 000 € HT."
+      }
+    ]
+  },
+  "qualifications_requises": {
+    "description": "Pas de qualification Qualibat ou RGE exigée. Certifications spécifiques au domaine assainissement et sécurité requises.",
+    "qualibat": null,
+    "rge": false,
+    "opqibi": null,
+    "autres_certifications": [
+      "AIPR (Autorisation d'Intervention à Proximité des Réseaux) — obligatoire pour tous les lots",
+      "CATEC (Certification d'Aptitude à Travailler En espaces Confinés) ou équivalent — obligatoire pour le Lot 2 uniquement"
+    ]
+  },
+  "bareme_notation": {
+    "valeur_technique_pct": 65,
+    "valeur_prix_pct": 30,
+    "sous_criteres_techniques": [
+      {
+        "libelle": "SC1 : Méthodologie d'inspection télévisuelle des réseaux d'assainissement et des branchements (Lot 1)",
+        "ponderation_pct": 15,
+        "description": "Évaluation de la méthodologie proposée pour l'inspection télévisuelle (ITV) des réseaux non-visitables et de leurs branchements. L'acheteur note la qualité et la rigueur du protocole d'inspection décrit.",
+        "elements_attendus": [
+          "Description détaillée du protocole ITV (matériel utilisé, caméras, robots)",
+          "Normes et référentiels appliqués (NF EN 13508-2, WRc, etc.)",
+          "Modalités d'inspection des branchements (caméra de départ, tête orientable)",
+          "Organisation du chantier (signalisation, sécurité, coordination avec l'exploitant)",
+          "Format et contenu des rapports d'inspection (codification des défauts)",
+          "Contrôle qualité interne des données ITV"
+        ],
+        "exemple_reponse_forte": "Notre protocole ITV s'appuie sur la norme NF EN 13508-2 et le référentiel WRc. Nous utilisons des caméras robotisées HD avec têtes orientables pour l'inspection des branchements depuis la canalisation principale. Chaque inspection fait l'objet d'un rapport codifié en temps réel et vérifié par un opérateur certifié avant transmission.",
+        "source": "RC §8.2.3",
+        "sous_criteres": []
+      },
+      {
+        "libelle": "SC2 : Méthodologie de réalisation d'essais d'étanchéité (Lot 1)",
+        "ponderation_pct": 10,
+        "description": "Évaluation de la méthode proposée pour la réalisation des essais d'étanchéité sur les réseaux non-visitables. L'acheteur note la pertinence technique et la conformité aux normes des protocoles décrits.",
+        "elements_attendus": [
+          "Description du protocole d'essais d'étanchéité (air ou eau)",
+          "Normes de référence appliquées (NF EN 1610, etc.)",
+          "Matériel utilisé (obturateurs, manomètres, enregistreurs)",
+          "Critères de conformité et d'interprétation des résultats",
+          "Gestion des cas de non-conformité"
+        ],
+        "exemple_reponse_forte": "Les essais d'étanchéité sont réalisés conformément à la norme NF EN 1610, par test à l'air (méthode L ou W) selon le diamètre. Nous utilisons des obturateurs pneumatiques et des enregistreurs de pression calibrés. Les résultats sont interprétés selon les critères de la norme et consignés dans un rapport de contrôle individuel par tronçon.",
+        "source": "RC §8.2.3",
+        "sous_criteres": []
+      },
+      {
+        "libelle": "SC3 : Méthodologie de réalisation d'essais de compactage (Lot 1)",
+        "ponderation_pct": 10,
+        "description": "Évaluation de la méthode proposée pour les essais de compactage des remblais en tranchée lors des réceptions de travaux. L'acheteur note la rigueur et la conformité aux référentiels techniques.",
+        "elements_attendus": [
+          "Description du protocole d'essais de compactage (Gammadensimétre, Panda, etc.)",
+          "Normes et référentiels appliqués (GTR, guide SETRA/LCPC, NF P 98-086)",
+          "Localisation et fréquence des points de mesure",
+          "Critères de conformité (objectif de densification, Q3, Q4)",
+          "Modalités de reporting"
+        ],
+        "exemple_reponse_forte": "Les essais de compactage sont réalisés au pénétromètre dynamique léger PANDA conformément au guide GTR et aux spécifications du marché. Nous appliquons une fréquence d'un essai tous les 20 ml de tranchée avec un minimum de 3 points par couche. Les résultats sont comparés aux courbes Proctor et aux objectifs définis en Q3/Q4.",
+        "source": "RC §8.2.3",
+        "sous_criteres": []
+      },
+      {
+        "libelle": "SC4 : Méthodologie de réalisation d'essais de flexion sur gaine (Lot 1)",
+        "ponderation_pct": 10,
+        "description": "Évaluation de la méthode proposée pour les essais de flexion sur gaine (mandrin, déformétrie). L'acheteur note la pertinence et la conformité aux normes des essais de déformation annulaire.",
+        "elements_attendus": [
+          "Description du protocole d'essais de flexion / ovalisation (mandrin rigide ou flexible)",
+          "Normes de référence (NF EN 1610, fascicule 70)",
+          "Taux de déformation admissible selon le type de canalisation",
+          "Matériel utilisé (mandrins par diamètre)",
+          "Interprétation des résultats et critères de refus"
+        ],
+        "exemple_reponse_forte": "Les essais de flexion sont réalisés par passage de mandrin rigide dimensionné à 95% du diamètre nominal, conformément au fascicule 70 et à la NF EN 1610. En cas de refus, nous réalisons une mesure de déformation par déformétrie électronique afin de localiser précisément l'ovalisation et de produire un rapport de non-conformité argumenté.",
+        "source": "RC §8.2.3",
+        "sous_criteres": []
+      },
+      {
+        "libelle": "SC5 : Equipe dédiée (Lot 1)",
+        "ponderation_pct": 10,
+        "description": "Évaluation de la composition et des qualifications de l'équipe dédiée à l'exécution des prestations du Lot 1. L'acheteur apprécie l'adéquation des profils aux missions et les certifications des personnels.",
+        "elements_attendus": [
+          "Organigramme nominatif de l'équipe dédiée",
+          "CV des responsables de mission et opérateurs clés",
+          "Certifications et qualifications des personnels (AIPR, habilitations, etc.)",
+          "Expériences significatives en ITV et essais sur réseaux d'assainissement",
+          "Disponibilité et taux d'affectation au marché"
+        ],
+        "exemple_reponse_forte": "L'équipe dédiée comprend un ingénieur responsable de mission (10 ans d'expérience en diagnostic de réseaux), deux techniciens ITV certifiés AIPR et formés à la codification WRc, et un technicien essais titulaire du CACES. L'ensemble de l'équipe est disponible à 80% sur ce marché dès notification.",
+        "source": "RC §8.2.3",
+        "sous_criteres": []
+      },
+      {
+        "libelle": "SC6 : Cohérence des délais proposés dans l'acte d'engagement (Lot 1)",
+        "ponderation_pct": 10,
+        "description": "Évaluation de la cohérence et du réalisme des délais d'exécution proposés par le candidat dans l'acte d'engagement. L'acheteur note la capacité à respecter les contraintes opérationnelles du maître d'ouvrage.",
+        "elements_attendus": [
+          "Délais d'intervention après réception du bon de commande",
+          "Délai de remise des rapports après intervention",
+          "Planning type par type de prestation",
+          "Capacité de traitement simultané de plusieurs chantiers",
+          "Justification des délais proposés au regard des moyens mobilisés"
+        ],
+        "exemple_reponse_forte": "Nous proposons un délai d'intervention de 5 jours ouvrables après réception du bon de commande pour les prestations courantes, et de 48h pour les interventions urgentes. Les rapports d'ITV sont remis dans un délai de 10 jours ouvrables après la prestation terrain. Ces délais sont garantis par la disponibilité permanente de deux équipes terrain basées en Île-de-France.",
+        "source": "RC §8.2.3",
+        "sous_criteres": []
+      },
+      {
+        "libelle": "SC1 : Méthodologie d'inspection des réseaux d'assainissement et des branchements (Lot 2)",
+        "ponderation_pct": 15,
+        "description": "Évaluation de la méthodologie proposée pour l'inspection des réseaux visitables et de leurs branchements dans le cadre du Lot 2. L'acheteur note la rigueur du protocole d'inspection en milieu confiné.",
+        "elements_attendus": [
+          "Description du protocole d'inspection visuelle en espaces confinés",
+          "Mesures de sécurité spécifiques aux espaces confinés (CATEC, atmosphère, équipe)",
+          "Normes et référentiels appliqués (NF EN 13508-2)",
+          "Outils et équipements utilisés (éclairage, mesures atmosphériques, etc.)",
+          "Format des rapports d'inspection",
+          "Coordination avec l'exploitant pour les interventions sur réseau en charge"
+        ],
+        "exemple_reponse_forte": "L'inspection des réseaux visitables est réalisée par des opérateurs certifiés CATEC et AIPR, avec contrôle atmosphérique systématique avant et pendant l'intervention (O2, CO, H2S, CH4). Le protocole respecte la NF EN 13508-2 avec codification des désordres. Chaque intervention fait l'objet d'un plan de prévention et d'un rapport d'inspection illustré transmis dans les 10 jours.",
+        "source": "RC §8.2.3",
+        "sous_criteres": []
+      },
+      {
+        "libelle": "SC2 : Méthodologie de réalisation d'essais d'étanchéité et d'absorption (Lot 2)",
+        "ponderation_pct": 5,
+        "description": "Évaluation de la méthode proposée pour les essais d'étanchéité et d'absorption sur les réseaux visitables. L'acheteur note la pertinence technique et la conformité aux normes.",
+        "elements_attendus": [
+          "Description du protocole d'essais d'étanchéité (méthode eau ou air)",
+          "Description spécifique des essais d'absorption",
+          "Normes de référence (NF EN 1610)",
+          "Matériel utilisé et critères d'interprétation"
+        ],
+        "exemple_reponse_forte": "Les essais d'étanchéité sur réseaux visitables sont réalisés par test à l'eau conformément à la NF EN 1610. Les essais d'absorption sont menés selon le protocole du fascicule 70 pour les ouvrages béton. Les résultats sont consignés dans des fiches de contrôle individuelles avec photos.",
+        "source": "RC §8.2.3",
+        "sous_criteres": []
+      },
+      {
+        "libelle": "SC3 : Méthodologie de diagnostic de génie civil (Lot 2)",
+        "ponderation_pct": 15,
+        "description": "Évaluation de la méthode proposée pour le diagnostic de génie civil des ouvrages visitables (collecteurs, regards, ouvrages spéciaux). C'est le sous-critère le plus important du Lot 2 avec le SC1.",
+        "elements_attendus": [
+          "Description détaillée du protocole de diagnostic génie civil (inspection visuelle, sondages, essais)",
+          "Référentiels utilisés (NF EN 13508-2, guides ASTEE, etc.)",
+          "Méthodes d'évaluation de l'état structurel (classification des désordres)",
+          "Outils de diagnostic (marteau, scléromètre, carottage, etc.)",
+          "Contenu type d'un rapport de diagnostic génie civil",
+          "Modalités de hiérarchisation des désordres et préconisations"
+        ],
+        "exemple_reponse_forte": "Le diagnostic génie civil comprend une inspection visuelle codifiée selon la NF EN 13508-2, complétée par des essais au scléromètre et des sondages destructifs ciblés sur les zones dégradées. Chaque désordre est classifié selon une grille d'urgence (I à IV) et assorti de préconisations de réhabilitation. Le rapport intègre des fiches photographiques géolocalisées et un tableau de synthèse hiérarchisé.",
+        "source": "RC §8.2.3",
+        "sous_criteres": []
+      },
+      {
+        "libelle": "SC4 : Exemple de rapport diagnostic génie civil comprenant au moins 3 diagnostics présents dans le marché (Lot 2)",
+        "ponderation_pct": 5,
+        "description": "Le candidat doit fournir un exemple de rapport de diagnostic génie civil réel illustrant au moins 3 types de diagnostics prévus au marché. L'acheteur évalue la qualité, la complétude et la lisibilité du rapport.",
+        "elements_attendus": [
+          "Exemple de rapport réel (anonymisé si nécessaire)",
+          "Présence d'au moins 3 types de diagnostics prévus au CCTP",
+          "Qualité des photos et illustrations",
+          "Clarté de la classification des désordres",
+          "Pertinence des préconisations formulées"
+        ],
+        "exemple_reponse_forte": "Le rapport joint en annexe présente un diagnostic génie civil complet réalisé pour une collectivité de la région Île-de-France, couvrant l'inspection d'un collecteur ovoïde 80/120, d'un regard de visite et d'un siphon. Il illustre notre méthode de codification, notre système de hiérarchisation des désordres et notre format de préconisations.",
+        "source": "RC §8.2.3",
+        "sous_criteres": []
+      },
+      {
+        "libelle": "SC5 : Méthodologie des essais de convenance en cours de travaux (Lot 2)",
+        "ponderation_pct": 10,
+        "description": "Évaluation de la méthode proposée pour la réalisation des essais de convenance lors du contrôle extérieur de travaux sur réseaux visitables. L'acheteur note la rigueur du protocole de réception.",
+        "elements_attendus": [
+          "Description du rôle du contrôleur extérieur lors des essais de convenance",
+          "Types d'essais de convenance réalisés (compactage, étanchéité, ITV finale, etc.)",
+          "Protocole d'intervention sur chantier actif",
+          "Modalités de coordination avec le maître d'œuvre et les entreprises",
+          "Format des procès-verbaux de réception"
+        ],
+        "exemple_reponse_forte": "Lors des essais de convenance, notre équipe assure le contrôle extérieur indépendant des essais réalisés par l'entreprise (étanchéité, compactage, ITV de réception), en présence du maître d'œuvre. Nous établissons un procès-verbal contradictoire consignant les résultats et les réserves éventuelles, transmis à toutes les parties dans les 48h suivant la réception de chantier.",
+        "source": "RC §8.2.3",
+        "sous_criteres": []
+      },
+      {
+        "libelle": "SC6 : Méthodologie de traitement et suivi des non-conformités (Lot 2)",
+        "ponderation_pct": 5,
+        "description": "Évaluation de la méthode proposée pour le traitement et le suivi des non-conformités détectées lors des contrôles. L'acheteur note la rigueur du processus de gestion des non-conformités.",
+        "elements_attendus": [
+          "Processus de détection et de signalement des non-conformités",
+          "Délais de reporting des non-conformités à HYDREAULYS",
+          "Suivi de la levée des réserves",
+          "Outils de traçabilité (tableau de suivi, logiciel)",
+          "Gestion des litiges ou contestations"
+        ],
+        "exemple_reponse_forte": "Chaque non-conformité est consignée dans notre système de traçabilité dès sa détection et notifiée à HYDREAULYS sous 24h par fiche individuelle numérotée. Un tableau de bord de suivi des non-conformités est mis à jour hebdomadairement et partagé avec le maître d'ouvrage via notre portail client, jusqu'à la levée complète des réserves.",
+        "source": "RC §8.2.3",
+        "sous_criteres": []
+      },
+      {
+        "libelle": "SC7 : Equipe dédiée (Lot 2)",
+        "ponderation_pct": 5,
+        "description": "Évaluation de la composition et des qualifications de l'équipe dédiée à l'exécution des prestations du Lot 2, notamment les certifications CATEC et AIPR.",
+        "elements_attendus": [
+          "Organigramme nominatif de l'équipe dédiée",
+          "CV des responsables et opérateurs",
+          "Certifications CATEC, AIPR et autres habilitations des personnels",
+          "Expérience en inspection de réseaux visitables et diagnostic génie civil",
+          "Disponibilité et taux d'affectation"
+        ],
+        "exemple_reponse_forte": "L'équipe dédiée au Lot 2 comprend un ingénieur génie civil (15 ans d'expérience en diagnostic d'ouvrages d'assainissement visitables), deux techniciens CATEC et AIPR pour les interventions en espaces confinés, et un technicien essais. L'ensemble est mobilisable à 75% sur ce marché dès notification.",
+        "source": "RC §8.2.3",
+        "sous_criteres": []
+      },
+      {
+        "libelle": "SC8 : Cohérence des délais proposés dans l'acte d'engagement (Lot 2)",
+        "ponderation_pct": 5,
+        "description": "Évaluation de la cohérence et du réalisme des délais d'exécution proposés par le candidat dans l'acte d'engagement pour le Lot 2.",
+        "elements_attendus": [
+          "Délais d'intervention après réception du bon de commande",
+          "Délai de remise des rapports de diagnostic génie civil",
+          "Planning type par prestation",
+          "Capacité de traitement en parallèle",
+          "Justification des délais au regard des moyens"
+        ],
+        "exemple_reponse_forte": "Pour le Lot 2, nous proposons un délai d'intervention de 7 jours ouvrables après bon de commande et un délai de remise du rapport de diagnostic génie civil de 15 jours ouvrables après intervention. Ces délais sont garantis par la mobilisation d'une équipe permanente dédiée basée en Île-de-France.",
+        "source": "RC §8.2.3",
+        "sous_criteres": []
+      },
+      {
+        "libelle": "Performance environnementale (tous lots)",
+        "ponderation_pct": 5,
+        "description": "Évaluation de l'intégration des enjeux environnementaux dans la réalisation des prestations, notamment concernant les moyens matériels mis en œuvre.",
+        "elements_attendus": [
+          "Description des moyens matériels limitant l'impact environnemental (véhicules hybrides/électriques, matériels économes)",
+          "Gestion des déchets et effluents liés aux interventions sur réseaux",
+          "Politique environnementale de l'entreprise (certification ISO 14001, etc.)",
+          "Mesures spécifiques de réduction de l'empreinte carbone des prestations"
+        ],
+        "exemple_reponse_forte": "Notre flotte de véhicules d'intervention comprend 60% de véhicules hybrides rechargeables, réduisant nos émissions CO2 de 35% par rapport à 2019. Nous sommes certifiés ISO 14001 et appliquons une politique de tri des déchets issus des interventions avec traçabilité documentée.",
+        "source": "RC §8.2.3",
+        "sous_criteres": []
+      }
+    ],
+    "prix": {
+      "type_formule": "moins_disant",
+      "formule_explicite": "MO / M × 30, avec MO = offre la moins-disante et M = offre notée. Le nombre de points est arrondi au centième le plus proche.",
+      "elements_a_chiffrer": [
+        "Prix unitaires du BPU (Bordereau des Prix Unitaires) complété pour chaque lot",
+        "DQE (Détail Quantitatif Estimatif) complété — document non contractuel servant à la comparaison des offres",
+        "Ensemble des postes du BPU pour le lot concerné (Lot 1 ou Lot 2)"
+      ]
+    },
+    "modalite_calcul_prix": "MO / M × 30, avec MO = offre la moins-disante et M = offre notée."
+  },
+  "montant_marche": {
+    "valeur_estimee_euros": null,
+    "fourchette_min_euros": null,
+    "fourchette_max_euros": 1500000,
+    "type": "plafond",
+    "duree_couverte": "Durée globale de l'accord-cadre (4 ans maximum)",
+    "source_extraction": "RC §3.5 page 5",
+    "commentaire": "Le RC fixe des plafonds par lot sur la durée totale de l'accord-cadre : 600 000 € HT pour le Lot 1 et 900 000 € HT pour le Lot 2, soit un plafond global de 1 500 000 € HT toutes reconductions comprises. Aucun montant minimum n'est fixé. Il n'y a pas de valeur estimée annuelle communiquée."
+  },
+  "revision_prix": {
+    "type": "non_communique",
+    "indices_utilises": [],
+    "ponderation": null,
+    "periodicite": null,
+    "formule_revision": null,
+    "source_extraction": null,
+    "commentaire": "Le CCAP n'est pas fourni dans les pièces analysées. Aucune information sur la révision des prix n'est présente dans le RC fourni."
+  },
+  "alertes_prix": [
+    "Pas de montant minimum : l'accord-cadre peut théoriquement être exécuté à zéro bon de commande — risque de sous-utilisation à prendre en compte dans le chiffrage des coûts fixes.",
+    "Le critère prix est noté sur 30 points (30%) sur la base du DQE : la comparaison est directement proportionnelle à l'offre la moins-disante (formule MO/M×30), favorisant fortement le candidat le moins cher.",
+    "Les prix unitaires du BPU servent de prix plafonds (BPP) : tout dépassement des prix plafonds est interdit, contraignant la marge de manœuvre à la hausse en cours d'exécution.",
+    "Durée de 4 ans avec des prix potentiellement figés en l'absence de révision confirmée : risque inflation sur matériels, carburants et personnel si aucune clause de révision n'est prévue au CCAP."
+  ],
+  "references_exigees": {
+    "experience_minimale_annees": null,
+    "experience_source": null,
+    "volume_min_references_similaires": null,
+    "volume_min_references_unite": "marchés similaires",
+    "secteur_experience": "Prestations similaires de contrôle/inspection de réseaux d'assainissement (ITV, essais d'étanchéité, diagnostics génie civil sur réseaux visitables et non-visitables)",
+    "secteur_source": "RC §8.1.1 point 10",
+    "certifications_obligatoires": [
+      {
+        "libelle": "AIPR — Autorisation d'Intervention à Proximité des Réseaux (obligatoire pour tous les lots)",
+        "source": "RC §8.1.1 point 11"
+      },
+      {
+        "libelle": "CATEC — Certification d'Aptitude à Travailler En espaces Confinés, ou équivalent (obligatoire pour le Lot 2 uniquement)",
+        "source": "RC §8.1.1 point 12"
+      }
+    ],
+    "autres_exigences": [
+      {
+        "libelle": "Déclaration de chiffre d'affaires global et du domaine d'activité sur les 3 derniers exercices",
+        "source": "RC §8.1.1 point 4"
+      },
+      {
+        "libelle": "Déclaration appropriée de banques ou preuve d'une assurance professionnelle en cours de validité",
+        "source": "RC §8.1.1 point 5"
+      },
+      {
+        "libelle": "Description de l'outillage, du matériel et de l'équipement technique disponible pour l'exécution du marché",
+        "source": "RC §8.1.1 point 8"
+      },
+      {
+        "libelle": "Indication des effectifs moyens annuels et du personnel d'encadrement sur les 3 dernières années",
+        "source": "RC §8.1.1 point 7"
+      }
+    ]
+  },
+  "lots": [
+    {
+      "numero": 1,
+      "intitule": "Etudes de diagnostics préalables et de réception sur les réseaux non-visitables",
+      "zone_geographique": "Territoire d'HYDREAULYS (Versailles et communes du syndicat, Yvelines - IDF)",
+      "volume_estime": 600000,
+      "volume_estime_unite": "€ HT (plafond accord-cadre 4 ans)",
+      "particularites": "Prestations d'inspection télévisuelle (ITV) des réseaux non-visitables et branchements, essais d'étanchéité, essais de compactage, essais de flexion sur gaine. AIPR obligatoire. Pas de CATEC exigé pour ce lot."
+    },
+    {
+      "numero": 2,
+      "intitule": "Etudes de diagnostics préalables et de réception sur les réseaux visitables",
+      "zone_geographique": "Territoire d'HYDREAULYS (Versailles et communes du syndicat, Yvelines - IDF)",
+      "volume_estime": 900000,
+      "volume_estime_unite": "€ HT (plafond accord-cadre 4 ans)",
+      "particularites": "Prestations d'inspection et diagnostic génie civil des réseaux visitables. CATEC (certification espaces confinés) obligatoire en plus de l'AIPR. Inclut les essais de convenance en cours de travaux et le suivi des non-conformités. Sous-critère spécifique : fourniture d'un exemple de rapport de diagnostic génie civil réel."
+    }
+  ],
+  "calendrier": {
+    "date_limite_offres": "2026-07-10",
+    "date_demarrage_prevue": null,
+    "duree_marche": "1 an reconductible 3 fois, soit 4 ans maximum"
+  },
+  "alertes_candidat": [
+    "CATEC (ou équivalent) obligatoire pour le Lot 2 : sans cette certification pour les personnels d'intervention, la candidature est irrecevable pour ce lot — vérifier que l'ensemble des opérateurs dédiés sont bien certifiés.",
+    "AIPR obligatoire pour tous les lots : à justifier pour l'ensemble du personnel amené à intervenir à proximité des réseaux.",
+    "Le mémoire technique est limité à 40 pages (hors annexes) avec des règles de mise en forme strictes (police Arial 10, marges 2,5 cm, interligne 1 minimum) : tout dépassement entraîne des pénalités sur la note technique (-2 à -10 points selon le dépassement).",
+    "Les annexes du mémoire technique sont limitées à 20 pages et doivent être explicitement référencées dans le corps du document — le rapport de diagnostic génie civil demandé (SC4 Lot 2) entre dans ce quota d'annexes.",
+    "Les noms de fichiers sont limités à 50 caractères (extension incluse) et ne peuvent contenir d'accents ni de caractères spéciaux : un fichier non conforme peut être déclaré irrecevable sans possibilité de régularisation.",
+    "Accord-cadre sans montant minimum : l'entreprise doit être en mesure d'absorber une période d'activité nulle sans risque financier — à intégrer dans la stratégie de réponse."
+  ],
+  "points_differenciants_attendus": [
+    {
+      "libelle": "Qualité de l'exemple de rapport de diagnostic génie civil fourni (Lot 2)",
+      "exemple": "Fournir un rapport réel anonymisé sur un collecteur visitable Île-de-France, illustrant au minimum 3 types de diagnostics du marché (état structurel béton, réseaux branchés, regards de visite), avec photos géolocalisées, classification des désordres et préconisations chiffrées.",
+      "source": "RC §8.2.3 — SC4 Lot 2"
+    },
+    {
+      "libelle": "Présence d'une équipe locale IDF et délais d'intervention courts",
+      "exemple": "Un candidat disposant d'une base opérationnelle en Île-de-France peut proposer des délais d'intervention de 48h à 5 jours contre 7-10 jours pour un concurrent national, ce qui valorise le SC6/SC8 sur la cohérence des délais.",
+      "source": "RC §8.2.3 — SC6 (Lot 1) et SC8 (Lot 2)"
+    },
+    {
+      "libelle": "Références récentes et nombreuses sur des réseaux d'assainissement en milieu urbain dense",
+      "exemple": "Présenter des références de missions similaires réalisées pour des syndicats d'assainissement ou collectivités IDF (Val-de-Marne, Hauts-de-Seine, Yvelines) avec montants et contacts destinataires, renforce la crédibilité technique et financière du dossier.",
+      "source": "RC §8.1.1 point 10"
+    },
+    {
+      "libelle": "Démarche environnementale documentée et moyens matériels bas-carbone",
+      "exemple": "Mettre en avant une flotte de véhicules hybrides/électriques, une certification ISO 14001, et des procédures de gestion des effluents d'essais sur réseaux permet de maximiser les 5 points du critère environnemental, souvent négligé par les concurrents.",
+      "source": "RC §8.2.3 — Critère performance environnementale"
+    },
+    {
+      "libelle": "Méthodologie de diagnostic génie civil structurée et différenciée selon les pathologies (Lot 2)",
+      "exemple": "Détailler une grille d'évaluation propriétaire classifiant les désordres structurels (fissuration, corrosion, déformations) selon une cotation urgence/impact sur 4 niveaux, avec référencement aux normes NF EN 13508-2 et aux guides ASTEE, positionne fortement sur le SC3 Lot 2 noté sur 15 points.",
+      "source": "RC §8.2.3 — SC3 Lot 2"
+    }
+  ],
+  "_meta": {
+    "id_marche": "BOAMP-26-56463",
+    "type": "complet",
+    "extraction_le": "2026-06-12T13:29:37.618574+00:00",
+    "modele": "claude-sonnet-4-6",
+    "tokens_input": 25506,
+    "tokens_output": 9974,
+    "cout_eur": 0.2148,
+    "duree_sec": 165.5,
+    "pdfs_traites": [
+      {
+        "nom": "Règlement de consultation.pdf",
+        "hash": "08d009771b15cf7564a9f25424501b5b",
+        "taille_chars": 47735
+      }
+    ]
+  }
+}

@@ -1,0 +1,224 @@
+{
+  "meta": {
+    "code": "formation",
+    "nom": "Formation publique — insertion, professionnelle, continue, apprentissage",
+    "etiquette_courte": "Formation",
+    "description": "Marchés publics de formation, accompagnement, insertion, apprentissage et développement professionnel pour tous les acheteurs publics : France Travail, Régions, Conseils départementaux, OPCO, ministères, collectivités, CNFPT, ARS, hôpitaux, bailleurs sociaux, etc.",
+    "version": 2,
+    "qualite": "stable",
+    "_notes": "Preset issu de l'élargissement de formation_ft (initialement calibré uniquement pour les marchés France Travail). À tester sur un marché formation hors-FT (ex: marché Région, OPCO ou CNFPT) avant de considérer la non-régression validée sur ce périmètre élargi."
+  },
+
+  "veille": {
+    "description": "Critères de filtrage des marchés captés (BOAMP, TED, PLACE)",
+    "mots_cles_inclusion": [
+      "formation", "formation professionnelle", "formation continue",
+      "insertion", "accompagnement", "bilan de compétences",
+      "remobilisation", "orientation", "reconversion", "VAE",
+      "apprentissage", "alternance", "tutorat", "mentorat",
+      "développement des compétences", "montée en compétences",
+      "qualification", "certification professionnelle",
+      "AFC", "AFPR", "POEC", "POEI",
+      "stagiaire", "bénéficiaire", "apprenant", "apprenti",
+      "demandeur d'emploi", "demandeurs d'emploi",
+      "agent public", "fonctionnaire", "salarié",
+      "ingénierie pédagogique", "ingénierie de formation"
+    ],
+    "mots_cles_exclusion": [
+      "matériel pédagogique uniquement",
+      "fourniture de livres scolaires",
+      "mobilier scolaire",
+      "véhicule de transport scolaire"
+    ],
+    "cpv_inclusion": [
+      "80*",
+      "85*"
+    ],
+    "acheteurs_prioritaires": [
+      "France Travail",
+      "Pôle Emploi",
+      "Cap Emploi",
+      "Mission Locale",
+      "Conseil régional",
+      "Région",
+      "Conseil départemental",
+      "Département",
+      "OPCO",
+      "AFDAS", "Atlas", "Akto", "Constructys", "Mobilités", "Opcommerce", "OCAPIAT", "Uniformation", "Santé",
+      "CNFPT",
+      "Pôle emploi services",
+      "Ministère",
+      "ARS",
+      "Hôpital",
+      "CHU",
+      "Bailleur social",
+      "Métropole",
+      "Communauté d'agglomération"
+    ],
+    "acheteurs_exclus": []
+  },
+
+  "vocabulaire_llm": {
+    "description": "Termes injectés dans les prompts LLM pour calibrer le ton, le vocabulaire et le cadre métier.",
+    "secteur_libelle": "marchés de formation, d'apprentissage, d'accompagnement et d'insertion (tous acheteurs publics : France Travail, Régions, Départements, OPCO, ministères, collectivités, CNFPT, hôpitaux…)",
+    "type_pieces_dce_typiques": "d'un Règlement de Consultation (RC) et d'un Cahier des Clauses Techniques Particulières (CCTP)",
+    "type_repondant": "organisme de formation",
+    "unite_principale_facturation": "bénéficiaire / stagiaire / apprenant / apprenti / agent / session / journée",
+    "references_attendues": "références de marchés similaires (formation, insertion, accompagnement, apprentissage) auprès d'acheteurs publics",
+    "alertes_typiques": [
+      "certification Qualiopi requise",
+      "éligibilité CPF",
+      "habilitation acheteur (France Travail, OPCO, ministère, Région…)",
+      "CA minimum sur les 3 derniers exercices",
+      "qualifications minimales des intervenants (BAC+2/3/5)",
+      "expérience minimale auprès du public visé",
+      "implantation locale exigée",
+      "visite obligatoire du site",
+      "engagements de reporting et bilans"
+    ],
+    "exemples_synthese": [
+      "Marché d'accompagnement renforcé de 140 demandeurs d'emploi seniors sur 18 mois, en présentiel à Bordeaux.",
+      "Marché de formations qualifiantes aux métiers du numérique pour 80 apprenants par an, en présentiel et distanciel, sur 3 ans, porté par le Conseil régional Occitanie."
+    ]
+  },
+
+  "prompt_extraction": {
+    "description": "Sections du schéma JSON de sortie spécifiques au secteur formation. Injectées dans le PROMPT_UTILISATEUR_TEMPLATE générique de llm_extract.py.",
+    "bloc_schema_specifique": "  \"publics_cibles\": {\n    \"description\": \"Description précise du public visé (demandeurs d'emploi seniors, cadres en reconversion, NEET, apprentis, salariés en évolution, agents publics, etc.)\",\n    \"criteres_eligibilite\": [\n      {\n        \"libelle\": \"Texte du critère d'éligibilité, recopié ou reformulé fidèlement\",\n        \"source\": \"Référence courte vers le document du DCE : 'CCTP §2.1', 'RC art 4.2', 'CCAP article 5'. Si tu ne peux pas localiser précisément, mets le document seul : 'CCTP'. Si vraiment impossible, mets null.\"\n      }\n    ],\n    \"publics_specifiques_signales\": [\"RQTH\", \"BRSA\", \"ZRR\", \"QPV\", \"alternants\", \"primo-arrivants\", etc.]\n  },\n  \"volumes\": {\n    \"nb_beneficiaires_total\": null,\n    \"nb_beneficiaires_par_lot\": null,\n    \"duree_par_parcours_heures\": null,\n    \"duree_par_parcours_semaines\": null,\n    \"duree_marche_mois\": null,\n    \"commentaire_volumes\": \"Texte libre si volumes complexes\"\n  },\n  \"modalites\": {\n    \"presentiel_obligatoire\": null,\n    \"distanciel_possible\": null,\n    \"synchrone_asynchrone\": \"ex: 'présentiel obligatoire' ou 'mix'\",\n    \"sites_execution\": [\"villes/départements/régions de réalisation\"],\n    \"amplitude_horaire\": \"ex: 'lundi-vendredi 9h-17h'\"\n  }",
+    "regles_specifiques": "",
+    "exemples_elements_a_chiffrer": "\"Ex: 'Prix unitaire / bénéficiaire'\",\n        \"Ex: 'Forfait journée formation'\",\n        \"Ex: 'Frais annexes (déplacement, location salle, supports)'\"",
+    "hints_calcul_montant": "Mots-clés : \"prix unitaire\", \"tarif par bénéficiaire\", \"coût par parcours\", \"forfait par stagiaire\", \"coût par apprenant\". Si trouvé ET que tu as un nombre de bénéficiaires plausible → CALCULE : `valeur_estimee_euros = nb_beneficiaires_total × prix_unitaire` et mets `type: \"calcule_volumes\"`. Dans `commentaire`, EXPLIQUE le calcul (ex: \"140 bénéficiaires × 1 500 €/parcours = 210 000 €\")."
+  },
+
+  "calibration_llm": {
+    "description": "Barèmes utilisés par la passe LLM de calibration pour estimer le prix bottom-up.",
+    "baremes_horaires_eur": {
+      "sans_qualification_specifique": [25, 40],
+      "bac2_experience_confirmee": [35, 50],
+      "bac3_ou_5_experience": [45, 65],
+      "expert_specialisation_pointue": [60, 90],
+      "medecin_psychologue_doctoral": [80, 120]
+    },
+    "coefficients_complexite_public": {
+      "public_standard": 1.0,
+      "public_fragile": [1.15, 1.30],
+      "public_allophone_illettrisme_qpv": [1.10, 1.25],
+      "public_cumul_fragilites": [1.30, 1.50]
+    },
+    "couts_logistique_par_session_eur": {
+      "salle_supports_materiel": [300, 800],
+      "coordination_reporting": [200, 500]
+    },
+    "marge_prestataire_pct": [15, 25],
+    "unites_typiques": ["bénéficiaire", "stagiaire", "apprenant", "apprenti", "session", "journée", "heure"]
+  },
+
+  "prompt_calibration": {
+    "description": "Sections du prompt LLM de calibration spécifiques au secteur formation. Injectées dans llm_calibration.py.",
+    "secteur_libelle_court": "Formation",
+    "section_qualification_intervenants": "a. **Qualification des intervenants exigée** (très important — c'est le driver principal du coût horaire) :\n   - Sans qualification spécifique / niveau bac : coût horaire chargé typique 25-40 €/h\n   - BAC+2 ou expérience confirmée : 35-50 €/h\n   - BAC+3 ou BAC+5 + expérience : 45-65 €/h\n   - Expert / spécialisation pointue / formateur senior : 60-90 €/h\n   - Médecin / psychologue / niveau doctoral : 80-120 €/h\n   (ces fourchettes incluent : salaire chargé, frais de structure, marge usuelle prestataire)",
+    "section_duree_effective": "b. **Durée effective par bénéficiaire** : du DCE, extraire le nombre d'heures\n   d'accompagnement direct (face-à-face) par bénéficiaire / apprenant / agent.\n   Si exprimé en jours ouvrés, multiplier par 6-7h ; si exprimé en mois calendaires,\n   c'est souvent 4-15h effectives par mois (les 30 jours ne sont pas tous travaillés).\n   Soyez prudent : `90 jours de parcours` ne veut PAS dire 90 jours × 7h.",
+    "section_coefficient_complexite": "c. **Coefficient de complexité** selon le public :\n   - Public standard (salariés en formation continue, demandeurs d'emploi standards, agents publics) : ×1.0\n   - Public fragile (handicap, addictions, longue durée chômage > 24 mois) : ×1.15-1.30\n   - Public allophone, illettrisme, QPV : ×1.10-1.25\n   - Public très spécifique (cumul fragilités) : ×1.30-1.50",
+    "section_re_pricing": "ÉTAPE 1bis — **RE-PRICING si l'unité du marché n'est pas le bénéficiaire**\n\nQuand le BPU facture **par session, par journée ou par lot** (et non par bénéficiaire),\nNE PAS multiplier naïvement le prix/bénéficiaire par le nombre de personnes par session.\nCela double-compte les coûts mutualisés (logistique, encadrement collectif, salle,\ncoordination avec l'acheteur) qui sont déjà inclus dans le taux horaire chargé.\n\nDécomposer EXPLICITEMENT le coût d'une session ainsi :\n\n- **Coûts fixes par session** (mutualisés, indépendants du nombre de bénéficiaires) :\n  - Encadrement collectif : nb_heures_phases_collectives × coût_horaire\n    (ex: animation de groupe, ateliers thématiques, conférences)\n  - Logistique : salle + supports + matériel ≈ 300-800 €/session selon ampleur\n  - Coordination & reporting (réunions avec l'acheteur, bilans) ≈ 200-500 €/session\n- **Coûts variables par bénéficiaire** (linéaires) :\n  - Suivi individuel : nb_heures_individuelles × coût_horaire\n    (ex: entretiens 1-to-1, plans d'action personnalisés)\n  - Hors-temps face-à-face : préparation, compte-rendus ≈ 20-30% des heures FtF\n\n**Formule par session = coûts_fixes + (nb_bénéficiaires × coût_variable_par_bénéf)**\n\nExemple concret pour une session de 10 bénéficiaires (formation collective d'insertion seniors,\nintervenant BAC+3 à 50 €/h, coef complexité 1.10) :\n- Phases collectives = 12h × 50 € × 1.10 = 660 €\n- Logistique = 500 €\n- Coordination = 300 €\n- → Coûts fixes par session = 1 460 €\n- Suivi individuel par bénéficiaire = 8h × 50 € × 1.10 = 440 €\n- → Coût total session 10 bénéf = 1 460 + 10 × 440 = 5 860 €\n- Avec marge prestataire 15-25% : **6 740 € – 7 325 € par session**\n- Ramené au bénéficiaire : 674 € – 733 €/bénéf\n\nCette décomposition DOIT figurer dans `bottom_up.calcul` du JSON de sortie.\nPas d'atterrissage \"revu à la baisse de X à Y\" sans justification mathématique.",
+    "section_top_down": "ÉTAPE 1 — **ESTIMATION TOP-DOWN sur comparables DECP**\n\nPour chaque comparable :\n- Si le brief indique le `nb_beneficiaires_total` du comparable explicitement → utilise-le\n- Sinon, ne pas reconstituer un volume arbitraire pour atterrir sur ton chiffre cible.\n  Exclus ce comparable du calcul top-down et mentionne-le dans `comparables_exclus`.\n- Calcul : `prix_unitaire_observé = montant / nb_bénéficiaires`\n\n**INTERDIT** : ajuster les volumes des comparables (en estimant un \"rythme de\nbénéficiaires annuel typique\" ou autre) pour que le résultat tombe sur les\nordres de grandeur du bottom-up. C'est un raisonnement circulaire qui invalide\ntoute la calibration. Si tu n'as pas le volume, dis-le et exclus le comparable."
+  },
+
+  "matching": {
+    "description": "Règles d'évaluation automatique des alertes (matching_exigences).",
+    "alertes_critiques": [
+      {
+        "cle": "qualiopi",
+        "libelle_court": "Certification Qualiopi",
+        "type": "contains_in_profil_bool",
+        "profil_attr": "certifications.qualiopi_actions_formation"
+      },
+      {
+        "cle": "ca_minimum",
+        "libelle_court": "CA minimum exigé",
+        "type": "comparison_numerique",
+        "operateur": ">=",
+        "profil_attr": "capacite.ca_annuel_eur"
+      },
+      {
+        "cle": "zone_intervention",
+        "libelle_court": "Zone d'intervention couverte",
+        "type": "contains_in_profil_list",
+        "profil_attr": "zones_intervention"
+      }
+    ],
+    "acheteur_vers_zone": {
+      "description": "Mapping nom d'acheteur → code de région administrative. Les codes (IDF, NAQ, OCC...) sont une convention maison cohérente avec les anciennes directions régionales France Travail, pour ne pas casser les profils existants.",
+      "regles": [
+        { "indice": "auvergne", "code": "ARA" },
+        { "indice": "rhone alpes", "code": "ARA" },
+        { "indice": "rhône-alpes", "code": "ARA" },
+        { "indice": " ara", "code": "ARA" },
+        { "indice": "bourgogne", "code": "BFC" },
+        { "indice": "franche-comte", "code": "BFC" },
+        { "indice": "franche comté", "code": "BFC" },
+        { "indice": "bretagne", "code": "BRE" },
+        { "indice": "centre-val", "code": "CVL" },
+        { "indice": "centre val", "code": "CVL" },
+        { "indice": " cvl", "code": "CVL" },
+        { "indice": "corse", "code": "COR" },
+        { "indice": "grand est", "code": "GES" },
+        { "indice": "hauts-de-france", "code": "HDF" },
+        { "indice": "hauts de france", "code": "HDF" },
+        { "indice": "npdc", "code": "HDF" },
+        { "indice": "picardie", "code": "HDF" },
+        { "indice": "ile-de-france", "code": "IDF" },
+        { "indice": "ile de france", "code": "IDF" },
+        { "indice": "île de france", "code": "IDF" },
+        { "indice": "idf", "code": "IDF" },
+        { "indice": "normandie", "code": "NOR" },
+        { "indice": "nouvelle-aquitaine", "code": "NAQ" },
+        { "indice": "nouvelle aquitaine", "code": "NAQ" },
+        { "indice": "alpc", "code": "NAQ" },
+        { "indice": "occitanie", "code": "OCC" },
+        { "indice": "pays de la loire", "code": "PDL" },
+        { "indice": "provence-alpes", "code": "PACA" },
+        { "indice": "provence alpes", "code": "PACA" },
+        { "indice": " paca", "code": "PACA" },
+        { "indice": "guadeloupe", "code": "GUA" },
+        { "indice": "martinique", "code": "MAR" },
+        { "indice": "guyane", "code": "GUY" },
+        { "indice": "la reunion", "code": "REU" },
+        { "indice": "la réunion", "code": "REU" },
+        { "indice": "mayotte", "code": "MAY" }
+      ],
+      "fallback_acheteur_central": {
+        "indices": [
+          "france travail", "pole emploi",
+          "ministère", "ministere",
+          "cnfpt",
+          "opco", "afdas", "atlas", "akto", "constructys", "ocapiat", "uniformation",
+          "ademe", "ofii", "ars", "ansm",
+          "education nationale", "éducation nationale"
+        ],
+        "code": "NAT"
+      }
+    },
+    "seuils_score": {
+      "tres_pertinent": 75,
+      "pertinent": 50,
+      "a_verifier": 20
+    }
+  },
+
+  "taxonomie": {
+    "description": "Catégorisation utilisée pour la classification des marchés.",
+    "categories_metier": [
+      "insertion",
+      "formation_qualifiante",
+      "formation_continue",
+      "accompagnement",
+      "bilan_competences",
+      "remobilisation",
+      "orientation",
+      "VAE",
+      "apprentissage",
+      "alternance",
+      "developpement_professionnel"
+    ]
+  }
+}

@@ -1,0 +1,56 @@
+Tendia journal de sprints
+=========================
+
+Sprint 2 - nouvelle architecture (juin 2026)
+- Classification IA (taxonomie 56 domaines)
+- 4 nouveaux presets MVP : BTP, IT, Conseil, Ingenierie
+- Refactor analyse.py matching IA strict
+- Explorer UI (nouveau)
+- Backfill 421 marches classifies (1.93EUR)
+- Architecture mutualisee multi-clients
+
+Sprint 3 - SQLite kv_storage + budget LLM (juin 2026)
+- Rewrite stockage.py vers single-table kv_storage(collection, id, contenu_json)
+- API publique preservee (backward-compat charger/sauver/lire/ecrire)
+- Module budget.py avec config data/budget.json
+- llm_extract et llm_calibration wires sur budget
+- BOAMP/TED connectors avec filtre_acheteur
+- tendia_recup.py --large (CPV 45 + 50-99, sans filtre acheteur)
+
+Sprint 2bis - Anti-pollution multi-secteurs (12 juin 2026)
+- Sujet 1 : sync classif IA depuis sortie LLM dans tendia_extraire.py
+  Validation : 6 classifs re-evaluees en Phase 3c (dont 2 corrections majeures)
+- Sujet 2a : regle prompt anti-hallucination en tete RÈGLES IMPORTANTES
+- Sujet 2b : filtre code _filtrer_hallucinations(data, codes_presets)
+  Helper preset.blocs_sectoriels_pour_presets(codes)
+- Phase 3a : rendu MD preset-aware (plus de sections N/A)
+- Phase 3b : schemas IT 8->17, conseil 8->14, ingenierie 9->15 champs
+- Phase 3c : regen massive 18/23 briefs, cout ~3EUR, 0 pollution detectee
+
+Sprint A - Profil organisme socle + BTP (12 juin 2026)
+- _socle_profil_organisme.json (12 proprietes universelles)
+- presets/btp/_schema.json (9 proprietes BTP)
+- organisme.py refait (~460 lignes), backward compat legacy formation
+- init_profil.py refait (~175 lignes)
+- profil_btp_demo.json : EXEMPLE BTP SAS 75 ETP IDF+HDF
+- Validation cote Younes : 98% socle / 99% BTP
+
+Sprint B - Matching V2 multi-secteurs (12 juin 2026)
+- matching.py V2.1 (~770 lignes)
+- 4 motifs universels : preset_compatibilite, thematique, geographie, capacite
+- 6 evaluateurs sectoriels BTP (qualibat go/no-go, RGE, amiante, corps_metier
+  par tokens, types_ouvrages par tokens, capacite chantier)
+- Mapping departement->region 101 codes + ACHETEUR_VERS_DEPARTEMENT etendu
+  13 organismes nationaux IDF (OFPRA, CNAM, ministeres...)
+- Synergie +10 si preset+thematique+geo alignes
+- Stubs Sprint C pour ingenierie/conseil/it/EnR
+- Signature backward-compat evaluer(organisme, marche, brief, presets_marche)
+- 4 appelants patches (tendia_matcher, tendia_veille, tendia_ui, tendia_dce)
+- tester_matching.py (script demo --top N et --details ID)
+- 3 fixes critiques post V2 :
+  1. btp_qualibat robuste aux strings non-listes (LLM peut sortir texte libre)
+  2. acheteurs nationaux IDF reconnus pour la geo
+  3. corps_metier / types_ouvrages matchent par tokens partages
+- Validation in vivo : 422 marches profil BTP demo IDF
+  -> 1 tres_pertinent (57070), 2 pertinent (56539, 56378), 35 a_verifier (8.3%)
+  Premier passage 'pertinent' end-to-end sur base reelle Younes.

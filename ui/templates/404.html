@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}404 — Tendia{% endblock %}
+
+{% block content %}
+<div class="max-w-2xl mx-auto px-14 py-32">
+  <div class="text-center">
+    <div class="apt-display" style="font-size: 120px; line-height: 1; color: var(--apt-ink-5);">404</div>
+    <h1 class="apt-display-md mt-3 mb-4" style="font-size: 30px; color: var(--apt-ink);">
+      Page <span class="apt-italic" style="color: var(--apt-ink-3); font-weight: 400;">introuvable</span>
+    </h1>
+    <p class="apt-prose mb-10" style="color: var(--apt-ink-3);">
+      L'URL demandée n'existe pas ou plus.
+    </p>
+    <a href="/" class="apt-btn">
+      <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+      Retour au dashboard
+    </a>
+  </div>
+</div>
+{% endblock %}

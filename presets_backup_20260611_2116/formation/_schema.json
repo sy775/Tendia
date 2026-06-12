@@ -1,0 +1,121 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Profil organisme — secteur formation publique",
+  "description": "Schéma du profil pour un organisme de formation répondant à des marchés publics de formation, apprentissage, accompagnement et insertion auprès de tous types d'acheteurs publics (France Travail, Régions, Départements, OPCO, ministères, collectivités, CNFPT, hôpitaux…).",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Identifiant interne du profil (par défaut 'principal')"
+    },
+    "_preset": {
+      "type": "string",
+      "description": "Nom lisible du preset (ex: 'Insertion généraliste')"
+    },
+    "_description": {
+      "type": "string",
+      "description": "Description courte du positionnement de l'organisme"
+    },
+    "identite": {
+      "type": "object",
+      "description": "Identité légale de l'organisme",
+      "properties": {
+        "nom": { "type": "string" },
+        "siren": { "type": "string" },
+        "forme_juridique": { "type": "string" },
+        "annee_creation": { "type": ["integer", "null"] },
+        "effectif_total": { "type": ["integer", "null"] },
+        "siege_ville": { "type": "string" },
+        "siege_code_postal": { "type": "string" },
+        "site_web": { "type": "string" }
+      },
+      "required": ["nom"]
+    },
+    "certifications": {
+      "type": "object",
+      "description": "Certifications du secteur formation",
+      "properties": {
+        "qualiopi_actions_formation": { "type": "boolean" },
+        "qualiopi_apprentissage": { "type": "boolean" },
+        "qualiopi_bilans": { "type": "boolean" },
+        "qualiopi_vae": { "type": "boolean" },
+        "cpf_eligible": { "type": "boolean" },
+        "datadock": { "type": "boolean", "description": "Référencement Datadock (historique, encore exigé par certains acheteurs)" },
+        "iso_9001": { "type": "boolean" },
+        "autres": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Labels et certifications sectorielles ou de qualité supplémentaires (ex: 'OPQF', 'Cnefop', 'Eduform', 'NF Service Formation')"
+        }
+      }
+    },
+    "zones_intervention": {
+      "type": "array",
+      "description": "Codes des régions administratives couvertes par l'organisme. Convention maison (cohérente avec les anciens codes DR France Travail) : ARA, BFC, BRE, CVL, COR, GES, HDF, IDF, NOR, NAQ, OCC, PDL, PACA, GUA, MAR, GUY, REU, MAY. Plus 'NAT' pour intervention sur tout le territoire national (marchés ministères/OPCO/CNFPT).",
+      "items": {
+        "type": "string",
+        "enum": ["ARA", "BFC", "BRE", "CVL", "COR", "GES", "HDF", "IDF", "NOR", "NAQ", "OCC", "PDL", "PACA", "GUA", "MAR", "GUY", "REU", "MAY", "NAT"]
+      }
+    },
+    "thematiques_metiers": {
+      "type": "array",
+      "description": "Thématiques métiers maîtrisées (taxonomie libre)",
+      "items": { "type": "string" }
+    },
+    "publics_cibles": {
+      "type": "array",
+      "description": "Publics cibles habituels (taxonomie libre, valeurs typiques : demandeurs_emploi_reconversion, demandeurs_emploi_jeunes, seniors, brsa, salaries_cpf, salaries_continue, apprentis, alternants, cadres, primo_arrivants, agents_publics, etc.)",
+      "items": { "type": "string" }
+    },
+    "prestations_maitrisees": {
+      "type": "array",
+      "description": "Types de prestations maîtrisées (taxonomie libre, valeurs typiques : AFC, AFPR, POEC, POEI, Bilan_competences, VAE, formation_diplomante, formation_certifiante, formation_qualifiante, apprentissage, alternance, formation_continue, accompagnement, ingenierie_pedagogique, MILE)",
+      "items": { "type": "string" }
+    },
+    "modalites_pedagogiques": {
+      "type": "array",
+      "description": "Modalités pédagogiques maîtrisées",
+      "items": {
+        "type": "string",
+        "enum": ["presentiel", "distanciel", "mixte", "apprentissage"]
+      }
+    },
+    "capacite": {
+      "type": "object",
+      "description": "Volumétrie annuelle de production",
+      "properties": {
+        "stagiaires_par_an": { "type": ["integer", "null"] },
+        "apprenants_par_an": { "type": ["integer", "null"] },
+        "heures_facturables_par_an": { "type": ["integer", "null"] },
+        "ca_annuel_eur": { "type": ["integer", "null"] }
+      }
+    },
+    "economie": {
+      "type": "object",
+      "description": "Stratégie économique pour le calcul du prix cible",
+      "properties": {
+        "strategie_prix": {
+          "type": "string",
+          "enum": ["competitif", "median", "haut_de_gamme"],
+          "description": "Positionnement vis-à-vis du prix de référence DECP"
+        }
+      }
+    },
+    "mots_cles_catalogue": {
+      "type": "array",
+      "description": "Mots-clés utilisés par le matcheur textuel (matching.py)",
+      "items": { "type": "string" }
+    },
+    "references_marches": {
+      "type": "array",
+      "description": "Historique des marchés gagnés (pour calibration LLM)",
+      "items": { "type": "object" }
+    },
+    "auto_reponses_exigences": {
+      "type": "object",
+      "description": "Réponses pré-renseignées aux alertes/exigences récurrentes (clé = signature de l'alerte, valeur = 'oui'/'non'/'partiel')",
+      "additionalProperties": { "type": "string" }
+    }
+  },
+  "required": ["id", "identite"]
+}

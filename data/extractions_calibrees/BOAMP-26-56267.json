@@ -1,0 +1,61 @@
+{
+  "prix_unitaire_estime": {
+    "unite": "prestation unitaire (prélèvement/analyse eau ou qualification zone à environnement maîtrisé)",
+    "mediane_eur": 420,
+    "min_eur": 180,
+    "max_eur": 850,
+    "methode_fourchette": "Bottom-up seul (pas de comparables DECP)",
+    "bottom_up": {
+      "qualification_intervenants": "Technicien accrédité COFRAC, secteur laboratoire/hygiène hospitalière, niveau BAC+2 à BAC+3 avec expérience documentée en milieu hospitalier. Exigence d'accréditation COFRAC multi-portées = contrainte forte sur le profil et le coût. Coût horaire chargé retenu : 45-65 €/h (fourchette BAC+3 + spécialisation sectorielle). La marge prestataire et les frais de structure (laboratoire accrédité, équipements métrologie, gestion COFRAC) sont inclus dans ce taux.",
+      "cout_horaire_retenu_eur": "45 €/h (borne basse, technicien terrain) — 65 €/h (borne haute, expert laboratoire accrédité)",
+      "heures_effectives_par_unite": "Variable selon le type de prestation. Lot 1 — prélèvement eau (potabilité/légionelle/AEP) : déplacement + prélèvement + conditionnement + analyse laboratoire + rapport = 2h à 4h par point de prélèvement. Lot 2 — qualification zone à environnement maîtrisé (salle propre) : préparation + intervention terrain (comptage particulaire, contrôle pression différentielle, prélèvements microbiologiques) + rapport qualificatif = 4h à 10h par zone selon superficie et criticité.",
+      "coef_complexite": "1.20 à 1.35 — contexte hospitalier en activité continue, contraintes d'accès zones stériles, protocoles stricts, responsabilité réglementaire forte (légionellose, conformité salles propres), accréditation COFRAC obligatoire. Public 'destinataire' = établissements de soins à risque élevé → coefficient de contrainte opérationnelle élevé.",
+      "calcul": "--- LOT 1 : Contrôle eau (prélèvement + analyse + rapport) ---\nHypothèse basse : 2h × 45 €/h × 1.20 = 108 €/prestation → + frais analytiques laboratoire (réactifs, consommables accrédités) ≈ 60-90 € → TOTAL bas Lot 1 = 168-198 €, retenu 180 €\nHypothèse haute : 4h × 65 €/h × 1.35 = 351 € → + frais analytiques ≈ 100-150 € → TOTAL haut Lot 1 = 451-501 €, retenu 480 €\nMédiane Lot 1 ≈ 300 €/prestation\n\n--- LOT 2 : Qualification zone à environnement maîtrisé ---\nHypothèse basse : 4h × 45 €/h × 1.25 = 225 € → + frais analytiques/équipements qualification ≈ 120-150 € → TOTAL bas Lot 2 = 345-375 €, retenu 360 €\nHypothèse haute : 10h × 65 €/h × 1.35 = 877,50 € → + frais équipements/rapport qualificatif ≈ 200-250 € → TOTAL haut Lot 2 = 1 077-1 127 €, retenu 1 100 €\nMédiane Lot 2 ≈ 700 €/zone qualifiée\n\n--- MÉDIANE GLOBALE (mixte Lot 1 + Lot 2) ---\nEn pondérant 60% Lot 1 (volume prélèvements élevé) + 40% Lot 2 :\nMédiane mixte = 0.60 × 300 + 0.40 × 700 = 180 + 280 = 460 €\nArrondi retenu : 420 € (légèrement conservateur pour tenir compte du poids du Lot 1 plus léger en valeur unitaire)\nBorne basse globale : 180 € (prélèvement eau simple)\nBorne haute globale : 850 € (zone salle propre complexe, rapport qualificatif COFRAC complet)",
+      "fourchette_eur": "180 – 850 € selon type de prestation (prélèvement eau simple à qualification salle propre)"
+    },
+    "unit_repricing": {
+      "_commentaire": "L'unité du BPU est la prestation unitaire (prélèvement/analyse ou qualification de zone), pas un 'bénéficiaire apprenant'. Le re-pricing est effectué par décomposition coût direct par intervention, ce qui est cohérent avec la nature du marché (contrôle environnemental). Aucune mutualisation pédagogique collective à appliquer. La décomposition coût fixe/variable est intégrée dans la ligne 'calcul' du bottom-up.",
+      "unite_marche": "Prestation unitaire : prélèvement+analyse (Lot 1) ou qualification de zone (Lot 2)",
+      "couts_fixes_par_session_eur": {
+        "deplacement_et_mobilisation": "80-150 € par visite site (mutualisation possible si multi-prélèvements sur un même site)",
+        "frais_dossier_et_reporting_COFRAC": "50-120 € par rapport qualificatif",
+        "coordination_acheteur_GHT": "30-80 € par bon de commande (planification, traçabilité numérique)"
+      },
+      "cout_variable_par_unite_eur": 300,
+      "calcul_session_type": "Pour une visite type Lot 1 sur site hospitalier avec 5 points de prélèvement : mobilisation/déplacement 120 € + 5 × (2h × 50 € × 1.25 + 75 € analytique) = 120 + 5 × 200 = 120 + 1 000 = 1 120 € pour 5 prélèvements, soit 224 €/prélèvement. Pour une visite Lot 2 qualification d'une salle propre : mobilisation 150 € + intervention 7h × 55 € × 1.30 + rapport 200 € = 150 + 500,5 + 200 = 850 € par zone.",
+      "fourchette_session_eur": "200 – 1 100 € selon type et complexité de la prestation unitaire"
+    },
+    "top_down": null,
+    "triangulation": "Bottom-up seul — pas de top-down possible sans comparables DECP en base. La validation par triangulation sera possible quand DECP sera ingéré. À titre de vérification de cohérence interne : le plafond contractuel de 360 000 € HT par lot sur 48 mois implique, si l'on retient ~850 bons de commande annuels en année pleine, un prix moyen de ~424 €/prestation, ce qui est cohérent avec la médiane bottom-up calculée (420 €).",
+    "hypotheses": "L'estimation repose sur un coût horaire de technicien COFRAC accrédité de 45-65 €/h intégrant frais de structure laboratoire, et sur un volume de prestations estimé à partir du plafond contractuel. La décomposition distingue les prélèvements eau (Lot 1, unités légères) des qualifications de zones à environnement maîtrisé (Lot 2, unités lourdes en temps et rapport).",
+    "ajustements_appliques": "Coefficient de contrainte hospitalière 1.20-1.35 appliqué pour tenir compte des protocoles d'accès zones stériles, des exigences documentaires COFRAC et de la responsabilité réglementaire (légionellose, conformité pharmaceutique). Frais analytiques laboratoire ajoutés au-dessus du coût horaire terrain car non inclus dans le taux horaire chargé standard.",
+    "confiance": "faible",
+    "limites": "1/ Aucun comparable DECP disponible — estimation 100% théorique, non validée par des attributions réelles sur ce segment. 2/ Le BPU du DCE n'est pas publié : la décomposition par type de prestation est hypothétique (on ignore la granularité exacte du bordereau Lot 1/Lot 2). 3/ Les volumes réels d'exécution sont inconnus (accord-cadre sans minimum garanti) — le taux de consommation du plafond peut varier de 20% à 100%. 4/ Le contexte régional (Toulouse/31) peut induire des surcoûts de déplacement inter-sites GHT non modélisés précisément."
+  },
+  "fourchette_marche_total_estimee": {
+    "min_eur": 144000,
+    "max_eur": 720000,
+    "calcul": "Plafond contractuel : 360 000 € HT/lot × 2 lots = 720 000 € HT total sur 48 mois. Scénarios construits sur le plafond total (720 000 €) avec des taux d'exécution différenciés, cohérents avec la pratique des accords-cadres sans minimum en milieu hospitalier.",
+    "scenarios": {
+      "bas": {
+        "montant_eur": 144000,
+        "hypothese": "Taux d'exécution 20% du plafond — cas conservateur : démarrage lent, établissements membres du GHT mobilisant peu les bons de commande en année 1, reconductions non systématiques. 720 000 € × 20% = 144 000 €."
+      },
+      "realiste": {
+        "montant_eur": 432000,
+        "hypothese": "Taux d'exécution 60% du plafond — cas médian observé sur les accords-cadres de contrôle environnemental hospitalier (activité récurrente mais volumes variables selon calendrier réglementaire et travaux). 720 000 € × 60% = 432 000 €."
+      },
+      "haut": {
+        "montant_eur": 720000,
+        "hypothese": "Taux d'exécution 100% — consommation intégrale du plafond sur 48 mois, correspondant au montant maximum contractuel (720 000 € HT). Cas possible si tous les établissements du GHT mobilisent pleinement les prestations et si les reconductions sont toutes effectuées."
+      }
+    }
+  },
+  "_mode_calibration": "bottom_up_seul",
+  "_meta": {
+    "date_calibration": "2026-06-11T17:18:07.537022+00:00",
+    "mode": "bottom_up_seul",
+    "n_comparables_utilises": 0,
+    "note": "Calibration dégradée — pas de comparables DECP en base. Relancer en mode 'triangule' quand DECP sera ingéré pour upgrade."
+  }
+}

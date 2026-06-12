@@ -1,0 +1,182 @@
+{
+  "meta": {
+    "code": "ingenierie",
+    "nom": "Ingénierie — Bureaux d'études, MOE, topographie",
+    "etiquette_courte": "Ingénierie",
+    "description": "Marchés publics d'ingénierie technique : bureaux d'études structure/génie civil, fluides/CVC, environnementale, maîtrise d'œuvre, topographie.",
+    "version": 1,
+    "qualite": "mvp",
+    "_notes": "Preset créé Sprint Sprint 2 pour cibler les bureaux d'études techniques. Bien distinct du preset BTP (qui couvre les travaux) et du preset Conseil (qui couvre la stratégie non technique)."
+  },
+  "veille": {
+    "description": "Critères de filtrage Ingénierie.",
+    "domaines_acceptes": [
+      "ingenierie_structure_genie_civil",
+      "ingenierie_fluides_climatique",
+      "ingenierie_environnementale",
+      "moe_architecte_urbanisme",
+      "topographie_geometre"
+    ],
+    "domaines_optionnels": [
+      "energie_amo_etudes",
+      "btp_renovation_rehabilitation"
+    ],
+    "mots_cles_inclusion": [
+      "maîtrise d'œuvre",
+      "MOE",
+      "bureau d'études",
+      "ingénierie",
+      "étude de structure",
+      "étude fluides",
+      "CVC",
+      "étude d'impact",
+      "diagnostic",
+      "géotechnique",
+      "topographie",
+      "géomètre",
+      "ICPE",
+      "Loi sur l'eau",
+      "OPC",
+      "ordonnancement pilotage coordination",
+      "SPS",
+      "coordination",
+      "concours d'architecte",
+      "urbanisme",
+      "PLU"
+    ],
+    "mots_cles_exclusion": [],
+    "cpv_inclusion": [
+      "71*"
+    ]
+  },
+  "vocabulaire_llm": {
+    "secteur_libelle": "marchés publics d'ingénierie technique (études structure/génie civil, fluides/CVC, environnementales, maîtrise d'œuvre, topographie/géomètre)",
+    "type_pieces_dce_typiques": "d'un Règlement de Consultation (RC), d'un programme MOE, d'un CCTP décrivant les phases d'études (ESQ/APS/APD/PRO/DCE/ACT/EXE/OPC/AOR), parfois d'études préalables",
+    "type_repondant": "bureau d'études techniques ou maître d'œuvre",
+    "unite_principale_facturation": "% du coût travaux / forfait par phase / livrable",
+    "references_attendues": "références d'études similaires (typologie d'ouvrage, montant travaux, complexité technique)",
+    "alertes_typiques": [
+      "qualifications OPQIBI",
+      "qualifications OPQCM",
+      "compétences expert (BIM, géotechnique, CVC, etc.)",
+      "équipe MOE pluridisciplinaire",
+      "garantie décennale ingénierie",
+      "assurance RC professionnelle"
+    ]
+  },
+  "prompt_extraction": {
+    "bloc_schema_specifique": "  \"caracteristiques_mission_moe\": {\n    \"typologie\": \"MOE complète, MOE partielle, BET structure, BET fluides, étude d'impact, AMO technique\",\n    \"phases_couvertes\": [\"ESQ\", \"APS\", \"APD\", \"PRO\", \"DCE\", \"ACT\", \"EXE\", \"OPC\", \"AOR\"],\n    \"typologie_ouvrage\": \"Type d'ouvrage projet (bâtiment public, ouvrage d'art, lotissement, etc.)\",\n    \"montant_travaux_estime\": null,\n    \"complexite_technique\": \"standard, complexe, expert\",\n    \"livrables_par_phase\": [\n      {\n        \"phase\": \"Ex: 'DIAG', 'ESQ', 'APS', 'APD', 'PRO', 'ACT', 'EXE', 'AOR'\",\n        \"livrables\": [\"Liste des livrables détaillés attendus pour cette phase\"]\n      }\n    ],\n    \"taux_remuneration_moe_pct\": \"Honoraires MOE en % du montant travaux (typique 8-15% selon complexité, peut atteindre 18-20% pour ouvrages d'art ou rénovation patrimoine). null si non précisé dans CCAP/RC.\",\n    \"indices_revision\": [\"BT01, FFB, IPC, ING — recopie les indices mentionnés dans CCAP pour la révision des prix\"],\n    \"coordinations_associees\": [\"Coordinations incluses ou exclues du marché : 'OPC inclus', 'SPS hors marché', 'SSI inclus', 'AMO PRO exclu'. Liste vide si non précisé.\"],\n    \"organigramme_attendu\": [\n      {\n        \"profil\": \"Ex: 'Chef de projet MOE', 'Ingénieur structures béton précontraint', 'Économiste construction', 'Dessinateur projeteur'\",\n        \"nombre\": null,\n        \"anciennete_min_annees\": null\n      }\n    ],\n    \"bim_niveau\": \"Niveau BIM attendu (ex: 'LOD 300', 'LOD 400 IFC', 'maturité niveau 2', 'BIM Management interne uniquement'). null si BIM non requis.\"\n  },\n  \"qualifications_moe\": {\n    \"opqibi\": [\"qualifications OPQIBI requises\"],\n    \"opqcm\": null,\n    \"bim\": null,\n    \"autres\": []\n  }",
+    "regles_specifiques": "- Distinguer MOE complète vs partielle (impact charge et marge).\n- Pour les concours d'architecte, repérer les indemnités prévues.\n- Pour les BET spécialisés, noter les compétences techniques précises (géotechnique, structure bois, CVC, etc.).",
+    "exemples_elements_a_chiffrer": "\"Ex: 'Pourcentage MOE sur coût travaux'\",\n        \"Ex: 'Forfait par phase d'études (ESQ, APS, APD, PRO)'\",\n        \"Ex: 'Coût des études préalables'\"",
+    "hints_calcul_montant": "Mots-clés : \"% du coût travaux\", \"taux de rémunération MOE\", \"forfait par phase\", \"indemnité concours\"."
+  },
+  "prompt_calibration": {
+    "secteur_libelle_court": "Ingénierie",
+    "section_qualification_intervenants": "a. **Profils ingénieurs** : ingénieur junior (BAC+5 + 1-3 ans), confirmé (5-10 ans), expert/senior (10+ ans), architecte HMONP, technicien BE.",
+    "section_duree_effective": "b. **Volume / charge d'études** : jours-études par phase MOE, ou % de rémunération sur coût travaux (typique 7-15%).",
+    "section_coefficient_complexite": "c. **Coefficient de complexité** :\n   - Ouvrage courant : ×1.0\n   - Ouvrage technique (ouvrage d'art, structure complexe) : ×1.3 - 1.5\n   - Bâtiment HQE / BIM exigé : ×1.15 - 1.30\n   - Réhabilitation patrimoine : ×1.25 - 1.45",
+    "section_re_pricing": "ÉTAPE 1bis — **MOE EN % DU COÛT TRAVAUX** : si la rémunération est en %, l'estimation = % × coût travaux estimé. Sinon décomposer par phase.",
+    "section_top_down": "ÉTAPE 1 — **ESTIMATION TOP-DOWN sur comparables DECP** : pour chaque comparable, calculer le taux MOE (montant attribué / coût travaux). Médiane du taux × coût travaux du nouveau marché = estimation."
+  },
+  "calibration_llm": {
+    "baremes_horaires_eur": {
+      "technicien_be": [
+        350,
+        500
+      ],
+      "ingenieur_junior": [
+        500,
+        700
+      ],
+      "ingenieur_confirme": [
+        700,
+        950
+      ],
+      "ingenieur_senior_expert": [
+        950,
+        1300
+      ],
+      "architecte_hmonp": [
+        700,
+        1000
+      ],
+      "directeur_etudes": [
+        1100,
+        1500
+      ]
+    },
+    "taux_moe_pct_indicatif": {
+      "_commentaire": "% du coût travaux, indicatif. Varie selon complexité et phases couvertes.",
+      "moe_complete_neuf_courant": [
+        9,
+        12
+      ],
+      "moe_complete_rehabilitation": [
+        11,
+        15
+      ],
+      "moe_complete_ouvrage_technique": [
+        12,
+        18
+      ],
+      "moe_partielle": [
+        4,
+        8
+      ]
+    },
+    "marge_prestataire_pct": [
+      15,
+      25
+    ],
+    "unites_typiques": [
+      "% travaux",
+      "jour-études",
+      "forfait par phase",
+      "livrable"
+    ]
+  },
+  "matching": {
+    "alertes_critiques": [
+      {
+        "cle": "opqibi",
+        "libelle_court": "Qualifications OPQIBI",
+        "type": "contains_in_profil_bool",
+        "profil_attr": "qualifications.opqibi"
+      },
+      {
+        "cle": "decennale_ingenierie",
+        "libelle_court": "Décennale ingénierie",
+        "type": "contains_in_profil_bool",
+        "profil_attr": "assurances.decennale_ingenierie"
+      },
+      {
+        "cle": "rc_professionnelle",
+        "libelle_court": "RC Professionnelle",
+        "type": "contains_in_profil_bool",
+        "profil_attr": "assurances.rc_pro"
+      },
+      {
+        "cle": "references_typologie",
+        "libelle_court": "Références sur typologie d'ouvrage",
+        "type": "references_minimum",
+        "profil_attr": "references.par_typologie_ouvrage"
+      }
+    ],
+    "seuils_score": {
+      "tres_pertinent": 75,
+      "pertinent": 50,
+      "a_verifier": 20
+    }
+  },
+  "taxonomie": {
+    "categories_metier": [
+      "moe_batiment",
+      "moe_ouvrages_arts",
+      "bet_structure",
+      "bet_fluides",
+      "ingenierie_environnementale",
+      "topographie",
+      "autre"
+    ]
+  }
+}

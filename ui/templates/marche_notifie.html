@@ -1,0 +1,201 @@
+{% extends "base.html" %}
+{% block title %}{{ m.titulaire_nom or 'Marché' }} · {{ m.objet[:50] if m.objet else m.reference_externe }} — DECP{% endblock %}
+
+{% block content %}
+<div style="max-width: 900px; margin: 0 auto; padding: 24px 20px;">
+
+  {# ---------- Fil d'ariane ---------- #}
+  <div style="margin-bottom: 16px; font-size: 12px; color: var(--apt-ink-4);">
+    <a href="{{ url_for('dashboard') }}" style="color: var(--apt-ink-4); text-decoration: none;">← retour dashboard</a>
+    <span style="margin: 0 6px;">·</span>
+    <span style="font-family: ui-monospace, monospace;">DECP · {{ m.reference_externe }}</span>
+  </div>
+
+  {# ---------- Header ---------- #}
+  <div style="background: var(--apt-pure); border: 1px solid var(--apt-line-2); border-radius: 12px; padding: 20px 24px; margin-bottom: 16px;">
+
+    <div style="display: flex; align-items: baseline; gap: 10px; margin-bottom: 6px; flex-wrap: wrap;">
+      <span style="background: var(--c-stone-soft); color: var(--apt-ink-3); font-size: 10.5px; font-weight: 700; padding: 3px 9px; border-radius: 999px; text-transform: uppercase; letter-spacing: 0.4px;">Marché notifié · DECP</span>
+      {% if m.categorie_metier and m.categorie_metier != 'autre' %}
+      <span style="background: var(--c-violet-soft); color: var(--c-violet); font-size: 10.5px; font-weight: 700; padding: 3px 9px; border-radius: 999px;">{{ m.categorie_metier }}</span>
+      {% endif %}
+      {% if m.titulaire_categorie %}
+      <span style="background: var(--apt-bg); color: var(--apt-ink-3); font-size: 10.5px; font-weight: 600; padding: 3px 9px; border-radius: 999px;">Titulaire {{ m.titulaire_categorie }}</span>
+      {% endif %}
+      {% if m.date_notification %}
+      <span style="font-size: 11px; color: var(--apt-ink-4); margin-left: auto;">Notifié le {{ m.date_notification }}</span>
+      {% endif %}
+    </div>
+
+    <h1 style="font-size: 18px; line-height: 1.4; color: var(--apt-ink); font-weight: 600; margin: 6px 0 0;">
+      {{ m.objet or '(Objet non communiqué)' }}
+    </h1>
+
+    {% if m.acheteur_nom %}
+    <p style="margin: 8px 0 0; font-size: 13px; color: var(--apt-ink-3);">
+      <span style="color: var(--apt-ink-4);">Acheteur · </span>
+      <span style="color: var(--apt-ink-2); font-weight: 500;">{{ m.acheteur_nom }}</span>
+      {% if m.acheteur_region_nom %}<span style="color: var(--apt-ink-4);"> · {{ m.acheteur_region_nom }}</span>{% endif %}
+      {% if m.acheteur_id %}<span style="color: var(--apt-ink-4); font-family: ui-monospace, monospace; font-size: 11px; margin-left: 6px;">SIRET {{ m.acheteur_id }}</span>{% endif %}
+    </p>
+    {% endif %}
+  </div>
+
+  {# ---------- Bandeau montant ---------- #}
+  {% if m.montant_eur %}
+  <div style="background: var(--c-green-soft); padding: 18px 24px; border-radius: 12px; border-left: 4px solid var(--c-green); margin-bottom: 16px; display: flex; align-items: baseline; gap: 18px; flex-wrap: wrap;">
+    <div>
+      <div style="font-size: 11px; color: var(--c-green-deep); font-weight: 700; text-transform: uppercase; letter-spacing: 0.4px;">Montant attribué</div>
+      <div style="font-size: 30px; font-weight: 700; color: var(--apt-ink); font-family: ui-monospace, monospace; margin-top: 2px;">{{ m.montant_eur | euro_short }}</div>
+    </div>
+    {% if m.duree_mois %}
+    <div>
+      <div style="font-size: 11px; color: var(--apt-ink-4); font-weight: 600;">Durée</div>
+      <div style="font-size: 16px; color: var(--apt-ink-2); font-weight: 700; margin-top: 4px;">{{ m.duree_mois }} mois</div>
+      {% if m.montant_eur and m.duree_mois %}
+      <div style="font-size: 10.5px; color: var(--apt-ink-4); margin-top: 2px;">~ {{ (m.montant_eur / m.duree_mois) | euro_short }} / mois</div>
+      {% endif %}
+    </div>
+    {% endif %}
+    {% if m.offres_recues %}
+    <div>
+      <div style="font-size: 11px; color: var(--apt-ink-4); font-weight: 600;">Offres reçues</div>
+      <div style="font-size: 16px; color: var(--apt-ink-2); font-weight: 700; margin-top: 4px;">{{ m.offres_recues }}</div>
+    </div>
+    {% endif %}
+    {% if m.forme_prix or m.types_prix %}
+    <div>
+      <div style="font-size: 11px; color: var(--apt-ink-4); font-weight: 600;">Prix</div>
+      <div style="font-size: 13px; color: var(--apt-ink-2); margin-top: 4px;">{{ m.forme_prix or m.types_prix }}</div>
+    </div>
+    {% endif %}
+  </div>
+  {% endif %}
+
+  {# ---------- Grille principale : 2 colonnes ---------- #}
+  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px;">
+
+    {# ---- Titulaire ---- #}
+    <div style="background: var(--apt-pure); border: 1px solid var(--apt-line-2); border-radius: 10px; padding: 14px 18px;">
+      <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 10px;">
+        <svg style="width: 12px; height: 12px; color: var(--c-violet);" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+        <h3 style="margin: 0; font-size: 11px; font-weight: 700; color: var(--apt-ink); text-transform: uppercase; letter-spacing: 0.5px;">Titulaire</h3>
+      </div>
+      {% if m.titulaire_nom %}
+      <p style="font-size: 14px; font-weight: 600; color: var(--apt-ink); margin: 0;">{{ m.titulaire_nom }}</p>
+      {% else %}
+      <p style="font-size: 13px; color: var(--apt-ink-4); font-style: italic; margin: 0;">non communiqué</p>
+      {% endif %}
+      <div style="margin-top: 8px; font-size: 11.5px; color: var(--apt-ink-3); line-height: 1.7;">
+        {% if m.titulaire_categorie %}<div><span style="color: var(--apt-ink-4);">Catégorie · </span><strong>{{ m.titulaire_categorie }}</strong></div>{% endif %}
+        {% if m.titulaire_siret %}<div><span style="color: var(--apt-ink-4);">SIRET · </span><span style="font-family: ui-monospace, monospace; font-size: 11px;">{{ m.titulaire_siret }}</span></div>{% endif %}
+        {% if m.titulaire_commune %}<div><span style="color: var(--apt-ink-4);">Localisation · </span>{{ m.titulaire_commune }}{% if m.titulaire_departement %} ({{ m.titulaire_departement }}){% endif %}{% if m.titulaire_region %} · {{ m.titulaire_region }}{% endif %}</div>{% endif %}
+      </div>
+      {% if m.co_titulaires_sirets %}
+      <div style="margin-top: 10px; padding-top: 8px; border-top: 1px dashed var(--apt-line-2); font-size: 11px; color: var(--apt-ink-3);">
+        <span style="color: var(--apt-ink-4); font-weight: 600;">Co-titulaires · </span>
+        {% for st in m.co_titulaires_sirets %}<span style="font-family: ui-monospace, monospace; margin-right: 6px;">{{ st }}</span>{% endfor %}
+      </div>
+      {% endif %}
+    </div>
+
+    {# ---- Acheteur ---- #}
+    <div style="background: var(--apt-pure); border: 1px solid var(--apt-line-2); border-radius: 10px; padding: 14px 18px;">
+      <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 10px;">
+        <svg style="width: 12px; height: 12px; color: var(--c-stone);" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+        <h3 style="margin: 0; font-size: 11px; font-weight: 700; color: var(--apt-ink); text-transform: uppercase; letter-spacing: 0.5px;">Acheteur</h3>
+      </div>
+      {% if m.acheteur_nom %}<p style="font-size: 14px; font-weight: 600; color: var(--apt-ink); margin: 0;">{{ m.acheteur_nom }}</p>{% endif %}
+      <div style="margin-top: 8px; font-size: 11.5px; color: var(--apt-ink-3); line-height: 1.7;">
+        {% if m.acheteur_id %}<div><span style="color: var(--apt-ink-4);">SIRET · </span><span style="font-family: ui-monospace, monospace; font-size: 11px;">{{ m.acheteur_id }}</span></div>{% endif %}
+        {% if m.acheteur_commune_nom %}<div><span style="color: var(--apt-ink-4);">Localisation · </span>{{ m.acheteur_commune_nom }}{% if m.acheteur_departement_nom %} ({{ m.acheteur_departement_nom }}){% endif %}{% if m.acheteur_region_nom %} · {{ m.acheteur_region_nom }}{% endif %}</div>{% endif %}
+        {% if m.lieu_execution %}<div><span style="color: var(--apt-ink-4);">Lieu d'exécution · </span>{{ m.lieu_execution }}{% if m.lieu_execution_type %} <span style="font-size: 10px; color: var(--apt-ink-4);">({{ m.lieu_execution_type }})</span>{% endif %}</div>{% endif %}
+      </div>
+    </div>
+  </div>
+
+  {# ---------- Détails marché ---------- #}
+  <div style="background: var(--apt-pure); border: 1px solid var(--apt-line-2); border-radius: 10px; padding: 14px 18px; margin-bottom: 16px;">
+    <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 12px;">
+      <svg style="width: 12px; height: 12px; color: var(--apt-ink-3);" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+      <h3 style="margin: 0; font-size: 11px; font-weight: 700; color: var(--apt-ink); text-transform: uppercase; letter-spacing: 0.5px;">Détails du marché</h3>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px 24px; font-size: 12px; color: var(--apt-ink-2); line-height: 1.7;">
+      {% if m.cpv_principal %}<div><span style="color: var(--apt-ink-4);">CPV · </span><span style="font-family: ui-monospace, monospace; font-size: 11.5px;">{{ m.cpv_principal }}</span></div>{% endif %}
+      {% if m.nature %}<div><span style="color: var(--apt-ink-4);">Nature · </span>{{ m.nature }}</div>{% endif %}
+      {% if m.type_marche %}<div><span style="color: var(--apt-ink-4);">Type · </span>{{ m.type_marche }}</div>{% endif %}
+      {% if m.procedure %}<div><span style="color: var(--apt-ink-4);">Procédure · </span>{{ m.procedure }}</div>{% endif %}
+      {% if m.modalites_execution %}<div><span style="color: var(--apt-ink-4);">Modalités · </span>{{ m.modalites_execution }}</div>{% endif %}
+      {% if m.ccag %}<div><span style="color: var(--apt-ink-4);">CCAG · </span>{{ m.ccag }}</div>{% endif %}
+      {% if m.id_accord_cadre %}<div><span style="color: var(--apt-ink-4);">Accord-cadre · </span><span style="font-family: ui-monospace, monospace; font-size: 11.5px;">{{ m.id_accord_cadre }}</span></div>{% endif %}
+      {% if m.type_groupement_operateurs %}<div><span style="color: var(--apt-ink-4);">Groupement · </span>{{ m.type_groupement_operateurs }}</div>{% endif %}
+      {% if m.date_publication_donnees %}<div><span style="color: var(--apt-ink-4);">Publié le · </span>{{ m.date_publication_donnees }}</div>{% endif %}
+      {% if m.duree_restante_mois is defined and m.duree_restante_mois is not none %}<div><span style="color: var(--apt-ink-4);">Reste · </span>{{ m.duree_restante_mois | round(1) }} mois</div>{% endif %}
+    </div>
+
+    {% if m.considerations_sociales and m.considerations_sociales != 'Sans objet' or m.considerations_environnementales and m.considerations_environnementales != 'Sans objet' %}
+    <div style="margin-top: 12px; padding-top: 10px; border-top: 1px dashed var(--apt-line-2);">
+      <div style="font-size: 10.5px; color: var(--c-green); font-weight: 700; text-transform: uppercase; letter-spacing: 0.3px; margin-bottom: 5px;">Considérations RSE</div>
+      <ul style="margin: 0; padding: 0; list-style: none; font-size: 12px; color: var(--apt-ink-2); line-height: 1.6;">
+        {% if m.considerations_sociales and m.considerations_sociales != 'Sans objet' %}<li><span style="color: var(--apt-ink-4);">Sociales · </span>{{ m.considerations_sociales }}</li>{% endif %}
+        {% if m.considerations_environnementales and m.considerations_environnementales != 'Sans objet' %}<li><span style="color: var(--apt-ink-4);">Environnementales · </span>{{ m.considerations_environnementales }}</li>{% endif %}
+      </ul>
+    </div>
+    {% endif %}
+
+    {% if m.marche_innovant %}
+    <div style="margin-top: 10px;">
+      <span style="background: var(--c-violet-soft); color: var(--c-violet); font-size: 10.5px; padding: 3px 9px; border-radius: 999px; font-weight: 700;">⚡ Marché innovant</span>
+    </div>
+    {% endif %}
+
+    {% if m.anomalies %}
+    <div style="margin-top: 10px; padding: 8px 12px; background: var(--c-amber-soft); border-radius: 5px; font-size: 11.5px; color: var(--apt-ink-2);">
+      <span style="color: var(--c-amber); font-weight: 700; text-transform: uppercase; font-size: 10px; letter-spacing: 0.3px;">⚠ Anomalies signalées · </span>{{ m.anomalies }}
+    </div>
+    {% endif %}
+  </div>
+
+  {# ---------- Liens externes ---------- #}
+  <div style="display: flex; gap: 10px; flex-wrap: wrap; padding: 14px 18px; background: var(--apt-bg); border-radius: 10px; margin-bottom: 16px;">
+    <a href="{{ url_google }}" target="_blank" rel="noopener noreferrer"
+       style="display: inline-flex; align-items: center; gap: 6px; padding: 7px 14px; background: white; color: var(--apt-ink-2); border: 1px solid var(--apt-line-2); border-radius: 6px; font-size: 12px; font-weight: 600; text-decoration: none; transition: all 0.15s;">
+      🔍 Recherche Google
+      <span style="font-size: 10px; color: var(--apt-ink-4);">↗</span>
+    </a>
+    <a href="https://tabular-api.data.gouv.fr/api/resources/22847056-61df-452d-837d-8b8ceadbfc52/data/?uid__exact={{ m.uid_decp }}"
+       target="_blank" rel="noopener noreferrer"
+       style="display: inline-flex; align-items: center; gap: 6px; padding: 7px 14px; background: white; color: var(--apt-ink-3); border: 1px solid var(--apt-line-2); border-radius: 6px; font-size: 12px; font-weight: 600; text-decoration: none; font-family: ui-monospace, monospace;">
+      JSON brut
+      <span style="font-size: 10px; color: var(--apt-ink-4);">↗</span>
+    </a>
+    <a href="https://www.data.gouv.fr/datasets/donnees-essentielles-de-la-commande-publique-consolidees-format-tabulaire"
+       target="_blank" rel="noopener noreferrer"
+       style="display: inline-flex; align-items: center; gap: 6px; padding: 7px 14px; background: white; color: var(--apt-ink-3); border: 1px solid var(--apt-line-2); border-radius: 6px; font-size: 12px; font-weight: 600; text-decoration: none; margin-left: auto;">
+      Dataset complet
+      <span style="font-size: 10px; color: var(--apt-ink-4);">↗</span>
+    </a>
+  </div>
+
+  {# ---------- Méta technique ---------- #}
+  <details style="margin-top: 8px;">
+    <summary style="font-size: 11px; color: var(--apt-ink-4); cursor: pointer; padding: 6px 0;">▸ Métadonnées techniques</summary>
+    <div style="background: var(--apt-bg); padding: 10px 14px; border-radius: 6px; margin-top: 6px; font-family: ui-monospace, monospace; font-size: 10.5px; color: var(--apt-ink-3); line-height: 1.7;">
+      <div>id Tendia · {{ m.id }}</div>
+      <div>uid DECP · {{ m.uid_decp }}</div>
+      <div>ref interne · {{ m.reference_externe }}</div>
+      <div>source · {{ m.source_dataset or '?' }} via {{ m.source_systeme or '?' }}</div>
+      {% if m.score_qualite %}<div>score qualité DECP · {{ (m.score_qualite * 100) | round | int }}%</div>{% endif %}
+      <div>modification_id · {{ m.modification_id }}</div>
+      <div>données actuelles · {{ m.donnees_actuelles }}</div>
+      {% if m.meta_recuperation %}
+      <div style="margin-top: 4px; padding-top: 4px; border-top: 1px dashed var(--apt-line-2);">
+        récupéré le {{ m.meta_recuperation.date_premiere_recuperation }} · v{{ m.meta_recuperation.version }}
+      </div>
+      {% endif %}
+    </div>
+  </details>
+
+</div>
+{% endblock %}

@@ -1,0 +1,523 @@
+{% extends "base.html" %}
+
+{% block title %}Concurrence — Tendia{% endblock %}
+
+{% block content %}
+<style>
+  /* ==================== STYLE SPÉCIFIQUE CONCURRENCE ==================== */
+  .apt-conc-hero {
+    margin-bottom: 32px;
+  }
+
+  /* KPI cards : plus spacieuses, hiérarchie typo claire */
+  .apt-conc-kpis {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+  .apt-conc-kpi {
+    background: white;
+    padding: 18px 20px;
+    border-radius: 12px;
+    border: 1px solid var(--apt-line);
+    transition: border-color 0.15s;
+  }
+  .apt-conc-kpi:hover {
+    border-color: var(--apt-line-2);
+  }
+  .apt-conc-kpi .label {
+    font-size: 10.5px;
+    color: var(--apt-ink-4);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    margin-bottom: 8px;
+  }
+  .apt-conc-kpi .value {
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--apt-ink);
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.02em;
+  }
+  .apt-conc-kpi .hint {
+    font-size: 11px;
+    color: var(--apt-ink-4);
+    margin-top: 8px;
+    line-height: 1.45;
+  }
+  .apt-conc-kpi.apt-conc-kpi-violet {
+    background: linear-gradient(180deg, rgba(108,75,180,0.04), white);
+    border-color: rgba(108,75,180,0.25);
+  }
+  .apt-conc-kpi.apt-conc-kpi-violet .label,
+  .apt-conc-kpi.apt-conc-kpi-violet .value {
+    color: var(--c-violet);
+  }
+
+  /* Bandeau transparence outliers — discret mais informatif */
+  .apt-conc-outliers {
+    background: var(--apt-bg);
+    border: 1px dashed var(--apt-line-2);
+    border-radius: 8px;
+    padding: 10px 14px;
+    margin-bottom: 24px;
+    font-size: 11.5px;
+    color: var(--apt-ink-3);
+    line-height: 1.55;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .apt-conc-outliers svg { flex-shrink: 0; color: var(--apt-ink-4); }
+  .apt-conc-outliers strong { color: var(--apt-ink-2); font-weight: 600; }
+
+  /* Sections breakdown : titres + tables */
+  .apt-conc-section { margin-bottom: 32px; }
+  .apt-conc-section-title {
+    font-size: 11px;
+    color: var(--apt-ink-3);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .apt-conc-section-title::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--apt-line);
+  }
+
+  .apt-conc-grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+  }
+
+  /* Tables : sobres, sans bordures lourdes */
+  .apt-conc-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12.5px;
+  }
+  .apt-conc-table thead th {
+    padding: 8px 12px;
+    text-align: left;
+    font-size: 10.5px;
+    color: var(--apt-ink-4);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    border-bottom: 1px solid var(--apt-line);
+  }
+  .apt-conc-table tbody tr {
+    border-bottom: 1px solid var(--apt-line);
+    transition: background-color 0.1s;
+  }
+  .apt-conc-table tbody tr:last-child { border-bottom: none; }
+  .apt-conc-table tbody tr:hover { background: rgba(0,0,0,0.015); }
+  .apt-conc-table td {
+    padding: 10px 12px;
+    vertical-align: top;
+    color: var(--apt-ink-2);
+    line-height: 1.5;
+  }
+  .apt-conc-table td.amount {
+    font-family: ui-monospace, monospace;
+    font-weight: 500;
+    color: var(--apt-ink);
+    text-align: right;
+    white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.01em;
+  }
+  .apt-conc-table .objet {
+    color: var(--apt-ink);
+    font-weight: 500;
+    line-height: 1.4;
+    text-decoration: none;
+  }
+  .apt-conc-table .objet:hover { color: var(--c-violet); }
+  .apt-conc-table .meta {
+    font-size: 11px;
+    color: var(--apt-ink-4);
+    margin-top: 3px;
+  }
+
+  /* Tag catégorie léger */
+  .apt-conc-badge-cat {
+    display: inline-block;
+    padding: 2px 8px;
+    background: var(--apt-bg);
+    color: var(--apt-ink-3);
+    font-size: 10.5px;
+    font-weight: 500;
+    border-radius: 4px;
+  }
+
+  /* Section Tendia ✦ — mise en valeur claire */
+  .apt-conc-apptia-section {
+    background: linear-gradient(180deg, rgba(108,75,180,0.03), transparent 80%);
+    padding: 20px 24px;
+    border-radius: 12px;
+    border: 1px solid rgba(108,75,180,0.15);
+    margin-bottom: 32px;
+  }
+  .apt-conc-apptia-section .header {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+  .apt-conc-apptia-section h2 {
+    font-size: 14px;
+    color: var(--c-violet);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    margin: 0;
+  }
+  .apt-conc-apptia-section .subtitle {
+    font-size: 12px;
+    color: var(--apt-ink-3);
+    margin: 0;
+  }
+
+  /* Filtres tableau DECP : design propre */
+  .apt-conc-filters {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 14px;
+  }
+  .apt-conc-filter-input {
+    padding: 8px 12px;
+    border: 1px solid var(--apt-line-2);
+    border-radius: 6px;
+    font-size: 12.5px;
+    font-family: inherit;
+    color: var(--apt-ink);
+    background: white;
+    transition: border-color 0.15s;
+  }
+  .apt-conc-filter-input:focus {
+    outline: none;
+    border-color: var(--c-violet);
+    box-shadow: 0 0 0 3px rgba(108,75,180,0.1);
+  }
+
+  .apt-conc-decp-container {
+    background: white;
+    border-radius: 10px;
+    border: 1px solid var(--apt-line-2);
+    overflow: hidden;
+    /* Isole le re-layout du tableau de 500 lignes pendant la transition
+       de la sidebar : le navigateur n'a pas à re-calculer la mise en page
+       interne quand le contexte parent change de largeur. */
+    contain: layout style;
+  }
+</style>
+
+<div class="apt-mw-1180 mx-auto px-14 pt-16 pb-20">
+
+  <!-- ==================== HERO ==================== -->
+  <header class="apt-conc-hero fade-up">
+    <div class="apt-eyebrow mb-4 flex items-center gap-2" style="color: var(--apt-ink-3);">
+      <svg style="width: 11px; height: 11px;" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="9"/>
+        <circle cx="12" cy="12" r="5"/>
+        <circle cx="12" cy="12" r="1.5" fill="currentColor"/>
+        <path stroke-linecap="round" d="M12 12 L18.5 5.5"/>
+      </svg>
+      Veille concurrentielle
+    </div>
+    <h1 class="apt-display apt-fs-48 mb-4" style="color: var(--apt-ink); letter-spacing: -0.025em;">
+      {{ stats.globales.total }} marchés exploitables
+    </h1>
+    <p class="apt-prose max-w-2xl" style="color: var(--apt-ink-3); font-size: 15px; line-height: 1.55;">
+      Marchés publics français notifiés, consolidés via DECP. Cette page sert à explorer le marché concurrentiel pur — la fiche de candidature reste dépolluée.
+      {% if stats.marches_apptia %}
+      <span style="color: var(--c-violet); font-weight: 600;">{{ stats.marches_apptia | length }} marché{{ 's' if stats.marches_apptia | length > 1 else '' }} validé{{ 's' if stats.marches_apptia | length > 1 else '' }} en interne</span> sont mis en valeur ci-dessous.
+      {% endif %}
+    </p>
+  </header>
+
+  <!-- ==================== KPIs ==================== -->
+  <section class="apt-conc-kpis">
+    <div class="apt-conc-kpi">
+      <div class="label">Marchés exploitables</div>
+      <div class="value">{{ stats.globales.total }}</div>
+      <div class="hint">Base DECP filtrée</div>
+    </div>
+    {% if stats.globales.mediane %}
+    <div class="apt-conc-kpi">
+      <div class="label">Médiane montant</div>
+      <div class="value">{{ stats.globales.mediane | euro_short }}</div>
+      <div class="hint">Q1 {{ stats.globales.q1 | euro_short }} → Q3 {{ stats.globales.q3 | euro_short }}</div>
+    </div>
+    <div class="apt-conc-kpi">
+      <div class="label">Plage exploitable</div>
+      <div class="value" style="font-size: 18px; line-height: 1.3;">{{ stats.globales.min | euro_short }}<br>{{ stats.globales.max | euro_short }}</div>
+      <div class="hint">Étendue après filtrage outliers</div>
+    </div>
+    {% endif %}
+    <div class="apt-conc-kpi apt-conc-kpi-violet">
+      <div class="label">✦ Tendia validés</div>
+      <div class="value">{{ stats.marches_apptia | length }}</div>
+      <div class="hint">Base interne haute qualité</div>
+    </div>
+  </section>
+
+  <!-- ==================== BANDEAU TRANSPARENCE OUTLIERS ==================== -->
+  {% if stats.outliers %}
+  {% set ol = stats.outliers %}
+  {% set nb_exclus = (ol.exclus_trop_bas or 0) + (ol.exclus_trop_haut or 0) + (ol.exclus_sans_montant or 0) %}
+  {% if nb_exclus > 0 %}
+  <div class="apt-conc-outliers">
+    <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="10"/>
+      <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4m0 4h.01"/>
+    </svg>
+    <div>
+      <strong>{{ nb_exclus }} marché{{ 's' if nb_exclus > 1 else '' }} exclu{{ 's' if nb_exclus > 1 else '' }} de l'analyse</strong>
+      sur les {{ ol.total_base }} de la base DECP :
+      {% if ol.exclus_trop_bas %}{{ ol.exclus_trop_bas }} sous {{ ol.borne_bas | euro_short }} (placeholders à 1€, erreurs de saisie){% endif %}
+      {% if ol.exclus_trop_bas and (ol.exclus_trop_haut or ol.exclus_sans_montant) %}, {% endif %}
+      {% if ol.exclus_trop_haut %}{{ ol.exclus_trop_haut }} au-dessus de {{ ol.borne_haut | euro_short }} (consolidations nationales){% endif %}
+      {% if ol.exclus_trop_haut and ol.exclus_sans_montant %}, {% endif %}
+      {% if ol.exclus_sans_montant %}{{ ol.exclus_sans_montant }} sans montant renseigné{% endif %}.
+      Les stats et le tableau ne portent que sur les {{ ol.valides }} marchés exploitables.
+    </div>
+  </div>
+  {% endif %}
+  {% endif %}
+
+  <!-- ==================== SECTION APPTIA EN PREMIER ==================== -->
+  {% if stats.marches_apptia %}
+  <section class="apt-conc-apptia-section">
+    <div class="header">
+      <h2>✦ Marchés Tendia validés</h2>
+      <p class="subtitle">Pipeline complet : avis → brief → attribution. Source de référence haute qualité pour le KNN comparables.</p>
+    </div>
+    <table class="apt-conc-table">
+      <thead>
+        <tr>
+          <th style="width: 42%;">Marché</th>
+          <th>Titulaire</th>
+          <th style="text-align:right;">Montant</th>
+          <th style="text-align:right;">€/bénéf</th>
+          <th style="text-align:right;">€/mois</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for m in stats.marches_apptia %}
+        <tr>
+          <td>
+            {% if m.id_marche_actif %}
+            <a href="{{ url_for('detail_marche', id_marche=m.id_marche_actif) }}" class="objet">{{ m.objet }}</a>
+            {% else %}
+            <span class="objet">{{ m.objet }}</span>
+            {% endif %}
+            <div class="meta">
+              {{ m.acheteur }} · {{ m.duree_mois }} mois · <span class="apt-conc-badge-cat">{{ m.categorie }}</span>
+            </div>
+          </td>
+          <td style="color: var(--apt-ink); font-weight: 500;">{{ m.titulaire }}</td>
+          <td class="amount">{{ m.montant_eur | euro_short }}</td>
+          <td class="amount">{% if m.ratio_par_beneficiaire %}{{ m.ratio_par_beneficiaire | euro_short }}{% else %}—{% endif %}</td>
+          <td class="amount">{% if m.ratio_mensuel %}{{ m.ratio_mensuel | euro_short }}{% else %}—{% endif %}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </section>
+  {% endif %}
+
+  <!-- ==================== DÉCOUPAGES ==================== -->
+  <section class="apt-conc-section">
+    <div class="apt-conc-grid-2">
+      <div>
+        <div class="apt-conc-section-title">Par catégorie métier</div>
+        <table class="apt-conc-table">
+          <thead>
+            <tr><th>Catégorie</th><th style="text-align:right;">N</th><th style="text-align:right;">Médiane</th><th style="text-align:right;">Q1 → Q3</th></tr>
+          </thead>
+          <tbody>
+            {% for r in stats.par_categorie %}
+            <tr>
+              <td><span class="apt-conc-badge-cat">{{ r.categorie }}</span></td>
+              <td class="amount">{{ r.n }}</td>
+              <td class="amount">{{ r.mediane | euro_short }}</td>
+              <td style="text-align:right; font-family: ui-monospace, monospace; color: var(--apt-ink-3); font-size: 11.5px;">{{ r.q1 | euro_short }} → {{ r.q3 | euro_short }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+
+      <div>
+        <div class="apt-conc-section-title">Par tranche de durée</div>
+        <table class="apt-conc-table">
+          <thead>
+            <tr><th>Tranche</th><th style="text-align:right;">N</th><th style="text-align:right;">Médiane</th><th style="text-align:right;">Q1 → Q3</th></tr>
+          </thead>
+          <tbody>
+            {% for r in stats.par_duree %}
+            <tr>
+              <td style="color: var(--apt-ink-2); font-weight: 500;">{{ r.tranche }}</td>
+              <td class="amount">{{ r.n }}</td>
+              <td class="amount">{{ r.mediane | euro_short }}</td>
+              <td style="text-align:right; font-family: ui-monospace, monospace; color: var(--apt-ink-3); font-size: 11.5px;">{{ r.q1 | euro_short }} → {{ r.q3 | euro_short }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== TOP TITULAIRES ==================== -->
+  {% if stats.top_titulaires %}
+  <section class="apt-conc-section">
+    <div class="apt-conc-section-title">Top 10 titulaires (par nombre de marchés gagnés)</div>
+    <table class="apt-conc-table">
+      <thead>
+        <tr>
+          <th style="width: 42%;">Titulaire</th>
+          <th style="text-align:right;">Marchés</th>
+          <th style="text-align:right;">Total cumulé</th>
+          <th>Catégorie dominante</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for t in stats.top_titulaires %}
+        <tr>
+          <td><span style="color: var(--apt-ink); font-weight: 600;">{{ t.titulaire }}</span></td>
+          <td class="amount">{{ t.nb_marches }}</td>
+          <td class="amount">{{ t.total_eur | euro_short }}</td>
+          <td>{% if t.categorie_dominante %}<span class="apt-conc-badge-cat">{{ t.categorie_dominante }}</span>{% endif %}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </section>
+  {% endif %}
+
+  <!-- ==================== TABLEAU DECP FILTRABLE ==================== -->
+  <section class="apt-conc-section">
+    <div class="apt-conc-section-title">Marchés DECP — exploration</div>
+
+    <div class="apt-conc-filters">
+      <input id="apt-filter-text" type="text" placeholder="🔍 Rechercher (objet, titulaire, acheteur…)" class="apt-conc-filter-input" style="flex: 1; min-width: 280px;">
+      <select id="apt-filter-categorie" class="apt-conc-filter-input">
+        <option value="">Toutes catégories</option>
+        {% for r in stats.par_categorie %}
+        <option value="{{ r.categorie }}">{{ r.categorie }} ({{ r.n }})</option>
+        {% endfor %}
+      </select>
+      <select id="apt-filter-annee" class="apt-conc-filter-input">
+        <option value="">Toutes années</option>
+      </select>
+      <select id="apt-filter-montant" class="apt-conc-filter-input">
+        <option value="">Tout montant</option>
+        <option value="0-100000">&lt; 100 k€</option>
+        <option value="100000-300000">100 → 300 k€</option>
+        <option value="300000-1000000">300 k€ → 1 M€</option>
+        <option value="1000000-100000000">&gt; 1 M€</option>
+      </select>
+      <span id="apt-filter-count" style="font-size: 11px; color: var(--apt-ink-4); font-family: ui-monospace, monospace; margin-left: auto; font-variant-numeric: tabular-nums;"></span>
+    </div>
+
+    <div class="apt-conc-decp-container">
+      <table class="apt-conc-table" id="apt-marches-decp">
+        <thead>
+          <tr>
+            <th style="width: 38%;">Objet</th>
+            <th>Acheteur</th>
+            <th>Titulaire</th>
+            <th>Catégorie</th>
+            <th style="text-align:right;">Montant</th>
+            <th style="text-align:right;">Durée</th>
+            <th style="text-align:right;">Année</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for m in stats.marches_decp %}
+          <tr data-categorie="{{ m.categorie }}" data-annee="{{ m.annee }}" data-montant="{{ m.montant_eur }}">
+            <td>
+              <a href="{{ url_for('detail_marche_notifie', id_marche=m.id) }}" class="objet">{{ m.objet }}</a>
+            </td>
+            <td style="font-size: 11.5px; color: var(--apt-ink-2);">{{ m.acheteur }}</td>
+            <td style="color: var(--apt-ink-2); font-weight: 500;">{{ m.titulaire }}</td>
+            <td><span class="apt-conc-badge-cat">{{ m.categorie }}</span></td>
+            <td class="amount">{{ m.montant_eur | euro_short }}</td>
+            <td style="text-align:right; font-family: ui-monospace, monospace; color: var(--apt-ink-3); font-size: 11.5px;">{{ m.duree_mois }} m.</td>
+            <td style="text-align:right; font-family: ui-monospace, monospace; color: var(--apt-ink-3); font-size: 11.5px;">{{ m.annee }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top: 12px; font-size: 11px; color: var(--apt-ink-4); text-align: right;">
+      Source : <a href="https://www.data.gouv.fr/datasets/donnees-essentielles-de-la-commande-publique-consolidees-format-tabulaire" target="_blank" rel="noopener noreferrer" style="color: var(--c-violet); text-decoration: none;">DECP consolidée ↗</a>
+      · Limité aux 500 plus récents · Filtres anti-outliers actifs
+    </p>
+  </section>
+
+</div>
+
+<script>
+(function() {
+  const $text = document.getElementById('apt-filter-text');
+  const $cat = document.getElementById('apt-filter-categorie');
+  const $annee = document.getElementById('apt-filter-annee');
+  const $montant = document.getElementById('apt-filter-montant');
+  const $count = document.getElementById('apt-filter-count');
+  const $tbody = document.querySelector('#apt-marches-decp tbody');
+  const rows = Array.from($tbody.querySelectorAll('tr'));
+
+  const annees = new Set(rows.map(r => r.dataset.annee).filter(Boolean));
+  Array.from(annees).sort().reverse().forEach(a => {
+    const opt = document.createElement('option');
+    opt.value = a; opt.textContent = a;
+    $annee.appendChild(opt);
+  });
+
+  function filtrer() {
+    const txt = $text.value.toLowerCase();
+    const cat = $cat.value;
+    const an = $annee.value;
+    const mt = $montant.value;
+    let visible = 0;
+    rows.forEach(r => {
+      let show = true;
+      if (txt && !r.textContent.toLowerCase().includes(txt)) show = false;
+      if (cat && r.dataset.categorie !== cat) show = false;
+      if (an && r.dataset.annee !== an) show = false;
+      if (mt) {
+        const [lo, hi] = mt.split('-').map(Number);
+        const v = Number(r.dataset.montant || 0);
+        if (v < lo || v >= hi) show = false;
+      }
+      r.style.display = show ? '' : 'none';
+      if (show) visible++;
+    });
+    $count.textContent = visible + ' / ' + rows.length;
+  }
+
+  [$text, $cat, $annee, $montant].forEach(el => {
+    el.addEventListener('input', filtrer);
+    el.addEventListener('change', filtrer);
+  });
+  filtrer();
+})();
+</script>
+
+{% endblock %}

@@ -1,0 +1,193 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Profil organisme — domaine énergie renouvelable",
+  "description": "Schéma du profil pour un installateur, EPC contractor ou bureau d'études en énergies renouvelables (photovoltaïque, éolien, solaire thermique, etc.) répondant aux marchés publics. À valider avec le prospect.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Identifiant interne du profil (par défaut 'principal')"
+    },
+    "_preset": {
+      "type": "string",
+      "description": "Nom lisible du preset (ex: 'Installateur photovoltaïque PME')"
+    },
+    "_description": {
+      "type": "string",
+      "description": "Description courte du positionnement de l'organisme"
+    },
+    "identite": {
+      "type": "object",
+      "description": "Identité légale (socle commun avec formation_ft)",
+      "properties": {
+        "nom": { "type": "string" },
+        "siren": { "type": "string" },
+        "forme_juridique": { "type": "string" },
+        "annee_creation": { "type": ["integer", "null"] },
+        "effectif_total": { "type": ["integer", "null"] },
+        "siege_ville": { "type": "string" },
+        "siege_code_postal": { "type": "string" },
+        "site_web": { "type": "string" }
+      },
+      "required": ["nom"]
+    },
+    "qualifications": {
+      "type": "object",
+      "description": "Qualifications professionnelles spécifiques au secteur énergie renouvelable",
+      "properties": {
+        "rge": {
+          "type": "array",
+          "description": "Qualifications RGE détenues",
+          "items": {
+            "type": "string",
+            "enum": ["QualiPV", "QualiBois", "QualiSol_CESI", "QualiSol_Combi", "QualiPAC", "Qualibat_RGE", "Qualifelec_RGE", "Qualiforage", "Eco_Artisan", "Pros_de_la_Performance_Energetique"]
+          }
+        },
+        "qualibat": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Numéros Qualibat détenus (ex: 5311, 6112)"
+        },
+        "qualifelec": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Indices Qualifelec détenus"
+        },
+        "iso_9001": { "type": "boolean" },
+        "iso_14001": { "type": "boolean" },
+        "iso_45001": { "type": "boolean" },
+        "mase": { "type": "boolean", "description": "Manuel d'Amélioration Sécurité Entreprises" },
+        "habilitations_electriques": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": ["B0", "BR", "BC", "BE_Manoeuvre", "H0", "H1", "H2", "BS", "BP"]
+          }
+        },
+        "garantie_decennale": { "type": "boolean" },
+        "rc_pro_montant_eur": { "type": ["integer", "null"] },
+        "autres": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "technologies_maitrisees": {
+      "type": "array",
+      "description": "Technologies / filières maîtrisées par l'organisme",
+      "items": {
+        "type": "string",
+        "enum": [
+          "photovoltaique_toiture",
+          "photovoltaique_ombriere",
+          "photovoltaique_au_sol",
+          "photovoltaique_agrivoltaisme",
+          "photovoltaique_autoconsommation",
+          "eolien_terrestre",
+          "eolien_offshore",
+          "eolien_domestique",
+          "solaire_thermique",
+          "biomasse",
+          "geothermie",
+          "pompe_a_chaleur",
+          "hydraulique",
+          "hydrolien",
+          "stockage_batteries",
+          "hydrogene",
+          "reseau_chaleur"
+        ]
+      }
+    },
+    "types_prestations": {
+      "type": "array",
+      "description": "Types de prestations proposées (au-delà de la pose pure)",
+      "items": {
+        "type": "string",
+        "enum": [
+          "etude_opportunite",
+          "etude_faisabilite",
+          "audit_energetique",
+          "amo_maitrise_ouvrage",
+          "maitrise_oeuvre",
+          "epc_clef_en_main",
+          "fourniture_pose",
+          "raccordement_enedis",
+          "maintenance_preventive",
+          "maintenance_curative",
+          "exploitation_om",
+          "monitoring_supervision",
+          "demantelement_recyclage",
+          "financement_tiers_investissement"
+        ]
+      }
+    },
+    "segments_clients": {
+      "type": "array",
+      "description": "Types de clients habituels",
+      "items": {
+        "type": "string",
+        "enum": [
+          "collectivites_locales",
+          "etat_administrations",
+          "bailleurs_sociaux",
+          "etablissements_scolaires",
+          "hopitaux_ehpad",
+          "industriels",
+          "agriculteurs",
+          "tertiaire_prive",
+          "particuliers"
+        ]
+      }
+    },
+    "zones_intervention": {
+      "type": "array",
+      "description": "Zones géographiques d'intervention (départements ou régions ; codes INSEE ou libellés)",
+      "items": { "type": "string" }
+    },
+    "capacite": {
+      "type": "object",
+      "description": "Volumétrie de production",
+      "properties": {
+        "mwc_installes_cumules": { "type": ["number", "null"], "description": "Puissance cumulée installée à date (MWc)" },
+        "mwc_installes_par_an": { "type": ["number", "null"], "description": "Puissance moyenne installée par an" },
+        "sites_en_maintenance": { "type": ["integer", "null"] },
+        "ca_annuel_eur": { "type": ["integer", "null"] }
+      }
+    },
+    "economie": {
+      "type": "object",
+      "description": "Stratégie économique",
+      "properties": {
+        "strategie_prix": {
+          "type": "string",
+          "enum": ["competitif", "median", "haut_de_gamme"]
+        }
+      }
+    },
+    "mots_cles_catalogue": {
+      "type": "array",
+      "description": "Mots-clés pour le matcheur textuel",
+      "items": { "type": "string" }
+    },
+    "references_chantiers": {
+      "type": "array",
+      "description": "Historique des chantiers livrés (pour calibration LLM et démonstration de capacité)",
+      "items": {
+        "type": "object",
+        "properties": {
+          "annee": { "type": "integer" },
+          "client": { "type": "string" },
+          "localisation": { "type": "string" },
+          "technologie": { "type": "string" },
+          "puissance_kwc": { "type": "number" },
+          "montant_eur_ht": { "type": "number" }
+        }
+      }
+    },
+    "auto_reponses_exigences": {
+      "type": "object",
+      "additionalProperties": { "type": "string" }
+    }
+  },
+  "required": ["id", "identite"]
+}

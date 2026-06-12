@@ -1,0 +1,16 @@
+# Apptia — dépendances Python
+# Installation : pip install -r requirements.txt
+
+# HTTP et APIs externes
+requests>=2.31.0
+
+# UI web
+flask>=3.0.0
+
+# Extraction documents
+pypdf>=4.0.0          # .pdf (Règlement de consultation, CCFT, contrat...)
+python-docx>=1.0.0    # .docx (Bordereau de Prix, cadres de réponse...)
+openpyxl>=3.1.0       # .xlsx (Base administrative...)
+
+# Claude API
+anthropic>=0.18.0

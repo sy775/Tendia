@@ -1,0 +1,196 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Profil sectoriel BTP",
+  "description": "Champs spécifiques pour un organisme positionné sur les marchés publics BTP (travaux du bâtiment et travaux publics : gros œuvre, second œuvre, VRD, rénovation, démolition). Vient compléter le socle commun (identité, zones, capacité globale) défini dans presets/_socle_profil_organisme.json.",
+  "type": "object",
+  "properties": {
+    "qualifications": {
+      "type": "object",
+      "description": "Qualifications professionnelles détenues par l'organisme. Ce sont les clés du go/no-go : un marché qui exige Qualibat 5413 est filtré si l'organisme ne l'a pas.",
+      "properties": {
+        "qualibat": {
+          "type": "array",
+          "description": "Liste des codes Qualibat détenus (ex: ['1311', '2112', '5413']). Format à 4 chiffres.",
+          "items": { "type": "string", "pattern": "^[0-9]{4}$" }
+        },
+        "rge": {
+          "type": "object",
+          "description": "Certifications Reconnu Garant de l'Environnement (RGE).",
+          "properties": {
+            "detenue": { "type": "boolean" },
+            "specialites": {
+              "type": "array",
+              "description": "Codes RGE détenus si applicable (ex: 'Qualibat RGE 8611')",
+              "items": { "type": "string" }
+            },
+            "validite_jusqu": { "type": "string", "description": "Date d'échéance ISO 8601" }
+          }
+        },
+        "mase": {
+          "type": "object",
+          "description": "Certification MASE (sécurité chantier).",
+          "properties": {
+            "detenue": { "type": "boolean" },
+            "validite_jusqu": { "type": "string" }
+          }
+        },
+        "amiante": {
+          "type": "object",
+          "description": "Habilitations amiante.",
+          "properties": {
+            "ss3": { "type": "boolean", "description": "Sous-section 3 (retrait/encapsulage)" },
+            "ss4": { "type": "boolean", "description": "Sous-section 4 (interventions sur matériaux susceptibles)" },
+            "validite_jusqu": { "type": "string" }
+          }
+        },
+        "opqibi": {
+          "type": "array",
+          "description": "Qualifications OPQIBI si l'organisme couvre aussi de la MOE/ingénierie. Liste de codes (ex: '0203 Économie de la construction').",
+          "items": { "type": "string" }
+        },
+        "iso_9001": { "type": "boolean", "description": "Système qualité certifié ISO 9001" },
+        "iso_14001": { "type": "boolean", "description": "Système environnemental certifié ISO 14001" },
+        "iso_45001": { "type": "boolean", "description": "Santé sécurité au travail" },
+        "autres": {
+          "type": "array",
+          "description": "Autres certifications/qualifications pertinentes (NF Habitat, BBC, Effinergie, etc.).",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "corps_de_metier": {
+      "type": "array",
+      "description": "Corps d'état couverts par l'organisme. Sert au matching des lots des marchés multi-lots. Vocabulaire ouvert, valeurs typiques : gros_oeuvre, vrd, terrassement, demolition, charpente_bois, charpente_metallique, couverture, etancheite, menuiseries_exterieures, menuiseries_interieures, cloisons_doublages, sols_durs, sols_souples, peinture, plomberie, cvc, electricite_cfo, electricite_cfa, ascenseurs, espaces_verts, signalisation_horizontale.",
+      "items": { "type": "string" }
+    },
+    "types_ouvrages": {
+      "type": "array",
+      "description": "Types d'ouvrages habituellement réalisés. Sert au matching sémantique sur typologie_ouvrage du brief. Valeurs typiques : batiment_administratif, etablissement_sante, etablissement_scolaire, etablissement_sportif, logement_social, voirie_communale, ouvrage_art, reseaux_humides, reseaux_secs, espaces_publics, patrimoine_classe.",
+      "items": { "type": "string" }
+    },
+    "types_clients_publics": {
+      "type": "array",
+      "description": "Catégories d'acheteurs publics avec lesquels l'organisme a l'habitude de travailler. Valeurs : commune, communaute_communes, communaute_agglo, metropole, conseil_departemental, conseil_regional, etat_administration_centrale, etat_service_deconcentre, etablissement_public_local, etablissement_public_national, sante_chu_chr, sante_etablissement_local, defense_armees, justice.",
+      "items": { "type": "string" }
+    },
+    "capacite_chantiers": {
+      "type": "object",
+      "description": "Capacités opérationnelles côté chantier.",
+      "properties": {
+        "ca_btp_annuel": {
+          "type": "number",
+          "description": "Part du CA total dédiée au BTP en € HT (utile pour profils multi-sectoriels)"
+        },
+        "montant_max_par_chantier": {
+          "type": "number",
+          "description": "Plafond raisonnable d'un chantier unique en € HT. Au-delà, l'organisme préfère candidater en cotraitance."
+        },
+        "nb_chantiers_simultanes_max": { "type": "integer" },
+        "effectif_chantier_etp": {
+          "type": "integer",
+          "description": "ETP affectés à la production chantier (hors administratif/commercial)"
+        },
+        "rayon_intervention_km": {
+          "type": "integer",
+          "description": "Rayon habituel d'intervention depuis le siège ou les agences (en km)."
+        }
+      }
+    },
+    "rh_chantier": {
+      "type": "object",
+      "description": "Structure RH dédiée à la production.",
+      "properties": {
+        "encadrement": {
+          "type": "object",
+          "properties": {
+            "conducteurs_travaux": { "type": "integer" },
+            "chefs_chantier": { "type": "integer" },
+            "chefs_equipe": { "type": "integer" }
+          }
+        },
+        "operationnels": {
+          "type": "object",
+          "properties": {
+            "compagnons_qualifies": { "type": "integer" },
+            "ouvriers_non_qualifies": { "type": "integer" },
+            "apprentis": { "type": "integer" }
+          }
+        },
+        "habilitations_diverses": {
+          "type": "array",
+          "description": "Habilitations électriques, CACES, travail en hauteur, AIPR, SST. Codes libres.",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "moyens_materiels": {
+      "type": "array",
+      "description": "Matériels marquants détenus en propre (à mentionner dans une réponse). Format libre. Ex: 'pelle 25t', 'grue à tour 40m', 'compresseur 50bar', 'centrale d'enrobé', etc.",
+      "items": { "type": "string" }
+    },
+    "references_chantiers": {
+      "type": "array",
+      "description": "Historique des chantiers BTP livrés ou en cours, utilisable comme référence dans les candidatures et pour la calibration LLM.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "annee": { "type": "integer" },
+          "client": { "type": "string", "description": "Acheteur (anonymisable)" },
+          "ouvrage": { "type": "string", "description": "Description courte (ex: 'Réhabilitation EHPAD 80 lits')" },
+          "type_ouvrage": { "type": "string", "description": "Doit correspondre à une valeur de types_ouvrages" },
+          "corps_etat": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "Doit utiliser le vocabulaire de corps_de_metier"
+          },
+          "montant_eur_ht": { "type": "number" },
+          "duree_mois": { "type": "integer" },
+          "statut": {
+            "type": "string",
+            "enum": ["livre", "en_cours", "abandonne"]
+          },
+          "notes": { "type": "string" }
+        },
+        "required": ["annee", "ouvrage", "type_ouvrage"]
+      }
+    },
+    "pratiques_specifiques": {
+      "type": "object",
+      "description": "Pratiques différenciantes que l'organisme peut mettre en avant.",
+      "properties": {
+        "clause_insertion_sociale": {
+          "type": "object",
+          "properties": {
+            "pratiquee": { "type": "boolean" },
+            "heures_realisees_annee": { "type": "integer" },
+            "partenaires": {
+              "type": "array",
+              "description": "Structures partenaires (PLIE, missions locales, SIAE, etc.)",
+              "items": { "type": "string" }
+            }
+          }
+        },
+        "demarche_environnementale": {
+          "type": "object",
+          "properties": {
+            "label_rse": { "type": "string", "description": "Ex: 'BCorp', 'Label LUCIE', 'Engagé RSE AFNOR'" },
+            "bilan_carbone_realise": { "type": "boolean" },
+            "filieres_dechets_tracees": { "type": "boolean" },
+            "materiaux_biosources_pratiques": { "type": "boolean" }
+          }
+        },
+        "bim": {
+          "type": "object",
+          "properties": {
+            "pratique": { "type": "boolean" },
+            "niveau_max": {
+              "type": "string",
+              "enum": ["LOD 100", "LOD 200", "LOD 300", "LOD 350", "LOD 400"]
+            }
+          }
+        }
+      }
+    }
+  },
+  "required": ["qualifications", "corps_de_metier"]
+}

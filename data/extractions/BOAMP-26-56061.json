@@ -1,0 +1,305 @@
+{
+  "synthese_marche": "Accord-cadre mono-attributaire portant sur des prestations de nettoyage courant des locaux et des surfaces vitrées des services de police de la Charente (16), passé par le SGAMI Sud-Ouest. Le marché est alloti en 2 lots géographiques (secteur Angoulême et secteur Cognac), pour une durée de 24 mois reconductibles 2 fois. La visite des sites est obligatoire et le lot 1 est classé 'sensible' avec enquête administrative préalable.",
+  "domaines_metier": [
+    {
+      "code": "entretien_proprete_locaux"
+    }
+  ],
+  "raison_classification": "Le marché porte exclusivement sur des prestations de nettoyage courant des locaux (bureaux, sanitaires, stand de tir, cellules de garde à vue) et des surfaces vitrées de bâtiments de police. Le CPV principal est 90911200-8 (services de nettoyage de bâtiment), ce qui correspond parfaitement au domaine 'entretien_proprete_locaux'.",
+  "caracteristiques_techniques_chantier": {
+    "description": "Prestations de nettoyage courant des locaux et surfaces vitrées des services de police de la Charente : hôtel de police, postes de quartier, commissariat. Inclut fourniture et installation de consommables sanitaires, vidage des corbeilles, nettoyage du stand de tir avec aspirateur anti-déflagrant spécifique. Des prestations ponctuelles (nettoyage vitrages intérieurs/extérieurs) sont déclenchées par bons de commande.",
+    "technologies_concernees": [],
+    "type_de_sites": "Bâtiments de police occupés : hôtel de police, postes de quartier, commissariat, immeuble administratif",
+    "criteres_eligibilite": [
+      {
+        "libelle": "Visite des sites obligatoire — l'absence de visite rend l'offre irrégulière",
+        "source": "RC art 1.12"
+      },
+      {
+        "libelle": "Pour le lot 1 (sensible) : transmission d'un organigramme de tous les personnels intervenant + copies CNI, résultat d'enquête administrative sans réserve requis",
+        "source": "RC art 1.5"
+      },
+      {
+        "libelle": "Fourniture de matériel et protections individuelles spécifiques pour nettoyage des cellules de garde à vue (sang, vomissures, défécations)",
+        "source": "RC art 1.5"
+      }
+    ],
+    "contraintes_site_signalees": [
+      "site classé sensible (lot 1)",
+      "enquête administrative obligatoire (lot 1)",
+      "présence de cellules de garde à vue",
+      "stand de tir nécessitant aspirateur anti-déflagrant",
+      "accès limité (CNI requise 3-4 jours avant visite)",
+      "site occupé"
+    ]
+  },
+  "volumes_techniques": {
+    "puissance_totale_kwc": null,
+    "puissance_par_site_kwc": null,
+    "nb_sites": 6,
+    "surface_panneaux_m2": null,
+    "productible_annuel_estime_mwh": null,
+    "duree_marche_mois": 48,
+    "duree_maintenance_om_annees": null,
+    "commentaire_volumes": "Lot 1 : 5 sites (Hôtel de police Angoulême, Postes de quartier Basseau, La Couronne, Soyaux, immeuble avenue Jules Ferry uniquement sur BPU). Lot 2 : 1 site (Commissariat Cognac). Durée : période ferme 24 mois (01/01/2027-31/12/2028) + 2 reconductions annuelles possibles, soit 48 mois maximum."
+  },
+  "modalites_execution_chantier": {
+    "raccordement_reseau_inclus": null,
+    "etudes_techniques_incluses": null,
+    "calendrier_chantier_contraint": "Des prestations peuvent être déclenchées le week-end au titre des bons de commande",
+    "sites_execution": [
+      "Angoulême (16)",
+      "La Couronne (16)",
+      "Soyaux (16)",
+      "Cognac (16)"
+    ],
+    "engagement_productible": null,
+    "engagement_disponibilite_om": null
+  },
+  "publics_cibles": {
+    "description": "Marché de prestation de services de nettoyage — sans public bénéficiaire de formation. Le marché comporte une clause sociale d'insertion (heures d'insertion) pour les lots 1 et 2.",
+    "criteres_eligibilite": [],
+    "publics_specifiques_signales": []
+  },
+  "volumes": {
+    "nb_beneficiaires_total": null,
+    "nb_beneficiaires_par_lot": null,
+    "duree_par_parcours_heures": null,
+    "duree_par_parcours_semaines": null,
+    "duree_marche_mois": 48,
+    "commentaire_volumes": "Marché de nettoyage, non applicable aux volumes de bénéficiaires de formation."
+  },
+  "modalites": {
+    "presentiel_obligatoire": true,
+    "distanciel_possible": false,
+    "synchrone_asynchrone": "présentiel obligatoire",
+    "sites_execution": [
+      "Angoulême (16)",
+      "La Couronne (16)",
+      "Soyaux (16)",
+      "Cognac (16)"
+    ],
+    "amplitude_horaire": "Passages réguliers sur l'ensemble des sites ; prestations ponctuelles possibles le week-end (bons de commande)"
+  },
+  "bareme_notation": {
+    "valeur_technique_pct": 55,
+    "valeur_prix_pct": 45,
+    "sous_criteres_techniques": [
+      {
+        "libelle": "Organisation",
+        "ponderation_pct": 20,
+        "description": "L'acheteur évalue l'organisation de la prise en charge du marché (rétroplanning, phase de reprise du personnel, répartition de la charge de travail), le suivi qualitatif des prestations, les modalités de contrôle et la gestion des absences.",
+        "elements_attendus": [
+          "Rétroplanning détaillé des réunions de démarrage et de la phase de reprise du personnel",
+          "Répartition de la charge de travail entre les agents compte tenu de la configuration des locaux",
+          "Modalités de contrôle et de suivi qualitatif des prestations (fiches de contrôle, tableaux de bord)",
+          "Procédures de remplacement des agents absents avec délais précis"
+        ],
+        "exemple_reponse_forte": "Le candidat présente un rétroplanning précis de la phase de démarrage sur 4 semaines (reprise du personnel, visites de site, brief agents), un système de contrôle qualité mensuel avec fiche de service fait cosignée, et une procédure de remplacement garantissant l'intervention d'un agent de remplacement sous 2 heures en cas d'absence.",
+        "source": "RC art 5.1",
+        "sous_criteres": []
+      },
+      {
+        "libelle": "Moyens humains",
+        "ponderation_pct": 10,
+        "description": "L'acheteur évalue la composition détaillée de l'équipe (avec attention particulière à l'encadrement et au vivier mis à disposition), les formations et les modalités d'intégration des nouveaux agents.",
+        "elements_attendus": [
+          "Composition détaillée de l'équipe par site avec identification de l'interlocuteur désigné",
+          "Description du vivier de remplacement disponible",
+          "Programme de formation des agents (initiale et continue)",
+          "Modalités d'intégration des nouveaux agents (accueil, tutorat, formation sur site)"
+        ],
+        "exemple_reponse_forte": "Le candidat identifie nominativement le responsable de secteur dédié, présente un organigramme par site avec un vivier de 3 agents formés disponibles pour remplacement, et détaille un parcours d'intégration de 2 jours comprenant visite de site, formation aux produits et protocoles spécifiques aux locaux de police.",
+        "source": "RC art 5.1",
+        "sous_criteres": []
+      },
+      {
+        "libelle": "Moyens matériels et gestion des stocks de consommables",
+        "ponderation_pct": 5,
+        "description": "L'acheteur évalue les moyens techniques affectés (parc matériel, techniques utilisées, produits d'entretien, équipements sanitaires, tenues) et la méthode de gestion des stocks (gestion des ruptures de consommables et produits d'entretien).",
+        "elements_attendus": [
+          "Description du parc matériel affecté par site",
+          "Liste des produits d'entretien et consommables prévus",
+          "Méthode de gestion des stocks et prévention des ruptures",
+          "Matériel spécifique pour stand de tir (aspirateur anti-déflagrant) et cellules de garde à vue (EPI)"
+        ],
+        "exemple_reponse_forte": "Le candidat présente un inventaire de matériel dédié par site incluant un aspirateur anti-déflagrant pour le stand de tir, des EPI spécifiques pour les cellules de GAV, et un système de gestion des stocks avec réapprovisionnement hebdomadaire et stock tampon de 2 semaines pour les consommables sanitaires.",
+        "source": "RC art 5.1",
+        "sous_criteres": []
+      },
+      {
+        "libelle": "Considérations sociales",
+        "ponderation_pct": 10,
+        "description": "L'acheteur évalue les propositions d'heures d'insertion au-delà du minimum du cahier des charges, les mesures pour le bien-être des agents (travail en journée, prévention des risques, santé) et toute autre mesure sociale proposée.",
+        "elements_attendus": [
+          "Volume d'heures d'insertion proposé au-delà du minimum réglementaire",
+          "Mesures favorisant le travail en journée plutôt que les horaires décalés",
+          "Actions de prévention des risques professionnels et de santé au travail",
+          "Toute autre mesure sociale innovante (QVT, parcours d'évolution, etc.)"
+        ],
+        "exemple_reponse_forte": "Le candidat s'engage à proposer 150 heures d'insertion (soit 30% au-delà du minimum), organise les interventions en journée de 8h à 18h pour les prestations courantes, et met en place un programme de prévention TMS avec formation annuelle de tous les agents.",
+        "source": "RC art 5.1",
+        "sous_criteres": []
+      },
+      {
+        "libelle": "Considérations environnementales",
+        "ponderation_pct": 10,
+        "description": "L'acheteur évalue l'utilisation de produits écocertifiés/labellisés performants, la traçabilité des composants des produits d'entretien, la réduction de l'empreinte carbone, la gestion de l'eau et des produits, et toute autre mesure environnementale.",
+        "elements_attendus": [
+          "Pourcentage et liste des produits écocertifiés utilisés (Ecolabel, NF Environnement, etc.)",
+          "Modalités de traçabilité des composants des produits d'entretien (fiches de données sécurité)",
+          "Actions pour réduire l'empreinte carbone (déplacements, matériel basse consommation)",
+          "Méthodes d'optimisation de la consommation d'eau (dosage précis, matériel adapté)"
+        ],
+        "exemple_reponse_forte": "Le candidat s'engage à utiliser 80% de produits Ecolabel européen avec fourniture des fiches de données sécurité, optimise les tournées pour réduire les déplacements carbones et utilise des microfibres permettant de réduire la consommation d'eau de 60% par rapport aux méthodes traditionnelles.",
+        "source": "RC art 5.1",
+        "sous_criteres": []
+      }
+    ],
+    "prix": {
+      "type_formule": "moins_disant",
+      "formule_explicite": "Note prix forfaitaire = 35 × (montant de l'offre la plus basse / montant de l'offre analysée). Note BPU = 10 × (moyenne des prix de l'offre la plus basse / moyenne des prix de l'offre analysée).",
+      "elements_a_chiffrer": [
+        "Prix annuel global et forfaitaire des prestations courantes (DPGF)",
+        "Prix unitaires des prestations ponctuelles sur bon de commande (BPU)",
+        "Prix des prestations de nettoyage des surfaces vitrées (BPU)",
+        "Prix des éventuelles prestations particulières sur devis"
+      ]
+    },
+    "modalite_calcul_prix": "Critère prix sur 45 points : 35 points pour le prix forfaitaire annuel (formule : 35 × offre la plus basse / offre analysée) + 10 points pour les prix BPU (formule : 10 × moyenne prix offre la plus basse / moyenne prix offre analysée)."
+  },
+  "montant_marche": {
+    "valeur_estimee_euros": null,
+    "fourchette_min_euros": null,
+    "fourchette_max_euros": null,
+    "type": "non_communique",
+    "duree_couverte": null,
+    "source_extraction": null,
+    "commentaire": "Aucun montant estimé, prévisionnel ou plafond n'est mentionné dans les pièces du DCE fournies. Le RC indique que le montant maximum annuel est le montant minimum (prix forfaitaire annuel) + 30% maximum au titre des bons de commande, mais sans valeur chiffrée."
+  },
+  "revision_prix": {
+    "type": "indexation",
+    "indices_utilises": [],
+    "ponderation": null,
+    "periodicite": null,
+    "formule_revision": null,
+    "source_extraction": "RC art 3.1",
+    "commentaire": "Le RC mentionne que les prix sont 'révisables pendant toute la durée du marché' en application de l'article R.2112-13.2° du CCP, mais la formule de révision et les indices sont définis dans le CCP (non fourni dans les pièces analysées)."
+  },
+  "alertes_prix": [
+    "Le montant maximum annuel de l'accord-cadre est plafonné à 130% du montant minimum (forfaitaire annuel + 30% maximum de bons de commande) — risque de dépassement si l'acheteur multiplie les demandes ponctuelles",
+    "Deux composantes de prix à chiffrer (DPGF forfaitaire + BPU ponctuel) avec pondérations distinctes (35 pts + 10 pts) — erreur sur le BPU peut coûter jusqu'à 10 points",
+    "Formule prix proportionnelle pure (moins-disant) : un écart de 10% sur le prix forfaitaire annuel peut faire perdre plusieurs points déterminants",
+    "Prix révisables selon le CCP mais formule non précisée dans le RC fourni — risque d'incertitude sur la répercussion des hausses de salaires (secteur nettoyage très sensible au SMIC)"
+  ],
+  "references_exigees": {
+    "experience_minimale_annees": 3,
+    "experience_source": "RC art 4.1.3",
+    "volume_min_references_similaires": null,
+    "volume_min_references_unite": "marchés similaires",
+    "secteur_experience": "Nettoyage de locaux professionnels / services de propreté",
+    "secteur_source": "RC art 4.1.3",
+    "certifications_obligatoires": [
+      {
+        "libelle": "Certificats de qualification professionnelle de l'entreprise ou preuve de capacité à réaliser la prestation",
+        "source": "RC art 4.1.3"
+      },
+      {
+        "libelle": "Attestations de certification dans le domaine du développement durable (ISO 14000, démarche HQE ou équivalent) — souhaitées mais preuve d'équivalence acceptée",
+        "source": "RC art 4.1.3"
+      }
+    ],
+    "autres_exigences": [
+      {
+        "libelle": "Déclaration indiquant les effectifs moyens annuels et l'importance du personnel d'encadrement pour chacune des 3 dernières années",
+        "source": "RC art 4.1.3"
+      },
+      {
+        "libelle": "Liste des principales prestations réalisées dans le domaine au cours des 3 dernières années avec montant, date, destinataire et coordonnées de contact",
+        "source": "RC art 4.1.3"
+      },
+      {
+        "libelle": "Déclaration appropriée de banques ou preuve d'assurance pour les risques professionnels",
+        "source": "RC art 4.1.3"
+      },
+      {
+        "libelle": "Pour le lot 1 (sensible) : organigramme complet des personnels intervenant + copies CNI recto/verso de chaque personne (y compris co-traitants et sous-traitants)",
+        "source": "RC art 1.5"
+      }
+    ]
+  },
+  "lots": [
+    {
+      "numero": 1,
+      "intitule": "Lot 1 – Secteur Angoulême",
+      "zone_geographique": "Angoulême, La Couronne, Soyaux (Charente – 16)",
+      "volume_estime": null,
+      "volume_estime_unite": null,
+      "particularites": "Lot classé 'sensible' — enquête administrative obligatoire pour chaque intervenant. Visite obligatoire de l'ensemble des 5 sites. Présence de cellules de garde à vue et d'un stand de tir. Clause sociale d'insertion obligatoire. Attestation de déclaration individuelle de l'accédant à fournir avec l'offre."
+    },
+    {
+      "numero": 2,
+      "intitule": "Lot 2 – Secteur Cognac",
+      "zone_geographique": "Cognac (Charente – 16)",
+      "volume_estime": null,
+      "volume_estime_unite": null,
+      "particularites": "Un seul site : Commissariat de Police de Cognac. Clause sociale d'insertion obligatoire. Visite obligatoire du site."
+    }
+  ],
+  "calendrier": {
+    "date_limite_offres": "2026-07-24",
+    "date_demarrage_prevue": "2027-01-01",
+    "duree_marche": "24 mois ferme (01/01/2027-31/12/2028) + 2 reconductions annuelles possibles, soit 48 mois maximum"
+  },
+  "alertes_candidat": [
+    "VISITE OBLIGATOIRE sous peine d'offre irrégulière : contacter les correspondants au moins 7 jours avant la visite, fournir CNI 3-4 jours avant le RDV, et joindre l'attestation de visite signée à l'offre (RC art 1.12)",
+    "LOT 1 SENSIBLE : enquête administrative obligatoire — CNI de TOUS les intervenants (y compris sous-traitants) à fournir dès le dépôt de l'offre ; seul un résultat sans réserve permet l'attribution (RC art 1.5)",
+    "Clause d'insertion sociale obligatoire pour les lots 1 et 2 : l'engagement d'insertion (annexe 3 de l'ATTRI) doit être complété et signé — son absence rendrait l'offre irrécevable",
+    "Mémoire technique strictement limité à 16 pages (hors page de garde et sommaire) + 10 pages de documents complémentaires max — tout contenu hors cadre fourni ne sera pas pris en compte",
+    "Dépôt obligatoirement dématérialisé sur PLACE (marches-publics.gouv.fr) — aucune offre papier acceptée"
+  ],
+  "points_differenciants_attendus": [
+    {
+      "libelle": "Engagement concret sur les heures d'insertion au-delà du minimum",
+      "exemple": "Proposer 20 à 30% d'heures d'insertion supplémentaires au-delà du minimum requis, avec identification des partenaires locaux (missions locales, PLIE) et fléchage sur des profils QPV ou BRSA dans les secteurs d'Angoulême et Cognac.",
+      "source": "RC art 5.1"
+    },
+    {
+      "libelle": "Organisation de la reprise du personnel existant et gestion des absences",
+      "exemple": "Présenter un rétroplanning précis de reprise du personnel (entretiens individuels J-15, formalités RH J-7, brief protocoles J-1) et une procédure de remplacement avec délai garanti de 2 heures maximum pour les absences imprévues sur sites sensibles.",
+      "source": "RC art 5.1"
+    },
+    {
+      "libelle": "Maîtrise des contraintes spécifiques aux locaux de police (stand de tir, GAV)",
+      "exemple": "Démontrer la possession d'un aspirateur anti-déflagrant certifié et décrire le protocole biohazard pour les cellules de garde à vue (EPI, procédure décontamination, traçabilité), rassurant l'acheteur sur la maîtrise des risques particuliers au contexte.",
+      "source": "RC art 1.5 et 1.6"
+    },
+    {
+      "libelle": "Utilisation de produits écocertifiés avec traçabilité documentée",
+      "exemple": "Fournir la liste des produits Ecolabel européen utilisés avec les fiches de données sécurité et un tableau de traçabilité des composants, en ciblant au moins 75% de produits labellisés pour les sites du lot concerné.",
+      "source": "RC art 5.1"
+    },
+    {
+      "libelle": "Encadrement dédié et interlocuteur unique identifié par lot",
+      "exemple": "Désigner nominativement un chef d'équipe dédié par lot avec présentation de son CV et de son expérience sur des sites similaires (commissariats, bâtiments sécurisés), disponible comme interlocuteur unique pour l'acheteur.",
+      "source": "RC art 5.1"
+    }
+  ],
+  "_meta": {
+    "id_marche": "BOAMP-26-56061",
+    "type": "complet",
+    "extraction_le": "2026-06-11T21:49:43.550659+00:00",
+    "modele": "claude-sonnet-4-6",
+    "tokens_input": 23903,
+    "tokens_output": 6078,
+    "cout_eur": 0.1547,
+    "duree_sec": 110.9,
+    "pdfs_traites": [
+      {
+        "nom": "RC.pdf",
+        "hash": "aa11a0022bb36172dec224cb588bdd38",
+        "taille_chars": 40102
+      }
+    ]
+  }
+}

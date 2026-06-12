@@ -1,0 +1,493 @@
+"""
+llm_extract.py
+--------------
+Extraction structurée du contenu d'un DCE via Claude API.
+
+Prend en entrée le texte combiné du RC + CCTP (+ autres pièces), retourne
+un dict JSON avec les champs structurés clés pour décider de candidater.
+
+Modèle : claude-sonnet-4-6 (équilibre qualité/coût pour extraction structurée).
+
+API key : variable d'environnement ANTHROPIC_API_KEY.
+
+API :
+    extraire_via_llm(texte, contexte) -> dict
+"""
+
+import json
+import os
+import re
+import sys
+import time
+from pathlib import Path
+from typing import Optional
+
+try:
+    from anthropic import Anthropic
+except ImportError:
+    Anthropic = None
+
+
+MODELE = "claude-sonnet-4-6"  # Sonnet 4.6 — canonical ID
+MAX_TOKENS_REPONSE = 16000     # Sonnet 4.6 supporte jusqu'à 16384 ; 8000 tronquait les briefs riches
+MAX_CHARS_INPUT = 400_000
+
+
+# ---------------------------------------------------------------------------
+# Chargement de la clé API depuis .env si la variable d'env n'est pas définie
+# ---------------------------------------------------------------------------
+
+def _charger_cle_depuis_env_file() -> Optional[str]:
+    """
+    Cherche un fichier .env à la racine du projet et y lit ANTHROPIC_API_KEY.
+
+    Le fichier .env doit contenir une ligne du type :
+        ANTHROPIC_API_KEY=sk-ant-XXXXXXXX
+    (avec ou sans guillemets, avec ou sans espaces autour du =)
+
+    Cherche aussi .env.txt (cas Notepad qui ajoute .txt sous Windows).
+    Gère le BOM UTF-8 ajouté par Notepad.
+    """
+    racine = Path(__file__).parent
+    # Cherche .env ou .env.txt (fallback Windows)
+    candidats = [racine / ".env", racine / ".env.txt"]
+    for chemin_env in candidats:
+        if not chemin_env.is_file():
+            continue
+        try:
+            # encoding="utf-8-sig" gère automatiquement le BOM ajouté par Notepad
+            with open(chemin_env, encoding="utf-8-sig") as f:
+                for ligne in f:
+                    ligne = ligne.strip()
+                    if not ligne or ligne.startswith("#"):
+                        continue
+                    if "=" not in ligne:
+                        continue
+                    cle, _, valeur = ligne.partition("=")
+                    cle = cle.strip()
+                    valeur = valeur.strip().strip('"').strip("'")
+                    if cle == "ANTHROPIC_API_KEY" and valeur:
+                        return valeur
+        except Exception:
+            continue
+    return None
+
+
+def _obtenir_cle_api() -> Optional[str]:
+    """
+    Récupère la clé API selon priorité :
+    1. Variable d'environnement ANTHROPIC_API_KEY
+    2. Fichier .env à la racine du projet
+    """
+    cle = os.environ.get("ANTHROPIC_API_KEY")
+    if cle:
+        return cle.strip()
+    cle = _charger_cle_depuis_env_file()
+    if cle:
+        # Injecte dans l'env pour que le SDK Anthropic la trouve
+        os.environ["ANTHROPIC_API_KEY"] = cle
+        return cle
+    return None
+
+
+# ---------------------------------------------------------------------------
+# Prompt structuré
+# ---------------------------------------------------------------------------
+
+PROMPT_SYSTEME = """Tu es un expert en analyse de marchés publics français, \
+spécialisé dans les marchés de formation et d'accompagnement des demandeurs \
+d'emploi (France Travail / ex-Pôle Emploi).
+
+Tu analyses des Dossiers de Consultation des Entreprises (DCE) composés \
+typiquement d'un Règlement de Consultation (RC) et d'un Cahier des Clauses \
+Techniques Particulières (CCTP).
+
+Ta mission : extraire les informations structurées qui permettent à un \
+organisme de formation de décider rapidement s'il peut et doit candidater.
+
+Réponds UNIQUEMENT en JSON valide, sans préambule, sans bloc markdown, \
+sans commentaire. Le JSON doit suivre exactement le schéma demandé."""
+
+
+PROMPT_UTILISATEUR_TEMPLATE = """Voici le contenu d'un DCE pour un marché public.
+
+CONTEXTE DU MARCHÉ :
+{contexte}
+
+CONTENU DES PIÈCES DU DCE (RC, CCTP, etc.) :
+---
+{texte}
+---
+
+Extrais les informations dans ce schéma JSON :
+
+{{
+  "synthese_marche": "Résumé du marché en 2-3 phrases.",
+  "publics_cibles": {{
+    "description": "Description précise du public visé (DE seniors, cadres, NEET, etc.)",
+    "criteres_eligibilite": [
+      {{
+        "libelle": "Texte du critère d'éligibilité, recopié ou reformulé fidèlement",
+        "source": "Référence courte vers le document du DCE : 'CCTP §2.1', 'RC art 4.2', 'CCAP article 5'. Si tu ne peux pas localiser précisément, mets le document seul : 'CCTP'. Si vraiment impossible, mets null."
+      }}
+    ],
+    "publics_specifiques_signales": ["RQTH", "BRSA", "ZRR", etc.]
+  }},
+  "volumes": {{
+    "nb_beneficiaires_total": null,
+    "nb_beneficiaires_par_lot": null,
+    "duree_par_parcours_heures": null,
+    "duree_par_parcours_semaines": null,
+    "duree_marche_mois": null,
+    "commentaire_volumes": "Texte libre si volumes complexes"
+  }},
+  "modalites": {{
+    "presentiel_obligatoire": null,
+    "distanciel_possible": null,
+    "synchrone_asynchrone": "ex: 'présentiel obligatoire' ou 'mix'",
+    "sites_execution": ["villes/départements/régions de réalisation"],
+    "amplitude_horaire": "ex: 'lundi-vendredi 9h-17h'"
+  }},
+  "bareme_notation": {{
+    "valeur_technique_pct": null,
+    "valeur_prix_pct": null,
+    "sous_criteres_techniques": [
+      {{
+        "libelle": "Méthodologie pédagogique",
+        "ponderation_pct": 50,
+        "description": "1-2 phrases factuelles depuis le RC expliquant CE que l'acheteur évalue précisément sur ce sous-critère.",
+        "elements_attendus": [
+          "Liste de 3-6 points concrets que la réponse doit contenir pour scorer haut",
+          "Reformule textuellement les attendus explicites du RC",
+          "Si absent du RC, mets [] vide — n'invente rien"
+        ],
+        "exemple_reponse_forte": "Court paragraphe (2-3 phrases) illustrant le type de contenu attendu d'une réponse qui scorerait haut sur ce sous-critère. Doit être plausible vis-à-vis du RC.",
+        "source": "Référence vers le document où le sous-critère est décrit : 'RC §5.2', 'RC article 6 page 12'. Si pas localisable précisément : 'RC' ou null.",
+        "sous_criteres": [
+          {{
+            "libelle": "Approche pédagogique",
+            "ponderation_pct": 30,
+            "description": "Sous-niveau imbriqué : présent UNIQUEMENT si le RC structure réellement le critère parent en sous-rubriques chiffrées.",
+            "elements_attendus": ["..."],
+            "exemple_reponse_forte": "...",
+            "source": "RC §5.2.1"
+          }},
+          {{
+            "libelle": "Suivi individualisé",
+            "ponderation_pct": 20,
+            "description": "...",
+            "elements_attendus": [],
+            "exemple_reponse_forte": null,
+            "source": "RC §5.2.2"
+          }}
+        ]
+      }}
+    ],
+    "prix": {{
+      "type_formule": "moins_disant",
+      "formule_explicite": "Ex: 'Note prix = (prix_le_plus_bas / prix_candidat) × 30' — si la formule exacte est dans le RC, recopier-la ; sinon décrire le mécanisme en 1 phrase",
+      "elements_a_chiffrer": [
+        "Ex: 'Prix unitaire / bénéficiaire'",
+        "Ex: 'Forfait journée formation'",
+        "Ex: 'Frais annexes (déplacement, location salle, supports)'"
+      ]
+    }},
+    "modalite_calcul_prix": "Ex libre — gardé pour rétro-compat. Recopier la formule prix telle qu'écrite dans le RC."
+  }},
+  "montant_marche": {{
+    "valeur_estimee_euros": null,
+    "fourchette_min_euros": null,
+    "fourchette_max_euros": null,
+    "type": "non_communique",
+    "duree_couverte": null,
+    "source_extraction": null,
+    "commentaire": null
+  }},
+  "revision_prix": {{
+    "type": "indexation",
+    "indices_utilises": ["SYNTEC", "ILC"],
+    "ponderation": "Ex: '65% SYNTEC + 15% ILC + 20% partie fixe' ou 'SYNTEC seul'",
+    "periodicite": "semestrielle",
+    "formule_revision": "Recopie de la formule du CCAP si présente (ex: 'Pn = P0 × (0.65 × SYNTECn/SYNTEC0 + 0.15 × ILCn/ILC0 + 0.20)')",
+    "source_extraction": "Ex: 'CCAP article 5.3 page 12'",
+    "commentaire": "Analyse courte de l'impact pour le candidat (favorable en inflation, complexe à anticiper, etc.)"
+  }},
+  "alertes_prix": [
+    "Liste de 2-4 signaux contextuels liés au prix : ex 'Seuil d'OAB (offre anormalement basse) annoncé à 80% de l'estimation', 'Le marché précise un plafond budgétaire de 250 k€ par lot', 'Pondération prix de 40% inhabituellement élevée pour ce type de marché'. Mets [] vide si rien de notable."
+  ],
+  "references_exigees": {{
+    "experience_minimale_annees": null,
+    "experience_source": "Référence vers le doc qui mentionne l'expérience minimale : 'RC art 8.1' ou null",
+    "nb_min_stagiaires_accompagnes": null,
+    "secteur_experience": "ex: 'insertion DE seniors'",
+    "secteur_source": "Référence ou null",
+    "certifications_obligatoires": [
+      {{
+        "libelle": "Ex: 'Certification Qualiopi (art. L.6316-1 code du travail) — obligatoire à peine d'irrecevabilité'",
+        "source": "Ex: 'RC art 4.1' ou 'CCAP art 2'"
+      }}
+    ],
+    "autres_exigences": [
+      {{
+        "libelle": "Ex: 'Chiffre d'affaires annuel moyen sur 3 derniers exercices ≥ 86 100 €'",
+        "source": "Ex: 'RC art 4.3.2' ou null"
+      }}
+    ]
+  }},
+  "lots": [
+    {{
+      "numero": 1,
+      "intitule": "Lot 1 - Nouvelle-Aquitaine",
+      "zone_geographique": "NAQ",
+      "nb_beneficiaires_estime": null,
+      "particularites": "Texte libre"
+    }}
+  ],
+  "calendrier": {{
+    "date_limite_offres": "YYYY-MM-DD si trouvée",
+    "date_demarrage_prevue": "YYYY-MM-DD si trouvée",
+    "duree_marche": "ex: '24 mois reconductibles'"
+  }},
+  "alertes_candidat": [
+    "Liste de 3-5 points qui peuvent disqualifier un candidat ou demander attention particulière. Ex: 'références d'au moins 200 DE accompagnés exigées', 'certificat Qualiopi Bilans de compétences obligatoire'"
+  ],
+  "points_differenciants_attendus": [
+    {{
+      "libelle": "Axe différenciant courte description. Ex: 'Réseau d'entreprises locales pour mise en relation directe avec employeurs'",
+      "exemple": "Exemple concret 1-2 phrases qui illustre comment un candidat peut s'en servir dans sa réponse. Ex: 'Partenariat formalisé avec 15 employeurs locaux dans les secteurs en tension : engagement d'au moins 50% de mises en relation directes sous 30 jours'",
+      "source": "Si l'axe est explicitement valorisé par un passage du RC/CCTP : 'CCTP §4.2'. Si tu l'infères du contexte du marché sans citation explicite : null."
+    }}
+  ]
+}}
+
+RÈGLES IMPORTANTES :
+- Si une information n'est pas trouvée dans le texte, mets `null` (jamais "inconnu" ou texte libre).
+- Pour les pourcentages, mets des NOMBRES (pas "30%"), donc 30 et pas "30%".
+- Pour les listes, mets [] vide si rien.
+- Sois précis sur les volumes (ne pas inventer si pas clair).
+
+- **TRAÇABILITÉ DES SOURCES** : pour chaque assertion structurée du brief (critère d'éligibilité, sous-critère du barème, certification, exigence, point différenciant…), tu joins un champ `source` qui pointe vers le document du DCE et idéalement l'article ou le paragraphe.
+  - Format court préféré : `"CCTP §2.1"`, `"RC art 4.2"`, `"CCAP article 5 page 12"`, `"BPU ligne 3"`.
+  - Si tu ne peux pas localiser précisément l'article mais tu sais de quel document ça vient : mets le document seul, ex `"CCTP"`.
+  - Si vraiment impossible à sourcer (information inférée, non-explicite) : mets `null` plutôt qu'inventer une référence.
+  - Cite SEULEMENT les documents qui te sont effectivement fournis. Ne fabrique JAMAIS de référence à un document que tu n'as pas vu.
+  - Quand un même article du DCE couvre plusieurs items consécutifs, recopie la même source — c'est normal.
+  - Les sources sont la base de la confiance de l'utilisateur : prends-les au sérieux.
+
+- **SOUS-CRITÈRES ENRICHIS** : pour chaque sous-critère technique tu produis 5 champs OBLIGATOIRES + 1 OPTIONNEL :
+  - `libelle` : nom du sous-critère tel qu'écrit dans le RC
+  - `ponderation_pct` : sa pondération en nombre (sans %)
+  - `description` : 1-2 phrases factuelles tirées du RC sur CE que l'acheteur évalue (ne pas paraphraser de façon générique)
+  - `elements_attendus` : 3-6 points concrets QUE LA RÉPONSE DEVRA CONTENIR pour scorer haut. Reformule les attendus explicites du RC. Si le RC ne précise rien, mets [] vide — ne brode pas.
+  - `exemple_reponse_forte` : court paragraphe (2-3 phrases) qui illustre une réponse forte sur ce sous-critère. Doit être plausible vis-à-vis du contexte du marché. Si tu n'as pas matière, écris "—" (un simple tiret).
+  - `source` : référence vers le document du DCE où ce sous-critère est défini (ex: "RC §5.2"). null si non-localisable.
+
+- **HIÉRARCHIE DES SOUS-CRITÈRES — RÈGLE CRITIQUE** : un sous-critère peut lui-même se décomposer en sous-sous-critères chiffrés. C'est extrêmement fréquent dans les RC France Travail. Tu DOIS reproduire la hiérarchie réelle du RC, pas l'aplatir.
+
+  - Si le RC affiche un critère « Méthodologie 50% » qui se décompose en « Approche pédagogique 30% / Suivi individualisé 20% », tu produis UN sous-critère "Méthodologie" avec `ponderation_pct=50` ET un champ `sous_criteres` contenant les 2 enfants chiffrés. Tu N'aplatit PAS en 2 sous-critères de 30% et 20% au premier niveau.
+
+  - Si au contraire le RC liste directement 8 sous-critères de premier niveau sans regroupement parent (ex: Déroulé 10%, Méthodologie 10%, Mobilisation 10%, Numérique 15%, …), tu les gardes plats — ne crée JAMAIS un faux regroupement parent qui n'existe pas dans le RC.
+
+  - La récursion est libre : un sous-sous-critère peut lui-même contenir `sous_criteres` si le RC va à 3 niveaux.
+
+  - Le champ `sous_criteres` est OPTIONNEL : omets-le complètement (ou mets `[]`) quand le sous-critère est terminal (feuille).
+
+- **COHÉRENCE DES PONDÉRATIONS** : à chaque niveau, la somme des `ponderation_pct` doit valoir le `ponderation_pct` du parent (ou 100 au niveau racine pour la partie technique). Si tu vois une incohérence (ex: 50% = 30% + 15% + 10% = 55%), c'est probablement que tu as mal lu le RC — relis ce passage spécifique. Si l'incohérence persiste après vérification, mentionne-la dans la `description` du parent ("le RC affiche un sous-total à 55% au lieu de 50%").
+
+- **CRITIQUE BARÈME** : `valeur_technique_pct` + `valeur_prix_pct` doit faire EXACTEMENT 100. Les critères RSE/environnementaux/sociaux sont presque toujours des SOUS-critères du technique (à ranger dans `sous_criteres_techniques`), pas un 3e critère principal. Ne crée jamais un troisième pourcentage qui ferait dépasser 100.
+
+- **BLOC PRIX STRUCTURÉ** dans `bareme_notation.prix` :
+  - `type_formule` : choisis EXACTEMENT une valeur parmi cette liste fermée :
+    `moins_disant` (note proportionnelle au prix le plus bas)
+    `lineaire` (note linéaire entre min et max)
+    `ecart_type` (note vs moyenne, pénalise les extrêmes)
+    `seuil` (note plein/zéro selon seuil)
+    `autre`
+    Si le RC ne précise pas explicitement la formule, mets "autre".
+  - `formule_explicite` : recopie textuellement la formule du RC si elle est là (en LaTeX simplifié ou prose). Sinon 1 phrase descriptive.
+  - `elements_a_chiffrer` : liste des postes/lignes à chiffrer dans le bordereau de prix (BPU, DPGF, etc.) selon le RC.
+
+- **MONTANT DU MARCHÉ** dans `montant_marche` :
+
+  C'est la question N°1 que se pose le candidat avant de répondre. La plupart des accords-cadres France Travail ne donnent PAS de valeur explicite, mais il est presque toujours possible de **chiffrer une estimation** à partir des éléments présents. Tu dois TOUJOURS essayer dans cet ordre :
+
+  1. **Cherche un montant explicite** dans le RC, le CCAP ou l'avis BOAMP/TED. Mots-clés à scanner : "estimé à", "montant prévisionnel", "valeur estimée", "plafond", "maximum", "enveloppe budgétaire", "valeur totale". Si trouvé → `type: "estime_explicite"` ou `"plafond"`.
+
+  2. **Sinon, cherche le prix unitaire** dans le BPU (Bordereau des Prix Unitaires), le CCAP ou le RC. Mots-clés : "prix unitaire", "tarif par bénéficiaire", "coût par parcours", "forfait par stagiaire". Si trouvé ET que tu as un nombre de bénéficiaires plausible → CALCULE : `valeur_estimee_euros = nb_beneficiaires_total × prix_unitaire` et mets `type: "calcule_volumes"`. Dans `commentaire`, EXPLIQUE le calcul (ex: "140 bénéficiaires × 1 500 €/parcours = 210 000 €").
+
+  3. **Sinon, cherche une fourchette** dans l'avis BOAMP/TED (champs "valeur min/max") ou dans le RC. Si trouvée → remplis `fourchette_min_euros` et `fourchette_max_euros`, et `type: "estime_explicite"`.
+
+  4. **En tout dernier recours**, si AUCUN des 3 points ci-dessus ne donne rien après recherche approfondie, mets `type: "non_communique"` et toutes les valeurs à null. Mais c'est rare — il y a presque toujours un prix unitaire quelque part.
+
+  - `valeur_estimee_euros` : nombre en euros (pas string). Ex: 250000.
+  - `fourchette_min_euros` / `fourchette_max_euros` : nombres en euros si fourchette.
+  - `type` : EXACTEMENT parmi `estime_explicite`, `plafond`, `calcule_volumes`, `non_communique`.
+  - `duree_couverte` : période à laquelle s'applique le montant (ex: "période ferme 12 mois", "tranche 24 mois reconductible").
+  - `source_extraction` : OÙ tu as trouvé l'info (ex: "RC article 3.2 page 8", "BPU ligne 12", "avis BOAMP rubrique II.2.6").
+  - `commentaire` : si calculé, EXPLIQUE LE CALCUL clairement (ex: "200 bénéf × 1 250 € parcours = 250 000 € sur 12 mois"). Si plafond, précise (ex: "Plafond accord-cadre toutes tranches confondues").
+
+  ⚠️ ATTENTION — Ne PAS confondre :
+  - **Montant du marché** = ce que l'acheteur va payer au titulaire (= ce qu'on cherche ici).
+  - **CA minimum exigé du candidat** = critère d'éligibilité (ex: "le candidat doit justifier d'un CA annuel ≥ 86 100 €"). Ce n'est PAS le montant du marché. Range-le dans `references_exigees.autres_exigences`, pas dans `montant_marche`.
+  - **Honoraires d'expertise / frais accessoires** = composantes du prix, pas le montant total.
+
+- **RÉVISION DES PRIX** dans `revision_prix` — souvent dans le CCAP, pas le RC :
+  - `type` : choisis EXACTEMENT parmi cette liste fermée :
+    `indexation` (prix révisés périodiquement selon un ou plusieurs indices)
+    `actualisation` (prix actualisable une seule fois entre soumission et démarrage)
+    `ferme` (prix ferme et non révisable sur toute la durée)
+    `non_communique` (rien sur le sujet dans les pièces analysées)
+  - `indices_utilises` : liste des indices cités (ex: ["SYNTEC", "ILC", "INSEE BT01"]). Mets [] vide si type ≠ indexation.
+  - `ponderation` : description de la formule de pondération en clair (ex: "65% SYNTEC + 15% ILC + 20% partie fixe"). Recopie du CCAP si présent, sinon null.
+  - `periodicite` : trimestrielle / semestrielle / annuelle / autre / null
+  - `formule_revision` : recopie textuelle de la formule du CCAP si lisible (ex: "Pn = P0 × (0.65 × SYNTECn/SYNTEC0 + 0.15 × ILCn/ILC0 + 0.20)"). Sinon null.
+  - `source_extraction` : où c'est dans le DCE (ex: "CCAP article 5.3")
+  - `commentaire` : impact pour le candidat en 1 phrase (ex: "Formule mixte SYNTEC+ILC : favorable en inflation mais complexe à anticiper pour le chiffrage initial"). Sinon null.
+  - NE PAS INVENTER. Si tu n'as pas trouvé la révision des prix dans les pièces fournies, mets `type: "non_communique"` et le reste à null/vide. Ne suppose pas qu'il y a forcément du SYNTEC.
+
+- Pour `alertes_candidat`, identifie ce qui peut RÉELLEMENT bloquer une candidature (hors prix).
+- Pour `alertes_prix`, focus sur les signaux liés au prix : seuil OAB, plafond budgétaire, pondération atypique, bordereau complexe à risque d'erreur, etc.
+- Pour `points_differenciants_attendus`, ce qui distingue les bons dossiers selon le RC. Chaque item est un objet `{{libelle, exemple, source}}` :
+  - `libelle` : courte phrase nommant l'axe différenciant
+  - `exemple` : 1-2 phrases concrètes montrant comment un candidat peut s'en servir
+  - `source` : référence DCE si l'axe est valorisé explicitement par un passage ; null si tu l'infères du contexte sans citation
+
+Réponds UNIQUEMENT avec le JSON, sans aucun texte autour."""
+
+
+# ---------------------------------------------------------------------------
+# Appel API
+# ---------------------------------------------------------------------------
+
+def _check_anthropic():
+    if Anthropic is None:
+        raise RuntimeError(
+            "Le SDK anthropic n'est pas installé. Lance :\n"
+            "    pip install anthropic"
+        )
+    cle = _obtenir_cle_api()
+    if not cle:
+        raise RuntimeError(
+            "Clé API Anthropic introuvable.\n"
+            "Définis-la de l'une de ces 2 façons :\n"
+            "  1. Crée un fichier .env à la racine du projet contenant :\n"
+            "       ANTHROPIC_API_KEY=sk-ant-XXXXXXXX\n"
+            "  2. Ou définis la variable d'environnement ANTHROPIC_API_KEY"
+        )
+
+
+def extraire_via_llm(texte: str, contexte: dict,
+                       verbose: bool = True,
+                       max_retries: int = 2) -> Optional[dict]:
+    """
+    Envoie le texte d'un DCE à Claude et récupère les champs structurés.
+
+    Args:
+        texte: texte combiné du RC + CCTP + autres pièces.
+        contexte: dict avec id, titre, acheteur, source, etc. (méta du marché).
+        verbose: True pour afficher coût estimé et temps.
+        max_retries: relance en cas d'erreur API ou JSON invalide.
+
+    Returns:
+        dict JSON parsé, ou None si échec définitif.
+    """
+    _check_anthropic()
+    if len(texte) > MAX_CHARS_INPUT:
+        if verbose:
+            print(f"  ⚠ Texte tronqué : {len(texte)} → {MAX_CHARS_INPUT} chars")
+        texte = texte[:MAX_CHARS_INPUT]
+
+    contexte_str = json.dumps(contexte, ensure_ascii=False, indent=2)
+    prompt_user = PROMPT_UTILISATEUR_TEMPLATE.format(
+        contexte=contexte_str, texte=texte
+    )
+
+    client = Anthropic()
+
+    debut = time.time()
+    for tentative in range(1, max_retries + 1):
+        try:
+            if verbose:
+                print(f"  → Appel Claude API (tentative {tentative})...")
+                print(f"    input ≈ {len(prompt_user)} chars "
+                      f"(≈ {len(prompt_user) // 4} tokens)")
+            message = client.messages.create(
+                model=MODELE,
+                max_tokens=MAX_TOKENS_REPONSE,
+                system=PROMPT_SYSTEME,
+                messages=[{"role": "user", "content": prompt_user}],
+            )
+            duree = time.time() - debut
+            reponse_text = message.content[0].text if message.content else ""
+
+            if verbose:
+                # Coût estimé Sonnet : ~3$/Mtoken in, ~15$/Mtoken out
+                in_tokens = message.usage.input_tokens
+                out_tokens = message.usage.output_tokens
+                cout_usd = (in_tokens * 3 + out_tokens * 15) / 1_000_000
+                print(f"  ← Réponse en {duree:.1f}s")
+                print(f"    tokens in/out : {in_tokens} / {out_tokens}")
+                print(f"    coût estimé   : {cout_usd:.4f} $")
+
+            # Parser le JSON
+            try:
+                data = json.loads(reponse_text)
+                return data
+            except json.JSONDecodeError:
+                # Le LLM a parfois mis du texte autour. Cherche le bloc {...}
+                m = re.search(r"\{.*\}", reponse_text, re.DOTALL)
+                if m:
+                    try:
+                        data = json.loads(m.group(0))
+                        return data
+                    except json.JSONDecodeError as e:
+                        if verbose:
+                            print(f"  ⚠ JSON parse échoue : {e}")
+                if tentative < max_retries:
+                    continue
+                if verbose:
+                    print(f"  ❌ Réponse non-JSON après {max_retries} tentatives")
+                    print(f"    Début réponse : {reponse_text[:500]}")
+                return None
+        except Exception as e:
+            if verbose:
+                print(f"  ⚠ Erreur API (tentative {tentative}) : {e}")
+            if tentative < max_retries:
+                time.sleep(2)
+                continue
+            return None
+    return None
+
+
+if __name__ == "__main__":
+    # Test rapide : envoie un texte court à Claude
+    texte_test = """RÈGLEMENT DE CONSULTATION
+    
+    Article 1 - Objet : Le présent marché a pour objet la fourniture de \
+    prestations d'insertion professionnelle de type Activ Seniors auprès de \
+    1500 demandeurs d'emploi de plus de 45 ans en Nouvelle-Aquitaine.
+    
+    Article 2 - Durée : 24 mois, reconductibles 1 fois 12 mois.
+    
+    Article 3 - Critères d'attribution :
+    - Valeur technique : 70 points
+      - Méthodologie pédagogique : 30 points
+      - Qualité de l'équipe : 25 points
+      - Adéquation au public : 15 points
+    - Valeur prix : 30 points
+    
+    Article 4 - Les candidats doivent justifier de Qualiopi Actions de \
+    formation et d'au moins 3 ans d'expérience dans l'accompagnement de \
+    seniors demandeurs d'emploi."""
+    contexte = {
+        "id": "test",
+        "titre": "Marché Activ Seniors test",
+        "acheteur": "France Travail Nouvelle-Aquitaine",
+    }
+    print("Test d'extraction LLM...")
+    res = extraire_via_llm(texte_test, contexte, verbose=True)
+    if res:
+        print()
+        print(json.dumps(res, ensure_ascii=False, indent=2))
+    else:
+        print("Échec.")

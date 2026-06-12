@@ -1,0 +1,242 @@
+{% extends "base.html" %}
+
+{% block title %}Profil organisme — Tendia{% endblock %}
+
+{% macro section_label(text, count=none) %}
+  <div class="flex items-baseline justify-between mb-4">
+    <div class="apt-label">{{ text }}</div>
+    {% if count is not none %}<div class="apt-meta" style="color: var(--apt-ink-4);">{{ count }}</div>{% endif %}
+  </div>
+{% endmacro %}
+
+{% block content %}
+<div class="apt-mw-1180 mx-auto px-14 pt-16 pb-20">
+
+  <!-- ====================================================================
+       HERO
+       ==================================================================== -->
+  <header class="mb-14 fade-up">
+    <div class="apt-eyebrow mb-4">Profil organisme</div>
+    {% if profil %}
+    <h1 class="apt-display apt-fs-60 apt-lh-102 mb-5" style="color: var(--apt-ink); max-width: 880px;">
+      {{ profil.identite.nom or 'Organisme sans nom' }}
+    </h1>
+    <div class="flex items-center gap-3 mb-6 flex-wrap">
+      <span class="apt-meta">
+        {% if profil.identite.siren %}SIREN {{ profil.identite.siren }}{% endif %}
+        {% if profil.identite.forme_juridique %} · {{ profil.identite.forme_juridique }}{% endif %}
+        {% if profil.identite.annee_creation %} · depuis {{ profil.identite.annee_creation }}{% endif %}
+        {% if profil.identite.siege_ville %} · {{ profil.identite.siege_ville }}{% endif %}
+      </span>
+    </div>
+    {% if profil._description %}
+    <p class="apt-prose apt-italic" style="color: var(--apt-ink-3); font-family: var(--apt-font); font-weight: 400; font-size: 17px; max-width: 720px;">
+      {{ profil._description }}
+    </p>
+    {% endif %}
+    {% else %}
+    <h1 class="apt-display apt-fs-60 apt-lh-102 mb-5" style="color: var(--apt-ink-3);">
+      Aucun profil <span class="apt-italic">actif</span>
+    </h1>
+    <p class="apt-prose" style="color: var(--apt-ink-3); max-width: 580px;">
+      Renseigne ton profil organisme via <code class="apt-chip apt-chip-mono">data/organisme.json</code> pour activer le scoring automatique des marchés.
+    </p>
+    {% endif %}
+  </header>
+
+  {% if profil %}
+
+  <!-- ====================================================================
+       DIAGNOSTIC LINE
+       ==================================================================== -->
+  <section class="mb-14 fade-up fade-up-1">
+    <div class="apt-divider mb-8"></div>
+    <div class="grid grid-cols-12 gap-6">
+
+      <!-- Sections renseignées -->
+      <div class="col-span-3 pr-8 border-r" style="border-color: var(--apt-line);">
+        <div class="apt-label mb-3">Renseigné</div>
+        <div class="flex items-baseline gap-1.5">
+          <span class="apt-stat-value">{{ n_remplis }}</span>
+          <span class="apt-stat-unit">/ {{ n_total }} sections</span>
+        </div>
+        <div class="flex gap-1 mt-3">
+          {% for cle, rempli in diagnostic.items() %}
+            <span title="{{ cle }}" class="w-2 h-2 rounded-full" style="background: {% if rempli %}var(--apt-accent){% else %}var(--apt-ink-6){% endif %};"></span>
+          {% endfor %}
+        </div>
+      </div>
+
+      <!-- Capacité -->
+      <div class="col-span-3 pr-8 border-r" style="border-color: var(--apt-line);">
+        <div class="apt-label mb-3">Capacité annuelle</div>
+        <div class="flex items-baseline gap-1.5">
+          <span class="apt-stat-value">{{ '{:,}'.format(profil.capacite.stagiaires_par_an).replace(',', ' ') if profil.capacite and profil.capacite.stagiaires_par_an else '—' }}</span>
+          <span class="apt-stat-unit">stagiaires</span>
+        </div>
+        {% if profil.capacite and profil.capacite.heures_facturables_par_an %}
+        <div class="apt-meta mt-2">
+          {{ '{:,}'.format(profil.capacite.heures_facturables_par_an).replace(',', ' ') }} h facturables
+        </div>
+        {% endif %}
+      </div>
+
+      <!-- Couverture géographique -->
+      <div class="col-span-3 pr-8 border-r" style="border-color: var(--apt-line);">
+        <div class="apt-label mb-3">Couverture FT</div>
+        <div class="flex items-baseline gap-1.5">
+          <span class="apt-stat-value">{{ stats.nb_dr }}</span>
+          <span class="apt-stat-unit">DR couvertes</span>
+        </div>
+        <div class="apt-meta mt-2">sur 19 directions régionales</div>
+      </div>
+
+      <!-- Certifications -->
+      <div class="col-span-3 pl-1">
+        <div class="apt-label mb-3">Qualiopi</div>
+        <div class="flex items-baseline gap-1.5">
+          <span class="apt-stat-value">{{ stats.nb_qualiopi }}</span>
+          <span class="apt-stat-unit">/ 4 actions</span>
+        </div>
+        {% if profil.certifications and profil.certifications.cpf_eligible %}
+        <div class="apt-meta mt-2 flex items-center gap-1.5" style="color: var(--apt-accent-2);">
+          <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+          Éligible CPF
+        </div>
+        {% endif %}
+      </div>
+
+    </div>
+    <div class="apt-divider mt-8"></div>
+  </section>
+
+  <!-- ====================================================================
+       CONTENU DU PROFIL — grille 2 colonnes éditoriale
+       ==================================================================== -->
+  <section class="mb-20 fade-up fade-up-2">
+    <div class="grid grid-cols-12 gap-12">
+
+      <!-- COLONNE 1 ============================================ -->
+      <div class="col-span-7 space-y-12">
+
+        <!-- Thématiques métiers -->
+        <div>
+          {{ section_label("Thématiques métiers", stats.nb_thematiques) }}
+          {% if profil.thematiques_metiers %}
+          <div class="flex flex-wrap gap-1.5">
+            {% for t in profil.thematiques_metiers %}<span class="apt-chip apt-chip-accent">{{ t }}</span>{% endfor %}
+          </div>
+          {% else %}
+          <p class="apt-prose apt-italic" style="color: var(--apt-ink-4); font-size: 14px;">Aucune thématique renseignée.</p>
+          {% endif %}
+        </div>
+
+        <!-- Publics cibles -->
+        <div>
+          {{ section_label("Publics cibles", stats.nb_publics) }}
+          {% if profil.publics_cibles %}
+          <div class="flex flex-wrap gap-1.5">
+            {% for p in profil.publics_cibles %}<span class="apt-chip">{{ p }}</span>{% endfor %}
+          </div>
+          {% else %}
+          <p class="apt-prose apt-italic" style="color: var(--apt-ink-4); font-size: 14px;">Aucun public renseigné.</p>
+          {% endif %}
+        </div>
+
+        <!-- Prestations -->
+        <div>
+          {{ section_label("Prestations maîtrisées", stats.nb_prestations) }}
+          {% if profil.prestations_maitrisees %}
+          <div class="flex flex-wrap gap-1.5">
+            {% for p in profil.prestations_maitrisees %}<span class="apt-chip apt-chip-mono">{{ p }}</span>{% endfor %}
+          </div>
+          {% else %}
+          <p class="apt-prose apt-italic" style="color: var(--apt-ink-4); font-size: 14px;">Aucune prestation renseignée.</p>
+          {% endif %}
+        </div>
+
+        <!-- Mots-clés catalogue -->
+        <div>
+          {{ section_label("Mots-clés catalogue", stats.nb_mots_cles) }}
+          {% if profil.mots_cles_catalogue %}
+          <div class="flex flex-wrap gap-1" style="line-height: 2;">
+            {% for m in profil.mots_cles_catalogue %}<span class="apt-chip apt-chip-outline" style="font-size: 11px;">{{ m }}</span>{% endfor %}
+          </div>
+          {% else %}
+          <p class="apt-prose apt-italic" style="color: var(--apt-ink-4); font-size: 14px;">Aucun mot-clé.</p>
+          {% endif %}
+        </div>
+
+      </div>
+
+      <!-- COLONNE 2 (sidebar marginalia) ======================= -->
+      <div class="col-span-5 space-y-12">
+
+        <!-- Directions régionales -->
+        <div>
+          {{ section_label("Directions régionales FT", stats.nb_dr) }}
+          {% if profil.directions_regionales_couvertes %}
+          <div class="flex flex-wrap gap-1.5">
+            {% for dr in profil.directions_regionales_couvertes %}
+              {% if dr == 'DG' %}
+              <span class="apt-chip apt-chip-mono" style="background: var(--apt-ink); color: var(--apt-pure);">{{ dr }}</span>
+              {% else %}
+              <span class="apt-chip apt-chip-mono">{{ dr }}</span>
+              {% endif %}
+            {% endfor %}
+          </div>
+          {% else %}
+          <p class="apt-prose apt-italic" style="color: var(--apt-ink-4); font-size: 14px;">Aucune DR.</p>
+          {% endif %}
+        </div>
+
+        <!-- Modalités -->
+        <div>
+          {{ section_label("Modalités pédagogiques", stats.nb_modalites) }}
+          {% if profil.modalites_pedagogiques %}
+          <div class="flex flex-wrap gap-1.5">
+            {% for m in profil.modalites_pedagogiques %}<span class="apt-chip">{{ m }}</span>{% endfor %}
+          </div>
+          {% else %}
+          <p class="apt-prose apt-italic" style="color: var(--apt-ink-4); font-size: 14px;">—</p>
+          {% endif %}
+        </div>
+
+        <!-- Certifications détaillées -->
+        <div>
+          {{ section_label("Certifications") }}
+          {% set certifs = profil.certifications or {} %}
+          <ul class="space-y-2.5 text-sm">
+            {% for cle, label in [
+              ('qualiopi_actions_formation', 'Qualiopi · Actions de formation'),
+              ('qualiopi_apprentissage', 'Qualiopi · Apprentissage'),
+              ('qualiopi_bilans', 'Qualiopi · Bilans de compétences'),
+              ('qualiopi_vae', 'Qualiopi · VAE'),
+              ('cpf_eligible', 'Éligible CPF'),
+            ] %}
+              <li class="flex items-center gap-2.5">
+                {% if certifs.get(cle) %}
+                  <svg class="w-3.5 h-3.5 flex-shrink-0" style="color: var(--apt-accent);" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                  <span style="color: var(--apt-ink);">{{ label }}</span>
+                {% else %}
+                  <span class="w-3.5 h-3.5 inline-block flex-shrink-0 rounded-full" style="border: 1px solid var(--apt-line); background: var(--apt-line-3);"></span>
+                  <span style="color: var(--apt-ink-4);">{{ label }}</span>
+                {% endif %}
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+
+        <!-- Édition fichier — note discrète, pas boxée -->
+        <p class="apt-prose apt-italic" style="font-family: var(--apt-font); font-weight: 400; font-size: 13px; color: var(--apt-ink-4); line-height: 1.55; padding-left: 14px; border-left: 1.5px solid var(--apt-line);">
+          Affine champ par champ via <code class="apt-mono" style="font-style: normal; font-size: 11px; color: var(--apt-ink-3);">data/organisme.json</code>. Les changements sont pris en compte au prochain rafraîchissement.
+        </p>
+
+      </div>
+    </div>
+  </section>
+
+  {% endif %}
+
+</div>
+{% endblock %}

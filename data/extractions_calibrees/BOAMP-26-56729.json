@@ -1,0 +1,61 @@
+{
+  "prix_unitaire_estime": {
+    "unite": "chèque ou carte cadeau (frais de gestion/commission par unité émise)",
+    "mediane_eur": 0.55,
+    "min_eur": 0.3,
+    "max_eur": 0.85,
+    "methode_fourchette": "Bottom-up seul (pas de comparables DECP)",
+    "bottom_up": {
+      "qualification_intervenants": "Ce marché n'est PAS une prestation de formation à proprement parler mais une fourniture de chèques/titres spéciaux. Les intervenants sont des opérateurs spécialisés (type Sodexo, Edenred, Cadhoc, Chèque Domicile, etc.). Le coût n'est pas un coût horaire de formateur mais une commission/frais de gestion par titre émis, couvrant : impression/personnalisation du titre, gestion du réseau d'enseignes, compensation inter-opérateurs, service client, logistique de livraison, SI de gestion.",
+      "cout_horaire_retenu_eur": "Non applicable — modèle économique à la commission par titre, non à l'heure",
+      "heures_effectives_par_unite": "Non applicable",
+      "coef_complexite": "Coefficient de personnalisation et de réseau local : ×1.10 pour chèques CAP (réseau restreint/métiers spécifiques habillement à Calais) ; ×1.05 pour chèques cadeau multi-enseignes standard",
+      "calcul": "DÉCOMPOSITION COÛT PAR TITRE ÉMIS — Modèle économique réel des opérateurs de titres spéciaux :\n\n--- COMPOSANTES DU COÛT UNITAIRE ---\n\n1. IMPRESSION & PERSONNALISATION du titre :\n   - Chèque papier standard (offset, sécurisé, logo CCAS) : 0.08 – 0.15 €/unité\n   - Carte cadeau plastique personnalisée (rechargeable ou prépayée) : 0.25 – 0.50 €/unité (amortissement gravure + puce/bande magnétique)\n\n2. GESTION DU RÉSEAU D'ENSEIGNES :\n   - Prospection, référencement, animation du réseau local Calais (contrainte forte : habillement à Calais = réseau plus réduit qu'en métropole) : 0.03 – 0.08 €/unité\n   - Commission de compensation enseigne : généralement à la charge de l'enseigne (discount de 1-3% sur la valeur faciale) → coût net prestataire ≈ 0\n\n3. LOGISTIQUE DE LIVRAISON (contrainte < 5 jours, idéalement 1-2 jours) :\n   - Commandes fréquentes en petites quantités (CCAS = BdC au fil de l'eau) : surcoût logistique unitaire 0.05 – 0.12 €/unité\n   - Conditionnement sécurisé + suivi : 0.02 – 0.05 €/unité\n\n4. SI DE GESTION & REPORTING :\n   - Plateforme de commande, portail CCAS, reporting trimestriel, interlocuteur dédié : 0.02 – 0.06 €/unité (mutualisé sur volume)\n\n5. STRUCTURE & MARGE PRESTATAIRE :\n   - Frais généraux + marge nette opérateur (marché très concurrentiel entre 3-5 acteurs nationaux) : 15-20% du coût de revient total\n\n--- CALCUL PAR TYPE DE TITRE ---\n\nLOT 1 — Chèque Accompagnement Personnalisé (valeur faciale 5€) :\n   Coût de revient = impression (0.08-0.12) + réseau (0.04-0.07) + logistique (0.05-0.10) + SI (0.03-0.05) = 0.20 – 0.34 €\n   Avec marge 15-20% : 0.23 – 0.41 €\n   Coef personnalisation/réseau restreint ×1.10 : 0.25 – 0.45 €\n   → Frais de gestion LOT 1 : 0.25 – 0.45 €/chèque\n   → Ramené en % valeur faciale : 5% – 9% (cohérent marché)\n\nLOT 2 — Chèque cadeau multi-enseignes (valeur faciale 5€) :\n   Coût de revient = impression (0.08-0.12) + réseau large (0.02-0.05) + logistique (0.05-0.10) + SI (0.02-0.04) = 0.17 – 0.31 €\n   Avec marge 15-20% : 0.20 – 0.37 €\n   Coef standard ×1.05 : 0.21 – 0.39 €\n   → Frais de gestion LOT 2 chèques : 0.20 – 0.40 €/chèque\n   → Ramené en % valeur faciale : 4% – 8%\n\nLOT 2 — Carte cadeau multi-enseignes (valeur faciale 30€) :\n   Coût de revient = carte plastique (0.25-0.45) + réseau (0.05-0.10) + logistique (0.04-0.08) + SI (0.03-0.05) = 0.37 – 0.68 €\n   Avec marge 15-20% : 0.43 – 0.82 €\n   Coef standard ×1.05 : 0.45 – 0.86 €\n   → Frais de gestion LOT 2 cartes : 0.45 – 0.86 €/carte\n   → Ramené en % valeur faciale : 1.5% – 2.9% (normal : économie d'échelle sur valeur plus élevée)\n\n--- SYNTHÈSE TOUS TITRES ---\n   Médiane pondérée (poids volumique : 9300 lot1 + 16200 chèques lot2 + 2700 cartes lot2 = 28 200 unités) :\n   Bas : (9300×0.25 + 16200×0.20 + 2700×0.45) / 28200 = (2325 + 3240 + 1215) / 28200 = 6780 / 28200 = 0.24 €\n   Haut : (9300×0.45 + 16200×0.40 + 2700×0.86) / 28200 = (4185 + 6480 + 2322) / 28200 = 12987 / 28200 = 0.46 €\n   Médiane globale : ~0.35 €/unité en frais de gestion moyens pondérés\n   MAIS les marchés publics de ce type intègrent souvent des frais de dossier fixes par commande (BdC) de 10-30€, et des frais de gestion annuels forfaitaires (100-300€/an). Ces éléments peuvent relever la commission effective par titre de 0.05-0.10 €.",
+      "fourchette_eur": "0.30 – 0.85 € / titre (frais de gestion nets, hors valeur faciale)"
+    },
+    "unit_repricing": {
+      "_commentaire": "Le BPU comporte plusieurs unités tarifaires : prix/chèque CAP (lot 1), prix/chèque cadeau (lot 2), prix/carte cadeau (lot 2), plus éventuellement frais fixes par bon de commande. La décomposition ci-dessus distingue déjà chaque unité. Les frais fixes par BdC (livraison urgente < 5 jours) sont estimés à 15-30 € par commande et constituent un coût mutualisé non inclus dans le prix unitaire. Sur la base de 12-20 commandes/an par lot, cela ajoute 0.01-0.08 €/titre selon la taille des commandes.",
+      "unite_marche": "prix unitaire par titre émis (chèque ou carte cadeau) + éventuels frais fixes par bon de commande",
+      "couts_fixes_par_session_eur": {
+        "frais_livraison_par_BdC": "15 – 30 €",
+        "frais_gestion_annuels_forfaitaires": "100 – 300 €/an/lot",
+        "ouverture_compte_parametrage": "0 – 150 € (one-shot)"
+      },
+      "cout_variable_par_unite_eur": 0.35,
+      "calcul_session_type": "Exemple BdC type lot 1 : 775 chèques (= 9300/12 mois). Coût fixe livraison 20 €. Coût variable 775 × 0.35 = 271 €. Total BdC = 291 €. Ramené au chèque : 291/775 = 0.375 €/chèque (cohérent avec la fourchette retenue).",
+      "fourchette_session_eur": "150 – 650 € par bon de commande selon taille"
+    },
+    "top_down": null,
+    "triangulation": "Bottom-up seul — pas de top-down possible sans comparables DECP en base. La validation par triangulation sera possible quand DECP sera ingéré. À titre de cohérence sectorielle : les opérateurs de titres-services facturent typiquement 3-10% de la valeur faciale en frais de gestion (source : pratique de marché connue, ANCV, Edenred, Sodexo). Sur une valeur faciale de 5 €, cela donne 0.15-0.50 €/titre, cohérent avec notre fourchette.",
+    "hypotheses": "L'estimation repose sur le modèle économique standard des opérateurs de titres spéciaux (commission sur valeur émise + frais logistiques) appliqué aux volumes du DCE. La contrainte de délai court (1-2 jours) et le réseau d'enseignes local à Calais (notamment habillement) constituent des facteurs haussiers par rapport à un marché standard.",
+    "ajustements_appliques": "Coefficient ×1.10 appliqué au lot 1 (réseau restreint, personnalisation CAP, Calais zone géographique à couverture réseau moindre qu'une grande métropole). Coefficient ×1.05 au lot 2 (multi-enseignes plus standard). Majoration implicite de 0.05-0.10 €/titre pour délai de livraison < 5 jours (surcoût logistique express).",
+    "confiance": "faible",
+    "limites": "1) Aucun comparable DECP disponible : l'estimation est purement théorique, non validée par des prix réellement attribués sur segment identique. 2) Les conditions tarifaires réelles des grands opérateurs (Sodexo, Edenred, Up Group, Chèque Domicile) sont négociées et non publiques : les commissions effectives peuvent être inférieures (accord-cadre national préexistant) ou supérieures (petit volume / zone géographique). 3) La durée du marché n'est pas précisée : un accord-cadre sur 4 ans double ou triple le volume total et peut entraîner des remises volumiques significatives. 4) Le contexte régional (Calais, Hauts-de-France, réseau d'enseignes habillement potentiellement limité) est estimé sans données locales précises."
+  },
+  "fourchette_marche_total_estimee": {
+    "min_eur": 3800,
+    "max_eur": 24000,
+    "calcul": "Volumes annuels : Lot 1 = 9 300 chèques/an × frais gestion lot1 (0.25-0.45 €) = 2 325 – 4 185 €/an. Lot 2 chèques = 16 200 × (0.20-0.40 €) = 3 240 – 6 480 €/an. Lot 2 cartes = 2 700 × (0.45-0.86 €) = 1 215 – 2 322 €/an. Total annuel hors frais fixes = 6 780 – 12 987 €/an. Frais fixes annuels estimés (2 lots × 200 €/an forfait + 2 lots × 20 commandes × 20 €) = 1 200 €/an. Total annuel = 7 980 – 14 187 €/an. Sur 4 ans (durée probable d'un accord-cadre) = 31 920 – 56 748 €.",
+    "scenarios": {
+      "bas": {
+        "montant_eur": 15960,
+        "hypothese": "Prix bas (0.25-0.20-0.45 €/titre selon type) × volumes nominaux × 50% taux d'exécution × 4 ans. Correspond à un scénario où le CCAS n'émet qu'une fraction des volumes prévus (sous-consommation fréquente en action sociale, accords-cadres non saturés). Total annuel bas = 7 980 € × 50% = 3 990 €/an × 4 ans = 15 960 €."
+      },
+      "realiste": {
+        "montant_eur": 37800,
+        "hypothese": "Prix médian (0.35 €/titre en moyenne pondérée) × volumes nominaux × 75% taux d'exécution × 4 ans. Total annuel médian = (28 200 titres × 0.35 + 1 200 frais fixes) × 75% = (9 870 + 1 200) × 75% = 8 303 €/an × 4 ans = 33 210 € + marge contextuelle 10-15% ≈ 37 800 €."
+      },
+      "haut": {
+        "montant_eur": 57000,
+        "hypothese": "Prix haut (0.45-0.40-0.86 €/titre) × volumes nominaux × 100% taux d'exécution × 4 ans. Total annuel haut = 12 987 + 1 200 frais fixes = 14 187 €/an × 4 ans = 56 748 €, arrondi à 57 000 €. Correspond au cas où l'accord-cadre est saturé à 100% et les tarifs sont en haut de fourchette (réseau local contraint, délais express systématiques)."
+      }
+    }
+  },
+  "_mode_calibration": "bottom_up_seul",
+  "_meta": {
+    "date_calibration": "2026-06-11T17:23:18.845970+00:00",
+    "mode": "bottom_up_seul",
+    "n_comparables_utilises": 0,
+    "note": "Calibration dégradée — pas de comparables DECP en base. Relancer en mode 'triangule' quand DECP sera ingéré pour upgrade."
+  }
+}

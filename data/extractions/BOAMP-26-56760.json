@@ -1,0 +1,329 @@
+{
+  "synthese_marche": "L'ASNR (Autorité de Sûreté Nucléaire et de Radioprotection) lance un appel d'offres ouvert pour la Tierce Maintenance Applicative (TMA) de deux applications métier : SYMBIOSE (Lot 1, plafond 400 000 € HT) et PARIS (Lot 2, plafond 380 000 € HT). Le marché est structuré en accord-cadre à bons de commande, d'une durée ferme de 12 mois reconductible 3 fois (48 mois maximum), couvrant la prise en charge, la maintenance en conditions opérationnelles (MCO), la maintenance évolutive et la réversibilité.",
+  "domaines_metier": [
+    {
+      "code": "it_maintenance_support"
+    }
+  ],
+  "raison_classification": "Le marché porte explicitement sur de la Tierce Maintenance Applicative (TMA) de deux applications informatiques (SYMBIOSE et PARIS), incluant MCO, maintenance évolutive, prise en charge et réversibilité. Le CPV principal 72262000-9 (services de développement de logiciels) et secondaire 72222300-0 (services de technologies de l'information) confirment le positionnement IT. Le code `it_maintenance_support` (TMA, infogérance applicative, maintenance évolutive) est le seul domaine applicable.",
+  "caracteristiques_techniques_chantier": {
+    "description": null,
+    "typologie_ouvrage": null,
+    "surface_volume": null,
+    "site_occupe": null,
+    "corps_etat": [],
+    "contraintes_specifiques": []
+  },
+  "allotissement": {
+    "description": "Marché en deux lots distincts, chacun étant un accord-cadre à bons de commande indépendant",
+    "nb_lots": 2,
+    "lots_detailles": [
+      {
+        "numero": 1,
+        "intitule": "TMA de l'application SYMBIOSE",
+        "corps_etat": null,
+        "montant_estime": 400000,
+        "description": "Tierce Maintenance Applicative de l'application SYMBIOSE : prise en charge, MCO (à prix forfaitaire), maintenance évolutive (à prix forfaitaire) et réversibilité"
+      },
+      {
+        "numero": 2,
+        "intitule": "TMA de l'application PARIS",
+        "corps_etat": null,
+        "montant_estime": 380000,
+        "description": "Tierce Maintenance Applicative de l'application PARIS : prise en charge, MCO (à prix unitaires), maintenance évolutive mineure ≤5j (à prix unitaires), maintenance évolutive >5j (à prix forfaitaire), gouvernance (à prix unitaires) et réversibilité"
+      }
+    ]
+  },
+  "qualifications_requises": {
+    "description": null,
+    "qualibat": null,
+    "rge": null,
+    "opqibi": null,
+    "autres_certifications": []
+  },
+  "caracteristiques_mission": {
+    "typologie_mission": "TMA — Tierce Maintenance Applicative",
+    "domaine_expertise": "Maintenance applicative, développement logiciel, MCO, maintenance évolutive",
+    "livrables_attendus": [
+      "Bons de commande à prix forfaitaires pour prise en charge et réversibilité",
+      "Livrables de maintenance en conditions opérationnelles (MCO)",
+      "Livrables de maintenance évolutive",
+      "Rapports de gouvernance (Lot 2)",
+      "Plan de réversibilité"
+    ],
+    "duree_mission": "48 mois maximum (12 mois ferme + 3 reconductions de 12 mois)",
+    "jours_consultant_estimes": null
+  },
+  "profils_intervenants": {
+    "description": "Le mémoire technique doit présenter les profils des intervenants proposés ainsi que les garanties en termes de maintien des compétences et de continuité de service",
+    "chef_de_mission": "Profil à définir par le candidat avec CV à l'appui, garantissant continuité de service et capitalisation des compétences",
+    "consultants": "Profils à définir selon les compétences techniques requises pour chaque application (SYMBIOSE et PARIS), avec CVs obligatoires"
+  },
+  "caracteristiques_si": {
+    "description": "TMA de deux applications métier de l'ASNR : SYMBIOSE et PARIS. Les prestations couvrent la prise en charge applicative, la maintenance en conditions opérationnelles (MCO), la maintenance évolutive (corrective, adaptative, perfective) et la réversibilité. Le CCTP n'est pas fourni dans les pièces analysées, les technologies précises ne peuvent être identifiées.",
+    "typologie_projet": "TMA",
+    "technologies_mentionnees": [],
+    "volumetrie": null,
+    "hebergement": null
+  },
+  "qualifications_si": {
+    "iso_27001": null,
+    "anssi": null,
+    "hds": null,
+    "autres": []
+  },
+  "bareme_notation": {
+    "valeur_technique_pct": 60,
+    "valeur_prix_pct": 40,
+    "sous_criteres_techniques": [
+      {
+        "libelle": "Organisation et méthodologies proposées pour les prestations de prise en charge et réversibilité",
+        "ponderation_pct": 5,
+        "description": "Évaluation de l'organisation et des méthodologies spécifiques mises en œuvre pour les phases de prise en charge initiale et de réversibilité de fin de marché sur le Lot 1 (SYMBIOSE).",
+        "elements_attendus": [
+          "Plan de prise en charge détaillé avec jalons et livrables",
+          "Méthode de transfert de connaissance (documentation, formation équipe ASNR)",
+          "Organisation de la réversibilité : procédure de passation au successeur",
+          "Indicateurs de suivi spécifiques à ces phases",
+          "Gestion des risques liés à la prise en charge et à la réversibilité"
+        ],
+        "exemple_reponse_forte": "Notre plan de prise en charge SYMBIOSE prévoit une phase de shadowing de 4 semaines avec audit applicatif complet, production d'un dossier de reprise incluant cartographie fonctionnelle et technique, et mise en place d'un tableau de bord de maturité partagé avec l'ASNR. La réversibilité est activable à tout moment avec un plan documenté en 3 phases (gel des évolutions, transfert documentaire, validation ASNR) sur une durée contractualisée de 3 mois.",
+        "source": "RC article 6.2.2.1",
+        "sous_criteres": []
+      },
+      {
+        "libelle": "Organisation et méthodologies proposées relatives aux prestations de TMA",
+        "ponderation_pct": 25,
+        "description": "Évaluation de l'organisation et des méthodologies spécifiques pour la MCO et la maintenance évolutive sur le Lot 1 (SYMBIOSE), incluant indicateurs, livrables et propositions du candidat.",
+        "elements_attendus": [
+          "Organisation spécifique de la MCO : processus de traitement des incidents, SLA, niveaux de criticité",
+          "Indicateurs de performance MCO (taux de résolution, délais, taux de disponibilité)",
+          "Organisation de la maintenance évolutive : priorisation, chiffrage, jalons",
+          "Livrables associés à chaque type de maintenance",
+          "Points d'attention et propositions d'amélioration vis-à-vis des attentes ASNR",
+          "Outils et méthodes (ITSM, Agile, etc.) mis en œuvre"
+        ],
+        "exemple_reponse_forte": "Notre organisation MCO repose sur un triptyque : une équipe de support N1/N2 disponible du lundi au vendredi 8h-18h avec escalade N3 sous 4h pour les incidents critiques, un outil ITSM partagé avec l'ASNR pour traçabilité complète, et un comité opérationnel mensuel pour revue des indicateurs (taux de résolution, MTTR, backlog). Pour la maintenance évolutive, nous proposons une méthodologie Agile par itérations de 3 semaines avec démo et validation ASNR avant livraison.",
+        "source": "RC article 6.2.2.1",
+        "sous_criteres": []
+      },
+      {
+        "libelle": "Compétences proposées (CV) et garanties en termes de maintien des compétences et de continuité de service",
+        "ponderation_pct": 30,
+        "description": "Évaluation des CV des intervenants proposés et des dispositifs garantissant la continuité de service et le maintien des compétences tout au long du marché sur le Lot 1 (SYMBIOSE).",
+        "elements_attendus": [
+          "CV détaillés des intervenants clés avec expérience pertinente sur des technologies et contextes similaires",
+          "Dispositif de backup/remplacement en cas d'indisponibilité d'un intervenant clé",
+          "Politique de capitalisation des connaissances (documentation, base de connaissance interne)",
+          "Mécanisme de gestion des montées en compétence sur l'application",
+          "Garanties contractuelles proposées sur la continuité de service",
+          "Taux de turn-over maîtrisé et plan de gestion des départs"
+        ],
+        "exemple_reponse_forte": "L'équipe dédiée à SYMBIOSE est composée d'un chef de projet (8 ans d'expérience TMA secteur public, CV joint), d'un développeur senior (6 ans, spécialisé sur les technologies de l'application) et d'un analyste fonctionnel. Un binômage systématique est pratiqué dès J+30 pour chaque intervenant, avec une base de connaissance Confluence maintenue à jour. En cas de départ, notre procédure garantit un remplacement qualifié sous 6 semaines avec plan de transfert sur 4 semaines en parallèle.",
+        "source": "RC article 6.2.2.1",
+        "sous_criteres": []
+      }
+    ],
+    "prix": {
+      "type_formule": "moins_disant",
+      "formule_explicite": "Note sous-critère prix = [somme pondérée des prix de l'offre la moins distante] × [pondération du sous-critère] / [somme pondérée des prix de l'offre considérée]. La note du critère Prix est la somme des notes pondérées de l'ensemble des sous-critères de prix.",
+      "elements_a_chiffrer": [
+        "Prix des unités d'œuvre UO_PEC (prise en charge) — Lot 1 et Lot 2",
+        "Prix des unités d'œuvre UO_REV (réversibilité) — Lot 1 et Lot 2",
+        "Prix des autres unités d'œuvre (MCO, maintenance évolutive) — Lot 1 : 35%",
+        "Prix des unités d'œuvre UO_MCO (maintenance en conditions opérationnelles) — Lot 2 : 10%",
+        "Prix des unités d'œuvre UO_EVO (maintenance évolutive) — Lot 2 : 25%"
+      ]
+    },
+    "modalite_calcul_prix": "Note prix = [somme (*) des prix de l'offre la moins distante] × [pondération du sous-critère] / [somme (*) des prix de l'offre considérée], sommée sur l'ensemble des sous-critères de prix pondérés. (*) pondérée le cas échéant pour le sous-critère de rang inférieur."
+  },
+  "montant_marche": {
+    "valeur_estimee_euros": 780000,
+    "fourchette_min_euros": null,
+    "fourchette_max_euros": 780000,
+    "type": "plafond",
+    "duree_couverte": "48 mois maximum (durée totale accord-cadre toutes périodes confondues)",
+    "source_extraction": "RC article 2.4 — montants maximums explicites par lot",
+    "commentaire": "Plafond Lot 1 (TMA SYMBIOSE) : 400 000 € HT + Plafond Lot 2 (TMA PARIS) : 380 000 € HT = 780 000 € HT total. Ces plafonds s'appliquent sur la durée totale de l'accord-cadre (48 mois). Aucun montant minimum n'est fixé. L'atteinte du plafond entraine l'expiration automatique de l'accord-cadre pour le lot concerné."
+  },
+  "revision_prix": {
+    "type": "non_communique",
+    "indices_utilises": [],
+    "ponderation": null,
+    "periodicite": null,
+    "formule_revision": null,
+    "source_extraction": null,
+    "commentaire": "Le CCAP n'est pas fourni parmi les pièces analysées. Aucune information sur la révision des prix n'est disponible dans le RC seul."
+  },
+  "alertes_prix": [
+    "Plafond strict par lot sans montant minimum : risque de commandes inférieures aux prévisions, aucune garantie de volume pour le titulaire.",
+    "La pondération prix de 40% est significative pour un marché de TMA (secteur où la technique est souvent dominante à 60-70%) : le prix reste un levier de différenciation important.",
+    "Deux sous-critères prix distincts par lot (UO_PEC+UO_REV à 5% vs autres UO à 35% pour Lot 1 ; UO_PEC+UO_REV à 5%, UO_MCO à 10%, UO_EVO à 25% pour Lot 2) : un candidat qui sous-évalue les UO à faible pondération peut perdre sur l'ensemble si les commandes réelles portent sur ces postes.",
+    "Accord-cadre sans minimum : le risque de sous-activité est réel, notamment si les applications font l'objet d'une refonte ou d'un retrait anticipé."
+  ],
+  "references_exigees": {
+    "experience_minimale_annees": null,
+    "experience_source": null,
+    "volume_min_references_similaires": null,
+    "volume_min_references_unite": null,
+    "secteur_experience": "TMA d'applications métier — liste des principales livraisons/services fournis en lien avec l'objet du marché au cours des 3 dernières années",
+    "secteur_source": "RC article 4.4 §2.3.3",
+    "certifications_obligatoires": [],
+    "autres_exigences": [
+      {
+        "libelle": "Déclaration du chiffre d'affaires global et du CA du domaine d'activité sur les 3 derniers exercices disponibles",
+        "source": "RC article 4.4 §2.3.2"
+      },
+      {
+        "libelle": "Déclarations appropriées de banques et preuve d'une assurance couvrant les risques pertinents",
+        "source": "RC article 4.4 §2.3.2"
+      },
+      {
+        "libelle": "Bilans ou extraits de bilan des 3 dernières années (pour les opérateurs pour lesquels c'est obligatoire par la loi)",
+        "source": "RC article 4.4 §2.3.2"
+      },
+      {
+        "libelle": "Déclaration des effectifs moyens annuels et de l'importance du personnel d'encadrement sur les 3 dernières années",
+        "source": "RC article 4.4 §2.3.3"
+      },
+      {
+        "libelle": "DC1 attestant l'absence de cas d'exclusion (attention : les entreprises de plus de 500 salariés sans BEGES peuvent être écartées)",
+        "source": "RC article 4.4 §2.3.1"
+      },
+      {
+        "libelle": "DC2 complété",
+        "source": "RC article 4.4 §2.3.1"
+      },
+      {
+        "libelle": "Numéro SIREN",
+        "source": "RC article 4.4 §2.3.1"
+      }
+    ]
+  },
+  "lots": [
+    {
+      "numero": 1,
+      "intitule": "TMA de l'application SYMBIOSE",
+      "zone_geographique": "Montrouge / Fontenay-aux-Roses (siège ASNR)",
+      "volume_estime": 400000,
+      "volume_estime_unite": "€ HT (plafond accord-cadre 48 mois)",
+      "particularites": "Toutes les prestations (prise en charge, MCO, maintenance évolutive, réversibilité) sont à prix forfaitaires. Critères techniques pondérés : 5% prise en charge/réversibilité + 25% TMA + 30% compétences/continuité."
+    },
+    {
+      "numero": 2,
+      "intitule": "TMA de l'application PARIS",
+      "zone_geographique": "Montrouge / Fontenay-aux-Roses (siège ASNR)",
+      "volume_estime": 380000,
+      "volume_estime_unite": "€ HT (plafond accord-cadre 48 mois)",
+      "particularites": "Mix prix forfaitaires (prise en charge, maintenance évolutive >5j, réversibilité) et prix unitaires (MCO, maintenance évolutive ≤5j, gouvernance). Critère compétences/continuité fortement pondéré à 45% sur le technique. Les commandes à prix unitaires sont facturées sur service fait."
+    }
+  ],
+  "calendrier": {
+    "date_limite_offres": "2026-07-29",
+    "date_demarrage_prevue": null,
+    "duree_marche": "12 mois ferme reconductibles 3 fois (48 mois maximum)"
+  },
+  "alertes_candidat": [
+    "Le mémoire technique doit obligatoirement présenter les CV des intervenants proposés : l'absence ou l'insuffisance des CV peut faire perdre jusqu'à 30% (Lot 1) ou 45% (Lot 2) de la note technique.",
+    "Pour les entreprises de plus de 500 salariés, l'absence de Bilan de Gaz à Effet de Serre (BEGES) peut entraîner le rejet de la candidature (DC1 — RC art 4.4 §2.3.1).",
+    "Le dossier doit être rédigé en français — toute pièce en langue étrangère sans traduction peut être écartée.",
+    "Le CCTP n'est pas intégralement fourni dans les pièces analysées : sans le CCTP complet (unités d'œuvre, spécifications techniques des applications), il est impossible de chiffrer correctement l'annexe financière — le télécharger impérativement sur la plateforme PLACE.",
+    "Les questions complémentaires doivent être posées au plus tard 10 jours avant la date limite (soit avant le 19 juillet 2026 environ) uniquement via la plateforme PLACE — aucune question tardive ou hors plateforme ne sera prise en compte."
+  ],
+  "points_differenciants_attendus": [
+    {
+      "libelle": "Qualité et adéquation du mémoire technique au contexte ASNR",
+      "exemple": "Le RC précise explicitement qu'une attention particulière est portée sur 'la qualité et l'adéquation du document par rapport au cahier des charges permettant au soumissionnaire de démontrer son appropriation des attentes de l'ASNR, du contexte et des enjeux'. Un candidat fort mentionnera les spécificités réglementaires du nucléaire, les contraintes de sûreté informatique propres à l'ASNR et les enjeux de continuité d'un SI critique.",
+      "source": "RC article 5.1"
+    },
+    {
+      "libelle": "Garanties robustes de maintien des compétences et de continuité de service",
+      "exemple": "Sur le Lot 2, la compétence/continuité représente 45% de la note technique. Un candidat se différenciera en proposant des mécanismes formalisés : binômage systématique, plan de succession documenté sous 48h, base de connaissance partagée avec l'ASNR, engagement contractuel sur le délai de remplacement d'un intervenant clé.",
+      "source": "RC article 6.2.2.1"
+    },
+    {
+      "libelle": "Propositions proactives et points d'attention sur la TMA (MCO et maintenance évolutive)",
+      "exemple": "Le RC valorise les 'propositions et points d'attention' dans l'évaluation de la méthodologie TMA. Un candidat qui identifie des risques spécifiques aux applications SYMBIOSE et PARIS (dette technique potentielle, obsolescence technologique, enjeux de montée de version) et qui propose des améliorations concrètes démontrera une réelle appropriation du sujet.",
+      "source": "RC article 6.2.2.1"
+    },
+    {
+      "libelle": "Organisation distincte et adaptée pour chaque lot avec tarification transparente des unités d'œuvre",
+      "exemple": "Le Lot 2 combine prix forfaitaires et prix unitaires selon la charge estimée (seuil 5 jours). Un candidat qui explicite clairement sa grille de chiffrage des unités d'œuvre, avec des exemples concrets de scénarios de maintenance et leur valorisation, rassurera l'acheteur sur la lisibilité et la maîtrise budgétaire.",
+      "source": "RC article 2.2.2"
+    }
+  ],
+  "volumes": {
+    "nb_beneficiaires_total": null,
+    "nb_beneficiaires_par_lot": null,
+    "duree_par_parcours_heures": null,
+    "duree_par_parcours_semaines": null,
+    "duree_marche_mois": 48,
+    "commentaire_volumes": "Accord-cadre sans minimum et avec plafond : 400 000 € HT pour le Lot 1 et 380 000 € HT pour le Lot 2 sur 48 mois maximum. La durée ferme de passation des bons de commande est de 12 mois, reconductible 3 fois. Les bons de commande notifiés avant échéance peuvent s'exécuter jusqu'à 6 mois après la date d'expiration."
+  },
+  "modalites": {
+    "presentiel_obligatoire": null,
+    "distanciel_possible": null,
+    "synchrone_asynchrone": null,
+    "sites_execution": [
+      "Montrouge (92120)",
+      "Fontenay-aux-Roses (92260)"
+    ],
+    "amplitude_horaire": null
+  },
+  "publics_cibles": {
+    "description": null,
+    "criteres_eligibilite": [],
+    "publics_specifiques_signales": []
+  },
+  "volumes_techniques": {
+    "puissance_totale_kwc": null,
+    "puissance_par_site_kwc": null,
+    "nb_sites": null,
+    "surface_panneaux_m2": null,
+    "productible_annuel_estime_mwh": null,
+    "duree_marche_mois": 48,
+    "duree_maintenance_om_annees": null,
+    "commentaire_volumes": null
+  },
+  "modalites_execution_chantier": {
+    "raccordement_reseau_inclus": null,
+    "etudes_techniques_incluses": null,
+    "calendrier_chantier_contraint": null,
+    "sites_execution": [
+      "Montrouge (92120)",
+      "Fontenay-aux-Roses (92260)"
+    ],
+    "engagement_productible": null,
+    "engagement_disponibilite_om": null
+  },
+  "caracteristiques_mission_moe": {
+    "typologie": null,
+    "phases_couvertes": [],
+    "typologie_ouvrage": null,
+    "montant_travaux_estime": null,
+    "complexite_technique": null
+  },
+  "qualifications_moe": {
+    "opqibi": [],
+    "opqcm": null,
+    "bim": null,
+    "autres": []
+  },
+  "_meta": {
+    "id_marche": "BOAMP-26-56760",
+    "type": "complet",
+    "extraction_le": "2026-06-12T03:28:55.006624+00:00",
+    "modele": "claude-sonnet-4-6",
+    "tokens_input": 27494,
+    "tokens_output": 6509,
+    "cout_eur": 0.1711,
+    "duree_sec": 113.1,
+    "pdfs_traites": [
+      {
+        "nom": "RC_ASNR_2026_027_SYMBIOSE_PARIS.pdf",
+        "hash": "8ce0aca2e90ee0fbc0504351a21b5c71",
+        "taille_chars": 41987
+      }
+    ]
+  }
+}

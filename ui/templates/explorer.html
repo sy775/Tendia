@@ -1,0 +1,376 @@
+{% extends "base.html" %}
+
+{% block title %}Explorer la base · Tendia{% endblock %}
+
+{% block content %}
+<style>
+  .explorer-wrap {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 16px 24px 60px;
+    --c-violet: #7A5EA8;
+    --c-violet-soft: #ECE5F5;
+    --c-green: #1F8C5C;
+    --c-green-soft: #E5F2EC;
+    --c-amber: #E89048;
+    --c-amber-soft: #FBEAD8;
+    --c-rose: #D9425A;
+    --c-stone: #8C7A6B;
+  }
+  .explorer-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  .explorer-title {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--apt-ink);
+    margin: 0;
+  }
+  .explorer-meta {
+    font-size: 13px;
+    color: var(--apt-ink-3);
+  }
+  .explorer-grid {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 24px;
+    align-items: start;
+  }
+  @media (max-width: 900px) {
+    .explorer-grid { grid-template-columns: 1fr; }
+  }
+  .sidebar-section {
+    background: var(--apt-bg, white);
+    border: 1px solid var(--apt-ink-6, #e5e2dc);
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-bottom: 14px;
+  }
+  .sidebar-title {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    font-weight: 700;
+    color: var(--apt-ink-4);
+    margin: 0 0 10px;
+  }
+  .sidebar-search input {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid var(--apt-ink-5, #ddd);
+    border-radius: 6px;
+    font-size: 13px;
+    background: white;
+  }
+  .famille-item {
+    display: block;
+    padding: 6px 8px;
+    margin: 0 -8px;
+    border-radius: 5px;
+    font-size: 13px;
+    color: var(--apt-ink-2);
+    text-decoration: none;
+    transition: background 0.1s;
+  }
+  .famille-item:hover {
+    background: var(--apt-bg-2, #f4f1ed);
+    color: var(--apt-ink);
+  }
+  .famille-item.active {
+    background: var(--c-violet-soft);
+    color: var(--c-violet);
+    font-weight: 600;
+  }
+  .famille-item .compte {
+    float: right;
+    color: var(--apt-ink-4);
+    font-size: 11.5px;
+    font-variant-numeric: tabular-nums;
+  }
+  .famille-item.active .compte { color: var(--c-violet); }
+  .sous-domaines {
+    margin-left: 12px;
+    margin-top: 4px;
+    border-left: 1px solid var(--apt-ink-6, #e5e2dc);
+    padding-left: 8px;
+  }
+  .sous-domaine-item {
+    display: block;
+    padding: 3px 6px;
+    margin: 1px 0;
+    border-radius: 4px;
+    font-size: 11.5px;
+    color: var(--apt-ink-3);
+    text-decoration: none;
+  }
+  .sous-domaine-item:hover {
+    background: var(--apt-bg-2, #f4f1ed);
+    color: var(--apt-ink-2);
+  }
+  .sous-domaine-item.active {
+    background: var(--c-violet-soft);
+    color: var(--c-violet);
+    font-weight: 600;
+  }
+  .sous-domaine-item .compte {
+    float: right;
+    font-size: 10.5px;
+    color: var(--apt-ink-4);
+    font-variant-numeric: tabular-nums;
+  }
+  .reset-filtres {
+    display: block;
+    text-align: center;
+    margin-top: 8px;
+    font-size: 11.5px;
+    color: var(--c-violet);
+    text-decoration: none;
+  }
+  .reset-filtres:hover { text-decoration: underline; }
+
+  /* Tableau résultats */
+  .filtres-actifs {
+    background: var(--c-violet-soft);
+    padding: 10px 14px;
+    border-radius: 8px;
+    margin-bottom: 14px;
+    font-size: 12.5px;
+    color: var(--c-violet);
+  }
+  .filtres-actifs strong { margin-right: 6px; }
+  .filtres-actifs .badge {
+    display: inline-block;
+    background: white;
+    color: var(--c-violet);
+    padding: 2px 8px;
+    border-radius: 999px;
+    margin-right: 6px;
+    font-weight: 500;
+  }
+  .resultat-count {
+    font-size: 13px;
+    color: var(--apt-ink-3);
+    margin: 0 0 12px;
+  }
+  .marche-card {
+    background: var(--apt-bg, white);
+    border: 1px solid var(--apt-ink-6, #e5e2dc);
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin-bottom: 8px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 14px;
+    align-items: start;
+    transition: border-color 0.1s;
+  }
+  .marche-card:hover { border-color: var(--c-violet); }
+  .marche-card .titre {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--apt-ink);
+    line-height: 1.4;
+    margin: 0 0 4px;
+  }
+  .marche-card .titre a {
+    color: inherit;
+    text-decoration: none;
+  }
+  .marche-card .titre a:hover { color: var(--c-violet); }
+  .marche-card .meta {
+    font-size: 11.5px;
+    color: var(--apt-ink-4);
+    margin: 0 0 6px;
+  }
+  .marche-card .synthese {
+    font-size: 12.5px;
+    color: var(--apt-ink-3);
+    line-height: 1.5;
+    margin: 4px 0 0;
+  }
+  .marche-card .badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin-top: 4px;
+  }
+  .marche-card .badge-dom {
+    background: var(--c-violet-soft);
+    color: var(--c-violet);
+    padding: 2px 8px;
+    border-radius: 999px;
+    font-size: 10.5px;
+    font-weight: 500;
+  }
+  .marche-card .badge-source {
+    background: var(--c-green-soft);
+    color: var(--c-green);
+    padding: 2px 8px;
+    border-radius: 999px;
+    font-size: 10.5px;
+    font-weight: 500;
+  }
+  .marche-card .echeance {
+    text-align: right;
+    font-size: 11.5px;
+    color: var(--apt-ink-3);
+    min-width: 80px;
+  }
+  .marche-card .echeance.urgent { color: var(--c-rose); font-weight: 600; }
+  .marche-card .echeance.proche { color: var(--c-amber); font-weight: 600; }
+  .famille-separateur {
+    font-size: 11.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--c-violet);
+    margin: 20px 0 8px;
+    padding-bottom: 4px;
+    border-bottom: 1px solid var(--c-violet-soft);
+  }
+  .famille-separateur:first-child { margin-top: 0; }
+  .empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--apt-ink-3);
+  }
+  .empty-state h3 { font-size: 18px; margin: 0 0 8px; color: var(--apt-ink-2); }
+</style>
+
+<div class="explorer-wrap">
+  <div class="explorer-header">
+    <div>
+      <h1 class="explorer-title">Explorer la base</h1>
+      <p class="explorer-meta">
+        {{ total_classifies }} marchés classifiés · {{ total_marches }} en base ·
+        Vue exhaustive pour explorer secteurs et identifier opportunités prospect
+      </p>
+    </div>
+    <div>
+      <a href="{{ url_for('dashboard') }}" style="color: var(--apt-ink-4); text-decoration: none; font-size: 13px;">← Retour au dashboard</a>
+    </div>
+  </div>
+
+  <div class="explorer-grid">
+    {# ── SIDEBAR : familles + sous-domaines ── #}
+    <aside>
+      {# Recherche libre #}
+      <form method="GET" action="{{ url_for('explorer') }}" class="sidebar-section sidebar-search">
+        <div class="sidebar-title">Rechercher</div>
+        <input type="text" name="recherche" value="{{ filtres.recherche }}"
+               placeholder="Titre, objet, acheteur..."
+               onchange="this.form.submit()">
+        {% if filtres.famille %}<input type="hidden" name="famille" value="{{ filtres.famille }}">{% endif %}
+        {% if filtres.domaine %}<input type="hidden" name="domaine" value="{{ filtres.domaine }}">{% endif %}
+        {% if filtres.zone %}<input type="hidden" name="zone" value="{{ filtres.zone }}">{% endif %}
+      </form>
+
+      {# Filtre zone géo #}
+      <form method="GET" action="{{ url_for('explorer') }}" class="sidebar-section sidebar-search">
+        <div class="sidebar-title">Zone géographique</div>
+        <input type="text" name="zone" value="{{ filtres.zone }}"
+               placeholder="Ex: Aquitaine, 75, Paris..."
+               onchange="this.form.submit()">
+        {% if filtres.famille %}<input type="hidden" name="famille" value="{{ filtres.famille }}">{% endif %}
+        {% if filtres.domaine %}<input type="hidden" name="domaine" value="{{ filtres.domaine }}">{% endif %}
+        {% if filtres.recherche %}<input type="hidden" name="recherche" value="{{ filtres.recherche }}">{% endif %}
+      </form>
+
+      {# Familles + sous-domaines #}
+      <div class="sidebar-section">
+        <div class="sidebar-title">Secteurs</div>
+        {% for fam in familles_triees %}
+          {% set fam_active = (filtres.famille == fam.nom) or (filtres.domaine in fam.domaines|map(attribute=0)|list) %}
+          <a href="{{ url_for('explorer', famille=fam.nom, recherche=filtres.recherche, zone=filtres.zone) }}"
+             class="famille-item {% if fam_active %}active{% endif %}">
+            {{ fam.nom }}
+            <span class="compte">{{ fam.total }}</span>
+          </a>
+          {% if fam_active %}
+            <div class="sous-domaines">
+              {% for code, n, libelle in fam.domaines %}
+                <a href="{{ url_for('explorer', domaine=code, recherche=filtres.recherche, zone=filtres.zone) }}"
+                   class="sous-domaine-item {% if filtres.domaine == code %}active{% endif %}">
+                  {{ libelle }}
+                  <span class="compte">{{ n }}</span>
+                </a>
+              {% endfor %}
+            </div>
+          {% endif %}
+        {% endfor %}
+        {% if filtres.famille or filtres.domaine or filtres.zone or filtres.recherche %}
+          <a href="{{ url_for('explorer') }}" class="reset-filtres">↺ Effacer tous les filtres</a>
+        {% endif %}
+      </div>
+    </aside>
+
+    {# ── MAIN : résultats ── #}
+    <main>
+      {% if filtres.famille or filtres.domaine or filtres.zone or filtres.recherche %}
+        <div class="filtres-actifs">
+          <strong>Filtres actifs :</strong>
+          {% if filtres.famille %}<span class="badge">{{ filtres.famille }}</span>{% endif %}
+          {% if filtres.domaine %}<span class="badge">{{ filtres.domaine }}</span>{% endif %}
+          {% if filtres.zone %}<span class="badge">zone: {{ filtres.zone }}</span>{% endif %}
+          {% if filtres.recherche %}<span class="badge">recherche: « {{ filtres.recherche }} »</span>{% endif %}
+        </div>
+      {% endif %}
+
+      <p class="resultat-count">
+        <strong>{{ lignes|length }}</strong> marché{{ 's' if lignes|length > 1 else '' }} 
+        {% if lignes|length != total_classifies %}sur {{ total_classifies }}{% endif %}
+      </p>
+
+      {% if not lignes %}
+        <div class="empty-state">
+          <h3>Aucun marché ne correspond à ces critères</h3>
+          <p>Essaye d'élargir les filtres ou de rechercher autre chose.</p>
+        </div>
+      {% else %}
+        {% set ns = namespace(famille_courante=None) %}
+        {% for ligne in lignes %}
+          {% if ligne.famille != ns.famille_courante %}
+            {% set ns.famille_courante = ligne.famille %}
+            <div class="famille-separateur">{{ ligne.famille }}</div>
+          {% endif %}
+          <div class="marche-card">
+            <div>
+              <p class="titre"><a href="{{ url_for('detail_marche', id_marche=ligne.id_marche) }}">{{ ligne.titre_court }}</a></p>
+              <p class="meta">
+                {{ ligne.acheteur }}
+                {% if ligne.perimetre %} · {{ ligne.perimetre }}{% endif %}
+                {% if ligne.date_limite_fmt %} · limite {{ ligne.date_limite_fmt }}{% endif %}
+              </p>
+              {% if ligne.synthese %}
+                <p class="synthese">{{ ligne.synthese }}</p>
+              {% endif %}
+              <div class="badges">
+                <span class="badge-dom" title="{{ ligne.domaine_principal }}">{{ ligne.domaine_libelle }}</span>
+                {% if ligne.a_brief_complet %}
+                  <span class="badge-source" title="Classifié sur la base du DCE lu">✦ DCE lu</span>
+                {% endif %}
+              </div>
+            </div>
+            <div class="echeance {% if ligne.jours_restants is not none and ligne.jours_restants < 7 %}urgent{% elif ligne.jours_restants is not none and ligne.jours_restants < 21 %}proche{% endif %}">
+              {% if ligne.jours_restants is not none %}
+                {% if ligne.jours_restants < 0 %}
+                  expiré
+                {% else %}
+                  J−{{ ligne.jours_restants }}
+                {% endif %}
+              {% else %}
+                —
+              {% endif %}
+            </div>
+          </div>
+        {% endfor %}
+      {% endif %}
+    </main>
+  </div>
+</div>
+{% endblock %}

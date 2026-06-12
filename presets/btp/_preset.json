@@ -1,0 +1,211 @@
+{
+  "meta": {
+    "code": "btp",
+    "nom": "BTP — Bâtiment et travaux publics",
+    "etiquette_courte": "BTP",
+    "description": "Marchés publics de construction, rénovation, voirie, démolition. Cible : entreprises générales et spécialisées du bâtiment et des travaux publics.",
+    "version": 1,
+    "qualite": "mvp",
+    "_notes": "Preset créé Sprint Sprint 2 pour couvrir le segment dominant des marchés publics (~35% du volume BOAMP). À enrichir avec calibrage prix détaillé et clauses Qualibat exhaustives quand un prospect concret se présente."
+  },
+  "veille": {
+    "description": "Critères de filtrage des marchés captés (BOAMP, TED, PLACE). Les domaines_acceptes alimentent le matching IA (Sprint 2 nouvelle archi).",
+    "domaines_acceptes": [
+      "btp_gros_oeuvre",
+      "btp_second_oeuvre",
+      "btp_voirie_reseaux",
+      "btp_renovation_rehabilitation",
+      "btp_demolition"
+    ],
+    "domaines_optionnels": [
+      "ingenierie_structure_genie_civil",
+      "moe_architecte_urbanisme",
+      "energie_renovation_thermique"
+    ],
+    "_taxonomie_note": "domaines_acceptes : marchés BTP que ce preset CIBLE prioritairement. domaines_optionnels : ingénierie/MOE/rénovation thermique sont des cas-frontières affichés en 'à vérifier'.",
+    "mots_cles_inclusion": [
+      "construction",
+      "rénovation",
+      "réhabilitation",
+      "réfection",
+      "travaux",
+      "VRD",
+      "voirie",
+      "terrassement",
+      "gros œuvre",
+      "second œuvre",
+      "maçonnerie",
+      "charpente",
+      "menuiserie",
+      "plâtrerie",
+      "carrelage",
+      "peinture",
+      "couverture",
+      "étanchéité",
+      "isolation",
+      "démolition",
+      "désamiantage",
+      "assainissement",
+      "bâtiment",
+      "ouvrage d'art"
+    ],
+    "mots_cles_exclusion": [
+      "matériel uniquement sans pose",
+      "fourniture d'engin de chantier"
+    ],
+    "cpv_inclusion": ["45*"],
+    "acheteurs_prioritaires": [
+      "Conseil Départemental",
+      "Conseil Régional",
+      "Métropole",
+      "Communauté de communes",
+      "Communauté d'agglomération",
+      "Commune",
+      "Mairie",
+      "OPH",
+      "Office Public de l'Habitat"
+    ],
+    "acheteurs_exclus": []
+  },
+  "vocabulaire_llm": {
+    "description": "Termes injectés dans les prompts LLM pour calibrer le ton et le vocabulaire métier.",
+    "secteur_libelle": "marchés de travaux du bâtiment et des travaux publics (gros œuvre, second œuvre, VRD, rénovation, démolition)",
+    "type_pieces_dce_typiques": "d'un Règlement de Consultation (RC), d'un Cahier des Clauses Techniques Particulières (CCTP), d'un Cahier des Clauses Administratives Particulières (CCAP), d'un Bordereau de Prix Unitaires (BPU) ou d'une Décomposition du Prix Global et Forfaitaire (DPGF), parfois de plans et descriptifs techniques",
+    "type_repondant": "entreprise du BTP (gros œuvre, second œuvre, TP) — entreprise générale ou spécialisée par corps d'état",
+    "unite_principale_facturation": "lot / corps d'état / forfait travaux / m² / m³ / mètre linéaire",
+    "references_attendues": "références de chantiers similaires (même typologie d'ouvrage, montant équivalent, mêmes contraintes techniques)",
+    "alertes_typiques": [
+      "qualification Qualibat requise (préciser indice)",
+      "certification RGE pour travaux énergétiques",
+      "garantie décennale",
+      "assurance dommages-ouvrage",
+      "chiffre d'affaires minimum",
+      "visite obligatoire du site",
+      "lots techniques séparés (allotissement)",
+      "tranches fermes/conditionnelles",
+      "phasage en site occupé"
+    ],
+    "exemples_synthese": [
+      "Marché de travaux de gros œuvre pour la construction d'un EHPAD de 80 lits, 4,2 M€ HT, démarrage T2 2027.",
+      "Réhabilitation thermique d'un groupe scolaire — 6 lots (isolation, menuiseries, CVC, électricité, peinture, étanchéité), site occupé.",
+      "Travaux VRD pour aménagement d'un lotissement de 24 lots — terrassement, réseaux humides et secs, voirie."
+    ]
+  },
+  "prompt_extraction": {
+    "description": "Champs métier ajoutés au schéma JSON de sortie du brief LLM.",
+    "bloc_schema_specifique": "  \"caracteristiques_techniques_chantier\": {\n    \"description\": \"Description précise de l'ouvrage et des travaux à exécuter\",\n    \"typologie_ouvrage\": \"Type de bâtiment ou d'infrastructure (EHPAD, école, voirie, etc.)\",\n    \"surface_volume\": \"Surface en m² ou volume si applicable\",\n    \"site_occupe\": \"Booléen + précisions si le site est occupé pendant les travaux\",\n    \"corps_etat\": [\"Liste des corps d'état mobilisés (gros œuvre, peinture, etc.)\"],\n    \"contraintes_specifiques\": [\"Contraintes techniques, environnementales, phasage, monument historique, etc.\"]\n  },\n  \"allotissement\": {\n    \"description\": \"Structure du marché en lots\",\n    \"nb_lots\": null,\n    \"lots_detailles\": [\n      {\n        \"numero\": 1,\n        \"intitule\": \"Lot Gros œuvre\",\n        \"corps_etat\": \"gros oeuvre\",\n        \"montant_estime\": null,\n        \"description\": \"Travaux gros œuvre et fondations\"\n      }\n    ]\n  },\n  \"qualifications_requises\": {\n    \"description\": \"Qualifications professionnelles et certifications exigées\",\n    \"qualibat\": \"Indices Qualibat requis (ex: 2122, 1342, etc.) ou null\",\n    \"rge\": \"Booléen + catégorie RGE si exigée\",\n    \"opqibi\": \"Pour les marchés d'ingénierie associés\",\n    \"autres_certifications\": []\n  }",
+    "regles_specifiques": "- Pour les marchés multi-lots, détaille CHAQUE lot avec son corps d'état et son montant estimé si présent.\n- Pour les qualifications Qualibat, extrais les INDICES exigés (ex: \"2122 — Maçonnerie béton armé\") tels qu'écrits dans le RC.\n- Si le marché concerne du site occupé (école, EHPAD, bureaux), signale-le comme contrainte majeure.\n- Distingue bien travaux NEUFS vs RÉHABILITATION (impact qualifications et risques).",
+    "exemples_elements_a_chiffrer": "\"Ex: 'Surface plancher en m²'\",\n        \"Ex: 'Volume terrassement en m³'\",\n        \"Ex: 'Linéaire de voirie en ml'\",\n        \"Ex: 'Nombre de logements créés'\",\n        \"Ex: 'Forfait global et forfaitaire par lot'\"",
+    "hints_calcul_montant": "Mots-clés : \"prix forfaitaire global\", \"prix au m²\", \"prix au m³\", \"prix linéaire\", \"décomposition du prix global et forfaitaire\", \"DPGF\", \"BPU\"."
+  },
+  "prompt_calibration": {
+    "description": "Sections du prompt LLM de calibration spécifiques au secteur BTP.",
+    "secteur_libelle_court": "BTP",
+    "section_qualification_intervenants": "a. **Qualification des intervenants exigée** (très important pour BTP) : ouvrier qualifié, compagnon, chef d'équipe, conducteur de travaux. Les coûts de main d'œuvre varient fortement selon l'expertise et la convention collective.",
+    "section_duree_effective": "b. **Volume / surface effective** : du DCE, extraire la grandeur principale qui dimensionne le marché (m² SHON, m³ terrassement, ml voirie, nombre de logements). Le prix unitaire BTP s'exprime généralement en €/m² ou en forfait global.",
+    "section_coefficient_complexite": "c. **Coefficient de complexité** selon la nature du chantier :\n   - Construction neuve standard : ×1.0\n   - Réhabilitation site occupé : ×1.25 - 1.45 (phasage, sujétions)\n   - Patrimoine classé ou monument historique : ×1.30 - 1.60\n   - Sites pollués ou amiantés : ×1.20 - 1.40\n   - Contraintes sismiques (zones 4-5) : ×1.10 - 1.20",
+    "section_re_pricing": "ÉTAPE 1bis — **DÉCOMPOSITION par CORPS D'ÉTAT si BPU/DPGF** : si le marché est décomposé par lots techniques (gros œuvre, peinture, CVC...), donne une fourchette par lot et le total. Mentionne explicitement le ratio gros œuvre / second œuvre / TCE.",
+    "section_top_down": "ÉTAPE 1 — **ESTIMATION TOP-DOWN sur comparables DECP**\n\nPour chaque comparable, diviser le montant attribué par la surface (m²) ou le linéaire (ml). Si la surface est inconnue, EXCLURE le comparable. Une médiane €/m² fiable est meilleure qu'une moyenne mécanique."
+  },
+  "calibration_llm": {
+    "description": "Barèmes utilisés par la passe LLM de calibration pour estimer un prix bottom-up sectoriel BTP.",
+    "baremes_horaires_eur": {
+      "manoeuvre": [22, 32],
+      "ouvrier_qualifie": [32, 45],
+      "compagnon_specialise": [40, 55],
+      "chef_equipe": [50, 65],
+      "conducteur_travaux": [60, 85]
+    },
+    "coefficients_complexite_chantier": {
+      "neuf_standard": 1.0,
+      "rehabilitation_site_libre": 1.1,
+      "rehabilitation_site_occupe": [1.25, 1.45],
+      "patrimoine_classe": [1.3, 1.6],
+      "site_pollue_amiante": [1.2, 1.4]
+    },
+    "ratios_indicatifs_eur_m2": {
+      "_commentaire": "Indicatifs très grossiers, à recalibrer selon la typologie réelle d'ouvrage et la région.",
+      "construction_logement_collectif_neuf": [1500, 2200],
+      "construction_groupe_scolaire_neuf": [1800, 2600],
+      "rehabilitation_lourde_tertiaire": [1200, 1800],
+      "renovation_energetique_isolation": [200, 500],
+      "voirie_chaussee_lourde": [80, 150]
+    },
+    "marge_prestataire_pct": [8, 15],
+    "unites_typiques": ["m²", "m³", "ml", "lot", "forfait", "logement"]
+  },
+  "matching": {
+    "description": "Règles d'évaluation des alertes du brief (matching_exigences.py).",
+    "alertes_critiques": [
+      {
+        "cle": "qualibat",
+        "libelle_court": "Qualification Qualibat",
+        "type": "contains_in_profil_bool",
+        "profil_attr": "qualifications.qualibat_actif",
+        "_commentaire": "Pour BTP : déclencher si l'alerte mentionne 'Qualibat'."
+      },
+      {
+        "cle": "rge",
+        "libelle_court": "Certification RGE",
+        "type": "contains_in_profil_bool",
+        "profil_attr": "qualifications.rge_actif",
+        "_commentaire": "Pour les marchés de rénovation énergétique."
+      },
+      {
+        "cle": "decennale",
+        "libelle_court": "Garantie décennale",
+        "type": "contains_in_profil_bool",
+        "profil_attr": "assurances.decennale_active"
+      },
+      {
+        "cle": "ca_minimum",
+        "libelle_court": "Chiffre d'affaires minimum",
+        "type": "ca_minimum",
+        "profil_attr": "finances.ca_annuel_eur"
+      }
+    ],
+    "acheteur_vers_zone": {
+      "description": "Mapping nom d'acheteur → code de région administrative.",
+      "regles": [
+        {"indice": "auvergne", "code": "ARA"},
+        {"indice": "rhône", "code": "ARA"},
+        {"indice": "ile-de-france", "code": "IDF"},
+        {"indice": "paris", "code": "IDF"},
+        {"indice": "occitanie", "code": "OCC"},
+        {"indice": "midi-pyrénées", "code": "OCC"},
+        {"indice": "nouvelle-aquitaine", "code": "NAQ"},
+        {"indice": "aquitaine", "code": "NAQ"},
+        {"indice": "provence", "code": "PAC"},
+        {"indice": "alpes-côte d'azur", "code": "PAC"},
+        {"indice": "hauts-de-france", "code": "HDF"},
+        {"indice": "grand est", "code": "GES"},
+        {"indice": "bretagne", "code": "BRE"},
+        {"indice": "normandie", "code": "NOR"},
+        {"indice": "pays de la loire", "code": "PDL"},
+        {"indice": "centre-val de loire", "code": "CVL"},
+        {"indice": "bourgogne", "code": "BFC"},
+        {"indice": "franche-comté", "code": "BFC"}
+      ],
+      "fallback_acheteur_central": {
+        "indices": ["ministère", "ministere", "état"],
+        "code": "NAT"
+      }
+    },
+    "seuils_score": {
+      "tres_pertinent": 75,
+      "pertinent": 50,
+      "a_verifier": 20
+    }
+  },
+  "taxonomie": {
+    "description": "Catégorisation des marchés BTP.",
+    "categories_metier": [
+      "btp_neuf",
+      "btp_rehabilitation",
+      "btp_voirie",
+      "btp_renovation_energetique",
+      "btp_demolition_desamiantage",
+      "autre"
+    ]
+  }
+}

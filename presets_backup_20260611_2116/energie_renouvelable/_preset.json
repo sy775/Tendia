@@ -1,0 +1,219 @@
+{
+  "meta": {
+    "code": "energie_renouvelable",
+    "nom": "Énergies renouvelables — photovoltaïque, éolien, EnR",
+    "etiquette_courte": "Énergies renouvelables",
+    "description": "Marchés publics d'installation, de maintenance et d'études d'énergies renouvelables (photovoltaïque, éolien, solaire thermique, biomasse, géothermie). Cible : installateurs, EPC contractors et bureaux d'études.",
+    "version": 1,
+    "qualite": "alpha",
+    "_notes": "Domaine créé en alpha pour POC Tendia. À affiner avec un expert/prospect du secteur après 5+ marchés réels analysés."
+  },
+
+  "veille": {
+    "description": "Critères de filtrage des marchés captés (BOAMP, TED, PLACE).",
+    "mots_cles_inclusion": [
+      "photovoltaïque", "photovoltaique", "panneaux solaires", "panneaux photovoltaiques",
+      "centrale solaire", "ombrière photovoltaïque", "ombriere photovoltaique",
+      "éolien", "eolien", "éolienne", "eolienne", "parc éolien", "parc eolien",
+      "solaire thermique", "chauffe-eau solaire",
+      "biomasse", "chaufferie biomasse", "chaudière biomasse",
+      "géothermie", "geothermie", "pompe à chaleur", "pompe a chaleur",
+      "énergies renouvelables", "energies renouvelables", "EnR", "ENR",
+      "autoconsommation", "raccordement enedis",
+      "centrale hydroélectrique", "micro-hydraulique",
+      "stockage d'énergie", "batteries de stockage",
+      "agrivoltaisme", "agri-PV",
+      "transition énergétique", "transition energetique",
+      "rénovation énergétique", "renovation energetique"
+    ],
+    "mots_cles_exclusion": [
+      "achat d'électricité",
+      "fourniture d'électricité",
+      "marché de fourniture d'énergie",
+      "PPA hors travaux"
+    ],
+    "cpv_inclusion": [
+      "09300000",
+      "09310000",
+      "09330000",
+      "09331000",
+      "09332000",
+      "31121000",
+      "31600000",
+      "45251100",
+      "45251160",
+      "45315000",
+      "45315100",
+      "45315300",
+      "71314000",
+      "71314100",
+      "71323100",
+      "71323200",
+      "71621000"
+    ],
+    "_cpv_notes": "Liste à affiner. CPV photovoltaïque (09330000-09332000), éolien (45251160), travaux électriques (45315*), ingénierie énergie (71314*).",
+    "acheteurs_prioritaires": [],
+    "acheteurs_exclus": []
+  },
+
+  "vocabulaire_llm": {
+    "description": "Termes injectés dans les prompts LLM pour calibrer le ton et le cadre métier.",
+    "secteur_libelle": "marchés publics d'installation, de maintenance et d'études d'énergies renouvelables (photovoltaïque, éolien, solaire thermique, biomasse, géothermie)",
+    "type_pieces_dce_typiques": "de Règlement de Consultation (RC), CCTP, CCAP, BPU/DPGF, plans, études de productible, diagnostics de structure et notice d'impact environnemental le cas échéant",
+    "type_repondant": "installateur, EPC contractor (Engineering Procurement Construction) ou bureau d'études EnR",
+    "unite_principale_facturation": "kWc installé / MWc installé / kWh produit (pour exploitation) / intervention de maintenance",
+    "references_attendues": "références de chantiers similaires (en puissance, technologie, type de site), avec puissance installée et année de mise en service",
+    "alertes_typiques": [
+      "qualifications RGE requises (QualiPV, QualiBois, Qualifelec…)",
+      "qualifications Qualibat ou Qualifelec spécifiques",
+      "garantie décennale en cours de validité",
+      "assurance RC professionnelle avec plafond minimum",
+      "habilitations électriques B1V/B2V/BR/H1V des intervenants",
+      "références chantiers > X MWc cumulés sur les 3-5 dernières années",
+      "visite obligatoire du site",
+      "engagement de productible garanti",
+      "engagement sur le délai de raccordement",
+      "engagement sur la disponibilité (taux pour les contrats O&M)",
+      "obligation de monitoring/supervision à distance",
+      "engagement de fin de vie / démantèlement / recyclage"
+    ],
+    "exemples_synthese": [
+      "Marché de fourniture et pose de 250 kWc de centrale photovoltaïque en toiture sur 3 écoles + contrat de maintenance préventive 5 ans.",
+      "Étude de faisabilité technico-économique pour l'installation d'un parc photovoltaïque au sol de 5 MWc sur friche industrielle."
+    ]
+  },
+
+  "prompt_extraction": {
+    "description": "Sections du schéma JSON de sortie spécifiques au domaine énergie renouvelable. Injectées dans le PROMPT_UTILISATEUR_TEMPLATE générique de llm_extract.py.",
+    "bloc_schema_specifique": "  \"caracteristiques_techniques_chantier\": {\n    \"description\": \"Description précise du projet technique (type d'installation, sites concernés, contraintes).\",\n    \"technologies_concernees\": [\"photovoltaïque toiture\", \"photovoltaïque ombrière\", \"photovoltaïque sol\", \"éolien terrestre\", \"solaire thermique\", \"biomasse\", \"géothermie\", \"pompe à chaleur\", etc.],\n    \"type_de_sites\": \"ex: 'toiture bâtiments scolaires', 'parking en ombrière', 'friche industrielle', 'bâtiment occupé', 'site classé'\",\n    \"criteres_eligibilite\": [\n      {\n        \"libelle\": \"Texte du critère d'éligibilité, recopié ou reformulé fidèlement\",\n        \"source\": \"Référence courte vers le document du DCE : 'CCTP §2.1', 'RC art 4.2', 'CCAP article 5'. Si tu ne peux pas localiser précisément, mets le document seul : 'CCTP'. Si vraiment impossible, mets null.\"\n      }\n    ],\n    \"contraintes_site_signalees\": [\"travail en hauteur\", \"amiante\", \"site occupé\", \"périodes scolaires interdites\", \"accès limité\", \"monument historique\", etc.]\n  },\n  \"volumes_techniques\": {\n    \"puissance_totale_kwc\": null,\n    \"puissance_par_site_kwc\": null,\n    \"nb_sites\": null,\n    \"surface_panneaux_m2\": null,\n    \"productible_annuel_estime_mwh\": null,\n    \"duree_marche_mois\": null,\n    \"duree_maintenance_om_annees\": null,\n    \"commentaire_volumes\": \"Texte libre si volumes complexes (multi-sites, multi-technologies, lots indépendants…)\"\n  },\n  \"modalites_execution_chantier\": {\n    \"raccordement_reseau_inclus\": null,\n    \"etudes_techniques_incluses\": null,\n    \"calendrier_chantier_contraint\": \"ex: 'travaux interdits en période scolaire', 'fenêtre estivale impérative', null si pas de contrainte\",\n    \"sites_execution\": [\"villes/départements/régions des sites concernés\"],\n    \"engagement_productible\": \"ex: 'garantie productible 25 ans à 80% capacité', null si non exigé\",\n    \"engagement_disponibilite_om\": \"ex: 'taux de disponibilité ≥ 97% annuel pour le contrat O&M', null si non exigé\"\n  }",
+    "regles_specifiques": "- **DISTINCTION PUISSANCE** : la puissance crête (kWc) est la grandeur d'usage en photovoltaïque, mais ne pas confondre avec la puissance nominale (kW) du raccordement réseau. Si les deux sont mentionnées, capter les deux dans `commentaire_volumes`.\n- **MWh annuels vs kWc installés** : le productible (MWh/an) dépend du gisement local. Si le DCE donne un objectif de production, c'est différent d'une puissance installée. Préciser dans `commentaire_volumes`.\n- **Contrats O&M (Operation & Maintenance)** : un marché EnR mélange souvent travaux (CAPEX) + exploitation/maintenance (OPEX) sur 5 à 25 ans. Bien distinguer les deux phases dans `montant_marche.commentaire` et dans la durée du marché.",
+    "exemples_elements_a_chiffrer": "\"Ex: 'Prix unitaire au kWc installé'\",\n        \"Ex: 'Forfait raccordement Enedis par site'\",\n        \"Ex: 'Coût annuel de maintenance préventive par MWc'\",\n        \"Ex: 'Frais d'études techniques (productible, structure, raccordement)'\"",
+    "hints_calcul_montant": "Mots-clés : \"€/kWc installé\", \"prix unitaire au Wc\", \"forfait par site\", \"€/MWh\", \"coût maintenance annuel\". Si trouvé ET que tu as une puissance totale plausible → CALCULE : `valeur_estimee_euros = puissance_totale_kwc × prix_au_kwc` et mets `type: \"calcule_volumes\"`. Dans `commentaire`, EXPLIQUE le calcul (ex: \"250 kWc × 1 100 €/kWc = 275 000 € + maintenance 5 ans à 2 500 €/an = 287 500 €\")."
+  },
+
+  "calibration_llm": {
+    "description": "Barèmes horaires moyens du secteur EnR (à valider avec prospect).",
+    "baremes_horaires_eur": {
+      "manoeuvre_aide": [22, 30],
+      "electricien_qualifie": [35, 50],
+      "monteur_specialise_pv": [38, 55],
+      "chef_de_chantier": [45, 65],
+      "ingenieur_projet_travaux": [60, 90],
+      "ingenieur_etudes_be": [70, 110],
+      "expert_audit_certification": [90, 140]
+    },
+    "coefficients_complexite_chantier": {
+      "site_standard_toiture_neuve": 1.0,
+      "site_occupe_etablissement_public": [1.10, 1.20],
+      "site_complexe_hauteur_amiante": [1.20, 1.35],
+      "site_isole_acces_difficile": [1.15, 1.25],
+      "monument_historique_site_classe": [1.25, 1.45]
+    },
+    "couts_logistique_eur": {
+      "amenee_repli_chantier_pme": [800, 2500],
+      "raccordement_enedis_typique_par_dossier": [1500, 4000],
+      "etudes_techniques_par_projet": [3000, 15000]
+    },
+    "marge_prestataire_pct": [10, 20],
+    "unites_typiques": ["kWc", "MWc", "kWh", "module", "m² panneau", "intervention maintenance"]
+  },
+
+  "prompt_calibration": {
+    "description": "Sections du prompt LLM de calibration spécifiques au domaine énergie renouvelable.",
+    "secteur_libelle_court": "énergies renouvelables (photovoltaïque, éolien, EnR)",
+    "section_qualification_intervenants": "a. **Qualification des intervenants exigée et coûts par poste** (driver principal du coût horaire) :\n   - Manœuvre / aide chantier : coût horaire chargé typique 22-30 €/h\n   - Électricien qualifié / monteur PV : 35-50 €/h\n   - Chef de chantier : 45-65 €/h\n   - Ingénieur projet / travaux : 60-90 €/h\n   - Ingénieur études (bureau d'études EnR) : 70-110 €/h\n   - Expert audit / certification : 90-140 €/h\n   (ces fourchettes incluent : salaire chargé, frais de structure, marge usuelle prestataire)",
+    "section_duree_effective": "b. **Volume physique et heures de chantier** : du DCE, extraire les grandeurs physiques du projet (puissance totale en kWc/MWc, surface de panneaux m², nombre de modules, nombre de sites). Estimer les jours-homme de chantier selon le type d'installation :\n   - Pose PV toiture résidentielle / petit tertiaire : 0,7-1,2 jours-homme/kWc (équipes 2-3 personnes)\n   - Pose PV grande toiture industrielle ou ombrière : 0,4-0,7 jours-homme/kWc (économies d'échelle)\n   - Pose PV au sol (parc fermier ou friche) : 0,3-0,5 jours-homme/kWc (process industrialisé)\n   - Contrats O&M (maintenance) : ~2-4 visites/an × 4-8 h/visite/MWc + télésuivi continu\n   - Études (faisabilité, audit, productible) : forfait par projet, 3 000-15 000 € selon complexité\n   Attention : la puissance crête (kWc) est la grandeur d'usage en photovoltaïque ;\n   ne pas la confondre avec la puissance nominale (kW) du raccordement réseau.",
+    "section_coefficient_complexite": "c. **Coefficient de complexité** selon les contraintes du chantier :\n   - Site standard / toiture neuve / accès direct : ×1.0\n   - Site occupé (établissement public en activité) : ×1.10-1.20\n   - Site complexe (travail en hauteur, présence amiante, désamiantage préalable) : ×1.20-1.35\n   - Site isolé / accès difficile : ×1.15-1.25\n   - Monument historique / site classé : ×1.25-1.45",
+    "section_re_pricing": "ÉTAPE 1bis — **DÉCOMPOSITION COÛTS FIXES PAR SITE / COÛTS VARIABLES PAR kWc**\n\nUn marché EnR mélange des coûts fixes par site (peu sensibles à la puissance) et des coûts variables linéaires en kWc. NE PAS multiplier naïvement un prix moyen au kWc par la puissance totale sans tenir compte de l'amenée/repli, du raccordement et des études — sur un petit projet multi-sites, ces coûts fixes dominent.\n\nDécomposer EXPLICITEMENT le coût ainsi :\n\n- **Coûts fixes par site** (mutualisés, indépendants de la puissance) :\n  - Amenée/repli chantier : ≈ 800-2 500 € selon distance et éloignement\n  - Raccordement Enedis (dossier + branchement) : ≈ 1 500-4 000 € selon puissance et complexité\n  - Études techniques (productible, dimensionnement, structure) : 3 000-15 000 € par projet selon complexité\n  - Coordination SPS, plans, dossiers administratifs : ≈ 500-1 500 € par site\n- **Coûts variables par kWc** (linéaires en puissance) :\n  - Modules photovoltaïques : 280-450 €/kWc selon technologie et provenance\n  - Onduleurs (chaîne ou centraux) : 80-150 €/kWc\n  - Structure de fixation et câblage : 100-200 €/kWc selon support\n  - Main d'œuvre de pose : 150-300 €/kWc selon complexité site\n- **Coûts récurrents O&M** (si contrat de maintenance inclus) :\n  - Maintenance préventive (visites annuelles + nettoyage) : 15-30 €/kWc/an\n  - Télésuivi et reporting : 5-10 €/kWc/an\n\n**Formule par site = coûts_fixes_site + (puissance_kwc × coût_variable_par_kwc)**\n**Total marché = Σ(sites) + coûts_O&M × nb_années**\n\nExemple concret pour un marché de 250 kWc sur 3 toitures d'écoles + maintenance préventive 5 ans :\n- Coûts fixes par site : 1 500 € amenée + 2 500 € raccordement + 4 000 € études + 800 € coord = **8 800 €/site**\n- Coûts variables : (350 modules + 120 onduleurs + 150 structure + 200 main d'œuvre) = **820 €/kWc**\n- Total CAPEX : 3 × 8 800 + 250 × 820 = 26 400 + 205 000 = **231 400 € HT**\n- Maintenance préventive : 25 €/kWc/an × 250 kWc × 5 ans = **31 250 €**\n- Total HT avant marge : **262 650 €**\n- Avec marge prestataire 10-20% : **289 k€ – 315 k€ HT**\n- Ramené au kWc installé (CAPEX seul) : **925-1 030 €/kWc**\n\nCette décomposition DOIT figurer dans `bottom_up.calcul` du JSON de sortie.\nPas d'atterrissage \"revu à la baisse de X à Y\" sans justification mathématique.\nBien distinguer le CAPEX (investissement initial) et l'OPEX (exploitation/maintenance) dans le commentaire.",
+    "section_top_down": "ÉTAPE 1 — **ESTIMATION TOP-DOWN sur comparables DECP**\n\nPour chaque comparable :\n- Si le brief indique la puissance installée du comparable (kWc ou MWc) explicitement → utilise-la\n- Sinon, ne pas reconstituer une puissance arbitraire pour atterrir sur ton chiffre cible.\n  Exclus ce comparable du calcul top-down et mentionne-le dans `comparables_exclus`.\n- Calcul travaux : `prix_unitaire_observé_eur_par_kwc = montant_capex / puissance_kwc`\n- Calcul O&M : `prix_unitaire_observé_eur_par_kwc_par_an = montant_annuel / puissance_kwc`\n\n**INTERDIT** : ajuster les puissances des comparables (en estimant un \"ratio kWc typique\"\nou autre) pour que le résultat tombe sur les ordres de grandeur du bottom-up. C'est un\nraisonnement circulaire qui invalide toute la calibration. Si tu n'as pas la puissance\ninstallée, dis-le et exclus le comparable.\n\nAttention aux comparables de marchés mixtes CAPEX + O&M longue durée : leur montant total\nintègre 15-25 ans de maintenance, à ne pas comparer à un marché de travaux pur."
+  },
+
+  "matching": {
+    "description": "Règles d'évaluation automatique des alertes.",
+    "alertes_critiques": [
+      {
+        "cle": "qualif_rge",
+        "libelle_court": "Qualification RGE",
+        "type": "contains_in_profil_list",
+        "profil_attr": "qualifications.rge"
+      },
+      {
+        "cle": "qualibat",
+        "libelle_court": "Qualibat",
+        "type": "contains_in_profil_list",
+        "profil_attr": "qualifications.qualibat"
+      },
+      {
+        "cle": "garantie_decennale",
+        "libelle_court": "Garantie décennale",
+        "type": "contains_in_profil_bool",
+        "profil_attr": "qualifications.garantie_decennale"
+      },
+      {
+        "cle": "ca_minimum",
+        "libelle_court": "CA minimum exigé",
+        "type": "comparison_numerique",
+        "operateur": ">=",
+        "profil_attr": "capacite.ca_annuel_eur"
+      },
+      {
+        "cle": "references_mwc",
+        "libelle_court": "Références minimales (MWc)",
+        "type": "comparison_numerique",
+        "operateur": ">=",
+        "profil_attr": "capacite.mwc_installes_cumules"
+      },
+      {
+        "cle": "zone_intervention",
+        "libelle_court": "Zone d'intervention couverte",
+        "type": "contains_in_profil_list",
+        "profil_attr": "zones_intervention"
+      }
+    ],
+    "acheteur_vers_zone": {
+      "description": "Mapping nom d'acheteur → région administrative (générique, pas spécifique FT). À enrichir.",
+      "regles": [
+        { "indice": "auvergne", "code": "ARA" },
+        { "indice": "rhône-alpes", "code": "ARA" },
+        { "indice": "bourgogne", "code": "BFC" },
+        { "indice": "franche-comté", "code": "BFC" },
+        { "indice": "bretagne", "code": "BRE" },
+        { "indice": "centre-val", "code": "CVL" },
+        { "indice": "corse", "code": "COR" },
+        { "indice": "grand est", "code": "GES" },
+        { "indice": "hauts-de-france", "code": "HDF" },
+        { "indice": "ile-de-france", "code": "IDF" },
+        { "indice": "normandie", "code": "NOR" },
+        { "indice": "nouvelle-aquitaine", "code": "NAQ" },
+        { "indice": "occitanie", "code": "OCC" },
+        { "indice": "pays de la loire", "code": "PDL" },
+        { "indice": "provence-alpes", "code": "PACA" }
+      ],
+      "fallback_acheteur_central": {
+        "indices": ["état", "ministère", "ademe"],
+        "code": "NAT"
+      }
+    },
+    "seuils_score": {
+      "tres_pertinent": 75,
+      "pertinent": 50,
+      "a_verifier": 20
+    }
+  },
+
+  "taxonomie": {
+    "description": "Catégorisation des marchés EnR pour reporting.",
+    "categories_metier": [
+      "photovoltaique_toiture",
+      "photovoltaique_au_sol",
+      "photovoltaique_ombriere",
+      "eolien_terrestre",
+      "solaire_thermique",
+      "biomasse",
+      "geothermie_pac",
+      "audit_etudes",
+      "maintenance_om",
+      "mixte_multi_filieres"
+    ]
+  }
+}

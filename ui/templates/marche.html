@@ -1,0 +1,1598 @@
+{% extends "base.html" %}
+
+{% block title %}{{ marche.titre[:60] or marche.objet[:60] }} — Tendia{% endblock %}
+
+{% block content %}
+<div class="apt-fiche-v7" style="max-width: 1320px; margin: 0 auto; padding: 24px 32px 80px;">
+
+<style>
+  /* ===== Couleurs ===== */
+  .apt-fiche-v7 {
+    --c-green: #1F8C5C;
+    --c-green-soft: #E5F2EC;
+    --c-green-deep: #0E5C3A;
+    --c-blue: #4373B5;
+    --c-blue-soft: #E3ECF7;
+    --c-violet: #7A5EA8;
+    --c-violet-soft: #ECE5F5;
+    --c-amber: #E89048;
+    --c-amber-soft: #FBEAD8;
+    --c-yellow: #D4A52F;
+    --c-yellow-soft: #FBF1D6;
+    --c-rose: #D9425A;
+    --c-rose-soft: #FAE0E5;
+    --c-stone: #8C7A6B;
+    --c-stone-soft: #ECE5DD;
+  }
+
+  /* ===== Typo neutralisée ===== */
+  .apt-fiche-v7 .apt-num,
+  .apt-fiche-v7 .apt-mono {
+    font-family: var(--apt-font, system-ui, sans-serif) !important;
+    letter-spacing: 0 !important;
+    font-variant-numeric: tabular-nums;
+  }
+  .apt-fiche-v7 .apt-label {
+    text-transform: none !important;
+    letter-spacing: 0 !important;
+    font-size: 11px !important;
+    font-weight: 500 !important;
+    color: var(--apt-ink-4) !important;
+    font-family: var(--apt-font, system-ui, sans-serif) !important;
+  }
+  .apt-fiche-v7 .apt-meta {
+    font-family: var(--apt-font, system-ui, sans-serif) !important;
+    letter-spacing: 0 !important;
+    text-transform: none !important;
+  }
+  .apt-fiche-v7 .apt-tech-footer .apt-mono {
+    font-family: ui-monospace, "SF Mono", monospace !important;
+  }
+
+  /* ===== Header avec score ring ===== */
+  .apt-fiche-v7 h1.fiche-title {
+    font-family: var(--apt-display, Georgia, serif);
+    font-size: 26px;
+    line-height: 1.25;
+    font-weight: 700;
+    color: var(--apt-ink);
+    margin: 0;
+    letter-spacing: -0.015em;
+  }
+  .apt-fiche-v7 .score-ring {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    flex-shrink: 0;
+  }
+  .apt-fiche-v7 .score-ring svg {
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg);
+  }
+  .apt-fiche-v7 .score-ring .score-center {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+  }
+  .apt-fiche-v7 .score-ring .score-num {
+    font-size: 24px;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+  }
+  .apt-fiche-v7 .score-ring .score-unit {
+    font-size: 10px;
+    color: var(--apt-ink-4);
+    margin-top: 1px;
+  }
+  .apt-fiche-v7 .verdict-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 3px 10px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 600;
+  }
+
+  /* Tooltip éligibilité au hover */
+  .apt-fiche-v7 .apt-elig-tag .apt-elig-tooltip {
+    position: absolute;
+    top: calc(100% + 6px);
+    right: 0;
+    background: white;
+    color: var(--apt-ink-2);
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1px solid var(--apt-line-2);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+    min-width: 280px;
+    max-width: 380px;
+    font-size: 11.5px;
+    line-height: 1.55;
+    text-align: left;
+    z-index: 100;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-4px);
+    transition: opacity 0.15s, transform 0.15s, visibility 0.15s;
+    pointer-events: none;
+    font-weight: 400;
+  }
+  .apt-fiche-v7 .apt-elig-tag:hover .apt-elig-tooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+  .apt-fiche-v7 .apt-elig-tooltip-title {
+    display: block;
+    font-weight: 600;
+    color: var(--apt-ink);
+    margin-bottom: 6px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--apt-line);
+  }
+  .apt-fiche-v7 .apt-elig-tooltip ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .apt-fiche-v7 .apt-elig-tooltip li {
+    padding: 3px 0 3px 4px;
+    color: var(--apt-ink-3);
+  }
+  .apt-fiche-v7 .apt-elig-tooltip li:not(:last-child) {
+    border-bottom: 1px dashed var(--apt-line);
+  }
+
+  .apt-fiche-v7 .meta-inline {
+    font-size: 13px;
+    line-height: 1.55;
+    color: var(--apt-ink-3);
+  }
+  .apt-fiche-v7 .meta-inline strong { color: var(--apt-ink-2); font-weight: 600; }
+  .apt-fiche-v7 .meta-inline .sep { color: var(--apt-line-2); margin: 0 8px; }
+
+  /* ===== KPI cells avec tint coloré marqué ===== */
+  .apt-fiche-v7 .kpi-cell {
+    border-radius: 10px;
+    padding: 10px 12px;
+    border: 1px solid var(--apt-line-2);
+    transition: transform 0.15s;
+  }
+  .apt-fiche-v7 .kpi-cell:hover { transform: translateY(-1px); }
+  .apt-fiche-v7 .kpi-cell .kpi-icon {
+    width: 22px;
+    height: 22px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 6px;
+  }
+  .apt-fiche-v7 .kpi-cell .kpi-icon svg {
+    width: 12px;
+    height: 12px;
+  }
+  .apt-fiche-v7 .kpi-cell .kpi-label {
+    font-size: 10.5px;
+    color: var(--apt-ink-3);
+    margin-bottom: 2px;
+    font-weight: 600;
+  }
+  .apt-fiche-v7 .kpi-cell .kpi-value {
+    font-size: 22px;
+    color: var(--apt-ink);
+    line-height: 1.1;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+  }
+  .apt-fiche-v7 .kpi-cell .kpi-sub {
+    font-size: 10.5px;
+    color: var(--apt-ink-4);
+    margin-top: 3px;
+  }
+  .apt-fiche-v7 .kpi-cell.kpi-valeur { background: var(--c-blue-soft); border-color: rgba(67,115,181,0.18); }
+  .apt-fiche-v7 .kpi-cell.kpi-valeur .kpi-icon { background: var(--c-blue); color: white; }
+  .apt-fiche-v7 .kpi-cell.kpi-benef { background: var(--c-violet-soft); border-color: rgba(122,94,168,0.18); }
+  .apt-fiche-v7 .kpi-cell.kpi-benef .kpi-icon { background: var(--c-violet); color: white; }
+  .apt-fiche-v7 .kpi-cell.kpi-duree { background: var(--c-green-soft); border-color: rgba(31,140,92,0.18); }
+  .apt-fiche-v7 .kpi-cell.kpi-duree .kpi-icon { background: var(--c-green); color: white; }
+  .apt-fiche-v7 .kpi-cell.kpi-date { background: var(--c-amber-soft); border-color: rgba(232,144,72,0.20); }
+  .apt-fiche-v7 .kpi-cell.kpi-date .kpi-icon { background: var(--c-amber); color: white; }
+  .apt-fiche-v7 .kpi-cell.kpi-date-urgent { background: var(--c-rose-soft); border-color: rgba(217,66,90,0.25); }
+  .apt-fiche-v7 .kpi-cell.kpi-date-urgent .kpi-icon { background: var(--c-rose); color: white; }
+
+  /* ===== Grid 2 cols ===== */
+  .apt-fiche-v7 .grid-2col {
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: 32px;
+    align-items: start;
+  }
+  @media (max-width: 900px) {
+    .apt-fiche-v7 .grid-2col { grid-template-columns: 1fr; }
+  }
+
+  /* ===== Sections pliables avec icônes colorées ===== */
+  .apt-fiche-v7 .sec {
+    border-top: 1px solid var(--apt-line-2);
+  }
+  .apt-fiche-v7 .sec > summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 14px 4px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: opacity 0.15s;
+  }
+  .apt-fiche-v7 .sec > summary:hover { opacity: 0.75; }
+  .apt-fiche-v7 .sec > summary::-webkit-details-marker { display: none; }
+  .apt-fiche-v7 .sec[open] > summary .chev { transform: rotate(180deg); }
+  .apt-fiche-v7 .sec .chev { transition: transform 0.2s; flex-shrink: 0; color: var(--apt-ink-4); }
+
+  .apt-fiche-v7 .sec-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 9px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .apt-fiche-v7 .sec-icon svg { width: 16px; height: 16px; }
+
+  .apt-fiche-v7 .sec .sec-title-wrap { flex: 1; min-width: 0; }
+  .apt-fiche-v7 .sec .sec-title {
+    font-size: 15.5px;
+    font-weight: 600;
+    color: var(--apt-ink);
+    margin: 0;
+    display: inline;
+  }
+  .apt-fiche-v7 .sec .sec-teaser {
+    font-size: 12px;
+    margin-left: 10px;
+    color: var(--apt-ink-4);
+    font-weight: 400;
+  }
+  .apt-fiche-v7 .sec .sec-body { padding: 4px 4px 22px 44px; }
+  .apt-fiche-v7 .sec:last-of-type { border-bottom: 1px solid var(--apt-line-2); }
+
+  /* Couleurs des icônes de section */
+  .apt-fiche-v7 .sec-icon.ic-green { background: var(--c-green-soft); color: var(--c-green); }
+  .apt-fiche-v7 .sec-icon.ic-blue { background: var(--c-blue-soft); color: var(--c-blue); }
+  .apt-fiche-v7 .sec-icon.ic-violet { background: var(--c-violet-soft); color: var(--c-violet); }
+  .apt-fiche-v7 .sec-icon.ic-amber { background: var(--c-amber-soft); color: var(--c-amber); }
+  .apt-fiche-v7 .sec-icon.ic-yellow { background: var(--c-yellow-soft); color: var(--c-yellow); }
+  .apt-fiche-v7 .sec-icon.ic-rose { background: var(--c-rose-soft); color: var(--c-rose); }
+  .apt-fiche-v7 .sec-icon.ic-stone { background: var(--c-stone-soft); color: var(--c-stone); }
+  .apt-fiche-v7 .sec-icon.ic-green-deep { background: var(--c-green-soft); color: var(--c-green-deep); }
+
+  /* ===== Sidebar cards ===== */
+  .apt-fiche-v7 .aside-card {
+    background: white;
+    border: 1px solid var(--apt-line-2);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  }
+  .apt-fiche-v7 .aside-card + .aside-card { margin-top: 18px; }
+  .apt-fiche-v7 .aside-card-header {
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    font-size: 12.5px;
+    font-weight: 700;
+    border-bottom: 1px solid var(--apt-line-2);
+  }
+  .apt-fiche-v7 .aside-card-header.is-alertes {
+    background: var(--c-rose-soft);
+    color: var(--c-rose);
+    border-bottom-color: rgba(217,66,90,0.15);
+  }
+  .apt-fiche-v7 .aside-card-header.is-verdict {
+    background: var(--c-green-soft);
+    color: var(--c-green);
+    border-bottom-color: rgba(31,140,92,0.15);
+  }
+  .apt-fiche-v7 .aside-card-header.is-neutral {
+    background: var(--apt-bg);
+    color: var(--apt-ink-2);
+  }
+  .apt-fiche-v7 .aside-card-header.is-publics {
+    background: var(--c-blue-soft);
+    color: var(--c-blue);
+    border-bottom-color: rgba(46,82,158,0.15);
+  }
+  .apt-fiche-v7 .aside-card-body { padding: 12px 16px; }
+
+  /* ===== Bareme bar ===== */
+  .apt-fiche-v7 .bareme-bar {
+    display: flex;
+    border-radius: 10px;
+    overflow: hidden;
+    height: 46px;
+    margin-bottom: 18px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  }
+  .apt-fiche-v7 .bareme-bar > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 13.5px;
+    color: white;
+  }
+
+  /* ===== Onglets Barème (Technique/Prix) — la barre de pondération EST les onglets ===== */
+  .apt-fiche-v7 .bareme-tabs-wrapper { position: relative; margin-bottom: 18px; }
+  .apt-fiche-v7 .bareme-tab-radio { position: absolute; opacity: 0; pointer-events: none; }
+  .apt-fiche-v7 .bareme-tabs-bar {
+    display: flex;
+    border-radius: 10px;
+    overflow: hidden;
+    height: 52px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    margin-bottom: 16px;
+    gap: 2px;
+    background: var(--apt-line-2);
+  }
+  .apt-fiche-v7 .bareme-tab-pill {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-weight: 700;
+    font-size: 14px;
+    color: white;
+    cursor: pointer;
+    transition: filter 0.15s, opacity 0.15s, transform 0.1s;
+    user-select: none;
+    position: relative;
+  }
+  .apt-fiche-v7 .bareme-tab-pill.tab-tech { background: var(--c-violet); }
+  .apt-fiche-v7 .bareme-tab-pill.tab-prix { background: var(--apt-ink); }
+  .apt-fiche-v7 .bareme-tab-pill .chevron {
+    width: 12px; height: 12px; opacity: 0.7;
+    transition: transform 0.15s, opacity 0.15s;
+  }
+  /* Onglet INACTIF : pâli + chevron discret pointant vers le bas */
+  .apt-fiche-v7 .bareme-tab-radio.is-tech:checked ~ .bareme-tabs-bar .bareme-tab-pill.tab-prix,
+  .apt-fiche-v7 .bareme-tab-radio.is-prix:checked ~ .bareme-tabs-bar .bareme-tab-pill.tab-tech {
+    opacity: 0.42;
+    filter: saturate(0.5);
+  }
+  .apt-fiche-v7 .bareme-tab-radio.is-tech:checked ~ .bareme-tabs-bar .bareme-tab-pill.tab-prix:hover,
+  .apt-fiche-v7 .bareme-tab-radio.is-prix:checked ~ .bareme-tabs-bar .bareme-tab-pill.tab-tech:hover {
+    opacity: 0.85;
+    filter: saturate(0.85);
+  }
+  /* Onglet ACTIF : opacity max + chevron pointant vers le bas (= déplie le contenu) */
+  .apt-fiche-v7 .bareme-tab-radio.is-tech:checked ~ .bareme-tabs-bar .bareme-tab-pill.tab-tech .chevron,
+  .apt-fiche-v7 .bareme-tab-radio.is-prix:checked ~ .bareme-tabs-bar .bareme-tab-pill.tab-prix .chevron {
+    transform: rotate(180deg);
+    opacity: 1;
+  }
+  .apt-fiche-v7 .bareme-panel { display: none; }
+  .apt-fiche-v7 .bareme-tab-radio.is-tech:checked ~ .bareme-panel.panel-tech { display: block; }
+  .apt-fiche-v7 .bareme-tab-radio.is-prix:checked ~ .bareme-panel.panel-prix { display: block; }
+
+  /* Sous-critère hiérarchique */
+  .apt-fiche-v7 .sc-niveau-1 { background: var(--c-violet-soft); }
+  .apt-fiche-v7 .sc-niveau-2 { background: white; border: 1px solid rgba(122,94,168,0.18); }
+  .apt-fiche-v7 .sc-niveau-3 { background: var(--apt-bg); border: 1px dashed var(--apt-line-2); }
+  .apt-fiche-v7 .sc-enfants {
+    margin-top: 10px;
+    padding-left: 14px;
+    border-left: 2px solid rgba(122,94,168,0.25);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  /* Tooltips sources : survol → bulle */
+  .apt-fiche-v7 .tip {
+    display: inline-block;
+    position: relative;
+    cursor: help;
+    border-bottom: 1px dotted var(--apt-line);
+    color: var(--apt-ink-4);
+  }
+  .apt-fiche-v7 .tip::after {
+    content: attr(data-tip);
+    position: absolute;
+    bottom: calc(100% + 6px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--apt-ink);
+    color: white;
+    padding: 5px 9px;
+    border-radius: 5px;
+    font-size: 11px;
+    font-weight: 500;
+    white-space: nowrap;
+    max-width: 280px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.15s, visibility 0.15s;
+    z-index: 100;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  }
+  .apt-fiche-v7 .tip:hover::after { opacity: 1; visibility: visible; }
+
+  /* ===== Boutons ===== */
+  .apt-fiche-v7 .btn-primary {
+    background: var(--c-green);
+    color: white;
+    padding: 8px 14px;
+    border-radius: 8px;
+    font-size: 12.5px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    text-decoration: none;
+    transition: background 0.15s;
+  }
+  .apt-fiche-v7 .btn-primary:hover { background: var(--c-green-deep); }
+  .apt-fiche-v7 .btn-ghost {
+    background: white;
+    color: var(--apt-ink-2);
+    padding: 8px 14px;
+    border: 1px solid var(--apt-line-2);
+    border-radius: 8px;
+    font-size: 12.5px;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    text-decoration: none;
+  }
+  .apt-fiche-v7 .btn-ghost:hover { background: var(--apt-bg); }
+</style>
+
+<!-- ============ Breadcrumb ============ -->
+<a href="/" style="display: inline-flex; align-items: center; gap: 5px; font-size: 12px; color: var(--apt-ink-3); text-decoration: none; margin-bottom: 16px; font-family: var(--apt-font, sans-serif);">
+  <svg style="width: 11px; height: 11px;" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/>
+  </svg>
+  Retour au dashboard
+</a>
+
+<!-- ============ Header : titre à gauche, score ring à droite ============ -->
+<div class="flex items-start justify-between gap-6 mb-5 fade-up">
+  <div style="flex: 1; min-width: 0;">
+    <h1 class="fiche-title mb-3">{{ marche.titre or marche.objet }}</h1>
+    {% if brief and brief.synthese_marche %}
+    <p style="font-size: 14px; line-height: 1.6; color: var(--apt-ink-3); margin: 0 0 14px;">{{ brief.synthese_marche | clean_source }}</p>
+    {% endif %}
+
+    {# ── Badges de classification LLM (domaines_metier) ── #}
+    {% if brief and brief.domaines_metier %}
+    <div style="display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin: 0 0 14px;">
+      <span style="font-size: 10.5px; color: var(--apt-ink-4); text-transform: uppercase; letter-spacing: 0.3px; font-weight: 600; margin-right: 4px;">Domaine LLM ·</span>
+      {% for d in brief.domaines_metier %}
+        {% set est_principal = (loop.first or (d.poids and d.poids >= 0.5)) %}
+        {% set lib = d.code|replace('_', ' ')|title %}
+        <span title="{% if d.poids %}Poids: {{ (d.poids * 100)|round|int }}%{% endif %}{% if d.lots_concernes %} · Lots: {{ d.lots_concernes|join(', ') }}{% endif %}"
+              style="display: inline-flex; align-items: center; gap: 4px;
+                     font-size: 11.5px; padding: 3px 9px; border-radius: 999px;
+                     background: {% if est_principal %}var(--c-violet-soft){% else %}var(--apt-bg-2, #f5f3f0){% endif %};
+                     color: {% if est_principal %}var(--c-violet){% else %}var(--apt-ink-3){% endif %};
+                     border: 1px solid {% if est_principal %}var(--c-violet){% else %}var(--apt-ink-5, #ddd){% endif %};
+                     font-weight: {% if est_principal %}600{% else %}500{% endif %};">
+          {{ lib }}
+          {% if d.poids %}<span style="opacity: 0.7; font-size: 10px;">{{ (d.poids * 100)|round|int }}%</span>{% endif %}
+        </span>
+      {% endfor %}
+    </div>
+    {% if brief.raison_classification %}
+    <p style="font-size: 12px; color: var(--apt-ink-4); margin: 0 0 14px; font-style: italic; line-height: 1.5;">
+      <span style="font-weight: 600; font-style: normal;">Classification :</span> {{ brief.raison_classification }}
+    </p>
+    {% endif %}
+    {% endif %}
+    {# ── Fin badges domaines ── #}
+    <div class="meta-inline mb-4">
+      par <strong>{{ marche.acheteur_nom or '—' }}</strong>
+      {% if marche.date_publication %}<span class="sep">·</span>publié le {{ fmt_date(marche.date_publication) }}{% endif %}
+      {% if marche.date_limite_depot %}
+      <span class="sep">·</span>limite le <span style="font-weight: 600; color:
+          {% if jours_restants is not none and jours_restants < 7 %}var(--c-rose)
+          {% elif jours_restants is not none and jours_restants < 21 %}var(--c-amber)
+          {% else %}var(--apt-ink-2){% endif %};">{{ fmt_date(marche.date_limite_depot) }}{% if jours_restants is not none %} · J−{{ jours_restants }}{% endif %}</span>
+      {% endif %}
+      {% if marche.perimetre_geographique %}<span class="sep">·</span>{{ marche.perimetre_geographique }}{% endif %}
+    </div>
+    <div class="flex flex-wrap items-center gap-2">
+      {# Bouton d'accès aux pièces — toujours visible si on a une URL exploitable.
+         Affiche TOUS les liens disponibles plutôt que de dégrader. #}
+      {% if marche.url_dce %}
+      <a href="{{ marche.url_dce }}" target="_blank" rel="noopener" class="btn-primary">
+        <svg style="width: 12px; height: 12px;" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+        </svg>
+        {% if marche.dce_qualite in ('directe', 'via_keyword') %}Télécharger le DCE{% else %}Consultation plateforme{% endif %}
+      </a>
+      {% endif %}
+      {% if marche.url_avis %}
+      <a href="{{ marche.url_avis }}" target="_blank" rel="noopener" class="btn-ghost">
+        <svg style="width: 12px; height: 12px;" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+        </svg>
+        Avis {{ marche.source }}
+      </a>
+      {% endif %}
+      {% if not marche.url_dce and not marche.url_avis %}
+      <span style="font-size: 11px; color: var(--apt-ink-4); font-style: italic;">
+        Aucun lien externe disponible
+      </span>
+      {% endif %}
+
+      {# Séparateur visuel entre liens externes et actions pipeline #}
+      {% if cycle_transitions %}
+      <span style="width: 1px; height: 18px; background: var(--apt-line-2); margin: 0 4px;"></span>
+
+      {# Boutons de transition pipeline — compacts, à côté des liens externes #}
+      {% set col_map = {'amber': '#c47e1c', 'blue': '#3b6fb2', 'green': '#1f8c5c', 'rose': '#c14b6b', 'stone': '#9b958c'} %}
+      {% if cycle_meta %}
+      {% set col_actuel = col_map.get(cycle_meta.couleur, '#9b958c') %}
+      <span style="display: inline-flex; align-items: center; gap: 4px; padding: 4px 9px; border-radius: 6px; background: white; border: 1px solid {{ col_actuel }}; color: {{ col_actuel }}; font-size: 11px; font-weight: 600;" title="Statut pipeline actuel">
+        <span style="font-weight: 800;">{{ cycle_meta.icone }}</span> {{ cycle_meta.label }}
+      </span>
+      {% endif %}
+      {% for t in cycle_transitions %}
+      {% set col_t = col_map.get(t.couleur, '#9b958c') %}
+      <form method="POST" action="{{ url_for('changer_cycle', id_marche=marche.id) }}" style="display: inline;">
+        <input type="hidden" name="statut" value="{{ t.statut }}">
+        <input type="hidden" name="retour" value="fiche">
+        <button type="submit" style="display: inline-flex; align-items: center; gap: 4px; padding: 4px 9px; background: white; border: 1px solid {{ col_t }}; color: {{ col_t }}; border-radius: 6px; font-size: 11px; font-weight: 600; cursor: pointer; transition: all 0.12s ease; font-family: inherit;"
+                onmouseover="this.style.background='{{ col_t }}'; this.style.color='white';"
+                onmouseout="this.style.background='white'; this.style.color='{{ col_t }}';"
+                title="Passer le statut à : {{ t.label }}">
+          → {{ t.label }}
+        </button>
+      </form>
+      {% endfor %}
+      {% endif %}
+    </div>
+  </div>
+
+  {% if eval %}
+  {% set score_color = 'var(--c-green)' if eval.verdict in ('tres_pertinent', 'pertinent') else ('var(--c-amber)' if eval.verdict == 'a_verifier' else 'var(--apt-ink-4)') %}
+  {% set verdict_bg = 'var(--c-green-soft)' if eval.verdict in ('tres_pertinent', 'pertinent') else ('var(--c-amber-soft)' if eval.verdict == 'a_verifier' else 'var(--apt-bg)') %}
+  <div style="display: flex; flex-direction: column; align-items: center; gap: 8px; flex-shrink: 0;">
+    <div class="score-ring">
+      <svg viewBox="0 0 80 80">
+        <circle cx="40" cy="40" r="34" fill="none" stroke="var(--apt-line-2)" stroke-width="6"/>
+        {% set dasharray = 213.6 %}
+        {% set offset = (dasharray * (100 - eval.score) / 100) %}
+        <circle cx="40" cy="40" r="34" fill="none" stroke="{{ score_color }}" stroke-width="6"
+                stroke-dasharray="{{ dasharray }}" stroke-dashoffset="{{ offset }}"
+                stroke-linecap="round"/>
+      </svg>
+      <div class="score-center">
+        <span class="score-num" style="color: {{ score_color }};">{{ eval.score }}</span>
+        <span class="score-unit">/ 100</span>
+      </div>
+    </div>
+    <span class="verdict-tag" style="background: {{ verdict_bg }}; color: {{ score_color }};">
+      <span style="font-size: 9px;">●</span> {{ verdict_label.get(eval.verdict, '—') }}
+    </span>
+
+    {# Badge d'éligibilité — calculé depuis les alertes du brief vs profil #}
+    {% if verdict_eligibilite and verdict_eligibilite.statut != 'inconnu' %}
+    {% set ve = verdict_eligibilite %}
+    {% set elig_bg = 'var(--c-green-soft)' if ve.couleur == 'green' else ('var(--c-rose-soft)' if ve.couleur == 'rose' else 'var(--apt-bg)') %}
+    {% set elig_color = 'var(--c-green)' if ve.couleur == 'green' else ('var(--c-rose)' if ve.couleur == 'rose' else 'var(--apt-ink-4)') %}
+    <span class="verdict-tag apt-elig-tag" style="background: {{ elig_bg }}; color: {{ elig_color }}; cursor: help; position: relative;">
+      <span style="font-size: 11px; font-weight: 800;">{{ ve.icone }}</span> {{ ve.label_court }}{% if ve.avec_reserves %}<span style="color: #c47e1c; font-weight: 700; margin-left: 1px;">*</span>{% endif %}
+      <span class="apt-elig-tooltip">
+        <span class="apt-elig-tooltip-title">{{ ve.tooltip }}</span>
+        {% if ve.points_a_lever %}
+        <ul>
+          {% for p in ve.points_a_lever[:5] %}
+          <li>
+            {% if p.statut == 'inconnu' %}<span style="color: var(--apt-ink-4); font-weight: 700;">?</span>{% elif p.statut == 'a_verifier' %}<span style="color: var(--c-amber); font-weight: 700;">!</span>{% else %}<span style="color: var(--c-rose); font-weight: 700;">✕</span>{% endif %}
+            {{ p.libelle }}
+          </li>
+          {% endfor %}
+          {% if ve.points_a_lever | length > 5 %}
+          <li style="opacity: 0.7;">… et {{ ve.points_a_lever | length - 5 }} autre{{ 's' if (ve.points_a_lever | length - 5) > 1 else '' }}</li>
+          {% endif %}
+        </ul>
+        {% endif %}
+      </span>
+    </span>
+    {% endif %}
+  </div>
+  {% endif %}
+</div>
+
+{% if not brief %}
+
+  <section style="background: var(--apt-bg); border: 1px solid var(--apt-line-2); border-radius: 10px; padding: 20px 24px; margin-top: 24px;">
+    <div style="font-size: 16px; color: var(--apt-ink); font-weight: 600; margin-bottom: 8px;">Brief LLM non disponible</div>
+    <p style="font-size: 13px; color: var(--apt-ink-3); line-height: 1.6;">
+      Lance <code style="background: white; padding: 2px 7px; border-radius: 4px; font-size: 11px; font-family: ui-monospace, monospace;">python tendia_briefs_auto.py --marche {{ marche.id }}</code> pour générer une fiche enrichie.
+    </p>
+  </section>
+
+{% else %}
+
+  <!-- ============ KPI Strip — 4 cells tinted ============ -->
+  {% set ft_calib = calibration.fourchette_marche_total_estimee if (calibration and calibration.fourchette_marche_total_estimee) else None %}
+  {% set ft_brief = brief.montant_marche.fourchette_marche_total_estimee if (brief and brief.montant_marche) else None %}
+  {% set ft_estimee = ft_calib or (ft_brief if ft_brief and (ft_brief.min_eur or ft_brief.max_eur) else None) %}
+  {% set valeur_est_estimee = (not montant_marche_eur) and ft_estimee and (ft_estimee.min_eur or ft_estimee.max_eur) %}
+  {# Fourchette bas-haut basée sur les 3 scénarios si dispo, sinon min/max de ft_estimee #}
+  {% set kpi_bas = (scenarios_montant.bas.montant_eur if scenarios_montant else (ft_estimee.min_eur if ft_estimee else None)) %}
+  {% set kpi_haut = (scenarios_montant.haut.montant_eur if scenarios_montant else (ft_estimee.max_eur if ft_estimee else None)) %}
+  <div class="grid grid-cols-4 gap-3 mb-7 fade-up fade-up-2">
+    <div class="kpi-cell kpi-valeur" {% if valeur_est_estimee %}title="Estimation Tendia — fourchette bas / haut des scénarios"{% endif %}>
+      <div class="kpi-icon">
+        <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"/></svg>
+      </div>
+      <div class="kpi-label">
+        Valeur
+        {% if valeur_est_estimee %}
+        <span style="display: inline-flex; align-items: center; gap: 3px; margin-left: 4px; padding: 1px 5px; background: var(--c-violet-soft); color: var(--c-violet); font-size: 9px; font-weight: 700; border-radius: 999px; text-transform: uppercase; letter-spacing: 0.4px;">✦ est.</span>
+        {% endif %}
+      </div>
+      {% if montant_marche_eur %}
+        <div class="kpi-value">{{ montant_marche_eur | euro_short }}</div>
+      {% elif valeur_est_estimee and kpi_bas and kpi_haut %}
+        <div class="kpi-value" style="color: var(--c-violet); font-size: 18px; line-height: 1.15;">{{ kpi_bas | euro_short }}<span style="color: var(--apt-ink-4); font-weight: 500; margin: 0 4px;">–</span>{{ kpi_haut | euro_short }}</div>
+      {% elif valeur_est_estimee and kpi_bas %}
+        <div class="kpi-value" style="color: var(--c-violet);">~ {{ kpi_bas | euro_short }}</div>
+      {% else %}
+        <div class="kpi-value">—</div>
+      {% endif %}
+      <div class="kpi-sub">
+        {% if montant_marche_eur %}
+          {% if brief.montant_marche and brief.montant_marche.type == 'estime_explicite' %}explicite RC
+          {% elif brief.montant_marche and brief.montant_marche.type == 'plafond' %}plafond RC
+          {% elif brief.montant_marche and brief.montant_marche.type == 'calcule_volumes' %}calculé
+          {% else %}—{% endif %}
+        {% elif valeur_est_estimee %}
+          <span style="color: var(--c-violet); font-weight: 600;">fourchette bas–haut</span>
+        {% else %}
+          non communiqué
+        {% endif %}
+      </div>
+    </div>
+    <div class="kpi-cell kpi-benef">
+      <div class="kpi-icon">
+        <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+      </div>
+      <div class="kpi-label">Bénéficiaires</div>
+      <div class="kpi-value">{% if brief.volumes and brief.volumes.nb_beneficiaires_total %}{{ brief.volumes.nb_beneficiaires_total }}{% else %}—{% endif %}</div>
+      <div class="kpi-sub">{% if brief.volumes and brief.volumes.nb_beneficiaires_total %}max{% else %}non précisé{% endif %}</div>
+    </div>
+    <div class="kpi-cell kpi-duree">
+      <div class="kpi-icon">
+        <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+      </div>
+      <div class="kpi-label">Durée</div>
+      <div class="kpi-value">{% if brief.volumes and brief.volumes.duree_marche_mois %}{{ brief.volumes.duree_marche_mois }}<span style="font-size: 14px; font-weight: 400; color: var(--apt-ink-3); margin-left: 3px;">mois</span>{% else %}—{% endif %}</div>
+      <div class="kpi-sub">{% if brief.volumes and brief.volumes.duree_parcours_jours %}parcours {{ brief.volumes.duree_parcours_jours }}j{% else %}&nbsp;{% endif %}</div>
+    </div>
+    <div class="kpi-cell {% if jours_restants is not none and jours_restants < 7 %}kpi-date-urgent{% else %}kpi-date{% endif %}">
+      <div class="kpi-icon">
+        <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+      </div>
+      <div class="kpi-label">Date limite</div>
+      <div class="kpi-value" style="color:
+        {% if jours_restants is not none and jours_restants < 7 %}var(--c-rose)
+        {% elif jours_restants is not none and jours_restants < 21 %}var(--c-amber)
+        {% else %}var(--apt-ink){% endif %};">
+        {% if jours_restants is not none %}J−{{ jours_restants }}{% else %}—{% endif %}
+      </div>
+      <div class="kpi-sub">{{ fmt_date(marche.date_limite_depot) }}</div>
+    </div>
+  </div>
+
+  <!-- ============ GRID 2 COLONNES ============ -->
+  <div class="grid-2col">
+
+  <main>
+
+    {% macro sec(titre, teaser, color, est_ouverte, icone) -%}
+    <details {% if est_ouverte %}open{% endif %} class="sec">
+      <summary>
+        <div class="sec-icon ic-{{ color }}">{{ icone | safe }}</div>
+        <div class="sec-title-wrap">
+          <h2 class="sec-title">{{ titre }}</h2>
+          {% if teaser %}<span class="sec-teaser">{{ teaser }}</span>{% endif %}
+        </div>
+        <svg class="chev" style="width: 14px; height: 14px;" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+        </svg>
+      </summary>
+      <div class="sec-body">
+    {%- endmacro %}
+
+    {% set IC_DOC = '<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>' %}
+    {% set IC_CHECK = '<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>' %}
+    {% set IC_CHART = '<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>' %}
+    {% set IC_CALC = '<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>' %}
+    {% set IC_BULB = '<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>' %}
+    {% set IC_EURO = '<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14.121 7.629A3 3 0 009.017 9.43c-.023.212-.022.425.001.636l.428 3.929m12.422 1.913c-3.197.778-7.221 1.092-12.422 1.092M3 16h10.5m-9-4h11"/></svg>' %}
+    {% set IC_BADGE = '<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>' %}
+    {% set IC_INFO = '<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>' %}
+    {% set IC_WARN = '<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>' %}
+    {% set IC_USERS = '<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>' %}
+
+    {% if brief.synthese_marche %}
+    {# Section présentation supprimée — contenu intégré comme sous-titre du marché en haut #}
+    {% endif %}
+
+    {# ============ BARÈME & CADRAGE PRIX (consolidé) ============ #}
+    {% if brief.bareme_notation and (brief.bareme_notation.valeur_technique_pct or brief.bareme_notation.sous_criteres_techniques) %}
+    {% set teaser_bareme = '' %}
+    {% if brief.bareme_notation.valeur_technique_pct and brief.bareme_notation.valeur_prix_pct %}
+      {% set teaser_bareme = 'Technique ' ~ brief.bareme_notation.valeur_technique_pct ~ '% / Prix ' ~ brief.bareme_notation.valeur_prix_pct ~ '%' %}
+    {% endif %}
+    {# Médiane affichée uniquement si elle vient d'une base validée (Tendia ≥ 3),
+       pas du DECP brut qui pollue le brief avec des marchés peu comparables. #}
+    {% if zone_prix and (zone_prix.n_comparables_apptia or 0) >= 3 and zone_prix.estimation and zone_prix.estimation.mediane_eur %}
+      {% set teaser_bareme = teaser_bareme ~ ' · médiane validée ' ~ (zone_prix.estimation.mediane_eur | euro_short) %}
+    {% endif %}
+
+    {# Macro récursive : rend un sous-critère technique + ses éventuels sous-sous-critères #}
+    {% macro render_sous_critere(sc, niveau) %}
+    <details class="sc-niveau-{{ niveau }}" style="border-radius: 8px; padding: 10px 14px; cursor: pointer;"{% if niveau == 1 and sc.sous_criteres %} open{% endif %}>
+      <summary style="display: flex; align-items: center; justify-content: space-between; gap: 12px; list-style: none; cursor: pointer;">
+        <span style="color: var(--apt-ink); font-weight: {% if niveau == 1 %}600{% else %}500{% endif %}; font-size: {% if niveau == 1 %}13.5px{% else %}12.5px{% endif %};">{{ sc.libelle }}</span>
+        <div style="display: flex; align-items: center; gap: 8px; flex-shrink: 0;">
+          <span style="color: var(--c-violet); font-weight: 700; font-size: {% if niveau == 1 %}13px{% else %}12px{% endif %};">{{ sc.ponderation_pct }}%</span>
+          <svg style="width: 10px; height: 10px; color: var(--c-violet);" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+          </svg>
+        </div>
+      </summary>
+      <div style="margin-top: 10px; padding-top: 10px; border-top: 1px solid rgba(122,94,168,0.18); display: flex; flex-direction: column; gap: 10px;">
+        {% if sc.description %}
+        <div>
+          <div style="font-size: 10.5px; color: var(--c-violet); font-weight: 600; margin-bottom: 3px; text-transform: uppercase; letter-spacing: 0.3px;">Évalue</div>
+          <p style="font-size: 12.5px; line-height: 1.55; color: var(--apt-ink-2); margin: 0;">{{ sc.description }}</p>
+        </div>
+        {% endif %}
+        {% if sc.elements_attendus %}
+        <div>
+          <div style="font-size: 10.5px; color: var(--c-violet); font-weight: 600; margin-bottom: 3px; text-transform: uppercase; letter-spacing: 0.3px;">À inclure</div>
+          <ul style="margin: 0; padding: 0; list-style: none;">
+            {% for el in sc.elements_attendus %}
+            <li style="display: flex; gap: 8px; padding: 2px 0; font-size: 12px; line-height: 1.5;">
+              <span style="flex-shrink: 0; color: var(--c-green); margin-top: 2px;">✓</span>
+              <span style="color: var(--apt-ink-2);">{{ el }}</span>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+        {% endif %}
+        {% if sc.exemple_reponse_forte and sc.exemple_reponse_forte != '—' %}
+        <div style="background: white; padding: 10px 12px; border-radius: 6px; border-left: 3px solid var(--c-green);">
+          <div style="font-size: 10.5px; color: var(--c-green); font-weight: 600; margin-bottom: 3px; text-transform: uppercase; letter-spacing: 0.3px;">Exemple de réponse forte</div>
+          <p style="font-size: 12px; line-height: 1.55; color: var(--apt-ink-2); font-style: italic; margin: 0;">{{ sc.exemple_reponse_forte }}</p>
+        </div>
+        {% endif %}
+        {% if sc.source %}<span class="tip" data-tip="Source : {{ sc.source | clean_source }}" style="display: inline-block; font-size: 10.5px; color: var(--apt-ink-4); border-bottom: 1px dotted var(--apt-line); cursor: help; margin-top: 4px;">source ⓘ</span>{% endif %}
+
+        {# RÉCURSION : si ce sous-critère a lui-même des enfants, les rendre indentés #}
+        {% if sc.sous_criteres %}
+        <div class="sc-enfants">
+          {% for ssc in sc.sous_criteres %}
+            {{ render_sous_critere(ssc, niveau + 1) }}
+          {% endfor %}
+        </div>
+        {% endif %}
+      </div>
+    </details>
+    {% endmacro %}
+
+    {{ sec('Barème & cadrage prix', teaser_bareme, 'violet', true, IC_CHART) }}
+
+      {# ============ BARRE-ONGLETS Technique / Prix ============ #}
+      {# La barre de pondération est ELLE-MÊME les onglets cliquables. #}
+      {# Largeur des onglets = pondération (70/30 par défaut). #}
+      {% set pct_tech = brief.bareme_notation.valeur_technique_pct or 70 %}
+      {% set pct_prix = brief.bareme_notation.valeur_prix_pct or 30 %}
+      {% set tab_id = 'bareme-' ~ marche.id %}
+      <div class="bareme-tabs-wrapper">
+        <input type="radio" class="bareme-tab-radio is-tech" name="bareme-tab-{{ tab_id }}" id="tab-tech-{{ tab_id }}" checked>
+        <input type="radio" class="bareme-tab-radio is-prix" name="bareme-tab-{{ tab_id }}" id="tab-prix-{{ tab_id }}">
+        <div class="bareme-tabs-bar">
+          <label for="tab-tech-{{ tab_id }}" class="bareme-tab-pill tab-tech" style="width: {{ pct_tech }}%;">
+            <span>Technique · {{ pct_tech }}%</span>
+            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+          </label>
+          <label for="tab-prix-{{ tab_id }}" class="bareme-tab-pill tab-prix" style="width: {{ pct_prix }}%;">
+            <span>Prix · {{ pct_prix }}%</span>
+            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+          </label>
+        </div>
+
+      <div class="bareme-panel panel-tech">
+        {% if brief.bareme_notation.sous_criteres_techniques %}
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          {% for sc in brief.bareme_notation.sous_criteres_techniques %}
+            {{ render_sous_critere(sc, 1) }}
+          {% endfor %}
+        </div>
+        {% else %}
+        <p style="font-size: 12.5px; color: var(--apt-ink-3); margin: 0; line-height: 1.55; padding: 20px; text-align: center; background: var(--apt-bg); border-radius: 8px;">
+          Aucun sous-critère technique détaillé n'a pu être extrait du DCE.
+        </p>
+        {% endif %}
+      </div>
+
+      <div class="bareme-panel panel-prix">
+      {# ============ VOLET PRIX (valeur RC + fourchette DECP + modalité + révision + alertes) ============ #}
+      {% set has_volet_prix = (brief.montant_marche and (brief.montant_marche.commentaire or montant_marche_eur or brief.montant_marche.prix_unitaire_estime)) or
+                              (zone_prix and zone_prix.confiance) or
+                              brief.bareme_notation.prix or brief.bareme_notation.modalite_calcul_prix or
+                              brief.revision_prix or brief.alertes_prix %}
+      {% if has_volet_prix %}
+
+      {# ============================================================ #}
+      {# BLOC 1 — ESTIMATION DU MARCHÉ (LLM + Simulateur)              #}
+      {# ============================================================ #}
+      <div style="margin-top: 8px; padding-top: 18px; border-top: 1px solid var(--apt-line-2);">
+        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 14px;">
+          <svg style="width: 14px; height: 14px; color: var(--c-violet);" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14.121 7.629A3 3 0 009.017 9.43c-.023.212-.022.425.001.636l.428 3.929m12.422 1.913c-3.197.778-7.221 1.092-12.422 1.092M3 16h10.5m-9-4h11"/></svg>
+          <h3 style="margin: 0; font-size: 12px; font-weight: 700; color: var(--apt-ink); text-transform: uppercase; letter-spacing: 0.5px;">Estimation du marché</h3>
+        </div>
+
+        {# ---- 1A. Valeur officielle RC ----
+           Le commentaire LLM n'est affiché QUE si une valeur officielle est
+           présente dans le DCE (montant_marche_eur). Sinon, le commentaire
+           LLM contient typiquement des extrapolations bottom-up qui font
+           doublon avec — voire divergent de — notre fourchette 3 scénarios
+           plus bas. Garder juste "non communiquée" dans ce cas. #}
+        {% if montant_marche_eur or (brief.montant_marche and brief.montant_marche.commentaire and brief.montant_marche.type not in ('non_communique', 'non communique', None)) %}
+        <div style="background: var(--apt-bg); padding: 12px 16px; border-radius: 8px; margin-bottom: 12px;">
+          <div style="display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 4px;">
+            <div style="font-size: 11px; color: var(--apt-ink-4); font-weight: 600;">Valeur officielle (RC)</div>
+            {% if montant_marche_eur %}
+              <div style="font-size: 18px; color: var(--apt-ink); font-weight: 700;">{{ montant_marche_eur | euro_short }}</div>
+              <span style="font-size: 11px; color: var(--apt-ink-3);">
+              {% if brief.montant_marche.type == 'estime_explicite' %}explicite RC
+              {% elif brief.montant_marche.type == 'plafond' %}plafond accord-cadre
+              {% elif brief.montant_marche.type == 'calcule_volumes' %}calculé depuis BPU
+              {% else %}{{ brief.montant_marche.type }}{% endif %}
+              </span>
+            {% endif %}
+          </div>
+          {# Commentaire affiché uniquement si une vraie valeur officielle est présente #}
+          {% if montant_marche_eur and brief.montant_marche.commentaire %}
+          <p style="font-size: 12px; color: var(--apt-ink-3); line-height: 1.55; margin: 4px 0 0; font-style: italic;">{{ brief.montant_marche.commentaire }}</p>
+          {% endif %}
+          {% if montant_marche_eur and brief.montant_marche.source_extraction %}
+          <div style="margin-top: 4px; font-size: 10.5px; color: var(--apt-ink-4);">Source : {{ brief.montant_marche.source_extraction | clean_source }}</div>
+          {% endif %}
+        </div>
+        {% elif brief.montant_marche and not montant_marche_eur %}
+        {# Cas "non communiquée" : mention courte, pas d'extrapolation #}
+        <div style="background: var(--apt-bg); padding: 8px 16px; border-radius: 8px; margin-bottom: 12px; display: flex; align-items: baseline; gap: 12px;">
+          <div style="font-size: 11px; color: var(--apt-ink-4); font-weight: 600;">Valeur officielle (RC)</div>
+          <span style="font-size: 12.5px; color: var(--apt-ink-3); font-style: italic;">non communiquée dans le DCE — voir fourchette ci-dessous</span>
+        </div>
+        {% endif %}
+
+        {# ---- 1B. Estimation unitaire (priorité : calibration LLM, fallback : brief) ---- #}
+        {% set pu_calib = calibration.prix_unitaire_estime if (calibration and calibration.prix_unitaire_estime) else None %}
+        {% set pu_brief = brief.montant_marche.prix_unitaire_estime if brief.montant_marche else None %}
+        {% set pu = pu_calib or (pu_brief if pu_brief and (pu_brief.min_eur or pu_brief.max_eur) else None) %}
+        {% set est_calibre = pu_calib is not none %}
+        {% if pu and (pu.min_eur or pu.max_eur) %}
+        {% set conf_pu = pu.confiance or 'moyenne' %}
+        {% set conf_pu_color = 'var(--c-green)' if conf_pu == 'haute' else ('var(--c-amber)' if conf_pu == 'moyenne' else 'var(--c-stone)') %}
+        <div style="background: var(--c-violet-soft); padding: 16px 18px; border-radius: 10px; border-left: 4px solid var(--c-violet); margin-bottom: 12px;">
+          <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 10px;">
+            <div>
+              <div style="font-size: 11px; color: var(--c-violet); font-weight: 700; text-transform: uppercase; letter-spacing: 0.3px;">Estimation Tendia · prix unitaire</div>
+              <div style="font-size: 10.5px; color: var(--apt-ink-4); margin-top: 2px;">
+                {% if est_calibre %}
+                  ✦ calibrée sur {{ calibration._meta.n_comparables_utilises }} marchés DECP réels
+                {% else %}
+                  basée sur l'analyse du DCE + taux pratique marché FT
+                {% endif %}
+              </div>
+            </div>
+            <span style="background: white; color: {{ conf_pu_color }}; font-size: 10.5px; padding: 3px 9px; border-radius: 999px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.3px; border: 1px solid {{ conf_pu_color }};">Confiance {{ conf_pu }}</span>
+          </div>
+
+          {% set unite_pu = pu.unite or 'unité' %}
+          <div style="display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; margin-bottom: 10px;">
+            {% if est_calibre and pu.mediane_eur %}
+              {# Médiane = ancre principale, fourchette = encadrement #}
+              <div style="font-size: 28px; font-weight: 700; color: var(--apt-ink); font-family: ui-monospace, monospace;">{{ pu.mediane_eur | euro_short }}</div>
+              <span style="font-size: 13px; color: var(--apt-ink-3); font-weight: 500;">par {{ unite_pu }}</span>
+              {% if pu.min_eur and pu.max_eur and pu.min_eur != pu.max_eur %}
+              <div style="margin-left: 6px; padding-left: 12px; border-left: 2px solid var(--c-violet); font-size: 12px; color: var(--apt-ink-3);">
+                <div style="font-size: 10px; color: var(--apt-ink-4); text-transform: uppercase; letter-spacing: 0.3px; font-weight: 600;">fourchette {{ pu.methode_fourchette or 'centrale' }}</div>
+                <div style="font-family: ui-monospace, monospace; font-weight: 600;">{{ pu.min_eur | euro_short }} – {{ pu.max_eur | euro_short }}</div>
+              </div>
+              {% endif %}
+            {% else %}
+              {# Fallback brief : ancien format min-max sans médiane #}
+              <div style="font-size: 24px; font-weight: 700; color: var(--apt-ink);">
+                {% if pu.min_eur and pu.max_eur and pu.min_eur != pu.max_eur %}
+                  {{ pu.min_eur | euro_short }} – {{ pu.max_eur | euro_short }}
+                {% elif pu.min_eur %}
+                  ~ {{ pu.min_eur | euro_short }}
+                {% elif pu.max_eur %}
+                  ~ {{ pu.max_eur | euro_short }}
+                {% endif %}
+              </div>
+              <span style="font-size: 13px; color: var(--apt-ink-3); font-weight: 500;">par {{ unite_pu }}</span>
+            {% endif %}
+          </div>
+
+          {# Bloc replié : démarche, raisonnement bottom-up, triangulation, sources, ajustements #}
+          {% set has_detail = pu.hypotheses or (est_calibre and (pu.bottom_up or pu.triangulation or pu.sources_principales or pu.ajustements_appliques)) %}
+          {% if has_detail %}
+          <details style="margin-bottom: 8px;">
+            <summary style="cursor: pointer; padding: 8px 12px; background: white; border-radius: 6px; font-size: 11px; color: var(--c-violet); font-weight: 700; text-transform: uppercase; letter-spacing: 0.4px; list-style: none; user-select: none; display: flex; align-items: center; gap: 6px;">
+              <span style="font-size: 13px;">▸</span>
+              Comment l'estimation a été calibrée
+            </summary>
+            <div style="margin-top: 6px; display: flex; flex-direction: column; gap: 6px;">
+
+              {% if pu.hypotheses %}
+              <div style="background: white; padding: 10px 12px; border-radius: 6px;">
+                <div style="font-size: 10.5px; color: var(--c-violet); font-weight: 700; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.3px;">Démarche</div>
+                <p style="font-size: 12.5px; color: var(--apt-ink-2); line-height: 1.55; margin: 0;">{{ pu.hypotheses }}</p>
+              </div>
+              {% endif %}
+
+              {# Bottom-up : raisonnement coût décomposé #}
+              {% if est_calibre and pu.bottom_up %}
+              <div style="background: white; padding: 12px 14px; border-radius: 6px; border-top: 2px solid var(--c-green);">
+                <div style="font-size: 10px; color: var(--c-green-deep); font-weight: 700; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.3px;">↑ Bottom-up · raisonnement coût décomposé</div>
+                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px 16px; font-size: 12px; color: var(--apt-ink-2); line-height: 1.5;">
+                  {% if pu.bottom_up.qualification_intervenants %}<div><span style="color: var(--apt-ink-4); font-weight: 600;">Intervenants · </span>{{ pu.bottom_up.qualification_intervenants }}</div>{% endif %}
+                  {% if pu.bottom_up.cout_horaire_retenu_eur %}<div><span style="color: var(--apt-ink-4); font-weight: 600;">Coût horaire · </span>{{ pu.bottom_up.cout_horaire_retenu_eur }}</div>{% endif %}
+                  {% if pu.bottom_up.heures_effectives_par_beneficiaire %}<div><span style="color: var(--apt-ink-4); font-weight: 600;">Heures effectives · </span>{{ pu.bottom_up.heures_effectives_par_beneficiaire }}</div>{% endif %}
+                  {% if pu.bottom_up.coef_complexite %}<div><span style="color: var(--apt-ink-4); font-weight: 600;">Complexité · </span>{{ pu.bottom_up.coef_complexite }}</div>{% endif %}
+                </div>
+                {% if pu.bottom_up.calcul %}<div style="margin-top: 8px; padding-top: 8px; border-top: 1px dashed var(--apt-line-2); font-size: 12px; color: var(--apt-ink); font-family: ui-monospace, monospace; line-height: 1.55;">{{ pu.bottom_up.calcul }}</div>{% endif %}
+
+                {# Re-pricing par session/journée/lot si l'unité du marché diffère du bénéficiaire #}
+                {% set ur = pu.unit_repricing if pu.unit_repricing else None %}
+                {% if ur and (ur.couts_fixes_par_session_eur or ur.cout_variable_par_beneficiaire_eur) %}
+                <div style="margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--c-green-soft);">
+                  <div style="font-size: 10px; color: var(--c-green-deep); font-weight: 700; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.3px;">↳ Re-pricing par {{ ur.unite_marche or 'unité du marché' }}</div>
+                  {% if ur.couts_fixes_par_session_eur %}
+                  {% set cf = ur.couts_fixes_par_session_eur %}
+                  <div style="font-size: 11.5px; color: var(--apt-ink-3); line-height: 1.6;">
+                    <div style="font-weight: 600; color: var(--apt-ink-2); margin-bottom: 3px;">Coûts fixes par session (mutualisés) :</div>
+                    <ul style="margin: 0 0 6px 14px; padding: 0;">
+                      {% if cf.encadrement_collectif %}<li>Encadrement collectif · <span style="font-family: ui-monospace, monospace; color: var(--apt-ink);">{{ cf.encadrement_collectif }} €</span></li>{% endif %}
+                      {% if cf.logistique %}<li>Logistique (salle, supports) · <span style="font-family: ui-monospace, monospace; color: var(--apt-ink);">{{ cf.logistique }} €</span></li>{% endif %}
+                      {% if cf.coordination_reporting %}<li>Coordination & reporting · <span style="font-family: ui-monospace, monospace; color: var(--apt-ink);">{{ cf.coordination_reporting }} €</span></li>{% endif %}
+                      {% if cf.total_fixes %}<li style="font-weight: 600; color: var(--apt-ink-2); margin-top: 3px;">Total fixes · <span style="font-family: ui-monospace, monospace; color: var(--apt-ink);">{{ cf.total_fixes }} €</span></li>{% endif %}
+                    </ul>
+                  </div>
+                  {% endif %}
+                  {% if ur.cout_variable_par_beneficiaire_eur %}
+                  <div style="font-size: 11.5px; color: var(--apt-ink-3); line-height: 1.6; margin-bottom: 6px;">
+                    <span style="font-weight: 600; color: var(--apt-ink-2);">Coût variable par bénéficiaire (linéaire) :</span>
+                    <span style="font-family: ui-monospace, monospace; color: var(--apt-ink); margin-left: 4px;">{{ ur.cout_variable_par_beneficiaire_eur }} €</span>
+                  </div>
+                  {% endif %}
+                  {% if ur.calcul_session_type %}
+                  <div style="background: var(--c-green-soft); padding: 8px 10px; border-radius: 4px; font-size: 11.5px; color: var(--apt-ink-2); font-family: ui-monospace, monospace; line-height: 1.5;">{{ ur.calcul_session_type }}</div>
+                  {% endif %}
+                </div>
+                {% endif %}
+              </div>
+              {% endif %}
+
+              {# Triangulation : visible UNIQUEMENT si du top-down a été utilisé
+                 (= au moins 3 comparables Tendia validés). Sinon, masquer car
+                 la triangulation n'a pas de sens en pur bottom-up. #}
+              {% set top_down_utilise = zone_prix and (zone_prix.n_comparables_apptia or 0) >= 3 %}
+              {% if est_calibre and pu.triangulation and top_down_utilise %}
+              <div style="background: var(--c-violet-soft); padding: 10px 12px; border-radius: 6px;">
+                <div style="font-size: 10px; color: var(--c-violet); font-weight: 700; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.3px;">↔ Triangulation bottom-up vs comparables</div>
+                <p style="font-size: 12px; color: var(--apt-ink-2); line-height: 1.55; margin: 0;">{{ pu.triangulation }}</p>
+              </div>
+              {% endif %}
+
+              {# Sources principales : idem, masquer si pas de top-down utilisé #}
+              {% if est_calibre and pu.sources_principales and top_down_utilise %}
+              <div style="background: white; padding: 10px 12px; border-radius: 6px;">
+                <div style="font-size: 10.5px; color: var(--c-violet); font-weight: 700; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.3px;">Sources de référence ({{ pu.sources_principales | length }})</div>
+                <ul style="margin: 0; padding: 0; list-style: none;">
+                  {% for s in pu.sources_principales %}
+                  <li style="padding: 3px 0; font-size: 12px; line-height: 1.55;">
+                    <a href="{{ url_for('detail_marche_notifie', id_marche=s.id_decp) }}"
+                       style="color: var(--c-violet); text-decoration: none; font-family: ui-monospace, monospace; font-size: 11px; font-weight: 600;">{{ s.id_decp }}</a>
+                    {% if s.titulaire %}<span style="color: var(--apt-ink-3);"> · {{ s.titulaire }}</span>{% endif %}
+                    {% if s.annee %}<span style="color: var(--apt-ink-4);"> · {{ s.annee }}</span>{% endif %}
+                    {% if s.prix_unitaire_calcule_eur %}<span style="color: var(--apt-ink); font-weight: 600;"> · {{ s.prix_unitaire_calcule_eur | euro_short }}/{{ unite_pu }}</span>{% endif %}
+                    {% if s.raisonnement %}<div style="color: var(--apt-ink-3); font-size: 11.5px; padding-left: 12px; margin-top: 2px; font-style: italic;">{{ s.raisonnement }}</div>{% endif %}
+                  </li>
+                  {% endfor %}
+                </ul>
+              </div>
+              {% endif %}
+
+              {% if est_calibre and pu.ajustements_appliques %}
+              <div style="background: white; padding: 8px 12px; border-radius: 6px; font-size: 11.5px; color: var(--apt-ink-3); line-height: 1.55;">
+                <span style="color: var(--apt-ink-4); font-weight: 600;">Ajustements · </span>{{ pu.ajustements_appliques }}
+              </div>
+              {% endif %}
+
+            </div>
+          </details>
+          {% endif %}
+
+          {# Limites — gardées HORS du details car c'est un warning important #}
+          {% if est_calibre and pu.limites %}
+          <div style="background: white; padding: 8px 12px; border-radius: 6px; border-left: 3px solid var(--c-amber); margin-bottom: 8px; font-size: 11.5px; color: var(--c-amber); line-height: 1.55;">
+            <span style="font-weight: 700;">⚠ Limites · </span>{{ pu.limites }}
+          </div>
+          {% endif %}
+
+          {% if not est_calibre and pu.source_estimation %}
+          <div style="font-size: 10.5px; color: var(--apt-ink-4);">Source : {{ pu.source_estimation | clean_source }}</div>
+          {% endif %}
+        </div>
+        {% elif calibration and calibration.calibration_impossible_raison %}
+        <div style="background: var(--c-stone-soft); padding: 10px 14px; border-radius: 8px; border-left: 4px solid var(--c-stone); margin-bottom: 12px;">
+          <div style="font-size: 11px; color: var(--c-stone); font-weight: 700; text-transform: uppercase; letter-spacing: 0.3px;">Calibration LLM · indisponible</div>
+          <p style="margin: 4px 0 0; font-size: 12px; color: var(--apt-ink-3); line-height: 1.5;">{{ calibration.calibration_impossible_raison }}</p>
+        </div>
+        {% endif %}
+
+        {# ---- 1C. Fourchette montant total — 3 scénarios (bas / réaliste / haut) ---- #}
+        {% if scenarios_montant %}
+        <div style="background: var(--c-green-soft); padding: 14px 16px; border-radius: 8px; border-left: 4px solid var(--c-green); margin-bottom: 12px;">
+          <div style="font-size: 11px; color: var(--c-green-deep); font-weight: 700; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.3px;">
+            Fourchette montant total &middot; 3 scénarios
+          </div>
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;">
+            {% for label, key, couleur_fond, couleur_titre in [
+              ('Bas', 'bas', 'white', 'var(--apt-ink-3)'),
+              ('Réaliste', 'realiste', 'var(--c-green-soft)', 'var(--c-green-deep)'),
+              ('Haut', 'haut', 'white', 'var(--apt-ink-3)')
+            ] %}
+            {% set sc = scenarios_montant[key] %}
+            <div style="background: {{ couleur_fond }}; padding: 10px 12px; border-radius: 6px; {% if key == 'realiste' %}border: 1px solid var(--c-green); box-shadow: 0 1px 3px rgba(31,140,92,0.12);{% else %}border: 1px solid var(--apt-line-2);{% endif %}">
+              <div style="font-size: 10px; color: {{ couleur_titre }}; font-weight: 700; text-transform: uppercase; letter-spacing: 0.3px; margin-bottom: 4px;">
+                {{ label }}{% if key == 'realiste' %} &middot; recommandé{% endif %}
+              </div>
+              <div style="font-size: {% if key == 'realiste' %}22px{% else %}18px{% endif %}; font-weight: 700; color: var(--apt-ink); margin-bottom: 2px; line-height: 1.1;">
+                {{ sc.montant_eur | euro_short }}
+              </div>
+              {# Volume effectif sous le montant : "20 sessions (50%)", "30 sessions (75%)"... #}
+              {% if sc.volume_effectif %}
+              <div style="font-size: 11px; color: {% if key == 'realiste' %}var(--c-green-deep){% else %}var(--apt-ink-3){% endif %}; font-weight: 600; margin-bottom: 6px; font-family: ui-monospace, monospace;">
+                {{ sc.volume_effectif | round | int }} {{ sc.unite }}{% if sc.volume_effectif >= 2 %}s{% endif %}
+                <span style="color: var(--apt-ink-4); font-weight: 400;">&middot; {{ sc.taux_execution_pct }}%</span>
+              </div>
+              {% endif %}
+              <p style="font-size: 11px; color: var(--apt-ink-3); line-height: 1.45; margin: 0;">{{ sc.hypothese }}</p>
+            </div>
+            {% endfor %}
+          </div>
+          {% set ft_calib = calibration.fourchette_marche_total_estimee if (calibration and calibration.fourchette_marche_total_estimee) else None %}
+          {% if ft_calib and ft_calib.calcul %}
+          <details style="margin-top: 10px;">
+            <summary style="font-size: 11px; color: var(--c-green-deep); cursor: pointer; font-weight: 600;">Détail du calcul</summary>
+            <p style="font-size: 12px; color: var(--apt-ink-3); margin: 6px 0 0; font-style: italic; line-height: 1.5;">{{ ft_calib.calcul }}</p>
+          </details>
+          {% endif %}
+        </div>
+        {% else %}
+        {# Fallback ancien format (briefs sans calibration) #}
+        {% set ft_calib = calibration.fourchette_marche_total_estimee if (calibration and calibration.fourchette_marche_total_estimee) else None %}
+        {% set ft_brief = brief.montant_marche.fourchette_marche_total_estimee if brief.montant_marche else None %}
+        {% set ft = ft_calib or (ft_brief if ft_brief and (ft_brief.min_eur or ft_brief.max_eur) else None) %}
+        {% if ft and (ft.min_eur or ft.max_eur) %}
+        <div style="background: var(--c-green-soft); padding: 14px 16px; border-radius: 8px; border-left: 4px solid var(--c-green); margin-bottom: 12px;">
+          <div style="font-size: 11px; color: var(--c-green-deep); font-weight: 700; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.3px;">Fourchette montant total estimée</div>
+          <div style="font-size: 22px; font-weight: 700; color: var(--apt-ink); margin-bottom: 6px;">
+            {% if ft.min_eur and ft.max_eur and ft.min_eur != ft.max_eur %}
+              {{ ft.min_eur | euro_short }} – {{ ft.max_eur | euro_short }}
+            {% elif ft.min_eur %}
+              ~ {{ ft.min_eur | euro_short }}
+            {% elif ft.max_eur %}
+              ~ {{ ft.max_eur | euro_short }}
+            {% endif %}
+          </div>
+          {% if ft.calcul %}
+          <p style="font-size: 12px; color: var(--apt-ink-3); margin: 0; font-style: italic;">{{ ft.calcul }}</p>
+          {% endif %}
+        </div>
+        {% endif %}
+        {% endif %}
+
+        {# ---- 1D. Simulateur interactif (l'utilisateur saisit ses propres hypothèses) ---- #}
+        {% if pu or (brief.volumes and brief.volumes.nb_beneficiaires_total) %}
+        {% set sim_unit_default = pu.min_eur if pu and pu.min_eur else 1500 %}
+        {% set sim_unit_max_default = pu.max_eur if pu and pu.max_eur else 2500 %}
+        {% set sim_unit_med = ((sim_unit_default + sim_unit_max_default) // 2) if (sim_unit_default and sim_unit_max_default) else 2000 %}
+        {% set sim_benef_default = brief.volumes.nb_beneficiaires_total if brief.volumes and brief.volumes.nb_beneficiaires_total else 100 %}
+        {# Label adaptatif selon l'unité de prix #}
+        {% set _u = (unite_pu | default('') | lower) %}
+        {% if 'séance' in _u or 'seance' in _u or 'session' in _u %}
+          {% set sim_qty_label = 'Nb séances × bénéficiaires/séance' %}
+          {% set sim_qty_hint = "session = unité de facturation BPU" %}
+        {% elif 'heure' in _u %}
+          {% set sim_qty_label = "Nb d'heures" %}
+          {% set sim_qty_hint = "total heures-stagiaires" %}
+        {% elif 'jour' in _u or 'journée' in _u or 'journee' in _u %}
+          {% set sim_qty_label = 'Nb journées' %}
+          {% set sim_qty_hint = "total journées-stagiaires" %}
+        {% else %}
+          {% set sim_qty_label = 'Nb bénéficiaires' %}
+          {% set sim_qty_hint = 'parcours individuel' %}
+        {% endif %}
+        <div id="apt-simulateur-prix" style="background: white; border: 1px dashed var(--c-violet); padding: 14px 16px; border-radius: 8px; margin-bottom: 12px;">
+          <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 10px;">
+            <svg style="width: 12px; height: 12px; color: var(--c-violet);" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+            <div style="font-size: 11px; color: var(--apt-ink-2); font-weight: 700; text-transform: uppercase; letter-spacing: 0.3px;">Simulateur — entre tes propres hypothèses</div>
+          </div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px;">
+            <div>
+              <label for="apt-sim-prix" style="display: block; font-size: 10.5px; color: var(--apt-ink-4); font-weight: 600; margin-bottom: 3px;">Prix unitaire (€)</label>
+              <input type="number" id="apt-sim-prix" value="{{ sim_unit_med }}" min="0" step="50"
+                     style="width: 100%; padding: 8px 10px; border: 1px solid var(--apt-line-2); border-radius: 6px; font-size: 14px; font-weight: 600; color: var(--apt-ink); font-family: ui-monospace, monospace;">
+              <div style="font-size: 10px; color: var(--apt-ink-4); margin-top: 2px;">par {{ unite_pu | default('unité') }}</div>
+            </div>
+            <div>
+              <label for="apt-sim-benef" style="display: block; font-size: 10.5px; color: var(--apt-ink-4); font-weight: 600; margin-bottom: 3px;">{{ sim_qty_label }}</label>
+              <input type="number" id="apt-sim-benef" value="{{ sim_benef_default }}" min="1" step="1"
+                     style="width: 100%; padding: 8px 10px; border: 1px solid var(--apt-line-2); border-radius: 6px; font-size: 14px; font-weight: 600; color: var(--apt-ink); font-family: ui-monospace, monospace;">
+              <div style="font-size: 10px; color: var(--apt-ink-4); margin-top: 2px;">{{ sim_qty_hint }}</div>
+            </div>
+          </div>
+          <div style="background: var(--apt-bg); padding: 10px 12px; border-radius: 6px; display: flex; align-items: baseline; justify-content: space-between; gap: 10px; flex-wrap: wrap;">
+            <div>
+              <div style="font-size: 10.5px; color: var(--apt-ink-4); font-weight: 600; text-transform: uppercase; letter-spacing: 0.3px;">Montant total simulé</div>
+              <div id="apt-sim-resultat" style="font-size: 22px; font-weight: 700; color: var(--apt-ink); font-family: ui-monospace, monospace; margin-top: 2px;">—</div>
+            </div>
+            {% if zone_prix and zone_prix.estimation and zone_prix.estimation.mediane_eur %}
+            <div id="apt-sim-position" style="font-size: 11px; color: var(--apt-ink-3); text-align: right; max-width: 50%;"></div>
+            {% endif %}
+          </div>
+          <script>
+            (function() {
+              const prixInput = document.getElementById('apt-sim-prix');
+              const benefInput = document.getElementById('apt-sim-benef');
+              const resultDiv = document.getElementById('apt-sim-resultat');
+              const positionDiv = document.getElementById('apt-sim-position');
+              {% if zone_prix and zone_prix.estimation and zone_prix.estimation.mediane_eur %}
+              const decpQ1 = {{ zone_prix.estimation.q1_eur }};
+              const decpMed = {{ zone_prix.estimation.mediane_eur }};
+              const decpQ3 = {{ zone_prix.estimation.q3_eur }};
+              {% else %}
+              const decpQ1 = null;
+              {% endif %}
+
+              function formatEur(n) {
+                if (n >= 1_000_000) return (n/1_000_000).toFixed(2).replace(/\.?0+$/, '') + ' M€';
+                if (n >= 1_000) return Math.round(n/1_000).toLocaleString('fr-FR') + ' k€';
+                return Math.round(n).toLocaleString('fr-FR') + ' €';
+              }
+
+              function recalc() {
+                const prix = parseFloat(prixInput.value) || 0;
+                const benef = parseFloat(benefInput.value) || 0;
+                const total = prix * benef;
+                resultDiv.textContent = total > 0 ? formatEur(total) : '—';
+
+                if (positionDiv && decpQ1 && total > 0) {
+                  let position = '';
+                  let color = 'var(--apt-ink-3)';
+                  if (total < decpQ1) {
+                    position = '↓ sous Q1 DECP (' + formatEur(decpQ1) + ')';
+                    color = 'var(--c-amber)';
+                  } else if (total > decpQ3) {
+                    position = '↑ au-dessus Q3 DECP (' + formatEur(decpQ3) + ')';
+                    color = 'var(--c-amber)';
+                  } else {
+                    position = '✓ dans la fourchette DECP (med ' + formatEur(decpMed) + ')';
+                    color = 'var(--c-green)';
+                  }
+                  positionDiv.innerHTML = '<span style="color: ' + color + '; font-weight: 600;">' + position + '</span>';
+                }
+              }
+              prixInput.addEventListener('input', recalc);
+              benefInput.addEventListener('input', recalc);
+              recalc();
+            })();
+          </script>
+        </div>
+        {% endif %}
+
+        {# ---- 1E. À retenir pour le chiffrage : modalités contractuelles + alertes prix fusionnées ---- #}
+        {% set mod_prix = brief.bareme_notation.prix if brief.bareme_notation else None %}
+        {% set has_modnot = mod_prix and (mod_prix.type_formule or mod_prix.formule_explicite) or (brief.bareme_notation and brief.bareme_notation.modalite_calcul_prix) %}
+        {% set has_revprix = brief.revision_prix and brief.revision_prix.type and brief.revision_prix.type != 'non_communique' %}
+        {% set has_alertes_prix = brief.alertes_prix %}
+        {% if has_modnot or has_revprix or has_alertes_prix %}
+        <div style="background: var(--c-rose-soft); padding: 12px 16px; border-radius: 8px; border-left: 4px solid var(--c-rose);">
+          <div style="font-size: 11px; color: var(--c-rose); font-weight: 700; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.4px;">À retenir pour le chiffrage</div>
+
+          {# Modalités contractuelles : notation + révision, 1-2 lignes #}
+          {% if has_modnot or has_revprix %}
+          <div style="background: white; padding: 8px 12px; border-radius: 6px; margin-bottom: 8px; font-size: 12px; color: var(--apt-ink-2); line-height: 1.55;">
+            {% if has_modnot %}
+            <div style="padding: 2px 0;">
+              <span style="color: var(--apt-ink-4); font-weight: 600;">Notation prix · </span>
+              {% if mod_prix and mod_prix.type_formule %}<span>{{ mod_prix.type_formule }}</span>{% endif %}
+              {% if brief.bareme_notation.modalite_calcul_prix %}<span style="color: var(--apt-ink-3); font-style: italic;"> {{ brief.bareme_notation.modalite_calcul_prix }}</span>{% endif %}
+            </div>
+            {% endif %}
+            {% if has_revprix %}
+            <div style="padding: 2px 0;">
+              <span style="color: var(--apt-ink-4); font-weight: 600;">Révision · </span>
+              {% if brief.revision_prix.type == 'indexation' %}
+                <span>Indexation</span>{% if brief.revision_prix.periodicite %} <span style="color: var(--apt-ink-3);">{{ brief.revision_prix.periodicite }}</span>{% endif %}
+                {% if brief.revision_prix.indices_utilises %}<span style="color: var(--apt-ink-3);"> · {{ brief.revision_prix.indices_utilises | join(' / ') }}</span>{% endif %}
+                {% if brief.revision_prix.ponderation %}<span style="color: var(--apt-ink-3); font-size: 11.5px;"> · {{ brief.revision_prix.ponderation }}</span>{% endif %}
+              {% elif brief.revision_prix.type == 'ferme' %}
+                <span>Prix fermes</span>
+              {% elif brief.revision_prix.type == 'actualisation' %}
+                <span>Actualisable une fois entre soumission et démarrage</span>
+              {% endif %}
+            </div>
+            {% endif %}
+          </div>
+          {% endif %}
+
+          {# Alertes prix #}
+          {% if has_alertes_prix %}
+          <ul style="margin: 0; padding: 0; list-style: none;">
+            {% for a in brief.alertes_prix %}
+            <li style="display: flex; gap: 8px; padding: 4px 0; font-size: 12px; line-height: 1.55;">
+              <span style="flex-shrink: 0; margin-top: 7px; width: 5px; height: 5px; border-radius: 999px; background: var(--c-rose);"></span>
+              <span style="color: var(--apt-ink-2);">{{ a | clean_source }}</span>
+            </li>
+            {% endfor %}
+          </ul>
+          {% endif %}
+        </div>
+        {% endif %}
+      </div>
+
+
+      {% endif %}{# fin has_volet_prix #}
+      </div>
+      </div>{# fin bareme-tabs-wrapper #}
+    </div></details>
+    {% endif %}
+
+
+
+    {% set diff = brief.points_differenciants_attendus or brief.points_differenciants_probables %}
+    {% if diff %}
+    {{ sec('Points de différenciation', diff | length ~ ' axe' ~ ('s' if diff | length > 1 else ''), 'yellow', false, IC_BULB) }}
+      <ul style="margin: 0; padding: 0; list-style: none;">
+        {% for p in diff %}
+        <li style="display: flex; gap: 10px; padding: 5px 0; font-size: 13px; line-height: 1.55;">
+          <span style="flex-shrink: 0; margin-top: 7px; width: 5px; height: 5px; border-radius: 999px; background: var(--c-yellow);"></span>
+          <div style="flex: 1;">
+            {% if p is mapping %}
+              <span style="color: var(--apt-ink-2);">{{ p.libelle or p.texte or '' }}</span>
+              {% if p.exemple %}<p style="margin: 3px 0 0; font-size: 12px; color: var(--apt-ink-3); line-height: 1.5; font-style: italic;">Ex : {{ p.exemple }}</p>{% endif %}
+              {% if p.source %}<span class="tip" data-tip="{{ p.source | clean_source }}" style="display: inline-block; font-size: 10.5px; color: var(--apt-ink-4); border-bottom: 1px dotted var(--apt-line); cursor: help; margin-top: 2px;">source ⓘ</span>{% endif %}
+            {% else %}
+              <span style="color: var(--apt-ink-2);">{{ p }}</span>
+            {% endif %}
+          </div>
+        </li>
+        {% endfor %}
+      </ul>
+    </div></details>
+    {% endif %}
+
+    {# ============ COMPARABLES APPTIA ✦ — visible si ≥ 3 entrées validées ============ #}
+    {# Section affichée UNIQUEMENT quand notre base interne marches_apptia_attribues
+       contient assez d'entrées pertinentes pour ce marché. Sinon : masquée. La
+       fourchette bottom-up reste dans le panel Prix et suffit à orienter le
+       chiffrage. DECP brut n'est plus exposé sur la fiche — il est accessible
+       via la page Veille concurrentielle dédiée. #}
+    {% set n_apptia = zone_prix.n_comparables_apptia if zone_prix else 0 %}
+    {% if zone_prix and n_apptia and n_apptia >= 3 and zone_prix.estimation %}
+    {% set est = zone_prix.estimation %}
+    {% set conf = zone_prix.confiance %}
+    {% set conf_color = 'var(--c-green)' if conf == 'haute' else ('var(--c-amber)' if conf == 'moyenne' else 'var(--apt-ink-3)') %}
+    {% set top_apptia = (zone_prix.top_comparables or []) | selectattr('_source', 'equalto', 'apptia') | list %}
+    {% set teaser_apptia = n_apptia ~ ' marchés validés &middot; confiance ' ~ conf %}
+    {{ sec('Comparables Tendia ✦', teaser_apptia, 'violet', false, IC_CHART) }}
+
+      <p style="font-size: 12.5px; color: var(--apt-ink-3); line-height: 1.55; margin: 0 0 14px;">
+        Marchés similaires que nous avons capturés et validés ex-post
+        (avis ouvert + brief LLM + attribution DECP). Source de référence haute qualité.
+      </p>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-bottom: 14px;">
+        <div style="background: white; border: 1px solid var(--apt-line-2); padding: 12px; border-radius: 6px;">
+          <div style="font-size: 10.5px; color: var(--apt-ink-4); font-weight: 600; text-transform: uppercase; letter-spacing: 0.3px; margin-bottom: 3px;">Bas (Q1)</div>
+          <div style="font-size: 16px; font-weight: 700; color: var(--apt-ink);">{{ est.q1_eur | euro_short if est.q1_eur else '—' }}</div>
+        </div>
+        <div style="background: var(--c-violet-soft); border: 1px solid var(--c-violet); padding: 12px; border-radius: 6px;">
+          <div style="font-size: 10.5px; color: var(--c-violet); font-weight: 700; text-transform: uppercase; letter-spacing: 0.3px; margin-bottom: 3px;">Médiane</div>
+          <div style="font-size: 18px; font-weight: 700; color: var(--apt-ink);">{{ est.mediane_eur | euro_short if est.mediane_eur else '—' }}</div>
+        </div>
+        <div style="background: white; border: 1px solid var(--apt-line-2); padding: 12px; border-radius: 6px;">
+          <div style="font-size: 10.5px; color: var(--apt-ink-4); font-weight: 600; text-transform: uppercase; letter-spacing: 0.3px; margin-bottom: 3px;">Haut (Q3)</div>
+          <div style="font-size: 16px; font-weight: 700; color: var(--apt-ink);">{{ est.q3_eur | euro_short if est.q3_eur else '—' }}</div>
+        </div>
+      </div>
+
+      {% if top_apptia %}
+      <div style="font-size: 11px; color: var(--apt-ink-4); font-weight: 600; text-transform: uppercase; letter-spacing: 0.3px; margin-bottom: 8px;">Comparables Tendia retenus</div>
+      <div style="display: flex; flex-direction: column; gap: 6px;">
+        {% for c in top_apptia[:5] %}
+        <div style="background: var(--c-violet-soft); padding: 8px 12px; border-radius: 5px; display: flex; gap: 12px; align-items: center; font-size: 12px;">
+          <span style="color: var(--c-violet); font-weight: 800;">✦</span>
+          <span style="font-weight: 700; color: var(--apt-ink); flex-shrink: 0;">{{ c.montant_eur | euro_short }}</span>
+          <span style="color: var(--apt-ink-3); flex-shrink: 0;">{{ c.duree_mois }} mois</span>
+          <span style="flex: 1; color: var(--apt-ink-2); overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">{{ c.titulaire or '—' }}</span>
+          <span style="color: var(--apt-ink-4); font-size: 10.5px; flex-shrink: 0;">sim {{ (c.similarite * 100) | round(0) | int }}%</span>
+        </div>
+        {% endfor %}
+      </div>
+      {% endif %}
+    </div></details>
+    {% endif %}
+
+
+    {% if brief.volumes or brief.modalites or brief.lots %}
+    {{ sec('Contexte détaillé', 'volumes, modalités, lots', 'stone', false, IC_INFO) }}
+      {% if brief.volumes and brief.volumes.commentaire_volumes %}
+      <div style="margin-bottom: 14px;">
+        <div style="font-size: 11px; color: var(--apt-ink-4); font-weight: 600; margin-bottom: 4px;">Volumes</div>
+        <p style="margin: 0; font-size: 12.5px; color: var(--apt-ink-3); line-height: 1.55; font-style: italic;">{{ brief.volumes.commentaire_volumes }}</p>
+      </div>
+      {% endif %}
+      {% if brief.modalites %}
+      <div style="margin-bottom: 14px;">
+        <div style="font-size: 11px; color: var(--apt-ink-4); font-weight: 600; margin-bottom: 6px;">Modalités d'exécution</div>
+        <dl style="margin: 0; display: flex; flex-direction: column; gap: 8px;">
+          {% if brief.modalites.mode %}
+          <div style="display: flex; gap: 20px;">
+            <dt style="flex-shrink: 0; width: 100px; font-size: 11px; color: var(--apt-ink-4);">Mode</dt>
+            <dd style="margin: 0; color: var(--apt-ink-2); font-size: 13px; line-height: 1.55;">{{ brief.modalites.mode }}</dd>
+          </div>
+          {% endif %}
+          {% if brief.modalites.sites_execution %}
+          <div style="display: flex; gap: 20px;">
+            <dt style="flex-shrink: 0; width: 100px; font-size: 11px; color: var(--apt-ink-4);">Sites</dt>
+            <dd style="margin: 0; color: var(--apt-ink-2); font-size: 13px; line-height: 1.55;">{{ brief.modalites.sites_execution }}</dd>
+          </div>
+          {% endif %}
+        </dl>
+      </div>
+      {% endif %}
+      {% if brief.lots %}
+      <div>
+        <div style="font-size: 11px; color: var(--apt-ink-4); font-weight: 600; margin-bottom: 6px;">Lots</div>
+        <div style="display: flex; flex-direction: column; gap: 6px;">
+          {% for lot in brief.lots %}
+          <div style="background: var(--apt-bg); padding: 10px 14px; border-radius: 6px;">
+            <div style="font-size: 13px; color: var(--apt-ink); font-weight: 600; margin-bottom: 2px;">Lot {{ lot.numero }}{% if lot.intitule %} — {{ lot.intitule }}{% endif %}</div>
+            {% if lot.description %}<p style="margin: 0; font-size: 12.5px; color: var(--apt-ink-2); line-height: 1.55;">{{ lot.description }}</p>{% endif %}
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      {% endif %}
+    </div></details>
+    {% endif %}
+
+    {% if brief_type == 'light' and brief.elements_a_verifier_dans_dce %}
+    {{ sec('À vérifier dans le DCE', brief.elements_a_verifier_dans_dce | length ~ ' point' ~ ('s' if brief.elements_a_verifier_dans_dce | length > 1 else '') ~ ' à confirmer', 'amber', true, IC_WARN) }}
+      <p style="font-size: 12.5px; color: var(--apt-ink-3); line-height: 1.55; margin: 0 0 10px;">
+        Ce brief est généré depuis l'avis seul. Télécharge le DCE et lance
+        <code style="font-family: ui-monospace, monospace; background: var(--apt-bg); padding: 1px 6px; border-radius: 3px; font-size: 11px;">python tendia_extraire.py --marche {{ marche.id }}</code>.
+      </p>
+      <ul style="margin: 0; padding: 0; list-style: none;">
+        {% for el in brief.elements_a_verifier_dans_dce %}
+        <li style="display: flex; gap: 10px; padding: 3px 0; font-size: 13px; line-height: 1.55;">
+          <span style="flex-shrink: 0; margin-top: 1px; color: var(--c-amber); font-weight: 700;">→</span>
+          <span style="color: var(--apt-ink-2);">{{ el }}</span>
+        </li>
+        {% endfor %}
+      </ul>
+    </div></details>
+    {% endif %}
+
+  </main>
+
+  <!-- ============ ASIDE — sidebar always-visible ============ -->
+  <aside>
+
+
+    {# ─── Critères (en sidebar, avant Public bénéficiaire) ─── #}
+    {% if brief.alertes_candidat %}
+    {% set cs_side = couverture_synthese or {} %}
+    {% set teaser_side_parts = [] %}
+    {% if cs_side.couvert %}{% set _ = teaser_side_parts.append(cs_side.couvert ~ ' ✓') %}{% endif %}
+    {% if cs_side.a_verifier %}{% set _ = teaser_side_parts.append(cs_side.a_verifier ~ ' !') %}{% endif %}
+    {% if cs_side.non_couvert %}{% set _ = teaser_side_parts.append(cs_side.non_couvert ~ ' ✕') %}{% endif %}
+    {% if cs_side.inconnu %}{% set _ = teaser_side_parts.append(cs_side.inconnu ~ ' ?') %}{% endif %}
+    <div class="aside-card">
+      <div class="aside-card-header is-alertes">
+        <svg style="width: 14px; height: 14px;" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+        </svg>
+        Critères{% if teaser_side_parts %} · {{ teaser_side_parts | join(' · ') }}{% endif %}
+      </div>
+      <div class="aside-card-body">
+        <div style="display: flex; flex-direction: column; gap: 5px;">
+          {% for ae in alertes_evaluees %}
+          {% set ev = ae.evaluation %}
+          {% set statut = ev.statut if ev else 'non_evaluable' %}
+          {% set couleur_bord = ({'couvert': 'var(--c-green)', 'non_couvert': 'var(--c-rose)', 'a_verifier': 'var(--c-amber)', 'inconnu': 'var(--apt-line-2)', 'non_evaluable': 'var(--apt-line-2)'})[statut] %}
+          {% set couleur_badge_bg = ({'couvert': 'var(--c-green-soft)', 'non_couvert': 'var(--c-rose-soft)', 'a_verifier': '#fff4e6', 'inconnu': 'var(--apt-bg)', 'non_evaluable': 'var(--apt-bg)'})[statut] %}
+          {% set couleur_badge_fg = ({'couvert': 'var(--c-green-deep)', 'non_couvert': 'var(--c-rose)', 'a_verifier': '#b06010', 'inconnu': 'var(--apt-ink-4)', 'non_evaluable': 'var(--apt-ink-4)'})[statut] %}
+          {% set glyph = ({'couvert': '✓', 'non_couvert': '✕', 'a_verifier': '!', 'inconnu': '?', 'non_evaluable': '·'})[statut] %}
+
+          <details style="background: white; border-left: 2px solid {{ couleur_bord }}; padding: 6px 8px; border-radius: 3px;">
+            <summary style="list-style: none; cursor: pointer; display: flex; gap: 6px; align-items: flex-start;">
+              <span style="flex-shrink: 0; background: {{ couleur_badge_bg }}; color: {{ couleur_badge_fg }}; padding: 0 5px 0 4px; border-radius: 999px; font-weight: 800; font-size: 11px; line-height: 1.6; margin-top: 1px;">{{ glyph }}</span>
+              <span style="flex: 1; min-width: 0; font-size: 11.5px; line-height: 1.4; color: var(--apt-ink-2); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">{{ ae.texte | clean_source }}</span>
+            </summary>
+            <div style="margin-top: 6px; padding-top: 6px; border-top: 1px dashed var(--apt-line-2); font-size: 11px; line-height: 1.5; color: var(--apt-ink-3);">
+              {{ ae.texte | clean_source }}
+              {% if ev and ev.detail %}
+              <div style="margin-top: 4px; font-style: italic; color: var(--apt-ink-4);">{{ ev.detail }}</div>
+              {% endif %}
+
+              {# Boutons Oui/Non si pertinent #}
+              {% if ev and statut in ('inconnu', 'a_verifier') and ev.cle_canonique %}
+              <form method="post" action="{{ url_for('repondre_exigence') }}" style="margin-top: 5px; display: flex; gap: 4px; align-items: center; flex-wrap: wrap;">
+                <input type="hidden" name="cle" value="{{ ev.cle_canonique }}">
+                <input type="hidden" name="redirect_to" value="{{ url_for('detail_marche', id_marche=marche.id) }}">
+                <span style="font-size: 10.5px; color: var(--apt-ink-3); width: 100%;">{{ ev.question or 'Remplissez-vous ?' }}</span>
+                <button type="submit" name="reponse" value="oui" style="background: var(--c-green-soft); color: var(--c-green-deep); border: 1px solid var(--c-green); padding: 1px 7px; border-radius: 999px; font-size: 10.5px; font-weight: 700; cursor: pointer; line-height: 1.5;">Oui</button>
+                <button type="submit" name="reponse" value="non" style="background: var(--c-rose-soft); color: var(--c-rose); border: 1px solid var(--c-rose); padding: 1px 7px; border-radius: 999px; font-size: 10.5px; font-weight: 700; cursor: pointer; line-height: 1.5;">Non</button>
+              </form>
+              {% endif %}
+              {% if ev and ev.source == 'auto_reponse_utilisateur' %}
+              <form method="post" action="{{ url_for('repondre_exigence') }}" style="margin-top: 2px; display: inline;">
+                <input type="hidden" name="cle" value="{{ ev.cle_canonique or '' }}">
+                <input type="hidden" name="reponse" value="effacer">
+                <input type="hidden" name="redirect_to" value="{{ url_for('detail_marche', id_marche=marche.id) }}">
+                <button type="submit" style="background: none; border: none; color: var(--apt-ink-4); font-size: 10px; cursor: pointer; padding: 0; text-decoration: underline;">modifier</button>
+              </form>
+              {% endif %}
+            </div>
+          </details>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+    {% endif %}
+
+    {# ─── Public bénéficiaire (en premier dans la sidebar) ─── #}
+    {% if brief.publics_cibles and (brief.publics_cibles.criteres_eligibilite or brief.publics_cibles.description) %}
+    {% set nb_crit_pub = brief.publics_cibles.criteres_eligibilite | length if brief.publics_cibles.criteres_eligibilite else 0 %}
+    <div class="aside-card">
+      <div class="aside-card-header is-publics">
+        <svg style="width: 14px; height: 14px;" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+        </svg>
+        Public bénéficiaire{% if nb_crit_pub %} · {{ nb_crit_pub }}{% endif %}
+      </div>
+      <div class="aside-card-body">
+        {% if brief.publics_cibles.publics_specifiques_signales %}
+        <div style="display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 10px;">
+          {% for tag in brief.publics_cibles.publics_specifiques_signales %}
+          <span style="background: var(--c-blue-soft); color: var(--c-blue); font-size: 10.5px; padding: 2px 8px; border-radius: 999px; font-weight: 600;">{{ tag }}</span>
+          {% endfor %}
+        </div>
+        {% endif %}
+        {% if brief.publics_cibles.criteres_eligibilite %}
+        <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 4px;">
+          {% for c in brief.publics_cibles.criteres_eligibilite %}
+          <li style="font-size: 12px; line-height: 1.55; color: var(--apt-ink-2); padding-left: 12px; position: relative;">
+            <span style="position: absolute; left: 0; top: 0; color: var(--c-blue);">›</span>
+            {% if c is mapping %}{{ (c.libelle or c.critere or c.texte) | clean_source }}{% if c.source %}<div style="font-size: 10.5px; color: var(--apt-ink-4); margin-top: 1px;">{{ c.source | clean_source }}</div>{% endif %}{% else %}{{ c | clean_source }}{% endif %}
+          </li>
+          {% endfor %}
+        </ul>
+        {% endif %}
+      </div>
+    </div>
+    {% endif %}
+
+    {% if eval and eval.motifs %}
+    <div class="aside-card">
+      <div class="aside-card-header is-verdict">
+        <svg style="width: 14px; height: 14px;" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+        </svg>
+        Détail du verdict · {{ eval.score }}/100
+      </div>
+      <div class="aside-card-body">
+        <ul style="margin: 0; padding: 0; list-style: none;">
+          {% for motif in eval.motifs %}
+          {% if motif.points %}
+          <li style="display: flex; gap: 10px; padding: 6px 0; border-bottom: 1px dashed var(--apt-line-2);">
+            <span style="flex-shrink: 0; min-width: 32px; text-align: right; padding-top: 1px; color: {% if motif.points > 0 %}var(--c-green){% else %}var(--c-rose){% endif %}; font-weight: 700; font-size: 12px; font-variant-numeric: tabular-nums;">
+              {% if motif.points > 0 %}+{% endif %}{{ motif.points }}
+            </span>
+            <div style="flex: 1; min-width: 0;">
+              <div style="color: var(--apt-ink); font-weight: 600; font-size: 12px; line-height: 1.3;">{{ motif.critere }}</div>
+              {% if motif.commentaire %}<div style="color: var(--apt-ink-3); font-size: 11px; line-height: 1.45; margin-top: 1px;">{{ motif.commentaire[:90] }}{% if motif.commentaire | length > 90 %}…{% endif %}</div>{% endif %}
+            </div>
+          </li>
+          {% endif %}
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+    {% endif %}
+
+    {% if concurrents %}
+    <div class="aside-card">
+      <div class="aside-card-header is-neutral">
+        <svg style="width: 13px; height: 13px;" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+        </svg>
+        Concurrents historiques
+      </div>
+      <div class="aside-card-body">
+        <div style="font-size: 10.5px; color: var(--apt-ink-4); margin-bottom: 10px;">DECP · « {{ marche.categorie_metier }} »</div>
+        <ol style="margin: 0; padding: 0; list-style: none;">
+          {% for c in concurrents[:5] %}
+          <li style="display: flex; align-items: baseline; gap: 10px; padding: 5px 0; border-bottom: 1px dashed var(--apt-line-2);">
+            <span style="flex-shrink: 0; width: 18px; text-align: right; color: var(--c-violet); font-size: 12px; font-weight: 700;">{{ loop.index }}</span>
+            <div style="flex: 1; min-width: 0;">
+              <div style="color: var(--apt-ink); font-weight: 600; font-size: 12px; line-height: 1.3; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">{{ c.nom }}</div>
+              <div style="font-size: 10.5px; color: var(--apt-ink-4);">{{ c.nb_marches }} marché{{ 's' if c.nb_marches > 1 }}</div>
+            </div>
+          </li>
+          {% endfor %}
+        </ol>
+      </div>
+    </div>
+    {% endif %}
+
+  </aside>
+
+  </div>
+
+{% endif %}
+
+<details class="apt-tech-footer" style="margin-top: 40px; opacity: 0.65;">
+  <summary style="font-size: 11px; list-style: none; cursor: pointer; padding: 6px 0; color: var(--apt-ink-4); font-family: var(--apt-font, sans-serif);">
+    <span style="display: inline-flex; align-items: center; gap: 6px;">
+      <svg style="width: 9px; height: 9px;" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+      Infos techniques
+    </span>
+  </summary>
+  <div style="padding: 10px 14px 4px; font-size: 11.5px;">
+    <dl style="margin: 0; display: flex; flex-direction: column; gap: 6px;">
+      <div style="display: flex; gap: 16px;"><dt style="flex-shrink: 0; width: 110px; font-size: 10.5px; color: var(--apt-ink-4);">Brief</dt><dd class="apt-mono" style="margin: 0; color: var(--apt-ink-3); font-size: 11px;">{% if brief_type == 'light' %}light · depuis l'avis{% else %}complet · depuis le DCE{% endif %}{% if brief and brief._meta and brief._meta.modele %} · {{ brief._meta.modele }}{% endif %}</dd></div>
+      <div style="display: flex; gap: 16px;"><dt style="flex-shrink: 0; width: 110px; font-size: 10.5px; color: var(--apt-ink-4);">ID Tendia</dt><dd class="apt-mono" style="margin: 0; color: var(--apt-ink-3); font-size: 11px;">{{ marche.id }}</dd></div>
+      <div style="display: flex; gap: 16px;"><dt style="flex-shrink: 0; width: 110px; font-size: 10.5px; color: var(--apt-ink-4);">Source</dt><dd class="apt-mono" style="margin: 0; color: var(--apt-ink-3); font-size: 11px;">{{ marche.source }} · {{ marche.reference_externe }}</dd></div>
+      {% if marche.reference_ft %}<div style="display: flex; gap: 16px;"><dt style="flex-shrink: 0; width: 110px; font-size: 10.5px; color: var(--apt-ink-4);">Référence FT</dt><dd class="apt-mono" style="margin: 0; color: var(--apt-ink-3); font-size: 11px;">{{ marche.reference_ft }}</dd></div>{% endif %}
+      {% if marche.cpv_principal %}<div style="display: flex; gap: 16px;"><dt style="flex-shrink: 0; width: 110px; font-size: 10.5px; color: var(--apt-ink-4);">CPV</dt><dd class="apt-mono" style="margin: 0; color: var(--apt-ink-3); font-size: 11px;">{{ marche.cpv_principal }}</dd></div>{% endif %}
+      {% if dossier_dce %}<div style="display: flex; gap: 16px;"><dt style="flex-shrink: 0; width: 110px; font-size: 10.5px; color: var(--apt-ink-4);">Dépôt local</dt><dd class="apt-mono" style="margin: 0; color: var(--apt-ink-3); font-size: 10.5px; word-break: break-all;">{{ dossier_dce }}</dd></div>{% endif %}
+      {% if pdfs_locaux %}<div style="display: flex; gap: 16px;"><dt style="flex-shrink: 0; width: 110px; font-size: 10.5px; color: var(--apt-ink-4);">DCE local</dt><dd style="margin: 0; flex: 1; font-size: 11px; color: var(--apt-ink-3);">{{ pdfs_locaux | length }} PDF · {% for nom in pdfs_locaux %}{{ nom }}{% if not loop.last %}, {% endif %}{% endfor %}</dd></div>{% endif %}
+    </dl>
+  </div>
+</details>
+
+</div>
+{% endblock %}

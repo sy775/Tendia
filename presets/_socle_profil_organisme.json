@@ -1,0 +1,127 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Socle commun du profil organisme Tendia",
+  "description": "Champs universels présents dans tout profil organisme, indépendamment du ou des secteurs couverts. Les champs sectoriels propres (qualifications BTP, technologies IT, etc.) sont définis dans presets/<code>/_schema.json et rangés dans `profils_sectoriels[<code>]` du profil actif.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Identifiant interne du profil. 'principal' par défaut en mode mono-profil POC."
+    },
+    "_description": {
+      "type": "string",
+      "description": "Description courte du positionnement de l'organisme (1-2 phrases libres)."
+    },
+    "_creation": {
+      "type": "string",
+      "description": "Date de création du profil (ISO 8601)."
+    },
+    "_version_schema": {
+      "type": "string",
+      "description": "Version du schéma socle (pour future migration). Ex: '1.0'."
+    },
+    "identite": {
+      "type": "object",
+      "description": "Identité légale de l'organisme.",
+      "properties": {
+        "raison_sociale": { "type": "string" },
+        "forme_juridique": {
+          "type": "string",
+          "description": "SAS, SARL, SA, EURL, association loi 1901, EPIC, etc."
+        },
+        "siren": { "type": "string", "description": "SIREN à 9 chiffres" },
+        "siret_siege": { "type": "string", "description": "SIRET du siège à 14 chiffres" },
+        "naf_principal": { "type": "string", "description": "Code APE/NAF principal (ex: '7112B')" },
+        "effectif_salaries": { "type": "integer", "description": "ETP au 31/12 de l'exercice précédent" },
+        "annee_creation": { "type": "integer" },
+        "tva_intracom": { "type": "string" },
+        "adresse_siege": {
+          "type": "object",
+          "properties": {
+            "rue": { "type": "string" },
+            "code_postal": { "type": "string" },
+            "ville": { "type": "string" },
+            "departement": { "type": "string", "description": "Code département (ex: '75')" }
+          }
+        },
+        "site_web": { "type": "string" },
+        "contact_AO": {
+          "type": "object",
+          "description": "Personne référente pour les appels d'offres.",
+          "properties": {
+            "nom": { "type": "string" },
+            "fonction": { "type": "string" },
+            "email": { "type": "string" },
+            "telephone": { "type": "string" }
+          }
+        }
+      }
+    },
+    "zones_intervention": {
+      "type": "array",
+      "description": "Zones géographiques où l'organisme intervient. Liste de codes INSEE de départements (ex: '75', '92', '78') ou codes région ISO (ex: 'IDF', 'NAQ', 'AURA'). Convention : départements de préférence pour la finesse du matching.",
+      "items": { "type": "string" }
+    },
+    "capacite_globale": {
+      "type": "object",
+      "description": "Capacités structurelles tous secteurs confondus.",
+      "properties": {
+        "ca_annuel_n_moins_1": {
+          "type": "number",
+          "description": "Chiffre d'affaires de l'exercice N-1 en euros HT."
+        },
+        "ca_annuel_n_moins_2": { "type": "number" },
+        "ca_annuel_n_moins_3": { "type": "number" },
+        "fonds_propres": { "type": "number" },
+        "effectif_total_etp": { "type": "integer" },
+        "capacite_engagement_simultane": {
+          "type": "number",
+          "description": "Plafond raisonnable d'engagements simultanés (€ HT). Sert au filtrage des marchés trop gros."
+        },
+        "seuil_minimum_marche_eur": {
+          "type": "number",
+          "description": "Marchés en-dessous de ce seuil ne valent pas le coût de réponse (ex: 30 000)."
+        }
+      }
+    },
+    "economie": {
+      "type": "object",
+      "description": "Stratégie économique pour calibration des prix cibles et du go/no-go.",
+      "properties": {
+        "marge_brute_cible_pct": { "type": "number", "description": "Marge brute cible en % (ex: 25)" },
+        "taux_journalier_moyen_eur": { "type": "number", "description": "TJM moyen toutes seniorités confondues (utile pour bottom-up)" },
+        "frais_de_structure_pct": { "type": "number", "description": "% de coûts indirects à ajouter au prix de revient (ex: 18)" },
+        "agressivite_commerciale": {
+          "type": "string",
+          "enum": ["prudent", "neutre", "aggressif"],
+          "description": "Profil de prix : 'prudent' = quartile haut, 'neutre' = médian, 'aggressif' = quartile bas"
+        }
+      }
+    },
+    "mots_cles_catalogue": {
+      "type": "array",
+      "description": "Mots-clés métier utilisés par le matcheur textuel (matching.py) pour pondérer la pertinence d'un marché. Format libre.",
+      "items": { "type": "string" }
+    },
+    "presets_couverts": {
+      "type": "array",
+      "description": "Liste des codes presets que l'organisme couvre. Doit correspondre aux dossiers presets/<code> existants. Chaque code listé ici DOIT avoir un objet correspondant dans `profils_sectoriels`.",
+      "items": {
+        "type": "string",
+        "enum": ["btp", "ingenierie", "conseil", "it", "energie_renouvelable", "formation"]
+      },
+      "minItems": 1
+    },
+    "profils_sectoriels": {
+      "type": "object",
+      "description": "Dictionnaire keyed par code preset. Chaque valeur suit le schéma sectoriel défini dans presets/<code>/_schema.json. Au moins une entrée doit être présente.",
+      "additionalProperties": true
+    },
+    "auto_reponses_exigences": {
+      "type": "object",
+      "description": "Réponses pré-renseignées aux exigences récurrentes (clés libres). Ex: 'attestation_russie' → texte de réponse type. Utilisable cross-secteurs.",
+      "additionalProperties": { "type": "string" }
+    }
+  },
+  "required": ["id", "identite", "presets_couverts", "profils_sectoriels"]
+}

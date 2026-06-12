@@ -1,0 +1,320 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard — Tendia{% endblock %}
+
+{% block content %}
+<div class="apt-mw-1180 mx-auto px-14 pt-16 pb-20">
+
+  <!-- ====================================================================
+       HERO ÉDITORIAL
+       ==================================================================== -->
+  <header class="mb-16 fade-up">
+    <div class="flex items-end justify-between gap-10">
+      <div class="max-w-2xl">
+        <div class="apt-eyebrow mb-4 flex items-center gap-2">
+          <span class="apt-live-dot inline-block w-1.5 h-1.5 rounded-full" style="background: var(--apt-accent);"></span>
+          Veille du {{ now | date_fr }}
+        </div>
+        <h1 class="apt-display apt-fs-68 mb-5" style="color: var(--apt-ink);">
+          {{ kpis.actifs_total }} marché{{ 's' if kpis.actifs_total != 1 else '' }} actif{{ 's' if kpis.actifs_total != 1 else '' }}
+        </h1>
+        <p class="apt-prose max-w-xl" style="color: var(--apt-ink-3);">
+          {% if organisme %}
+          Triés par pertinence pour
+          <span style="color: var(--apt-ink); font-weight: 500;">{{ organisme.identite.nom }}</span>.
+          {% else %}
+          Aucun profil actif. <a href="/profil" class="apt-link">Configurer le profil</a> pour activer le scoring.
+          {% endif %}
+        </p>
+      </div>
+
+      <div class="text-right">
+        <div class="apt-label" style="font-size: 9.5px;">Mise à jour</div>
+        <div class="apt-mono mt-1.5" style="font-size: 12px; color: var(--apt-ink-3);">
+          {{ now.strftime('%d.%m.%Y · %Hh%M') }}
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ====================================================================
+       STATS LINE — pas de boîtes, juste de la typo séparée par des filets
+       ==================================================================== -->
+  <section class="mb-16 fade-up fade-up-1">
+    <div class="apt-divider mb-9"></div>
+
+    <div class="grid grid-cols-4 gap-0">
+
+      <div class="pr-8 border-r" style="border-color: var(--apt-line);">
+        <div class="apt-label mb-3">Actifs</div>
+        <div class="flex items-baseline gap-2">
+          <span class="apt-stat-value">{{ kpis.actifs_total }}</span>
+          <span class="apt-stat-unit" style="font-size: 12px;">/ {{ kpis.marches_total }} en base</span>
+        </div>
+      </div>
+
+      <div class="pl-8 pr-8 border-r" style="border-color: var(--apt-line);">
+        <div class="apt-label mb-3 flex items-center gap-2">
+          <span class="w-1.5 h-1.5 rounded-full" style="background: var(--apt-accent);"></span>
+          Très pertinents
+        </div>
+        <div class="apt-stat-value apt-stat-value-accent">{{ kpis.tres_pertinents }}</div>
+      </div>
+
+      <div class="pl-8 pr-8 border-r" style="border-color: var(--apt-line);">
+        <div class="apt-label mb-3 flex items-center gap-2">
+          <span class="w-1.5 h-1.5 rounded-full" style="background: var(--apt-leaf);"></span>
+          Pertinents
+        </div>
+        <div class="apt-stat-value" style="color: var(--apt-leaf);">{{ kpis.pertinents }}</div>
+      </div>
+
+      <div class="pl-8">
+        <div class="apt-label mb-3">Briefs LLM</div>
+        <div class="flex items-baseline gap-2">
+          <span class="apt-stat-value">{{ kpis.avec_brief }}</span>
+          <span class="apt-stat-unit" style="font-size: 12px;">/ {{ kpis.actifs_total }} marchés</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="apt-divider mt-9"></div>
+  </section>
+
+  <!-- ====================================================================
+       PIPELINE COMMERCIAL — cycle de vie des marchés
+       ==================================================================== -->
+  {% if kpis.pipeline and (kpis.pipeline.nb_actifs + kpis.pipeline.nb_clos) > 0 %}
+  <section class="mb-12 fade-up fade-up-1">
+    <div class="flex items-end justify-between mb-5">
+      <div>
+        <h2 class="apt-display-md" style="font-size: 22px; color: var(--apt-ink); letter-spacing: -0.02em;">
+          Pipeline commercial
+        </h2>
+        <p class="apt-meta mt-1">Cycle de vie des appels d'offre</p>
+      </div>
+      {% if kpis.pipeline.taux_conversion_pct is not none %}
+      <div class="text-right">
+        <div class="apt-label" style="font-size: 9.5px;">Taux de conversion</div>
+        <div class="mt-1" style="font-size: 22px; font-weight: 600; color: var(--apt-ink); font-variant-numeric: tabular-nums;">
+          {{ kpis.pipeline.taux_conversion_pct }}<span style="font-size: 13px; color: var(--apt-ink-4);">%</span>
+        </div>
+        <div class="apt-meta mt-0.5" style="font-size: 10px;">{{ kpis.pipeline.nb_gagne }} gagnés / {{ kpis.pipeline.nb_gagne + kpis.pipeline.nb_perdu }} décidés</div>
+      </div>
+      {% endif %}
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px;">
+      {% for col_statut, col_label, col_couleur in [
+          ('a_evaluer', 'À évaluer', '#9b958c'),
+          ('candidate', 'Candidaté', '#3b6fb2'),
+          ('gagne', 'Gagné', '#1f8c5c'),
+          ('perdu', 'Perdu', '#c14b6b'),
+          ('abandonne', 'Abandonné', '#9b958c')
+      ] %}
+      {% set count = kpis.pipeline['nb_' + col_statut] %}
+      <div style="background: white; border: 1px solid var(--apt-line-2); border-radius: 8px; padding: 11px 13px; border-top: 3px solid {{ col_couleur }};">
+        <div style="font-size: 10px; color: var(--apt-ink-4); font-weight: 600; text-transform: uppercase; letter-spacing: 0.4px;">{{ col_label }}</div>
+        <div style="font-size: 24px; font-weight: 600; color: {{ col_couleur }}; font-variant-numeric: tabular-nums; margin-top: 4px; line-height: 1;">{{ count }}</div>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+
+  <!-- ==================================================================== -->
+  <!--      ANCRE FIN STATS - DÉBUT LISTE                                   -->
+  <!-- ==================================================================== -->
+
+  <!-- ====================================================================
+       LISTE MARCHÉS — pas de tableau, des lignes éditoriales
+       ==================================================================== -->
+  <section class="fade-up fade-up-2">
+
+    <div class="flex items-end justify-between mb-8">
+      <div>
+        <h2 class="apt-display-md" style="font-size: 28px; color: var(--apt-ink);">
+          Marchés en cours
+        </h2>
+        <p class="apt-meta mt-1.5">Triés par verdict puis score décroissant</p>
+      </div>
+      <div class="apt-label">{{ marches_enriched|length }} entrée{{ 's' if marches_enriched|length != 1 else '' }}</div>
+    </div>
+
+    {% if marches_enriched %}
+    <div class="apt-block overflow-hidden">
+
+      <!-- En-tête colonnes (très discret) -->
+      <div class="grid items-center px-7 py-3.5 apt-label" style="grid-template-columns: 180px minmax(0, 1fr) 200px 100px 110px 70px; background: var(--apt-surface); border-bottom: 1px solid var(--apt-line-2); font-size: 9.5px;">
+        <div>Verdict</div>
+        <div>Intitulé</div>
+        <div>Acheteur</div>
+        <div class="text-right">Montant</div>
+        <div>Date limite</div>
+        <div class="text-right">Score</div>
+      </div>
+
+      <!-- Lignes -->
+      {% for e in marches_enriched %}
+      {% set m = e.marche %}
+      <a href="/marche/{{ m.id }}" class="block">
+        <div class="apt-row grid items-center" style="grid-template-columns: 180px minmax(0, 1fr) 200px 100px 110px 70px; padding: 20px 28px;">
+
+          <!-- Verdict -->
+          <div>
+            {% if e.verdict == 'tres_pertinent' %}
+              <span class="apt-verdict apt-verdict-tres-pertinent">
+                <span class="dot"></span>
+                Très pertinent
+              </span>
+            {% elif e.verdict == 'pertinent' %}
+              <span class="apt-verdict apt-verdict-pertinent">
+                <span class="dot"></span>
+                Pertinent
+              </span>
+            {% elif e.verdict == 'a_verifier' %}
+              <span class="apt-verdict apt-verdict-a-verifier">
+                <span class="dot"></span>
+                À vérifier
+              </span>
+            {% else %}
+              <span class="apt-verdict apt-verdict-non-pertinent">
+                <span class="dot"></span>
+                Non pertinent
+              </span>
+            {% endif %}
+          </div>
+
+          <!-- Titre + meta source/brief -->
+          <div class="min-w-0 pr-6">
+            <div class="apt-display-sm leading-snug" style="font-size: 15px; font-weight: 500; color: var(--apt-ink);">
+              {{ e.titre_court }}
+            </div>
+            <div class="apt-meta mt-1 flex items-center gap-2.5 flex-wrap">
+              <span style="color: var(--apt-ink-4);">{{ m.source }} · {{ m.reference_externe }}</span>
+              {% if m.url_dce %}
+                {% if m.dce_qualite == 'directe' %}
+                <span class="inline-flex items-center gap-1" style="color: var(--apt-accent);" title="URL DCE directe">
+                  <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  DCE
+                </span>
+                {% else %}
+                <span class="inline-flex items-center gap-1" style="color: var(--apt-leaf);" title="URL DCE via recherche">
+                  <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+                  DCE
+                </span>
+                {% endif %}
+              {% endif %}
+              {% if e.a_brief_llm %}
+              <span class="inline-flex items-center gap-1" style="color: var(--apt-accent);" title="Brief LLM disponible">
+                <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                Brief
+              </span>
+              {% endif %}
+              {# Badge domaine LLM principal (classifié par l'IA) #}
+              {% if e.domaine_llm_principal %}
+              <span class="inline-flex items-center" style="font-size: 10.5px; padding: 1px 7px; border-radius: 999px; background: var(--c-violet-soft, #ECE5F5); color: var(--c-violet, #7A5EA8); font-weight: 500;"
+                    title="{{ e.domaine_llm_tooltip or 'Classification IA' }}">
+                {{ e.domaine_llm_principal|replace('_', ' ') }}
+              </span>
+              {% endif %}
+              {# Badge d'éligibilité — design sobre, pastille colorée + label fin #}
+              {% if e.verdict_eligibilite and e.verdict_eligibilite.statut != 'inconnu' %}
+              {% set ve = e.verdict_eligibilite %}
+              <span class="apt-elig-dash apt-elig-{{ ve.statut }}{% if ve.avec_reserves %} apt-elig-reserve{% endif %}">
+                <span class="apt-elig-dot"></span>{{ ve.label_court }}{% if ve.avec_reserves %}<span class="apt-elig-star" title="Avec réserves à vérifier au cas par cas">*</span>{% endif %}
+                <span class="apt-elig-dash-tooltip">
+                  <span class="title">{{ ve.tooltip }}</span>
+                  {% if ve.points_a_lever %}
+                  <ul>
+                    {% for p in ve.points_a_lever[:5] %}
+                    <li>{% if p.statut == 'inconnu' %}<span class="ico" style="color: var(--apt-ink-4);">?</span>{% elif p.statut == 'a_verifier' %}<span class="ico" style="color: #c47e1c;">!</span>{% else %}<span class="ico" style="color: #c14b6b;">✕</span>{% endif %} {{ p.libelle }}</li>
+                    {% endfor %}
+                    {% if ve.points_a_lever | length > 5 %}<li style="opacity: 0.7;">… et {{ ve.points_a_lever | length - 5 }} autre{{ 's' if (ve.points_a_lever | length - 5) > 1 else '' }}</li>{% endif %}
+                  </ul>
+                  {% endif %}
+                </span>
+              </span>
+              {% endif %}
+              {# Badge cycle de vie — visible uniquement si pas a_evaluer (= défaut) #}
+              {% if e.statut_cycle and e.statut_cycle != 'a_evaluer' %}
+              {% set sm = e.statut_cycle_meta %}
+              {% set col_map = {'amber': '#c47e1c', 'blue': '#3b6fb2', 'green': '#1f8c5c', 'rose': '#c14b6b', 'stone': '#9b958c'} %}
+              {% set col = col_map.get(sm.couleur, '#9b958c') %}
+              <span style="display: inline-flex; align-items: center; gap: 4px; padding: 1px 7px; border-radius: 4px; background: white; border: 1px solid {{ col }}; color: {{ col }}; font-size: 10.5px; font-weight: 600;" title="Statut pipeline : {{ sm.label }}">
+                <span style="font-weight: 800;">{{ sm.icone }}</span> {{ sm.label }}
+              </span>
+              {% endif %}
+            </div>
+          </div>
+
+          <!-- Acheteur -->
+          <div class="text-sm" style="color: var(--apt-ink-2);">
+            {{ m.acheteur_nom or '—' }}
+          </div>
+
+          <!-- Montant estimé (depuis brief LLM) -->
+          <div class="text-right">
+            {% if e.montant_eur %}
+              <span class="apt-num" style="font-size: 15px; color: var(--apt-ink); font-weight: 500;">{{ e.montant_eur | euro_short }}</span>
+              <div class="apt-meta mt-0.5" style="color: var(--apt-ink-5); font-size: 10px;">estimé</div>
+            {% else %}
+              <span style="color: var(--apt-ink-5); font-size: 13px;">—</span>
+            {% endif %}
+          </div>
+
+          <!-- Date limite -->
+          <div>
+            <div class="text-sm" style="color: var(--apt-ink); font-weight: 500;">{{ e.date_limite_fmt }}</div>
+            {% if e.jours_restants is not none %}
+              {% if e.jours_restants < 0 %}
+                <div class="apt-meta mt-0.5" style="color: var(--apt-ink-4);">Clos</div>
+              {% elif e.jours_restants < 7 %}
+                <div class="apt-meta mt-0.5" style="color: var(--apt-rose); font-weight: 500;">J−{{ e.jours_restants }}</div>
+              {% elif e.jours_restants < 21 %}
+                <div class="apt-meta mt-0.5" style="color: var(--apt-amber); font-weight: 500;">J−{{ e.jours_restants }}</div>
+              {% else %}
+                <div class="apt-meta mt-0.5">J−{{ e.jours_restants }}</div>
+              {% endif %}
+            {% endif %}
+          </div>
+
+          <!-- Score -->
+          <div class="text-right">
+            <span class="apt-num" style="font-size: 22px; color: var(--apt-ink);">{{ e.score }}</span>
+            <span class="apt-meta" style="color: var(--apt-ink-5);">/100</span>
+          </div>
+
+        </div>
+      </a>
+      {% endfor %}
+
+    </div>
+
+    {% else %}
+    <div class="apt-block-soft px-10 py-20 text-center">
+      <p class="apt-display-md mb-3" style="font-size: 22px; color: var(--apt-ink-2);">
+        Aucun marché actif pour le moment.
+      </p>
+      <p class="apt-meta" style="font-size: 13px;">
+        Lance <code class="apt-chip-mono apt-chip">python tendia_recup.py</code> pour récupérer les avis récents.
+      </p>
+    </div>
+    {% endif %}
+
+  </section>
+
+  <!-- ====================================================================
+       FOOTER
+       ==================================================================== -->
+  <footer class="mt-20 pt-7 flex items-center justify-between" style="border-top: 1px solid var(--apt-line-2);">
+    <div class="apt-meta">
+      Données — BOAMP · DECP &nbsp;·&nbsp; Mise à jour manuelle via
+      <a href="/veille" class="apt-link">Veille active</a>
+    </div>
+    <div class="apt-meta">Tendia v0.3 · MVP</div>
+  </footer>
+
+</div>
+{% endblock %}

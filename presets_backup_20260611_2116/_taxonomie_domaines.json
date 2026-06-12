@@ -1,0 +1,689 @@
+{
+  "_meta": {
+    "version": "1.0",
+    "derniere_maj": "2026-06-11",
+    "description": "Taxonomie des domaines métier utilisée par le LLM pour classifier les marchés publics. Chaque marché est classé en 1 à 3 domaines. Un marché monolithique = 1 domaine sans poids. Un marché multi-composantes = 2-3 domaines avec poids (somme = 1.0).",
+    "regles_classification": [
+      "1. Par défaut UN SEUL domaine sans poids — c'est le cas majoritaire (~80% des marchés).",
+      "2. PLUSIEURS domaines avec poids UNIQUEMENT si : (a) marché multi-lots avec lots relevant de métiers différents, (b) marché unique mixant explicitement plusieurs domaines (ex: construction + formation des opérateurs).",
+      "3. JAMAIS plus de 3 domaines. Au-delà = surclassification, signe qu'on n'a pas trouvé la dominante.",
+      "4. Si poids présents → somme strictement = 1.0. Si 1 seul domaine → champ poids absent (implicite 100%).",
+      "5. Si vraiment hors taxonomie : un seul domaine = 'autre'."
+    ]
+  },
+  "domaines": {
+    "formation_pro_continue": {
+      "libelle": "Formation professionnelle continue",
+      "description": "Actions de formation diplômantes, qualifiantes ou certifiantes pour adultes salariés ou demandeurs d'emploi. Typiquement portées par des organismes Qualiopi. Inclut formations métier longues, parcours qualifiants, programmes régionaux de formation.",
+      "exemples_oui": [
+        "Programme régional de formation professionnelle qualifiante pour demandeurs d'emploi",
+        "Actions de formation Cap Compétences",
+        "Marché de formations métiers sur catalogue pour agents publics",
+        "Formations professionnelles qualifiantes Mission Locales"
+      ],
+      "exemples_non": [
+        "Formation à la conduite d'engins (→ formation_metiers_techniques)",
+        "Formation CNV en entreprise (→ formation_management_softskills)",
+        "Bilan de compétences (→ bilan_competences_vae)"
+      ]
+    },
+    "formation_securite_obligatoire": {
+      "libelle": "Formations sécurité et habilitations obligatoires",
+      "description": "Formations à habilitations réglementaires : électricité (UTE C18-510), CACES, SST, travail en hauteur, gestes et postures, prévention risques chimiques, ATEX. Caractérisé par certification obligatoire prévue par la loi.",
+      "exemples_oui": [
+        "Formations habilitation électrique B1V H0",
+        "Formations CACES conduite engins de chantier",
+        "Recyclages SST sauveteur secouriste du travail",
+        "Formation travail en hauteur, port du harnais"
+      ],
+      "exemples_non": [
+        "Formation CNV (→ formation_management_softskills)",
+        "Formation à un logiciel métier (→ formation_metiers_techniques)"
+      ]
+    },
+    "formation_management_softskills": {
+      "libelle": "Formations management et soft skills",
+      "description": "Formations comportementales, communication, leadership, prévention RPS, CNV, gestion du stress, médiation interpersonnelle, qualité de vie au travail, non-discrimination, prévention agissements sexistes.",
+      "exemples_oui": [
+        "Formation CNV pour managers",
+        "Formation non-discrimination et prévention agissements sexistes",
+        "Programme leadership et management bienveillant",
+        "Sensibilisation prévention RPS",
+        "Formation gestion du conflit pour agents d'accueil"
+      ],
+      "exemples_non": [
+        "Formation technique métier (→ formation_metiers_techniques)",
+        "Accompagnement individuel coaching (→ formation_management_softskills si formation, → conseil_strategie_organisation si conseil pur)"
+      ]
+    },
+    "formation_metiers_techniques": {
+      "libelle": "Formations métiers techniques",
+      "description": "Formations sur métier technique spécifique non-sécurité-obligatoire : conduite d'engins (hors CACES), maintenance industrielle, logiciels métier, métiers manuels, formation à l'utilisation d'équipements complexes (souvent accompagnant une fourniture). Inclut formation au pilotage d'engins, machines, outils.",
+      "exemples_oui": [
+        "Formation et autorisation à la conduite d'engins de chantier",
+        "Formation à l'utilisation d'un nouveau logiciel SIG pour les agents",
+        "Formation maintenance d'équipements industriels"
+      ],
+      "exemples_non": [
+        "Formation CACES réglementaire (→ formation_securite_obligatoire)",
+        "Formation CNV (→ formation_management_softskills)"
+      ]
+    },
+    "formation_linguistique": {
+      "libelle": "Formation linguistique et savoirs de base",
+      "description": "Formations FLE (français langue étrangère), alphabétisation, illettrisme, savoirs de base, compétences clés, remise à niveau scolaire, formation linguistique pour primo-arrivants et publics en insertion.",
+      "exemples_oui": [
+        "Formations FLE pour primo-arrivants en QPV",
+        "Marché alphabétisation et compétences clés",
+        "Remise à niveau savoirs de base demandeurs d'emploi",
+        "Formation linguistique professionnelle pour salariés étrangers"
+      ],
+      "exemples_non": [
+        "Formation en anglais des affaires pour cadres (→ formation_pro_continue ou formation_management_softskills selon angle)"
+      ]
+    },
+    "insertion_professionnelle": {
+      "libelle": "Insertion et accompagnement professionnel",
+      "description": "Accompagnement vers l'emploi, parcours emploi, retour à l'emploi, accompagnement individuel d'allocataires RSA, dispositifs d'insertion type SIAE, ateliers chantiers d'insertion. Distinction clé avec formation_pro_continue : ici la prestation est l'accompagnement humain, pas le contenu formatif.",
+      "exemples_oui": [
+        "Actions d'accompagnement professionnel personnalisé pour allocataires RSA",
+        "Prestation d'accompagnement vers l'emploi - parcours sécurisé",
+        "Marché AIJ Accompagnement Intensif Jeunes",
+        "Coaching insertion pour demandeurs d'emploi de longue durée"
+      ],
+      "exemples_non": [
+        "Marché de formation qualifiante (→ formation_pro_continue)",
+        "Médiation auprès des gens du voyage (→ insertion_sociale_mediation)"
+      ]
+    },
+    "insertion_sociale_mediation": {
+      "libelle": "Insertion sociale et médiation",
+      "description": "Médiation sociale, gens du voyage, accueil migrants, action sociale, schémas départementaux d'habitat, prévention de la délinquance, médiation interculturelle. Périmètre social, pas professionnel.",
+      "exemples_oui": [
+        "Prestation de médiation - schéma départemental gens du voyage",
+        "Médiation interculturelle quartiers prioritaires",
+        "Prévention spécialisée jeunesse"
+      ],
+      "exemples_non": [
+        "Accompagnement RSA vers l'emploi (→ insertion_professionnelle)",
+        "Bilan de compétences (→ bilan_competences_vae)"
+      ]
+    },
+    "bilan_competences_vae": {
+      "libelle": "Bilan de compétences, VAE, orientation",
+      "description": "Bilan de compétences individuel, accompagnement VAE (Validation des Acquis de l'Expérience), conseil en évolution professionnelle, orientation professionnelle. Souvent éligible CPF.",
+      "exemples_oui": [
+        "Marché Bilan de Compétences agents publics",
+        "Accompagnement VAE sur 24 mois",
+        "Conseil en évolution professionnelle"
+      ],
+      "exemples_non": [
+        "Formation diplômante (→ formation_pro_continue)",
+        "Accompagnement vers l'emploi sans diagnostic formel (→ insertion_professionnelle)"
+      ]
+    },
+    "energie_pv_solaire": {
+      "libelle": "Photovoltaïque et solaire",
+      "description": "Installations photovoltaïques (toitures, ombrières parking, centrales au sol), solaire thermique. Inclut conception, fourniture, pose, raccordement, supervision. Inclut autoconsommation collective et stockage si dominante PV.",
+      "exemples_oui": [
+        "Travaux d'installation d'un générateur photovoltaïque sur toitures",
+        "Construction d'une centrale photovoltaïque",
+        "Ombrières solaires sur parking municipal",
+        "Installation panneaux solaires sur école"
+      ],
+      "exemples_non": [
+        "AMO solaire sans travaux (→ energie_amo_etudes)",
+        "Formation à l'installation PV (→ formation_metiers_techniques)"
+      ]
+    },
+    "energie_eolien": {
+      "libelle": "Éolien",
+      "description": "Éolien terrestre, off-shore, étude/développement/construction/maintenance parcs éoliens.",
+      "exemples_oui": [
+        "Marché de fourniture et installation d'éoliennes terrestres",
+        "Étude de gisement éolien"
+      ],
+      "exemples_non": [
+        "Étude environnementale d'impact éolien pure (→ ingenierie_environnementale)"
+      ]
+    },
+    "energie_biomasse_methanisation": {
+      "libelle": "Biomasse, méthanisation, biogaz",
+      "description": "Unités de méthanisation, valorisation biogaz, chaufferies biomasse, granulés bois, cogénération.",
+      "exemples_oui": [
+        "Construction unité de méthanisation agricole",
+        "Chaufferie biomasse pour bâtiment public",
+        "Marché valorisation biogaz station d'épuration"
+      ],
+      "exemples_non": [
+        "Collecte biodéchets (→ services_dechets_proprete)"
+      ]
+    },
+    "energie_geothermie": {
+      "libelle": "Géothermie et pompes à chaleur",
+      "description": "Sondes géothermiques, pompes à chaleur grand format, géothermie profonde et de surface.",
+      "exemples_oui": [
+        "Création d'un dispositif de sondes géothermiques",
+        "Pompe à chaleur géothermique pour groupe scolaire"
+      ],
+      "exemples_non": [
+        "Chaudière classique (→ btp_second_oeuvre ou fourniture_materiel)"
+      ]
+    },
+    "energie_hydroelectrique": {
+      "libelle": "Hydroélectricité",
+      "description": "Micro-hydro, petites centrales hydroélectriques, modernisation barrages.",
+      "exemples_oui": [
+        "Modernisation micro-centrale hydroélectrique",
+        "Marché de turbine hydroélectrique"
+      ],
+      "exemples_non": []
+    },
+    "energie_stockage_reseau": {
+      "libelle": "Stockage énergie et smart grid",
+      "description": "Batteries de stockage stationnaire, autoconsommation collective, smart grid, IRVE bornes de recharge véhicules électriques en flotte significative.",
+      "exemples_oui": [
+        "Déploiement de bornes IRVE pour la flotte municipale (>10 bornes)",
+        "Installation de batteries stockage tertiaire",
+        "Schéma d'autoconsommation collective intercommunale"
+      ],
+      "exemples_non": [
+        "Bornes de recharge urbain (~3 bornes) sans schéma global (→ fourniture_materiel)"
+      ]
+    },
+    "energie_amo_etudes": {
+      "libelle": "AMO et études énergie",
+      "description": "Assistance à maîtrise d'ouvrage énergie, études de faisabilité EnR, schémas directeurs énergétiques, audits énergétiques de patrimoine, accompagnement CEE (Certificats d'Économies d'Énergie). Pas de travaux dans le marché.",
+      "exemples_oui": [
+        "Mission AMO programmation et conduite d'opération sur projet énergétique",
+        "Étude de faisabilité photovoltaïque sur patrimoine intercommunal",
+        "Schéma directeur énergie d'une collectivité",
+        "Audit énergétique de patrimoine bâti",
+        "Accompagnement valorisation CEE"
+      ],
+      "exemples_non": [
+        "Travaux PV (→ energie_pv_solaire)",
+        "Études BTP/structure (→ ingenierie_structure_genie_civil)"
+      ]
+    },
+    "energie_renovation_thermique": {
+      "libelle": "Rénovation énergétique de bâtiments",
+      "description": "Travaux de rénovation thermique : isolation, remplacement chaudières, étanchéité, double vitrage. À distinguer du BTP classique : ici l'objectif principal est l'amélioration de la performance énergétique.",
+      "exemples_oui": [
+        "Rénovation énergétique d'un groupe scolaire",
+        "Isolation thermique par l'extérieur d'un bâtiment public",
+        "Programme de rénovation énergétique du patrimoine communal"
+      ],
+      "exemples_non": [
+        "Construction neuve même HQE (→ btp_gros_oeuvre)",
+        "Pure rénovation patrimoniale sans dimension énergétique (→ btp_renovation_rehabilitation)",
+        "Étude énergétique sans travaux (→ energie_amo_etudes)"
+      ]
+    },
+    "btp_gros_oeuvre": {
+      "libelle": "BTP gros œuvre et construction neuve",
+      "description": "Construction neuve, fondations, structures, maçonnerie, ouvrages d'art neufs. Lots gros œuvre de marchés de bâtiment.",
+      "exemples_oui": [
+        "Construction d'un nouveau groupe scolaire — lot gros œuvre",
+        "Construction d'un EHPAD",
+        "Travaux de fondations spéciales"
+      ],
+      "exemples_non": [
+        "Rénovation énergétique (→ energie_renovation_thermique)",
+        "Réhabilitation lourde existant (→ btp_renovation_rehabilitation)",
+        "VRD et terrassement (→ btp_voirie_reseaux)"
+      ]
+    },
+    "btp_second_oeuvre": {
+      "libelle": "BTP second œuvre",
+      "description": "Cloisons, plâtrerie, revêtements sols/murs, peinture, menuiserie intérieure, plomberie sanitaire, chauffage (hors EnR), électricité courant fort intérieure.",
+      "exemples_oui": [
+        "Lot peinture rénovation groupe scolaire",
+        "Travaux de plomberie sanitaire bâtiment public",
+        "Remplacement chauffage gaz (sans dimension EnR forte)"
+      ],
+      "exemples_non": [
+        "Installation pompe à chaleur (→ energie_geothermie ou energie_renovation_thermique)",
+        "Réfection toiture pure (→ btp_renovation_rehabilitation si patrimoine)"
+      ]
+    },
+    "btp_voirie_reseaux": {
+      "libelle": "VRD - voirie et réseaux divers",
+      "description": "Terrassement, voirie, réseaux humides (eau potable, assainissement), réseaux secs, espaces publics, aménagements urbains.",
+      "exemples_oui": [
+        "Travaux VRD lotissement",
+        "Réfection voirie communale",
+        "Réseaux d'assainissement",
+        "Aménagement d'une placette"
+      ],
+      "exemples_non": [
+        "Construction bâtiment (→ btp_gros_oeuvre)",
+        "Espaces verts seuls (→ amenagement_paysager_creation)"
+      ]
+    },
+    "btp_renovation_rehabilitation": {
+      "libelle": "Rénovation et réhabilitation existant",
+      "description": "Réhabilitation lourde de bâti existant sans dominante énergie : restauration patrimoine, rénovation lourde, restructuration intérieure significative, requalification d'espaces existants.",
+      "exemples_oui": [
+        "Réhabilitation d'un château classé",
+        "Restructuration d'une école — gros œuvre et second œuvre",
+        "Requalification fonctionnelle de salles propres hospitalières (côté travaux)"
+      ],
+      "exemples_non": [
+        "Rénovation à dominante thermique/énergie (→ energie_renovation_thermique)",
+        "Construction neuve (→ btp_gros_oeuvre)"
+      ]
+    },
+    "btp_demolition": {
+      "libelle": "Démolition et désamiantage",
+      "description": "Démolition de bâtiments, désamiantage, déconstruction, dépollution préalable.",
+      "exemples_oui": [
+        "Marché de démolition d'un bâtiment industriel",
+        "Désamiantage avant rénovation",
+        "Déconstruction sélective"
+      ],
+      "exemples_non": [
+        "Dépollution sols (→ ingenierie_environnementale ou services_dechets_proprete)"
+      ]
+    },
+    "ingenierie_structure_genie_civil": {
+      "libelle": "Ingénierie structure et génie civil",
+      "description": "Bureaux d'études structure, calculs de structures, études techniques bâtiment, OPC (Ordonnancement Pilotage Coordination), maîtrise d'œuvre exécution.",
+      "exemples_oui": [
+        "Mission de maîtrise d'œuvre pour construction école",
+        "Bureau d'études structure projet pont",
+        "Coordination SPS sur chantier"
+      ],
+      "exemples_non": [
+        "AMO programmation (→ moe_architecte_urbanisme ou energie_amo_etudes selon angle)",
+        "Travaux (→ btp_*)"
+      ]
+    },
+    "ingenierie_fluides_climatique": {
+      "libelle": "Ingénierie fluides et climatique",
+      "description": "Études fluides (CVC chauffage ventilation climatisation, plomberie technique), études thermiques, dimensionnement installations techniques.",
+      "exemples_oui": [
+        "Mission études fluides projet médiathèque",
+        "Étude thermique réglementaire bâtiment neuf",
+        "Études CVC d'un EHPAD"
+      ],
+      "exemples_non": [
+        "Audit énergétique patrimonial (→ energie_amo_etudes)",
+        "Mise en œuvre des installations (→ btp_second_oeuvre)"
+      ]
+    },
+    "ingenierie_environnementale": {
+      "libelle": "Ingénierie environnementale",
+      "description": "Études d'impact environnemental, dossiers ICPE, études sites pollués, diagnostics écologiques, études Loi sur l'Eau, dossiers réglementaires environnementaux.",
+      "exemples_oui": [
+        "Étude d'impact projet d'aménagement",
+        "Diagnostic faune-flore sur zone à urbaniser",
+        "Dossier ICPE installation classée",
+        "Étude de pollution des sols"
+      ],
+      "exemples_non": [
+        "Analyses laboratoire pures (→ services_environnement_analyses)",
+        "Travaux dépollution (→ services_dechets_proprete ou btp_demolition)"
+      ]
+    },
+    "moe_architecte_urbanisme": {
+      "libelle": "Maîtrise d'œuvre, architecture et urbanisme",
+      "description": "Maîtrise d'œuvre architecturale complète (esquisse à AOR), programmation, urbanisme opérationnel, études urbaines, PLU/SCOT, AMO en programmation.",
+      "exemples_oui": [
+        "Maîtrise d'œuvre complète pour construction d'une médiathèque",
+        "Étude pré-opérationnelle d'aménagement urbain",
+        "Élaboration du PLU intercommunal",
+        "Mission de programmation"
+      ],
+      "exemples_non": [
+        "MOE technique pure structure (→ ingenierie_structure_genie_civil)",
+        "AMO énergie (→ energie_amo_etudes)"
+      ]
+    },
+    "topographie_geometre": {
+      "libelle": "Topographie, géomètre, foncier",
+      "description": "Relevés topographiques, cartographie, géomètre-expert, bornage, divisions foncières, SIG (système d'information géographique).",
+      "exemples_oui": [
+        "Prestations topographiques et foncières sur le territoire",
+        "Marché de relevés topographiques pour aménagement",
+        "Mise en place d'un SIG communal"
+      ],
+      "exemples_non": []
+    },
+    "conseil_strategie_organisation": {
+      "libelle": "Conseil stratégie et organisation",
+      "description": "Conseil en stratégie, organisation, transformation, accompagnement au changement, audit organisationnel, schémas directeurs non-techniques.",
+      "exemples_oui": [
+        "Mission de conseil stratégique sur la transformation des services",
+        "Accompagnement à l'élaboration d'une stratégie territoriale",
+        "Schéma directeur de mutualisation intercommunale"
+      ],
+      "exemples_non": [
+        "AMO technique projet (→ energie_amo_etudes ou moe_architecte_urbanisme)",
+        "Conseil juridique (→ conseil_juridique)",
+        "Conseil SI (→ conseil_si_data)"
+      ]
+    },
+    "conseil_juridique": {
+      "libelle": "Conseil et accompagnement juridique",
+      "description": "Prestations de conseil juridique, contentieux, accompagnement commande publique, expertise droit administratif.",
+      "exemples_oui": [
+        "Prestations de conseil et d'accompagnement juridique commande publique",
+        "Assistance juridique en droit administratif",
+        "Conseil en propriété intellectuelle"
+      ],
+      "exemples_non": [
+        "Formation au droit (→ formation_pro_continue)",
+        "Assurance protection juridique (→ assurance)"
+      ]
+    },
+    "conseil_financier_audit": {
+      "libelle": "Conseil financier et audit",
+      "description": "Audit financier, contrôle de gestion, conseil financier, optimisation fiscale, expertise comptable.",
+      "exemples_oui": [
+        "Mission d'audit financier des comptes",
+        "Conseil en optimisation fiscale collectivité",
+        "Expertise comptable pour SEM"
+      ],
+      "exemples_non": [
+        "Banque/assurance (→ assurance)"
+      ]
+    },
+    "conseil_communication": {
+      "libelle": "Conseil en communication et marketing",
+      "description": "Communication externe, marque employeur, RP, marketing public, événementiel communicationnel, identité visuelle.",
+      "exemples_oui": [
+        "Accompagnement marque employeur",
+        "Mission de conseil en communication territoriale",
+        "Refonte d'identité visuelle"
+      ],
+      "exemples_non": [
+        "Impression de magazines (→ fourniture_materiel ou prestations dérivées)",
+        "Événementiel pur (→ evenementiel_culture)"
+      ]
+    },
+    "conseil_si_data": {
+      "libelle": "Conseil SI, schéma directeur, gouvernance data",
+      "description": "Schéma directeur SI, gouvernance des données, conseil RGPD, audit SI, assistance à maîtrise d'ouvrage SI (sans développement).",
+      "exemples_oui": [
+        "Schéma directeur SI de la collectivité",
+        "Audit RGPD et accompagnement conformité",
+        "AMO SI projet de transformation numérique"
+      ],
+      "exemples_non": [
+        "Développement applicatif (→ it_developpement_web_app)",
+        "Audit sécurité technique (→ it_cybersecurite)"
+      ]
+    },
+    "it_developpement_web_app": {
+      "libelle": "Développement web et applicatif",
+      "description": "Développement custom de sites web, applications métier, applications mobiles, dev sur mesure, intégration spécifique.",
+      "exemples_oui": [
+        "Refonte du site internet institutionnel",
+        "Développement application métier sur mesure",
+        "Création d'un portail citoyen"
+      ],
+      "exemples_non": [
+        "Intégration SaaS standard (→ it_progiciels_erp)",
+        "Hébergement (→ it_infrastructure_cloud)"
+      ]
+    },
+    "it_infrastructure_cloud": {
+      "libelle": "Infrastructure IT, cloud, hébergement",
+      "description": "Hébergement cloud, infogérance d'infrastructure, virtualisation, réseaux, datacenter, télécoms data.",
+      "exemples_oui": [
+        "Marché d'hébergement cloud des applications métier",
+        "Infogérance infrastructure",
+        "Refonte du réseau LAN intercommunal"
+      ],
+      "exemples_non": [
+        "Maintenance applicative (→ it_maintenance_support)",
+        "Audit sécurité (→ it_cybersecurite)"
+      ]
+    },
+    "it_cybersecurite": {
+      "libelle": "Cybersécurité",
+      "description": "Audit de sécurité, pentest, SOC, conformité ANSSI, accompagnement HDS, SIEM, EDR.",
+      "exemples_oui": [
+        "Audit de sécurité du système d'information",
+        "Test d'intrusion (pentest)",
+        "Mise en conformité ANSSI",
+        "Marché SOC managé"
+      ],
+      "exemples_non": [
+        "Conseil RGPD non technique (→ conseil_si_data)"
+      ]
+    },
+    "it_progiciels_erp": {
+      "libelle": "Intégration progiciels et ERP",
+      "description": "Intégration d'ERP, GRH, paie, comptabilité, CRM, SaaS métier, ré-intégrations significatives. Inclut Tendia lui-même (SaaS marchés publics).",
+      "exemples_oui": [
+        "Acquisition et intégration ERP financier",
+        "Migration SIRH paie",
+        "Déploiement d'un CRM citoyen"
+      ],
+      "exemples_non": [
+        "Développement sur mesure (→ it_developpement_web_app)",
+        "Maintenance courante (→ it_maintenance_support)"
+      ]
+    },
+    "it_maintenance_support": {
+      "libelle": "Maintenance IT et support",
+      "description": "TMA tierce maintenance applicative, infogérance applicative, helpdesk, support utilisateurs, maintenance évolutive et corrective.",
+      "exemples_oui": [
+        "Marché TMA des applications métier",
+        "Helpdesk niveau 1-2 des utilisateurs internes",
+        "Maintenance évolutive du portail citoyen"
+      ],
+      "exemples_non": [
+        "Hébergement (→ it_infrastructure_cloud)",
+        "Développement nouveau (→ it_developpement_web_app)"
+      ]
+    },
+    "services_environnement_analyses": {
+      "libelle": "Analyses environnementales et contrôles laboratoire",
+      "description": "Analyses physico-chimiques, bactériologiques, contrôles qualité sur eau, air, sols, surfaces. Autosurveillance industrielle. Analyses en milieu hospitalier (eaux, hémodialyse, salles propres). Inclut prélèvements et requalifications de zones à environnement maîtrisé.",
+      "exemples_oui": [
+        "Contrôles analytiques des eaux des stations d'épuration",
+        "Prestations d'analyses bactériologiques en milieu hospitalier",
+        "Surveillance air intérieur ERP",
+        "Qualification de zones à environnement maîtrisé (salles propres)",
+        "Autosurveillance des stations d'épuration"
+      ],
+      "exemples_non": [
+        "Études d'impact environnemental sur projet (→ ingenierie_environnementale)",
+        "Audit énergétique de bâtiment (→ energie_amo_etudes)",
+        "Biologie médicale humaine (→ services_sante_medical)"
+      ]
+    },
+    "services_dechets_proprete": {
+      "libelle": "Déchets, propreté urbaine, traitement",
+      "description": "Collecte ordures ménagères, tri sélectif, traitement et valorisation déchets, propreté voirie, déchets dangereux, enfouissement.",
+      "exemples_oui": [
+        "Traitement des ordures ménagères résiduelles",
+        "Collecte sélective des emballages",
+        "Marché de propreté voirie",
+        "Évacuation de déchets dangereux"
+      ],
+      "exemples_non": [
+        "Nettoyage de locaux (→ entretien_proprete_locaux)",
+        "Méthanisation (→ energie_biomasse_methanisation)"
+      ]
+    },
+    "services_sante_medical": {
+      "libelle": "Services médicaux et biologie humaine",
+      "description": "Médecine, biologie médicale humaine, équipements médicaux, services hospitaliers, médecine du travail.",
+      "exemples_oui": [
+        "Réalisation des analyses de biologie médicale humaine",
+        "Fourniture d'équipements d'imagerie médicale",
+        "Médecine du travail externalisée"
+      ],
+      "exemples_non": [
+        "Analyses bactériologiques environnementales hôpital (→ services_environnement_analyses)",
+        "Médiation sociale (→ insertion_sociale_mediation)"
+      ]
+    },
+    "transport_logistique_vehicules": {
+      "libelle": "Transport, logistique, location véhicules",
+      "description": "Location longue durée véhicules, transports publics, transport scolaire, logistique, transport de personnes, services postaux.",
+      "exemples_oui": [
+        "Prestations de locations longue durée de véhicules et engins",
+        "Marché de transport scolaire",
+        "Services postaux acheminement du courrier"
+      ],
+      "exemples_non": [
+        "Maintenance véhicules pure (→ services maintenance fourniture_materiel)",
+        "Bornes IRVE flotte (→ energie_stockage_reseau)"
+      ]
+    },
+    "securite_gardiennage": {
+      "libelle": "Sécurité et gardiennage",
+      "description": "Gardiennage de bâtiments, sécurité événementielle, télésurveillance, sûreté électronique, alarmes.",
+      "exemples_oui": [
+        "Gardiennage de l'hébergement provisoire d'internes",
+        "Marché de télésurveillance",
+        "Sécurité événementielle"
+      ],
+      "exemples_non": [
+        "Cybersécurité informatique (→ it_cybersecurite)"
+      ]
+    },
+    "restauration_collective_prestations": {
+      "libelle": "Restauration collective — prestations services",
+      "description": "Prestations de restauration collective déléguée (préparation et service repas), gestion de cantines scolaires, restaurants administratifs, militaires, restauration en EHPAD.",
+      "exemples_oui": [
+        "Prestation de restauration collective scolaire",
+        "Gestion du restaurant administratif",
+        "Restauration militaire en service délégué"
+      ],
+      "exemples_non": [
+        "Fourniture d'aliments en gros sans prestation (→ restauration_fournitures_alimentaires)",
+        "Acquisition d'équipements de cuisine (→ fourniture_materiel)"
+      ]
+    },
+    "restauration_fournitures_alimentaires": {
+      "libelle": "Fournitures alimentaires et denrées",
+      "description": "Achat de denrées alimentaires en gros, produits frais, surgelés, épicerie pour restauration collective interne, sans prestation de préparation.",
+      "exemples_oui": [
+        "Fourniture de denrées alimentaires pour cantines",
+        "Marché de produits laitiers pour restauration scolaire",
+        "Fourniture de viandes pour cuisine centrale"
+      ],
+      "exemples_non": [
+        "Restauration déléguée (→ restauration_collective_prestations)"
+      ]
+    },
+    "amenagement_paysager_creation": {
+      "libelle": "Aménagement paysager — création",
+      "description": "Création d'espaces verts, paysagisme, mobilier urbain, plantations, aménagement de parcs et jardins, espaces publics paysagers.",
+      "exemples_oui": [
+        "Création d'un parc urbain",
+        "Aménagement paysager d'un cimetière",
+        "Plantations d'alignement"
+      ],
+      "exemples_non": [
+        "Entretien espaces verts existants (→ amenagement_paysager_entretien)",
+        "VRD voirie pure (→ btp_voirie_reseaux)"
+      ]
+    },
+    "amenagement_paysager_entretien": {
+      "libelle": "Entretien espaces verts et jardinage",
+      "description": "Entretien d'espaces verts publics, tonte, taille, fauchage, élagage, désherbage, entretien stades et terrains de sport, entretien cimetières.",
+      "exemples_oui": [
+        "Entretien des espaces verts communaux",
+        "Marché de tonte et taille des espaces publics",
+        "Fauchage des accotements routiers",
+        "Élagage des arbres d'alignement"
+      ],
+      "exemples_non": [
+        "Création de nouveaux espaces verts (→ amenagement_paysager_creation)"
+      ]
+    },
+    "entretien_proprete_locaux": {
+      "libelle": "Nettoyage et propreté de locaux",
+      "description": "Nettoyage de bureaux, locaux administratifs, écoles, équipements sportifs, vitres, sanitaires. Intérieur des bâtiments.",
+      "exemples_oui": [
+        "Marché de nettoyage des locaux administratifs",
+        "Entretien des écoles",
+        "Nettoyage des équipements sportifs"
+      ],
+      "exemples_non": [
+        "Propreté urbaine extérieure (→ services_dechets_proprete)",
+        "Espaces verts (→ amenagement_paysager_entretien)"
+      ]
+    },
+    "fourniture_materiel": {
+      "libelle": "Fourniture de matériel et équipement",
+      "description": "Achat de matériel d'équipement hors IT et hors fournitures consommables : machines, mobilier, véhicules à l'unité, équipements de cuisine, équipements sportifs, instruments.",
+      "exemples_oui": [
+        "Fourniture et installation de centres d'usinage",
+        "Achat de mobilier scolaire",
+        "Acquisition d'équipements de cuisine professionnelle",
+        "Fourniture d'équipements sportifs"
+      ],
+      "exemples_non": [
+        "Achat consommables (→ fourniture_consommables)",
+        "Matériel IT (→ it_infrastructure_cloud ou fourniture_consommables selon échelle)",
+        "Location véhicules (→ transport_logistique_vehicules)"
+      ]
+    },
+    "fourniture_consommables": {
+      "libelle": "Fourniture de consommables",
+      "description": "Papeterie, fournitures de bureau, EPI équipements de protection individuelle, consommables récurrents, produits d'hygiène, petits matériels.",
+      "exemples_oui": [
+        "Marché de fournitures de bureau",
+        "Acquisition d'EPI pour les agents",
+        "Produits d'entretien pour les services"
+      ],
+      "exemples_non": [
+        "Équipement durable (→ fourniture_materiel)"
+      ]
+    },
+    "assurance": {
+      "libelle": "Assurances",
+      "description": "Marchés d'assurances : multirisques, dommages ouvrage, responsabilité civile, automobile, construction, flotte.",
+      "exemples_oui": [
+        "Souscription des marchés d'assurance construction",
+        "Renouvellement marché assurance flotte automobile",
+        "Marché d'assurance dommages ouvrage"
+      ],
+      "exemples_non": [
+        "Conseil financier (→ conseil_financier_audit)"
+      ]
+    },
+    "evenementiel_culture": {
+      "libelle": "Événementiel et culture",
+      "description": "Organisation d'événements, spectacles vivants, animations culturelles, festivals, expositions.",
+      "exemples_oui": [
+        "Organisation du festival d'été municipal",
+        "Production d'un spectacle vivant",
+        "Animation d'expositions temporaires"
+      ],
+      "exemples_non": [
+        "Communication pure (→ conseil_communication)"
+      ]
+    },
+    "prestations_speciales_titres_cheques": {
+      "libelle": "Titres, chèques cadeau, titres restaurant",
+      "description": "Marchés de fourniture de chèques cadeau, chèques d'accompagnement personnalisé, titres restaurant dématérialisés, titres CESU.",
+      "exemples_oui": [
+        "Fourniture de chèques d'accompagnement personnalisé",
+        "Marché de titres restaurant dématérialisés",
+        "Fourniture de cartes cadeau multi-enseignes pour bénéficiaires"
+      ],
+      "exemples_non": [
+        "Action sociale pure (→ insertion_sociale_mediation)"
+      ]
+    },
+    "autre": {
+      "libelle": "Autre / hors taxonomie",
+      "description": "À utiliser UNIQUEMENT si le marché ne peut être rattaché à aucune des classes ci-dessus avec un minimum de pertinence. Justifier brièvement dans le champ `raison_classification`.",
+      "exemples_oui": [
+        "Marchés très atypiques sans catégorie évidente"
+      ],
+      "exemples_non": [
+        "TOUS les marchés qui rentrent dans une classe ci-dessus, même approximativement"
+      ]
+    }
+  }
+}

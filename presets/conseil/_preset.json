@@ -1,0 +1,156 @@
+{
+  "meta": {
+    "code": "conseil",
+    "nom": "Conseil — Stratégie, juridique, financier, communication, SI",
+    "etiquette_courte": "Conseil",
+    "description": "Marchés publics de prestations de conseil : stratégie/organisation, accompagnement juridique, audit financier, communication, schémas directeurs SI.",
+    "version": 1,
+    "qualite": "mvp",
+    "_notes": "Preset créé Sprint Sprint 2 pour cibler les cabinets de conseil. Large car couvre 5 sous-domaines distincts (stratégie, juridique, financier, com, SI)."
+  },
+  "veille": {
+    "description": "Critères de filtrage Conseil.",
+    "domaines_acceptes": [
+      "conseil_strategie_organisation",
+      "conseil_juridique",
+      "conseil_financier_audit",
+      "conseil_communication",
+      "conseil_si_data"
+    ],
+    "domaines_optionnels": [
+      "formation_management_softskills",
+      "moe_architecte_urbanisme"
+    ],
+    "mots_cles_inclusion": [
+      "conseil",
+      "stratégie",
+      "audit",
+      "diagnostic",
+      "schéma directeur",
+      "accompagnement à la transformation",
+      "AMO",
+      "AMOA",
+      "assistance à maîtrise d'ouvrage",
+      "expertise juridique",
+      "contentieux",
+      "expertise comptable",
+      "contrôle de gestion",
+      "communication institutionnelle",
+      "RGPD",
+      "gouvernance"
+    ],
+    "mots_cles_exclusion": [],
+    "cpv_inclusion": [
+      "79*",
+      "73*",
+      "71*"
+    ]
+  },
+  "vocabulaire_llm": {
+    "secteur_libelle": "marchés publics de prestations de conseil (stratégie, accompagnement juridique, audit financier, communication, conseil SI)",
+    "type_pieces_dce_typiques": "d'un Règlement de Consultation (RC), d'un CCTP décrivant la mission, parfois d'un BPU en jours-consultant",
+    "type_repondant": "cabinet de conseil ou expert indépendant",
+    "unite_principale_facturation": "jour-consultant / forfait mission / livrable",
+    "references_attendues": "références de missions de conseil similaires (typologie, taille du client, complexité)",
+    "alertes_typiques": [
+      "expertise sectorielle exigée (santé, éducation, secteur public)",
+      "habilitation à exercer (avocat, expert-comptable inscrit)",
+      "experience référencée dans le domaine",
+      "équipe avec des profils minimums (chef de mission, consultants)",
+      "confidentialité et clause de non-conflit"
+    ]
+  },
+  "prompt_extraction": {
+    "bloc_schema_specifique": "  \"caracteristiques_mission\": {\n    \"typologie_mission\": \"audit, stratégie, accompagnement, expertise, AMO\",\n    \"domaine_expertise\": \"juridique, organisation, finances, com, SI, etc.\",\n    \"livrables_attendus\": [\"livrable 1\", \"livrable 2\"],\n    \"duree_mission\": \"durée en mois\",\n    \"jours_consultant_estimes\": null,\n    \"methodologie_attendue\": \"Méthodologie de mission attendue (ex: 'phase de cadrage + ateliers thématiques + COMOP mensuels + COPIL trimestriel + restitution finale', 'audit documentaire + entretiens semi-directifs + benchmark + restitution'). null si non précisé.\",\n    \"livrables_par_phase\": [\n      {\n        \"phase\": \"Ex: 'Phase 1 — Diagnostic', 'Phase 2 — Préconisations', 'Phase 3 — Restitution'\",\n        \"livrables\": [\"Liste des livrables attendus pour cette phase\"]\n      }\n    ],\n    \"jours_consultant_par_profil\": [\n      {\n        \"profil\": \"Ex: 'Consultant senior', 'Consultant junior', 'Expert thématique'\",\n        \"nb_jours_min\": null,\n        \"nb_jours_max\": null\n      }\n    ],\n    \"accompagnement_apres\": \"Durée et nature du suivi post-livraison si précisé (ex: 'support 3 mois post-restitution', 'transfert de compétences sur 1 mois'). null sinon.\"\n  },\n  \"profils_intervenants\": {\n    \"description\": \"Profils requis pour la mission\",\n    \"chef_de_mission\": {\n      \"_commentaire\": \"Recopie le résumé brut du RC si présent ('Chef de mission expérimenté senior 10 ans...'). Sinon, structure ci-dessous.\",\n      \"anciennete_min_annees\": null,\n      \"secteur_experience\": \"Ex: 'secteur public collectivités territoriales', 'organisations publiques santé'\",\n      \"taux_dedie_pct\": null,\n      \"certifs_requises\": []\n    },\n    \"consultants\": [\n      {\n        \"profil\": \"Ex: 'Consultant senior', 'Consultant junior', 'Expert métier'\",\n        \"nombre\": null,\n        \"anciennete_min_annees\": null\n      }\n    ]\n  }",
+    "regles_specifiques": "- Distinguer AMO/AMOA (assistance à maîtrise d'ouvrage) qui est du conseil avec un livrable méthodologique des marchés purement de conseil stratégique.\n- Pour le conseil juridique, repérer s'il faut être avocat (inscription Ordre).\n- Pour l'audit, repérer s'il faut un commissaire aux comptes inscrit.",
+    "exemples_elements_a_chiffrer": "\"Ex: 'TJM par profil (chef de mission, senior, junior)'\",\n        \"Ex: 'Jours-consultant par phase'\",\n        \"Ex: 'Forfait global au livrable'\"",
+    "hints_calcul_montant": "Mots-clés : \"TJM consultant\", \"jour-consultant\", \"forfait mission\", \"livrable\"."
+  },
+  "prompt_calibration": {
+    "secteur_libelle_court": "Conseil",
+    "section_qualification_intervenants": "a. **Séniorité des consultants** : junior, confirmé, senior, partner. TJM varie fortement (350€ à 1500€).",
+    "section_duree_effective": "b. **Charge en jours-consultant** : sommer les jours par profil sur la durée de la mission.",
+    "section_coefficient_complexite": "c. **Coefficient de complexité** :\n   - Mission standard : ×1.0\n   - Sujet sensible (transformation lourde, M&A) : ×1.2 - 1.4\n   - Multi-parties prenantes nombreuses : ×1.15 - 1.30",
+    "section_re_pricing": "ÉTAPE 1bis — **DÉCOMPOSITION PROFIL × CHARGE** : Total = somme(TJM_profil × jours_profil) + frais + marge.",
+    "section_top_down": "ÉTAPE 1 — **ESTIMATION TOP-DOWN sur comparables DECP** : pour chaque comparable, diviser le montant par les jours-consultant ou par livrable. Si la charge est inconnue, exclure."
+  },
+  "calibration_llm": {
+    "baremes_horaires_eur": {
+      "consultant_junior": [
+        400,
+        600
+      ],
+      "consultant_confirme": [
+        700,
+        1000
+      ],
+      "consultant_senior_expert": [
+        1000,
+        1400
+      ],
+      "partner_directeur": [
+        1300,
+        1800
+      ],
+      "avocat_collaborateur": [
+        600,
+        900
+      ],
+      "avocat_associe": [
+        1200,
+        1800
+      ],
+      "expert_comptable_audit": [
+        800,
+        1200
+      ]
+    },
+    "marge_prestataire_pct": [
+      20,
+      35
+    ],
+    "unites_typiques": [
+      "jour-consultant",
+      "TJM",
+      "forfait mission",
+      "livrable"
+    ]
+  },
+  "matching": {
+    "alertes_critiques": [
+      {
+        "cle": "inscription_ordre",
+        "libelle_court": "Inscription Ordre (avocat, expert-comptable, etc.)",
+        "type": "contains_in_profil_bool",
+        "profil_attr": "qualifications.inscription_ordre"
+      },
+      {
+        "cle": "references_sectorielles",
+        "libelle_court": "Références sectorielles exigées",
+        "type": "references_minimum",
+        "profil_attr": "references.nombre_par_secteur"
+      },
+      {
+        "cle": "ca_minimum",
+        "libelle_court": "Chiffre d'affaires minimum",
+        "type": "ca_minimum",
+        "profil_attr": "finances.ca_annuel_eur"
+      }
+    ],
+    "seuils_score": {
+      "tres_pertinent": 75,
+      "pertinent": 50,
+      "a_verifier": 20
+    }
+  },
+  "taxonomie": {
+    "categories_metier": [
+      "strategie_organisation",
+      "juridique",
+      "financier",
+      "communication",
+      "si_data",
+      "autre"
+    ]
+  }
+}

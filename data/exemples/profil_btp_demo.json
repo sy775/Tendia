@@ -1,0 +1,226 @@
+{
+  "id": "principal",
+  "_description": "PROFIL DE DEMO BTP — entreprise generale du batiment 50-100 ETP, region IDF + Hauts-de-France. À adapter avec tes vraies données avant utilisation. Une fois rempli, importer via : python init_profil.py --depuis data/exemples/profil_btp_demo.json",
+  "_creation": "2026-06-12T12:00:00+00:00",
+  "_version_schema": "1.0",
+  "identite": {
+    "raison_sociale": "EXEMPLE BTP SAS",
+    "forme_juridique": "SAS",
+    "siren": "000000000",
+    "siret_siege": "00000000000000",
+    "naf_principal": "4399C",
+    "effectif_salaries": 75,
+    "annee_creation": 2008,
+    "tva_intracom": "FR00000000000",
+    "adresse_siege": {
+      "rue": "12 avenue de la Construction",
+      "code_postal": "93200",
+      "ville": "Saint-Denis",
+      "departement": "93"
+    },
+    "site_web": "https://exemple-btp.fr",
+    "contact_AO": {
+      "nom": "DUPONT Marie",
+      "fonction": "Responsable Appels d'Offres",
+      "email": "ao@exemple-btp.fr",
+      "telephone": "+33 1 23 45 67 89"
+    }
+  },
+  "zones_intervention": ["75", "77", "78", "91", "92", "93", "94", "95", "59", "62"],
+  "capacite_globale": {
+    "ca_annuel_n_moins_1": 14500000,
+    "ca_annuel_n_moins_2": 13200000,
+    "ca_annuel_n_moins_3": 11800000,
+    "fonds_propres": 3500000,
+    "effectif_total_etp": 75,
+    "capacite_engagement_simultane": 8000000,
+    "seuil_minimum_marche_eur": 80000
+  },
+  "economie": {
+    "marge_brute_cible_pct": 12,
+    "taux_journalier_moyen_eur": null,
+    "frais_de_structure_pct": 18,
+    "agressivite_commerciale": "neutre"
+  },
+  "mots_cles_catalogue": [
+    "rehabilitation",
+    "renovation",
+    "gros oeuvre",
+    "second oeuvre",
+    "etablissement scolaire",
+    "etablissement de sante",
+    "logement social",
+    "patrimoine",
+    "amiante",
+    "voirie communale"
+  ],
+  "presets_couverts": ["btp"],
+  "profils_sectoriels": {
+    "btp": {
+      "qualifications": {
+        "qualibat": [
+          "1311",
+          "2112",
+          "2311",
+          "3431",
+          "4431",
+          "5413",
+          "6112"
+        ],
+        "rge": {
+          "detenue": true,
+          "specialites": ["Qualibat RGE 8611"],
+          "validite_jusqu": "2027-09-30"
+        },
+        "mase": {
+          "detenue": true,
+          "validite_jusqu": "2027-12-31"
+        },
+        "amiante": {
+          "ss3": false,
+          "ss4": true,
+          "validite_jusqu": "2027-06-30"
+        },
+        "opqibi": [],
+        "iso_9001": true,
+        "iso_14001": true,
+        "iso_45001": false,
+        "autres": ["NF Habitat HQE", "Effinergie+"]
+      },
+      "corps_de_metier": [
+        "gros_oeuvre",
+        "demolition",
+        "menuiseries_exterieures",
+        "menuiseries_interieures",
+        "cloisons_doublages",
+        "sols_durs",
+        "sols_souples",
+        "peinture",
+        "couverture",
+        "etancheite"
+      ],
+      "types_ouvrages": [
+        "batiment_administratif",
+        "etablissement_scolaire",
+        "etablissement_sante",
+        "logement_social",
+        "patrimoine_classe"
+      ],
+      "types_clients_publics": [
+        "commune",
+        "communaute_communes",
+        "communaute_agglo",
+        "conseil_departemental",
+        "conseil_regional",
+        "etablissement_public_local",
+        "sante_etablissement_local"
+      ],
+      "capacite_chantiers": {
+        "ca_btp_annuel": 14500000,
+        "montant_max_par_chantier": 6000000,
+        "nb_chantiers_simultanes_max": 8,
+        "effectif_chantier_etp": 55,
+        "rayon_intervention_km": 150
+      },
+      "rh_chantier": {
+        "encadrement": {
+          "conducteurs_travaux": 4,
+          "chefs_chantier": 8,
+          "chefs_equipe": 12
+        },
+        "operationnels": {
+          "compagnons_qualifies": 28,
+          "ouvriers_non_qualifies": 6,
+          "apprentis": 4
+        },
+        "habilitations_diverses": [
+          "AIPR encadrant",
+          "AIPR operateur",
+          "Travail en hauteur",
+          "CACES R482 cat A/B/C",
+          "Habilitations electriques B0/H0",
+          "SST"
+        ]
+      },
+      "moyens_materiels": [
+        "pelle 8t (2)",
+        "pelle 25t (1)",
+        "compresseur 50bar",
+        "echafaudage roulant 12m (4 ensembles)",
+        "centrale beton 50m3/h mobile",
+        "atelier menuiserie integre"
+      ],
+      "references_chantiers": [
+        {
+          "annee": 2025,
+          "client": "Conseil Departemental 93",
+          "ouvrage": "Renovation thermique college Jean-Moulin",
+          "type_ouvrage": "etablissement_scolaire",
+          "corps_etat": ["gros_oeuvre", "menuiseries_exterieures", "etancheite", "peinture"],
+          "montant_eur_ht": 4200000,
+          "duree_mois": 14,
+          "statut": "livre",
+          "notes": "Site occupe pendant travaux, phasage par batiment, clause insertion 800h"
+        },
+        {
+          "annee": 2024,
+          "client": "Ville de Saint-Denis",
+          "ouvrage": "Rehabilitation hotel de ville (patrimoine classe)",
+          "type_ouvrage": "patrimoine_classe",
+          "corps_etat": ["gros_oeuvre", "couverture", "menuiseries_exterieures"],
+          "montant_eur_ht": 5800000,
+          "duree_mois": 22,
+          "statut": "livre",
+          "notes": "Coordination ABF, materiaux specifiques (pierre de Saint-Maximin)"
+        },
+        {
+          "annee": 2024,
+          "client": "Communaute d'agglo Plaine Commune",
+          "ouvrage": "Construction creche 60 berceaux",
+          "type_ouvrage": "etablissement_sante",
+          "corps_etat": ["gros_oeuvre", "second_oeuvre", "menuiseries_interieures"],
+          "montant_eur_ht": 2900000,
+          "duree_mois": 11,
+          "statut": "livre",
+          "notes": "Certification BBC, materiaux biosources 30%"
+        },
+        {
+          "annee": 2023,
+          "client": "OPH Seine-Saint-Denis Habitat",
+          "ouvrage": "Renovation thermique 80 logements collectifs",
+          "type_ouvrage": "logement_social",
+          "corps_etat": ["menuiseries_exterieures", "isolation_thermique_exterieure", "etancheite"],
+          "montant_eur_ht": 3200000,
+          "duree_mois": 9,
+          "statut": "livre",
+          "notes": "Site occupe, phasage par cage d'escalier, clause insertion 600h"
+        }
+      ],
+      "pratiques_specifiques": {
+        "clause_insertion_sociale": {
+          "pratiquee": true,
+          "heures_realisees_annee": 3200,
+          "partenaires": [
+            "Mission Locale Saint-Denis",
+            "PLIE Plaine Commune",
+            "Association ARES SIAE"
+          ]
+        },
+        "demarche_environnementale": {
+          "label_rse": "Engage RSE AFNOR niveau confirme",
+          "bilan_carbone_realise": true,
+          "filieres_dechets_tracees": true,
+          "materiaux_biosources_pratiques": true
+        },
+        "bim": {
+          "pratique": true,
+          "niveau_max": "LOD 300"
+        }
+      }
+    }
+  },
+  "auto_reponses_exigences": {
+    "attestation_russie": "Nous attestons sur l'honneur ne pas etre soumis aux mesures restrictives europeennes vis-a-vis de la Russie au titre du reglement (UE) 833/2014.",
+    "visite_obligatoire": "Notre conducteur de travaux et notre chef d'agence se rendront a la visite obligatoire, equipes d'EPI complets et munis d'une piece d'identite a presenter."
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "prix_unitaire_estime": {
+    "unite": "mission AMO forfaitaire (prix global et forfaitaire — unité = mission complète)",
+    "mediane_eur": 427500,
+    "min_eur": 285000,
+    "max_eur": 570000,
+    "methode_fourchette": "Bottom-up seul (pas de comparables DECP)",
+    "bottom_up": {
+      "qualification_intervenants": "Experts AMO / programmistes / conducteurs d'opération BAC+5 + 5 ans d'expérience minimum, avec spécialistes cotraitants (économiste de la construction, ingénieur TCE, ingénieur restauration collective, acousticien). Niveau retenu : Expert/spécialisation pointue. Taux horaire chargé retenu : 75–100 €/h pour le mandataire programmiste/conducteur d'opération ; 65–85 €/h pour les cotraitants spécialisés. Taux moyen pondéré de l'équipe retenu : 70 €/h (bas) à 95 €/h (haut).",
+      "cout_horaire_retenu_eur": "70 €/h (hypothèse basse) — 95 €/h (hypothèse haute), moyenne pondérée équipe pluridisciplinaire",
+      "heures_effectives_par_unite": "Décomposition par phase de la mission AMO sur ~5,5 ans (mi-2025 à fin 2030) : Phase 1 Programmation : 120h–200h (diagnostic, études, livrables programme) ; Phase 2 Suivi passation MOE : 60h–100h (rédaction DCE MOE, analyse offres, mise au point marché) ; Phase 3 Suivi conception (APD/PRO/DCE travaux) : 150h–250h (réunions conception, validation études, rédaction DCE travaux multi-lots CES) ; Phase 4 Suivi réalisation travaux (phasée sur ~3 ans, site occupé multi-bâtiments) : 400h–700h (réunions de chantier hebdomadaires ~1,5h × 150 semaines × 0,5 présence AMO = 112h minimum ; suivi administratif, situations de travaux, gestion aléas site occupé, coordination avec usagers) ; Phase 5 Suivi post-réception (levée réserves, DOE, parfait achèvement) : 40h–80h ; Phase 6 Prestations transverses (coordination, reporting maître d'ouvrage, réunions bilan) : 80h–150h. TOTAL heures chef de mission : 850h (bas) — 1 480h (haut). Heures cotraitants spécialisés (économiste construction, ingénieur TCE, restauration collective, acoustique) : 200h–400h supplémentaires au total équipe.",
+      "coef_complexite": "1.20 — opération multi-bâtiments de différentes époques, site occupé (contraintes fortes de phasage et de coordination avec les usagers en activité), intérêt patrimonial (Versailles, contraintes ABF probables), durée longue (5,5 ans), 6 lots/typologies de travaux distincts, marchés publics en corps d'état séparés (rédaction administrative lourde). Ce coefficient majorant est appliqué sur le volume d'heures pour traduire la surcharge liée à la complexité.",
+      "calcul": "HYPOTHÈSE BASSE : Heures chef de mission : 850h × 70 €/h = 59 500 € ; Heures cotraitants : 200h × 65 €/h = 13 000 € ; Sous-total coûts directs = 72 500 € ; Application coef complexité ×1.20 = 87 000 € ; Frais de déplacement/reprographie/livrables = 5 000 € ; Marge prestataire 15% sur 87 000 € = 13 050 € ; TOTAL BAS = 87 000 + 5 000 + 13 050 = 105 050 € — CE CHIFFRE SEMBLE SOUS-ESTIMÉ par rapport au ratio % travaux, voir ajustement ci-dessous. RAISONNEMENT PAR RATIO DE CONTRÔLE : Coût travaux 19 M€ HT. Ratio AMO programmation + conduite d'opération constaté sur opérations similaires (bâtiments publics complexes, site occupé, multi-lots) : 1,5% à 3,0%. Borne basse : 19 000 000 × 1,5% = 285 000 € HT. Borne haute : 19 000 000 × 3,0% = 570 000 € HT. Médiane : 427 500 € HT. RÉCONCILIATION AVEC LE BOTTOM-UP HORAIRE : L'écart entre le bottom-up horaire brut (105 k€) et le ratio (285–570 k€) s'explique par une sous-estimation des heures effectives totales équipe. En remontant depuis le ratio : à 427 500 € médiane, avec taux horaire moyen 82 €/h et coef complexité 1.20, cela implique environ 4 340 heures équipe complète sur 5,5 ans, soit ~790 h/an pour une équipe de 2 à 3 ETP partiels — ce qui est cohérent avec une mission AMO de cette ampleur. Le ratio % des travaux est ici le calibrage dominant et le plus défendable.",
+      "fourchette_eur": "285 000 € – 570 000 € HT"
+    },
+    "unit_repricing": {
+      "_commentaire": "Non applicable — le marché est à prix global et forfaitaire, non décomposé par session ou bénéficiaire. L'unité est la mission AMO dans son intégralité."
+    },
+    "top_down": null,
+    "triangulation": "Bottom-up seul — pas de top-down possible sans comparables DECP en base. Le ratio % du coût des travaux (1,5%–3,0%) sert de contrôle de cohérence interne et converge avec l'estimation. La validation externe par triangulation sur comparables DECP sera possible quand la base sera ingérée.",
+    "hypotheses": "L'estimation repose sur le ratio AMO/travaux (1,5%–3,0%) appliqué aux 19 M€ HT de travaux, calibré sur la complexité de l'opération (site occupé, multi-bâtiments, patrimoine, durée 5,5 ans). La fourchette est cohérente avec un volume horaire total équipe d'environ 3 000 à 5 500 heures sur la durée du marché.",
+    "ajustements_appliques": "Majoration complexité ×1.20 appliquée sur le volume horaire brut pour site occupé, patrimoine et multi-bâtiments. Le ratio % travaux retenu (1,5%–3,0%) intègre déjà les spécificités d'une opération de réhabilitation complexe en milieu public. Pas de majoration géographique Île-de-France explicite (déjà inclus dans les taux horaires retenus).",
+    "confiance": "faible",
+    "limites": "Aucun comparable DECP disponible : l'estimation est purement théorique, non validée par des marchés réellement attribués sur des opérations similaires. Le coût estimatif des travaux (19 M€ HT) est déclaratif et non vérifié ; une révision à la hausse ou à la baisse impacte directement la fourchette AMO. Le périmètre exact des 6 phases de mission n'est pas totalement détaillé dans les pièces fournies, ce qui peut entraîner une sous-estimation si des prestations transverses importantes sont exigées. L'inflation des coûts de prestation intellectuelle en Île-de-France (2024-2025) et la tension sur les profils AMO expérimentés peuvent pousser les offres vers la borne haute, voire au-delà."
+  },
+  "fourchette_marche_total_estimee": {
+    "min_eur": 285000,
+    "max_eur": 570000,
+    "calcul": "Marché à prix global et forfaitaire (1 seule unité = la mission complète). La fourchette marché total est identique à la fourchette du prix unitaire. Ratio de contrôle : 285 000 € = 19 M€ × 1,5% ; 570 000 € = 19 M€ × 3,0% ; médiane 427 500 € = 19 M€ × 2,25%.",
+    "scenarios": {
+      "bas": {
+        "montant_eur": 285000,
+        "hypothese": "Ratio 1,5% des travaux. Mission AMO réalisée par un prestataire compact (1 mandataire + sous-traitants légers), périmètre strictement limité aux 6 phases décrites, peu d'aléas de coordination, opération bien maîtrisée."
+      },
+      "realiste": {
+        "montant_eur": 427500,
+        "hypothese": "Ratio 2,25% des travaux. Mission AMO complète avec équipe pluridisciplinaire (mandataire + 3-4 cotraitants), complexité site occupé et patrimoine pleinement prise en compte, durée effective 5,5 ans avec surcoûts de coordination habituels sur opération phasée."
+      },
+      "haut": {
+        "montant_eur": 570000,
+        "hypothese": "Ratio 3,0% des travaux. Mission AMO avec équipe senior renforcée, forte densité de livrables (CCTP détaillés par corps d'état, analyses de risques, études préalables), nombreuses itérations avec le maître d'ouvrage, aléas liés au site occupé (Versailles, contraintes patrimoniales ABF, phasage complexe), et dépassement partiel du calendrier prévisionnel."
+      }
+    }
+  },
+  "_mode_calibration": "bottom_up_seul",
+  "_meta": {
+    "date_calibration": "2026-06-11T17:21:56.658977+00:00",
+    "mode": "bottom_up_seul",
+    "n_comparables_utilises": 0,
+    "note": "Calibration dégradée — pas de comparables DECP en base. Relancer en mode 'triangule' quand DECP sera ingéré pour upgrade."
+  }
+}
