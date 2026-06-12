@@ -1,0 +1,132 @@
+{% extends "base.html" %}
+{% block title %}Profils — Tendia{% endblock %}
+
+{% macro preset_chips(presets) %}
+  {% for p in presets %}<span class="apt-chip apt-chip-accent apt-chip-mono">{{ p }}</span> {% endfor %}
+  {% if not presets %}<span class="apt-meta">—</span>{% endif %}
+{% endmacro %}
+
+{% block content %}
+<div class="px-10 py-10 apt-mw-1180" style="margin: 0 auto;">
+
+  <div class="flex items-end justify-between mb-8">
+    <div>
+      <div class="apt-eyebrow mb-1">Organisme</div>
+      <h1 class="apt-display apt-fs-34">Profils</h1>
+      <p class="apt-prose mt-2" style="max-width: 640px;">
+        Le profil <strong>actif</strong> alimente le matching de tous les marchés.
+        Gérez ici votre bibliothèque, activez un profil, ou partez d'un exemple livré.
+      </p>
+    </div>
+    <a href="{{ url_for('profil_importer') }}" class="apt-btn apt-btn-ghost">＋ Importer un profil JSON</a>
+  </div>
+
+  {# ---------- Carte profil actif ---------- #}
+  {% if profil_actif %}
+  <div class="apt-block apt-active-glow px-8 py-7 mb-10">
+    <div class="flex items-start justify-between">
+      <div>
+        <div class="apt-label" style="color: var(--apt-accent-2);">Profil actif</div>
+        <div class="apt-display-md apt-fs-22 mt-1">
+          {{ profil_actif.identite.raison_sociale or profil_actif.identite.nom or '(sans nom)' }}
+        </div>
+        <div class="mt-3">{{ preset_chips(profil_actif.presets_couverts) }}</div>
+        <div class="apt-meta mt-3">
+          Zones : {{ (profil_actif.zones_intervention or [])|join(', ') or '—' }}
+          {% if profil_actif.capacite_globale and profil_actif.capacite_globale.ca_annuel_n_moins_1 %}
+            &nbsp;·&nbsp; CA N-1 : {{ '{:,.0f}'.format(profil_actif.capacite_globale.ca_annuel_n_moins_1)|replace(',', ' ') }} €
+          {% endif %}
+        </div>
+      </div>
+      <div class="flex flex-col gap-2 apt-nowrap">
+        {% if actif_id %}
+        <a href="{{ url_for('profil_edit', id=actif_id) }}" class="apt-btn apt-btn-accent">Éditer</a>
+        <a href="{{ url_for('profil_detail', source='bibliotheque', id=actif_id) }}" class="apt-btn apt-btn-ghost">Voir détail</a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  {% else %}
+  <div class="apt-block px-8 py-7 mb-10">
+    <div class="apt-prose">Aucun profil actif. Activez un profil d'exemple ci-dessous, ou importez un JSON.</div>
+  </div>
+  {% endif %}
+
+  {# ---------- Bibliothèque ---------- #}
+  <div class="mb-3 flex items-center gap-3">
+    <span class="apt-accent-rule"></span>
+    <h2 class="apt-display-sm apt-fs-18">Mes profils</h2>
+    <span class="apt-meta">{{ bibliotheque|length }}</span>
+  </div>
+  <div class="apt-block mb-10">
+    {% if not bibliotheque %}
+      <div class="px-8 py-6 apt-prose">Bibliothèque vide.</div>
+    {% else %}
+      {% for p in bibliotheque %}
+      <div class="px-8 py-5" style="border-top: 1px solid var(--apt-line-2); {% if loop.first %}border-top: 0;{% endif %}">
+        <div class="flex items-center justify-between">
+          <div>
+            <div class="flex items-center gap-3">
+              <span class="apt-display-sm apt-fs-16">{{ p.raison_sociale }}</span>
+              {% if p.est_actif %}<span class="apt-verdict apt-verdict-tres-pertinent"><span class="dot"></span>ACTIF</span>{% endif %}
+              <span class="apt-meta apt-mono">{{ p.id }}</span>
+            </div>
+            <div class="mt-2">{{ preset_chips(p.presets_couverts) }}</div>
+            {% if p.mis_a_jour_le %}<div class="apt-meta mt-1">màj {{ p.mis_a_jour_le[:10] }}</div>{% endif %}
+          </div>
+          <div class="flex items-center gap-2 apt-nowrap">
+            <a href="{{ url_for('profil_detail', source='bibliotheque', id=p.id) }}" class="apt-btn apt-btn-ghost">Voir</a>
+            {% if not p.est_actif %}
+            <form method="post" action="{{ url_for('profil_activer', source='bibliotheque', id=p.id) }}">
+              <button type="submit" class="apt-btn apt-btn-accent">Activer</button>
+            </form>
+            {% endif %}
+            <a href="{{ url_for('profil_edit', id=p.id) }}" class="apt-btn apt-btn-ghost">Éditer</a>
+            <form method="post" action="{{ url_for('profil_dupliquer', source='bibliotheque', id=p.id) }}">
+              <button type="submit" class="apt-btn apt-btn-ghost">Dupliquer</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    {% endif %}
+  </div>
+
+  {# ---------- Exemples ---------- #}
+  <div class="mb-3 flex items-center gap-3">
+    <span class="apt-accent-rule"></span>
+    <h2 class="apt-display-sm apt-fs-18">Profils d'exemple</h2>
+    <span class="apt-meta">{{ exemples|length }}</span>
+  </div>
+  <div class="apt-block">
+    {% if not exemples %}
+      <div class="px-8 py-6 apt-prose">Aucun exemple livré.</div>
+    {% else %}
+      {% for p in exemples %}
+      <div class="px-8 py-5" style="border-top: 1px solid var(--apt-line-2); {% if loop.first %}border-top: 0;{% endif %}">
+        <div class="flex items-center justify-between">
+          <div>
+            <div class="flex items-center gap-3">
+              <span class="apt-display-sm apt-fs-16">{{ p.raison_sociale }}</span>
+              <span class="apt-chip apt-chip-outline apt-fs-10_5">EXEMPLE</span>
+              <span class="apt-meta apt-mono">{{ p.id }}</span>
+            </div>
+            <div class="mt-2">{{ preset_chips(p.presets_couverts) }}</div>
+          </div>
+          <div class="flex items-center gap-2 apt-nowrap">
+            <a href="{{ url_for('profil_detail', source='exemple', id=p.id) }}" class="apt-btn apt-btn-ghost">Voir</a>
+            <form method="post" action="{{ url_for('profil_activer', source='exemple', id=p.id) }}">
+              <button type="submit" class="apt-btn apt-btn-accent">Activer</button>
+            </form>
+            <form method="post" action="{{ url_for('profil_dupliquer', source='exemple', id=p.id) }}">
+              <button type="submit" class="apt-btn apt-btn-ghost">Dupliquer</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    {% endif %}
+  </div>
+
+</div>
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block title %}Importer un profil — Tendia{% endblock %}
+
+{% block content %}
+<div class="px-10 py-10 apt-mw-1180" style="margin: 0 auto; max-width: 820px;">
+
+  <a href="{{ url_for('page_profil') }}" class="apt-link apt-fs-13">← Tous les profils</a>
+
+  <h1 class="apt-display apt-fs-34 mt-4 mb-2">Importer un profil JSON</h1>
+  <p class="apt-prose mb-6" style="max-width: 640px;">
+    Collez le JSON d'un profil, ou téléversez un fichier <code>.json</code>. Le profil est
+    validé puis ajouté à votre bibliothèque (sans l'activer). L'identifiant est dérivé de la
+    raison sociale.
+  </p>
+
+  {% if erreurs %}
+  <div class="apt-block px-5 py-4 mb-6" style="border-left: 4px solid var(--apt-rose); background: var(--apt-rose-soft);">
+    <div class="apt-label" style="color: var(--apt-rose);">Import refusé</div>
+    <ul class="mt-2 apt-fs-13" style="list-style: disc; padding-left: 20px;">
+      {% for e in erreurs %}<li>{{ e }}</li>{% endfor %}
+    </ul>
+  </div>
+  {% endif %}
+
+  <form method="post" enctype="multipart/form-data" class="apt-block px-7 py-6">
+    <label class="apt-label">Fichier JSON</label>
+    <input type="file" name="fichier" accept=".json,application/json" class="block mt-2 mb-6 apt-fs-13">
+
+    <label class="apt-label">… ou coller le JSON</label>
+    <textarea name="contenu_json" rows="18" spellcheck="false"
+      class="apt-mono apt-fs-12_5 w-full mt-2 p-3"
+      style="background: var(--apt-pure); border: 1px solid var(--apt-line); border-radius: 8px;"
+      placeholder='{ "id": "...", "identite": { "raison_sociale": "..." }, ... }'>{{ contenu }}</textarea>
+
+    <div class="mt-6 flex gap-3">
+      <button type="submit" class="apt-btn apt-btn-accent">Importer</button>
+      <a href="{{ url_for('page_profil') }}" class="apt-btn apt-btn-ghost">Annuler</a>
+    </div>
+  </form>
+
+</div>
+{% endblock %}

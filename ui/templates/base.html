@@ -736,7 +736,7 @@
         <div class="apt-divider mb-5" style="opacity: 0.5;"></div>
         <div class="apt-label" style="font-size: 9.5px;">Profil actif</div>
         <div class="mt-2 apt-display-sm leading-tight" style="font-size: 14.5px; color: var(--apt-ink);">
-          {{ organisme.identite.nom or '—' }}
+          {{ organisme.identite.raison_sociale or organisme.identite.nom or '—' }}
         </div>
       </div>
       {% endif %}
@@ -747,6 +747,19 @@
     <!--  Main                                                          -->
     <!-- ============================================================== -->
     <main class="flex-1 ml-60 min-h-screen apt-main">
+      {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        <div class="px-10 pt-6 apt-mw-1180" style="margin: 0 auto;">
+          {% for cat, msg in messages %}
+          <div class="apt-block px-5 py-3 mb-3 apt-fs-13_5"
+               style="border-left: 4px solid {% if cat == 'erreur' %}var(--apt-rose){% else %}var(--apt-accent){% endif %};
+                      background: {% if cat == 'erreur' %}var(--apt-rose-soft){% else %}var(--apt-accent-soft){% endif %};">
+            {{ msg }}
+          </div>
+          {% endfor %}
+        </div>
+        {% endif %}
+      {% endwith %}
       {% block content %}{% endblock %}
     </main>
 

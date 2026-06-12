@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+{% block title %}{{ profil.identite.raison_sociale or 'Profil' }} — Tendia{% endblock %}
+
+{# Rendu récursif d'une valeur quelconque (lecture seule). #}
+{% macro rendre(v) %}
+  {% if v is mapping %}
+    <table class="w-full apt-fs-13" style="border-collapse: collapse;">
+      {% for k, val in v.items() %}
+      <tr style="border-top: 1px solid var(--apt-line-3);">
+        <td class="apt-label py-1.5 pr-4" style="vertical-align: top; width: 38%;">{{ k }}</td>
+        <td class="py-1.5" style="vertical-align: top;">{{ rendre(val) }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+  {% elif v is sequence and v is not string %}
+    {% if v|length == 0 %}<span class="apt-meta">—</span>
+    {% elif v[0] is mapping %}
+      {% for item in v %}
+        <div class="apt-block-soft px-3 py-2 mb-2">{{ rendre(item) }}</div>
+      {% endfor %}
+    {% else %}
+      {% for item in v %}<span class="apt-chip apt-chip-mono">{{ item }}</span> {% endfor %}
+    {% endif %}
+  {% elif v is boolean %}
+    {% if v %}<span style="color: var(--apt-accent-2);">oui</span>{% else %}<span class="apt-meta">non</span>{% endif %}
+  {% elif v is none or v == '' %}
+    <span class="apt-meta">—</span>
+  {% else %}
+    {{ v }}
+  {% endif %}
+{% endmacro %}
+
+{% macro section(titre, valeur) %}
+  <details class="apt-block mb-3" open>
+    <summary class="px-6 py-4 apt-display-sm apt-fs-16" style="cursor: pointer; list-style: none;">{{ titre }}</summary>
+    <div class="px-6 pb-5">{{ rendre(valeur) }}</div>
+  </details>
+{% endmacro %}
+
+{% block content %}
+<div class="px-10 py-10 apt-mw-1180" style="margin: 0 auto;">
+
+  <a href="{{ url_for('page_profil') }}" class="apt-link apt-fs-13">← Tous les profils</a>
+
+  <div class="flex items-start justify-between mt-4 mb-8">
+    <div>
+      <div class="apt-eyebrow mb-1">{{ 'Exemple livré' if source == 'exemple' else 'Bibliothèque' }}{% if est_actif %} · actif{% endif %}</div>
+      <h1 class="apt-display apt-fs-34">{{ profil.identite.raison_sociale or profil.identite.nom or '(sans nom)' }}</h1>
+      <div class="apt-meta mt-2 apt-mono">{{ id }}</div>
+    </div>
+    <div class="flex flex-col gap-2 apt-nowrap">
+      {% if not est_actif %}
+      <form method="post" action="{{ url_for('profil_activer', source=source, id=id) }}">
+        <button type="submit" class="apt-btn apt-btn-accent w-full">Activer</button>
+      </form>
+      {% else %}
+      <span class="apt-verdict apt-verdict-tres-pertinent"><span class="dot"></span>Profil actif</span>
+      {% endif %}
+      {% if source == 'bibliotheque' %}
+      <a href="{{ url_for('profil_edit', id=id) }}" class="apt-btn apt-btn-ghost">Éditer</a>
+      {% endif %}
+      <form method="post" action="{{ url_for('profil_dupliquer', source=source, id=id) }}">
+        <button type="submit" class="apt-btn apt-btn-ghost w-full">Dupliquer</button>
+      </form>
+    </div>
+  </div>
+
+  {{ section('Identité', profil.identite) }}
+  {{ section('Zones d\'intervention', profil.zones_intervention) }}
+  {{ section('Capacité globale', profil.capacite_globale) }}
+  {% if profil.economie %}{{ section('Économie', profil.economie) }}{% endif %}
+  {{ section('Mots-clés catalogue', profil.mots_cles_catalogue) }}
+
+  <details class="apt-block mb-3" open>
+    <summary class="px-6 py-4 apt-display-sm apt-fs-16" style="cursor: pointer; list-style: none;">Presets couverts</summary>
+    <div class="px-6 pb-5">
+      {% for p in (profil.presets_couverts or []) %}<span class="apt-chip apt-chip-accent apt-chip-mono">{{ p }}</span> {% endfor %}
+      {% if not profil.presets_couverts %}<span class="apt-meta">—</span>{% endif %}
+    </div>
+  </details>
+
+  {% for code, bloc in (profil.profils_sectoriels or {}).items() %}
+    {{ section('Profil sectoriel · ' ~ code, bloc) }}
+  {% endfor %}
+
+  {% if profil.auto_reponses_exigences %}{{ section('Auto-réponses exigences', profil.auto_reponses_exigences) }}{% endif %}
+
+  {# Bloc legacy formation si présent #}
+  {% if profil.thematiques_metiers is defined %}
+    {{ section('Thématiques métiers (legacy formation)', profil.thematiques_metiers) }}
+  {% endif %}
+  {% if profil.directions_regionales_couvertes is defined %}
+    {{ section('Directions régionales (legacy formation)', profil.directions_regionales_couvertes) }}
+  {% endif %}
+
+</div>
+{% endblock %}

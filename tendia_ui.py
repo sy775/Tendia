@@ -19,9 +19,11 @@ import os
 from datetime import date, datetime
 from pathlib import Path
 
-from flask import Flask, abort, redirect, render_template, request, url_for
+from flask import (Flask, abort, flash, redirect, render_template, request,
+                   url_for)
 
 import organisme
+import profil_form
 import matching
 import concurrence
 import stockage
@@ -37,6 +39,16 @@ app = Flask(
     template_folder=str(REPERTOIRE_BASE / "ui" / "templates"),
     static_folder=str(REPERTOIRE_BASE / "ui" / "static"),
 )
+# Clé pour flash() — POC local mono-utilisateur, pas de session sensible.
+app.secret_key = "tendia-poc-local-secret-key-profils"
+
+# Migration de la bibliothèque de profils au démarrage (idempotent) : si la
+# bibliothèque est vide mais qu'un profil actif existe, on l'y copie.
+try:
+    _rapport_migration = organisme.migrer_bibliotheque_au_demarrage()
+    print(f"[migration profils] {_rapport_migration}")
+except Exception as _e:
+    print(f"[migration profils] erreur (non bloquante) : {_e}")
 
 
 @app.context_processor
@@ -65,6 +77,16 @@ def _injecter_preset_actif():
             "preset_code": "",
             "preset_nom": "",
         }
+
+
+@app.template_filter("json_pretty")
+def _json_pretty_filter(valeur):
+    """Sérialise une valeur en JSON indenté (pour les textareas d'édition)."""
+    try:
+        return json.dumps(valeur if valeur is not None else [],
+                          ensure_ascii=False, indent=2)
+    except (TypeError, ValueError):
+        return ""
 
 
 # Filtres Jinja pour formatage français des dates (indépendant de la locale)
@@ -896,46 +918,138 @@ def _trouver_concurrents(marche: dict, limit: int = 5,
     return tops[:limit]
 
 
+# ---------------------------------------------------------------------------
+# Profils organisme — bibliothèque + activation + édition (Sprint P)
+# ---------------------------------------------------------------------------
+
+def _enum_options(code_preset: str) -> dict:
+    """Extrait les listes `enum` des propriétés array d'un schéma sectoriel,
+    pour générer des cases à cocher. {nom_propriete: [valeurs]}."""
+    sch = organisme.schema_sectoriel(code_preset) or {}
+    out = {}
+    for prop, spec in (sch.get("properties") or {}).items():
+        if spec.get("type") == "array":
+            enum = (spec.get("items") or {}).get("enum")
+            if enum:
+                out[prop] = enum
+    return out
+
+
 @app.route("/profil")
 def page_profil():
-    """Page de gestion du profil organisme."""
-    profil = organisme.lire_profil()
+    """Liste des profils : actif + bibliothèque + exemples."""
+    actif = organisme.charger_actif()
+    return render_template(
+        "profil/liste.html",
+        organisme=actif,
+        profil_actif=actif,
+        actif_id=organisme.id_profil_actif(),
+        bibliotheque=organisme.lister_profils_bibliotheque(),
+        exemples=organisme.lister_profils_exemples(),
+    )
 
-    # Diagnostic des sections remplies
-    diagnostic = organisme.champs_remplis(profil) if profil else {}
 
-    # Compteurs des sections-clés pour affichage
-    stats = {}
-    if profil:
-        certifs = profil.get("certifications", {}) or {}
-        stats = {
-            "nb_dr": len(profil.get("directions_regionales_couvertes") or []),
-            "nb_thematiques": len(profil.get("thematiques_metiers") or []),
-            "nb_publics": len(profil.get("publics_cibles") or []),
-            "nb_prestations": len(profil.get("prestations_maitrisees") or []),
-            "nb_mots_cles": len(profil.get("mots_cles_catalogue") or []),
-            "nb_modalites": len(profil.get("modalites_pedagogiques") or []),
-            "nb_qualiopi": sum([
-                bool(certifs.get("qualiopi_actions_formation")),
-                bool(certifs.get("qualiopi_apprentissage")),
-                bool(certifs.get("qualiopi_bilans")),
-                bool(certifs.get("qualiopi_vae")),
-            ]),
-            "nb_references": len(profil.get("references_marches") or []),
-        }
+@app.route("/profil/<source>/<id>")
+def profil_detail(source, id):
+    """Détail lecture seule d'un profil (bibliothèque ou exemple)."""
+    if source == "bibliotheque":
+        profil = organisme.lire_profil_bibliotheque(id)
+    elif source == "exemple":
+        profil = organisme.lire_profil_exemple(id)
+    else:
+        abort(404)
+    if profil is None:
+        abort(404)
+    return render_template(
+        "profil/detail.html",
+        organisme=organisme.charger_actif(),
+        profil=profil,
+        source=source,
+        id=id,
+        est_actif=(source == "bibliotheque" and id == organisme.id_profil_actif()),
+        profil_json=json.dumps(profil, ensure_ascii=False, indent=2),
+    )
 
-    # Compte de sections remplies (sur le total)
-    n_remplis = sum(1 for v in diagnostic.values() if v)
-    n_total = len(diagnostic) if diagnostic else 0
+
+@app.route("/profil/bibliotheque/<id>/edit", methods=["GET", "POST"])
+def profil_edit(id):
+    """Édition d'un profil de la bibliothèque."""
+    profil = organisme.lire_profil_bibliotheque(id)
+    if profil is None:
+        abort(404)
+
+    erreurs_champs = {}
+    erreurs_validation = []
+
+    if request.method == "POST":
+        profil, erreurs_champs = profil_form.parse(request.form, profil)
+        rapport = organisme.valider_profil(profil)
+        erreurs_validation = rapport["erreurs"] if not rapport["valide"] else []
+        if not erreurs_champs and not erreurs_validation:
+            res = organisme.enregistrer_profil_bibliotheque(id, profil)
+            if res["ok"]:
+                flash(f"Profil « {profil.get('identite', {}).get('raison_sociale') or id} » enregistré.", "succes")
+                return redirect(url_for("profil_detail", source="bibliotheque", id=id))
+            erreurs_validation = res["erreurs"]
 
     return render_template(
-        "profil.html",
+        "profil/edit.html",
+        organisme=organisme.charger_actif(),
         profil=profil,
-        organisme=profil,  # alimente le sidebar
-        diagnostic=diagnostic,
-        n_remplis=n_remplis,
-        n_total=n_total,
-        stats=stats,
+        id=id,
+        erreurs_champs=erreurs_champs,
+        erreurs_validation=erreurs_validation,
+        presets_connus=organisme.PRESETS_CONNUS,
+        enum_ingenierie=_enum_options("ingenierie"),
+        dr_formation=organisme.DR_FRANCE_TRAVAIL,
+        prestations_formation=organisme.PRESTATIONS_FRANCE_TRAVAIL,
+        est_legacy=organisme.est_format_legacy(profil),
+    )
+
+
+@app.route("/profil/<source>/<id>/activer", methods=["POST"])
+def profil_activer(source, id):
+    """Active un profil (exemple ou bibliothèque)."""
+    res = organisme.activer_profil(id, source)
+    if res["ok"]:
+        flash(res["message"], "succes")
+    else:
+        flash(res["message"] + " " + " ; ".join(res.get("erreurs") or []), "erreur")
+    return redirect(url_for("page_profil"))
+
+
+@app.route("/profil/<source>/<id>/dupliquer", methods=["POST"])
+def profil_dupliquer(source, id):
+    """Duplique un profil vers la bibliothèque et ouvre son édition."""
+    res = organisme.dupliquer_profil(id, source)
+    if not res["ok"]:
+        flash("Duplication impossible : " + " ; ".join(res.get("erreurs") or []), "erreur")
+        return redirect(url_for("page_profil"))
+    flash(f"Profil dupliqué : « {res['id_nouveau']} ». Vous pouvez l'éditer.", "succes")
+    return redirect(url_for("profil_edit", id=res["id_nouveau"]))
+
+
+@app.route("/profil/importer", methods=["GET", "POST"])
+def profil_importer():
+    """Importe un profil JSON (textarea ou fichier)."""
+    erreurs = []
+    contenu = ""
+    if request.method == "POST":
+        fichier = request.files.get("fichier")
+        if fichier and fichier.filename:
+            contenu = fichier.read().decode("utf-8", errors="replace")
+        else:
+            contenu = request.form.get("contenu_json") or ""
+        res = organisme.importer_profil_json(contenu)
+        if res["ok"]:
+            flash(f"Profil importé : « {res['id']} ».", "succes")
+            return redirect(url_for("profil_detail", source="bibliotheque", id=res["id"]))
+        erreurs = res["erreurs"]
+    return render_template(
+        "profil/importer.html",
+        organisme=organisme.charger_actif(),
+        erreurs=erreurs,
+        contenu=contenu,
     )
 
 
