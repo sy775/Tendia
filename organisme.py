@@ -437,6 +437,290 @@ PRESTATIONS_FRANCE_TRAVAIL = [
 ]
 
 
+# ===========================================================================
+# BIBLIOTHEQUE DE PROFILS (Sprint P — UI de gestion des profils)
+# ===========================================================================
+#
+# Architecture :
+#   - Collection `organisme` / `principal` : LE profil actif (inchangé).
+#   - Collection `profils_bibliotheque` : N profils sauvegardés, 1 par id
+#     (slug de raison sociale). Format identique au profil actif.
+#   - Profils d'exemple : fichiers `data/exemples/*.json`, lecture seule.
+#
+# Invariant "lien actif" : le profil actif (`organisme/principal`) porte dans
+# son champ `id` le slug de son entrée bibliothèque correspondante. C'est ce
+# qui permet à `est_actif` de fonctionner. Les écritures du profil actif via
+# cette section posent donc `content["id"] = <id bibliothèque>` (et NON
+# "principal" comme le fait `ecrire_profil`, conservé pour le flux CLI).
+
+COLLECTION_BIBLIOTHEQUE = "profils_bibliotheque"
+_DOSSIER_EXEMPLES = Path(__file__).parent / "data" / "exemples"
+
+
+def _slugify(s: str) -> str:
+    """Minuscule, accents retirés, alphanumérique + underscores, max 40 chars.
+
+    Ex: 'Tridyne Ingénierie SAS' -> 'tridyne_ingenierie_sas'.
+    """
+    import re
+    import unicodedata
+    if not s:
+        return ""
+    nfkd = unicodedata.normalize("NFKD", str(s))
+    sans_accents = "".join(c for c in nfkd if not unicodedata.combining(c))
+    slug = re.sub(r"[^a-z0-9]+", "_", sans_accents.lower()).strip("_")
+    return slug[:40].strip("_")
+
+
+def _resume_profil(profil: Optional[dict]) -> dict:
+    """Extrait raison_sociale + presets_couverts d'un profil (gère le legacy)."""
+    ident = (profil or {}).get("identite") or {}
+    raison = ident.get("raison_sociale") or ident.get("nom") or "(sans nom)"
+    return {
+        "raison_sociale": raison,
+        "presets_couverts": list((profil or {}).get("presets_couverts") or []),
+    }
+
+
+def _timestamps_bibliotheque() -> dict:
+    """Retourne {id: mis_a_jour_le} pour la bibliothèque (lecture directe KV).
+
+    `stockage.lire` ne remonte pas la colonne `mis_a_jour_le` ; on la lit donc
+    via une requête SQLite directe en lecture seule.
+    """
+    import sqlite3
+    out = {}
+    try:
+        conn = sqlite3.connect(stockage.chemin_db())
+        rows = conn.execute(
+            "SELECT id, mis_a_jour_le FROM kv_storage WHERE collection = ?",
+            (COLLECTION_BIBLIOTHEQUE,)).fetchall()
+        conn.close()
+        for rid, maj in rows:
+            out[rid] = maj
+    except Exception:
+        pass
+    return out
+
+
+def id_profil_actif() -> Optional[str]:
+    """Id de l'entrée bibliothèque correspondant au profil actif (champ `id`)."""
+    p = charger_actif()
+    if not p:
+        return None
+    return p.get("id")
+
+
+def lister_profils_bibliotheque() -> List[dict]:
+    """Liste les profils sauvegardés en bibliothèque (collection KV)."""
+    actif_id = id_profil_actif()
+    ts = _timestamps_bibliotheque()
+    data = stockage.charger(COLLECTION_BIBLIOTHEQUE) or {}
+    out = []
+    for pid, profil in data.items():
+        r = _resume_profil(profil)
+        out.append({
+            "id": pid,
+            "raison_sociale": r["raison_sociale"],
+            "presets_couverts": r["presets_couverts"],
+            "est_actif": pid == actif_id,
+            "source": "bibliotheque",
+            "mis_a_jour_le": ts.get(pid),
+        })
+    out.sort(key=lambda x: (x["raison_sociale"] or "").lower())
+    return out
+
+
+def lister_profils_exemples() -> List[dict]:
+    """Liste les profils d'exemple livrés sur disque (data/exemples/*.json)."""
+    out = []
+    if not _DOSSIER_EXEMPLES.exists():
+        return out
+    for f in sorted(_DOSSIER_EXEMPLES.glob("*.json")):
+        try:
+            profil = json.loads(f.read_text(encoding="utf-8"))
+        except Exception:
+            continue
+        r = _resume_profil(profil)
+        out.append({
+            "id": f.stem,
+            "raison_sociale": r["raison_sociale"],
+            "presets_couverts": r["presets_couverts"],
+            "source": "exemple",
+            "chemin_fichier": str(f),
+        })
+    return out
+
+
+def lire_profil_bibliotheque(id: str) -> Optional[dict]:
+    """Lit un profil de la bibliothèque KV, ou None."""
+    if not id:
+        return None
+    return stockage.lire(COLLECTION_BIBLIOTHEQUE, id)
+
+
+def lire_profil_exemple(id: str) -> Optional[dict]:
+    """Lit un profil d'exemple disque par son id (= nom de fichier), ou None."""
+    if not id or "/" in id or "\\" in id or ".." in id:
+        return None
+    f = _DOSSIER_EXEMPLES / f"{id}.json"
+    if not f.exists():
+        return None
+    try:
+        return json.loads(f.read_text(encoding="utf-8"))
+    except Exception:
+        return None
+
+
+def _id_unique_bibliotheque(base: str) -> str:
+    """Retourne un id libre dans la bibliothèque (suffixe _2, _3... si collision)."""
+    base = base or "profil"
+    existants = set(stockage.lister_ids(COLLECTION_BIBLIOTHEQUE))
+    if base not in existants:
+        return base
+    i = 2
+    while f"{base}_{i}" in existants:
+        i += 1
+    return f"{base}_{i}"
+
+
+def activer_profil(id: str, source: str) -> dict:
+    """
+    Active un profil (le copie dans `organisme/principal`).
+
+    - source "exemple" : charge le JSON disque -> écrit `profils_bibliotheque/<id>`
+      -> écrit `organisme/principal`.
+    - source "bibliotheque" : charge la bibliothèque -> écrit `organisme/principal`.
+
+    Valide avant écriture, refuse si invalide. Maintient l'invariant lien actif
+    (content["id"] = id). Retourne {ok, id_actif, message, erreurs}.
+    """
+    if source == "exemple":
+        profil = lire_profil_exemple(id)
+    elif source == "bibliotheque":
+        profil = lire_profil_bibliotheque(id)
+    else:
+        return {"ok": False, "id_actif": id_profil_actif(),
+                "message": f"Source inconnue : {source!r}.",
+                "erreurs": [f"source invalide '{source}'"]}
+    if profil is None:
+        return {"ok": False, "id_actif": id_profil_actif(),
+                "message": f"Profil introuvable : {source}/{id}.",
+                "erreurs": ["profil introuvable"]}
+
+    profil = dict(profil)
+    profil["id"] = id
+    rapport = valider_profil(profil)
+    if not rapport["valide"]:
+        return {"ok": False, "id_actif": id_profil_actif(),
+                "message": "Validation échouée, activation refusée.",
+                "erreurs": rapport["erreurs"]}
+
+    if source == "exemple":
+        stockage.ecrire(COLLECTION_BIBLIOTHEQUE, id, profil)
+    stockage.ecrire(COLLECTION, ID_PROFIL, profil)
+    raison = (profil.get("identite") or {}).get("raison_sociale") or id
+    return {"ok": True, "id_actif": id,
+            "message": f"Profil '{raison}' activé.", "erreurs": []}
+
+
+def enregistrer_profil_bibliotheque(id: str, profil_dict: dict) -> dict:
+    """
+    Valide et écrit un profil dans `profils_bibliotheque/<id>`. Si `id` est
+    l'actif, ré-écrit aussi `organisme/principal`. Retourne {ok, erreurs}.
+    """
+    profil = dict(profil_dict or {})
+    profil["id"] = id
+    rapport = valider_profil(profil)
+    if not rapport["valide"]:
+        return {"ok": False, "erreurs": rapport["erreurs"]}
+    stockage.ecrire(COLLECTION_BIBLIOTHEQUE, id, profil)
+    if id == id_profil_actif():
+        stockage.ecrire(COLLECTION, ID_PROFIL, profil)
+    return {"ok": True, "erreurs": []}
+
+
+def importer_profil_json(contenu_json, id_cible: Optional[str] = None) -> dict:
+    """
+    Parse + valide + écrit un profil importé dans la bibliothèque. L'id cible
+    est slugifié depuis `identite.raison_sociale` si non fourni. Collision d'id
+    gérée par suffixe _2, _3. Retourne {ok, id, erreurs}.
+    """
+    if isinstance(contenu_json, (dict, list)):
+        profil = contenu_json
+    else:
+        try:
+            profil = json.loads(contenu_json)
+        except json.JSONDecodeError as e:
+            return {"ok": False, "id": None, "erreurs": [f"JSON invalide : {e}"]}
+    if not isinstance(profil, dict):
+        return {"ok": False, "id": None,
+                "erreurs": ["Le JSON racine doit être un objet profil."]}
+
+    rapport = valider_profil(profil)
+    if not rapport["valide"]:
+        return {"ok": False, "id": None, "erreurs": rapport["erreurs"]}
+
+    raison = (profil.get("identite") or {}).get("raison_sociale") or ""
+    base = id_cible or _slugify(raison) or "profil_importe"
+    pid = _id_unique_bibliotheque(base)
+    profil = dict(profil)
+    profil["id"] = pid
+    stockage.ecrire(COLLECTION_BIBLIOTHEQUE, pid, profil)
+    return {"ok": True, "id": pid, "erreurs": []}
+
+
+def dupliquer_profil(id_source: str, source: str) -> dict:
+    """
+    Duplique un profil (bibliothèque ou exemple) vers `profils_bibliotheque`,
+    id = slug(raison_sociale)_copie (suffixe incrémenté si collision).
+    Retourne {ok, id_nouveau, erreurs}.
+    """
+    if source == "exemple":
+        profil = lire_profil_exemple(id_source)
+    elif source == "bibliotheque":
+        profil = lire_profil_bibliotheque(id_source)
+    else:
+        return {"ok": False, "id_nouveau": None,
+                "erreurs": [f"source invalide '{source}'"]}
+    if profil is None:
+        return {"ok": False, "id_nouveau": None,
+                "erreurs": ["profil source introuvable"]}
+
+    raison = (profil.get("identite") or {}).get("raison_sociale") or id_source
+    base = (_slugify(raison) or id_source) + "_copie"
+    pid = _id_unique_bibliotheque(base)
+    profil = dict(profil)
+    profil["id"] = pid
+    stockage.ecrire(COLLECTION_BIBLIOTHEQUE, pid, profil)
+    return {"ok": True, "id_nouveau": pid, "erreurs": []}
+
+
+def migrer_bibliotheque_au_demarrage() -> dict:
+    """
+    Si `profils_bibliotheque` est vide ET `organisme/principal` existe, copie
+    l'actif dans la bibliothèque. Idempotent (ne fait rien si déjà peuplée).
+    Maintient l'invariant lien actif. Retourne {action, id_migre}.
+    """
+    if stockage.lister_ids(COLLECTION_BIBLIOTHEQUE):
+        return {"action": "idempotent", "id_migre": None}
+    actif = charger_actif()
+    if not actif:
+        return {"action": "idempotent", "id_migre": None}
+
+    ident = actif.get("identite") or {}
+    raison = ident.get("raison_sociale") or ident.get("nom") or ""
+    pid = (_slugify(raison)
+           or (actif.get("id") if actif.get("id") not in (None, "") else None)
+           or "principal")
+    profil = dict(actif)
+    profil["id"] = pid
+    stockage.ecrire(COLLECTION_BIBLIOTHEQUE, pid, profil)
+    stockage.ecrire(COLLECTION, ID_PROFIL, profil)  # maintien lien actif
+    print(f"[migration profils] action=migre id_migre={pid}")
+    return {"action": "migre", "id_migre": pid}
+
+
 # ---------------------------------------------------------------------------
 # CLI / debug
 # ---------------------------------------------------------------------------
