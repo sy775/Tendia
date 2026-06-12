@@ -3,10 +3,10 @@
 **Tu es le prochain Claude qui va aider Younes sur Tendia.**
 **Ce document est ton briefing.** Lis-le entièrement avant de répondre à Younes.
 
-**Date de la passation** : 12 juin 2026, fin de Sprint 2bis + A + B
-**Version** : 2.0 (post matching V2 multi-secteurs)
-**Sprints clôturés** : 2, 2bis (Sujets 1+2, Phases 3a/3b/3c), A (profil socle+BTP), B (matching V2)
-**État système** : stable et productif, 3 premiers verdicts `pertinent` end-to-end sur profil BTP démo IDF
+**Date de la passation** : 12 juin 2026, fin de Sprint 2bis + A + B + C (ingénierie)
+**Version** : 2.1 (post extension sectorielle ingénierie)
+**Sprints clôturés** : 2, 2bis (Sujets 1+2, Phases 3a/3b/3c), A (profil socle+BTP), B (matching V2), C-ingénierie (profil + matching sectoriel)
+**État système** : stable et productif. Verdicts `pertinent`+ end-to-end sur 2 profils démo : BTP IDF (57070/56539/56378) et Ingénierie IDF (56588 `tres_pertinent`, 56774/55964/56096 `pertinent`)
 
 ---
 
@@ -83,11 +83,13 @@ UI : Dashboard (strict) + Explorer (exhaustif) + Fiche marché + Profil
 - Architecture mutualisée : marchés/classifications/briefs partagés, profils per-client
 - **Profil organisme multi-secteurs** (Sprint A) : socle commun + spécialisations par preset
 - **Matching V2 multi-secteurs** (Sprint B) : motifs universels (preset, thématique, géo via dept/région, capacité) + sectoriel BTP (qualibat go/no-go, RGE, corps_metier par tokens, types_ouvrages, capacité chantier)
+- **Profil + matching sectoriel ingénierie** (Sprint C) : `presets/ingenierie/_schema.json` (11 propriétés) + profil démo Tridyne + 7 évaluateurs (ing_opqibi go/no-go, ing_decennale/ing_rc_pro conditionnels, ing_typologies, ing_competences seuil 0.8, ing_types_ouvrages, ing_capacite_etudes sur montant travaux). Lit les blocs brief `caracteristiques_mission_moe` + `qualifications_moe`.
 
 ### Ce qui ne marche pas (ou pas encore)
 
-- **Pas de profils sectoriels IT/conseil/ingénierie** (Sprint C à faire — modèle BTP est OK)
-- **Pas d'évaluateurs matching sectoriels** pour IT/conseil/ingénierie/EnR (Sprint C — stubs en place)
+- **Pas de profils sectoriels IT/conseil/EnR** (reste de Sprint C — modèles BTP et ingénierie sont OK)
+- **Pas d'évaluateurs matching sectoriels** pour conseil/IT/EnR (Sprint C — stubs en place ; BTP et ingénierie faits)
+- **`ing_opqibi` ne mord pas sur les briefs actuels** : le LLM remplit `qualifications_moe.opqibi` en texte libre, pas en codes à 4 chiffres → garde-fou neutre (piège 10). Le go/no-go OPQIBI n'agira que si l'extraction des codes est fiabilisée côté `llm_extract.py`.
 - **Couverture DCE 35%** : plateformes DEMATIS (captcha) et achatpublic (login) bloquent 51% du volume
 - **Calibration top-down** : DECP non exploité aujourd'hui
 - **Pas d'authentification multi-tenant** : 1 base = 1 utilisateur
@@ -169,21 +171,30 @@ Le profil organisme était formation-only. Refactor multi-secteurs validé par Y
 
 C'est le **premier passage `pertinent` end-to-end** sur la base réelle de Younes.
 
+### Sprint C — Ingénierie (12 juin 2026) ✅
+
+Reproduction du modèle BTP (Sprint A+B) pour le preset `ingenierie`, sans toucher BTP, le matching universel ni le socle.
+
+- `presets/ingenierie/_schema.json` : 11 propriétés (qualifications OPQIBI, assurances décennale/RC, typologies_couvertes, competences_specialisees, types_ouvrages_etudies, types_clients_publics, capacite_etudes, rh_etudes, outils_logiciels, references_etudes, pratiques_specifiques). `required` : `qualifications` + `typologies_couvertes`.
+- `data/exemples/profil_ingenierie_demo.json` : "Tridyne Ingénierie SAS", BET pluridisciplinaire 52 ETP IDF, valide 100% socle / 99% sectoriel.
+- `matching.py` : 7 évaluateurs (`_eval_ing_*`) insérés en section dédiée après `_eval_sectoriel_btp`. Distinction études/MOE vs travaux : lit `caracteristiques_mission_moe` (typologie, typologie_ouvrage, montant_travaux_estime, organigramme_attendu) et `qualifications_moe` (opqibi). `ing_competences` à seuil 0.8 (un BET couvre rarement 100% des disciplines). Dispatcher `elif code == "ingenierie"` + verdict étendu (`ing_opqibi` -50 → `non_pertinent`).
+- **Résultat in vivo** (profil Tridyne, 422 marchés) : 1 `tres_pertinent` (56588 Lycée Guer MOE, 75), 3 `pertinent` (56774 AMO rectorat Versailles 57, 55964 MOE route 50, 56096 pont de Pierre 50). Non-régression BTP : 57070/56539/56378 inchangés. 0€ LLM.
+
 ---
 
 ## 3bis. Sprint en cours / Prochain sprint
 
 **Aucun sprint actif au moment de cette passation.** Le système est dans un état stable et productif. Plusieurs chantiers possibles selon les priorités :
 
-### Sprint C — Étendre à ingénierie, conseil, IT, EnR (~3-4h par preset)
+### Sprint C — Étendre à conseil, IT, EnR (~3-4h par preset)
 
-Reproduire le modèle BTP pour les autres presets :
+**Ingénierie : fait** (voir Sprint C ci-dessus). Reste à reproduire le modèle pour conseil, IT, EnR :
 - Créer `presets/<code>/_schema.json` (profil sectoriel)
-- Implémenter `_eval_sectoriel_<code>(profil_sec, brief)` dans `matching.py`
+- Implémenter `_eval_sectoriel_<code>(profil_sec, brief)` dans `matching.py` (section dédiée après les évaluateurs ingénierie), brancher le dispatcher (`elif code == "<code>"`) et, si go/no-go, étendre le tuple de `_calculer_verdict`
 - Créer `data/exemples/profil_<code>_demo.json`
-- Le pattern est tracé par BTP, copier-coller-adapter.
+- Le pattern est tracé par BTP **et ingénierie**, copier-coller-adapter. Lire le bloc brief sectoriel du preset dans `presets/<code>/_preset.json` → `prompt_extraction.bloc_schema_specifique` pour connaître les vrais noms de champs.
 
-Priorité Younes : ingénierie > conseil > IT > EnR (selon plan commercial).
+Priorité Younes : conseil > IT > EnR (selon plan commercial).
 
 ### Chantiers non-prioritaires mais reportés
 
@@ -478,4 +489,4 @@ Si tu identifies une dette technique : **signale**. Mais en respectant le timing
 
 ---
 
-*Document mis à jour à chaque sprint. Dernière révision : 12 juin 2026 — Sprint 2 nouvelle architecture.*
+*Document mis à jour à chaque sprint. Dernière révision : 12 juin 2026 — Sprint C ingénierie (profil + matching sectoriel).*
