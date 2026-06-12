@@ -1,0 +1,604 @@
+"""
+fiche_marche.py
+---------------
+Helpers de rendu preset-aware de la fiche marché (Sprint UI fiche marché).
+
+Toute la logique métier de la fiche vit ici (pas dans Jinja) : résolution des
+presets du marché, KPI cards, verdict 90 secondes, verrous go/no-go, blocs
+sectoriels, richesse du brief, détail lots/tranches. Les templates ne font que
+rendre les structures retournées.
+
+Codé DÉFENSIVEMENT contre la structure réelle des briefs (Phase 3a/3b), qui
+diffère parfois des noms supposés : ex `caracteristiques_techniques_chantier`
+= {description, typologie_ouvrage, surface_volume} ; `calendrier.duree_marche`
+est une string ; les volumes sont au niveau lot. Tout accès manquant retombe
+proprement sur "—" plutôt que de planter.
+
+Tous les helpers sont purs (zéro effet de bord) et idempotents.
+"""
+
+import re
+
+import preset as _preset
+
+
+# Libellés UX (exception assumée au "pas de hardcoding" : pure présentation).
+_PRESET_LABEL = {
+    "btp": "BTP", "ingenierie": "Ingénierie", "formation": "Formation",
+    "conseil": "Conseil", "it": "IT", "energie_renouvelable": "Énergie",
+}
+_PRESETS_IMPLEMENTES = {"btp", "ingenierie", "formation"}
+_PRESETS_STUB = {"conseil", "it", "energie_renouvelable"}
+
+# Mots-clés d'alertes critiques (verdict 90s / vigilance).
+_ALERTES_CRITIQUES = ["visite obligatoire", "attestation", "ss4", "ss3",
+                      "dpgf verrouill", "delai court", "delai serre",
+                      "reference obligatoire", "experience exigee", "irrecevab"]
+
+
+# ===========================================================================
+# Résolution des presets du marché
+# ===========================================================================
+
+def resolve_preset_codes(brief):
+    """
+    Retourne [(code_preset, pourcentage)] trié par poids décroissant.
+
+    Source : brief.domaines_metier = [{code, poids, lots_concernes}]. Chaque
+    code domaine est mappé INDIVIDUELLEMENT vers son preset (mapper la liste
+    entière élargit à tort), et les poids sont agrégés par preset puis
+    normalisés en %. Au moins un preset si des domaines existent.
+    """
+    dm = (brief or {}).get("domaines_metier") or []
+    poids = {}
+    for d in dm:
+        if isinstance(d, dict):
+            code, p = d.get("code"), d.get("poids")
+        else:
+            code, p = d, None
+        if not code:
+            continue
+        presets = _preset.presets_pour_domaines([code]) or []
+        if not presets:
+            continue
+        ps = presets[0]
+        poids[ps] = poids.get(ps, 0.0) + (p or 0.0)
+
+    if not poids:
+        return []
+    total = sum(poids.values())
+    items = sorted(poids.items(), key=lambda kv: -kv[1])
+    if total <= 0:  # poids absents : répartition égale
+        n = len(items)
+        return [(c, round(100 / n)) for c, _ in items]
+    return [(c, round(100 * w / total)) for c, w in items]
+
+
+def _codes(presets):
+    """Liste des codes depuis une liste [(code, pct)] ou [code]."""
+    out = []
+    for p in presets or []:
+        out.append(p[0] if isinstance(p, (list, tuple)) else p)
+    return out
+
+
+# ===========================================================================
+# Helpers d'accès brief (défensifs)
+# ===========================================================================
+
+def _get(d, *chemin):
+    cur = d
+    for k in chemin:
+        if not isinstance(cur, dict):
+            return None
+        cur = cur.get(k)
+    return cur
+
+
+def _non_vide(v):
+    return v is not None and not (isinstance(v, (list, dict, str)) and len(v) == 0)
+
+
+def _jours_restants(date_limite):
+    from datetime import date
+    if not date_limite or len(str(date_limite)) < 10:
+        return None
+    try:
+        d = date.fromisoformat(str(date_limite)[:10])
+        return (d - date.today()).days
+    except ValueError:
+        return None
+
+
+def _duree_compacte(brief):
+    cal = _get(brief, "calendrier") or {}
+    dm = cal.get("duree_mois")
+    if dm:
+        return f"{dm} mois"
+    dm = cal.get("duree_marche")
+    if dm:
+        m = re.search(r"(\d+)\s*mois", str(dm))
+        return f"{m.group(1)} mois" if m else str(dm)[:18]
+    return None
+
+
+def montant_estime(brief):
+    """Valeur estimée € (valeur directe ou milieu de fourchette), sinon None."""
+    mm = _get(brief, "montant_marche") or {}
+    v = mm.get("valeur_estimee_euros")
+    if isinstance(v, (int, float)) and v > 0:
+        return float(v)
+    fmin, fmax = mm.get("fourchette_min_euros"), mm.get("fourchette_max_euros")
+    if all(isinstance(x, (int, float)) and x > 0 for x in (fmin, fmax)):
+        return (float(fmin) + float(fmax)) / 2
+    return None
+
+
+def calibration_marche(id_marche):
+    """Charge la calibration bottom-up disque si elle existe, sinon None."""
+    try:
+        import llm_calibration
+        return llm_calibration.charger_si_existe(id_marche)
+    except Exception:
+        return None
+
+
+def _fmt_eur(v):
+    try:
+        return f"{int(round(v)):,}".replace(",", " ") + " €"
+    except (TypeError, ValueError):
+        return "—"
+
+
+def _fourchette_calibration(calib):
+    """Extrait une fourchette lisible d'une calibration, ou None."""
+    if not calib:
+        return None
+    for cle in ("fourchette", "estimation", "bottom_up", "resultat"):
+        bloc = calib.get(cle) if isinstance(calib, dict) else None
+        if isinstance(bloc, dict):
+            lo = bloc.get("min_euros") or bloc.get("min") or bloc.get("bas")
+            hi = bloc.get("max_euros") or bloc.get("max") or bloc.get("haut")
+            if lo and hi:
+                return f"{_fmt_eur(lo)} – {_fmt_eur(hi)} HT"
+    lo = calib.get("montant_min_euros") if isinstance(calib, dict) else None
+    hi = calib.get("montant_max_euros") if isinstance(calib, dict) else None
+    if lo and hi:
+        return f"{_fmt_eur(lo)} – {_fmt_eur(hi)} HT"
+    return None
+
+
+# ===========================================================================
+# KPI cards (toujours 4, preset-aware)
+# ===========================================================================
+
+def kpi_cards_pour_marche(brief, marche, presets, calib=None):
+    """Retourne 4 cards {icone, label, valeur, hint, classe}."""
+    codes = _codes(presets)
+    cards = []
+
+    # 1) Valeur
+    m = montant_estime(brief)
+    if m:
+        cards.append({"icone": "€", "label": "Valeur estimée", "valeur": _fmt_eur(m),
+                      "hint": "", "classe": "val"})
+    else:
+        fourchette = _fourchette_calibration(calib)
+        if fourchette:
+            cards.append({"icone": "€", "label": "Estimation bottom-up",
+                          "valeur": fourchette, "hint": "calibration", "classe": "val"})
+        else:
+            cards.append({"icone": "€", "label": "Valeur estimée", "valeur": "—",
+                          "hint": "non communiqué dans le DCE", "classe": "val muet"})
+
+    # 2) Card sectorielle
+    if "formation" in codes:
+        nb = (_get(brief, "caracteristiques_formation", "nb_beneficiaires_estime")
+              or _get(brief, "volumes", "nb_beneficiaires"))
+        cards.append({"icone": "◍", "label": "Bénéficiaires",
+                      "valeur": str(nb) if _non_vide(nb) else "—", "hint": "", "classe": ""})
+    elif "btp" in codes:
+        n = len(_get(brief, "lots") or [])
+        cards.append({"icone": "▥", "label": "Lots",
+                      "valeur": (f"{n} lots" if n != 1 else "1 lot") if n else "—",
+                      "hint": "", "classe": ""})
+    elif "ingenierie" in codes:
+        phases = _get(brief, "caracteristiques_mission_moe", "phases_couvertes") or []
+        if phases:
+            val = f"{phases[0]}→{phases[-1]}" if len(phases) > 1 else phases[0]
+            cards.append({"icone": "◇", "label": "Phases MOE", "valeur": val,
+                          "hint": f"{len(phases)} phases", "classe": ""})
+        else:
+            cards.append({"icone": "◇", "label": "Phases MOE", "valeur": "—", "hint": "", "classe": ""})
+    else:
+        cards.append({"icone": "○", "label": "Périmètre", "valeur": "—",
+                      "hint": "enrichissement à venir", "classe": "muet"})
+
+    # 3) Durée
+    duree = _duree_compacte(brief)
+    cards.append({"icone": "⏱", "label": "Durée", "valeur": duree or "—", "hint": "", "classe": ""})
+
+    # 4) Date limite (J-X)
+    dl = (marche or {}).get("date_limite_depot") or _get(brief, "calendrier", "date_limite_offres")
+    j = _jours_restants(dl)
+    if j is not None:
+        val = f"J-{j}" if j >= 0 else "clôturé"
+        classe = "urgent" if 0 <= j < 20 else ""
+        cards.append({"icone": "⚑", "label": "Date limite", "valeur": val,
+                      "hint": str(dl)[:10] if dl else "", "classe": classe})
+    else:
+        cards.append({"icone": "⚑", "label": "Date limite", "valeur": "—", "hint": "", "classe": ""})
+
+    return cards
+
+
+# ===========================================================================
+# Verrous go/no-go
+# ===========================================================================
+
+def _codes_4ch(v):
+    """Liste de codes à 4 chiffres depuis une valeur brief (liste ou None)."""
+    if not isinstance(v, list):
+        return []
+    return [str(x).strip() for x in v
+            if isinstance(x, str) and str(x).strip().isdigit() and len(str(x).strip()) == 4]
+
+
+def _profil_sectoriel(profil, code):
+    return _get(profil, "profils_sectoriels", code) or {}
+
+
+def detecter_verrous(brief, profil):
+    """
+    Retourne [{type, severite, libelle, satisfait, motif}] : verrous go/no-go
+    croisés avec le profil actif. severite ∈ {bloquant, vigilance}.
+    """
+    verrous = []
+    qr = _get(brief, "qualifications_requises") or {}
+    qm = _get(brief, "qualifications_moe") or {}
+
+    # Qualibat (BTP)
+    qualibat_exig = _codes_4ch(qr.get("qualibat"))
+    if qualibat_exig:
+        detenus = _profil_sectoriel(profil, "btp").get("qualifications", {}).get("qualibat") or []
+        manquants = [c for c in qualibat_exig if c not in detenus]
+        verrous.append({
+            "type": "Qualibat", "severite": "bloquant",
+            "libelle": f"Codes exigés : {', '.join(qualibat_exig)}",
+            "satisfait": not manquants,
+            "motif": "" if not manquants else f"manquant(s) : {', '.join(manquants)}"})
+
+    # OPQIBI (ingénierie)
+    opqibi_exig = _codes_4ch(qm.get("opqibi"))
+    if opqibi_exig:
+        detenus = _profil_sectoriel(profil, "ingenierie").get("qualifications", {}).get("opqibi") or []
+        manquants = [c for c in opqibi_exig if c not in detenus]
+        verrous.append({
+            "type": "OPQIBI", "severite": "bloquant",
+            "libelle": f"Codes exigés : {', '.join(opqibi_exig)}",
+            "satisfait": not manquants,
+            "motif": "" if not manquants else f"manquant(s) : {', '.join(manquants)}"})
+
+    # Références exigées
+    refs = _get(brief, "references_exigees") or {}
+    vol_min = refs.get("volume_min_references_similaires")
+    blob_alertes = " ".join(s for s in (_get(brief, "alertes_candidat") or []) if isinstance(s, str)).lower()
+    ref_exigee = bool(vol_min) or any(k in blob_alertes for k in
+                                      ("reference obligatoire", "référence obligatoire", "experience exigee", "expérience exigée"))
+    if ref_exigee:
+        secteur = (refs.get("secteur_experience") or "").lower()
+        # match token sur les références du profil (chantiers + études)
+        toks_exig = _tokens(secteur)
+        couvert = False
+        for code in ("btp", "ingenierie"):
+            for cle in ("references_chantiers", "references_etudes"):
+                for r in (_profil_sectoriel(profil, code).get(cle) or []):
+                    blob = _tokens(" ".join(str(r.get(c, "")) for c in
+                                            ("type_ouvrage", "ouvrage", "projet")))
+                    if toks_exig & blob:
+                        couvert = True
+        verrous.append({
+            "type": "Références", "severite": "vigilance",
+            "libelle": refs.get("secteur_experience") or f"≥ {vol_min} référence(s) similaire(s)",
+            "satisfait": couvert,
+            "motif": "" if couvert else "aucune référence transposable dans le profil"})
+
+    return verrous
+
+
+# ===========================================================================
+# Verdict 90 secondes
+# ===========================================================================
+
+def _tokens(s):
+    if not s:
+        return set()
+    import unicodedata
+    norm = unicodedata.normalize("NFKD", str(s).lower())
+    norm = "".join(c for c in norm if not unicodedata.combining(c))
+    norm = re.sub(r"[^a-z0-9]+", " ", norm)
+    stop = {"des", "les", "une", "pour", "dans", "avec", "marche", "type", "sur"}
+    return {t for t in norm.split() if len(t) >= 4 and t not in stop}
+
+
+def verdict_90_secondes(brief, eval_result, profil, verrous=None):
+    """
+    Retourne [{icone, texte, source}] : 3-5 lignes synthétiques, priorité
+    ✗ (bloquant) > ⚠ (vigilance) > ✓ (positif). Max 5 lignes.
+    """
+    motifs = (eval_result or {}).get("motifs") or []
+    lignes_x, lignes_warn, lignes_ok = [], [], []
+
+    # ✗ : verrou non satisfait (forcé) puis motif bloquant
+    for v in (verrous or []):
+        if v.get("severite") == "bloquant" and v.get("satisfait") is False:
+            lignes_x.append({"icone": "✗", "texte": f"Verrou {v['type']} : {v['motif'] or 'non couvert'} — irrecevabilité probable",
+                             "source": "verrou"})
+            break
+    if not lignes_x:
+        bloquants = [m for m in motifs if m.get("satisfait") is False and m.get("points", 0) <= -20]
+        if bloquants:
+            m = min(bloquants, key=lambda x: x["points"])
+            lignes_x.append({"icone": "✗", "texte": _texte_motif(m), "source": "matching"})
+
+    # ⚠ : alertes critiques + délai serré
+    for s in (_get(brief, "alertes_candidat") or []):
+        if isinstance(s, str) and any(k in s.lower() for k in _ALERTES_CRITIQUES):
+            lignes_warn.append({"icone": "⚠", "texte": s.split(":")[0].strip()[:90] if ":" in s else s[:90],
+                                "source": "alerte"})
+            if len(lignes_warn) >= 2:
+                break
+    j = _jours_restants((_get(brief, "calendrier", "date_limite_offres")))
+    if j is not None and 0 <= j < 20 and len(lignes_warn) < 2:
+        lignes_warn.append({"icone": "⚠", "texte": f"Délai serré : {j} jours pour répondre", "source": "calendrier"})
+
+    # ✓ : top motifs positifs
+    positifs = sorted([m for m in motifs if m.get("points", 0) > 0],
+                      key=lambda x: -x["points"])[:2]
+    for m in positifs:
+        lignes_ok.append({"icone": "✓", "texte": _texte_motif(m), "source": "matching"})
+
+    return (lignes_x[:1] + lignes_warn[:2] + lignes_ok[:2])[:5]
+
+
+def _texte_motif(m):
+    """Transforme un motif de matching en phrase courte."""
+    c = m.get("critere", "")
+    p = m.get("points", 0)
+    libelles = {
+        "preset_compatibilite": "Secteur compatible avec le profil",
+        "thematique": "Thématique alignée au catalogue",
+        "geographie": "Zone géographique couverte",
+        "ing_typologies": "Typologie de mission au cœur du positionnement",
+        "ing_competences": "Disciplines exigées couvertes",
+        "ing_types_ouvrages": "Type d'ouvrage maîtrisé",
+        "ing_opqibi": "Qualifications OPQIBI exigées non détenues",
+        "ing_capacite_etudes": "Montant travaux dans la capacité",
+        "btp_qualibat": "Qualifications Qualibat",
+        "btp_corps_metier": "Corps d'état couverts",
+        "btp_types_ouvrages": "Type d'ouvrage maîtrisé",
+    }
+    base = libelles.get(c, (m.get("commentaire") or c)[:60])
+    signe = f"+{p}" if p > 0 else str(p)
+    return f"{base} (score {signe})"
+
+
+# ===========================================================================
+# Blocs sectoriels preset-aware
+# ===========================================================================
+
+def bloc_sectoriel_pour_marche(brief, presets, profil):
+    """
+    Retourne [{preset_code, label, pct, implemente, sections}] dans l'ordre de
+    poids décroissant. sections = [{label, valeur, type}] (type ∈ text/list/
+    table/badge/verrou).
+    """
+    blocs = []
+    for item in (presets or []):
+        code, pct = (item if isinstance(item, (list, tuple)) else (item, None))
+        if code == "btp":
+            blocs.append(_bloc_btp(brief, profil, pct))
+        elif code == "ingenierie":
+            blocs.append(_bloc_ingenierie(brief, profil, pct))
+        elif code == "formation":
+            blocs.append(_bloc_formation(brief, pct))
+        elif code in _PRESETS_STUB:
+            blocs.append({"preset_code": code, "label": _PRESET_LABEL.get(code, code),
+                          "pct": pct, "implemente": False,
+                          "sections": [{"label": "", "valeur":
+                                        f"Preset {code} détecté — sections sectorielles à venir (Sprint D).",
+                                        "type": "stub"}]})
+    return blocs
+
+
+def _bloc_btp(brief, profil, pct):
+    ctc = _get(brief, "caracteristiques_techniques_chantier") or {}
+    qr = _get(brief, "qualifications_requises") or {}
+    sections = []
+    if _non_vide(ctc.get("description")):
+        sections.append({"label": "Travaux", "valeur": ctc["description"], "type": "text"})
+    if _non_vide(ctc.get("typologie_ouvrage")):
+        sections.append({"label": "Typologie d'ouvrage", "valeur": ctc["typologie_ouvrage"], "type": "text"})
+    if _non_vide(ctc.get("surface_volume")):
+        sections.append({"label": "Surface / volume", "valeur": ctc["surface_volume"], "type": "text"})
+    if _non_vide(qr.get("description")):
+        sections.append({"label": "Qualifications requises", "valeur": qr["description"], "type": "text"})
+    autres = qr.get("autres_certifications") or []
+    libelles = [a.get("libelle") if isinstance(a, dict) else a for a in autres if a]
+    if libelles:
+        sections.append({"label": "Certifications", "valeur": libelles, "type": "list"})
+    # Verrou
+    for v in detecter_verrous(brief, profil):
+        if v["type"] == "Qualibat" and not v["satisfait"]:
+            sections.append({"label": "Verrou Qualibat", "valeur": v["motif"], "type": "verrou"})
+    return {"preset_code": "btp", "label": "BTP", "pct": pct, "implemente": True, "sections": sections}
+
+
+def _bloc_ingenierie(brief, profil, pct):
+    moe = _get(brief, "caracteristiques_mission_moe") or {}
+    qm = _get(brief, "qualifications_moe") or {}
+    sections = []
+    if _non_vide(moe.get("typologie")):
+        sections.append({"label": "Mission MOE", "valeur": moe["typologie"], "type": "text"})
+    phases = moe.get("phases_couvertes") or []
+    if phases:
+        sections.append({"label": "Phases", "valeur": "→".join(phases), "type": "text"})
+    if _non_vide(moe.get("complexite_technique")):
+        sections.append({"label": "Complexité", "valeur": moe["complexite_technique"], "type": "text"})
+    if _non_vide(moe.get("taux_remuneration_moe_pct")):
+        sections.append({"label": "Taux MOE", "valeur": moe["taux_remuneration_moe_pct"], "type": "text"})
+    if _non_vide(moe.get("bim_niveau")):
+        sections.append({"label": "BIM", "valeur": moe["bim_niveau"], "type": "text"})
+    if _non_vide(moe.get("montant_travaux_estime")):
+        sections.append({"label": "Coût travaux estimé", "valeur": _fmt_eur(moe["montant_travaux_estime"]), "type": "text"})
+    # Organigramme attendu + couverture profil
+    org = moe.get("organigramme_attendu") or []
+    if org:
+        comp = set()
+        for c in (_profil_sectoriel(profil, "ingenierie").get("competences_specialisees") or []):
+            comp |= _tokens(c)
+        lignes = []
+        for o in org:
+            prof = o.get("profil") if isinstance(o, dict) else str(o)
+            couvert = bool(_tokens(prof) & comp)
+            lignes.append({"profil": prof, "couvert": couvert,
+                           "nombre": (o.get("nombre") if isinstance(o, dict) else None)})
+        sections.append({"label": "Organigramme attendu", "valeur": lignes, "type": "organigramme"})
+    # Qualifications
+    if _non_vide(qm.get("opqibi")):
+        sections.append({"label": "OPQIBI exigés", "valeur": qm["opqibi"], "type": "list"})
+    for v in detecter_verrous(brief, profil):
+        if v["type"] in ("OPQIBI",) and not v["satisfait"]:
+            sections.append({"label": f"Verrou {v['type']}", "valeur": v["motif"], "type": "verrou"})
+    return {"preset_code": "ingenierie", "label": "Ingénierie", "pct": pct, "implemente": True, "sections": sections}
+
+
+def _bloc_formation(brief, pct):
+    sections = []
+    pc = _get(brief, "publics_cibles")
+    if _non_vide(pc):
+        sections.append({"label": "Publics cibles", "valeur": pc, "type": "list" if isinstance(pc, list) else "text"})
+    return {"preset_code": "formation", "label": "Formation", "pct": pct, "implemente": True, "sections": sections}
+
+
+# ===========================================================================
+# Lots / Tranches
+# ===========================================================================
+
+def tranches_ou_lots(brief, profil):
+    """
+    Retourne {mode, items} où mode ∈ {None, 'lots', 'tranches'}.
+    Items lots : {numero, intitule, description, volume, exigences, compat}.
+    """
+    lots = _get(brief, "lots") or []
+    tranches = _get(brief, "tranches") or {}
+    if len(lots) > 1:
+        items = []
+        for l in lots:
+            intit = l.get("intitule") or l.get("numero")
+            desc = l.get("description") or l.get("particularites") or l.get("objet") or ""
+            vol = None
+            if l.get("volume_estime"):
+                vol = f"{l['volume_estime']} {l.get('volume_estime_unite', '')}".strip()
+            items.append({
+                "numero": l.get("numero"), "intitule": intit, "description": desc,
+                "volume": vol, "exigences": l.get("exigences_specifiques") or l.get("particularites"),
+                "compat": _compat_lot(intit, desc, profil)})
+        return {"mode": "lots", "items": items}
+    tf = tranches.get("tranche_ferme")
+    to = tranches.get("tranches_optionnelles") or []
+    if tf or to:
+        items = [{"type": "ferme", "libelle": _str(tf)}] if tf else []
+        for t in to:
+            items.append({"type": "optionnelle", "libelle": _str(t)})
+        return {"mode": "tranches", "items": items}
+    return {"mode": None, "items": []}
+
+
+def _str(v):
+    if isinstance(v, dict):
+        return v.get("libelle") or v.get("description") or v.get("intitule") or str(v)
+    return str(v)
+
+
+def _compat_lot(intit, desc, profil):
+    """Mini-scoring de compatibilité d'un lot vs corps de métier du profil."""
+    toks = _tokens(str(intit) + " " + str(desc))
+    if not toks:
+        return "?"
+    profil_toks = set()
+    for c in (_profil_sectoriel(profil, "btp").get("corps_de_metier") or []):
+        profil_toks |= _tokens(c)
+    for c in (_profil_sectoriel(profil, "ingenierie").get("competences_specialisees") or []):
+        profil_toks |= _tokens(c)
+    if not profil_toks:
+        return "?"
+    inter = toks & profil_toks
+    if len(inter) >= 2:
+        return "coeur"
+    if inter:
+        return "partielle"
+    return "hors"
+
+
+# ===========================================================================
+# Richesse du brief
+# ===========================================================================
+
+_SECTORIEL_BLOC = {
+    "btp": "caracteristiques_techniques_chantier",
+    "ingenierie": "caracteristiques_mission_moe",
+    "formation": "publics_cibles",
+}
+
+
+def calculer_richesse_brief(brief, presets, marche=None):
+    """
+    Retourne {score 0-100, niveau, details}. Pondération : socle 40%,
+    sectoriel 30%, DCE complet 15%, calibration 15%.
+    """
+    if not brief:
+        return {"score": 0, "niveau": "light", "details": {}}
+    # Socle (40)
+    socle_champs = {
+        "objet": _non_vide((marche or {}).get("objet") or (marche or {}).get("titre") or brief.get("synthese_marche")),
+        "acheteur": _non_vide((marche or {}).get("acheteur_nom")),
+        "lots": _non_vide(brief.get("lots")),
+        "calendrier": _non_vide(brief.get("calendrier")),
+        "bareme": _non_vide(brief.get("bareme_notation")),
+        "alertes": _non_vide(brief.get("alertes_candidat")),
+    }
+    pct_socle = sum(1 for v in socle_champs.values() if v) / len(socle_champs)
+
+    # Sectoriel (30)
+    codes = _codes(presets)
+    ratios = []
+    for code in codes:
+        bloc_nom = _SECTORIEL_BLOC.get(code)
+        if not bloc_nom:
+            continue
+        bloc = brief.get(bloc_nom)
+        if isinstance(bloc, dict):
+            feuilles = list(bloc.values())
+            ratios.append(sum(1 for v in feuilles if _non_vide(v)) / max(1, len(feuilles)))
+        elif _non_vide(bloc):
+            ratios.append(1.0)
+    pct_sect = sum(ratios) / len(ratios) if ratios else 0.0
+
+    # DCE complet (15)
+    complet = False
+    try:
+        import auto_brief
+        complet = auto_brief.est_brief_complet(brief)
+    except Exception:
+        complet = _non_vide(brief.get("caracteristiques_techniques_chantier")) or \
+                  _non_vide(brief.get("caracteristiques_mission_moe"))
+
+    # Calibration (15)
+    calibre = calibration_marche((marche or {}).get("id") or brief.get("id") or "") is not None
+
+    score = round(40 * pct_socle + 30 * pct_sect + (15 if complet else 0) + (15 if calibre else 0))
+    niveau = "complet" if score >= 70 else ("partiel" if score >= 40 else "light")
+    return {"score": score, "niveau": niveau,
+            "details": {"socle": round(pct_socle * 100), "sectoriel": round(pct_sect * 100),
+                        "dce_complet": complet, "calibre": calibre}}
