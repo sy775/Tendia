@@ -296,6 +296,29 @@ def enrichir(limite: Optional[int] = None,
 
         _, dossier, pdfs, _raison = match[0]
 
+        # === Garde-fou contenu (Sprint Téléchargeur) ===
+        # Qualifie le DCE téléchargé, persiste `dce_contenu`, et SAUTE l'appel
+        # LLM si le DCE est inexploitable (vide / auth / erreur). Un RC seul
+        # (incomplet) reste briefable. Évite de brûler des tokens à vide.
+        import tendia_dce
+        _qual = tendia_dce.qualifier_dce(dossier)
+        marche["dce_contenu"] = _qual["qualite"]
+        marche["dce_pieces_contractuelles"] = _qual["pieces_contractuelles"]
+        marche["dce_raison_contenu"] = _qual["raison"]
+        try:
+            stockage.ecrire("marches", mid, marche)
+        except Exception:
+            pass
+        if _qual["qualite"] in ("vide", "auth_requise", "erreur"):
+            stats["extract_pas_pdf"] += 1
+            detail["statut"] = "dce_inexploitable"
+            detail["dce_contenu"] = _qual["qualite"]
+            stats["par_marche"].append(detail)
+            if verbose:
+                print(f"      → ⊘ extraction sautée : dce_contenu={_qual['qualite']} "
+                      f"({_qual['raison']})", flush=True)
+            continue
+
         if verbose:
             taille = sum(p.get('taille_chars', 0) for p in pdfs.values())
             print(f"      [{datetime.now().strftime('%H:%M:%S')}] extraction LLM "

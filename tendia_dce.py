@@ -40,6 +40,210 @@ REPERTOIRE_DCE = os.path.join(
 )
 
 
+# ===========================================================================
+# Qualification du CONTENU d'un dossier DCE (Sprint Téléchargeur)
+# ===========================================================================
+# NB : distinct de `dce_qualite` (résolution d'URL : directe/via_keyword/...).
+# Le résultat de `qualifier_dce` est persisté dans le champ `dce_contenu`
+# (5 niveaux : complet | incomplet | vide | auth_requise | erreur), sans
+# toucher `dce_qualite` (lu comme filtre par enrichir/pipeline/veille).
+
+import re as _re
+import unicodedata as _unicodedata
+import zipfile as _zipfile
+
+# Pièces contractuelles : leur présence rend le DCE briefable.
+PATTERNS_PIECES_CONTRACTUELLES = {
+    "RC":   [r"\brc\b", r"r[èe]glement.*consultation", r"regl.{0,3}cons"],
+    "CCAP": [r"\bccap\b", r"clauses.*administratives.*particulieres"],
+    "CCTP": [r"\bcctp\b", r"clauses.*techniques.*particulieres"],
+    "CCAG": [r"\bccag\b"],
+    "DPGF": [r"\bdpgf\b", r"d[ée]composition.*prix.*global"],
+    "BPU":  [r"\bbpu\b", r"bordereau.*prix.*unitaire"],
+    "AE":   [r"\bae\b", r"acte.*engagement"],
+    "CCTG": [r"\bcctg\b"],
+    "AAPC": [r"\baapc\b"],
+}
+
+# Pièces administratives non-DCE : ne comptent PAS comme contractuelles.
+PATTERNS_FICHIERS_ADMINISTRATIFS = [
+    r"depot.?pli",
+    r"avis.?de.?publicit",
+    r"\bdume\b",
+    r"attestation",
+    r"^formulaire",
+    r"^aapc[._].*publicit",
+]
+
+# Plateformes qui exigent une authentification (auth + captcha) : le DCE n'est
+# pas téléchargeable en automatique. À court-circuiter.
+PLATEFORMES_AUTH_REQUISES = {
+    "achatpublic.com",
+    "www.marches-publics.info",   # AWS-Achat
+    "marches-securises.fr",
+}
+
+# Motifs d'une page HTML de connexion / consultation côté agent.
+_PATTERNS_LOGIN_HTML = [
+    r"<form[^>]*login", r"password", r"mot de passe",
+    r"veuillez vous connecter", r"authentification requise",
+    r"entreprisedetailsconsultation", r"entrepriseadvancedsearch",
+]
+
+
+def _reparer_mojibake(s: str) -> str:
+    """Répare un nom UTF-8 lu en latin-1 ('RÃ¨glement' -> 'Règlement')."""
+    if "Ã" in s or "Â" in s:
+        try:
+            return s.encode("latin-1", "ignore").decode("utf-8", "ignore")
+        except (UnicodeError, ValueError):
+            return s
+    return s
+
+
+def _norm_nom(s: str) -> str:
+    """
+    Normalise un nom de fichier pour le matching : répare le mojibake, minuscule,
+    retire les accents, sépare lettres/chiffres collés ('RC2026' -> 'rc 2026') et
+    remplace les séparateurs (_, -, .) par des espaces ('2026_RC_MOE' -> 'rc'
+    isolé), pour que les `\\b...\\b` matchent.
+    """
+    s = _reparer_mojibake(str(s or ""))
+    nfkd = _unicodedata.normalize("NFKD", s.lower())
+    sans_accent = "".join(c for c in nfkd if not _unicodedata.combining(c))
+    # Sépare lettres<->chiffres collés (rc2026 -> rc 2026)
+    espace = _re.sub(r"(?<=[a-z])(?=\d)|(?<=\d)(?=[a-z])", " ", sans_accent)
+    return _re.sub(r"[^a-z0-9]+", " ", espace)
+
+
+def _est_administratif(nom_norm: str) -> bool:
+    return any(_re.search(p, nom_norm) for p in PATTERNS_FICHIERS_ADMINISTRATIFS)
+
+
+def _type_contractuel(nom_norm: str):
+    """Retourne le type de pièce contractuelle (RC, CCAP, ...) ou None."""
+    for type_piece, patterns in PATTERNS_PIECES_CONTRACTUELLES.items():
+        if any(_re.search(p, nom_norm) for p in patterns):
+            return type_piece
+    return None
+
+
+def _html_est_login(chemin: str) -> bool:
+    """Vrai si le fichier HTML ressemble à une page de connexion."""
+    try:
+        with open(chemin, "r", encoding="utf-8", errors="ignore") as f:
+            contenu = f.read(200_000).lower()
+    except OSError:
+        return False
+    return any(_re.search(p, contenu) for p in _PATTERNS_LOGIN_HTML)
+
+
+def url_est_auth_requise(url_dce: str) -> bool:
+    """Vrai si l'URL DCE pointe vers une plateforme à authentification connue."""
+    u = (url_dce or "").lower()
+    return any(p in u for p in PLATEFORMES_AUTH_REQUISES)
+
+
+def qualifier_dce(dossier_dce_path: str, log_telechargement: dict = None) -> dict:
+    """
+    Qualifie le CONTENU d'un dossier DCE téléchargé.
+
+    Inspecte les fichiers (et les noms internes des ZIP, sans extraction),
+    détecte les pièces contractuelles, les pages de login, et rend un verdict
+    en 5 niveaux. Idempotent, pur (ne modifie pas le dossier).
+
+    Retourne {qualite, pieces_contractuelles, nb_fichiers, taille_totale_octets, raison}.
+    qualite ∈ {complet, incomplet, vide, auth_requise, erreur}.
+    Ordre des règles (premier match l'emporte) : erreur > auth_requise > vide >
+    (que de l'administratif) > incomplet (1 pièce) > complet (≥2 pièces).
+    """
+    res = {"qualite": "vide", "pieces_contractuelles": [], "nb_fichiers": 0,
+           "taille_totale_octets": 0, "raison": "dossier vide"}
+
+    # 1) Erreur réseau / HTTP signalée par le log de téléchargement
+    if isinstance(log_telechargement, dict):
+        statut = log_telechargement.get("statut")
+        if statut in ("erreur", "echec") or log_telechargement.get("erreur"):
+            raison = (log_telechargement.get("raison")
+                      or log_telechargement.get("erreur") or "erreur téléchargement")
+            res.update(qualite="erreur", raison=str(raison)[:200])
+            return res
+
+    if not dossier_dce_path or not os.path.isdir(dossier_dce_path):
+        res.update(qualite="vide", raison="dossier inexistant")
+        return res
+
+    noms = []
+    taille = 0
+    nb = 0
+    login = False
+    for racine, _dirs, fichiers in os.walk(dossier_dce_path):
+        for f in fichiers:
+            chemin = os.path.join(racine, f)
+            try:
+                t = os.path.getsize(chemin)
+            except OSError:
+                t = 0
+            taille += t
+            nb += 1
+            noms.append(f)
+            low = f.lower()
+            if low.endswith(".zip"):
+                try:
+                    with _zipfile.ZipFile(chemin) as z:
+                        noms.extend(os.path.basename(n) for n in z.namelist() if n and not n.endswith("/"))
+                except Exception:
+                    pass
+            elif (low.endswith(".html") or low.endswith(".htm")) and 0 < t < 100 * 1024:
+                if _html_est_login(chemin):
+                    login = True
+
+    res["nb_fichiers"] = nb
+    res["taille_totale_octets"] = taille
+
+    # 2) Page de login détectée
+    if login:
+        res.update(qualite="auth_requise",
+                   raison="page de connexion détectée (auth + captcha)")
+        return res
+
+    # 3) Dossier vide / quasi-vide
+    if taille < 1024:
+        res.update(qualite="vide", raison="dossier vide")
+        return res
+
+    # Classement des noms
+    types = set()
+    n_admin = 0
+    for nom in noms:
+        nn = _norm_nom(nom)
+        if _est_administratif(nn):
+            n_admin += 1
+            continue
+        tc = _type_contractuel(nn)
+        if tc:
+            types.add(tc)
+    pieces = sorted(types)
+    res["pieces_contractuelles"] = pieces
+
+    # 4) Aucune pièce contractuelle
+    if not pieces:
+        res.update(qualite="vide",
+                   raison="uniquement fichiers administratifs" if n_admin
+                   else "aucune pièce contractuelle exploitable")
+        return res
+
+    # 5) Une seule pièce
+    if len(pieces) == 1:
+        res.update(qualite="incomplet",
+                   raison=f"1 seule pièce contractuelle ({pieces[0]})")
+        return res
+
+    # 6) DCE complet
+    res.update(qualite="complet", raison="complet : " + ", ".join(pieces) + " détectés")
+    return res
+
+
 # ---------------------------------------------------------------------------
 # Filtre marchés actifs
 # ---------------------------------------------------------------------------
