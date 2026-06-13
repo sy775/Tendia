@@ -3,10 +3,11 @@
 **Tu es le prochain Claude qui va aider Younes sur Tendia.**
 **Ce document est ton briefing.** Lis-le entièrement avant de répondre à Younes.
 
-**Date de la passation** : 12 juin 2026, fin de Sprint 2bis + A + B + C (ingénierie)
-**Version** : 2.1 (post extension sectorielle ingénierie)
-**Sprints clôturés** : 2, 2bis (Sujets 1+2, Phases 3a/3b/3c), A (profil socle+BTP), B (matching V2), C-ingénierie (profil + matching sectoriel)
-**État système** : stable et productif. Verdicts `pertinent`+ end-to-end sur 2 profils démo : BTP IDF (57070/56539/56378) et Ingénierie IDF (56588 `tres_pertinent`, 56774/55964/56096 `pertinent`)
+**Date de la passation** : 13 juin 2026, fin de Sprint P bis + UI fiche marché
+**Version** : 2.2 (post UI profils + fiche marché preset-aware)
+**Sprints clôturés** : 2, 2bis (Sujets 1+2, Phases 3a/3b/3c), A (profil socle+BTP), B (matching V2), C-ingénierie, P (UI gestion profils), P bis (création + widgets), UI fiche marché (preset-aware)
+**État système** : stable et productif. Verdicts `pertinent`+ end-to-end sur 2 profils démo : BTP IDF (57070/56539/56378) et Ingénierie IDF (56588 `tres_pertinent`, 56774/55964/56096 `pertinent`). Fiche marché et gestion de profils désormais utilisables par un commercial.
+**Repo sous git depuis le 12 juin** (init pendant Sprint P) : `data/`, `.env`, sidecars WAL gitignorés. Commit avant chaque sprint, working tree propre.
 
 ---
 
@@ -38,7 +39,7 @@
 
 ---
 
-## 2. État du projet au 12 juin 2026 (post Sprint 2bis + A + B)
+## 2. État du projet au 13 juin 2026 (post Sprint C + P + P bis + UI fiche marché)
 
 ### Architecture actuelle
 
@@ -68,7 +69,8 @@ Matching organisme × marché V2 (Sprint B)
    |   [Sprint B] : motifs universels + sectoriels BTP (qualibat, RGE,
    |                corps_metier, types_ouvrages, capacité)
    ↓
-UI : Dashboard (strict) + Explorer (exhaustif) + Fiche marché + Profil
+UI : Dashboard (strict) + Explorer (tri richesse, Sprint UI) + Fiche marché
+     (preset-aware, Sprint UI) + Profils (bibliothèque + édition, Sprint P/P bis)
 
 ```
 
@@ -84,6 +86,8 @@ UI : Dashboard (strict) + Explorer (exhaustif) + Fiche marché + Profil
 - **Profil organisme multi-secteurs** (Sprint A) : socle commun + spécialisations par preset
 - **Matching V2 multi-secteurs** (Sprint B) : motifs universels (preset, thématique, géo via dept/région, capacité) + sectoriel BTP (qualibat go/no-go, RGE, corps_metier par tokens, types_ouvrages, capacité chantier)
 - **Profil + matching sectoriel ingénierie** (Sprint C) : `presets/ingenierie/_schema.json` (11 propriétés) + profil démo Tridyne + 7 évaluateurs (ing_opqibi go/no-go, ing_decennale/ing_rc_pro conditionnels, ing_typologies, ing_competences seuil 0.8, ing_types_ouvrages, ing_capacite_etudes sur montant travaux). Lit les blocs brief `caracteristiques_mission_moe` + `qualifications_moe`.
+- **UI de gestion des profils** (Sprint P + P bis) : bibliothèque KV `profils_bibliotheque` (collection à côté de `organisme/principal` actif), routes `/profil` (liste, détail, édition, activation, duplication, import, création from scratch). Édition par formulaires : checkboxes groupées pour les enums, zones par région (101 dépts), sous-formulaire dynamique de références. Helpers dans `organisme.py`, parsing dans `profil_form.py`, widgets dans `profil_widgets.py`.
+- **Fiche marché preset-aware** (Sprint UI) : module `fiche_marche.py` (7 helpers purs testés). KPI cards preset-aware (plus de « Bénéficiaires » sur du BTP), verdict 90 secondes, encart verrous go/no-go, blocs sectoriels BTP/ingénierie/formation rendus en HTML, détail par lot/tranche, badge richesse brief, bouton « Lancer calibration ». Explorer trié par richesse décroissante + filtre `?complet=1`.
 
 ### Ce qui ne marche pas (ou pas encore)
 
@@ -91,12 +95,18 @@ UI : Dashboard (strict) + Explorer (exhaustif) + Fiche marché + Profil
 - **Pas d'évaluateurs matching sectoriels** pour conseil/IT/EnR (Sprint C — stubs en place ; BTP et ingénierie faits)
 - **`ing_opqibi` ne mord pas sur les briefs actuels** : le LLM remplit `qualifications_moe.opqibi` en texte libre, pas en codes à 4 chiffres → garde-fou neutre (piège 10). Le go/no-go OPQIBI n'agira que si l'extraction des codes est fiabilisée côté `llm_extract.py`.
 - **Couverture DCE 35%** : plateformes DEMATIS (captcha) et achatpublic (login) bloquent 51% du volume
+- **Calibration bottom-up faible** : seulement **14/102 briefs calibrés** (~14%), sur disque `data/extractions_calibrees/` (PAS une collection KV — lire via `llm_calibration.charger_si_existe`). 75/102 briefs sans montant estimé. Le pipeline calibration n'a jamais tourné en masse. Le bouton « Lancer calibration » (Sprint UI) permet de le faire à la demande.
 - **Calibration top-down** : DECP non exploité aujourd'hui
 - **Pas d'authentification multi-tenant** : 1 base = 1 utilisateur
-- **UI orientée dev** : pas assez "commercial-ready"
 - **5 marchés hors-preset** (assurance, entretien, env) : pas de stratégie ferme — décision à prendre (filtre strict vs preset générique services_supports)
-- **Bug `enrichir_complet.py`** : filtre `--id $_ --force` n'honore pas vraiment `--force`, certains marchés non-pertinents sont skippés malgré l'argument explicite
+- **Reste du Sprint UI fiche marché** : bouton « Tout déplier » de l'onglet Technique, badge richesse dans le Dashboard, cases à cocher UI du filtre « briefs complets » (marche par URL `?complet=1`), enquête header multi-dépt (56970). Les 12 tests navigateur ne sont pas tous passés (vérif curl + grep).
+- **Édition profils conseil/IT/EnR** : ces presets affichent « Sprint D à venir » dans l'éditeur (schémas sectoriels non encore définis).
 - **3 marchés avec mismatch DCE/métadonnée** (55964, 56061, 56063 historiques) : le DCE téléchargé ne correspond pas au marché BOAMP — chantier d'investigation séparé
+- **Section `tranches` absente des briefs** : ex 56096 (« 12 tranches » annoncées) n'a pas de structure `tranches` exploitable → défaut Phase 3b à corriger côté extraction, pas côté UI.
+
+### Résolu récemment
+
+- ✅ **Bug `enrichir_complet.py --id`** (Sprint UI, commit `ca8a446`) : `--id` court-circuite désormais le filtre pertinent (un marché ciblé non-pertinent est traité). Le symptôme « --force pas honoré » venait de là.
 
 ### Chiffres importants à connaître
 
@@ -180,6 +190,29 @@ Reproduction du modèle BTP (Sprint A+B) pour le preset `ingenierie`, sans touch
 - `matching.py` : 7 évaluateurs (`_eval_ing_*`) insérés en section dédiée après `_eval_sectoriel_btp`. Distinction études/MOE vs travaux : lit `caracteristiques_mission_moe` (typologie, typologie_ouvrage, montant_travaux_estime, organigramme_attendu) et `qualifications_moe` (opqibi). `ing_competences` à seuil 0.8 (un BET couvre rarement 100% des disciplines). Dispatcher `elif code == "ingenierie"` + verdict étendu (`ing_opqibi` -50 → `non_pertinent`).
 - **Résultat in vivo** (profil Tridyne, 422 marchés) : 1 `tres_pertinent` (56588 Lycée Guer MOE, 75), 3 `pertinent` (56774 AMO rectorat Versailles 57, 55964 MOE route 50, 56096 pont de Pierre 50). Non-régression BTP : 57070/56539/56378 inchangés. 0€ LLM.
 
+### Sprint P — UI gestion des profils (12 juin 2026) ✅
+
+Avant : 1 seul profil actif, écrasement via `init_profil.py --purger`. Maintenant : bibliothèque multi-profils.
+
+- Collection KV `profils_bibliotheque` (N profils) à côté de `organisme/principal` (actif). **Invariant lien actif** : `organisme/principal.id` = slug de l'entrée bibliothèque (sinon `est_actif` ne matche pas — `ecrire_profil` force `id="principal"` côté CLI, donc les écritures UI passent en direct par `stockage.ecrire`).
+- Helpers `organisme.py` : `lister_profils_{bibliotheque,exemples}`, `activer_profil`, `enregistrer_profil_bibliotheque`, `importer_profil_json`, `dupliquer_profil`, `migrer_bibliotheque_au_demarrage` (idempotent, lancée au démarrage Flask), `_slugify`.
+- Routes `/profil` (liste), `/profil/<source>/<id>` (détail), `/profil/bibliotheque/<id>/edit`, `/activer`, `/dupliquer`, `/importer`. Templates sous `ui/templates/profil/`.
+- Parsing formulaire→profil par **merge sur l'existant** (zéro perte) dans `profil_form.py`, testable hors Flask.
+- **Pas de création from scratch ni suppression depuis l'UI** au Sprint P (CLI only, anti-destruction).
+
+### Sprint P bis — Création + widgets formulaire (12 juin 2026) ✅
+
+- **Création from scratch** : `/profil/nouveau` (2 étapes). `organisme.creer_profil_bibliotheque` valide le **socle seulement** (le sectoriel est vide à la création, complété en édition — sinon les arrays requis vides bloqueraient).
+- **Widgets** (`profil_widgets.py` + `ui/templates/profil/_macros.html`) : checkboxes groupées par famille pour les enums (corps_de_metier, typologies, compétences…) avec groupe défensif « Autres » ; zones d'intervention = 101 départements groupés par 18 régions (source `matching.DEPARTEMENT_VERS_REGION`) ; sous-formulaire dynamique de références (add/remove JS, parsing `references_xxx[N].champ`, index tolérant aux trous).
+- Suppression du vestige `ui/templates/profil.html` (formation Apptia).
+
+### Sprint UI fiche marché — preset-aware (12-13 juin 2026) ✅ (partiel)
+
+Module **`fiche_marche.py`** : 7 helpers purs testés (résolution presets via poids `domaines_metier`, KPI cards, verdict 90s, verrous, blocs sectoriels, lots/tranches, richesse brief). Wiring dans `tendia_ui.py` route `/marche` + refonte `marche.html`.
+
+- Livré : KPI preset-aware (fin résidu « Bénéficiaires »), verdict 90s, encart verrous, blocs sectoriels HTML, détail lots/tranches, badge richesse (fiche + Explorer), tri Explorer richesse-desc + filtre `?complet=1`, route `/marche/<id>/calibrer` + bouton, « Vigilance · N alertes ».
+- **Reste** (voir « Ce qui ne marche pas ») : bouton « Tout déplier » technique, badge Dashboard, passe complète des 12 tests navigateur.
+
 ---
 
 ## 3bis. Sprint en cours / Prochain sprint
@@ -198,9 +231,10 @@ Priorité Younes : conseil > IT > EnR (selon plan commercial).
 
 ### Chantiers non-prioritaires mais reportés
 
-- **Patch `enrichir_complet.py`** : honorer `--id` en bypass du filtre `pertinent` (~10 min). Sans ça, on ne peut pas régénérer un brief spécifique si le profil ne le considère plus comme pertinent.
+- **Finir le Sprint UI fiche marché** : bouton « Tout déplier » onglet Technique, badge richesse dans le Dashboard, cases à cocher du filtre « briefs complets », enquête header multi-dépt (56970), passe des 12 tests navigateur.
+- **Fiabiliser l'extraction des codes OPQIBI/Qualibat** côté `llm_extract.py` (codes à 4 chiffres structurés) pour que les verrous go/no-go mordent vraiment.
 - **Bug DCE/métadonnée mismatch** sur 3 marchés historiques (55964, 56061, 56063) : DCE téléchargé ne correspond pas au marché BOAMP. Investigation séparée.
-- **Bandeau LIGHT** sur briefs incomplets dans l'UI (~10 min).
+- **Section `tranches`** non extraite par le brief (Phase 3b) — bloque le rendu « Détail par tranche » sur les marchés à tranches (ex 56096).
 - **Décision 5 hors-preset** : 5 marchés (assurance, entretien, environnement) sortent de la taxonomie. 3 options : (a1) filtre strict skip ; (a2) preset générique `services_supports` ; (a3) status quo. À trancher.
 - **Rectorats par académie** : ajouter `rectorat de Paris → 75`, `rectorat de Versailles → 78`, etc. dans `ACHETEUR_VERS_DEPARTEMENT` (matching.py). Ferait passer 56774 (AMO rectorat IDF, score 47) à `pertinent`.
 - **Affiner profil BTP démo** par Younes avec ses vraies données prospect.
@@ -297,6 +331,18 @@ Pour les acheteurs nationaux IDF (OFPRA, CNAM, CNAF, Sénat, ministères...), le
 ### Piège 12 — `presets_marche=[]` ne signifie pas "hors taxonomie"
 
 Un marché peut avoir `classifications_ia` rempli mais `presets_marche=[]` si le code domaine n'est pas mappé à un preset (ex: `entretien_proprete_locaux`, `services_environnement_analyses`, `transport_logistique_vehicules`, `fourniture_materiel`). Le matching V2 retourne alors un motif neutre (0) pour `preset_compatibilite`. Ce n'est PAS un bug — c'est juste qu'on n'a pas (encore) de preset pour ces familles. Décision 5 hors-preset pendante.
+
+### Piège 13 — Clé `items` interdite dans un dict passé à Jinja
+
+Jinja résout `mondict.items` vers la **méthode** `dict.items` (built-in), pas vers la clé `"items"`. Un `{{ mondict.items|length }}` plante (`builtin_function_or_method has no len()`). **Ne jamais nommer une clé `items`** dans une structure exposée au template (vu sur `tranches_ou_lots` → renommé `lignes`). Idem pour `keys`, `values`, `update`, `get`, `copy`.
+
+### Piège 14 — Backup `data/tendia.db` en mode WAL
+
+La base est en mode **WAL** (`PRAGMA journal_mode=WAL`). Un `Copy-Item data\tendia.db` (ou `cp`) **ne copie pas** le `-wal`/`-shm` : la copie peut être incohérente / périmée. **Toujours** faire `python -c "import sqlite3; c=sqlite3.connect('data/tendia.db'); c.execute('PRAGMA wal_checkpoint(TRUNCATE)'); c.close()"` AVANT la copie. Pour remettre la base dans un état précis pendant les tests, préférer un reset par code (`stockage.sauver/ecrire`) à la copie de fichier.
+
+### Piège 15 — Form multi-valeurs → `request.form.getlist`
+
+Les widgets à valeurs multiples (checkboxes : presets, zones d'intervention, enums sectoriels) envoient le même `name` N fois. `request.form.get(name)` ne renvoie que la 1ʳᵉ valeur. **Toujours `getlist`** (sinon bug silencieux : ex `zones_intervention` lu en textarea ne gardait qu'un département). Le parser `profil_form.py` gère ça ; les références indexées se lisent via le pattern `prefix[N].champ`.
 
 ---
 
@@ -489,4 +535,4 @@ Si tu identifies une dette technique : **signale**. Mais en respectant le timing
 
 ---
 
-*Document mis à jour à chaque sprint. Dernière révision : 12 juin 2026 — Sprint C ingénierie (profil + matching sectoriel).*
+*Document mis à jour à chaque sprint. Dernière révision : 13 juin 2026 — Sprint P/P bis (UI profils) + Sprint UI fiche marché preset-aware.*
