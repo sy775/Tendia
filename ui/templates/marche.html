@@ -536,6 +536,26 @@
         {% if marche.dce_qualite in ('directe', 'via_keyword') %}Télécharger le DCE{% else %}Consultation plateforme{% endif %}
       </a>
       {% endif %}
+      {# Statut du CONTENU DCE téléchargé (Sprint Téléchargeur) #}
+      {% if dce_contenu %}
+      <span title="{{ dce_raison_contenu }}" style="display:inline-flex; align-items:center; gap:5px; padding:5px 11px; border-radius:7px; font-size:11.5px; font-weight:600;
+        {% if dce_contenu == 'complet' %}background:var(--c-green-soft); color:var(--c-green);
+        {% elif dce_contenu == 'incomplet' %}background:var(--c-amber-soft); color:var(--c-amber);
+        {% elif dce_contenu == 'auth_requise' %}background:var(--c-blue-soft); color:var(--c-blue);
+        {% elif dce_contenu == 'erreur' %}background:var(--c-rose-soft); color:var(--c-rose);
+        {% else %}background:rgba(26,24,20,0.06); color:var(--apt-ink-4);{% endif %}">
+        {% if dce_contenu == 'complet' %}✓ DCE complet{% if dce_pieces %} ({{ dce_pieces|join(' + ') }}){% endif %}
+        {% elif dce_contenu == 'incomplet' %}DCE incomplet{% if dce_pieces %} ({{ dce_pieces|join(', ') }}){% endif %}
+        {% elif dce_contenu == 'auth_requise' %}DCE sur plateforme à authentification
+        {% elif dce_contenu == 'erreur' %}Téléchargement échoué
+        {% else %}DCE indisponible{% endif %}
+      </span>
+      {% if dce_contenu in ('vide', 'incomplet', 'erreur') and not (marche.dce_qualite == 'absente') %}
+      <form method="post" action="{{ url_for('retenter_dce', id_marche=marche.id) }}" style="display:inline;">
+        <button type="submit" class="btn-ghost">↻ Re-tenter téléchargement</button>
+      </form>
+      {% endif %}
+      {% endif %}
       {% if marche.url_avis %}
       <a href="{{ marche.url_avis }}" target="_blank" rel="noopener" class="btn-ghost">
         <svg style="width: 12px; height: 12px;" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">

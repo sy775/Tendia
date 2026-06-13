@@ -903,6 +903,9 @@ def detail_marche(id_marche):
         blocs_sectoriels=blocs_sectoriels,
         detail_lots=detail_lots,
         richesse=richesse,
+        dce_contenu=marche.get("dce_contenu"),
+        dce_raison_contenu=marche.get("dce_raison_contenu"),
+        dce_pieces=marche.get("dce_pieces_contractuelles") or [],
         brief_type=brief_type,
         concurrents=concurrents,
         zone_prix=zone_prix,
@@ -945,6 +948,44 @@ def calibrer_marche(id_marche):
             flash("Calibration non aboutie (brief insuffisant pour estimer).", "erreur")
     except Exception as e:
         flash(f"Échec de la calibration : {e}", "erreur")
+    return redirect(url_for("detail_marche", id_marche=id_marche))
+
+
+@app.route("/marche/<id_marche>/retenter-dce", methods=["POST"])
+def retenter_dce(id_marche):
+    """Re-tente le téléchargement du DCE puis re-qualifie le contenu."""
+    marches = stockage.charger("marches") or {}
+    marche = marches.get(id_marche)
+    if not marche:
+        abort(404)
+    import tendia_dce
+    if tendia_dce.url_est_auth_requise(marche.get("url_dce") or ""):
+        flash("Plateforme à authentification : téléchargement automatique impossible. "
+              "Connecte-toi via l'avis BOAMP.", "erreur")
+        return redirect(url_for("detail_marche", id_marche=id_marche))
+    try:
+        import requests
+        import tendia_telecharger_dce as tdce
+        log = tdce._telecharger_marche(marche, session=requests.Session(),
+                                       force=True, dry_run=False, verbose=False)
+    except Exception as e:
+        log = {"statut": "erreur", "raison": f"{type(e).__name__}: {e}"}
+    dossier = str(REPERTOIRE_DCE / id_marche)
+    qual = tendia_dce.qualifier_dce(dossier, log)
+    marche["dce_contenu"] = qual["qualite"]
+    marche["dce_pieces_contractuelles"] = qual["pieces_contractuelles"]
+    marche["dce_raison_contenu"] = qual["raison"]
+    marche["dce_relance_le"] = datetime.now().isoformat()
+    stockage.ecrire("marches", id_marche, marche)
+    if qual["qualite"] in ("complet", "incomplet"):
+        flash(f"Téléchargement réussi : DCE {qual['qualite']} "
+              f"({', '.join(qual['pieces_contractuelles']) or qual['raison']}).", "succes")
+    elif qual["qualite"] == "erreur":
+        flash("Erreur réseau, ré-essaye dans quelques minutes.", "erreur")
+    elif qual["qualite"] == "auth_requise":
+        flash("DCE sur plateforme à authentification — non récupérable en auto.", "erreur")
+    else:
+        flash("Téléchargement effectué mais DCE toujours indisponible.", "erreur")
     return redirect(url_for("detail_marche", id_marche=id_marche))
 
 
