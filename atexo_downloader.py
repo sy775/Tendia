@@ -31,12 +31,12 @@ try:
 except ImportError:
     raise RuntimeError("La lib 'requests' est requise. pip install requests")
 
+import http_humain
 
-USER_AGENT = (
-    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
-    "AppleWebKit/537.36 (KHTML, like Gecko) "
-    "Chrome/120.0.0.0 Safari/537.36"
-)
+
+# Conservé pour compat (scripts diagnostic lisant atexo_downloader.USER_AGENT).
+# Le workflow utilise désormais http_humain.creer_session_humaine() (anti-ban).
+USER_AGENT = http_humain.USER_AGENTS_POOL[0]
 
 # Hosts Atexo MPE / Prado connus (PLACE + forks). La détection accepte aussi
 # tout host portant la signature Atexo (orgAcronyme + page Entreprise.),
@@ -148,12 +148,8 @@ def telecharger_dce(id_atexo, org_acronyme: str, chemin_destination: str,
     out = {"ok": False, "chemin": None, "taille_octets": 0, "erreur": None,
            "duree_secondes": 0.0}
 
-    session = requests.Session()
-    session.headers.update({
-        "User-Agent": USER_AGENT,
-        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9",
-        "Accept-Language": "fr-FR,fr;q=0.9",
-    })
+    # Session « humaine » : User-Agent tournant + headers réalistes (anti-ban).
+    session = http_humain.creer_session_humaine()
 
     url_form = _construire_url_formulaire(id_atexo, org_acronyme, url_base)
     if verbose:
@@ -177,6 +173,8 @@ def telecharger_dce(id_atexo, org_acronyme: str, chemin_destination: str,
 
     # ----- Étape 2 : POST 1 (anonyme + CGU) -----
     try:
+        # Délai « humain » : temps de remplir le formulaire identité.
+        http_humain.attendre_inter_etapes(verbose=verbose)
         if verbose:
             print("    [2/3] POST 1 : anonyme + CGU...")
         payload1 = _extraire_inputs_form(html1)
@@ -240,6 +238,8 @@ def telecharger_dce(id_atexo, org_acronyme: str, chemin_destination: str,
 
     # ----- Étape 3 : POST 2 (Prado postback completeDownload) -----
     try:
+        # Délai « humain » : temps de cliquer sur « Télécharger ».
+        http_humain.attendre_inter_etapes(verbose=verbose)
         if verbose:
             print("    [3/3] POST 2 : Prado postback (download)...")
         event_target = _trouver_event_target(html2, "completeDownload")

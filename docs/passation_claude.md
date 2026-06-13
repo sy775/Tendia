@@ -262,6 +262,19 @@ Les 81 marchés `www.marches-publics.info` (AWS-Achat / AW Solutions) étaient c
 
 ---
 
+### Sprint Anti-Ban v1 — comportement humain pour les downloaders (13 juin 2026) ✅
+
+Le batch test AWS-Achat a déclenché un **ban IP** (~10-15 sessions ColdFusion enchaînées en 1h, rythme fixe 3 s, UA unique → pattern bot). Objectif : rendre le trafic indistinguable d'un usage humain, sans proxy ni headless (gratuit).
+
+- `http_humain.py` (nouveau, stdlib pure) : `creer_session_humaine()` (UA tournant parmi 7 Chrome/FF/Edge/Safari + headers Sec-Fetch réalistes), `attendre_humain(min,max,mu,sigma)` (délai gaussien borné), `attendre_inter_etapes()` (1.5-4 s entre étapes d'un workflow), `attendre_pause_cumulative()` (pause 15-30 min tous les N marchés), `heure_actuelle_est_bureau()` (8h-19h lun-ven), `jitter()`, `ressemble_a_page_ban()` (détection page d'accueil Bootstrap/acheteurs.htm servie au lieu de la page applicative). `tests_http_humain.py` : 27 OK (time/random/datetime mockés).
+- **3 downloaders** (`atexo`, `achatpublic`, `aws`) : `requests.Session()` → `http_humain.creer_session_humaine()` + `attendre_inter_etapes()` entre étapes (aws : 3-6 s avant captcha, 2-4 s avant lots, 4-8 s avant actDCE2). Constantes `USER_AGENT` **conservées** (compat `diagnostic_actdce2.py`/`diagnostic_etape5.py` qui lisent `aws_downloader.USER_AGENT`) mais pointent vers le pool. **Détection ban** dans aws : `etape_erreur="ban_detecte"` si page d'accueil au lieu de la page captcha (étapes 1 et 2).
+- **Batch** : `retelecharger_aws_achat_anti_ban.py` (nouveau) — délai gaussien 75±30 s, pause cumulative /20, cap `--max 30`/run, garde-fou heures de bureau (`--ignorer-heures` pour tester), **arrêt après 3 bans consécutifs**. Ancien `retelecharger_aws_achat.py` conservé. `retelecharger_achatpublic.py` (~15 s) et `retelecharger_incomplet.py` (~10 s) passés en rate-limit randomisé (pas de ban observé sur ces plateformes).
+- `docs/cron_windows.md` : programmation Task Scheduler (3 matinées lun-mar-mer, script idempotent → 30×3 ≥ 81 marchés AWS).
+- **Tests** : http_humain 27 OK, aws_downloader 38 OK (+ test ban_detecte), non-régression atexo 25 / parseur 22 / qualifier 10.
+- **À lancer par Younes** : d'abord vérifier que le ban est levé (Phase A), puis `test_aws_achat.py` (1 marché), puis mini-batch `--max 5 --oui`, puis cron 30/jour. Si bans persistent → Sprint Anti-Ban v2 (curl_cffi / proxy résidentiel).
+
+---
+
 ## 3bis. Sprint en cours / Prochain sprint
 
 **Aucun sprint actif au moment de cette passation.** Le système est dans un état stable et productif. Plusieurs chantiers possibles selon les priorités :
@@ -607,4 +620,4 @@ Si tu identifies une dette technique : **signale**. Mais en respectant le timing
 
 ---
 
-*Document mis à jour à chaque sprint. Dernière révision : 13 juin 2026 — Sprint AWS-Achat (downloader anonyme ColdFusion + 2captcha, 81 marchés `auth_requise` débloqués hors-ligne ; fix reextraire_briefs_complet sans re-DL ; batch réseau à lancer par Younes).*
+*Document mis à jour à chaque sprint. Dernière révision : 13 juin 2026 — Sprint Anti-Ban v1 (module http_humain : UA tournant + rate-limit gaussien + heures de bureau + détection ban ; downloaders et batch refondus ; cron Windows documenté).*

@@ -20,9 +20,14 @@ sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
 import stockage
 import tendia_dce
+import http_humain
 import tendia_telecharger_dce as T
 
-DELAI_SEC = 2
+# Rate-limit randomisé (anti-ban léger, uniformisation). Atexo n'a pas montré
+# de ban : ~10 s en moyenne.
+RATE_LIMIT_MOYEN_SEC = 10
+RATE_LIMIT_MIN_SEC = 5
+RATE_LIMIT_MAX_SEC = 25
 
 
 def main():
@@ -66,7 +71,10 @@ def main():
         print(f"  [{i}/{len(cibles)}] {mid} : incomplet → {nouveau} "
               f"({len(res.get('pieces_recuperees', []))} pièces récupérées, "
               f"{len(res.get('pieces_manquantes', []))} manquantes)")
-        time.sleep(DELAI_SEC)
+        if i < len(cibles):
+            http_humain.attendre_humain(
+                RATE_LIMIT_MIN_SEC, RATE_LIMIT_MAX_SEC,
+                mu=RATE_LIMIT_MOYEN_SEC, sigma=4, verbose=True)
 
     print("\nBilan :")
     for b, n in bilan.most_common():

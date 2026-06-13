@@ -29,6 +29,7 @@ API publique :
     telecharger_dce_pour_marche(marche, repertoire_dce, api_key_2captcha=None) -> dict
 """
 
+import html as html_lib
 import os
 import re
 import time
@@ -40,6 +41,8 @@ try:
     import requests
 except ImportError:
     raise RuntimeError("La lib 'requests' est requise. Lance : pip install requests")
+
+import http_humain
 
 # python-dotenv : lecture transparente de la clé 2captcha depuis .env.
 try:
@@ -53,11 +56,10 @@ URL_BASE = "https://www.marches-publics.info"
 URL_PATH = "/mpiaws/index.cfm"
 URL_CDN = "https://downloads.awsolutions.fr"
 
-USER_AGENT = (
-    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
-    "AppleWebKit/537.36 (KHTML, like Gecko) "
-    "Chrome/121.0.0.0 Safari/537.36"
-)
+# Conservé pour compat (diagnostic_actdce2.py, diagnostic_etape5.py… lisent
+# aws_downloader.USER_AGENT). Le workflow utilise désormais
+# http_humain.creer_session_humaine() (UA tournant) pour l'anti-ban.
+USER_AGENT = http_humain.USER_AGENTS_POOL[0]
 
 # Constantes workflow (observées empiriquement, fallback si absentes du HTML)
 IDS_DEFAUT = "25"
@@ -93,9 +95,15 @@ class ErreurSolde2Captcha(Exception):
 # ===========================================================================
 
 def _extraire_idm_depuis_url(url: str) -> Optional[str]:
-    """Extrait l'IDM depuis n'importe quelle URL marches-publics.info."""
+    """Extrait l'IDM depuis n'importe quelle URL marches-publics.info.
+
+    Decode au prealable les entites HTML (&amp; -> &) car certaines URLs
+    de la base contiennent &amp; au lieu de & (bug d'ingestion BOAMP qui
+    ne fait pas d'html.unescape sur les URLs).
+    """
     if not url:
         return None
+    url = html_lib.unescape(url)  # &amp; -> &, &lt; -> <, etc.
     try:
         qs = parse_qs(urlparse(url).query)
         v = qs.get("IDM") or qs.get("idm")
@@ -115,6 +123,7 @@ def _extraire_cfid_cftoken_depuis_html(html: str):
     """
     if not html:
         return None, None
+    html = html_lib.unescape(html)  # &amp; -> &
     cfid = re.search(r"[?&]CFID=(\d+)", html, re.IGNORECASE)
     cftoken = re.search(r"[?&]CFTOKEN=([0-9a-fA-F]+)", html, re.IGNORECASE)
     return (cfid.group(1) if cfid else None,
@@ -137,6 +146,8 @@ def _extraire_str_nom_image_et_hashval(html: str):
     """
     if not html:
         return None, None
+    html = html_lib.unescape(html)  # &amp; -> &
+    html = html_lib.unescape(html)  # &amp; -> &
     nom = re.search(
         r'name=["\']strNomImage["\'][^>]*value=["\']([^"\']+)["\']', html,
         re.IGNORECASE)
@@ -163,6 +174,7 @@ def _extraire_lots_depuis_verif_lots_dce(html: str) -> list:
     """
     if not html:
         return []
+    html = html_lib.unescape(html)  # &amp; -> &
     lots = []
     for m in re.finditer(r'<input[^>]+>', html, re.IGNORECASE):
         inp = m.group(0)
@@ -197,6 +209,7 @@ def _extraire_url_cdn_depuis_actdce2(html: str, idm: str = "",
     """
     if not html:
         return []
+    html = html_lib.unescape(html)  # &amp; -> &
     resultats = []
     vus = set()
     base_mpi = URL_BASE + "/mpiaws/"
@@ -385,12 +398,8 @@ def telecharger_dce(
         out["etape_erreur"] = "captcha"
         return out
 
-    session = requests.Session()
-    session.headers.update({
-        "User-Agent": USER_AGENT,
-        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
-        "Accept-Language": "fr-FR,fr;q=0.9",
-    })
+    # Session « humaine » : User-Agent tournant + headers réalistes (anti-ban).
+    session = http_humain.creer_session_humaine()
 
     if verbose:
         print(f"  [AWS-Achat] DCE IDM={idm}")
@@ -418,8 +427,12 @@ def telecharger_dce(
         cfid = cfid or c2
         cftoken = cftoken or t2
     if not cfid or not cftoken:
-        out.update(erreur="CFID/CFTOKEN introuvables (page inattendue / marché clos)",
-                   etape_erreur="session")
+        if http_humain.ressemble_a_page_ban(html1):
+            out.update(erreur="Suspicion ban IP (page d'accueil servie au lieu "
+                              "de la page DCE)", etape_erreur="ban_detecte")
+        else:
+            out.update(erreur="CFID/CFTOKEN introuvables (page inattendue / marché clos)",
+                       etape_erreur="session")
         return out
     ids = _extraire_ids_depuis_html(html1)
     if verbose:
@@ -428,6 +441,9 @@ def telecharger_dce(
     # ----- Étapes 2-5 : page captcha → résolution → POST cnxAnonyme -----
     location_lots = None
     for tentative in range(1, TWOCAPTCHA_MAX_TENTATIVES + 1):
+        # Délai « humain » : temps de lire la page avant de demander le captcha
+        # (3-6 s). En cas de retry, espace aussi les re-soumissions.
+        http_humain.attendre_inter_etapes(3, 6, verbose=verbose)
         # Étape 2 : page captcha
         try:
             if verbose:
@@ -453,8 +469,13 @@ def telecharger_dce(
 
         str_nom_image, hash_val = _extraire_str_nom_image_et_hashval(html2)
         if not str_nom_image or not hash_val:
-            out.update(erreur="strNomImage/hashVal introuvables sur la page captcha",
-                       etape_erreur="captcha")
+            if http_humain.ressemble_a_page_ban(html2):
+                out.update(erreur="Suspicion ban IP (page d'accueil HTML5 servie "
+                                  "au lieu de la page captcha)",
+                           etape_erreur="ban_detecte")
+            else:
+                out.update(erreur="strNomImage/hashVal introuvables sur la page captcha",
+                           etape_erreur="captcha")
             return out
 
         # Étape 3 : image captcha
@@ -513,8 +534,21 @@ def telecharger_dce(
 
         if r5.status_code in (301, 302, 303, 307):
             location_lots = r5.headers.get("Location") or ""
-            if verbose:
-                print("        → 302 : captcha accepté")
+            # PATCH cfid_refresh : ColdFusion régénère CFID/CFTOKEN après le
+            # POST cnxAnonyme. Les anciens tokens deviennent invalides.
+            # On extrait les nouveaux depuis le Location header et on les
+            # propage aux étapes 6 et 7.
+            _location_decode = html_lib.unescape(location_lots)
+            _new_cfid = re.search(r"[?&]CFID=(\d+)", _location_decode, re.IGNORECASE)
+            _new_cftoken = re.search(r"[?&]CFTOKEN=([0-9a-fA-F\-]+)",
+                                      _location_decode, re.IGNORECASE)
+            if _new_cfid and _new_cftoken:
+                cfid = _new_cfid.group(1)
+                cftoken = _new_cftoken.group(1)
+                if verbose:
+                    print(f"        → 302 captcha accepté (CFID régénéré : {cfid})")
+            elif verbose:
+                print("        → 302 captcha accepté")
             break
         # 200 = captcha refusé : on boucle (nouveau captcha)
         if verbose:
@@ -524,6 +558,9 @@ def telecharger_dce(
         out.update(erreur=f"Captcha refusé {TWOCAPTCHA_MAX_TENTATIVES} tentatives",
                    etape_erreur="captcha")
         return out
+
+    # Délai « humain » : suit le redirect vers la page lots (2-4 s).
+    http_humain.attendre_inter_etapes(2, 4, verbose=verbose)
 
     # ----- Étape 6 : GET verifLotsDCE (sélection lots) -----
     try:
@@ -549,15 +586,24 @@ def telecharger_dce(
     if verbose:
         print(f"        lots détectés : {lots or '(aucun, mono-lot)'}")
 
+    # Délai « humain » : temps de cocher « tout sélectionner » avant de valider
+    # (4-8 s).
+    http_humain.attendre_inter_etapes(4, 8, verbose=verbose)
+
     # ----- Étape 7 : POST actDCE2 (validation tous les lots) -----
     try:
         if verbose:
             print("    [7/7] POST dce.actDCE2...")
         url7 = _construire_url("dce.actDCE2", CFID=cfid, CFTOKEN=cftoken)
-        # Body : IDM, Soumission, selectAll, puis lots=1&lots=2&... (clé répétée)
+        # PATCH lots_mono : Body avec lots=N par lot, OU lots=0 si mono-lot.
+        # En mono-lot (verifLotsDCE n'a pas de checkboxes), AWS-Achat exige
+        # explicitement `lots=0` dans le POST sinon retourne "ANOMALIE 12164096".
         champs = [("IDM", idm), ("Soumission", SOUMISSION_DEFAUT), ("selectAll", "")]
-        for lot in lots:
-            champs.append(("lots", lot))
+        if lots:
+            for lot in lots:
+                champs.append(("lots", lot))
+        else:
+            champs.append(("lots", "0"))  # mono-lot
         r7 = session.post(url7, data=champs, timeout=timeout, allow_redirects=True,
                           headers={"Origin": URL_BASE, "Referer": url6,
                                    "Content-Type": "application/x-www-form-urlencoded"})

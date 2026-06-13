@@ -243,11 +243,15 @@ class FakeSession:
 
 import tempfile, os, types
 
-# Monkeypatch : Session factice + captcha + décompression neutralisée
-_orig_session = A.requests.Session
+# Monkeypatch : session humaine factice + captcha + décompression + délais
+# anti-ban neutralisés (sinon les attendre_inter_etapes ajoutent de vrais
+# time.sleep dans les tests).
+_orig_session = A.http_humain.creer_session_humaine
+_orig_attente = A.http_humain.attendre_inter_etapes
 _orig_captcha = A._resoudre_captcha_2captcha
 _orig_decomp = A._decompresser_zip_imbrique
-A.requests.Session = lambda: FakeSession()
+A.http_humain.creer_session_humaine = lambda *a, **k: FakeSession()
+A.http_humain.attendre_inter_etapes = lambda *a, **k: 0.0
 A._resoudre_captcha_2captcha = lambda image_bytes, api_key, verbose=True: "ABC123"
 A._decompresser_zip_imbrique = lambda chemin, dest, verbose=False: {
     "nb_zip_internes_decompressed": 0, "nb_fichiers_extraits": 0, "erreur": None}
@@ -263,7 +267,8 @@ try:
     check("taille_octets_total > 0", res.get("taille_octets_total", 0) > 0)
     check("pas d'étape_erreur", res.get("etape_erreur") is None)
 finally:
-    A.requests.Session = _orig_session
+    A.http_humain.creer_session_humaine = _orig_session
+    A.http_humain.attendre_inter_etapes = _orig_attente
     A._resoudre_captcha_2captcha = _orig_captcha
     A._decompresser_zip_imbrique = _orig_decomp
 
@@ -280,7 +285,8 @@ class FakeSessionCaptchaKO(FakeSession):
         return super().post(url, data, timeout, allow_redirects, headers)
 
 
-A.requests.Session = lambda: FakeSessionCaptchaKO()
+A.http_humain.creer_session_humaine = lambda *a, **k: FakeSessionCaptchaKO()
+A.http_humain.attendre_inter_etapes = lambda *a, **k: 0.0
 A._resoudre_captcha_2captcha = lambda image_bytes, api_key, verbose=True: "WRONG1"
 try:
     res_ko = A.telecharger_dce("1832151", tempfile.mkdtemp(prefix="aws_ko_"),
@@ -289,7 +295,40 @@ try:
     check("etape_erreur=captcha", res_ko.get("etape_erreur") == "captcha")
     check("erreur mentionne le refus", "efus" in (res_ko.get("erreur") or ""))
 finally:
-    A.requests.Session = _orig_session
+    A.http_humain.creer_session_humaine = _orig_session
+    A.http_humain.attendre_inter_etapes = _orig_attente
+    A._resoudre_captcha_2captcha = _orig_captcha
+
+
+# Workflow : ban IP (page d'accueil Bootstrap au lieu de la page captcha)
+print("\n=== Workflow détection ban IP ===")
+
+
+class FakeSessionBan(FakeSession):
+    def get(self, url, timeout=None, allow_redirects=True, stream=False):
+        low = url.lower()
+        if "dce.avertissement" in low:
+            # Page d'accueil HTML5 servie au lieu de la page captcha applicative
+            return FakeResponse(
+                200,
+                text='<html><head><link href="css/bootstrap.min.css"></head>'
+                     '<body><a href="acheteurs.htm">Acheteurs</a>'
+                     '<a href="fournisseurs.htm">Fournisseurs</a></body></html>',
+                url=url)
+        return super().get(url, timeout, allow_redirects, stream)
+
+
+A.http_humain.creer_session_humaine = lambda *a, **k: FakeSessionBan()
+A.http_humain.attendre_inter_etapes = lambda *a, **k: 0.0
+A._resoudre_captcha_2captcha = lambda image_bytes, api_key, verbose=True: "ABC123"
+try:
+    res_ban = A.telecharger_dce("1832151", tempfile.mkdtemp(prefix="aws_ban_"),
+                                api_key_2captcha="FAKEKEY", verbose=False)
+    check("ok=False quand ban", res_ban.get("ok") is False)
+    check("etape_erreur=ban_detecte", res_ban.get("etape_erreur") == "ban_detecte")
+finally:
+    A.http_humain.creer_session_humaine = _orig_session
+    A.http_humain.attendre_inter_etapes = _orig_attente
     A._resoudre_captcha_2captcha = _orig_captcha
 
 

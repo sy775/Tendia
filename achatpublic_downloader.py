@@ -30,16 +30,15 @@ try:
 except ImportError:
     raise RuntimeError("La lib 'requests' est requise. Lance : pip install requests")
 
+import http_humain
+
 
 URL_BASE_ACHATPUBLIC = "https://www.achatpublic.com"
 URL_DETAIL_PATH = "/sdm/ent/gen/ent_detail.do"
 URL_DOWNLOAD_PATH = "/sdm/ent2/gen/telechargerDCE.action"
 
-USER_AGENT = (
-    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
-    "AppleWebKit/537.36 (KHTML, like Gecko) "
-    "Chrome/149.0.0.0 Safari/537.36"
-)
+# Conservé pour compat. Le workflow utilise http_humain.creer_session_humaine().
+USER_AGENT = http_humain.USER_AGENTS_POOL[0]
 
 
 def _construire_url_detail(pcslid: str) -> str:
@@ -177,12 +176,8 @@ def telecharger_dce(
            "duree_secondes": 0.0, "nb_zip_internes_decompressed": 0,
            "nb_fichiers_extraits": 0}
 
-    session = requests.Session()
-    session.headers.update({
-        "User-Agent": USER_AGENT,
-        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
-        "Accept-Language": "fr-FR,fr;q=0.9",
-    })
+    # Session « humaine » : User-Agent tournant + headers réalistes (anti-ban).
+    session = http_humain.creer_session_humaine()
 
     url_detail = _construire_url_detail(pcslid)
     if verbose:
@@ -211,6 +206,9 @@ def telecharger_dce(
 
     # ÉTAPE 2 : POST téléchargement
     try:
+        # Délai « humain » : temps de lire la page détail avant de cliquer
+        # « Télécharger le DCE » (2-5 s).
+        http_humain.attendre_inter_etapes(2, 5, verbose=verbose)
         if verbose:
             print(f"    [2/3] POST telechargerDCE.action...")
         url_dl = _construire_url_download(pcslid, cyc_num)

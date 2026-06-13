@@ -24,10 +24,15 @@ sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
 import stockage
 import tendia_dce
+import http_humain
 import achatpublic_downloader as A
 
 REPERTOIRE_DCE = Path("data/dce")
-RATE_LIMIT_SEC = 2
+# Rate-limit randomisé (anti-ban léger). achatpublic n'a jamais montré de ban,
+# on reste peu agressif : ~15 s en moyenne, pas de pause cumulative.
+RATE_LIMIT_MOYEN_SEC = 15
+RATE_LIMIT_MIN_SEC = 8
+RATE_LIMIT_MAX_SEC = 30
 
 
 def main():
@@ -101,7 +106,9 @@ def main():
               f"{ancien_contenu} → {marche.get('dce_contenu')}{skip_label}")
 
         if i < len(cibles):
-            time.sleep(RATE_LIMIT_SEC)
+            http_humain.attendre_humain(
+                RATE_LIMIT_MIN_SEC, RATE_LIMIT_MAX_SEC,
+                mu=RATE_LIMIT_MOYEN_SEC, sigma=5, verbose=True)
 
     # Bilan
     print()
