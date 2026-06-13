@@ -772,6 +772,230 @@ def _charger_marches() -> dict:
     return stockage.charger("marches")
 
 
+# ===========================================================================
+# TÉLÉCHARGEUR PROFOND — récupération de TOUTES les pièces du DCE
+# (Sprint Téléchargeur Profond)
+# ===========================================================================
+#
+# Objectif : sur les plateformes ANONYMES, parser la page DCE pour lister toutes
+# les pièces (RC, CCAP, CCTP, DPGF, ZIP global...) et les télécharger en
+# best-effort, là où le téléchargeur historique s'arrêtait souvent au RC seul.
+#
+# NOTE IMPORTANTE (scaffolding hors-ligne) : les parseurs spécifiques par
+# plateforme partagent pour l'instant la STRATÉGIE GÉNÉRIQUE (suivre tous les
+# liens href vers des documents). Ils doivent être spécialisés contre le HTML
+# RÉEL une fois le diagnostic (diagnostic_plateformes_dce.py) lancé en ligne —
+# certaines plateformes exposent les pièces via boutons JS / POST que href seul
+# ne capte pas. Le `_telecharger_marche` historique N'EST PAS rewiré (chemin
+# réseau qui marche, non testable hors ligne) : la nouvelle stack est appelée
+# par retelecharger_incomplet.py.
+
+_EXTENSIONS_DOC = (".pdf", ".doc", ".docx", ".xls", ".xlsx", ".zip",
+                   ".7z", ".rar", ".odt", ".ods", ".rtf")
+_HINTS_ZIP_GLOBAL = ["dossier", "tout", "complet", "ensemble",
+                     "integralite", "telecharger le dce", "telecharger tout"]
+
+
+def _pieces_depuis_html(html: str, base_url: str) -> list:
+    """
+    PUR (testable hors ligne) : extrait les pièces téléchargeables d'une page
+    DCE depuis son HTML. Retourne [{nom, url, type_detecte, taille_estimee}].
+    type_detecte ∈ {RC, CCAP, CCTP, DPGF, ..., ZIP_GLOBAL, autre}.
+    """
+    from bs4 import BeautifulSoup
+    import tendia_dce
+    soup = BeautifulSoup(html or "", "html.parser")
+    pieces = []
+    vus = set()
+    for a in soup.find_all("a", href=True):
+        href = (a.get("href") or "").strip()
+        if not href or href.lower().startswith(("#", "javascript:", "mailto:")):
+            continue
+        low = href.lower()
+        if not any(ext in low for ext in _EXTENSIONS_DOC):
+            continue
+        url_abs = urljoin(base_url, href)
+        if url_abs in vus:
+            continue
+        vus.add(url_abs)
+        texte = (a.get_text() or "").strip()
+        nom = unquote(low.rsplit("/", 1)[-1].split("?")[0]) or (texte[:60] or "piece")
+        norm_texte = tendia_dce._norm_nom(texte)
+        if low.endswith((".zip", ".7z", ".rar")):
+            # Un archive = souvent le dossier complet (privilégié en best-effort)
+            type_d = "ZIP_GLOBAL"
+        else:
+            type_d = tendia_dce._type_contractuel(
+                tendia_dce._norm_nom(texte + " " + nom)) or "autre"
+        pieces.append({"nom": nom, "url": url_abs, "type_detecte": type_d,
+                       "taille_estimee": None})
+    return pieces
+
+
+class ParseurDCE:
+    """Parseur abstrait : liste exhaustive des pièces d'un DCE."""
+    PATTERNS_HOSTS = []
+
+    @classmethod
+    def reconnait(cls, url_dce: str) -> bool:
+        u = (url_dce or "").lower()
+        return any(h in u for h in cls.PATTERNS_HOSTS)
+
+    def lister_pieces(self, session, url_dce: str) -> list:
+        raise NotImplementedError
+
+
+class ParseurGenerique(ParseurDCE):
+    """Stratégie par défaut : GET la page + suit tous les liens href documents."""
+    PATTERNS_HOSTS = []
+
+    def lister_pieces(self, session, url_dce: str) -> list:
+        r = session.get(url_dce, timeout=60)
+        if getattr(r, "status_code", 0) != 200:
+            return []
+        return _pieces_depuis_html(r.text, url_dce)
+
+
+# Plateformes anonymes reconnues. Stratégie générique pour l'instant —
+# À SPÉCIALISER contre le HTML réel après le diagnostic (Livrable 0).
+class ParseurPLACE(ParseurGenerique):
+    PATTERNS_HOSTS = ["marches-publics.gouv.fr"]
+
+
+class ParseurEMarchesPublics(ParseurGenerique):
+    PATTERNS_HOSTS = ["e-marchespublics.com"]
+
+
+class ParseurTernumBFC(ParseurGenerique):
+    PATTERNS_HOSTS = ["ternum-bfc.fr"]
+
+
+class ParseurDematAmpa(ParseurGenerique):
+    PATTERNS_HOSTS = ["demat-ampa.fr"]
+
+
+class ParseurMegalis(ParseurGenerique):
+    PATTERNS_HOSTS = ["megalis"]
+
+
+class ParseurMaximilien(ParseurGenerique):
+    PATTERNS_HOSTS = ["maximilien.fr"]
+
+
+PARSEURS = [ParseurPLACE, ParseurEMarchesPublics, ParseurTernumBFC,
+            ParseurDematAmpa, ParseurMegalis, ParseurMaximilien]
+
+
+def trouver_parseur(url_dce: str):
+    """1er parseur reconnaissant l'URL, sinon générique (hors plateformes auth)."""
+    import tendia_dce
+    if not url_dce:
+        return None
+    for cls in PARSEURS:
+        if cls.reconnait(url_dce):
+            return cls()
+    if tendia_dce.url_est_auth_requise(url_dce):
+        return None
+    return ParseurGenerique()
+
+
+def _telecharger_avec_retry(session, piece: dict, dossier_destination: str,
+                            max_essais: int = 2, timeout: int = 60):
+    """
+    Télécharge une pièce, max `max_essais` essais, retry après pause sur
+    timeout/5xx. Retourne (ok: bool, info: dict).
+    """
+    os.makedirs(dossier_destination, exist_ok=True)
+    derniere = ""
+    for essai in range(1, max_essais + 1):
+        try:
+            r = session.get(piece["url"], timeout=timeout, stream=True)
+            code = getattr(r, "status_code", 0)
+            if code >= 500:
+                derniere = f"HTTP {code}"
+                time.sleep(3)
+                continue
+            if code != 200:
+                return False, {"erreur": f"HTTP {code}"}
+            nom = _nom_fichier(getattr(r, "headers", {}) or {}, piece["url"]) \
+                or piece.get("nom") or f"piece_{essai}.bin"
+            chemin = os.path.join(dossier_destination, nom)
+            taille = 0
+            with open(chemin, "wb") as f:
+                for chunk in r.iter_content(8192):
+                    if chunk:
+                        f.write(chunk)
+                        taille += len(chunk)
+            if taille == 0:
+                derniere = "0 octet"
+                continue
+            return True, {"nom": nom, "type": piece.get("type_detecte"),
+                          "taille": taille, "chemin": chemin}
+        except Exception as e:
+            derniere = type(e).__name__
+            time.sleep(3)
+    return False, {"erreur": derniere or "echec"}
+
+
+def telecharger_pieces_dce(marche: dict, dossier_destination: str, session=None) -> dict:
+    """
+    Récupère toutes les pièces du DCE en best-effort (ZIP global privilégié,
+    sinon pièces unitaires). Retourne {pieces_recuperees, pieces_manquantes,
+    session_cookies, duree_secondes, raison?}.
+    """
+    debut = datetime.now()
+    url_dce = marche.get("url_dce") or ""
+    parseur = trouver_parseur(url_dce)
+    if not parseur:
+        return {"pieces_recuperees": [], "pieces_manquantes": [],
+                "raison": "aucun parseur (plateforme auth ou URL absente)",
+                "duree_secondes": 0.0}
+
+    session = session or requests.Session()
+    try:
+        session.headers.update({"User-Agent": USER_AGENT,
+                                "Accept-Language": "fr-FR,fr;q=0.9"})
+    except Exception:
+        pass
+
+    try:
+        pieces = parseur.lister_pieces(session, url_dce)
+    except Exception as e:
+        return {"pieces_recuperees": [], "pieces_manquantes": [],
+                "raison": f"listing échoué : {type(e).__name__}: {e}",
+                "duree_secondes": (datetime.now() - debut).total_seconds()}
+
+    zips = [p for p in pieces if p["type_detecte"] == "ZIP_GLOBAL"]
+    unitaires = [p for p in pieces if p["type_detecte"] != "ZIP_GLOBAL"]
+    recuperees, manquantes = [], []
+
+    # Priorité au ZIP global (1 DL contient tout)
+    for zp in zips:
+        ok, info = _telecharger_avec_retry(session, zp, dossier_destination)
+        if ok:
+            recuperees.append(info)
+            break
+        manquantes.append({**zp, "raison_echec": info.get("erreur", "?")})
+
+    # Sinon, pièces unitaires
+    if not recuperees:
+        for p in unitaires:
+            ok, info = _telecharger_avec_retry(session, p, dossier_destination)
+            if ok:
+                recuperees.append(info)
+            else:
+                manquantes.append({**p, "raison_echec": info.get("erreur", "?")})
+
+    cookies = {}
+    try:
+        cookies = dict(session.cookies)
+    except Exception:
+        pass
+    return {"pieces_recuperees": recuperees, "pieces_manquantes": manquantes,
+            "session_cookies": cookies,
+            "duree_secondes": (datetime.now() - debut).total_seconds()}
+
+
 def _sauver_marches(marches: dict):
     """Sauvegarde les marchés en base (SQLite Sprint 3).
     
