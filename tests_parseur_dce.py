@@ -84,7 +84,7 @@ check("ZIP_GLOBAL détecté", "ZIP_GLOBAL" in types)
 check("URLs absolues", all(p["url"].startswith("https://exemple.fr/") for p in pieces))
 
 print("\n=== trouver_parseur ===")
-check("PLACE reconnu", isinstance(T.trouver_parseur("https://www.marches-publics.gouv.fr/?x"), T.ParseurPLACE))
+check("PLACE/Atexo reconnu", isinstance(T.trouver_parseur("https://www.marches-publics.gouv.fr/?x"), T.ParseurAtexo))
 check("e-marchespublics reconnu", isinstance(T.trouver_parseur("https://x.e-marchespublics.com/y"), T.ParseurEMarchesPublics))
 check("plateforme auth -> None", T.trouver_parseur("https://www.marches-publics.info/?z") is None)
 check("plateforme inconnue -> générique", isinstance(T.trouver_parseur("https://mairie-xyz.fr/dce"), T.ParseurGenerique))
@@ -140,6 +140,26 @@ try:
     check("raison d'échec présente", res["pieces_manquantes"][0].get("raison_echec"))
 finally:
     T.trouver_parseur = _orig
+
+print("\n=== telecharger_pieces_dce branche Atexo (mock réseau) ===")
+import atexo_downloader as _ad
+_orig_dl = _ad.telecharger_dce
+try:
+    # Cas succès simulé
+    _ad.telecharger_dce = lambda *a, **k: {"ok": True, "chemin": a[2],
+                                           "taille_octets": 12345, "duree_secondes": 1.0}
+    url_atexo = "https://www.marches-publics.gouv.fr/?page=Entreprise.x&id=3003304&orgAcronyme=h8j"
+    res_a = T.telecharger_pieces_dce({"url_dce": url_atexo}, tempfile.mkdtemp(prefix="atx_"))
+    check("Atexo succès -> 1 pièce ZIP récupérée", len(res_a["pieces_recuperees"]) == 1
+          and res_a["pieces_recuperees"][0]["taille"] == 12345)
+    # Cas échec simulé
+    _ad.telecharger_dce = lambda *a, **k: {"ok": False, "erreur": "POST 2 HTTP 500",
+                                           "duree_secondes": 0.5}
+    res_b = T.telecharger_pieces_dce({"url_dce": url_atexo}, tempfile.mkdtemp(prefix="atx2_"))
+    check("Atexo échec -> manquante avec raison", len(res_b["pieces_recuperees"]) == 0
+          and res_b["pieces_manquantes"] and res_b["pieces_manquantes"][0]["raison_echec"] == "POST 2 HTTP 500")
+finally:
+    _ad.telecharger_dce = _orig_dl
 
 print(f"\n=== {ok} OK / {ko} KO ===")
 sys.exit(1 if ko else 0)

@@ -856,34 +856,35 @@ class ParseurGenerique(ParseurDCE):
         return _pieces_depuis_html(r.text, url_dce)
 
 
-# Plateformes anonymes reconnues. Stratégie générique pour l'instant —
-# À SPÉCIALISER contre le HTML réel après le diagnostic (Livrable 0).
-class ParseurPLACE(ParseurGenerique):
-    PATTERNS_HOSTS = ["marches-publics.gouv.fr"]
+class ParseurAtexo(ParseurDCE):
+    """
+    Plateformes Atexo MPE / Prado (PLACE + forks régionaux/municipaux).
+    N'utilise PAS le parsing HTML href : délègue à atexo_downloader qui fait les
+    2 POST anonymes nécessaires pour récupérer le ZIP DCE complet. La
+    reconnaissance s'appuie sur atexo_downloader._detecter_url_base (host connu
+    OU signature Atexo orgAcronyme + Entreprise.).
+    """
+    @classmethod
+    def reconnait(cls, url_dce):
+        import atexo_downloader
+        return atexo_downloader._detecter_url_base(url_dce) is not None
+
+    def lister_pieces(self, session, url_dce):
+        # Pas de liste de pièces avant le DL chez Atexo : un seul ZIP global.
+        return [{"nom": "DCE_complet.zip", "url": url_dce,
+                 "type_detecte": "ZIP_GLOBAL_ATEXO", "taille_estimee": None}]
 
 
 class ParseurEMarchesPublics(ParseurGenerique):
+    """
+    Dematis (e-marchespublics.com, wildcard sous-domaines). Moteur distinct
+    d'Atexo, workflow à DÉTERMINER empiriquement (diagnostic_emarches.py) —
+    stratégie générique en attendant (retourne 0 pièce car href vide).
+    """
     PATTERNS_HOSTS = ["e-marchespublics.com"]
 
 
-class ParseurTernumBFC(ParseurGenerique):
-    PATTERNS_HOSTS = ["ternum-bfc.fr"]
-
-
-class ParseurDematAmpa(ParseurGenerique):
-    PATTERNS_HOSTS = ["demat-ampa.fr"]
-
-
-class ParseurMegalis(ParseurGenerique):
-    PATTERNS_HOSTS = ["megalis"]
-
-
-class ParseurMaximilien(ParseurGenerique):
-    PATTERNS_HOSTS = ["maximilien.fr"]
-
-
-PARSEURS = [ParseurPLACE, ParseurEMarchesPublics, ParseurTernumBFC,
-            ParseurDematAmpa, ParseurMegalis, ParseurMaximilien]
+PARSEURS = [ParseurAtexo, ParseurEMarchesPublics]
 
 
 def trouver_parseur(url_dce: str):
@@ -964,6 +965,31 @@ def telecharger_pieces_dce(marche: dict, dossier_destination: str, session=None)
         return {"pieces_recuperees": [], "pieces_manquantes": [],
                 "raison": f"listing échoué : {type(e).__name__}: {e}",
                 "duree_secondes": (datetime.now() - debut).total_seconds()}
+
+    # Cas Atexo : marqueur ZIP_GLOBAL_ATEXO -> workflow 2-POST atexo_downloader
+    # (téléchargement direct du ZIP dans le dossier du marché, pas de href).
+    if pieces and pieces[0].get("type_detecte") == "ZIP_GLOBAL_ATEXO":
+        import atexo_downloader as _ad
+        url_base = _ad._detecter_url_base(url_dce)
+        id_atexo, org = _ad._extraire_id_org_depuis_url(url_dce)
+        if url_base and id_atexo and org:
+            chemin_zip = os.path.join(dossier_destination, f"dce_{id_atexo}.zip")
+            res = _ad.telecharger_dce(id_atexo, org, chemin_zip, url_base, verbose=False)
+        else:
+            res = {"ok": False, "erreur": "id/orgAcronyme/base introuvables dans l'URL",
+                   "duree_secondes": 0.0}
+        if res.get("ok"):
+            recuperees = [{"nom": os.path.basename(res.get("chemin") or "dce.zip"),
+                           "type": "ZIP_GLOBAL", "taille": res.get("taille_octets", 0),
+                           "chemin": res.get("chemin")}]
+            manquantes = []
+        else:
+            recuperees = []
+            manquantes = [{"nom": "DCE_complet.zip", "url": url_dce,
+                           "type_detecte": "ZIP_GLOBAL_ATEXO",
+                           "raison_echec": res.get("erreur", "?")}]
+        return {"pieces_recuperees": recuperees, "pieces_manquantes": manquantes,
+                "duree_secondes": res.get("duree_secondes", 0.0), "session_cookies": {}}
 
     zips = [p for p in pieces if p["type_detecte"] == "ZIP_GLOBAL"]
     unitaires = [p for p in pieces if p["type_detecte"] != "ZIP_GLOBAL"]
