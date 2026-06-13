@@ -26,12 +26,9 @@ import time
 from typing import Optional
 from urllib.parse import urlparse
 
-try:
-    import requests
-except ImportError:
-    raise RuntimeError("La lib 'requests' est requise. pip install requests")
-
+import http_client as http_lib   # backend curl_cffi (TLS Chrome) ou requests
 import http_humain
+import tendia_logs
 
 
 # Conservé pour compat (scripts diagnostic lisant atexo_downloader.USER_AGENT).
@@ -132,7 +129,8 @@ def _extraire_id_org_depuis_url(url: str):
 
 
 def telecharger_dce(id_atexo, org_acronyme: str, chemin_destination: str,
-                    url_base: str, verbose: bool = True, timeout: int = 120) -> dict:
+                    url_base: str, verbose: bool = True, timeout: int = 120,
+                    session_id: str = None) -> dict:
     """
     Télécharge le zip DCE d'un marché Atexo en mode anonyme (2 POST Prado).
 
@@ -141,6 +139,7 @@ def telecharger_dce(id_atexo, org_acronyme: str, chemin_destination: str,
         org_acronyme: acronyme de l'organisme acheteur
         chemin_destination: chemin complet du fichier zip à créer
         url_base: scheme://host de la plateforme (voir _detecter_url_base)
+        session_id: identifiant de session proxy (rotation IP Bright Data).
 
     Returns: {ok, chemin, taille_octets, erreur, duree_secondes}.
     """
@@ -148,8 +147,8 @@ def telecharger_dce(id_atexo, org_acronyme: str, chemin_destination: str,
     out = {"ok": False, "chemin": None, "taille_octets": 0, "erreur": None,
            "duree_secondes": 0.0}
 
-    # Session « humaine » : User-Agent tournant + headers réalistes (anti-ban).
-    session = http_humain.creer_session_humaine()
+    # Session « humaine » : UA tournant + TLS Chrome + IP dédiée (anti-ban).
+    session = http_humain.creer_session_humaine(session_id=session_id or str(id_atexo))
 
     url_form = _construire_url_formulaire(id_atexo, org_acronyme, url_base)
     if verbose:
@@ -327,7 +326,14 @@ def telecharger_dce_pour_marche(marche: dict, repertoire_dce: str,
 
     if verbose:
         print(f"  [Atexo] {id_marche} → id={id_atexo} acronyme={org} base={url_base}")
-    resultat = telecharger_dce(id_atexo, org, chemin_zip, url_base, verbose=verbose)
+    resultat = telecharger_dce(id_atexo, org, chemin_zip, url_base,
+                               verbose=verbose, session_id=id_marche)
     out.update(resultat)
     out["id_marche"] = id_marche
+    tendia_logs.logger_evenement_marche("atexo", id_marche, {
+        "ok": out.get("ok"), "skip": out.get("skip", False),
+        "taille_octets": out.get("taille_octets", 0),
+        "erreur": out.get("erreur"),
+        "duree_secondes": out.get("duree_secondes", 0.0),
+    })
     return out

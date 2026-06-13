@@ -37,12 +37,11 @@ import tempfile
 from typing import Optional
 from urllib.parse import urlparse, parse_qs, urljoin
 
-try:
-    import requests
-except ImportError:
-    raise RuntimeError("La lib 'requests' est requise. Lance : pip install requests")
+import uuid
 
+import http_client as http_lib   # backend curl_cffi (TLS Chrome) ou requests
 import http_humain
+import tendia_logs
 
 # python-dotenv : lecture transparente de la clé 2captcha depuis .env.
 try:
@@ -358,6 +357,29 @@ def _construire_url(fuseaction: str, **params) -> str:
     return f"{url}&{qs}" if qs else url
 
 
+# Backoff réseau (timeout / connexion). Distinct du retry captcha et du retry IP.
+RESEAU_MAX_ESSAIS = 3
+
+
+def _request_avec_retry(session, methode: str, url: str,
+                        max_retries: int = RESEAU_MAX_ESSAIS, **kwargs):
+    """GET/POST avec backoff exponentiel (1 s, 2 s, 4 s) sur erreur réseau.
+
+    Ne retente QUE les erreurs transitoires (timeout / connexion) ; les autres
+    exceptions remontent immédiatement. Dispatch vers session.get/session.post
+    (compatible curl_cffi, requests, et les sessions factices des tests).
+    """
+    for tentative in range(max_retries):
+        try:
+            if methode.upper() == "GET":
+                return session.get(url, **kwargs)
+            return session.post(url, **kwargs)
+        except (http_lib.Timeout, http_lib.ConnectionError):
+            if tentative == max_retries - 1:
+                raise
+            time.sleep(2 ** tentative)
+
+
 def telecharger_dce(
     idm: str,
     dossier_destination: str,
@@ -365,6 +387,7 @@ def telecharger_dce(
     verbose: bool = True,
     timeout: int = 180,
     decompresser: bool = True,
+    session_id: Optional[str] = None,
 ) -> dict:
     """
     Workflow 7 étapes complet de retrait anonyme du DCE AWS-Achat.
@@ -398,8 +421,9 @@ def telecharger_dce(
         out["etape_erreur"] = "captcha"
         return out
 
-    # Session « humaine » : User-Agent tournant + headers réalistes (anti-ban).
-    session = http_humain.creer_session_humaine()
+    # Session « humaine » : UA tournant + TLS Chrome + IP dédiée (anti-ban).
+    # session_id pilote la rotation d'IP Bright Data (1 IP par session-id).
+    session = http_humain.creer_session_humaine(session_id=session_id or idm)
 
     if verbose:
         print(f"  [AWS-Achat] DCE IDM={idm}")
@@ -409,7 +433,8 @@ def telecharger_dce(
         if verbose:
             print("    [1/7] GET choixDCE (session ColdFusion)...")
         url1 = _construire_url("dematEnt.choixDCE", IDM=idm, XFAOK=XFAOK_DEFAUT)
-        r1 = session.get(url1, timeout=timeout, allow_redirects=True)
+        r1 = _request_avec_retry(session, "GET", url1, timeout=timeout,
+                                 allow_redirects=True)
         if r1.status_code != 200:
             out.update(erreur=f"GET choixDCE HTTP {r1.status_code}",
                        etape_erreur="session")
@@ -452,7 +477,8 @@ def telecharger_dce(
             url2 = _construire_url("dce.avertissement", IDM=idm, type=TYPE_DEFAUT,
                                    XFAOK=XFAOK_DEFAUT, IDS=ids,
                                    CFID=cfid, CFTOKEN=cftoken)
-            r2 = session.get(url2, timeout=timeout, allow_redirects=True)
+            r2 = _request_avec_retry(session, "GET", url2, timeout=timeout,
+                                     allow_redirects=True)
             if r2.status_code == 404:
                 out.update(erreur="dce.avertissement 404 (marché clos suspecté)",
                            etape_erreur="captcha")
@@ -483,7 +509,7 @@ def telecharger_dce(
             if verbose:
                 print("    [3/7] GET image captcha...")
             url_img = f"{URL_BASE}/captcha/Captcha_{str_nom_image}.png"
-            r3 = session.get(url_img, timeout=timeout)
+            r3 = _request_avec_retry(session, "GET", url_img, timeout=timeout)
             if r3.status_code != 200 or not r3.content:
                 out.update(erreur=f"GET captcha image HTTP {r3.status_code}",
                            etape_erreur="captcha")
@@ -523,8 +549,8 @@ def telecharger_dce(
                 "hashVal": hash_val,
                 "captchaVal": solution,
             }
-            r5 = session.post(url5, data=payload5, timeout=timeout,
-                              allow_redirects=False,
+            r5 = _request_avec_retry(session, "POST", url5, data=payload5,
+                              timeout=timeout, allow_redirects=False,
                               headers={"Origin": URL_BASE, "Referer": url2,
                                        "Content-Type": "application/x-www-form-urlencoded"})
         except Exception as e:
@@ -571,7 +597,8 @@ def telecharger_dce(
         else:
             url6 = _construire_url("dce.verifLotsDCE", IDM=idm, IDS=ids,
                                    CFID=cfid, CFTOKEN=cftoken)
-        r6 = session.get(url6, timeout=timeout, allow_redirects=True)
+        r6 = _request_avec_retry(session, "GET", url6, timeout=timeout,
+                                 allow_redirects=True)
         if r6.status_code != 200:
             out.update(erreur=f"GET verifLotsDCE HTTP {r6.status_code}",
                        etape_erreur="lots")
@@ -604,7 +631,8 @@ def telecharger_dce(
                 champs.append(("lots", lot))
         else:
             champs.append(("lots", "0"))  # mono-lot
-        r7 = session.post(url7, data=champs, timeout=timeout, allow_redirects=True,
+        r7 = _request_avec_retry(session, "POST", url7, data=champs,
+                          timeout=timeout, allow_redirects=True,
                           headers={"Origin": URL_BASE, "Referer": url6,
                                    "Content-Type": "application/x-www-form-urlencoded"})
         if r7.status_code != 200:
@@ -725,11 +753,19 @@ def telecharger_dce_pour_marche(
     repertoire_dce: str,
     api_key_2captcha: Optional[str] = None,
     verbose: bool = True,
+    max_retries_ban: int = 3,
 ) -> dict:
     """
     Wrapper : extrait l'IDM depuis marche['url_dce'] et appelle telecharger_dce
-    dans <repertoire_dce>/<id_marche>/. Retourne le contrat standard enrichi
-    (ok, chemin, taille_octets, erreur, duree_secondes, id_marche, skip, ...).
+    dans <repertoire_dce>/<id_marche>/.
+
+    Rotation IP automatique sur ban : si une étape détecte un ban
+    (etape_erreur=ban_detecte), on retente avec une nouvelle session-id (donc
+    une nouvelle IP du pool Bright Data), jusqu'à max_retries_ban fois. Au-delà,
+    etape_erreur=ban_persistant.
+
+    Retourne le contrat standard enrichi (ok, chemin, taille_octets, erreur,
+    duree_secondes, id_marche, skip, nb_captcha_resolus, tentatives_ip, ...).
     """
     id_marche = marche.get("id", "?")
     url_dce = marche.get("url_dce")
@@ -761,17 +797,52 @@ def telecharger_dce_pour_marche(
             if verbose:
                 print(f"  [AWS-Achat] Skip {id_marche} ({len(fichiers_existants)} "
                       f"fichiers déjà présents)")
+            tendia_logs.logger_evenement_marche("aws-achat", id_marche,
+                                                {"ok": True, "skip": True})
             return out
 
     if verbose:
         print(f"  [AWS-Achat] {id_marche} → IDM={idm}")
 
-    res = telecharger_dce(idm, dossier_cible, api_key_2captcha=api_key_2captcha,
-                          verbose=verbose)
+    # Boucle de rotation IP sur ban. tentative 0 = session-id = id_marche (IP
+    # stable) ; tentatives suivantes = UUID (nouvelle IP du pool).
+    res = {}
+    tentatives_ip = 0
+    for tentative in range(max_retries_ban + 1):
+        session_id = id_marche if tentative == 0 else uuid.uuid4().hex[:8]
+        tentatives_ip = tentative + 1
+        if tentative > 0 and verbose:
+            print(f"    [retry IP {tentative}/{max_retries_ban}] nouvelle IP "
+                  f"via session-id {session_id}")
+        try:
+            res = telecharger_dce(idm, dossier_cible,
+                                  api_key_2captcha=api_key_2captcha,
+                                  verbose=verbose, session_id=session_id)
+        except Exception as e:
+            res = {"ok": False, "erreur": f"{type(e).__name__}: {e}",
+                   "etape_erreur": "exception"}
+        if res.get("etape_erreur") != "ban_detecte":
+            break  # succès ou erreur non-ban : on sort
+    else:
+        # Boucle épuisée toujours en ban
+        res["etape_erreur"] = "ban_persistant"
+        res["erreur"] = f"Ban persistant après {max_retries_ban} rotations d'IP"
+
     out.update(res)
     out["id_marche"] = id_marche
     out["chemin"] = dossier_cible
     out["taille_octets"] = res.get("taille_octets_total", 0)
+    out["tentatives_ip"] = tentatives_ip
+
+    tendia_logs.logger_evenement_marche("aws-achat", id_marche, {
+        "ok": out.get("ok"),
+        "etape_erreur": out.get("etape_erreur"),
+        "erreur": (out.get("erreur") or "")[:200],
+        "taille_octets": out.get("taille_octets", 0),
+        "nb_captcha_resolus": res.get("nb_captcha_resolus", 0),
+        "tentatives_ip": tentatives_ip,
+        "duree_secondes": res.get("duree_secondes", 0.0),
+    })
     return out
 
 

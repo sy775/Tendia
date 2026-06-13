@@ -275,6 +275,21 @@ Le batch test AWS-Achat a déclenché un **ban IP** (~10-15 sessions ColdFusion 
 
 ---
 
+### Sprint Industrialisation v2 — downloaders production-ready (13 juin 2026) ✅
+
+Anti-Ban v1 (comportement humain) avait des limites en réel : IP partagée polluée, fingerprint TLS `requests` détectable, pas de rotation IP sur ban. Younes a souscrit Bright Data ISP Pay-per-GB ($8/GB, ~10000 IPs FR rotatives). Ce sprint exploite l'infra et rend la stack autonome en cron.
+
+- `http_client.py` (nouveau) : wrapper backend — `curl_cffi` (TLS fingerprint **Chrome 131**) si dispo, **fallback `requests`** sinon (warning, jamais de crash). Expose `Session/get/post` + exceptions `RequestException/Timeout/ConnectionError` unifiées. curl_cffi 0.13.0 installé chez Younes → `BACKEND=curl_cffi`.
+- `http_humain.py` : migré vers `http_client.Session()`. **Session-id Bright Data** : `creer_session_humaine(session_id=...)` injecte `-session-<id>` dans le username proxy (`_injecter_session_id`) → 1 IP par session-id. `_nettoyer_session_id` (retire les tirets, sinon casse le découpage username). Sans session-id sur BRD → UUID (nouvelle IP/appel). Proxy non-BRD : utilisé tel quel. (Le `proxy_url`/`TENDIA_PROXY_URL` avait été ajouté par Younes avant le sprint.)
+- **3 downloaders** : `import requests` → `import http_client as http_lib` (sessions déjà via http_humain). `session_id` passé (= id marché → IP stable/marché). aws : **rotation IP auto sur ban** dans `telecharger_dce_pour_marche` (jusqu'à `max_retries_ban=3` UUID, sinon `etape_erreur=ban_persistant`) ; **`_request_avec_retry`** (backoff 1/2/4 s sur Timeout/ConnectionError) sur les 7 étapes ; logs `tendia_logs`. atexo/achatpublic : session_id + logs.
+- `tendia_logs.py` (nouveau) : logs JSONL `logs/<downloader>_<date>.jsonl` (jamais bloquant), + `lire_evenements()`. `logs/` gitignoré.
+- `tendia_monitoring.py` (nouveau) : dashboard console — couverture DCE, derniers batchs, coûts du mois (bande × $8/GB + captchas), marchés en échec. Lit base + logs.
+- `retelecharger_aws_achat_anti_ban.py` : estimation coût du run (bande passante + captchas) ; détecte `ban_persistant` (le wrapper a déjà tourné l'IP en interne).
+- `docs/production.md` (nouveau) : archi, .env, cron, monitoring, troubleshooting, coûts (~$10-20/mois). `tests_http_humain` 37 OK (+session-id), `tests_aws_downloader` 43 OK (+rotation IP/ban persistant), non-régression atexo 25 / parseur 22 / qualifier 10.
+- **À lancer par Younes** : `pip install curl_cffi`, vérifier `BACKEND`, puis `test_aws_achat.py`, mini-batch `--max 5 --oui --ignorer-heures`, batch complet, `tendia_monitoring.py`.
+
+---
+
 ## 3bis. Sprint en cours / Prochain sprint
 
 **Aucun sprint actif au moment de cette passation.** Le système est dans un état stable et productif. Plusieurs chantiers possibles selon les priorités :
@@ -620,4 +635,4 @@ Si tu identifies une dette technique : **signale**. Mais en respectant le timing
 
 ---
 
-*Document mis à jour à chaque sprint. Dernière révision : 13 juin 2026 — Sprint Anti-Ban v1 (module http_humain : UA tournant + rate-limit gaussien + heures de bureau + détection ban ; downloaders et batch refondus ; cron Windows documenté).*
+*Document mis à jour à chaque sprint. Dernière révision : 13 juin 2026 — Sprint Industrialisation v2 (http_client curl_cffi/TLS Chrome + session-id Bright Data + rotation IP sur ban + backoff réseau + logs JSONL + monitoring console + docs/production.md).*

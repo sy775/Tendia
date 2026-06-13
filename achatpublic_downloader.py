@@ -25,12 +25,9 @@ import zipfile
 from typing import Optional
 from urllib.parse import urlparse, parse_qs
 
-try:
-    import requests
-except ImportError:
-    raise RuntimeError("La lib 'requests' est requise. Lance : pip install requests")
-
+import http_client as http_lib   # backend curl_cffi (TLS Chrome) ou requests
 import http_humain
+import tendia_logs
 
 
 URL_BASE_ACHATPUBLIC = "https://www.achatpublic.com"
@@ -165,6 +162,7 @@ def telecharger_dce(
     verbose: bool = True,
     timeout: int = 120,
     decompresser: bool = True,
+    session_id: str = None,
 ) -> dict:
     """Télécharge le ZIP DCE en mode anonyme + décompresse les ZIP imbriqués.
 
@@ -176,8 +174,8 @@ def telecharger_dce(
            "duree_secondes": 0.0, "nb_zip_internes_decompressed": 0,
            "nb_fichiers_extraits": 0}
 
-    # Session « humaine » : User-Agent tournant + headers réalistes (anti-ban).
-    session = http_humain.creer_session_humaine()
+    # Session « humaine » : UA tournant + TLS Chrome + IP dédiée (anti-ban).
+    session = http_humain.creer_session_humaine(session_id=session_id or pcslid)
 
     url_detail = _construire_url_detail(pcslid)
     if verbose:
@@ -336,9 +334,16 @@ def telecharger_dce_pour_marche(
     if verbose:
         print(f"  [achatpublic] {id_marche} → pcslid={pcslid}")
 
-    resultat = telecharger_dce(pcslid, chemin_zip, verbose=verbose)
+    resultat = telecharger_dce(pcslid, chemin_zip, verbose=verbose,
+                               session_id=id_marche)
     out.update(resultat)
     out["id_marche"] = id_marche
+    tendia_logs.logger_evenement_marche("achatpublic", id_marche, {
+        "ok": out.get("ok"), "skip": out.get("skip", False),
+        "taille_octets": out.get("taille_octets", 0),
+        "erreur": out.get("erreur"),
+        "duree_secondes": out.get("duree_secondes", 0.0),
+    })
     return out
 
 

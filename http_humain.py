@@ -12,12 +12,16 @@ Contexte : le 13/06/2026, un batch AWS-Achat a déclenché un ban IP après
 ~10-15 sessions ColdFusion enchaînées en 1h (rythme fixe 3 s, UA unique).
 Ce module rend le trafic indistinguable d'un usage humain raisonnable.
 """
+import os
 import random
+import re
 import time
+import uuid
 from datetime import datetime, time as dtime
 from typing import Optional
 
-import requests
+# Backend HTTP unifié (curl_cffi si dispo, sinon requests). Voir http_client.
+import http_client as http_lib
 
 # Pool de User-Agents Chrome/Firefox/Edge/Safari récents (mi-2026).
 # Mélange Windows / macOS pour varier le fingerprint d'en-tête.
@@ -53,14 +57,49 @@ _PATTERNS_BAN = (
 )
 
 
-def creer_session_humaine(ua_fixe: Optional[str] = None) -> requests.Session:
-    """Crée une requests.Session avec User-Agent aléatoire et headers réalistes.
+def _nettoyer_session_id(brut: str) -> str:
+    """Réduit un identifiant à [a-z0-9] (Bright Data n'accepte pas les tirets
+    dans le session-id, sinon le découpage `-session-` du username casse).
+    Ex : "BOAMP-26-56599" -> "boamp2656599". Tronqué à 24 chars."""
+    propre = re.sub(r"[^a-z0-9]", "", (brut or "").lower())
+    return propre[:24]
+
+
+def _injecter_session_id(proxy_url: str, session_id: str) -> str:
+    """Injecte un session-id dans l'URL proxy Bright Data.
+
+    http://user-zone-X:pass@host:port
+        -> http://user-zone-X-session-SID:pass@host:port
+    Une session-id différente = une IP différente du pool résidentiel.
+    """
+    from urllib.parse import urlparse, urlunparse
+    parsed = urlparse(proxy_url)
+    userinfo = parsed.username or ""
+    new_userinfo = f"{userinfo}-session-{session_id}"
+    if parsed.password is not None:
+        new_userinfo += f":{parsed.password}"
+    new_netloc = new_userinfo + "@" + (parsed.hostname or "")
+    if parsed.port:
+        new_netloc += f":{parsed.port}"
+    return urlunparse(parsed._replace(netloc=new_netloc))
+
+
+def creer_session_humaine(ua_fixe: Optional[str] = None,
+                          proxy_url: Optional[str] = None,
+                          session_id: Optional[str] = None):
+    """Crée une session HTTP « humaine » : User-Agent aléatoire, headers
+    réalistes, fingerprint TLS Chrome (via http_client/curl_cffi) et, si un
+    proxy Bright Data est configuré, une IP résidentielle dédiée à la session.
 
     Args:
-        ua_fixe: si fourni, force ce User-Agent (reproductibilité tests).
-                 Sinon tirage aléatoire dans USER_AGENTS_POOL.
+        ua_fixe: force ce User-Agent (reproductibilité tests). Sinon aléatoire.
+        proxy_url: URL proxy. Si None, lit TENDIA_PROXY_URL dans l'environnement.
+        session_id: identifiant de session Bright Data. Si fourni (ex : un
+            id de marché), force une IP stable pour ce marché. Si None et que
+            le proxy est Bright Data, un UUID court est généré → nouvelle IP à
+            chaque appel.
     """
-    session = requests.Session()
+    session = http_lib.Session()
     ua = ua_fixe if ua_fixe else random.choice(USER_AGENTS_POOL)
     session.headers.update({
         "User-Agent": ua,
@@ -75,6 +114,17 @@ def creer_session_humaine(ua_fixe: Optional[str] = None) -> requests.Session:
         "Sec-Fetch-User": "?1",
         "Upgrade-Insecure-Requests": "1",
     })
+    # Proxy résidentiel anti-ban : TENDIA_PROXY_URL par défaut. Sur Bright Data,
+    # on injecte un session-id pour piloter la rotation d'IP.
+    if proxy_url is None:
+        proxy_url = os.environ.get("TENDIA_PROXY_URL")
+    if proxy_url:
+        if "brd.superproxy.io" in proxy_url and "-session-" not in proxy_url:
+            sid = _nettoyer_session_id(session_id) if session_id else ""
+            if not sid:
+                sid = uuid.uuid4().hex[:8]
+            proxy_url = _injecter_session_id(proxy_url, sid)
+        session.proxies = {"http": proxy_url, "https": proxy_url}
     return session
 
 

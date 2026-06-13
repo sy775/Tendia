@@ -45,6 +45,53 @@ check("pool >= 5 UA distincts", len(set(H.USER_AGENTS_POOL)) >= 5)
 
 
 # ===========================================================================
+# Session-id Bright Data (rotation IP)
+# ===========================================================================
+print("\n=== session-id Bright Data ===")
+PROXY_BRD = "http://brd-customer-abc-zone-tendia:secretpass@brd.superproxy.io:22225"
+
+# _nettoyer_session_id : ne garde que [a-z0-9]
+check("nettoyage id marché (tirets retirés)",
+      H._nettoyer_session_id("BOAMP-26-56599") == "boamp2656599")
+check("nettoyage id vide -> chaîne vide", H._nettoyer_session_id("") == "")
+
+# _injecter_session_id : insère -session-<sid> dans le username
+inj = H._injecter_session_id(PROXY_BRD, "deadbeef")
+check("injection -session- dans username",
+      "brd-customer-abc-zone-tendia-session-deadbeef:secretpass@" in inj)
+check("host/port préservés", "@brd.superproxy.io:22225" in inj)
+check("password préservé", "secretpass" in inj)
+
+# Session-id explicite respecté (après nettoyage)
+s_sid = H.creer_session_humaine(proxy_url=PROXY_BRD, session_id="abcd1234")
+check("session-id explicite injecté",
+      "-session-abcd1234" in s_sid.proxies.get("https", ""))
+
+# Session-id généré auto si non fourni
+s_auto = H.creer_session_humaine(proxy_url=PROXY_BRD)
+check("session-id auto-généré présent",
+      "-session-" in s_auto.proxies.get("https", ""))
+
+# 2 appels successifs sans session-id -> 2 IPs (session-ids) différentes
+sa = H.creer_session_humaine(proxy_url=PROXY_BRD)
+sb = H.creer_session_humaine(proxy_url=PROXY_BRD)
+check("2 appels -> 2 session-ids différents",
+      sa.proxies.get("https") != sb.proxies.get("https"))
+
+# Proxy non-Bright Data : aucune injection
+PROXY_AUTRE = "http://user:pass@monproxy.example.fr:8080"
+s_autre = H.creer_session_humaine(proxy_url=PROXY_AUTRE, session_id="abcd1234")
+check("proxy non-BRD : pas d'injection session",
+      "-session-" not in s_autre.proxies.get("https", "")
+      and s_autre.proxies.get("https") == PROXY_AUTRE)
+
+# Sans proxy du tout : pas de proxies configurés
+s_noproxy = H.creer_session_humaine(proxy_url="")
+check("sans proxy : proxies vide/inexistant",
+      not getattr(s_noproxy, "proxies", None))
+
+
+# ===========================================================================
 # attendre_humain : bornes uniforme + gaussienne
 # ===========================================================================
 print("\n=== attendre_humain ===")

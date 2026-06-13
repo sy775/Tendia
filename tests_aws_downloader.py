@@ -332,5 +332,66 @@ finally:
     A._resoudre_captcha_2captcha = _orig_captcha
 
 
+# Wrapper : rotation IP automatique sur ban (1er essai banni -> 2e essai OK)
+print("\n=== Rotation IP automatique sur ban (wrapper) ===")
+
+_compteur_sessions = {"n": 0}
+
+
+def _session_factory_ban_puis_ok(*a, **k):
+    # 1er appel (tentative 0, session-id = id marché) -> session bannie.
+    # Appels suivants (retry IP) -> session qui réussit.
+    _compteur_sessions["n"] += 1
+    return FakeSessionBan() if _compteur_sessions["n"] == 1 else FakeSession()
+
+
+_orig_logs = A.tendia_logs.logger_evenement_marche
+A.http_humain.creer_session_humaine = _session_factory_ban_puis_ok
+A.http_humain.attendre_inter_etapes = lambda *a, **k: 0.0
+A._resoudre_captcha_2captcha = lambda image_bytes, api_key, verbose=True: "ABC123"
+A._decompresser_zip_imbrique = lambda chemin, dest, verbose=False: {
+    "nb_zip_internes_decompressed": 0, "nb_fichiers_extraits": 0, "erreur": None}
+A.tendia_logs.logger_evenement_marche = lambda *a, **k: None
+try:
+    marche = {"id": "TEST-IP",
+              "url_dce": "https://www.marches-publics.info/mpiaws/index.cfm?IDM=1832151"}
+    res_rot = A.telecharger_dce_pour_marche(
+        marche, tempfile.mkdtemp(prefix="aws_rot_"),
+        api_key_2captcha="FAKEKEY", verbose=False, max_retries_ban=3)
+    check("rotation IP : succès après retry", res_rot.get("ok") is True)
+    check("rotation IP : 2 tentatives (1 ban + 1 OK)",
+          res_rot.get("tentatives_ip") == 2)
+finally:
+    A.http_humain.creer_session_humaine = _orig_session
+    A.http_humain.attendre_inter_etapes = _orig_attente
+    A._resoudre_captcha_2captcha = _orig_captcha
+    A._decompresser_zip_imbrique = _orig_decomp
+    A.tendia_logs.logger_evenement_marche = _orig_logs
+
+
+# Wrapper : ban persistant -> etape_erreur=ban_persistant
+print("\n=== Ban persistant (wrapper) ===")
+A.http_humain.creer_session_humaine = lambda *a, **k: FakeSessionBan()
+A.http_humain.attendre_inter_etapes = lambda *a, **k: 0.0
+A._resoudre_captcha_2captcha = lambda image_bytes, api_key, verbose=True: "ABC123"
+A.tendia_logs.logger_evenement_marche = lambda *a, **k: None
+try:
+    marche = {"id": "TEST-BAN-PERSIST",
+              "url_dce": "https://www.marches-publics.info/mpiaws/index.cfm?IDM=1832151"}
+    res_bp = A.telecharger_dce_pour_marche(
+        marche, tempfile.mkdtemp(prefix="aws_bp_"),
+        api_key_2captcha="FAKEKEY", verbose=False, max_retries_ban=2)
+    check("ban persistant : ok=False", res_bp.get("ok") is False)
+    check("ban persistant : etape_erreur=ban_persistant",
+          res_bp.get("etape_erreur") == "ban_persistant")
+    check("ban persistant : 3 tentatives (1 + 2 retries)",
+          res_bp.get("tentatives_ip") == 3)
+finally:
+    A.http_humain.creer_session_humaine = _orig_session
+    A.http_humain.attendre_inter_etapes = _orig_attente
+    A._resoudre_captcha_2captcha = _orig_captcha
+    A.tendia_logs.logger_evenement_marche = _orig_logs
+
+
 print(f"\n=== {ok} OK / {ko} KO ===")
 sys.exit(1 if ko else 0)

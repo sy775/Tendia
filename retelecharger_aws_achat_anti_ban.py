@@ -44,6 +44,10 @@ PAUSE_TOUTES_LES_N = 20         # pause longue toutes les N marchés
 MAX_MARCHES_PAR_RUN = 30        # cap par session
 BANS_CONSECUTIFS_STOP = 3       # arrêt après N bans d'affilée
 
+# --- Tarifs pour l'estimation de coût ---
+COUT_BRIGHTDATA_USD_PAR_GB = 8.0          # plan ISP Pay-per-GB
+COUT_2CAPTCHA_USD_PAR_CAPTCHA = 0.001     # ~$1/1000 captchas normaux
+
 
 def main():
     ap = argparse.ArgumentParser()
@@ -101,6 +105,8 @@ def main():
     bans_consecutifs = 0
     solde_epuise = False
     traites = 0
+    bw_octets = 0          # bande passante consommée (proxy Bright Data)
+    nb_captchas = 0        # captchas résolus (2captcha)
 
     for i, (mid, marche) in enumerate(cibles, 1):
         # Garde-fou heures de bureau à chaque itération (les runs sont longs).
@@ -130,6 +136,8 @@ def main():
             res = {"ok": False, "erreur": f"{type(e).__name__}: {e}"}
 
         traites += 1
+        bw_octets += res.get("taille_octets", 0) or 0
+        nb_captchas += res.get("nb_captcha_resolus", 0) or 0
 
         # --- Solde 2captcha épuisé : arrêt immédiat ---
         if res.get("solde_2captcha_epuise"):
@@ -138,8 +146,9 @@ def main():
             erreurs.append((mid, "solde 2captcha épuisé"))
             break
 
-        # --- Détection ban : compteur consécutif ---
-        if res.get("etape_erreur") == "ban_detecte":
+        # --- Détection ban : compteur consécutif. Le wrapper a déjà fait une
+        # rotation d'IP en interne ; un ban_persistant ici = pool/zone bannie. ---
+        if res.get("etape_erreur") in ("ban_detecte", "ban_persistant"):
             bans_consecutifs += 1
             erreurs.append((mid, "ban détecté"))
             bilan[f"{ancien_contenu}_to_ban"] = bilan.get(f"{ancien_contenu}_to_ban", 0) + 1
@@ -222,6 +231,17 @@ def main():
         print("\n⚠ Batch interrompu : solde 2captcha épuisé. Recharge puis relance.")
     if bans_consecutifs >= BANS_CONSECUTIFS_STOP:
         print("\n⚠ Batch interrompu : ban IP. Attends avant de relancer.")
+
+    # --- Estimation coût du run ---
+    cout_brightdata = bw_octets / 1_000_000_000 * COUT_BRIGHTDATA_USD_PAR_GB
+    cout_2captcha = nb_captchas * COUT_2CAPTCHA_USD_PAR_CAPTCHA
+    print()
+    print("Coûts estimés de ce run")
+    print(f"  Bande passante  : {bw_octets / 1_000_000:.1f} Mo "
+          f"(~${cout_brightdata:.3f} Bright Data @ ${COUT_BRIGHTDATA_USD_PAR_GB}/GB)")
+    print(f"  Captchas résolus: {nb_captchas} "
+          f"(~${cout_2captcha:.3f} 2captcha)")
+    print(f"  Total           : ~${cout_brightdata + cout_2captcha:.3f}")
 
     nb_complet = sum(v for k, v in bilan.items() if k.endswith("_to_complet"))
     print()
