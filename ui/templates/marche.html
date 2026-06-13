@@ -555,6 +555,19 @@
         <button type="submit" class="btn-ghost">↻ Re-tenter téléchargement</button>
       </form>
       {% endif %}
+      {% if dce_pieces_manquantes %}
+      <div style="margin-top:6px; width:100%; font-size:11.5px; color:var(--apt-ink-3);">
+        <span class="apt-label" style="color:var(--c-amber);">Pièces manquantes ({{ dce_pieces_manquantes|length }})</span>
+        <ul style="margin:3px 0 5px; padding-left:16px;">
+          {% for p in dce_pieces_manquantes[:6] %}
+          <li>⚠ {{ p.nom or p.type_detecte or 'pièce' }}{% if p.raison_echec %} ({{ p.raison_echec }}){% endif %}</li>
+          {% endfor %}
+        </ul>
+        <form method="post" action="{{ url_for('retenter_pieces_manquantes', id_marche=marche.id) }}" style="display:inline;">
+          <button type="submit" class="btn-ghost">↻ Re-tenter ces pièces</button>
+        </form>
+      </div>
+      {% endif %}
       {% endif %}
       {% if marche.url_avis %}
       <a href="{{ marche.url_avis }}" target="_blank" rel="noopener" class="btn-ghost">

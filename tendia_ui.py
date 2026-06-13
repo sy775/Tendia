@@ -906,6 +906,7 @@ def detail_marche(id_marche):
         dce_contenu=marche.get("dce_contenu"),
         dce_raison_contenu=marche.get("dce_raison_contenu"),
         dce_pieces=marche.get("dce_pieces_contractuelles") or [],
+        dce_pieces_manquantes=marche.get("dce_pieces_manquantes") or [],
         brief_type=brief_type,
         concurrents=concurrents,
         zone_prix=zone_prix,
@@ -986,6 +987,46 @@ def retenter_dce(id_marche):
         flash("DCE sur plateforme à authentification — non récupérable en auto.", "erreur")
     else:
         flash("Téléchargement effectué mais DCE toujours indisponible.", "erreur")
+    return redirect(url_for("detail_marche", id_marche=id_marche))
+
+
+@app.route("/marche/<id_marche>/retenter-pieces-manquantes", methods=["POST"])
+def retenter_pieces_manquantes(id_marche):
+    """Re-tente UNIQUEMENT les pièces DCE manquantes, puis re-qualifie."""
+    marche = stockage.lire("marches", id_marche)
+    if not marche:
+        abort(404)
+    manquantes = marche.get("dce_pieces_manquantes") or []
+    if not manquantes:
+        flash("Aucune pièce manquante à retenter.", "succes")
+        return redirect(url_for("detail_marche", id_marche=id_marche))
+    import requests
+    import tendia_dce
+    import tendia_telecharger_dce as tdce
+    session = requests.Session()
+    session.headers.update({"User-Agent": tdce.USER_AGENT,
+                            "Accept-Language": "fr-FR,fr;q=0.9"})
+    dossier = str(REPERTOIRE_DCE / id_marche)
+    recuperees, encore = [], []
+    for piece in manquantes:
+        try:
+            ok, info = tdce._telecharger_avec_retry(session, piece, dossier, max_essais=2)
+        except Exception as e:
+            ok, info = False, {"erreur": f"{type(e).__name__}: {e}"}
+        if ok:
+            recuperees.append(info)
+        else:
+            encore.append({**piece, "raison_echec": info.get("erreur", "?")})
+    qual = tendia_dce.qualifier_dce(dossier)
+    marche["dce_contenu"] = qual["qualite"]
+    marche["dce_pieces_contractuelles"] = qual["pieces_contractuelles"]
+    marche["dce_pieces_manquantes"] = encore
+    marche["dce_raison_contenu"] = qual["raison"]
+    stockage.ecrire("marches", id_marche, marche)
+    if recuperees:
+        flash(f"{len(recuperees)} pièce(s) récupérée(s).", "succes")
+    else:
+        flash("Aucune pièce supplémentaire récupérée cette fois.", "erreur")
     return redirect(url_for("detail_marche", id_marche=id_marche))
 
 
