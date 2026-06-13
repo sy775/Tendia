@@ -11,7 +11,7 @@ Usage : python diagnostic_plateformes_dce.py
 import io
 import sys
 
-sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace")
+sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
 import requests
 import stockage

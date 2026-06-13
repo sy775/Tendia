@@ -11,7 +11,7 @@ Pour chaque brief stocké en collection 'briefs_extraits' avec _meta.type=comple
 import io
 import sys
 
-sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace")
+sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
 import stockage
 

@@ -14,7 +14,7 @@ from datetime import date, timedelta
 from http_utils import get_json
 
 # Force UTF-8 sur stdout pour eviter UnicodeEncodeError sur Windows cp1252
-sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace")
+sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
 BOAMP_URL = (
     "https://boamp-datadila.opendatasoft.com/api/explore/v2.1/"

@@ -7,7 +7,7 @@ Lancement : python tests_atexo_downloader.py
 import io
 import sys
 
-sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace")
+sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
 import atexo_downloader as A
 

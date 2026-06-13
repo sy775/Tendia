@@ -28,7 +28,7 @@ import sys
 from collections import Counter, defaultdict
 
 if sys.stdout.encoding and sys.stdout.encoding.lower() != "utf-8":
-    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace")
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
 import stockage
 import dce_finder

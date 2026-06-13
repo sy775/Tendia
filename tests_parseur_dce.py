@@ -9,7 +9,7 @@ import os
 import sys
 import tempfile
 
-sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace")
+sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
 import tendia_telecharger_dce as T
 
@@ -86,7 +86,8 @@ check("URLs absolues", all(p["url"].startswith("https://exemple.fr/") for p in p
 print("\n=== trouver_parseur ===")
 check("PLACE/Atexo reconnu", isinstance(T.trouver_parseur("https://www.marches-publics.gouv.fr/?x"), T.ParseurAtexo))
 check("e-marchespublics reconnu", isinstance(T.trouver_parseur("https://x.e-marchespublics.com/y"), T.ParseurEMarchesPublics))
-check("plateforme auth -> None", T.trouver_parseur("https://www.marches-publics.info/?z") is None)
+check("AWS-Achat (marches-publics.info) -> ParseurAWS", isinstance(T.trouver_parseur("https://www.marches-publics.info/?z"), T.ParseurAWS))
+check("plateforme auth restante (marches-securises) -> None", T.trouver_parseur("https://www.marches-securises.fr/?z") is None)
 check("plateforme inconnue -> générique", isinstance(T.trouver_parseur("https://mairie-xyz.fr/dce"), T.ParseurGenerique))
 check("url vide -> None", T.trouver_parseur("") is None)
 

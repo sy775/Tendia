@@ -247,6 +247,19 @@ Le diagnostic du sprint précédent montrait que les 6 plateformes anonymes expo
 - `diagnostic_emarches.py` : à lancer par Younes pour trancher le cas Dematis.
 - **Portée mesurée hors-ligne : 76 marchés `incomplet` routent vers Atexo.** Batch réseau + re-extraction à lancer par Younes.
 
+### Sprint AWS-Achat — downloader anonyme ColdFusion + 2captcha (13 juin 2026) ✅
+
+Les 81 marchés `www.marches-publics.info` (AWS-Achat / AW Solutions) étaient classés `auth_requise`. Investigation HAR → workflow anonyme conforme arrêté 14/12/2009, exposé derrière une page captcha custom (OCR ~6 chars).
+
+- `aws_downloader.py` : workflow ColdFusion 7 étapes — GET `dematEnt.choixDCE` (session CFID/CFTOKEN, **pas de cookies HTTP** : tokens en query string), GET `dce.avertissement` (parse `strNomImage`+`hashVal`), GET image captcha, résolution **2captcha** (`TwoCaptcha.normal`, retry 3× si refusé), POST `dce.cnxAnonyme` (302=accepté / 200=refusé via `allow_redirects=False`), GET `dce.verifLotsDCE` (parse checkboxes lots), POST `dce.actDCE2` (tous les lots), parse URL CDN `downloads.awsolutions.fr` (filtre « Conditions d'accès », convertit AAPC relatif), DL multi-fichiers + décompression (réutilise `achatpublic_downloader._decompresser_zip_imbrique`). Gère `ERROR_ZERO_BALANCE`, marché clos (404), fallback mono-lot. Clé via `.env`/`TWOCAPTCHA_API_KEY` (`python-dotenv`).
+- `tendia_telecharger_dce` : `ParseurAWS` (marqueur `ZIP_GLOBAL_AWS`) + branche dédiée dans `telecharger_pieces_dce`. `PARSEURS = [Atexo, Achatpublic, AWS, EMarchesPublics]`.
+- `tendia_dce` : `www.marches-publics.info` retiré de `PLATEFORMES_AUTH_REQUISES` (reste `{marches-securises.fr}`).
+- `tests_aws_downloader.py` (36 OK : helpers purs + workflow complet mocké + cas captcha refusé). Non-régression Atexo (25) / parseur (22) / qualifier (10) OK.
+- Scripts : `test_aws_achat.py` (1 marché), `retelecharger_aws_achat.py` (batch 81, backup `.bak_avant_aws_achat`, rate-limit 3 s, arrêt propre si solde épuisé).
+- **Livrable 7** : `reextraire_briefs_complet.py` refondu — n'appelle plus `enrichir_complet.enrichir(force=True)` (qui re-téléchargeait via le générique, voué à l'échec sur plateformes à downloader dédié). Désormais : scan `data/dce/<id>/` existant → `tendia_extraire.traiter_marche` (LLM seul, **sans re-DL**) ; skip propre si dossier absent/vide ; flag `genere_avec_dce_complet`. **106 marchés `complet` sans brief à jour** identifiés (tous avec dossier présent).
+- **Bonus hygiène** : 51 scripts patchés `sys.stdout = io.TextIOWrapper(...)` → `sys.stdout.reconfigure(...)` (évite « I/O operation on closed file » en cascade d'imports).
+- **À lancer par Younes** : `test_aws_achat.py` (1 marché, ~0,001 €) → si OK, `retelecharger_aws_achat.py --oui` (~5 € 2captcha) → `reextraire_briefs_complet.py` (~5 € LLM).
+
 ---
 
 ## 3bis. Sprint en cours / Prochain sprint
@@ -594,4 +607,4 @@ Si tu identifies une dette technique : **signale**. Mais en respectant le timing
 
 ---
 
-*Document mis à jour à chaque sprint. Dernière révision : 13 juin 2026 — Sprint Atexo (downloader DCE 2-POST généralisé, 76 marchés routables ; batch réseau à lancer par Younes).*
+*Document mis à jour à chaque sprint. Dernière révision : 13 juin 2026 — Sprint AWS-Achat (downloader anonyme ColdFusion + 2captcha, 81 marchés `auth_requise` débloqués hors-ligne ; fix reextraire_briefs_complet sans re-DL ; batch réseau à lancer par Younes).*

@@ -24,7 +24,7 @@ import sys
 from pathlib import Path
 
 # Force UTF-8 stdout pour compat cp1252 PowerShell
-sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace")
+sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
 import organisme
 

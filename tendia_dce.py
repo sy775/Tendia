@@ -77,9 +77,9 @@ PATTERNS_FICHIERS_ADMINISTRATIFS = [
 
 # Plateformes qui exigent une authentification (auth + captcha) : le DCE n'est
 # pas téléchargeable en automatique. À court-circuiter.
+# www.marches-publics.info (AWS-Achat) a été retiré : aws_downloader sait
+# désormais récupérer le DCE en mode anonyme (workflow ColdFusion + 2captcha).
 PLATEFORMES_AUTH_REQUISES = {
-    "achatpublic.com",
-    "www.marches-publics.info",   # AWS-Achat
     "marches-securises.fr",
 }
 

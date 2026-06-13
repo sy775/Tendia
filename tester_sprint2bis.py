@@ -21,7 +21,7 @@ import io
 import sys
 
 # Force UTF-8 stdout pour eviter les soucis cp1252 quand on print du JSON
-sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace")
+sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
 import json
 

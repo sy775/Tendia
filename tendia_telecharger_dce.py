@@ -52,8 +52,8 @@ import requests
 # les caracteres de mise en forme tableau ├ ─ etc.). Cohérent avec
 # diagnostic_dce_pertinents.py et enrichir_complet.py.
 if sys.stdout.encoding and sys.stdout.encoding.lower() != "utf-8":
-    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace")
-    sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding="utf-8", errors="replace")
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+    sys.stderr.reconfigure(encoding="utf-8", errors="replace")
 
 
 # ---------------------------------------------------------------------------
@@ -884,7 +884,37 @@ class ParseurEMarchesPublics(ParseurGenerique):
     PATTERNS_HOSTS = ["e-marchespublics.com"]
 
 
-PARSEURS = [ParseurAtexo, ParseurEMarchesPublics]
+
+class ParseurAchatpublic(ParseurDCE):
+    """
+    achatpublic.com — workflow anonyme conforme arrêté 14/12/2009.
+    N'utilise PAS le parsing HTML : délègue à achatpublic_downloader qui fait
+    le GET page détail + POST telechargerDCE.action pour récupérer le ZIP DCE,
+    puis décompresse le ZIP imbriqué automatiquement.
+    """
+    PATTERNS_HOSTS = ["achatpublic.com"]
+
+    def lister_pieces(self, session, url_dce):
+        return [{"nom": "DCE_complet.zip", "url": url_dce,
+                 "type_detecte": "ZIP_GLOBAL_ACHATPUBLIC",
+                 "taille_estimee": None}]
+
+
+class ParseurAWS(ParseurDCE):
+    """
+    AWS-Achat / www.marches-publics.info — moteur ColdFusion AW Solutions.
+    N'utilise PAS le parsing HTML href : délègue à aws_downloader qui exécute
+    le workflow anonyme 7 étapes (session ColdFusion + captcha résolu via
+    2captcha + sélection de tous les lots), puis décompresse les ZIP imbriqués.
+    """
+    PATTERNS_HOSTS = ["marches-publics.info"]
+
+    def lister_pieces(self, session, url_dce):
+        return [{"nom": "DCE_multi.zip", "url": url_dce,
+                 "type_detecte": "ZIP_GLOBAL_AWS", "taille_estimee": None}]
+
+
+PARSEURS = [ParseurAtexo, ParseurAchatpublic, ParseurAWS, ParseurEMarchesPublics]
 
 
 def trouver_parseur(url_dce: str):
@@ -990,6 +1020,62 @@ def telecharger_pieces_dce(marche: dict, dossier_destination: str, session=None)
                            "raison_echec": res.get("erreur", "?")}]
         return {"pieces_recuperees": recuperees, "pieces_manquantes": manquantes,
                 "duree_secondes": res.get("duree_secondes", 0.0), "session_cookies": {}}
+
+    # Cas Achatpublic : marqueur ZIP_GLOBAL_ACHATPUBLIC -> workflow GET+POST
+    # achatpublic_downloader (téléchargement direct du ZIP + décompression
+    # automatique du ZIP imbriqué).
+    if pieces and pieces[0].get("type_detecte") == "ZIP_GLOBAL_ACHATPUBLIC":
+        import achatpublic_downloader as _ap
+        res = _ap.telecharger_dce_pour_marche(marche, os.path.dirname(dossier_destination)
+                                                if os.path.basename(dossier_destination)
+                                                else dossier_destination,
+                                                verbose=False)
+        # _ap retourne {chemin: data/dce/<id>/dce_<pcslid>.zip}
+        if res.get("ok"):
+            recuperees = [{"nom": os.path.basename(res.get("chemin") or "dce.zip"),
+                           "type": "ZIP_GLOBAL",
+                           "taille": res.get("taille_octets", 0),
+                           "chemin": res.get("chemin")}]
+            manquantes = []
+        else:
+            recuperees = []
+            manquantes = [{"nom": "DCE_complet.zip", "url": url_dce,
+                           "type_detecte": "ZIP_GLOBAL_ACHATPUBLIC",
+                           "raison_echec": res.get("erreur", "?")}]
+        return {"pieces_recuperees": recuperees, "pieces_manquantes": manquantes,
+                "duree_secondes": res.get("duree_secondes", 0.0),
+                "session_cookies": {}}
+
+    # Cas AWS-Achat : marqueur ZIP_GLOBAL_AWS -> workflow ColdFusion 7 étapes
+    # (session CFID/CFTOKEN + captcha 2captcha + tous les lots), téléchargement
+    # multi-fichiers direct dans le dossier du marché + décompression auto.
+    if pieces and pieces[0].get("type_detecte") == "ZIP_GLOBAL_AWS":
+        import aws_downloader as _aws
+        api_key = os.environ.get("TWOCAPTCHA_API_KEY")
+        res = _aws.telecharger_dce_pour_marche(
+            marche,
+            os.path.dirname(dossier_destination)
+            if os.path.basename(dossier_destination) else dossier_destination,
+            api_key_2captcha=api_key, verbose=False)
+        if res.get("ok"):
+            recuperees = [{"nom": os.path.basename(f),
+                           "type": "ZIP_GLOBAL" if f.lower().endswith(".zip") else "autre",
+                           "taille": 0, "chemin": f}
+                          for f in (res.get("fichiers_telecharges") or [])]
+            if not recuperees and res.get("skip"):
+                recuperees = [{"nom": "DCE_multi", "type": "ZIP_GLOBAL",
+                               "taille": res.get("taille_octets", 0),
+                               "chemin": res.get("chemin")}]
+            manquantes = []
+        else:
+            recuperees = []
+            manquantes = [{"nom": "DCE_multi.zip", "url": url_dce,
+                           "type_detecte": "ZIP_GLOBAL_AWS",
+                           "raison_echec": res.get("erreur", "?")}]
+        return {"pieces_recuperees": recuperees, "pieces_manquantes": manquantes,
+                "duree_secondes": res.get("duree_secondes", 0.0),
+                "session_cookies": {}}
+
 
     zips = [p for p in pieces if p["type_detecte"] == "ZIP_GLOBAL"]
     unitaires = [p for p in pieces if p["type_detecte"] != "ZIP_GLOBAL"]

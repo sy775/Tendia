@@ -31,7 +31,7 @@ from pathlib import Path
 from typing import Optional
 
 # Force UTF-8 sur stdout (Windows cp1252)
-sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace")
+sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
 import stockage
 import analyse
