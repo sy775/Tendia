@@ -3,9 +3,9 @@
 **Tu es le prochain Claude qui va aider Younes sur Tendia.**
 **Ce document est ton briefing.** Lis-le entièrement avant de répondre à Younes.
 
-**Date de la passation** : 13 juin 2026, fin des Sprints Téléchargeur DCE + Téléchargeur Profond
-**Version** : 2.3 (post qualification DCE + téléchargeur profond)
-**Sprints clôturés** : 2, 2bis (Sujets 1+2, Phases 3a/3b/3c), A (profil socle+BTP), B (matching V2), C-ingénierie, P (UI gestion profils), P bis (création + widgets), UI fiche marché (preset-aware), Téléchargeur DCE (qualif `dce_contenu`), Téléchargeur Profond (scaffolding — réseau à lancer par Younes)
+**Date de la passation** : 13 juin 2026, fin du Sprint Atexo (téléchargeur DCE profond)
+**Version** : 2.4 (post intégration downloader Atexo 2-POST)
+**Sprints clôturés** : 2, 2bis (Sujets 1+2, Phases 3a/3b/3c), A (profil socle+BTP), B (matching V2), C-ingénierie, P (UI gestion profils), P bis (création + widgets), UI fiche marché (preset-aware), Téléchargeur DCE (qualif `dce_contenu`), Téléchargeur Profond (scaffolding), Atexo (downloader 2-POST généralisé — réseau à lancer par Younes)
 **État système** : stable et productif. Verdicts `pertinent`+ end-to-end sur 2 profils démo : BTP IDF (57070/56539/56378) et Ingénierie IDF (56588 `tres_pertinent`, 56774/55964/56096 `pertinent`). Fiche marché et gestion de profils désormais utilisables par un commercial.
 **Repo sous git depuis le 12 juin** (init pendant Sprint P) : `data/`, `.env`, sidecars WAL gitignorés. Commit avant chaque sprint, working tree propre.
 
@@ -39,7 +39,7 @@
 
 ---
 
-## 2. État du projet au 13 juin 2026 (post UI fiche marché + Téléchargeur DCE/Profond)
+## 2. État du projet au 13 juin 2026 (post UI fiche marché + Téléchargeurs DCE/Profond/Atexo)
 
 ### Architecture actuelle
 
@@ -90,13 +90,15 @@ UI : Dashboard (strict) + Explorer (tri richesse, Sprint UI) + Fiche marché
 - **Fiche marché preset-aware** (Sprint UI) : module `fiche_marche.py` (7 helpers purs testés). KPI cards preset-aware (plus de « Bénéficiaires » sur du BTP), verdict 90 secondes, encart verrous go/no-go, blocs sectoriels BTP/ingénierie/formation rendus en HTML, détail par lot/tranche, badge richesse brief, bouton « Lancer calibration ». Explorer trié par richesse décroissante + filtre `?complet=1`.
 - **Qualification du contenu DCE** (Sprint Téléchargeur DCE) : `tendia_dce.qualifier_dce` → champ `dce_contenu` (5 niveaux `complet/incomplet/vide/auth_requise/erreur`), **distinct** de `dce_qualite` (résolution URL, lu comme filtre par enrichir/pipeline/veille — surtout ne pas confondre). Garde-fou dans `enrichir_complet` : pas d'appel LLM sur `vide/auth/erreur`. Backfill `backfill_dce_qualite.py`. UI : badge + bouton « Re-tenter ».
 - **Téléchargeur profond** (Sprint Téléchargeur Profond — **scaffolding**) : `tendia_telecharger_dce` expose `ParseurDCE`/`telecharger_pieces_dce` (best-effort multi-pièces, ZIP global priorisé), 19 tests hors-ligne OK. Les parties réseau (diagnostic, re-DL, re-extraction) sont **à lancer par Younes** (pas de réseau dans l'env de dev Claude).
+- **Downloader Atexo 2-POST** (Sprint Atexo) : `atexo_downloader.py` (dérivé du `place_downloader` Apptia, généralisé) télécharge le **DCE complet** sur les plateformes Atexo MPE/Prado en mode anonyme (GET form → POST anonyme+CGU → POST `completeDownload`), sans captcha. `url_base` détecté par signature (`orgAcronyme=`+`Entreprise.`) → rattrape les forks municipaux. `ParseurAtexo` dans le pipeline. **76 marchés `incomplet` routables** (mesuré hors-ligne). 25 tests hors-ligne OK. **Batch réseau à lancer par Younes.**
 
 ### Ce qui ne marche pas (ou pas encore)
 
 - **Pas de profils sectoriels IT/conseil/EnR** (reste de Sprint C — modèles BTP et ingénierie sont OK)
 - **Pas d'évaluateurs matching sectoriels** pour conseil/IT/EnR (Sprint C — stubs en place ; BTP et ingénierie faits)
 - **`ing_opqibi` ne mord pas sur les briefs actuels** : le LLM remplit `qualifications_moe.opqibi` en texte libre, pas en codes à 4 chiffres → garde-fou neutre (piège 10). Le go/no-go OPQIBI n'agira que si l'extraction des codes est fiabilisée côté `llm_extract.py`.
-- **DCE : 0 marché `complet`, 94 `incomplet` (RC seul), 200 `vide`, 128 `auth_requise`** (post backfill `dce_contenu`). FINDING majeur : le téléchargeur récupère le **RC seul ~90% du temps**, jamais le DCE complet (CCAP/CCTP/DPGF) → tous les briefs sont construits sur le RC. Le Sprint Téléchargeur Profond a livré le scaffolding pour corriger, mais **les parseurs spécifiques par plateforme restent à spécialiser** contre le HTML réel (Younes lance `diagnostic_plateformes_dce.py` d'abord). PLACE notamment expose probablement les pièces en JS/POST (à confirmer au diagnostic).
+- **DCE : 0 marché `complet`, 94 `incomplet` (RC seul), 200 `vide`, 128 `auth_requise`** (post backfill `dce_contenu`, AVANT le batch Atexo). FINDING majeur : le téléchargeur récupère le **RC seul ~90% du temps**, jamais le DCE complet (CCAP/CCTP/DPGF) → tous les briefs sont construits sur le RC. **Le Sprint Atexo a livré le downloader 2-POST** : **76 marchés `incomplet` routables Atexo** — `python retelecharger_incomplet.py` (par Younes, réseau) devrait les faire passer `complet`, puis `python reextraire_briefs_complet.py` re-génère les briefs riches. À FAIRE par Younes.
+- **e-marchespublics (Dematis, 15 marchés `incomplet`)** : moteur distinct d'Atexo, **workflow non encore déterminé**. Younes lance `python diagnostic_emarches.py` → Cas A (formulaire → écrire `dematis_downloader.py` sur le modèle atexo) / B (AJAX) / C (captcha → `auth_requise`).
 - **128 marchés `auth_requise`** (81 marches-publics.info/AWS-Achat + 46 achatpublic + 1 securises) : auth+captcha, non récupérables en auto = cible **Sprint AWS-Achat** (+ 2captcha).
 - **Calibration bottom-up faible** : seulement **14/102 briefs calibrés** (~14%), sur disque `data/extractions_calibrees/` (PAS une collection KV — lire via `llm_calibration.charger_si_existe`). 75/102 briefs sans montant estimé. Le pipeline calibration n'a jamais tourné en masse. Le bouton « Lancer calibration » (Sprint UI) permet de le faire à la demande.
 - **Calibration top-down** : DECP non exploité aujourd'hui
@@ -235,20 +237,30 @@ But : récupérer **toutes** les pièces du DCE (pas juste le RC) sur les platef
 - UI : pièces manquantes + bouton « Re-tenter ces pièces ».
 - **Caveats** : `_telecharger_marche` historique NON rewiré (chemin réseau qui marche) ; les parseurs spécifiques utilisent la stratégie générique en attendant le diagnostic (PLACE peut exposer en JS/POST que `href` seul ne capte pas).
 
+### Sprint Atexo — downloader DCE 2-POST (13 juin 2026) ✅ (scaffolding)
+
+Le diagnostic du sprint précédent montrait que les 6 plateformes anonymes exposent leurs pièces derrière un workflow formulaire (pas de `href`). Apptia avait déjà résolu PLACE → réutilisé et généralisé.
+
+- `atexo_downloader.py` : dérivé de `place_downloader_apptia.py`. Workflow 2-POST Prado/Atexo (GET formulaire identité → POST anonyme+CGU → POST `PRADO_POSTBACK_TARGET=completeDownload`), vérif magic bytes `PK`. **`url_base` dynamique** via `_detecter_url_base` : host connu OU **signature Atexo** (`orgAcronyme=` + `Entreprise.`) → rattrape les forks municipaux (rhone, meuse, nantesmetropole, departement13…) ; exclut e-marchespublics + plateformes auth. Helpers Apptia intacts (`_extraire_inputs_form`, `_trouver_event_target`, `_extraire_id_org_depuis_url`).
+- `tendia_telecharger_dce` : `ParseurAtexo` (délègue via marqueur `ZIP_GLOBAL_ATEXO`) **remplace** les 5 parseurs individuels (PLACE/ternum/demat/megalis/maximilien supprimés) ; `telecharger_pieces_dce` gère la branche Atexo (DL direct du zip dans `data/dce/<id>/`). `ParseurEMarchesPublics` conservé (Dematis, à diagnostiquer).
+- `tests_atexo_downloader.py` (25 OK) + `tests_parseur_dce.py` (21 OK, branche Atexo mockée).
+- `diagnostic_emarches.py` : à lancer par Younes pour trancher le cas Dematis.
+- **Portée mesurée hors-ligne : 76 marchés `incomplet` routent vers Atexo.** Batch réseau + re-extraction à lancer par Younes.
+
 ---
 
 ## 3bis. Sprint en cours / Prochain sprint
 
 **Aucun sprint actif au moment de cette passation.** Le système est dans un état stable et productif. Plusieurs chantiers possibles selon les priorités :
 
-### Sprint Téléchargeur Profond — finir (réseau, par Younes) — PRIORITAIRE
+### Lancer le batch Atexo (réseau, par Younes) — PRIORITAIRE
 
-Le scaffolding est livré et testé hors-ligne. Pour le rendre effectif :
-1. `python diagnostic_plateformes_dce.py` (EN PREMIER — voir ce que chaque plateforme expose en HTML réel)
-2. **Spécialiser les parseurs** dont le diagnostic montre « 0 lien href » (probable pour PLACE : pièces en JS/POST) — sous-classer `ParseurGenerique`, override `lister_pieces`
-3. `python retelecharger_incomplet.py` (re-DL des 94 incomplet, ~20-30 min)
-4. `python reextraire_briefs_complet.py` (re-brief des marchés passés à complet, ~3-10€)
-5. Optionnel : rewirer `_telecharger_marche` → `telecharger_pieces_dce` une fois validé
+Le downloader Atexo est livré et testé hors-ligne (76 marchés `incomplet` routables). Pour le rendre effectif :
+1. **Test 1 marché par plateforme** AVANT le batch (PLACE, ternum-bfc, megalis, demat-ampa, maximilien) : `python -c "import stockage,atexo_downloader as A; m=[x for x in stockage.charger('marches').values() if 'marches-publics.gouv.fr' in (x.get('url_dce') or '') and x.get('dce_contenu')=='incomplet'][0]; print(A.telecharger_dce_pour_marche(m,'data/dce'))"` → doit renvoyer `ok:True` + zip multi-pièces. Si un test échoue, débugger la plateforme avant le batch.
+2. `python retelecharger_incomplet.py` (re-DL des 76+ via `telecharger_pieces_dce` qui route déjà vers Atexo, ~20-30 min)
+3. `python reextraire_briefs_complet.py` (re-brief des marchés passés à complet, ~3-10€) — valider d'abord sur 1 marché (`--limite 1`) que le brief s'enrichit vraiment.
+4. **e-marchespublics (15 marchés)** : `python diagnostic_emarches.py` → si Cas A/B, écrire `dematis_downloader.py` (contrat identique à atexo) + `ParseurEMarchesPublics` renvoyant `ZIP_GLOBAL_DEMATIS` ; si Cas C, ajouter `e-marchespublics.com` à `PLATEFORMES_AUTH_REQUISES`.
+5. Optionnel : rewirer `_telecharger_marche` → `telecharger_pieces_dce` une fois validé.
 
 ### Sprint AWS-Achat — débloquer les 128 `auth_requise`
 
@@ -582,4 +594,4 @@ Si tu identifies une dette technique : **signale**. Mais en respectant le timing
 
 ---
 
-*Document mis à jour à chaque sprint. Dernière révision : 13 juin 2026 — Sprints Téléchargeur DCE (qualif `dce_contenu`) + Téléchargeur Profond (scaffolding, réseau à lancer par Younes).*
+*Document mis à jour à chaque sprint. Dernière révision : 13 juin 2026 — Sprint Atexo (downloader DCE 2-POST généralisé, 76 marchés routables ; batch réseau à lancer par Younes).*
