@@ -399,6 +399,41 @@ def _extraire_fichiers_telechargeables(html: str, base_url: str) -> list:
     return getfile if getfile else generiques
 
 
+def _id_getfile(url: str) -> str:
+    """Identifiant de la pièce (`id=` de getfile.php), pour tracer les doublons.
+    Repli : l'URL complète si pas de paramètre id."""
+    m = re.search(r"[?&]id=(\d+)", url or "")
+    return m.group(1) if m else (url or "")
+
+
+def _dedupliquer_fichiers(fichiers: list) -> tuple:
+    """
+    Dédoublonne la liste de pièces : le serveur Dematis liste parfois le MÊME
+    fichier 2× sous des `id` getfile.php différents (cf RATP BOAMP-26-56469, où
+    « Pièces écrites.zip » 325 Mo apparaît deux fois). On télécharge alors en
+    double inutilement.
+
+    Clé de dédup : (nom_normalisé.lower(), taille_estimée_si_dispo). La page
+    acces_dce n'expose PAS de taille → `taille` vaut None en pratique, la dédup
+    se fait donc par nom de fichier normalisé. On garde la PREMIÈRE occurrence.
+
+    Retourne (uniques, doublons) où doublons = [{nom, ids_doublons}] (≥ 2 ids).
+    """
+    uniques, vus = [], {}
+    for f in fichiers:
+        nom = _normaliser_nom_mojibake(f.get("label", "") or "").strip().lower()
+        cle = (nom, f.get("taille"))
+        fid = _id_getfile(f.get("url", ""))
+        if cle in vus:
+            vus[cle]["ids"].append(fid)  # doublon : on ne le re-télécharge pas
+            continue
+        vus[cle] = {"nom": f.get("label"), "ids": [fid]}
+        uniques.append(f)
+    doublons = [{"nom": v["nom"], "ids_doublons": v["ids"]}
+                for v in vus.values() if len(v["ids"]) > 1]
+    return uniques, doublons
+
+
 # ===========================================================================
 # Workflow réseau
 # ===========================================================================
@@ -700,12 +735,18 @@ def telecharger_dce(
         out.update(erreur=f"Captcha non validé : {erreur_captcha}", etape_erreur="captcha")
         return out
 
-    # ----- Étape 5 : liste des fichiers → téléchargement -----
-    ressources = _extraire_fichiers_telechargeables(html_liste, url3_liste)
-    if not ressources:
+    # ----- Étape 5 : liste des fichiers → dédoublonnage → téléchargement -----
+    ressources_brutes = _extraire_fichiers_telechargeables(html_liste, url3_liste)
+    if not ressources_brutes:
         out.update(erreur="Aucune pièce listée après déverrouillage", etape_erreur="fichiers")
         return out
+    ressources, doublons = _dedupliquer_fichiers(ressources_brutes)
+    out["doublons"] = doublons
+    out["nb_doublons_ecartes"] = len(ressources_brutes) - len(ressources)
     if verbose:
+        if doublons:
+            print(f"    {out['nb_doublons_ecartes']} doublon(s) serveur écarté(s) : "
+                  + ", ".join(d["nom"] for d in doublons))
         print(f"    {len(ressources)} pièce(s) à télécharger")
 
     os.makedirs(dossier_destination, exist_ok=True)
@@ -810,7 +851,7 @@ def telecharger_dce_pour_marche(
     out["taille_octets"] = res.get("taille_octets_total", 0)
     out["tentatives_ip"] = tentatives_ip
 
-    tendia_logs.logger_evenement_marche("dematis", id_marche, {
+    evt = {
         "ok": out.get("ok"),
         "etape_erreur": out.get("etape_erreur"),
         "erreur": (out.get("erreur") or "")[:200],
@@ -820,7 +861,15 @@ def telecharger_dce_pour_marche(
         "variante_lien": res.get("variante_lien"),
         "tentatives_ip": tentatives_ip,
         "duree_secondes": res.get("duree_secondes", 0.0),
-    })
+        "nb_doublons_ecartes": res.get("nb_doublons_ecartes", 0),
+    }
+    # Trace explicite des doublons serveur écartés (nom + ids getfile.php).
+    for d in (res.get("doublons") or []):
+        tendia_logs.logger_evenement_marche("dematis", id_marche, {
+            "doublon_detecte": {"nom": d.get("nom"),
+                                "ids_doublons": d.get("ids_doublons")},
+        })
+    tendia_logs.logger_evenement_marche("dematis", id_marche, evt)
     return out
 
 

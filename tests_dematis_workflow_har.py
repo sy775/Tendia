@@ -361,6 +361,36 @@ check("_nom_fichier répare le mojibake du Content-Disposition",
 
 
 # ===========================================================================
+# _dedupliquer_fichiers (cas réel RATP : même fichier listé 2× sous des ids ≠)
+# ===========================================================================
+print("\n=== _dedupliquer_fichiers ===")
+B = "https://private.e-marchespublics.com/dce/getfile.php"
+liste_avec_doublons = [
+    {"label": "Pièces écrites.zip", "url": f"{B}?id=111&anonyme=tok&fromnew"},
+    {"label": "CCAP.pdf", "url": f"{B}?id=222&anonyme=tok&fromnew"},
+    {"label": "Pièces écrites.zip", "url": f"{B}?id=333&anonyme=tok&fromnew"},  # doublon de 111
+    {"label": "pièces écrites.zip", "url": f"{B}?id=444&anonyme=tok&fromnew"},  # doublon (casse)
+    {"label": "CCTP.pdf", "url": f"{B}?id=555&anonyme=tok&fromnew"},
+]
+uniques, doublons = D._dedupliquer_fichiers(liste_avec_doublons)
+check("3 pièces uniques conservées (5 - 2 doublons)", len(uniques) == 3, str(len(uniques)))
+check("première occurrence gardée (id=111)",
+      any("id=111" in u["url"] for u in uniques)
+      and not any("id=333" in u["url"] or "id=444" in u["url"] for u in uniques))
+check("dédup insensible à la casse", not any("id=444" in u["url"] for u in uniques))
+check("1 groupe de doublons signalé", len(doublons) == 1, str(len(doublons)))
+check("ids_doublons = [111, 333, 444]",
+      doublons and doublons[0]["ids_doublons"] == ["111", "333", "444"],
+      str(doublons[0]["ids_doublons"]) if doublons else "aucun")
+check("nom du doublon renseigné",
+      doublons and doublons[0]["nom"] == "Pièces écrites.zip")
+# Liste sans doublon → aucun doublon signalé, tout conservé.
+uniques2, doublons2 = D._dedupliquer_fichiers(
+    [{"label": "A.pdf", "url": f"{B}?id=1"}, {"label": "B.pdf", "url": f"{B}?id=2"}])
+check("aucun doublon sur liste propre", doublons2 == [] and len(uniques2) == 2)
+
+
+# ===========================================================================
 # Fix cookie PHPSESSID à Domain= vide (quirk Dematis)
 # ===========================================================================
 print("\n=== fix cookie PHPSESSID (Domain= vide) ===")
