@@ -56,9 +56,10 @@
     ]
   },
   "vocabulaire_llm": {
+    "description": "Termes injectés dans les prompts LLM pour calibrer le ton et le vocabulaire métier.",
     "secteur_libelle": "marchés publics de prestations informatiques (développement logiciel/applicatif, infrastructure & cloud, cybersécurité, intégration d'ERP/progiciels, maintenance & support)",
     "type_pieces_dce_typiques": "d'un Règlement de Consultation (RC), d'un CCTP décrivant le besoin fonctionnel et technique, souvent d'un BPU en jours-homme ou en unités d'œuvre (UO), parfois d'un accord-cadre à bons de commande",
-    "type_repondant": "ESN, éditeur de logiciel ou prestataire informatique",
+    "type_repondant": "ESN (entreprise de services du numérique), éditeur de logiciel, intégrateur ou prestataire spécialisé (cybersécurité, cloud, data/BI) — en propre ou en groupement/sous-traitance pour les marchés pluri-technologiques",
     "unite_principale_facturation": "jour-homme (régie) / forfait projet / unité d'œuvre / abonnement mensuel",
     "references_attendues": "références de projets informatiques similaires (technologies, taille du SI, criticité, volumétrie)",
     "alertes_typiques": [
@@ -68,9 +69,15 @@
       "maintien en condition opérationnelle (MCO/MCS) et engagements de niveau de service (SLA)",
       "profils certifiés sur la technologie ou la sécurité",
       "accord-cadre à bons de commande (engagement de volume incertain)"
+    ],
+    "exemples_synthese": [
+      "Marché de développement et TMA d'une application web métier, 3 ans, ~600 j-h/an en régie, hébergement SecNumCloud exigé.",
+      "Refonte de l'infrastructure et migration vers le cloud d'un SI hospitalier, certification HDS obligatoire, réversibilité en fin de marché.",
+      "Accord-cadre à bons de commande pour prestations de cybersécurité (audit, PASSI, réponse à incident), profils certifiés exigés."
     ]
   },
   "prompt_extraction": {
+    "description": "Champs métier ajoutés au schéma JSON de sortie du brief LLM.",
     "bloc_schema_specifique": "  \"caracteristiques_mission_it\": {\n    \"typologie_mission\": \"développement applicatif, infogérance/infrastructure, cybersécurité, intégration ERP/progiciel, maintenance/support (TMA/MCO)\",\n    \"technologies_attendues\": [\"Ex: 'Java/Spring', 'Angular', '.NET', 'PHP/Symfony', 'Python', 'Kubernetes', 'PostgreSQL'\"],\n    \"modele_prestation\": \"régie, forfait, unités d'œuvre, accord-cadre à bons de commande\",\n    \"volumetrie\": \"Ex: 'nb d'utilisateurs', 'nb de serveurs/VM', 'nb d'applications maintenues', 'volume de données'\",\n    \"jours_homme_estimes\": null,\n    \"sla_attendus\": \"Engagements de niveau de service (GTI/GTR, taux de dispo) si précisés. null sinon.\",\n    \"livrables_par_phase\": [\n      {\n        \"phase\": \"Ex: 'Cadrage', 'Conception', 'Réalisation', 'Recette', 'MEP', 'MCO'\",\n        \"livrables\": [\"Liste des livrables attendus pour cette phase\"]\n      }\n    ],\n    \"profils_attendus\": [\n      {\n        \"profil\": \"Ex: 'Chef de projet', 'Développeur senior', 'Architecte technique', 'Ingénieur sécurité', 'Ingénieur système/réseau'\",\n        \"nombre\": null,\n        \"anciennete_min_annees\": null,\n        \"certifs_requises\": []\n      }\n    ],\n    \"exigences_securite\": [\"Ex: 'ISO 27001', 'HDS', 'SecNumCloud', 'hébergement en France', 'PASSI'\"],\n    \"reversibilite\": \"Modalités de réversibilité / transfert en fin de marché si précisées. null sinon.\"\n  },\n  \"qualifications_it\": {\n    \"certifications_securite\": [\"ISO 27001, HDS, SecNumCloud, etc.\"],\n    \"certifications_technologiques\": [\"partenariats éditeurs / certifications cloud si exigés\"],\n    \"autres\": []\n  }",
     "regles_specifiques": "- Distinguer le modèle de prestation : régie (jours-homme), forfait projet (engagement de résultat) ou accord-cadre à bons de commande (volume incertain).\n- Pour la cybersécurité et l'hébergement de données de santé, repérer les certifications obligatoires (ISO 27001, HDS, SecNumCloud, PASSI) — souvent éliminatoires.\n- Pour l'intégration d'ERP/progiciel, repérer si un partenariat éditeur ou une certification produit est exigé.\n- Repérer les exigences de réversibilité et de SLA (GTI/GTR) qui pèsent sur le chiffrage.",
     "exemples_elements_a_chiffrer": "\"Ex: 'TJM par profil (chef de projet, développeur senior/junior, architecte)'\",\n        \"Ex: 'Jours-homme par phase ou par lot'\",\n        \"Ex: 'Forfait projet ou prix de l'unité d'œuvre'\",\n        \"Ex: 'Abonnement mensuel d'infogérance / MCO'\"",

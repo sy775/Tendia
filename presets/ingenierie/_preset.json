@@ -50,9 +50,10 @@
     ]
   },
   "vocabulaire_llm": {
+    "description": "Termes injectés dans les prompts LLM pour calibrer le ton et le vocabulaire métier.",
     "secteur_libelle": "marchés publics d'ingénierie technique (études structure/génie civil, fluides/CVC, environnementales, maîtrise d'œuvre, topographie/géomètre)",
-    "type_pieces_dce_typiques": "d'un Règlement de Consultation (RC), d'un programme MOE, d'un CCTP décrivant les phases d'études (ESQ/APS/APD/PRO/DCE/ACT/EXE/OPC/AOR), parfois d'études préalables",
-    "type_repondant": "bureau d'études techniques ou maître d'œuvre",
+    "type_pieces_dce_typiques": "d'un Règlement de Consultation (RC), d'un programme MOE ou cahier des charges fonctionnel, d'un CCTP décrivant les phases d'études (ESQ/APS/APD/PRO/DCE/ACT/EXE/OPC/AOR), d'un CCAP précisant le taux de rémunération et les indices de révision, parfois d'études préalables ou diagnostics",
+    "type_repondant": "bureau d'études techniques (BET structure, fluides, environnement), maître d'œuvre, cabinet d'architecture ou géomètre-expert — souvent en groupement pluridisciplinaire (architecte mandataire + BET)",
     "unite_principale_facturation": "% du coût travaux / forfait par phase / livrable",
     "references_attendues": "références d'études similaires (typologie d'ouvrage, montant travaux, complexité technique)",
     "alertes_typiques": [
@@ -62,11 +63,17 @@
       "équipe MOE pluridisciplinaire",
       "garantie décennale ingénierie",
       "assurance RC professionnelle"
+    ],
+    "exemples_synthese": [
+      "Mission de maîtrise d'œuvre complète pour la construction d'un groupe scolaire, taux ~12% sur 8 M€ de travaux, phases ESQ à AOR.",
+      "Accord-cadre de BET fluides/CVC pour la rénovation énergétique du patrimoine bâti d'une collectivité, à bons de commande sur 4 ans.",
+      "Étude géotechnique et topographique préalable à l'aménagement d'une ZAC."
     ]
   },
   "prompt_extraction": {
+    "description": "Champs métier ajoutés au schéma JSON de sortie du brief LLM.",
     "bloc_schema_specifique": "  \"caracteristiques_mission_moe\": {\n    \"typologie\": \"MOE complète, MOE partielle, BET structure, BET fluides, étude d'impact, AMO technique\",\n    \"phases_couvertes\": [\"ESQ\", \"APS\", \"APD\", \"PRO\", \"DCE\", \"ACT\", \"EXE\", \"OPC\", \"AOR\"],\n    \"typologie_ouvrage\": \"Type d'ouvrage projet (bâtiment public, ouvrage d'art, lotissement, etc.)\",\n    \"montant_travaux_estime\": null,\n    \"complexite_technique\": \"standard, complexe, expert\",\n    \"livrables_par_phase\": [\n      {\n        \"phase\": \"Ex: 'DIAG', 'ESQ', 'APS', 'APD', 'PRO', 'ACT', 'EXE', 'AOR'\",\n        \"livrables\": [\"Liste des livrables détaillés attendus pour cette phase\"]\n      }\n    ],\n    \"taux_remuneration_moe_pct\": \"Honoraires MOE en % du montant travaux (typique 8-15% selon complexité, peut atteindre 18-20% pour ouvrages d'art ou rénovation patrimoine). null si non précisé dans CCAP/RC.\",\n    \"indices_revision\": [\"BT01, FFB, IPC, ING — recopie les indices mentionnés dans CCAP pour la révision des prix\"],\n    \"coordinations_associees\": [\"Coordinations incluses ou exclues du marché : 'OPC inclus', 'SPS hors marché', 'SSI inclus', 'AMO PRO exclu'. Liste vide si non précisé.\"],\n    \"organigramme_attendu\": [\n      {\n        \"profil\": \"Ex: 'Chef de projet MOE', 'Ingénieur structures béton précontraint', 'Économiste construction', 'Dessinateur projeteur'\",\n        \"nombre\": null,\n        \"anciennete_min_annees\": null\n      }\n    ],\n    \"bim_niveau\": \"Niveau BIM attendu (ex: 'LOD 300', 'LOD 400 IFC', 'maturité niveau 2', 'BIM Management interne uniquement'). null si BIM non requis.\"\n  },\n  \"qualifications_moe\": {\n    \"opqibi\": [\"qualifications OPQIBI requises\"],\n    \"opqcm\": null,\n    \"bim\": null,\n    \"autres\": []\n  }",
-    "regles_specifiques": "- Distinguer MOE complète vs partielle (impact charge et marge).\n- Pour les concours d'architecte, repérer les indemnités prévues.\n- Pour les BET spécialisés, noter les compétences techniques précises (géotechnique, structure bois, CVC, etc.).",
+    "regles_specifiques": "- Distinguer MOE complète vs partielle (impact charge et marge).\n- Pour les concours d'architecte, repérer les indemnités prévues.\n- Pour les BET spécialisés, noter les compétences techniques précises (géotechnique, structure bois, CVC, etc.).\n- Extraire le taux de rémunération MOE (% du coût travaux) et le montant de travaux estimé s'ils figurent au CCAP/RC.\n- Repérer les phases de mission couvertes (ESQ→AOR) et les coordinations associées (OPC, SPS, SSI) incluses ou exclues du marché.",
     "exemples_elements_a_chiffrer": "\"Ex: 'Pourcentage MOE sur coût travaux'\",\n        \"Ex: 'Forfait par phase d'études (ESQ, APS, APD, PRO)'\",\n        \"Ex: 'Coût des études préalables'\"",
     "hints_calcul_montant": "Mots-clés : \"% du coût travaux\", \"taux de rémunération MOE\", \"forfait par phase\", \"indemnité concours\"."
   },
