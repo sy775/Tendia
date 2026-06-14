@@ -104,6 +104,43 @@ def _est_url_specifique(url: str) -> bool:
     return False
 
 
+# URLs PLACE/Atexo réservées aux ACHETEURS (côté agent), inutiles pour un
+# soumissionnaire. Le crawler en capture parfois dans le payload eForms à la
+# place de l'interface entreprise. (Même motif que tendia_telecharger_dce.)
+RE_URL_AGENT = re.compile(r"(?:/agent(?:/|$|\?)|[?&]page=Agent\.)", re.IGNORECASE)
+
+
+def _est_url_cote_agent(url: str) -> bool:
+    """True si l'URL pointe vers l'espace acheteur (inaccessible aux entreprises)."""
+    return bool(RE_URL_AGENT.search(url or ""))
+
+
+def _corriger_url_agent(url: str):
+    """
+    Corrige une URL côté agent capturée par erreur.
+
+    Retourne (url_utilisable, incident) :
+      - URL non-agent              → (url, None)            : inchangée.
+      - chemin `/agent/` (Atexo)   → (url réécrite, None)   : swap propre
+        `/agent/` → `/entreprise/` (l'id de consultation et la query sont
+        conservés, seul le segment d'interface change).
+      - PLACE `?page=Agent.X`, etc.→ (None, incident)       : NON réécrivable
+        (le token de page diffère — `Agent.DetailConsultation` ≠
+        `Entreprise.EntrepriseDetailsConsultation` — et l'`orgAcronyme` requis
+        par les downloaders est absent). On signale l'incident pour que
+        l'appelant journalise et NE stocke PAS l'URL (évite de polluer la base).
+    """
+    if not _est_url_cote_agent(url):
+        return url, None
+    # Tentative de réécriture : swap de chemin /agent/ → /entreprise/.
+    if re.search(r"/agent/", url, re.IGNORECASE):
+        reecrite = re.sub(r"/agent/", "/entreprise/", url, count=1, flags=re.IGNORECASE)
+        if not _est_url_cote_agent(reecrite):  # garde-fou : marqueur bien retiré
+            return reecrite, None
+    # Intrinsèquement différente (pas un simple swap de path) → non réécrivable.
+    return None, {"raison": "url_cote_agent_non_reecrivable", "url": url}
+
+
 # Domaines connus de plateformes de marchés publics françaises. Utilisé pour
 # filtrer les URLs trouvées récursivement dans le payload eForms : on garde
 # uniquement celles qui pointent vers une vraie plateforme de marchés.
@@ -371,6 +408,7 @@ def _extraire_dce_boamp(record: dict, reference: str) -> Dict:
         "buyer_profile": None,
         "champ_source": None,
         "reference_ft": None,
+        "incidents": [],
     }
 
     # Buyer profile
@@ -407,9 +445,17 @@ def _extraire_dce_boamp(record: dict, reference: str) -> Dict:
     # === Niveau 1 : URL spécifique dans eForms (chemin standard UBL) ===
     for uri in uris_trouvees:
         if _est_url_specifique(uri):
-            out["url_dce"] = uri
+            uri_ok, incident = _corriger_url_agent(uri)
+            if incident:
+                # URL côté agent non réécrivable → on l'écarte et on laisse la
+                # cascade tenter la recherche par mot-clé (URL entreprise propre).
+                out["incidents"].append(incident)
+                continue
+            out["url_dce"] = uri_ok
             out["qualite"] = "directe"
-            out["champ_source"] = "cac:CallForTendersDocumentReference"
+            out["champ_source"] = ("cac:CallForTendersDocumentReference"
+                                   + (" (réécrite agent→entreprise)"
+                                      if uri_ok != uri else ""))
             return out
 
     # === Niveau 1bis : recherche récursive dans tout le payload eForms ===
@@ -421,6 +467,16 @@ def _extraire_dce_boamp(record: dict, reference: str) -> Dict:
     # Garde uniquement celles qui sont "spécifiques" (avec id=, etc.) — sinon
     # on tomberait sur des liens d'accueil.
     urls_specifiques = [u for u in urls_eforms if _est_url_specifique(u)]
+    # Corrige / écarte les URLs côté agent (réécriture /agent/→/entreprise/ si
+    # possible, sinon incident + exclusion).
+    urls_corrigees = []
+    for u in urls_specifiques:
+        u_ok, incident = _corriger_url_agent(u)
+        if incident:
+            out["incidents"].append(incident)
+            continue
+        urls_corrigees.append(u_ok)
+    urls_specifiques = urls_corrigees
     if urls_specifiques:
         # Filtre les URLs visiblement non-DCE (liens vers buyer profile,
         # CGU, etc.). Heuristique simple : on préfère les URLs qui contiennent
@@ -465,7 +521,10 @@ def _extraire_dce_boamp(record: dict, reference: str) -> Dict:
                 return out
 
     # === Niveau 3 : URL racine seulement ===
-    if uris_trouvees:
+    # On ne déclare "racine" que s'il existait une URI eForms EXPLOITABLE (non
+    # côté agent). Si la seule URI trouvée était une URL acheteur (rejetée
+    # ci-dessus), la qualité reste "absente" — rien d'utilisable n'a été capturé.
+    if any(not _est_url_cote_agent(u) for u in uris_trouvees):
         out["qualite"] = "racine"
         out["champ_source"] = "cac:CallForTendersDocumentReference (racine)"
 
@@ -610,6 +669,7 @@ def trouver_urls_dce(marche: dict, verbose: bool = False) -> Dict:
         "urls_dce": [],
         "html_fallback": False,
         "n_plateformes_trouvees": 0,
+        "incidents": [],
     }
 
     if not source or not ref:
@@ -627,6 +687,27 @@ def trouver_urls_dce(marche: dict, verbose: bool = False) -> Dict:
             base["api_recuperee"] = True
             data = _extraire_dce_ted(notice, ref)
             base.update({k: v for k, v in data.items() if k in base})
+
+    # Garde-fou final (couvre aussi TED) : aucune URL côté agent ne doit être
+    # retournée/stockée. Si une a survécu à la cascade, on l'écarte + incident.
+    if base["url_dce"] and _est_url_cote_agent(base["url_dce"]):
+        base["incidents"].append({"raison": "url_cote_agent_non_reecrivable",
+                                  "url": base["url_dce"]})
+        base["url_dce"] = None
+        base["qualite"] = "absente"
+        base["champ_source"] = None
+
+    # Journalise les incidents d'URL côté agent (un par ligne JSONL).
+    if base["incidents"]:
+        try:
+            import tendia_logs
+            mid = marche.get("id") or ref
+            for inc in base["incidents"]:
+                tendia_logs.logger_evenement_marche("dce-finder", mid, {
+                    "incident_url_agent": inc,
+                })
+        except Exception:
+            pass  # le logging ne doit jamais casser la recherche d'URL
 
     # Compat : reconstituer urls_dce avec l'URL DCE si trouvée
     if base["url_dce"]:
