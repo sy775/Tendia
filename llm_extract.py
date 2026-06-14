@@ -22,6 +22,16 @@ import time
 from pathlib import Path
 from typing import Optional
 
+# SSL : sur ce poste, certifi ne peut pas bâtir la chaîne (interception TLS) →
+# l'appel HTTPS du SDK anthropic échoue en "Connection error". truststore fait
+# utiliser le magasin de certificats système. Injecté ici car le SDK anthropic
+# n'importe PAS http_client (où truststore est aussi injecté). Idempotent.
+try:
+    import truststore as _truststore
+    _truststore.inject_into_ssl()
+except Exception:
+    pass
+
 try:
     from anthropic import Anthropic
 except ImportError:
