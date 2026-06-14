@@ -5,7 +5,7 @@
 
 **Date de la passation** : 13 juin 2026, fin du Sprint Atexo (téléchargeur DCE profond)
 **Version** : 2.4 (post intégration downloader Atexo 2-POST)
-**Sprints clôturés** : 2, 2bis (Sujets 1+2, Phases 3a/3b/3c), A (profil socle+BTP), B (matching V2), C-ingénierie, P (UI gestion profils), P bis (création + widgets), UI fiche marché (preset-aware), Téléchargeur DCE (qualif `dce_contenu`), Téléchargeur Profond (scaffolding), Atexo (downloader 2-POST généralisé — réseau à lancer par Younes), Dematis (downloader anonyme captcha validé bout-en-bout sur 3 acheteurs — truststore + cookie PHPSESSID + mojibake)
+**Sprints clôturés** : 2, 2bis (Sujets 1+2, Phases 3a/3b/3c), A (profil socle+BTP), B (matching V2), C-ingénierie, P (UI gestion profils), P bis (création + widgets), UI fiche marché (preset-aware), Téléchargeur DCE (qualif `dce_contenu`), Téléchargeur Profond (scaffolding), Atexo (downloader 2-POST généralisé — réseau à lancer par Younes), Dematis (downloader anonyme captcha validé bout-en-bout sur 3 acheteurs — truststore + cookie PHPSESSID + mojibake), **Chantier 1 (architecture prompts LLM par preset, 1A→1G : routage, champs sectoriels, fix hors-périmètre, versioning, re-extraction)**, **Proxy ciblé par plateforme**, **Passe UI** (Explorer multi-filtres, nettoyage fiche)
 **État système** : stable et productif. Verdicts `pertinent`+ end-to-end sur 2 profils démo : BTP IDF (57070/56539/56378) et Ingénierie IDF (56588 `tres_pertinent`, 56774/55964/56096 `pertinent`). Fiche marché et gestion de profils désormais utilisables par un commercial.
 **Repo sous git depuis le 12 juin** (init pendant Sprint P) : `data/`, `.env`, sidecars WAL gitignorés. Commit avant chaque sprint, working tree propre.
 
@@ -303,6 +303,71 @@ Anti-Ban v1 (comportement humain) avait des limites en réel : IP partagée poll
 
 ---
 
+### Chantier 1 — architecture prompts LLM par preset (15 juin 2026) ✅
+
+Objectif : améliorer la qualité des briefs (éliminer la pollution sectorielle,
+enrichir les champs sectoriels). **Approche : enrichir l'existant, pas refondre** —
+l'archi prompts-par-preset existait déjà (`presets/<code>/_preset.json.prompt_extraction`,
+routage dans `llm_extract`). Doc complète : `docs/architecture.md`, `docs/pipeline.md`,
+`docs/modules/`.
+
+- **1A** — harmonisation des 6 `_preset.json` (vocabulaire_llm, exemples_synthese,
+  regles_specifiques). `audit_presets_extraction.py/.md`.
+- **1B** — champs structurés sectoriels + `few_shot_examples` (1/preset) : qualibat
+  liste/MASE/ISO (btp), iso_27001/hds/typologie_systeme (it), création des blocs
+  `qualifications_formation/enr/conseil`, renommage EnR `…_chantier`→`…_enr` (collision
+  BTP supprimée). `proposition_champs_structures_1b.md`.
+- **1C** — resserrement mapping : `moe_architecte_urbanisme` retiré de btp+conseil
+  (→ ingénierie seul) ; typo `energia_amo_etudes`→`energie_amo_etudes` corrigée.
+  `impact_resserrement_mapping.md`.
+- **1D** (clé) — **fix fallback hors-périmètre** : `codes_presets=[]` n'injecte plus
+  l'union complète des blocs (pollution ~50% des marchés) mais un schéma neutre ;
+  `blocs_sectoriels_pour_presets([])→[]` (le filtre strippe tout en hors-périmètre) ;
+  `few_shot_examples` câblés. `tests_llm_extract_routage.py` (28 tests).
+- **1E** — versioning prompts SHA-256 (`preset.hash_preset`, `_meta.prompts_versions`),
+  `_meta` harmonisé (`date_generation` canonique + `extraction_le` alias),
+  `briefs_versioning.lister_briefs_obsoletes` (+ tests).
+- **1F** — validation 10 marchés (réel) : **blocs hors-sujet 67→0**, 0 incohérence
+  titre↔synthèse, hors-périmètre = bloc neutre, gros DCE non tronqués. **Fix truststore
+  injecté dans `llm_extract.py`** (sinon `Connection error` sur api.anthropic.com).
+  `audit_validation_chantier1.md`. Coût réel ~0,42 €/marché (gros DCE).
+- **1G** — re-extraction full priorisée (plafond 30 €, 1/preset garanti, gisement
+  décroissant, géants >500 Mo écartés). `relancer_extraction_chantier1.py`.
+  Comparatif : `comparaison_avant_apres_chantier1.md`.
+
+⚠️ **Pré-requis routage** : `extraire_via_llm` lit `contexte["id"]` →
+`_resoudre_presets_pour_marche` → presets ciblés. Sans `id`, fallback neutre.
+
+### Mini-sprint Proxy ciblé par plateforme (15 juin 2026) ✅
+
+Proxy IPRoyal **ON par défaut**, **désactivable par plateforme** via
+`TENDIA_PROXY_FOR_<P>=0`. `creer_session_humaine(plateforme=…)` +
+`_proxy_pour_plateforme`. Désactivés (sans ban) : `place` (marches-publics.gouv.fr),
+`boamp`, `data_gouv`. Atexo décide `place`/`atexo` selon l'URL. BOAMP/TED passent déjà
+par `http_utils` (sans proxy). `audit_proxy_par_plateforme.md`, `tests_proxy_par_plateforme.py`.
+
+### Passe UI (15 juin 2026) ✅ (partielle)
+
+- Polices dé-technicalisées (suppression JetBrains Mono → système + tabular-nums).
+- Explorer : tags verdict/score/éligibilité par carte + filtre **multi-sélection**
+  Pertinence/Éligibilité/Score + filtre Brief.
+- Fiche marché : artefacts techniques retirés (commandes CLI, `raison_classification`,
+  « Domaine LLM », enums bruts, jargon DECP) ; tag « À vérifier », section
+  « Vérifiez votre éligibilité » (ex-Vigilance, rouge→ambre).
+- Reste à faire : refonte esthétique profonde de la fiche (à itérer avec l'œil de Younes).
+
+### ⚠️ Bugs latents découverts (cf `dette_technique.md`)
+
+- **IT preset** : `presets/it/_preset.json` contenait par erreur le contenu ingénierie
+  (corrigé `8d57803`) — pas de validation `meta.code == dossier`.
+- **truststore** : indispensable au SSL sur ce poste (anthropic, e-marchespublics,
+  2captcha). Injecté dans `http_client.py` ET `llm_extract.py`.
+- **cdn_bypass** : patch non commité dans `aws_downloader.py` (`_session_sans_proxy`)
+  qui casse `tests_aws_downloader` (crée une vraie session, contourne le mock).
+- Mismatch `aws-achat` (log) vs `aws_achat` (proxy) ; schéma `_meta` light vs complet.
+
+---
+
 ## 3bis. Sprint en cours / Prochain sprint
 
 **Aucun sprint actif au moment de cette passation.** Le système est dans un état stable et productif. Plusieurs chantiers possibles selon les priorités :
@@ -329,6 +394,20 @@ Le downloader Atexo est livré et testé hors-ligne (76 marchés `incomplet` rou
 - Le pattern est tracé par BTP **et ingénierie**, copier-coller-adapter. Lire le bloc brief sectoriel du preset dans `presets/<code>/_preset.json` → `prompt_extraction.bloc_schema_specifique` pour connaître les vrais noms de champs.
 
 Priorité Younes : conseil > IT > EnR (selon plan commercial).
+
+### Roadmap actualisée (15 juin 2026)
+
+- **DECP / data.gouv.fr** : exploiter les Données Essentielles de la Commande
+  Publique pour la calibration des montants et l'analyse concurrentielle
+  (attributaires historiques). Flag `TENDIA_PROXY_FOR_DATA_GOUV=0` déjà posé.
+  Exploration préliminaire : `exploration_decp_preliminaire.md` (si produite).
+- **Hébergement / multi-tenant** : aujourd'hui mono-utilisateur (1 base SQLite,
+  1 profil actif). Préparer l'isolation par client avant la bêta.
+- **Bêta** : préparation au démarchage (qualité des briefs = Chantier 1 ; UI à
+  finaliser esthétiquement ; couverture DCE à augmenter via les batchs downloaders).
+- **Documentation** : `docs/` désormais complet (architecture, pipeline, data_model,
+  modules, operations, cost, extending, conventions, troubleshooting, cli_scripts) +
+  `dette_technique.md`.
 
 ### Chantiers non-prioritaires mais reportés
 
@@ -648,4 +727,8 @@ Si tu identifies une dette technique : **signale**. Mais en respectant le timing
 
 ---
 
-*Document mis à jour à chaque sprint. Dernière révision : 14 juin 2026 — Sprint Dematis (downloader anonyme captcha e-marchespublics validé bout-en-bout sur 3 acheteurs ; découvertes non-HAR : truststore SSL Windows + fix cookie PHPSESSID `Domain=` vide ; normalisation mojibake ; correctifs batch anti-ban).*
+*Document mis à jour à chaque sprint. Dernière révision : 15 juin 2026 — Chantier 1
+(architecture prompts LLM par preset 1A→1G : routage par preset effectif, champs
+sectoriels enrichis, fix fallback hors-périmètre, versioning des prompts, re-extraction
+priorisée), mini-sprint Proxy ciblé par plateforme, passe UI (Explorer multi-filtres +
+nettoyage fiche marché), et documentation technique complète (`docs/` + `dette_technique.md`).*
