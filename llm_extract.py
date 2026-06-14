@@ -783,6 +783,7 @@ def extraire_via_llm(texte: str, contexte: dict,
                     "tokens_output": out_tokens,
                     "cout_eur": cout_eur,
                     "duree_sec": round(duree, 1),
+                    "codes_presets": codes_presets,  # 1E : remonté pour le _meta
                 }
                 # Succès : on log l'appel
                 _budget.enregistrer_appel(

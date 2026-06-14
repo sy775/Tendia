@@ -30,6 +30,7 @@ from datetime import datetime, timezone
 import stockage
 import pdf_extract
 import llm_extract
+import preset
 
 
 REPERTOIRE_BASE = os.path.dirname(os.path.abspath(__file__))
@@ -326,13 +327,23 @@ def traiter_marche(id_marche: str, dossier: str, pdfs: dict,
 
     # Récupère les méta d'appel LLM injectées par extraire_via_llm (Sprint 3)
     appel_meta = extraction.pop("_appel_llm", None) or {}
+    codes_presets = appel_meta.get("codes_presets") or []
+    horodatage = datetime.now(timezone.utc).isoformat()
 
-    # Enrichir avec méta
+    # Enrichir avec méta (Chantier 1E : versioning prompts + convention harmonisée)
     extraction["_meta"] = {
         "id_marche": id_marche,
         "type": "complet",
-        "extraction_le": datetime.now(timezone.utc).isoformat(),
+        # Convention _meta harmonisée : `date_generation` est le champ canonique
+        # (aligné sur les briefs light). `extraction_le` conservé en alias pour
+        # rétro-compat (identifier_briefs_pollues.py).
+        "date_generation": horodatage,
+        "extraction_le": horodatage,
         "modele": appel_meta.get("modele") or llm_extract.MODELE,
+        # Routage : preset principal + tous les presets ciblés + versions de prompt
+        "preset_utilise": codes_presets[0] if codes_presets else None,
+        "presets_matches": codes_presets,
+        "prompts_versions": preset.prompts_versions_pour_presets(codes_presets),
         "tokens_input": appel_meta.get("tokens_input"),
         "tokens_output": appel_meta.get("tokens_output"),
         "cout_eur": appel_meta.get("cout_eur"),

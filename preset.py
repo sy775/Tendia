@@ -52,6 +52,7 @@ USAGE
     prompt = PROMPT_TEMPLATE.format(secteur=voc["secteur_libelle"], ...)
 """
 
+import hashlib
 import json
 import os
 import unicodedata
@@ -433,6 +434,43 @@ def blocs_sectoriels_pour_presets(codes_presets: Optional[list]) -> list:
         for cle in pattern.findall(bss):
             cles.add(cle)
     return sorted(cles)
+
+
+def hash_preset(code: str) -> Optional[str]:
+    """SHA-256 (16 premiers hex) du fichier `presets/<code>/_preset.json`.
+    Sert au versioning des prompts (cf _meta.prompts_versions). None si absent.
+    Mis en cache (vidé par `recharger()`)."""
+    cache = _CACHE_UNION.setdefault("hashes", {})
+    if code in cache:
+        return cache[code]
+    f = PRESETS_DIR / code / "_preset.json"
+    h = None
+    if f.is_file():
+        h = hashlib.sha256(f.read_bytes()).hexdigest()[:16]
+    cache[code] = h
+    return h
+
+
+def hashes_presets_installes() -> dict:
+    """{code: 'sha256:<16hex>'} pour tous les presets installés."""
+    out = {}
+    for sous in sorted(PRESETS_DIR.iterdir()):
+        if (sous / "_preset.json").is_file():
+            h = hash_preset(sous.name)
+            if h:
+                out[sous.name] = f"sha256:{h}"
+    return out
+
+
+def prompts_versions_pour_presets(codes_presets: Optional[list]) -> dict:
+    """{'<code>/_preset.json': 'sha256:<16hex>'} pour les presets ciblés.
+    {} si codes_presets vide (hors-périmètre : aucun preset utilisé)."""
+    out = {}
+    for c in (codes_presets or []):
+        h = hash_preset(c)
+        if h:
+            out[f"{c}/_preset.json"] = f"sha256:{h}"
+    return out
 
 
 def few_shot_examples_pour_presets(codes_presets: Optional[list]) -> str:
