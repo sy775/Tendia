@@ -412,13 +412,18 @@ def blocs_sectoriels_pour_presets(codes_presets: Optional[list]) -> list:
     (le LLM peut halluciner des noms de blocs depuis son entraînement).
 
     Args:
-        codes_presets : liste de codes de presets, ou None/[] = TOUS les
-                        presets installés (fallback union).
+        codes_presets : liste de codes de presets. **None/[] (hors-périmètre) →
+                        [] : AUCUN bloc sectoriel autorisé** (le brief ne garde
+                        que les champs universels + le bloc neutre). Ne PAS
+                        renvoyer l'union complète, sinon les marchés sans preset
+                        conserveraient tous les blocs sectoriels (pollution).
 
     Returns:
         Liste de strings (clés top-level), dédupliquée.
     """
     import re
+    if not codes_presets:
+        return []
     presets = _filtrer_presets(codes_presets)
     cles = set()
     # Pattern : clé top-level indentée de 2 espaces dans bloc_schema_specifique
@@ -428,6 +433,22 @@ def blocs_sectoriels_pour_presets(codes_presets: Optional[list]) -> list:
         for cle in pattern.findall(bss):
             cles.add(cle)
     return sorted(cles)
+
+
+def few_shot_examples_pour_presets(codes_presets: Optional[list]) -> str:
+    """
+    Concatène les `prompt_extraction.few_shot_examples` des presets ciblés.
+    None/[] (hors-périmètre) → "" : pas d'exemple sectoriel injecté.
+    """
+    if not codes_presets:
+        return ""
+    presets = _filtrer_presets(codes_presets)
+    exs = []
+    for p in presets:
+        ex = (p.get("prompt_extraction", {}).get("few_shot_examples", "") or "").strip()
+        if ex:
+            exs.append(ex)
+    return "\n\n".join(exs)
 
 
 def vocabulaire_llm_pour_presets(codes_presets: Optional[list]) -> dict:

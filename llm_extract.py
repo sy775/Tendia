@@ -254,19 +254,23 @@ def _construire_prompt_utilisateur(contexte_str: str, texte: str,
     Fallbacks neutres si aucun preset ne fournit de bloc (cas dev/test ou
     marché classifié `autre`/hors-mapping).
     """
-    # Sélection ciblée si on a une classif, sinon union complète (legacy)
+    # Sélection ciblée si on a une classif. HORS-PÉRIMÈTRE (codes_presets vide) :
+    # on n'injecte AUCUN bloc sectoriel (les fallbacks neutres ci-dessous
+    # produisent un schéma générique `caracteristiques_metier`). NE PLUS injecter
+    # l'union complète (qui polluait ~50% des marchés avec tous les blocs).
     if codes_presets is None or len(codes_presets) == 0:
-        # Mode legacy : union complète de tous les presets installés
-        union_schema = _preset.schema_union()
-        union_exemples = _preset.exemples_elements_a_chiffrer_union()
-        union_hints = _preset.hints_calcul_montant_union()
-        union_regles = _preset.regles_specifiques_union()
+        union_schema = ""
+        union_exemples = ""
+        union_hints = ""
+        union_regles = ""
+        union_few_shot = ""
     else:
         # Mode ciblé : seuls les blocs des presets pertinents
         union_schema = _preset.schema_pour_presets(codes_presets)
         union_exemples = _preset.exemples_elements_a_chiffrer_pour_presets(codes_presets)
         union_hints = _preset.hints_calcul_montant_pour_presets(codes_presets)
         union_regles = _preset.regles_specifiques_pour_presets(codes_presets)
+        union_few_shot = _preset.few_shot_examples_pour_presets(codes_presets)
 
     # Fallbacks neutres si aucun preset n'a fourni de bloc (marché classifié
     # `autre`, ou aucun preset installé en dev/test)
@@ -289,8 +293,10 @@ def _construire_prompt_utilisateur(contexte_str: str, texte: str,
             "`type: \"calcule_volumes\"`. Dans `commentaire`, EXPLIQUE le calcul."
         )
 
-    # regles_specifiques : formatage avec lignes blanches autour si non-vide
+    # regles_specifiques / few_shot : formatage avec lignes blanches si non-vide
     rs_formate = f"\n{union_regles}\n" if union_regles.strip() else ""
+    fs_formate = (f"\nEXEMPLES D'EXTRACTION (few-shot, à suivre comme modèle) :\n"
+                  f"{union_few_shot}\n" if union_few_shot.strip() else "")
 
     return PROMPT_UTILISATEUR_TEMPLATE.format(
         contexte=contexte_str,
@@ -298,6 +304,7 @@ def _construire_prompt_utilisateur(contexte_str: str, texte: str,
         bloc_schema_specifique=union_schema,
         exemples_elements_a_chiffrer=union_exemples,
         hints_calcul_montant=union_hints,
+        few_shot_examples=fs_formate,
         regles_specifiques=rs_formate,
     )
 
@@ -530,6 +537,7 @@ RÈGLES IMPORTANTES :
   - `libelle` : courte phrase nommant l'axe différenciant
   - `exemple` : 1-2 phrases concrètes montrant comment un candidat peut s'en servir
   - `source` : référence DCE si l'axe est valorisé explicitement par un passage ; null si tu l'infères du contexte sans citation
+{few_shot_examples}
 {regles_specifiques}
 Réponds UNIQUEMENT avec le JSON, sans aucun texte autour."""
 
@@ -571,6 +579,9 @@ _CHAMPS_UNIVERSELS_BRIEF = {
     "calendrier",
     "alertes_candidat",
     "points_differenciants_attendus",
+    # Bloc neutre injecté pour les marchés HORS-PÉRIMÈTRE (aucun preset) — doit
+    # survivre au filtre anti-hallucination quand blocs_autorises est vide.
+    "caracteristiques_metier",
     # Méta techniques (peuvent apparaître si réponse partielle)
     "_appel_llm",
     "_meta",
