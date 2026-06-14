@@ -53,7 +53,9 @@
       "matériel uniquement sans pose",
       "fourniture d'engin de chantier"
     ],
-    "cpv_inclusion": ["45*"],
+    "cpv_inclusion": [
+      "45*"
+    ],
     "acheteurs_prioritaires": [
       "Conseil Départemental",
       "Conseil Régional",
@@ -93,10 +95,11 @@
   },
   "prompt_extraction": {
     "description": "Champs métier ajoutés au schéma JSON de sortie du brief LLM.",
-    "bloc_schema_specifique": "  \"caracteristiques_techniques_chantier\": {\n    \"description\": \"Description précise de l'ouvrage et des travaux à exécuter\",\n    \"typologie_ouvrage\": \"Type de bâtiment ou d'infrastructure (EHPAD, école, voirie, etc.)\",\n    \"surface_volume\": \"Surface en m² ou volume si applicable\",\n    \"site_occupe\": \"Booléen + précisions si le site est occupé pendant les travaux\",\n    \"corps_etat\": [\"Liste des corps d'état mobilisés (gros œuvre, peinture, etc.)\"],\n    \"contraintes_specifiques\": [\"Contraintes techniques, environnementales, phasage, monument historique, etc.\"]\n  },\n  \"allotissement\": {\n    \"description\": \"Structure du marché en lots\",\n    \"nb_lots\": null,\n    \"lots_detailles\": [\n      {\n        \"numero\": 1,\n        \"intitule\": \"Lot Gros œuvre\",\n        \"corps_etat\": \"gros oeuvre\",\n        \"montant_estime\": null,\n        \"description\": \"Travaux gros œuvre et fondations\"\n      }\n    ]\n  },\n  \"qualifications_requises\": {\n    \"description\": \"Qualifications professionnelles et certifications exigées\",\n    \"qualibat\": \"Indices Qualibat requis (ex: 2122, 1342, etc.) ou null\",\n    \"rge\": \"Booléen + catégorie RGE si exigée\",\n    \"opqibi\": \"Pour les marchés d'ingénierie associés\",\n    \"autres_certifications\": []\n  }",
-    "regles_specifiques": "- Pour les marchés multi-lots, détaille CHAQUE lot avec son corps d'état et son montant estimé si présent.\n- Pour les qualifications Qualibat, extrais les INDICES exigés (ex: \"2122 — Maçonnerie béton armé\") tels qu'écrits dans le RC.\n- Si le marché concerne du site occupé (école, EHPAD, bureaux), signale-le comme contrainte majeure.\n- Distingue bien travaux NEUFS vs RÉHABILITATION (impact qualifications et risques).",
+    "bloc_schema_specifique": "  \"caracteristiques_techniques_chantier\": {\n    \"description\": \"Description précise de l'ouvrage et des travaux à exécuter\",\n    \"typologie_ouvrage\": \"Type de bâtiment ou d'infrastructure (EHPAD, école, voirie, etc.)\",\n    \"surface_volume\": \"Surface en m² ou volume si applicable\",\n    \"site_occupe\": \"Booléen + précisions si le site est occupé pendant les travaux\",\n    \"corps_etat\": [\"Liste des corps d'état mobilisés (gros œuvre, peinture, etc.)\"],\n    \"contraintes_specifiques\": [\"Contraintes techniques, environnementales, phasage, monument historique, etc.\"]\n  },\n  \"allotissement\": {\n    \"description\": \"Structure du marché en lots\",\n    \"nb_lots\": null,\n    \"lots_detailles\": [\n      {\n        \"numero\": 1,\n        \"intitule\": \"Lot Gros œuvre\",\n        \"corps_etat\": \"gros oeuvre\",\n        \"montant_estime\": null,\n        \"description\": \"Travaux gros œuvre et fondations\"\n      }\n    ]\n  },\n  \"qualifications_requises\": {\n    \"description\": \"Qualifications professionnelles et certifications exigées\",\n    \"qualibat\": [\"Liste des INDICES Qualibat exigés — codes à 4 chiffres tels qu'écrits dans le RC (ex: \\\"5413\\\", \\\"6112\\\"). Liste vide si aucun.\"],\n    \"rge\": \"Booléen : true si une qualification RGE est exigée\",\n    \"rge_specialites\": [\"Spécialités/catégories RGE exigées si applicable (ex: \\\"RGE Qualibat 8621\\\")\"],\n    \"mase\": \"Booléen : certification MASE (sécurité chantier) exigée\",\n    \"iso_9001\": \"Booléen : ISO 9001 (qualité) exigée\",\n    \"iso_14001\": \"Booléen : ISO 14001 (environnement) exigée\",\n    \"iso_45001\": \"Booléen : ISO 45001 (santé-sécurité au travail) exigée\",\n    \"opqibi\": \"Pour les marchés d'ingénierie associés\",\n    \"autres_certifications\": []\n  }",
+    "regles_specifiques": "- Pour les marchés multi-lots, détaille CHAQUE lot avec son corps d'état et son montant estimé si présent.\n- Pour les qualifications Qualibat, extrais les INDICES exigés (ex: \"2122 — Maçonnerie béton armé\") tels qu'écrits dans le RC.\n- Si le marché concerne du site occupé (école, EHPAD, bureaux), signale-le comme contrainte majeure.\n- Distingue bien travaux NEUFS vs RÉHABILITATION (impact qualifications et risques).\n- DOUBLE-REMPLISSAGE : toute qualification/certification exigée (Qualibat, RGE, MASE, ISO 9001/14001/45001) doit figurer À LA FOIS dans `qualifications_requises` (champ structuré) ET dans `references_exigees.certifications_obligatoires` (objet {libelle, source}).",
     "exemples_elements_a_chiffrer": "\"Ex: 'Surface plancher en m²'\",\n        \"Ex: 'Volume terrassement en m³'\",\n        \"Ex: 'Linéaire de voirie en ml'\",\n        \"Ex: 'Nombre de logements créés'\",\n        \"Ex: 'Forfait global et forfaitaire par lot'\"",
-    "hints_calcul_montant": "Mots-clés : \"prix forfaitaire global\", \"prix au m²\", \"prix au m³\", \"prix linéaire\", \"décomposition du prix global et forfaitaire\", \"DPGF\", \"BPU\"."
+    "hints_calcul_montant": "Mots-clés : \"prix forfaitaire global\", \"prix au m²\", \"prix au m³\", \"prix linéaire\", \"décomposition du prix global et forfaitaire\", \"DPGF\", \"BPU\".",
+    "few_shot_examples": "Exemple — réfection d'étanchéité en site occupé :\nSi le RC dit : « Qualifications Qualibat 5413 (Étanchéité bitumineuse) et 6112 (Peinture intérieure) exigées ; certification ISO 9001 souhaitée ; chantier en école occupée. »\nExtraction attendue :\n{\n  \"qualifications_requises\": { \"qualibat\": [\"5413\", \"6112\"], \"iso_9001\": true },\n  \"caracteristiques_techniques_chantier\": { \"site_occupe\": \"true — école occupée pendant les travaux\" },\n  \"references_exigees\": { \"certifications_obligatoires\": [\n    {\"libelle\": \"Qualibat 5413 (Étanchéité bitumineuse)\", \"source\": \"RC art 4.1\"},\n    {\"libelle\": \"Qualibat 6112 (Peinture intérieure)\", \"source\": \"RC art 4.1\"}\n  ] }\n}"
   },
   "prompt_calibration": {
     "description": "Sections du prompt LLM de calibration spécifiques au secteur BTP.",
@@ -110,29 +113,78 @@
   "calibration_llm": {
     "description": "Barèmes utilisés par la passe LLM de calibration pour estimer un prix bottom-up sectoriel BTP.",
     "baremes_horaires_eur": {
-      "manoeuvre": [22, 32],
-      "ouvrier_qualifie": [32, 45],
-      "compagnon_specialise": [40, 55],
-      "chef_equipe": [50, 65],
-      "conducteur_travaux": [60, 85]
+      "manoeuvre": [
+        22,
+        32
+      ],
+      "ouvrier_qualifie": [
+        32,
+        45
+      ],
+      "compagnon_specialise": [
+        40,
+        55
+      ],
+      "chef_equipe": [
+        50,
+        65
+      ],
+      "conducteur_travaux": [
+        60,
+        85
+      ]
     },
     "coefficients_complexite_chantier": {
       "neuf_standard": 1.0,
       "rehabilitation_site_libre": 1.1,
-      "rehabilitation_site_occupe": [1.25, 1.45],
-      "patrimoine_classe": [1.3, 1.6],
-      "site_pollue_amiante": [1.2, 1.4]
+      "rehabilitation_site_occupe": [
+        1.25,
+        1.45
+      ],
+      "patrimoine_classe": [
+        1.3,
+        1.6
+      ],
+      "site_pollue_amiante": [
+        1.2,
+        1.4
+      ]
     },
     "ratios_indicatifs_eur_m2": {
       "_commentaire": "Indicatifs très grossiers, à recalibrer selon la typologie réelle d'ouvrage et la région.",
-      "construction_logement_collectif_neuf": [1500, 2200],
-      "construction_groupe_scolaire_neuf": [1800, 2600],
-      "rehabilitation_lourde_tertiaire": [1200, 1800],
-      "renovation_energetique_isolation": [200, 500],
-      "voirie_chaussee_lourde": [80, 150]
+      "construction_logement_collectif_neuf": [
+        1500,
+        2200
+      ],
+      "construction_groupe_scolaire_neuf": [
+        1800,
+        2600
+      ],
+      "rehabilitation_lourde_tertiaire": [
+        1200,
+        1800
+      ],
+      "renovation_energetique_isolation": [
+        200,
+        500
+      ],
+      "voirie_chaussee_lourde": [
+        80,
+        150
+      ]
     },
-    "marge_prestataire_pct": [8, 15],
-    "unites_typiques": ["m²", "m³", "ml", "lot", "forfait", "logement"]
+    "marge_prestataire_pct": [
+      8,
+      15
+    ],
+    "unites_typiques": [
+      "m²",
+      "m³",
+      "ml",
+      "lot",
+      "forfait",
+      "logement"
+    ]
   },
   "matching": {
     "description": "Règles d'évaluation des alertes du brief (matching_exigences.py).",
@@ -167,27 +219,85 @@
     "acheteur_vers_zone": {
       "description": "Mapping nom d'acheteur → code de région administrative.",
       "regles": [
-        {"indice": "auvergne", "code": "ARA"},
-        {"indice": "rhône", "code": "ARA"},
-        {"indice": "ile-de-france", "code": "IDF"},
-        {"indice": "paris", "code": "IDF"},
-        {"indice": "occitanie", "code": "OCC"},
-        {"indice": "midi-pyrénées", "code": "OCC"},
-        {"indice": "nouvelle-aquitaine", "code": "NAQ"},
-        {"indice": "aquitaine", "code": "NAQ"},
-        {"indice": "provence", "code": "PAC"},
-        {"indice": "alpes-côte d'azur", "code": "PAC"},
-        {"indice": "hauts-de-france", "code": "HDF"},
-        {"indice": "grand est", "code": "GES"},
-        {"indice": "bretagne", "code": "BRE"},
-        {"indice": "normandie", "code": "NOR"},
-        {"indice": "pays de la loire", "code": "PDL"},
-        {"indice": "centre-val de loire", "code": "CVL"},
-        {"indice": "bourgogne", "code": "BFC"},
-        {"indice": "franche-comté", "code": "BFC"}
+        {
+          "indice": "auvergne",
+          "code": "ARA"
+        },
+        {
+          "indice": "rhône",
+          "code": "ARA"
+        },
+        {
+          "indice": "ile-de-france",
+          "code": "IDF"
+        },
+        {
+          "indice": "paris",
+          "code": "IDF"
+        },
+        {
+          "indice": "occitanie",
+          "code": "OCC"
+        },
+        {
+          "indice": "midi-pyrénées",
+          "code": "OCC"
+        },
+        {
+          "indice": "nouvelle-aquitaine",
+          "code": "NAQ"
+        },
+        {
+          "indice": "aquitaine",
+          "code": "NAQ"
+        },
+        {
+          "indice": "provence",
+          "code": "PAC"
+        },
+        {
+          "indice": "alpes-côte d'azur",
+          "code": "PAC"
+        },
+        {
+          "indice": "hauts-de-france",
+          "code": "HDF"
+        },
+        {
+          "indice": "grand est",
+          "code": "GES"
+        },
+        {
+          "indice": "bretagne",
+          "code": "BRE"
+        },
+        {
+          "indice": "normandie",
+          "code": "NOR"
+        },
+        {
+          "indice": "pays de la loire",
+          "code": "PDL"
+        },
+        {
+          "indice": "centre-val de loire",
+          "code": "CVL"
+        },
+        {
+          "indice": "bourgogne",
+          "code": "BFC"
+        },
+        {
+          "indice": "franche-comté",
+          "code": "BFC"
+        }
       ],
       "fallback_acheteur_central": {
-        "indices": ["ministère", "ministere", "état"],
+        "indices": [
+          "ministère",
+          "ministere",
+          "état"
+        ],
         "code": "NAT"
       }
     },
