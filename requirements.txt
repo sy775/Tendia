@@ -3,6 +3,14 @@
 
 # HTTP et APIs externes
 requests>=2.31.0
+# truststore : fait utiliser à Python le magasin de certificats du système
+# d'exploitation au lieu du bundle certifi. Indispensable sur les postes où
+# certifi manque un CA intermédiaire (interception TLS, Windows) — sinon toutes
+# les requêtes HTTPS (2captcha, e-marchespublics...) échouent en SSL. Injecté au
+# chargement de http_client.py (no-op si le paquet n'est pas installé).
+truststore>=0.9
+# 2captcha-python : solveur de captcha image (downloaders DCE anonymes).
+2captcha-python>=1.2.0
 
 # UI web
 flask>=3.0.0
@@ -11,6 +19,9 @@ flask>=3.0.0
 pypdf>=4.0.0          # .pdf (Règlement de consultation, CCFT, contrat...)
 python-docx>=1.0.0    # .docx (Bordereau de Prix, cadres de réponse...)
 openpyxl>=3.1.0       # .xlsx (Base administrative...)
+py7zr>=0.20.0         # .7z (archives DCE compressées en 7-Zip)
+# rarfile (optionnel) : lecture des .rar — nécessite l'exécutable `unrar`.
+# Installé à part au besoin ; sinon les .rar sont ignorés proprement (skip).
 
 # Claude API
 anthropic>=0.18.0
