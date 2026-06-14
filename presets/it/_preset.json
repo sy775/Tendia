@@ -1,165 +1,152 @@
 {
   "meta": {
-    "code": "ingenierie",
-    "nom": "Ingénierie — Bureaux d'études, MOE, topographie",
-    "etiquette_courte": "Ingénierie",
-    "description": "Marchés publics d'ingénierie technique : bureaux d'études structure/génie civil, fluides/CVC, environnementale, maîtrise d'œuvre, topographie.",
+    "code": "it",
+    "nom": "IT — Développement, infrastructure, cybersécurité, ERP",
+    "etiquette_courte": "IT",
+    "description": "Marchés publics de prestations informatiques : développement logiciel/applicatif, infrastructure & cloud, cybersécurité, intégration de progiciels/ERP, maintenance & support.",
     "version": 1,
     "qualite": "mvp",
-    "_notes": "Preset créé Sprint Sprint 2 pour cibler les bureaux d'études techniques. Bien distinct du preset BTP (qui couvre les travaux) et du preset Conseil (qui couvre la stratégie non technique)."
+    "_notes": "Preset stub IT (sans schéma sectoriel dédié, comme conseil/energie_renouvelable). Corrigé : le fichier contenait par erreur le contenu du preset ingénierie depuis l'état initial. Barèmes de calibration indicatifs (ESN secteur public) — à affiner avec un prospect concret."
   },
   "veille": {
-    "description": "Critères de filtrage Ingénierie.",
+    "description": "Critères de filtrage IT.",
     "domaines_acceptes": [
-      "ingenierie_structure_genie_civil",
-      "ingenierie_fluides_climatique",
-      "ingenierie_environnementale",
-      "moe_architecte_urbanisme",
-      "topographie_geometre"
+      "it_developpement_web_app",
+      "it_infrastructure_cloud",
+      "it_cybersecurite",
+      "it_progiciels_erp",
+      "it_maintenance_support"
     ],
     "domaines_optionnels": [
-      "energie_amo_etudes",
-      "btp_renovation_rehabilitation"
+      "conseil_si_data"
     ],
     "mots_cles_inclusion": [
-      "maîtrise d'œuvre",
-      "MOE",
-      "bureau d'études",
-      "ingénierie",
-      "étude de structure",
-      "étude fluides",
-      "CVC",
-      "étude d'impact",
-      "diagnostic",
-      "géotechnique",
-      "topographie",
-      "géomètre",
-      "ICPE",
-      "Loi sur l'eau",
-      "OPC",
-      "ordonnancement pilotage coordination",
-      "SPS",
-      "coordination",
-      "concours d'architecte",
-      "urbanisme",
-      "PLU"
+      "développement logiciel",
+      "application métier",
+      "développement web",
+      "TMA",
+      "tierce maintenance applicative",
+      "infogérance",
+      "cloud",
+      "hébergement",
+      "datacenter",
+      "virtualisation",
+      "réseau",
+      "cybersécurité",
+      "SSI",
+      "sécurité des systèmes d'information",
+      "audit de sécurité",
+      "RGPD",
+      "ERP",
+      "progiciel",
+      "intégration",
+      "PGI",
+      "maintenance applicative",
+      "support informatique",
+      "MCO",
+      "maintien en condition opérationnelle",
+      "dématérialisation",
+      "GED",
+      "SIG"
     ],
     "mots_cles_exclusion": [],
     "cpv_inclusion": [
-      "71*"
+      "72*",
+      "48*"
     ]
   },
   "vocabulaire_llm": {
-    "secteur_libelle": "marchés publics d'ingénierie technique (études structure/génie civil, fluides/CVC, environnementales, maîtrise d'œuvre, topographie/géomètre)",
-    "type_pieces_dce_typiques": "d'un Règlement de Consultation (RC), d'un programme MOE, d'un CCTP décrivant les phases d'études (ESQ/APS/APD/PRO/DCE/ACT/EXE/OPC/AOR), parfois d'études préalables",
-    "type_repondant": "bureau d'études techniques ou maître d'œuvre",
-    "unite_principale_facturation": "% du coût travaux / forfait par phase / livrable",
-    "references_attendues": "références d'études similaires (typologie d'ouvrage, montant travaux, complexité technique)",
+    "secteur_libelle": "marchés publics de prestations informatiques (développement logiciel/applicatif, infrastructure & cloud, cybersécurité, intégration d'ERP/progiciels, maintenance & support)",
+    "type_pieces_dce_typiques": "d'un Règlement de Consultation (RC), d'un CCTP décrivant le besoin fonctionnel et technique, souvent d'un BPU en jours-homme ou en unités d'œuvre (UO), parfois d'un accord-cadre à bons de commande",
+    "type_repondant": "ESN, éditeur de logiciel ou prestataire informatique",
+    "unite_principale_facturation": "jour-homme (régie) / forfait projet / unité d'œuvre / abonnement mensuel",
+    "references_attendues": "références de projets informatiques similaires (technologies, taille du SI, criticité, volumétrie)",
     "alertes_typiques": [
-      "qualifications OPQIBI",
-      "qualifications OPQCM",
-      "compétences expert (BIM, géotechnique, CVC, etc.)",
-      "équipe MOE pluridisciplinaire",
-      "garantie décennale ingénierie",
-      "assurance RC professionnelle"
+      "certifications de sécurité (ISO 27001, HDS, SecNumCloud, qualification PASSI)",
+      "hébergement souverain / conformité RGPD",
+      "réversibilité et transfert de compétences en fin de marché",
+      "maintien en condition opérationnelle (MCO/MCS) et engagements de niveau de service (SLA)",
+      "profils certifiés sur la technologie ou la sécurité",
+      "accord-cadre à bons de commande (engagement de volume incertain)"
     ]
   },
   "prompt_extraction": {
-    "bloc_schema_specifique": "  \"caracteristiques_mission_moe\": {\n    \"typologie\": \"MOE complète, MOE partielle, BET structure, BET fluides, étude d'impact, AMO technique\",\n    \"phases_couvertes\": [\"ESQ\", \"APS\", \"APD\", \"PRO\", \"DCE\", \"ACT\", \"EXE\", \"OPC\", \"AOR\"],\n    \"typologie_ouvrage\": \"Type d'ouvrage projet (bâtiment public, ouvrage d'art, lotissement, etc.)\",\n    \"montant_travaux_estime\": null,\n    \"complexite_technique\": \"standard, complexe, expert\",\n    \"livrables_par_phase\": [\n      {\n        \"phase\": \"Ex: 'DIAG', 'ESQ', 'APS', 'APD', 'PRO', 'ACT', 'EXE', 'AOR'\",\n        \"livrables\": [\"Liste des livrables détaillés attendus pour cette phase\"]\n      }\n    ],\n    \"taux_remuneration_moe_pct\": \"Honoraires MOE en % du montant travaux (typique 8-15% selon complexité, peut atteindre 18-20% pour ouvrages d'art ou rénovation patrimoine). null si non précisé dans CCAP/RC.\",\n    \"indices_revision\": [\"BT01, FFB, IPC, ING — recopie les indices mentionnés dans CCAP pour la révision des prix\"],\n    \"coordinations_associees\": [\"Coordinations incluses ou exclues du marché : 'OPC inclus', 'SPS hors marché', 'SSI inclus', 'AMO PRO exclu'. Liste vide si non précisé.\"],\n    \"organigramme_attendu\": [\n      {\n        \"profil\": \"Ex: 'Chef de projet MOE', 'Ingénieur structures béton précontraint', 'Économiste construction', 'Dessinateur projeteur'\",\n        \"nombre\": null,\n        \"anciennete_min_annees\": null\n      }\n    ],\n    \"bim_niveau\": \"Niveau BIM attendu (ex: 'LOD 300', 'LOD 400 IFC', 'maturité niveau 2', 'BIM Management interne uniquement'). null si BIM non requis.\"\n  },\n  \"qualifications_moe\": {\n    \"opqibi\": [\"qualifications OPQIBI requises\"],\n    \"opqcm\": null,\n    \"bim\": null,\n    \"autres\": []\n  }",
-    "regles_specifiques": "- Distinguer MOE complète vs partielle (impact charge et marge).\n- Pour les concours d'architecte, repérer les indemnités prévues.\n- Pour les BET spécialisés, noter les compétences techniques précises (géotechnique, structure bois, CVC, etc.).",
-    "exemples_elements_a_chiffrer": "\"Ex: 'Pourcentage MOE sur coût travaux'\",\n        \"Ex: 'Forfait par phase d'études (ESQ, APS, APD, PRO)'\",\n        \"Ex: 'Coût des études préalables'\"",
-    "hints_calcul_montant": "Mots-clés : \"% du coût travaux\", \"taux de rémunération MOE\", \"forfait par phase\", \"indemnité concours\"."
+    "bloc_schema_specifique": "  \"caracteristiques_mission_it\": {\n    \"typologie_mission\": \"développement applicatif, infogérance/infrastructure, cybersécurité, intégration ERP/progiciel, maintenance/support (TMA/MCO)\",\n    \"technologies_attendues\": [\"Ex: 'Java/Spring', 'Angular', '.NET', 'PHP/Symfony', 'Python', 'Kubernetes', 'PostgreSQL'\"],\n    \"modele_prestation\": \"régie, forfait, unités d'œuvre, accord-cadre à bons de commande\",\n    \"volumetrie\": \"Ex: 'nb d'utilisateurs', 'nb de serveurs/VM', 'nb d'applications maintenues', 'volume de données'\",\n    \"jours_homme_estimes\": null,\n    \"sla_attendus\": \"Engagements de niveau de service (GTI/GTR, taux de dispo) si précisés. null sinon.\",\n    \"livrables_par_phase\": [\n      {\n        \"phase\": \"Ex: 'Cadrage', 'Conception', 'Réalisation', 'Recette', 'MEP', 'MCO'\",\n        \"livrables\": [\"Liste des livrables attendus pour cette phase\"]\n      }\n    ],\n    \"profils_attendus\": [\n      {\n        \"profil\": \"Ex: 'Chef de projet', 'Développeur senior', 'Architecte technique', 'Ingénieur sécurité', 'Ingénieur système/réseau'\",\n        \"nombre\": null,\n        \"anciennete_min_annees\": null,\n        \"certifs_requises\": []\n      }\n    ],\n    \"exigences_securite\": [\"Ex: 'ISO 27001', 'HDS', 'SecNumCloud', 'hébergement en France', 'PASSI'\"],\n    \"reversibilite\": \"Modalités de réversibilité / transfert en fin de marché si précisées. null sinon.\"\n  },\n  \"qualifications_it\": {\n    \"certifications_securite\": [\"ISO 27001, HDS, SecNumCloud, etc.\"],\n    \"certifications_technologiques\": [\"partenariats éditeurs / certifications cloud si exigés\"],\n    \"autres\": []\n  }",
+    "regles_specifiques": "- Distinguer le modèle de prestation : régie (jours-homme), forfait projet (engagement de résultat) ou accord-cadre à bons de commande (volume incertain).\n- Pour la cybersécurité et l'hébergement de données de santé, repérer les certifications obligatoires (ISO 27001, HDS, SecNumCloud, PASSI) — souvent éliminatoires.\n- Pour l'intégration d'ERP/progiciel, repérer si un partenariat éditeur ou une certification produit est exigé.\n- Repérer les exigences de réversibilité et de SLA (GTI/GTR) qui pèsent sur le chiffrage.",
+    "exemples_elements_a_chiffrer": "\"Ex: 'TJM par profil (chef de projet, développeur senior/junior, architecte)'\",\n        \"Ex: 'Jours-homme par phase ou par lot'\",\n        \"Ex: 'Forfait projet ou prix de l'unité d'œuvre'\",\n        \"Ex: 'Abonnement mensuel d'infogérance / MCO'\"",
+    "hints_calcul_montant": "Mots-clés : \"TJM\", \"jour-homme\", \"unité d'œuvre\", \"forfait\", \"bons de commande\", \"abonnement mensuel\", \"MCO\"."
   },
   "prompt_calibration": {
-    "secteur_libelle_court": "Ingénierie",
-    "section_qualification_intervenants": "a. **Profils ingénieurs** : ingénieur junior (BAC+5 + 1-3 ans), confirmé (5-10 ans), expert/senior (10+ ans), architecte HMONP, technicien BE.",
-    "section_duree_effective": "b. **Volume / charge d'études** : jours-études par phase MOE, ou % de rémunération sur coût travaux (typique 7-15%).",
-    "section_coefficient_complexite": "c. **Coefficient de complexité** :\n   - Ouvrage courant : ×1.0\n   - Ouvrage technique (ouvrage d'art, structure complexe) : ×1.3 - 1.5\n   - Bâtiment HQE / BIM exigé : ×1.15 - 1.30\n   - Réhabilitation patrimoine : ×1.25 - 1.45",
-    "section_re_pricing": "ÉTAPE 1bis — **MOE EN % DU COÛT TRAVAUX** : si la rémunération est en %, l'estimation = % × coût travaux estimé. Sinon décomposer par phase.",
-    "section_top_down": "ÉTAPE 1 — **ESTIMATION TOP-DOWN sur comparables DECP** : pour chaque comparable, calculer le taux MOE (montant attribué / coût travaux). Médiane du taux × coût travaux du nouveau marché = estimation."
+    "secteur_libelle_court": "IT",
+    "section_qualification_intervenants": "a. **Profils & séniorité** : développeur junior (BAC+5 + 1-3 ans), confirmé (3-7 ans), senior (7+ ans), architecte technique, chef de projet, ingénieur système/réseau, expert cybersécurité. TJM variant fortement (300€ à 1200€).",
+    "section_duree_effective": "b. **Charge en jours-homme** : sommer les jours par profil sur la durée du marché (ou estimer via les unités d'œuvre / volumétrie).",
+    "section_coefficient_complexite": "c. **Coefficient de complexité** :\n   - Prestation standard (maintenance, dev simple) : ×1.0\n   - Système critique / forte volumétrie : ×1.2 - 1.4\n   - Contraintes de sécurité fortes (HDS, SecNumCloud, SI sensible) : ×1.2 - 1.5",
+    "section_re_pricing": "ÉTAPE 1bis — **DÉCOMPOSITION PROFIL × CHARGE** : Total = somme(TJM_profil × jours_profil) + frais + marge. Pour l'infogérance/MCO, raisonner en abonnement mensuel × durée.",
+    "section_top_down": "ÉTAPE 1 — **ESTIMATION TOP-DOWN sur comparables DECP** : pour chaque comparable, diviser le montant par les jours-homme ou par l'unité d'œuvre. Si la charge est inconnue, exclure le comparable."
   },
   "calibration_llm": {
     "baremes_horaires_eur": {
-      "technicien_be": [
-        350,
-        500
+      "_commentaire": "TJM indicatifs (jour) ESN secteur public, hors remises accord-cadre.",
+      "developpeur_junior": [
+        300,
+        450
       ],
-      "ingenieur_junior": [
+      "developpeur_confirme": [
+        450,
+        600
+      ],
+      "developpeur_senior": [
+        600,
+        800
+      ],
+      "chef_de_projet": [
+        600,
+        900
+      ],
+      "architecte_technique": [
+        800,
+        1100
+      ],
+      "ingenieur_systeme_reseau": [
         500,
-        700
+        750
       ],
-      "ingenieur_confirme": [
-        700,
-        950
-      ],
-      "ingenieur_senior_expert": [
-        950,
-        1300
-      ],
-      "architecte_hmonp": [
-        700,
-        1000
-      ],
-      "directeur_etudes": [
-        1100,
-        1500
-      ]
-    },
-    "taux_moe_pct_indicatif": {
-      "_commentaire": "% du coût travaux, indicatif. Varie selon complexité et phases couvertes.",
-      "moe_complete_neuf_courant": [
-        9,
-        12
-      ],
-      "moe_complete_rehabilitation": [
-        11,
-        15
-      ],
-      "moe_complete_ouvrage_technique": [
-        12,
-        18
-      ],
-      "moe_partielle": [
-        4,
-        8
+      "expert_cybersecurite": [
+        800,
+        1200
       ]
     },
     "marge_prestataire_pct": [
-      15,
+      12,
       25
     ],
     "unites_typiques": [
-      "% travaux",
-      "jour-études",
-      "forfait par phase",
-      "livrable"
+      "jour-homme",
+      "TJM",
+      "forfait projet",
+      "unité d'œuvre",
+      "abonnement mensuel"
     ]
   },
   "matching": {
     "alertes_critiques": [
       {
-        "cle": "opqibi",
-        "libelle_court": "Qualifications OPQIBI",
+        "cle": "certifications_securite",
+        "libelle_court": "Certifications de sécurité (ISO 27001, HDS, SecNumCloud)",
         "type": "contains_in_profil_bool",
-        "profil_attr": "qualifications.opqibi"
+        "profil_attr": "qualifications.certifications_securite"
       },
       {
-        "cle": "decennale_ingenierie",
-        "libelle_court": "Décennale ingénierie",
-        "type": "contains_in_profil_bool",
-        "profil_attr": "assurances.decennale_ingenierie"
-      },
-      {
-        "cle": "rc_professionnelle",
-        "libelle_court": "RC Professionnelle",
-        "type": "contains_in_profil_bool",
-        "profil_attr": "assurances.rc_pro"
-      },
-      {
-        "cle": "references_typologie",
-        "libelle_court": "Références sur typologie d'ouvrage",
+        "cle": "references_technologiques",
+        "libelle_court": "Références sur technologie / typologie de projet",
         "type": "references_minimum",
-        "profil_attr": "references.par_typologie_ouvrage"
+        "profil_attr": "references.par_technologie"
+      },
+      {
+        "cle": "ca_minimum",
+        "libelle_court": "Chiffre d'affaires minimum",
+        "type": "ca_minimum",
+        "profil_attr": "finances.ca_annuel_eur"
       }
     ],
     "seuils_score": {
@@ -170,12 +157,11 @@
   },
   "taxonomie": {
     "categories_metier": [
-      "moe_batiment",
-      "moe_ouvrages_arts",
-      "bet_structure",
-      "bet_fluides",
-      "ingenierie_environnementale",
-      "topographie",
+      "developpement_applicatif",
+      "infrastructure_cloud",
+      "cybersecurite",
+      "progiciels_erp",
+      "maintenance_support",
       "autre"
     ]
   }
