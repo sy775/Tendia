@@ -381,6 +381,7 @@ Extrais les informations dans ce schéma JSON :
     "prix": {{
       "type_formule": "moins_disant",
       "formule_explicite": "Ex: 'Note prix = (prix_le_plus_bas / prix_candidat) × 30' — si la formule exacte est dans le RC, recopier-la ; sinon décrire le mécanisme en 1 phrase",
+      "source": "Référence RC du critère prix et de sa pondération : 'RC §5.3', 'RC article 6 page 14'. Si non localisable précisément : 'RC' ou null.",
       "elements_a_chiffrer": [
         {exemples_elements_a_chiffrer}
       ]
@@ -501,6 +502,7 @@ RÈGLES IMPORTANTES :
     `autre`
     Si le RC ne précise pas explicitement la formule, mets "autre".
   - `formule_explicite` : recopie textuellement la formule du RC si elle est là (en LaTeX simplifié ou prose). Sinon 1 phrase descriptive.
+  - `source` : OÙ dans le RC se trouve le critère prix et sa pondération (ex: "RC art 5.3 page 14", "RC §6.2"). Si non localisable précisément : "RC". Si vraiment introuvable : null.
   - `elements_a_chiffrer` : liste des postes/lignes à chiffrer dans le bordereau de prix (BPU, DPGF, etc.) selon le RC.
 
 - **MONTANT DU MARCHÉ** dans `montant_marche` :
