@@ -48,21 +48,31 @@ REPERTOIRE_DCE = os.path.join(
 # (5 niveaux : complet | incomplet | vide | auth_requise | erreur), sans
 # toucher `dce_qualite` (lu comme filtre par enrichir/pipeline/veille).
 
+import io as _io
 import re as _re
 import unicodedata as _unicodedata
 import zipfile as _zipfile
 
 # Pièces contractuelles : leur présence rend le DCE briefable.
+# NB : `_norm_nom` sépare chiffres/lettres collés ('rc2026' -> 'rc 2026') mais
+# PAS un suffixe-lettre de version collé ('CCAPv2' -> 'ccapv 2', token 'ccapv').
+# Les motifs d'acronymes tolèrent donc un suffixe alpha optionnel (`[a-z]*` /
+# `v?`) pour rattraper les versions (CCTPv3, CCAPv2, RCv2, AEv1...). Le CCTP
+# couvre aussi « Cahier des charges » (nom usuel en prestations de service), et
+# on reconnaît le CCP/CCATP (cahier des clauses particulières, doc combiné).
 PATTERNS_PIECES_CONTRACTUELLES = {
-    "RC":   [r"\brc\b", r"r[èe]glement.*consultation", r"regl.{0,3}cons"],
-    "CCAP": [r"\bccap\b", r"clauses.*administratives.*particulieres"],
-    "CCTP": [r"\bcctp\b", r"clauses.*techniques.*particulieres"],
+    "RC":   [r"\brcv?\b", r"r[èe]glement.*consultation", r"regl.{0,3}cons"],
+    "CCAP": [r"\bccap[a-z]*\b", r"clauses.*administratives.*particulieres"],
+    "CCTP": [r"\bcctp[a-z]*\b", r"clauses.*techniques.*particulieres",
+             r"cahier.{0,5}des.{0,5}charges", r"\bcdc\b"],
     "CCAG": [r"\bccag\b"],
-    "DPGF": [r"\bdpgf\b", r"d[ée]composition.*prix.*global"],
-    "BPU":  [r"\bbpu\b", r"bordereau.*prix.*unitaire"],
-    "AE":   [r"\bae\b", r"acte.*engagement"],
+    "DPGF": [r"\bdpgf[a-z]*\b", r"d[ée]composition.*prix.*global"],
+    "BPU":  [r"\bbpu[a-z]*\b", r"bordereau.*prix.*unitaire"],
+    "AE":   [r"\baev?\b", r"acte.*engagement"],
     "CCTG": [r"\bcctg\b"],
     "AAPC": [r"\baapc\b"],
+    "CCP":  [r"\bccp[a-z]*\b", r"\bccatp[a-z]*\b",
+             r"cahier.{0,5}des.{0,5}clauses.{0,5}particulieres"],
 }
 
 # Pièces administratives non-DCE : ne comptent PAS comme contractuelles.
@@ -128,6 +138,80 @@ def _type_contractuel(nom_norm: str):
     return None
 
 
+# Formulaires de candidature (DC1 lettre de candidature, DC2 déclaration du
+# candidat, DC4 sous-traitance). Leur présence — quand le dossier ne contient
+# pas encore de CCAP/CCTP — signale une consultation en PHASE CANDIDATURE.
+_PATTERNS_DC_CANDIDATURE = [r"\bdc\s*[124]\b", r"lettre.{0,5}candidature",
+                           r"declaration.{0,8}candidat"]
+
+
+def _est_dc_candidature(nom_norm: str) -> bool:
+    return any(_re.search(p, nom_norm) for p in _PATTERNS_DC_CANDIDATURE)
+
+
+# Taille max d'une archive INTERNE lue en mémoire pour lister son contenu
+# (garde-fou anti-OOM sur un ZIP de plans volumineux imbriqué).
+_TAILLE_MAX_ARCHIVE_INTERNE = 300 * 1024 * 1024
+
+
+def _noms_7z_rar(source, ext: str) -> list:
+    """
+    Basenames contenus dans une archive .7z (py7zr) ou .rar (rarfile).
+    `source` = chemin (str) ou objet fichier en mémoire. Skip propre (liste
+    vide) si la lib est absente ou l'archive illisible — jamais d'exception.
+    """
+    noms = []
+    try:
+        if ext == ".7z":
+            import py7zr
+            with py7zr.SevenZipFile(source, mode="r") as a:
+                noms = a.getnames()
+        elif ext == ".rar":
+            try:
+                import rarfile
+            except ImportError:
+                return []
+            with rarfile.RarFile(source) as a:
+                noms = a.namelist()
+    except Exception:
+        return []
+    return [os.path.basename(n) for n in noms if n and not str(n).endswith("/")]
+
+
+def _noms_dans_zip(zf, niveau: int = 0) -> list:
+    """
+    Basenames d'un ZipFile ouvert. Descend d'UN niveau dans les archives
+    internes (.zip imbriqué, .7z, .rar) — lues EN MÉMOIRE, sans extraction
+    disque. `niveau` borne la récursion à 1 (évite zip-bomb / boucles).
+    """
+    noms = []
+    for n in zf.namelist():
+        if not n or n.endswith("/"):
+            continue
+        bn = os.path.basename(n)
+        noms.append(bn)
+        if niveau >= 1:
+            continue  # un seul niveau de descente
+        low = bn.lower()
+        if not low.endswith((".zip", ".7z", ".rar")):
+            continue
+        try:
+            if zf.getinfo(n).file_size > _TAILLE_MAX_ARCHIVE_INTERNE:
+                continue
+            data = _io.BytesIO(zf.read(n))
+        except Exception:
+            continue
+        if low.endswith(".zip"):
+            try:
+                with _zipfile.ZipFile(data) as z2:
+                    noms.extend(_noms_dans_zip(z2, niveau + 1))
+            except Exception:
+                pass
+        else:
+            noms.extend(_noms_7z_rar(data, ".7z" if low.endswith(".7z") else ".rar"))
+    return noms
+
+
 def _html_est_login(chemin: str) -> bool:
     """Vrai si le fichier HTML ressemble à une page de connexion."""
     try:
@@ -148,14 +232,18 @@ def qualifier_dce(dossier_dce_path: str, log_telechargement: dict = None) -> dic
     """
     Qualifie le CONTENU d'un dossier DCE téléchargé.
 
-    Inspecte les fichiers (et les noms internes des ZIP, sans extraction),
+    Inspecte les fichiers et les noms internes des archives — y compris les ZIP
+    imbriqués (1 niveau) et les .7z/.rar, lus en mémoire sans extraction —,
     détecte les pièces contractuelles, les pages de login, et rend un verdict
-    en 5 niveaux. Idempotent, pur (ne modifie pas le dossier).
+    en 6 niveaux. Idempotent, pur (ne modifie pas le dossier).
 
     Retourne {qualite, pieces_contractuelles, nb_fichiers, taille_totale_octets, raison}.
-    qualite ∈ {complet, incomplet, vide, auth_requise, erreur}.
+    qualite ∈ {complet, incomplet, candidature, vide, auth_requise, erreur}.
     Ordre des règles (premier match l'emporte) : erreur > auth_requise > vide >
-    (que de l'administratif) > incomplet (1 pièce) > complet (≥2 pièces).
+    (que de l'administratif) > candidature (DC + RC seul) > incomplet (1 pièce)
+    > complet (≥2 pièces).
+    `candidature` : la consultation n'expose que le RC + formulaires DC1/DC2 ;
+    le CCAP/CCTP (phase offre) n'est pas encore publié — ce n'est pas un défaut.
     """
     res = {"qualite": "vide", "pieces_contractuelles": [], "nb_fichiers": 0,
            "taille_totale_octets": 0, "raison": "dossier vide"}
@@ -191,9 +279,11 @@ def qualifier_dce(dossier_dce_path: str, log_telechargement: dict = None) -> dic
             if low.endswith(".zip"):
                 try:
                     with _zipfile.ZipFile(chemin) as z:
-                        noms.extend(os.path.basename(n) for n in z.namelist() if n and not n.endswith("/"))
+                        noms.extend(_noms_dans_zip(z, 0))
                 except Exception:
                     pass
+            elif low.endswith((".7z", ".rar")):
+                noms.extend(_noms_7z_rar(chemin, ".7z" if low.endswith(".7z") else ".rar"))
             elif (low.endswith(".html") or low.endswith(".htm")) and 0 < t < 100 * 1024:
                 if _html_est_login(chemin):
                     login = True
@@ -215,8 +305,11 @@ def qualifier_dce(dossier_dce_path: str, log_telechargement: dict = None) -> dic
     # Classement des noms
     types = set()
     n_admin = 0
+    a_dc = False
     for nom in noms:
         nn = _norm_nom(nom)
+        if _est_dc_candidature(nn):
+            a_dc = True
         if _est_administratif(nn):
             n_admin += 1
             continue
@@ -231,6 +324,14 @@ def qualifier_dce(dossier_dce_path: str, log_telechargement: dict = None) -> dic
         res.update(qualite="vide",
                    raison="uniquement fichiers administratifs" if n_admin
                    else "aucune pièce contractuelle exploitable")
+        return res
+
+    # 4bis) Phase candidature : formulaire(s) DC1/DC2/DC4 + RC seul, sans aucune
+    # pièce "marché" (CCAP/CCTP/CCTG). Le DCE travaux/offre n'est pas encore
+    # publié — ce n'est PAS un défaut de récupération, on le distingue.
+    if a_dc and types == {"RC"}:
+        res.update(qualite="candidature",
+                   raison="phase candidature (formulaire DC + RC, sans CCAP/CCTP)")
         return res
 
     # 5) Une seule pièce
