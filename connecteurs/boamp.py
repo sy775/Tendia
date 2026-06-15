@@ -280,6 +280,118 @@ def _extraire_cpv_principal(avis: dict) -> Optional[str]:
     return None
 
 
+def _texte_simple(v) -> str:
+    """Aplatit une valeur BOAMP (str / liste / nœud UBL {'#text': ...}) en str."""
+    if v is None:
+        return ""
+    if isinstance(v, dict):
+        v = v.get("#text", "")
+    if isinstance(v, list):
+        v = v[0] if v else ""
+    return str(v).strip()
+
+
+def _extraire_contact(avis: dict) -> Optional[dict]:
+    """
+    Extrait le contact (correspondant) parfois renseigné dans l'avis BOAMP.
+
+    Deux schémas possibles dans le champ `donnees` (chaîne JSON) :
+    - legacy (3.2.5) : `.../organisme/correspondantPRM` (civilite/nom/pren/fonc)
+      + `.../organisme/coord` (tel/mel). La racine varie selon le type d'avis
+      (MAPA, AAPC, AVIS…), d'où la recherche récursive plutôt qu'un chemin fixe.
+    - eForms (UBL) : `cac:Contact` (cbc:Name / cbc:ElectronicMail / cbc:Telephone).
+
+    Retourne un dict {nom, civilite, fonction, email, telephone} (clés non vides
+    seulement) ou None si aucun contact exploitable. Info « parfois renseignée » :
+    un avis sur deux environ n'a pas de contact.
+    """
+    donnees_str = avis.get("donnees")
+    if not donnees_str or not isinstance(donnees_str, str):
+        return None
+    import json as _json
+    try:
+        donnees = _json.loads(donnees_str)
+    except (ValueError, TypeError):
+        return None
+
+    candidats = []
+
+    # --- Variante A (legacy) : correspondantPRM (identité) + coord (coordonnées) ---
+    a = {}
+    corr = _trouver_recursivement(donnees, "correspondantPRM")
+    if isinstance(corr, dict):
+        nom_complet = " ".join(p for p in (_texte_simple(corr.get("pren")),
+                                           _texte_simple(corr.get("nom"))) if p)
+        if nom_complet:
+            a["nom"] = nom_complet[:160]
+        civ = _texte_simple(corr.get("civilite"))
+        if civ:
+            a["civilite"] = civ[:20]
+        fonc = _texte_simple(corr.get("fonc"))
+        if fonc:
+            a["fonction"] = fonc[:200]
+    coord = _trouver_recursivement(donnees, "coord")
+    if isinstance(coord, dict):
+        mel = _texte_simple(coord.get("mel"))
+        if mel and "@" in mel:
+            a["email"] = mel[:160]
+        tel = _texte_simple(coord.get("tel"))
+        if tel:
+            a["telephone"] = tel[:40]
+    if a:
+        candidats.append(a)
+
+    # --- Variante B (legacy) : bloc communication (nomContact/adresseMailContact/telContact) ---
+    b = {}
+    nomc = _texte_simple(_trouver_recursivement(donnees, "nomContact"))
+    if nomc:
+        b["nom"] = nomc[:160]
+    melc = (_texte_simple(_trouver_recursivement(donnees, "adresseMailContact"))
+            or _texte_simple(_trouver_recursivement(donnees, "courrielContact")))
+    if melc and "@" in melc:
+        b["email"] = melc[:160]
+    telc = _texte_simple(_trouver_recursivement(donnees, "telContact"))
+    if telc:
+        b["telephone"] = telc[:40]
+    if b:
+        candidats.append(b)
+
+    # --- Variante C (eForms UBL) : cac:Contact ---
+    # Profondeur élevée : en eForms le contact est imbriqué à ~10 niveaux
+    # (EFORMS/…/efac:Organization[0]/efac:Company/cac:Contact). Organization[0]
+    # = acheteur ; les suivantes = organes de recours (tribunal) → le premier
+    # match en profondeur d'abord est le bon.
+    c = {}
+    ct = _trouver_recursivement(donnees, "cac:Contact", max_profondeur=15)
+    if isinstance(ct, dict):
+        nom = _texte_simple(ct.get("cbc:Name"))
+        if nom:
+            c["nom"] = nom[:160]
+        mel = _texte_simple(ct.get("cbc:ElectronicMail"))
+        if mel and "@" in mel:
+            c["email"] = mel[:160]
+        tel = _texte_simple(ct.get("cbc:Telephone"))
+        if tel:
+            c["telephone"] = tel[:40]
+    if c:
+        candidats.append(c)
+
+    # Cas fréquent de saisie : un email mis dans le champ « nom » (ex.
+    # nomContact = "servicedesmarches@maregionsud.fr"). On le promeut en email.
+    import re as _re
+    _EMAIL = _re.compile(r"^[^@\s]+@[^@\s]+\.[A-Za-z]{2,}$")
+    for cand in candidats:
+        if not cand.get("email") and _EMAIL.match(cand.get("nom", "")):
+            cand["email"] = cand["nom"][:160]
+
+    if not candidats:
+        return None
+    # On privilégie le candidat porteur d'un email (le plus actionnable pour
+    # le démarchage) ; à défaut, le premier bloc trouvé (souvent juste un nom).
+    avec_email = [cand for cand in candidats if cand.get("email")]
+    return avec_email[0] if avec_email else candidats[0]
+
+
 def _extraire_descripteur(avis: dict) -> dict:
     """Extrait code et libellé du descripteur BOAMP (taxonomie maison)."""
     code = avis.get("descripteur_code")
@@ -405,6 +517,7 @@ def _normaliser(avis: dict, categorie: str) -> Optional[dict]:
         "objet": objet,
         "acheteur_nom": _texte_acheteur(avis)[:200],
         "acheteur_id": None,
+        "contact": _extraire_contact(avis),
         "perimetre_geographique": _perimetre(avis),
         "date_publication": _date_publication(avis),
         "date_limite_depot": _date_limite(avis),
