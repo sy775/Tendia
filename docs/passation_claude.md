@@ -333,7 +333,23 @@ routage dans `llm_extract`). Doc complète : `docs/architecture.md`, `docs/pipel
   `audit_validation_chantier1.md`. Coût réel ~0,42 €/marché (gros DCE).
 - **1G** — re-extraction full priorisée (plafond 30 €, 1/preset garanti, gisement
   décroissant, géants >500 Mo écartés). `relancer_extraction_chantier1.py`.
-  Comparatif : `comparaison_avant_apres_chantier1.md`.
+  **Résultat : 68 marchés, 27,61 €.** Couverture déséquilibrée (BTP=52, IT=0 — les
+  DCE IT avaient été complétés *après* ce run). Comparatif :
+  `comparaison_avant_apres_chantier1.md`. **Commit `49dffcf`.**
+- **1G+** — complément IT ciblé (ajout `--preset it` au script, plafond 6 €).
+  **Résultat : 7/8 marchés, 2,55 €, 24 min.** 1 échec : `BOAMP-26-56097` (gros DCE
+  SSI ~13 Mo ; l'appel LLM aboutit en ~9 min mais le parse JSON échoue 2× → à
+  reprendre). **Enseignement** : le DCE complet **re-qualifie** le gisement IT
+  (56642→ingénierie, 56164/56170/56547/57263→hors-périmètre) → IT « réel » = 4. La
+  re-extraction full DCE améliore donc la *précision de classification*, pas que le
+  remplissage des champs. Inclus dans le **commit `49dffcf`**.
+  - ⚠️ **Note timeout SDK Anthropic** : sans `timeout` explicite, le client SDK a un
+    timeout par défaut ~600 s ; sur un stall transitoire d'un gros DCE, l'appel peut
+    bloquer ~10 min (×retry) avant d'échouer. Observé sur 56097 (2 hangs ~9 min).
+    Connectivité validée par ailleurs (appel haiku = 0,9 s) → ce n'est PAS une panne
+    API mais la latence de génération d'un gros brief. Piste : passer la génération
+    des gros DCE en **streaming** (ou borner via `Anthropic(timeout=...)`). Non
+    appliqué (décision Younes : laisser le comportement par défaut pour l'instant).
 
 ⚠️ **Pré-requis routage** : `extraire_via_llm` lit `contexte["id"]` →
 `_resoudre_presets_pour_marche` → presets ciblés. Sans `id`, fallback neutre.
@@ -345,6 +361,8 @@ Proxy IPRoyal **ON par défaut**, **désactivable par plateforme** via
 `_proxy_pour_plateforme`. Désactivés (sans ban) : `place` (marches-publics.gouv.fr),
 `boamp`, `data_gouv`. Atexo décide `place`/`atexo` selon l'URL. BOAMP/TED passent déjà
 par `http_utils` (sans proxy). `audit_proxy_par_plateforme.md`, `tests_proxy_par_plateforme.py`.
+**Commit `eecb941`** (inclut le bypass CDN AWS `_session_sans_proxy` — cf dette : impacte
+`tests_aws_downloader`).
 
 ### Passe UI (15 juin 2026) ✅ (partielle)
 
@@ -362,8 +380,9 @@ par `http_utils` (sans proxy). `audit_proxy_par_plateforme.md`, `tests_proxy_par
   (corrigé `8d57803`) — pas de validation `meta.code == dossier`.
 - **truststore** : indispensable au SSL sur ce poste (anthropic, e-marchespublics,
   2captcha). Injecté dans `http_client.py` ET `llm_extract.py`.
-- **cdn_bypass** : patch non commité dans `aws_downloader.py` (`_session_sans_proxy`)
-  qui casse `tests_aws_downloader` (crée une vraie session, contourne le mock).
+- **cdn_bypass** : patch dans `aws_downloader.py` (`_session_sans_proxy`), **commité
+  `eecb941`** ; casse `tests_aws_downloader` (crée une vraie session, contourne le
+  mock) → à corriger (mocker `_session_sans_proxy` ou injecter la session).
 - Mismatch `aws-achat` (log) vs `aws_achat` (proxy) ; schéma `_meta` light vs complet.
 
 ---
