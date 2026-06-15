@@ -374,6 +374,52 @@ par `http_utils` (sans proxy). `audit_proxy_par_plateforme.md`, `tests_proxy_par
   « Vérifiez votre éligibilité » (ex-Vigilance, rouge→ambre).
 - Reste à faire : refonte esthétique profonde de la fiche (à itérer avec l'œil de Younes).
 
+### Refonte fiche marché v2 + Contact BOAMP + Explorer (15 juin 2026, soir) ✅
+
+**Contact acheteur (commité `a717f38`)** — extraction du correspondant depuis l'avis
+BOAMP. `connecteurs/boamp._extraire_contact` gère 3 variantes du champ `donnees`
+(A: legacy `correspondantPRM`+`coord` ; B: legacy bloc `communication` ;
+C: eForms `cac:Contact` profond). Champ `contact` ajouté à `_normaliser` (nouveaux
+marchés). `backfill_contacts_boamp.py` (réseau seul, API ODS) a rempli les 422
+marchés → 304 avec email. Tests `tests_boamp_contact.py` (15 OK).
+
+**Fiche marché (`ui/templates/marche.html` + `tendia_ui.py`) — NON COMMITÉ :**
+- **Carte « Contact acheteur »** dans l'aside (mailto/tel), juste avant l'éligibilité.
+- **Verdict 90s** déplacé en carte aside (au lieu d'un gros bloc pleine largeur).
+- **Encadré « ✦ EN BREF »** (synthèse) déplacé **sous les KPIs**.
+- **Police titre** serif (Times) → sans-serif (`--apt-display` n'était pas défini).
+- **Tag éligibilité** « Éligibilité à vérifier » (≠ « À vérifier » de la pertinence).
+- **Bug vocabulaire « DCE complet+incomplet »** : badge richesse renommé « Analyse
+  complète/partielle/légère » (≠ statut DCE téléchargé).
+- **Bandeau verrou** : gros bloc vert → ligne discrète, remontée sous les tags du header.
+- **Détail par lot** remonté **avant** les exigences sectorielles, tags compat en
+  pastilles (Cœur de cible / Partielle / Hors cible), ouvert par défaut.
+- **Boutons** : « Avis BOAMP » juste après « Télécharger le DCE ».
+- **Section centrale « Documents du dossier »** (grille) : téléchargement au clic via
+  **route `/marche/<id>/document/<nom>`** (`send_from_directory`, `as_attachment`).
+  Libellés parlants (`_libelle_document` : RC→Règlement de consultation, CCTP, AE…)
+  et **distinction des pièces découpées** (`_distinguer_variantes` + `_lcs` :
+  « CCTP · partie A », « · annexe 1 ») pour éviter l'effet doublon.
+- **KPIs compactés**, largeur fiche 1320→1560px, **séparateurs de milliers** (filtre
+  `milliers` + volumes corrigés). **Fix z-index** : header `z-index:30` pour que le
+  tooltip d'éligibilité passe au-dessus des KPIs.
+- **Barème, onglet Prix** : **coefficient prix mis en avant** (gros %) + sa source/
+  modalité en tête du panneau. **Sources affichées en texte** (fini les tooltips
+  `source ⓘ` sur sous-critères techniques + points de différenciation).
+
+**Explorer (`tendia_ui.py` + `ui/templates/explorer.html`) — NON COMMITÉ :**
+- **Recherche par n° d'avis** (haystack + `id`/`reference_externe`/`reference_ft`) :
+  `55977`, `26-55977`, `BOAMP-26-55977` trouvent le marché. N° affiché sur chaque carte.
+
+**Extraction (`llm_extract.py`) — NON COMMITÉ :** champ **`source`** ajouté à
+`bareme_notation.prix` (réf. RC du coefficient prix) + instruction. Se remplit à la
+**prochaine ré-extraction** (les briefs existants ne l'ont pas encore).
+
+⚠️ **État Git** : seul le contact BOAMP est commité (`a717f38`). Le reste (refonte
+fiche, Explorer, `llm_extract` prix.source, passe UI antérieure) est **dans le working
+tree, non commité** — à regrouper en commits propres (« Refonte fiche marché »,
+« Explorer : recherche par n° d'avis », « Extraction : source du coefficient prix »).
+
 ### ⚠️ Bugs latents découverts (cf `dette_technique.md`)
 
 - **IT preset** : `presets/it/_preset.json` contenait par erreur le contenu ingénierie
