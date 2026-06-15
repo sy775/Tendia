@@ -1,99 +1,222 @@
 {
-  "synthese_marche": "Marché de prestations de maquettage pour le Service statistique ministériel de la sécurité intérieure (SSMSI), rattaché au Ministère de l'Intérieur. Il s'agit de concevoir et réaliser la mise en page graphique de publications statistiques dans le domaine de la sécurité intérieure. Le DCE fourni est très peu lisible (contenu majoritairement composé de tirets et puces sans texte exploitable), ce qui limite fortement l'extraction d'informations détaillées.",
+  "synthese_marche": "Accord-cadre du Ministère de l'Intérieur (SSMSI) portant sur des prestations de maquettage éditorial, création graphique, secrétariat de rédaction et coordination de projet pour la diffusion de l'information statistique dans le domaine de la sécurité intérieure. Les prestations couvrent l'exécution graphique, la direction artistique, l'illustration, la mise en accessibilité et le suivi de projets éditoriaux pour les publications du Service statistique ministériel. Le marché est soumis à des exigences SSI strictes en raison de la sensibilité des données statistiques traitées avant publication.",
   "domaines_metier": [
     {
-      "code": "conseil_communication"
+      "code": "evenementiel_culture"
     }
   ],
-  "raison_classification": "Le CPV principal 92312211 renvoie aux activités de maquettage/design graphique éditorial. L'objet du marché est explicitement 'Maquettage pour la diffusion de l'information statistique', ce qui correspond à du design de communication/publications, classé dans conseil_communication (mise en page, identité visuelle éditoriale).",
-  "caracteristiques_techniques_chantier": {
-    "description": "Prestations de maquettage éditorial pour la diffusion de publications statistiques du SSMSI (Service statistique ministériel de la sécurité intérieure). Le contenu détaillé du DCE n'est pas lisible dans les pièces fournies.",
-    "typologie_ouvrage": null,
-    "surface_volume": null,
-    "site_occupe": null,
-    "corps_etat": [],
-    "contraintes_specifiques": []
-  },
-  "allotissement": {
-    "description": "Structure du marché non détaillée dans les pièces lisibles fournies.",
-    "nb_lots": null,
-    "lots_detailles": []
-  },
-  "qualifications_requises": {
-    "description": null,
-    "qualibat": null,
-    "rge": null,
-    "opqibi": null,
-    "autres_certifications": []
-  },
+  "raison_classification": "Le marché porte exclusivement sur des prestations de maquettage éditorial (graphisme, direction artistique, infographie, secrétariat de rédaction, mise en accessibilité) pour la diffusion de publications statistiques. Il s'agit d'un service créatif/culturel de production éditoriale au sens large. Aucun des codes sectoriels n'est parfaitement adapté ; 'evenementiel_culture' est le plus proche car il couvre les productions culturelles et éditoriales, mais ce marché pourrait aussi être classé 'autre' — il est retenu ici car l'activité de maquettage éditorial s'apparente davantage à une prestation culturelle/créative qu'à du conseil ou de l'IT.",
   "caracteristiques_mission": {
-    "typologie_mission": "maquettage éditorial / design graphique",
-    "domaine_expertise": "communication / édition statistique / infographie",
-    "livrables_attendus": [],
+    "typologie_mission": "Prestation de service récurrente (maquettage éditorial)",
+    "domaine_expertise": "Graphisme, direction artistique, infographie, secrétariat de rédaction, accessibilité numérique",
+    "livrables_attendus": [
+      "Maquettes graphiques (Interstats Analyse, Interstats Info-rapide, Rapport d'enquête, Bilan statistique)",
+      "Créations graphiques originales",
+      "Documents corrigés et secrétariat de rédaction",
+      "Atlas mis en accessibilité au format HTML",
+      "Comptes rendus de réunions (lancement, suivi, clôture)",
+      "Plan d'Assurance Sécurité (PAS) et livrables SSI"
+    ],
     "duree_mission": null,
-    "jours_consultant_estimes": null
+    "jours_consultant_estimes": null,
+    "methodologie_attendue": "Exécution graphique sur demande + cycles de validation BAT + gestion des versions documentaires + réunions de lancement/suivi/clôture",
+    "livrables_par_phase": [
+      {
+        "phase": "Démarrage",
+        "livrables": [
+          "Plan d'Assurance Sécurité (PAS)",
+          "Engagement de confidentialité signé",
+          "Déclaration des outils utilisés",
+          "Fiche d'hébergement et localisation des données",
+          "Matrice des comptes et habilitations",
+          "Note de gestion des versions",
+          "Note de continuité d'activité",
+          "Désignation du responsable sécurité SI"
+        ]
+      },
+      {
+        "phase": "Exécution courante",
+        "livrables": [
+          "Exécutions graphiques (graphiste)",
+          "Créations graphiques (direction artistique, illustration)",
+          "Secrétariat de rédaction (corrections, réécriture)",
+          "Mise en accessibilité Atlas HTML",
+          "Comptes rendus de réunions de suivi"
+        ]
+      },
+      {
+        "phase": "Fin de marché",
+        "livrables": [
+          "Procès-verbal de restitution des éléments SSMSI",
+          "Procès-verbal de destruction des données",
+          "Compte rendu de clôture"
+        ]
+      }
+    ],
+    "jours_consultant_par_profil": [
+      {
+        "profil": "Graphiste (exécution graphique)",
+        "nb_jours_min": null,
+        "nb_jours_max": null
+      },
+      {
+        "profil": "Direction artistique",
+        "nb_jours_min": null,
+        "nb_jours_max": null
+      },
+      {
+        "profil": "Illustrateur/infographiste",
+        "nb_jours_min": null,
+        "nb_jours_max": null
+      },
+      {
+        "profil": "Secrétaire de rédaction",
+        "nb_jours_min": null,
+        "nb_jours_max": null
+      },
+      {
+        "profil": "Chef de projet (coordination)",
+        "nb_jours_min": null,
+        "nb_jours_max": null
+      }
+    ],
+    "accompagnement_apres": null
   },
   "profils_intervenants": {
-    "description": null,
-    "chef_de_mission": null,
-    "consultants": null
+    "description": "Profils créatifs et éditoriaux requis : graphiste, directeur artistique, illustrateur/infographiste, secrétaire de rédaction, chef de projet. Un responsable sécurité SI dédié est également exigé.",
+    "chef_de_mission": {
+      "anciennete_min_annees": null,
+      "secteur_experience": "Maquettage éditorial, publications statistiques ou institutionnelles",
+      "taux_dedie_pct": null,
+      "certifs_requises": []
+    },
+    "consultants": [
+      {
+        "profil": "Graphiste (exécution graphique)",
+        "nombre": null,
+        "anciennete_min_annees": null
+      },
+      {
+        "profil": "Directeur artistique",
+        "nombre": null,
+        "anciennete_min_annees": null
+      },
+      {
+        "profil": "Illustrateur/infographiste",
+        "nombre": null,
+        "anciennete_min_annees": null
+      },
+      {
+        "profil": "Secrétaire de rédaction",
+        "nombre": null,
+        "anciennete_min_annees": null
+      },
+      {
+        "profil": "Chef de projet (coordination)",
+        "nombre": null,
+        "anciennete_min_annees": null
+      },
+      {
+        "profil": "Responsable sécurité SI",
+        "nombre": 1,
+        "anciennete_min_annees": null
+      }
+    ]
   },
-  "publics_cibles": {
-    "description": null,
-    "criteres_eligibilite": [],
-    "publics_specifiques_signales": []
+  "qualifications_conseil": {
+    "opqcm": [],
+    "certifications_methodologiques": [],
+    "ordre_profession": null
   },
-  "volumes": {
-    "nb_beneficiaires_total": null,
-    "nb_beneficiaires_par_lot": null,
-    "duree_par_parcours_heures": null,
-    "duree_par_parcours_semaines": null,
-    "duree_marche_mois": null,
-    "commentaire_volumes": null
+  "caracteristiques_mission_it": {
+    "typologie_mission": "autre",
+    "typologie_systeme": "autre",
+    "cloud_ou_on_premise": null,
+    "niveau_securite": "diffusion restreinte — données statistiques sous embargo avant publication officielle",
+    "technologies_attendues": [],
+    "modele_prestation": "accord-cadre à bons de commande",
+    "volumetrie": "Env. 110 demi-journées et 74 journées/an de graphisme ; 110 demi-journées et 74 journées/an de direction artistique ; 20 demi-journées et 10 journées/an de secrétariat de rédaction ; 250 pages/an de secrétariat de rédaction ; 2 documents Atlas/an de mise en accessibilité HTML",
+    "jours_homme_estimes": null,
+    "sla_attendus": null,
+    "livrables_par_phase": [],
+    "profils_attendus": [],
+    "exigences_securite": [
+      "Hébergement des données au sein de l'Union européenne",
+      "Service cloud avec qualification SecNumCloud ou niveau équivalent validé par le SSMSI",
+      "Plan d'Assurance Sécurité (PAS) conforme ISO 27002:2013 et PGSN Ministère de l'Intérieur",
+      "Interdiction d'utiliser des outils d'IA générative non validés pour traiter des contenus SSMSI non publiés",
+      "Chiffrement obligatoire des postes de travail fixes et nomades",
+      "Authentification forte pour l'accès aux systèmes de l'acheteur",
+      "Séparation effective des données SSMSI des données des autres clients",
+      "Traçabilité horodatée des actions sur les documents du marché"
+    ],
+    "reversibilite": "Au terme du marché ou en cas de résiliation, restitution de l'intégralité des données dans un délai de 3 mois avec procès-verbal de restitution et procès-verbal de destruction certifiant l'absence de copie résiduelle."
   },
-  "modalites": {
-    "presentiel_obligatoire": null,
-    "distanciel_possible": null,
-    "synchrone_asynchrone": null,
-    "sites_execution": [],
-    "amplitude_horaire": null
-  },
-  "caracteristiques_mission_moe": {
-    "typologie": null,
-    "phases_couvertes": [],
-    "typologie_ouvrage": null,
-    "montant_travaux_estime": null,
-    "complexite_technique": null
-  },
-  "qualifications_moe": {
-    "opqibi": [],
-    "opqcm": null,
-    "bim": null,
-    "autres": []
-  },
-  "caracteristiques_si": {
-    "description": null,
-    "typologie_projet": null,
-    "technologies_mentionnees": [],
-    "volumetrie": null,
-    "hebergement": null
-  },
-  "qualifications_si": {
-    "iso_27001": null,
-    "anssi": null,
-    "hds": null,
-    "autres": []
+  "qualifications_it": {
+    "iso_27001": false,
+    "hds": false,
+    "secnumcloud": true,
+    "rgs": false,
+    "referencement_anssi": false,
+    "certifications_securite": [
+      "SecNumCloud (ou niveau équivalent pour services cloud)"
+    ],
+    "certifications_technologiques": [],
+    "autres": [
+      "PAS conforme ISO 27002:2013",
+      "Conformité PGSN Ministère de l'Intérieur"
+    ]
   },
   "bareme_notation": {
     "valeur_technique_pct": null,
     "valeur_prix_pct": null,
-    "sous_criteres_techniques": [],
+    "sous_criteres_techniques": [
+      {
+        "libelle": "Sous-critère environnemental 1 : La quantité d'émission de CO2",
+        "ponderation_pct": null,
+        "description": "Évalue les émissions CO2 liées à l'utilisation des ordinateurs, des écrans et à la mise à disposition des livrables sur le site du SSMSI pendant l'exécution des prestations. Le candidat doit renseigner un cadre de réponse environnemental chiffré.",
+        "elements_attendus": [
+          "Déclaration de la marque et modèle de chaque ordinateur utilisé avec consommation 'en activité' en Wh prouvée (fiche fabricant)",
+          "Déclaration des écrans utilisés avec consommation en activité prouvée",
+          "Indication de la taille des fichiers livrables en Go pour chaque type de publication",
+          "Calcul automatique des émissions totales CO2 via le cadre fourni",
+          "Preuve de la consommation en activité par tout moyen (ex. fiche fabricant)"
+        ],
+        "exemple_reponse_forte": "Le candidat renseigne l'ensemble des équipements informatiques utilisés (marque, modèle, consommation Wh prouvée par fiche fabricant), répartit leur utilisation par prestation, et indique la taille des fichiers livrables. Le total d'émissions CO2 calculé est le plus bas possible grâce à l'utilisation d'équipements à faible consommation.",
+        "source": "Annexe 2 au RC — fichier 02b_A2_RC_CDR_env.xlsx",
+        "sous_criteres": []
+      },
+      {
+        "libelle": "Sous-critère environnemental 2 : La quantité d'ordinateurs recyclés ou reconditionnés",
+        "ponderation_pct": null,
+        "description": "Évalue la proportion d'ordinateurs recyclés ou reconditionnés utilisés pour l'exécution des prestations. Le candidat doit fournir une preuve du caractère recyclé ou reconditionné (ex. facture).",
+        "elements_attendus": [
+          "Liste de l'ensemble des ordinateurs utilisés (marque, modèle, nombre)",
+          "Indication pour chaque ordinateur s'il est recyclé/reconditionné (oui/non)",
+          "Fourniture d'une preuve du caractère recyclé ou reconditionné (facture ou équivalent)"
+        ],
+        "exemple_reponse_forte": "Le candidat déclare utiliser exclusivement des ordinateurs reconditionnés certifiés et fournit les factures d'achat correspondantes attestant du caractère reconditionné de chaque équipement mobilisé pour le marché.",
+        "source": "Annexe 2 au RC — fichier 02b_A2_RC_CDR_env.xlsx, onglet SS2",
+        "sous_criteres": []
+      }
+    ],
     "prix": {
       "type_formule": "autre",
-      "formule_explicite": null,
-      "elements_a_chiffrer": []
+      "formule_explicite": "Le DQE (Détail Quantitatif Estimatif) annuel sert de base de comparaison des offres. Les quantités annuelles sont fixées par l'acheteur ; le candidat renseigne ses prix unitaires HT dans le BPU. Le montant total TTC du DQE annuel est calculé automatiquement.",
+      "elements_a_chiffrer": [
+        "Exécution graphique (graphiste) — demi-journée, journée, heure",
+        "Direction artistique — demi-journée, journée, heure",
+        "Illustrateur/infographiste — demi-journée, journée",
+        "Secrétariat de rédaction : corrections d'auteur — demi-journée, journée, heure",
+        "Secrétariat de rédaction : préparation de la copie, réécriture — par page",
+        "Mise en accessibilité Atlas sous format HTML — par document",
+        "Coordination de projets (chef de projet) — demi-journée, journée",
+        "Réunion de lancement et rédaction du compte rendu — par réunion+CR",
+        "Réunion de suivi et rédaction du compte rendu — par réunion+CR",
+        "Réunion de clôture et rédaction du compte rendu — par réunion+CR"
+      ]
     },
-    "modalite_calcul_prix": null
+    "modalite_calcul_prix": "DQE annuel calculé automatiquement à partir des prix unitaires HT saisis par le candidat dans le BPU, multiplié par les quantités annuelles fixées par l'acheteur. Toutes les rubriques doivent être renseignées y compris si le prix est nul (renseigner 0)."
   },
   "montant_marche": {
     "valeur_estimee_euros": null,
@@ -102,7 +225,7 @@
     "type": "non_communique",
     "duree_couverte": null,
     "source_extraction": null,
-    "commentaire": "Le contenu des pièces du DCE est quasi-illisible (flux de puces et tirets sans texte structuré) : aucune valeur estimée, plafond ou prix unitaire n'a pu être extrait."
+    "commentaire": "Aucun montant prévisionnel, plafond ou enveloppe budgétaire n'est mentionné dans les pièces du DCE analysées. Le DQE annuel permet une estimation par le candidat à partir de ses propres prix unitaires, mais aucune valeur de référence n'est fournie par l'acheteur. Volumes indicatifs DQE : 110 demi-journées + 74 journées de graphisme/an, 110 demi-journées + 74 journées de direction artistique/an, 30 demi-journées + 22 journées de chef de projet/an, 250 pages de secrétariat/an, 2 documents Atlas/an."
   },
   "revision_prix": {
     "type": "non_communique",
@@ -111,21 +234,58 @@
     "periodicite": null,
     "formule_revision": null,
     "source_extraction": null,
-    "commentaire": null
+    "commentaire": "Aucune clause de révision des prix n'est identifiée dans les pièces du DCE fournies (le CCP/CCAP est partiellement illisible dans sa version PDF). Le candidat devra s'assurer de vérifier ce point dans la version intégrale du CCAP."
   },
   "alertes_prix": [
-    "Le contenu du DCE fourni est très peu lisible : aucune information sur le montant, les prix unitaires ou les modalités financières n'a pu être extraite.",
-    "Il est fortement recommandé de télécharger les pièces complètes depuis la plateforme PLACE (marches-publics.gouv.fr) pour accéder aux données financières."
+    "Le BPU exige que TOUTES les rubriques soient renseignées sous peine d'irrecevabilité, y compris avec '0' si le prix est nul — risque d'erreur formelle éliminatoire.",
+    "Le cadre de réponse environnemental (Annexe 2) doit être respecté dans son formalisme exact sous peine d'irrecevabilité — vérifier les calculs automatiques.",
+    "Une demi-journée est définie comme 3,5 heures et une journée comme 7 heures — à respecter impérativement dans la cohérence des prix unitaires.",
+    "Aucun montant prévisionnel communiqué : impossible de vérifier le positionnement prix sans référence de marché — risque de sous-estimation ou de sur-estimation.",
+    "Le DQE annuel n'inclut pas de pondération prix/technique explicite dans les pièces fournies — le critère prix n'est pas chiffré dans le RC accessible."
   ],
   "references_exigees": {
     "experience_minimale_annees": null,
     "experience_source": null,
     "volume_min_references_similaires": null,
     "volume_min_references_unite": null,
-    "secteur_experience": "maquettage éditorial / publications statistiques",
-    "secteur_source": "RC",
-    "certifications_obligatoires": [],
-    "autres_exigences": []
+    "secteur_experience": "Maquettage éditorial et graphisme pour publications statistiques, institutionnelles ou scientifiques",
+    "secteur_source": null,
+    "certifications_obligatoires": [
+      {
+        "libelle": "SecNumCloud (ou niveau équivalent validé par le SSMSI) pour tout service cloud utilisé dans le cadre du marché",
+        "source": "CCP annexe SSI — fichier 04a_A1a_CCP_SSI_Maquettage.pdf, domaine C"
+      }
+    ],
+    "autres_exigences": [
+      {
+        "libelle": "Plan d'Assurance Sécurité (PAS) conforme à la structure ISO 27002:2013 et à la PGSN du Ministère de l'Intérieur, à remettre au démarrage",
+        "source": "CCP annexe SSI — fichier 04b_A1b_CCP_politique_securite.pdf, section 4.1"
+      },
+      {
+        "libelle": "Engagement formel de confidentialité et de respect de l'embargo signé par le représentant du titulaire avant tout accès aux documents",
+        "source": "CCP annexe SSI — fichier 04a_A1a_CCP_SSI_Maquettage.pdf, domaine A"
+      },
+      {
+        "libelle": "Déclaration des outils utilisés et note de séparation des données à fournir dès la réponse à l'offre",
+        "source": "CCP annexe SSI — fichier 04a_A1a_CCP_SSI_Maquettage.pdf, domaine C"
+      },
+      {
+        "libelle": "Désignation d'un responsable sécurité SI dédié, interlocuteur privilégié du SSMSI",
+        "source": "CCP annexe SSI — fichier 04a_A1a_CCP_SSI_Maquettage.pdf, domaine I"
+      },
+      {
+        "libelle": "Hébergement des données au sein de l'Union européenne obligatoire",
+        "source": "CCP annexe SSI — fichier 04a_A1a_CCP_SSI_Maquettage.pdf, domaine C"
+      },
+      {
+        "libelle": "Interdiction absolue d'utiliser des outils d'IA générative non validés pour traiter des contenus SSMSI non publiés",
+        "source": "CCP annexe SSI — fichier 04a_A1a_CCP_SSI_Maquettage.pdf, domaine C"
+      },
+      {
+        "libelle": "Déclaration sur l'honneur relative aux motifs d'exclusion et déclaration de non-ressortissance russe (titulaire, co-traitants et sous-traitants)",
+        "source": "02d_A4_RC_attestation_motifs_exclusion.docx"
+      }
+    ]
   },
   "lots": [],
   "calendrier": {
@@ -134,42 +294,129 @@
     "duree_marche": null
   },
   "alertes_candidat": [
-    "Le contenu des pièces du DCE transmis est quasi-illisible (majoritairement composé de tirets et de puces sans texte) : une récupération des documents originaux sur la plateforme PLACE est indispensable avant toute décision de candidature.",
-    "Marché du Ministère de l'Intérieur (SSMSI) : contexte statistique régalien pouvant impliquer des exigences de confidentialité ou d'habilitation spécifiques.",
-    "CPV 92312211 (maquettage) : vérifier que le profil de l'entreprise correspond bien à de la mise en page/design éditorial de publications scientifiques/statistiques.",
-    "Date limite de dépôt des offres au 09/07/2026 : délai court à compter de la publication du 09/06/2026 (1 mois)."
+    "Le cadre de réponse environnemental (Annexe 2 au RC, fichier XLSX) doit être renseigné dans son formalisme exact sous peine d'irrecevabilité — seules les cellules jaunes peuvent être modifiées et la preuve de consommation des équipements est obligatoire pour ne pas obtenir 0 au sous-critère.",
+    "Le BPU doit être remis au format tableur avec TOUTES les rubriques renseignées (y compris '0' si prix nul) — toute rubrique vide entraîne l'irrecevabilité.",
+    "Des éléments SSI (déclaration des outils, note de séparation des données, matrice des comptes et habilitations, note de gestion des versions) doivent être fournis DÈS LA RÉPONSE à l'offre — pas seulement au démarrage.",
+    "L'utilisation de tout outil d'IA générative pour traiter des contenus SSMSI non publiés est formellement interdite — les candidats devront s'engager par écrit à ne pas y recourir.",
+    "Les ressortissants russes et entités détenues à plus de 50% par des intérêts russes sont exclus — une déclaration sur l'honneur est exigée pour le titulaire, tous les co-traitants et sous-traitants.",
+    "Le marché porte sur des statistiques confidentielles sous embargo — des obligations de sécurité SSI très étendues (PAS, audit droit, fiches réflexes, traçabilité) pèsent sur l'ensemble de la chaîne de sous-traitance."
   ],
   "points_differenciants_attendus": [
     {
-      "libelle": "Expérience en maquettage de publications statistiques ou institutionnelles",
-      "exemple": "Présenter des références de mise en page de rapports statistiques, bulletins annuels ou publications de type INSEE/DARES, avec des exemples de traitement infographique de données chiffrées.",
+      "libelle": "Maîtrise des exigences SSI et capacité à produire le dispositif documentaire dès l'offre",
+      "exemple": "Un candidat qui soumet avec son offre une déclaration des outils préremplie, une note de séparation des données et une ébauche de matrice des habilitations démontrera une compréhension avancée des contraintes de confidentialité du SSMSI et réduira le risque de non-conformité à la remise de l'offre.",
+      "source": "CCP annexe SSI — fichier 04a_A1a_CCP_SSI_Maquettage.pdf, domaines C, D et E"
+    },
+    {
+      "libelle": "Utilisation d'équipements à très faible empreinte carbone (ordinateurs reconditionnés, écrans basse consommation)",
+      "exemple": "Un candidat utilisant exclusivement des ordinateurs reconditionnés avec des consommations certifiées inférieures à 15 Wh en activité obtiendra une note maximale sur les deux sous-critères environnementaux, constituant un avantage compétitif significatif si la pondération environnementale est élevée.",
+      "source": "Annexe 2 au RC — fichier 02b_A2_RC_CDR_env.xlsx"
+    },
+    {
+      "libelle": "Expérience en maquettage de publications statistiques institutionnelles complexes (graphiques, cartographies, tableaux de données)",
+      "exemple": "La mise en avant de références sur des publications statistiques similaires aux Interstats (rapport annuel de délinquance, atlas géographiques, infographies de données) permettrait de démontrer la capacité à traiter des données sensibles dans des délais contraints avec un haut niveau de qualité graphique.",
       "source": null
     },
     {
-      "libelle": "Maîtrise des outils PAO professionnels (InDesign, Illustrator, etc.)",
-      "exemple": "Détailler les logiciels utilisés, les gabarits livrés en fichiers sources et la capacité à travailler avec une charte graphique institutionnelle imposée.",
-      "source": null
+      "libelle": "Hébergement des données et outils sur infrastructure qualifiée SecNumCloud ou solution souveraine équivalente",
+      "exemple": "Un candidat proposant un espace de travail collaboratif hébergé chez un prestataire certifié SecNumCloud (ex. Oodrive, LockSelf) évite toute dérogation à demander au SSMSI et rassure l'acheteur sur la conformité immédiate.",
+      "source": "CCP annexe SSI — fichier 04a_A1a_CCP_SSI_Maquettage.pdf, domaine C"
     },
     {
-      "libelle": "Réactivité et gestion de la confidentialité des données",
-      "exemple": "Vu le contexte sécurité intérieure du SSMSI, valoriser la capacité à traiter des données sensibles en toute confidentialité et à respecter des délais courts de publication.",
-      "source": null
+      "libelle": "Processus de gestion des versions et de BAT (Bon À Tirer) documenté et opérationnel",
+      "exemple": "Un candidat présentant une nomenclature documentaire claire, un cycle de versionnement formalisé (brouillon → V1 → V2 → BAT validé) et un exemple de workflow de validation évitant les erreurs de diffusion anticipation de la publication sera perçu comme plus fiable pour gérer la contrainte d'embargo.",
+      "source": "CCP annexe SSI — fichier 04a_A1a_CCP_SSI_Maquettage.pdf, domaine D"
     }
   ],
   "_meta": {
     "id_marche": "BOAMP-26-56116",
     "type": "complet",
-    "extraction_le": "2026-06-12T01:09:57.810222+00:00",
+    "date_generation": "2026-06-14T21:42:07.903725+00:00",
+    "extraction_le": "2026-06-14T21:42:07.903725+00:00",
     "modele": "claude-sonnet-4-6",
-    "tokens_input": 14250,
-    "tokens_output": 2187,
-    "cout_eur": 0.0718,
-    "duree_sec": 37.9,
+    "preset_utilise": "conseil",
+    "presets_matches": [
+      "conseil",
+      "it"
+    ],
+    "prompts_versions": {
+      "conseil/_preset.json": "sha256:3d2714b04ff25c9b",
+      "it/_preset.json": "sha256:0113727ecb269e98"
+    },
+    "tokens_input": 90962,
+    "tokens_output": 6512,
+    "cout_eur": 0.352,
+    "duree_sec": 111.5,
     "pdfs_traites": [
       {
         "nom": "02_RC_Maquettage_SSMSI.pdf",
         "hash": "bc06e3a4664c12cb673a621425393ebb",
         "taille_chars": 1025
+      },
+      {
+        "nom": "02_RC_Maquettage_SSMSI_20260612.pdf",
+        "hash": "884f7586fb006330585d5bd88a402068",
+        "taille_chars": 1031
+      },
+      {
+        "nom": "02b_A2_RC_CDR_env.xlsx",
+        "hash": "919f7ddcd15a918cd08199694e5f8329",
+        "taille_chars": 9748
+      },
+      {
+        "nom": "02c_A3b_Interstat_Methodes_Bases_stat_IM26-1.pdf",
+        "hash": "1157bc8696363bac3edca72e5e6fcc9a",
+        "taille_chars": 70604
+      },
+      {
+        "nom": "02c_A3c_Interstat Methode n26_Donnees_20260612.xlsx",
+        "hash": "a08b10b524ccc805232c02c1b22f4681",
+        "taille_chars": 13373
+      },
+      {
+        "nom": "02d_A4_RC_attestation_motifs_exclusion.docx",
+        "hash": "2878f2c1f2a8e5fe3ab15a4180dd7c1d",
+        "taille_chars": 5330
+      },
+      {
+        "nom": "03a_A1_BPU_AE_Maquettage.xlsx",
+        "hash": "706e00fc2a8e3b15423e69575f700983",
+        "taille_chars": 4371
+      },
+      {
+        "nom": "04_CCP_Maquettage_SSMSI.pdf",
+        "hash": "4f5b84df1decf2c71815a6155aefb44f",
+        "taille_chars": 1546
+      },
+      {
+        "nom": "04a_A1a_CCP_SSI_Maquettage.pdf",
+        "hash": "5e8da98e226a8caa2c009616e8fbc05c",
+        "taille_chars": 18737
+      },
+      {
+        "nom": "04b_A1b_CCP_politique_securite.pdf",
+        "hash": "442ab5452ad7a92b18d8925695d442f1",
+        "taille_chars": 16448
+      },
+      {
+        "nom": "04d_A3_CCP_conflit_interet.docx",
+        "hash": "d0221638e1bc2b9c1f164b7fc93546cd",
+        "taille_chars": 5228
+      },
+      {
+        "nom": "04e_A4b_CCP_charte_RFAR.pdf",
+        "hash": "1ee5ad048d8f7f416cf9b5f721acd5b6",
+        "taille_chars": 19315
+      },
+      {
+        "nom": "04f_A4a_CCP_presentation_RFAR.pdf",
+        "hash": "bd93d53a4a8a2284ad4fec47ae615b53",
+        "taille_chars": 59032
+      },
+      {
+        "nom": "QR_Maquettage_20260612.pdf",
+        "hash": "11a8b3ff6329b45f7ad9a439e7dd6d5a",
+        "taille_chars": 1216
       }
     ]
   }

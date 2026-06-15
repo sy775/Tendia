@@ -1,96 +1,135 @@
 {
-  "synthese_marche": "Accord-cadre mono-attributaire pour la maintenance et l'extension du parc de licences QlikSense de Nantes Métropole, de la Ville de Nantes et de son CCAS, incluant acquisition de licences, maintenance, accompagnement, développements, formations et documentation. Marché d'une durée de 4 ans ferme, plafonné à 500 000 € HT, sans montant minimum. Procédure formalisée entièrement dématérialisée.",
+  "synthese_marche": "Accord-cadre mono-attributaire portant sur la maintenance, l'extension du parc de licences QlikSense (solution BI/analytique on-premise) et les prestations associées (conseil, développement, formation) pour le groupement de commandes Nantes Métropole, Ville de Nantes et CCAS. Le marché couvre l'acquisition de licences au catalogue Qlik, leur maintenance éditeur, des prestations de développement d'applications QlikSense et des formations pour différents profils d'utilisateurs internes. Le montant maximum est fixé à 500 000 € HT sur 4 ans ferme.",
   "domaines_metier": [
     {
       "code": "it_progiciels_erp"
     }
   ],
-  "raison_classification": "Le marché porte explicitement sur la maintenance, l'extension et le support d'un progiciel éditeur (QlikSense), l'acquisition de licences catalogue et des prestations associées (développement, formations, accompagnement). Il s'agit typiquement d'un marché d'intégration/maintenance de progiciel SaaS/On-premise, correspondant au code 'it_progiciels_erp'. Le CPV principal 72267100 (maintenance logiciels) confirme cette classification.",
-  "caracteristiques_techniques_chantier": {
-    "description": "Maintenance et extension du parc logiciel QlikSense (solution de Business Intelligence / reporting) pour un groupement de commandes composé de Nantes Métropole, la Ville de Nantes et le CCAS. Prestations couvrant : acquisition de licences, maintenance corrective et évolutive, support technique, développements spécifiques, expertises, formations et documentation.",
-    "technologies_concernees": [
-      "QlikSense",
-      "Business Intelligence",
-      "reporting"
+  "raison_classification": "Le marché porte exclusivement sur la maintenance et l'extension du parc de licences QlikSense (progiciel BI/analytique de l'éditeur Qlik), son intégration et son administration on-premise, ainsi que des prestations de développement d'applications sur ce progiciel. Ce périmètre correspond à la catégorie 'intégration progiciels et ERP' (it_progiciels_erp), qui inclut les solutions SaaS métier et les prestations de TMA/MCO sur progiciel éditeur. La dimension développement d'applications sur QlikSense et la maintenance applicative restent dans le périmètre progiciel.",
+  "caracteristiques_mission_it": {
+    "typologie_mission": "intégration ERP/progiciel, maintenance/support (TMA/MCO)",
+    "typologie_systeme": "BI/data",
+    "cloud_ou_on_premise": "on-premise (avec option SaaS pour certains usages non confidentiels)",
+    "niveau_securite": "données personnelles RGPD, données confidentielles (politique PSSI DRN exigée)",
+    "technologies_attendues": [
+      "QlikSense Client Managed (on-premise)",
+      "QlikSense SaaS",
+      "QlikView (migration)",
+      "QMC (Qlik Management Console)",
+      "QVD",
+      "OpenID Connect / SAML v2 (fédération d'identités)",
+      "API REST"
     ],
-    "type_de_sites": "Collectivités locales (siège Nantes Métropole, Ville de Nantes, CCAS)",
-    "criteres_eligibilite": [
+    "modele_prestation": "accord-cadre à bons de commande",
+    "volumetrie": "100 utilisateurs actifs actuels, 40 applications publiées, 30 Go de données, projection jusqu'à 400 utilisateurs et 60% de 119 domaines métiers à horizon 2030; 23 licences Professional + 20 licences Analyser + 1 Analyser Capacity Pack",
+    "jours_homme_estimes": null,
+    "sla_attendus": "Anomalie bloquante : GTI 4h ouvrées, GTR 16h ouvrées. Anomalies non bloquantes : GTI et GTR à préciser par le candidat dans le mémoire technique. Support lun-ven 9h-18h.",
+    "livrables_par_phase": [
       {
-        "libelle": "Chiffre d'affaires global et chiffre d'affaires concernant les prestations objet du contrat réalisés au cours des 3 derniers exercices disponibles",
-        "source": "RC article 4.1"
+        "phase": "Maintenance corrective et support",
+        "livrables": [
+          "Compte-rendu des anomalies/incidents (nb déclarés/résolus, délai moyen, plages d'indisponibilité, actions à venir)",
+          "Suivi via Bug tracker",
+          "Correctifs et patchs pour incidents bloquants hors calendrier"
+        ]
       },
       {
-        "libelle": "Effectifs moyens annuels du candidat pour chacune des 3 dernières années",
-        "source": "RC article 4.1"
+        "phase": "Maintenance évolutive / nouvelles versions",
+        "livrables": [
+          "Road map annuelle avec contenu détaillé des versions",
+          "Documentation à jour livrée avec chaque version",
+          "Différentiel fonctionnel et technique entre versions"
+        ]
       },
       {
-        "libelle": "Références du candidat effectuées au cours des 3 dernières années : montant, date, nature des prestations réalisées et identité du client",
-        "source": "RC article 4.1"
-      }
-    ],
-    "contraintes_site_signalees": [
-      "accès au SI de Nantes Métropole soumis à convention d'accès nominative",
-      "respect de la PSSI (Politique de Sécurité du Système d'Information)"
-    ]
-  },
-  "allotissement": {
-    "description": "Marché non alloti — accord-cadre mono-attributaire unique",
-    "nb_lots": 1,
-    "lots_detailles": [
+        "phase": "Prestations de développement et d'expertise",
+        "livrables": [
+          "Études techniques",
+          "Documentations techniques",
+          "Analyses d'impact",
+          "Applications QlikSense (dashboards, rapports)",
+          "Supports de formation"
+        ]
+      },
       {
-        "numero": 1,
-        "intitule": "Maintenance et extension du parc QlikSense et prestations associées",
-        "corps_etat": null,
-        "montant_estime": 500000,
-        "description": "Acquisition de licences, maintenance, accompagnement, développements, expertises, formations et documentation QlikSense pour le groupement de commandes Nantes Métropole / Ville de Nantes / CCAS"
+        "phase": "Comitologie",
+        "livrables": [
+          "COPIL annuel minimum",
+          "Suivi trimestriel de revue des incidents"
+        ]
       }
-    ]
-  },
-  "qualifications_requises": {
-    "description": "Aucune qualification professionnelle formelle (Qualibat, RGE…) n'est exigée. Des certifications individuelles sur QlikSense sont valorisées dans le mémoire technique.",
-    "qualibat": null,
-    "rge": null,
-    "opqibi": null,
-    "autres_certifications": [
-      "Certifications individuelles QlikSense (éditeur) — valorisées, non obligatoires (RC article 4.2)"
-    ]
-  },
-  "caracteristiques_mission": {
-    "typologie_mission": "maintenance, intégration, expertise, accompagnement, formation",
-    "domaine_expertise": "Business Intelligence / QlikSense / SI décisionnel",
-    "livrables_attendus": [
-      "Licences QlikSense (catalogue éditeur)",
-      "Maintenance corrective et évolutive de la solution",
-      "Rapports et documentations rédigés en français",
-      "Développements spécifiques et livrables d'expertise",
-      "Modules de formation QlikSense (standards et hors-standard éditeur)",
-      "Plan d'assurance sécurité (PAS)",
-      "Étude de cas pratique (scénario technique, chiffrage, risques)"
     ],
-    "duree_mission": "48 mois (4 ans ferme)",
-    "jours_consultant_estimes": null
-  },
-  "profils_intervenants": {
-    "description": "Équipe pluridisciplinaire intervenant sur la solution QlikSense",
-    "chef_de_mission": "Profil senior QlikSense avec expérience gestion de projet et capacité de coordination — CV exigé",
-    "consultants": "Intervenants qualifiés sur QlikSense (développeurs, formateurs, experts) avec certifications individuelles ; CV exigés pour tous les profils susceptibles d'intervenir (RC article 4.2)"
-  },
-  "caracteristiques_si": {
-    "description": "Marché portant sur la maintenance, le support et l'extension du parc logiciel QlikSense (outil de Business Intelligence / datavisualisation) utilisé par Nantes Métropole et ses membres. Inclut acquisition de licences, développements spécifiques, accompagnement utilisateurs et formations.",
-    "typologie_projet": "intégration, TMA, infogérance applicative",
-    "technologies_mentionnees": [
-      "QlikSense"
+    "profils_attendus": [
+      {
+        "profil": "Directeur de projet",
+        "nombre": null,
+        "anciennete_min_annees": null,
+        "certifs_requises": []
+      },
+      {
+        "profil": "Chef de projet",
+        "nombre": null,
+        "anciennete_min_annees": null,
+        "certifs_requises": []
+      },
+      {
+        "profil": "Expert technique architecture QlikSense",
+        "nombre": null,
+        "anciennete_min_annees": null,
+        "certifs_requises": [
+          "QlikSense System Administrator (On Premise et/ou SaaS)"
+        ]
+      },
+      {
+        "profil": "Expert technique développeur QlikSense",
+        "nombre": null,
+        "anciennete_min_annees": null,
+        "certifs_requises": [
+          "QlikSense Business Analyst et/ou QlikSense Data Architect (On Premise et/ou SaaS)"
+        ]
+      },
+      {
+        "profil": "Développeur QlikSense",
+        "nombre": null,
+        "anciennete_min_annees": null,
+        "certifs_requises": [
+          "QlikSense Business Analyst et/ou QlikSense Data Architect (On Premise et/ou SaaS)"
+        ]
+      },
+      {
+        "profil": "Formateur QlikSense",
+        "nombre": null,
+        "anciennete_min_annees": null,
+        "certifs_requises": [
+          "QlikSense Business Analyst et/ou QlikSense Data Architect et/ou QlikSense System Administrator selon type de formation"
+        ]
+      }
     ],
-    "volumetrie": "Montant maximum 500 000 € HT sur 4 ans ; volumétrie détaillée (nombre d'utilisateurs, licences) renvoyée au CCTP §4.2 et §4.3 non fourni",
-    "hebergement": "Non précisé dans les pièces fournies (CCTP non inclus)"
+    "exigences_securite": [
+      "Plan d'assurance sécurité (PAS) à fournir",
+      "Respect des règles PSSI DRN (STD_Règles_sécurité_progiciels_Web, STD_Politique_tiers_securite_API, STD_Règles_développement_sécurisé_web)",
+      "Convention d'ouverture SI DRN à signer",
+      "Convention de fédération d'identités (OIDC/SAML v2) à mettre en œuvre",
+      "Hébergement des données dans l'UE",
+      "RGPD sous-traitant"
+    ],
+    "reversibilite": "À l'issue du marché, le titulaire doit restituer toutes les données à la collectivité dans un délai de 30 jours calendaires, puis détruire les données avec confirmation écrite. Transmission des données dans un format ouvert et sécurisé validé par l'acheteur."
   },
-  "qualifications_si": {
-    "iso_27001": null,
-    "anssi": null,
-    "hds": null,
+  "qualifications_it": {
+    "iso_27001": false,
+    "hds": false,
+    "secnumcloud": false,
+    "rgs": false,
+    "referencement_anssi": false,
+    "certifications_securite": [],
+    "certifications_technologiques": [
+      "QlikSense System Administrator (certif individuelle exigée pour l'expert architecture)",
+      "QlikSense Business Analyst (certif individuelle exigée pour expert dev et développeur)",
+      "QlikSense Data Architect (certif individuelle exigée pour expert dev et développeur)"
+    ],
     "autres": [
-      "Respect de la PSSI Nantes Métropole (STD_Règles_sécurité_progiciels_Web_v3.0, STD_Politique_tiers_securite_API_v1.0, STD_Règles_développement_securisé_web_v3.0)",
-      "Plan d'assurance sécurité (PAS) à fournir selon STD_Plan_Type-Plan_Assurance_Sécurité_v2.0"
+      "Plan d'assurance sécurité conforme au modèle STD DRN Nantes Métropole",
+      "Respect des standards PSSI DRN"
     ]
   },
   "bareme_notation": {
@@ -100,105 +139,98 @@
       {
         "libelle": "Qualité de la maintenance et des prestations analysées au regard du mémoire technique",
         "ponderation_pct": 55,
-        "description": "Critère principal évaluant la qualité globale de l'offre de maintenance, de support, des intervenants, de l'analyse du cas pratique et de l'offre de formation. Noté sur 5 par sous-critère.",
-        "elements_attendus": [
-          "Description des niveaux de service (SLA : GTI, GTR, modalités suivi anomalies)",
-          "Présentation des profils et certifications QlikSense de l'équipe",
-          "Réponse structurée au cas pratique annexe n°02",
-          "Offre de formation détaillée par profil avec objectifs, prérequis, durée, CV formateurs",
-          "Méthodologie d'intervention pour les prestations complémentaires"
-        ],
-        "exemple_reponse_forte": "Le candidat présente un tableau de bord de suivi des tickets avec GTI < 4h et GTR < 8h pour les incidents critiques, accompagné de CVs d'intervenants titulaires de certifications QlikSense Architect et Data Analyst. Il fournit une offre de formation structurée en 4 modules (utilisateur, développeur, administrateur, analyste) avec formateurs certifiés et CV détaillés.",
+        "description": "Ce critère évalue la qualité globale de l'offre de maintenance et des prestations associées telle que présentée dans le mémoire technique. Il est structuré en 4 sous-critères chiffrés portant respectivement sur le support/maintenance, les intervenants, l'analyse du cas pratique et les prestations/formations.",
+        "elements_attendus": [],
+        "exemple_reponse_forte": "—",
         "source": "RC article 5",
         "sous_criteres": [
           {
             "libelle": "Qualité de la maintenance et du support technique",
             "ponderation_pct": 15,
-            "description": "Évaluation des modalités et niveaux de service de la maintenance : conditions générales de garantie, support technique, délais GTI/GTR, modalités de suivi des anomalies, gestion des versions.",
+            "description": "L'acheteur évalue les modalités de gestion des licences, les niveaux de service proposés (GTI/GTR), les modalités d'intervention et la robustesse du dispositif de support (bug tracker, plages horaires, road map versions).",
             "elements_attendus": [
-              "Niveaux de service détaillés (GTI, GTR par criticité)",
-              "Modalités de gestion des évolutions produit et des nouvelles versions",
-              "Procédure de suivi et de résolution des anomalies",
-              "Conditions générales de garantie et de support"
+              "GTI et GTR précis pour les anomalies non bloquantes (les bloquantes sont imposées : 4h/16h)",
+              "Description du Bug tracker et processus de clôture des incidents validé par la collectivité",
+              "Modalités de livraison des nouvelles versions et road map annuelle détaillée",
+              "Processus de communication des différentiels fonctionnels/techniques entre versions",
+              "Organisation des opérations de maintenance et disponibilité du support (lun-ven 9h-18h minimum)",
+              "Présentation des conditions générales de garantie et niveaux de service (SLA)"
             ],
-            "exemple_reponse_forte": "Le candidat propose 3 niveaux de criticité avec GTI ≤ 2h (bloquant), 4h (majeur), 24h (mineur) et GTR ≤ 8h/24h/72h respectivement. Un outil de ticketing dédié avec tableau de bord partagé permet le suivi temps réel des anomalies. Les nouvelles versions QlikSense sont qualifiées dans un environnement de recette dédié avant déploiement sous 15 jours ouvrés.",
-            "source": "RC article 5",
-            "sous_criteres": []
+            "exemple_reponse_forte": "Notre support est assuré via une plateforme JIRA accessible 24h/24 pour la déclaration d'incidents, avec une prise en charge garantie sous 2h ouvrées pour les anomalies majeures et sous 1 jour ouvré pour les mineures. Une road map trimestrielle détaillant les correctifs et nouvelles fonctionnalités QlikSense est communiquée à la collectivité, avec un différentiel fonctionnel systématique à chaque livraison de version.",
+            "source": "RC article 5 / CCTP §5.3.1"
           },
           {
             "libelle": "Qualité des intervenants",
             "ponderation_pct": 15,
-            "description": "Évaluation des moyens humains et matériels dédiés au marché : qualifications, certifications individuelles QlikSense, expériences des intervenants, organisation de l'équipe projet.",
+            "description": "L'acheteur évalue les moyens humains et matériels affectés au marché, notamment les CV des profils proposés, leurs certifications QlikSense individuelles et leur expérience sur la solution.",
             "elements_attendus": [
-              "CV des profils susceptibles d'intervenir",
-              "Certifications QlikSense individuelles (niveau et type)",
-              "Organisation de l'équipe projet (rôles, hiérarchie)",
-              "Expériences sur des projets similaires"
+              "CV des profils susceptibles d'intervenir (directeur projet, chef de projet, expert architecture, expert dev, développeur, formateur)",
+              "Certifications QlikSense individuelles précisées pour chaque profil (System Administrator, Business Analyst, Data Architect)",
+              "Expérience significative sur QlikSense on-premise documentée",
+              "Organisation de l'équipe et complémentarité des compétences",
+              "Capacité à remplacer un intervenant avec niveau de compétence équivalent"
             ],
-            "exemple_reponse_forte": "L'équipe dédiée comprend un chef de projet certifié QlikSense Architect (5 ans d'expérience QlikSense), 2 développeurs certifiés QlikSense Data Analyst et 1 formateur QlikSense agréé éditeur. Les CVs joints attestent d'au moins 3 références de collectivités territoriales sur des projets similaires.",
-            "source": "RC article 5",
-            "sous_criteres": []
+            "exemple_reponse_forte": "L'équipe dédiée comprend un expert architecture certifié QlikSense System Administrator avec 6 ans d'expérience sur des déploiements on-premise en collectivités, un expert développeur certifié Data Architect et Business Analyst ayant réalisé plus de 15 projets BI QlikSense, et deux développeurs juniors certifiés Business Analyst. Les CV joints attestent des certifications en cours de validité.",
+            "source": "RC article 5 / CCTP §6.2"
           },
           {
             "libelle": "Qualité de l'analyse produite dans le cadre du cas d'étude pratique",
             "ponderation_pct": 15,
-            "description": "Évaluation de la réponse au cas pratique soumis en annexe n°02 du RC : pertinence du scénario technique proposé, qualité de la documentation proposée, identification des risques et limites, cohérence du chiffrage financier par profil.",
+            "description": "L'acheteur évalue la pertinence de l'analyse du candidat sur le cas pratique fourni en annexe n°2 du RC, portant sur l'optimisation de la gestion des droits utilisateurs, des connexions et des streams dans QlikSense.",
             "elements_attendus": [
-              "Proposition d'un type de documentation adapté",
-              "Scénario de réalisation détaillé et argumenté",
-              "Identification des risques et limites techniques",
-              "Chiffrage financier par profil d'intervenant"
+              "Proposition d'un type de documentation adapté au besoin",
+              "Scénario technique de réalisation détaillé et réaliste pour la granularité des droits par domaine",
+              "Identification des risques et limites de la solution proposée",
+              "Chiffrage financier par profil des prestations nécessaires à la mise en œuvre",
+              "Solution basée sur l'optimisation de l'existant sans multiplication excessive des streams",
+              "Prise en compte des règles de sécurité dans la gestion des droits (data connections, streams, applications)"
             ],
-            "exemple_reponse_forte": "Le candidat propose une documentation fonctionnelle et technique au format Confluence, un scénario en 3 phases (cadrage, développement, recette) avec planning détaillé, identifie les risques de compatibilité version et de performance données volumineuses, et fournit un chiffrage par profil (Architecte : 3j × TJM, Développeur : 8j × TJM, Chef de projet : 2j × TJM).",
-            "source": "RC article 5 + Annexe n°02",
-            "sous_criteres": []
+            "exemple_reponse_forte": "Nous proposons d'utiliser les Security Rules de QlikSense (QMC) combinées avec les Custom Properties pour créer une gestion des droits granulaire par domaine, sans multiplier les streams. La documentation livrée sera un dossier d'architecture technique + guide d'administration. Les risques identifiés incluent la complexité de migration des droits existants et la courbe d'apprentissage des administrateurs délégués. Chiffrage : 3 jours expert architecture (2 400 €) + 2 jours chef de projet (1 400 €) = 3 800 € HT.",
+            "source": "RC annexe n°02 / RC article 5"
           },
           {
             "libelle": "Qualité des prestations, de la méthodologie et de l'offre de formation",
             "ponderation_pct": 10,
-            "description": "Évaluation de l'offre de formation QlikSense (modules disponibles par profil, standard et hors-standard éditeur) et de la méthodologie pour les prestations complémentaires : délais de réponse, mobilisation de l'équipe, organisation.",
+            "description": "L'acheteur évalue l'organisation envisagée pour les prestations complémentaires (conseil, développement, accompagnement) ainsi que la richesse et la pertinence de l'offre de formation QlikSense proposée pour différents profils.",
             "elements_attendus": [
-              "Modules de formation disponibles par profil avec objectifs, prérequis et durée",
-              "Distinction formations standard éditeur / hors standard",
-              "CV des formateurs attestant de l'expertise QlikSense",
-              "Méthodologie d'intervention pour les prestations complémentaires",
-              "Délais de réponse et modalités de mobilisation de l'équipe"
+              "Description de la méthodologie et des délais de réponse pour les prestations de conseil/développement",
+              "Modalités de mobilisation de l'équipe",
+              "Catalogue de formations QlikSense par profil (architecte, administrateur QMC, développeur, utilisateur)",
+              "Détail de chaque module de formation : objectifs, prérequis, durée",
+              "CV des formateurs justifiant expertise QlikSense et compétences pédagogiques",
+              "Formations standard éditeur et hors standard éditeur différenciées"
             ],
-            "exemple_reponse_forte": "Le candidat propose 5 modules de formation (Initiation utilisateur 1j, Développeur QlikSense 3j, Administrateur 2j, Analyste avancé 2j, Data Storytelling 1j) avec CVs de 2 formateurs certifiés QlikSense. La méthodologie de prestations complémentaires prévoit un délai de réponse à devis de 5 jours ouvrés et une mobilisation des ressources dans un délai de 10 jours ouvrés après acceptation.",
-            "source": "RC article 5",
-            "sous_criteres": []
+            "exemple_reponse_forte": "Notre catalogue propose 4 modules certifiants : 'Administration QMC' (2 jours, prérequis Windows Server), 'Développement QlikSense' (3 jours, prérequis SQL), 'Utilisation et DataViz' (1 jour, sans prérequis), 'Architecture on-premise avancée' (2 jours, réservé aux experts). Toutes les formations sont animées par des formateurs certifiés QlikSense avec minimum 3 ans d'expérience pédagogique, CV joints.",
+            "source": "RC article 5 / CCTP §6.1"
           }
         ]
       },
       {
         "libelle": "Performance environnementale de l'organisation et des modalités d'exécution des prestations",
         "ponderation_pct": 5,
-        "description": "Évaluation des engagements du candidat en matière de performance environnementale dans l'exécution des prestations : limitation des déplacements, optimisation des ressources numériques, sobriété des usages, modalités d'organisation des interventions. L'acheteur apprécie la pertinence, cohérence et caractère opérationnel des actions proposées.",
+        "description": "L'acheteur évalue la pertinence, la cohérence et le caractère opérationnel des actions proposées pour réduire l'impact environnemental des prestations (limitation des déplacements, optimisation des ressources numériques, sobriété des usages, organisation des interventions).",
         "elements_attendus": [
-          "Mesures concrètes de limitation des déplacements (télétravail, visioconférence)",
-          "Optimisation des ressources numériques (hébergement sobre, optimisation des requêtes)",
-          "Politique de sobriété numérique de l'entreprise",
-          "Modalités d'organisation des interventions à distance vs sur site"
+          "Engagements concrets de limitation des déplacements (télétravail, interventions à distance)",
+          "Mesures d'optimisation des ressources numériques et sobriété logicielle",
+          "Organisation des interventions on-site vs remote",
+          "Caractère opérationnel et mesurable des actions (pas seulement déclaratif)"
         ],
-        "exemple_reponse_forte": "Le candidat s'engage à réaliser 80% des interventions à distance via des outils de collaboration sécurisés, limitant les déplacements aux seules opérations critiques nécessitant une présence physique. L'entreprise dispose d'une politique RSE certifiée intégrant un bilan carbone annuel et des objectifs de réduction des émissions de 20% par an. Les formations seront proposées prioritairement en format distanciel synchrone.",
-        "source": "RC article 5",
-        "sous_criteres": []
+        "exemple_reponse_forte": "90% de nos interventions sont réalisées à distance via notre portail sécurisé, réduisant les déplacements à moins de 4 visites site/an. Nous appliquons une politique de sobriété numérique : extinction des environnements de test hors des heures ouvrées, optimisation des requêtes QlikSense pour réduire la consommation RAM/CPU serveur. Notre bilan carbone opérationnel est mesuré annuellement.",
+        "source": "RC article 5"
       }
     ],
     "prix": {
       "type_formule": "moins_disant",
-      "formule_explicite": "Prix des prestations apprécié au regard du montant total du DQE. Chaque critère et sous-critère noté sur 5. Pondération prix = 40/100.",
+      "formule_explicite": "Prix des prestations apprécié au regard du montant total du D.Q.E. Chaque critère et sous-critère est noté sur 5. La formule exacte n'est pas détaillée dans le RC mais le montant total DQE sert de base de comparaison.",
       "elements_a_chiffrer": [
-        "Prix unitaires par type de licence QlikSense (catalogue éditeur)",
-        "Prix de la maintenance annuelle / support technique",
-        "TJM par profil d'intervenant (développeur, architecte, chef de projet, expert, formateur)",
-        "Prix unitaires des modules de formation (par profil, par journée)",
-        "Prix des prestations d'accompagnement",
-        "Prix des prestations de développement et d'expertise",
-        "Détail quantitatif estimatif (DQE) global"
+        "Prix unitaires des licences QlikSense du catalogue (Professional Users, Analyser Users, Analyser Capacity Pack, autres types de licences)",
+        "Taux de remise garanti sur les licences",
+        "Prix de la maintenance annuelle par type de licence (% du coût licence ou forfait)",
+        "TJM par profil : Directeur de projet, Chef de projet, Expert technique architecture, Expert technique développeur, Développeur, Formateur",
+        "Prix des modules de formation (par session, par jour, par profil formé)"
       ]
     },
-    "modalite_calcul_prix": "Prix des prestations apprécié au regard du montant total du DQE. Critère pondéré à 40/100. Chaque critère noté sur 5."
+    "modalite_calcul_prix": "Prix des prestations apprécié au regard du montant total du D.Q.E. (Détail Quantitatif Estimatif). Le DQE n'a pas de valeur contractuelle mais sert uniquement au jugement des offres. En cas de discordance, les prix unitaires du BPU prévalent."
   },
   "montant_marche": {
     "valeur_estimee_euros": 500000,
@@ -206,169 +238,170 @@
     "fourchette_max_euros": 500000,
     "type": "plafond",
     "duree_couverte": "4 ans ferme",
-    "source_extraction": "RC article 1.3",
-    "commentaire": "Accord-cadre mono-attributaire sans montant minimum, plafonné à 500 000 € HT toutes prestations confondues sur la durée globale (4 ans). Répartition : Nantes Métropole 450 000 € HT, Ville de Nantes 25 000 € HT, CCAS 25 000 € HT."
+    "source_extraction": "RC article 1.3 / CCAP article 1.2",
+    "commentaire": "Montant maximum de l'accord-cadre mono-attributaire sans minimum garanti : 450 000 € HT pour Nantes Métropole, 25 000 € HT pour la Ville de Nantes, 25 000 € HT pour le CCAS. Il s'agit d'un plafond sur 4 ans, sans montant minimum, donc le risque de volume zéro n'est pas exclu contractuellement."
   },
   "revision_prix": {
-    "type": "non_communique",
+    "type": "indexation",
     "indices_utilises": [],
-    "ponderation": null,
-    "periodicite": null,
+    "ponderation": "Révision par ajustement annuel au 1er janvier de chaque année. Le titulaire transmet sa proposition 3 mois avant. Clause de sauvegarde : si l'évolution annuelle dépasse +4%, l'acheteur peut résilier sans indemnités. Pas d'indice nommé dans le CCAP.",
+    "periodicite": "annuelle",
     "formule_revision": null,
-    "source_extraction": null,
-    "commentaire": "Le CCAP n'est pas fourni parmi les pièces analysées. Aucune information sur la révision des prix n'est disponible dans le RC."
+    "source_extraction": "CCAP article 9.2",
+    "commentaire": "La révision est possible chaque 1er janvier mais aucun indice de référence n'est explicitement nommé. La clause de sauvegarde à +4%/an plafonne de facto la hausse annuelle et constitue un risque de résiliation unilatérale si l'inflation dépasse ce seuil."
   },
   "alertes_prix": [
-    "Pondération prix à 40% est élevée pour un marché SI/logiciel complexe — le prix sera déterminant dans le classement final",
-    "Accord-cadre sans montant minimum : le titulaire ne bénéficie d'aucune garantie de commande, le risque de revenus nuls existe",
-    "Le DQE est dénué de valeur contractuelle mais sert seul à l'évaluation du prix — une erreur de saisie dans le DQE peut dégrader significativement la note prix",
-    "Plafond global de 500 000 € HT sur 4 ans dont 90% (450 000 €) concentrés sur Nantes Métropole — importance de calibrer l'offre sur le volume réel attendu"
+    "Accord-cadre sans montant minimum garanti : le titulaire peut ne recevoir aucun bon de commande sans indemnisation possible.",
+    "Clause de sauvegarde à +4% d'augmentation annuelle maximum : au-delà, l'acheteur peut résilier sans indemnités (CCAP art. 9.2).",
+    "Le DQE est dénué de valeur contractuelle — seuls les prix unitaires du BPU sont contractuels. Toute erreur dans le BPU prime sur le DQE et engage le titulaire.",
+    "Pondération prix à 40% : significative pour un marché de prestations intellectuelles, la compétitivité tarifaire est un facteur décisif.",
+    "Prix des licences soumis à taux de remise garanti (BPU), mais les catalogues éditeurs évoluent : tout réajustement nécessite une validation acheteur."
   ],
   "references_exigees": {
-    "experience_minimale_annees": 3,
-    "experience_source": "RC article 4.1",
+    "experience_minimale_annees": null,
+    "experience_source": null,
     "volume_min_references_similaires": null,
-    "volume_min_references_unite": null,
-    "secteur_experience": "Maintenance et prestations associées sur logiciel QlikSense ou solutions BI équivalentes",
+    "volume_min_references_unite": "marchés similaires",
+    "secteur_experience": "Prestations de maintenance, conseil, développement et formation sur la solution QlikSense (ou solutions BI/analytique comparables), idéalement pour des collectivités territoriales ou organismes publics.",
     "secteur_source": "RC article 4.1",
-    "certifications_obligatoires": [],
+    "certifications_obligatoires": [
+      {
+        "libelle": "Certifications individuelles QlikSense (System Administrator, Business Analyst, Data Architect) exigées pour les profils techniques intervenants",
+        "source": "CCTP §6.2.3, §6.2.4, §6.2.5, §6.2.6"
+      }
+    ],
     "autres_exigences": [
       {
-        "libelle": "Chiffre d'affaires global et CA sur les prestations objet du contrat sur les 3 derniers exercices disponibles",
+        "libelle": "Chiffre d'affaires global et CA concernant les prestations objet du contrat sur les 3 derniers exercices (montant non précisé dans le RC)",
         "source": "RC article 4.1"
       },
       {
-        "libelle": "Références de prestations similaires effectuées au cours des 3 dernières années avec montant, date, nature et identité du client",
+        "libelle": "Effectifs moyens annuels sur les 3 dernières années",
         "source": "RC article 4.1"
       },
       {
-        "libelle": "Plan d'assurance sécurité (PAS) à fournir ou compléter selon le modèle STD_Plan_Type-Plan_Assurance_Sécurité_v2.0",
-        "source": "RC article 4.2"
-      },
-      {
-        "libelle": "Convention d'accès nominatif au SI de Nantes Métropole à signer au démarrage du marché",
-        "source": "RC article 4.2"
+        "libelle": "Références de prestations similaires (montant, date, nature, identité client) sur les 3 dernières années",
+        "source": "RC article 4.1"
       }
     ]
   },
-  "lots": [
-    {
-      "numero": 1,
-      "intitule": "Marché unique — Maintenance et extension QlikSense + prestations associées",
-      "zone_geographique": "Nantes (44)",
-      "volume_estime": 500000,
-      "volume_estime_unite": "euros HT (plafond 4 ans)",
-      "particularites": "Accord-cadre sans minimum, réparti entre 3 membres du groupement. Nantes Métropole : 450 000 € HT, Ville de Nantes : 25 000 € HT, CCAS : 25 000 € HT."
-    }
-  ],
+  "lots": [],
   "calendrier": {
     "date_limite_offres": "2026-07-10",
     "date_demarrage_prevue": null,
-    "duree_marche": "4 ans ferme"
-  },
-  "publics_cibles": {
-    "description": "Non applicable — marché IT, pas un marché de formation ou d'insertion",
-    "criteres_eligibilite": [],
-    "publics_specifiques_signales": []
-  },
-  "volumes": {
-    "nb_beneficiaires_total": null,
-    "nb_beneficiaires_par_lot": null,
-    "duree_par_parcours_heures": null,
-    "duree_par_parcours_semaines": null,
-    "duree_marche_mois": 48,
-    "commentaire_volumes": "Marché IT — volumes en licences et jours-hommes détaillés dans le CCTP non fourni (CCTP §4.2 et §4.3 mentionnés pour la volumétrie actuelle et prévisionnelle des licences)"
-  },
-  "modalites": {
-    "presentiel_obligatoire": null,
-    "distanciel_possible": true,
-    "synchrone_asynchrone": "mix (interventions distanciel privilégiées selon critère environnemental, présentiel possible)",
-    "sites_execution": [
-      "Nantes (44)"
-    ],
-    "amplitude_horaire": null
-  },
-  "caracteristiques_mission_moe": {
-    "typologie": null,
-    "phases_couvertes": [],
-    "typologie_ouvrage": null,
-    "montant_travaux_estime": null,
-    "complexite_technique": null
-  },
-  "qualifications_moe": {
-    "opqibi": [],
-    "opqcm": null,
-    "bim": null,
-    "autres": []
-  },
-  "volumes_techniques": {
-    "puissance_totale_kwc": null,
-    "puissance_par_site_kwc": null,
-    "nb_sites": null,
-    "surface_panneaux_m2": null,
-    "productible_annuel_estime_mwh": null,
-    "duree_marche_mois": 48,
-    "duree_maintenance_om_annees": null,
-    "commentaire_volumes": "Non applicable — marché IT progiciel. Durée du marché : 48 mois (4 ans ferme). Plafond global : 500 000 € HT."
-  },
-  "modalites_execution_chantier": {
-    "raccordement_reseau_inclus": null,
-    "etudes_techniques_incluses": null,
-    "calendrier_chantier_contraint": null,
-    "sites_execution": [
-      "Nantes (44)"
-    ],
-    "engagement_productible": null,
-    "engagement_disponibilite_om": null
+    "duree_marche": "4 ans ferme à compter de la notification"
   },
   "alertes_candidat": [
-    "Certifications individuelles QlikSense des intervenants fortement valorisées dans le sous-critère 'Qualité des intervenants' (15/100) — un candidat sans certifiés QlikSense sera défavorisé",
-    "Le cas pratique (Annexe n°02 du RC) est obligatoire et représente 15 points sur 100 — l'absence ou la faiblesse de cette réponse peut faire perdre le marché",
-    "Plan d'assurance sécurité (PAS) et respect de la PSSI Nantes Métropole obligatoires — documents à produire impérativement avec l'offre",
-    "Le DQE doit être déposé en format MODIFIABLE (tableur) — le dépôt en PDF seul peut entraîner l'irrégularité de l'offre",
-    "Accord-cadre sans montant minimum : aucune garantie de commandes — le titulaire doit anticiper un scénario de sous-consommation sur 4 ans"
+    "Marché mono-attributaire réservé à un prestataire expert QlikSense : seule une société disposant de ressources certifiées QlikSense (System Administrator, Business Analyst, Data Architect) peut concourir sérieusement — les certifications individuelles sont exigées dans les CV joints au mémoire technique.",
+    "Le cas pratique (annexe n°2 RC) est noté à 15% de la note technique et demande une analyse technique approfondie de l'architecture QlikSense (gestion des droits, streams, connexions) avec scénario, risques et chiffrage par profil — à ne pas sous-estimer en charge de réponse.",
+    "La convention d'accès au SI DRN et le plan d'assurance sécurité (PAS) doivent être fournis à l'offre — l'absence de ces pièces PSSI peut rendre l'offre irrecevable.",
+    "Le DQE doit être déposé en format modifiable (tableur) avec vérification des formules et arrondi au centime — toute incohérence entre BPU et DQE est tranchée en faveur du BPU (risque d'erreur de chiffrage engageant le candidat).",
+    "La collectivité précise que le modèle 'client managed' semble inadapté à ses volumes futurs et souhaite passer à des licences au volume : le candidat doit impérativement proposer un parc de licences cohérent avec les projections (jusqu'à ~400 utilisateurs) sous peine de non-conformité fonctionnelle."
   ],
   "points_differenciants_attendus": [
     {
-      "libelle": "Certifications QlikSense éditeur des intervenants",
-      "exemple": "Présenter une équipe avec au minimum 2-3 intervenants titulaires de certifications QlikSense officielles (Architect, Data Analyst, etc.) avec CVs détaillés et copies des certifications. Mentionner les niveaux de certification et les dates d'obtention pour démontrer une expertise à jour.",
-      "source": "RC article 4.2 + article 5"
+      "libelle": "Qualité et pertinence de la réponse au cas pratique QlikSense (gestion des droits granulaires)",
+      "exemple": "Un candidat proposant une architecture utilisant les Security Rules QlikSense et les Custom Properties avec un scénario de migration progressif, des risques documentés et un chiffrage détaillé par profil se différenciera fortement des réponses génériques sur les droits utilisateurs.",
+      "source": "RC annexe n°02"
     },
     {
-      "libelle": "Qualité et exhaustivité de la réponse au cas pratique",
-      "exemple": "Fournir une étude structurée en 4 parties distinctes (type de documentation, scénario de réalisation, risques/limites, chiffrage par profil) avec un niveau de détail technique élevé et un chiffrage réaliste par profil (TJM par profil × jours estimés).",
-      "source": "RC article 4.2 + Annexe n°02"
+      "libelle": "Niveau de certification des intervenants QlikSense et expérience on-premise en collectivité",
+      "exemple": "Présenter des CV avec certifications QlikSense en cours de validité ET des références de déploiements on-premise dans des organisations publiques similaires (agglomérations, métropoles) constitue un avantage décisif sur le critère 'qualité des intervenants'.",
+      "source": "CCTP §6.2 / RC article 5"
     },
     {
-      "libelle": "Offre de formation complète et structurée par profil utilisateur",
-      "exemple": "Proposer un catalogue de formations QlikSense segmenté par profil (utilisateur final, développeur, administrateur) avec pour chaque module : objectifs pédagogiques, prérequis, durée, modalités (présentiel/distanciel), CV du formateur avec certification QlikSense éditeur attestée.",
-      "source": "RC article 4.2 + article 5"
+      "libelle": "Proposition d'une architecture de licences au volume adaptée aux projections de croissance",
+      "exemple": "Démontrer une maîtrise des différents modèles de licences Qlik (Capacity, Full User, etc.) et proposer une roadmap d'évolution cohérente avec le passage de 100 à 400 utilisateurs à horizon 2030, en optimisant le coût total de possession, valorise directement le critère qualité de la maintenance.",
+      "source": "CCTP §4.3"
     },
     {
-      "libelle": "Niveaux de service (SLA) précis et engagements contractuels maintenabilité",
-      "exemple": "Détailler des GTI et GTR différenciés par niveau de criticité (bloquant/majeur/mineur) avec des engagements chiffrés, un outil de ticketing avec accès client, et un reporting mensuel des SLA. Valoriser une expérience en collectivités territoriales sur QlikSense.",
-      "source": "RC article 5"
+      "libelle": "Offre de formation structurée par profil avec formateurs certifiés",
+      "exemple": "Proposer un catalogue de formations modulaires (administrateur QMC, développeur, utilisateur final) avec fiches détaillées (objectifs, prérequis, durée) et CV de formateurs certifiés Qlik permet de scorer haut sur le sous-critère 'qualité des prestations et de l'offre de formation'.",
+      "source": "RC article 5 / CCTP §6.2.6"
     },
     {
-      "libelle": "Sobriété numérique et performance environnementale des interventions",
-      "exemple": "Chiffrer la part des interventions réalisables à distance (objectif ≥ 80%), présenter une politique RSE d'entreprise avec bilan carbone, et proposer des formations prioritairement en distanciel synchrone pour réduire les déplacements — critère pondéré 5/100, différenciant à la marge.",
-      "source": "RC article 5"
+      "libelle": "Robustesse du dispositif de support et de la comitologie proposée",
+      "exemple": "Proposer des GTI/GTR compétitifs pour les anomalies non bloquantes (ex : GTI 1h/GTR 4h pour anomalies majeures), un Bug tracker partagé avec la collectivité et une comitologie formalisée (COPIL annuel + suivi trimestriel + réunions ad hoc) renforce la crédibilité sur le critère 'qualité de la maintenance et du support technique'.",
+      "source": "CCTP §5.3.1 / RC article 5"
     }
   ],
   "_meta": {
     "id_marche": "BOAMP-26-56462",
     "type": "complet",
-    "extraction_le": "2026-06-12T02:08:06.032829+00:00",
+    "date_generation": "2026-06-15T18:42:42.852970+00:00",
+    "extraction_le": "2026-06-15T18:42:42.852970+00:00",
     "modele": "claude-sonnet-4-6",
-    "tokens_input": 19524,
-    "tokens_output": 7026,
-    "cout_eur": 0.1558,
-    "duree_sec": 124.6,
+    "preset_utilise": "it",
+    "presets_matches": [
+      "it"
+    ],
+    "prompts_versions": {
+      "it/_preset.json": "sha256:0113727ecb269e98"
+    },
+    "tokens_input": 90727,
+    "tokens_output": 6869,
+    "cout_eur": 0.3565,
+    "duree_sec": 130.0,
     "pdfs_traites": [
       {
         "nom": "0_RC_26NM00023001.pdf",
         "hash": "753e5f68aa80512f9b5b02d6342d2be6",
         "taille_chars": 19437
+      },
+      {
+        "nom": "0_RC_Annexe1_Demat.pdf",
+        "hash": "f33e0efb6bccfad4c5a9436b45cb29ba",
+        "taille_chars": 3901
+      },
+      {
+        "nom": "0_RC_Annexe2_cas_pratique.pdf",
+        "hash": "dbabbee2b78579cd02f0f0fe9782e2a4",
+        "taille_chars": 6656
+      },
+      {
+        "nom": "1_AE_26NM00023001.docx",
+        "hash": "e4b503d6ef41764d2146b78b585aa9c1",
+        "taille_chars": 9262
+      },
+      {
+        "nom": "2_CCAP_26NM00023001.pdf",
+        "hash": "4d7f6fed3b73fbd68fbf0827a1c32f23",
+        "taille_chars": 91167
+      },
+      {
+        "nom": "3_CCTP_26NM00023001.pdf",
+        "hash": "0ad56cdc3dbf04f11a5d103fe7a8a29e",
+        "taille_chars": 27589
+      },
+      {
+        "nom": "ConventionFederationIdentites-AUTH(interne).pdf",
+        "hash": "424506bcdd273883715dc5be8a12b28a",
+        "taille_chars": 24745
+      },
+      {
+        "nom": "Convention_Ouverture_SI_NM_prestataire_v4.6.pdf",
+        "hash": "8ea8ce8f1065b19b9db24720edaea5e8",
+        "taille_chars": 20887
+      },
+      {
+        "nom": "STD_Clauses_RGPD_marchés_informatiques_v2.5.pdf",
+        "hash": "fab7ec0f041f07ca164ea58882633ae7",
+        "taille_chars": 25152
+      },
+      {
+        "nom": "STD_Politique_tiers_securite_API_v1.0.pdf",
+        "hash": "9ddf07e0e6cde0680ab1ebc3053a969c",
+        "taille_chars": 17767
+      },
+      {
+        "nom": "STD_Règles_développement_securisé_web_v3.0.pdf",
+        "hash": "05daf0d6b3aae6f5ea6a9fa3b3fd2df9",
+        "taille_chars": 22342
+      },
+      {
+        "nom": "STD_Règles_sécurité_progiciels_Web_v3.0.pdf",
+        "hash": "de038246148e4fbcff92ac1cf88ad73a",
+        "taille_chars": 3837
       }
     ]
   }

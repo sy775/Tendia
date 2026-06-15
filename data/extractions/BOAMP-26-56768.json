@@ -1,61 +1,165 @@
 {
-  "synthese_marche": "Le CHU de Toulouse lance une consultation (relance) pour les travaux de CVC et plomberie (lot 8) dans le cadre du réaménagement du plateau technique automatisé (PTA) et du service hémostase, ainsi que la création d'un laboratoire de biochimie à l'Hôpital de Rangueil. La précédente consultation du lot 8 avait été déclarée sans suite pour insuffisance de concurrence. Le marché est un marché de travaux en procédure adaptée, d'une durée de 7 mois et 2 semaines, avec démarrage prévu en juillet 2026.",
+  "synthese_marche": "Marché de travaux CVC/Plomberie (Lot 8) pour le réaménagement du plateau technique automatisé (PTA) et du service hémostase, ainsi que la création d'un laboratoire de biochimie à l'Hôpital Rangueil du CHU de Toulouse. Ce lot a été relancé après une première procédure déclarée sans suite pour insuffisance de concurrence. Les travaux comprennent la dépose et remplacement des installations CVC (ventilo-convecteurs, CTA, réseaux aérauliques et hydrauliques) et de plomberie sanitaire en site hospitalier occupé.",
   "domaines_metier": [
     {
       "code": "ingenierie_fluides_climatique"
     }
   ],
-  "raison_classification": "Le lot 8 porte exclusivement sur des travaux de CVC (chauffage, ventilation, climatisation) et plomberie dans un bâtiment hospitalier occupé. Le CPV indiqué est 45330000-9 (travaux de plomberie) et les qualifications Qualibat exigées sont 5252 (réseaux de chauffage/rafraîchissement avec CTA) et 5112 (plomberie sanitaire), ce qui correspond parfaitement au domaine ingénierie_fluides_climatique. Il s'agit de travaux de second œuvre technique fluides, non d'études de maîtrise d'œuvre.",
+  "raison_classification": "Le marché porte exclusivement sur des travaux CVC (chauffage, ventilation, climatisation) et plomberie sanitaire (Lot 8) dans un hôpital en activité. Le CCTP détaille les prescriptions techniques pour la distribution d'eau glacée/chaude, les centrales de traitement d'air, la régulation GTB, et la plomberie sanitaire avec décontamination Légionelle. La classification 'ingenierie_fluides_climatique' est la plus pertinente car il s'agit de travaux techniques de génie climatique, non de second œuvre généraliste.",
   "caracteristiques_techniques_chantier": {
-    "description": "Travaux de CVC (ventilo-convecteurs, cassettes, CTA, vannes, registres, régulateurs, automate GTB) et plomberie sanitaire (robinetterie, vannes d'isolement, appareils sanitaires) pour le réaménagement du PTA et service hémostase, et la création d'un laboratoire de biochimie à l'Hôpital de Rangueil (CHU Toulouse). Projet incluant modification du plateau d'analyse, réaménagement du secteur hémostase, création d'une chambre froide, local compresseurs et osmoseurs.",
-    "typologie_ouvrage": "Hôpital universitaire — locaux techniques et laboratoires médicaux (site occupé)",
+    "description": "Travaux de CVC et plomberie sanitaire dans le cadre du réaménagement du plateau technique automatisé (PTA) et du service hémostase, et création d'un laboratoire de biochimie au niveau R-1 du bâtiment Routine de l'Hôpital Rangueil. Comprend : dépose des installations CVC existantes (radiateurs, CTA, bouches, réseaux), création de nouveaux réseaux eau glacée et eau chaude, mise en œuvre de ventilo-convecteurs et cassettes, création de CTA pour zone PTA, remplacement des réseaux aérauliques et des points d'eau, régulation GTC/GTB, plomberie sanitaire complète avec décontamination Légionelle.",
+    "typologie_ouvrage": "Bâtiment hospitalier ERP type R, 5ème catégorie — Hôpital Rangueil, CHU de Toulouse",
     "surface_volume": null,
-    "site_occupe": "Oui — site hospitalier occupé en continuité de service, contrainte majeure signalée dans les critères techniques",
+    "site_occupe": "true — travaux réalisés en site hospitalier en activité, avec contrainte de continuité des soins, interventions programmées à l'avance, coupures à valider 15 jours avant",
     "corps_etat": [
       "CVC (chauffage, ventilation, climatisation)",
-      "Plomberie sanitaire"
+      "Plomberie sanitaire",
+      "Régulation GTB/GTC",
+      "Electricité (alimentation des équipements CVC par lot 9 — coordination requise)"
     ],
     "contraintes_specifiques": [
-      "Site hospitalier occupé en fonctionnement — continuité de service impérative",
-      "Contraintes d'hygiène strictes (milieu hospitalier)",
-      "Approvisionnement du matériel dans un bâtiment hospitalier en activité",
-      "Coordination avec les autres lots du projet (12 lots au total)",
-      "Visite de site obligatoire avant remise des offres",
-      "Planning prévisionnel fourni dans le DCE à respecter",
-      "Création de locaux techniques spécifiques (chambre froide, local compresseurs et osmoseurs)"
+      "Site hospitalier en activité — continuité des soins à assurer en permanence",
+      "Demandes de coupure à formuler 15 jours à 3 semaines à l'avance",
+      "Vidanges et remplissages réalisés uniquement par les services techniques du CHU",
+      "Présence d'amiante — diagnostic remis en pièce contractuelle",
+      "Travaux en horaires décalés possibles (nuit, week-end) selon impératifs exploitation",
+      "Astreinte 24h/24 pour dépannage dans un délai d'une heure",
+      "Contraintes hygiène renforcées (CLIN, service hygiène CHU)",
+      "Permis feu exigé à la semaine pour certaines interventions",
+      "Coordination avec 11 autres lots de travaux simultanés",
+      "Garantie de parfait achèvement portée à 18 mois (été+hiver)"
     ]
   },
   "allotissement": {
-    "description": "Le projet global comporte 12 lots. La présente consultation ne porte que sur le lot 8 CVC/Plomberie, les lots 1 à 7, 9 à 12 étant en cours d'analyse suite à la précédente consultation.",
-    "nb_lots": 1,
+    "description": "Opération globale découpée en 12 lots séparés. Seul le lot 8 CVC/Plomberie fait l'objet de la présente relance.",
+    "nb_lots": 12,
     "lots_detailles": [
+      {
+        "numero": 1,
+        "intitule": "Désamiantage",
+        "corps_etat": "désamiantage",
+        "montant_estime": null,
+        "description": "Travaux de désamiantage préalables"
+      },
+      {
+        "numero": 2,
+        "intitule": "Dépose paillasses, confinements",
+        "corps_etat": "démolition, confinements",
+        "montant_estime": null,
+        "description": "Dépose des paillasses et confinements existants"
+      },
+      {
+        "numero": 3,
+        "intitule": "Gros-œuvre",
+        "corps_etat": "gros œuvre",
+        "montant_estime": null,
+        "description": "Travaux de gros œuvre"
+      },
+      {
+        "numero": 4,
+        "intitule": "Menuiseries aluminium, serrurerie",
+        "corps_etat": "menuiserie aluminium, serrurerie",
+        "montant_estime": null,
+        "description": "Menuiseries aluminium et serrurerie"
+      },
+      {
+        "numero": 5,
+        "intitule": "Plâtrerie /Faux-plafond/ Démolition",
+        "corps_etat": "plâtrerie, faux-plafond, démolition",
+        "montant_estime": null,
+        "description": "Travaux de plâtrerie, faux-plafond et démolition"
+      },
+      {
+        "numero": 6,
+        "intitule": "Peinture / Revêtement muraux / Sol",
+        "corps_etat": "peinture, revêtements",
+        "montant_estime": null,
+        "description": "Peinture, revêtements muraux et sols"
+      },
+      {
+        "numero": 7,
+        "intitule": "Menuiserie bois",
+        "corps_etat": "menuiserie bois",
+        "montant_estime": null,
+        "description": "Menuiseries bois intérieures"
+      },
       {
         "numero": 8,
         "intitule": "CVC / Plomberie",
-        "corps_etat": "CVC et plomberie sanitaire",
+        "corps_etat": "CVC, plomberie sanitaire",
         "montant_estime": null,
-        "description": "Travaux de chauffage, ventilation, climatisation et plomberie sanitaire pour le réaménagement du PTA, service hémostase et création du laboratoire de biochimie à l'Hôpital de Rangueil. CPV 45330000-9."
+        "description": "Lot objet de la présente relance : chauffage, ventilation, climatisation, plomberie sanitaire en milieu hospitalier"
+      },
+      {
+        "numero": 9,
+        "intitule": "Electricité Cfo / cfa / SSI",
+        "corps_etat": "électricité courants forts/faibles, SSI",
+        "montant_estime": null,
+        "description": "Electricité courants forts, courants faibles, système de sécurité incendie"
+      },
+      {
+        "numero": 10,
+        "intitule": "Chambre froide & cloisons isolantes",
+        "corps_etat": "chambre froide, cloisons isolées",
+        "montant_estime": null,
+        "description": "Création chambre froide et cloisons isolantes"
+      },
+      {
+        "numero": 11,
+        "intitule": "Isolation & étanchéité toiture",
+        "corps_etat": "isolation, étanchéité toiture",
+        "montant_estime": null,
+        "description": "Isolation et étanchéité de la toiture terrasse"
+      },
+      {
+        "numero": 12,
+        "intitule": "Nettoyage",
+        "corps_etat": "nettoyage",
+        "montant_estime": null,
+        "description": "Nettoyage de fin de chantier"
       }
     ]
   },
   "qualifications_requises": {
-    "description": "Qualifications Qualibat exigées pour le lot 8 CVC/Plomberie",
-    "qualibat": "5252 — Installation de réseaux de chauffage ou de rafraîchissement avec centrale de traitement d'air ; 5112 — Installation de plomberie sanitaire dans tout type de bâtiment supérieur à 1000m²",
-    "rge": null,
+    "description": "Qualifications Qualibat exigées pour le lot 8 CVC/Plomberie en milieu hospitalier de grande surface",
+    "qualibat": [
+      "5252",
+      "5112"
+    ],
+    "rge": false,
+    "rge_specialites": [],
+    "mase": false,
+    "iso_9001": false,
+    "iso_14001": false,
+    "iso_45001": false,
     "opqibi": null,
     "autres_certifications": []
   },
-  "caracteristiques_mission": {
-    "typologie_mission": null,
-    "domaine_expertise": null,
-    "livrables_attendus": [],
-    "duree_mission": null,
-    "jours_consultant_estimes": null
+  "caracteristiques_mission_moe": {
+    "typologie": null,
+    "phases_couvertes": [],
+    "typologie_ouvrage": null,
+    "montant_travaux_estime": null,
+    "complexite_technique": null,
+    "livrables_par_phase": [],
+    "taux_remuneration_moe_pct": null,
+    "indices_revision": [],
+    "coordinations_associees": [],
+    "organigramme_attendu": [],
+    "bim_niveau": null
   },
-  "profils_intervenants": {
+  "qualifications_moe": {
+    "opqibi": [],
+    "opqcm": [],
+    "bim": null,
+    "autres": []
+  },
+  "caracteristiques_techniques_enr": {
     "description": null,
-    "chef_de_mission": null,
-    "consultants": null
+    "technologies_concernees": [],
+    "type_de_sites": null,
+    "criteres_eligibilite": [],
+    "contraintes_site_signalees": []
   },
   "volumes_techniques": {
     "puissance_totale_kwc": null,
@@ -65,65 +169,24 @@
     "productible_annuel_estime_mwh": null,
     "duree_marche_mois": null,
     "duree_maintenance_om_annees": null,
-    "commentaire_volumes": "Marché de travaux CVC/plomberie hospitalier — aucune donnée de puissance ou surface. Durée contractuelle : 7 mois et 2 semaines dont 2 semaines de préparation."
+    "commentaire_volumes": null
   },
   "modalites_execution_chantier": {
     "raccordement_reseau_inclus": null,
     "etudes_techniques_incluses": null,
-    "calendrier_chantier_contraint": "Démarrage prévu juillet 2026 ; durée 7 mois et 2 semaines ; site hospitalier occupé avec continuité de service obligatoire",
+    "calendrier_chantier_contraint": "Interventions pouvant être reportées à tout moment selon impératifs de continuité hospitalière, sans indemnisation. Coupures à programmer 15 jours à 3 semaines à l'avance.",
     "sites_execution": [
-      "Toulouse (Hôpital de Rangueil)"
+      "Toulouse (31) — Hôpital Rangueil"
     ],
     "engagement_productible": null,
     "engagement_disponibilite_om": null
   },
-  "publics_cibles": {
-    "description": null,
-    "criteres_eligibilite": [],
-    "publics_specifiques_signales": []
-  },
-  "volumes": {
-    "nb_beneficiaires_total": null,
-    "nb_beneficiaires_par_lot": null,
-    "duree_par_parcours_heures": null,
-    "duree_par_parcours_semaines": null,
-    "duree_marche_mois": null,
-    "commentaire_volumes": null
-  },
-  "modalites": {
-    "presentiel_obligatoire": null,
-    "distanciel_possible": null,
-    "synchrone_asynchrone": null,
-    "sites_execution": [
-      "Toulouse — Hôpital de Rangueil"
-    ],
-    "amplitude_horaire": null
-  },
-  "caracteristiques_mission_moe": {
-    "typologie": null,
-    "phases_couvertes": [],
-    "typologie_ouvrage": null,
-    "montant_travaux_estime": null,
-    "complexite_technique": null
-  },
-  "qualifications_moe": {
-    "opqibi": [],
-    "opqcm": null,
-    "bim": null,
-    "autres": []
-  },
-  "caracteristiques_si": {
-    "description": null,
-    "typologie_projet": null,
-    "technologies_mentionnees": [],
-    "volumetrie": null,
-    "hebergement": null
-  },
-  "qualifications_si": {
-    "iso_27001": null,
-    "anssi": null,
-    "hds": null,
-    "autres": []
+  "qualifications_enr": {
+    "qualipv": false,
+    "qualisol": false,
+    "qualipac": false,
+    "qualibois": false,
+    "autres_certifications": []
   },
   "bareme_notation": {
     "valeur_technique_pct": 40,
@@ -132,124 +195,131 @@
       {
         "libelle": "Qualité de la méthodologie décrivant le déroulement de ce chantier",
         "ponderation_pct": 20,
-        "description": "L'acheteur évalue la qualité de la méthodologie de travaux avec un focus particulier sur la contrainte de continuité de service en site hospitalier occupé, la méthodologie d'approvisionnement du matériel et la prise en compte des règles d'hygiène.",
+        "description": "L'acheteur évalue la qualité de la méthodologie de travaux avec un focus particulier sur : la méthodologie des travaux CVC/plomberie, la contrainte de continuité de service en site hospitalier occupé, la méthodologie d'approvisionnement du matériel dans le bâtiment, et la prise en compte des règles d'hygiène hospitalière.",
         "elements_attendus": [
-          "Description détaillée de la méthodologie d'exécution des travaux CVC/plomberie",
-          "Mesures spécifiques pour garantir la continuité de service en milieu hospitalier occupé",
-          "Organisation de l'approvisionnement du matériel dans le bâtiment hospitalier (accès, flux, zones de stockage)",
-          "Protocoles d'hygiène en milieu hospitalier (gestion des poussières, confinements, nettoyage)",
-          "Gestion des interfaces avec les autres corps d'état (12 lots)"
+          "Description précise du phasage des interventions CVC en site hospitalier en activité",
+          "Procédures de demande de coupure (délais, modes opératoires)",
+          "Mesures de protection des locaux avoisinants et des équipements existants",
+          "Plan d'approvisionnement et de logistique pour l'accès au bâtiment hospitalier",
+          "Respect des préconisations du CLIN et du service hygiène CHU",
+          "Mesures anti-poussières, balisage, protection des zones de soins"
         ],
-        "exemple_reponse_forte": "Notre intervention sera organisée en phases nocturnes pour les travaux de coupures de réseaux existants, avec mise en place de by-pass provisoires pour maintenir le chauffage et la plomberie des zones actives. Un sas de décontamination sera installé à l'entrée de chantier conformément aux protocoles CLIN de l'hôpital, avec aspiration à la source lors de toute intervention sur gaines ou réseaux.",
+        "exemple_reponse_forte": "Notre méthodologie prévoit une intervention en 3 phases coordonnées avec les services techniques du CHU, avec demandes de coupure formulées 20 jours à l'avance et modes opératoires détaillés soumis au MOA. Chaque intervention est précédée d'un confinement étanche des zones de travaux avec aspiration HEPA pour respecter les contraintes du CLIN, et les approvisionnements sont planifiés en dehors des heures de pointe via l'accès dédié livraisons validé par la Maîtrise d'Ouvrage.",
         "source": "RC §13.3",
         "sous_criteres": []
       },
       {
         "libelle": "Qualité et cohérence du planning global détaillé",
         "ponderation_pct": 30,
-        "description": "L'acheteur évalue la qualité et la cohérence du planning global avec enchaînement des tâches, phasages et essais spécifiques, en fonction du planning communiqué dans le DCE. L'appropriation des délais et l'optimisation doivent apparaître. Une courbe de charge (nombre de techniciens) est demandée.",
+        "description": "L'acheteur évalue la qualité et cohérence du planning global avec enchainement des tâches, des phasages et des essais spécifiques en fonction du planning communiqué dans le DCE. L'appropriation des délais doit apparaître, ainsi qu'une courbe de charge de l'entreprise avec le nombre de techniciens en fonction de la méthodologie d'intervention.",
         "elements_attendus": [
-          "Planning global détaillé avec enchaînement des tâches et des phasages",
-          "Intégration des essais spécifiques CVC (équilibrage, régulation, GTB) dans le planning",
-          "Cohérence avec le planning prévisionnel du DCE",
-          "Optimisation des délais si possible",
-          "Courbe de charge de l'entreprise (nombre de techniciens en fonction de la méthodologie d'intervention)",
-          "Appropriation des délais contractuels (7 mois et 2 semaines)"
+          "Planning détaillé avec enchainement des tâches CVC et plomberie",
+          "Phasage cohérent avec le planning prévisionnel fourni dans le DCE",
+          "Identification explicite des essais spécifiques et de leur durée",
+          "Courbe de charge avec effectifs mobilisés par semaine/mois",
+          "Période de préparation de 2 semaines intégrée et détaillée",
+          "Respect du délai global de 7 mois et 2 semaines"
         ],
-        "exemple_reponse_forte": "Le planning joint en annexe est structuré en 4 phases (installation/dépose, pose réseaux CVC, pose réseaux plomberie, essais/réglages) sur 30 semaines effectives. La courbe de charge montre un pic à 6 techniciens en semaines 10-20 lors des poses simultanées, avec réduction à 2 techniciens pour la phase essais. Les mises en service GTB sont planifiées avec un buffer de 2 semaines avant réception.",
+        "exemple_reponse_forte": "Le planning joint présente le séquencement semaine par semaine des interventions CVC (dépose CTA semaine 3-4, nouveaux réseaux hydrauliques semaine 5-8, ventilo-convecteurs semaine 9-12, régulation GTB semaine 13-14) avec les fenêtres d'essais programmées semaines 26-28 avant réception. La courbe de charge illustre un pic à 6 techniciens en phase dépose/remontée des réseaux, puis 3 techniciens en finition et essais.",
         "source": "RC §13.3",
         "sous_criteres": []
       },
       {
         "libelle": "Qualité et pertinence des moyens humains",
         "ponderation_pct": 20,
-        "description": "L'acheteur évalue la qualité et la pertinence des moyens humains affectés à l'opération, sur la base d'un organigramme des effectifs avec CV, ancienneté et qualification de chaque intervenant.",
+        "description": "L'acheteur évalue la qualité et la pertinence des moyens humains mis en œuvre, notamment via l'organigramme des effectifs, les CV avec ancienneté et qualifications du personnel affecté à l'opération.",
         "elements_attendus": [
           "Organigramme nominatif des effectifs affectés à cette opération",
-          "CV des personnels clés (chef de chantier, techniciens CVC, plombiers) avec ancienneté",
-          "Qualifications et habilitations des intervenants (certifications fluides, habilitations électriques si nécessaire pour GTB)",
-          "Expérience en milieu hospitalier des personnels proposés"
+          "CV du chef de chantier et des principaux techniciens avec ancienneté",
+          "Qualifications Qualibat 5252 et 5112 du ou des intervenants",
+          "Expérience en milieu hospitalier ou ERP sensible",
+          "Présence d'un responsable QHSE ou correspondant hygiène"
         ],
-        "exemple_reponse_forte": "L'équipe dédiée est composée d'un chef de chantier CVC (15 ans d'expérience dont 8 en milieu hospitalier, qualification Qualibat 5252), de 2 techniciens CVC et 2 plombiers sanitaires (qualification Qualibat 5112). L'organigramme joint précise les rôles, les disponibilités et les habilitations de chaque intervenant.",
+        "exemple_reponse_forte": "L'équipe est composée d'un chef de chantier CVC (15 ans d'expérience en milieu hospitalier, habilitation amiante sous-section 4), d'un chef d'équipe plomberie qualifié 5112, et de 4 techniciens CVC qualifiés 5252. Tous ont suivi la formation hygiène spécifique ERP type U. Les CV joints détaillent leurs interventions récentes sur CHU ou cliniques comparables.",
         "source": "RC §13.3",
         "sous_criteres": []
       },
       {
         "libelle": "La qualité des matériels et matériaux",
         "ponderation_pct": 30,
-        "description": "L'acheteur évalue la qualité des matériels et matériaux proposés au regard des fiches techniques remises par le candidat pour les équipements CVC (ventilo-convecteurs, CTA, vannes, registres, automates GTB) et la plomberie sanitaire (robinetterie, vannes, appareils sanitaires).",
+        "description": "L'acheteur évalue la qualité des matériels et matériaux proposés au regard des fiches techniques demandées à l'article 10.2 du RC, couvrant les équipements CVC (émetteurs, CTA, vannes, régulateurs, automate GTB) et la plomberie sanitaire (robinetterie, sanitaires).",
         "elements_attendus": [
-          "Fiches techniques des émetteurs (ventilo-convecteurs, cassettes)",
-          "Fiches techniques des CTA (centrale de traitement d'air)",
-          "Fiches techniques des vannes d'équilibrage, de régulation et d'isolement",
-          "Fiches techniques des registres et diffuseurs (grilles de soufflage, reprise, bouches)",
-          "Fiches techniques des régulateurs, thermostats et automates de régulation",
-          "Fiches techniques des automates GTB et accessoires (cartes E/S, alimentation)",
-          "Fiches techniques de robinetterie, vannes d'isolement et appareils sanitaires plomberie",
-          "Pertinence des matériels au regard du contexte hospitalier (qualité, durabilité, entretien)"
+          "Fiches techniques des ventilo-convecteurs/cassettes proposés avec performances",
+          "Fiches techniques des CTA avec débits, puissances et classe d'étanchéité",
+          "Fiches techniques des vannes d'équilibrage et de régulation",
+          "Fiches techniques de l'automate GTB et des accessoires",
+          "Fiches techniques des équipements de robinetterie sanitaire agréés ACS",
+          "Conformité des matériels aux prescriptions du CCTP (normes, marques ou équivalent)"
         ],
-        "exemple_reponse_forte": "Les CTA proposées sont de marque X (classe énergétique A+), avec filtration F9 adaptée au contexte hospitalier. Les ventilo-convecteurs sont de type 4 tubes permettant chaud/froid simultané, avec caissons anti-vibratoires. L'automate GTB est compatible protocole BACnet/IP pour intégration au système de supervision existant du CHU.",
-        "source": "RC art 10.2 et §13.3",
+        "exemple_reponse_forte": "Les fiches techniques jointes présentent les ventilo-convecteurs CIAT gamme Versatemp (conformes aux exigences de la classe d'efficacité énergétique requise), les CTA FRANCE AIR avec filtration F7/G4 et étanchéité classe C, ainsi que les vannes d'équilibrage TA STAD-V avec rapport d'équilibrage REGIS. La robinetterie sanitaire proposée est de marque PRESTO avec commande au coude agréée ACS, conforme aux prescriptions anti-Légionelle du CCTP §4.9.",
+        "source": "RC §13.3",
         "sous_criteres": []
       }
     ],
     "prix": {
       "type_formule": "moins_disant",
-      "formule_explicite": "Ce critère est jugé au regard du montant total TTC indiqué dans la DPGF remise par les soumissionnaires à l'appui de leur offre.",
+      "formule_explicite": "Ce critère sera jugé au regard du montant total TTC indiqué dans la DPGF remis par les soumissionnaires à l'appui de leur offre (60% de la note totale).",
       "elements_a_chiffrer": [
-        "Décomposition du Prix Global et Forfaitaire (DPGF) du lot 8 CVC/Plomberie — montant total TTC"
+        "Décomposition du Prix Global et Forfaitaire (DPGF) Lot 8 CVC/Plomberie — format Excel et PDF",
+        "Montant total TTC de l'offre"
       ]
     },
-    "modalite_calcul_prix": "Jugement sur la base du montant total TTC de la DPGF (Décomposition du Prix Global et Forfaitaire) du lot 8."
+    "modalite_calcul_prix": "Critère prix pondéré à 60% — jugé sur le montant total TTC de la DPGF. Formule exacte de notation non précisée dans le RC."
   },
   "montant_marche": {
     "valeur_estimee_euros": null,
     "fourchette_min_euros": null,
     "fourchette_max_euros": null,
     "type": "non_communique",
-    "duree_couverte": "7 mois et 2 semaines (durée ferme, non reconductible)",
+    "duree_couverte": "7 mois et 2 semaines de travaux + 12 mois GPA",
     "source_extraction": null,
-    "commentaire": "Aucun montant estimé, plafond ou prix unitaire n'est mentionné dans les pièces du DCE fournies (RC uniquement). La DPGF constitue la base de chiffrage mais elle n'est pas fournie dans les pièces analysées."
+    "commentaire": "Aucun montant estimatif ni plafond budgétaire n'est communiqué dans les pièces du DCE fournies. La DPGF est fournie sous format Excel mais son contenu chiffré n'est pas disponible dans les pièces analysées."
   },
   "revision_prix": {
-    "type": "non_communique",
-    "indices_utilises": [],
-    "ponderation": null,
-    "periodicite": null,
-    "formule_revision": null,
-    "source_extraction": null,
-    "commentaire": "Le CCAP n'est pas fourni dans les pièces analysées. Aucune information sur la révision des prix n'est disponible dans le RC."
+    "type": "indexation",
+    "indices_utilises": [
+      "BT38"
+    ],
+    "ponderation": "20% partie fixe + 80% index BT38 : P = Po × [0.20 + 0.80 × (I / Io)]",
+    "periodicite": "mensuelle",
+    "formule_revision": "P = Po × [0,20 + 0,80 × (I / Io)] avec I = indice BT38 du mois de réalisation des travaux, Io = indice BT38 du mois M0 (juin 2026)",
+    "source_extraction": "CCAP article 5.1 — Variation dans les prix",
+    "commentaire": "Formule favorable pour les entreprises CVC/plomberie avec 80% de part révisable sur BT38 (indice de travaux de plomberie-chauffage), limitant l'exposition aux variations de coûts matériaux. La partie fixe de 20% protège partiellement l'acheteur."
   },
   "alertes_prix": [
-    "Marché déclaré sans suite lors de la précédente consultation pour insuffisance de concurrence — l'acheteur relance avec le même cahier des charges, suggérant que les niveaux de prix précédents n'ont peut-être pas attiré de candidats en nombre suffisant.",
-    "Pondération prix à 60% élevée : le prix est le critère dominant, la qualité technique ne compte que pour 40%.",
-    "Risque d'offre anormalement basse (OAB) signalé dans le RC (art. 13.1) — l'acheteur peut éliminer les offres OAB après interrogation.",
-    "Marché à prix global et forfaitaire (DPGF) : attention à la complétude du chiffrage — tout oubli reste à la charge du titulaire."
+    "Pondération prix très élevée à 60% pour un marché en site hospitalier sensible : le moins-disant sera fortement valorisé, risque de pression sur les marges malgré les sujétions lourdes.",
+    "Marché relancé pour insuffisance de concurrence : la première consultation n'a pas attiré suffisamment d'offres, ce qui peut suggérer un budget insuffisant ou des sujétions sous-estimées — bien intégrer toutes les contraintes hospitalières dans l'offre.",
+    "Prix global et forfaitaire avec DPGF : tout oubli de prestation dans la DPGF est aux risques du titulaire, le CCAP précise que les prix sont réputés comprendre toutes sujétions y compris travaux en horaires décalés.",
+    "Retenue de garantie de 5% du TTC de chaque acompte, remplaçable par garantie à première demande."
   ],
   "references_exigees": {
     "experience_minimale_annees": null,
     "experience_source": null,
     "volume_min_references_similaires": null,
-    "volume_min_references_unite": null,
-    "secteur_experience": "CVC et plomberie sanitaire en bâtiment, idéalement en milieu hospitalier ou tertiaire",
-    "secteur_source": "RC §8",
+    "volume_min_references_unite": "marchés similaires",
+    "secteur_experience": "Installation de réseaux de chauffage/rafraîchissement avec CTA et plomberie sanitaire dans tout type de bâtiment supérieur à 1000 m²",
+    "secteur_source": "RC §8 — Documents de candidature",
     "certifications_obligatoires": [
       {
-        "libelle": "Qualibat 5252 — Installation de réseaux de chauffage ou de rafraîchissement avec centrale de traitement d'air (ou équivalent)",
-        "source": "RC §8"
+        "libelle": "Qualibat 5252 — Installation de réseaux de chauffage ou de rafraîchissement avec centrale de traitement d'air",
+        "source": "RC §8 — Documents de candidature à remettre"
       },
       {
-        "libelle": "Qualibat 5112 — Installation de plomberie sanitaire dans tout type de bâtiment supérieur à 1000m² (ou équivalent)",
-        "source": "RC §8"
+        "libelle": "Qualibat 5112 — Installation de plomberie sanitaire dans tout type de bâtiment supérieur à 1000 m²",
+        "source": "RC §8 — Documents de candidature à remettre"
       }
     ],
     "autres_exigences": [
       {
-        "libelle": "Déclaration de chiffre d'affaires global et du domaine d'activité sur les 3 derniers exercices",
-        "source": "RC §8"
+        "libelle": "Déclaration concernant le chiffre d'affaires global du candidat portant au maximum sur les trois derniers exercices disponibles",
+        "source": "RC §8a"
       },
       {
-        "libelle": "Déclaration des effectifs moyens annuels et du personnel d'encadrement sur 3 ans",
+        "libelle": "Déclaration indiquant les effectifs moyens annuels et l'importance du personnel d'encadrement pendant les trois dernières années",
+        "source": "RC §8b"
+      },
+      {
+        "libelle": "Formulaire DUME complété en ligne sur PLACE (ou DC1+DC2 en alternative)",
         "source": "RC §8"
       }
     ]
@@ -258,60 +328,112 @@
     {
       "numero": 8,
       "intitule": "CVC / Plomberie",
-      "zone_geographique": "Toulouse (31) — Hôpital de Rangueil",
+      "zone_geographique": "Toulouse (31) — Hôpital Rangueil",
       "volume_estime": null,
       "volume_estime_unite": null,
-      "particularites": "Lot en relance suite à déclaration sans suite de la précédente consultation pour insuffisance de concurrence. Travaux en site hospitalier occupé. CPV 45330000-9."
+      "particularites": "Lot unique objet de la relance. CPV 45330000-9. Inclut CVC (ventilo-convecteurs, CTA, réseaux eau glacée/chaude, aéraulique, régulation GTB) et plomberie sanitaire (EF, ECS, EU/EV, appareils sanitaires, décontamination Légionelle). Garantie de parfait achèvement portée à 18 mois au lieu des 12 mois standards pour vérification fonctionnement été et hiver."
     }
   ],
   "calendrier": {
     "date_limite_offres": "2026-07-01",
     "date_demarrage_prevue": "2026-07-01",
-    "duree_marche": "7 mois et 2 semaines calendaires dont 2 semaines de préparation, ferme non reconductible"
+    "duree_marche": "7 mois et 2 semaines (dont 2 semaines de préparation) + 12 mois GPA"
   },
   "alertes_candidat": [
-    "Visite de site OBLIGATOIRE le 12 juin 2026 à 09h00 — toute offre sans attestation de visite signée sera déclarée irrégulière et éliminée sans classement (RC §12).",
-    "Qualifications Qualibat 5252 ET 5112 exigées (ou équivalents) — leur absence peut entraîner l'élimination de la candidature (RC §8).",
-    "Marché en relance pour insuffisance de concurrence lors de la précédente consultation — l'acheteur se réserve la possibilité de négocier, il est conseillé d'optimiser l'offre initiale.",
-    "Délai de validité des offres de 180 jours — à anticiper dans la gestion des prix et des approvisionnements.",
-    "Site hospitalier occupé : la continuité de service est un critère technique évalué (20% du critère technique) — toute insuffisance méthodologique sera pénalisée à la notation."
+    "Visite de site OBLIGATOIRE le 12 juin 2026 à 09h00 (Hall principal Hôpital Rangueil) — toute offre sans attestation de visite sera déclarée irrégulière et éliminée sans classement. Inscription préalable impérative auprès de Jacques CARAYOL (06 18 31 65 08).",
+    "Qualifications Qualibat 5252 ET 5112 toutes deux exigées à peine d'irrecevabilité de la candidature — vérifier que les deux sont valides à la date de remise des offres.",
+    "Marché en site hospitalier actif : les sujétions d'intervention (coupures à J-15/J-21, travaux hors heures ouvrées, astreinte 24h/24 en 1h) doivent impérativement être intégrées dans le prix forfaitaire — aucun supplément ne sera accordé.",
+    "Dépôt exclusivement dématérialisé sur www.marches-publics.gouv.fr avant le 01/07/2026 à 12h00 — anticiper les délais de transmission électronique.",
+    "Présence d'amiante sur le site : le diagnostic amiante avant travaux est une pièce contractuelle — coordonner avec le Lot 1 (désamiantage) et respecter les procédures du référent amiante Marie-Josée GHIGLIA (question.amiante@chu-toulouse.fr)."
   ],
   "points_differenciants_attendus": [
     {
-      "libelle": "Expérience démontrée en milieu hospitalier occupé avec protocoles d'hygiène hospitalière",
-      "exemple": "Présenter des références de chantiers CVC/plomberie réalisés dans des établissements de soins en activité (CHU, cliniques), avec description des protocoles CLIN appliqués, mesures de confinement et résultats d'audit hygiène.",
-      "source": "RC §13.3"
+      "libelle": "Expérience avérée en travaux CVC/plomberie en milieu hospitalier en activité",
+      "exemple": "Présenter 2-3 références de chantiers réalisés dans des établissements de santé en activité (CHU, clinique, EHPAD) avec description des contraintes de continuité des soins gérées, idéalement de surface et complexité comparables au PTA de Rangueil.",
+      "source": "RC §13.3 — critère technique + CCTP §2"
     },
     {
-      "libelle": "Planning détaillé avec courbe de charge nominative et gestion des interfaces",
-      "exemple": "Fournir un planning Gantt à la semaine avec chemin critique, essais GTB intégrés, courbe de charge journalière précisant le nombre et le profil de chaque technicien présent, ainsi qu'un tableau des interfaces avec les autres lots (notamment électricité lot 9 pour GTB).",
-      "source": "RC §13.3"
+      "libelle": "Maîtrise des procédures anti-Légionelle et carnet sanitaire en ERP type U",
+      "exemple": "Démontrer dans le mémoire technique la connaissance des circulaires DGS relatives à la Légionelle, les procédures de désinfection des réseaux ECS, et la capacité à rédiger/mettre en place un carnet sanitaire conforme aux exigences du CCTP §4.7.",
+      "source": "CCTP §4.7"
     },
     {
-      "libelle": "Qualité des matériels CVC proposés adaptés au contexte hospitalier (filtration, protocoles, compatibilité GTB)",
-      "exemple": "Proposer des CTA avec filtration haute efficacité (F9/H13) et des automates GTB certifiés BACnet/IP compatibles avec le système de supervision hospitalier existant, en fournissant des fiches techniques détaillées avec performances énergétiques.",
-      "source": "RC art 10.2"
+      "libelle": "Qualité et pertinence du planning détaillé avec courbe de charge",
+      "exemple": "Produire un planning GANTT à la semaine avec enchainement précis des tâches CVC et plomberie, fenêtres d'essais identifiées, et une courbe de charge montrant les effectifs mobilisés semaine par semaine — cet élément représente 30% du critère technique.",
+      "source": "RC §13.3 — sous-critère planning 30%"
     },
     {
-      "libelle": "Organigramme nominatif avec CV et références hospitalières du personnel clé",
-      "exemple": "Joindre les CV du chef de chantier et des techniciens CVC/plomberie avec mention explicite des chantiers hospitaliers réalisés, habilitations spécifiques (habilitations électriques pour GTB, attestations hygiène hospitalière) et ancienneté dans ces spécialités.",
-      "source": "RC §13.3"
+      "libelle": "Marques et performances des équipements CVC proposés (fiches techniques)",
+      "exemple": "Fournir des fiches techniques complètes avec performances certifiées des ventilo-convecteurs, CTA (classe d'étanchéité C requise), automate GTB, et robinetterie sanitaire ACS — ce sous-critère représente 30% du critère technique et sera éliminatoire si les équipements ne correspondent pas aux prescriptions du CCTP.",
+      "source": "RC §10.2 et §13.3 — sous-critère matériaux 30%"
     }
   ],
   "_meta": {
     "id_marche": "BOAMP-26-56768",
     "type": "complet",
-    "extraction_le": "2026-06-12T00:29:13.943237+00:00",
+    "date_generation": "2026-06-14T23:20:56.738952+00:00",
+    "extraction_le": "2026-06-14T23:20:56.738952+00:00",
     "modele": "claude-sonnet-4-6",
-    "tokens_input": 32282,
-    "tokens_output": 5854,
-    "cout_eur": 0.1754,
-    "duree_sec": 104.5,
+    "preset_utilise": "btp",
+    "presets_matches": [
+      "btp",
+      "ingenierie",
+      "energie_renouvelable"
+    ],
+    "prompts_versions": {
+      "btp/_preset.json": "sha256:d1717e0d87f6c265",
+      "ingenierie/_preset.json": "sha256:56f813f829343e24",
+      "energie_renouvelable/_preset.json": "sha256:6e0b4503bef6c585"
+    },
+    "tokens_input": 143003,
+    "tokens_output": 7312,
+    "cout_eur": 0.5118,
+    "duree_sec": 136.7,
     "pdfs_traites": [
+      {
+        "nom": "Attestation de confidentialite.docx",
+        "hash": "a5672a179c244a10654d3c567effca1c",
+        "taille_chars": 16226
+      },
+      {
+        "nom": "DC4 (sous-traitance).docx",
+        "hash": "f230ed63af9156f59734009b90c5b4d8",
+        "taille_chars": 15958
+      },
+      {
+        "nom": "FICHE NAVETTE_sous-traitance.docx",
+        "hash": "5c881cc70a17c29d5ec9d7236efad921",
+        "taille_chars": 2527
+      },
+      {
+        "nom": "Note explicative DC1.pdf",
+        "hash": "2cdda72ef2c04e5a666bae1841275493",
+        "taille_chars": 15538
+      },
+      {
+        "nom": "Note explicative DC2.pdf",
+        "hash": "6566e2d377833e34e9b13497abe8770c",
+        "taille_chars": 36756
+      },
+      {
+        "nom": "R2503 CCAP PTA RELANCE LOT 8 CVC.docx",
+        "hash": "c51a170d58203f7fcdea3efdf3eb1195",
+        "taille_chars": 90266
+      },
       {
         "nom": "R2503 RC PTA RELANCE LOT 8 CVCpdf.pdf",
         "hash": "3ef1c106d7a5d0093cf58c7cdcd8f8ca",
         "taille_chars": 57651
+      },
+      {
+        "nom": "R2503_CCTP_Lot no8_CVC_Plomberie.pdf",
+        "hash": "7a5472d0695a886adca1ce668224dbaa",
+        "taille_chars": 254402
+      },
+      {
+        "nom": "R2503_PTA_planning recale.pdf",
+        "hash": "0d0f13c4a16256b780ee86eafce6b590",
+        "taille_chars": 12804
       }
     ]
   }

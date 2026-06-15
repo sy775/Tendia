@@ -1,6 +1,6 @@
 # Brief — Création d'un escalier, d'un préau et d'un abri à cartables _ collège Pierre DE RONSARD
 
-_Généré le 2026-06-12 15:49 par Claude claude-sonnet-4-6_
+_Généré le 2026-06-15 01:47 par Claude claude-sonnet-4-6_
 
 ## Identifiants
 - **ID Tendia** : `BOAMP-26-57094`
@@ -10,86 +10,77 @@ _Généré le 2026-06-12 15:49 par Claude claude-sonnet-4-6_
 - **DCE PLACE** : <https://marches.rhone.fr/entreprise/consultation/240?orgAcronyme=cd69>
 
 ## Synthèse
-Marché public de travaux en 3 lots pour la création d'un escalier, d'un préau et d'un abri à cartables au collège Pierre de Ronsard à Mornant (69). Le marché est passé en procédure adaptée ouverte par le Département du Rhône. Les travaux portent sur du gros œuvre/maçonnerie, de la charpente bois lamellé-collé avec couverture aluminium, et de la serrurerie-métallerie.
+Marché public de travaux en procédure adaptée ouverte pour le compte du Département du Rhône, portant sur la création d'un escalier extérieur en béton armé reliant la cour haute à la cour basse, d'un préau en charpente bois lamellé-collé sur poteaux béton (205 m²), et d'un abri à cartables (auvent métallique ~46 m²) au collège Pierre de Ronsard à Mornant (69440). Le marché est décomposé en 3 lots séparés (maçonnerie-gros œuvre, charpente-couverture, serrurerie-métallerie) avec un délai global d'exécution de 4 mois, les travaux devant débuter à Pâques 2026.
 
 ## 🏗 Chantier — caractéristiques BTP
-- **Description** : Création d'un escalier, d'un préau et d'un abri à cartables dans l'enceinte du collège Pierre de Ronsard à Mornant (69440). Travaux neufs comprenant maçonnerie/béton armé, charpente bois lamellé-collé avec couverture aluminium joint debout, et serrurerie-métallerie.
-- **Type d'ouvrage** : Équipement scolaire public (collège) — constructions légères et ouvrages maçonnés neufs
-- **Site occupé pendant travaux** : oui
-- **Corps d'état mobilisés** : Maçonnerie - Gros Œuvre, Charpente bois lamellé-collé, Couverture en aluminium joint debout, Serrurerie - Métallerie
+- **Description** : Création de 3 ouvrages extérieurs sur le site du collège : (1) un escalier béton armé à deux volées droites et palier intermédiaire permettant de relier RdC haut (NGF+355.12) et cour basse (~NGF+349.65), soit ~420 cm de dénivelé, avec murs de soutènement, fondations sur semelles filantes et appui glissant sur corbeau ; (2) un préau de 204,87 m² en charpente bois lamellé-collé GL24H 160x400 mm sur poteaux béton armé Ø30 cm, couverture aluminium joint debout teinte brun-gris, pente 15% ; (3) un abri à cartables (auvent) de 46,28 m² avec structure IPE 400 + pannes bois, couverture aluminium joint debout, adossé au bâtiment existant. Travaux connexes : terrassements, dépose/repose d'enrochements, drainage, reprises d'enrobé, réseaux EP avec cuve de récupération 30 m³.
+- **Type d'ouvrage** : Établissement scolaire (collège) - constructions annexes neuves (escalier extérieur, préau, auvent) en site occupé
+- **Surface / volume** : Préau : 204,87 m² ; Abri à cartables : 46,28 m² ; Escalier : ouvrage linéaire ~5 m de large x 10 m de long environ
+- **Site occupé pendant travaux** : true — le collège reste en activité pendant les travaux ; les travaux sont prévus hors période scolaire (vacances de Pâques 2026) mais avec contraintes de coactivité ; les accès pompiers doivent rester libres à tout moment ; stationnement du personnel interdit dans l'enceinte hors livraisons
+- **Corps d'état mobilisés** : Maçonnerie - Gros Œuvre (terrassements, fondations BA, poteaux BA, escalier BA, murs de soutènement, drainage), Charpente bois lamellé-collé (structure préau GL24H et abri à cartables pannes bois), Couverture aluminium joint debout (préau et abri cartables), Serrurerie - Métallerie (garde-corps, main courante, limons escalier)
 - **Contraintes spécifiques** :
-  - Site scolaire occupé (collège en activité)
-  - Visite obligatoire sur site avant dépôt de l'offre
-  - Clauses environnementales imposées
-  - Coordination sécurité-protection de la santé (CSPS) de niveau III
-  - Contrôle technique par Apave
-  - Chantier soumis à PGC (Plan Général de Coordination) simplifié
+  - Site occupé : collège en activité, travaux à programmer hors périodes scolaires autant que possible
+  - Visite obligatoire du site avant remise des offres
+  - Chantier de catégorie 3 avec coordonnateur SPS ELYFEC désigné
+  - Contrainte sismique zone 2 (ag=0,84 m/s², importance III) à prendre en compte pour les structures
+  - Contexte géotechnique : remblais de limons sableux et altération sablo-argileuse avec hétérogénéité possible ; semelles filantes pour escalier (SFA 50x30 cm) et semelles isolées pour préau (150x150x60 cm)
+  - Mitoyenneté avec bâtiment existant et bassin de rétention enterré (cuve EP 30 m³ à respecter)
+  - Présence de réseaux enterrés (AEP, EU, EP, CFO, Cfa) documentés dans le plan de recollement
+  - Dépose et repose d'enrochements existants dans le talus au droit de l'escalier
+  - Constat d'huissier avant/après travaux obligatoire à la charge du lot 01
+  - Phasage strict : clôtures HERAS OPAQUE M800 obligatoires, accès pompiers maintenu, aucun stationnement en période scolaire
+  - Bureau de contrôle APAVE désigné, visa des plans d'exécution obligatoire
+  - Bois de construction certifiés PEFC/FSC obligatoires (traçabilité filière)
 
 ### Allotissement
-Marché décomposé en 3 lots indépendants, chacun faisant l'objet d'un marché séparé.
+Marché décomposé en 3 lots séparés ; le lot 01 est le lot principal assurant la coordination générale du chantier, la base vie, les clôtures et le compte prorata.
 - **Nombre de lots** : 3
 - **Lot 1** — Maçonnerie - Gros Œuvre
-  - Corps d'état : Maçonnerie, béton armé, gros œuvre
-  - Travaux de maçonnerie et de gros œuvre en béton armé (escalier, fondations, ouvrages maçonnés)
-- **Lot 2** — Charpente bois lamellé-collé – Couverture en aluminium joint debout
-  - Corps d'état : Charpente bois lamellé-collé, couverture aluminium joint debout
-  - Fourniture et pose de charpente en bois lamellé-collé avec couverture en aluminium joint debout (préau)
+  - Corps d'état : Maçonnerie, gros œuvre béton armé, terrassements, VRD
+  - Terrassements (dépose/repose enrochements, fouilles, remblais), fondations BA (semelles filantes escalier + semelles isolées préau), poteaux BA Ø30 cm préau, escalier extérieur BA 2 volées + palier, murs de soutènement BA, drainage périphérique, reprises enrobé, constat d'huissier, implantation géomètre, installation chantier générale et base vie
+- **Lot 2** — Charpente bois Lamellé-collé – couverture en aluminium joint debout
+  - Corps d'état : Charpente bois lamellé-collé, couverture aluminium
+  - Charpente bois GL24H 160x400 mm du préau sur platines d'ancrage en tête poteaux, pannes bois + muralières de l'abri cartables, couverture aluminium joint debout teinte brun-gris (préau et abri), caniveaux plats, rives périphériques alu, évacuations EP gueules de brochet
 - **Lot 3** — Serrurerie - Métallerie
   - Corps d'état : Serrurerie, métallerie
-  - Travaux de serrurerie et métallerie (abri à cartables, garde-corps, structures métalliques)
+  - Garde-corps barreaudés sur escalier avec limon tôlé plié et main courante déportée (acier galvanisé thermolaqué RAL 7039), garde-corps droits sur gradins, main courante rampante sur gradins, dépose soignée d'un châssis vitré fixe existant
 
 ### Qualifications BTP exigées
-Qualifications Qualibat exigées par lot pour la sélection des candidatures.
-- **Qualibat** : L, o, t, , 0, 1, , :, , 2, 1, 1, 1, , M, a, ç, o, n, n, e, r, i, e, , e, t, , o, u, v, r, a, g, e, , e, n, , b, é, t, o, n, , a, r, m, é, , (, t, e, c, h, n, i, c, i, t, é, , c, o, u, r, a, n, t, e, ), , ;, , L, o, t, , 0, 2, , :, , 2, 3, 0, 1, , F, o, u, r, n, i, t, u, r, e, , e, t, , p, o, s, e, , d, e, , c, h, a, r, p, e, n, t, e, , t, r, a, d, i, t, i, o, n, n, e, l, l, e, ,, , e, n, , b, o, i, s, , l, a, m, e, l, l, é, -, c, o, l, l, é, , e, t, , s, t, r, u, c, t, u, r, e, , e, n, , b, o, i, s, , (, t, e, c, h, n, i, c, i, t, é, , c, o, u, r, a, n, t, e, ), , ;, , L, o, t, , 0, 3, , :, , 4, 4, 1, 1, , S, e, r, r, u, r, e, r, i, e, -, m, é, t, a, l, l, e, r, i, e, , (, t, e, c, h, n, i, c, i, t, é, , c, o, u, r, a, n, t, e, )
-
-## ⚡ Parc EnR — caractéristiques techniques
-### Volumes techniques
-- **Note** : Délai d'exécution par lot défini au CCAP, non communiqué dans le RC.
-
-### Modalités d'exécution
-- **Sites d'exécution** : Mornant (69440)
-
-## 🎓 Formation / accompagnement
-### Modalités
-- **Sites d'exécution** : Mornant (69440)
+Aucune qualification Qualibat ou certification spécifique n'est explicitement exigée à peine d'irrecevabilité dans les pièces transmises (RC non fourni). Les CCTP exigent des spécialistes expérimentés. Les bois de construction doivent être certifiés PEFC ou équivalent.
+- **MASE** : non
+- **Autres exigences** :
+  - Certification PEFC ou FSC pour les bois de construction (bois massif et lamellé-collé) — CCTC §2.10
 
 ## 💶 Montant du marché
 - _Montant non communiqué dans le DCE._
   - Typique des accords-cadres à bons de commande : le volume dépend des commandes effectivement passées par l'acheteur sur la durée du marché.
-- _Note_ : Le RC ne mentionne aucune valeur estimée ni enveloppe budgétaire pour le marché ou ses lots. Le CCAP et la DPGF ne sont pas fournis dans les pièces analysées.
+- _Note_ : Aucun montant estimatif ni DPGF/BPU chiffré n'a été fourni dans les pièces du DCE transmises. L'AE indique un prix global forfaitaire à renseigner par le candidat mais sans valeur de référence.
 
 ## Barème de notation
-- **Valeur technique** : 60 %
-- **Valeur prix** : 40 %
-- **Sous-critères techniques** :
-  - Moyens humains et matériels affectés à l'opération et références : 18 %
-  - Méthodologie pour mener à bien le chantier : 24 %
-  - Moyens mis en œuvre pour respecter les délais : 6 %
-  - Qualité des matériaux et démarche environnementale : 12 %
-- **Calcul du prix** : Critère prix pondéré à 40/100. Formule exacte non précisée dans le RC. DPGF à compléter pour chaque lot.
+- **Valeur technique** : —
+- **Valeur prix** : —
+- **Calcul du prix** : Prix global forfaitaire par lot (acte d'engagement). Aucune formule de notation du prix non trouvée dans les pièces fournies.
 
 ## Références et qualifications exigées
 - **Expérience minimale** : —
-- **Secteur d'expérience** : Travaux de maçonnerie/gros œuvre, charpente bois lamellé-collé, serrurerie-métallerie (ouvrages similaires sur les 5 dernières années)
-- **Certifications obligatoires** : Lot 01 : QUALIBAT 2111 Maçonnerie et ouvrage en béton armé (technicité courante) (source=RC §6.1), Lot 02 : QUALIBAT 2301 Fourniture et pose de charpente traditionnelle, en bois lamellé-collé et structure en bois (technicité courante) (source=RC §6.1), Lot 03 : QUALIBAT 4411 Serrurerie-métallerie (technicité courante) (source=RC §6.1)
+- **Secteur d'expérience** : Travaux de construction neuve d'ouvrages extérieurs en milieu scolaire (escaliers BA, préaux, auvents) avec contraintes de site occupé
+- **Certifications obligatoires** : Bois de construction certifiés PEFC ou équivalent (traçabilité filière, gestion durable des forêts) pour ossatures principales et secondaires en bois massif et lamellé-collé (source=CCTC §2.10)
 - **Autres exigences** :
-  - Liste des travaux exécutés au cours des 5 dernières années, appuyée d'attestations de bonne exécution pour les plus importants (source=RC §6.1)
-  - Déclaration du chiffre d'affaires global et concernant les prestations objet du contrat sur les 3 derniers exercices (source=RC §6.1)
-  - Déclaration des effectifs moyens annuels et du personnel d'encadrement sur les 3 dernières années (source=RC §6.1)
-  - Déclaration de l'outillage, matériel et équipement technique disponibles (source=RC §6.1)
-  - Attestation d'assurance décennale à produire dans les 8 jours suivant notification provisoire du marché (source=RC §8.3)
-  - Visite obligatoire sur site — l'offre d'un candidat n'ayant pas effectué la visite sera déclarée irrégulière (source=RC §6.2)
+  - Visite obligatoire du site avant remise des offres — attestation de visite requise (source=CCTC §1.4)
+  - Constat d'huissier avant et après travaux à la charge du lot 01 (en présence du maître d'ouvrage et d'un représentant du collège) (source=CCTP Lot 01 §5.1)
+  - Assurance RC décennale obligatoire à justifier dans les 8 jours suivant la notification du marché (source=CCAP article 16)
 
 ## ⚠ Alertes candidat
-- VISITE OBLIGATOIRE sur site avant dépôt de l'offre : l'absence de visite entraîne l'irrégularité de l'offre et son élimination — prendre RDV au 06 27 77 14 44 (Stéphane AVERLY) ou batiment_sud@rhone.fr
-- Qualifications Qualibat obligatoires par lot : 2111 (Lot 01), 2301 (Lot 02), 4411 (Lot 03) — une entreprise sans la qualification du lot concerné ne peut candidater
-- Attestation d'assurance décennale exigée dans les 8 jours suivant la notification provisoire — à préparer en amont
-- Transmission électronique uniquement imposée (plateforme Atexo https://marches.rhone.fr/entreprise) — aucune transmission papier autorisée
-- La DPGF est obligatoire pour chaque lot : toute erreur arithmétique non confirmée entraîne l'élimination de l'offre
+- Visite du site OBLIGATOIRE avant remise des offres — le fait de remettre une offre vaut attestation de visite ; aucune plus-value ne pourra être réclamée pour méconnaissance des lieux (CCTC §1.4).
+- Travaux en site scolaire occupé avec contraintes horaires strictes : travaux bruyants limités au créneau 12h-14h, stationnement du personnel interdit dans l'enceinte, coupures de réseaux à autoriser par le chef d'établissement (CCAP §10.5.3).
+- Contexte géotechnique à risque : sols hétérogènes avec possibilité de surépaisseurs de remblais et poches molles non détectées — les sujétions géotechniques imprévues sont au forfait de l'entreprise ; une mission G3 complémentaire sera à la charge de l'entrepreneur (note structure + rapport G2 AVP).
+- Pénalités de retard sans plafond ni mise en demeure préalable (500 €/j lots 01-02, 200 €/j lot 03) applicables dès le premier jour de retard sur le calendrier détaillé (CCAP §15.1).
+- Lot 01 supporte les charges communes : base vie, clôtures, branchements, constat d'huissier TCE, panneau de chantier, compte prorata — à chiffrer impérativement dans le forfait lot 01 sous peine de sous-estimation majeure (CCTC §1.5 et CCTP Lot 01 §5.2).
+- Bois certifiés PEFC ou équivalent obligatoires avec traçabilité documentée — défaut de justification peut entraîner refus de matériaux et reprise aux frais de l'entreprise (CCTC §2.10).
 
 ## 💡 Points différenciants attendus
-- Organisation du chantier en site scolaire occupé (exemple=Décrire un phasage précis avec horaires de travaux bruyants hors présence des élèves, clôtures de chantier sécurisées, et protocole de communication avec l'établissement scolaire (direction, CPE). Mentionner une expérience similaire sur un autre collège ou lycée occupé., source=RC §8.2)
-- Qualité et précision de la méthodologie d'exécution (24 pts sur 60) (exemple=Fournir un mémoire technique structuré décrivant les procédés d'exécution tâche par tâche, les interfaces entre les 3 lots, et un planning Gantt détaillé. Le critère méthodologie est le plus lourd du barème (24/60 pts techniques)., source=RC §8.2)
-- Procédure de GPA et levée de réserves proactive (exemple=Proposer un engagement contractualisé de délai d'intervention GPA (ex: sous 5 jours ouvrés), un référent GPA nommé, et un outil de suivi partagé des réserves. Ces éléments comptent pour 12/60 pts techniques., source=RC §8.2)
-- Démarche environnementale chantier et qualité des matériaux (exemple=Fournir un SOGED détaillé avec identification des filières de valorisation des déchets et taux cibles, ainsi qu'un listing des matériaux avec certifications environnementales (PEFC, écolabel, recyclé). Ces éléments comptent pour 12/60 pts techniques., source=RC §8.2)
-- Références ciblées sur ouvrages similaires en milieu scolaire (exemple=Présenter 2 à 3 références de préaux, escaliers ou abris scolaires réalisés pour des Départements ou collectivités, avec attestations de bonne exécution et coordonnées de MOA. L'adéquation avec le contexte scolaire et les montants similaires sera valorisée., source=RC §8.2)
+- Expérience en chantiers similaires en milieu scolaire occupé avec phasage contraignant (exemple=Présenter des références de préaux ou escaliers extérieurs en béton armé réalisés dans des collèges ou lycées en activité, avec description des mesures prises (clôtures, horaires décalés, maintien des accès), pour démontrer la maîtrise des contraintes spécifiques aux ERP scolaires., source=CCAP §10.5.3)
+- Maîtrise technique des ouvrages béton brut de décoffrage de haute qualité (parement C6) (exemple=Pour le lot 01, illustrer avec photos de références des poteaux et murs BA avec parement C6 (taux bulles < 2%, aucun ragréage) obtenus avec coffrages métalliques ou backélisés, démontrant la capacité à livrer des bétons architecturaux destinés à rester bruts., source=CCTP Lot 01 §8.1.2, §9.2.2, §10.2.2)
+- Compétence en charpente bois lamellé-collé GL24H avec fixations invisibles et certification filière bois PEFC (exemple=Pour le lot 02, présenter des références de préaux en bois lamellé-collé avec fixations invisibles par vis croisées, en joignant les certificats PEFC des fournisseurs bois et une note sur la traçabilité des approvisionnements (marquage CE, humidité conforme DTU)., source=CCTC §2.9, §2.10 ; Note structure §5.2)
+- Organisation chantier et gestion des interfaces entre les 3 lots en site occupé (exemple=Décrire un planning détaillé avec phasage entre les 3 lots (terrassements/fondations → poteaux BA → charpente bois → couverture → serrurerie) en identifiant les points critiques d'interface (platines en tête de poteaux, scellements corbeau façade, réservations), et les modalités de coordination avec le collège pour les fermetures temporaires., source=CCTC §1.8 ; CCAP §5.3 ; PGC §2.6)
+- Respect des prescriptions PMR et podotactiles sur l'escalier extérieur (exemple=Démontrer la maîtrise des exigences accessibilité handicapés pour les escaliers extérieurs : clous podotactiles inox scellés (trame autocollante interdite), nez de marches antidérapants par désactivation/sablage béton avec contraste visuel, contremarches contrastées — avec référence à des réalisations similaires en ERP., source=CCTP Lot 01 §10.2, §10.3)

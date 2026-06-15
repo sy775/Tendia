@@ -1,6 +1,6 @@
 # Brief — Réhabilitation et réaménagement du pont de Pierre sur la Garonne à Agen-Le Passage (D656)
 
-_Généré le 2026-06-12 15:49 par Claude claude-sonnet-4-6_
+_Généré le 2026-06-15 00:09 par Claude claude-sonnet-4-6_
 
 ## Identifiants
 - **ID Tendia** : `BOAMP-26-56096`
@@ -11,123 +11,140 @@ _Généré le 2026-06-12 15:49 par Claude claude-sonnet-4-6_
 - **DCE PLACE** : <https://www.demat-ampa.fr/?page=Entreprise.EntrepriseDetailsConsultation&id=608161&orgAcronyme=e1x>
 
 ## Synthèse
-Le Conseil Départemental du Lot-et-Garonne lance un marché de maîtrise d'œuvre pour la réhabilitation et le réaménagement du pont de Pierre sur la Garonne à Agen/Le Passage (D656), ouvrage classé monument historique supportant des réseaux sensibles et situé dans un périmètre naturel protégé (chiroptères, frayères). Le marché est structuré en une tranche ferme (missions de base) et 11 tranches optionnelles couvrant les études environnementales, topographiques, hydrauliques, géotechniques et les démarches réglementaires. Il s'agit d'un marché à prix global forfaitaire, passé en appel d'offres ouvert, sans allotissement.
+Marché public de maîtrise d'œuvre pour la réhabilitation et le réaménagement du Pont de Pierre sur la Garonne à Agen-Le Passage (D656), ouvrage d'art en béton précontraint de 263 m franchissant la Garonne. La mission inclut une tranche ferme complète (DIA à AOR) et 11 tranches optionnelles couvrant notamment les diagnostics environnementaux chiroptères, les études hydrauliques et géotechniques, ainsi que les dossiers CNPN. Le coût d'objectif des travaux est fixé à 3 200 000 € HT.
 
 ## 🏗 Chantier — caractéristiques BTP
-- **Description** : Réhabilitation et réaménagement du pont de Pierre, ouvrage franchissant la Garonne et les voies sur berge, permettant à la D656 de relier Agen au Passage en 2x3 voies. Le pont supporte des réseaux sensibles (gaz TIGF, gaz de ville, électricité, réseau de chaleur urbaine), est classé monument historique, se situe en périmètre naturel sensible (frayères, chiroptères). Le MOE doit s'approprier un diagnostic antérieur, le mettre à jour, modéliser l'ouvrage, établir un programme de travaux et produire un diagnostic environnemental avec étude d'impact.
-- **Type d'ouvrage** : Pont routier (ouvrage d'art) en béton précontraint, classé monument historique
-- **Site occupé pendant travaux** : Non précisé — le pont est en exploitation (D656 en 2x3 voies), la question de la circulation pendant travaux n'est pas abordée dans les pièces fournies
-- **Corps d'état mobilisés** : Ingénierie structure / génie civil, Études environnementales (chiroptères, frayères, faune), Topographie, Hydraulique et géotechnique, Coordination des intervenants extérieurs, Dossier réglementaire CNPN
+- **Description** : Réhabilitation et réaménagement du Pont de Pierre sur la Garonne à Agen : ouvrage en béton précontraint de 263 m (5 travées), 23 m de large, 2x3 voies, construit en 1973 par encorbellements successifs. Travaux incluant réfection des joints, appareils d'appui, étanchéité, superstructures, aménagement modes doux, gestion des chiroptères (colonie hivernale de noctules communes identifiée comme l'un des 3 plus importants sites d'hibernation en France), gestion des frayères, réseaux sensibles (gaz TIGF, électricité, chaleur urbaine).
+- **Type d'ouvrage** : Pont routier en béton précontraint sur cours d'eau classé (Garonne), périmètre monuments historiques, site Natura 2000
+- **Surface / volume** : Tablier 263 m de long, 23 m de large environ, 5 travées (34,12 / 47,50 / 95,00 / 47,50 / 34,12 m)
+- **Site occupé pendant travaux** : true — maintien du trafic routier obligatoire pendant les travaux (D656 en agglomération, transports collectifs urbains et scolaires)
+- **Corps d'état mobilisés** : Structure béton précontraint (recalcul, renforcement par composites carbone), Réfection superstructures (étanchéité, couche de roulement, trottoirs, garde-corps, corniches), Remplacement appareils d'appui, Aménagements modes doux (pistes cyclables, trottoirs élargis), Hydraulique et assainissement (collecte eaux pluviales), Réseaux sensibles (gaz, électricité, chaleur urbaine), Environnement (chiroptères, frayères, suivi écologique)
 - **Contraintes spécifiques** :
-  - Ouvrage classé monument historique — périmètre de protection
-  - Présence de réseaux sensibles (gaz TIGF, gaz de ville, électricité, réseau de chaleur urbaine)
-  - Zone naturelle sensible : frayères identifiées dans la Garonne
-  - Population remarquable de chiroptères identifiée sur l'ouvrage (Noctule Commune) — dossier CNPN requis
-  - Ouvrage en béton précontraint nécessitant une expertise spécifique
-  - Diagnostic antérieur existant à s'approprier, mettre à jour et enrichir
-  - Étude d'impact faunistique sur 4 saisons requise
-  - Mesures compensatoires à quantifier si nécessaire
-  - AIPR concepteur avec piquetages requis
+  - Maintien du trafic routier obligatoire (D656, transports collectifs)
+  - Périmètre monuments historiques classés — validation ABF requise
+  - Site Natura 2000 FR7200700 et ZNIEFF frayère d'alose
+  - Colonie exceptionnelle de noctules communes (≥238 individus en hibernation) — espèces protégées L.411-1 code environnement, nécessité probable dérogation L.411-2 CNPN
+  - Réseaux sensibles multiples (gaz TIGF Φ168,3, gaz de ville, EDF HTA, chaleur urbaine, Orange, fibre)
+  - Zone inondable — PPRI aléa très fort, contrainte crues Garonne
+  - Ouvrage en béton précontraint (précontrainte interne, construction par encorbellements successifs)
+  - Travaux répartis en plusieurs tranches discontinues sur 4 ans
+  - Périmètre protection eau potable Garonne Agenaise
+  - Concertation publique avec élus, riverains, associations
 
 ### Allotissement
-Marché unique sans décomposition en lots. Les prestations sont divisées en 12 tranches (1 tranche ferme + 11 tranches optionnelles).
+Marché sans décomposition en lots — marché unique à 12 tranches (1 ferme + 11 optionnelles)
 - **Nombre de lots** : 1
-- **Lot 1** — MOE relative à la réhabilitation et au réaménagement du pont de Pierre sur la Garonne à Agen - Le Passage (D656)
-  - Corps d'état : Maîtrise d'œuvre ouvrage d'art — ingénierie structure, environnement, topographie, hydraulique, géotechnique
-  - Marché unique en 12 tranches : TF (missions de base), TO001 (coordination intervenants extérieurs), TO002 (assistance consultation/information du public), TO003 (levés topographiques), TO004 (reconnaissances diverses), TO005 (diagnostic environnemental), TO006 (étude d'impact faunistique 4 saisons), TO007 (dossier CNPN Noctule Commune), TO008 (mesures compensatoires avec plan de gestion), TO009 (suivi environnemental), TO010 (études hydrauliques et géotechniques), TO011 (AIPR concepteur avec piquetages)
+- **Lot 1** — MOE relative à la réhabilitation et au réaménagement du Pont de Pierre sur la Garonne à Agen-Le Passage (D656)
+  - Corps d'état : Maîtrise d'œuvre ouvrage d'art, ingénierie structure béton précontraint, environnement, hydraulique, topographie
+  - Mission complète de MOE (TF : DIA, AVP, PRO, AMT, VISA, DET, AOR) + 11 tranches optionnelles (CIE, ACI, levés topo, reconnaissances, diagnostic environnemental, étude d'impact faunistique 4 saisons, dossier CNPN Noctule Commune, mesures compensatoires, suivi environnemental, études hydrauliques/géotechniques, AIPR concepteur/piquetages)
 
 ### Qualifications BTP exigées
-Référence de réhabilitation d'ouvrage d'art en béton précontraint exigée. Aucune qualification Qualibat ou RGE mentionnée (marché de maîtrise d'œuvre / ingénierie).
+Le RC exige une référence de réhabilitation d'ouvrage d'art en béton précontraint dans les 5 dernières années. Aucune qualification Qualibat explicitement listée. L'équipe doit couvrir des compétences pluridisciplinaires décrites au CCTP.
+- **MASE** : non
+- **Autres exigences** :
+  - Habilitation AIPR concepteur (pour mission TO011)
 
 ## 🧮 Mission MOE / ingénierie
-- **Typologie de mission** : MOE complète ouvrage d'art — diagnostic, études, programme de travaux, avec missions complémentaires environnementales et réglementaires
-- **Type d'ouvrage** : Ouvrage d'art — pont routier en béton précontraint classé monument historique
+- **Typologie de mission** : MOE complète ouvrage d'art
+- **Type d'ouvrage** : Ouvrage d'art — pont routier en béton précontraint sur cours d'eau, périmètre classé, contexte environnemental sensible
 - **Complexité technique** : expert
-- **Phases couvertes** : DIAG, ESQ, APS, APD, PRO, DCE, ACT, EXE, OPC, AOR
+- **Phases couvertes** : DIA, AVP, PRO, AMT, VISA, DET, AOR
+- **Montant travaux estimé** : 3,20 M€
 - **Livrables par phase** :
-  - **TF — Missions de base** :
-    - Appropriation et mise à jour du diagnostic antérieur
-    - Modélisation de l'ouvrage (comportement structurel et accessoires)
-    - Intégration des données d'usage (comptage routier)
-    - Inventaire de l'état des parties de l'ouvrage
-    - Analyse des enjeux patrimoniaux, réglementaires, techniques, écologiques et d'exploitation
-    - Programme de travaux
-  - **TO001 — Coordination des intervenants extérieurs (CIE)** :
-    - Plan de coordination des intervenants extérieurs
-  - **TO002 — Assistance pour la consultation et l'information du public (ACI)** :
-    - Documents d'information et de concertation du public
-  - **TO003 — Levés topographiques** :
-    - Plans topographiques de l'ouvrage et de son environnement
-  - **TO004 — Reconnaissances diverses** :
-    - Rapports de reconnaissances (à préciser selon CCTP)
-  - **TO005 — Diagnostic environnemental** :
-    - Rapport de diagnostic environnemental autour de l'ouvrage
-    - Étude d'impact des travaux projetés (chiroptères, frayères, etc.)
-  - **TO006 — Étude d'impact faunistique (4 saisons) IPD** :
-    - Rapport d'inventaire et d'impact faunistique couvrant les 4 saisons
-  - **TO007 — Dossier CNPN (Noctule Commune)** :
-    - Dossier de demande de dérogation CNPN pour la Noctule Commune
-  - **TO008 — Mesures compensatoires avec plan de gestion** :
-    - Quantification des mesures d'accompagnement et compensatoires
-    - Plan de gestion associé
-  - **TO009 — Suivi environnemental** :
-    - Rapports de suivi environnemental pendant et après travaux
-  - **TO010 — Études hydrauliques et géotechniques** :
-    - Étude hydraulique
-    - Rapport géotechnique
-  - **TO011 — AIPR concepteur avec piquetages** :
-    - Attestation AIPR concepteur
-    - Plans de piquetages des réseaux
+  - **DIA** :
+    - Rapport de diagnostic complet (volets environnemental, architectural, technique, exploitation, sécurité, coût, planning, administratif, réglementaire)
+    - Production graphique facilitant la compréhension
+    - Minute soumise à relecture puis édition finale papier reliée 3 exemplaires + reproductible numérique (pdf, docx, xlsx, dwg)
+    - Délai livraison : 10 semaines après OS
+  - **AVP** :
+    - Mémoire AVP avec documents graphiques, plans, notes de calcul
+    - Présentation des options techniques et architecturales, variantes, justifications
+    - Présentation des conditions d'exploitation en phases chantier et définitive
+    - Section dédiée aux organismes extérieurs (élus, DDT, ABF, DREAL, DIRCO, associations)
+    - Minute soumise à relecture, édition finale 3 exemplaires papier + reproductible numérique
+    - Délai livraison : 10 semaines après OS
+  - **PRO** :
+    - Dossier de projet définitif : notes de calcul, avant-métrés, répartitions détaillées des dépenses, méthodes
+    - Plans permettant aux candidats travaux d'appréhender la nature des prestations
+    - Coût prévisionnel par tranche de réalisation
+    - Minute soumise à relecture, édition finale 3 exemplaires + reproductible numérique
+    - Délai livraison : 6 semaines après OS
+  - **AMT** :
+    - DCE complet (CCTP, plans, BPU, détail estimatif, SOAQ)
+    - Sélection des candidats et analyse des candidatures
+    - Rapport d'analyse comparative des offres (méthodes et finances)
+    - Préparation des mises au point des marchés
+    - Délai livraison DCE : 4 semaines ; AMT global : 10 mois
+  - **VISA** :
+    - Visa des documents calculatoires (3 semaines max)
+    - Visa des documents méthodes (3 semaines max)
+    - Approbation des fournitures (2 semaines max)
+    - Durée : 24 mois
+  - **DET** :
+    - Ordres de service à l'entrepreneur
+    - Vérification des projets de décomptes mensuels (7 jours)
+    - Vérification du projet de décompte final (15 jours)
+    - Comptes rendus de réunions de chantier (avant la réunion suivante)
+    - Durée : 24 mois
+  - **AOR** :
+    - Dossier DOE (4 semaines après fin travaux)
+    - Rapport AOR (4 semaines + 1 an après réception)
+    - Durée : 18 mois
+- **Indices révision** : ING
 - **Coordinations associées** :
-  - TO001 Coordination des intervenants extérieurs — inclus (tranche optionnelle)
-  - SPS niveau I — hors marché MOE (coordonnateur désigné ultérieurement)
-  - Contrôle technique — hors marché MOE (désigné ultérieurement)
+  - Contrôleur technique désigné ultérieurement (hors marché)
+  - Coordonnateur SPS niveau I désigné ultérieurement (hors marché)
 - **Organigramme attendu** :
-  - Responsable de projet / Chef de mission ouvrage d'art
-  - Ingénieur structures béton précontraint
-  - Expert environnement / écologue (chiroptères, faune aquatique)
-  - Géotechnicien / Hydraulicien
+  - Chef de projet MOE ouvrage d'art
+  - Ingénieur structures béton précontraint (recalcul, dimensionnement)
+  - Expert appareils d'appui
+  - Expert environnemental / écologue (faune-flore, chiroptères, frayères)
+  - Topographe
+  - Expert hydraulique et géotechnique
+  - Concepteur AIPR (habilitation requise)
+  - Communicant / chargé de concertation publique
 
 ### Qualifications MOE exigées
 - **Autres exigences** :
-  - Au moins une référence de réhabilitation d'ouvrage d'art en béton précontraint au cours des 5 dernières années
+  - Habilitation AIPR concepteur (exigée pour mission TO011)
+  - Bureau d'étude agréé pour diagnostic faune et flore incluant chiroptères (exigé au CCTP)
 
 ## 💶 Montant du marché
 - _Montant non communiqué dans le DCE._
   - Typique des accords-cadres à bons de commande : le volume dépend des commandes effectivement passées par l'acheteur sur la durée du marché.
-- _Note_ : Aucun montant estimé, plafond ou fourchette n'est communiqué dans les pièces fournies (RC uniquement). La DPGF (fournie dans le DCE mais non transmise dans l'analyse) contient les lignes à chiffrer qui permettraient d'estimer la valeur. Le CCAP non fourni pourrait contenir des éléments complémentaires.
+- _Note_ : Le montant MOE n'est pas fixé explicitement : il résulte du produit du taux t proposé par le candidat × 3 200 000 € HT pour la TF (forfait provisoire), plus les forfaits définitifs des TO. Le taux t et les forfaits TO sont les variables de prix à proposer par le candidat dans la DPGF.
 
 ## Barème de notation
-- **Valeur technique** : 60 %
+- **Valeur technique** : 45 %
 - **Valeur prix** : 40 %
 - **Sous-critères techniques** :
-  - Valeur technique : 45 %
+  - Valeur technique établie sur la base du cadre de mémoire technique et environnemental : 45 %
   - Performance en matière de protection de l'environnement : 10 %
   - Performance de l'offre en matière d'insertion des jeunes par l'alternance : 5 %
-- **Calcul du prix** : Note N2 = 40 × (MOr / MOc) — MOr = montant HT de la meilleure offre (moins-disante) de la DPGF, MOc = montant HT de l'offre considérée.
+- **Calcul du prix** : Note N2 = 40 × (montant HT meilleure offre DPGF) / (montant HT offre considérée DPGF)
 
 ## Références et qualifications exigées
 - **Expérience minimale** : 5 ans
-- **Volume minimal de références** : 1 marchés similaires (réhabilitation d'ouvrage d'art en béton précontraint)
-- **Secteur d'expérience** : Réhabilitation d'ouvrage d'art en béton précontraint
+- **Volume minimal de références** : 1 référence de réhabilitation d'ouvrage d'art en béton précontraint
+- **Secteur d'expérience** : Réhabilitation d'ouvrage d'art en béton précontraint (au moins une référence dans les 5 dernières années)
+- **Certifications obligatoires** : Référence de réhabilitation d'ouvrage d'art en béton précontraint (au moins 1 dans les 5 dernières années) — exigence de capacité technique minimale (source=RC §6.1)
 - **Autres exigences** :
-  - Présentation des titres d'études et professionnels de l'opérateur économique et/ou des cadres de l'entreprise, notamment des responsables de prestation de services ou de conduite des travaux de même nature (source=RC §6.1)
-  - Déclaration concernant le chiffre d'affaires global et le chiffre d'affaires concernant les prestations objet du contrat, réalisées au cours des 3 derniers exercices disponibles (source=RC §6.1)
-  - Déclaration appropriée de banques ou preuve d'une assurance pour les risques professionnels (source=RC §6.1)
-  - Déclaration indiquant les effectifs moyens annuels et l'importance du personnel d'encadrement pour chacune des 3 dernières années (source=RC §6.1)
+  - Déclaration du chiffre d'affaires global et des prestations objet du contrat sur les 3 derniers exercices disponibles (source=RC §6.1)
+  - Déclaration des effectifs moyens annuels et importance du personnel d'encadrement sur les 3 dernières années (source=RC §6.1)
+  - Indication des titres d'études et professionnels des responsables de prestation (source=RC §6.1)
+  - Engagement d'insertion sociale : 180 heures minimum sur 63 mois maximum (visites chantier, stages/immersions, parrainage, sensibilisation discriminations) (source=CCAP §13)
 
 ## ⚠ Alertes candidat
-- RÉFÉRENCE OBLIGATOIRE : au moins une référence de réhabilitation d'ouvrage d'art en béton précontraint au cours des 5 dernières années est exigée — son absence entraîne l'irrecevabilité de la candidature (RC §6.1).
-- DPGF VERROUILLÉE : le fichier Excel doit être complété uniquement dans les cases jaunes ; toutes les lignes doivent être renseignées (y compris avec '0' si prestation gratuite) — toute ligne vide entraîne le rejet de l'offre (RC §6.1).
-- OFFRE DE BASE OBLIGATOIRE : les variantes ne peuvent être présentées qu'en complément d'une offre de base complète et conforme — une offre variante seule sera rejetée (RC §2.3).
-- COMPÉTENCES ENVIRONNEMENTALES INDISPENSABLES : le marché inclut des tranches optionnelles lourdes (étude faunistique 4 saisons, dossier CNPN Noctule Commune, mesures compensatoires) — un candidat sans compétences en écologie/chiroptères devra justifier d'un sous-traitant spécialisé identifié dans l'offre.
-- MÉMOIRE TECHNIQUE ET ENVIRONNEMENTAL OBLIGATOIRE : son absence ou une réponse incomplète sur les conditions d'exécution environnementales et sociales entraîne l'irrégularité de l'offre (RC §2.4).
-- SIGNATURE ÉLECTRONIQUE DU CONTRAT EXIGÉE pour l'attributaire — prévoir l'obtention d'un certificat de signature électronique qualifié (RGS) en amont (RC §7.1).
+- EXIGENCE RÉDHIBITOIRE : au moins une référence de réhabilitation d'ouvrage d'art en béton précontraint dans les 5 dernières années — absence = candidature irrecevable (RC §6.1).
+- LE CMTE (cadre de mémoire technique et environnemental) est OBLIGATOIRE et son utilisation est exigée sous peine de rejet de l'offre — et il doit être déposé sous le format fourni (CMTE §remarques liminaires).
+- L'équipe doit impérativement inclure un bureau d'étude agréé capable de produire un diagnostic chiroptères et un dossier CNPN — la présence d'une colonie de noctules communes exceptionnelle (top 3 France) impose probablement une dérogation L.411-2, dossier long et complexe (CCTP §3).
+- Habilitation AIPR concepteur nominativement identifiée requise pour la mission TO011 — à anticiper dans la composition du groupement (CCTP §5-7).
+- Le périmètre monument historique et la zone Natura 2000 imposent des procédures administratives longues (ABF, DREAL) qui doivent être intégrées au planning — un candidat sous-estimant ces délais sera pénalisé sur VT1 (CCTP §3).
+- La clause d'insertion sociale est contractuelle (180h sur 63 mois) et son non-respect expose à des pénalités — désigner dès l'offre un correspondant opérationnel et contacter ARDIE 47 (CCAP §13).
 
 ## 💡 Points différenciants attendus
-- Expertise béton précontraint démontrée sur l'ouvrage type pont (exemple=Présenter un ingénieur nominatif avec CV détaillant des missions de diagnostic et modélisation sur ponts béton précontraint, accompagné de 2-3 références avec attestation du maître d'ouvrage. Mentionner les logiciels de calcul utilisés (éléments finis, modèles de fluage/relaxation)., source=RC §6.1)
-- Maîtrise des contraintes patrimoine historique (ABF, ZPPAUP) (exemple=Décrire l'expérience de l'équipe dans la gestion des interfaces avec l'Architecte des Bâtiments de France, les démarches d'autorisation au titre des monuments historiques, et les solutions techniques compatibles avec la préservation du caractère architectural du pont.)
-- Compétences chiroptérologiques intégrées à l'équipe (ou sous-traitant identifié) (exemple=Présenter l'écologue missionné sur les chiroptères avec ses références sur des dossiers CNPN similaires (espèces cavernicoles sur ouvrages d'art). Détailler le protocole d'inventaire 4 saisons conforme aux recommandations SFEPM/MNHN., source=RC §1.1)
-- Qualité des solutions techniques sur les variantes autorisées (récupération EP et appareils d'appui) (exemple=Proposer une variante technique documentée pour le remplacement des appareils d'appui avec comparaison coût/délai/compatibilité patrimoniale et références de réalisations similaires. Chiffrer précisément les économies GES ou de cycle de vie., source=RC §2.3)
-- Intégration des alternants dans l'équipe projet (exemple=Affecter un ou plusieurs alternants (contrat d'apprentissage ou de professionnalisation) avec des missions concrètes (aide aux levés topo, modélisation, rédaction de rapports) et joindre les contrats à l'offre pour maximiser la note N4., source=RC §8.2)
-- Exemplarité environnementale de la démarche de mission (exemple=Proposer un plan de déplacement bas-carbone pour les visites de chantier (covoiturage, train pour les experts non-locaux, visioconférences pour les réunions intermédiaires) et quantifier la réduction d'émissions CO2 par rapport à un scénario de référence., source=RC §8.2)
+- Maîtrise du dossier chiroptères CNPN et dérogation espèces protégées (exemple=Un candidat qui joint au CMTE une note préliminaire d'analyse de la situation réglementaire chiroptères (identification des espèces, risques de la dérogation L.411-2, délai d'instruction estimé CNPN), avec un partenaire écologue ayant déjà obtenu des dérogations pour Nyctalus noctula, se distinguera fortement sur DD1 et VT1., source=CCTP §3 ; RC §8.2 CMTE DD1)
+- Expérience avérée sur ponts précontraints par encorbellements successifs avec modélisation ST1 ou équivalent (exemple=Présenter une référence similaire (pont caisson précontraint, recalcul Eurocodes, remplacement appareils d'appui) avec note de calcul synthétique jointe au CMTE, démontrant la maîtrise des outils de modélisation et la compréhension des déficits structurels spécifiques à ce type d'ouvrage., source=CCTP §1 ; RC §6.1 ; CMTE VT2)
+- Proposition de phasage chantier innovant préservant le trafic sur D656 (exemple=Détailler un phasage optimisé en 4 tranches discontinues respectant les contraintes crues (travaux d'accès sous tablier privilégiés en été), avec alternats sécurisés permettant de maintenir 2+2 voies pendant 80% de la durée des travaux — valorise VT3 et VT1., source=CCTP §3 ; CMTE VT3)
+- Variante technique sur récupération eaux de pluie avec solution innovante (exemple=Proposer une variante avec système de rétention-décantation enterré sous les berges avec rejet en nappe au lieu du rejet direct Garonne, démontrant la faisabilité hydraulique par note de calcul préliminaire et réduisant le risque environnemental — seule variante autorisée avec remplacement appareils d'appui., source=RC §2.3 ; CCTP §3)
+- Intégration du Plan Routes et Déplacements du Quotidien (PRDQ) dans les solutions modes doux (exemple=Montrer que la conception des pistes cyclables bi et monodirectionnelles s'inscrit explicitement dans l'axe principal n°3 du schéma cyclable PRDQ du CD47, avec dimensionnement permettant le passage bus/VL en cas de modification ultérieure des flux (CCTP exigence explicite)., source=CCTP §3)

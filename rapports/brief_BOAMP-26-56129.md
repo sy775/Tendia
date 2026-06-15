@@ -1,6 +1,6 @@
 # Brief — Impression de documents de communication et de supports de signalétique pour le Département du Val-de-Marne
 
-_Généré le 2026-06-12 15:49 par Claude claude-sonnet-4-6_
+_Généré le 2026-06-15 02:12 par Claude claude-sonnet-4-6_
 
 ## Identifiants
 - **ID Tendia** : `BOAMP-26-56129`
@@ -11,109 +11,64 @@ _Généré le 2026-06-12 15:49 par Claude claude-sonnet-4-6_
 - **DCE PLACE** : <https://marches.maximilien.fr/?page=Entreprise.EntrepriseAdvancedSearch&AllCons&id=935869&orgAcronyme=a8z>
 
 ## Synthèse
-Le Département du Val-de-Marne lance un marché en 4 lots pour l'impression de documents de communication (presse rotative, offset/numérique) et la fabrication/pose/dépose de supports de signalétique (chantiers, événements). Il s'agit d'accords-cadres à bons de commande sans minimum annuel, avec des plafonds allant de 250 000 € à 800 000 € HT/an par lot. La procédure est un appel d'offres ouvert dématérialisé, avec remise d'échantillons physiques obligatoire.
+Le Département du Val-de-Marne lance un accord-cadre à bons de commande en 4 lots pour l'impression de documents de communication et la fabrication/pose/dépose de supports de signalétique. Le marché couvre : impression rotative (lot 1), impression feuilles ou numérique (lot 2), signalétique chantiers et équipements (lot 3), signalétique événements et campagnes (lot 4). La durée est d'un an reconductible tacitement jusqu'à 4 ans maximum.
 
-## ⚡ Parc EnR — caractéristiques techniques
-- **Description** : Lot 1 : impression rotative de magazines et brochures à grands tirages. Lot 2 : impression offset feuilles ou numérique de brochures, affiches, dépliants sur supports papier et spéciaux. Lots 3 et 4 : impression, fabrication, pose et dépose de supports de signalétique en PVC, dibond, dispa, plastique alvéolé, polyester, etc., pour signaler chantiers/équipements départementaux (lot 3) et événements/campagnes (lot 4). Exécution en Région Île-de-France.
-- **Technologies concernées** :
-  - impression rotative
-  - impression offset feuilles
-  - impression numérique
-  - signalétique PVC toilé
-  - signalétique PVC micro perforé
-  - signalétique dibond
-  - signalétique dispa
-  - signalétique plastique alvéolé
-  - signalétique carton plume
-  - signalétique polyester maille drapeau
-  - signalétique intissé 150g
-  - pose et dépose de supports
-- **Type de sites** : Région Île-de-France : chantiers et équipements départementaux (lot 3), lieux d'événements et campagnes de communication (lot 4)
-- **Critères d'éligibilité** :
-  - Déclaration sur l'honneur pour justifier que le candidat n'entre dans aucun des cas d'interdiction de soumissionner (source=RC §5.1)
-  - Déclaration concernant le chiffre d'affaires global et le chiffre d'affaires concernant les prestations objet du contrat, réalisées au cours des trois derniers exercices disponibles (source=RC §5.1)
-  - Liste des principales prestations effectuées au cours des trois dernières années, indiquant le montant, la date et le destinataire (source=RC §5.1)
-  - Déclaration indiquant les effectifs moyens annuels du candidat et l'importance du personnel d'encadrement pour chacune des trois dernières années (source=RC §5.1)
-  - Pour toutes les entreprises employant au moins 50 salariés : procès-verbal du comité social et économique portant sur l'examen du rapport et du programme de la politique sociale de l'entreprise (source=RC §5.1)
-- **Contraintes site signalées** :
-  - disponibilité annuelle totale y compris été et fin d'année
-  - pose et dépose de supports en extérieur
+## 🎯 Mission conseil
+- **Typologie de mission** : fournitures courantes et services
+- **Domaine d'expertise** : impression graphique, signalétique
+- **Durée de mission** : 1 an reconductible jusqu'à 4 ans
+- **Livrables attendus** :
+  - Documents imprimés sur presses rotatives (magazines, brochures, dépliants)
+  - Documents imprimés en feuilles ou numérique (brochures, feuillets, affiches, chemises)
+  - Supports de signalétique fabriqués (banderoles, panneaux, kakémonos, flèches, autocollants, drapeaux)
+  - Pose et dépose de supports de signalétique chantiers et équipements
+  - Pose et dépose de supports de signalétique événements et campagnes
 
-### Volumes techniques
-- **Durée du marché (mois)** : 12
-- **Note** : 4 lots : Lot 1 plafond 800 000 € HT/an, Lot 2 plafond 500 000 € HT/an, Lot 3 plafond 250 000 € HT/an, Lot 4 plafond 250 000 € HT/an. Accord-cadre sans montant minimum annuel. Durée initiale 1 an (à compter de notification, au plus tôt 1er janvier 2027), reconductible par tacite reconduction jusqu'à 4 ans maximum.
-
-### Modalités d'exécution
-- **Sites d'exécution** : Région Île-de-France, Val-de-Marne (94)
-
-## 🎓 Formation / accompagnement
-### Publics cibles
-Marché de fournitures et services — aucun public bénéficiaire final de formation. Le client est la Direction de la Communication du Département du Val-de-Marne.
-
-### Volumes
-- **Durée marché (mois)** : 12
-- **Note** : Accord-cadre à bons de commande sans minimum. Plafonds annuels : Lot 1 = 800 000 € HT, Lot 2 = 500 000 € HT, Lot 3 = 250 000 € HT, Lot 4 = 250 000 € HT. Durée maximale totale : 4 ans.
-
-### Modalités
-- **Sites d'exécution** : Région Île-de-France, Val-de-Marne (94)
+### Profils intervenants
+Imprimeurs et prestataires signalétique disposant des équipements techniques requis (presses rotatives pour lot 1, machines impression feuilles/numérique pour lot 2, équipements impression grand format numérique et sérigraphie pour lots 3 et 4)
 
 ## 💶 Montant du marché
-- **Fourchette** : entre ? et 1,80 M€
-  - sur annuel (par lot, première année)
-  - _source : RC §1.4 tableau des montants_
-- _Note_ : Plafonds annuels : Lot 1 = 800 000 € HT, Lot 2 = 500 000 € HT, Lot 3 = 250 000 € HT, Lot 4 = 250 000 € HT. Total annuel toutes lots = 1 800 000 € HT max. Sans minimum. Sur 4 ans max, le plafond total toutes reconductions confondues serait de 7 200 000 € HT.
+- **Plafond accord-cadre** : **1,80 M€**
+  - sur Durée totale de l'accord-cadre (jusqu'à 4 ans)
+  - _source : AE lot 1 art 3.3 (max 800 000 € HT), AE lot 2 art 3.3 (max 500 000 € HT), AE lot 3 art 3.3 (max 250 000 € HT), AE lot 4 art 3.3 (max 250 000 € HT)_
+- _Note_ : Plafonds des accords-cadres sans montant minimum : lot 1 = 800 000 € HT, lot 2 = 500 000 € HT, lot 3 = 250 000 € HT, lot 4 = 250 000 € HT. Total toutes tranches = 1 800 000 € HT maximum sur la durée totale (jusqu'à 4 ans).
 
 ## Barème de notation
-- **Valeur technique** : 70 %
-- **Valeur prix** : 30 %
-- **Sous-critères techniques** :
-  - Valeur technique — Lot 1 : 60 %
-  - Démarche environnementale — Lot 1 : 10 %
-  - Valeur technique — Lot 2 : 60 %
-  - Démarche environnementale — Lot 2 : 10 %
-  - Valeur technique — Lot 3 : 60 %
-  - Démarche environnementale — Lot 3 : 10 %
-  - Valeur technique — Lot 4 : 60 %
-  - Démarche environnementale — Lot 4 : 10 %
-- **Calcul du prix** : Lots 1 et 2 : N = Pmini × 15 / P pour chaque DQE (communiqué et non communiqué), soit 30 pts au total. Lots 3 et 4 : N = Pmini × 20 / P (DQE) + N = Pmini × 10 / P (estimatif étude de cas), soit 30 pts au total.
+- **Valeur technique** : —
+- **Valeur prix** : —
+- **Calcul du prix** : Bordereau des prix unitaires : prix unitaires HT appliqués aux quantités réellement commandées par bons de commande.
 
 ## Références et qualifications exigées
 - **Expérience minimale** : —
-- **Secteur d'expérience** : Impression de documents de communication et/ou signalétique pour collectivités ou équivalent
-- **Autres exigences** :
-  - Déclaration du chiffre d'affaires global et spécifique aux prestations objet du marché sur les 3 derniers exercices (source=RC §5.1)
-  - Liste des principales prestations des 3 dernières années avec montants, dates et destinataires (attestations ou déclaration candidat) (source=RC §5.1)
-  - Déclaration des effectifs moyens annuels et du personnel d'encadrement sur les 3 dernières années (source=RC §5.1)
-  - Pour les entreprises ≥ 50 salariés : PV du CSE portant sur le rapport de politique sociale (source=RC §5.1)
 
 ## Lots
 - **Lot 1** — Impression rotative des documents de communication sur supports papier
-  - Zone : Île-de-France
-  - Volume estimé : 800000 € HT maximum annuel
-  - Impression sur machines rotatives, grands tirages (brochures > 100 000 ex., magazines ≥ 28 pages). Échantillons physiques obligatoires. DQE communiqué + DQE non communiqué à remplir.
+  - Zone : Val-de-Marne (94)
+  - Volume estimé : 800000 euros HT (plafond accord-cadre)
+  - Impression sur machines rotatives. Principaux documents : magazine départemental 36 pages 80g couché demi-mat 19x26 cm collé-rogné (6 × 640 000 ex.), brochures 8 pages à bons de commande (200 000 ex.), dépliants 4 pages 100% recyclé. Planning annuel prévisionnel fourni pour le magazine. Préavis 15 jours ouvrés avant BAT pour grandes quantités. Disponibilité annuelle totale exigée y compris été et fin d'année.
 - **Lot 2** — Impression feuilles ou numérique des documents de communication sur supports papier et spéciaux
-  - Zone : Île-de-France
-  - Volume estimé : 500000 € HT maximum annuel
-  - Impression offset feuilles ou numérique, supports variés (papier couché, papiers de création). Tirages plus faibles (> 1 000 ex.). Échantillons physiques obligatoires (5 types). DQE communiqué + DQE non communiqué.
+  - Zone : Val-de-Marne (94)
+  - Volume estimé : 500000 euros HT (plafond accord-cadre)
+  - Impression feuilles ou numérique pour petites et moyennes séries : brochures formats spécifiques (8p + encart, 12p, 16p), feuillets (A6 à A4), affiches (40x60, 60x80, 120x176 cm), chemises pelliculées avec façonnage manuel. Façonnages inclus : pliage croisé, roulé, accordéon. Délais fixés par bon de commande.
 - **Lot 3** — Impression, fabrication, pose et dépose de supports de signalétique des chantiers et équipements départementaux
-  - Zone : Île-de-France
-  - Volume estimé : 250000 € HT maximum annuel
-  - Prestation complète : impression, fabrication, pose ET dépose. Étude de cas fournie avec estimatif financier à chiffrer. 9 matières d'échantillons imprimés obligatoires. Échantillons peuvent être partagés avec lot 4 si correctement étiquetés.
+  - Zone : Val-de-Marne (94)
+  - Volume estimé : 250000 euros HT (plafond accord-cadre)
+  - Fabrication par impression numérique et sérigraphique (banderoles PVC, panneaux Dispa/akilux/Dibond/PVC, kakémonos, drapeaux, autocollants, flèches, jupes de table, urnes). Panneaux grand format réutilisables (4x3 m, 3x2 m). Finitions spécifiques (antidérapant, anti-graffiti, M1, découpe, lamination Velleda). Pose/dépose avec déplacement compris, possibilité nacelle. Intervention urgence < 12h majorée.
 - **Lot 4** — Impression, fabrication, pose et dépose de supports de signalétique des évènements et campagnes de communication
-  - Zone : Île-de-France
-  - Volume estimé : 250000 € HT maximum annuel
-  - Mêmes caractéristiques techniques que le lot 3 mais orienté événementiel et campagnes. Étude de cas avec annexes fournie. Estimatif financier à chiffrer. Partage d'échantillons avec lot 3 autorisé sous condition d'étiquetage.
+  - Zone : Val-de-Marne (94)
+  - Volume estimé : 250000 euros HT (plafond accord-cadre)
+  - Mêmes typologies de supports que le lot 3 mais orientés événements et campagnes de communication (roll-up, beach flags, panneaux d'affichage mobiles, adhésifs sur véhicules). Panneaux grand format réutilisables (4x3 m, 3x3 m). Pose distinctée en pose temporaire et pose définitive. Intervention urgence < 12h majorée.
 
 ## ⚠ Alertes candidat
-- Échantillons physiques OBLIGATOIRES pour les 4 lots : toute offre sans au moins un des échantillons requis est déclarée irrégulière. Les échantillons doivent être physiquement remis avant la DLRO, par envoi postal ou dépôt en main propre à Créteil.
-- Deux bordereaux de prix distincts pour les lots 1 et 2 (DQE communiqué ET DQE non communiqué) : les deux doivent être intégralement remplis sous peine d'offre incomplète.
-- Lots 3 et 4 : une étude de cas est fournie dans le DCE — la réponse à cette étude et l'estimatif financier joint sont notés sur 30 pts (20 technique + 10 prix). L'absence de réponse à l'étude de cas affecte gravement les deux critères.
-- Délai de validité des offres : 7 mois à compter du 15 juillet 2026, soit jusqu'en février 2027. Le candidat doit s'assurer que ses prix restent tenables sur cette période.
-- L'attributaire ne peut refuser la reconduction : il s'engage sur 4 ans maximum avec disponibilité annuelle totale (y compris été et fin d'année).
+- Disponibilité annuelle totale exigée sans exception de période : le titulaire ne peut refuser la reconduction et doit livrer dans les délais y compris en été et en fin d'année — exigence de capacité de production continue à intégrer dans le mémoire technique
+- BPU très détaillé (plus de 50 références tarifaires pour les lots 3 et 4) : toute ligne non renseignée ou incohérente peut entraîner une irrégularité de l'offre — vérifier exhaustivité avant dépôt
+- La signature de l'acte d'engagement n'est exigée qu'à l'attribution : un candidat en groupement conjoint doit prévoir que le mandataire deviendra solidaire à la notification
+- Un candidat ne peut pas présenter plusieurs offres en qualité à la fois de candidat individuel et de membre d'un groupement, ni être membre de plusieurs groupements — risque d'exclusion automatique
+- Taille des fichiers limitée à 4 Go par pli et 1 Go par fichier sur la plateforme Maximilien : anticiper le volume des BPU et DQE complétés bien avant la date limite du 15 juillet 2026
 
 ## 💡 Points différenciants attendus
-- Méthodologie détaillée et éprouvée pour les délais courts en impression rotative (lot 1) (exemple=Présenter un rétro-planning type pour un magazine 32 pages avec jalons précis (réception fichiers, BAT, calage, tirage, façonnage, livraison) et démontrer la capacité à tenir les délais y compris en période estivale avec un plan de continuité., source=RC §6.3)
-- Démarche environnementale concrète et spécifique au marché (pas politique générale) (exemple=Mentionner des certifications papiers FSC/PEFC appliquées à ce lot spécifiquement, des encres végétales, et une optimisation des tournées de livraison vers les sites du Val-de-Marne — avec données chiffrées (% papiers certifiés, kg CO2 évités)., source=RC §6.3)
-- Qualité et représentativité des échantillons physiques fournis (exemple=Pour le lot 2, fournir des échantillons qui illustrent la maîtrise des papiers de création et des finitions spéciales (vernis sélectif, pelliculage mat, découpe spéciale), pas seulement des brochures standard., source=RC §5.1 et §6.3)
-- Réponse structurée et chiffrée à l'étude de cas (lots 3 et 4) (exemple=Fournir un estimatif détaillé par postes (matériaux, main-d'œuvre pose/dépose, transport) avec plusieurs variantes (matériaux standard vs éco-responsables) et un planning de réalisation, démontrant la maîtrise opérationnelle de la signalétique terrain., source=RC §6.3)
-- Filières de valorisation des déchets de signalétique documentées (lots 3 et 4) (exemple=Présenter des partenariats nominatifs avec des recycleurs agréés pour PVC (Recovinyl), dibond (filière aluminium), et PVC toilé, avec justificatifs. Proposer en priorité des matériaux éco-responsables (dispa, intissé recyclé) pour réduire les déchets à la source., source=RC §6.3)
+- Capacité à livrer dans les délais courts y compris hors saison standard (exemple=Mentionner l'organisation en astreinte/permanence production (équipes, sous-traitants qualifiés) pour les périodes estivales et de fin d'année, avec engagement contractualisé sur les délais de livraison du magazine départemental selon le planning annuel prévisionnel., source=AE lot 1 art 6)
+- Offre de prix compétitive sur les lignes à fort volume (magazine 640 000 ex.) (exemple=Proposer un tarif unitaire optimisé pour le tirage de masse rotative en intégrant les économies d'échelle, et présenter le coût du 1 000 plus de manière transparente pour faciliter la comparaison., source=DQE lot 1)
+- Couverture complète des références BPU sans lacune (exemple=Renseigner exhaustivement l'ensemble des 50+ lignes des BPU lots 3 et 4 en proposant des tarifs cohérents et compétitifs sur toutes les matières, grammages et formats demandés, y compris les finitions spécifiques (anti-graffiti, M1, découpe)., source=BPU lot 3, BPU lot 4)
+- Réactivité pour les interventions urgentes (< 12h) de pose/dépose (exemple=Justifier d'une organisation locale (équipes basées en Île-de-France, véhicules dédiés) permettant une intervention en moins de 12h sur le territoire du Val-de-Marne, avec un process d'astreinte formalisé., source=BPU lot 3 ligne P/D10, BPU lot 4 ligne P/D13)
+- Matériaux éco-responsables proposés en alternative (exemple=Valoriser les équivalents éco-responsables au 'Dispa' (panneaux recyclés/recyclables) et les papiers 100% recyclés déjà attendus sur certaines lignes du DQE, en précisant les certifications environnementales des fournisseurs., source=BPU lot 3 codes N7-N9, DQE lot 1)

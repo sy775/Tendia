@@ -1,480 +1,355 @@
 {
-  "synthese_marche": "Marché public de travaux en 3 lots pour la création d'un escalier, d'un préau et d'un abri à cartables au collège Pierre de Ronsard à Mornant (69). Le marché est passé en procédure adaptée ouverte par le Département du Rhône. Les travaux portent sur du gros œuvre/maçonnerie, de la charpente bois lamellé-collé avec couverture aluminium, et de la serrurerie-métallerie.",
+  "synthese_marche": "Marché public de travaux en procédure adaptée ouverte pour le compte du Département du Rhône, portant sur la création d'un escalier extérieur en béton armé reliant la cour haute à la cour basse, d'un préau en charpente bois lamellé-collé sur poteaux béton (205 m²), et d'un abri à cartables (auvent métallique ~46 m²) au collège Pierre de Ronsard à Mornant (69440). Le marché est décomposé en 3 lots séparés (maçonnerie-gros œuvre, charpente-couverture, serrurerie-métallerie) avec un délai global d'exécution de 4 mois, les travaux devant débuter à Pâques 2026.",
   "domaines_metier": [
     {
-      "code": "btp_gros_oeuvre"
+      "code": "btp_gros_oeuvre",
+      "poids": 0.5,
+      "lots_concernes": [
+        "Lot 01 - Maçonnerie Gros Œuvre"
+      ]
+    },
+    {
+      "code": "btp_second_oeuvre",
+      "poids": 0.5,
+      "lots_concernes": [
+        "Lot 02 - Charpente bois LC couverture alu",
+        "Lot 03 - Serrurerie métallerie"
+      ]
     }
   ],
-  "raison_classification": "Marché de travaux neufs de construction (escalier, préau, abri à cartables) sur un collège, avec 3 lots BTP : maçonnerie/gros œuvre (lot 01), charpente bois lamellé-collé/couverture (lot 02), serrurerie-métallerie (lot 03). Le lot dominant est la maçonnerie/gros œuvre (CPV 45262522-6, 45262311-4), caractéristique d'un ouvrage neuf de construction.",
+  "raison_classification": "Le marché est un chantier neuf en milieu scolaire combinant gros œuvre (fondations béton armé, escalier BA, poteaux BA) et second œuvre spécialisé (charpente bois lamellé-collé avec couverture aluminium joint debout, et serrurerie-métallerie pour garde-corps). Les deux domaines sont représentés à parts quasi-égales entre les 3 lots.",
   "caracteristiques_techniques_chantier": {
-    "description": "Création d'un escalier, d'un préau et d'un abri à cartables dans l'enceinte du collège Pierre de Ronsard à Mornant (69440). Travaux neufs comprenant maçonnerie/béton armé, charpente bois lamellé-collé avec couverture aluminium joint debout, et serrurerie-métallerie.",
-    "typologie_ouvrage": "Équipement scolaire public (collège) — constructions légères et ouvrages maçonnés neufs",
-    "surface_volume": null,
-    "site_occupe": true,
+    "description": "Création de 3 ouvrages extérieurs sur le site du collège : (1) un escalier béton armé à deux volées droites et palier intermédiaire permettant de relier RdC haut (NGF+355.12) et cour basse (~NGF+349.65), soit ~420 cm de dénivelé, avec murs de soutènement, fondations sur semelles filantes et appui glissant sur corbeau ; (2) un préau de 204,87 m² en charpente bois lamellé-collé GL24H 160x400 mm sur poteaux béton armé Ø30 cm, couverture aluminium joint debout teinte brun-gris, pente 15% ; (3) un abri à cartables (auvent) de 46,28 m² avec structure IPE 400 + pannes bois, couverture aluminium joint debout, adossé au bâtiment existant. Travaux connexes : terrassements, dépose/repose d'enrochements, drainage, reprises d'enrobé, réseaux EP avec cuve de récupération 30 m³.",
+    "typologie_ouvrage": "Établissement scolaire (collège) - constructions annexes neuves (escalier extérieur, préau, auvent) en site occupé",
+    "surface_volume": "Préau : 204,87 m² ; Abri à cartables : 46,28 m² ; Escalier : ouvrage linéaire ~5 m de large x 10 m de long environ",
+    "site_occupe": "true — le collège reste en activité pendant les travaux ; les travaux sont prévus hors période scolaire (vacances de Pâques 2026) mais avec contraintes de coactivité ; les accès pompiers doivent rester libres à tout moment ; stationnement du personnel interdit dans l'enceinte hors livraisons",
     "corps_etat": [
-      "Maçonnerie - Gros Œuvre",
-      "Charpente bois lamellé-collé",
-      "Couverture en aluminium joint debout",
-      "Serrurerie - Métallerie"
+      "Maçonnerie - Gros Œuvre (terrassements, fondations BA, poteaux BA, escalier BA, murs de soutènement, drainage)",
+      "Charpente bois lamellé-collé (structure préau GL24H et abri à cartables pannes bois)",
+      "Couverture aluminium joint debout (préau et abri cartables)",
+      "Serrurerie - Métallerie (garde-corps, main courante, limons escalier)"
     ],
     "contraintes_specifiques": [
-      "Site scolaire occupé (collège en activité)",
-      "Visite obligatoire sur site avant dépôt de l'offre",
-      "Clauses environnementales imposées",
-      "Coordination sécurité-protection de la santé (CSPS) de niveau III",
-      "Contrôle technique par Apave",
-      "Chantier soumis à PGC (Plan Général de Coordination) simplifié"
-    ],
-    "technologies_concernees": [],
-    "type_de_sites": "Collège en activité (site occupé pendant les travaux)",
-    "criteres_eligibilite": [
-      {
-        "libelle": "Lot 01 : QUALIBAT 2111 Maçonnerie et ouvrage en béton armé (technicité courante)",
-        "source": "RC §6.1"
-      },
-      {
-        "libelle": "Lot 02 : QUALIBAT 2301 Fourniture et pose de charpente traditionnelle, en bois lamellé-collé et structure en bois (technicité courante)",
-        "source": "RC §6.1"
-      },
-      {
-        "libelle": "Lot 03 : QUALIBAT 4411 Serrurerie-métallerie (technicité courante)",
-        "source": "RC §6.1"
-      }
-    ],
-    "contraintes_site_signalees": [
-      "Site occupé (collège en activité)",
-      "Visite obligatoire sur site",
-      "Coordination SPS niveau III"
+      "Site occupé : collège en activité, travaux à programmer hors périodes scolaires autant que possible",
+      "Visite obligatoire du site avant remise des offres",
+      "Chantier de catégorie 3 avec coordonnateur SPS ELYFEC désigné",
+      "Contrainte sismique zone 2 (ag=0,84 m/s², importance III) à prendre en compte pour les structures",
+      "Contexte géotechnique : remblais de limons sableux et altération sablo-argileuse avec hétérogénéité possible ; semelles filantes pour escalier (SFA 50x30 cm) et semelles isolées pour préau (150x150x60 cm)",
+      "Mitoyenneté avec bâtiment existant et bassin de rétention enterré (cuve EP 30 m³ à respecter)",
+      "Présence de réseaux enterrés (AEP, EU, EP, CFO, Cfa) documentés dans le plan de recollement",
+      "Dépose et repose d'enrochements existants dans le talus au droit de l'escalier",
+      "Constat d'huissier avant/après travaux obligatoire à la charge du lot 01",
+      "Phasage strict : clôtures HERAS OPAQUE M800 obligatoires, accès pompiers maintenu, aucun stationnement en période scolaire",
+      "Bureau de contrôle APAVE désigné, visa des plans d'exécution obligatoire",
+      "Bois de construction certifiés PEFC/FSC obligatoires (traçabilité filière)"
     ]
   },
   "allotissement": {
-    "description": "Marché décomposé en 3 lots indépendants, chacun faisant l'objet d'un marché séparé.",
+    "description": "Marché décomposé en 3 lots séparés ; le lot 01 est le lot principal assurant la coordination générale du chantier, la base vie, les clôtures et le compte prorata.",
     "nb_lots": 3,
     "lots_detailles": [
       {
         "numero": 1,
         "intitule": "Maçonnerie - Gros Œuvre",
-        "corps_etat": "Maçonnerie, béton armé, gros œuvre",
+        "corps_etat": "Maçonnerie, gros œuvre béton armé, terrassements, VRD",
         "montant_estime": null,
-        "description": "Travaux de maçonnerie et de gros œuvre en béton armé (escalier, fondations, ouvrages maçonnés)"
+        "description": "Terrassements (dépose/repose enrochements, fouilles, remblais), fondations BA (semelles filantes escalier + semelles isolées préau), poteaux BA Ø30 cm préau, escalier extérieur BA 2 volées + palier, murs de soutènement BA, drainage périphérique, reprises enrobé, constat d'huissier, implantation géomètre, installation chantier générale et base vie"
       },
       {
         "numero": 2,
-        "intitule": "Charpente bois lamellé-collé – Couverture en aluminium joint debout",
-        "corps_etat": "Charpente bois lamellé-collé, couverture aluminium joint debout",
+        "intitule": "Charpente bois Lamellé-collé – couverture en aluminium joint debout",
+        "corps_etat": "Charpente bois lamellé-collé, couverture aluminium",
         "montant_estime": null,
-        "description": "Fourniture et pose de charpente en bois lamellé-collé avec couverture en aluminium joint debout (préau)"
+        "description": "Charpente bois GL24H 160x400 mm du préau sur platines d'ancrage en tête poteaux, pannes bois + muralières de l'abri cartables, couverture aluminium joint debout teinte brun-gris (préau et abri), caniveaux plats, rives périphériques alu, évacuations EP gueules de brochet"
       },
       {
         "numero": 3,
         "intitule": "Serrurerie - Métallerie",
         "corps_etat": "Serrurerie, métallerie",
         "montant_estime": null,
-        "description": "Travaux de serrurerie et métallerie (abri à cartables, garde-corps, structures métalliques)"
+        "description": "Garde-corps barreaudés sur escalier avec limon tôlé plié et main courante déportée (acier galvanisé thermolaqué RAL 7039), garde-corps droits sur gradins, main courante rampante sur gradins, dépose soignée d'un châssis vitré fixe existant"
       }
     ]
   },
   "qualifications_requises": {
-    "description": "Qualifications Qualibat exigées par lot pour la sélection des candidatures.",
-    "qualibat": "Lot 01 : 2111 Maçonnerie et ouvrage en béton armé (technicité courante) ; Lot 02 : 2301 Fourniture et pose de charpente traditionnelle, en bois lamellé-collé et structure en bois (technicité courante) ; Lot 03 : 4411 Serrurerie-métallerie (technicité courante)",
+    "description": "Aucune qualification Qualibat ou certification spécifique n'est explicitement exigée à peine d'irrecevabilité dans les pièces transmises (RC non fourni). Les CCTP exigent des spécialistes expérimentés. Les bois de construction doivent être certifiés PEFC ou équivalent.",
+    "qualibat": [],
     "rge": false,
+    "rge_specialites": [],
+    "mase": false,
+    "iso_9001": false,
+    "iso_14001": false,
+    "iso_45001": false,
     "opqibi": null,
-    "autres_certifications": []
-  },
-  "caracteristiques_mission": {
-    "typologie_mission": null,
-    "domaine_expertise": null,
-    "livrables_attendus": [],
-    "duree_mission": null,
-    "jours_consultant_estimes": null
-  },
-  "profils_intervenants": {
-    "description": null,
-    "chef_de_mission": null,
-    "consultants": null
-  },
-  "volumes_techniques": {
-    "puissance_totale_kwc": null,
-    "puissance_par_site_kwc": null,
-    "nb_sites": null,
-    "surface_panneaux_m2": null,
-    "productible_annuel_estime_mwh": null,
-    "duree_marche_mois": null,
-    "duree_maintenance_om_annees": null,
-    "commentaire_volumes": "Délai d'exécution par lot défini au CCAP, non communiqué dans le RC."
-  },
-  "modalites_execution_chantier": {
-    "raccordement_reseau_inclus": null,
-    "etudes_techniques_incluses": null,
-    "calendrier_chantier_contraint": "Contraintes liées au site scolaire occupé (à préciser au CCAP). Visite obligatoire préalable.",
-    "sites_execution": [
-      "Mornant (69440)"
-    ],
-    "engagement_productible": null,
-    "engagement_disponibilite_om": null
-  },
-  "publics_cibles": {
-    "description": null,
-    "criteres_eligibilite": [],
-    "publics_specifiques_signales": []
-  },
-  "volumes": {
-    "nb_beneficiaires_total": null,
-    "nb_beneficiaires_par_lot": null,
-    "duree_par_parcours_heures": null,
-    "duree_par_parcours_semaines": null,
-    "duree_marche_mois": null,
-    "commentaire_volumes": null
-  },
-  "modalites": {
-    "presentiel_obligatoire": null,
-    "distanciel_possible": null,
-    "synchrone_asynchrone": null,
-    "sites_execution": [
-      "Mornant (69440)"
-    ],
-    "amplitude_horaire": null
-  },
-  "caracteristiques_mission_moe": {
-    "typologie": null,
-    "phases_couvertes": [],
-    "typologie_ouvrage": null,
-    "montant_travaux_estime": null,
-    "complexite_technique": null
-  },
-  "qualifications_moe": {
-    "opqibi": [],
-    "opqcm": null,
-    "bim": null,
-    "autres": []
-  },
-  "caracteristiques_si": {
-    "description": null,
-    "typologie_projet": null,
-    "technologies_mentionnees": [],
-    "volumetrie": null,
-    "hebergement": null
-  },
-  "qualifications_si": {
-    "iso_27001": null,
-    "anssi": null,
-    "hds": null,
-    "autres": []
+    "autres_certifications": [
+      "Certification PEFC ou FSC pour les bois de construction (bois massif et lamellé-collé) — CCTC §2.10"
+    ]
   },
   "bareme_notation": {
-    "valeur_technique_pct": 60,
-    "valeur_prix_pct": 40,
-    "sous_criteres_techniques": [
-      {
-        "libelle": "Moyens humains et matériels affectés à l'opération et références",
-        "ponderation_pct": 18,
-        "description": "L'acheteur évalue les moyens humains disponibles pour le chantier, les moyens matériels affectés à l'opération, et les références sur des projets similaires.",
-        "elements_attendus": [
-          "Présentation nominative des effectifs affectés au chantier (chef de chantier, ouvriers)",
-          "Disponibilité effective des intervenants sur la période prévisionnelle",
-          "Liste du matériel et équipements spécifiques disponibles pour l'opération",
-          "Références de chantiers similaires (escalier, préau, abri) avec montants, dates et attestations de bonne exécution",
-          "Adéquation des références avec la nature des ouvrages concernés (maçonnerie, charpente bois LC, serrurerie)"
-        ],
-        "exemple_reponse_forte": "Un chef de chantier expérimenté (10 ans) sera dédié à l'opération, appuyé par 2 compagnons spécialisés en maçonnerie. L'entreprise dispose du matériel de coffrage et de manutention adéquat. 3 références d'ouvrages similaires (préaux scolaires, 2019-2023) sont jointes avec attestations de bonne exécution.",
-        "source": "RC §8.2",
-        "sous_criteres": [
-          {
-            "libelle": "Moyens humains disponibles pour le chantier",
-            "ponderation_pct": 6,
-            "description": "Évaluation du dimensionnement et de la disponibilité des ressources humaines affectées au chantier.",
-            "elements_attendus": [
-              "Organigramme nominatif des intervenants",
-              "Qualification et expérience des compagnons et chef de chantier",
-              "Planning de présence sur le chantier"
-            ],
-            "exemple_reponse_forte": "Présentation d'un chef de chantier dédié avec 8 ans d'expérience sur des chantiers en milieu scolaire occupé, et 2 ouvriers qualifiés disponibles à temps plein sur toute la durée du lot.",
-            "source": "RC §8.2"
-          },
-          {
-            "libelle": "Moyens matériels affectés à l'opération",
-            "ponderation_pct": 6,
-            "description": "Évaluation des équipements et matériels techniques que l'entreprise affectera à l'opération.",
-            "elements_attendus": [
-              "Liste précise du matériel de chantier disponible",
-              "Adéquation du matériel aux contraintes du site (site occupé, accès réduit)",
-              "Matériels spécifiques au lot (coffrage, grue, outillage bois LC, etc.)"
-            ],
-            "exemple_reponse_forte": "L'entreprise dispose d'une mini-grue télescopique adaptée aux espaces contraints d'un collège, d'un stock de coffrages modulables et d'un atelier de découpe bois lamellé-collé.",
-            "source": "RC §8.2"
-          },
-          {
-            "libelle": "Références sur des projets similaires",
-            "ponderation_pct": 6,
-            "description": "Évaluation des références de travaux similaires réalisés, appuyées d'attestations de bonne exécution.",
-            "elements_attendus": [
-              "Références ciblées sur des ouvrages similaires (préaux, escaliers, abris scolaires)",
-              "Montants, dates d'exécution et maîtres d'ouvrage des références",
-              "Attestations de bonne exécution jointes",
-              "Expérience en site occupé (établissement scolaire ou autre ERP)"
-            ],
-            "exemple_reponse_forte": "3 références de préaux et escaliers scolaires réalisés entre 2021 et 2025 pour des Départements de la région Auvergne-Rhône-Alpes, avec attestations de bonne exécution et coordonnées des maîtres d'ouvrage contactables.",
-            "source": "RC §8.2"
-          }
-        ]
-      },
-      {
-        "libelle": "Méthodologie pour mener à bien le chantier",
-        "ponderation_pct": 24,
-        "description": "L'acheteur évalue la méthodologie et les procédés d'exécution proposés, ainsi que les moyens mis en œuvre pour traiter les réserves et la Garantie de Parfait Achèvement.",
-        "elements_attendus": [
-          "Description détaillée du procédé d'exécution lot par lot",
-          "Prise en compte des contraintes du site scolaire occupé dans l'organisation du chantier",
-          "Mesures de protection et de sécurité vis-à-vis des usagers",
-          "Procédure de levée de réserves et d'organisation du SAV GPA",
-          "Réactivité et délai d'intervention en GPA"
-        ],
-        "exemple_reponse_forte": "La méthodologie décrit un phasage de travaux en dehors des heures de présence des élèves pour les phases bruyantes, avec balisage sécurisé permanent. Un protocole de traitement des réserves sous 8 jours est décrit, avec désignation d'un interlocuteur GPA dédié pendant l'année de garantie.",
-        "source": "RC §8.2",
-        "sous_criteres": [
-          {
-            "libelle": "Méthodologie et procédé d'exécution",
-            "ponderation_pct": 12,
-            "description": "Évaluation de la logique d'organisation du chantier, des procédés techniques choisis et de la prise en compte des contraintes spécifiques du site.",
-            "elements_attendus": [
-              "Description des procédés techniques par phase (terrassement, maçonnerie, charpente, serrurerie)",
-              "Gestion des interfaces entre lots",
-              "Mesures d'organisation pour un chantier en site scolaire occupé",
-              "Balisage et sécurisation des zones de travaux vis-à-vis des élèves",
-              "Gestion des approvisionnements et livraisons sur site contraint"
-            ],
-            "exemple_reponse_forte": "Procédé d'exécution décrivant une préfabrication maximale des éléments de charpente en atelier pour limiter les nuisances sur site, avec un planning de montage en 2 phases durant les petites vacances scolaires. Les zones de travaux seront clôturées par palissades rigides avec signalétique de sécurité adaptée.",
-            "source": "RC §8.2"
-          },
-          {
-            "libelle": "Moyens mis en œuvre pour traiter les réserves et GPA",
-            "ponderation_pct": 12,
-            "description": "Évaluation de l'organisation mise en place pour assurer la levée des réserves de réception et le suivi pendant la Garantie de Parfait Achèvement.",
-            "elements_attendus": [
-              "Désignation d'un interlocuteur dédié pour la GPA",
-              "Délai d'intervention garanti pour la levée des réserves",
-              "Procédure documentée de suivi et clôture des réserves",
-              "Disponibilité des équipes pendant la période de GPA (1 an)"
-            ],
-            "exemple_reponse_forte": "Un responsable GPA est désigné nominativement, avec engagement d'intervention sous 5 jours ouvrés pour toute réserve notifiée. Un registre de suivi des réserves est mis en place et partagé avec le maître d'œuvre, avec accusé de réception systématique.",
-            "source": "RC §8.2"
-          }
-        ]
-      },
-      {
-        "libelle": "Moyens mis en œuvre pour respecter les délais",
-        "ponderation_pct": 6,
-        "description": "L'acheteur évalue la qualité et le niveau de détail du planning d'exécution proposé, ainsi que les mesures d'optimisation du délai.",
-        "elements_attendus": [
-          "Planning d'exécution détaillé (tâches, durées, chemin critique)",
-          "Identification des contraintes calendaires (période scolaire, intempéries)",
-          "Mesures d'optimisation ou de réduction du délai",
-          "Prise en compte des interfaces avec les autres lots"
-        ],
-        "exemple_reponse_forte": "Planning Gantt détaillé sur 12 semaines identifiant les tâches critiques, les points de coordination inter-lots et les périodes d'arrêt imposées par le calendrier scolaire. Une marge de sécurité de 5 jours est intégrée pour les aléas météorologiques, avec une option de travaux le mercredi après-midi pour rattrapage.",
-        "source": "RC §8.2",
-        "sous_criteres": []
-      },
-      {
-        "libelle": "Qualité des matériaux et démarche environnementale",
-        "ponderation_pct": 12,
-        "description": "L'acheteur évalue la qualité des matériaux proposés et la démarche environnementale du candidat, notamment la gestion des déchets de chantier.",
-        "elements_attendus": [
-          "Listing précis des matériaux et produits mis en œuvre avec fiches techniques",
-          "Justification des choix de matériaux (qualité, durabilité, conformité DTU)",
-          "Plan de gestion des déchets de chantier (tri, filières de valorisation)",
-          "Mesures environnementales sur le chantier (bruit, poussières, protection des espaces verts)"
-        ],
-        "exemple_reponse_forte": "Les matériaux sont listés avec leurs caractéristiques techniques et certifications (bois LC certifié PEFC, aluminium recyclé à 70% pour la couverture). Un SOGED est joint, identifiant 4 filières de tri et les prestataires de collecte locaux, avec engagement de valorisation ≥ 70% des déchets inertes.",
-        "source": "RC §8.2",
-        "sous_criteres": [
-          {
-            "libelle": "Listing et qualité des matériaux mis en œuvre",
-            "ponderation_pct": 6,
-            "description": "Évaluation de la précision et de la qualité du listing des matériaux proposés, avec justification des choix techniques.",
-            "elements_attendus": [
-              "Fiches techniques des matériaux principaux (béton, bois LC, aluminium, métaux)",
-              "Conformité aux DTU et normes applicables",
-              "Certification ou label des matériaux (ex: PEFC, NF, CE)",
-              "Adéquation des matériaux aux contraintes climatiques et d'usage du site"
-            ],
-            "exemple_reponse_forte": "Listing exhaustif avec fiches techniques : béton C25/30 XC2 pour les fondations, bois lamellé-collé GL28h certifié PEFC pour la charpente, couverture aluminium naturel joint debout ep. 0,7mm avec finition adaptée à l'environnement scolaire.",
-            "source": "RC §8.2"
-          },
-          {
-            "libelle": "Démarche environnementale et gestion des déchets de chantier",
-            "ponderation_pct": 6,
-            "description": "Évaluation des engagements environnementaux sur le chantier et du plan de gestion des déchets.",
-            "elements_attendus": [
-              "Schéma d'organisation de la gestion des déchets (SOGED)",
-              "Identification des filières de valorisation par type de déchets",
-              "Mesures de limitation des nuisances (bruit, poussières, salissures)",
-              "Désignation d'un référent environnement chantier"
-            ],
-            "exemple_reponse_forte": "Un SOGED détaillé est fourni avec 5 bennes séparatives (béton, bois, métaux, DIB, plâtre) et les coordonnées des centres de tri partenaires. L'arrosage des zones de terrassement et la bâche des bennes sont prévus pour limiter les poussières dans l'enceinte scolaire.",
-            "source": "RC §8.2"
-          }
-        ]
-      }
-    ],
+    "valeur_technique_pct": null,
+    "valeur_prix_pct": null,
+    "sous_criteres_techniques": [],
     "prix": {
-      "type_formule": "moins_disant",
-      "formule_explicite": "Critère prix pondéré à 40 points sur 100. Mécanisme non précisé dans le RC ; présumé note proportionnelle au prix le plus bas.",
+      "type_formule": "autre",
+      "formule_explicite": "Prix global forfaitaire par lot — aucune formule de notation explicite trouvée dans les pièces transmises (RC absent du DCE fourni)",
       "elements_a_chiffrer": [
-        "Décomposition du Prix Global et Forfaitaire (DPGF) pour chaque lot",
-        "Forfait global par lot (Lot 01 : maçonnerie-gros œuvre)",
-        "Forfait global par lot (Lot 02 : charpente bois LC et couverture aluminium)",
-        "Forfait global par lot (Lot 03 : serrurerie-métallerie)"
+        "Forfait global lot 01 Maçonnerie-Gros Œuvre",
+        "Forfait global lot 02 Charpente bois LC - Couverture aluminium joint debout",
+        "Forfait global lot 03 Serrurerie - Métallerie"
       ]
     },
-    "modalite_calcul_prix": "Critère prix pondéré à 40/100. Formule exacte non précisée dans le RC. DPGF à compléter pour chaque lot."
+    "modalite_calcul_prix": "Prix global forfaitaire par lot (acte d'engagement). Aucune formule de notation du prix non trouvée dans les pièces fournies."
   },
   "montant_marche": {
     "valeur_estimee_euros": null,
     "fourchette_min_euros": null,
     "fourchette_max_euros": null,
     "type": "non_communique",
-    "duree_couverte": null,
+    "duree_couverte": "4 mois de travaux",
     "source_extraction": null,
-    "commentaire": "Le RC ne mentionne aucune valeur estimée ni enveloppe budgétaire pour le marché ou ses lots. Le CCAP et la DPGF ne sont pas fournis dans les pièces analysées."
+    "commentaire": "Aucun montant estimatif ni DPGF/BPU chiffré n'a été fourni dans les pièces du DCE transmises. L'AE indique un prix global forfaitaire à renseigner par le candidat mais sans valeur de référence."
   },
   "revision_prix": {
-    "type": "non_communique",
-    "indices_utilises": [],
-    "ponderation": null,
-    "periodicite": null,
-    "formule_revision": null,
-    "source_extraction": null,
-    "commentaire": "Le CCAP n'est pas fourni dans les pièces analysées ; la révision des prix ne peut pas être renseignée."
+    "type": "actualisation",
+    "indices_utilises": [
+      "BT 06",
+      "BT 16b",
+      "BT 42"
+    ],
+    "ponderation": "Lot 1 : BT 06 (Maçonnerie) ; Lot 2 : BT 16b (Charpente) ; Lot 3 : BT 42 (Serrurerie). Formule d'actualisation unique Cn = Id-3 / I0 appliquée au décompte final si le début des travaux est postérieur de plus de 3 mois au mois zéro.",
+    "periodicite": "autre",
+    "formule_revision": "Cn = Id-3 / I0 (appliquée une seule fois au décompte final ; Id-3 = index au mois d-3 avant début d'exécution ; I0 = index au mois zéro = mois limite de dépôt des offres)",
+    "source_extraction": "CCAP article 6.2",
+    "commentaire": "Actualisation appliquée uniquement si le démarrage est postérieur de plus de 3 mois à la date limite des offres (juillet 2026) ; compte tenu du démarrage prévu à Pâques 2026, cette clause pourrait ne pas s'appliquer — à vérifier à la notification."
   },
   "alertes_prix": [
-    "Pondération prix de 40% relativement faible pour un marché de travaux (habituellement 50-60%) : la valeur technique est prépondérante (60%), ce qui favorise les entreprises bien organisées plutôt que les moins-disants.",
-    "La DPGF est imposée pour chaque lot : toute erreur arithmétique (addition, multiplication, report) peut entraîner une demande de confirmation ou l'élimination de l'offre si non cohérente.",
-    "Aucun montant estimatif n'est communiqué — le risque d'offre anormalement basse (OAB) est difficile à anticiper sans repère budgétaire."
+    "Aucun estimatif ni DPGF fourni : le candidat doit établir son prix global forfaitaire sans référence budgétaire officielle — risque d'offre anormalement basse ou sur-estimée.",
+    "Marché à prix global forfaitaire : les sujétions de chantier (hétérogénéité géotechnique, surépaisseurs de remblais, interfaces lots) sont entièrement à la charge de l'entreprise — exiger une visite obligatoire pour affiner le chiffrage.",
+    "Avance de 5% (10% pour PME) versée si montant > 50 000 € HT et délai > 2 mois — condition à vérifier lot par lot selon le montant final.",
+    "Pénalités de retard sans plafond ni mise en demeure préalable : 500 €/jour lots 01 et 02, 200 €/jour lot 03 — impact financier à intégrer dans la gestion des risques planning."
   ],
   "references_exigees": {
     "experience_minimale_annees": null,
     "experience_source": null,
     "volume_min_references_similaires": null,
     "volume_min_references_unite": null,
-    "secteur_experience": "Travaux de maçonnerie/gros œuvre, charpente bois lamellé-collé, serrurerie-métallerie (ouvrages similaires sur les 5 dernières années)",
-    "secteur_source": "RC §6.1",
+    "secteur_experience": "Travaux de construction neuve d'ouvrages extérieurs en milieu scolaire (escaliers BA, préaux, auvents) avec contraintes de site occupé",
+    "secteur_source": null,
     "certifications_obligatoires": [
       {
-        "libelle": "Lot 01 : QUALIBAT 2111 Maçonnerie et ouvrage en béton armé (technicité courante)",
-        "source": "RC §6.1"
-      },
-      {
-        "libelle": "Lot 02 : QUALIBAT 2301 Fourniture et pose de charpente traditionnelle, en bois lamellé-collé et structure en bois (technicité courante)",
-        "source": "RC §6.1"
-      },
-      {
-        "libelle": "Lot 03 : QUALIBAT 4411 Serrurerie-métallerie (technicité courante)",
-        "source": "RC §6.1"
+        "libelle": "Bois de construction certifiés PEFC ou équivalent (traçabilité filière, gestion durable des forêts) pour ossatures principales et secondaires en bois massif et lamellé-collé",
+        "source": "CCTC §2.10"
       }
     ],
     "autres_exigences": [
       {
-        "libelle": "Liste des travaux exécutés au cours des 5 dernières années, appuyée d'attestations de bonne exécution pour les plus importants",
-        "source": "RC §6.1"
+        "libelle": "Visite obligatoire du site avant remise des offres — attestation de visite requise",
+        "source": "CCTC §1.4"
       },
       {
-        "libelle": "Déclaration du chiffre d'affaires global et concernant les prestations objet du contrat sur les 3 derniers exercices",
-        "source": "RC §6.1"
+        "libelle": "Constat d'huissier avant et après travaux à la charge du lot 01 (en présence du maître d'ouvrage et d'un représentant du collège)",
+        "source": "CCTP Lot 01 §5.1"
       },
       {
-        "libelle": "Déclaration des effectifs moyens annuels et du personnel d'encadrement sur les 3 dernières années",
-        "source": "RC §6.1"
-      },
-      {
-        "libelle": "Déclaration de l'outillage, matériel et équipement technique disponibles",
-        "source": "RC §6.1"
-      },
-      {
-        "libelle": "Attestation d'assurance décennale à produire dans les 8 jours suivant notification provisoire du marché",
-        "source": "RC §8.3"
-      },
-      {
-        "libelle": "Visite obligatoire sur site — l'offre d'un candidat n'ayant pas effectué la visite sera déclarée irrégulière",
-        "source": "RC §6.2"
+        "libelle": "Assurance RC décennale obligatoire à justifier dans les 8 jours suivant la notification du marché",
+        "source": "CCAP article 16"
       }
     ]
   },
   "lots": [
     {
       "numero": 1,
-      "intitule": "Lot 01 - Maçonnerie - Gros Œuvre",
-      "zone_geographique": "Mornant (69440)",
+      "intitule": "Maçonnerie - Gros Œuvre",
+      "zone_geographique": "Mornant (69440) — Rhône",
       "volume_estime": null,
       "volume_estime_unite": null,
-      "particularites": "Qualibat 2111 exigée. Travaux de maçonnerie et béton armé pour la création de l'escalier et des fondations/soubassements du préau."
+      "particularites": "Lot principal : responsable de l'installation générale de chantier (base vie, clôtures HERAS, branchements, compte prorata), de l'implantation par géomètre expert, du constat d'huissier TCE, et de la coordination des accès. Inclut terrassements en talus avec dépose/repose d'enrochements, fondations sur sol hétérogène (semelles filantes à redans pour l'escalier, semelles isolées 150x150x60 pour le préau), escalier BA 2 volées + palier avec appui glissant sur corbeau, poteaux BA Ø30 cm bruts de décoffrage (parement C6), murs de soutènement BA, drainage périphérique, reprises enrobé. Gestion du compte prorata."
     },
     {
       "numero": 2,
-      "intitule": "Lot 02 - Charpente bois lamellé-collé – Couverture en aluminium joint debout",
-      "zone_geographique": "Mornant (69440)",
+      "intitule": "Charpente bois Lamellé-collé – couverture en aluminium joint debout",
+      "zone_geographique": "Mornant (69440) — Rhône",
       "volume_estime": null,
       "volume_estime_unite": null,
-      "particularites": "Qualibat 2301 exigée. Fourniture et pose de la structure charpente bois LC du préau et couverture aluminium joint debout."
+      "particularites": "Charpente principale du préau en bois lamellé-collé GL24H 160x400 mm (poutres croisées) sur platines d'ancrage scellées en tête des poteaux BA, avec fixations invisibles par vis croisées. Pannes bois et muralières de l'abri cartables (pannes 240x240, muralière 80x240) en appui sur IPE 400. Couverture aluminium joint debout teinte brun-gris pour les deux ouvrages, caniveaux plats brun-gris, rives périphériques alu. Bois certifiés PEFC obligatoirement. Pente 15% pour le préau, 10% pour l'abri."
     },
     {
       "numero": 3,
-      "intitule": "Lot 03 - Serrurerie - Métallerie",
-      "zone_geographique": "Mornant (69440)",
+      "intitule": "Serrurerie - Métallerie",
+      "zone_geographique": "Mornant (69440) — Rhône",
       "volume_estime": null,
       "volume_estime_unite": null,
-      "particularites": "Qualibat 4411 exigée. Travaux de serrurerie et métallerie pour l'abri à cartables et éléments métalliques associés (garde-corps, portiques, etc.)."
+      "particularites": "Lot de moindre importance financière (pénalité 200 €/j contre 500 €/j pour les autres lots). Garde-corps barreaudés sur escalier (limon plat acier laqué continu, barreaudage fer plat 50x10, main courante fer plat 50x10, teinte RAL 7039 Gris Quartz identique existants) ; garde-corps droits sur gradins avec platines, montants et barreaux 50x12 ; main courante rampante cintrée sur gradins ; dépose soignée d'un châssis vitré fixe existant. Finition galvanisée thermolaquée obligatoire."
     }
   ],
   "calendrier": {
     "date_limite_offres": "2026-07-08",
-    "date_demarrage_prevue": null,
-    "duree_marche": "Définie par lot au CCAP (non communiquée dans le RC)"
+    "date_demarrage_prevue": "2026-04-01",
+    "duree_marche": "4 mois (délai global d'exécution), dont 1 mois de période de préparation"
   },
   "alertes_candidat": [
-    "VISITE OBLIGATOIRE sur site avant dépôt de l'offre : l'absence de visite entraîne l'irrégularité de l'offre et son élimination — prendre RDV au 06 27 77 14 44 (Stéphane AVERLY) ou batiment_sud@rhone.fr",
-    "Qualifications Qualibat obligatoires par lot : 2111 (Lot 01), 2301 (Lot 02), 4411 (Lot 03) — une entreprise sans la qualification du lot concerné ne peut candidater",
-    "Attestation d'assurance décennale exigée dans les 8 jours suivant la notification provisoire — à préparer en amont",
-    "Transmission électronique uniquement imposée (plateforme Atexo https://marches.rhone.fr/entreprise) — aucune transmission papier autorisée",
-    "La DPGF est obligatoire pour chaque lot : toute erreur arithmétique non confirmée entraîne l'élimination de l'offre"
+    "Visite du site OBLIGATOIRE avant remise des offres — le fait de remettre une offre vaut attestation de visite ; aucune plus-value ne pourra être réclamée pour méconnaissance des lieux (CCTC §1.4).",
+    "Travaux en site scolaire occupé avec contraintes horaires strictes : travaux bruyants limités au créneau 12h-14h, stationnement du personnel interdit dans l'enceinte, coupures de réseaux à autoriser par le chef d'établissement (CCAP §10.5.3).",
+    "Contexte géotechnique à risque : sols hétérogènes avec possibilité de surépaisseurs de remblais et poches molles non détectées — les sujétions géotechniques imprévues sont au forfait de l'entreprise ; une mission G3 complémentaire sera à la charge de l'entrepreneur (note structure + rapport G2 AVP).",
+    "Pénalités de retard sans plafond ni mise en demeure préalable (500 €/j lots 01-02, 200 €/j lot 03) applicables dès le premier jour de retard sur le calendrier détaillé (CCAP §15.1).",
+    "Lot 01 supporte les charges communes : base vie, clôtures, branchements, constat d'huissier TCE, panneau de chantier, compte prorata — à chiffrer impérativement dans le forfait lot 01 sous peine de sous-estimation majeure (CCTC §1.5 et CCTP Lot 01 §5.2).",
+    "Bois certifiés PEFC ou équivalent obligatoires avec traçabilité documentée — défaut de justification peut entraîner refus de matériaux et reprise aux frais de l'entreprise (CCTC §2.10)."
   ],
   "points_differenciants_attendus": [
     {
-      "libelle": "Organisation du chantier en site scolaire occupé",
-      "exemple": "Décrire un phasage précis avec horaires de travaux bruyants hors présence des élèves, clôtures de chantier sécurisées, et protocole de communication avec l'établissement scolaire (direction, CPE). Mentionner une expérience similaire sur un autre collège ou lycée occupé.",
-      "source": "RC §8.2"
+      "libelle": "Expérience en chantiers similaires en milieu scolaire occupé avec phasage contraignant",
+      "exemple": "Présenter des références de préaux ou escaliers extérieurs en béton armé réalisés dans des collèges ou lycées en activité, avec description des mesures prises (clôtures, horaires décalés, maintien des accès), pour démontrer la maîtrise des contraintes spécifiques aux ERP scolaires.",
+      "source": "CCAP §10.5.3"
     },
     {
-      "libelle": "Qualité et précision de la méthodologie d'exécution (24 pts sur 60)",
-      "exemple": "Fournir un mémoire technique structuré décrivant les procédés d'exécution tâche par tâche, les interfaces entre les 3 lots, et un planning Gantt détaillé. Le critère méthodologie est le plus lourd du barème (24/60 pts techniques).",
-      "source": "RC §8.2"
+      "libelle": "Maîtrise technique des ouvrages béton brut de décoffrage de haute qualité (parement C6)",
+      "exemple": "Pour le lot 01, illustrer avec photos de références des poteaux et murs BA avec parement C6 (taux bulles < 2%, aucun ragréage) obtenus avec coffrages métalliques ou backélisés, démontrant la capacité à livrer des bétons architecturaux destinés à rester bruts.",
+      "source": "CCTP Lot 01 §8.1.2, §9.2.2, §10.2.2"
     },
     {
-      "libelle": "Procédure de GPA et levée de réserves proactive",
-      "exemple": "Proposer un engagement contractualisé de délai d'intervention GPA (ex: sous 5 jours ouvrés), un référent GPA nommé, et un outil de suivi partagé des réserves. Ces éléments comptent pour 12/60 pts techniques.",
-      "source": "RC §8.2"
+      "libelle": "Compétence en charpente bois lamellé-collé GL24H avec fixations invisibles et certification filière bois PEFC",
+      "exemple": "Pour le lot 02, présenter des références de préaux en bois lamellé-collé avec fixations invisibles par vis croisées, en joignant les certificats PEFC des fournisseurs bois et une note sur la traçabilité des approvisionnements (marquage CE, humidité conforme DTU).",
+      "source": "CCTC §2.9, §2.10 ; Note structure §5.2"
     },
     {
-      "libelle": "Démarche environnementale chantier et qualité des matériaux",
-      "exemple": "Fournir un SOGED détaillé avec identification des filières de valorisation des déchets et taux cibles, ainsi qu'un listing des matériaux avec certifications environnementales (PEFC, écolabel, recyclé). Ces éléments comptent pour 12/60 pts techniques.",
-      "source": "RC §8.2"
+      "libelle": "Organisation chantier et gestion des interfaces entre les 3 lots en site occupé",
+      "exemple": "Décrire un planning détaillé avec phasage entre les 3 lots (terrassements/fondations → poteaux BA → charpente bois → couverture → serrurerie) en identifiant les points critiques d'interface (platines en tête de poteaux, scellements corbeau façade, réservations), et les modalités de coordination avec le collège pour les fermetures temporaires.",
+      "source": "CCTC §1.8 ; CCAP §5.3 ; PGC §2.6"
     },
     {
-      "libelle": "Références ciblées sur ouvrages similaires en milieu scolaire",
-      "exemple": "Présenter 2 à 3 références de préaux, escaliers ou abris scolaires réalisés pour des Départements ou collectivités, avec attestations de bonne exécution et coordonnées de MOA. L'adéquation avec le contexte scolaire et les montants similaires sera valorisée.",
-      "source": "RC §8.2"
+      "libelle": "Respect des prescriptions PMR et podotactiles sur l'escalier extérieur",
+      "exemple": "Démontrer la maîtrise des exigences accessibilité handicapés pour les escaliers extérieurs : clous podotactiles inox scellés (trame autocollante interdite), nez de marches antidérapants par désactivation/sablage béton avec contraste visuel, contremarches contrastées — avec référence à des réalisations similaires en ERP.",
+      "source": "CCTP Lot 01 §10.2, §10.3"
     }
   ],
   "_meta": {
     "id_marche": "BOAMP-26-57094",
     "type": "complet",
-    "extraction_le": "2026-06-12T00:49:21.975864+00:00",
+    "date_generation": "2026-06-14T23:47:47.378257+00:00",
+    "extraction_le": "2026-06-14T23:47:47.378257+00:00",
     "modele": "claude-sonnet-4-6",
-    "tokens_input": 21561,
-    "tokens_output": 8493,
-    "cout_eur": 0.1825,
-    "duree_sec": 138.8,
+    "preset_utilise": "btp",
+    "presets_matches": [
+      "btp"
+    ],
+    "prompts_versions": {
+      "btp/_preset.json": "sha256:d1717e0d87f6c265"
+    },
+    "tokens_input": 146806,
+    "tokens_output": 6076,
+    "cout_eur": 0.505,
+    "duree_sec": 118.9,
     "pdfs_traites": [
+      {
+        "nom": "01_Pieces graphiques.pdf",
+        "hash": "d12cd861cf53a8e9b7e6319f58109aa1",
+        "taille_chars": 21113
+      },
+      {
+        "nom": "02_CCTC_Cahier des Clauses Techniques Communes.pdf",
+        "hash": "cb983cb407344cf27c6c88503f60fb17",
+        "taille_chars": 50266
+      },
+      {
+        "nom": "02_Note structure.pdf",
+        "hash": "af4f5760f20cddc14f4b4d0971a61641",
+        "taille_chars": 11995
+      },
+      {
+        "nom": "03_PGC-création escalier, préau et abri à cartables_collège Ronsard.pdf",
+        "hash": "c1289f8d57a9e9c96e0c098957317757",
+        "taille_chars": 37532
+      },
+      {
+        "nom": "03_Plans structure.pdf",
+        "hash": "8b382272f3b6da898c12203e6dcf8e34",
+        "taille_chars": 1051
+      },
+      {
+        "nom": "04_G2 AVP.pdf",
+        "hash": "3b292b9da18792db3d9c081b44f7adf8",
+        "taille_chars": 107523
+      },
+      {
+        "nom": "05_Conformité PMR et SSI.pdf",
+        "hash": "0080a7505c94e5bcf22153be491d18b2",
+        "taille_chars": 8020
+      },
+      {
+        "nom": "260325_Planning.pdf",
+        "hash": "997f7bb576fa9ef221266bb62238b0bb",
+        "taille_chars": 0
+      },
+      {
+        "nom": "260401-APAVE-RICT.pdf",
+        "hash": "aea5dc7e4c9d56e2f0fe63393c2e7dc7",
+        "taille_chars": 5176
+      },
+      {
+        "nom": "AE_01.docx",
+        "hash": "c76dcfd49a3f2454d98caa70e37cb7aa",
+        "taille_chars": 11873
+      },
+      {
+        "nom": "AE_02.docx",
+        "hash": "f9c8f3a242e93b6117c0e04e8a863d1d",
+        "taille_chars": 11880
+      },
+      {
+        "nom": "AE_03.docx",
+        "hash": "081238b3e5836094a75ccc33e3fe60bc",
+        "taille_chars": 11825
+      },
+      {
+        "nom": "CCAP.pdf",
+        "hash": "f1e249024943a70214705671e2cb47c0",
+        "taille_chars": 52750
+      },
+      {
+        "nom": "CCTP Lot N°01 MACONNERIE - GROS-OEUVRE.pdf",
+        "hash": "90a673dd9053a7c56f6670e46d466a63",
+        "taille_chars": 64668
+      },
+      {
+        "nom": "CCTP Lot N°03 SERRURERIE - METALLERIE.pdf",
+        "hash": "7357b8a63638f9267b7b0f66c42c53b4",
+        "taille_chars": 22424
+      },
+      {
+        "nom": "CCTP_Lot 02.PDF",
+        "hash": "cd614bfcab60f42097655d20e89fd8b0",
+        "taille_chars": 32884
+      },
+      {
+        "nom": "DPGF Lot N°01 MACONNERIE - GROS-OEUVRE.xlsx",
+        "hash": "c88d3227905afde834e5d795e1572106",
+        "taille_chars": 92992
+      },
+      {
+        "nom": "DPGF Lot N°02 CHARPENTE BOIS LAMELLÉ.xlsx",
+        "hash": "9b2802cac56993b9db0a38a0b14f5fd1",
+        "taille_chars": 48932
+      },
+      {
+        "nom": "DPGF Lot N°03 SERRURERIE - METALLERIE.xlsx",
+        "hash": "b5c37ccb36a730f06de226126b064f05",
+        "taille_chars": 27912
+      },
+      {
+        "nom": "Lot 01_Cadre du MT.docx",
+        "hash": "450b1ce051e13f75a084445ef502a558",
+        "taille_chars": 4322
+      },
+      {
+        "nom": "Lot 02_Cadre du MT.docx",
+        "hash": "070729391b3797ff2bd8252e4c467e5c",
+        "taille_chars": 4366
+      },
+      {
+        "nom": "Lot 03_Cadre du MT.docx",
+        "hash": "4652f86bb2e06d76499e5902112598da",
+        "taille_chars": 4323
+      },
       {
         "nom": "RC.pdf",
         "hash": "fadfb6411ee87b02e43dbd5587387bb7",

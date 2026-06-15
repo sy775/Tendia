@@ -1,6 +1,6 @@
 # Brief — Voie verte n°1 - La Roche Vineuse - PR 60+70 à 60+390 Modification du tracé de la voie verte et réparation du mur de soutènement
 
-_Généré le 2026-06-12 15:49 par Claude claude-sonnet-4-6_
+_Généré le 2026-06-15 01:50 par Claude claude-sonnet-4-6_
 
 ## Identifiants
 - **ID Tendia** : `BOAMP-26-57168`
@@ -10,98 +10,71 @@ _Généré le 2026-06-12 15:49 par Claude claude-sonnet-4-6_
 - **DCE PLACE** : <https://marches.ternum-bfc.fr/entreprise/consultation/692016?orgAcronyme=t5s>
 
 ## Synthèse
-Marché de travaux passé par le Département de Saône-et-Loire portant sur la modification du tracé de la voie verte n°1 au niveau de La Roche Vineuse (PR 60+70 à 60+390) et la réparation du mur de soutènement. Les travaux comprennent des interventions de voirie, terrassement, assise de chaussée, couche de roulement et ouvrages de soutènement. Le marché est passé en procédure adaptée, sans allotissement, pour une exécution à partir de septembre 2026 sur un délai de 50 jours calendaires.
+Marché de travaux de voirie et génie civil pour la modification du tracé de la voie verte n°1 à La Roche Vineuse (71), incluant la construction d'un mur de soutènement en gabions de 43 m de long et 4,50 m de haut, des terrassements importants en déblai (jusqu'à 9 m de hauteur provisoire), la réfection de la plateforme cyclable et la mise en œuvre de remblais. Le marché est passé par le Département de Saône-et-Loire en procédure adaptée, sans allotissement.
 
 ## 🏗 Chantier — caractéristiques BTP
-- **Description** : Modification du tracé de la voie verte n°1 entre les PR 60+70 et 60+390 (320 ml environ) et réparation/reconstruction du mur de soutènement. Les travaux incluent terrassements, couche d'assise GNT (niveau PF2 minimum 50 MPa), couche de roulement, et ouvrages de soutènement (gabions et/ou mur en L). Des variantes sur les techniques de soutènement, couche d'assise et couche de roulement (revêtement perméable) sont autorisées.
-- **Type d'ouvrage** : Voie verte (piste cyclable/piétonne) et mur de soutènement
-- **Site occupé pendant travaux** : Non précisé explicitement ; travaux en milieu routier/voirie avec nécessité de mesures d'exploitation (alternat, déviation)
-- **Corps d'état mobilisés** : Terrassements, Couche d'assise (GNT), Couche de roulement (enrobés ou revêtement perméable), Ouvrages de soutènement (mur en L, gabions), Signalisation et sécurité chantier
+- **Description** : Modification du tracé de la voie verte n°1 entre les PR 60+70 et 60+390, comprenant : construction d'un mur de soutènement en gabions électrosoudés de 43 m de long et 4,50 m de haut sur assise béton, terrassements en déblai jusqu'à 9 m de hauteur provisoire dans calcaire fracturé et argile à cailloux, remblais d'épaulement (GNT 0/150), réfection de la plateforme cyclable (enrobé BB10, GNT 0/31,5, GNT 0/63), réseau de drainage (drains PEHD diam 150, regards), dispositifs de retenue MVL, barrière bois, garde-corps galvanisé sur mur gabion, signalisation temporaire.
+- **Type d'ouvrage** : Voie verte cyclable avec ouvrage de soutènement (mur gabions) — infrastructure linéaire de voirie
+- **Surface / volume** : Linéaire de 320 m environ (PR 60+70 à 60+390), mur gabions 43 m de long
+- **Site occupé pendant travaux** : true — travaux en milieu habité/sportif (terrains de tennis adjacents, voirie communale en exploitation, accès riverains à maintenir, voie verte à dévier pour cyclistes pendant travaux)
+- **Corps d'état mobilisés** : Terrassements / VRD, Mur de soutènement gabions, Chaussée / enrobés, Réseaux pluviaux (drains, regards EP), Équipements de sécurité (MVL, garde-corps), Espaces verts / enherbement, Mobilier urbain (barrière bois), Signalisation temporaire et information chantier
 - **Contraintes spécifiques** :
-  - Visite obligatoire avant remise d'offre
-  - Classe de plateforme minimale PF2 (50 MPa)
-  - Respect du GTR 2023 pour justification des variantes géotechniques
-  - Mesures d'exploitation de la circulation (alternat, déviation) avec attention particulière à la sécurité des usagers et des agents
-  - Obligation AIPR (Autorisation d'Intervention à Proximité des Réseaux) pour le personnel encadrant et opérateurs
-  - Délai d'exécution de 50 jours calendaires (hors préparation)
-  - Clause d'insertion sociale obligatoire : 80 heures minimum d'insertion
-  - Démarrage prévu à partir de septembre 2026
+  - Terrassements en terrain de 2e catégorie (calcaire fracturé à remplissage argileux) nécessitant BRH
+  - Talus provisoires de 9 m de hauteur maximale avec purge obligatoire du coin argileux
+  - Présence de réseaux enterrés et d'ouvrages existants à démolir (muret de soutènement existant)
+  - Zone de sismicité 2 (faible) — vérifications sismiques non requises pour ouvrage cat. II
+  - Sols argileux sensibles à l'eau (GTR A2/A3) — travaux à réaliser en période climatique favorable
+  - Terrains de tennis adjacents et voirie communale à protéger (avoisinants sensibles)
+  - Mission G3 géotechnique à la charge de l'entreprise (forfait prix 107)
+  - Clause d'insertion sociale : 80 heures minimum
+  - Risque de présence de réseaux enterrés non répertoriés
+  - Maintien de la circulation sur voie communale et déviation cyclistes pendant travaux
+  - Matériaux excavés pouvant prendre statut de déchets (réglementation AGEC)
 
 ### Allotissement
-Marché unique sans allotissement. La prestation constitue un ensemble homogène et intégré.
+Marché non alloti — ensemble homogène et intégré
 - **Nombre de lots** : 1
-- **Lot 1** — Voie verte n°1 - La Roche Vineuse - modification du tracé et réparation du mur de soutènement
-  - Corps d'état : Voirie, terrassements, ouvrages de soutènement
-  - Modification du tracé de la voie verte PR 60+70 à 60+390 et réparation du mur de soutènement
+- **Lot 1** — Modification du tracé de la voie verte et réparation du mur de soutènement
+  - Corps d'état : Terrassements, VRD, mur gabions, chaussée, équipements, espaces verts
+  - Marché unique comprenant l'ensemble des travaux : préparation de chantier, terrassements, mur de soutènement gabions, drainage, chaussée enrobée, équipements de sécurité, espaces verts et mobilier
 
 ### Qualifications BTP exigées
-Le RC exige des références datant de moins de 3 ans et/ou qualifications de l'entreprise pour des prestations similaires. Possession ou accès à un finisseur. AIPR en cours de validité pour le personnel encadrant et opérateurs.
+Le CCAP et le RC ne mentionnent pas explicitement de qualifications Qualibat obligatoires. Le BPU et le CCTP impliquent des compétences en terrassements TP, ouvrages de soutènement gabions et voirie.
+- **MASE** : non
 - **Autres exigences** :
-  - AIPR (Autorisation d'Intervention à Proximité des Réseaux) — personnel encadrant et opérateurs — RC art 5-1
-  - Références de moins de 3 ans pour prestations similaires — RC art 5-1
-  - Justification de possession ou accès à un finisseur — RC art 5-1
-
-## ⚡ Parc EnR — caractéristiques techniques
-### Volumes techniques
-- **Note** : Marché de travaux voirie/soutènement. Linéaire concerné : environ 320 ml (PR 60+70 à 60+390). Délai d'exécution : 50 jours calendaires.
-
-### Modalités d'exécution
-- **Sites d'exécution** : La Roche Vineuse (71 - Saône-et-Loire)
-- **Études techniques incluses** : non
-
-## 🎓 Formation / accompagnement
-### Publics cibles
-Clause d'insertion sociale : personnes éloignées de l'emploi ou rencontrant des difficultés sociales/professionnelles particulières, à intégrer dans les heures de travail du chantier.
-- **Critères d'éligibilité** :
-  - Demandeurs d'emploi de longue durée (12 mois sur les 18 derniers mois) (source=RC art 3-5)
-  - Demandeurs d'emploi de plus de 50 ans (source=RC art 3-5)
-  - Demandeurs d'emploi résidant en QPV ou ZRR (source=RC art 3-5)
-  - Bénéficiaires de minimas sociaux (RSA, AAH, ASS, etc.) (source=RC art 3-5)
-  - Personnes relevant d'un dispositif IAE (source=RC art 3-5)
-  - Personnes RQTH (source=RC art 3-5)
-  - Jeunes de moins de 26 ans avec faible niveau de formation (niveau 5 et inférieur) ou sans expérience professionnelle (source=RC art 3-5)
-  - Apprentis (source=RC art 3-5)
-  - Personnes ayant fait l'objet d'une peine privative de liberté, en parcours de réinsertion (source=RC art 3-5)
-- **Publics spécifiques signalés** : RQTH, BRSA, ZRR, QPV, alternants, IAE, DELD, seniors +50 ans, jeunes -26 ans niveau 5, sortants de prison
-
-### Volumes
-- **Note** : Clause d'insertion : 80 heures minimum d'insertion à réaliser sur la durée du marché. Délai d'exécution : 50 jours calendaires.
-
-### Modalités
-- **Sites d'exécution** : La Roche Vineuse (71 - Saône-et-Loire)
+  - AIPR (Autorisation d'Intervention à Proximité des Réseaux) obligatoire pour concepteur, encadrant et opérateur
 
 ## 💶 Montant du marché
 - _Montant non communiqué dans le DCE._
   - Typique des accords-cadres à bons de commande : le volume dépend des commandes effectivement passées par l'acheteur sur la durée du marché.
-- _Note_ : Aucun montant estimatif ni plafond budgétaire n'est mentionné dans les pièces fournies (RC uniquement). Le BPU et le détail estimatif font partie du DCE mais n'ont pas été transmis dans l'analyse.
+- _Note_ : Aucun montant estimatif n'est mentionné dans les pièces fournies (CCAP, BPU, rapports géotechniques, plans). Le Règlement de Consultation n'a pas été fourni dans le DCE analysé. L'estimation pourrait figurer dans le Détail Estimatif non fourni.
 
 ## Barème de notation
-- **Valeur technique** : 25 %
-- **Valeur prix** : 75 %
-- **Sous-critères techniques** :
-  - Valeur technique de l'offre : 20 %
-  - Performances en matière de protection de l'environnement : 5 %
-- **Calcul du prix** : Note prix = 75 × (montant moins disant / montant de l'offre jugée) — RC art 6
+- **Valeur technique** : —
+- **Valeur prix** : —
+- **Calcul du prix** : Non précisée dans les pièces fournies — RC non inclus dans le DCE analysé.
 
 ## Références et qualifications exigées
-- **Expérience minimale** : 3 ans
-- **Secteur d'expérience** : Travaux de voirie, voie verte, mur de soutènement
-- **Certifications obligatoires** : AIPR (Autorisation d'Intervention à Proximité des Réseaux) en cours de validité (moins de 5 ans) pour le personnel encadrant et opérateurs (source=RC art 5-1), Visite obligatoire des lieux — attestation de visite à fournir obligatoirement dans l'offre (source=RC art 4-4 et art 5-1)
+- **Expérience minimale** : —
+- **Secteur d'expérience** : Travaux de voirie, terrassements TP et ouvrages de soutènement (murs gabions) — infrastructure linéaire cyclable ou routière
+- **Certifications obligatoires** : AIPR (Autorisation d'Intervention à Proximité des Réseaux) — obligatoire pour le concepteur, l'encadrant et l'ensemble des opérateurs (source=CCAP article 3-4)
 - **Autres exigences** :
-  - Justification de la possession ou de l'accès à un finisseur (notice avec caractéristiques) (source=RC art 5-1)
-  - Présentation des moyens humains et matériels du candidat (source=RC art 5-1)
-  - Engagement sur 80 heures minimum d'insertion (annexe 2 de l'acte d'engagement à compléter obligatoirement) (source=RC art 3-5 et art 5-1)
+  - Attestation sur l'honneur relative à l'emploi de salariés étrangers et déclaration de détachement le cas échéant (source=CCAP article 3-2-1)
+  - Attestation de régularité sociale et fiscale de moins de 6 mois (source=CCAP article 3-2-1)
+  - Attestations d'assurance RC et décennale à fournir avant notification du marché (source=CCAP article 3-6-1)
+  - Clause d'insertion sociale : 80 heures minimum d'emploi de publics éloignés de l'emploi sur la durée du marché (source=CCAP article 3-2-2)
 
 ## ⚠ Alertes candidat
-- VISITE OBLIGATOIRE : la remise des offres est subordonnée à la visite des lieux. Sans attestation de visite signée dans l'offre, celle-ci sera irrégulière. Contacter le STA du Mâconnais (Cluny) pour planifier la visite avant le 10 juillet.
-- AIPR OBLIGATOIRE : le personnel encadrant et opérateurs doit être titulaire d'AIPR en cours de validité (moins de 5 ans). Si ce n'est pas le cas, apporter la preuve d'une démarche d'obtention en cours.
-- FINISSEUR OBLIGATOIRE : justifier de la possession ou de l'accès à un finisseur avec notice descriptive — condition de recevabilité de la candidature.
-- CLAUSE INSERTION : l'annexe 2 relative à l'engagement d'insertion (80h minimum) doit être complétée dans l'acte d'engagement. Sans cela, l'objectif minimum de 80h s'applique automatiquement mais le contact avec le facilitateur après attribution est obligatoire.
-- OFFRE VARIANTE : la variante ne peut être présentée que si une offre de base régulière est également soumise. Une variante seule est irrégulière. Les variantes doivent être justifiées techniquement (notamment par étude géotechnique si réduction d'épaisseur GNT).
+- AIPR obligatoire pour TOUS les opérateurs (concepteur, encadrant, opérateurs) — à vérifier impérativement avant dépôt de l'offre sous peine d'irrecevabilité (CCAP art. 3-4).
+- Mission G3 géotechnique entièrement à la charge de l'entreprise (prix 107) : inclut sondages complémentaires, essais laboratoire, notes de calcul stabilité mur gabion et suivi d'exécution — compétence géotechnique spécialisée requise ou sous-traitant G3 à prévoir.
+- Terrassements en terrain de 2e catégorie (calcaire fracturé) sur des hauteurs importantes (jusqu'à 9 m provisoire) : l'entreprise devra disposer de matériels lourds (BRH, pelle grande puissance) et d'une expérience prouvée en terrain rocheux pour les talus provisoires.
+- Clause d'insertion sociale contraignante : 80 heures minimum à réaliser et justifier trimestriellement — pénalités en cas de non-respect (CCAP art. 4-4), désignation d'un correspondant opérationnel obligatoire.
+- Assurances RC et décennale à produire AVANT notification (et non après) — délai à anticiper si renouvellement nécessaire (CCAP art. 3-6-1).
+- Présence avérée de réseaux enterrés et d'anciens ouvrages dans les emprises : le titulaire supporte intégralement les conséquences d'une mauvaise prise en compte (CCAP art. 3-4 et prix 105 à 112).
 
 ## 💡 Points différenciants attendus
-- Qualité et précision du mémoire justificatif — méthodes de réalisation (exemple=Décrire avec précision la séquence des travaux section par section, les techniques de compactage, les contrôles qualité in situ, la gestion des interfaces entre les différents ateliers (terrassement, soutènement, chaussée), en lien direct avec les exigences techniques du CCTP., source=RC art 6)
-- Pertinence de la gestion de la sécurité des circulations (exemple=Présenter un plan de gestion du trafic détaillé (signalisation, distances, responsable sécurité dédié, gestion des usagers de la voie verte pendant les travaux) montrant la maîtrise des situations d'alternat., source=RC art 6)
-- Proposition d'une variante techniquement justifiée sur le soutènement ou la couche de roulement (exemple=Proposer un revêtement perméable comme variante couche de roulement avec fiche technique, étude de conformité aux exigences de confort usager, et démonstration de l'équivalence ou supériorité vs la solution de base, avec répercussion chiffrée sur le BPU., source=RC art 3-7-1)
-- Offre d'heures d'insertion supérieure au minimum de 80h (exemple=S'engager sur 120h d'insertion (au lieu de 80h minimum) en partenariat avec une structure IAE locale de Saône-et-Loire, en précisant le type de public et les modalités de mise en œuvre concrètes., source=RC art 3-5)
-- SOSED de qualité avec démarche environnementale valorisée (exemple=Proposer l'utilisation de matériaux recyclés (fraisats valorisés en couche d'assise si variante), décrire les filières de traitement des déchets locales, et quantifier la réduction de l'empreinte carbone par rapport à la solution de base., source=RC art 6)
+- Maîtrise du phasage terrassements en terrain rocheux avec gestion des talus provisoires instables (exemple=Un candidat démontrant une méthodologie détaillée de purge du coin argileux (argile à cailloux et blocs) avant talutage 2H/5V dans le calcaire, avec planning de réalisation en période sèche et dispositif de drainage provisoire, se différenciera nettement., source=CCTP / Rapport géotechnique G2PRO §4 et §5.3)
+- Expérience prouvée en construction de murs gabions électrosoudés sur assise béton en site contraint (exemple=Présenter des références récentes de murs gabions de hauteur ≥ 4 m avec garde-corps intégré et assise béton sur calcaire fracturé, idéalement en milieu sportif ou périurbain, avec retour sur les difficultés géotechniques rencontrées., source=BPU prix 1001)
+- Organisation de la mission G3 géotechnique et coordination avec le maître d'œuvre PMM (exemple=Proposer un sous-traitant G3 nommé avec CV de l'ingénieur géotechnicien, planning des interventions géotechniques calé sur le phasage travaux, et note sur la méthode de vérification de la portance en fond de fouille (EV2 > 50 MPa)., source=BPU prix 107 / Rapport G2PRO §5.9)
+- Gestion des terres excavées comme déchets et traçabilité (loi AGEC) (exemple=Présenter un plan de gestion des terres excavées avec identification d'une filière de valorisation agréée pour les argiles A3ts non réutilisables, registre de traçabilité conforme au décret du 1er avril 2021., source=Rapport G2PRO §3.6 / BPU prix 303)
+- Plan de maintien de la circulation des cyclistes et des riverains pendant les travaux (exemple=Fournir un DESC détaillé avec déviation cycliste balisée sur itinéraire alternatif, maintien des accès aux terrains de tennis, signalisation modulaire par phase, et planning des fermetures de voirie communale validé avec la commune., source=BPU prix 113 / CCAP article 6-5)

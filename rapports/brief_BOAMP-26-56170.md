@@ -1,6 +1,6 @@
 # Brief — DTEM2026-134AO_MaintGpeElectro
 
-_Généré le 2026-06-12 15:49 par Claude claude-sonnet-4-6_
+_Généré le 2026-06-15 20:37 par Claude claude-sonnet-4-6_
 
 ## Identifiants
 - **ID Tendia** : `BOAMP-26-56170`
@@ -11,95 +11,49 @@ _Généré le 2026-06-12 15:49 par Claude claude-sonnet-4-6_
 - **DCE PLACE** : <https://www.marches-publics.gouv.fr/?page=Entreprise.EntrepriseDetailsConsultation&id=3013839&orgAcronyme=x7c>
 
 ## Synthèse
-Le CHU d'Angers, en tant qu'établissement support du GHT 49 (Maine-et-Loire), lance un appel d'offres ouvert pour des prestations de maintenance préventive et corrective des groupes électrogènes et de leurs équipements auxiliaires pour l'ensemble des établissements du GHT 49. Le marché est un accord-cadre mono-titulaire à bons de commande, sans allotissement, d'une durée maximale de 3 ans (1 an + 2 reconductions), avec un montant maximum de 480 000 € HT par période. Le prestataire devra intervenir sur plusieurs établissements hospitaliers du Maine-et-Loire.
-
-## 🏗 Chantier — caractéristiques BTP
-- **Description** : Maintenance préventive et corrective des groupes électrogènes et de leurs équipements auxiliaires (tableaux de couplage, batteries, réservoirs carburant, systèmes de refroidissement, etc.) sur l'ensemble des établissements hospitaliers du GHT 49 en Maine-et-Loire. L'inventaire des groupes électrogènes est fourni en annexe 1 du CCTP.
-- **Type d'ouvrage** : Établissements hospitaliers (CHU, CH, CESAME, EHPA, etc.) — sites occupés en activité continue
-- **Site occupé pendant travaux** : oui
-- **Corps d'état mobilisés** : Maintenance électromécanique, Maintenance groupes électrogènes, Maintenance équipements auxiliaires
-- **Contraintes spécifiques** :
-  - Intervention sur sites hospitaliers en activité (continuité de service critique)
-  - Groupes électrogènes indispensables à la continuité des soins
-  - Multi-sites répartis sur le Maine-et-Loire
-  - Coordination avec plusieurs établissements distincts
-  - Plan de prévention obligatoire (CCAP Annexe 3)
-
-### Allotissement
-Marché non alloti — lot unique couvrant l'ensemble des établissements du GHT 49
-- **Nombre de lots** : 1
-- **Lot 1** — Prestations de maintenance préventive et corrective des groupes électrogènes et de leurs équipements auxiliaires des établissements du GHT 49
-  - Corps d'état : Maintenance électromécanique groupes électrogènes
-  - Montant estimé : 360 000 €
-  - Maintenance préventive et corrective des groupes électrogènes et équipements auxiliaires sur l'ensemble des établissements du GHT 49 de Maine-et-Loire, pour une durée maximale de 3 ans.
-
-### Qualifications BTP exigées
-Le RC demande des éléments de capacité technique et professionnelle incluant des titres d'études et professionnels des techniciens, des références de prestations similaires et des certifications qualité/environnement.
-- **Autres exigences** :
-  - Certification ISO 9000 ou équivalent (qualité)
-  - Certification EMAS ou autre norme de gestion environnementale (ou équivalent)
-  - Assurance des risques professionnels
-  - Habilitations électriques et qualifications techniques des techniciens interventions groupes électrogènes (demandées dans le mémoire technique)
-
-## ⚡ Parc EnR — caractéristiques techniques
-### Volumes techniques
-- **Durée du marché (mois)** : 36
-- **Durée maintenance O&M (années)** : 3
-- **Note** : L'inventaire des groupes électrogènes figure en CCTP Annexe 1 (non fournie dans les pièces analysées). Le nombre de sites et de groupes électrogènes n'est pas précisé dans les pièces transmises. Les quantités dans le BPU sont indicatives, basées sur les consommations de l'exercice précédent.
-
-### Modalités d'exécution
-- **Sites d'exécution** : Angers (49), Cholet (49), Saumur (49), Maine-et-Loire (49)
-
-## 🎯 Mission conseil
-- **Durée de mission** : 36 mois maximum (1 an initial + 2 reconductions d'un an)
-
-### Profils intervenants
-Techniciens de maintenance spécialisés groupes électrogènes, avec qualifications adaptées. Le mémoire technique doit préciser les moyens humains et qualifications.
-- **Chef de mission** : Responsable technique avec expérience dans la maintenance de groupes électrogènes
-- **Consultants** : Techniciens qualifiés en maintenance électromécanique, nombre à préciser dans le mémoire technique
-
-## 🎓 Formation / accompagnement
-### Volumes
-- **Durée marché (mois)** : 36
-
-### Modalités
-- **Sites d'exécution** : Maine-et-Loire (49), Angers, Cholet, Saumur
+Le CHU d'Angers, en tant qu'établissement support du GHT 49 (Maine-et-Loire), lance un appel d'offres ouvert pour la maintenance préventive et corrective des groupes électrogènes et de leurs équipements auxiliaires (armoires de commande, batteries, circuits de carburant) pour l'ensemble des établissements membres et partenaires du GHT 49 (9 CH + 6 EHPAD/GCS). Le marché est un accord-cadre à bons de commande, mono-titulaire, non alloti, d'une durée de 12 mois reconductibles deux fois (3 ans maximum), estimé à 120 000 € HT/an.
 
 ## 💶 Montant du marché
 - **Valeur estimée** : **360 000 €**
-  - sur Durée maximale 3 ans (période initiale 12 mois + 2 reconductions de 12 mois)
-  - _source : RC article 3 — tableau des périodes contractuelles_
-- _Note_ : Valeur estimée de l'accord-cadre pour sa durée maximale : 360 000 € HT (120 000 € HT/an × 3 ans). Montant maximum par période de 12 mois : 480 000 € HT. Accord-cadre sans minimum, avec maximum de 480 000 € HT par période annuelle.
+  - sur 3 ans (période initiale 12 mois + 2 reconductions de 12 mois)
+  - _source : RC article 4 et CCAP article 3_
+- _Note_ : Valeur estimée : 120 000 € HT/an × 3 ans = 360 000 € HT sur la durée maximale. Montant maximum par période : 480 000 € HT, soit un plafond total de 1 440 000 € HT sur 3 ans. L'accord-cadre est sans minimum.
 
 ## Barème de notation
-- **Valeur technique** : 70 %
+- **Valeur technique** : 60 %
 - **Valeur prix** : 30 %
 - **Sous-critères techniques** :
   - QUALITE — Valeur technique au regard du mémoire technique et de la fiche de moyens : 60 %
   - PERFORMANCES EN MATIERE DE PROTECTION DE L'ENVIRONNEMENT : 10 %
-- **Calcul du prix** : Prix des prestations sur la base du BPU — 30% de la notation. En cas de discordance entre le produit prix unitaire × quantité et le montant estimatif, le prix unitaire est retenu et le montant corrigé.
+- **Calcul du prix** : Critère Prix pondéré à 30% de la note finale. Formule exacte non précisée dans le RC.
 
 ## Références et qualifications exigées
 - **Expérience minimale** : —
-- **Secteur d'expérience** : Maintenance de groupes électrogènes, de préférence en milieu hospitalier ou industriel
+- **Secteur d'expérience** : Maintenance de groupes électrogènes, idéalement en milieu hospitalier ou industriel à contraintes de continuité électrique
+- **Certifications obligatoires** : Habilitations réglementaires électriques des techniciens (non précisées dans le DCE mais mentionnées comme requises) (source=CCAP article 11.4.7)
 - **Autres exigences** :
-  - Déclaration du chiffre d'affaires global et du CA du domaine d'activité sur les 3 derniers exercices (source=RC art. 6.2 b))
-  - Preuve d'une assurance des risques professionnels pertinents (source=RC art. 6.2 b))
-  - Déclaration des effectifs moyens annuels et importance du personnel d'encadrement sur 3 ans (source=RC art. 6.2 c))
-  - Liste des principales prestations similaires fournies au cours des 3 dernières années (montant, date, destinataire) (source=RC art. 6.2 c))
-  - Titres d'études et professionnels des cadres et responsables de prestations de même nature (source=RC art. 6.2 c))
-  - Certificats qualité ISO 9000 ou équivalent (organisme indépendant) (source=RC art. 6.2 d))
-  - Certificats de gestion environnementale EMAS ou équivalent (organisme indépendant) (source=RC art. 6.2 d))
+  - Déclaration du chiffre d'affaires global et du CA du domaine d'activité sur les 3 derniers exercices (source=RC article 6.2b)
+  - Déclaration des effectifs moyens annuels et du personnel d'encadrement sur les 3 dernières années (source=RC article 6.2c)
+  - Liste des principales prestations de services fournies au cours des 3 dernières années avec montants, dates et destinataires (source=RC article 6.2c)
+  - Preuve d'assurance des risques professionnels pertinents (source=RC article 6.2b)
+  - Certificats de qualité (normes ISO 9000 ou équivalent) et/ou certificats de management environnemental (EMAS ou équivalent) — souhaitables (source=RC article 6.2d)
+
+## Lots
+- **Lot 1** — Prestations de maintenance préventive et corrective des groupes électrogènes et de leurs équipements auxiliaire des établissements du GHT 49
+  - Zone : Maine-et-Loire (49) — multisites : Angers, Cholet, Saumur, Saint-Gemmes-sur-Loire, Baugé-en-Anjou, Chalonnes, Doué-en-Anjou, Martigné-Briand, Chemillé-en-Anjou et communes EHPAD associées
+  - Volume estimé : 120000 € HT/an
+  - Lot unique non alloti couvrant 9 établissements du GHT + 6 EHPAD/GCS partenaires. Inventaire exact des GE en CCTP Annexe 1 (non fourni dans le DCE transmis). Inclut option astreinte 24h/24 7j/7 selon souscription de chaque établissement.
 
 ## ⚠ Alertes candidat
-- Accord-cadre sans montant minimum : aucune garantie de chiffre d'affaires pour le titulaire, les commandes sont au gré des besoins des établissements.
-- Couverture multi-sites obligatoire : le candidat doit démontrer sa capacité à intervenir sur l'ensemble des établissements du GHT 49 (au moins 9 sites répartis sur le Maine-et-Loire, dont CHU Angers, CH Cholet, CH Saumur, CESAME, etc.).
-- Mémoire technique fortement pondéré (60%) : la qualité de la réponse technique est déterminante — moyens humains, qualifications, méthodologie et organisation doivent être précisément documentés.
-- Visite de site facultative mais recommandée : chaque établissement a un référent technique distinct (coordonnées en CCAP Annexe 2) — la visite permet d'évaluer le parc réel et de rédiger une offre fiable.
-- Certificats qualité et environnement demandés : absence d'ISO 9001 ou d'équivalent peut fragiliser la candidature lors de l'analyse des capacités (art. 6.2 d).
+- Couverture géographique multisites étendue (15+ sites en Maine-et-Loire) : le prestataire doit démontrer sa capacité à respecter le délai d'intervention corrective de 4h sur l'ensemble des établissements, y compris les EHPAD ruraux (RC art 14.2 / CCAP art 17.1)
+- Habilitations réglementaires électriques obligatoires pour tous les techniciens intervenants : l'absence de justificatif peut conduire à l'élimination de la candidature (CCAP art 11.4.7)
+- Obligation de disponibilité d'un groupe électrogène de substitution de puissance et tension équivalentes avec certificat d'essai sur banc de charge de moins d'un mois : capacité matérielle à justifier dans le mémoire technique (CCTP §5.1.5)
+- Permis de feu et plan de prévention obligatoires : leur non-respect déclenche des pénalités de 250 € HT par infraction sans mise en demeure préalable (CCAP art 17.1)
+- Marché sans minimum garanti : les entreprises ne disposant pas d'une assise financière suffisante pour absorber une période de faible activité doivent évaluer le risque de sous-utilisation de l'accord-cadre
 
 ## 💡 Points différenciants attendus
-- Organisation multi-sites avec délais d'intervention garantis sur l'ensemble du GHT 49 (exemple=Présenter une carte des zones de couverture avec temps d'intervention garantis par établissement (ex: ≤ 4h pour toute urgence corrective sur les 9 sites), avec une astreinte 24h/24 7j/7 clairement décrite et des techniciens en nombre suffisant pour gérer des interventions simultanées., source=RC art. 8.3)
-- Qualifications et habilitations des techniciens adaptées au milieu hospitalier (exemple=Lister les habilitations électriques (BR, BC, B2V), les formations constructeurs (Caterpillar, FG Wilson, Cummins, etc.) et les agréments spécifiques au milieu de soins (plan de prévention, protocoles d'intervention en zone à risque) pour chaque technicien dédié au marché., source=RC art. 8.3)
-- Traçabilité et reporting via GMAO ou outil numérique (exemple=Proposer un accès en temps réel à la GMAO pour les services techniques de chaque établissement : suivi des interventions, historique des pannes, alertes préventives et rapports d'intervention dématérialisés transmis sous 48h.)
-- Actions environnementales concrètes et documentées (critère 10%) (exemple=Présenter un plan de gestion des déchets de maintenance (huiles usagées, batteries, filtres) avec bons de prise en charge par filières agréées, politique véhicules propres et tableau de suivi des émissions CO2 par intervention., source=RC art. 8.3 et art. 14.2)
+- Proximité géographique et réactivité démontrée sur l'ensemble des sites (exemple=Un prestataire disposant d'une base logistique en Maine-et-Loire (Angers ou axe Angers-Cholet-Saumur) peut démontrer chiffres à l'appui que ses délais d'intervention sont structurellement inférieurs à 4h sur tous les sites, y compris les EHPAD les plus éloignés, en s'appuyant sur des temps de trajet cartographiés., source=CCAP article 17.1)
+- Expérience spécifique en milieu hospitalier et connaissance des contraintes de continuité électrique (exemple=Mettre en avant des références de maintenance GE en établissements de santé (CHU, CHR, EHPAD) avec les contraintes de coordination avec les services de soins (coupures planifiées, essais mensuels, fluides médicaux) démontre une compréhension des enjeux critiques du secteur., source=CCTP §5.1.2)
+- Disponibilité et capacité du parc de groupes électrogènes de substitution (exemple=Détailler le parc de GE de substitution disponible (puissances, disponibilité, procédure de mise à disposition sous 8h) et produire des certificats d'essai récents rassurent l'acheteur sur la capacité à faire face aux pannes graves affectant la sécurité électrique., source=CCTP §5.1.5)
+- Organisation documentaire et reporting structuré (comptes rendus, suivi de parc) (exemple=Proposer un portail ou un outil de suivi numérique du parc (historique des interventions, alertes d'échéances, comptes rendus standardisés) permettant à chaque établissement d'accéder à l'état de son parc en temps réel valorise la valeur technique au-delà du simple respect des délais de transmission de rapports., source=CCTP §8)
+- Politique environnementale concrète et traçable liée aux déchets de maintenance (exemple=Fournir des bordereaux de suivi de déchets (BSD) pour les huiles usagées et les batteries, contractualiser avec une filière de valorisation agréée, et présenter le bilan carbone des interventions (optimisation des tournées) permet de scorer fortement sur les 10% du critère environnement., source=RC article 14.2 / CCTP §7)

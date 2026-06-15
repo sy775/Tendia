@@ -1,512 +1,664 @@
 {
-  "synthese_marche": "Marché public de services portant sur des prestations d'analyses bactériologiques, endotoxines, physico-chimiques et de requalification fonctionnelle de salles propres pour le Groupement de Commandes du GHT des Alpes du Sud. Le marché est divisé en 7 lots couvrant plusieurs établissements hospitaliers des Hautes-Alpes et des Alpes-de-Haute-Provence. Il s'agit d'un accord-cadre d'une durée de 4 ans (1 an renouvelable 3 fois) passé en appel d'offres ouvert.",
+  "synthese_marche": "Marché de prestations d'analyses bactériologiques (eau, air, surfaces, légionnelles, endotoxines, physico-chimiques), de requalification fonctionnelle des salles propres et d'analyses d'hygiène hospitalière (restauration, blanchisserie), pour le compte du groupement de commandes du GHT des Alpes du Sud regroupant 7 établissements hospitaliers (Gap, Sisteron, Laragne, Embrun, Aiguilles, Briançon, Barcelonnette). Le marché est alloti en 7 lots distincts selon les types d'analyses, passé en appel d'offres ouvert pour une durée de 4 ans (1 an + 3 reconductions tacites).",
+  "domaines_metier": [
+    {
+      "code": "services_environnement_analyses"
+    }
+  ],
+  "raison_classification": "Le marché porte exclusivement sur des prestations d'analyses microbiologiques et physico-chimiques d'environnements hospitaliers (eau, air, surfaces, salles propres, dialyse, restauration, linge), incluant prélèvements, transports et comptes-rendus COFRAC. La 'requalification fonctionnelle des salles propres' du titre correspond ici à la qualification d'environnements maîtrisés (salles ISO, blocs opératoires) et non à une réhabilitation de bâtiment. Le code `services_environnement_analyses` est parfaitement adapté à ces contrôles physico-chimiques et bactériologiques.",
   "caracteristiques_techniques_chantier": {
-    "description": "Prestations d'analyses microbiologiques (eau, air, surfaces, légionnelles), d'analyses endotoxines, physico-chimiques (hémodialyse, stérilisation) et de requalification fonctionnelle de salles propres dans plusieurs établissements hospitaliers du GHT des Alpes du Sud. Inclut la mise en place d'un planning annuel de prélèvements et des audits d'hygiène pour restauration et blanchisserie.",
-    "technologies_concernees": [],
-    "type_de_sites": "Établissements hospitaliers publics (hôpitaux, centres hospitaliers) avec salles propres, unités d'hémodialyse, blanchisserie et restauration collective",
-    "criteres_eligibilite": [
-      {
-        "libelle": "Attestation d'assurance responsabilité civile professionnelle",
-        "source": "RC Article 6"
-      },
-      {
-        "libelle": "Lettre de candidature DC1 (version 2019)",
-        "source": "RC Article 6"
-      },
-      {
-        "libelle": "Déclaration du candidat DC2 (version 2019)",
-        "source": "RC Article 6"
-      },
-      {
-        "libelle": "Attestation sur l'honneur datée et signée",
-        "source": "RC Article 6"
-      },
-      {
-        "libelle": "Attestation de suivi d'une formation aux bonnes pratiques de prélèvements pour les intervenants",
-        "source": "RC Article 6"
-      },
-      {
-        "libelle": "Notice descriptive particulière pour chacun des lots (analyses réalisables, techniques, matériel, interlocuteurs, normes, comptes rendus)",
-        "source": "RC Article 6"
-      },
-      {
-        "libelle": "Protocole de méthodologie de prélèvement conforme aux normes d'hygiène en vigueur",
-        "source": "RC Article 3"
-      }
-    ],
-    "contraintes_site_signalees": [
-      "site occupé",
-      "établissements hospitaliers en activité"
+    "description": "Prestations de laboratoire externalisées : prélèvements, transports, analyses bactériologiques/endotoxines/physico-chimiques et requalification aéraulique des salles à environnement maîtrisé dans 7 établissements hospitaliers des Hautes-Alpes et Alpes-de-Haute-Provence.",
+    "typologie_ouvrage": "Établissements de santé (CHU, EHPAD, blocs opératoires, unités de stérilisation, dialyse, restauration collective, blanchisserie hospitalière)",
+    "surface_volume": null,
+    "site_occupe": "true — interventions en milieu hospitalier en activité, prélèvements aux blocs opératoires imposant tenue de bloc complète et coordination avec les services",
+    "corps_etat": [],
+    "contraintes_specifiques": [
+      "Prélèvements aux blocs opératoires : tenue complète exigée, obligation d'avertir avant intervention",
+      "Planning annuel à établir en début de marché avec chaque établissement",
+      "Optimisation des déplacements multi-sites sur un territoire dispersé (Laragne, Gap, Sisteron, Embrun, Aiguilles, Briançon, Barcelonnette)",
+      "Interventions d'urgence sous 96h ouvrées en cas de non-conformité",
+      "Fourniture à titre gracieux du matériel de prélèvement (tubes, flacons, poches) pour les prélèvements réalisés en interne par les CH",
+      "Accréditation COFRAC programme eaux 100.2 fortement conseillée",
+      "Conformité aux normes NF EN ISO 14644, NF S 90-351, circulaires DGS/DHOS hémodialyse, règlement CE 2073/2005 restauration",
+      "Conservation des souches pendant 1 an (épidémiologie rétrospective)",
+      "Résultats non conformes à transmettre immédiatement par tout moyen, compte-rendus dans les 15 jours"
     ]
   },
-  "volumes_techniques": {
-    "puissance_totale_kwc": null,
-    "puissance_par_site_kwc": null,
-    "nb_sites": 7,
-    "surface_panneaux_m2": null,
-    "productible_annuel_estime_mwh": null,
-    "duree_marche_mois": 48,
-    "duree_maintenance_om_annees": null,
-    "commentaire_volumes": "7 établissements hospitaliers concernés (CHBD Laragne-Montéglin, CHICAS Gap et Sisteron, CHE Embrun, CHAQ Aiguilles-Queyras, CHEB Briançon, CHPG Barcelonnette). Le marché couvre 7 lots distincts. Aucun volume unitaire d'analyses n'est précisé dans le RC seul."
+  "allotissement": {
+    "description": "Marché décomposé en 7 lots techniques indépendants selon le type d'analyses. Les candidats peuvent répondre à un ou plusieurs lots.",
+    "nb_lots": 7,
+    "lots_detailles": [
+      {
+        "numero": 1,
+        "intitule": "Analyses bactériologiques de l'eau, l'air, les surfaces",
+        "corps_etat": "Analyses bactériologiques eau (potabilité, ESS, osmosée, piscine), aérobiocontamination, surfaces — 7 établissements",
+        "montant_estime": null,
+        "description": "Analyses bactériologiques de l'eau (potabilité, ESS, osmosée autoclaves, endoscopie, balnéo), aérobiocontamination et surfaces dans blocs et salles traitées (Gap et Briançon principalement). Quantités estimatives : 36 prélèvements piscine + 158 potabilité + 14 osmosée + 119 ESS + 114 endoscopie + 321 aérobiocontamination + 798 surfaces par an."
+      },
+      {
+        "numero": 2,
+        "intitule": "Recherche de légionnelles",
+        "corps_etat": "Analyses légionnelles réseau eau chaude sanitaire — 7 établissements",
+        "montant_estime": null,
+        "description": "Recherche de légionnelles sur l'ensemble des réseaux ECS des 7 établissements du GHT. Quantité estimative : 475 prélèvements annuels."
+      },
+      {
+        "numero": 3,
+        "intitule": "Requalification fonctionnelle des salles propres",
+        "corps_etat": "Métrologie et qualification aéraulique des salles ISO (blocs, stérilisation, URC, médecine nucléaire) — Gap et Briançon",
+        "montant_estime": null,
+        "description": "Contrôles aérauliques et microbiologiques complets (particules, vitesses, pressions, hygrométrie, aérobiocontamination, surfaces) conformes NF EN ISO 14644 et NF S 90-351. Gap : 26 salles/locaux, Briançon : 16. Quantité estimative : 277 prélèvements annuels."
+      },
+      {
+        "numero": 4,
+        "intitule": "Analyse de performance de l'hémodiafiltration : analyse bactériologique et endotoxines",
+        "corps_etat": "Bactériologie et endotoxines générateurs hémodiafiltration — Gap (18 générateurs) et Briançon (9 générateurs)",
+        "montant_estime": null,
+        "description": "Analyses bactériologiques et endotoxines sur poche de liquide de substitution pour les générateurs HDF, 4 fois par an. Prélèvements réalisés en interne par les CH, transport et analyse par le titulaire. Quantité estimative : 108 bactériologie + 108 endotoxines."
+      },
+      {
+        "numero": 5,
+        "intitule": "Analyse de performance de l'hémodialyse : analyse bactériologique et endotoxines",
+        "corps_etat": "Bactériologie et endotoxines eau osmosée dialyse — Gap et Briançon",
+        "montant_estime": null,
+        "description": "Analyses bactériologiques et endotoxines sur eau osmosée (départ et retour de boucle) 1 fois par mois le mercredi matin. Prélèvements réalisés par le titulaire. Quantité estimative : 48 prélèvements/site soit 96 au total."
+      },
+      {
+        "numero": 6,
+        "intitule": "Analyse physico-chimique : hémodialyse et stérilisation",
+        "corps_etat": "Analyses physico-chimiques eau osmosée dialyse et stérilisation — Gap et Briançon",
+        "montant_estime": null,
+        "description": "Analyses physico-chimiques complètes et simplifiées (conductivité, dureté, nitrates, matières organiques, aluminium) sur eau dialyse (4/an) et stérilisation (1/an). Quantité estimative : 10 prélèvements par an."
+      },
+      {
+        "numero": 7,
+        "intitule": "Analyse d'hygiène hospitalière pour l'unité centrale de restauration et la blanchisserie",
+        "corps_etat": "Analyses microbiologiques denrées alimentaires, surfaces cuisine et linge hospitalier + audits hygiène alimentaire — 7 établissements",
+        "montant_estime": null,
+        "description": "Prélèvements mensuels de denrées alimentaires et de surfaces en cuisine, prélèvements semestriels linge blanchisserie/lingerie, audits hygiène alimentaire (règlement CE 2073/2005, RABC, COFRAC). Fréquence : 4 prélèvements mensuels par site majeur. Audits de 1 à 3 par an selon site."
+      }
+    ]
   },
-  "modalites_execution_chantier": {
-    "raccordement_reseau_inclus": null,
-    "etudes_techniques_incluses": null,
-    "calendrier_chantier_contraint": null,
-    "sites_execution": [
-      "Gap (05)",
-      "Sisteron (04)",
-      "Laragne-Montéglin (05)",
-      "Embrun (05)",
-      "Aiguilles-en-Queyras (05)",
-      "Briançon (05)",
-      "Barcelonnette (04)"
-    ],
-    "engagement_productible": null,
-    "engagement_disponibilite_om": null
+  "qualifications_requises": {
+    "description": "Pas de qualification professionnelle réglementaire formellement exigée (type Qualibat). Accréditation COFRAC programme eaux 100.2 fortement conseillée. Accréditation COFRAC obligatoire pour le lot 7. Conformité aux normes analytiques AFNOR exigée pour le lot 7.",
+    "qualibat": [],
+    "rge": false,
+    "rge_specialites": [],
+    "mase": false,
+    "iso_9001": false,
+    "iso_14001": false,
+    "iso_45001": false,
+    "opqibi": null,
+    "autres_certifications": [
+      {
+        "libelle": "Accréditation COFRAC programme eaux 100.2 (fortement conseillée pour lots 1 à 6, obligatoire lot 7)",
+        "source": "CCP articles 3-3, 4-2, 5-5, 7-4"
+      },
+      {
+        "libelle": "Conformité aux normes analytiques AFNOR (lot 7 restauration)",
+        "source": "CCP article 7-1"
+      },
+      {
+        "libelle": "Habilitation RABC pour analyses linge hospitalier (lot 7)",
+        "source": "CCP article 7-3-3"
+      }
+    ]
   },
-  "publics_cibles": {
-    "description": "Ce marché ne concerne pas de public de formation. Il s'agit de prestations de laboratoire (analyses biologiques, physico-chimiques) et de contrôle technique (salles propres) à destination d'établissements hospitaliers publics du GHT des Alpes du Sud.",
-    "criteres_eligibilite": [],
-    "publics_specifiques_signales": []
+  "caracteristiques_mission_moe": {
+    "typologie": null,
+    "phases_couvertes": [],
+    "typologie_ouvrage": null,
+    "montant_travaux_estime": null,
+    "complexite_technique": null,
+    "livrables_par_phase": [],
+    "taux_remuneration_moe_pct": null,
+    "indices_revision": [],
+    "coordinations_associees": [],
+    "organigramme_attendu": [],
+    "bim_niveau": null
   },
-  "volumes": {
-    "nb_beneficiaires_total": null,
-    "nb_beneficiaires_par_lot": null,
-    "duree_par_parcours_heures": null,
-    "duree_par_parcours_semaines": null,
-    "duree_marche_mois": 48,
-    "commentaire_volumes": "Marché de services d'analyses. Pas de notion de bénéficiaires de formation. Durée : 1 an reconductible 3 fois (4 ans total). Les volumes d'analyses ne sont pas précisés dans les pièces fournies."
-  },
-  "modalites": {
-    "presentiel_obligatoire": true,
-    "distanciel_possible": false,
-    "synchrone_asynchrone": null,
-    "sites_execution": [
-      "Gap (05)",
-      "Sisteron (04)",
-      "Laragne-Montéglin (05)",
-      "Embrun (05)",
-      "Aiguilles-en-Queyras (05)",
-      "Briançon (05)",
-      "Barcelonnette (04)"
-    ],
-    "amplitude_horaire": null
+  "qualifications_moe": {
+    "opqibi": [],
+    "opqcm": [],
+    "bim": null,
+    "autres": []
   },
   "bareme_notation": {
     "valeur_technique_pct": 35,
     "valeur_prix_pct": 55,
     "sous_criteres_techniques": [
       {
-        "libelle": "Valeur technique de l'offre basée sur les documents produits",
-        "ponderation_pct": 35,
-        "description": "Évaluation de la valeur technique pour les lots 1 à 6, basée sur les documents produits par le candidat (notice descriptive, protocoles, comptes rendus types).",
+        "libelle": "Critère 1 : Coût global incluant les frais de déplacement (lots 1 à 6)",
+        "ponderation_pct": 55,
+        "description": "Évaluation du coût total des prestations incluant l'ensemble des frais de déplacement pour les lots 1 à 6. Le prix unitaire par analyse doit être identique pour tous les établissements/sites.",
         "elements_attendus": [
-          "Liste des analyses réalisables avec techniques et matériel utilisés",
-          "Noms et disponibilités des interlocuteurs chargés des analyses et/ou prélèvements",
-          "Liste des normes appliquées pour chaque type d'analyse",
-          "Modèles de comptes rendus conformes et non conformes avec préconisations",
-          "Protocole de prélèvement conforme aux normes d'hygiène"
+          "Prix unitaire HT par type d'analyse renseigné dans les annexes financières",
+          "Frais de déplacement éventuels clairement chiffrés (ou inclus dans le PU)",
+          "Prix cohérent pour tous les établissements (même PU quelle que soit la localisation)",
+          "Optimisation des déplacements multi-sites documentée"
         ],
-        "exemple_reponse_forte": "Le candidat présente pour chaque lot une notice descriptive structurée détaillant les 12 types d'analyses couvertes, les équipements accrédités COFRAC utilisés, et joint 2 modèles de comptes rendus (conforme/non conforme) incluant l'identification des germes et les actions correctives associées. Les interlocuteurs dédiés à chaque établissement sont nommés avec leurs disponibilités.",
-        "source": "RC Article 6 et Article 7",
+        "exemple_reponse_forte": "Le candidat propose un prix unitaire unique par type d'analyse incluant tous les déplacements, justifie l'optimisation des tournées multi-sites et ne facture qu'un seul déplacement par jour d'intervention, conformément aux exigences du CCP.",
+        "source": "RC Article 7",
         "sous_criteres": []
       },
       {
-        "libelle": "Valeur technique de l'offre (Lot 7 uniquement)",
-        "ponderation_pct": 25,
-        "description": "Pour le lot 7 (hygiène hospitalière restauration et blanchisserie), la valeur technique est appréciée selon 5 sous-critères spécifiques totalisant 25 points.",
+        "libelle": "Critère 2 : Valeur technique de l'offre basée sur les documents produits (lots 1 à 6)",
+        "ponderation_pct": 35,
+        "description": "Évaluation de la qualité technique de l'offre sur la base des documents produits par le candidat : notice descriptive, protocoles, comptes-rendus modèles.",
         "elements_attendus": [
-          "Références pertinentes en hygiène hospitalière restauration/blanchisserie",
-          "Accréditations et certifications : RABC, COFRAC, AFNOR, règlement CE",
-          "Qualification métier pour les procédés d'analyses",
-          "Qualification métier pour la qualité des audits alimentaires",
-          "Politique qualité hygiène documentée"
+          "Notice descriptive détaillée par lot : techniques d'analyse, matériel, normes appliquées",
+          "Protocoles de prélèvement conformes aux guides CCLIN ARLIN et normes NF/EN/ISO",
+          "Modèles de comptes-rendus conformes et non-conformes fournis (avec identification germes, conclusion, préconisations)",
+          "Attestation de formation aux bonnes pratiques de prélèvement des intervenants",
+          "Délai maximal d'intervention en urgence indiqué dans le questionnaire technique",
+          "Démarche qualité documentée (procédures, traçabilité réactifs, conservation souches 1 an)"
         ],
-        "exemple_reponse_forte": "Le candidat fournit 3 références de marchés similaires en restauration hospitalière collective, justifie d'une accréditation COFRAC et d'une certification AFNOR, et joint un exemple complet de rapport d'audit alimentaire avec le déroulé détaillé de l'intervention.",
-        "source": "RC Article 7",
-        "sous_criteres": [
-          {
-            "libelle": "Références",
-            "ponderation_pct": 4,
-            "description": "Références du candidat dans le domaine de l'hygiène hospitalière, restauration ou blanchisserie.",
-            "elements_attendus": [
-              "Références de marchés similaires dans le secteur hospitalier ou restauration collective"
-            ],
-            "exemple_reponse_forte": "Présentation de 3 références en hygiène de restauration hospitalière avec volumes traités et coordonnées des donneurs d'ordre.",
-            "source": "RC Article 7"
-          },
-          {
-            "libelle": "RABC/COFRAC/AFNOR/règlement CE",
-            "ponderation_pct": 4,
-            "description": "Possession et justification des certifications et accréditations RABC, COFRAC, AFNOR ou conformité au règlement CE.",
-            "elements_attendus": [
-              "Certificats d'accréditation COFRAC en cours de validité",
-              "Certification AFNOR ou équivalent",
-              "Justificatif RABC pour la blanchisserie"
-            ],
-            "exemple_reponse_forte": "Le candidat produit son accréditation COFRAC n°X valable jusqu'en 2027 et son certificat RABC pour les analyses blanchisserie.",
-            "source": "RC Article 7"
-          },
-          {
-            "libelle": "Qualification métier procédés d'analyses",
-            "ponderation_pct": 4,
-            "description": "Capacité technique et qualification du personnel pour les procédés d'analyses relatifs à la restauration et la blanchisserie.",
-            "elements_attendus": [
-              "CV ou fiches de qualification des analystes dédiés",
-              "Description des procédés d'analyses utilisés"
-            ],
-            "exemple_reponse_forte": "Le candidat décrit les méthodes analytiques normalisées utilisées pour le contrôle microbiologique des surfaces en restauration collective avec les matériels dédiés.",
-            "source": "RC Article 7"
-          },
-          {
-            "libelle": "Qualification métier qualité des audits",
-            "ponderation_pct": 9,
-            "description": "Qualité méthodologique des audits réalisés dans le cadre de l'hygiène hospitalière pour la restauration et la blanchisserie — critère le plus fortement pondéré du lot 7.",
-            "elements_attendus": [
-              "Exemple de rapport d'audit alimentaire complet",
-              "Description du déroulement d'un audit complet alimentaire",
-              "Méthodologie d'audit structurée et reproductible",
-              "Grilles d'évaluation et indicateurs utilisés"
-            ],
-            "exemple_reponse_forte": "Le candidat fournit un exemple de rapport d'audit alimentaire complet (20 pages) avec grilles de cotation, photos, plan d'actions correctives hiérarchisées par criticité et suivi de levée des non-conformités. Le déroulé de l'audit est détaillé heure par heure.",
-            "source": "RC Article 7"
-          },
-          {
-            "libelle": "Qualité hygiène",
-            "ponderation_pct": 4,
-            "description": "Politique qualité et hygiène du candidat appliquée à ses propres pratiques d'intervention.",
-            "elements_attendus": [
-              "Protocoles d'hygiène appliqués lors des interventions",
-              "Certification ou démarche qualité du laboratoire"
-            ],
-            "exemple_reponse_forte": "Description du système de management qualité interne du laboratoire, incluant les procédures d'hygiène appliquées lors des visites et prélèvements sur site.",
-            "source": "RC Article 7"
-          }
-        ]
+        "exemple_reponse_forte": "Le candidat fournit pour chaque lot une notice descriptive structurée détaillant les méthodes normalisées (ISO, pharmacopée), les équipements étalonnés, les CV des préleveurs certifiés et deux exemples de comptes-rendus (conforme et non-conforme) avec identification des germes jusqu'à l'espèce et préconisations adaptées.",
+        "source": "RC Article 7 ; CCP articles 3-3, 4-2, 5-5",
+        "sous_criteres": []
       },
       {
-        "libelle": "Critère Environnemental (lots 1 à 6)",
+        "libelle": "Critère 3 : Environnemental (lots 1 à 6)",
         "ponderation_pct": 10,
-        "description": "Évaluation de la politique environnementale du candidat : gestion des déchets, politique RSE, certification environnementale et optimisation des transports.",
+        "description": "Évaluation des pratiques environnementales et RSE du candidat : gestion des déchets contaminés, politique RSE/certification environnementale, optimisation des transports.",
         "elements_attendus": [
-          "Description de la gestion des déchets contaminés et usage de produits non polluants",
-          "Politique RSE et/ou certification environnementale (ISO 14001, etc.)",
-          "Plan d'optimisation des transports et déplacements pour réduire l'empreinte carbone"
+          "Description de la gestion des déchets contaminés (élimination conforme, filières agréées)",
+          "Usage de produits non polluants pour les analyses",
+          "Politique RSE documentée ou certification environnementale",
+          "Plan d'optimisation des transports et déplacements (tournées, véhicules propres)"
         ],
-        "exemple_reponse_forte": "Le candidat présente sa procédure de gestion des DASRI et déchets contaminés, joint sa certification ISO 14001, et décrit son plan de mutualisation des tournées de prélèvements pour minimiser les déplacements sur les 7 établissements.",
+        "exemple_reponse_forte": "Le laboratoire dispose d'une convention avec un prestataire agréé pour l'élimination des DASRI, utilise des réactifs biosourcés, et a obtenu la certification ISO 14001. Les tournées de prélèvement sont planifiées pour minimiser les kilomètres parcourus.",
         "source": "RC Article 7",
         "sous_criteres": [
           {
             "libelle": "Gestion responsable des déchets générés lors des analyses",
             "ponderation_pct": 3,
-            "description": "Élimination des déchets contaminés et usage de produits non polluants lors des analyses.",
+            "description": "Élimination des déchets contaminés et usage de produits non polluants.",
             "elements_attendus": [
-              "Procédure de gestion des déchets contaminés (DASRI)",
-              "Usage de produits non polluants documenté"
+              "Filière d'élimination DASRI agréée",
+              "Produits d'analyse non polluants"
             ],
-            "exemple_reponse_forte": "Le candidat décrit sa filière d'élimination des déchets contaminés agréée et l'utilisation de réactifs biodégradables.",
+            "exemple_reponse_forte": "Convention avec prestataire agréé pour DASRI, produits sans CMR utilisés.",
             "source": "RC Article 7"
           },
           {
             "libelle": "Politique RSE et certification environnementale",
             "ponderation_pct": 4,
-            "description": "Engagement RSE de l'entreprise et possession de certifications environnementales reconnues.",
+            "description": "Engagement RSE formalisé et/ou certification environnementale type ISO 14001.",
             "elements_attendus": [
-              "Document de politique RSE",
-              "Certification environnementale en cours de validité (ex: ISO 14001)"
+              "Document RSE ou rapport développement durable",
+              "Certification ISO 14001 ou équivalente"
             ],
-            "exemple_reponse_forte": "Présentation du rapport RSE annuel et du certificat ISO 14001 avec les actions concrètes menées en 2025.",
+            "exemple_reponse_forte": "Le laboratoire publie un rapport RSE annuel et est certifié ISO 14001 depuis 2021.",
             "source": "RC Article 7"
           },
           {
             "libelle": "Optimisation des transports et déplacements",
             "ponderation_pct": 3,
-            "description": "Démarche d'optimisation des trajets et déplacements pour réduire l'impact environnemental des interventions.",
+            "description": "Capacité à optimiser les tournées de prélèvement pour réduire l'impact environnemental.",
             "elements_attendus": [
               "Plan de tournées optimisées",
-              "Utilisation de véhicules à faibles émissions",
-              "Mutualisation des prélèvements"
+              "Véhicules à faibles émissions ou électriques"
             ],
-            "exemple_reponse_forte": "Le candidat présente un plan de tournées hebdomadaires regroupant les prélèvements de plusieurs établissements GHT en une seule journée, avec un véhicule électrique ou hybride.",
+            "exemple_reponse_forte": "Planification des interventions par secteur géographique avec véhicule électrique pour les sites du Gapençais.",
             "source": "RC Article 7"
           }
         ]
       },
       {
-        "libelle": "Critère Environnemental (lot 7)",
-        "ponderation_pct": 10,
-        "description": "Pour le lot 7, évaluation du développement durable et de la politique RSE du candidat.",
+        "libelle": "Critère 1 : Coût global incluant les frais de déplacement (lot 7)",
+        "ponderation_pct": 40,
+        "description": "Évaluation du coût total des prestations lot 7 (restauration et blanchisserie) incluant frais COFRAC, préparation échantillons, tarifs unitaires analyses, frais administratifs, déplacements et audits.",
         "elements_attendus": [
-          "Engagement développement durable documenté",
-          "Politique RSE et/ou certification environnementale"
+          "Tarifs unitaires par germe recherché (Escherichia coli, Listeria, Salmonella, etc.)",
+          "Frais de déplacement par site clairement chiffrés",
+          "Frais administratifs forfaitaires annuels",
+          "Coût des audits (forfait journalier ou global)",
+          "Coût COFRAC par type de prélèvement"
         ],
-        "exemple_reponse_forte": "Le candidat produit son bilan carbone et sa démarche de développement durable avec actions mesurables, ainsi que sa certification environnementale en cours.",
+        "exemple_reponse_forte": "L'annexe lot 7 est complètement renseignée avec un prix unitaire par germe, un forfait déplacement par site optimisé (une seule facture par jour), et un forfait audit comprenant la check-list et le plan d'action.",
+        "source": "RC Article 7",
+        "sous_criteres": []
+      },
+      {
+        "libelle": "Critère 2 : Valeur technique (lot 7)",
+        "ponderation_pct": 25,
+        "description": "Capacités techniques du candidat évaluées sur références, accréditations, qualifications métier et qualité hygiène.",
+        "elements_attendus": [],
+        "exemple_reponse_forte": "—",
+        "source": "RC Article 7",
+        "sous_criteres": [
+          {
+            "libelle": "Références",
+            "ponderation_pct": 4,
+            "description": "Références de marchés similaires (analyses microbiologiques restauration/blanchisserie hospitalière).",
+            "elements_attendus": [
+              "Liste de références hospitalières avec coordonnées vérifiables",
+              "Volume de prélèvements réalisés"
+            ],
+            "exemple_reponse_forte": "Références : 3 GHT et 2 CHU sur les 5 dernières années, soit +20 000 prélèvements alimentaires annuels.",
+            "source": "RC Article 7"
+          },
+          {
+            "libelle": "RABC/COFRAC/AFNOR/règlement CE",
+            "ponderation_pct": 4,
+            "description": "Conformité aux référentiels RABC (linge), accréditation COFRAC, méthodes AFNOR et règlement CE 2073/2005.",
+            "elements_attendus": [
+              "Attestation COFRAC (prélèvement et analyse)",
+              "Liste des méthodes AFNOR appliquées",
+              "Procédure RABC pour linge",
+              "Référence au règlement CE 2073/2005"
+            ],
+            "exemple_reponse_forte": "Le laboratoire est accrédité COFRAC LAB n°XXXXX pour les analyses alimentaires et linge, avec méthodes ISO 4833, ISO 16649-2, EN ISO 11290 documentées.",
+            "source": "RC Article 7"
+          },
+          {
+            "libelle": "Qualification métier procédés d'analyses",
+            "ponderation_pct": 4,
+            "description": "Compétences analytiques spécifiques aux analyses microbiologiques alimentaires et linge hospitalier.",
+            "elements_attendus": [
+              "Description détaillée des techniques analytiques",
+              "Matériel de laboratoire certifié",
+              "Procédures de préparation et de conservation des échantillons 15 jours"
+            ],
+            "exemple_reponse_forte": "Protocole de préparation des échantillons en atmospère contrôlée, conservation à +4°C pendant 15 jours, lecture automatisée Vitek 2.",
+            "source": "RC Article 7"
+          },
+          {
+            "libelle": "Qualification métier qualité des audits",
+            "ponderation_pct": 9,
+            "description": "Qualité méthodologique des audits hygiène alimentaire proposés (check-list, plan d'action, accompagnement déclaration CERFA listeria).",
+            "elements_attendus": [
+              "Exemple de rapport d'audit fourni avec check-list détaillée par zone",
+              "Déroulement détaillé d'un audit complet alimentaire",
+              "Plan d'action et suivi post-audit documenté",
+              "Accompagnement déclaration CERFA en cas de listeria positive",
+              "Conseil téléphonique adapté post-résultats"
+            ],
+            "exemple_reponse_forte": "L'exemple d'audit joint présente une check-list de 120 points par zone (réception, stockage, préparation, service), le plan d'action est structuré en 3 niveaux de priorité, et l'auditeur senior est disponible sous 24h pour conseil en cas de non-conformité.",
+            "source": "RC Article 7"
+          },
+          {
+            "libelle": "Qualité hygiène",
+            "ponderation_pct": 4,
+            "description": "Respect des règles d'hygiène lors des interventions (tenue, prélèvements aseptiques, conformité température transport).",
+            "elements_attendus": [
+              "Description de la tenue et du protocole d'entrée en cuisine/blanchisserie",
+              "Matériel de transport avec contrôle température documenté",
+              "Procédures de prélèvements aseptiques"
+            ],
+            "exemple_reponse_forte": "Les techniciens portent tenue blanche dédiée changée à chaque site, les enceintes de transport sont équipées d'enregistreurs de température HACCP avec relevé joint au rapport.",
+            "source": "RC Article 7"
+          }
+        ]
+      },
+      {
+        "libelle": "Critère 3 : Environnemental (lot 7)",
+        "ponderation_pct": 10,
+        "description": "Engagement développement durable et politique RSE du candidat pour le lot 7.",
+        "elements_attendus": [],
+        "exemple_reponse_forte": "—",
         "source": "RC Article 7",
         "sous_criteres": [
           {
             "libelle": "Développement Durable",
             "ponderation_pct": 5,
-            "description": "Engagement du candidat en matière de développement durable.",
+            "description": "Actions concrètes de développement durable liées à l'activité.",
             "elements_attendus": [
-              "Plan ou bilan développement durable",
-              "Actions concrètes mesurables"
+              "Réduction empreinte carbone des tournées",
+              "Gestion déchets laboratoire"
             ],
-            "exemple_reponse_forte": "Présentation du bilan carbone du laboratoire et des objectifs de réduction sur 3 ans.",
+            "exemple_reponse_forte": "Bilan carbone annuel publié, compensation des trajets, tri sélectif des déchets de laboratoire.",
             "source": "RC Article 7"
           },
           {
             "libelle": "Politique RSE et certification environnementale",
             "ponderation_pct": 5,
-            "description": "Politique RSE formalisée et certifications environnementales du candidat pour le lot 7.",
+            "description": "RSE formalisée et/ou certifications environnementales.",
             "elements_attendus": [
-              "Document de politique RSE",
-              "Certification environnementale reconnue"
+              "Document RSE ou rapport annuel",
+              "Certification ISO 14001 ou label"
             ],
-            "exemple_reponse_forte": "Le candidat joint son rapport RSE et son certificat ISO 14001 avec le plan d'actions environnementales de l'exercice en cours.",
+            "exemple_reponse_forte": "Certification ISO 14001 version 2015 en cours de validité, rapport RSE disponible sur demande.",
             "source": "RC Article 7"
           }
         ]
       },
       {
-        "libelle": "Respect du cahier des charges (lot 7 uniquement)",
+        "libelle": "Critère 4 : Respect du cahier des charges (lot 7)",
         "ponderation_pct": 25,
-        "description": "Pour le lot 7, évaluation de la capacité du candidat à respecter les contraintes opérationnelles : horaires, circuits, moyens humains, matériels et suivi de la prestation.",
-        "elements_attendus": [
-          "Respect des heures et circuits d'intervention définis dans le CCTP",
-          "Description des moyens humains et matériels mobilisés",
-          "Organisation générale de la prestation",
-          "Identification des interlocuteurs dédiés et modalités de suivi clientèle"
-        ],
-        "exemple_reponse_forte": "Le candidat présente un planning type d'intervention respectant les horaires de fonctionnement de la restauration hospitalière, identifie un référent technique dédié au GHT, et décrit un outil de suivi des non-conformités avec délais de réponse garantis.",
+        "description": "Capacité du candidat à respecter les exigences opérationnelles du marché lot 7 : horaires, circuits, moyens humains et matériels, suivi clientèle.",
+        "elements_attendus": [],
+        "exemple_reponse_forte": "—",
         "source": "RC Article 7",
         "sous_criteres": [
           {
             "libelle": "Respect des heures et circuits",
             "ponderation_pct": 10,
-            "description": "Capacité du candidat à respecter les horaires et circuits d'intervention imposés par le cahier des charges.",
+            "description": "Capacité à respecter les horaires de production des cuisines et des blanchisseries, et à organiser des tournées optimisées.",
             "elements_attendus": [
-              "Planning type d'intervention",
-              "Respect des contraintes horaires de l'établissement"
+              "Planning de tournées prévisionnel adapté aux horaires de production",
+              "Préavis de 3 jours garanti",
+              "Organisation des collectes en tournées multi-sites optimisées"
             ],
-            "exemple_reponse_forte": "Présentation d'un planning hebdomadaire type respectant les créneaux d'accès à la restauration et à la blanchisserie définis par chaque établissement.",
+            "exemple_reponse_forte": "Le technicien intervient entre 7h et 9h avant le service du déjeuner, prévient 3 jours à l'avance par mail, et couvre 2 à 3 sites par tournée hebdomadaire.",
             "source": "RC Article 7"
           },
           {
-            "libelle": "Moyens humains et matériels - organisation",
+            "libelle": "Moyens humains et matériels — organisation",
             "ponderation_pct": 5,
-            "description": "Description des ressources humaines et matérielles déployées pour la réalisation de la prestation.",
+            "description": "Moyens humains et matériels disponibles pour assurer les prestations (techniciens formés, équipements de transport, laboratoire).",
             "elements_attendus": [
-              "Nombre et qualification des intervenants",
-              "Équipements et matériels utilisés",
-              "Organisation logistique"
+              "CV des techniciens préleveurs",
+              "Certifications des intervenants",
+              "Équipements de transport conformes (température)"
             ],
-            "exemple_reponse_forte": "Le candidat liste les 3 techniciens affectés au marché avec leurs qualifications et les équipements de prélèvement certifiés qu'ils utiliseront.",
+            "exemple_reponse_forte": "2 techniciens dédiés à la zone PACA-Alpes, formations aux bonnes pratiques de prélèvement à jour, enceintes de transport calibrées +2/+8°C.",
             "source": "RC Article 7"
           },
           {
-            "libelle": "Moyens humains et matériels - interlocuteurs, suivi de la prestation et suivi clientèle",
+            "libelle": "Moyens humains et matériels — interlocuteurs, suivi de la prestation et suivi clientèle",
             "ponderation_pct": 10,
-            "description": "Qualité de l'organisation du suivi de la prestation, identification des interlocuteurs dédiés et modalités de relation client.",
+            "description": "Qualité du suivi : référent dédié, conseil téléphonique post-résultats, réactivité en urgence (5 jours max), résultats sous 5 jours.",
             "elements_attendus": [
-              "Nom et coordonnées de l'interlocuteur dédié au marché",
-              "Modalités et fréquence du reporting",
-              "Délais de transmission des résultats",
-              "Procédure en cas de non-conformité"
+              "Interlocuteur dédié nommé pour le GHT",
+              "Délai de rendu des résultats ≤ 5 jours",
+              "Délai d'intervention urgence ≤ 5 jours",
+              "Résultats urgence linge sous 2 jours",
+              "Conseil téléphonique post-résultats systématique"
             ],
-            "exemple_reponse_forte": "Le candidat désigne un chef de projet dédié au GHT des Alpes du Sud, s'engage à transmettre les résultats sous 48h, et présente un tableau de bord mensuel de suivi des analyses avec alerte automatique en cas de non-conformité.",
-            "source": "RC Article 7"
+            "exemple_reponse_forte": "Un référent clientèle dédié est nommé pour le GHT des Alpes du Sud, joignable 5j/7. Les rapports sont transmis sous 3 jours ouvrés, un appel téléphonique de synthèse est systématique après chaque campagne.",
+            "source": "RC Article 7 §7-2-7, 7-3-5, 7-3-6"
           }
         ]
       }
     ],
     "prix": {
       "type_formule": "moins_disant",
-      "formule_explicite": "Critère 1 : Coût global incluant les frais de déplacement — pondération 55% pour les lots 1 à 6 et 40% pour le lot 7. La formule exacte de notation n'est pas précisée dans le RC.",
+      "formule_explicite": "Offre économiquement la plus avantageuse selon pondération critères. Le RC ne précise pas de formule mathématique explicite pour le prix.",
       "elements_a_chiffrer": [
-        "Prix unitaire par type d'analyse (eau, air, surfaces, légionnelles, endotoxines, physico-chimiques)",
-        "Frais de déplacement inclus dans le coût global",
-        "Coût de requalification fonctionnelle des salles propres (lot 3)",
-        "Coût des analyses hémodiafiltration bactériologique et endotoxines (lot 4)",
-        "Coût des analyses hémodialyse bactériologique et endotoxines (lot 5)",
-        "Coût des analyses physico-chimiques hémodialyse et stérilisation (lot 6)",
-        "Coût des audits d'hygiène restauration et blanchisserie (lot 7)"
+        "Prix unitaire HT par type d'analyse (identique pour tous les établissements) — lots 1 à 6",
+        "Frais de déplacement éventuels par site et par lot (si non inclus dans PU)",
+        "Frais administratifs ou de dossier forfaitaires annuels par site (lot 7)",
+        "Coût accréditation COFRAC selon type de prélèvement (lot 7)",
+        "Préparation des échantillons (lot 7)",
+        "Tarif unitaire par germe recherché (lot 7 restauration)",
+        "Tarif unitaire des analyses surfaces cuisine et linge (lot 7)",
+        "Tarif forfaitaire journalier ou global audits hygiène (lot 7)",
+        "Tarif étude de vieillissement produits finis (lot 7)"
       ]
     },
-    "modalite_calcul_prix": "Critère 1 : Coût global incluant les frais de déplacement — 55% pour lots 1-6 et 40% pour le lot 7. Formule de notation non précisée dans le RC."
+    "modalite_calcul_prix": "Offre économiquement la plus avantageuse — pondération 55% prix + 35% technique + 10% environnemental pour lots 1-6 ; 40% prix + 25% technique + 10% environnemental + 25% respect CDC pour lot 7."
   },
   "montant_marche": {
     "valeur_estimee_euros": null,
     "fourchette_min_euros": null,
     "fourchette_max_euros": null,
     "type": "non_communique",
-    "duree_couverte": "4 ans (1 an + 3 reconductions)",
+    "duree_couverte": "4 ans (1 an + 3 reconductions tacites)",
     "source_extraction": null,
-    "commentaire": "Aucun montant estimé, plafond ou prix unitaire n'est mentionné dans le RC fourni. Le CCTP et le BPU ne sont pas inclus dans les pièces transmises. Il n'est donc pas possible de calculer une estimation."
+    "commentaire": "Aucun montant estimé, prévisionnel ou plafond n'est mentionné dans les pièces fournies. Les annexes financières sont des grilles de prix vierges à compléter par les candidats. Les quantités estimatives annuelles figurent dans les annexes (ex : 475 prélèvements légionnelles lot 2, 277 lot 3) mais sans prix de référence permettant d'estimer la valeur."
   },
   "revision_prix": {
-    "type": "non_communique",
-    "indices_utilises": [],
-    "ponderation": null,
-    "periodicite": null,
-    "formule_revision": null,
-    "source_extraction": null,
-    "commentaire": "Le CCAP (Cahier des Clauses Administratives et Techniques Particulières) est mentionné dans le dossier mais non fourni dans les pièces analysées. La révision des prix n'est pas abordée dans le RC seul."
+    "type": "indexation",
+    "indices_utilises": [
+      "SYNTEC",
+      "IPSE (indice INSEE des services scientifiques et techniques)"
+    ],
+    "ponderation": "20% partie fixe non révisable + 50% indexée sur SYNTEC + 30% indexée sur IPSE",
+    "periodicite": "annuelle",
+    "formule_revision": "P = Po [0,20 + 0,50 (S / Sno) + 0,30 (IPSE / IPSEno)]",
+    "source_extraction": "CCP article 9-4",
+    "commentaire": "Formule mixte SYNTEC + IPSE reflétant les coûts de personnel qualifié et de laboratoire : favorable en période d'inflation des charges salariales, révisable à la hausse comme à la baisse. La partie fixe à 20% limite l'exposition aux variations."
   },
   "alertes_prix": [
-    "Pondération prix de 55% pour les lots 1 à 6 : très élevée, la concurrence tarifaire sera déterminante pour ces lots",
-    "Les frais de déplacement sont inclus dans le coût global noté : les prestataires éloignés des sites (Alpes du Sud, zones montagneuses) seront pénalisés s'ils ne mutualisent pas les tournées",
-    "Lot 7 : pondération prix de 40% seulement, la valeur technique et le respect du cahier des charges totalisent 50% — stratégie tarifaire moins décisive",
-    "7 établissements sur des sites dispersés en zone de montagne : les frais de déplacement peuvent représenter une part significative du coût global"
+    "Le prix unitaire doit être IDENTIQUE pour tous les établissements/sites, quelle que soit leur localisation géographique (Gap, Briançon, Barcelonnette...) — risque de sous-estimation sur les sites éloignés si les déplacements ne sont pas bien calibrés",
+    "Les frais de déplacement ne peuvent être facturés qu'UNE SEULE FOIS par jour d'intervention même si l'intervention couvre deux sites ou deux lots différents — impact important pour un prestataire qui intervient sur plusieurs lots le même jour",
+    "Pénalité de 50 € HT par jour de retard sur les comptes-rendus (sans mise en demeure préalable) — à anticiper dans le modèle économique",
+    "Le candidat à plusieurs lots doit aligner ses frais de déplacement entre lots (même prix dans les différentes annexes)"
   ],
   "references_exigees": {
     "experience_minimale_annees": null,
     "experience_source": null,
     "volume_min_references_similaires": null,
     "volume_min_references_unite": null,
-    "secteur_experience": "Analyses bactériologiques, microbiologiques, physico-chimiques en milieu hospitalier / laboratoire d'analyses",
-    "secteur_source": "RC Article 6",
+    "secteur_experience": "Analyses microbiologiques et physico-chimiques en milieu hospitalier (eau, air, surfaces, légionnelles, dialyse, restauration collective, blanchisserie) ; requalification de salles propres conformes ISO 14644 et NF S 90-351.",
+    "secteur_source": "CCP articles 3-3, 5-5, 7-4",
     "certifications_obligatoires": [
       {
-        "libelle": "Attestation de suivi d'une formation aux bonnes pratiques de prélèvements pour les intervenants — obligatoire à produire avec l'offre",
-        "source": "RC Article 6"
+        "libelle": "Accréditation COFRAC programme eaux 100.2 (fortement conseillée lots 1-6, obligatoire lot 7)",
+        "source": "CCP articles 3-3, 4-2, 5-5, 7-4"
+      },
+      {
+        "libelle": "Accréditation COFRAC pour les prélèvements et analyses alimentaires et linge (lot 7)",
+        "source": "CCP article 7-4"
       }
     ],
     "autres_exigences": [
       {
-        "libelle": "Attestation d'assurance responsabilité civile professionnelle",
+        "libelle": "Assurance responsabilité civile professionnelle en cours de validité — attestation à fournir dans les 15 jours suivant notification",
+        "source": "CCP article 2-3"
+      },
+      {
+        "libelle": "Personnel formé aux bonnes pratiques de prélèvement — attestation de formation à joindre à l'offre",
         "source": "RC Article 6"
       },
       {
-        "libelle": "Extrait Kbis de moins de 3 mois (fortement recommandé)",
-        "source": "RC Article 6"
+        "libelle": "Conservation des souches pendant 1 an minimum",
+        "source": "CCP articles 3-3, 4-2, 5-5"
       },
       {
-        "libelle": "Attestation de régularité fiscale de moins de 3 mois (fortement recommandé)",
-        "source": "RC Article 6"
+        "libelle": "Utilisation de méthodes normalisées NF, EN ou ISO lorsqu'elles existent",
+        "source": "CCP articles 3-3, 4-2, 5-5"
       },
       {
-        "libelle": "Attestation de vigilance URSSAF de moins de 3 mois (fortement recommandé)",
-        "source": "RC Article 6"
+        "libelle": "Exemples de comptes-rendus (conforme et non-conforme) à remettre avec l'offre pour chaque lot",
+        "source": "RC Article 6 ; CCP articles 3-3, 5-4, 6-5"
       },
       {
-        "libelle": "Pour le lot 7 : accréditations RABC/COFRAC/AFNOR ou conformité règlement CE valorisées dans les critères de notation",
-        "source": "RC Article 7"
+        "libelle": "Exemple de rapport d'audit et détail du déroulement d'un audit complet alimentaire à remettre avec l'offre (lot 7)",
+        "source": "RC Article 6"
       }
     ]
   },
   "lots": [
     {
       "numero": 1,
-      "intitule": "Lot 1 - Analyses bactériologiques de l'eau, l'air, les surfaces",
-      "zone_geographique": "Hautes-Alpes (05) et Alpes-de-Haute-Provence (04)",
-      "volume_estime": null,
-      "volume_estime_unite": null,
-      "particularites": "Concerne les 7 établissements du GHT. Critères de notation : prix 55%, technique 35%, environnemental 10%."
+      "intitule": "Analyses bactériologiques de l'eau, l'air, les surfaces",
+      "zone_geographique": "Laragne, Gap, Sisteron, Embrun, Aiguilles, Briançon, Barcelonnette (05, 04)",
+      "volume_estime": 1568,
+      "volume_estime_unite": "prélèvements/analyses annuels estimatifs (36 piscine + 158 potabilité + 14 osmosée + 2 adoucie stérilisation + 6 adoucie LDE + 119 ESS + 114 endoscopie + 321 aérobiocontamination + 798 surfaces)",
+      "particularites": "Lot le plus volumineux. Prélèvements aux blocs opératoires imposant tenue complète. Certains prélèvements réalisés en interne par les CH (endoscopies, isolateurs chimio) — le titulaire fournit le matériel gratuitement et assure le transport. Planning trimestriel à coordonner avec chaque service."
     },
     {
       "numero": 2,
-      "intitule": "Lot 2 - Recherche de légionnelles",
-      "zone_geographique": "Hautes-Alpes (05) et Alpes-de-Haute-Provence (04)",
-      "volume_estime": null,
-      "volume_estime_unite": null,
-      "particularites": "Critères de notation : prix 55%, technique 35%, environnemental 10%."
+      "intitule": "Recherche de légionnelles",
+      "zone_geographique": "Laragne, Gap, Sisteron, Embrun, Aiguilles, Briançon, Barcelonnette (05, 04)",
+      "volume_estime": 475,
+      "volume_estime_unite": "prélèvements annuels estimatifs",
+      "particularites": "2 passages annuels par défaut, plus fréquents pour certains sites (Aiguilles : 4/an, balnéo Gap : 12/an). En cas de légionellose, le titulaire doit accepter des échantillons envoyés la veille et fournir du flaconnage à titre gracieux."
     },
     {
       "numero": 3,
-      "intitule": "Lot 3 - Requalification fonctionnelle des salles propres",
-      "zone_geographique": "Hautes-Alpes (05) et Alpes-de-Haute-Provence (04)",
-      "volume_estime": null,
-      "volume_estime_unite": null,
-      "particularites": "Expertise spécifique en qualification de salles propres (normes ISO 14644 attendues). Critères de notation : prix 55%, technique 35%, environnemental 10%."
+      "intitule": "Requalification fonctionnelle des salles propres",
+      "zone_geographique": "Gap et Briançon (05)",
+      "volume_estime": 277,
+      "volume_estime_unite": "prélèvements/mesures annuels estimatifs",
+      "particularites": "Contrôles conformes NF EN ISO 14644 et NF S 90-351. Interventions obligatoirement après 16h aux dates précisées par le CCP (mi-février, mi-mars, mi-juillet pour Gap). Compte-rendu par salle contrôlée. Compétence métrologie aéraulique + microbiologie requise."
     },
     {
       "numero": 4,
-      "intitule": "Lot 4 - Analyse de performance de l'hémodiafiltration : analyse bactériologique et endotoxines",
-      "zone_geographique": "Hautes-Alpes (05) et Alpes-de-Haute-Provence (04)",
-      "volume_estime": null,
-      "volume_estime_unite": null,
-      "particularites": "Nécessite expertise en hémodiafiltration. Critères de notation : prix 55%, technique 35%, environnemental 10%."
+      "intitule": "Analyse de performance de l'hémodiafiltration : analyse bactériologique et endotoxines",
+      "zone_geographique": "Gap et Briançon (05)",
+      "volume_estime": 216,
+      "volume_estime_unite": "analyses annuels (108 bactériologie + 108 endotoxines)",
+      "particularites": "Prélèvements réalisés en interne par les CH (18 générateurs Gap + 9 générateurs Briançon). Le titulaire assure le transport et les analyses. Livraison trimestrielle de matériel de prélèvement à titre gracieux."
     },
     {
       "numero": 5,
-      "intitule": "Lot 5 - Analyse de performance de l'hémodialyse : analyse bactériologique et endotoxines",
-      "zone_geographique": "Hautes-Alpes (05) et Alpes-de-Haute-Provence (04)",
-      "volume_estime": null,
-      "volume_estime_unite": null,
-      "particularites": "Nécessite expertise en hémodialyse. Critères de notation : prix 55%, technique 35%, environnemental 10%."
+      "intitule": "Analyse de performance de l'hémodialyse : analyse bactériologique et endotoxines",
+      "zone_geographique": "Gap et Briançon (05)",
+      "volume_estime": 96,
+      "volume_estime_unite": "prélèvements/analyses annuels (48 par site)",
+      "particularites": "Prélèvements réalisés par le titulaire le mercredi matin (contrainte horaire fixe). Eau osmosée départ et retour de boucle, 1 fois par mois. Lot à intervention régulière (12 fois/an par site)."
     },
     {
       "numero": 6,
-      "intitule": "Lot 6 - Analyse physico-chimique : hémodialyse et stérilisation",
-      "zone_geographique": "Hautes-Alpes (05) et Alpes-de-Haute-Provence (04)",
-      "volume_estime": null,
-      "volume_estime_unite": null,
-      "particularites": "Couvre à la fois l'hémodialyse et la stérilisation. Critères de notation : prix 55%, technique 35%, environnemental 10%."
+      "intitule": "Analyse physico-chimique : hémodialyse et stérilisation",
+      "corps_etat": null,
+      "zone_geographique": "Gap et Briançon (05)",
+      "volume_estime": 10,
+      "volume_estime_unite": "prélèvements/analyses annuels",
+      "particularites": "Lot de faible volume (2 prélèvements dialyse Gap + 4 prélèvements dialyse Briançon + 1 stérilisation Gap + 1 stérilisation Briançon + 2 eau brute Gap = 10 analyses). Deux tarifs attendus : analyse complète et simplifiée."
     },
     {
       "numero": 7,
-      "intitule": "Lot 7 - Analyse d'hygiène hospitalière pour l'unité centrale de restauration et la blanchisserie",
-      "zone_geographique": "Hautes-Alpes (05) et Alpes-de-Haute-Provence (04)",
+      "intitule": "Analyse d'hygiène hospitalière pour l'unité centrale de restauration et la blanchisserie",
+      "zone_geographique": "Laragne, Gap, Sisteron, Embrun, Aiguilles, Briançon, Barcelonnette (05, 04)",
       "volume_estime": null,
-      "volume_estime_unite": null,
-      "particularites": "Lot avec grille de notation différente des autres lots : prix 40%, valeur technique 25%, environnemental 10%, respect cahier des charges 25%. Requiert expertise en audit alimentaire et blanchisserie hospitalière (RABC). Nécessite de fournir un exemple de rapport d'audit et le détail du déroulement d'un audit complet alimentaire."
+      "volume_estime_unite": "prélèvements mensuels alimentaires + surfaces + linge + audits annuels",
+      "particularites": "Lot le plus complexe en critères d'évaluation (4 critères dont 25% respect CDC). Accréditation COFRAC obligatoire. Inclut audits hygiène alimentaire (1 à 3 par site par an), études de vieillissement produits finis, analyses linge RABC. Déclaration CERFA en cas de listeria positive. Rapport sous 5 jours ouvrés."
     }
   ],
   "calendrier": {
     "date_limite_offres": "2026-07-08",
     "date_demarrage_prevue": null,
-    "duree_marche": "1 an reconductible 3 fois — durée totale 4 ans"
+    "duree_marche": "4 ans (1 an à compter de la notification + 3 reconductions tacites de 12 mois)"
   },
   "alertes_candidat": [
-    "ATTENTION : Le candidat doit impérativement fournir un protocole de méthodologie de prélèvement conforme aux normes d'hygiène — pièce obligatoire selon RC Article 3",
-    "Une notice descriptive DISTINCTE est exigée pour CHACUN des lots soumissionnés (nommage imposé : 'Lot N° x, fournisseur x, NOTICE DESCRIPTIVE') — risque de rejet si format non respecté",
-    "Pour le lot 7, un exemple de rapport d'audit alimentaire complet avec le déroulé d'un audit est obligatoire — absence = handicap majeur sur le critère qualité des audits (9 pts sur 25)",
-    "Attestation de formation aux bonnes pratiques de prélèvements pour les intervenants obligatoire à produire",
-    "Les fichiers ne doivent pas être zippés, pas de répertoire, nom de fichier ≤ 25 caractères — non-respect peut entraîner rejet de l'offre selon RC Article 6",
-    "Les établissements sont situés en zones de montagne (Hautes-Alpes, Alpes-de-Haute-Provence) : les frais de déplacement sont intégrés dans le critère prix — impact fort sur la compétitivité tarifaire"
+    "Le prix unitaire doit être IDENTIQUE pour tous les établissements du groupement quelle que soit leur localisation : un laboratoire non implanté dans les Hautes-Alpes risque de sous-estimer ses coûts de déplacement sur des sites éloignés (Barcelonnette, Aiguilles)",
+    "Des exemples de comptes-rendus CONFORMES et NON CONFORMES sont obligatoires dans le dossier d'offre pour chaque lot souhaité (pièce éliminatoire implicite si absente)",
+    "L'accréditation COFRAC est explicitement OBLIGATOIRE pour le lot 7 (restauration/blanchisserie) — un candidat non accrédité ne peut pas répondre valablement à ce lot",
+    "Les prélèvements aux blocs opératoires nécessitent une habilitation et une coordination avec les services : le titulaire doit justifier d'une expérience en milieu hospitalier (blocs) et attester d'une formation aux bonnes pratiques de prélèvement",
+    "Le marché impose la conservation des souches pendant 1 an — vérifier que le laboratoire dispose de la capacité de stockage correspondante avant de candidater sur les lots 1 à 6",
+    "La pénalité de 50 € HT/jour de retard sur les comptes-rendus est applicable dès le premier euro sans mise en demeure préalable — le planning de rendu doit être irréprochable"
   ],
   "points_differenciants_attendus": [
     {
-      "libelle": "Qualité et exhaustivité des comptes rendus d'analyse avec préconisations en cas de non-conformité",
-      "exemple": "Fournir des modèles de comptes rendus non conformes incluant l'identification précise des germes, les seuils réglementaires dépassés, et les mesures correctives hiérarchisées (immédiates/court terme/long terme) spécifiques au contexte hospitalier.",
-      "source": "RC Article 6"
+      "libelle": "Accréditation COFRAC couvrant l'ensemble des analyses demandées (eau, air, surfaces, alimentaire, linge)",
+      "exemple": "Un laboratoire présentant son attestation COFRAC avec la liste exhaustive des portées couvrant les méthodes ISO 4833, ISO 11731 (légionnelles), ISO 16649 et les programmes eaux 100.2 et alimentaire démontre d'emblée sa capacité technique sans réserve.",
+      "source": "CCP articles 3-3, 7-4"
     },
     {
-      "libelle": "Accréditations et certifications techniques (COFRAC notamment) pour crédibiliser la valeur technique",
-      "exemple": "Mettre en avant une accréditation COFRAC couvrant les analyses proposées, ainsi que les normes ISO applicables par lot, ce qui renforce significativement le score sur le critère technique.",
-      "source": "RC Article 7"
+      "libelle": "Optimisation prouvée des tournées de prélèvement multi-sites",
+      "exemple": "Présenter un plan de tournées prévisionnel (carte + calendrier) couvrant les 7 sites en minimisant les déplacements, avec engagement sur le coût de déplacement facturé une seule fois par jour même pour 2 sites — directement valorisé dans le critère prix.",
+      "source": "CCP article 9-2 ; RC Article 7"
     },
     {
-      "libelle": "Optimisation des tournées de prélèvements pour minimiser les frais de déplacement sur 7 établissements dispersés en montagne",
-      "exemple": "Proposer un planning de prélèvements mutualisé permettant de couvrir plusieurs établissements en une seule journée d'intervention (ex: Gap + Sisteron le mardi, Briançon + Embrun le jeudi), avec chiffrage des frais de déplacement optimisés inclus dans l'annexe financière.",
-      "source": "RC Article 7 (critère environnemental - optimisation transports)"
+      "libelle": "Qualité et complétude des comptes-rendus modèles (conformes et non conformes)",
+      "exemple": "Fournir des comptes-rendus modèles incluant identification jusqu'à l'espèce bactérienne, conclusion comparative aux seuils réglementaires, préconisations opérationnelles adaptées et coordonnées du responsable de laboratoire — les acheteurs évaluent directement la qualité de ces modèles.",
+      "source": "RC Article 6 ; CCP articles 3-3, 5-4"
     },
     {
-      "libelle": "Qualité du rapport d'audit alimentaire pour le lot 7 (critère le mieux pondéré du lot avec 9 pts sur 25 en technique)",
-      "exemple": "Produire un exemple de rapport d'audit alimentaire complet de 15 à 25 pages incluant : grille de cotation HACCP, photographies illustrant les non-conformités, plan d'actions correctives avec responsables et délais, et suivi de la levée des non-conformités lors de l'audit suivant.",
-      "source": "RC Article 7"
+      "libelle": "Expérience démontrée en requalification de salles propres hospitalières (ISO 14644 / NF S 90-351)",
+      "exemple": "Joindre des références de requalification de blocs opératoires et salles de stérilisation avec compte-rendu-type incluant schéma des flux d'air, mesures particulaires, pressions différentielles et cinétique de décontamination.",
+      "source": "CCP article 5-2"
     },
     {
-      "libelle": "Identification d'interlocuteurs dédiés et proximité géographique avec les établissements",
-      "exemple": "Nommer un référent commercial et un référent technique dédiés au GHT des Alpes du Sud avec leurs coordonnées directes, et, si possible, une antenne ou sous-traitant accrédité en région PACA/Auvergne-Rhône-Alpes pour réduire les délais d'intervention.",
-      "source": "RC Article 6"
+      "libelle": "Réactivité documentée en cas de non-conformité (délai < 96h)",
+      "exemple": "S'engager sur un délai d'intervention en urgence inférieur au maximum de 96h ouvrées (ex: 48h) et le documenter dans le questionnaire technique avec une organisation de permanence téléphonique identifiée.",
+      "source": "CCP articles 3-3, 6-4"
     }
   ],
   "_meta": {
     "id_marche": "BOAMP-26-56083",
     "type": "complet",
-    "extraction_le": "2026-06-11T18:31:37.786107+00:00",
+    "date_generation": "2026-06-14T22:02:06.790499+00:00",
+    "extraction_le": "2026-06-14T22:02:06.790499+00:00",
     "modele": "claude-sonnet-4-6",
-    "tokens_input": 16385,
-    "tokens_output": 8809,
-    "cout_eur": 0.1722,
-    "duree_sec": 139.0,
+    "preset_utilise": "btp",
+    "presets_matches": [
+      "btp",
+      "ingenierie"
+    ],
+    "prompts_versions": {
+      "btp/_preset.json": "sha256:d1717e0d87f6c265",
+      "ingenierie/_preset.json": "sha256:56f813f829343e24"
+    },
+    "tokens_input": 63839,
+    "tokens_output": 11596,
+    "cout_eur": 0.3472,
+    "duree_sec": 200.4,
     "pdfs_traites": [
+      {
+        "nom": "Acte engagement.docx",
+        "hash": "1806c1a39617936805939c879fad156f",
+        "taille_chars": 9577
+      },
+      {
+        "nom": "Annexe lot 1 Analyse bacterio eau air surfaces.xlsx",
+        "hash": "6c5c4435fb363ce1be1138f1f8e553e8",
+        "taille_chars": 14038
+      },
+      {
+        "nom": "Annexe lot 2 Analyses Legionnelles.xlsx",
+        "hash": "b87648238ba48f526ee974f70e11f6f2",
+        "taille_chars": 6592
+      },
+      {
+        "nom": "Annexe lot 3 Requalification des salles propres.xlsx",
+        "hash": "f23ed08c8d5013dbe1238c8c65c38de0",
+        "taille_chars": 6171
+      },
+      {
+        "nom": "Annexe lot 4 Analyse bacterio endotoxines.xlsx",
+        "hash": "ecb916ef82a93d1a3244fd62be0bce4b",
+        "taille_chars": 3733
+      },
+      {
+        "nom": "Annexe lot 5 Analyse bacterio et endotoxines hemodialyse.xlsx",
+        "hash": "7283cf0ce660902e7af8bf250f40744d",
+        "taille_chars": 4152
+      },
+      {
+        "nom": "Annexe lot 6 Analyse physioco chimique.xlsx",
+        "hash": "d367876fc253eed7806145840092e40e",
+        "taille_chars": 3602
+      },
+      {
+        "nom": "Annexe lot 7 Analyse restauration.xlsx",
+        "hash": "172602d9b394c45e4ffecd1b0b2e72da",
+        "taille_chars": 7851
+      },
+      {
+        "nom": "Attestation sur l'honneur.pdf",
+        "hash": "d63bf8f46a3d7178d786a1577c9f4c00",
+        "taille_chars": 4553
+      },
+      {
+        "nom": "CCP SE9 N112.pdf",
+        "hash": "15125d17d5fdd4adf319a58936afc73a",
+        "taille_chars": 72876
+      },
+      {
+        "nom": "Fiche renseignements fournisseur.docx",
+        "hash": "23d29e33690a8a2d70a60fdbf94ade4a",
+        "taille_chars": 849
+      },
+      {
+        "nom": "PLACE-Consignes pour depot offre.pdf",
+        "hash": "caf17cda6c8646396626944a100bdb59",
+        "taille_chars": 3242
+      },
+      {
+        "nom": "Question technique  logistique.xlsx",
+        "hash": "8de5ae1492e8bdce29ebf79525f3e8eb",
+        "taille_chars": 2196
+      },
+      {
+        "nom": "Questions-réponses.pdf",
+        "hash": "299d4df9e6eb02a61b7a7c68bdc1b567",
+        "taille_chars": 1175
+      },
       {
         "nom": "RC 014-2026.pdf",
         "hash": "56939b15314558646b699019c22750b4",
         "taille_chars": 25045
+      },
+      {
+        "nom": "Tout savoir sur la signature electronique.pdf",
+        "hash": "7ddbf6b2f9f1f04b9652ccd7e2aa71b5",
+        "taille_chars": 3085
       }
     ]
   }

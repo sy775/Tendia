@@ -1,0 +1,525 @@
+{
+  "synthese_marche": "Marché de travaux de viabilisation primaire de l'extension de la phase IV des voiries de la ZAC du Prieuré Est à Bailly-Romainvilliers (77), maître d'ouvrage EPAFRANCE. Le marché est alloti en deux lots : Lot 1 VRD (terrassement, réseaux divers, assainissement, voiries) et Lot 2 AEP (adduction en eau potable), pour un délai global respectif de 25 et 11 mois.",
+  "domaines_metier": [
+    {
+      "code": "btp_voirie_reseaux",
+      "poids": 0.85,
+      "lots_concernes": [
+        "Lot 1 - VRD",
+        "Lot 2 - AEP"
+      ]
+    },
+    {
+      "code": "btp_gros_oeuvre",
+      "poids": 0.15,
+      "lots_concernes": [
+        "Lot 1 - VRD"
+      ]
+    }
+  ],
+  "raison_classification": "Le marché porte essentiellement sur la création de voiries, réseaux divers (assainissement EP/EU, fourreaux, éclairage provisoire) et adduction en eau potable dans une ZAC, ce qui correspond au domaine btp_voirie_reseaux. Une composante terrassement/fondation de chaussée (traitement de sol, mise en œuvre de couches de forme) justifie une part mineure en btp_gros_oeuvre.",
+  "caracteristiques_techniques_chantier": {
+    "description": "Viabilisation primaire de l'extension de la phase IV des voiries de la ZAC du Prieuré Est : terrassements généraux, traitement de sols, génie civil réseaux (fourreaux, chambres de tirage), assainissement eaux pluviales et eaux usées, voiries avec structures lourdes en EME, trottoirs provisoires, signalisation verticale et horizontale, éclairage public provisoire, et adduction en eau potable (lot séparé).",
+    "typologie_ouvrage": "Voiries et réseaux divers (VRD) en ZAC — création ex nihilo sur terrain en cours d'aménagement",
+    "surface_volume": null,
+    "site_occupe": "false — chantier en ZAC en cours d'aménagement, mais coactivité avec chantiers de bâtiment adjacents et livraisons de lots privés à coordonner",
+    "corps_etat": [
+      "Terrassements généraux",
+      "Traitement de sol (chaux/ciment)",
+      "Génie civil réseaux (fourreaux, chambres de tirage, chambres EP120)",
+      "Assainissement EP et EU",
+      "Voirie (EME, enduit gravillonné, bordures, caniveaux)",
+      "Éclairage public provisoire",
+      "Signalisation verticale et horizontale",
+      "Espaces verts (semis, engazonnement)",
+      "Adduction en eau potable (lot 2)"
+    ],
+    "contraintes_specifiques": [
+      "Coactivité avec chantiers de bâtiment sur la ZAC, coordination obligatoire",
+      "Livraison phasée des accès aux lots privés (AC4A4-5 début 2027, AC4A18 fin 2027)",
+      "Zone de stockage limitée à la plateforme Bellesmes, pas d'emprises complémentaires fournies par le MOA",
+      "Réseaux souterrains existants à identifier (campagne de détection obligatoire)",
+      "Clause d'insertion sociale obligatoire : 1 337 h pour le lot 1 et 160 h pour le lot 2",
+      "Récolement en classe de précision A obligatoire par géomètre agréé EPAFRANCE",
+      "Présence de HTA, GAZ, réseaux télécom, VEA dans les emprises",
+      "Délai d'exécution long (23 mois de travaux pour le lot 1), prix révisables annuellement"
+    ]
+  },
+  "allotissement": {
+    "description": "Marché alloti en 2 lots distincts, CCAP commun",
+    "nb_lots": 2,
+    "lots_detailles": [
+      {
+        "numero": 1,
+        "intitule": "Terrassement, Réseaux divers, Assainissement, Voiries (VRD)",
+        "corps_etat": "VRD — terrassements, génie civil réseaux, assainissement EP/EU, voirie, éclairage provisoire, signalisation",
+        "montant_estime": null,
+        "description": "Réalisation des voiries primaires, réseaux secs (fourreaux, chambres), assainissement eaux pluviales et eaux usées, éclairage public provisoire, signalisation et espaces verts provisoires. Délai global 25 mois (2 mois préparation + 23 mois travaux). Insertion sociale : 1 337 h."
+      },
+      {
+        "numero": 2,
+        "intitule": "Adduction en Eau Potable (AEP)",
+        "corps_etat": "Réseaux humides — adduction en eau potable",
+        "montant_estime": null,
+        "description": "Pose des canalisations AEP, raccordements et ouvrages associés. Délai global 11 mois (1 mois préparation + 10 mois travaux). Insertion sociale : 160 h."
+      }
+    ]
+  },
+  "qualifications_requises": {
+    "description": "Aucune qualification Qualibat ou autre certification n'est explicitement exigée dans les pièces transmises (CCAP et CCTP). Les exigences portent sur les capacités techniques et l'expérience.",
+    "qualibat": [],
+    "rge": false,
+    "rge_specialites": [],
+    "mase": false,
+    "iso_9001": false,
+    "iso_14001": false,
+    "iso_45001": false,
+    "opqibi": null,
+    "autres_certifications": []
+  },
+  "bareme_notation": {
+    "valeur_technique_pct": null,
+    "valeur_prix_pct": null,
+    "sous_criteres_techniques": [],
+    "prix": {
+      "type_formule": "autre",
+      "formule_explicite": "Le marché est à prix unitaires (BPU propre à chaque lot) appliqués aux quantités réellement exécutées. La formule d'attribution n'est pas précisée dans les pièces transmises (RC non fourni).",
+      "elements_a_chiffrer": [
+        "Prix unitaires du BPU Lot 1 (terrassements, fourreaux, regards, canalisations EP/EU, couches de voirie, bordures, signalisation, éclairage provisoire…)",
+        "Prix unitaires du BPU Lot 2 (canalisations AEP, raccordements, ouvrages)",
+        "Prix spécifiques arrêt de travaux (BPU dédié mentionné au CCTP §5.14.2.2)",
+        "Prix de marquage-piquetage (forfait)",
+        "Prix d'opérations de localisation des réseaux"
+      ]
+    },
+    "modalite_calcul_prix": "Marché à prix unitaires. Les acomptes mensuels intègrent la révision de prix. Aucune formule d'attribution dans les pièces transmises."
+  },
+  "montant_marche": {
+    "valeur_estimee_euros": null,
+    "fourchette_min_euros": null,
+    "fourchette_max_euros": null,
+    "type": "non_communique",
+    "duree_couverte": "Lot 1 : 25 mois ; Lot 2 : 11 mois",
+    "source_extraction": null,
+    "commentaire": "Aucun montant estimé, plafond ou fourchette n'est mentionné dans les pièces transmises (CCAP, CCTP, plans). Le BPU n'est pas joint au DCE fourni. Le volume financier reste inconnu à ce stade."
+  },
+  "revision_prix": {
+    "type": "indexation",
+    "indices_utilises": [
+      "TP03a",
+      "TP08",
+      "TP10e"
+    ],
+    "ponderation": "Lot 1 (VRD) : Cn = 0,15 + 0,85 × (0,2 × In/I0 + 0,8 × Jn/J0) avec I = TP03a (Grands terrassements) et J = TP08 (Travaux d'aménagements et entretien de voirie) ; Lot 2 (AEP) : Cn = 0,15 + 0,85 × (In/I0) avec I = TP10e (Canalisation, assainissement et adduction d'eau avec fourniture de tuyaux en fonte majoritaire).",
+    "periodicite": "annuelle",
+    "formule_revision": "Lot 1 : Cn = 0,15 + 0,85 × (0,2 × In/I0 + 0,8 × Jn/J0) | Lot 2 : Cn = 0,15 + 0,85 × (In/I0)",
+    "source_extraction": "CCAP article 4 (§5.2 et §5.3)",
+    "commentaire": "Révision annuelle avec 15% de partie fixe et 85% indexée ; le titulaire doit transmettre le BPU révisé dans les 15 jours suivant la date anniversaire, faute de quoi la révision n'est pas appliquée. Risque si le délai administratif est oublié."
+  },
+  "alertes_prix": [
+    "La révision de prix est annuelle mais le titulaire doit la demander activement dans les 15 jours suivant l'anniversaire de notification — tout retard entraîne la perte de la révision pour l'année concernée (CCAP §5.2 et §5.3).",
+    "Le marché est à prix unitaires avec quantités réellement exécutées : risque de dérive si les quantités estimatives s'avèrent éloignées des quantités réelles (notamment terrassements et remblais selon nature du sol).",
+    "Présence d'un prix spécifique 'arrêt de travaux' dans le BPU (CCTP §5.14.2.2) : le candidat doit renseigner ces prix à l'offre ; une sous-évaluation peut pénaliser en cas d'arrêt réel.",
+    "Dépassement du montant contractuel interdit sans avenant ou décision de poursuivre : risque de blocage de chantier si les quantités réelles dépassent les prévisions (CCAP §5.4)."
+  ],
+  "references_exigees": {
+    "experience_minimale_annees": null,
+    "experience_source": null,
+    "volume_min_references_similaires": null,
+    "volume_min_references_unite": null,
+    "secteur_experience": "Travaux de VRD en ZAC ou opérations d'aménagement d'espaces publics (voiries, réseaux divers, assainissement)",
+    "secteur_source": "CCTP §1",
+    "certifications_obligatoires": [],
+    "autres_exigences": [
+      {
+        "libelle": "Recours obligatoire à un géomètre agréé EPAFRANCE pour les prestations de récolement (liste limitative en annexe 1 du CCAP)",
+        "source": "CCAP Annexe 1"
+      },
+      {
+        "libelle": "Récolement en classe de précision A, réalisé en fouille ou tranchée ouverte",
+        "source": "CCAP Annexe 1"
+      },
+      {
+        "libelle": "Plan d'Assurance Qualité de degré 2 (PAQ) à remettre dans les 15 jours suivant la notification",
+        "source": "CCTP §6"
+      },
+      {
+        "libelle": "Personnel formé et qualifié pour intervenir à proximité des réseaux (DT/DICT réglementaires)",
+        "source": "CCTP §5.14.1"
+      }
+    ]
+  },
+  "lots": [
+    {
+      "numero": 1,
+      "intitule": "Terrassement, Réseaux divers, Assainissement, voiries (VRD)",
+      "zone_geographique": "Bailly-Romainvilliers (77) — ZAC du Prieuré Est",
+      "volume_estime": null,
+      "volume_estime_unite": null,
+      "particularites": "Délai global 25 mois (2 mois préparation + 23 mois travaux). Clause d'insertion sociale : 1 337 heures. Phasage avec livraison d'accès aux lots privés à confirmer en phase exécution. Révision annuelle par indices TP03a et TP08. Éclairage public provisoire à la charge du lot."
+    },
+    {
+      "numero": 2,
+      "intitule": "Adduction en Eau Potable (AEP)",
+      "zone_geographique": "Bailly-Romainvilliers (77) — ZAC du Prieuré Est",
+      "volume_estime": null,
+      "volume_estime_unite": null,
+      "particularites": "Délai global 11 mois (1 mois préparation + 10 mois travaux). Clause d'insertion sociale : 160 heures. Révision annuelle par indice TP10e. Canalisation fonte INTEGRAL imposée pour les réseaux EU."
+    }
+  ],
+  "calendrier": {
+    "date_limite_offres": "2026-07-10",
+    "date_demarrage_prevue": null,
+    "duree_marche": "Lot 1 : 25 mois globaux (2 préparation + 23 travaux) ; Lot 2 : 11 mois globaux (1 préparation + 10 travaux)"
+  },
+  "alertes_candidat": [
+    "Obligation de faire réaliser les récolements par un géomètre de la liste agréée EPAFRANCE (5 cabinets listés en annexe 1 du CCAP) — à sous-traiter dès la réunion de démarrage avec déclaration DC4 obligatoire.",
+    "Clause d'insertion sociale contractuelle et contrôlée mensuellement : 1 337 h pour le lot 1 et 160 h pour le lot 2 — le non-respect déclenche des pénalités (150 €/jour de retard sur les justificatifs) ; un projet d'insertion doit être remis avant la fin de la période de préparation.",
+    "Coactivité forte avec les chantiers de bâtiment sur la ZAC : le candidat doit intégrer dans son offre les contraintes de coordination, de phasage différé et les arrêts/reprises potentiels — aucune plus-value ne sera accordée a posteriori.",
+    "Le titulaire ne peut dépasser le montant contractuel sans avenant ou décision de poursuivre préalable (CCAP §5.4) — risque de blocage chantier si les quantités réelles s'envolent.",
+    "Plans d'exécution à établir par l'entrepreneur avec mission VISA du maître d'œuvre (CCAP §8) — délai à intégrer dans le planning ; toute erreur d'exécution sans visa reste à la charge du titulaire.",
+    "Pénalités nombreuses et sans mise en demeure préalable (sauf travail dissimulé) : retard (1/1000e du montant HT/jour), absence réunion (250 €), réserves non levées (700 €/réserve/jour), sécurité (500 €/infraction/jour), végétaux endommagés (3 800 €/unité) — CCAP §6."
+  ],
+  "points_differenciants_attendus": [
+    {
+      "libelle": "Gestion de la coactivité et phasage en ZAC active",
+      "exemple": "Présenter un schéma de circulation des camions, une organisation de chantier intégrant les interfaces avec les lots privés (AC4A4-5, AC4A18) et les mesures de coordination avec les chantiers de bâtiment adjacents, démontrant une expérience en ZAC multi-intervenants.",
+      "source": "CCTP §9.2"
+    },
+    {
+      "libelle": "Maîtrise des réseaux enterrés et procédures DT/DICT",
+      "exemple": "Décrire précisément l'organisation de la détection des réseaux (géodétection, sondages, marquage-piquetage), les procédures d'arrêt de travaux et les moyens humains dédiés — démontrant une expérience sur chantiers à forte densité de réseaux existants.",
+      "source": "CCTP §5.14 et §5.15"
+    },
+    {
+      "libelle": "Expérience avérée en traitement de sol et structures de chaussée lourde",
+      "exemple": "Références de chantiers VRD ZAC avec traitement chaux/ciment en place, mise en œuvre d'EME classe 2, contrôles de portance PF2, avec résultats d'essais à l'appui.",
+      "source": "CCTP §9.3, §9.8, §11.4.3"
+    },
+    {
+      "libelle": "Organisation de la clause d'insertion sociale",
+      "exemple": "Présenter un projet d'insertion détaillé avec identification des postes éligibles (conducteur d'engins, manœuvre), modalités de partenariat avec les structures IAE du territoire de Seine-et-Marne, et planning d'atteinte des 1 337 heures sur la durée du chantier.",
+      "source": "CCAP §2.3 et Annexes 2 et 3"
+    },
+    {
+      "libelle": "Qualité et réactivité du Plan d'Assurance Qualité (PAQ)",
+      "exemple": "Soumettre dès l'offre une ébauche de PAQ de degré 2 avec les points d'arrêt prédéfinis (compactage fonds de forme, essais canalisations, mandrinage fourreaux), les référentiels laboratoire envisagés et les procédures de non-conformité, démontrant une maturité organisationnelle.",
+      "source": "CCTP §6"
+    }
+  ],
+  "_meta": {
+    "id_marche": "BOAMP-26-56364",
+    "type": "complet",
+    "date_generation": "2026-06-14T20:45:24.619441+00:00",
+    "extraction_le": "2026-06-14T20:45:24.619441+00:00",
+    "modele": "claude-sonnet-4-6",
+    "preset_utilise": "btp",
+    "presets_matches": [
+      "btp"
+    ],
+    "prompts_versions": {
+      "btp/_preset.json": "sha256:d1717e0d87f6c265"
+    },
+    "tokens_input": 160077,
+    "tokens_output": 4919,
+    "cout_eur": 0.5263,
+    "duree_sec": 92.3,
+    "pdfs_traites": [
+      {
+        "nom": "CCAP_trvx_viabilisation_ZAC_PRIEURE.pdf",
+        "hash": "e6e814d3e4b90f4f2d3b951666416875",
+        "taille_chars": 56436
+      },
+      {
+        "nom": "CR1-Carnet de Girations.pdf",
+        "hash": "3c4433b3f9d894d5d250e5d541db3325",
+        "taille_chars": 15462
+      },
+      {
+        "nom": "CR2-Carnet de coupes-détails techniques.pdf",
+        "hash": "e8096fcd620f7dadecc8bb68c04c567b",
+        "taille_chars": 11707
+      },
+      {
+        "nom": "L1PE1 CCTP_ LOT VRD_DCE VIAB PRIEURE.pdf",
+        "hash": "28d74fdced52f536e1d55188598917ec",
+        "taille_chars": 354082
+      },
+      {
+        "nom": "L1PE2 BPU_ LOT VRD_DCE VIAB PRIEURE.xlsx",
+        "hash": "8f730d313cabf09b6845de6964694618",
+        "taille_chars": 153863
+      },
+      {
+        "nom": "L1PE3 DQE_ LOT VRD_DCE VIAB PRIEURE.xlsx",
+        "hash": "f6f6e3dc3316b9bcbb972f710218deec",
+        "taille_chars": 14450
+      },
+      {
+        "nom": "L2PE1 CCTP_ LOT AEP_DCE VIAB PRIEURE.pdf",
+        "hash": "946934b573bf5fd36fafbf722480ec46",
+        "taille_chars": 111744
+      },
+      {
+        "nom": "L2PE2 BPU_ LOT AEP_DCE VIAB PRIEURE.xlsx",
+        "hash": "755d83bd3e805b17b57df9def88d8d51",
+        "taille_chars": 31531
+      },
+      {
+        "nom": "L2PE3 DQE_ LOT AEP_DCE VIAB PRIEURE.xlsx",
+        "hash": "9b87239705a7919266c48ba0c8824ff1",
+        "taille_chars": 4288
+      },
+      {
+        "nom": "PA 06 Planning previsionnel des travaux  .pdf",
+        "hash": "9c211d27745f5f31847ff008550398cc",
+        "taille_chars": 1438
+      },
+      {
+        "nom": "PG01-Plan de situation_1000.pdf",
+        "hash": "a535e2c121bb095fcded4f1ac89a408d",
+        "taille_chars": 100492
+      },
+      {
+        "nom": "PG02-Plan de l'existant_1000.pdf",
+        "hash": "5e6c377b4a527aadd59c44dfe0ac8588",
+        "taille_chars": 70192
+      },
+      {
+        "nom": "PG03-Plan de masse_2000.pdf",
+        "hash": "044065ec18294e439feac39367a23862",
+        "taille_chars": 164066
+      },
+      {
+        "nom": "PG04-PLAN TERRASSEMENT_1000.pdf",
+        "hash": "325747020c2c18e664e76aafdbee324a",
+        "taille_chars": 66664
+      },
+      {
+        "nom": "PGC Viabilisation Prieure Est.pdf",
+        "hash": "cbad0bcab8ccfc09630cc60a5829385c",
+        "taille_chars": 60280
+      },
+      {
+        "nom": "PVR1-Plan de nivellement_1000.pdf",
+        "hash": "529620863321a885644639a1c861bc6f",
+        "taille_chars": 84562
+      },
+      {
+        "nom": "PVR1-a-Plan de nivellement_200.pdf",
+        "hash": "534c3996389cf90aa8999cf9cb4e4d94",
+        "taille_chars": 13844
+      },
+      {
+        "nom": "PVR1-b-Plan de nivellement_200.pdf",
+        "hash": "708b7f98fe2d3240c01b3da8d6fb882b",
+        "taille_chars": 14113
+      },
+      {
+        "nom": "PVR1-c-Plan de nivellement_200.pdf",
+        "hash": "7e119110f35700fb76f9cd61aeab9e1d",
+        "taille_chars": 8033
+      },
+      {
+        "nom": "PVR1-d-Plan de nivellement_200.pdf",
+        "hash": "df9095f965b38d5cb952bec198194a40",
+        "taille_chars": 5810
+      },
+      {
+        "nom": "PVR10-Plan de signalisation_1000.pdf",
+        "hash": "d36778cbd8e556237bdd208eae904180",
+        "taille_chars": 71765
+      },
+      {
+        "nom": "PVR2-PLAN DE STRUCTURES DE VOIRIE-BORDURES_1000.pdf",
+        "hash": "f02a143fa6f42589c78eb8ea5b078abd",
+        "taille_chars": 72004
+      },
+      {
+        "nom": "PVR3-Plan d'assainissement_1000.pdf",
+        "hash": "0848c7ea41ea960af02c96673ef68574",
+        "taille_chars": 91534
+      },
+      {
+        "nom": "PVR3-a-Plan d'assainissement_200.pdf",
+        "hash": "e1a95c285006ae853a854b5bf5c80dd3",
+        "taille_chars": 16201
+      },
+      {
+        "nom": "PVR3-b-Plan d'assainissement_200.pdf",
+        "hash": "5fc66d848a3a9fe4b67ccb34103c5571",
+        "taille_chars": 15865
+      },
+      {
+        "nom": "PVR3-c-Plan d'assainissement_200.pdf",
+        "hash": "ebbb6e344da68eba3ff29a9ad4193327",
+        "taille_chars": 32137
+      },
+      {
+        "nom": "PVR3-d-Plan d'assainissement_200.pdf",
+        "hash": "07be1df4e502008a52e66a2e8b51a78b",
+        "taille_chars": 8162
+      },
+      {
+        "nom": "PVR4-Plan du réseau AEP_1000.pdf",
+        "hash": "fd60739c84c6806e0e3803fc5dda61fe",
+        "taille_chars": 73479
+      },
+      {
+        "nom": "PVR4-a-Plan du réseau AEP_200.pdf",
+        "hash": "466ab264a07cf20ebed4cc9acaa8dbc2",
+        "taille_chars": 48269
+      },
+      {
+        "nom": "PVR4-b-Plan du réseau AEP_200.pdf",
+        "hash": "f963d3ffec435091a05126526ed3b693",
+        "taille_chars": 14525
+      },
+      {
+        "nom": "PVR4-c-Plan du réseau AEP_200.pdf",
+        "hash": "9374f46ad1f6a513fb996cf320f68866",
+        "taille_chars": 26589
+      },
+      {
+        "nom": "PVR4-d-Plan du réseau AEP_200.pdf",
+        "hash": "e91c395e7b31e9820eac779f7a2d902d",
+        "taille_chars": 20518
+      },
+      {
+        "nom": "PVR5-Plan des réseaux divers_1000.pdf",
+        "hash": "aca57a0f3f3b6a3af216d98a1ef27f97",
+        "taille_chars": 90988
+      },
+      {
+        "nom": "PVR5-a-Plan des réseaux divers_200.pdf",
+        "hash": "2fc422757fa06537ecfa05e3fe505fc1",
+        "taille_chars": 61812
+      },
+      {
+        "nom": "PVR5-b-Plan des réseaux divers_200.pdf",
+        "hash": "a88d9792855ab667dad6b8da87d752bc",
+        "taille_chars": 26413
+      },
+      {
+        "nom": "PVR5-c-Plan des réseaux divers_200.pdf",
+        "hash": "481cd069bb2431cb4a040d5bd19ae02a",
+        "taille_chars": 47047
+      },
+      {
+        "nom": "PVR5-d-Plan des réseaux divers_200.pdf",
+        "hash": "5858da9cabb7beabb7dfc32534919ab3",
+        "taille_chars": 33311
+      },
+      {
+        "nom": "PVR6-Plan de dévoiement d' H.T.A._1000.pdf",
+        "hash": "ecb0b9d28e7f80a9e664f42e4778cbc1",
+        "taille_chars": 74191
+      },
+      {
+        "nom": "PVR6-a-Plan de dévoiement d' H.T.A._200.pdf",
+        "hash": "6ad5b295e3f206f59fb78112eaa1bb9d",
+        "taille_chars": 13445
+      },
+      {
+        "nom": "PVR6-b-Plan de dévoiement d' H.T.A._200.pdf",
+        "hash": "372d7c1c9d7cc5cd523930c399999732",
+        "taille_chars": 6563
+      },
+      {
+        "nom": "PVR7-Plan du réseau GAZ_1000.pdf",
+        "hash": "63e552ef2c7ba0d8356416024c4d8e6b",
+        "taille_chars": 73006
+      },
+      {
+        "nom": "PVR7-a-Plan dy réseau GAZ_200.pdf",
+        "hash": "5b3a08e0279145220bb593d862e885b3",
+        "taille_chars": 47723
+      },
+      {
+        "nom": "PVR7-b-Plan dy réseau GAZ_200.pdf",
+        "hash": "ecf2af04f0d0795b6f715425fe88513d",
+        "taille_chars": 13465
+      },
+      {
+        "nom": "PVR7-c-Plan dy réseau GAZ_200.pdf",
+        "hash": "564b383aa117d8dbf0bc2838e4679df9",
+        "taille_chars": 26140
+      },
+      {
+        "nom": "PVR7-d-Plan dy réseau GAZ_200.pdf",
+        "hash": "8bf35acbcb745d346e150ae5d65e29fd",
+        "taille_chars": 20379
+      },
+      {
+        "nom": "PVR8-Plan du réseau HTA_1000.pdf",
+        "hash": "1b573cf642ba76229c275ebe89a258d8",
+        "taille_chars": 78959
+      },
+      {
+        "nom": "PVR8-a-Plan du réseau HTA_200.pdf",
+        "hash": "b983bae59d70bb82ae517cdfdc5abf0d",
+        "taille_chars": 54266
+      },
+      {
+        "nom": "PVR8-b-Plan du réseau HTA_200.pdf",
+        "hash": "4c56c4028cd28716d544a467e4118d3e",
+        "taille_chars": 23129
+      },
+      {
+        "nom": "PVR8-c-Plan du réseau HTA_200.pdf",
+        "hash": "6253c20187abb0ff07425e26cdf55413",
+        "taille_chars": 8147
+      },
+      {
+        "nom": "PVR8-d-Plan du réseau HTA_200.pdf",
+        "hash": "bcd378e60292cd558f8d9d036593f0b3",
+        "taille_chars": 6697
+      },
+      {
+        "nom": "PVR9-Plan synthèse réseaux_1000.pdf",
+        "hash": "d660bb8f383eb1140bd722bffd5d6c88",
+        "taille_chars": 111495
+      },
+      {
+        "nom": "PVR9-a-Plan synthèse réseaux_200.pdf",
+        "hash": "134f531a13ee6f28471ba290034fdc16",
+        "taille_chars": 67071
+      },
+      {
+        "nom": "PVR9-b-Plan synthèse réseaux_200.pdf",
+        "hash": "dbcc9eb1071f299f19b0129b8fbeaf6a",
+        "taille_chars": 28772
+      },
+      {
+        "nom": "PVR9-c-Plan synthèse réseaux_200.pdf",
+        "hash": "710a835c7001e26d902a2c07be2cfb57",
+        "taille_chars": 53763
+      },
+      {
+        "nom": "PVR9-d-Plan synthèse réseaux_200.pdf",
+        "hash": "30ca0e576daa7d255b197f0de0da384f",
+        "taille_chars": 41969
+      },
+      {
+        "nom": "RC_trvx_viabilisation_ZAC_PRIEURE.pdf",
+        "hash": "4bc1bcbceddf42e072efa42d0c852f57",
+        "taille_chars": 40573
+      },
+      {
+        "nom": "Rp_PA21 6895_9 _ A _G2_PRO_Amenagement des espaces publics_ Zac Prieure Est _77_.pdf",
+        "hash": "17dadbe8ede0782e2769988dc51bb5df",
+        "taille_chars": 118831
+      },
+      {
+        "nom": "Tuto-SOE-v3-17.02.2026.pdf",
+        "hash": "2e9f2e6c2707bf5e8ee2c68c6bc41f32",
+        "taille_chars": 7622
+      },
+      {
+        "nom": "cahier_des_clauses_environnementales_04082025_compressed.pdf",
+        "hash": "379dde8000768cbf134c4417d0260570",
+        "taille_chars": 24195
+      }
+    ]
+  }
+}

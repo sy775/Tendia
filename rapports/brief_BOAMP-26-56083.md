@@ -1,6 +1,6 @@
 # Brief — PRESTATIONS D’ANALYSES BACTERIOLOGIQUES, ENDOTOXINES ET PHYSICO-CHIMIQUES, ET DE REQUALIFICATION FONCTIONNELLE DES SALLES PROPRES DANS LE CADRE DU GRO
 
-_Généré le 2026-06-12 15:49 par Claude claude-sonnet-4-6_
+_Généré le 2026-06-15 00:02 par Claude claude-sonnet-4-6_
 
 ## Identifiants
 - **ID Tendia** : `BOAMP-26-56083`
@@ -11,103 +11,97 @@ _Généré le 2026-06-12 15:49 par Claude claude-sonnet-4-6_
 - **DCE PLACE** : <https://www.marches-publics.gouv.fr/?page=Entreprise.EntrepriseDetailsConsultation&id=3014084&orgAcronyme=x7c>
 
 ## Synthèse
-Marché public de services portant sur des prestations d'analyses bactériologiques, endotoxines, physico-chimiques et de requalification fonctionnelle de salles propres pour le Groupement de Commandes du GHT des Alpes du Sud. Le marché est divisé en 7 lots couvrant plusieurs établissements hospitaliers des Hautes-Alpes et des Alpes-de-Haute-Provence. Il s'agit d'un accord-cadre d'une durée de 4 ans (1 an renouvelable 3 fois) passé en appel d'offres ouvert.
+Marché de prestations d'analyses bactériologiques (eau, air, surfaces, légionnelles, endotoxines, physico-chimiques), de requalification fonctionnelle des salles propres et d'analyses d'hygiène hospitalière (restauration, blanchisserie), pour le compte du groupement de commandes du GHT des Alpes du Sud regroupant 7 établissements hospitaliers (Gap, Sisteron, Laragne, Embrun, Aiguilles, Briançon, Barcelonnette). Le marché est alloti en 7 lots distincts selon les types d'analyses, passé en appel d'offres ouvert pour une durée de 4 ans (1 an + 3 reconductions tacites).
 
-## ⚡ Parc EnR — caractéristiques techniques
-- **Description** : Prestations d'analyses microbiologiques (eau, air, surfaces, légionnelles), d'analyses endotoxines, physico-chimiques (hémodialyse, stérilisation) et de requalification fonctionnelle de salles propres dans plusieurs établissements hospitaliers du GHT des Alpes du Sud. Inclut la mise en place d'un planning annuel de prélèvements et des audits d'hygiène pour restauration et blanchisserie.
-- **Type de sites** : Établissements hospitaliers publics (hôpitaux, centres hospitaliers) avec salles propres, unités d'hémodialyse, blanchisserie et restauration collective
-- **Critères d'éligibilité** :
-  - Attestation d'assurance responsabilité civile professionnelle (source=RC Article 6)
-  - Lettre de candidature DC1 (version 2019) (source=RC Article 6)
-  - Déclaration du candidat DC2 (version 2019) (source=RC Article 6)
-  - Attestation sur l'honneur datée et signée (source=RC Article 6)
-  - Attestation de suivi d'une formation aux bonnes pratiques de prélèvements pour les intervenants (source=RC Article 6)
-  - Notice descriptive particulière pour chacun des lots (analyses réalisables, techniques, matériel, interlocuteurs, normes, comptes rendus) (source=RC Article 6)
-  - Protocole de méthodologie de prélèvement conforme aux normes d'hygiène en vigueur (source=RC Article 3)
-- **Contraintes site signalées** :
-  - site occupé
-  - établissements hospitaliers en activité
+## 🏗 Chantier — caractéristiques BTP
+- **Description** : Prestations de laboratoire externalisées : prélèvements, transports, analyses bactériologiques/endotoxines/physico-chimiques et requalification aéraulique des salles à environnement maîtrisé dans 7 établissements hospitaliers des Hautes-Alpes et Alpes-de-Haute-Provence.
+- **Type d'ouvrage** : Établissements de santé (CHU, EHPAD, blocs opératoires, unités de stérilisation, dialyse, restauration collective, blanchisserie hospitalière)
+- **Site occupé pendant travaux** : true — interventions en milieu hospitalier en activité, prélèvements aux blocs opératoires imposant tenue de bloc complète et coordination avec les services
+- **Contraintes spécifiques** :
+  - Prélèvements aux blocs opératoires : tenue complète exigée, obligation d'avertir avant intervention
+  - Planning annuel à établir en début de marché avec chaque établissement
+  - Optimisation des déplacements multi-sites sur un territoire dispersé (Laragne, Gap, Sisteron, Embrun, Aiguilles, Briançon, Barcelonnette)
+  - Interventions d'urgence sous 96h ouvrées en cas de non-conformité
+  - Fourniture à titre gracieux du matériel de prélèvement (tubes, flacons, poches) pour les prélèvements réalisés en interne par les CH
+  - Accréditation COFRAC programme eaux 100.2 fortement conseillée
+  - Conformité aux normes NF EN ISO 14644, NF S 90-351, circulaires DGS/DHOS hémodialyse, règlement CE 2073/2005 restauration
+  - Conservation des souches pendant 1 an (épidémiologie rétrospective)
+  - Résultats non conformes à transmettre immédiatement par tout moyen, compte-rendus dans les 15 jours
 
-### Volumes techniques
-- **Nombre de sites** : 7
-- **Durée du marché (mois)** : 48
-- **Note** : 7 établissements hospitaliers concernés (CHBD Laragne-Montéglin, CHICAS Gap et Sisteron, CHE Embrun, CHAQ Aiguilles-Queyras, CHEB Briançon, CHPG Barcelonnette). Le marché couvre 7 lots distincts. Aucun volume unitaire d'analyses n'est précisé dans le RC seul.
+### Allotissement
+Marché décomposé en 7 lots techniques indépendants selon le type d'analyses. Les candidats peuvent répondre à un ou plusieurs lots.
+- **Nombre de lots** : 7
+- **Lot 1** — Analyses bactériologiques de l'eau, l'air, les surfaces
+  - Corps d'état : Analyses bactériologiques eau (potabilité, ESS, osmosée, piscine), aérobiocontamination, surfaces — 7 établissements
+  - Analyses bactériologiques de l'eau (potabilité, ESS, osmosée autoclaves, endoscopie, balnéo), aérobiocontamination et surfaces dans blocs et salles traitées (Gap et Briançon principalement). Quantités estimatives : 36 prélèvements piscine + 158 potabilité + 14 osmosée + 119 ESS + 114 endoscopie + 321 aérobiocontamination + 798 surfaces par an.
+- **Lot 2** — Recherche de légionnelles
+  - Corps d'état : Analyses légionnelles réseau eau chaude sanitaire — 7 établissements
+  - Recherche de légionnelles sur l'ensemble des réseaux ECS des 7 établissements du GHT. Quantité estimative : 475 prélèvements annuels.
+- **Lot 3** — Requalification fonctionnelle des salles propres
+  - Corps d'état : Métrologie et qualification aéraulique des salles ISO (blocs, stérilisation, URC, médecine nucléaire) — Gap et Briançon
+  - Contrôles aérauliques et microbiologiques complets (particules, vitesses, pressions, hygrométrie, aérobiocontamination, surfaces) conformes NF EN ISO 14644 et NF S 90-351. Gap : 26 salles/locaux, Briançon : 16. Quantité estimative : 277 prélèvements annuels.
+- **Lot 4** — Analyse de performance de l'hémodiafiltration : analyse bactériologique et endotoxines
+  - Corps d'état : Bactériologie et endotoxines générateurs hémodiafiltration — Gap (18 générateurs) et Briançon (9 générateurs)
+  - Analyses bactériologiques et endotoxines sur poche de liquide de substitution pour les générateurs HDF, 4 fois par an. Prélèvements réalisés en interne par les CH, transport et analyse par le titulaire. Quantité estimative : 108 bactériologie + 108 endotoxines.
+- **Lot 5** — Analyse de performance de l'hémodialyse : analyse bactériologique et endotoxines
+  - Corps d'état : Bactériologie et endotoxines eau osmosée dialyse — Gap et Briançon
+  - Analyses bactériologiques et endotoxines sur eau osmosée (départ et retour de boucle) 1 fois par mois le mercredi matin. Prélèvements réalisés par le titulaire. Quantité estimative : 48 prélèvements/site soit 96 au total.
+- **Lot 6** — Analyse physico-chimique : hémodialyse et stérilisation
+  - Corps d'état : Analyses physico-chimiques eau osmosée dialyse et stérilisation — Gap et Briançon
+  - Analyses physico-chimiques complètes et simplifiées (conductivité, dureté, nitrates, matières organiques, aluminium) sur eau dialyse (4/an) et stérilisation (1/an). Quantité estimative : 10 prélèvements par an.
+- **Lot 7** — Analyse d'hygiène hospitalière pour l'unité centrale de restauration et la blanchisserie
+  - Corps d'état : Analyses microbiologiques denrées alimentaires, surfaces cuisine et linge hospitalier + audits hygiène alimentaire — 7 établissements
+  - Prélèvements mensuels de denrées alimentaires et de surfaces en cuisine, prélèvements semestriels linge blanchisserie/lingerie, audits hygiène alimentaire (règlement CE 2073/2005, RABC, COFRAC). Fréquence : 4 prélèvements mensuels par site majeur. Audits de 1 à 3 par an selon site.
 
-### Modalités d'exécution
-- **Sites d'exécution** : Gap (05), Sisteron (04), Laragne-Montéglin (05), Embrun (05), Aiguilles-en-Queyras (05), Briançon (05), Barcelonnette (04)
-
-## 🎓 Formation / accompagnement
-### Publics cibles
-Ce marché ne concerne pas de public de formation. Il s'agit de prestations de laboratoire (analyses biologiques, physico-chimiques) et de contrôle technique (salles propres) à destination d'établissements hospitaliers publics du GHT des Alpes du Sud.
-
-### Volumes
-- **Durée marché (mois)** : 48
-- **Note** : Marché de services d'analyses. Pas de notion de bénéficiaires de formation. Durée : 1 an reconductible 3 fois (4 ans total). Les volumes d'analyses ne sont pas précisés dans les pièces fournies.
-
-### Modalités
-- **Sites d'exécution** : Gap (05), Sisteron (04), Laragne-Montéglin (05), Embrun (05), Aiguilles-en-Queyras (05), Briançon (05), Barcelonnette (04)
+### Qualifications BTP exigées
+Pas de qualification professionnelle réglementaire formellement exigée (type Qualibat). Accréditation COFRAC programme eaux 100.2 fortement conseillée. Accréditation COFRAC obligatoire pour le lot 7. Conformité aux normes analytiques AFNOR exigée pour le lot 7.
+- **MASE** : non
+- **Autres exigences** :
+  - Accréditation COFRAC programme eaux 100.2 (fortement conseillée pour lots 1 à 6, obligatoire lot 7) (source=CCP articles 3-3, 4-2, 5-5, 7-4)
+  - Conformité aux normes analytiques AFNOR (lot 7 restauration) (source=CCP article 7-1)
+  - Habilitation RABC pour analyses linge hospitalier (lot 7) (source=CCP article 7-3-3)
 
 ## 💶 Montant du marché
 - _Montant non communiqué dans le DCE._
   - Typique des accords-cadres à bons de commande : le volume dépend des commandes effectivement passées par l'acheteur sur la durée du marché.
-- _Note_ : Aucun montant estimé, plafond ou prix unitaire n'est mentionné dans le RC fourni. Le CCTP et le BPU ne sont pas inclus dans les pièces transmises. Il n'est donc pas possible de calculer une estimation.
+- _Note_ : Aucun montant estimé, prévisionnel ou plafond n'est mentionné dans les pièces fournies. Les annexes financières sont des grilles de prix vierges à compléter par les candidats. Les quantités estimatives annuelles figurent dans les annexes (ex : 475 prélèvements légionnelles lot 2, 277 lot 3) mais sans prix de référence permettant d'estimer la valeur.
 
 ## Barème de notation
 - **Valeur technique** : 35 %
 - **Valeur prix** : 55 %
 - **Sous-critères techniques** :
-  - Valeur technique de l'offre basée sur les documents produits : 35 %
-  - Valeur technique de l'offre (Lot 7 uniquement) : 25 %
-  - Critère Environnemental (lots 1 à 6) : 10 %
-  - Critère Environnemental (lot 7) : 10 %
-  - Respect du cahier des charges (lot 7 uniquement) : 25 %
-- **Calcul du prix** : Critère 1 : Coût global incluant les frais de déplacement — 55% pour lots 1-6 et 40% pour le lot 7. Formule de notation non précisée dans le RC.
+  - Critère 1 : Coût global incluant les frais de déplacement (lots 1 à 6) : 55 %
+  - Critère 2 : Valeur technique de l'offre basée sur les documents produits (lots 1 à 6) : 35 %
+  - Critère 3 : Environnemental (lots 1 à 6) : 10 %
+  - Critère 1 : Coût global incluant les frais de déplacement (lot 7) : 40 %
+  - Critère 2 : Valeur technique (lot 7) : 25 %
+  - Critère 3 : Environnemental (lot 7) : 10 %
+  - Critère 4 : Respect du cahier des charges (lot 7) : 25 %
+- **Calcul du prix** : Offre économiquement la plus avantageuse — pondération 55% prix + 35% technique + 10% environnemental pour lots 1-6 ; 40% prix + 25% technique + 10% environnemental + 25% respect CDC pour lot 7.
 
 ## Références et qualifications exigées
 - **Expérience minimale** : —
-- **Secteur d'expérience** : Analyses bactériologiques, microbiologiques, physico-chimiques en milieu hospitalier / laboratoire d'analyses
-- **Certifications obligatoires** : Attestation de suivi d'une formation aux bonnes pratiques de prélèvements pour les intervenants — obligatoire à produire avec l'offre (source=RC Article 6)
+- **Secteur d'expérience** : Analyses microbiologiques et physico-chimiques en milieu hospitalier (eau, air, surfaces, légionnelles, dialyse, restauration collective, blanchisserie) ; requalification de salles propres conformes ISO 14644 et NF S 90-351.
+- **Certifications obligatoires** : Accréditation COFRAC programme eaux 100.2 (fortement conseillée lots 1-6, obligatoire lot 7) (source=CCP articles 3-3, 4-2, 5-5, 7-4), Accréditation COFRAC pour les prélèvements et analyses alimentaires et linge (lot 7) (source=CCP article 7-4)
 - **Autres exigences** :
-  - Attestation d'assurance responsabilité civile professionnelle (source=RC Article 6)
-  - Extrait Kbis de moins de 3 mois (fortement recommandé) (source=RC Article 6)
-  - Attestation de régularité fiscale de moins de 3 mois (fortement recommandé) (source=RC Article 6)
-  - Attestation de vigilance URSSAF de moins de 3 mois (fortement recommandé) (source=RC Article 6)
-  - Pour le lot 7 : accréditations RABC/COFRAC/AFNOR ou conformité règlement CE valorisées dans les critères de notation (source=RC Article 7)
-
-## Lots
-- **Lot 1** — Lot 1 - Analyses bactériologiques de l'eau, l'air, les surfaces
-  - Zone : Hautes-Alpes (05) et Alpes-de-Haute-Provence (04)
-  - Concerne les 7 établissements du GHT. Critères de notation : prix 55%, technique 35%, environnemental 10%.
-- **Lot 2** — Lot 2 - Recherche de légionnelles
-  - Zone : Hautes-Alpes (05) et Alpes-de-Haute-Provence (04)
-  - Critères de notation : prix 55%, technique 35%, environnemental 10%.
-- **Lot 3** — Lot 3 - Requalification fonctionnelle des salles propres
-  - Zone : Hautes-Alpes (05) et Alpes-de-Haute-Provence (04)
-  - Expertise spécifique en qualification de salles propres (normes ISO 14644 attendues). Critères de notation : prix 55%, technique 35%, environnemental 10%.
-- **Lot 4** — Lot 4 - Analyse de performance de l'hémodiafiltration : analyse bactériologique et endotoxines
-  - Zone : Hautes-Alpes (05) et Alpes-de-Haute-Provence (04)
-  - Nécessite expertise en hémodiafiltration. Critères de notation : prix 55%, technique 35%, environnemental 10%.
-- **Lot 5** — Lot 5 - Analyse de performance de l'hémodialyse : analyse bactériologique et endotoxines
-  - Zone : Hautes-Alpes (05) et Alpes-de-Haute-Provence (04)
-  - Nécessite expertise en hémodialyse. Critères de notation : prix 55%, technique 35%, environnemental 10%.
-- **Lot 6** — Lot 6 - Analyse physico-chimique : hémodialyse et stérilisation
-  - Zone : Hautes-Alpes (05) et Alpes-de-Haute-Provence (04)
-  - Couvre à la fois l'hémodialyse et la stérilisation. Critères de notation : prix 55%, technique 35%, environnemental 10%.
-- **Lot 7** — Lot 7 - Analyse d'hygiène hospitalière pour l'unité centrale de restauration et la blanchisserie
-  - Zone : Hautes-Alpes (05) et Alpes-de-Haute-Provence (04)
-  - Lot avec grille de notation différente des autres lots : prix 40%, valeur technique 25%, environnemental 10%, respect cahier des charges 25%. Requiert expertise en audit alimentaire et blanchisserie hospitalière (RABC). Nécessite de fournir un exemple de rapport d'audit et le détail du déroulement d'un audit complet alimentaire.
+  - Assurance responsabilité civile professionnelle en cours de validité — attestation à fournir dans les 15 jours suivant notification (source=CCP article 2-3)
+  - Personnel formé aux bonnes pratiques de prélèvement — attestation de formation à joindre à l'offre (source=RC Article 6)
+  - Conservation des souches pendant 1 an minimum (source=CCP articles 3-3, 4-2, 5-5)
+  - Utilisation de méthodes normalisées NF, EN ou ISO lorsqu'elles existent (source=CCP articles 3-3, 4-2, 5-5)
+  - Exemples de comptes-rendus (conforme et non-conforme) à remettre avec l'offre pour chaque lot (source=RC Article 6 ; CCP articles 3-3, 5-4, 6-5)
+  - Exemple de rapport d'audit et détail du déroulement d'un audit complet alimentaire à remettre avec l'offre (lot 7) (source=RC Article 6)
 
 ## ⚠ Alertes candidat
-- ATTENTION : Le candidat doit impérativement fournir un protocole de méthodologie de prélèvement conforme aux normes d'hygiène — pièce obligatoire selon RC Article 3
-- Une notice descriptive DISTINCTE est exigée pour CHACUN des lots soumissionnés (nommage imposé : 'Lot N° x, fournisseur x, NOTICE DESCRIPTIVE') — risque de rejet si format non respecté
-- Pour le lot 7, un exemple de rapport d'audit alimentaire complet avec le déroulé d'un audit est obligatoire — absence = handicap majeur sur le critère qualité des audits (9 pts sur 25)
-- Attestation de formation aux bonnes pratiques de prélèvements pour les intervenants obligatoire à produire
-- Les fichiers ne doivent pas être zippés, pas de répertoire, nom de fichier ≤ 25 caractères — non-respect peut entraîner rejet de l'offre selon RC Article 6
-- Les établissements sont situés en zones de montagne (Hautes-Alpes, Alpes-de-Haute-Provence) : les frais de déplacement sont intégrés dans le critère prix — impact fort sur la compétitivité tarifaire
+- Le prix unitaire doit être IDENTIQUE pour tous les établissements du groupement quelle que soit leur localisation : un laboratoire non implanté dans les Hautes-Alpes risque de sous-estimer ses coûts de déplacement sur des sites éloignés (Barcelonnette, Aiguilles)
+- Des exemples de comptes-rendus CONFORMES et NON CONFORMES sont obligatoires dans le dossier d'offre pour chaque lot souhaité (pièce éliminatoire implicite si absente)
+- L'accréditation COFRAC est explicitement OBLIGATOIRE pour le lot 7 (restauration/blanchisserie) — un candidat non accrédité ne peut pas répondre valablement à ce lot
+- Les prélèvements aux blocs opératoires nécessitent une habilitation et une coordination avec les services : le titulaire doit justifier d'une expérience en milieu hospitalier (blocs) et attester d'une formation aux bonnes pratiques de prélèvement
+- Le marché impose la conservation des souches pendant 1 an — vérifier que le laboratoire dispose de la capacité de stockage correspondante avant de candidater sur les lots 1 à 6
+- La pénalité de 50 € HT/jour de retard sur les comptes-rendus est applicable dès le premier euro sans mise en demeure préalable — le planning de rendu doit être irréprochable
 
 ## 💡 Points différenciants attendus
-- Qualité et exhaustivité des comptes rendus d'analyse avec préconisations en cas de non-conformité (exemple=Fournir des modèles de comptes rendus non conformes incluant l'identification précise des germes, les seuils réglementaires dépassés, et les mesures correctives hiérarchisées (immédiates/court terme/long terme) spécifiques au contexte hospitalier., source=RC Article 6)
-- Accréditations et certifications techniques (COFRAC notamment) pour crédibiliser la valeur technique (exemple=Mettre en avant une accréditation COFRAC couvrant les analyses proposées, ainsi que les normes ISO applicables par lot, ce qui renforce significativement le score sur le critère technique., source=RC Article 7)
-- Optimisation des tournées de prélèvements pour minimiser les frais de déplacement sur 7 établissements dispersés en montagne (exemple=Proposer un planning de prélèvements mutualisé permettant de couvrir plusieurs établissements en une seule journée d'intervention (ex: Gap + Sisteron le mardi, Briançon + Embrun le jeudi), avec chiffrage des frais de déplacement optimisés inclus dans l'annexe financière., source=RC Article 7 (critère environnemental - optimisation transports))
-- Qualité du rapport d'audit alimentaire pour le lot 7 (critère le mieux pondéré du lot avec 9 pts sur 25 en technique) (exemple=Produire un exemple de rapport d'audit alimentaire complet de 15 à 25 pages incluant : grille de cotation HACCP, photographies illustrant les non-conformités, plan d'actions correctives avec responsables et délais, et suivi de la levée des non-conformités lors de l'audit suivant., source=RC Article 7)
-- Identification d'interlocuteurs dédiés et proximité géographique avec les établissements (exemple=Nommer un référent commercial et un référent technique dédiés au GHT des Alpes du Sud avec leurs coordonnées directes, et, si possible, une antenne ou sous-traitant accrédité en région PACA/Auvergne-Rhône-Alpes pour réduire les délais d'intervention., source=RC Article 6)
+- Accréditation COFRAC couvrant l'ensemble des analyses demandées (eau, air, surfaces, alimentaire, linge) (exemple=Un laboratoire présentant son attestation COFRAC avec la liste exhaustive des portées couvrant les méthodes ISO 4833, ISO 11731 (légionnelles), ISO 16649 et les programmes eaux 100.2 et alimentaire démontre d'emblée sa capacité technique sans réserve., source=CCP articles 3-3, 7-4)
+- Optimisation prouvée des tournées de prélèvement multi-sites (exemple=Présenter un plan de tournées prévisionnel (carte + calendrier) couvrant les 7 sites en minimisant les déplacements, avec engagement sur le coût de déplacement facturé une seule fois par jour même pour 2 sites — directement valorisé dans le critère prix., source=CCP article 9-2 ; RC Article 7)
+- Qualité et complétude des comptes-rendus modèles (conformes et non conformes) (exemple=Fournir des comptes-rendus modèles incluant identification jusqu'à l'espèce bactérienne, conclusion comparative aux seuils réglementaires, préconisations opérationnelles adaptées et coordonnées du responsable de laboratoire — les acheteurs évaluent directement la qualité de ces modèles., source=RC Article 6 ; CCP articles 3-3, 5-4)
+- Expérience démontrée en requalification de salles propres hospitalières (ISO 14644 / NF S 90-351) (exemple=Joindre des références de requalification de blocs opératoires et salles de stérilisation avec compte-rendu-type incluant schéma des flux d'air, mesures particulaires, pressions différentielles et cinétique de décontamination., source=CCP article 5-2)
+- Réactivité documentée en cas de non-conformité (délai < 96h) (exemple=S'engager sur un délai d'intervention en urgence inférieur au maximum de 96h ouvrées (ex: 48h) et le documenter dans le questionnaire technique avec une organisation de permanence téléphonique identifiée., source=CCP articles 3-3, 6-4)

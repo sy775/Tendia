@@ -1,82 +1,94 @@
 {
-  "synthese_marche": "Marché de travaux d'aménagement intérieur pour le déménagement de l'OFPRA dans son futur siège social (immeuble Joya, 198-200 rue Carnot, Fontenay-sous-Bois). Les travaux portent sur le RDC, R+1 et R+2 et couvrent cinq corps d'état : plâtrerie/plafonds/menuiseries/peinture, revêtements de sol, cloisons modulaires, électricité et CVC/plomberie. Le marché est passé en appel d'offres ouvert avec délai réduit pour urgence impérieuse, date limite de remise des offres fixée au 29 juin 2026.",
+  "synthese_marche": "Marché de travaux d'aménagement intérieur pour le déménagement de l'OFPRA dans son futur siège social (immeuble Joya, 198-200 rue Carnot, Fontenay-sous-Bois), portant sur les niveaux RDC, R+1 et R+2. Les travaux comprennent la création d'espaces d'accueil public, de salles d'attente et de boxes d'entretien. Le marché est alloti en 5 lots de second œuvre (plâtrerie-peinture, revêtements de sol, cloisons modulaires, électricité, CVC-plomberie), avec un délai d'exécution contraint (travaux de juillet à décembre 2026).",
   "domaines_metier": [
     {
       "code": "btp_second_oeuvre"
     }
   ],
-  "raison_classification": "Le marché porte exclusivement sur des travaux de second œuvre d'aménagement intérieur : plâtrerie, plafonds, menuiseries intérieures, peinture, revêtements de sol, cloisons modulaires, électricité courants forts, CVC et plomberie sanitaire. Les CPV confirment cette classification (45262700, 45410000, 45442100, 45432100, 45421141, 45311200, 45331000). Il n'y a pas de gros œuvre ni de VRD.",
+  "raison_classification": "Le marché porte exclusivement sur des travaux de second œuvre pour l'aménagement intérieur d'un bâtiment existant : plâtrerie, peinture, revêtements de sols, cloisons modulaires, électricité courants forts/faibles, CVC et plomberie sanitaire. Les 5 lots correspondent tous à des corps d'état de second œuvre classiques, sans dominante énergie renouvelable ni rénovation énergétique.",
   "caracteristiques_techniques_chantier": {
-    "description": "Travaux d'aménagement intérieur pour l'installation du futur siège de l'OFPRA dans un immeuble existant (immeuble Joya). Les travaux portent sur le rez-de-chaussée, le R+1 et le R+2 et comprennent cinq lots de second œuvre : plâtrerie/plafonds/menuiseries intérieures/peinture, revêtements de sol, cloisons modulaires, électricité et CVC/plomberie.",
-    "typologie_ouvrage": "Immeuble de bureaux tertiaire (futur siège administratif d'un établissement public)",
-    "surface_volume": null,
-    "site_occupe": "Non précisé explicitement — le chantier se déroule dans un immeuble en cours de livraison (futur siège, non encore occupé par l'OFPRA), mais des contraintes de coordination avec les travaux du bailleur (coque ERP, courant fort/faible) sont mentionnées",
+    "description": "Aménagement intérieur de 3 niveaux (RDC, R+1, R+2) d'un immeuble tertiaire pour créer un espace d'accueil ERP de type W (1ère catégorie) : curage du RDC (ex-cafétéria), création d'une banque d'accueil, salle d'attente, boxes d'entretien, sanitaires PMR, local caméra, local ménage, salle d'allaitement. Travaux en coordination avec le contractant général SEDRI (travaux bailleur) qui réalise simultanément les prestations des bureaux et les courants forts/faibles ERP.",
+    "typologie_ouvrage": "Immeuble de bureaux tertiaire reconverti en ERP de type W (administration publique) — aménagement intérieur multi-niveaux",
+    "surface_volume": "Revêtement PVC : 2 598 m² (lot 2) ; cloisons amovibles pleines : 2 002 m² ; cloisons amovibles vitrées : 459 m² — surface totale non précisée globalement",
+    "site_occupe": "true — chantier dans un immeuble occupé par d'autres locataires ; coordination impérative avec SEDRI intervenant simultanément ; respect des horaires définis par le maître d'œuvre sans nuisances pour les autres occupants",
     "corps_etat": [
       "Plâtrerie",
-      "Faux plafonds",
+      "Plafonds suspendus",
       "Menuiseries intérieures",
       "Peinture",
-      "Revêtements de sol",
-      "Cloisons modulaires",
-      "Électricité (courant fort)",
-      "Chauffage / Ventilation / Climatisation (CVC)",
+      "Revêtements de sols",
+      "Cloisons modulaires / amovibles",
+      "Électricité courants forts",
+      "Électricité courants faibles",
+      "CVC (chauffage, ventilation, climatisation)",
       "Plomberie sanitaire"
     ],
     "contraintes_specifiques": [
-      "Calendrier particulièrement contraint : baux actuels expirent le 31 décembre 2026, risque de double loyer",
-      "Coordination avec les travaux du bailleur : coque ERP, prestations techniques dans espaces ERP (courant fort et courant faible)",
-      "Nécessité de garantir la continuité du service public de l'asile",
-      "Délai de consultation réduit pour urgence impérieuse d'intérêt général (article R.2161-3 CCP)",
-      "Intervention limitée aux niveaux RDC, R+1 et R+2 de l'immeuble Joya"
+      "Calendrier très contraint : délai de consultation réduit pour urgence impérieuse (bail se terminant le 31/12/2026) — travaux de juillet à décembre 2026",
+      "Coactivité obligatoire avec le contractant général SEDRI qui réalise les travaux bailleur simultanément",
+      "ERP de 1ère catégorie type W : respect de la réglementation incendie ERP stricte",
+      "Présence de plancher chauffant existant au RDC : repérage obligatoire par caméra thermique avant tout percement",
+      "Bâtiment occupé par d'autres locataires : horaires d'intervention contraints",
+      "Coordination SPS avec SARL COSSEC et contrôle technique SOCOTEC",
+      "Planning en deux phases d'installation de chantier (base vie intérieure R+1 puis base vie modulaire extérieure)",
+      "Facturation obligatoire via CHORUS Pro (dématérialisation)"
     ]
   },
   "allotissement": {
-    "description": "Marché décomposé en 5 lots distincts par corps d'état, tous situés dans le même immeuble (RDC, R+1, R+2). Une même entreprise peut candidater à plusieurs lots.",
+    "description": "Marché alloti en 5 lots de second œuvre, tous à prix global et forfaitaire, sans montant minimum ni maximum. Une même entreprise peut candidater à plusieurs lots.",
     "nb_lots": 5,
     "lots_detailles": [
       {
         "numero": 1,
         "intitule": "Plâtrerie – Plafonds – Menuiseries intérieures – Peinture",
-        "corps_etat": "Plâtrerie, faux plafonds, menuiseries intérieures, peinture",
+        "corps_etat": "Plâtrerie, plafonds suspendus, menuiseries intérieures, peinture",
         "montant_estime": null,
-        "description": "Travaux de plâtrerie, pose de plafonds, menuiseries intérieures et peinture dans les espaces du futur siège OFPRA"
+        "description": "Cloisons 98/48 (299,63 m²), plafonds en fibre minérale (67 m²) et bacs métalliques (11,4 m²), retombées (23,89 m²), peinture acrylique (628 m²), portes intérieures (11 unités dont DAS et blindée), châssis vitrés (38 m²), plinthes (52,38 ml), mobiliers fixes (banque d'accueil, tour ludique, borne numérique, kitchenettes), banquettes d'attente (122 places toutes PMR comprises), habillages de nourrices. Inclut installation de chantier complète."
       },
       {
         "numero": 2,
         "intitule": "Revêtements de sol",
-        "corps_etat": "Revêtements de sol",
+        "corps_etat": "Revêtements de sols (carrelage, PVC, sol sportif, faïences)",
         "montant_estime": null,
-        "description": "Pose de revêtements de sol dans l'ensemble des niveaux concernés (RDC, R+1, R+2)"
+        "description": "Dépose carrelage existant (32,21 m²), carrelage U4P4 45x45 avec isolation phonique (32,21 m²), ragréage (37,12 m²), faïences (65,93 m²), panneaux stratifié compact (4,5 m²), revêtement PVC LVT acoustique (2 598,34 m²), sol sportif (27,12 m²), protections des ouvrages finis (2 657,67 m²)."
       },
       {
         "numero": 3,
         "intitule": "Cloisons modulaires",
-        "corps_etat": "Cloisons modulaires",
+        "corps_etat": "Cloisons amovibles et démontables, boxes autonomes",
         "montant_estime": null,
-        "description": "Fourniture et pose de cloisons modulaires pour l'aménagement des espaces de bureaux"
+        "description": "Cloisons amovibles pleines (2 002 m²) et vitrées (459,43 m²) avec certification CERFF exigée, 157 portes stratifiées, 10 boxes autonomes (3 standard, 3 PMR, 4 ordre public) avec plafonds intégrés, éclairage LED, ventilation à détecteur de présence."
       },
       {
         "numero": 4,
         "intitule": "Electricité",
-        "corps_etat": "Électricité courant fort",
+        "corps_etat": "Électricité courants forts et courants faibles",
         "montant_estime": null,
-        "description": "Travaux d'installations électriques (courant fort) dans les espaces aménagés"
+        "description": "Pose luminaires (43 suspensions conservées + 37 neufs de types 2 à 6), petit appareillage (prises, interrupteurs, nourrices), perches techniques, goulottes, détecteurs de présence, sèche-mains, raccordements boxes autonomes, nourrices RJ45, kits ventouses portes CF, vidéophonie PMR. Coordination avec SEDRI pour les distributions principales. Qualification E2 classe 3 Qualifelec requise."
       },
       {
         "numero": 5,
         "intitule": "CVC – Plomberie",
-        "corps_etat": "Chauffage, ventilation, climatisation, plomberie sanitaire",
+        "corps_etat": "CVC (chauffage, ventilation, climatisation) et plomberie sanitaire",
         "montant_estime": null,
-        "description": "Installation de matériel de chauffage, ventilation, climatisation et plomberie sanitaire"
+        "description": "VMC simple flux RDC (sanitaires, vestiaire, local ménage, salle allaitement), ventilation double flux (3 boxes fond bâtiment + local caméra), ventilo-convecteur cassette local caméra, 6 brasseurs d'air, plomberie sanitaire complète RDC (WC, lavabos PMR/non PMR, kitchenette, vidoir, ballons ECS), mini-stations de relevage, attentes EF/EU pour fontaines et distributeurs (RDC/R+1/R+2)."
       }
     ]
   },
   "qualifications_requises": {
-    "description": "Le RC ne mentionne pas de qualifications Qualibat, RGE ou autres certifications obligatoires. Les exigences portent sur les capacités financières, techniques et professionnelles démontrées par références et effectifs.",
-    "qualibat": null,
+    "description": "Aucune qualification Qualibat ou RGE explicitement listée dans le RC. Pour le lot 4 électricité, une qualification Qualifelec E2 classe 3 est exigée dans le CCTP. Les cloisons modulaires (lot 3) doivent être certifiées CERFF.",
+    "qualibat": [],
     "rge": false,
-    "opqibi": null,
-    "autres_certifications": []
+    "rge_specialites": [],
+    "mase": false,
+    "iso_9001": false,
+    "iso_14001": false,
+    "iso_45001": false,
+    "opqibi": false,
+    "autres_certifications": [
+      "Qualifelec E2 classification 3 (lot 4 Électricité) — exigée dans le CCTP lot 4 §0.14.1",
+      "Certification CERFF pour les cloisons amovibles (lot 3) — exigée dans le CCTP lot 3 §1.4"
+    ]
   },
   "bareme_notation": {
     "valeur_technique_pct": 55,
@@ -85,97 +97,113 @@
       {
         "libelle": "Moyens humains et techniques, afin notamment de respecter les délais du planning",
         "ponderation_pct": 35,
-        "description": "L'acheteur évalue les moyens humains et techniques mis en œuvre par le candidat, avec une attention particulière portée au respect des délais du planning, particulièrement contraint (déménagement impératif avant fin 2026).",
+        "description": "L'acheteur évalue la capacité de l'entreprise à mobiliser les ressources humaines et matérielles nécessaires pour tenir le planning particulièrement contraint (travaux de juillet à décembre 2026 en coactivité avec SEDRI).",
         "elements_attendus": [
-          "Présentation nominative et qualifiée de l'équipe affectée au chantier (chef de chantier, conducteur de travaux, compagnons)",
-          "Effectifs dédiés avec répartition encadrement / exécutants",
-          "Matériels et équipements disponibles pour le chantier",
-          "Planning prévisionnel détaillé avec jalons clés compatibles avec la fin d'année 2026",
-          "Dispositions pour respecter les délais malgré les contraintes de coordination avec le bailleur",
-          "Capacité de renforcement des équipes en cas de retard"
+          "Identification nominative du responsable de chantier et de son niveau de qualification",
+          "Effectifs affectés au chantier (encadrement + compagnons) avec planning d'intervention",
+          "Matériels et outillages spécifiques disponibles pour tenir le délai",
+          "Organisation en phases conforme au planning prévisionnel DCE (juillet-décembre 2026)",
+          "Modalités de coordination avec SEDRI et les autres lots en coactivité",
+          "Capacité à mobiliser rapidement (urgence impérieuse justifiée dans le RC)"
         ],
-        "exemple_reponse_forte": "Le candidat présente une équipe dédiée de 6 compagnons encadrés par un chef de chantier expérimenté et un conducteur de travaux disponible à mi-temps, avec un planning Gantt montrant la fin des travaux au 30 novembre 2026, intégrant les interfaces bailleur. Il précise disposer de matériels propres (nacelles, outillage électroportatif) et d'une capacité de renforcement immédiat via un vivier de 4 compagnons supplémentaires disponibles sous 48h.",
+        "exemple_reponse_forte": "Notre équipe dédiée comprend 1 chef de chantier expérimenté ERP, 2 chefs d'équipe et 8 compagnons disponibles dès le 27/07/2026. Nous disposons d'un stock de matériaux pré-approvisionnés pour les 15 premiers jours afin d'absorber le démarrage immédiat. Notre organisation en 2 équipes décalées permet d'assurer une présence 5 jours/semaine sans risque de retard sur les jalons SEDRI.",
         "source": "RC §5.2",
         "sous_criteres": []
       },
       {
         "libelle": "Qualité d'exécution des ouvrages et méthodologie d'exécution, prenant en compte les contraintes du site",
         "ponderation_pct": 20,
-        "description": "L'acheteur évalue la méthodologie proposée par le candidat pour assurer la qualité d'exécution des ouvrages, en tenant compte des contraintes spécifiques du site (coordination avec travaux bailleur, espaces ERP, calendrier contraint).",
+        "description": "L'acheteur évalue la méthodologie proposée par le candidat pour assurer la qualité des ouvrages tout en gérant les contraintes spécifiques du site : bâtiment occupé, coactivité, plancher chauffant, ERP de 1ère catégorie.",
         "elements_attendus": [
-          "Description précise de la méthodologie d'exécution par phase de travaux",
-          "Prise en compte des contraintes de coordination avec les travaux du bailleur (coque ERP, courant fort/faible)",
-          "Mesures de gestion des interfaces entre lots et avec les autres intervenants",
-          "Dispositions pour assurer la qualité d'exécution et les contrôles en cours de chantier",
-          "Gestion des nuisances et sécurité sur le chantier"
+          "Procédure de repérage des circuits de plancher chauffant par caméra thermique avant tout percement",
+          "Gestion des interfaces avec SEDRI (partage des zones, phasage des interventions)",
+          "Mesures de protection des occupants et autres locataires du bâtiment",
+          "Méthodes de gestion et tri des déchets de chantier",
+          "Procédures qualité pour les ouvrages ERP (réaction au feu, acoustique, accessibilité PMR)",
+          "Modalités d'installation et de déplacement de la base vie (2 phases)"
         ],
-        "exemple_reponse_forte": "Le candidat présente une note méthodologique décrivant les phases successives d'intervention (préparation, réalisation, réception) avec un tableau des interfaces identifiées avec les travaux bailleur, notamment pour la réception de la coque ERP préalable à son intervention. Il décrit les procédures de contrôle qualité interne (points d'arrêt, fiches de contrôle) et les mesures de protection des ouvrages existants.",
+        "exemple_reponse_forte": "Notre méthodologie prévoit une cartographie thermique complète du plancher chauffant RDC avant tout percement, avec rapport photographique transmis au maître d'œuvre sous 48h. En coactivité avec SEDRI, nous proposons un planning de synthèse hebdomadaire avec zones d'intervention dédiées pour éviter toute interférence. L'ensemble des matériaux seront certifiés M1/A2 conformément à la réglementation ERP type W.",
         "source": "RC §5.2",
         "sous_criteres": []
       }
     ],
     "prix": {
       "type_formule": "autre",
-      "formule_explicite": "Le RC ne précise pas la formule de notation du prix. L'offre économiquement la plus avantageuse est retenue sur la base du prix (45%) et de la valeur technique (55%).",
+      "formule_explicite": "L'offre économiquement la plus avantageuse est retenue sur la base des critères pondérés (valeur technique 55% + prix 45%). La formule exacte de notation du prix n'est pas précisée dans le RC.",
       "elements_a_chiffrer": [
-        "DPGF (Décomposition du Prix Global et Forfaitaire) par lot, à compléter pour chaque lot soumissionné",
-        "Prix global et forfaitaire par lot, sans montant minimum ni maximum"
+        "DPGF lot 1 : ensemble des postes plâtrerie, peinture, menuiseries intérieures (prix global et forfaitaire)",
+        "DPGF lot 2 : ensemble des postes revêtements de sol (prix global et forfaitaire)",
+        "DPGF lot 3 : ensemble des postes cloisons amovibles et boxes autonomes (prix global et forfaitaire)",
+        "DPGF lot 4 : tableau CFO + tableau CFA (prix global et forfaitaire, 2 onglets)",
+        "DPGF lot 5 : ensemble des postes CVC et plomberie (prix global et forfaitaire)",
+        "TVA 20% calculée sur chaque DPGF"
       ]
     },
-    "modalite_calcul_prix": "Formule de notation du prix non précisée dans le RC. Critère prix pondéré à 45% de la note globale."
+    "modalite_calcul_prix": "Offre économiquement la plus avantageuse — critère prix pondéré à 45%. Formule exacte non précisée dans le RC."
   },
   "montant_marche": {
     "valeur_estimee_euros": null,
     "fourchette_min_euros": null,
     "fourchette_max_euros": null,
     "type": "non_communique",
-    "duree_couverte": null,
+    "duree_couverte": "Travaux de juillet à décembre 2026 (environ 5 mois)",
     "source_extraction": null,
-    "commentaire": "Aucun montant estimé, plafond ou enveloppe budgétaire n'est mentionné dans le RC fourni. Le marché est à prix global et forfaitaire sans montant minimum ni maximum. La DPGF non jointe au DCE analysé aurait pu permettre d'estimer un ordre de grandeur."
+    "commentaire": "Le marché est conclu à prix global et forfaitaire sans montant minimum ni maximum indiqué. Les DPGF sont vierges (prix à remplir par les candidats). Aucune estimation budgétaire n'est communiquée dans les pièces du DCE."
   },
   "revision_prix": {
-    "type": "non_communique",
-    "indices_utilises": [],
-    "ponderation": null,
+    "type": "actualisation",
+    "indices_utilises": [
+      "BT01"
+    ],
+    "ponderation": "Actualisation unique appliquée si le début d'exécution est postérieur de plus de 3 mois à la date limite de remise des offres",
     "periodicite": null,
-    "formule_revision": null,
-    "source_extraction": null,
-    "commentaire": "Aucun CCAP n'est fourni dans les pièces analysées. La révision des prix ne peut être déterminée. Pour un marché de travaux de courte durée (fin 2026), le prix ferme est fréquent mais non confirmé."
+    "formule_revision": "P = Po × [I(n-3)/Io] où P est le prix actualisé HT, Po le prix initial HT, I(n-3) la valeur de l'index BT01 à la date de commencement des travaux moins 3 mois, Io la valeur de l'index BT01 au mois d'établissement du prix. Le coefficient est arrondi au millième supérieur.",
+    "source_extraction": "CCAP article 4.3",
+    "commentaire": "Actualisation unique sur index BT01 applicable uniquement si le chantier démarre plus de 3 mois après la date limite d'offres (29/06/2026) ; compte tenu du planning prévisionnel (démarrage 27/07/2026), la condition est remplie et l'actualisation s'appliquera."
   },
   "alertes_prix": [
-    "Aucun montant estimé ni enveloppe budgétaire communiqués : impossible d'évaluer le niveau de prix attendu avant la visite et l'analyse des DPGF",
-    "Pondération prix à 45% est relativement élevée pour un marché de travaux, ce qui favorise les candidats proposant les prix les plus bas",
-    "Marché à prix global et forfaitaire sans minimum ni maximum : risque de sous-évaluation si le DCE est incomplet ou si les plans ne sont pas fournis",
-    "Calendrier ultra-contraint (fin 2026) susceptible de générer des surcoûts liés à l'accélération ou au travail en heures supplémentaires, à anticiper dans le chiffrage"
+    "Le marché est conclu à prix global et forfaitaire sans montant minimum ni maximum : le candidat supporte intégralement le risque de sous-estimation des quantités ; une visite des lieux est vivement conseillée pour établir un chiffrage fiable.",
+    "Les DPGF de tous les lots sont vierges avec des quantités indicatives fournies par le maître d'œuvre (notamment lot 4 : 'les quantités sont données à titre indicatif, elles sont de la responsabilité de l'entreprise') — risque d'erreur de chiffrage si les quantités MOE ne sont pas vérifiées.",
+    "Calendrier très contraint avec urgence impérieuse invoquée : risque de pénalités élevées (800 €/jour retard travaux, 1 000 €/jour non-respect date limite d'achèvement) à intégrer dans le prix.",
+    "Coactivité avec SEDRI non rémunérée séparément : les sujétions de coordination (réunions de synthèse, planning partagé) sont réputées incluses dans le prix forfaitaire."
   ],
   "references_exigees": {
-    "experience_minimale_annees": 3,
-    "experience_source": "RC article 4.1",
+    "experience_minimale_annees": null,
+    "experience_source": null,
     "volume_min_references_similaires": null,
-    "volume_min_references_unite": "marchés similaires",
-    "secteur_experience": "Domaine analogue au présent marché (travaux d'aménagement intérieur de bureaux / second œuvre), avec noms et numéros de téléphone des clients, type de prestation, volume et périodicité",
+    "volume_min_references_unite": null,
+    "secteur_experience": "Références détaillées dans un domaine analogue au présent marché (aménagement intérieur ERP ou tertiaire, travaux de second œuvre), avec noms et numéros de téléphone des clients, type de prestation, volume et périodicité — sur les 3 dernières années.",
     "secteur_source": "RC article 4.1",
-    "certifications_obligatoires": [],
+    "certifications_obligatoires": [
+      {
+        "libelle": "Qualifelec E2 classification 3 (lot 4 Électricité)",
+        "source": "CCTP lot 4 §0.14.1"
+      },
+      {
+        "libelle": "Certification CERFF pour les cloisons amovibles et démontables (lot 3)",
+        "source": "CCTP lot 3 §1.4"
+      }
+    ],
     "autres_exigences": [
       {
-        "libelle": "Chiffres d'affaires ou bilans annuels sur les 3 dernières années",
+        "libelle": "Chiffres d'affaires ou bilans annuels sur les 3 dernières années (capacités financières)",
         "source": "RC article 4.1"
       },
       {
-        "libelle": "Effectif actuel réparti en personnel d'encadrement et personnel exécutant avec mention des qualifications, et évolution de l'effectif sur 3 ans",
+        "libelle": "Effectif actuel (personnel d'encadrement et exécutant avec qualifications) et évolution sur 3 ans",
         "source": "RC article 4.1"
       },
       {
-        "libelle": "Attestation sur l'honneur de non-exclusion (articles L.2141-1 à L.2141-4 du CCP)",
+        "libelle": "Extrait Kbis d'inscription au registre du commerce",
         "source": "RC article 4.1"
       },
       {
-        "libelle": "Extrait Kbis ou équivalent (inscription au registre du commerce)",
+        "libelle": "Attestation sur l'honneur de non-exclusion (articles L.2141-1 à L.2141-4 CCP)",
         "source": "RC article 4.1"
       },
       {
-        "libelle": "DC4 obligatoire en cas de sous-traitance",
-        "source": "RC article 4.1"
+        "libelle": "Attestation d'assurance RC et assurance décennale (garantie des responsabilités articles 1792 à 1792-2 et 1792-4-1 du Code Civil)",
+        "source": "CCAP article 11.3"
       }
     ]
   },
@@ -183,93 +211,295 @@
     {
       "numero": 1,
       "intitule": "Plâtrerie – Plafonds – Menuiseries intérieures – Peinture",
-      "zone_geographique": "Fontenay-sous-Bois (94), immeuble Joya, 198-200 rue Carnot, RDC/R+1/R+2",
+      "zone_geographique": "Fontenay-sous-Bois (94)",
       "volume_estime": null,
       "volume_estime_unite": null,
-      "particularites": "Lot regroupant plusieurs corps d'état du cloisonnement traditionnel et finitions. Coordination nécessaire avec le lot 3 (cloisons modulaires) et le lot 4 (électricité)."
+      "particularites": "Lot pilote pour l'installation de chantier commune (base vie, bennes, sanitaires) à la charge de ce lot pour l'ensemble des corps d'état. Inclut les portes DAS et la porte blindée CR4 du local caméra. Mobilier ERP intensif (tour ludique, borne numérique, banquettes pour 122 places dont PMR). Banque d'accueil avec vitrage feuilleté."
     },
     {
       "numero": 2,
       "intitule": "Revêtements de sol",
-      "zone_geographique": "Fontenay-sous-Bois (94), immeuble Joya, 198-200 rue Carnot, RDC/R+1/R+2",
-      "volume_estime": null,
-      "volume_estime_unite": "m²",
-      "particularites": "Lot à réaliser après les travaux de cloisonnement et de plâtrerie. Coordination avec les lots 1 et 3."
+      "zone_geographique": "Fontenay-sous-Bois (94)",
+      "volume_estime": 2598.34,
+      "volume_estime_unite": "m² (revêtement PVC LVT)",
+      "particularites": "Revêtement PVC LVT acoustique (ΔLw=19 dB) dominant sur 2 598 m² dans circulations, zones d'attente et boxes aux 3 niveaux. Sol sportif spécifique zone enfants. Isolation phonique sous carrelage avec mini-chape dans les sanitaires. Protection obligatoire des ouvrages finis jusqu'à réception."
     },
     {
       "numero": 3,
       "intitule": "Cloisons modulaires",
-      "zone_geographique": "Fontenay-sous-Bois (94), immeuble Joya, 198-200 rue Carnot, RDC/R+1/R+2",
-      "volume_estime": null,
-      "volume_estime_unite": "ml",
-      "particularites": "Cloisons de type modulaire (démontables/reconfigurables), distinctes des cloisons traditionnelles du lot 1. Spécialiste requis."
+      "zone_geographique": "Fontenay-sous-Bois (94)",
+      "volume_estime": 2461.43,
+      "volume_estime_unite": "m² (cloisons amovibles pleines + vitrées)",
+      "particularites": "Certification CERFF obligatoire pour les cloisons. Délai de commande et fabrication de 45 jours intégré au planning (commande à passer dès notification). 157 portes stratifiées. 10 boxes autonomes avec plafond intégré, éclairage LED et ventilation à détecteur de présence. Réalisation d'un BOX témoin obligatoire avant démarrage série."
     },
     {
       "numero": 4,
       "intitule": "Electricité",
-      "zone_geographique": "Fontenay-sous-Bois (94), immeuble Joya, 198-200 rue Carnot, RDC/R+1/R+2",
+      "zone_geographique": "Fontenay-sous-Bois (94)",
       "volume_estime": null,
       "volume_estime_unite": null,
-      "particularites": "Travaux dans des espaces comprenant des zones ERP avec contraintes réglementaires spécifiques. Coordination avec les travaux électriques du bailleur (courant fort et courant faible dans espaces ERP)."
+      "particularites": "Qualification Qualifelec E2 classe 3 obligatoire. Marché à obligation de résultat (MOR) : les quantités indicatives du MOE sont de la responsabilité de l'entreprise. Périmètre limité : SEDRI réalise les distributions principales, SSI, sûreté et VDI R+1/R+2. Le présent lot assure essentiellement les raccordements terminaux, luminaires RDC, nourrices RJ45 RDC et kits ventouses. Repérage plancher chauffant obligatoire par caméra thermique."
     },
     {
       "numero": 5,
       "intitule": "CVC – Plomberie",
-      "zone_geographique": "Fontenay-sous-Bois (94), immeuble Joya, 198-200 rue Carnot, RDC/R+1/R+2",
+      "zone_geographique": "Fontenay-sous-Bois (94)",
       "volume_estime": null,
       "volume_estime_unite": null,
-      "particularites": "Installation de chauffage, ventilation, climatisation et plomberie sanitaire. Coordination avec les installations techniques existantes du bailleur (coque ERP)."
+      "particularites": "Périmètre CVC limité au RDC (SEDRI réalise R+1 et R+2). Mission de synthèse technique CVC/plomberie/CFO-CFA à la charge de ce lot. Repérage plancher chauffant obligatoire. Raccordements depuis attentes laissées par SEDRI. Fourniture de grilles de transfert et trappes de visite au lot plâtrerie. Marché à obligation de résultat."
     }
   ],
   "calendrier": {
     "date_limite_offres": "2026-06-29",
-    "date_demarrage_prevue": null,
-    "duree_marche": "Travaux à réaliser avant le 31 décembre 2026 (fin des baux actuels de l'OFPRA)"
+    "date_demarrage_prevue": "2026-07-27",
+    "duree_marche": "Environ 5 mois (juillet à décembre 2026) — fin prévisionnelle 18/12/2026 selon planning DCE"
   },
   "alertes_candidat": [
-    "Délai de remise des offres extrêmement court : publication le 10 juin 2026, date limite le 29 juin 2026 (19 jours seulement) — nécessite une réactivité immédiate pour la visite et le chiffrage",
-    "Visite des locaux conseillée mais non obligatoire : les visites ont lieu les 15 et 17 juin 2026 à 9h30, sur rendez-vous préalable obligatoire — sans visite, le chiffrage est risqué",
-    "Aucune qualification Qualibat ou certification technique n'est explicitement exigée, mais les capacités professionnelles et références en domaine analogue seront évaluées — des références insuffisantes ou non détaillées (sans nom de client ni téléphone) peuvent entraîner un rejet de candidature",
-    "Interdiction de candidater à la fois en individuel et en membre d'un groupement, ou en membre de plusieurs groupements (article R.2142-21 CCP) — vérifier la cohérence du montage juridique avant dépôt",
-    "Délai de validité des offres de 6 mois à compter de la date limite de dépôt — engagement long dans un contexte de tensions sur les prix des matériaux",
-    "Les variantes ne sont pas autorisées — toute offre variante sera éliminée"
+    "Délai de réponse réduit à moins de 30 jours (urgence impérieuse) : date limite au 29/06/2026 pour une publication le 10/06/2026 — soit seulement 19 jours pour préparer l'offre et visiter les lieux (visites les 15 et 17 juin).",
+    "Lot 4 Électricité : qualification Qualifelec E2 classification 3 obligatoire — l'absence de cette qualification entraîne le rejet de la candidature (CCTP lot 4 §0.14.1).",
+    "Lot 3 Cloisons modulaires : délai de commande et fabrication de 45 jours intégré au planning — si la notification intervient fin juillet, les cloisons doivent être commandées immédiatement ; tout retard en phase conception/commande décale l'ensemble du chantier.",
+    "Coordination obligatoire avec SEDRI (contractant général du bailleur) intervenant simultanément sur le même site : les candidats doivent intégrer des sujétions de coordination non rémunérées séparément dans leur prix forfaitaire.",
+    "Le lot 1 supporte la charge de l'installation de chantier complète pour tous les lots (base vie, bennes, sanitaires) selon le CCTP — les candidats aux autres lots doivent vérifier que cette charge est bien prise en compte dans le lot 1 et non refacturée."
   ],
   "points_differenciants_attendus": [
     {
-      "libelle": "Planning détaillé et réaliste compatible avec le calendrier contraint (fin 2026)",
-      "exemple": "Présenter un planning Gantt par lot avec jalons clés, intégrant les interfaces avec les travaux bailleur (réception coque ERP, courant fort/faible ERP) et démontrant la faisabilité d'une livraison avant le 31 décembre 2026, avec marges de sécurité identifiées.",
+      "libelle": "Démonstration de la capacité à tenir le planning ultra-contraint avec ressources mobilisables immédiatement",
+      "exemple": "Un candidat qui présente un organigramme nominatif avec CV du chef de chantier, un tableau de charge des compagnons semaine par semaine de juillet à décembre et un engagement sur les approvisionnements pré-commandes différenciera fortement son offre sur le critère 'Moyens humains et techniques' pondéré à 35%.",
       "source": "RC §5.2"
     },
     {
-      "libelle": "Démonstration de la capacité à mobiliser rapidement des ressources humaines suffisantes",
-      "exemple": "Indiquer l'effectif dédié nominalement avec leurs qualifications, et préciser un dispositif de renforcement rapide (pool de compagnons disponibles, accord avec sous-traitants qualifiés présentés en DC4) pour faire face aux aléas du calendrier.",
-      "source": "RC §5.2"
-    },
-    {
-      "libelle": "Maîtrise des contraintes de coordination avec les travaux du bailleur en zone ERP",
-      "exemple": "Décrire précisément la méthodologie de gestion des interfaces avec le bailleur (protocoles de coordination, réunions hebdomadaires, fiches d'interface), notamment pour les espaces ERP où la coque et les travaux techniques relèvent du bailleur.",
-      "source": "RC article 2.1"
-    },
-    {
-      "libelle": "Références détaillées en aménagement de bureaux tertiaires en site contraint ou sous délai serré",
-      "exemple": "Présenter 2-3 références récentes (3 dernières années) d'aménagements intérieurs de bureaux ou d'espaces tertiaires réalisés dans des délais contraints, avec noms, téléphones des maîtres d'ouvrage et indicateurs de respect des délais.",
+      "libelle": "Expérience avérée en chantier ERP de 1ère catégorie en coactivité",
+      "exemple": "Présenter des références de chantiers similaires (ERP type W ou bureau ouvert au public) réalisés en coactivité avec d'autres corps d'état, avec coordonnées des maîtres d'ouvrage vérifiables, renforce directement la crédibilité sur les critères de capacité professionnelle et de méthodologie.",
       "source": "RC article 4.1"
+    },
+    {
+      "libelle": "Méthodologie précise de gestion de la coactivité avec SEDRI et de protection des occupants",
+      "exemple": "Proposer un plan de coordination hebdomadaire formalisé avec SEDRI, incluant des zones d'intervention dédiées et un processus de levée de réserves contradictoires, répond directement au sous-critère 'qualité d'exécution et contraintes du site' (20%).",
+      "source": "RC §5.2"
+    },
+    {
+      "libelle": "Procédure de repérage du plancher chauffant existant au RDC avec restitution documentée",
+      "exemple": "Décrire la procédure caméra thermique avec rapport photographique géolocalisé et marquage physique sur site avant tout percement démontre une maîtrise des risques propre à ce chantier et valorise l'offre technique.",
+      "source": "CCTP lot 4 §1.5 et CCTP lot 5 §3.1"
+    },
+    {
+      "libelle": "Pour le lot 3 : présentation d'un processus de BOX témoin validé rapidement",
+      "exemple": "Proposer une procédure de réalisation et de validation du BOX témoin dans les 10 premiers jours du chantier, avec planning détaillé intégrant les 45 jours de délai de fabrication des cloisons, rassure l'acheteur sur la maîtrise du délai critique de ce lot.",
+      "source": "CCTP lot 3 §2.1.1"
     }
   ],
   "_meta": {
     "id_marche": "BOAMP-26-56378",
     "type": "complet",
-    "extraction_le": "2026-06-12T13:22:11.067729+00:00",
+    "date_generation": "2026-06-14T22:19:06.415922+00:00",
+    "extraction_le": "2026-06-14T22:19:06.415922+00:00",
     "modele": "claude-sonnet-4-6",
-    "tokens_input": 17516,
-    "tokens_output": 5472,
-    "cout_eur": 0.1279,
-    "duree_sec": 98.5,
+    "preset_utilise": "btp",
+    "presets_matches": [
+      "btp"
+    ],
+    "prompts_versions": {
+      "btp/_preset.json": "sha256:d1717e0d87f6c265"
+    },
+    "tokens_input": 150668,
+    "tokens_output": 7377,
+    "cout_eur": 0.5345,
+    "duree_sec": 139.5,
     "pdfs_traites": [
       {
         "nom": "00- RC (commun aux lots).pdf",
         "hash": "98eef59fc404b1b88772540eca51d122",
         "taille_chars": 19409
+      },
+      {
+        "nom": "01- CCAP (commun aux lots).pdf",
+        "hash": "b386ee4af6908513feae8db65ae90763",
+        "taille_chars": 35855
+      },
+      {
+        "nom": "01-4 DC4 (commun aux lots).docx",
+        "hash": "3938077aa8a95603de0e4c63bb1a3abb",
+        "taille_chars": 15179
+      },
+      {
+        "nom": "02- Planning previsionnel (commun aux lots).pdf",
+        "hash": "99bc48813ff15750c15d0b7c6e7ebb03",
+        "taille_chars": 4848
+      },
+      {
+        "nom": "04- CCTP lot 1_PLAT-PEINT.pdf",
+        "hash": "961fc6e9780105295350ac515625903e",
+        "taille_chars": 80284
+      },
+      {
+        "nom": "05-DPGF LOT 1 PLAT-PEINT.xlsx",
+        "hash": "aa55252ee93b3ec7a99716e3443d62d4",
+        "taille_chars": 4115
+      },
+      {
+        "nom": "07-CCTP_2_SOLS.pdf",
+        "hash": "7c2e5c59268c92caf6d515c295a7de97",
+        "taille_chars": 24015
+      },
+      {
+        "nom": "08-DPGF LOT 2_SOLS.xlsx",
+        "hash": "315f98e6809a5b782c95c498c0f2d1d1",
+        "taille_chars": 1312
+      },
+      {
+        "nom": "10- CCTP_lot 3_CLOISONS MODULAIRES.pdf",
+        "hash": "7b1c203bce0716672408f3a590a43f1b",
+        "taille_chars": 24258
+      },
+      {
+        "nom": "11-DPGF LOT 3_CLOISONS AMOVIBLES.xlsx",
+        "hash": "59372abc3decdfed012c2f449711bec4",
+        "taille_chars": 1239
+      },
+      {
+        "nom": "13-CCTP_Lot 4_ELECTRICITE.pdf",
+        "hash": "7728839d01559e702b580d49efa89458",
+        "taille_chars": 128862
+      },
+      {
+        "nom": "14-DPGF_lot 4_ELECTRICITE.xlsx",
+        "hash": "0a87c270abb9556c1217a097359f4873",
+        "taille_chars": 4443
+      },
+      {
+        "nom": "16-CCTP_5_CVC-PLOMBERIE.pdf",
+        "hash": "13a9789274520d495d263b1fe593e0b2",
+        "taille_chars": 122749
+      },
+      {
+        "nom": "17-CCTP lot 5_CVC-PLOMBERIE.xlsx",
+        "hash": "85264ffd45f3d86f343d20d76f83989e",
+        "taille_chars": 3819
+      },
+      {
+        "nom": "18-Notice acoustique.pdf",
+        "hash": "550b8c5916ecf591f8c159b0b4246eb2",
+        "taille_chars": 25490
+      },
+      {
+        "nom": "19-RICT (commun aux lots).pdf",
+        "hash": "7510e770098d9ff8e02f20fdf1f492dc",
+        "taille_chars": 26289
+      },
+      {
+        "nom": "20-ANNEXE RGPD (commun aux lots).docx",
+        "hash": "af46142e69526a0a881cfb5ddcb8b619",
+        "taille_chars": 6089
+      },
+      {
+        "nom": "21-1 Plan RDC-100.pdf",
+        "hash": "1cfefb6c13a18dd84d05af7fdbe5ae1f",
+        "taille_chars": 5473
+      },
+      {
+        "nom": "21-2 Plan R+1-100.pdf",
+        "hash": "284b2b5f0eec7a61355f3a18eee10ed3",
+        "taille_chars": 7231
+      },
+      {
+        "nom": "21-3_Plan R+2-100.pdf",
+        "hash": "d214814e53e04e8f1b65b28aac748e0a",
+        "taille_chars": 6548
+      },
+      {
+        "nom": "22-1-Plan RDC-Z1-50.pdf",
+        "hash": "f82628a1ee13f90c59292d1910d151b0",
+        "taille_chars": 3740
+      },
+      {
+        "nom": "22-2-Plan RDC-Z2-50.pdf",
+        "hash": "c8dfbfa1f7a8f3b0b0098ef97dca3600",
+        "taille_chars": 3977
+      },
+      {
+        "nom": "22-3-Plan R+1-Z1-50.pdf",
+        "hash": "0a906974b60d00e0b8edd1e56ec90953",
+        "taille_chars": 3855
+      },
+      {
+        "nom": "22-4-Plan R+1-Z2-50.pdf",
+        "hash": "bfd4ba5c0cd7d48758ca3f8429253f97",
+        "taille_chars": 4228
+      },
+      {
+        "nom": "22-5 Plan R+1-Z3-50.pdf",
+        "hash": "9534fc423c9beba880ab39322d14ee7c",
+        "taille_chars": 4101
+      },
+      {
+        "nom": "22-6 Plan R+1-Z4-50.pdf",
+        "hash": "e03d848059eb1fb7c566720615607924",
+        "taille_chars": 2967
+      },
+      {
+        "nom": "22-7-Plan R+2-Z1-50.pdf",
+        "hash": "8520f2119d2123b93dddf931e7c3832a",
+        "taille_chars": 3711
+      },
+      {
+        "nom": "22-8 Plan R+2-Z2-50.pdf",
+        "hash": "d177e8a7339a7beb40e8d65289b6e4dd",
+        "taille_chars": 3729
+      },
+      {
+        "nom": "22-9 -Plan R+2-Z3-50.pdf",
+        "hash": "666a7c2e0101d5d369e9126811e8ef1a",
+        "taille_chars": 3908
+      },
+      {
+        "nom": "23-1 Coupes 1-100.pdf",
+        "hash": "1f69cecdb73bab386cb510fbb4f1e812",
+        "taille_chars": 4341
+      },
+      {
+        "nom": "24-1-Details architecturaux 01 - 50.pdf",
+        "hash": "2c47cc010bab443ea48d58c5b9822f41",
+        "taille_chars": 4943
+      },
+      {
+        "nom": "24-2 Details architecturaux 02 - 20.pdf",
+        "hash": "ce0c48e5c32727d283edb431526d3722",
+        "taille_chars": 2781
+      },
+      {
+        "nom": "24-3-Details architecturaux 03- 20.pdf",
+        "hash": "435a9d4069f0f2c38902d5fce6c53448",
+        "taille_chars": 3245
+      },
+      {
+        "nom": "24-4 Details architecturaux 04- 20.pdf",
+        "hash": "cdb05b24e6e9eb26de43f37b92aec4a9",
+        "taille_chars": 4491
+      },
+      {
+        "nom": "24-5 -Details architecturaux 05 - 20.pdf",
+        "hash": "febdd8719d147d13c468ab5ba3a49a6e",
+        "taille_chars": 2523
+      },
+      {
+        "nom": "24-6 Nomenclature des menuiseries interieures-50.pdf",
+        "hash": "72ce023a15fc4e3eb1cc7768bee6ec1c",
+        "taille_chars": 2978
+      },
+      {
+        "nom": "24-7_OFPRA-PIC.pdf",
+        "hash": "be3d808fa9e9008d45bc0ada34142472",
+        "taille_chars": 2659
+      },
+      {
+        "nom": "28- Plan_lot 4_ELECTRICITE.pdf",
+        "hash": "90ba07fbe8e64c490adef23e863a563a",
+        "taille_chars": 4596
+      },
+      {
+        "nom": "29- Plan_lot 5_CVC.pdf",
+        "hash": "116f81047d298e9abe25dcffe5a33861",
+        "taille_chars": 17412
       }
     ]
   }

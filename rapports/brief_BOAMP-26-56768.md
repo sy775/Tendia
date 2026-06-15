@@ -1,6 +1,6 @@
 # Brief — TRAVAUX DE REAMENAGEMENT DU PTA & SERVICE HEMOSTASE - CREATION D’UN LABORATOIRE DE BIOCHIMIE - RELANCE LOT 8 CVC / PLOMBERIE
 
-_Généré le 2026-06-12 15:49 par Claude claude-sonnet-4-6_
+_Généré le 2026-06-15 01:20 par Claude claude-sonnet-4-6_
 
 ## Identifiants
 - **ID Tendia** : `BOAMP-26-56768`
@@ -10,48 +10,78 @@ _Généré le 2026-06-12 15:49 par Claude claude-sonnet-4-6_
 - **DCE PLACE** : <https://www.marches-publics.gouv.fr/entreprise/consultation/3015269?orgAcronyme=x7c>
 
 ## Synthèse
-Le CHU de Toulouse lance une consultation (relance) pour les travaux de CVC et plomberie (lot 8) dans le cadre du réaménagement du plateau technique automatisé (PTA) et du service hémostase, ainsi que la création d'un laboratoire de biochimie à l'Hôpital de Rangueil. La précédente consultation du lot 8 avait été déclarée sans suite pour insuffisance de concurrence. Le marché est un marché de travaux en procédure adaptée, d'une durée de 7 mois et 2 semaines, avec démarrage prévu en juillet 2026.
+Marché de travaux CVC/Plomberie (Lot 8) pour le réaménagement du plateau technique automatisé (PTA) et du service hémostase, ainsi que la création d'un laboratoire de biochimie à l'Hôpital Rangueil du CHU de Toulouse. Ce lot a été relancé après une première procédure déclarée sans suite pour insuffisance de concurrence. Les travaux comprennent la dépose et remplacement des installations CVC (ventilo-convecteurs, CTA, réseaux aérauliques et hydrauliques) et de plomberie sanitaire en site hospitalier occupé.
 
 ## 🏗 Chantier — caractéristiques BTP
-- **Description** : Travaux de CVC (ventilo-convecteurs, cassettes, CTA, vannes, registres, régulateurs, automate GTB) et plomberie sanitaire (robinetterie, vannes d'isolement, appareils sanitaires) pour le réaménagement du PTA et service hémostase, et la création d'un laboratoire de biochimie à l'Hôpital de Rangueil (CHU Toulouse). Projet incluant modification du plateau d'analyse, réaménagement du secteur hémostase, création d'une chambre froide, local compresseurs et osmoseurs.
-- **Type d'ouvrage** : Hôpital universitaire — locaux techniques et laboratoires médicaux (site occupé)
-- **Site occupé pendant travaux** : Oui — site hospitalier occupé en continuité de service, contrainte majeure signalée dans les critères techniques
-- **Corps d'état mobilisés** : CVC (chauffage, ventilation, climatisation), Plomberie sanitaire
+- **Description** : Travaux de CVC et plomberie sanitaire dans le cadre du réaménagement du plateau technique automatisé (PTA) et du service hémostase, et création d'un laboratoire de biochimie au niveau R-1 du bâtiment Routine de l'Hôpital Rangueil. Comprend : dépose des installations CVC existantes (radiateurs, CTA, bouches, réseaux), création de nouveaux réseaux eau glacée et eau chaude, mise en œuvre de ventilo-convecteurs et cassettes, création de CTA pour zone PTA, remplacement des réseaux aérauliques et des points d'eau, régulation GTC/GTB, plomberie sanitaire complète avec décontamination Légionelle.
+- **Type d'ouvrage** : Bâtiment hospitalier ERP type R, 5ème catégorie — Hôpital Rangueil, CHU de Toulouse
+- **Site occupé pendant travaux** : true — travaux réalisés en site hospitalier en activité, avec contrainte de continuité des soins, interventions programmées à l'avance, coupures à valider 15 jours avant
+- **Corps d'état mobilisés** : CVC (chauffage, ventilation, climatisation), Plomberie sanitaire, Régulation GTB/GTC, Electricité (alimentation des équipements CVC par lot 9 — coordination requise)
 - **Contraintes spécifiques** :
-  - Site hospitalier occupé en fonctionnement — continuité de service impérative
-  - Contraintes d'hygiène strictes (milieu hospitalier)
-  - Approvisionnement du matériel dans un bâtiment hospitalier en activité
-  - Coordination avec les autres lots du projet (12 lots au total)
-  - Visite de site obligatoire avant remise des offres
-  - Planning prévisionnel fourni dans le DCE à respecter
-  - Création de locaux techniques spécifiques (chambre froide, local compresseurs et osmoseurs)
+  - Site hospitalier en activité — continuité des soins à assurer en permanence
+  - Demandes de coupure à formuler 15 jours à 3 semaines à l'avance
+  - Vidanges et remplissages réalisés uniquement par les services techniques du CHU
+  - Présence d'amiante — diagnostic remis en pièce contractuelle
+  - Travaux en horaires décalés possibles (nuit, week-end) selon impératifs exploitation
+  - Astreinte 24h/24 pour dépannage dans un délai d'une heure
+  - Contraintes hygiène renforcées (CLIN, service hygiène CHU)
+  - Permis feu exigé à la semaine pour certaines interventions
+  - Coordination avec 11 autres lots de travaux simultanés
+  - Garantie de parfait achèvement portée à 18 mois (été+hiver)
 
 ### Allotissement
-Le projet global comporte 12 lots. La présente consultation ne porte que sur le lot 8 CVC/Plomberie, les lots 1 à 7, 9 à 12 étant en cours d'analyse suite à la précédente consultation.
-- **Nombre de lots** : 1
+Opération globale découpée en 12 lots séparés. Seul le lot 8 CVC/Plomberie fait l'objet de la présente relance.
+- **Nombre de lots** : 12
+- **Lot 1** — Désamiantage
+  - Corps d'état : désamiantage
+  - Travaux de désamiantage préalables
+- **Lot 2** — Dépose paillasses, confinements
+  - Corps d'état : démolition, confinements
+  - Dépose des paillasses et confinements existants
+- **Lot 3** — Gros-œuvre
+  - Corps d'état : gros œuvre
+  - Travaux de gros œuvre
+- **Lot 4** — Menuiseries aluminium, serrurerie
+  - Corps d'état : menuiserie aluminium, serrurerie
+  - Menuiseries aluminium et serrurerie
+- **Lot 5** — Plâtrerie /Faux-plafond/ Démolition
+  - Corps d'état : plâtrerie, faux-plafond, démolition
+  - Travaux de plâtrerie, faux-plafond et démolition
+- **Lot 6** — Peinture / Revêtement muraux / Sol
+  - Corps d'état : peinture, revêtements
+  - Peinture, revêtements muraux et sols
+- **Lot 7** — Menuiserie bois
+  - Corps d'état : menuiserie bois
+  - Menuiseries bois intérieures
 - **Lot 8** — CVC / Plomberie
-  - Corps d'état : CVC et plomberie sanitaire
-  - Travaux de chauffage, ventilation, climatisation et plomberie sanitaire pour le réaménagement du PTA, service hémostase et création du laboratoire de biochimie à l'Hôpital de Rangueil. CPV 45330000-9.
+  - Corps d'état : CVC, plomberie sanitaire
+  - Lot objet de la présente relance : chauffage, ventilation, climatisation, plomberie sanitaire en milieu hospitalier
+- **Lot 9** — Electricité Cfo / cfa / SSI
+  - Corps d'état : électricité courants forts/faibles, SSI
+  - Electricité courants forts, courants faibles, système de sécurité incendie
+- **Lot 10** — Chambre froide & cloisons isolantes
+  - Corps d'état : chambre froide, cloisons isolées
+  - Création chambre froide et cloisons isolantes
+- **Lot 11** — Isolation & étanchéité toiture
+  - Corps d'état : isolation, étanchéité toiture
+  - Isolation et étanchéité de la toiture terrasse
+- **Lot 12** — Nettoyage
+  - Corps d'état : nettoyage
+  - Nettoyage de fin de chantier
 
 ### Qualifications BTP exigées
-Qualifications Qualibat exigées pour le lot 8 CVC/Plomberie
-- **Qualibat** : 5, 2, 5, 2, , —, , I, n, s, t, a, l, l, a, t, i, o, n, , d, e, , r, é, s, e, a, u, x, , d, e, , c, h, a, u, f, f, a, g, e, , o, u, , d, e, , r, a, f, r, a, î, c, h, i, s, s, e, m, e, n, t, , a, v, e, c, , c, e, n, t, r, a, l, e, , d, e, , t, r, a, i, t, e, m, e, n, t, , d, ', a, i, r, , ;, , 5, 1, 1, 2, , —, , I, n, s, t, a, l, l, a, t, i, o, n, , d, e, , p, l, o, m, b, e, r, i, e, , s, a, n, i, t, a, i, r, e, , d, a, n, s, , t, o, u, t, , t, y, p, e, , d, e, , b, â, t, i, m, e, n, t, , s, u, p, é, r, i, e, u, r, , à, , 1, 0, 0, 0, m, ²
+Qualifications Qualibat exigées pour le lot 8 CVC/Plomberie en milieu hospitalier de grande surface
+- **Qualibat** : 5252, 5112
+- **MASE** : non
 
 ## ⚡ Parc EnR — caractéristiques techniques
-### Volumes techniques
-- **Note** : Marché de travaux CVC/plomberie hospitalier — aucune donnée de puissance ou surface. Durée contractuelle : 7 mois et 2 semaines dont 2 semaines de préparation.
-
 ### Modalités d'exécution
-- **Sites d'exécution** : Toulouse (Hôpital de Rangueil)
-
-## 🎓 Formation / accompagnement
-### Modalités
-- **Sites d'exécution** : Toulouse — Hôpital de Rangueil
+- **Sites d'exécution** : Toulouse (31) — Hôpital Rangueil
 
 ## 💶 Montant du marché
 - _Montant non communiqué dans le DCE._
   - Typique des accords-cadres à bons de commande : le volume dépend des commandes effectivement passées par l'acheteur sur la durée du marché.
-- _Note_ : Aucun montant estimé, plafond ou prix unitaire n'est mentionné dans les pièces du DCE fournies (RC uniquement). La DPGF constitue la base de chiffrage mais elle n'est pas fournie dans les pièces analysées.
+- _Note_ : Aucun montant estimatif ni plafond budgétaire n'est communiqué dans les pièces du DCE fournies. La DPGF est fournie sous format Excel mais son contenu chiffré n'est pas disponible dans les pièces analysées.
 
 ## Barème de notation
 - **Valeur technique** : 40 %
@@ -61,25 +91,26 @@ Qualifications Qualibat exigées pour le lot 8 CVC/Plomberie
   - Qualité et cohérence du planning global détaillé : 30 %
   - Qualité et pertinence des moyens humains : 20 %
   - La qualité des matériels et matériaux : 30 %
-- **Calcul du prix** : Jugement sur la base du montant total TTC de la DPGF (Décomposition du Prix Global et Forfaitaire) du lot 8.
+- **Calcul du prix** : Critère prix pondéré à 60% — jugé sur le montant total TTC de la DPGF. Formule exacte de notation non précisée dans le RC.
 
 ## Références et qualifications exigées
 - **Expérience minimale** : —
-- **Secteur d'expérience** : CVC et plomberie sanitaire en bâtiment, idéalement en milieu hospitalier ou tertiaire
-- **Certifications obligatoires** : Qualibat 5252 — Installation de réseaux de chauffage ou de rafraîchissement avec centrale de traitement d'air (ou équivalent) (source=RC §8), Qualibat 5112 — Installation de plomberie sanitaire dans tout type de bâtiment supérieur à 1000m² (ou équivalent) (source=RC §8)
+- **Secteur d'expérience** : Installation de réseaux de chauffage/rafraîchissement avec CTA et plomberie sanitaire dans tout type de bâtiment supérieur à 1000 m²
+- **Certifications obligatoires** : Qualibat 5252 — Installation de réseaux de chauffage ou de rafraîchissement avec centrale de traitement d'air (source=RC §8 — Documents de candidature à remettre), Qualibat 5112 — Installation de plomberie sanitaire dans tout type de bâtiment supérieur à 1000 m² (source=RC §8 — Documents de candidature à remettre)
 - **Autres exigences** :
-  - Déclaration de chiffre d'affaires global et du domaine d'activité sur les 3 derniers exercices (source=RC §8)
-  - Déclaration des effectifs moyens annuels et du personnel d'encadrement sur 3 ans (source=RC §8)
+  - Déclaration concernant le chiffre d'affaires global du candidat portant au maximum sur les trois derniers exercices disponibles (source=RC §8a)
+  - Déclaration indiquant les effectifs moyens annuels et l'importance du personnel d'encadrement pendant les trois dernières années (source=RC §8b)
+  - Formulaire DUME complété en ligne sur PLACE (ou DC1+DC2 en alternative) (source=RC §8)
 
 ## ⚠ Alertes candidat
-- Visite de site OBLIGATOIRE le 12 juin 2026 à 09h00 — toute offre sans attestation de visite signée sera déclarée irrégulière et éliminée sans classement (RC §12).
-- Qualifications Qualibat 5252 ET 5112 exigées (ou équivalents) — leur absence peut entraîner l'élimination de la candidature (RC §8).
-- Marché en relance pour insuffisance de concurrence lors de la précédente consultation — l'acheteur se réserve la possibilité de négocier, il est conseillé d'optimiser l'offre initiale.
-- Délai de validité des offres de 180 jours — à anticiper dans la gestion des prix et des approvisionnements.
-- Site hospitalier occupé : la continuité de service est un critère technique évalué (20% du critère technique) — toute insuffisance méthodologique sera pénalisée à la notation.
+- Visite de site OBLIGATOIRE le 12 juin 2026 à 09h00 (Hall principal Hôpital Rangueil) — toute offre sans attestation de visite sera déclarée irrégulière et éliminée sans classement. Inscription préalable impérative auprès de Jacques CARAYOL (06 18 31 65 08).
+- Qualifications Qualibat 5252 ET 5112 toutes deux exigées à peine d'irrecevabilité de la candidature — vérifier que les deux sont valides à la date de remise des offres.
+- Marché en site hospitalier actif : les sujétions d'intervention (coupures à J-15/J-21, travaux hors heures ouvrées, astreinte 24h/24 en 1h) doivent impérativement être intégrées dans le prix forfaitaire — aucun supplément ne sera accordé.
+- Dépôt exclusivement dématérialisé sur www.marches-publics.gouv.fr avant le 01/07/2026 à 12h00 — anticiper les délais de transmission électronique.
+- Présence d'amiante sur le site : le diagnostic amiante avant travaux est une pièce contractuelle — coordonner avec le Lot 1 (désamiantage) et respecter les procédures du référent amiante Marie-Josée GHIGLIA (question.amiante@chu-toulouse.fr).
 
 ## 💡 Points différenciants attendus
-- Expérience démontrée en milieu hospitalier occupé avec protocoles d'hygiène hospitalière (exemple=Présenter des références de chantiers CVC/plomberie réalisés dans des établissements de soins en activité (CHU, cliniques), avec description des protocoles CLIN appliqués, mesures de confinement et résultats d'audit hygiène., source=RC §13.3)
-- Planning détaillé avec courbe de charge nominative et gestion des interfaces (exemple=Fournir un planning Gantt à la semaine avec chemin critique, essais GTB intégrés, courbe de charge journalière précisant le nombre et le profil de chaque technicien présent, ainsi qu'un tableau des interfaces avec les autres lots (notamment électricité lot 9 pour GTB)., source=RC §13.3)
-- Qualité des matériels CVC proposés adaptés au contexte hospitalier (filtration, protocoles, compatibilité GTB) (exemple=Proposer des CTA avec filtration haute efficacité (F9/H13) et des automates GTB certifiés BACnet/IP compatibles avec le système de supervision hospitalier existant, en fournissant des fiches techniques détaillées avec performances énergétiques., source=RC art 10.2)
-- Organigramme nominatif avec CV et références hospitalières du personnel clé (exemple=Joindre les CV du chef de chantier et des techniciens CVC/plomberie avec mention explicite des chantiers hospitaliers réalisés, habilitations spécifiques (habilitations électriques pour GTB, attestations hygiène hospitalière) et ancienneté dans ces spécialités., source=RC §13.3)
+- Expérience avérée en travaux CVC/plomberie en milieu hospitalier en activité (exemple=Présenter 2-3 références de chantiers réalisés dans des établissements de santé en activité (CHU, clinique, EHPAD) avec description des contraintes de continuité des soins gérées, idéalement de surface et complexité comparables au PTA de Rangueil., source=RC §13.3 — critère technique + CCTP §2)
+- Maîtrise des procédures anti-Légionelle et carnet sanitaire en ERP type U (exemple=Démontrer dans le mémoire technique la connaissance des circulaires DGS relatives à la Légionelle, les procédures de désinfection des réseaux ECS, et la capacité à rédiger/mettre en place un carnet sanitaire conforme aux exigences du CCTP §4.7., source=CCTP §4.7)
+- Qualité et pertinence du planning détaillé avec courbe de charge (exemple=Produire un planning GANTT à la semaine avec enchainement précis des tâches CVC et plomberie, fenêtres d'essais identifiées, et une courbe de charge montrant les effectifs mobilisés semaine par semaine — cet élément représente 30% du critère technique., source=RC §13.3 — sous-critère planning 30%)
+- Marques et performances des équipements CVC proposés (fiches techniques) (exemple=Fournir des fiches techniques complètes avec performances certifiées des ventilo-convecteurs, CTA (classe d'étanchéité C requise), automate GTB, et robinetterie sanitaire ACS — ce sous-critère représente 30% du critère technique et sera éliminatoire si les équipements ne correspondent pas aux prescriptions du CCTP., source=RC §10.2 et §13.3 — sous-critère matériaux 30%)

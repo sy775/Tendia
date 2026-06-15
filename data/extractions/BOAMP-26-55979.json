@@ -1,0 +1,773 @@
+{
+  "synthese_marche": "Accord-cadre à bons de commande multi-attributaires (maximum 3 titulaires par lot) portant sur des travaux tous corps d'état pour les bâtiments et équipements communaux de la Ville de Saint-Paul (La Réunion). Le marché est divisé en 15 lots couvrant l'ensemble des corps d'état du bâtiment, du désamiantage à la clôture, en passant par le gros œuvre, les menuiseries, l'électricité et la plomberie. Les bons de commande sont attribués selon un système de tour de rôle entre les titulaires classés.",
+  "domaines_metier": [
+    {
+      "code": "btp_second_oeuvre"
+    }
+  ],
+  "raison_classification": "Le marché couvre l'entretien et la maintenance tous corps d'état de bâtiments communaux existants, avec une dominante second œuvre (menuiseries, peinture, cloisons, revêtements, plomberie, électricité, clôtures). Le lot désamiantage relève de btp_demolition et le lot VRD/démolition de btp_voirie_reseaux, mais la majorité des 15 lots (poids budgétaire et nombre) concerne le second œuvre sur bâtiments existants, ce qui justifie le classement unique en btp_second_oeuvre.",
+  "caracteristiques_techniques_chantier": {
+    "description": "Travaux de maintenance et réhabilitation sur l'ensemble du patrimoine immobilier communal de Saint-Paul (La Réunion) : désamiantage, VRD/démolition, gros œuvre, charpente bois/métallique, menuiseries bois/aluminium/métalliques, cloisons, faux plafonds, revêtements de sols, électricité CFA/CFO, plomberie/VMC/climatisation, peinture et clôtures.",
+    "typologie_ouvrage": "Bâtiments et équipements communaux (écoles, équipements sportifs, mairies annexes, etc.) — patrimoine immobilier communal existant",
+    "surface_volume": null,
+    "site_occupe": "true — les travaux se font en site occupé, notamment dans des écoles en fonctionnement (mentionné explicitement dans les critères d'attribution)",
+    "corps_etat": [
+      "Désamiantage (SS3/SS4)",
+      "VRD et démolition",
+      "Gros œuvre, induits, installation de chantier",
+      "Charpente bois, ossature bois, bardage bois",
+      "Menuiserie bois intérieure et extérieure",
+      "Charpente métallique, couverture, bardage métallique",
+      "Cloisons et faux plafonds",
+      "Revêtements de sols intérieurs et extérieurs",
+      "Revêtements de sols sportifs",
+      "Menuiseries métalliques et serrurerie",
+      "Menuiserie aluminium et jalousie",
+      "Électricité CFA et CFO",
+      "Plomberie, ventilation, climatisation",
+      "Peinture",
+      "Clôture"
+    ],
+    "contraintes_specifiques": [
+      "Site occupé — travaux dans des écoles en fonctionnement et autres équipements en activité",
+      "Localisation en zone DOM (La Réunion) : contraintes climatiques tropicales, jalousies spécifiques",
+      "Désamiantage sur patrimoine ancien : habilitations SS3 et SS4 obligatoires",
+      "Interventions susceptibles d'être réalisées simultanément sur plusieurs chantiers",
+      "Tour de rôle entre titulaires pour l'attribution des bons de commande",
+      "Accord-cadre : pas de volume garanti, commande à la demande dans les plafonds",
+      "Travaux hors heures ouvrées possibles (prévus dans les BPU)"
+    ]
+  },
+  "allotissement": {
+    "description": "15 lots tous corps d'état, chacun pouvant être attribué à 3 titulaires maximum. Une limitation de candidature s'applique : une entreprise ne peut candidater qu'à un seul des lots 3, 8, 14 et 15 (avec légère incohérence entre le texte qui mentionne lots 3/8/14/15 et l'article 3.2 qui mentionne lots 3/4/14/15).",
+    "nb_lots": 15,
+    "lots_detailles": [
+      {
+        "numero": 1,
+        "intitule": "Désamiantage",
+        "corps_etat": "Désamiantage",
+        "montant_estime": 1000000,
+        "description": "Travaux de confinement, retrait, recouvrement ou encapsulage de matériaux amiantés sur l'ensemble du patrimoine immobilier communal. Plafond annuel : 1 000 000 € HT."
+      },
+      {
+        "numero": 2,
+        "intitule": "VRD, Démolition",
+        "corps_etat": "VRD et démolition",
+        "montant_estime": 1500000,
+        "description": "Travaux de VRD dans le cadre du marché à bon de commande des bâtiments communaux. Plafond annuel : 1 500 000 € HT."
+      },
+      {
+        "numero": 3,
+        "intitule": "GO, induits, installation de chantier",
+        "corps_etat": "Gros œuvre",
+        "montant_estime": 1500000,
+        "description": "Travaux de gros œuvre. Plafond annuel : 1 500 000 € HT. Soumis à la clause de limitation (lots 3/8/14/15)."
+      },
+      {
+        "numero": 4,
+        "intitule": "Charpente bois, ossature bois, bardage bois",
+        "corps_etat": "Charpente bois",
+        "montant_estime": 1000000,
+        "description": "Travaux de charpente bois, ossature bois, bardage bois. Plafond annuel : 1 000 000 € HT."
+      },
+      {
+        "numero": 5,
+        "intitule": "Menuiserie bois intérieure, extérieure",
+        "corps_etat": "Menuiserie bois",
+        "montant_estime": 600000,
+        "description": "Tous travaux de menuiseries bois intérieure et extérieure. Plafond annuel : 600 000 € HT."
+      },
+      {
+        "numero": 6,
+        "intitule": "Charpente métallique, couverture, bardage métallique",
+        "corps_etat": "Charpente métallique et couverture",
+        "montant_estime": 1000000,
+        "description": "Travaux de charpente métallique et couverture. Plafond annuel : 1 000 000 € HT."
+      },
+      {
+        "numero": 7,
+        "intitule": "Cloisons, Faux plafonds",
+        "corps_etat": "Cloisons et faux plafonds",
+        "montant_estime": 800000,
+        "description": "Travaux de cloisons et faux plafonds. Plafond annuel : 800 000 € HT."
+      },
+      {
+        "numero": 8,
+        "intitule": "Revêtements de sols intérieurs et extérieurs",
+        "corps_etat": "Revêtements de sols",
+        "montant_estime": 600000,
+        "description": "Travaux de revêtements de sols intérieurs et extérieurs. Plafond annuel : 600 000 € HT. Soumis à la clause de limitation (lots 3/8/14/15)."
+      },
+      {
+        "numero": 9,
+        "intitule": "Revêtement de sols sportifs",
+        "corps_etat": "Revêtements de sols sportifs",
+        "montant_estime": 1500000,
+        "description": "Travaux de pose de revêtement de sol sportif. Plafond annuel : 1 500 000 € HT."
+      },
+      {
+        "numero": 10,
+        "intitule": "Menuiseries métalliques, serrurerie",
+        "corps_etat": "Menuiseries métalliques et serrurerie",
+        "montant_estime": 800000,
+        "description": "Fourniture et pose d'ouvrages de métallerie et serrurerie. Plafond annuel : 800 000 € HT."
+      },
+      {
+        "numero": 11,
+        "intitule": "Menuiserie aluminium + jalousie",
+        "corps_etat": "Menuiserie aluminium et jalousie",
+        "montant_estime": 1500000,
+        "description": "Travaux de menuiserie aluminium et jalousie. Plafond annuel : 1 500 000 € HT."
+      },
+      {
+        "numero": 12,
+        "intitule": "Electricité CFA et CFO",
+        "corps_etat": "Électricité courants forts et faibles",
+        "montant_estime": 800000,
+        "description": "Travaux d'électricité CFA et CFO (contrôle d'accès, interphone, sonnerie école, baies de brassage, tirages FO, cuivre, RJ…). Plafond annuel : 800 000 € HT."
+      },
+      {
+        "numero": 13,
+        "intitule": "Plomberie",
+        "corps_etat": "Plomberie, ventilation, climatisation",
+        "montant_estime": 600000,
+        "description": "Travaux de plomberie (VMC, EC solaire, équipements cuisine, interventions sanitaires suspendus…). Plafond annuel : 600 000 € HT."
+      },
+      {
+        "numero": 14,
+        "intitule": "Peinture",
+        "corps_etat": "Peinture",
+        "montant_estime": 800000,
+        "description": "Travaux de peinture intérieure et extérieure. Plafond annuel : 800 000 € HT. Soumis à la clause de limitation (lots 3/8/14/15)."
+      },
+      {
+        "numero": 15,
+        "intitule": "Clôture",
+        "corps_etat": "Clôture",
+        "montant_estime": 1500000,
+        "description": "Travaux de clôture. Plafond annuel : 1 500 000 € HT. Soumis à la clause de limitation (lots 3/8/14/15)."
+      }
+    ]
+  },
+  "qualifications_requises": {
+    "description": "Le RC exige des habilitations spécifiques par lot, notamment SS3/SS4 pour le désamiantage, AIPR pour le lot VRD, habilitations travail en hauteur pour la plupart des lots, et habilitations électriques pour le lot 12. Aucune qualification Qualibat explicitement mentionnée dans les pièces fournies.",
+    "qualibat": [],
+    "rge": false,
+    "rge_specialites": [],
+    "mase": false,
+    "iso_9001": false,
+    "iso_14001": false,
+    "iso_45001": false,
+    "opqibi": false,
+    "autres_certifications": [
+      "Habilitation SS3 (travaux de retrait ou d'encapsulage amiante) — 15 agents minimum — Lot 1",
+      "Habilitation SS4 (travaux de maintenance ou de proximité amiante) — Lot 1",
+      "AIPR (Autorisation d'Intervention à Proximité des Réseaux) — 4 agents minimum — Lot 2",
+      "Habilitation travail en hauteur (R408/R457 selon le cas) — Lots 2 à 7, 10 à 15",
+      "Habilitations électriques B1/B1V/H1/H1V — 3 agents minimum — Lot 12"
+    ]
+  },
+  "bareme_notation": {
+    "valeur_technique_pct": 40,
+    "valeur_prix_pct": 60,
+    "sous_criteres_techniques": [
+      {
+        "libelle": "Méthodologie d'organisation, de gestion et de réalisation",
+        "ponderation_pct": 12,
+        "description": "L'acheteur évalue la méthodologie pour atteindre les objectifs du marché, la gestion des stocks et approvisionnements de chantier, ainsi que la méthodologie de réalisation des travaux au regard des contraintes du site et en site occupé.",
+        "elements_attendus": [
+          "Organisation générale de l'entreprise pour répondre aux bons de commande",
+          "Gestion des stocks et approvisionnements en matériaux et fournitures",
+          "Méthodologie de réalisation en site occupé (écoles en fonctionnement)",
+          "Procédures de coordination et de communication avec le maître d'ouvrage",
+          "Gestion des délais d'intervention et respect des bons de commande",
+          "Capacité à gérer plusieurs interventions simultanées"
+        ],
+        "exemple_reponse_forte": "Notre entreprise dispose d'un stock tampon de fournitures courantes à Saint-Paul permettant une intervention sous 48h. Pour les chantiers en milieu scolaire, nous appliquons un protocole de confinement de zone et de phasage des travaux en dehors des heures de classe, avec une organisation par équipes dédiées.",
+        "source": "RC article 6 sous-critère 2.1",
+        "sous_criteres": []
+      },
+      {
+        "libelle": "Moyens humains affectés au chantier",
+        "ponderation_pct": 16,
+        "description": "L'acheteur évalue les compétences et formations des équipes affectées aux chantiers, en tenant compte des habilitations requises et de la capacité à mener plusieurs interventions simultanément.",
+        "elements_attendus": [
+          "Effectifs disponibles par lot candidaté avec niveaux de qualification",
+          "Attestations et habilitations à jour (travail en hauteur, électricité, SS3/SS4, AIPR selon lot)",
+          "Encadrement technique et compétences du chef de chantier",
+          "Capacité à mobiliser plusieurs équipes simultanément",
+          "Formation continue et recyclage des habilitations",
+          "Sous-traitants éventuels et leurs qualifications"
+        ],
+        "exemple_reponse_forte": "Notre équipe dédiée à ce lot comprend 6 compagnons qualifiés N2/N3, tous titulaires de l'habilitation travail en hauteur recyclée en 2024, encadrés par un chef de chantier expérimenté. Nous sommes en capacité de mobiliser simultanément 2 équipes de 3 personnes sur des sites distincts.",
+        "source": "RC article 6 sous-critère 2.2",
+        "sous_criteres": []
+      },
+      {
+        "libelle": "Descriptif du matériel",
+        "ponderation_pct": 4,
+        "description": "L'acheteur évalue la description complète du matériel (engins de transport et matériels) affecté pour la réalisation des prestations du marché.",
+        "elements_attendus": [
+          "Liste des véhicules et engins disponibles",
+          "Matériel spécifique au corps d'état du lot candidaté",
+          "État et entretien du matériel (âge, maintenance)",
+          "Disponibilité et localisation du matériel"
+        ],
+        "exemple_reponse_forte": "Notre parc matériel comprend 2 véhicules utilitaires équipés, une nacelle articulée 12m disponible en propre, et l'outillage complet pour la réalisation des travaux de menuiserie métallique et serrurerie. Tout le matériel est localisé à Saint-Paul, garantissant une réactivité maximale.",
+        "source": "RC article 6 sous-critère 2.3",
+        "sous_criteres": []
+      },
+      {
+        "libelle": "Hygiène et sécurité des interventions",
+        "ponderation_pct": 4,
+        "description": "L'acheteur évalue la méthodologie mise en œuvre pour assurer l'hygiène et la sécurité des équipes affectées et des utilisateurs, avec une attention particulière aux travaux en site occupé (écoles en fonctionnement).",
+        "elements_attendus": [
+          "Plan de prévention et procédures de sécurité en site occupé",
+          "Mesures de protection des occupants (balisage, signalétique, confinement)",
+          "Gestion des accès au chantier dans des établissements en activité",
+          "EPI et équipements de protection collectifs",
+          "Procédures d'urgence et de premiers secours",
+          "Référence à un document unique d'évaluation des risques (DUERP) actualisé"
+        ],
+        "exemple_reponse_forte": "En site occupé scolaire, nous appliquons systématiquement un protocole H&S : réunion de coordination préalable avec le directeur, balisage rigide de la zone de travaux, planning d'intervention reconfirmé avant chaque démarrage, et évacuation des déchets en dehors des heures de présence des enfants.",
+        "source": "RC article 6 sous-critère 2.4",
+        "sous_criteres": []
+      },
+      {
+        "libelle": "Performance en matière de protection de l'environnement",
+        "ponderation_pct": 4,
+        "description": "L'acheteur évalue les performances environnementales du candidat dans le cadre de l'exécution des travaux.",
+        "elements_attendus": [
+          "Politique de gestion et tri des déchets de chantier",
+          "Utilisation de matériaux ou produits à faible impact environnemental",
+          "Réduction des nuisances (bruit, poussière, pollution) sur le site",
+          "Véhicules ou engins à faibles émissions si possible",
+          "Certification ou démarche environnementale de l'entreprise"
+        ],
+        "exemple_reponse_forte": "Nous trions 100% de nos déchets de chantier avec des bennes dédiées par catégorie (bois, métaux, inertes, DIB) évacuées vers des centres agréés à La Réunion. Nos véhicules utilitaires sont aux normes Euro 6 et nous privilégions les peintures sans solvants.",
+        "source": "RC article 6 sous-critère 2.5",
+        "sous_criteres": []
+      }
+    ],
+    "prix": {
+      "type_formule": "moins_disant",
+      "formule_explicite": "Note de prix (P) = 60 × (P2/P1) où P1 est le montant de l'offre notée et P2 est le montant de l'offre la plus basse (hors offres jugées anormalement basses).",
+      "elements_a_chiffrer": [
+        "Bordereau des Prix Unitaires (BPU) — tous les postes doivent être renseignés",
+        "Devis Quantitatif Estimatif (DQE) — sur les quantités du devis-type, sans modification",
+        "Taux horaire main d'œuvre par niveau (N1 à N3 + chef d'équipe)",
+        "Majoration pour prestations hors heures ouvrées",
+        "Prix unitaires de chaque famille d'ouvrage propre au lot"
+      ]
+    },
+    "modalite_calcul_prix": "Note de prix (P) = 60 × (P2/P1) où P1 est le montant de l'offre notée et P2 est le montant de l'offre la plus basse (hors offres jugées anormalement basses). Source : RC article 6."
+  },
+  "montant_marche": {
+    "valeur_estimee_euros": 15600000,
+    "fourchette_min_euros": null,
+    "fourchette_max_euros": 15600000,
+    "type": "plafond",
+    "duree_couverte": "Par période de 12 mois (reconduction tacite 3 fois, soit 4 ans maximum)",
+    "source_extraction": "RC article 1.1 — plafonds par lot et par période",
+    "commentaire": "Calcul : somme des plafonds annuels de chacun des 15 lots = 1M + 1,5M + 1,5M + 1M + 0,6M + 1M + 0,8M + 0,6M + 1,5M + 0,8M + 1,5M + 0,8M + 0,6M + 0,8M + 1,5M = 15,6 M€ HT maximum par période annuelle. Ce sont des plafonds : il n'y a aucun minimum garanti dans ce marché à bons de commande."
+  },
+  "revision_prix": {
+    "type": "non_communique",
+    "indices_utilises": [],
+    "ponderation": null,
+    "periodicite": null,
+    "formule_revision": null,
+    "source_extraction": null,
+    "commentaire": "Le CCAP n'est pas fourni dans les pièces analysées. Aucune clause de révision de prix n'est mentionnée dans le RC ou les BPU disponibles."
+  },
+  "alertes_prix": [
+    "Aucun minimum garanti : ce marché à bons de commande ne prévoit aucun plancher de commande, le candidat prend un risque de revenu nul malgré l'attribution.",
+    "Formule OAB présente : si une offre est jugée nettement inférieure à l'estimation du maître d'ouvrage ET à la moyenne des offres recevables, une procédure contradictoire est déclenchée — risque d'élimination sans possibilité de régularisation (RC article 6).",
+    "Pondération prix à 60% très élevée : le prix domine très fortement l'attribution, la valeur technique à 40% laisse peu de marge pour se différencier sur la qualité.",
+    "BPU incomplet = offre irrégulière éliminatoire : tout prix manquant dans le BPU entraîne le rejet de l'offre (RC article 6). Attention particulière aux BPU très longs (lot 12 notamment).",
+    "Tour de rôle entre titulaires : être 1er classé garantit le premier bon de commande mais non l'exclusivité ; les titulaires 2 et 3 peuvent obtenir des volumes similaires selon le rythme de rotation."
+  ],
+  "references_exigees": {
+    "experience_minimale_annees": 5,
+    "experience_source": "RC article 4.1 — liste des travaux exécutés au cours des 5 dernières années",
+    "volume_min_references_similaires": null,
+    "volume_min_references_unite": "chantiers réalisés",
+    "secteur_experience": "Travaux relevant du corps d'état du lot candidaté, avec attestations de bonne exécution indiquant le montant, la date et le lieu d'exécution",
+    "secteur_source": "RC article 4.1 capacité technique n°3",
+    "certifications_obligatoires": [
+      {
+        "libelle": "Habilitation SS3 (travaux de retrait ou d'encapsulage amiante) — minimum 15 agents — Lot 1",
+        "source": "RC article 4.1 capacité technique n°8"
+      },
+      {
+        "libelle": "Habilitation SS4 (travaux de maintenance ou de proximité amiante) — Lot 1",
+        "source": "RC article 4.1 capacité technique n°8"
+      },
+      {
+        "libelle": "AIPR (Autorisation d'Intervention à Proximité des Réseaux) — minimum 4 agents — Lot 2",
+        "source": "RC article 4.1 capacité technique n°7"
+      },
+      {
+        "libelle": "Habilitation travail en hauteur (formation ouvriers, R408/R457) — nombre variable selon lot (1 à 8 agents) — Lots 2 à 7, 10 à 15",
+        "source": "RC article 4.1 capacité technique n°5"
+      },
+      {
+        "libelle": "Habilitations électriques B1/B1V/H1/H1V — minimum 3 agents — Lot 12",
+        "source": "RC article 4.1 capacité technique n°6"
+      }
+    ],
+    "autres_exigences": [
+      {
+        "libelle": "Déclaration de chiffre d'affaires global et du domaine d'activité concerné sur les 3 derniers exercices",
+        "source": "RC article 4.1 capacité économique et financière n°1"
+      },
+      {
+        "libelle": "Déclaration des effectifs moyens annuels et du personnel d'encadrement sur les 3 dernières années",
+        "source": "RC article 4.1 capacité technique n°1"
+      },
+      {
+        "libelle": "Description de l'outillage, du matériel et de l'équipement technique disponible",
+        "source": "RC article 4.1 capacité technique n°2"
+      },
+      {
+        "libelle": "Moyens humains minimum par lot : nombre défini d'agents et proportion d'agents habilités (variable selon le lot, de 4 à 15 agents)",
+        "source": "RC article 4.1 capacité technique n°4"
+      },
+      {
+        "libelle": "Limitation de candidature : une entreprise (ou groupement avec un membre commun) ne peut candidater qu'à UN SEUL des lots 3, 8, 14 et 15",
+        "source": "RC article 3.1"
+      }
+    ]
+  },
+  "lots": [
+    {
+      "numero": 1,
+      "intitule": "Désamiantage",
+      "zone_geographique": "Commune de Saint-Paul, La Réunion",
+      "volume_estime": 1000000,
+      "volume_estime_unite": "€ HT plafond annuel",
+      "particularites": "Exige habilitations SS3 et SS4, minimum 15 agents habilités. Intervention sur l'ensemble du patrimoine immobilier communal."
+    },
+    {
+      "numero": 2,
+      "intitule": "VRD, Démolition",
+      "zone_geographique": "Commune de Saint-Paul, La Réunion",
+      "volume_estime": 1500000,
+      "volume_estime_unite": "€ HT plafond annuel",
+      "particularites": "Exige AIPR (4 agents) et habilitation travail en hauteur (4 agents). Minimum 8 agents dont 4 habilités AIPR."
+    },
+    {
+      "numero": 3,
+      "intitule": "GO, induits, installation de chantier",
+      "zone_geographique": "Commune de Saint-Paul, La Réunion",
+      "volume_estime": 1500000,
+      "volume_estime_unite": "€ HT plafond annuel",
+      "particularites": "Soumis à la clause de limitation (candidature exclusive parmi lots 3/8/14/15). Minimum 4 agents habilités travail en hauteur."
+    },
+    {
+      "numero": 4,
+      "intitule": "Charpente bois, ossature bois, bardage bois",
+      "zone_geographique": "Commune de Saint-Paul, La Réunion",
+      "volume_estime": 1000000,
+      "volume_estime_unite": "€ HT plafond annuel",
+      "particularites": "Minimum 4 agents habilités travail en hauteur. Mentionné dans la limitation selon article 3.2 (lots 3/4/14/15) — incohérence avec article 3.1 (lots 3/8/14/15)."
+    },
+    {
+      "numero": 5,
+      "intitule": "Menuiserie bois intérieure, extérieure",
+      "zone_geographique": "Commune de Saint-Paul, La Réunion",
+      "volume_estime": 600000,
+      "volume_estime_unite": "€ HT plafond annuel",
+      "particularites": "Minimum 4 agents dont 2 habilités travail en hauteur. BPU couvre fenêtres, portes, volets, portes coupe-feu, menuiseries intérieures et quincaillerie."
+    },
+    {
+      "numero": 6,
+      "intitule": "Charpente métallique, couverture, bardage métallique",
+      "zone_geographique": "Commune de Saint-Paul, La Réunion",
+      "volume_estime": 1000000,
+      "volume_estime_unite": "€ HT plafond annuel",
+      "particularites": "Minimum 8 agents habilités travail en hauteur — exigence la plus élevée de l'accord-cadre pour ce critère."
+    },
+    {
+      "numero": 7,
+      "intitule": "Cloisons, Faux plafonds",
+      "zone_geographique": "Commune de Saint-Paul, La Réunion",
+      "volume_estime": 800000,
+      "volume_estime_unite": "€ HT plafond annuel",
+      "particularites": "Minimum 4 agents habilités travail en hauteur."
+    },
+    {
+      "numero": 8,
+      "intitule": "Revêtements de sols intérieurs et extérieurs",
+      "zone_geographique": "Commune de Saint-Paul, La Réunion",
+      "volume_estime": 600000,
+      "volume_estime_unite": "€ HT plafond annuel",
+      "particularites": "Soumis à la clause de limitation (candidature exclusive parmi lots 3/8/14/15)."
+    },
+    {
+      "numero": 9,
+      "intitule": "Revêtement de sols sportifs",
+      "zone_geographique": "Commune de Saint-Paul, La Réunion",
+      "volume_estime": 1500000,
+      "volume_estime_unite": "€ HT plafond annuel",
+      "particularites": "Spécialité revêtements sportifs (parquets, sols synthétiques, gazon artificiel). Aucune habilitation spécifique mentionnée dans le RC pour ce lot."
+    },
+    {
+      "numero": 10,
+      "intitule": "Menuiseries métalliques, serrurerie",
+      "zone_geographique": "Commune de Saint-Paul, La Réunion",
+      "volume_estime": 800000,
+      "volume_estime_unite": "€ HT plafond annuel",
+      "particularites": "Minimum 4 agents dont 1 habilité travail en hauteur. BPU couvre portes métalliques, fenêtres, garde-corps, échelles, grilles et serrurerie."
+    },
+    {
+      "numero": 11,
+      "intitule": "Menuiserie aluminium + jalousie",
+      "zone_geographique": "Commune de Saint-Paul, La Réunion",
+      "volume_estime": 1500000,
+      "volume_estime_unite": "€ HT plafond annuel",
+      "particularites": "Minimum 4 agents habilités travail en hauteur. Inclut jalousies à lames — spécificité climatique réunionnaise. BPU couvre ALU, PVC, jalousies, volets roulants."
+    },
+    {
+      "numero": 12,
+      "intitule": "Electricité CFA et CFO",
+      "zone_geographique": "Commune de Saint-Paul, La Réunion",
+      "volume_estime": 800000,
+      "volume_estime_unite": "€ HT plafond annuel",
+      "particularites": "Double habilitation requise : travail en hauteur (1 agent) ET habilitations électriques B1/B1V/H1/H1V (3 agents). BPU très complet : courant fort, courant faible, interphonie, alarmes, vidéosurveillance, réseau informatique fibre/cuivre."
+    },
+    {
+      "numero": 13,
+      "intitule": "Plomberie",
+      "zone_geographique": "Commune de Saint-Paul, La Réunion",
+      "volume_estime": 600000,
+      "volume_estime_unite": "€ HT plafond annuel",
+      "particularites": "Minimum 4 agents dont 1 habilité travail en hauteur. BPU étendu couvrant plomberie, VMC, climatisation split et DRV, chauffe-eau solaire — périmètre large."
+    },
+    {
+      "numero": 14,
+      "intitule": "Peinture",
+      "zone_geographique": "Commune de Saint-Paul, La Réunion",
+      "volume_estime": 800000,
+      "volume_estime_unite": "€ HT plafond annuel",
+      "particularites": "Soumis à la clause de limitation (candidature exclusive parmi lots 3/8/14/15). Minimum 4 agents habilités travail en hauteur."
+    },
+    {
+      "numero": 15,
+      "intitule": "Clôture",
+      "zone_geographique": "Commune de Saint-Paul, La Réunion",
+      "volume_estime": 1500000,
+      "volume_estime_unite": "€ HT plafond annuel",
+      "particularites": "Soumis à la clause de limitation (candidature exclusive parmi lots 3/8/14/15). Minimum 6 agents dont 3 habilités travail en hauteur. BPU très complet : filets pare-ballons, grillages, portails, murets, fouilles."
+    }
+  ],
+  "calendrier": {
+    "date_limite_offres": "2026-07-16",
+    "date_demarrage_prevue": null,
+    "duree_marche": "12 mois avec 3 reconductions tacites de 12 mois chacune (durée maximale 4 ans)"
+  },
+  "alertes_candidat": [
+    "Clause de limitation stricte lots 3/8/14/15 (ou 3/4/14/15 selon article) : toute entreprise présente dans plusieurs de ces lots risque l'élimination de l'ensemble de ses offres sur ces lots si elle ne désigne pas un lot unique dans le délai imparti — vérifier impérativement la stratégie de candidature en groupement.",
+    "BPU incomplet = rejet automatique de l'offre : le moindre prix manquant entraîne l'irrégularité sans possibilité de régularisation (sauf erreur matérielle évidente). Vérifier chaque ligne des BPU (lot 12 comporte plusieurs centaines de lignes).",
+    "Habilitations SS3/SS4 pour le lot 1 : l'absence des 15 agents habilités constitue un niveau minimum exigé (capacité minimum) non régularisable — vérifier les attestations en cours de validité ou en recyclage à jour avant de candidater.",
+    "Marché en zone DOM (La Réunion) : les candidats métropolitains doivent s'assurer de leur implantation locale, de la disponibilité des équipes sur place et de la logistique d'approvisionnement, notamment pour les jalousies (lot 11) et les spécificités climatiques tropicales.",
+    "Offre valable 180 jours : engagement long pour un accord-cadre à prix unitaires — les candidats doivent prévoir les évolutions de coûts (main d'œuvre, matériaux) sur cette période sans clause de révision identifiée dans les pièces fournies."
+  ],
+  "points_differenciants_attendus": [
+    {
+      "libelle": "Démonstration concrète de la capacité d'intervention en milieu scolaire occupé",
+      "exemple": "Présenter un retour d'expérience chiffré sur un chantier similaire en école en fonctionnement : nombre de jours d'intervention, protocole de sécurisation mis en place, incidents zéro, accord avec la direction d'établissement. Citer un exemple réunionnais si possible.",
+      "source": "RC article 6 sous-critère 2.4"
+    },
+    {
+      "libelle": "Effectifs supérieurs aux minima exigés avec habilitations à jour",
+      "exemple": "Sur le lot 6 (charpente métallique), présenter 12 agents habilités travail en hauteur au lieu des 8 requis, avec attestations de formation recyclée en 2024-2025, signale une capacité opérationnelle supérieure au minimum exigé et rassurera l'acheteur sur la capacité à absorber plusieurs bons de commande simultanés.",
+      "source": "RC article 4.1 capacité technique n°4 et n°5"
+    },
+    {
+      "libelle": "Organisation logistique et stocks de proximité à La Réunion",
+      "exemple": "Décrire un entrepôt à Saint-Paul ou Saint-Denis avec stock de sécurité des produits et fournitures les plus courants, permettant une réactivité d'intervention sous 24-48h après réception du bon de commande — différenciateur fort dans un contexte d'accord-cadre réactif.",
+      "source": "RC article 6 sous-critère 2.1"
+    },
+    {
+      "libelle": "Références récentes sur le patrimoine communal réunionnais",
+      "exemple": "Présenter des attestations de bonne exécution de marchés similaires pour des collectivités réunionnaises (mairies, EPCI, Département), idéalement sur le même type de corps d'état, avec montants et dates, pour démontrer la connaissance des contraintes locales.",
+      "source": "RC article 4.1 capacité technique n°3"
+    },
+    {
+      "libelle": "Prix compétitifs sur les postes à forte fréquence de commande",
+      "exemple": "Analyser le BPU pour identifier les postes susceptibles d'être les plus fréquemment commandés (remplacement de portes, révision de serrurerie, peinture de façade) et optimiser le positionnement tarifaire sur ces lignes, sachant que la note prix pèse 60% de l'attribution.",
+      "source": null
+    }
+  ],
+  "_meta": {
+    "id_marche": "BOAMP-26-55979",
+    "type": "complet",
+    "date_generation": "2026-06-14T21:38:34.966707+00:00",
+    "extraction_le": "2026-06-14T21:38:34.966707+00:00",
+    "modele": "claude-sonnet-4-6",
+    "preset_utilise": "btp",
+    "presets_matches": [
+      "btp"
+    ],
+    "prompts_versions": {
+      "btp/_preset.json": "sha256:d1717e0d87f6c265"
+    },
+    "tokens_input": 210346,
+    "tokens_output": 10364,
+    "cout_eur": 0.7472,
+    "duree_sec": 167.1,
+    "pdfs_traites": [
+      {
+        "nom": "AWS-MPI-1832151-RC.pdf",
+        "hash": "9c28b2390e522aabd4848f086859c691",
+        "taille_chars": 44095
+      },
+      {
+        "nom": "BPU - LOT 10.xlsx",
+        "hash": "1abf0f758a5a22d8208c404a8ff8c299",
+        "taille_chars": 24492
+      },
+      {
+        "nom": "BPU - LOT 11.xlsx",
+        "hash": "2fb0ae50098a05a142cd97651d554ccd",
+        "taille_chars": 23422
+      },
+      {
+        "nom": "BPU - LOT 13.xlsx",
+        "hash": "a8438cd918bfc486b30ccf95ca964cb0",
+        "taille_chars": 45235
+      },
+      {
+        "nom": "BPU - LOT 5.xlsx",
+        "hash": "27a6fdeefac994a49bb7e093695499b5",
+        "taille_chars": 16117
+      },
+      {
+        "nom": "BPU Lot 1.xlsx",
+        "hash": "a5b3e06d3f93ac7f572db5fa3b8ef47a",
+        "taille_chars": 13666
+      },
+      {
+        "nom": "BPU Lot 12.xlsx",
+        "hash": "8677e8fa3ead22486722e5271ab557dd",
+        "taille_chars": 48633
+      },
+      {
+        "nom": "BPU Lot 14.xlsx",
+        "hash": "989dd97cdf6e687de6b50aff76e75632",
+        "taille_chars": 9093
+      },
+      {
+        "nom": "BPU Lot 15.xlsx",
+        "hash": "1ebab995c1bd9edb8c6cf76f7cf25e21",
+        "taille_chars": 980218
+      },
+      {
+        "nom": "BPU Lot 2.xlsx",
+        "hash": "4daea44022918aeb429b68f54fcbd318",
+        "taille_chars": 14868
+      },
+      {
+        "nom": "BPU Lot 3.xlsx",
+        "hash": "ae5babf366e7142abcd0cbd854211d56",
+        "taille_chars": 5486
+      },
+      {
+        "nom": "BPU Lot 4.xlsx",
+        "hash": "13dc29227d503abb779c82c2de927609",
+        "taille_chars": 7675
+      },
+      {
+        "nom": "BPU Lot 6.xlsx",
+        "hash": "d1496822b695d1ffe0137f88b9d4413a",
+        "taille_chars": 182330
+      },
+      {
+        "nom": "BPU Lot 7.xlsx",
+        "hash": "8d679d9a0023387560b5d90fd59e1ac1",
+        "taille_chars": 9265
+      },
+      {
+        "nom": "BPU Lot 8.xlsx",
+        "hash": "c74f5725c1bd662884736b27d9f1b016",
+        "taille_chars": 10764
+      },
+      {
+        "nom": "BPU Lot 9.xlsx",
+        "hash": "cc6002444c9aca53703f143dd5d6b9ab",
+        "taille_chars": 19736
+      },
+      {
+        "nom": "CCAP.pdf",
+        "hash": "76e2284c5301afb1f7ad036776d62282",
+        "taille_chars": 56017
+      },
+      {
+        "nom": "CCTP_lot1.pdf",
+        "hash": "c9928e3656e143994312f9f9d176dc24",
+        "taille_chars": 88588
+      },
+      {
+        "nom": "CCTP_lot10.pdf",
+        "hash": "ca068f6640ec988dbc9bd8a09fa876db",
+        "taille_chars": 96549
+      },
+      {
+        "nom": "CCTP_lot11.pdf",
+        "hash": "a87d68b83265106cba578b914c457195",
+        "taille_chars": 72657
+      },
+      {
+        "nom": "CCTP_lot12.pdf",
+        "hash": "8c785b75bf22f68ee7f9ef12f0f8bf0a",
+        "taille_chars": 147516
+      },
+      {
+        "nom": "CCTP_lot13.pdf",
+        "hash": "13057de7ae7802f0ef0fec36e8544510",
+        "taille_chars": 237789
+      },
+      {
+        "nom": "CCTP_lot14.pdf",
+        "hash": "0565377a35fc566a8eb7b9f831972afc",
+        "taille_chars": 111633
+      },
+      {
+        "nom": "CCTP_lot15.pdf",
+        "hash": "b5db6514055300d76a0f5d322a468ac5",
+        "taille_chars": 85062
+      },
+      {
+        "nom": "CCTP_lot2.pdf",
+        "hash": "857ac8527fc740226b221fe2f1a7284a",
+        "taille_chars": 120454
+      },
+      {
+        "nom": "CCTP_lot3.pdf",
+        "hash": "8dcca7c93b2ff3f33296682d02b68b51",
+        "taille_chars": 69684
+      },
+      {
+        "nom": "CCTP_lot4.pdf",
+        "hash": "623cc9d6a64cd3e9447c8d210da02807",
+        "taille_chars": 51655
+      },
+      {
+        "nom": "CCTP_lot5.pdf",
+        "hash": "35d4fa84e997eac6c1d49bc005fdd9f0",
+        "taille_chars": 157451
+      },
+      {
+        "nom": "CCTP_lot6.pdf",
+        "hash": "d1f5d5b27fbc8548bfb4e49dbcc39892",
+        "taille_chars": 43876
+      },
+      {
+        "nom": "CCTP_lot7.pdf",
+        "hash": "186b7f1bcf871e0ad2f3607f9e170679",
+        "taille_chars": 157181
+      },
+      {
+        "nom": "CCTP_lot8.pdf",
+        "hash": "61368db44376811fb19bf8318c13a661",
+        "taille_chars": 118189
+      },
+      {
+        "nom": "CCTP_lot9.pdf",
+        "hash": "5ce6bc45aa7fb8d8a2e704ee8a2125ef",
+        "taille_chars": 36314
+      },
+      {
+        "nom": "Cadre de Mémoire Technique - MARCHÉ TCE (1).docx",
+        "hash": "ae4ea289cab666b620063a1c6deb3ae3",
+        "taille_chars": 6656
+      },
+      {
+        "nom": "DQE - LOT 10.xlsx",
+        "hash": "474ebf68e67c8c91e8a1187e79a01786",
+        "taille_chars": 25627
+      },
+      {
+        "nom": "DQE - LOT 11.xlsx",
+        "hash": "62c3531f13bfd0a260655dd5c9ce8bf5",
+        "taille_chars": 23457
+      },
+      {
+        "nom": "DQE - LOT 13.xlsx",
+        "hash": "2bae31f5df1dec93c8fdb6375100a6b9",
+        "taille_chars": 53724
+      },
+      {
+        "nom": "DQE - LOT 5.xlsx",
+        "hash": "5e192a76f7b6c4fec62bc9df058a0aa2",
+        "taille_chars": 19073
+      },
+      {
+        "nom": "DQE Lot 1.xlsx",
+        "hash": "5534659349d395eaf518bfb6a5e68fbf",
+        "taille_chars": 14164
+      },
+      {
+        "nom": "DQE Lot 12.xlsx",
+        "hash": "ca22847c2fb6fd172b627bad94670869",
+        "taille_chars": 50425
+      },
+      {
+        "nom": "DQE Lot 14.xlsx",
+        "hash": "bbb0bac784e54f36c3b07e9d915b6754",
+        "taille_chars": 11582
+      },
+      {
+        "nom": "DQE Lot 15.xlsx",
+        "hash": "bc7cba151a058d3b77755e4e90ff00da",
+        "taille_chars": 988040
+      },
+      {
+        "nom": "DQE Lot 2.xlsx",
+        "hash": "171b5b4e93f6c03fdca8e0078c7969c7",
+        "taille_chars": 15732
+      },
+      {
+        "nom": "DQE Lot 3.xlsx",
+        "hash": "2442e90f5c25bd2289e4a0a109973daf",
+        "taille_chars": 6193
+      },
+      {
+        "nom": "DQE Lot 4.xlsx",
+        "hash": "f60482f181a2acc2ff3739952ee731d1",
+        "taille_chars": 7589
+      },
+      {
+        "nom": "DQE Lot 6.xlsx",
+        "hash": "aadf99062f3419b52759baf76f33bc1c",
+        "taille_chars": 171632
+      },
+      {
+        "nom": "DQE Lot 7.xlsx",
+        "hash": "2ad0ce2a95e9d1d2daab55fc281b6305",
+        "taille_chars": 10322
+      },
+      {
+        "nom": "DQE Lot 8.xlsx",
+        "hash": "6f5bb5f6e112d34abecfa95c6011f79a",
+        "taille_chars": 11685
+      },
+      {
+        "nom": "DQE Lot 9.xlsx",
+        "hash": "41dc3f8576cdddd3c0b31666d97594e8",
+        "taille_chars": 19544
+      },
+      {
+        "nom": "MPI1832151_AAPC.pdf",
+        "hash": "6d47986694b5cdee3ebcc7408659f4df",
+        "taille_chars": 8456
+      },
+      {
+        "nom": "RC.pdf",
+        "hash": "9c28b2390e522aabd4848f086859c691",
+        "taille_chars": 44095
+      }
+    ]
+  }
+}

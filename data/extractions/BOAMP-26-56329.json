@@ -1,0 +1,513 @@
+{
+  "synthese_marche": "OPCO Mobilités lance un marché composite en 2 lots pour l'acquisition, la mise en œuvre et la maintenance d'un SIRH complet en mode SaaS. Le lot 1 couvre l'externalisation du traitement de la paie et l'outil de gestion de la paie, tandis que le lot 2 porte sur les modules ADP, GTA, gestion de carrière, recrutement, formation et pilotage salarial. Le marché est estimé à 840 000 € HT sur 4 ans (2 ans fermes + 2 reconductions d'1 an), avec une procédure avec négociation.",
+  "domaines_metier": [
+    {
+      "code": "it_progiciels_erp",
+      "poids": 0.7,
+      "lots_concernes": [
+        "Lot 1",
+        "Lot 2"
+      ]
+    },
+    {
+      "code": "it_maintenance_support",
+      "poids": 0.3,
+      "lots_concernes": [
+        "Lot 1",
+        "Lot 2"
+      ]
+    }
+  ],
+  "raison_classification": "Le marché porte sur l'intégration et le déploiement d'un SIRH SaaS multi-modules (paie, ADP, GTA, recrutement, formation, GEPP), typique de l'intégration de progiciels RH (it_progiciels_erp). Une part significative (TMA, MCO, maintenance curative/évolutive/adaptative, SLA contractuels) relève de la maintenance applicative (it_maintenance_support). La double pondération reflète le poids respectif de chaque composante dans le DCE.",
+  "caracteristiques_mission_it": {
+    "typologie_mission": "intégration ERP/progiciel, maintenance/support (TMA/MCO)",
+    "typologie_systeme": "ERP",
+    "cloud_ou_on_premise": "cloud public",
+    "niveau_securite": "données personnelles RGPD",
+    "technologies_attendues": [
+      "SaaS SIRH",
+      "SSO Azure Active Directory / Entra ID",
+      "SAML 2.0 ou OAuth2/OpenID Connect",
+      "API REST / connecteurs standard",
+      "Coffre-fort numérique",
+      "DSN / net-entreprises",
+      "Intégration Sage ERP comptable",
+      "Signature électronique avancée"
+    ],
+    "modele_prestation": "accord-cadre à bons de commande",
+    "volumetrie": "~550 salariés, 500-700 bulletins de paie/mois, ~15 experts RH, 60 managers ; licences : 10 accès outil paie, 5 passerelle bancaire, 6 suivi absences CPAM",
+    "jours_homme_estimes": null,
+    "sla_attendus": "Disponibilité ≥ 99,9% ; incident critique prise en charge H+1, résolution H+4 ; incident majeur H+1/H+8 ; incident mineur H+1/H+8 ; GTR anomalie bloquante 12h ouvrées, anomalie non bloquante 3 jours",
+    "livrables_par_phase": [
+      {
+        "phase": "Déploiement / mise en production",
+        "livrables": [
+          "Plan d'assurance qualité projet",
+          "Plan d'assurance sécurité (PAS)",
+          "Dossier d'architecture (authentification SSO)",
+          "Matrice RACI (lot 1)",
+          "Planning prévisionnel détaillé",
+          "Procès-verbal de recette usine",
+          "VABF (Vérification d'Aptitude au Bon Fonctionnement)",
+          "VSR (Vérification du Service Régulier)",
+          "Documentation fonctionnelle et technique",
+          "Rapport d'intégration des données"
+        ]
+      },
+      {
+        "phase": "Run / MCO",
+        "livrables": [
+          "Rapport d'activité hebdomadaire",
+          "Synthèse des ateliers",
+          "Rapport fonctionnel et technique mensuel",
+          "État trimestriel de consommation",
+          "Tableau de bord maintenance (historique pannes/anomalies)",
+          "PRA/PCA documenté",
+          "Plan de réversibilité entrante et sortante",
+          "Certificat de destruction des données RGPD en fin de marché"
+        ]
+      },
+      {
+        "phase": "Formation",
+        "livrables": [
+          "Formation technique DSI",
+          "Formation administrateurs métiers RH (présentiel, 14 collaborateurs)",
+          "Formation utilisateurs (tutoriels, vidéos, e-learning)",
+          "Environnement bac à sable mis à disposition",
+          "Supports de formation remis aux stagiaires"
+        ]
+      }
+    ],
+    "profils_attendus": [
+      {
+        "profil": "Chef de projet / Responsable de projet",
+        "nombre": 1,
+        "anciennete_min_annees": null,
+        "certifs_requises": []
+      },
+      {
+        "profil": "Expert paie / Gestionnaire de paie attitré",
+        "nombre": 1,
+        "anciennete_min_annees": null,
+        "certifs_requises": []
+      },
+      {
+        "profil": "Expert fonctionnel SIRH (ADP/GTA/RH)",
+        "nombre": null,
+        "anciennete_min_annees": null,
+        "certifs_requises": []
+      },
+      {
+        "profil": "Architecte technique / référent sécurité",
+        "nombre": null,
+        "anciennete_min_annees": null,
+        "certifs_requises": []
+      },
+      {
+        "profil": "Expert intégration / interfaçage",
+        "nombre": null,
+        "anciennete_min_annees": null,
+        "certifs_requises": []
+      }
+    ],
+    "exigences_securite": [
+      "SSO obligatoire via Azure Active Directory (Entra ID) — SAML 2.0 ou OAuth2/OpenID Connect",
+      "Chiffrement bout en bout des échanges SIRH SaaS ↔ Azure AD",
+      "Conformité RGPD (CNIL, Loi Informatique et Libertés)",
+      "Respect des référentiels ANSSI (bonnes pratiques durcissement, sécurité interconnexions)",
+      "Hébergement données préférence France, tolérance UE",
+      "Connexion SSL minimum",
+      "SOC 2 exigé (niveau de référence), SOC 3 communicable",
+      "PRA/PCA documenté avec RTO"
+    ],
+    "reversibilite": "Plan de réversibilité entrante remis à la notification ; sortante déclenchée dès rupture contractuelle. Délai max 90 jours. Données restituées en formats ouverts (CSV, XML, JSON, PDF/A) avec dictionnaire de données. Destruction des données sous 30 jours post-réversibilité avec certificat RGPD. Gratuité totale incluse dans le forfait."
+  },
+  "qualifications_it": {
+    "iso_27001": false,
+    "hds": false,
+    "secnumcloud": false,
+    "rgs": false,
+    "referencement_anssi": false,
+    "certifications_securite": [
+      "SOC 2 (niveau de référence attendu)",
+      "Conformité RGPD attestée"
+    ],
+    "certifications_technologiques": [],
+    "autres": [
+      "Conformité ANSSI (bonnes pratiques)"
+    ]
+  },
+  "bareme_notation": {
+    "valeur_technique_pct": 80,
+    "valeur_prix_pct": 20,
+    "sous_criteres_techniques": [
+      {
+        "libelle": "Qualité et conformité de la prestation d'externalisation de la paie",
+        "ponderation_pct": 20,
+        "description": "Ce sous-critère évalue la qualité du dispositif d'externalisation de la paie proposé : compétences des intervenants, clarté du RACI, maîtrise du cycle de paie mensuel et du traitement des soldes de tout compte, ainsi que la gestion externalisée des absences maladie/CPAM.",
+        "elements_attendus": [
+          "Présentation nominative du/des gestionnaires de paie dédiés avec expérience détaillée et back-up nommé",
+          "Matrice RACI complète couvrant le cycle social mensuel et le traitement annuel, distinguant les rôles figés (veille légale, DSN) et ouverts à discussion",
+          "Rétroplanning détaillé du cycle mensuel de paie (calcul bulletins → OD comptables) conforme au calendrier OPCO Mobilités (acompte 15, virement 25, DSN 5 M+1)",
+          "Schémas de traitement des 3 hypothèses de STC (solde avant/pendant/après cycle)",
+          "Description complète de l'externalisation du traitement des absences CPAM incluant saisie arrêts, recouvrement IJSS, régularisations en paie",
+          "Engagement de conformité réglementaire et veille légale"
+        ],
+        "exemple_reponse_forte": "Notre équipe dédiée OPCO Mobilités se compose de Mme X (gestionnaire paie senior, 10 ans d'expérience, spécialisée secteur associatif/opérateurs de compétences) et M. Y (back-up). La matrice RACI ci-jointe détaille chaque étape du cycle mensuel : OPCO Mobilités collecte et saisit les variables jusqu'au 15 du mois M, notre équipe effectue les contrôles de cohérence et produit les bulletins, génère les DSN avant le 5 M+1 et transmet l'OD comptable à Sage. Le schéma ci-joint illustre les 3 cas de STC et le processus CPAM de bout en bout.",
+        "source": "CRT Lot 1 - Sous-critère n°1",
+        "sous_criteres": []
+      },
+      {
+        "libelle": "Processus et méthodologie de déploiement de l'outil de gestion de la paie",
+        "ponderation_pct": 15,
+        "description": "Évalue la clarté et la cohérence de la démarche projet pour déployer l'outil de gestion de la paie, la composition et l'expérience de l'équipe dédiée, ainsi que la qualité du planning prévisionnel module par module.",
+        "elements_attendus": [
+          "CV ou présentation des intervenants dédiés avec niveau de séniorité (junior/expérimenté/senior) et références similaires, y compris sous-traitants",
+          "Démarche projet détaillée avec étapes claires : audit, paramétrage, reprise de données, recette usine, VABF, VSR",
+          "Planning prévisionnel avec dates de mise en production par module de l'outil paie",
+          "Méthode Agile ou équivalent validée",
+          "Processus de reprise des données depuis Nibelis (logiciel actuel)"
+        ],
+        "exemple_reponse_forte": "Notre équipe projet est composée d'un chef de projet senior (8 ans SIRH paie, certifié PMP), d'un expert paie/paramétrage (spécialiste DSN et multi-conventionnel) et d'un technicien intégration. Le planning prévisionnel sur 6 mois fait apparaître : M+1 audit processus OPCO, M+2-3 paramétrage et reprise Nibelis, M+4 recette usine, M+5 VABF, M+6 VSR. La méthode Agile par sprints bi-hebdomadaires permet un suivi transparent.",
+        "source": "CRT Lot 1 - Sous-critère n°2",
+        "sous_criteres": []
+      },
+      {
+        "libelle": "Fonctionnalités attendues et paramétrage",
+        "ponderation_pct": 15,
+        "description": "Ce sous-critère porte sur la complétude et la fiabilité du plan de réversibilité, la capacité d'interfaçage avec les logiciels tiers (plateforme bancaire, ERP Sage, net-entreprises, LCMS, notes de frais, coffre-fort numérique, lot 2), ainsi que la qualité de l'architecture technique.",
+        "elements_attendus": [
+          "Plan de réversibilité étape par étape (brique par brique, durée max 90 jours, formats ouverts, certificat destruction)",
+          "Liste des interconnexions existantes avec prestataires similaires (plateforme bancaire, Sage, net-entreprises, coffre-fort numérique) avec exemples concrets",
+          "Description des flux IN/OUT (absences, fiche salarié, compteurs, totaux paie, bulletins) avec périodicités",
+          "Compatibilité technique inter-lots si prestataires différents (API, connecteurs standardisés)",
+          "Architecture technique détaillée avec procédures de sauvegarde et d'exploitation"
+        ],
+        "exemple_reponse_forte": "Notre solution dispose de connecteurs natifs avec Sage X3 (OD paie multi-analytique), BNP Paribas Cash Management (virements salaires/URSSAF), Edenred (titres restaurant) et net-entreprises (DSN). La liste complète des 25 interconnexions certifiées est jointe. L'architecture SaaS hébergée en datacenter français (certifié ISO 27001) garantit 99,9% de disponibilité avec PRA RTO H+4. Le plan de réversibilité en 7 étapes sur 60 jours est détaillé avec livrables et intervenants.",
+        "source": "CRT Lot 1 - Sous-critère n°3",
+        "sous_criteres": []
+      },
+      {
+        "libelle": "Suivi de la prestation (accompagnement experts paie OPCO Mobilités)",
+        "ponderation_pct": 15,
+        "description": "Évalue la qualité de l'accompagnement pendant la mise en œuvre et en phase de run : méthode de formation des experts paie, formats pédagogiques proposés, et organisation de l'équipe opérationnelle dédiée (référent unique, rôles).",
+        "elements_attendus": [
+          "Méthode d'accompagnement au démarrage : ateliers, présentiel, webinaires, tutoriels vidéo, supports PPT/PDF",
+          "Description de l'équipe run dédiée avec référent unique nominatif joignable par mail et téléphone",
+          "Dispositif de messagerie instantanée ou canal de communication réactif proposé",
+          "Réunion mensuelle de bilan du cycle de paie avec modalités (présentiel possible)",
+          "Support métier avec adresse mail dédiée, téléphone sans surcoût, outil de ticketing (JIRA si possible), chatbot expert RH"
+        ],
+        "exemple_reponse_forte": "En phase run, Mme X reste l'interlocutrice unique d'OPCO Mobilités pour toutes les questions paie. Elle est joignable par téléphone direct (8h-18h jours ouvrés), mail dédié et Teams. Une réunion mensuelle de bilan est organisée systématiquement avec possibilité de présentiel. La formation initiale comprend 3 sessions de 1 jour en présentiel pour les 2 experts paie ADP, complétées par 5 tutoriels vidéo et un accès bac à sable permanent.",
+        "source": "CRT Lot 1 - Sous-critère n°4",
+        "sous_criteres": []
+      },
+      {
+        "libelle": "Exploitation et maintenance",
+        "ponderation_pct": 15,
+        "description": "Évalue l'organisation de maintenance (préventive, corrective, curative), la qualité du processus de gestion des incidents techniques avec SLA précis par criticité, et la qualité de l'assistance globale mise en place.",
+        "elements_attendus": [
+          "Organisation détaillée de la maintenance préventive (revue annuelle), curative (correctifs, nouvelles versions) et évolutive (mises à jour réglementaires DSN, cotisations)",
+          "SLA par niveau de criticité : incident critique H+1/H+4, majeur H+1/H+8, mineur H+1/H+8",
+          "Tableau de bord de suivi des pannes et anomalies accessible au client",
+          "Procédure PRA avec RTO D+1 en cas de bascule",
+          "Engagement sur le calendrier mensuel de production de paie",
+          "Conformité RGPD des mises à jour évolutives sans surcoût"
+        ],
+        "exemple_reponse_forte": "Notre SLA garanti : disponibilité 99,9%, prise en charge systématique en H+1 tous niveaux, résolution H+4 (critique), H+8 (majeur/mineur). Le tableau de bord client en temps réel sur notre portail affiche l'historique complet des incidents. La maintenance évolutive réglementaire (DSN, taux de cotisations) est incluse dans le forfait annuel et déployée au plus tard à la date d'effet légale, sans facturation additionnelle ni avenant.",
+        "source": "CRT Lot 1 - Sous-critère n°5",
+        "sous_criteres": []
+      },
+      {
+        "libelle": "Processus et méthodologie de déploiement de l'outil SIRH (Lot 2)",
+        "ponderation_pct": 20,
+        "description": "Évalue la composition et l'expérience de l'équipe projet dédiée au déploiement des modules lot 2 (ADP, GTA, recrutement, formation, GEPP), la clarté de la démarche projet et la cohérence du planning de mise en production module par module.",
+        "elements_attendus": [
+          "Présentation des intervenants dédiés avec séniorité et références similaires, y compris sous-traitants",
+          "Démarche projet structurée : audit processus, paramétrage, reprise données, recette usine, VABF, VSR",
+          "Planning prévisionnel avec dates de mise en production par module (recrutement, ADP, GTA, formation, GEPP, pilotage salarial)",
+          "Méthode Agile ou équivalent",
+          "Processus de reprise de données depuis l'outil SIRH actuel (entretiens depuis 01/01/2024, catalogue formation)"
+        ],
+        "exemple_reponse_forte": "Notre équipe lot 2 comprend un chef de projet RH senior, une experte ADP/GTA (12 ans de SIRH), un consultant formation/GEPP et un architecte intégration. Le planning sur 9 mois distingue 3 vagues : vague 1 (M1-M3) ADP + GTA + recrutement, vague 2 (M4-M6) formation + entretiens GEPP, vague 3 (M7-M9) pilotage salarial + BDESE. La reprise des données Nibelis et de l'outil entretiens est réalisée en parallèle dès M1.",
+        "source": "CRT Lot 2 - Sous-critère n°1",
+        "sous_criteres": []
+      },
+      {
+        "libelle": "Fonctionnalités attendues et paramétrage (Lot 2)",
+        "ponderation_pct": 20,
+        "description": "Évalue la complétude fonctionnelle des modules lot 2 (recrutement, ADP, GTA, formation, GEPP, pilotage salarial), la cohérence du plan de réversibilité, les capacités d'interfaçage inter-lots et avec les logiciels tiers, ainsi que l'architecture technique.",
+        "elements_attendus": [
+          "Description fonctionnelle détaillée de chaque module : recrutement (multidiffusion illimitée, CV parser, matching), ADP (pré-boarding, contrats, GED, signature avancée), GTA (forfait jours, horaires, CET, télétravail, délégation IRP), formation (catalogue, workflow validation, reporting), GEPP (référentiel emplois-compétences, campagnes entretiens, objectifs SMART)",
+          "Plan de réversibilité brique par brique (90 jours max, formats ouverts, certificat destruction)",
+          "Exemples d'interconnexions existantes avec lots 1, Outlook, Sage, LCMS, notes de frais, portail bancaire",
+          "Compatibilité inter-lots avec protocoles API documentés",
+          "Architecture technique SaaS avec hébergement France/UE et procédures de sauvegarde"
+        ],
+        "exemple_reponse_forte": "Notre SIRH intègre nativement les 10 modules demandés. Le module GTA gère les 5 profils de temps de travail OPCO (forfait 211j, horaires 37h/35h, temps partiel) avec débit-crédit mensuel paramétré et compteurs CET. Le référentiel emplois-compétences à 4 filières/45 emplois/45 compétences (niveaux 1-4) est importé dès M1. Les interconnexions Outlook (agenda), Sage (OD paie), lot 1 (variables GTA→paie) et LCMS sont documentées avec API REST publique.",
+        "source": "CRT Lot 2 - Sous-critère n°2",
+        "sous_criteres": []
+      },
+      {
+        "libelle": "Suivi de la prestation (accompagnement experts RH OPCO Mobilités) (Lot 2)",
+        "ponderation_pct": 20,
+        "description": "Évalue la qualité de l'accompagnement pendant la mise en œuvre et en phase run pour les experts RH : méthodes de formation (formats PPT/PDF, webinaires, tutoriels vidéo), documentation proposée, et organisation de l'équipe opérationnelle dédiée.",
+        "elements_attendus": [
+          "Méthode d'accompagnement projet : ateliers, présentiel (14 collaborateurs minimum), webinaires, tutoriels vidéo par module",
+          "Référent unique nominatif pour l'équipe run, joignable par mail/téléphone/messagerie instantanée",
+          "Support couvrant 8h-18h jours ouvrés avec outil de ticketing (JIRA), email dédié, téléphone sans surcoût",
+          "Documentation complète par module : guides administrateurs, guides utilisateurs, vidéos courtes",
+          "Bac à sable permanent pour formation continue"
+        ],
+        "exemple_reponse_forte": "La formation se déroule en 3 vagues présentiel chez OPCO Mobilités (siège Boulogne-Billancourt) : formation DSI (1 jour), formation 5 administrateurs RH par module (3 jours × 3 modules), formation utilisateurs via 12 tutoriels vidéo de 5-10 min. Mme Z, experte RH fonctionnelle, est référente unique run, joignable sur Teams, téléphone et notre portail JIRA. Chaque module dispose d'une documentation PDF de 30 pages remise en fin de formation.",
+        "source": "CRT Lot 2 - Sous-critère n°3",
+        "sous_criteres": []
+      },
+      {
+        "libelle": "Exploitation et maintenance (Lot 2)",
+        "ponderation_pct": 10,
+        "description": "Évalue l'organisation de maintenance (préventive/corrective/curative), la qualité de gestion des incidents avec SLA par criticité, et la qualité de l'assistance globale pour le lot 2.",
+        "elements_attendus": [
+          "Organisation maintenance préventive (revue annuelle), curative (correctifs), évolutive (nouvelles fonctions, mises à jour légales RGPD), adaptative (OS, BDD)",
+          "SLA précis par criticité (incident critique H+1/H+4, majeur H+1/H+8) avec tableau de bord suivi",
+          "Procédure PRA/PCA avec RTO D+1",
+          "Gestion des mises à jour réglementaires sans surcoût (index égalité H/F, BDESE, transparence salariale)",
+          "Interlocuteur unique dédié à l'assistance avec rôles et fonctions précisés"
+        ],
+        "exemple_reponse_forte": "Notre MCO SaaS garantit une disponibilité 99,9% (hors maintenance programmée hors heures ouvrées). Les évolutions réglementaires (directive transparence salariale, BDESE) sont intégrées sans avenant ni surcoût dans notre maintenance évolutive standard. Le tableau de bord client temps réel affiche le statut de chaque incident et le délai de résolution estimé. Notre PRA avec bascule automatique garantit un RTO de 4h.",
+        "source": "CRT Lot 2 - Sous-critère n°4",
+        "sous_criteres": []
+      }
+    ],
+    "prix": {
+      "type_formule": "autre",
+      "formule_explicite": "Le RC ne précise pas de formule mathématique explicite pour la notation du prix (pondération prix = 20% ; la part forfaitaire est chiffrée via DPGF et la part à bons de commande via BPU + DQE sur 4 ans servant de base à l'analyse financière).",
+      "elements_a_chiffrer": [
+        "DPGF (part forfaitaire annuelle) : UO1 mise en production, UO2 hébergement SaaS, UO3 licences logiciels, UO4 maintenance TMA, UO5 PRA/PCA, UO6 réversibilité",
+        "BPU (part à bons de commande) : TJM maintenance évolutive, TJM révisions structurelles, prix unitaire bulletins de paie (classique, STC, intéressement, exceptionnel), prix traitement absences CPAM, tarifs modules SIRH mensuels (lot 2), TJM assistance technique",
+        "DQE sur 4 ans (non contractuel, base analyse financière) : quantités estimatives par ligne BPU (ex: 24 000 bulletins classiques, 2 400 absences CPAM, 480 TJM assistance technique)"
+      ]
+    },
+    "modalite_calcul_prix": "Pondération prix = 20% de la note globale. Chiffrage mixte : part forfaitaire (DPGF annuelle) + part à bons de commande (BPU avec DQE sur 4 ans comme base de comparaison financière non contractuelle). Formule exacte non communiquée dans les pièces disponibles."
+  },
+  "montant_marche": {
+    "valeur_estimee_euros": 840000,
+    "fourchette_min_euros": null,
+    "fourchette_max_euros": null,
+    "type": "estime_explicite",
+    "duree_couverte": "4 ans (2 ans fermes + 2 reconductions d'1 an)",
+    "source_extraction": "CCAP Article 4 page 4-5",
+    "commentaire": "Estimation globale indicative non contractuelle : 210 000 € HT/an × 4 ans = 840 000 € HT. Lot 1 : 67 200 € HT/an forfait + 16 800 € HT/an bons de commande = 84 000 €/an → 336 000 € sur 4 ans. Lot 2 : 100 800 € HT/an forfait + 25 200 € HT/an bons de commande = 126 000 €/an → 504 000 € sur 4 ans. Montants maximaux bons de commande : lot 1 plafond 70 000 € HT, lot 2 plafond 105 000 € HT sur toute la durée."
+  },
+  "revision_prix": {
+    "type": "indexation",
+    "indices_utilises": [
+      "SYNTEC"
+    ],
+    "ponderation": "15% partie fixe + 85% partie variable indexée SYNTEC",
+    "periodicite": "annuelle",
+    "formule_revision": "Pr = P0 × (0,15 + 0,85 × Im/I0)",
+    "source_extraction": "CCAP Article 17.3",
+    "commentaire": "Formule favorable aux prestataires IT en phase de hausse salariale (indice SYNTEC reflète les coûts RH). Clause de sauvegarde acheteur : résiliation sans indemnité avec préavis 15 jours si la révision dépasse +4% sur 12 mois. Demande de révision par LRAR 2 mois avant date anniversaire."
+  },
+  "alertes_prix": [
+    "Clause de sauvegarde acheteur : résiliation sans indemnité possible si révision des prix > +4% sur 12 mois (CCAP art. 17.3) — risque de sortie anticipée du marché en cas d'inflation forte.",
+    "Pondération prix de seulement 20% : marché très technique où la note technique est déterminante (80%). Sous-enchérir ne compense pas une note technique faible.",
+    "DQE sur 4 ans non contractuel mais servant de base à l'analyse financière : des erreurs dans le chiffrage BPU (ex: prix bulletin classique ou TJM) ont un fort impact sur la note prix sans engagement d'achat.",
+    "Plafonds bons de commande (lot 1 : 70 k€, lot 2 : 105 k€ sur 4 ans) sont des seuils d'extinction des bons de commande, non des estimations de consommation réelle (jurisprudence CJUE citée dans le CCAP).",
+    "Marché composite : deux parties (forfait DPGF + bons de commande BPU) à chiffrer séparément — risque d'erreur si les deux grilles ne sont pas cohérentes entre elles."
+  ],
+  "references_exigees": {
+    "experience_minimale_annees": null,
+    "experience_source": null,
+    "volume_min_references_similaires": null,
+    "volume_min_references_unite": null,
+    "secteur_experience": "Intégration et externalisation de SIRH (outil de paie, ADP, GTA, recrutement, formation, GEPP) pour des structures de 500 salariés ou plus, idéalement dans le secteur paritaire/associatif ou opérateurs de compétences",
+    "secteur_source": "CCTP Article 1 et Articles 4-5",
+    "certifications_obligatoires": [],
+    "autres_exigences": [
+      {
+        "libelle": "SSO obligatoire via Azure Active Directory (Entra ID) avec SAML 2.0 ou OAuth2/OpenID Connect — aucune dérogation sans validation OPCO Mobilités",
+        "source": "CCTP Article 4.G.2 et Article 5.J.2"
+      },
+      {
+        "libelle": "Hébergement SaaS avec connexion SSL minimum, données de préférence en France, tolérance UE",
+        "source": "CCTP Article 4.I.10.a et Article 5.L.10.a"
+      },
+      {
+        "libelle": "Conformité RGPD attestée avec remplissage du cadre de réponse RGPD (Annexe 2 CCAP)",
+        "source": "CCAP Article 12.2 et Annexe 2"
+      },
+      {
+        "libelle": "Fourniture d'un SOC 2 (niveau de référence attendu) communicable sur demande",
+        "source": "CCTP Article 4.I.10.f et Article 5.L.10.g"
+      },
+      {
+        "libelle": "Attestation relative à l'interdiction d'attribution des marchés publics aux entreprises russes à fournir obligatoirement",
+        "source": "AE Lot 1 et AE Lot 2"
+      }
+    ]
+  },
+  "lots": [
+    {
+      "numero": 1,
+      "intitule": "SIRH Outil de Paie / Externalisation de la prestation de traitement de la paie",
+      "zone_geographique": null,
+      "volume_estime": 336000,
+      "volume_estime_unite": "euros HT sur 4 ans",
+      "particularites": "Marché composite : forfait annuel estimé 67 200 € HT/an + bons de commande plafonnés à 70 000 € HT sur 4 ans. Inclut l'externalisation du cycle de paie complet (bulletins classiques, STC, DSN, OD Sage), le traitement des absences CPAM, l'outil paie avec coffre-fort numérique et passerelle bancaire, ~500-700 bulletins/mois. Logiciel paie actuel à migrer : Nibelis. Particularité : statut VLU URSSAF (pas de télépaiement possible). CPV lot : 79211110."
+    },
+    {
+      "numero": 2,
+      "intitule": "SIRH outil de Gestion de l'ADP, la GTA et la Gestion de carrière (formation, recrutement, campagne d'entretiens)",
+      "zone_geographique": null,
+      "volume_estime": 504000,
+      "volume_estime_unite": "euros HT sur 4 ans",
+      "particularites": "Marché composite : forfait annuel estimé 100 800 € HT/an + bons de commande plafonnés à 105 000 € HT sur 4 ans. Périmètre très large : 10 modules (recrutement avec multidiffusion illimitée, ADP/pré-boarding, GTA, formation/PDC, GEPP avec référentiel 45 emplois/45 compétences, entretiens annuels, pilotage salarial/BDESE). Interconnexion obligatoire avec lot 1. ~550 utilisateurs dont 60 managers. Signature électronique avancée requise. Reprise entretiens depuis 01/01/2024. CPV lot : 48450000."
+    }
+  ],
+  "calendrier": {
+    "date_limite_offres": "2026-07-10",
+    "date_demarrage_prevue": null,
+    "duree_marche": "2 ans fermes + 2 reconductions d'1 an (durée totale maximale 4 ans)"
+  },
+  "alertes_candidat": [
+    "SSO via Azure AD (Entra ID) OBLIGATOIRE sans alternative locale : toute solution ne supportant pas SAML 2.0 ou OAuth2/OpenID Connect avec Azure AD est éliminatoire (CCTP art. 4.G.2 et 5.J.2).",
+    "Interconnexion inter-lots impérative : les deux lots doivent communiquer en temps réel (flux GTA → paie, absences CPAM, formation ↔ GTA). En cas de prestataires distincts, la compatibilité technique doit être démontrée avec des exemples d'interconnexions existantes.",
+    "Externalisation du traitement des absences CPAM (saisie arrêts, recouvrement IJSS, DSN évènementiels) : compétence métier exigeante et spécifique, souvent sous-traitée — le titulaire lot 1 reste responsable du rendu même en cas de sous-traitance (CCTP art. 4.B.2.e).",
+    "Délai de validité des offres de 180 jours : engagement financier long sur des prix SaaS potentiellement variables — bien anticiper les révisions possibles et la clause de sauvegarde +4%.",
+    "Procédure avec négociation : une première offre sera soumise à négociation. Prévoir une marge de manœuvre dans le chiffrage initial pour la phase de négociation sans dégrader la qualité technique."
+  ],
+  "points_differenciants_attendus": [
+    {
+      "libelle": "Référence sectorielle OPCO / paritaire ou opérateur de compétences avec externalisation de paie complexe",
+      "exemple": "Citer 2-3 clients du même secteur (OPCO, OPCA, branche professionnelle) avec périmètre similaire (500+ salariés, statut VLU URSSAF, accord de performance collective) valorise fortement la crédibilité sur la conformité réglementaire et la gestion des spécificités conventionnelles.",
+      "source": "CCTP Article 4.B.2.a"
+    },
+    {
+      "libelle": "Gestionnaire de paie dédié et nominatif avec back-up identifié dès l'offre",
+      "exemple": "Présenter le CV du gestionnaire paie attitré (senior, maîtrise DSN, VLU, accords de performance collective) et de son back-up nominatif renforce significativement le sous-critère 1 (20 pts) et rassure sur la continuité de service.",
+      "source": "CCTP Article 4.B.2.b et CRT Lot 1 sous-critère n°1"
+    },
+    {
+      "libelle": "Solution couvrant les deux lots avec un seul prestataire (SIRH intégré paie + HCM)",
+      "exemple": "Proposer une solution couvrant lot 1 et lot 2 sur une plateforme unifiée élimine le risque d'incompatibilité inter-lots et simplifie la gouvernance projet — argument fort pour scorer sur les sous-critères d'interfaçage des deux CRT.",
+      "source": "CCTP Article 3 et Articles 4.C.9 / 5.G.1.c"
+    },
+    {
+      "libelle": "Maîtrise de la gestion des spécificités RH OPCO Mobilités : CET, plan senior, VLU URSSAF, accord de performance collective",
+      "exemple": "Démontrer une expérience documentée sur le CET (alimentation, indemnisation, transfert PERO), le plan de départ progressif senior et le statut VLU URSSAF (pas de télépaiement, gestion des cotisations) avec des exemples de paramétrages réalisés chez d'autres clients.",
+      "source": "CCTP Articles 4.B.2.d et 5.C.1 à 5.C.5"
+    },
+    {
+      "libelle": "Architecture SaaS hébergée en France avec SOC 2 Type II disponible et PRA/PCA documenté",
+      "exemple": "Joindre le résumé exécutif SOC 2 Type II de la solution et une fiche PRA avec RTO H+4 testé annuellement. Préciser la localisation exacte des datacenters (France) et les certifications ISO 27001 de l'hébergeur renforce la crédibilité sécurité face aux exigences RGPD et ANSSI.",
+      "source": "CCTP Articles 4.I.10 et 5.L.10 ; CCAP Article 12.3"
+    },
+    {
+      "libelle": "Intégration native du référentiel emplois-compétences OPCO Mobilités (4 filières, 45 emplois, 45 compétences, niveaux 1-4)",
+      "exemple": "Présenter une maquette ou capture d'écran de la saisie du référentiel fourni par OPCO Mobilités dans l'outil, avec les vues radar de compétences par salarié et l'alimentation automatique des campagnes d'entretiens annuels, démontre une compréhension fine du besoin lot 2.",
+      "source": "CCTP Article 5.F.2"
+    }
+  ],
+  "_meta": {
+    "id_marche": "BOAMP-26-56329",
+    "type": "complet",
+    "date_generation": "2026-06-15T18:40:30.275231+00:00",
+    "extraction_le": "2026-06-15T18:40:30.275231+00:00",
+    "modele": "claude-sonnet-4-6",
+    "preset_utilise": "it",
+    "presets_matches": [
+      "it"
+    ],
+    "prompts_versions": {
+      "it/_preset.json": "sha256:0113727ecb269e98"
+    },
+    "tokens_input": 137923,
+    "tokens_output": 10516,
+    "cout_eur": 0.5429,
+    "duree_sec": 196.4,
+    "pdfs_traites": [
+      {
+        "nom": "2026-029_AE_Lot1.docx",
+        "hash": "46cb0f5c152e01f5ffd38380e7c847e8",
+        "taille_chars": 11914
+      },
+      {
+        "nom": "2026-029_AE_Lot2.docx",
+        "hash": "d87a758ffe9317bb83446e07e2991a4b",
+        "taille_chars": 12020
+      },
+      {
+        "nom": "2026-029_Annexe financière - DPGF_BPU_DQE_Lot1_Lot2 _VD.xlsx",
+        "hash": "a7d000359a51b5545805186c3a51be25",
+        "taille_chars": 17461
+      },
+      {
+        "nom": "2026-029_Annexe2-AE Contacts_SIRH.docx",
+        "hash": "62f180bef9ac3e47acc65577931b0d61",
+        "taille_chars": 1664
+      },
+      {
+        "nom": "2026-029_CCAP_VD.pdf",
+        "hash": "5f4eb264c375335a9ac7214b9200ea67",
+        "taille_chars": 134407
+      },
+      {
+        "nom": "2026-029_CCTP_VD.pdf",
+        "hash": "58ddb2ade3055b14ef957525724c938e",
+        "taille_chars": 212675
+      },
+      {
+        "nom": "2026-029_CRT_Lot1_VD.docx",
+        "hash": "cd31c4b67b10e6e47a768920ebe30056",
+        "taille_chars": 4409
+      },
+      {
+        "nom": "2026-029_CRT_Lot2_VD.docx",
+        "hash": "de6e805ca004a526fbf609c67af00529",
+        "taille_chars": 3892
+      },
+      {
+        "nom": "2026-029_DC4.docx",
+        "hash": "b1ed54d0b028325fe018febb8fbf6576",
+        "taille_chars": 15924
+      },
+      {
+        "nom": "AWS-MPI-1832389-RC.pdf",
+        "hash": "57276575488340002e43974e984a2698",
+        "taille_chars": 78872
+      },
+      {
+        "nom": "Annexe n°1_CCAP_Protection des données à caractère personnel et Exigences de sécurité SI _V1.1.pdf",
+        "hash": "67e798ff6194f26c04d0b722a610e078",
+        "taille_chars": 60961
+      },
+      {
+        "nom": "Annexe n°1_CCTP_Planning prestation_VF.xlsx",
+        "hash": "3ab3e0b255d669257279d22e6b8a6ef1",
+        "taille_chars": 11568
+      },
+      {
+        "nom": "Annexe n°2_CCAP_Cadre de réponse RGPD.xlsx",
+        "hash": "e01de17774fd9cc645df78e17b88d165",
+        "taille_chars": 10545
+      },
+      {
+        "nom": "Annexe n°3_CCAP _ Reporting.xlsx",
+        "hash": "d4fb6949802c8c3450cc2526ab3d0cd1",
+        "taille_chars": 1576
+      },
+      {
+        "nom": "Attestation_Interdiction OE interets russes_VD.docx",
+        "hash": "5649fed1ac0479e4efaa5c46cbe0f33c",
+        "taille_chars": 1564
+      },
+      {
+        "nom": "MPI1832389_AAPC.pdf",
+        "hash": "c62c4f7f18b6221e9533f495a7171b48",
+        "taille_chars": 5938
+      }
+    ]
+  }
+}

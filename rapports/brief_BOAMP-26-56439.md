@@ -1,6 +1,6 @@
 # Brief — Transport d'usagers déficients sensoriels et/ou ayant des troubles associés
 
-_Généré le 2026-06-12 15:49 par Claude claude-sonnet-4-6_
+_Généré le 2026-06-14 22:30 par Claude claude-sonnet-4-6_
 
 ## Identifiants
 - **ID Tendia** : `BOAMP-26-56439`
@@ -11,90 +11,268 @@ _Généré le 2026-06-12 15:49 par Claude claude-sonnet-4-6_
 - **DCE PLACE** : <https://ocens.e-marchespublics.com/pack/annonce_marche_public_33484_1165592.html>
 
 ## Synthèse
-Marché de transport quotidien et hebdomadaire d'usagers déficients sensoriels et/ou ayant des troubles associés entre leur domicile, les sites de l'Institut Public Ocens et les Unités d'Enseignement Externalisées (UEE) pour l'année scolaire 2026-2027 et les premiers mois de 2027-2028. Il s'agit d'un accord-cadre à bons de commande composé de 56 lots (55 lots mono-attributaires + 1 lot multi-attributaire à marchés subséquents), d'une durée de 15 mois non reconductibles. Le montant maximum global est de 1 200 000 € HT.
-
-## 🏗 Chantier — caractéristiques BTP
-- **Description** : Transport routier quotidien et hebdomadaire de personnes déficientes sensorielles et/ou ayant des troubles associés. Circuits définis par bons de commande entre domicile des usagers, sites de l'Institut et UEE. Prix au kilomètre tous frais compris par type de véhicule.
-- **Contraintes spécifiques** :
-  - Public vulnérable : déficients sensoriels et/ou troubles associés
-  - Circuits susceptibles d'évoluer en cours d'exécution (déménagements, horaires UEE)
-  - Obligation de reprise du personnel pour certains lots reproduisant des circuits du marché précédent
-  - Inscription obligatoire au Registre des Entreprises de Transport Public Routier de Personnes (décret n°85-891 du 16 août 1985)
-
-### Allotissement
-56 lots au total : lots 1 à 55 sont des accords-cadres mono-attributaires à bons de commande, le lot 56 est un accord-cadre multi-attributaire à marchés subséquents.
-- **Nombre de lots** : 56
-- **Lot 1** — Lot 1 à 55 - Circuits transport mono-attributaires
-  - Corps d'état : transport de personnes
-  - Accords-cadres mono-attributaires à bons de commande pour chaque circuit. Prix au km tous frais compris par type de véhicule.
-- **Lot 56** — Lot 56 - Accord-cadre multi-attributaire à marchés subséquents
-  - Corps d'état : transport de personnes
-  - Accord-cadre multi-attributaire à marchés subséquents. Critères d'attribution spécifiques.
-
-### Qualifications BTP exigées
-Inscription obligatoire au Registre des Entreprises de Transport Public Routier de Personnes selon le décret n°85-891 du 16 août 1985, à joindre au mémoire technique.
-- **Autres exigences** :
-  - Certificat d'inscription au Registre des Entreprises de Transport Public Routier de Personnes (décret n°85-891 du 16 août 1985) (source=RC Article 4a)
-
-## ⚡ Parc EnR — caractéristiques techniques
-### Volumes techniques
-- **Durée du marché (mois)** : 15
-- **Note** : 56 lots de transport, circuits journaliers/hebdomadaires. Bons de commande indicatifs fournis dans le DQE. Prix au km tous frais compris par type de véhicule.
-
-### Modalités d'exécution
-- **Sites d'exécution** : Nantes (44), Loire-Atlantique
-
-## 🎯 Mission conseil
-- **Durée de mission** : 15 mois (août 2026 – octobre 2027)
-
-## 🎓 Formation / accompagnement
-### Publics cibles
-Usagers déficients sensoriels (déficience visuelle et/ou auditive) et/ou ayant des troubles associés, scolarisés à l'Institut Public Ocens ou dans les Unités d'Enseignement Externalisées (UEE).
-- **Critères d'éligibilité** :
-  - Usagers déficients sensoriels et/ou ayant des troubles associés (source=RC Article 1)
-- **Publics spécifiques signalés** : RQTH, déficients sensoriels, troubles associés
-
-### Volumes
-- **Durée marché (mois)** : 15
-- **Note** : 56 lots de circuits. Kilométrage hebdomadaire variable selon les bons de commande. Montant maximum 1 200 000 € HT sur 15 mois, sans montant minimum.
-
-### Modalités
-- **Amplitude horaire** : Transports quotidiens et hebdomadaires liés aux horaires scolaires et des UEE
-- **Sites d'exécution** : Nantes (44), Loire-Atlantique
+L'Institut Public Ocens (établissement médico-social de Loire-Atlantique) recherche des transporteurs pour assurer le transport quotidien et hebdomadaire d'enfants et jeunes déficients sensoriels et/ou ayant des troubles associés, entre leur domicile, les sites de l'Institut et les Unités d'Enseignement Externalisées (UEE). Le marché est structuré en 56 lots (55 circuits réguliers mono-attributaires + 1 lot accord-cadre multi-attributaire pour les nouveaux besoins), couvrant l'année scolaire 2026-2027 et les premiers mois de 2027-2028. Le prix est exprimé au kilomètre, par type de véhicule.
 
 ## 💶 Montant du marché
-- **Fourchette** : entre ? et 1,20 M€
+- **Plafond accord-cadre** : **1,00 M€**
   - sur 15 mois (août 2026 – octobre 2027)
-  - _source : RC Article 1_
-- _Note_ : Accord-cadre sans montant minimum, avec un montant maximum de 1 200 000 € HT sur 15 mois toutes lots confondus. Le montant réel dépend des bons de commande émis.
+  - _source : CCAP art. 2c (montant maximum 1 000 000 € HT) ; RC art. 1 (montant maximum 1 200 000 € HT)_
+- _Note_ : Le CCAP fixe le plafond de l'accord-cadre à 1 000 000 € HT sur 15 mois (art. 2c), tandis que le RC mentionne 1 200 000 € HT (art. 1 — version RC V2). Il n'y a pas de montant minimum. L'estimation prévisionnelle hors indexation peut être calculée à partir du DQE : environ 550 000 km totaux estimés tous lots confondus ; à un prix moyen de 1,5-2 €/km, on obtient une fourchette cohérente avec le plafond annoncé.
 
 ## Barème de notation
-- **Valeur technique** : —
-- **Valeur prix** : —
+- **Valeur technique** : 20 %
+- **Valeur prix** : 80 %
 - **Sous-critères techniques** :
-  - Valeur technique (mémoire technique) : —
-- **Calcul du prix** : Prix au kilomètre tous frais compris par type de véhicule. Les candidats s'engagent sur un prix au km pour chaque lot souhaité via le BPU fourni.
+  - Valeur technique à l'attribution : 20 %
+- **Calcul du prix** : Prix au kilomètre HT par type de véhicule, appliqué aux kilométrages indiqués dans les bons de commande circuits. Aucun frais annexe ou de prise en charge n'est applicable. Le kilométrage est calculé sur la base du trajet le plus rapide selon Google Maps.
 
 ## Références et qualifications exigées
 - **Expérience minimale** : —
-- **Volume minimal de références** : 3 références pertinentes en transport
-- **Secteur d'expérience** : Transport de personnes (idéalement transport de publics vulnérables, déficients sensoriels ou PMR)
-- **Certifications obligatoires** : Inscription au Registre des Entreprises de Transport Public Routier de Personnes (décret n°85-891 du 16 août 1985) — obligatoire à intégrer dans le mémoire technique (source=RC Article 4a)
+- **Volume minimal de références** : 3 références pertinentes
+- **Secteur d'expérience** : Transport de personnes, idéalement en milieu médico-social ou transport spécialisé de personnes à besoins spécifiques (handicap, ESMS)
+- **Certifications obligatoires** : Inscription au Registre des Entreprises de Transport Public Routier de Personnes (décret n°85-891 du 16 août 1985) (source=RC art. 4 ; CCAP art. 6)
 - **Autres exigences** :
-  - Attestation de vigilance 2026 (une par membre si groupement) (source=RC Article 4a)
-  - Attestation fiscale 2025 (une par membre si groupement) (source=RC Article 4a)
-  - Attestation certifiant l'acceptation sans modification du dossier de consultation (une par membre si groupement) (source=RC Article 4a)
-  - Attestation d'assurance RC 2026 — peut être transmise à l'attribution mais obligatoire sous 7 jours ouvrés sous peine d'irrecevabilité (source=RC Article 4f)
+  - Attestation de vigilance 2026 (une par membre si groupement) (source=RC art. 4)
+  - Attestation fiscale 2025 (une par membre si groupement) (source=RC art. 4)
+  - Attestation d'assurance RC 2026 (peut être transmise à l'attribution) (source=RC art. 4)
+  - Respect de l'obligation vaccinale des conducteurs de référence (intervenants réguliers en ESMS) (source=CCAP art. 6)
+
+## Lots
+- **Lot 1** — C1 - Circuit PDSL : Saint-Michel-Chef-Chef / Le Pellerin → Siège Nantes (Plateforme Jeunes)
+  - Zone : Loire-Atlantique (44)
+  - Volume estimé : 14076 km estimés sur l'année
+  - Véhicule 5 places, LOM requis. 2 usagers (RAIMBAUD, TOURON). Départ dès 07h00.
+- **Lot 2** — C2 - Circuit PDSL : Les Moutiers-en-Retz / Saint-Aignan-Grandlieu / Rezé → Siège Nantes (Plateforme Jeunes)
+  - Zone : Loire-Atlantique (44)
+  - Volume estimé : 24480 km estimés sur l'année
+  - Véhicule 5 places, LOM requis. 3 usagers dont une épileptique avec protocole de crise. 480 km/semaine.
+- **Lot 3** — C3 - Circuit PDSL : Vertou → Siège Nantes (Plateforme Jeunes)
+  - Zone : Loire-Atlantique (44)
+  - Volume estimé : 4080 km estimés sur l'année
+  - Véhicule 5 places, LOM requis. 1 usager en temps partiel. Court circuit (~10 km/trajet).
+- **Lot 4** — C4 - Circuit PDSL : Ligné / Carquefou-Petit Mars / Saint-Sébastien-sur-Loire → Siège Nantes (Plateforme Jeunes + Collège BG)
+  - Zone : Loire-Atlantique (44)
+  - Volume estimé : 18156 km estimés sur l'année
+  - Véhicule 5 places, LOM requis. 3 usagers dont un partagé entre Plateforme Jeunes et Collège Basse-Goulaine sur semaines paires/impaires.
+- **Lot 5** — C5 - Circuit PDSL : Saint-Étienne-de-Montluc / Orvault / Saint-Herblain / Nantes → Siège (Plateforme Jeunes)
+  - Zone : Loire-Atlantique (44)
+  - Volume estimé : 17646 km estimés sur l'année
+  - Véhicule 7 places/ludospace (sans LOM). 5 usagers. Grand circuit Ouest Loire-Atlantique.
+- **Lot 6** — C6 - Circuit PDSL : Saint-Émilien-de-Blain / Nantes / Saint-Luce-sur-Loire → Siège (Plateforme Jeunes)
+  - Zone : Loire-Atlantique (44)
+  - Volume estimé : 27285 km estimés sur l'année
+  - Véhicule 5 places (sans LOM). 3 usagers. Plus grand circuit PDSL en volume km.
+- **Lot 7** — C7 - Circuit PDSL : Carquefou/Petit Mars → Collège Basse-Goulaine (Plateforme Jeunes + Collège BG)
+  - Zone : Loire-Atlantique (44)
+  - Volume estimé : 5967 km estimés sur l'année
+  - Véhicule 5 places, LOM requis. 1 usager partagé semaines paires/impaires (16 ou 23 km/trajet selon semaine).
+- **Lot 8** — C8 - Circuit PDSL : Saint-Pazanne / Saint-Mars-de-Coutais / Rezé → Collège Basse-Goulaine
+  - Zone : Loire-Atlantique (44)
+  - Volume estimé : 18490 km estimés sur l'année
+  - Véhicule 5 places, LOM requis. 3 usagers. Démarrage 01/09/2026 (43 semaines). Un usager avec collier de mastication au retour.
+- **Lot 9** — C9 - Circuit PDSL : Gétigné / Gorges → Collège Basse-Goulaine
+  - Zone : Loire-Atlantique (44)
+  - Volume estimé : 11610 km estimés sur l'année
+  - Véhicule 5 places, LOM requis. 2 usagers. Lot susceptible d'obligation de reprise du personnel (titulaire actuel : MONAMILIGO).
+- **Lot 10** — C10 - Circuit PDSL : Mésanger / Louroux-Bottereau → Collège Basse-Goulaine
+  - Zone : Loire-Atlantique (44)
+  - Volume estimé : 18920 km estimés sur l'année
+  - Véhicule 5 places, LOM requis. 2 usagers. Horaires susceptibles d'être modifiés en septembre.
+- **Lot 11** — C11 - Circuit PDSL : Saffré / Treillières / La-Chapelle-sur-Erdre → Collège Basse-Goulaine
+  - Zone : Loire-Atlantique (44)
+  - Volume estimé : 19565 km estimés sur l'année
+  - Véhicule 5 places, LOM requis. 2 usagers dont une en garde alternée (plusieurs adresses). Horaires susceptibles d'être modifiés.
+- **Lot 12** — C12 - Circuit PDSL : Orvault / Nantes → Collège Basse-Goulaine
+  - Zone : Loire-Atlantique (44)
+  - Volume estimé : 10105 km estimés sur l'année
+  - Véhicule 5 places, LOM requis. 2 usagers. Circuit court (23-24 km/trajet).
+- **Lot 13** — C13 - Circuit PDSL : Legé → Collège Basse-Goulaine
+  - Zone : Loire-Atlantique (44)
+  - Volume estimé : 17630 km estimés sur l'année
+  - Véhicule 5 places, LOM requis. 1 usager. Long trajet (41 km/trajet). Horaires susceptibles d'être modifiés.
+- **Lot 14** — C14 - Circuit PDSL : Bouguenais / Rezé → Collège René Bernier
+  - Zone : Loire-Atlantique (44)
+  - Volume estimé : 7095 km estimés sur l'année
+  - Véhicule 5 places, LOM requis. 3 usagers (dont 2 de même famille). Circuit court (16-17 km/trajet).
+- **Lot 15** — C15 - Circuit PDSL : Nantes / Saint-Sébastien-sur-Loire → Collège René Bernier
+  - Zone : Loire-Atlantique (44)
+  - Volume estimé : 5504 km estimés sur l'année
+  - Véhicule 7 places/ludospace (sans LOM). 4 usagers. Kilométrages variables selon jours (présence en internat certains jours). Lot susceptible d'obligation de reprise du personnel (TITI FLORIS).
+- **Lot 16** — C16 - Circuit PDSL : Herbignac / Saint-Nazaire → Collège René Bernier
+  - Zone : Loire-Atlantique (44)
+  - Volume estimé : 18146 km estimés sur l'année
+  - Véhicule 5 places (sans LOM). 2 usagers en internat (trajets uniquement lundi matin et vendredi soir). Lot susceptible d'obligation de reprise du personnel (TITI FLORIS).
+- **Lot 17** — C17 - Circuit PDSL : Les Herbiers / Mortagne-sur-Sèvre → Collège René Bernier
+  - Zone : Loire-Atlantique (44) / Vendée (85)
+  - Volume estimé : 13760 km estimés sur l'année
+  - Véhicule 5 places (sans LOM). 2 usagers en internat. Long trajet (80 km/trajet). Nuitées susceptibles de changer.
+- **Lot 18** — C18 - Circuit PDSL : Mouais → Collège René Bernier
+  - Zone : Loire-Atlantique (44)
+  - Volume estimé : 12384 km estimés sur l'année
+  - Véhicule 5 places (sans LOM). 1 usager en internat. 70-74 km/trajet. Lot susceptible d'obligation de reprise du personnel (MONAMILIGO).
+- **Lot 19** — C19 - Circuit PDSL : Paulx / Bouguenais → École Marie Curie
+  - Zone : Loire-Atlantique (44)
+  - Volume estimé : 20554 km estimés sur l'année
+  - Véhicule 5 places, LOM requis. 2 usagers avec rehausseurs. Circuit via Siège IPO et École Marie Curie.
+- **Lot 20** — C20 - Circuit PDSL : Corcoué-sur-Logne → Siège / École Ledru Rollin / École Sarah Bernhardt
+  - Zone : Loire-Atlantique (44)
+  - Volume estimé : 12728 km estimés sur l'année
+  - Véhicule 5 places, LOM requis. 2 usagers (fratrie) avec sièges auto. Desserte multi-sites. Lot susceptible d'obligation de reprise du personnel (MONAMILIGO).
+- **Lot 21** — C21 - Circuit PDSL : Château-Thébaud → Siège / École Ledru Rollin
+  - Zone : Loire-Atlantique (44)
+  - Volume estimé : 5160 km estimés sur l'année
+  - Véhicule 5 places, LOM requis. 1 usager. Horaires variables selon jours. Lot susceptible d'obligation de reprise du personnel (MONAMILIGO).
+- **Lot 22** — C22 - Circuit PDSL : Gorges / Vertou → Siège / École Marie Curie / École Ledru Rollin
+  - Zone : Loire-Atlantique (44)
+  - Volume estimé : 10879 km estimés sur l'année
+  - Véhicule 5 places, LOM requis. 2 usagers avec rehausseurs. Desserte multi-sites.
+- **Lot 23** — C23 - Circuit PDSL : Vallet / Saint-Sébastien-sur-Loire → Siège / École Marie Curie / École Ledru Rollin / École Sarah Bernhardt
+  - Zone : Loire-Atlantique (44)
+  - Volume estimé : 13115 km estimés sur l'année
+  - Véhicule 7 places/ludospace (sans LOM). 4 usagers dont une fratrie. Desserte multi-sites.
+- **Lot 24** — C24 - Circuit PDSL : Saint-Luce-sur-Loire / Nantes → Siège / École Ledru Rollin
+  - Zone : Loire-Atlantique (44)
+  - Volume estimé : 4945 km estimés sur l'année
+  - Véhicule 7 places/ludospace (sans LOM). 4 usagers avec rehausseurs. Lot susceptible d'obligation de reprise du personnel (TITI FLORIS).
+- **Lot 25** — C25 - Circuit PDSL : Carquefou / Nantes → Siège / École Marie Curie
+  - Zone : Loire-Atlantique (44)
+  - Volume estimé : 8815 km estimés sur l'année
+  - Véhicule 5 places, LOM requis. 3 usagers avec rehausseurs.
+- **Lot 26** — C26 - Circuit PDSL : Juigné-des-Moutiers → Siège / École Sarah Bernhardt
+  - Zone : Loire-Atlantique (44)
+  - Volume estimé : 26660 km estimés sur l'année
+  - Véhicule 5 places (sans LOM). 1 usager. Très long trajet (~77 km/trajet). Protocole épilepsie. Autorisation autoroute. Lot susceptible d'obligation de reprise du personnel (MONAMILIGO).
+- **Lot 27** — C27 - Circuit PDSL : Saint-Herblain / Nantes → Siège / École Marie Curie / École Ledru Rollin
+  - Zone : Loire-Atlantique (44)
+  - Volume estimé : 4902 km estimés sur l'année
+  - Véhicule 5 places, LOM requis. 3 usagers dont une fratrie avec rehausseur.
+- **Lot 28** — C28 - Circuit PDSL : Savenay / Saint-Étienne-de-Montluc / Nantes / Saint-Herblain → Siège / École Marie Curie / École Ledru Rollin
+  - Zone : Loire-Atlantique (44)
+  - Volume estimé : 26703 km estimés sur l'année
+  - Véhicule 7 places/ludospace (sans LOM). 4 usagers. Consigne de remise stricte pour un usager (présentation carte d'identité). Grand circuit Ouest.
+- **Lot 29** — NC1 - Navette PDSL : Siège IPO → École Marie Curie (mercredi et jeudi midi)
+  - Zone : Nantes (44)
+  - Volume estimé : 258 km estimés sur l'année
+  - 2 véhicules requis (5p. + 9p.). 11 usagers. Navette de courte distance (3 km). Lot susceptible d'obligation de reprise du personnel (MONAMILIGO).
+- **Lot 30** — NC2 - Navette PDSL : Collège Basse-Goulaine ↔ Siège IPO (jeudi et vendredi)
+  - Zone : Basse-Goulaine / Nantes (44)
+  - Volume estimé : 817 km estimés sur l'année
+  - Véhicule 9 places. 12 usagers. Navette entre collège et siège. Lot susceptible d'obligation de reprise du personnel (TITI FLORIS).
+- **Lot 31** — NC3 - Navette PDSL : Collège René Bernier ↔ Internat APAJH44 Nantes
+  - Zone : Saint-Sébastien-sur-Loire / Nantes (44)
+  - Volume estimé : 4816 km estimés sur l'année
+  - Véhicule 9 places. 6 usagers en internat. Navette quotidienne matin/soir (lundi-vendredi sauf mercredi matin et vendredi soir). Lot susceptible d'obligation de reprise du personnel (MONAMILIGO).
+- **Lot 32** — T1 - Circuit PME : Séverac / Besné ou Carquefou → Les Thébaudières + École La Haye-Fouassière
+  - Zone : Loire-Atlantique (44)
+  - Volume estimé : 34043 km estimés sur l'année
+  - Véhicule 5 places (sans LOM). 2 usagers dont un avec passage à l'école certains jours. Kilométrage variable selon semaines paires/impaires. Plus grand lot PME en volume.
+- **Lot 33** — T2 - Circuit PME : Nantes / Saint-Sébastien-sur-Loire → Les Thébaudières
+  - Zone : Loire-Atlantique (44)
+  - Volume estimé : 5202 km estimés sur l'année
+  - Véhicule 9 places. 5 usagers dont plusieurs absents selon planning. 3 sièges 2/3, 1 securiseat.
+- **Lot 34** — T3 - Circuit PME : Les Sorinières → Les Thébaudières
+  - Zone : Loire-Atlantique (44)
+  - Volume estimé : 3213 km estimés sur l'année
+  - Véhicule 9 places. 1 usager. 1 harnais verrouillable. Retour mercredi assuré par l'ASE. Lot susceptible d'obligation de reprise du personnel (TITI FLORIS).
+- **Lot 35** — T4 - Circuit PME : La Marne / Saint-Gilles-Croix-de-Vie → Les Thébaudières + Collège Petite Lande
+  - Zone : Loire-Atlantique (44) / Vendée (85)
+  - Volume estimé : 17825 km estimés sur l'année
+  - Véhicule 5 places (sans LOM). 2 usagers. Passage au Collège Petite Lande hors vacances scolaires. Kilométrage variable semaines paires/impaires. Lot susceptible d'obligation de reprise du personnel (TITI FLORIS).
+- **Lot 36** — T5 - Circuit PME : Nantes / Rezé → Les Thébaudières + Collège Petite Lande
+  - Zone : Loire-Atlantique (44)
+  - Volume estimé : 9231 km estimés sur l'année
+  - Véhicule 5 places, LOM requis. 2 usagers. 1 siège 2/3, 1 marchepied, 1 harnais en prévention.
+- **Lot 37** — T6 - Circuit PME : Remouillé/Saint-Hilaire-de-Clisson / Monnières / La Haye-Fouassière → Les Thébaudières + École La Haye-Fouassière
+  - Zone : Loire-Atlantique (44)
+  - Volume estimé : 10200 km estimés sur l'année
+  - Véhicule 5 places, LOM requis. 3 usagers. Passage à l'école certains jours. 1 siège 2/3.
+- **Lot 38** — T7 - Circuit PME : Sevremoine / Mortagne-sur-Sèvre ou La Remaudière → Les Thébaudières
+  - Zone : Loire-Atlantique (44) / Maine-et-Loire (49) / Vendée (85)
+  - Volume estimé : 22568 km estimés sur l'année
+  - Véhicule 5 places, LOM requis. 2 usagers. Circuits différents selon semaines paires/impaires (domiciles différents). 1 harnais en prévention. Lot susceptible d'obligation de reprise du personnel (MONAMILIGO).
+- **Lot 39** — T8 - Circuit PME : Saint-Père-en-Retz / Brains / Saint-Léger-les-Vignes ou La Montagne / Les Sorinières → Les Thébaudières + École La Haye-Fouassière
+  - Zone : Loire-Atlantique (44)
+  - Volume estimé : 16881 km estimés sur l'année
+  - Véhicule 7 places/ludospace (sans LOM). 4 usagers. Circuit complexe avec Zoé Gesbert en alternance famille d'accueil/école. Lot susceptible d'obligation de reprise du personnel (TITI FLORIS).
+- **Lot 40** — T9 - Circuit PME : Mouzillon / Gesté → Les Thébaudières
+  - Zone : Loire-Atlantique (44) / Maine-et-Loire (49)
+  - Volume estimé : 15708 km estimés sur l'année
+  - Véhicule 9 places. 2 usagers. Un usager doit être seul sur une banquette. Réducteur de ceinture.
+- **Lot 41** — T10 - Circuit PME : Divatte-sur-Loire / Le Landreau / Vallet / La-Chapelle-Heulin → Les Thébaudières
+  - Zone : Loire-Atlantique (44)
+  - Volume estimé : 13209 km estimés sur l'année
+  - Véhicule 7 places/ludospace (sans LOM). 4 usagers. Lot susceptible d'obligation de reprise du personnel (TITI FLORIS).
+- **Lot 42** — T11 - Circuit PME : Clisson / Saint-Sébastien-sur-Loire → Les Thébaudières + Collège Petite Lande
+  - Zone : Loire-Atlantique (44)
+  - Volume estimé : 8466 km estimés sur l'année
+  - Véhicule 5 places, LOM requis. 2 usagers. Passage au Collège Petite Lande tous les matins hors vacances. 1 réducteur de ceinture. Lot susceptible d'obligation de reprise du personnel (MONAMILIGO).
+- **Lot 43** — T12 - Circuit PME : Carquefou / Thouaré-sur-Loire / Haute-Goulaine → Les Thébaudières + École La Haye-Fouassière
+  - Zone : Loire-Atlantique (44)
+  - Volume estimé : 13974 km estimés sur l'année
+  - Véhicule 9 places. 4 usagers. 2 sièges 2/3, 2 harnais verrouillables, 1 cale-tête. Passage à l'école La Haye-Fouassière certains jours.
+- **Lot 44** — T13 - Circuit PME : Nantes → Les Thébaudières
+  - Zone : Nantes (44)
+  - Volume estimé : 12291 km estimés sur l'année
+  - Véhicule 9 places. 6 usagers. 1 securiseat, 1 harnais, 3 sièges 2/3. Plusieurs usagers absents selon planning variable.
+- **Lot 45** — T14 - Circuit PME : Châteaubriant / Vertou / Nort-sur-Erdre / Saint-Mars-du-Désert → Les Thébaudières
+  - Zone : Loire-Atlantique (44)
+  - Volume estimé : 24506 km estimés sur l'année
+  - Véhicule 9 places. 4 usagers. Kilométrage variable semaines paires/impaires (domiciles différents pour un usager). 1 réducteur de ceinture.
+- **Lot 46** — T15 - Circuit PME : Nantes → Les Thébaudières
+  - Zone : Nantes (44)
+  - Volume estimé : 9843 km estimés sur l'année
+  - Véhicule 9 places. 5 usagers. 2 sièges 2/3, 3 harnais dont un en prévention, 2 securiseats, 1 réducteur de ceinture. Équipement de sécurité très spécifique.
+- **Lot 47** — T16 - Circuit PME : Couëron/Les Sorinières / Saint-Herblain → Les Thébaudières
+  - Zone : Loire-Atlantique (44)
+  - Volume estimé : 13158 km estimés sur l'année
+  - Véhicule 9 places. 2 usagers. 1 harnais verrouillé + securiseat. Code portail PHE Les Sorinières. Lot susceptible d'obligation de reprise du personnel (TITI FLORIS).
+- **Lot 48** — T17 - Circuit PME : Nantes → Les Thébaudières
+  - Zone : Nantes (44)
+  - Volume estimé : 11526 km estimés sur l'année
+  - Véhicule 7 places/ludospace (sans LOM). 2 usagers. 1 harnais. Lot susceptible d'obligation de reprise du personnel (TITI FLORIS).
+- **Lot 49** — T18 - Circuit PME : Vieillevigne / Saint-Philbert-de-Bouaine / Saint-Colomban / Montbert → Les Thébaudières
+  - Zone : Loire-Atlantique (44) / Vendée (85)
+  - Volume estimé : 15912 km estimés sur l'année
+  - Véhicule 9 places. 4 usagers. 1 securiseat en prévention, 2 casques anti-bruit, 1 siège 2/3. Circuit avec passage optionnel à La Haye-Fouassière. Lot susceptible d'obligation de reprise du personnel (MONAMILIGO).
+- **Lot 50** — T19 - Circuit PME : Nantes / Rezé → Les Thébaudières
+  - Zone : Loire-Atlantique (44)
+  - Volume estimé : 3468 km estimés sur l'année
+  - Véhicule 7 places/ludospace. 3 usagers dont plusieurs souvent absents. 2 sièges 2/3.
+- **Lot 51** — T20 - Circuit PME : Nantes → Les Thébaudières + École La Haye-Fouassière
+  - Zone : Nantes (44)
+  - Volume estimé : 11424 km estimés sur l'année
+  - Véhicule 9 places. 2 usagers dont un en temps partiel. 1 siège 2/3. Un usager seul sur banquette.
+- **Lot 52** — T21 - Circuit PME : Nantes → Les Thébaudières
+  - Zone : Nantes (44)
+  - Volume estimé : 2958 km estimés sur l'année
+  - Véhicule 7 places/ludospace. 3 usagers. Transport interne principalement (courtes distances). 2 sièges 2/3.
+- **Lot 53** — NT1 - Navette PME : École La Haye-Fouassière → Les Thébaudières (midi, vacances scolaires)
+  - Zone : La Haye-Fouassière / Vertou (44)
+  - Volume estimé : 1020 km estimés sur l'année
+  - Véhicule 7 places/ludospace. 4 usagers (Leglise, Gesbert, Baliak, Asaj). Uniquement durant les vacances scolaires (midi). 2 sièges 2/3.
+- **Lot 54** — NT2 - Navette PME : Collège Petite Lande Rezé → Les Thébaudières (midi, période scolaire)
+  - Zone : Rezé / Vertou (44)
+  - Volume estimé : 2550 km estimés sur l'année
+  - Véhicule 7 places/ludospace. 5 usagers (Meskour, Houmadi, Thélie, Gouaillier, Bourmaud). Uniquement en période scolaire (trajet midi). 2 sièges 2/3.
+- **Lot 55** — NT3 - Navette PME : Les Thébaudières → Collège Petite Lande Rezé (mercredi, jeudi, vendredi matin, période scolaire + internat)
+  - Zone : Vertou / Rezé (44)
+  - Volume estimé : 1530 km estimés sur l'année
+  - Véhicule 7 places/ludospace. 5 usagers (même groupe que NT2). Navette depuis l'internat (Pavillon D) vers le Collège Petite Lande. 2 sièges 2/3.
+- **Lot 56** — Lot 56 - Accord-cadre multi-attributaire à marchés subséquents (nouveaux circuits en cours d'exécution)
+  - Zone : Loire-Atlantique (44)
+  - Lot réservé aux nouveaux besoins de transport régulier identifiés en cours d'exécution. Multi-attributaire, mise en concurrence des titulaires pour chaque marché subséquent. Attribution au mieux-disant : prix 80% / valeur technique 20%. Délai de réponse 3 jours. Offre valable 30 jours.
 
 ## ⚠ Alertes candidat
-- Inscription obligatoire au Registre des Entreprises de Transport Public Routier de Personnes (décret n°85-891 du 16 août 1985) — à joindre impérativement au mémoire technique
-- Obligation de reprise du personnel sur certains lots reproduisant des circuits du marché précédent — liste non encore publiée au moment de la publication, à surveiller impérativement (annoncée semaine du 08/06)
-- Attestation d'assurance RC 2026 obligatoire sous 7 jours ouvrés après attribution, sous peine d'irrecevabilité et d'attribution au candidat suivant
-- Le candidat NE peut PAS modifier le dossier de consultation : toute annexe dérogatoire sera rejetée
-- Délai de validité des offres : 30 jours seulement à compter de la date limite de dépôt — attention en cas de procédure longue
+- Inscription obligatoire au Registre des Entreprises de Transport Public Routier de Personnes (décret n°85-891) : son absence rend la candidature irrecevable.
+- Obligation vaccinale des conducteurs de référence (intervenants réguliers en ESMS) : le titulaire doit en assurer le respect et pouvoir en fournir la preuve sur demande.
+- 21 lots sont susceptibles d'une obligation de reprise du personnel (Loi Travail / convention collective transport) au titre du marché précédent (titulaires actuels : TITI FLORIS, MONAMILIGO, TRANSALYS) — analyse à mener lot par lot.
+- Sous-traitance interdite sauf autorisation expresse de l'Institut : le candidat doit s'assurer de disposer de tous les moyens en propre pour l'ensemble des lots soumissionnés.
+- Véhicules à très faibles émissions (LOM) obligatoires pour les lots identifiés (environ 25 lots sur 55) : le candidat doit disposer ou pouvoir acquérir des VTE avant le démarrage du marché en août 2026.
+- Révision de prix plafonnée à 1% semestriel avec droit de résiliation unilatérale de l'Institut en cas de refus : risque de perte sur contrat en cas d'inflation carburant/main-d'œuvre.
 
 ## 💡 Points différenciants attendus
-- Parc de véhicules adaptés aux déficients sensoriels et capacité de remplacement rapide (exemple=Présenter un parc de véhicules spécifiquement équipés (boucles magnétiques, équipements visuels, accessibilité PMR) avec un engagement de véhicule de remplacement disponible sous 30 minutes sur la zone de Nantes., source=RC Article 4a)
-- Références en transport de publics vulnérables (déficients, PMR, établissements médico-sociaux) (exemple=Mettre en avant 3 références récentes de transport pour des établissements médico-sociaux ou spécialisés (ESMS, IME, SESSAD, ITEP), avec contacts vérifiables et volumes de circuits réalisés., source=RC Article 4a)
-- Engagements Développement Durable (flotte bas carbone, véhicules propres) (exemple=Décrire la proportion de véhicules électriques ou hybrides dans le parc affecté, les engagements de réduction d'émissions CO2, et les labels ou certifications environnementales obtenus., source=RC Article 4a)
-- Compétitivité tarifaire au kilomètre par type de véhicule (exemple=Proposer un prix au km optimisé en s'appuyant sur une analyse fine des circuits du DQE, en distinguant véhicule léger, véhicule adapté et minibus, pour maximiser le rapport qualité/prix sur les lots les plus kilométriques.)
+- Parc de véhicules à très faibles émissions (LOM) disponible dès le démarrage (exemple=Un candidat disposant d'un parc incluant des véhicules électriques ou hybrides rechargeables de moins de 5 ans pourra couvrir les ~25 lots identifiés LOM sans surcoût de location, et valoriser cet engagement DD dans son mémoire technique., source=CCTP art. 3d ; RC art. 4 (mémoire technique))
+- Capacité à assurer la continuité du service en cas d'absence du conducteur de référence (exemple=Présenter un pool de conducteurs remplaçants formés et disponibles sur la zone de Loire-Atlantique, avec un délai d'intervention inférieur à 30 minutes, est un argument fort vis-à-vis du CCAP art. 7 (pénalités sur défaillance) et du CCTP art. 2c., source=CCTP art. 2c ; CCAP art. 7)
+- Expérience prouvée dans le transport d'enfants en situation de handicap (ESMS, IME, IES) (exemple=Trois références détaillées de marchés de transport d'usagers en établissements médico-sociaux (IME, SESSAD, IES) en Loire-Atlantique ou départements voisins, avec volumes de km et dispositifs de sécurité similaires (securiseat, harnais, casques anti-bruit), démontrent la maîtrise des spécificités., source=RC art. 4 (mémoire technique))
+- Maîtrise des équipements de sécurité spécifiques (harnais, securiseat, siège auto groupe 2/3, casque anti-bruit) (exemple=Indiquer dans le mémoire technique les équipements détenus en stock propre et la procédure d'installation/vérification avant chaque trajet, en lien avec la formation dispensée par l'Institut (CCTP art. 4c), est un signal fort de professionnalisme., source=CCTP art. 3e ; CCTP art. 4c)
+- Stratégie de regroupement de lots géographiquement cohérents pour optimiser le prix au km (exemple=Un transporteur présent sur le sud-Loire (Clisson, Gorges, Gétigné, Vallet) peut mutualiser sa flotte sur les lots 9, 22, 34, 40, 41 et proposer un prix compétitif grâce à la réduction des km haut-le-pied, élément décisif avec une pondération prix de 80%.)

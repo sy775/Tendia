@@ -1,0 +1,672 @@
+{
+  "synthese_marche": "Marché de travaux pour la rénovation, l'extension et la mise aux normes PMR de l'Aire Permanente d'Accueil (APA) des gens du voyage de Saint-Médard-en-Jalles, conduit par Bordeaux Métropole. Le projet comprend la démolition et reconstruction de 8 blocs sanitaires, la rénovation du bâtiment d'accueil existant, la création de 15 emplacements de 200 m², la mise en place de réseaux VRD, clôtures, plantations et espaces communs. Les travaux concernent un site à réhabiliter entièrement avec de nouvelles constructions légères (blocs sanitaires en bac acier isolé) et rénovation lourde du bâtiment gestionnaire.",
+  "domaines_metier": [
+    {
+      "code": "btp_renovation_rehabilitation"
+    }
+  ],
+  "raison_classification": "Le marché porte sur la rénovation et extension d'une aire d'accueil existante des gens du voyage : démolition des blocs sanitaires existants, reconstruction neuve, réhabilitation du bâtiment d'accueil, VRD, clôtures, plantations. La dominante est clairement la réhabilitation lourde de bâti existant avec extensions, sans dimension énergétique thermique prépondérante justifiant 'energie_renovation_thermique', et sans caractère patrimonial.",
+  "caracteristiques_techniques_chantier": {
+    "description": "Rénovation, extension et mise aux normes PMR de l'Aire Permanente d'Accueil (APA) de Saint-Médard-en-Jalles : démolition totale de 8 blocs sanitaires existants et reconstruction neuve (7 blocs doubles + 1 bloc simple PMR), rénovation du bâtiment d'accueil (112 m²) avec redistribution intérieure, doublage CF1h, remplacement menuiseries/volets, mise aux normes PMR. Création de 15 emplacements de 200 m², voiries internes en enrobé et béton balayé, portail coulissant, clôtures béton et grillagées, espaces verts (haies champêtres, arbres), enclos poubelles, stationnement personnel. Réseaux CVC-plomberie (VMC, ballons ECS électriques, convecteurs, plomberie sanitaire), VRD, électricité.",
+    "typologie_ouvrage": "Aire permanente d'accueil des gens du voyage — bâtiment d'accueil + blocs sanitaires préfabriqués + VRD",
+    "surface_volume": "Bâtiment accueil : ~112 m² SHON ; 8 blocs sanitaires doubles/simples (~38 m² à ~42 m² chacun) ; surface totale site : ~8 098 m² (parcelles IS 30 + IS 56)",
+    "site_occupe": "Non précisé explicitement — un plan d'installation de chantier est prévu avec base de vie séparée, ce qui suggère un site potentiellement partiellement occupé ou à proximité de zone humide contraignante",
+    "corps_etat": [
+      "Gros œuvre / maçonnerie (fondations, dallages, murs béton clôtures)",
+      "Charpente / couverture bac acier isolé",
+      "Menuiseries extérieures acier / PVC",
+      "Plâtrerie / doublage CF1h / faux plafonds",
+      "Carrelage / revêtements de sol (R11, carrelage mural)",
+      "CVC-Plomberie (VMC, ECS électrique, convecteurs, plomberie sanitaire)",
+      "Électricité courants forts / courants faibles",
+      "VRD (voirie enrobé, béton balayé, grave stabilisée, réseaux EU/EV/EP/AEP)",
+      "Serrurerie / métallerie (portails, clôtures grillagées, volets acier)",
+      "Espaces verts / plantations (haies champêtres, arbres)",
+      "Démolition / dépose"
+    ],
+    "contraintes_specifiques": [
+      "Présence d'une zone humide avec bassin dense en végétation sur le site — contrainte environnementale",
+      "Terrain en pente légère avec cotes NGF variables (~40,80 à 42,67 NGF)",
+      "Réseaux enterrés existants (géoradar partiellement inexploitable — caravanes, brouillage signal)",
+      "Mise aux normes PMR obligatoire sur l'ensemble du site (accès, blocs sanitaires, bande de guidage, parkings)",
+      "Phasage chantier à prévoir avec installation de chantier sur site (base de vie + sanitaires de chantier)",
+      "Espace de manœuvre SDIS à maintenir dégagé",
+      "Prescriptions techniques Bordeaux Métropole (Cahier de Prescriptions Techniques V1.7 juillet 2023) applicables : CVC, électricité, GTB, etc."
+    ]
+  },
+  "allotissement": {
+    "description": "La structure en lots n'est pas explicitement détaillée dans les pièces transmises (pas de RC ni de CCAP fournis). Les plans CVC et le dossier de plans PRO-DCE suggèrent une décomposition en corps d'état classique. Le CPT de Bordeaux Métropole mentionne des lots CVC-Plomberie, Électricité, GTC-Régulation comme lots distincts.",
+    "nb_lots": null,
+    "lots_detailles": [
+      {
+        "numero": 1,
+        "intitule": "Démolition / Gros œuvre / VRD",
+        "corps_etat": "Démolition blocs sanitaires existants, fondations, dallages, murs béton, voiries enrobé/béton balayé, réseaux EU/EV/EP/AEP, clôtures béton",
+        "montant_estime": null,
+        "description": "Démolition totale des 8 blocs sanitaires, terrassements, fondations des nouveaux blocs, voiries et réseaux divers, portail coulissant, clôtures"
+      },
+      {
+        "numero": 2,
+        "intitule": "Bâtiment accueil — rénovation",
+        "corps_etat": "Rénovation bâtiment accueil : doublage CF1h, menuiseries, carrelage, faux plafonds, plâtrerie",
+        "montant_estime": null,
+        "description": "Réhabilitation intérieure et extérieure du bâtiment d'accueil existant : cloisonnement, doublage, menuiseries, carrelage"
+      },
+      {
+        "numero": 3,
+        "intitule": "Blocs sanitaires — construction neuve",
+        "corps_etat": "Construction des 8 nouveaux blocs sanitaires (charpente bac acier isolé, maçonnerie, carrelage, menuiseries)",
+        "montant_estime": null,
+        "description": "Construction des 7 blocs doubles et 1 bloc simple PMR en ossature bac acier isolé laine de roche 100mm, plafond plâtre, carrelage"
+      },
+      {
+        "numero": 4,
+        "intitule": "CVC-Plomberie",
+        "corps_etat": "Plomberie sanitaire, VMC, ECS électrique, convecteurs, chauffage",
+        "montant_estime": null,
+        "description": "Ballons ECS électriques, VMC extracteurs de conduit, convecteurs soufflants, robinetterie, réseaux EF/ECS/EU/EV"
+      },
+      {
+        "numero": 5,
+        "intitule": "Électricité courants forts / courants faibles",
+        "corps_etat": "Électricité",
+        "montant_estime": null,
+        "description": "Alimentation électrique des blocs sanitaires et bâtiment accueil, éclairage, prises, tableau divisionnaire"
+      },
+      {
+        "numero": 6,
+        "intitule": "Espaces verts / plantations",
+        "corps_etat": "Espaces verts",
+        "montant_estime": null,
+        "description": "Haies champêtres mixtes (Elaeagnus, Photinia, Carpinus, Cornus, Viburnum, Ligustrum), arbres (Quercus ilex, Acer campestre), gazon rustique, bancs béton"
+      }
+    ]
+  },
+  "qualifications_requises": {
+    "description": "Aucun RC ni CCAP fourni — les qualifications exigées ne sont pas explicitement listées dans les pièces transmises. Les qualifications suivantes sont attendues au regard des corps d'état mobilisés et des prescriptions techniques Bordeaux Métropole.",
+    "qualibat": [],
+    "rge": false,
+    "rge_specialites": [],
+    "mase": false,
+    "iso_9001": false,
+    "iso_14001": false,
+    "iso_45001": false,
+    "opqibi": null,
+    "autres_certifications": []
+  },
+  "caracteristiques_mission_moe": {
+    "typologie": null,
+    "phases_couvertes": [],
+    "typologie_ouvrage": null,
+    "montant_travaux_estime": null,
+    "complexite_technique": null,
+    "livrables_par_phase": [],
+    "taux_remuneration_moe_pct": null,
+    "indices_revision": [],
+    "coordinations_associees": [],
+    "organigramme_attendu": [],
+    "bim_niveau": null
+  },
+  "qualifications_moe": {
+    "opqibi": [],
+    "opqcm": [],
+    "bim": null,
+    "autres": []
+  },
+  "bareme_notation": {
+    "valeur_technique_pct": null,
+    "valeur_prix_pct": null,
+    "sous_criteres_techniques": [],
+    "prix": {
+      "type_formule": "autre",
+      "formule_explicite": "Non communiquée — le RC n'est pas fourni dans les pièces analysées",
+      "elements_a_chiffrer": [
+        "Démolition des 8 blocs sanitaires existants",
+        "Fourniture et pose des 8 nouveaux blocs sanitaires (7 doubles + 1 simple PMR)",
+        "Rénovation du bâtiment d'accueil (~112 m²)",
+        "Voiries et réseaux divers (enrobé, béton balayé, grave stabilisée, EU/EV/EP/AEP)",
+        "Clôtures (béton ht 160, grillagées rigides ht 160, portail coulissant L8m)",
+        "CVC-Plomberie (VMC, ballons ECS, convecteurs, plomberie)",
+        "Électricité (TGBT, éclairage, prises, éclairage extérieur)",
+        "Espaces verts (haies champêtres, arbres, gazon rustique, bancs béton)",
+        "Installation de chantier"
+      ]
+    },
+    "modalite_calcul_prix": "Non communiquée — RC absent des pièces transmises"
+  },
+  "montant_marche": {
+    "valeur_estimee_euros": null,
+    "fourchette_min_euros": null,
+    "fourchette_max_euros": null,
+    "type": "non_communique",
+    "duree_couverte": null,
+    "source_extraction": null,
+    "commentaire": "Aucun montant estimé n'est mentionné dans les pièces transmises (dossier de plans PRO-DCE, CPT Bordeaux Métropole, plan CVC-Plomberie). Le RC et le CCAP ne sont pas fournis."
+  },
+  "revision_prix": {
+    "type": "non_communique",
+    "indices_utilises": [],
+    "ponderation": null,
+    "periodicite": null,
+    "formule_revision": null,
+    "source_extraction": null,
+    "commentaire": "Le CCAP n'est pas fourni dans les pièces analysées. Les indices de révision ne peuvent être déterminés."
+  },
+  "alertes_prix": [
+    "Le montant estimé du marché n'est pas communiqué dans les pièces transmises — risque de sous-estimation du chiffrage sans consultation préalable du site.",
+    "Présence d'une zone humide avec bassin sur le site : risque de surcoûts liés aux contraintes environnementales et à la gestion des eaux en phase chantier.",
+    "Signal géoradar perturbé sur une partie du site (caravanes, brouillage) : incertitude sur les réseaux enterrés existants pouvant générer des travaux supplémentaires.",
+    "15 emplacements de 200 m² à créer partiellement (surfaces en extension variables de 44 à 165 m²) : quantitatifs à vérifier précisément sur les plans avant chiffrage."
+  ],
+  "references_exigees": {
+    "experience_minimale_annees": null,
+    "experience_source": null,
+    "volume_min_references_similaires": null,
+    "volume_min_references_unite": null,
+    "secteur_experience": "Réhabilitation et construction de bâtiments d'accueil collectif et d'équipements sanitaires, VRD, mise aux normes PMR",
+    "secteur_source": null,
+    "certifications_obligatoires": [],
+    "autres_exigences": []
+  },
+  "lots": [
+    {
+      "numero": 1,
+      "intitule": "Travaux de rénovation, extension et mises aux normes PMR de l'APA de Saint-Médard-en-Jalles",
+      "zone_geographique": "Saint-Médard-en-Jalles (33160) — 93 Avenue de Mazeau",
+      "volume_estime": null,
+      "volume_estime_unite": null,
+      "particularites": "Marché apparemment en entreprise générale ou allotissement corps d'état — structure de lot non précisée dans les pièces fournies. Site avec zone humide classée. Prescriptions techniques Bordeaux Métropole obligatoires (CPT V1.7 juillet 2023)."
+    }
+  ],
+  "calendrier": {
+    "date_limite_offres": "2026-07-08",
+    "date_demarrage_prevue": null,
+    "duree_marche": null
+  },
+  "alertes_candidat": [
+    "Le RC et le CCAP ne sont pas fournis dans les pièces analysées — les exigences de qualification, les critères de sélection et les conditions administratives ne peuvent être vérifiés : télécharger impérativement le dossier complet sur la plateforme de dématérialisation.",
+    "Présence d'une zone humide avec bassin dense sur le site : des contraintes réglementaires (Loi sur l'Eau, dossier IOTA) peuvent s'appliquer et nécessiter des mesures de protection ou compensatoires.",
+    "Signal géoradar fortement perturbé sur une partie du site (caravanes, signal brouillé) : incertitude sur les réseaux enterrés existants — une visite de site préalable au dépôt est fortement recommandée.",
+    "Mise aux normes PMR intégrale obligatoire (bandes de guidage, espaces sanitaires PMR, stationnement PMR, portillon PMR) : vérifier la maîtrise des exigences réglementaires d'accessibilité sur l'ensemble du site.",
+    "Le Cahier de Prescriptions Techniques Bordeaux Métropole (V1.7 juillet 2023) est opposable et très détaillé (GTB, CVC, électricité, VDI, SSI, portes motorisées) : toute dérogation doit être justifiée et soumise à validation."
+  ],
+  "points_differenciants_attendus": [
+    {
+      "libelle": "Maîtrise des contraintes environnementales liées à la zone humide",
+      "exemple": "Proposer un plan de gestion des eaux de chantier avec batardeau ou pompage contrôlé, et justifier la non-destruction de la zone humide par un plan de protection écologique.",
+      "source": null
+    },
+    {
+      "libelle": "Expérience en construction de blocs sanitaires pour aires d'accueil des gens du voyage",
+      "exemple": "Présenter des références de réalisations d'aires d'accueil similaires (blocs sanitaires bac acier isolé, mise aux normes PMR, VRD) réalisées pour des collectivités dans les 5 dernières années.",
+      "source": null
+    },
+    {
+      "libelle": "Conformité aux prescriptions techniques Bordeaux Métropole (CPT V1.7)",
+      "exemple": "Démontrer la maîtrise des exigences spécifiques du CPT Bordeaux Métropole : codification des équipements techniques, prescriptions CVC (PAC, VMC double flux si applicable), prescriptions électricité (TGBT, éclairage LED gradable, GTB BACnet).",
+      "source": "3- Cahier de prescriptions Techniques.pdf"
+    },
+    {
+      "libelle": "Phasage chantier et gestion de la coactivité",
+      "exemple": "Proposer un phasage démolition/reconstruction permettant de maintenir une partie du site opérationnelle si nécessaire, avec un plan d'installation de chantier détaillé intégrant l'espace de manœuvre SDIS.",
+      "source": "24-32c - PRO-DCE - 01 DOSSIER DE PLANS.pdf — page 15 (installation de chantier)"
+    },
+    {
+      "libelle": "Intégration paysagère et qualité des espaces collectifs",
+      "exemple": "Mettre en avant la maîtrise des essences proposées (haies champêtres mixtes autochtones, arbres de haute tige), la durabilité du gazon rustique et la cohérence des choix paysagers avec le contexte périurbain.",
+      "source": "24-32c - PRO-DCE - 01 DOSSIER DE PLANS.pdf — pages 34-35 (plan plantations)"
+    }
+  ],
+  "_meta": {
+    "id_marche": "BOAMP-26-56674",
+    "type": "complet",
+    "date_generation": "2026-06-14T23:01:20.303073+00:00",
+    "extraction_le": "2026-06-14T23:01:20.303073+00:00",
+    "modele": "claude-sonnet-4-6",
+    "preset_utilise": "btp",
+    "presets_matches": [
+      "btp",
+      "ingenierie"
+    ],
+    "prompts_versions": {
+      "btp/_preset.json": "sha256:d1717e0d87f6c265",
+      "ingenierie/_preset.json": "sha256:56f813f829343e24"
+    },
+    "tokens_input": 163194,
+    "tokens_output": 4875,
+    "cout_eur": 0.5346,
+    "duree_sec": 89.6,
+    "pdfs_traites": [
+      {
+        "nom": "1-calendrier prévisionnel d'exécution.pdf",
+        "hash": "055d69d868d062e212fbf981027fd9b6",
+        "taille_chars": 3150
+      },
+      {
+        "nom": "2- charte chantiers propres 2018.pdf",
+        "hash": "1f3688aed46847bd70e1dc7db52f16cb",
+        "taille_chars": 0
+      },
+      {
+        "nom": "24-32c - PRO-DCE - 01 DOSSIER DE PLANS.pdf",
+        "hash": "f447ba4b20479802d6e84bc4503cb5e8",
+        "taille_chars": 47387
+      },
+      {
+        "nom": "24-32c - PRO-DCE - 02 PLAN MASSE.pdf",
+        "hash": "8380771c1cffe537810552f475de9ac6",
+        "taille_chars": 2460
+      },
+      {
+        "nom": "24-32c - PRO-DCE - 03 PLAN IMPLANTE.pdf",
+        "hash": "544f05bfc0a21d9ba792e12772aa4b3c",
+        "taille_chars": 2234
+      },
+      {
+        "nom": "3- Cahier de prescriptions Techniques.pdf",
+        "hash": "6b695d42a92646ee7cc89ad60c4a959c",
+        "taille_chars": 343524
+      },
+      {
+        "nom": "53-24062-DCE-APA SMD-ELEC-SYN01.pdf",
+        "hash": "4fd41e6485222960d82e15b1e7408063",
+        "taille_chars": 1805
+      },
+      {
+        "nom": "53-24062-DCE-APA SMD-PLAN CVC01.pdf",
+        "hash": "b1b8c05ab5d4910c4f2e260c2c91b240",
+        "taille_chars": 16219
+      },
+      {
+        "nom": "53-24062-DCE-APA SMD-PLAN EL01.pdf",
+        "hash": "3b3b0b37ccd22978116368c6ec6b7297",
+        "taille_chars": 5329
+      },
+      {
+        "nom": "53-24062-DCE-APA SMD-PLAN GO01.pdf",
+        "hash": "b3f6583aed85ac4a510314d8ac407384",
+        "taille_chars": 0
+      },
+      {
+        "nom": "53-24062-DCE-APA SMD-PLAN VRD_00 - Etat des lieux.pdf",
+        "hash": "9d3339fadbd9958b95198ccab01ec08a",
+        "taille_chars": 21396
+      },
+      {
+        "nom": "53-24062-DCE-APA SMD-PLAN VRD_01 - Bordures clôtures.pdf",
+        "hash": "c6dcc89540a98b7bc179ac297629e8c1",
+        "taille_chars": 4162
+      },
+      {
+        "nom": "53-24062-DCE-APA SMD-PLAN VRD_02 - Assainissement.pdf",
+        "hash": "119290df3babd1008ffb867208175fc1",
+        "taille_chars": 7286
+      },
+      {
+        "nom": "53-24062-DCE-APA SMD-PLAN VRD_03 - Réseaux divers.pdf",
+        "hash": "7596333f8980639e7ef882b5d9926542",
+        "taille_chars": 1447
+      },
+      {
+        "nom": "9- PGC.pdf",
+        "hash": "6b938157b75c2c9b4da808f379246204",
+        "taille_chars": 107326
+      },
+      {
+        "nom": "AE_01.docx",
+        "hash": "40886a70d52eb20c6e2ed46b9bb30dfa",
+        "taille_chars": 18480
+      },
+      {
+        "nom": "AE_02.docx",
+        "hash": "ddf776cf4d990ea61ce910c8a5abcfa5",
+        "taille_chars": 18303
+      },
+      {
+        "nom": "AE_03.docx",
+        "hash": "081efc32c2a194c28d5bc4ea5af76c77",
+        "taille_chars": 17995
+      },
+      {
+        "nom": "AE_04.docx",
+        "hash": "63b8bfeea2f79cf82fa4b663e0a3fb05",
+        "taille_chars": 18292
+      },
+      {
+        "nom": "AE_05.docx",
+        "hash": "1c3c166c18ee9270bf5837fdbfd77537",
+        "taille_chars": 18282
+      },
+      {
+        "nom": "AE_06.docx",
+        "hash": "c46be19e3182036f4a99b5fe2a807a00",
+        "taille_chars": 18311
+      },
+      {
+        "nom": "AE_07.docx",
+        "hash": "d5953288f078d7b112b67f116c17805a",
+        "taille_chars": 18300
+      },
+      {
+        "nom": "AE_08.docx",
+        "hash": "1008fb3345d5e5364517aa11c88b96d6",
+        "taille_chars": 18442
+      },
+      {
+        "nom": "AE_09.docx",
+        "hash": "1bd25c90a7f47652bc5ad4fdcb377564",
+        "taille_chars": 18283
+      },
+      {
+        "nom": "AE_10.docx",
+        "hash": "ba56eb0fc6605a8f9a47b89d21492dfe",
+        "taille_chars": 18265
+      },
+      {
+        "nom": "AE_11.docx",
+        "hash": "33c7b5ab7a4cbc5dc128e18d32408917",
+        "taille_chars": 18295
+      },
+      {
+        "nom": "AE_12.docx",
+        "hash": "d3168e14743899b0e5fe5caf6c297fbb",
+        "taille_chars": 18292
+      },
+      {
+        "nom": "AE_Annexe2_Insertion professionnelle.docx",
+        "hash": "71b097f2440c710c4ad6ef030f63fdab",
+        "taille_chars": 6207
+      },
+      {
+        "nom": "AWS-MPI-1832419-RC.pdf",
+        "hash": "8d6e41d9040599be00e0fd833b119c6d",
+        "taille_chars": 42268
+      },
+      {
+        "nom": "Annexe au règlement de consultation questionnaire égalité diversité.docx",
+        "hash": "6190ad7f7246a095a35752ba7211868b",
+        "taille_chars": 5537
+      },
+      {
+        "nom": "CCAP VF.pdf",
+        "hash": "658633bd4d155534dae44ce9376fb016",
+        "taille_chars": 101723
+      },
+      {
+        "nom": "CCAP_Annexe1_EDIFLEX.PDF",
+        "hash": "6d6476fd7b01bd535a878b9e85d85d44",
+        "taille_chars": 14033
+      },
+      {
+        "nom": "CCAP_Annexe2_Charte DOE.pdf",
+        "hash": "adc2fccdf88a7b3fc764d9e91967d1ec",
+        "taille_chars": 15066
+      },
+      {
+        "nom": "CCTP GENERALITES.pdf",
+        "hash": "f680e58453aedeff821895f77bd98fdc",
+        "taille_chars": 34255
+      },
+      {
+        "nom": "CCTP LOT 01-IND B.pdf",
+        "hash": "d4dafc0710d40a5316a3aa0d0df484d6",
+        "taille_chars": 156313
+      },
+      {
+        "nom": "CCTP LOT 02.pdf",
+        "hash": "9b2831d3f95d0a00e510f0ad5ce5de43",
+        "taille_chars": 20370
+      },
+      {
+        "nom": "CCTP LOT 03.pdf",
+        "hash": "b55a48700027063d313215770ce0473a",
+        "taille_chars": 33538
+      },
+      {
+        "nom": "CCTP LOT 04.pdf",
+        "hash": "8d3b5bd02bbcaf461f63b4f3b207a6a8",
+        "taille_chars": 37049
+      },
+      {
+        "nom": "CCTP LOT 05.pdf",
+        "hash": "aed70e736e12887d25ff7b8027d9be21",
+        "taille_chars": 44036
+      },
+      {
+        "nom": "CCTP LOT 06.pdf",
+        "hash": "40836aa6539758245159843003f893b6",
+        "taille_chars": 31409
+      },
+      {
+        "nom": "CCTP LOT 07-ANN01.pdf",
+        "hash": "48ccfbf50378ad36967c56642af926c5",
+        "taille_chars": 4063
+      },
+      {
+        "nom": "CCTP LOT 07-ANN02.pdf",
+        "hash": "0d70e2ae1cd7072322cc180552ee8d8f",
+        "taille_chars": 11852
+      },
+      {
+        "nom": "CCTP LOT 07-IND A.pdf",
+        "hash": "b666d8a458f5fdd4713d00dd4215d141",
+        "taille_chars": 129579
+      },
+      {
+        "nom": "CCTP LOT 08-IND B.pdf",
+        "hash": "712c289ea9fdd0b75fae0774c1481c76",
+        "taille_chars": 125981
+      },
+      {
+        "nom": "CCTP LOT 09.pdf",
+        "hash": "dbbd6c2fb81ec12d3c9350c60eb35d3a",
+        "taille_chars": 36026
+      },
+      {
+        "nom": "CCTP LOT 10.pdf",
+        "hash": "e9f4536ce3883ddb9e51b9a0a749bd57",
+        "taille_chars": 32843
+      },
+      {
+        "nom": "CCTP LOT 11.pdf",
+        "hash": "dbfb6fec56febe2d88b6770b0b312121",
+        "taille_chars": 74649
+      },
+      {
+        "nom": "CCTP LOT 12-IND A.pdf",
+        "hash": "b6b8eed62049d9eb73b4afacd59c4a19",
+        "taille_chars": 114042
+      },
+      {
+        "nom": "Certif_visite.docx",
+        "hash": "2df49582ed81ff9c38a70683cbde191a",
+        "taille_chars": 441
+      },
+      {
+        "nom": "DC1-2019  (1).docx",
+        "hash": "2faff49d85097f0536eaf176eb26735a",
+        "taille_chars": 9465
+      },
+      {
+        "nom": "DC2-2019  (2).docx",
+        "hash": "73c12aba3dc7a7aafb7bf20c9433d48f",
+        "taille_chars": 19176
+      },
+      {
+        "nom": "DIAGNOSTIC  sediments et eaux superficielles.pdf",
+        "hash": "ac062769b8feb7c700eae16bc0b9dace",
+        "taille_chars": 97896
+      },
+      {
+        "nom": "DIAGNOSTIC AMIANTE.pdf",
+        "hash": "dd2693c261dbf44c733bd51f4fe3f046",
+        "taille_chars": 89024
+      },
+      {
+        "nom": "DIAGNOSTIC ETAT PARASITAIRE.pdf",
+        "hash": "7528edbc72caf4cd962e3efc9d46471b",
+        "taille_chars": 18787
+      },
+      {
+        "nom": "DIAGNOSTIC PLOMB.pdf",
+        "hash": "f8eb0200b2be85972b36ef60cdf0995c",
+        "taille_chars": 30382
+      },
+      {
+        "nom": "DPGF LOT 01-IND A.xlsx",
+        "hash": "a8328d72c77f93b0c58371b6f05dc248",
+        "taille_chars": 8701
+      },
+      {
+        "nom": "DPGF LOT 02.xlsx",
+        "hash": "ef51f39fd3aed174c8d1acf8701e6a11",
+        "taille_chars": 1333
+      },
+      {
+        "nom": "DPGF LOT 03.xlsx",
+        "hash": "205a17d0d194edd6c9442194b8585071",
+        "taille_chars": 1369
+      },
+      {
+        "nom": "DPGF LOT 04.xlsx",
+        "hash": "cec9409bde1577ded04e986b185e2f7c",
+        "taille_chars": 1562
+      },
+      {
+        "nom": "DPGF LOT 05.xlsx",
+        "hash": "b5477401a9b8b295aa79844db8a7c9e7",
+        "taille_chars": 2814
+      },
+      {
+        "nom": "DPGF LOT 06.xlsx",
+        "hash": "c7bc91b74e920300486ab11773dcbf8d",
+        "taille_chars": 1780
+      },
+      {
+        "nom": "DPGF LOT 07- IND A.xlsx",
+        "hash": "33fba62cebff1f1234393a0ff13b027d",
+        "taille_chars": 29371
+      },
+      {
+        "nom": "DPGF LOT 08.xlsx",
+        "hash": "cd5887755258e9f56fc616fa1e39c6fd",
+        "taille_chars": 9383
+      },
+      {
+        "nom": "DPGF LOT 09.xlsx",
+        "hash": "0118cf206f37a68f532834d3a5a0ae53",
+        "taille_chars": 2128
+      },
+      {
+        "nom": "DPGF LOT 10.xlsx",
+        "hash": "4b68c3f2ae6ec58aa9599523dc610534",
+        "taille_chars": 2142
+      },
+      {
+        "nom": "DPGF LOT 11.xlsx",
+        "hash": "691cb64b4d572588131b7d7a4ed3d159",
+        "taille_chars": 3261
+      },
+      {
+        "nom": "DPGF LOT 12- IND A.xlsx",
+        "hash": "12f464104b18508a2b98d1959dc98351",
+        "taille_chars": 5605
+      },
+      {
+        "nom": "Flyer accés DACP rue H Labit.pdf",
+        "hash": "6dd36c80f7e780c1bdf1952d1ae6375b",
+        "taille_chars": 0
+      },
+      {
+        "nom": "INFO AUX ENTREPRISES_2019_v15-2.pdf",
+        "hash": "8425291ee157a95e590952a41d693ec6",
+        "taille_chars": 4320
+      },
+      {
+        "nom": "Informations évolutions AE.pdf",
+        "hash": "53ec4843c484df1c96541666582969fa",
+        "taille_chars": 1690
+      },
+      {
+        "nom": "MPI1832419_AAPC.pdf",
+        "hash": "69ba687f995665f87f119ec1f00ff9c7",
+        "taille_chars": 6325
+      },
+      {
+        "nom": "R-INC-01 Rév1.pdf",
+        "hash": "95fc343c247b006c4f758c6e184e78bb",
+        "taille_chars": 29036
+      },
+      {
+        "nom": "RAPPORT ETUDE GEOTECHNIQUE PHASE AV PROJET.pdf",
+        "hash": "2b8a5ced719cf0aebb0c0beea6cd4d65",
+        "taille_chars": 97506
+      },
+      {
+        "nom": "RAPPORT ETUDE GEOTECHNIQUE PHASE PRPO.pdf",
+        "hash": "652d2f89f8c5214ad5660fd5ce233440",
+        "taille_chars": 56920
+      },
+      {
+        "nom": "RAPPORT MISSION PLANCHER BAS.pdf",
+        "hash": "a920a935edfa58161a44c06612619ce7",
+        "taille_chars": 6637
+      },
+      {
+        "nom": "RC_Annexe 1_enquête égalité diversité.docx",
+        "hash": "9e2744f4b9b6654d423cf4d9ed9b713f",
+        "taille_chars": 5537
+      },
+      {
+        "nom": "RICT Rév1.pdf",
+        "hash": "b4d56b662465226061e75b4b208bddd4",
+        "taille_chars": 18865
+      },
+      {
+        "nom": "arrete_DECISION_1_1.pdf",
+        "hash": "f65e2a2e1d386b24de36b058f0bb44ff",
+        "taille_chars": 0
+      },
+      {
+        "nom": "avis_BORDEAUXMETROPOLEDIRECTIONTERRITORIALEOUEST_1_1.pdf",
+        "hash": "c1d87f42e580c6904ef013ad8b1aeb4a",
+        "taille_chars": 36718
+      },
+      {
+        "nom": "avis_BORDEAUXMETROPOLEDIRECTIONTERRITORIALEOUEST_1_2.pdf",
+        "hash": "c1d87f42e580c6904ef013ad8b1aeb4a",
+        "taille_chars": 36718
+      },
+      {
+        "nom": "avis_SERV15_1_1.pdf",
+        "hash": "2339905558985dc16f1ccf8d5947c691",
+        "taille_chars": 0
+      },
+      {
+        "nom": "avis_SERV15_1_2.pdf",
+        "hash": "2339905558985dc16f1ccf8d5947c691",
+        "taille_chars": 0
+      },
+      {
+        "nom": "avis_SERV33_2_1.pdf",
+        "hash": "90b51310c1a53d7351578fc96bd531ae",
+        "taille_chars": 2321
+      },
+      {
+        "nom": "avis_SERV33_2_2.pdf",
+        "hash": "90b51310c1a53d7351578fc96bd531ae",
+        "taille_chars": 2321
+      },
+      {
+        "nom": "avis_SERV96_2_1.pdf",
+        "hash": "104e760bcfc8bbd9b17e5c6f8884eb44",
+        "taille_chars": 0
+      },
+      {
+        "nom": "avis_SERV96_2_2.pdf",
+        "hash": "104e760bcfc8bbd9b17e5c6f8884eb44",
+        "taille_chars": 0
+      }
+    ]
+  }
+}

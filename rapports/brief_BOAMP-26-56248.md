@@ -1,6 +1,6 @@
 # Brief — Missions de coordination en matière de sécurité et de protection de la santé pour des travaux sur les routes départementales Années 2026/2030
 
-_Généré le 2026-06-12 15:49 par Claude claude-sonnet-4-6_
+_Généré le 2026-06-14 23:40 par Claude claude-sonnet-4-6_
 
 ## Identifiants
 - **ID Tendia** : `BOAMP-26-56248`
@@ -11,55 +11,67 @@ _Généré le 2026-06-12 15:49 par Claude claude-sonnet-4-6_
 - **DCE PLACE** : <https://marches.ternum-bfc.fr/entreprise/consultation/690358?orgAcronyme=t5s>
 
 ## Synthèse
-Le Département de Saône-et-Loire recherche un prestataire pour assurer des missions de coordination en matière de sécurité et de protection de la santé (CSPS) pour des travaux sur les routes départementales sur la période 2026-2030. Le marché est un accord-cadre à bons de commande sans minimum avec un maximum de 150 000 € HT par an, couvrant les phases de conception et/ou réalisation pour des opérations de catégorie 2 ou 3. Il s'agit d'une procédure d'appel d'offres ouvert, sans allotissement, d'une durée initiale d'un an reconductible 3 fois.
+Le Département de Saône-et-Loire lance un accord-cadre à bons de commande pour des missions de coordination en matière de sécurité et de protection de la santé (CSPS) pour des travaux sur les routes départementales, y compris ouvrages d'art, pour la période 2026-2030. Les missions couvrent les phases de conception et/ou réalisation pour des opérations de catégorie 2 et 3. Le marché est sans minimum et avec un plafond de 150 000 € HT par an, reconductible tacitement 3 fois.
 
 ## 🏗 Chantier — caractéristiques BTP
-- **Description** : Missions de coordination SPS pour des travaux sur les routes départementales de Saône-et-Loire, couvrant les catégories 2 et 3 au sens de l'article R4532-1 du Code du travail. Les missions peuvent concerner soit les phases de conception et réalisation, soit une seule de ces phases.
-- **Type d'ouvrage** : Routes départementales (voirie et réseaux)
-- **Site occupé pendant travaux** : Non applicable (travaux de voirie en milieu ouvert)
+- **Description** : Missions de coordination SPS pour travaux sur routes départementales du département de Saône-et-Loire, incluant les ouvrages d'art. Les interventions concernent des opérations de 2ème et 3ème catégorie selon l'article R.4532-1 du Code du travail.
+- **Type d'ouvrage** : Routes départementales et ouvrages d'art (génie civil routier)
+- **Site occupé pendant travaux** : Non applicable (infrastructure routière en exploitation)
 - **Contraintes spécifiques** :
-  - Opérations de catégorie 2 ou 3 selon R4532-1 du Code du travail
-  - Continuité de service exigée : minimum 2 coordonnateurs pour les phases conception et réalisation
-  - Missions sur l'ensemble du territoire des routes départementales de Saône-et-Loire
-  - Accord-cadre à bons de commande : volume et localisation des missions non prévisibles
+  - Opérations de catégorie 2 (avec déclaration préalable et CISSCT) et catégorie 3
+  - Territorie étendu — département de Saône-et-Loire
+  - Missions pouvant couvrir uniquement la phase conception, uniquement la phase réalisation, ou les deux phases
+  - Possibilité de danger grave et imminent sur chantier routier en exploitation
+  - Coordonnateur autorisé à arrêter tout ou partie du chantier en cas de danger grave
+  - Présence terrain requise aussi souvent que nécessaire
 
 ### Allotissement
-Marché sans allotissement — prestation unique
+Marché non alloti — lot unique. La dévolution en lots séparés est de nature à restreindre la concurrence ou risque de rendre techniquement difficile ou financièrement plus coûteuse l'exécution des prestations.
 - **Nombre de lots** : 1
-- **Lot 1** — Missions de coordination SPS pour travaux sur routes départementales
-  - Corps d'état : Coordination SPS
-  - Missions CSPS phases conception et/ou réalisation pour opérations de catégorie 2 ou 3 sur les routes départementales de Saône-et-Loire — accord-cadre à bons de commande, maximum 150 000 € HT/an
+- **Lot 1** — Missions de coordination SPS pour travaux sur routes départementales Années 2026/2030
+  - Corps d'état : Coordination SPS (prestations intellectuelles)
+  - Accord-cadre à bons de commande — missions CSPS phases conception et/ou réalisation, catégories 2 et 3, sur l'ensemble du territoire du Département de Saône-et-Loire
 
 ### Qualifications BTP exigées
-Attestations de compétences CSPS de niveau 2 minimum pour les phases conception et réalisation, obtenues auprès d'organismes dont l'agrément est valide à la date de remise de l'offre. Obligation de présenter au minimum 2 coordonnateurs pour les phases conception et réalisation.
+Attestation de compétences CSPS niveau 2 minimum exigée pour toutes les personnes affectées à l'exécution (titulaires et suppléants), délivrée par un organisme dont l'agrément est valide à la date de remise de l'offre. Minimum 2 coordonnateurs.
+- **MASE** : non
 - **Autres exigences** :
-  - Attestation de compétences CSPS niveau 2 minimum phases conception et réalisation (RC art. 5-1)
+  - Attestation de compétences CSPS niveau 2 minimum (phases conception et réalisation) — organisme agréé valide
 
 ## 🧮 Mission MOE / ingénierie
-- **Typologie de mission** : Coordination SPS (CSPS) phases conception et réalisation
-- **Type d'ouvrage** : Routes départementales (infrastructures routières)
+- **Typologie de mission** : Mission de coordination SPS (CSPS) phases conception et/ou réalisation, catégories 2 et 3
+- **Type d'ouvrage** : Routes départementales et ouvrages d'art (génie civil)
 - **Complexité technique** : standard
+- **Phases couvertes** : conception, réalisation
 - **Livrables par phase** :
   - **Conception** :
-    - PGCSPS (Plan Général de Coordination SPS) pour catégorie 2
-    - PGCSPS simplifié pour catégorie 3 avec risques
+    - Plan Général de Coordination (PGC) pour catégorie 2
     - Notice de sécurité et de protection de la santé pour catégorie 3
+    - Dossier d'Intervention Ultérieure sur l'Ouvrage (DIUO)
+    - Registre-journal de coordination (ouverture)
+    - Avis consultatif sur les offres des entreprises
+    - Dossier de fin de mission en phase conception (2 ex. MO + 1 ex. MOE)
   - **Réalisation** :
-    - DIUO (Dossier d'Intervention Ultérieure sur l'Ouvrage) pour catégorie 2
-    - Suivi et coordination de chantier SPS
+    - Mise à jour du Plan Général de Coordination (PGC)
+    - Gestion des PPSPS (réception, visa, diffusion)
+    - Compléments au DIUO — remise au MO en 2 exemplaires
+    - Fiches de passage pour chaque visite de chantier
+    - Registre-journal de coordination tenu à jour
+    - Dossier de fin de mission en phase réalisation (2 ex. MO + 1 ex. MOE)
+- **Indices révision** : ING — Ingénierie (Moniteur des Travaux Publics et du Bâtiment)
 - **Organigramme attendu** :
-  - Coordonnateur SPS niveau 2 minimum (phases conception et réalisation) ×2
-  - Coordonnateur SPS suppléant (continuité de service)
+  - Coordonnateur SPS titulaire — attestation de compétences niveau 2 minimum (phases conception et réalisation) ×1
+  - Coordonnateur SPS suppléant — attestation de compétences niveau 2 minimum (phases conception et réalisation) ×1
 
 ### Qualifications MOE exigées
 - **Autres exigences** :
-  - Attestation de compétences CSPS niveau 2 minimum pour les phases conception et réalisation, délivrée par un organisme agréé valide à la date de remise de l'offre (RC art. 5-1)
+  - Attestation de compétences CSPS niveau 2 minimum (phases conception et réalisation) délivrée par un organisme agréé valide — minimum 2 coordonnateurs
 
 ## 💶 Montant du marché
 - **Fourchette** : entre ? et 600 000 €
-  - sur 4 ans maximum (1 an ferme + 3 reconductions annuelles) — 150 000 € HT/an maximum
-  - _source : RC art. 2-3 page 3_
-- _Note_ : Accord-cadre sans minimum et avec maximum de 150 000 € HT par an. Sur la durée maximale de 4 ans : plafond total estimé à 600 000 € HT. Pas de montant minimum garanti.
+  - sur 4 ans maximum (1 an reconductible 3 fois)
+  - _source : CCAP article 2-2 et RC article 2-3 : plafond de 150 000 € HT par an, durée maximale 4 ans_
+- _Note_ : Accord-cadre sans minimum. Plafond de 150 000 € HT/an, soit 600 000 € HT maximum sur 4 ans. Aucun montant minimum garanti.
 
 ## Barème de notation
 - **Valeur technique** : 30 %
@@ -68,25 +80,26 @@ Attestations de compétences CSPS de niveau 2 minimum pour les phases conception
   - Qualité et pertinence des moyens humains affectés à la prestation : 10 %
   - Qualité et pertinence des procédés et moyens d'exécution envisagés : 10 %
   - Qualité des dossiers exemple : 10 %
-- **Calcul du prix** : Note prix = 70 × (montant moins-disant / montant de l'offre jugée), jugé au vu du DEIA complété par les candidats.
+- **Calcul du prix** : Note prix = 70 × (montant moins-disant / montant offre jugée), jugé au vu du DEIA complété par les candidats
 
 ## Références et qualifications exigées
-- **Expérience minimale** : 3 ans
-- **Secteur d'expérience** : Prestations de coordination SPS similaires (missions CSPS sur travaux de voirie/routes ou travaux publics, datant de moins de 3 ans)
-- **Certifications obligatoires** : Attestation de compétences CSPS de niveau 2 minimum pour les phases de conception et réalisation, obtenue auprès d'un organisme dont l'agrément est valide à la date de remise de l'offre — obligation de produire les attestations d'au moins 2 coordonnateurs (source=RC art. 5-1)
+- **Expérience minimale** : —
+- **Secteur d'expérience** : Coordination SPS pour des opérations de bâtiment ou de génie civil (références datant de moins de 3 ans)
+- **Certifications obligatoires** : Attestation de compétences CSPS niveau 2 minimum pour les phases conception et réalisation, délivrée par un organisme dont l'agrément est valide à la date de remise de l'offre — minimum 2 coordonnateurs (titulaire + suppléant) (source=RC article 5-1)
 - **Autres exigences** :
-  - Attestation d'assurance de responsabilité civile à fournir avant la notification du contrat (source=RC art. 5-1)
-  - Attestations de régularité fiscale et sociale à produire dans un délai maximum de 7 jours francs si non fournies à l'appui de la candidature (source=RC art. 5-1)
+  - Références datant de moins de 3 ans et/ou qualifications de l'entreprise pour des prestations similaires (source=RC article 5-1)
+  - Description des moyens humains et matériels du candidat (source=RC article 5-1)
+  - Attestation d'assurance de responsabilité civile à fournir avant la notification du contrat (source=RC article 5-1 et CCAP article 3-5)
 
 ## ⚠ Alertes candidat
-- OBLIGATION d'attestations CSPS niveau 2 minimum pour les phases conception et réalisation : au moins 2 coordonnateurs (titulaire + suppléant) doivent être présentés avec leurs attestations valides — pièce éliminatoire si absente (RC art. 5-1).
-- Les dossiers exemples (PGCSPS cat.2, PGCSPS simplifié cat.3, notice cat.3, DIUO cat.2) doivent être OBLIGATOIREMENT lisibles au format PDF sans conversion préalable — risque de rejet de l'offre si non conforme (RC art. 5-1).
-- Procédure entièrement dématérialisée via ARNIA (https://marches.ternum-bfc.fr) — aucun dépôt papier autorisé ; prévoir le dépôt au moins 2 heures avant l'heure limite (12h00 le 9 juillet 2026).
-- Accord-cadre sans montant minimum : le titulaire ne peut s'opposer à la reconduction mais ne bénéficie d'aucune garantie de commandes — modèle économique à adapter (RC art. 3-2).
-- Délai de validité des propositions fixé dans l'acte d'engagement — vérifier la durée indiquée avant signature pour ne pas s'engager au-delà de ce qui est raisonnable commercialement.
+- OBLIGATION IMPÉRATIVE : fournir les attestations de compétences CSPS niveau 2 minimum pour au minimum 2 coordonnateurs (titulaire + suppléant) avec agrément valide à la date de remise des offres — absence = risque d'irrecevabilité
+- Les 4 dossiers exemples (PGCSPS cat.2, PGCSPS simplifié cat.3, notice sécurité cat.3, DIUO cat.2) doivent OBLIGATOIREMENT être au format PDF directement lisibles sans conversion préalable, sous peine de rejet de l'offre
+- Procédure entièrement dématérialisée via plateforme ARNIA (https://marches.ternum-bfc.fr) — aucun pli papier accepté ; prévoir certificat de signature électronique RGS** ou eIDAS pour l'attributaire
+- Marché sans minimum de commande : le candidat doit anticiper un risque de faibles volumes commandés malgré un engagement contractuel sur 4 ans
+- Les négociations sont strictement interdites (appel d'offres ouvert) : l'offre doit être définitive dès le dépôt
 
 ## 💡 Points différenciants attendus
-- Qualité et exhaustivité des dossiers exemples fournis (PGCSPS, DIUO) (exemple=Un candidat présentant un PGCSPS catégorie 2 détaillé, avec une analyse rigoureuse des risques co-activités propre aux chantiers routiers (interférence circulation/chantier, coordination engins de terrassement/piétons, etc.) et un DIUO structuré par ouvrage, se démarquera nettement sur les 10% alloués à ce sous-critère., source=RC art. 6)
-- Continuité de service et robustesse de l'équipe (titulaire + suppléant) (exemple=Présenter un binôme de coordonnateurs expérimentés avec chevauchement de disponibilités, des modalités concrètes de passation de missions en cas d'absence (délai de remplacement, procédure documentée) rassure l'acheteur sur la capacité à honorer les bons de commande urgents sur un réseau routier étendu., source=RC art. 5-1 et art. 6)
-- Prix unitaires compétitifs sur le BPU — pondération prix à 70% (exemple=Compte tenu de la formule du moins-disant avec 70% de pondération, un candidat affichant des prix unitaires inférieurs de 10% à la moyenne du marché gagne 7 points d'avance sur le prix — soit plus que l'ensemble du critère technique. Identifier les missions à fort volume (catégorie 3 réalisation) pour y concentrer la compétitivité., source=RC art. 6)
-- Méthodologie adaptée aux spécificités des chantiers de routes départementales (exemple=Décrire une organisation spécifique à la voirie (inspections préalables sur des linéaires parfois importants, coordination avec les collectivités riveraines, gestion des déviations de circulation), avec un planning-type d'intervention par catégorie d'opération, valorise le sous-critère 'procédés et moyens d'exécution' (10%)., source=RC art. 6)
+- Qualité et diversité des dossiers exemples fournis (10% du barème) (exemple=Présenter 4 dossiers récents et complets issus de chantiers routiers ou de génie civil, démontrant une maîtrise des spécificités du contexte routier en exploitation (coactivité avec trafic, phases de déviation, coordination multi-entreprises). Les documents anonymisés mais lisibles en un clic PDF feront la différence., source=RC article 6)
+- Dispositif de continuité de service avec suppléance opérationnelle (exemple=Au-delà du minimum de 2 coordonnateurs, proposer un organigramme avec 3 personnes habilitées niveau 2, incluant une procédure formalisée de passation des consignes et un délai de prise en charge garanti en cas d'absence du titulaire de mission., source=RC article 5-1)
+- Expérience spécifique sur routes départementales et ouvrages d'art en Bourgogne-Franche-Comté (exemple=Valoriser des références de missions CSPS réalisées sur des routes départementales ou nationales avec présence d'ouvrages d'art (ponts, murs de soutènement), idéalement pour des collectivités territoriales de la région, pour démontrer la connaissance des contraintes locales.)
+- Offre tarifaire compétitive sur le DEIA (70% du barème) (exemple=La pondération prix de 70% est très élevée : un candidat dont le DEIA est 10% moins cher que la moyenne peut compenser une note technique légèrement inférieure. Le chiffrage doit être précis sur les postes du BPU et cohérent avec les quantités du DEIA., source=RC article 6)

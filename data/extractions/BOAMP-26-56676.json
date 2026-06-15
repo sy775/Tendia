@@ -1,0 +1,440 @@
+{
+  "synthese_marche": "La Communauté de Communes Lavalette Tude Dronne lance un marché de travaux en 4 lots séparés pour l'installation de panneaux photovoltaïques sur la Maison France Services et les vestiaires de la piscine de Montmoreau (16). L'opération comprend la démolition/préparation (Lot 1), le renforcement/reconstruction de charpente bois (Lot 2), la couverture en bacs aciers (Lot 3) et l'installation électrique photovoltaïque en autoconsommation avec revente du surplus (Lot 4). La puissance totale visée est d'environ 82,8 kWc répartis sur les deux sites.",
+  "domaines_metier": [
+    {
+      "code": "energie_pv_solaire",
+      "poids": 0.6,
+      "lots_concernes": [
+        "Lot 4 - Électricité Photovoltaïque"
+      ]
+    },
+    {
+      "code": "btp_second_oeuvre",
+      "poids": 0.4,
+      "lots_concernes": [
+        "Lot 1 - Démolition",
+        "Lot 2 - Charpente Bois",
+        "Lot 3 - Couverture"
+      ]
+    }
+  ],
+  "raison_classification": "Le marché combine explicitement des travaux photovoltaïques (Lot 4 : installation ISB de centrales PV raccordées réseau, 38,3 kWc sur France Services + 44,5 kWc sur piscine) avec des lots de BTP préparatoires indissociables (démolition, charpente bois, couverture bacs aciers). Le Lot 4 constitue la finalité de l'opération mais représente environ 60% de la valeur technique ; les lots 1-3 sont des prérequis structurels BTP.",
+  "caracteristiques_techniques_enr": {
+    "description": "Installation de panneaux photovoltaïques en Intégration Simplifiée au Bâti (ISB) sur deux bâtiments ERP de 5e catégorie : toiture tuiles de la Maison France Services (38,3 kWc, 87 modules monocristallins 440 Wc, orientation 14° sud) et toiture bac acier des vestiaires de la piscine (44,5 kWc). Production en autoconsommation avec réinjection du surplus sur le réseau Enedis. Les travaux nécessitent au préalable le renforcement des charpentes existantes, la reconstruction d'un auvent, la dépose et repose des couvertures.",
+    "technologies_concernees": [
+      "photovoltaïque toiture",
+      "photovoltaïque ISB (Intégration Simplifiée au Bâti)"
+    ],
+    "type_de_sites": "Toiture de bâtiments publics ERP 5e catégorie en site occupé (Maison France Services) et vestiaires de piscine municipale",
+    "criteres_eligibilite": [
+      {
+        "libelle": "Qualification RGE QualiPV en cohérence avec les seuils de puissances à installer",
+        "source": "CCTP Lot 4 §1.5"
+      },
+      {
+        "libelle": "Habilitation électrique selon UTE 18-510",
+        "source": "CCTP Lot 4 §1.5"
+      },
+      {
+        "libelle": "Formation spécifique au photovoltaïque couplé réseau et à ses spécificités en termes de protection des personnes et des biens",
+        "source": "CCTP Lot 4 §1.5"
+      },
+      {
+        "libelle": "Attestation et qualification pour travaux en hauteur",
+        "source": "CCTP Lot 4 §1.5"
+      },
+      {
+        "libelle": "Attestation d'assurance responsabilité civile décennale",
+        "source": "RC art 4.1"
+      }
+    ],
+    "contraintes_site_signalees": [
+      "site occupé (Maison France Services en activité pendant les travaux)",
+      "travail en hauteur",
+      "bâtiments ERP avec réglementation incendie spécifique aux installations PV",
+      "câbles DC uniquement en extérieur (avis CCS du 7 février 2013 pour ERP)",
+      "périphérie de toiture libre de tout organe PV sur 90 cm",
+      "accès chantier limité (exiguïté signalée pour le lot gros œuvre)",
+      "présence de réseaux enterrés aux abords"
+    ]
+  },
+  "volumes_techniques": {
+    "puissance_totale_kwc": 82.8,
+    "puissance_par_site_kwc": [
+      {
+        "site": "Maison France Services - Montmoreau",
+        "puissance_kwc": 38.3
+      },
+      {
+        "site": "Vestiaires Piscine - Montmoreau",
+        "puissance_kwc": 44.5
+      }
+    ],
+    "nb_sites": 2,
+    "surface_panneaux_m2": null,
+    "productible_annuel_estime_mwh": null,
+    "duree_marche_mois": 6,
+    "duree_maintenance_om_annees": null,
+    "commentaire_volumes": "38,3 kWc sur Maison France Services (87 modules × 440 Wc = 38,28 kWc, 2 onduleurs 20 kW) et ≥44,5 kWc sur piscine (détail modules non précisé dans les pièces fournies). La durée globale de 6 mois comprend 1 mois de préparation + 5 mois de travaux. Démarrage envisagé en octobre 2026. Pas de contrat O&M inclus dans ce marché."
+  },
+  "modalites_execution_chantier": {
+    "raccordement_reseau_inclus": true,
+    "etudes_techniques_incluses": true,
+    "calendrier_chantier_contraint": "Travaux dans le bâtiment France Services réalisés en site occupé ; démarrage envisagé octobre 2026",
+    "sites_execution": [
+      "Montmoreau (16190)",
+      "Charente (16)"
+    ],
+    "engagement_productible": "Garantie de performance 80% de la puissance sur 25 ans (panneaux + onduleurs) ; garantie constructeur 10 ans matériel",
+    "engagement_disponibilite_om": null
+  },
+  "qualifications_enr": {
+    "qualipv": true,
+    "qualisol": false,
+    "qualipac": false,
+    "qualibois": false,
+    "autres_certifications": [
+      "Habilitation électrique UTE C18-510",
+      "Certification travaux en hauteur",
+      "CONSUEL (démarches à la charge de l'entreprise Lot 4)"
+    ]
+  },
+  "bareme_notation": {
+    "valeur_technique_pct": 60,
+    "valeur_prix_pct": 40,
+    "sous_criteres_techniques": [
+      {
+        "libelle": "Pertinence et qualité des matériaux et produits proposés",
+        "ponderation_pct": 10,
+        "description": "L'acheteur évalue la qualité et l'adéquation des matériaux et produits proposés par rapport aux exigences du CCTP, notamment les caractéristiques des modules (technologie monocristalline, performances) et des onduleurs.",
+        "elements_attendus": [
+          "Références précises des modules photovoltaïques proposés avec fiches techniques (puissance nominale, tolérance, garanties)",
+          "Références des onduleurs avec certifications DIN VDE 0126-1-1 et rendements",
+          "Justification de l'éligibilité ATEC/ETN des systèmes d'intégration",
+          "Adéquation des matériaux de couverture avec les bacs aciers pour support PV",
+          "Marques et références des équipements de protection électrique (parafoudres, coffrets)"
+        ],
+        "exemple_reponse_forte": "La réponse présente des modules monocristallins full black 440 Wc en ATEC, des onduleurs certifiés DIN VDE 0126-1-1 avec rendement >98%, des fiches techniques complètes et les PV d'essais correspondants. Elle justifie l'adéquation champ PV/onduleur par le ratio puissance onduleur/puissance champ compris entre 0,7 et 1,0.",
+        "source": "RC §5.1",
+        "sous_criteres": []
+      },
+      {
+        "libelle": "Méthodologie d'exécution des travaux, coordination de chantier et engagements environnementaux",
+        "ponderation_pct": 30,
+        "description": "L'acheteur évalue la méthode de réalisation proposée, la coordination entre les 4 lots (démolition, charpente, couverture, PV), la gestion du site occupé et les engagements en matière de protection de l'environnement.",
+        "elements_attendus": [
+          "Méthodologie détaillée de mise en œuvre de l'ISB (dépose tuiles/bacs, pose crochets, câblage DC extérieur)",
+          "Plan de coordination inter-lots (interfaces charpente/couverture/PV clairement définies)",
+          "Gestion du site occupé Maison France Services (maintien hors d'eau permanent, planning d'intervention)",
+          "Démarches Enedis (raccordement, CONSUEL) avec calendrier prévisionnel",
+          "Gestion des déchets de chantier (tri sélectif, évacuation quotidienne, bons de décharge)",
+          "Respect des prescriptions ERP et CCS du 7 février 2013 (câbles DC extérieurs, recul 90 cm)"
+        ],
+        "exemple_reponse_forte": "La note méthodologique décrit phase par phase la coordination des lots 1 à 4 avec un planning de séquencement, précise les mesures de maintien hors d'eau du bâtiment France Services en activité, détaille les démarches Enedis initiées avant le démarrage de chantier et présente un plan de gestion des déchets avec filières identifiées.",
+        "source": "RC §5.1",
+        "sous_criteres": []
+      },
+      {
+        "libelle": "Moyens humains affectés au chantier",
+        "ponderation_pct": 10,
+        "description": "L'acheteur évalue les effectifs et qualifications du personnel prévu pour l'exécution du marché, notamment les habilitations électriques et qualifications RGE pour le Lot 4.",
+        "elements_attendus": [
+          "Organigramme nominatif du chantier (chef de chantier, électricien habilité, couvreur)",
+          "Justificatifs de qualification RGE QualiPV du ou des installateurs",
+          "Habilitations électriques UTE C18-510 des intervenants Lot 4",
+          "Attestations formation travaux en hauteur",
+          "Adéquation effectifs/durée du chantier"
+        ],
+        "exemple_reponse_forte": "L'offre présente un chef de chantier expérimenté PV, deux électriciens habilités B2V/BR/BC avec attestation QualiPV, un couvreur certifié travaux en hauteur, avec copies des habilitations et qualifications à jour.",
+        "source": "RC §5.1",
+        "sous_criteres": []
+      },
+      {
+        "libelle": "Respect du planning et gestion des délais",
+        "ponderation_pct": 10,
+        "description": "L'acheteur évalue la capacité du candidat à tenir le délai global de 5 mois de travaux et à coordonner les interventions dans le cadre d'un marché alloti à 4 lots.",
+        "elements_attendus": [
+          "Planning prévisionnel détaillé avec jalons pour chaque lot",
+          "Gestion des interfaces et des délais de validation (bureau de contrôle, Enedis)",
+          "Identification des points critiques (météo, délais d'approvisionnement modules)",
+          "Mesures de rattrapage en cas de retard",
+          "Prise en compte du délai de préparation d'1 mois"
+        ],
+        "exemple_reponse_forte": "Le planning en Gantt intègre les 4 lots avec chemin critique identifié, les délais d'obtention des visas bureau de contrôle, les délais Enedis pour raccordement (estimés à 6-8 semaines), et propose des ressources supplémentaires en cas de retard météo.",
+        "source": "RC §5.1",
+        "sous_criteres": []
+      }
+    ],
+    "prix": {
+      "type_formule": "moins_disant",
+      "formule_explicite": "Note = 40 × P0 / Pn (où P0 = prix de l'offre la plus basse, Pn = prix de l'offre notée). L'offre la plus basse obtient 40 points, les offres suivantes sont classées proportionnellement.",
+      "elements_a_chiffrer": [
+        "Prix global et forfaitaire par lot (DPGF à remplir par lot)",
+        "Décomposition détaillée article par article selon les bordereaux DPGF joints",
+        "Lot 1 : travaux de démolition et gros œuvre (terrassements, fondations, massifs BA)",
+        "Lot 2 : charpente bois (renforcements, reconstruction auvent piscine)",
+        "Lot 3 : couverture bacs aciers et accessoires eaux pluviales",
+        "Lot 4 : installation PV complète (modules, onduleurs, câblage DC/AC, TGBT, CONSUEL, acquisition données)"
+      ]
+    },
+    "modalite_calcul_prix": "Note = 40 × P0 / Pn — l'offre la plus basse obtient le maximum de 40 points ; formule proportionnelle sans seuil d'offre anormalement basse explicite."
+  },
+  "montant_marche": {
+    "valeur_estimee_euros": null,
+    "fourchette_min_euros": null,
+    "fourchette_max_euros": null,
+    "type": "non_communique",
+    "duree_couverte": "6 mois (période de préparation 1 mois + travaux 5 mois)",
+    "source_extraction": null,
+    "commentaire": "Aucun montant estimatif ou prévisionnel n'est mentionné dans les pièces du DCE fournies (RC, CCAP, CCTP). Les DPGF (Décomposition du Prix Global et Forfaitaire) sont joints mais non remplis. À titre d'estimation indicative externe (non issue du DCE) : pour 82,8 kWc en ISB sur ERP avec travaux de charpente/couverture conséquents, une fourchette de 250 000 à 400 000 € TTC serait plausible, mais cette estimation ne provient pas des pièces du marché."
+  },
+  "revision_prix": {
+    "type": "indexation",
+    "indices_utilises": [
+      "BT01",
+      "BT16b",
+      "BT34",
+      "BT47"
+    ],
+    "ponderation": "100% BT01 pour Lot 1 (Démolition) ; 100% BT16b pour Lot 2 (Charpente bois) ; 100% BT34 pour Lot 3 (Couverture) ; 100% BT47 pour Lot 4 (Électricité-Photovoltaïque)",
+    "periodicite": null,
+    "formule_revision": "P = [0,15 + 0,85 × (Ix/I0)] × P0 — où Ix est l'index BT du lot concerné au mois de la situation et I0 l'index du mois zéro (M0 = mois de signature de l'offre)",
+    "source_extraction": "CCAP - Article 4 Variation des prix",
+    "commentaire": "Formule classique BTP avec part fixe de 15% et 85% révisable selon l'index BT sectoriel du lot. Favorable en période d'inflation des matériaux de construction, mais le candidat doit anticiper les variations des indices BT pour ses approvisionnements en modules et équipements électriques (BT47)."
+  },
+  "alertes_prix": [
+    "Pondération prix de 40% est significative pour un marché à dominante technique : une offre trop prudente peut perdre des points face à une offre agressive.",
+    "Formule moins-disante pure (Note = 40 × P_min/P_offre) : chaque euro au-dessus du moins-disant est pénalisé proportionnellement, sans plateau.",
+    "Avance de 10% avec garantie à première demande obligatoire (pas de caution personnelle acceptée) : anticiper le coût de la garantie bancaire dans la structure de prix.",
+    "Pénalités de retard de 300€/j (5 premiers jours) puis 500€/j, plus pénalités pour absence réunion de chantier (150€) : à intégrer dans le risque chantier."
+  ],
+  "references_exigees": {
+    "experience_minimale_annees": 5,
+    "experience_source": "RC art 4.1",
+    "volume_min_references_similaires": null,
+    "volume_min_references_unite": "marchés similaires",
+    "secteur_experience": "Travaux du lot soumissionné (photovoltaïque, charpente bois, couverture ou démolition selon lot) — liste des travaux exécutés sur les 5 dernières années avec attestations de bonne exécution",
+    "secteur_source": "RC art 4.1",
+    "certifications_obligatoires": [
+      {
+        "libelle": "Qualification RGE QualiPV en cohérence avec les seuils de puissances (Lot 4)",
+        "source": "CCTP Lot 4 §1.5"
+      },
+      {
+        "libelle": "Habilitation électrique UTE C18-510 (Lot 4)",
+        "source": "CCTP Lot 4 §1.5"
+      },
+      {
+        "libelle": "Attestation d'assurance responsabilité civile décennale (tous lots)",
+        "source": "RC art 4.1 et CCAP art 14"
+      }
+    ],
+    "autres_exigences": [
+      {
+        "libelle": "Déclaration des effectifs moyens annuels et importance du personnel d'encadrement sur les 3 dernières années",
+        "source": "RC art 4.1"
+      },
+      {
+        "libelle": "Déclaration de l'outillage, matériel et équipement technique disponible pour réalisation de marchés de même nature",
+        "source": "RC art 4.1"
+      },
+      {
+        "libelle": "Attestation d'assurance RC professionnelle avec garantie minimum 8 M€/sinistre tous dommages confondus",
+        "source": "CCAP art 14.1"
+      }
+    ]
+  },
+  "lots": [
+    {
+      "numero": 1,
+      "intitule": "Démolition",
+      "zone_geographique": "Montmoreau (16190)",
+      "volume_estime": null,
+      "volume_estime_unite": null,
+      "particularites": "Dépose des couvertures existantes (bacs métalliques, fenêtres de toit), démolition des auvents de la piscine, terrassements et fondations pour nouveaux poteaux d'auvent (2 massifs BA en hypothèse 1,20×1,20×1,20m + fûts 0,40×0,40m), reprises réseaux eaux pluviales, réalisation de sommiers béton armé (hypothèse 25 sommiers). Charge du compte prorata et des installations communes de chantier."
+    },
+    {
+      "numero": 2,
+      "intitule": "Charpente Bois",
+      "zone_geographique": "Montmoreau (16190)",
+      "volume_estime": null,
+      "volume_estime_unite": null,
+      "particularites": "Renforcement de 12 fermes existantes du bâtiment France Services (moises 9,5×17 cm), renforcement de la charpente conservée de la piscine (barres anti-flambement, lisses), reconstruction et extension de l'avancée de toit de la piscine en bois massif et lamellé-collé. Tous les bois en charpente exposée traités Classe 3, non exposés Classe 2 (certification CTB-F obligatoire)."
+    },
+    {
+      "numero": 3,
+      "intitule": "Couverture",
+      "zone_geographique": "Montmoreau (16190)",
+      "volume_estime": null,
+      "volume_estime_unite": null,
+      "particularites": "Fourniture et pose de bacs aciers adaptés pour support panneaux PV (pente 25-28%), avec pattes de fixation pour PV, écran d'interposition, accessoires eaux pluviales (gouttières et descentes aluminium), sorties en toiture. Couverture sous ETN. Couleur selon permis de construire validé."
+    },
+    {
+      "numero": 4,
+      "intitule": "Électricité – Photovoltaïque",
+      "zone_geographique": "Montmoreau (16190)",
+      "volume_estime": 82.8,
+      "volume_estime_unite": "kWc",
+      "particularites": "Deux sous-parties : Maison France Services (38,3 kWc ISB sur tuiles, 87 modules 440 Wc monocristallins, 2 onduleurs 20 kW, compteur C4 108 kVA) et Piscine (44,5 kWc ISB sur bac acier, compteur C4 48 kVA). Autoconsommation avec revente surplus Enedis. Démarches CONSUEL à la charge de l'entreprise. Coffret coupure d'urgence pompier réarmable obligatoire (conformité UTE C15-712-1). Acquisition données et logiciel de monitoring inclus. Formation personnel exploitant due."
+    }
+  ],
+  "calendrier": {
+    "date_limite_offres": "2026-07-10",
+    "date_demarrage_prevue": "2026-10-01",
+    "duree_marche": "6 mois (1 mois préparation + 5 mois travaux)"
+  },
+  "alertes_candidat": [
+    "Qualification RGE QualiPV exigée pour le Lot 4 avec cohérence aux seuils de puissance (>36 kWc sur chaque site) : vérifier que la qualification couvre les puissances >36 kWc sans plafond.",
+    "Visite des sites vivement conseillée et indispensable techniquement (site occupé France Services, complexité des charpentes) : prendre RDV au 06.76.53.22.52 avant dépôt d'offre.",
+    "Garantie à première demande obligatoire pour l'avance de 10% (caution personnelle refusée) : anticiper la disponibilité bancaire avant notification.",
+    "Constitution obligatoire des dossiers administratifs de subventions (aide aux démarches ADEME/Région) incluse dans les prestations dues par le Lot 4 : bien intégrer cette prestation dans le forfait.",
+    "Accord Enedis sur le projet requis avant remise de la soumission (Lot 4 §1.13.2) : les candidats doivent avoir initié ou prévoir d'initier les démarches en temps utile."
+  ],
+  "points_differenciants_attendus": [
+    {
+      "libelle": "Détail de la méthodologie de maintien hors d'eau en site occupé",
+      "exemple": "Décrire précisément les phases de dépose/repose des tuiles sur la Maison France Services avec protections provisoires (bâches, rotations par zones) et planning horaire limitant les périodes d'exposition aux intempéries, en lien avec les prévisions météo.",
+      "source": "CCTP Lot 0 §0.6 et CCTP Lot 4 §2.2"
+    },
+    {
+      "libelle": "Schéma de principe de l'installation PV fourni dès l'offre",
+      "exemple": "Remettre à l'offre un schéma unifilaire complet (DC et AC), le plan d'implantation prévisionnel des 87 modules en portrait sur la toiture tuiles, la note de calcul du productible annuel et la documentation technique des principaux équipements (modules + onduleurs).",
+      "source": "CCTP Lot 4 §1.7"
+    },
+    {
+      "libelle": "Adéquation champ PV / onduleur et justification du productible",
+      "exemple": "Présenter un calcul détaillé du productible annuel (kWh/an) avec fichier météorologique de Montmoreau 16190, prise en compte des masques, de l'orientation 14° sud, des pertes (câblage, température, onduleur) et valider le ratio puissance onduleur/puissance champ entre 0,7 et 1,0.",
+      "source": "CCTP Lot 4 §1.11 et §2.7.2"
+    },
+    {
+      "libelle": "Références en installation PV sur ERP avec contraintes incendie",
+      "exemple": "Mettre en avant des chantiers PV réalisés sur des établissements recevant du public avec application de l'avis CCS du 7 février 2013 (câbles DC extérieurs, coffret pompier), attestations de bonne exécution à l'appui.",
+      "source": "RC art 4.1 et CCTP Lot 4 §1.10"
+    },
+    {
+      "libelle": "Assistance proactive aux démarches de subventions",
+      "exemple": "Identifier dans l'offre les dispositifs de financement auxquels la CC Lavalette Tude Dronne est éligible (ADEME, Région Nouvelle-Aquitaine, CEE, appels à projets EnR collectivités) et proposer un calendrier de constitution des dossiers.",
+      "source": "CCTP Lot 4 §1.6"
+    }
+  ],
+  "_meta": {
+    "id_marche": "BOAMP-26-56676",
+    "type": "complet",
+    "date_generation": "2026-06-14T21:56:27.577721+00:00",
+    "extraction_le": "2026-06-14T21:56:27.577721+00:00",
+    "modele": "claude-sonnet-4-6",
+    "preset_utilise": "energie_renouvelable",
+    "presets_matches": [
+      "energie_renouvelable"
+    ],
+    "prompts_versions": {
+      "energie_renouvelable/_preset.json": "sha256:6e0b4503bef6c585"
+    },
+    "tokens_input": 141325,
+    "tokens_output": 7063,
+    "cout_eur": 0.5034,
+    "duree_sec": 135.3,
+    "pdfs_traites": [
+      {
+        "nom": "AE - Installation PV.docx",
+        "hash": "5e4819ad620c26f6ec559b68c393d770",
+        "taille_chars": 24695
+      },
+      {
+        "nom": "ARCH 01.a_Plans EDL France Servives.pdf",
+        "hash": "abc0d4c8350d8043b4c17525c934d8f5",
+        "taille_chars": 0
+      },
+      {
+        "nom": "ARCH 01.b_Plans PRO France Servives.pdf",
+        "hash": "171fdafeb2c000fa7b33e6716180fc79",
+        "taille_chars": 0
+      },
+      {
+        "nom": "ARCH 02.a_Plans EDL Piscine.pdf",
+        "hash": "defd856722999112e59792ee0d184279",
+        "taille_chars": 0
+      },
+      {
+        "nom": "ARCH 02.b_Plans DEMOL Piscine.pdf",
+        "hash": "c463b1b4ee4dab130e1a0646759db080",
+        "taille_chars": 0
+      },
+      {
+        "nom": "ARCH 02.c_Plans PRO Piscine.pdf",
+        "hash": "9380163292b8012cb638fe399f88a657",
+        "taille_chars": 0
+      },
+      {
+        "nom": "AWS-MPI-1833020-RC.pdf",
+        "hash": "2d885bdd6ac78a180875724f29a9f1f4",
+        "taille_chars": 44281
+      },
+      {
+        "nom": "CCAP - Installation PV.docx",
+        "hash": "e141dac23c8827bdd739cf60fe936ee7",
+        "taille_chars": 91474
+      },
+      {
+        "nom": "CCTP_LOT 0 Clauses communes.pdf",
+        "hash": "14363bf46da9d93cd160994942a36845",
+        "taille_chars": 28299
+      },
+      {
+        "nom": "CCTP_LOT 1 GO-Démolitions.pdf",
+        "hash": "4cb7d257b73cf2757c71df528413c9e8",
+        "taille_chars": 30937
+      },
+      {
+        "nom": "CCTP_LOT 2 Charpente bois.pdf",
+        "hash": "8ec639c4145e032c9a52329c780de16c",
+        "taille_chars": 21868
+      },
+      {
+        "nom": "CCTP_LOT 3 Couverture.pdf",
+        "hash": "adb236d28b565886a7c5e2090eef0148",
+        "taille_chars": 12126
+      },
+      {
+        "nom": "CCTP_LOT 4 Electricité-PV.pdf",
+        "hash": "2eedd68ca51b7e39312ac3ae10ba4b11",
+        "taille_chars": 180839
+      },
+      {
+        "nom": "DPGF_LOT 1 GO-Démolitions.xlsx",
+        "hash": "5c0cfc1e5444465e7225403c9c35a105",
+        "taille_chars": 6790
+      },
+      {
+        "nom": "DPGF_LOT 2 Charpente Bois.xlsx",
+        "hash": "6ad1f8f48578f4c043b6e448c91f0828",
+        "taille_chars": 3821
+      },
+      {
+        "nom": "DPGF_LOT 3 Couverture.xlsx",
+        "hash": "be68f91dd9644fbfcc58cadf6eab443a",
+        "taille_chars": 2863
+      },
+      {
+        "nom": "DPGF_LOT 4 Electricité-PV_Partie 1 France Services.xlsx",
+        "hash": "34ae3ffa9683569c66315b83726128da",
+        "taille_chars": 2101
+      },
+      {
+        "nom": "DPGF_LOT 4 Electricité-PV_Partie 2 Piscine.xlsx",
+        "hash": "f9b7d4361e48c70df18c1e4057d8b660",
+        "taille_chars": 2219
+      },
+      {
+        "nom": "MPI1833020_AAPC.pdf",
+        "hash": "eb692c37ba1281a912800c8f75a646c4",
+        "taille_chars": 2951
+      },
+      {
+        "nom": "Montmoreau PV_DIAG Charpentes.pdf",
+        "hash": "ef4fd4b10cf9f274aa79887072cf9e2d",
+        "taille_chars": 50325
+      }
+    ]
+  }
+}

@@ -1,6 +1,6 @@
 # Brief — Prestations de transcription d’instances et de réunions institutionnelles organisées par certaines directions de métropole et d’Outre-mer de Météo-Fra
 
-_Généré le 2026-06-12 15:49 par Claude claude-sonnet-4-6_
+_Généré le 2026-06-15 02:23 par Claude claude-sonnet-4-6_
 
 ## Identifiants
 - **ID Tendia** : `BOAMP-26-56262`
@@ -11,86 +11,64 @@ _Généré le 2026-06-12 15:49 par Claude claude-sonnet-4-6_
 - **DCE PLACE** : <https://www.marches-publics.gouv.fr/?page=Entreprise.EntrepriseAdvancedSearch&AllCons&id=3008894&orgAcronyme=d4t>
 
 ## Synthèse
-Météo-France lance un accord-cadre mono attributaire pour la transcription d'instances et de réunions institutionnelles organisées par plusieurs directions en métropole et en Outre-mer. Les prestations consistent à produire des comptes rendus écrits de réunions, réalisées en présentiel ou à distance selon les directions concernées. Le marché couvre une durée ferme jusqu'au 25 septembre 2027, reconductible trois fois par an, pour un montant maximal de 260 000 € HT.
-
-## 🏗 Chantier — caractéristiques BTP
-### Allotissement
-Marché non décomposé en lots, mono attributaire.
-- **Nombre de lots** : 1
-- **Lot 1** — Transcription des instances et des réunions institutionnelles de Météo-France
-  - Montant estimé : 200 000 €
-  - Transcription de réunions en présentiel ou à distance pour plusieurs directions de métropole et d'Outre-mer de Météo-France
-
-### Qualifications BTP exigées
-Aucune qualification professionnelle formelle (Qualibat, RGE, OPQIBI) n'est exigée. Le candidat doit démontrer son expérience dans le domaine de la transcription, notamment pour des institutions publiques.
-
-## ⚡ Parc EnR — caractéristiques techniques
-### Volumes techniques
-- **Note** : Pas de volumes techniques applicables à ce marché de prestations intellectuelles. Le montant maximal est de 260 000 € HT sur toute la durée (reconductions incluses), le montant estimatif est de 200 000 € HT. Un montant maximal de 10 000 € HT est prévu pour les prestations exceptionnelles à bons de commande.
-
-### Modalités d'exécution
-- **Sites d'exécution** : Métropole (plusieurs directions), Outre-mer (directions interrégionales, dont Nouvelle-Calédonie)
+Météo-France recherche un prestataire pour la transcription de ses instances de gouvernance et de dialogue social (CA, CCA, CSA, FS, GCL, GT) organisées par plusieurs directions en métropole et en Outre-mer. Les prestations consistent à rédiger différents types de documents (comptes rendus exhaustifs, optimisés, synthèses, relevés de conclusions) à partir de la présence physique du rédacteur ou de la visioconférence, voire d'enregistrements fournis. Le marché est un accord-cadre mono-attributaire à bons de commande d'un montant maximal de 260 000 € HT sur une durée initiale jusqu'au 25 septembre 2027, reconductible 3 fois 1 an.
 
 ## 🎯 Mission conseil
-- **Typologie de mission** : prestation de service récurrente (transcription/rédaction)
-- **Domaine d'expertise** : transcription, rédaction de comptes rendus, secrétariat institutionnel
-- **Durée de mission** : Durée ferme jusqu'au 25/09/2027, reconductible 3 fois 1 an (soit jusqu'à ~48 mois au total)
+- **Typologie de mission** : transcription / rédaction de comptes rendus institutionnels
+- **Domaine d'expertise** : rédaction, transcription, dialogue social, gouvernance institutionnelle
+- **Durée de mission** : Durée ferme jusqu'au 25/09/2027, reconductible 3 fois 1 an (durée totale maximale ~4 ans)
+- **Méthodologie attendue** : Présence physique du rédacteur sur site (Saint-Mandé ou Toulouse) ou participation à distance en visioconférence ; enregistrement sonore intégral ; identification des intervenants ; livraison des documents dans les délais convenus (max 7 jours ouvrés) ; espace électronique sécurisé de dépôt et d'échange de fichiers.
 - **Livrables attendus** :
-  - Transcriptions écrites des instances et réunions institutionnelles
-  - Espace électronique sécurisé de dépôt et d'échange de fichiers numériques
-  - Enregistrements audio pour les réunions en présentiel (le titulaire fournit le matériel)
+  - Compte rendu exhaustif ou intégral
+  - Compte rendu optimisé
+  - Synthèse standard
+  - Synthèse brève ou courte
+  - Relevé de conclusions
+  - Mise en forme à partir de contributions existantes
 
 ### Profils intervenants
-Les intervenants sont appelés 'rédacteurs' dans les pièces du marché. Le candidat doit présenter les profils nommément identifiés et des profils complémentaires mobilisables.
-- **Chef de mission** : Un contact interlocuteur privilégié de Météo-France pour l'ensemble des aspects du marché
-- **Consultants** : Rédacteurs nommément identifiés + rédacteurs complémentaires mobilisables en permanence pour les instances non listées et les prestations exceptionnelles. Expérience requise en transcription pour des établissements ou institutions publiques.
-
-## 🎓 Formation / accompagnement
-### Publics cibles
-Pas de public cible au sens de bénéficiaires d'une formation. Le marché s'adresse à Météo-France comme donneur d'ordres, qui bénéficiera des transcriptions de ses propres réunions institutionnelles.
-
-### Volumes
-- **Note** : Marché de transcription institutionnelle ; le volume est exprimé en montant financier (max 260 000 € HT) et non en nombre de bénéficiaires ou d'heures de formation.
-
-### Modalités
-- **Présentiel/distanciel** : mix — réunions en présentiel (rédacteur sur site) ou à distance ; pour la DirNC et certaines directions Outre-mer, uniquement à partir d'un enregistrement fourni
-- **Sites d'exécution** : Toulouse (Direction des achats publics), Saint-Mandé (siège), Directions en métropole, Directions interrégionales Outre-mer, Nouvelle-Calédonie (DirNC)
+Rédacteurs qualifiés affectés de façon récurrente par type d'instance. Profil Bac+2 minimum pour les comptes rendus intégraux, Bac+5 pour les comptes rendus synthétiques. Bonne maîtrise du français, culture générale solide, capacités de synthèse et rigueur.
+- **Chef de mission** :
+  - secteur : établissements ou institutions publiques
+- **Consultants** :
+  - Rédacteur comptes rendus intégraux
+  - Rédacteur comptes rendus synthétiques (Bac+5)
 
 ## 💶 Montant du marché
 - **Valeur estimée** : **200 000 €**
-  - sur Durée totale du marché, éventuelles périodes de reconduction comprises (durée ferme jusqu'au 25/09/2027 + 3 reconductions d'1 an)
-  - _source : RC §1.5_
-- _Note_ : Montant estimatif de 200 000 € HT (indicatif, sans engagement de commande) et montant maximal de 260 000 € HT (plafond de résiliation de plein droit). Un sous-plafond de 10 000 € HT est dédié aux prestations exceptionnelles à bons de commande.
+  - sur Durée totale du marché : période ferme jusqu'au 25/09/2027 + 3 reconductions d'un an (durée maximale ~4 ans)
+  - _source : RC §1.5 page 4 et CCP article 7_
+- _Note_ : Le RC indique un montant estimatif de 200 000 € HT (indicatif, sans engagement de commande) et un montant maximal de 260 000 € HT (plafond accord-cadre toutes reconductions comprises). Le plafond des prestations exceptionnelles est de 10 000 € HT inclus dans le plafond global.
 
 ## Barème de notation
 - **Valeur technique** : 60 %
 - **Valeur prix** : 40 %
 - **Sous-critères techniques** :
-  - Expérience et connaissance des intervenants, notamment des institutions publiques : 20 %
-  - Adéquation des moyens techniques et pertinence du contrôle qualité des livrables : 20 %
-  - Optimisation des délais de livraison : 10 %
-  - Critère environnemental — moyens pour réduire l'impact environnemental : 5 %
-  - Critère social — clause sociale de formation sous statut scolaire : 5 %
-- **Calcul du prix** : Le prix est évalué sur la base d'un scénario réaliste des commandes effectuées et des prestations réalisées sur la durée totale du marché (scénario de commandes joint au dossier de consultation à compléter).
+  - Critère technique n°1 — Expérience et connaissance des intervenants : 20 %
+  - Critère technique n°2 — Adéquation des moyens techniques et contrôle qualité : 20 %
+  - Critère technique n°3 — Optimisation des délais de livraison : 10 %
+  - Critère environnemental : 5 %
+  - Critère social : 5 %
+- **Calcul du prix** : Évaluation sur la base d'un scénario réaliste de commandes complété par le candidat dans le tableau fourni au DCE (prix horaires HT par type de livrable et par modalité de prestation).
 
 ## Références et qualifications exigées
 - **Expérience minimale** : —
-- **Secteur d'expérience** : Transcription de réunions, notamment pour des établissements ou institutions publiques
+- **Secteur d'expérience** : prestations de transcription et rédaction de comptes rendus dans des établissements ou institutions publiques
 - **Autres exigences** :
-  - Présentation d'une liste des principaux marchés similaires effectués au cours des trois dernières années, avec montant, date, destinataire (public ou privé), nom du contact, adresse et coordonnées téléphoniques vérifiables (source=RC §6.1)
-  - Déclaration concernant le chiffre d'affaires global et le chiffre d'affaires concernant les services auxquels se réfère le marché, réalisés au cours des trois derniers exercices (source=RC §6.1)
-  - Déclaration sur l'honneur justifiant le respect des obligations concernant l'emploi des travailleurs handicapés (articles L.5212-1 à L.5212-11 du code du travail) (source=RC §6.1)
+  - Présentation d'une liste des principaux marchés similaires effectués au cours des trois dernières années avec montant, date, destinataire public ou privé, et coordonnées vérifiables du contact (source=RC §6.1)
+  - Déclaration sur le chiffre d'affaires global et le CA spécifique aux prestations du marché sur les 3 derniers exercices (source=RC §6.1)
+  - Profil minimum Bac+2 pour les rédacteurs chargés des comptes rendus intégraux, Bac+5 pour les rédacteurs chargés des comptes rendus synthétiques (source=CCP §9.6.1)
 
 ## ⚠ Alertes candidat
-- Les profils des rédacteurs mobilisables doivent être présentés nominativement dans le mémoire technique avec justification de leur expérience en institutions publiques — absence ou insuffisance entraîne une faible note sur le critère n°1 (20%).
-- Le scénario de commandes doit être complété avec les prix de chaque prestation : toute erreur matérielle sera corrigée unilatéralement par Météo-France, mais une modification unilatérale des documents par le candidat entraîne l'invalidité de l'offre.
-- La clause sociale de formation sous statut scolaire (critère 9.5) doit faire l'objet d'une description dans le mémoire technique — les candidats sans partenariat établissement de formation seront pénalisés.
-- Pour les réunions en présentiel, le candidat doit disposer de son propre matériel d'enregistrement et en préciser les caractéristiques techniques.
-- L'espace électronique sécurisé d'échange de fichiers est une exigence technique du marché : le candidat doit démontrer qu'il dispose ou mettra en place une solution concrète et opérationnelle.
+- Le marché n'est pas décomposé en lots : le candidat doit couvrir toutes les directions concernées (métropole et Outre-mer dont Nouvelle-Calédonie) et tous les types de livrables
+- Interdiction d'utiliser des outils intégrant l'IA sans accord préalable de Météo-France : les prestataires utilisant des outils d'IA générative pour la transcription doivent le signaler et obtenir un accord explicite (CCP article 10)
+- Obligation de mise en place d'un espace électronique sécurisé de dépôt par service bénéficiaire dans les 30 jours suivant la notification, sous peine de pénalités forfaitaires par espace manquant (CCP article 20.3)
+- Les rédacteurs affectés doivent présenter les profils requis (Bac+2/Bac+5) et être identifiés nominativement dans le mémoire technique avec CV ; le remplacement sans accord de Météo-France expose à résiliation (CCP §9.6.2)
+- Obligation d'accueillir des stagiaires REP/REP+/QPV dès que le cumul des bons de commande atteint 50 000 € HT, avec dépôt sur la plateforme 1élève1stage et pénalités en cas de non-respect (CCP §12.4)
 
 ## 💡 Points différenciants attendus
-- Expérience documentée en transcription d'instances de gouvernance dans des établissements publics (exemple=Le candidat présente 5 références vérifiables de transcriptions de CSE, comités de direction ou instances paritaires dans des EPIC ou EPA (ex: SNCF, CEA, établissements hospitaliers), avec coordonnées de contact. Il détaille les spécificités institutionnelles maîtrisées (vocabulaire métier, cadre juridique RH, confidentialité)., source=RC §9.1)
-- Capacité de mobilisation permanente de rédacteurs de substitution (exemple=Le candidat démontre un pool de rédacteurs complémentaires disponibles sous 24-48h, avec CV et niveau d'expérience similaire aux rédacteurs nominatifs, afin de couvrir les absences imprévues et les réunions non planifiées., source=RC §6.2c)
-- Plateforme d'échange sécurisée dédiée avec traçabilité des accès (exemple=Le candidat présente une plateforme d'échange sécurisée déjà opérationnelle (ex: espace extranet chiffré, SharePoint avec droits granulaires par direction), avec une démonstration des fonctionnalités de traçabilité et de gestion des versions des livrables., source=RC §9.2)
-- Délais de livraison inférieurs aux maxima du CCP avec justification organisationnelle (exemple=Le candidat propose des délais de livraison sensiblement inférieurs aux délais maximums du CCP et les justifie par une organisation précise (binôme rédacteur/relecteur, planning hebdomadaire, SLA interne), inscrite contractuellement dans l'annexe financière., source=RC §9.3)
-- Processus de contrôle qualité formalisé et traçable (exemple=Le candidat décrit un processus de double relecture systématique avec grille de contrôle normalisée, suivi d'une validation avant livraison. Il précise les indicateurs de qualité utilisés (taux d'erreur, délai moyen de correction) et l'organisation en cas de retour client., source=RC §9.2)
+- Expérience avérée en transcription d'instances de dialogue social dans des EPA ou administrations publiques (exemple=Un candidat valorisant des références précises de transcription de CSA, CT ou CHSCT dans des établissements publics (SNCF, RATP, universités, EPA de l'État) démontrera une connaissance du vocabulaire, des intervenants et du contexte réglementaire propre aux instances de dialogue social, très valorisé au critère technique n°1 (20%)., source=RC §9.1 et CCP §9.6.1)
+- Récurrence et dédicace des rédacteurs par type d'instance (exemple=Proposer un organigramme de dédicace (un rédacteur fixe pour les CSA-EP/FS-EP, un autre pour les CA/CCA, un troisième pour les GT) répond directement à la demande expresse de Météo-France et rassure sur la qualité et la continuité des comptes rendus., source=CCP §9.6.1)
+- Contrôle qualité formalisé des livrables avec taux de validation sans aller-retour supérieur à 95% (exemple=Présenter un processus de relecture systématique par un pair senior, avec indicateur de taux de validation mesuré sur des contrats actuels (ex : 98% de livrables admis sans aller-retour chez un client public), positionne favorablement sur le critère technique n°2 et rassure sur l'exigence du plan de progrès contractuel., source=RC §9.2 et CCP §12.2)
+- Délais de livraison inférieurs aux maximums contractuels, différenciés par type de document (exemple=Proposer 3 jours ouvrés pour les synthèses brèves et 5 jours pour les comptes rendus exhaustifs (au lieu des 7 jours maximum) en justifiant l'organisation interne (binôme rédacteur/correcteur, travail en parallèle) constitue un avantage sur le critère technique n°3 (10%)., source=RC §9.3 et CCP §9.7)
+- Solution d'espace électronique sécurisé robuste et conforme RGPD avec espaces dédiés par service (exemple=Détailler une solution d'hébergement souverain (serveur en France, certifié ISO 27001 ou SecNumCloud), avec accès nominatif par service bénéficiaire et traçabilité des accès, répond aux exigences de confidentialité élevées du marché (instances de dialogue social, données personnelles des participants) et se distingue sur le critère technique n°2., source=CCP §9.5 et RC §9.2)

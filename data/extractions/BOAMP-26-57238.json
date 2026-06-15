@@ -1,134 +1,60 @@
 {
-  "synthese_marche": "Marché de travaux portant sur la prolongation de la boucle haute tension (HTA) 20 kV du site ASNR du Vésinet, comprenant la fourniture et l'installation d'un poste HTA, de cellules HTA, d'un transformateur 24 kV/400 V, d'une armoire AGBT, d'un TGBT, la mise en œuvre des liaisons HTA ainsi que les études d'exécution, essais et mise en service. Marché à procédure adaptée (MAPA), lot unique, avec une variante facultative portant sur un transformateur d'occasion.",
+  "synthese_marche": "Marché de travaux d'installations électriques haute tension (HTA 20 kV) sur le site ASNR du Vésinet (78), comprenant la création d'un nouveau poste HTA, la réalisation de liaisons HTA, la fourniture et installation d'un transformateur 24 kV/400 V, d'une AGBT et d'un TGBT CVC, ainsi que les études d'exécution, essais et mise en service. Marché à procédure adaptée (MAPA), lot unique, prix forfaitaire ferme, délai d'exécution estimé à 3 semaines hors approvisionnement.",
   "domaines_metier": [
     {
-      "code": "formation_securite_obligatoire"
+      "code": "btp_second_oeuvre"
     }
   ],
-  "raison_classification": "Le marché porte sur des travaux d'installations haute tension (HTA 20 kV) avec CPV 45315400-2 (Installations haute tension) et 45310000-3 (Travaux d'équipement électrique). Il s'agit de travaux électriques courants forts/HTA, relevant du BTP second œuvre électricité ou plus précisément d'installations électriques spécialisées. Le code le plus proche dans la taxonomie disponible pour des travaux électriques HTA/BT est 'formation_securite_obligatoire' mais ce n'est pas adapté. Le domaine réel est 'btp_second_oeuvre' (travaux électriques, installations HTA/BT). Classé btp_second_oeuvre.",
+  "raison_classification": "Le marché porte exclusivement sur des travaux d'installations électriques haute tension (HTA 20 kV) et basse tension (TGBT, AGBT), relevant du second œuvre — courants forts, CPV 45315400-2 et 45310000-3 explicitement cités dans le RC et le CCAP. Il n'y a aucune composante gros œuvre structurant ni VRD dominante.",
   "caracteristiques_techniques_chantier": {
-    "description": "Travaux de prolongation de la boucle HTA 20 kV sur le site ASNR du Vésinet : fourniture d'un poste Haute Tension, fourniture et installation de cellules HTA, fourniture et installation d'un transformateur 24 kV/400 V (neuf ou d'occasion en variante), mise en œuvre des liaisons HTA, fourniture et installation d'une armoire AGBT et d'un TGBT, études d'exécution, essais et mise en service.",
-    "typologie_ouvrage": "Site industriel/nucléaire (ASNR - Autorité de Sûreté Nucléaire et de Radioprotection) — infrastructure électrique HTA",
+    "description": "Prolongation de la boucle HTA 20 kV du site ASNR du Vésinet : création d'un poste HTA (béton ou métallique), installation de cellules HTA type IM et QM, fourniture/pose d'un transformateur 24 kV/400 V – 400 kVA, réalisation d'une liaison HTA en câble torsadé 3x1x95 Al avec fourreaux DN200, création d'une armoire AGBT et d'un TGBT CVC destiné à une future plateforme technique CVC (laboratoires LERCA et LEI). Études d'exécution, essais réglementaires et DOE inclus.",
+    "typologie_ouvrage": "Site scientifique / laboratoires de radioprotection — installation HTA/BT en site occupé en exploitation",
     "surface_volume": null,
-    "site_occupe": "Oui — site en activité de l'ASNR au Vésinet, visite obligatoire, accès réglementé (fournir identité complète des visiteurs)",
+    "site_occupe": "true — chantier réalisé en site en exploitation, accès soumis à enquête administrative préalable (délai minimum 72h), horaires 8h-18h jours ouvrés, accès HNO sur demande",
     "corps_etat": [
-      "Travaux électriques haute tension (HTA 20 kV)",
-      "Travaux électriques basse tension (BT 400 V)",
-      "Génie civil associé au poste HTA",
-      "Études d'exécution",
-      "Essais et mise en service"
+      "Électricité courants forts HTA/BT",
+      "Génie civil associé (fond de forme poste HTA)",
+      "Essais et mise en service électrique"
     ],
     "contraintes_specifiques": [
-      "Site sécurisé ASNR : obligation de fournir informations personnelles (nom, prénom, date et lieu de naissance, nationalité, profession) pour accès",
-      "Visite de site obligatoire (22-24 juin 2026), certificat de visite à joindre sous peine de rejet de l'offre",
-      "Délai d'exécution estimé à 3 semaines hors délais d'approvisionnement",
-      "Présence possible d'amiante (documents amiante en annexe 3 du cahier des charges)",
-      "Variante facultative : transformateur d'occasion — doit démontrer fiabilité, maintenabilité et conditions de garantie",
-      "Habilitations électriques HTA obligatoires pour les intervenants"
+      "Site classé ASNR (Autorité de Sûreté Nucléaire et de Radioprotection) — enquête administrative obligatoire pour chaque intervenant",
+      "Accès au site soumis à autorisation préalable 72h minimum, enquête administrative pouvant durer plusieurs semaines",
+      "Habilitations électriques adaptées obligatoires (NFC 18-510)",
+      "Conformité normes NF C13-100, NF C13-200, C15-100 et prescriptions ENEDIS",
+      "Attestation de conformité Consuel requise avant mise sous tension",
+      "Vérification réglementaire initiale par bureau de contrôle désigné par l'ASNR",
+      "Visite de site obligatoire (22-24 juin 2026) — certificat de visite à joindre à l'offre sous peine de rejet",
+      "Travaux en site occupé avec laboratoires actifs (LERCA, LEI, LMN)",
+      "Présence possible d'amiante (DTA joint en annexe CCTP)",
+      "Délai d'approvisionnement à intégrer au planning (poste HTA, transformateur)"
     ]
   },
   "allotissement": {
-    "description": "Marché à lot unique — la dévolution en lots séparés est techniquement difficile.",
+    "description": "Marché en lot unique — la dévolution en lots séparés est jugée techniquement difficile par l'acheteur.",
     "nb_lots": 1,
     "lots_detailles": [
       {
         "numero": 1,
-        "intitule": "Lot unique — Travaux de prolongation de la boucle HTA 20 kV",
-        "corps_etat": "Travaux électriques HTA/BT — installations haute tension et basse tension",
+        "intitule": "Travaux de prolongation de la boucle HTA 20 kV du site ASNR du Vésinet",
+        "corps_etat": "Électricité courants forts HTA/BT",
         "montant_estime": null,
-        "description": "Fourniture d'un poste HTA, cellules HTA, transformateur 24 kV/400 V, armoire AGBT, TGBT, mise en œuvre liaisons HTA, études d'exécution, essais et mise en service"
+        "description": "Poste HTA, cellules HTA, transformateur 24kV/400V-400kVA, liaison HTA, AGBT, TGBT CVC, études d'exécution, essais et mise en service"
       }
     ]
   },
   "qualifications_requises": {
-    "description": "Aucune qualification Qualibat ou RGE explicitement mentionnée dans le RC. Les capacités techniques et professionnelles sont évaluées via les titres d'études/professionnels, les références de travaux similaires sur 5 ans et les habilitations électriques HTA. Les habilitations électriques HTA sont un critère d'attribution.",
-    "qualibat": null,
+    "description": "Le RC exige des capacités techniques et professionnelles (liste de travaux, effectifs, titres d'études, outillage) mais ne mentionne pas de qualification Qualibat spécifique. Des habilitations électriques NFC 18-510 sont exigées par le CCTP.",
+    "qualibat": [],
     "rge": false,
+    "rge_specialites": [],
+    "mase": false,
+    "iso_9001": false,
+    "iso_14001": false,
+    "iso_45001": false,
     "opqibi": null,
     "autres_certifications": [
-      "Habilitations électriques HTA (mentionnées comme critère d'évaluation technique — RC Article 5 §2)",
-      "Titres d'études et professionnels des cadres et responsables de prestations similaires (RC Article 4 §4.C)"
+      "Habilitations électriques adaptées (NFC 18-510) — exigées par le CCTP pour l'ensemble du personnel intervenant"
     ]
-  },
-  "caracteristiques_mission": {
-    "typologie_mission": null,
-    "domaine_expertise": null,
-    "livrables_attendus": [],
-    "duree_mission": null,
-    "jours_consultant_estimes": null
-  },
-  "profils_intervenants": {
-    "description": "Intervenants qualifiés en travaux électriques HTA/BT avec habilitations électriques HTA. CV obligatoires pour chaque intervenant.",
-    "chef_de_mission": "Responsable de chantier/conducteur de travaux avec expérience en travaux HTA — qualifications, diplômes et expériences à détailler (RC Article 5 §1 Chapitre 2)",
-    "consultants": "Techniciens électriciens avec habilitations électriques HTA — nombre à proposer par le candidat en cohérence avec le planning"
-  },
-  "volumes_techniques": {
-    "puissance_totale_kwc": null,
-    "puissance_par_site_kwc": null,
-    "nb_sites": 1,
-    "surface_panneaux_m2": null,
-    "productible_annuel_estime_mwh": null,
-    "duree_marche_mois": null,
-    "duree_maintenance_om_annees": null,
-    "commentaire_volumes": "Marché de travaux électriques HTA 20 kV — durée d'exécution estimée à 3 semaines hors approvisionnements. Site unique : ASNR Le Vésinet. Transformateur 24 kV/400 V (neuf en offre de base, d'occasion en variante facultative)."
-  },
-  "modalites_execution_chantier": {
-    "raccordement_reseau_inclus": null,
-    "etudes_techniques_incluses": true,
-    "calendrier_chantier_contraint": "Délai d'exécution estimé à 3 semaines hors délais d'approvisionnement — délai contractuel fixé par l'offre du titulaire. Notification prévue semaine du 20 juillet 2026.",
-    "sites_execution": [
-      "Le Vésinet (78)"
-    ],
-    "engagement_productible": null,
-    "engagement_disponibilite_om": null
-  },
-  "publics_cibles": {
-    "description": null,
-    "criteres_eligibilite": [],
-    "publics_specifiques_signales": []
-  },
-  "volumes": {
-    "nb_beneficiaires_total": null,
-    "nb_beneficiaires_par_lot": null,
-    "duree_par_parcours_heures": null,
-    "duree_par_parcours_semaines": null,
-    "duree_marche_mois": null,
-    "commentaire_volumes": null
-  },
-  "modalites": {
-    "presentiel_obligatoire": null,
-    "distanciel_possible": null,
-    "synchrone_asynchrone": null,
-    "sites_execution": [
-      "Le Vésinet (78)"
-    ],
-    "amplitude_horaire": null
-  },
-  "caracteristiques_mission_moe": {
-    "typologie": null,
-    "phases_couvertes": [],
-    "typologie_ouvrage": null,
-    "montant_travaux_estime": null,
-    "complexite_technique": null
-  },
-  "qualifications_moe": {
-    "opqibi": [],
-    "opqcm": null,
-    "bim": null,
-    "autres": []
-  },
-  "caracteristiques_si": {
-    "description": null,
-    "typologie_projet": null,
-    "technologies_mentionnees": [],
-    "volumetrie": null,
-    "hebergement": null
-  },
-  "qualifications_si": {
-    "iso_27001": null,
-    "anssi": null,
-    "hds": null,
-    "autres": []
   },
   "bareme_notation": {
     "valeur_technique_pct": 40,
@@ -137,207 +63,249 @@
       {
         "libelle": "Technique",
         "ponderation_pct": 35,
-        "description": "Critère technique pondéré à 35%, évalué sur trois sous-critères : moyens humains/habilitations, méthodologie/solutions techniques et performance du délai/planning.",
+        "description": "Le critère technique est pondéré à 35% et se décompose en trois sous-critères portant sur les moyens humains/qualifications, la méthodologie/solutions techniques et le planning/délai d'exécution.",
         "elements_attendus": [],
         "exemple_reponse_forte": "—",
-        "source": "RC Article 5 §2",
+        "source": "RC article 5 §2",
         "sous_criteres": [
           {
             "libelle": "Moyens humains, qualifications, habilitations électriques et compétence de l'équipe affectée",
             "ponderation_pct": 10.5,
-            "description": "Évaluation des profils des intervenants : organigramme, CV avec qualifications/diplômes/expériences, habilitations électriques HTA et identification des sous-traitants éventuels.",
+            "description": "L'acheteur évalue les moyens humains mobilisés, les qualifications et habilitations électriques du personnel (NFC 18-510), et la compétence de l'équipe affectée à l'exécution des travaux HTA/BT.",
             "elements_attendus": [
-              "Organigramme de l'équipe projet avec rôles par phase",
-              "CV détaillés de chaque intervenant (qualifications, diplômes, expériences travaux HTA)",
-              "Habilitations électriques HTA valides pour chaque intervenant",
-              "Identification et qualifications des sous-traitants éventuels"
+              "Organigramme de l'équipe projet avec identification des intervenants par phase",
+              "CV de chaque intervenant faisant apparaître qualifications, diplômes, expériences et compétences",
+              "Listing des habilitations électriques (NFC 18-510) du personnel affecté",
+              "Identification des sous-traitants éventuels et leurs qualifications",
+              "Adéquation des profils aux travaux HTA 20 kV (cellules IM/QM, transformateur, TGBT)"
             ],
-            "exemple_reponse_forte": "L'équipe comprend un conducteur de travaux habilité HTA (BR, B2V, HC, HN) avec 10 ans d'expérience sur chantiers HTA 20 kV en site occupé, deux monteurs électriciens habilités H1, H2, H2V. Les CV joints attestent d'au moins 5 chantiers HTA similaires en industrie sensible.",
-            "source": "RC Article 5 §2 — Tableau critères, sous-critère 30% du critère Technique"
+            "exemple_reponse_forte": "L'équipe sera composée d'un chef de chantier habilité B2V-BR-BC HTA, de deux électriciens HTA habilités H2V-HC, et d'un ingénieur d'études spécialisé HTA/BT. Tous les CV sont joints, attestant de références sur des postes HTA similaires en milieu sensible. Les habilitations sont valides et conformes NFC 18-510.",
+            "source": "RC article 5 §2"
           },
           {
             "libelle": "Méthodologie de réalisation des travaux (solutions techniques, qualité et fiabilité des matériaux et matériels proposés avec transmission des fiches techniques correspondantes et des plans d'exécution)",
             "ponderation_pct": 10.5,
-            "description": "Évaluation de la méthodologie chantier, des solutions techniques retenues, de la qualité et fiabilité des matériaux/matériels proposés, avec fiches techniques et plans d'exécution.",
+            "description": "L'acheteur évalue la méthodologie de réalisation des travaux décrits dans le cahier des charges, les solutions techniques proposées, la qualité et la fiabilité des matériaux et matériels, avec transmission des fiches techniques et plans d'exécution.",
             "elements_attendus": [
-              "Description de la méthodologie de réalisation des travaux HTA (modes opératoires, séquençage)",
-              "Solutions techniques détaillées : type de cellules HTA, câbles, transformateur proposé",
-              "Fiches techniques des matériels (cellules, transformateur, AGBT, TGBT)",
-              "Plans d'exécution (plan d'implantation du poste HTA, schémas unifilaires)",
-              "Justification de la fiabilité et maintenabilité des matériels (notamment en cas de variante transformateur d'occasion)"
+              "Description détaillée de la méthodologie de réalisation pour chaque poste (poste HTA, liaison HTA, AGBT, TGBT)",
+              "Fiches techniques des équipements proposés (cellules HTA, transformateur 24kV/400V-400kVA, poste béton ou métallique)",
+              "Plans d'exécution ou avant-projets illustrant l'implantation",
+              "Justification du choix des matériaux et matériels (fiabilité, maintenabilité, conformité normes NF C13-100/200)",
+              "Méthodologie d'intervention en site occupé avec mesures de continuité d'exploitation"
             ],
-            "exemple_reponse_forte": "La méthodologie propose un séquençage en 3 phases (génie civil, installation cellules/transformateur, raccordement HTA et essais) avec fiches techniques constructeur pour chaque équipement et plans d'exécution validés. Le transformateur 24 kV/400 V de marque X, type Y, répond à la norme CEI 60076 avec garantie constructeur 5 ans.",
-            "source": "RC Article 5 §2 — Tableau critères, sous-critère 30% du critère Technique"
+            "exemple_reponse_forte": "La méthodologie proposée s'articule en 4 phases : préparation/études (1 semaine), réalisation du génie civil et pose du poste HTA, tirage des câbles HTA et raccordement cellules, mise en service et essais réglementaires. Les fiches techniques du transformateur sélectionné (24kV/400V-400kVA, classe F) et des cellules Schneider SM6 sont jointes, démontrant la conformité NF C13-100 et la disponibilité des pièces de rechange.",
+            "source": "RC article 5 §2"
           },
           {
             "libelle": "Performance du délai d'exécution et cohérence du planning proposé",
             "ponderation_pct": 14,
-            "description": "Évaluation de la performance du délai d'exécution proposé et de la cohérence du planning détaillé, incluant les délais d'approvisionnement et la durée de chaque tâche.",
+            "description": "Ce sous-critère est le plus pondéré du critère technique (40% du technique). L'acheteur évalue la performance du délai d'exécution proposé et la cohérence du planning détaillé, incluant le délai d'approvisionnement.",
             "elements_attendus": [
-              "Planning détaillé d'exécution avec durée de chaque tâche",
-              "Indication explicite du délai d'approvisionnement des équipements",
-              "Délai d'exécution global compétitif (hors approvisionnement, environ 3 semaines en référence)",
-              "Cohérence entre organisation de l'équipe et planning proposé",
-              "Identification des jalons critiques (consignation HTA, essais)"
+              "Planning détaillé d'exécution avec durée de chaque tâche (Gantt ou tableau)",
+              "Indication explicite du délai d'approvisionnement des équipements HTA (poste, transformateur)",
+              "Délai d'exécution global des travaux (hors approvisionnement) aussi court que possible",
+              "Cohérence entre organisation proposée (moyens humains) et planning",
+              "Prise en compte des contraintes site occupé (accès 8h-18h, demandes 72h à l'avance)"
             ],
-            "exemple_reponse_forte": "Le planning Gantt détaillé sur 18 jours ouvrés (hors approvisionnement de 8 semaines) articule : semaine 1 — génie civil et pose poste préfabriqué ; semaine 2 — installation cellules HTA, transformateur, AGBT/TGBT ; semaine 3 — liaisons HTA, essais sous tension et mise en service. Les jalons de consignation réseau sont coordonnés avec le gestionnaire de réseau.",
-            "source": "RC Article 5 §2 — Tableau critères, sous-critère 40% du critère Technique"
+            "exemple_reponse_forte": "Le planning prévisionnel propose 3 semaines de travaux hors approvisionnement : semaine 1 génie civil et livraison poste HTA (délai appro 6 semaines à compter notification), semaine 2 installation cellules et tirage câbles HTA, semaine 3 raccordements BT, essais et mise en service. Le planning intègre les contraintes d'accès ASNR et prévoit une intervention le samedi si nécessaire pour tenir le délai.",
+            "source": "RC article 5 §2"
           }
         ]
       },
       {
         "libelle": "Développement durable",
         "ponderation_pct": 5,
-        "description": "Évaluation des mesures prises pour la gestion des déchets de chantier : tri, évacuation en filières adaptées et transmission des bordereaux de suivi des déchets (BSD).",
+        "description": "L'acheteur évalue les mesures prises en faveur de l'environnement dans le cadre de la gestion du chantier, notamment le tri et le recyclage des déchets, l'évacuation en filières adaptées et la transmission des BSD.",
         "elements_attendus": [
-          "Plan de gestion des déchets de chantier (tri sélectif : déchets inertes, métaux, câbles, huile transformateur)",
-          "Identification des filières de valorisation/élimination adaptées",
-          "Engagement de transmission des BSD (Bordereaux de Suivi des Déchets)",
-          "Mesures spécifiques pour les déchets dangereux (huile minérale transformateur, matériaux contenant amiante le cas échéant)"
+          "Plan de gestion des déchets de chantier avec filières d'évacuation identifiées",
+          "Engagement sur le tri sélectif des déchets (câbles, emballages, ferraille, etc.)",
+          "Procédure de transmission des bons de suivi des déchets (BSD) à l'ASNR",
+          "Mesures de réduction des nuisances environnementales sur site (bruit, pollution sols)"
         ],
-        "exemple_reponse_forte": "Le plan de gestion des déchets prévoit un tri sur chantier en 4 flux (métaux ferreux/non ferreux, câbles cuivre, déchets inertes, déchets dangereux — huile transformateur confiée à un collecteur agréé). Tous les BSD seront transmis au maître d'ouvrage dans les 30 jours suivant l'évacuation.",
-        "source": "RC Article 5 §2 — Tableau critères, critère Développement durable 5%"
+        "exemple_reponse_forte": "Un plan de gestion des déchets sera établi dès l'ouverture du chantier : bennes séparées câbles cuivre/aluminium (filière recyclage métal), emballages (filière DIB), et déchets dangereux éventuels. Les BSD seront transmis à M. Herminier dans les 48h suivant chaque évacuation. Un référent environnement chantier est désigné.",
+        "source": "RC article 5 §2",
+        "sous_criteres": []
       }
     ],
     "prix": {
       "type_formule": "moins_disant",
       "formule_explicite": "Note prix = Pondération × (offre la moins élevée / offre analysée)",
       "elements_a_chiffrer": [
-        "Montant global de l'annexe financière / DPGF (prix forfaitaires)",
-        "Fourniture du poste Haute Tension",
-        "Fourniture et installation des cellules HTA",
-        "Fourniture et installation du transformateur 24 kV/400 V",
-        "Mise en œuvre des liaisons HTA",
-        "Fourniture et installation de l'armoire AGBT",
-        "Fourniture et installation du TGBT",
-        "Études d'exécution",
-        "Essais et mise en service",
-        "Le cas échéant : prix de la variante transformateur d'occasion"
+        "1.1 Fourniture poste béton ou métallique (Forfait)",
+        "1.2 Réalisation fond de forme et génie civil associé (Forfait)",
+        "1.3 Ensemble cellules HTA (Forfait)",
+        "1.4 Transformateur 24 kV / 400 V – 400 kVA (U)",
+        "1.5 Jeux de fusibles HTA (Jeu x2)",
+        "1.6 Liaison HTA cellules / transformateur (Forfait)",
+        "1.7 Kit détecteur de défauts (U)",
+        "1.8 Accessoires de sécurité réglementaires (Forfait)",
+        "1.9 Essais et recette usine (Forfait)",
+        "2.1 Fourniture câble torsadé HTA (Ens)",
+        "2.2 Fourniture et pose fourreaux (Ens)",
+        "2.3 Extrémités de cellules (Ens)",
+        "2.4 Réalisation têtes de câble HTA (Ens)",
+        "2.5 Déroulage et pose câble HTA (Forfait)",
+        "3.1 à 3.11 AGBT (ensemble des postes)",
+        "4.1 à 4.6 TGBT CVC (ensemble des postes)",
+        "5.1 à 5.8 Études et mise en service (ensemble des postes)",
+        "O1 Option : Étude de sélectivité HTA/BT (Forfait)"
       ]
     },
-    "modalite_calcul_prix": "Note prix = Pondération × (offre la moins élevée / offre analysée) — RC Article 5 §2.A"
+    "modalite_calcul_prix": "Note prix = Pondération × (offre la moins élevée / offre analysée) — RC article 5 §2.A"
   },
   "montant_marche": {
     "valeur_estimee_euros": null,
     "fourchette_min_euros": null,
     "fourchette_max_euros": null,
     "type": "non_communique",
-    "duree_couverte": "Durée des travaux — estimée à 3 semaines d'exécution hors approvisionnements",
+    "duree_couverte": "Durée d'exécution estimée à 3 semaines hors approvisionnement",
     "source_extraction": null,
-    "commentaire": "Aucun montant estimé ou plafond budgétaire n'est mentionné dans le RC. Le marché est à prix forfaitaires ; l'annexe financière/DPGF contiendra la décomposition détaillée."
+    "commentaire": "Aucun montant estimatif ni enveloppe budgétaire n'est communiqué dans les pièces du DCE. La DPGF ne comporte que des lignes à zéro à remplir par le candidat. Le marché porte sur un poste HTA + transformateur 24kV/400V + liaisons HTA + AGBT + TGBT : à titre indicatif, ce type de prestation se situe généralement entre 150 000 € et 400 000 € HT selon les contraintes de site et les délais d'approvisionnement."
   },
   "revision_prix": {
-    "type": "non_communique",
-    "indices_utilises": [],
-    "ponderation": null,
+    "type": "actualisation",
+    "indices_utilises": [
+      "BT47"
+    ],
+    "ponderation": "30% partie fixe + 70% BT47 (Electricité – Base 2010, Identifiant 001711002)",
     "periodicite": null,
-    "formule_revision": null,
-    "source_extraction": null,
-    "commentaire": "Le CCAP n'est pas fourni dans les pièces analysées. Aucune information sur la révision des prix n'est disponible dans le RC."
+    "formule_revision": "P1 = P0 × (0.3 + 0.7 × S1/S0) — avec S1 = dernier indice BT47 publié 3 mois avant la date de début d'exécution ; S0 = dernier indice BT47 publié au mois de dépôt des offres",
+    "source_extraction": "CCAP — Réglementation des prix §4",
+    "commentaire": "Prix fermes et non révisables pendant l'exécution ; une actualisation unique est applicable si plus de 3 mois s'écoulent entre la fixation du prix et le début d'exécution. Favorable au candidat en cas de délai de notification long (prévue semaine du 20 juillet 2026)."
   },
   "alertes_prix": [
-    "Aucun montant estimé communiqué dans le DCE : difficile d'évaluer la rentabilité sans avoir accès à l'annexe financière/DPGF",
-    "Prix forfaitaires : le candidat doit intégrer les délais d'approvisionnement (potentiellement longs pour équipements HTA) dans son prix global, sans ajustement possible",
-    "Variante transformateur d'occasion : chiffrage distinct nécessaire, avec démonstration de fiabilité/garantie — risque de marges réduites si contraintes de garantie élevées",
-    "Critère prix pondéré à 60% : forte pression sur le prix, offre optimisée dès la remise initiale conseillée (ASNR peut attribuer sans négociation)"
+    "Pondération prix à 60% — très élevée : le prix sera déterminant dans le classement ; une offre trop haute par rapport au moins-disant sera fortement pénalisée.",
+    "Délai d'approvisionnement du transformateur et du poste HTA à intégrer impérativement dans le chiffrage (risque de sous-estimation si non anticipé) — poste 1.4 et 1.1 DPGF.",
+    "Prix forfaitaires fermes : tous les frais auxiliaires sont réputés inclus (CCAP §Contenu des prix) — ne rien oublier dans l'offre, notamment frais d'accès site ASNR, enquêtes administratives, Consuel.",
+    "Option O1 (Étude de sélectivité HTA/BT) à chiffrer séparément — peut être un vecteur de différenciation si le prix est compétitif."
   ],
   "references_exigees": {
     "experience_minimale_annees": 5,
-    "experience_source": "RC Article 4 §4.C — liste des travaux exécutés au cours des 5 dernières années",
+    "experience_source": "RC article 4 §4.C",
     "volume_min_references_similaires": null,
-    "volume_min_references_unite": null,
-    "secteur_experience": "Travaux électriques HTA/BT — installations haute tension (travaux similaires au marché)",
-    "secteur_source": "RC Article 4 §4.C",
-    "certifications_obligatoires": [],
+    "volume_min_references_unite": "marchés similaires",
+    "secteur_experience": "Travaux électriques HTA/BT — installations haute tension, cellules HTA, transformateurs, TGBT",
+    "secteur_source": "RC article 4 §4.C",
+    "certifications_obligatoires": [
+      {
+        "libelle": "Habilitations électriques adaptées conformes NFC 18-510 (travaux HTA)",
+        "source": "CCTP §2.5"
+      }
+    ],
     "autres_exigences": [
       {
-        "libelle": "Liste des travaux exécutés au cours des 5 dernières années avec attestations de bonne exécution pour les travaux les plus importants",
-        "source": "RC Article 4 §4.C"
+        "libelle": "Déclaration du chiffre d'affaires global et du CA domaine d'activité (3 derniers exercices)",
+        "source": "RC article 4 §4.B"
       },
       {
-        "libelle": "Déclaration du chiffre d'affaires global et CA du domaine d'activité sur les 3 derniers exercices",
-        "source": "RC Article 4 §4.B"
+        "libelle": "Preuve d'une assurance couvrant les risques pertinents (RC professionnelle, garantie décennale, garantie biennale)",
+        "source": "RC article 4 §4.B"
       },
       {
-        "libelle": "Preuve d'une assurance couvrant les risques pertinents",
-        "source": "RC Article 4 §4.B"
+        "libelle": "Déclaration des effectifs moyens annuels et importance du personnel d'encadrement sur 3 dernières années",
+        "source": "RC article 4 §4.C"
       },
       {
-        "libelle": "Déclaration des effectifs moyens annuels et importance du personnel d'encadrement sur les 3 dernières années",
-        "source": "RC Article 4 §4.C"
+        "libelle": "Description de l'outillage, matériel et équipement technique disponible pour le marché",
+        "source": "RC article 4 §4.C"
       },
       {
-        "libelle": "Indication des titres d'études et professionnels des cadres et responsables de prestations de même nature",
-        "source": "RC Article 4 §4.C"
-      },
-      {
-        "libelle": "Description de l'outillage, du matériel et de l'équipement technique disponibles pour l'exécution du marché",
-        "source": "RC Article 4 §4.C"
-      },
-      {
-        "libelle": "Certificat de visite obligatoire du site (Le Vésinet, 22-24 juin 2026) à joindre à l'offre sous peine de rejet",
-        "source": "RC Article 3 §5 et Annexe n°3"
+        "libelle": "Indication des titres d'études et professionnels des cadres et responsables de prestation",
+        "source": "RC article 4 §4.C"
       }
     ]
   },
   "lots": [
     {
       "numero": 1,
-      "intitule": "Lot unique — Prolongation de la boucle HTA 20 kV — site ASNR du Vésinet",
+      "intitule": "Travaux de prolongation de la boucle haute tension (HTA) 20 KV du site ASNR du Vésinet",
       "zone_geographique": "Le Vésinet (78)",
       "volume_estime": null,
       "volume_estime_unite": null,
-      "particularites": "Site sécurisé ASNR — accès réglementé, visite obligatoire, présence possible d'amiante. Variante facultative transformateur d'occasion."
+      "particularites": "Lot unique — site ASNR classé, accès soumis à enquête administrative. Visite obligatoire 22-24 juin 2026. Délai d'exécution 3 semaines hors approvisionnement. Variante facultative sur transformateur d'occasion possible."
     }
   ],
   "calendrier": {
     "date_limite_offres": "2026-07-06",
     "date_demarrage_prevue": "2026-07-20",
-    "duree_marche": "3 semaines d'exécution hors délais d'approvisionnement — durée contractuelle fixée par l'offre du titulaire"
+    "duree_marche": "3 semaines d'exécution hors délais d'approvisionnement, à compter de la notification (semaine du 20 juillet 2026 à titre indicatif)"
   },
   "alertes_candidat": [
-    "VISITE OBLIGATOIRE : inscription avant le 19 juin 2026 à 18h00 — certificat de visite à joindre à l'offre sous peine de rejet total (RC Article 3 §5 et Annexe 3)",
-    "ACCÈS SITE SÉCURISÉ : fournir nom, prénom, date et lieu de naissance, nationalité de naissance et actuelle, profession et employeur de chaque visiteur — délai incompressible à anticiper",
-    "HABILITATIONS ÉLECTRIQUES HTA obligatoires pour les intervenants (critère d'attribution noté) — vérifier la validité des habilitations des agents mobilisés",
-    "CV OBLIGATOIRES pour chaque intervenant (RC Article 5 §1 Chapitre 2) — défaut de production entraîne rejet de l'offre",
-    "DÉLAI D'APPROVISIONNEMENT à déclarer explicitement dans le planning — les matériels HTA (cellules, transformateur) peuvent avoir des délais longs qui impactent la note planning"
+    "Visite de site OBLIGATOIRE (22-24 juin 2026) — le certificat de visite signé par les deux parties doit être joint à l'offre sous peine de rejet. Inscription avant le vendredi 19 juin 2026 à 18h00 auprès d'Adrien Herminier.",
+    "Enquête administrative préalable obligatoire pour tout intervenant sur site ASNR — délai de retour de 1 semaine à plusieurs semaines : prévoir un effectif suffisant pour absorber les éventuels refus d'accès.",
+    "Habilitations électriques NFC 18-510 adaptées aux travaux HTA exigées pour l'ensemble du personnel — absence d'habilitation adéquate peut bloquer l'exécution.",
+    "Présence possible d'amiante signalée (DTA en annexe CCTP) — le candidat doit en prendre connaissance et intégrer les contraintes éventuelles dans son offre.",
+    "DC1, DC2, liste de références avec attestations de bonne exécution (5 dernières années), CV des intervenants et attestation d'assurance à produire — dossier de candidature incomplet = rejet possible."
   ],
   "points_differenciants_attendus": [
     {
-      "libelle": "Habilitations électriques HTA et expérience en site sensible",
-      "exemple": "Présenter une équipe entièrement habilitée HTA (H1, H2, H2V, HC, HN) avec expériences sur sites industriels ou nucléaires similaires, en joignant les attestations d'habilitation en cours de validité pour chaque intervenant.",
-      "source": "RC Article 5 §2 — sous-critère Technique 30% Moyens humains"
+      "libelle": "Performance du délai d'exécution — sous-critère le plus pondéré du technique (40% du technique soit 14 points sur 100)",
+      "exemple": "Proposer un planning optimisé sous 3 semaines en intégrant un approvisionnement anticipé du transformateur et du poste HTA (commande ferme possible dès notification), avec possibilité de travail le samedi, peut faire la différence face à des concurrents proposant 4-5 semaines.",
+      "source": "RC article 5 §2"
     },
     {
-      "libelle": "Planning compétitif avec délai d'approvisionnement maîtrisé",
-      "exemple": "Disposer de partenariats avec des fournisseurs d'équipements HTA permettant de garantir un délai d'approvisionnement court (ex: transformateur disponible en stock ou délai inférieur à 6 semaines), permettant de proposer un délai global d'exécution inférieur à 3 semaines.",
-      "source": "RC Article 5 §2 — sous-critère Technique 40% Performance du délai"
+      "libelle": "Expérience prouvée en milieu sensible / site occupé avec contraintes d'accès",
+      "exemple": "Citer des références sur des chantiers HTA en site nucléaire, hospitalier ou scientifique sous contrôle d'accès, avec enquêtes administratives gérées, démontre une maîtrise des contraintes propres au site ASNR.",
+      "source": null
     },
     {
       "libelle": "Qualité et fiabilité des matériels proposés avec fiches techniques complètes",
-      "exemple": "Proposer des cellules HTA et un transformateur de marques reconnues (Schneider, ABB, Siemens, etc.) avec fiches techniques constructeur, certifications CEI et garantie fabricant étendue, accompagnés de plans d'exécution préliminaires dès l'offre initiale.",
-      "source": "RC Article 5 §2 — sous-critère Technique 30% Méthodologie"
+      "exemple": "Proposer des équipements de marques reconnues (Schneider, Siemens, ABB) avec fiches techniques détaillées, FDES, et garanties fabricant étendues renforce la crédibilité de l'offre technique.",
+      "source": "RC article 5 §2"
     },
     {
-      "libelle": "Gestion des déchets HTA spécifiques (huile, câbles, amiante potentiel)",
-      "exemple": "Présenter un plan de gestion des déchets détaillé avec filières nommées (collecteur agréé huile minérale, recycleur câbles cuivre) et engagement de transmission systématique des BSD dans les 30 jours — point discriminant sur un critère pondéré à 5%.",
-      "source": "RC Article 5 §2 — critère Développement durable 5%"
+      "libelle": "Variante transformateur d'occasion — différenciation sur le prix si fiabilité démontrée",
+      "exemple": "La variante facultative sur transformateur d'occasion (sans offre de base obligatoire) peut permettre de proposer un prix compétitif à condition de fournir un historique de maintenance documenté, des garanties solides et un certificat de conformité récent.",
+      "source": "RC article 1 §4"
+    },
+    {
+      "libelle": "Maîtrise des contraintes réglementaires HTA spécifiques au site (Consuel, bureau de contrôle, NF C13-100)",
+      "exemple": "Démontrer dans la méthodologie la connaissance du process Consuel, de la vérification réglementaire initiale par bureau de contrôle et des normes NF C13-100/C13-200 prouve au maître d'œuvre (SESA-VES) la maturité réglementaire de l'entreprise.",
+      "source": "CCAP — Conditions d'exécution §9 / CCTP §2.3"
     }
   ],
   "_meta": {
     "id_marche": "BOAMP-26-57238",
     "type": "complet",
-    "extraction_le": "2026-06-12T00:57:50.443219+00:00",
+    "date_generation": "2026-06-15T00:01:38.077500+00:00",
+    "extraction_le": "2026-06-15T00:01:38.077500+00:00",
     "modele": "claude-sonnet-4-6",
-    "tokens_input": 27505,
-    "tokens_output": 6634,
-    "cout_eur": 0.1729,
-    "duree_sec": 117.6,
+    "preset_utilise": "btp",
+    "presets_matches": [
+      "btp"
+    ],
+    "prompts_versions": {
+      "btp/_preset.json": "sha256:d1717e0d87f6c265"
+    },
+    "tokens_input": 57799,
+    "tokens_output": 6396,
+    "cout_eur": 0.2559,
+    "duree_sec": 119.5,
     "pdfs_traites": [
       {
         "nom": "1-RC ASNR-20266040-30000091619-TVX-HTA.pdf",
         "hash": "8ad23f31c48571249b7add4961c1ac63",
         "taille_chars": 42918
+      },
+      {
+        "nom": "2-AE ASNR-20266040-30000091619-TVX-HTA.docx",
+        "hash": "63fb94db71a5626fb7950d10117e17a5",
+        "taille_chars": 10078
+      },
+      {
+        "nom": "3-CCAP ASNR-20266040-30000091619-TVX-HTA.pdf",
+        "hash": "7f0ce107c15ed17b97e2ef077e57f3e5",
+        "taille_chars": 68426
+      },
+      {
+        "nom": "4-DPGF ASNR-20266040-30000091619-TVX-HTA.xlsx",
+        "hash": "d3d038b6c64a3115123dd5b42db7a798",
+        "taille_chars": 2230
+      },
+      {
+        "nom": "5-CCTP ASNR-20266040-30000091619-TVX-HTA.pdf",
+        "hash": "5134c26d7a3c5133c90c206e5c69cafa",
+        "taille_chars": 14316
       }
     ]
   }

@@ -1,6 +1,6 @@
 # Brief — Restauration intérieure de la cathédrale Saint Vincent - Lot n°1 : Terrassement - VRD
 
-_Généré le 2026-06-12 15:49 par Claude claude-sonnet-4-6_
+_Généré le 2026-06-15 00:15 par Claude claude-sonnet-4-6_
 
 ## Identifiants
 - **ID Tendia** : `BOAMP-26-56305`
@@ -11,99 +11,104 @@ _Généré le 2026-06-12 15:49 par Claude claude-sonnet-4-6_
 - **DCE PLACE** : <https://marches.ternum-bfc.fr/?page=Entreprise.EntrepriseDetailsConsultation&id=691815&orgAcronyme=t7p>
 
 ## Synthèse
-Marché de travaux de terrassement et VRD pour la restauration intérieure de la cathédrale Saint Vincent de Chalon-sur-Saône (lot n°1 sur 13 lots). Les travaux concernent la phase 4 (chapelles et parvis) de l'opération globale de restauration. Le délai d'exécution est de 8 semaines maximum, avec un démarrage prévisionnel début 2027.
+Marché de travaux publics pour la réfection du parvis de la cathédrale Saint-Vincent de Chalon-sur-Saône, dans le cadre de la restauration intérieure de ce monument historique (Phase 4). Les travaux comprennent la dépose des revêtements existants (enrobé et dallage pierre), la réfection des couches de forme, la fourniture et pose de pavés granit et d'un dallage pierre type Buxy, ainsi que la réfection des réseaux d'eaux pluviales. Marché forfaitaire passé en appel d'offres ouvert, avec démarrage prévu début 2027 et délai d'exécution de 8 semaines.
 
 ## 🏗 Chantier — caractéristiques BTP
-- **Description** : Travaux de terrassement et VRD dans le cadre de la restauration intérieure de la cathédrale Saint Vincent de Chalon-sur-Saône. Les travaux s'inscrivent dans la Phase 4 de l'opération globale, concernant les chapelles et le parvis. Le mémoire technique mentionne explicitement la mise en œuvre de pavés et dalles.
-- **Type d'ouvrage** : Cathédrale classée Monument Historique (restauration intérieure et parvis)
-- **Site occupé pendant travaux** : Vraisemblablement oui — site patrimonial en activité, présence d'autres corps d'état et potentiellement du public ; contraintes de co-activité mentionnées dans le RC
-- **Corps d'état mobilisés** : Terrassement, VRD (voirie et réseaux divers), Pose de pavés et dalles
+- **Description** : Réfection complète du parvis de la cathédrale Saint-Vincent : dépose de l'enrobé existant (~347 m²) et du dallage pierre (~65 m²), purge de la forme de pose (~187 m²), réfection des couches de forme en béton allégé (~187 m²), fourniture et pose de pavés granit (~181 m²) et dallage pierre type Buxy (~231 m²), réfection des réseaux EP (caniveaux préfabriqués ~42 ml, avaloirs, caniveau fente), pose d'un fourreau électrique ~33 ml. Intervention sur monument historique classé, avec contraintes patrimoniales fortes (choix des matériaux soumis à approbation de l'architecte ACMH).
+- **Type d'ouvrage** : Espace public extérieur — parvis de cathédrale classée monument historique
+- **Surface / volume** : Environ 412 m² de revêtements posés (181 m² pavés + 231 m² dallage pierre)
+- **Site occupé pendant travaux** : true — Le parvis est un espace public central de Chalon-sur-Saône, la cathédrale étant en activité ; barriérage de chantier obligatoire avec clôture type Héras sur 58 ml
+- **Corps d'état mobilisés** : Terrassement, VRD, Pose de pavés et dallages pierre, Réseaux eaux pluviales
 - **Contraintes spécifiques** :
-  - Édifice classé Monument Historique — maîtrise d'œuvre spécialisée (2BDM Architectes mandataire)
-  - Opération décomposée en 4 phases — lot 1 intervient en Phase 4 (chapelles et parvis)
-  - Co-activité avec d'autres lots déjà attribués — gestion des nuisances et interférences obligatoire
-  - Clause d'insertion obligatoire (PLIE Grand Chalon) — volume horaire à définir au CCAP
-  - Visite obligatoire préalable à la remise de l'offre (certificat de visite à joindre)
-  - Opération de niveau 1 (SPS) — coordination sécurité en place
-  - Contraintes d'approvisionnement et de rotation de matériels en milieu patrimonial contraint
+  - Monument historique classé : tous les matériaux (pavés, dallage, mortier de pose) soumis à approbation de l'architecte ACMH (Frédéric Didier, 2BDM)
+  - Dépose manuelle ou à la tronçonneuse des pierres — outils pneumatiques exclus pour le dallage pierre
+  - Coordination avec 12 autres lots du chantier global de restauration intérieure (coactivité avec lot 2 Maçonnerie minimum)
+  - Chantier de niveau SPS catégorie 1 — PPSPS obligatoire avant tout démarrage
+  - Pavés devront être non glissants classement PC27 selon norme NF P 05-011 — justification à fournir
+  - Adaptation PMR au droit de l'entrée sud-ouest avec forme de pente spécifique
+  - Prise en compte des réseaux enterrés existants (DICT obligatoire), tampon à daller à prévoir
+  - Fourniture d'essais préalables : essai de 5 m² de pavés pour approbation architecte
+  - Clause d'insertion sociale obligatoire : 6% du volume horaire total — pénalité si non-respect
+  - Visite obligatoire des lieux avant remise d'offre (certificat de visite exigé dans le dossier)
 
 ### Allotissement
-Le marché global est décomposé en 13 lots. La présente consultation ne concerne que le lot 1. Les lots 2 à 13 ont déjà été attribués dans le cadre de consultations précédentes.
+Marché global décomposé en 13 lots. La présente consultation ne concerne que le lot 1. Les autres lots ont été attribués dans le cadre de consultations précédentes.
 - **Nombre de lots** : 13
 - **Lot 1** — Terrassement - VRD
-  - Corps d'état : Terrassement, VRD, pose de pavés et dalles
-  - Travaux de terrassement et VRD dans le secteur des chapelles et du parvis (Phase 4). Délai d'exécution 8 semaines maximum.
+  - Corps d'état : Terrassement, VRD, pavage, dallage pierre
+  - Dépose des revêtements existants du parvis, réfection des couches de forme, pose de pavés granit et dallage pierre type Buxy, réfection réseaux EP, pose fourreau électrique. Phase 4 uniquement (chapelles et parvis).
 - **Lot 2** — Maçonnerie - Pierre de taille - Plâtrerie
-  - Corps d'état : Maçonnerie, pierre de taille, plâtrerie
-  - Lot attribué dans le cadre d'une consultation précédente.
+  - Corps d'état : Maçonnerie, taille de pierre, plâtrerie
+  - Lot déjà attribué. Inclut les échafaudages mis à disposition de tous les corps d'état.
 - **Lot 3** — Décors peints
-  - Corps d'état : Décors peints
-  - Lot attribué dans le cadre d'une consultation précédente.
+  - Corps d'état : Restauration de décors peints
+  - Lot déjà attribué.
 - **Lot 4** — Restauration de mobiliers d'art
-  - Corps d'état : Restauration de mobiliers d'art
-  - Lot attribué dans le cadre d'une consultation précédente.
+  - Corps d'état : Restauration de mobilier d'art
+  - Lot déjà attribué.
 - **Lot 5** — Restauration de sculptures
   - Corps d'état : Restauration de sculptures
-  - Lot attribué dans le cadre d'une consultation précédente.
+  - Lot déjà attribué.
 - **Lot 6** — Charpente
-  - Corps d'état : Charpente
-  - Lot attribué dans le cadre d'une consultation précédente.
+  - Corps d'état : Charpente bois
+  - Lot déjà attribué.
 - **Lot 7** — Couverture
   - Corps d'état : Couverture
-  - Lot attribué dans le cadre d'une consultation précédente.
+  - Lot déjà attribué.
 - **Lot 8** — Menuiserie
   - Corps d'état : Menuiserie
-  - Lot attribué dans le cadre d'une consultation précédente.
+  - Lot déjà attribué.
 - **Lot 9** — Serrurerie
   - Corps d'état : Serrurerie
-  - Lot attribué dans le cadre d'une consultation précédente.
+  - Lot déjà attribué.
 - **Lot 10** — Vitraux
   - Corps d'état : Vitraux
-  - Lot attribué dans le cadre d'une consultation précédente.
+  - Lot déjà attribué.
 - **Lot 11** — Électricité
   - Corps d'état : Électricité
-  - Lot attribué dans le cadre d'une consultation précédente.
+  - Lot déjà attribué.
 - **Lot 12** — Chauffage - Ventilation - Plomberie
-  - Corps d'état : Chauffage, ventilation, plomberie
-  - Lot attribué dans le cadre d'une consultation précédente.
+  - Corps d'état : CVC, plomberie
+  - Lot déjà attribué.
 - **Lot 13** — Acoustique
-  - Corps d'état : Acoustique
-  - Lot attribué dans le cadre d'une consultation précédente.
+  - Corps d'état : Acoustique, sonorisation
+  - Lot déjà attribué.
 
 ### Qualifications BTP exigées
-Le RC ne précise pas explicitement d'indices Qualibat requis. Les candidats doivent justifier de références similaires et de moyens humains et matériels adaptés.
+Aucune qualification Qualibat ou certification spécifique n'est expressément exigée dans le RC ou le CCAP pour ce lot. Cependant, des références similaires sur des travaux de VRD et de pose de pavés/dallages en contexte de monuments historiques sont implicitement attendues.
+- **OPQIBI** : non
+- **MASE** : non
 
 ## 💶 Montant du marché
-- _Montant non communiqué dans le DCE._
-  - Typique des accords-cadres à bons de commande : le volume dépend des commandes effectivement passées par l'acheteur sur la durée du marché.
-- _Note_ : Aucun montant estimatif ni plafond budgétaire n'est mentionné dans les pièces fournies (RC et DUME). La DPGF n'est pas incluse dans l'extrait analysé. Le montant ne peut être estimé sans le détail de la DPGF.
+- **Valeur estimée** : **5,35 M€**
+  - sur Montant global de l'opération tous lots confondus (13 lots). Le montant propre au lot 1 n'est pas communiqué.
+  - _source : RICT Cathédrale §IV.3 — Montant prévisionnel des travaux : 5 350 000 euros HT_
+- _Note_ : Ce montant de 5 350 000 € HT est le montant prévisionnel global de l'opération de restauration intérieure (13 lots). Le montant spécifique du lot 1 Terrassement-VRD n'est pas indiqué dans les pièces du DCE. Sur la base des quantités DPGF (environ 15 postes, surfaces de l'ordre de 400-500 m² de revêtements), une estimation indicative du lot 1 serait de l'ordre de 150 000 à 300 000 € HT, mais aucune donnée explicite n'est disponible pour le confirmer.
 
 ## Barème de notation
 - **Valeur technique** : 40 %
 - **Valeur prix** : 50 %
 - **Sous-critères techniques** :
   - Valeur technique : 40 %
-  - Pertinence, cohérence et optimisation du planning : 10 %
-- **Calcul du prix** : Note prix = 10 × (prix le plus bas / prix du candidat). La note maximale de 10 est attribuée au moins-disant. Les autres notes sont inversement proportionnelles au prix.
+- **Calcul du prix** : Note prix = 10 × (montant offre moins-disante / montant offre candidat). Exemple RC : offre moins-disante 100 ; offre A 125 ; note A = 10 × 100/125 = 8.
 
 ## Références et qualifications exigées
-- **Expérience minimale** : 5 ans
-- **Secteur d'expérience** : Prestations similaires (terrassement - VRD) réalisées au cours des 5 dernières années
+- **Expérience minimale** : —
+- **Secteur d'expérience** : Travaux de terrassement, VRD, pose de pavés et dallages pierre sur espaces publics, idéalement en contexte de monument historique ou en site patrimonial.
 - **Autres exigences** :
-  - Liste des moyens humains et matériels du candidat (source=RC Article 7A point 3)
-  - Certificat de visite obligatoire à joindre à l'offre (source=RC Article 6.5 et Article 7B point 4)
-  - Acceptation sans réserve de la clause d'insertion par l'activité économique (IAE) — toute réserve entraîne la non-conformité de l'offre (source=RC Article 3)
+  - Liste des moyens humains et matériels du candidat (source=RC article 7A point 3)
+  - Liste des références inférieures à 5 ans portant sur des prestations similaires, indiquant le montant, la date et le destinataire public ou privé (source=RC article 7A point 4)
+  - Certificat de visite obligatoire (visite du site avant le 24/06/2026) à joindre impérativement à l'offre (source=RC article 6.5 et article 7B point 4)
 
 ## ⚠ Alertes candidat
-- VISITE OBLIGATOIRE : le candidat doit prendre rendez-vous avant le 24/06/2026 et obtenir un certificat de visite à joindre impérativement à son offre — toute offre sans certificat sera non-conforme.
-- CLAUSE IAE OBLIGATOIRE : aucune réserve sur la clause d'insertion n'est tolérée — une offre formulant des réserves est déclarée non-conforme sans autre examen.
-- DÉMATÉRIALISATION TOTALE OBLIGATOIRE : les offres papier ne sont pas acceptées ; le candidat doit disposer d'un compte sur la plateforme Territoires Numériques/ARNIA et d'un certificat de signature électronique pour la notification.
-- CONTEXTE PATRIMONIAL : le chantier se situe dans une cathédrale classée Monument Historique avec co-activité d'autres corps d'état — l'absence de références en milieu patrimonial ou contraint peut pénaliser la note technique.
-- DÉLAI DE VALIDITÉ DES OFFRES : 180 jours à compter du 15/07/2026 — anticiper les contraintes de prix sur cette période.
+- VISITE OBLIGATOIRE : le certificat de visite doit être joint à l'offre — son absence entraîne l'irrecevabilité. Les visites sont programmées les jeudis 18 juin, 25 juin et 2 juillet 2026 à 10h30. Prise de RDV obligatoire avant le 24/06/2026 au 03.85.90.50.70.
+- CLAUSE D'INSERTION SOCIALE OBLIGATOIRE (6% des heures) : toute réserve formulée dans l'offre sur cette clause rend l'offre non-conforme. L'entreprise doit impérativement intégrer ce dispositif dans son organisation (PLIE Grand Chalon comme facilitateur).
+- MATÉRIAUX SOUMIS À APPROBATION ARCHITECTE : les pavés granit et dalles Buxy doivent faire l'objet d'échantillons soumis à l'architecte ACMH avant toute commande. Le candidat doit présenter des fiches techniques dans son mémoire et anticiper les délais d'approbation dans son planning.
+- CLASSEMENT PC27 NF P 05-011 obligatoire pour pavés et dallage pierre : la justification de non-glissance doit être fournie dès la remise d'offre (fiche technique) et confirmée avant mise en œuvre — exigence du RICT.
+- PPSPS CATÉGORIE 1 obligatoire : l'entreprise ne pourra pas intervenir sur le chantier sans avoir remis son PPSPS au coordonnateur SPS et effectué l'inspection commune préalable avec ce dernier.
 
 ## 💡 Points différenciants attendus
-- Expérience en contexte de monument historique ou site patrimonial contraint (exemple=Citer des références de terrassement/VRD dans des cathédrales, châteaux, ou sites classés similaires : ex. 'Travaux de dallage intérieur de l'église Saint-X (MH), 2023, X k€, maître d'ouvrage DRAC Y' — ces références valorisent directement la capacité à travailler sous contraintes patrimoniales., source=RC Article 7A point 4)
-- Méthodologie détaillée sur la gestion de la co-activité et la protection des ouvrages existants (exemple=Décrire précisément les protections mises en œuvre sur les dallages existants, les boiseries et les ornements lors des terrassements, ainsi que la coordination avec les lots voisins déjà en cours — un protocole formalisé avec illustrations sera mieux noté., source=RC Article 7B point 3 (sous-critère méthodologie spécifique))
-- Fiches techniques précises des pavés et dalles proposés (exemple=Joindre les fiches techniques des matériaux (granit, calcaire, etc.) avec leurs caractéristiques mécaniques, leur provenance et leur conformité aux exigences du CCTP, en expliquant le choix en cohérence avec le contexte patrimonial., source=RC Article 7B point 3)
-- Planning optimisé avec analyse du chemin critique et proposition de réduction de délai (exemple=Proposer un planning en 7 semaines au lieu de 8, en justifiant par une organisation en équipes décalées ou en préfabrication partielle en atelier, pour démontrer une capacité à absorber les aléas tout en respectant le délai contractuel., source=RC Article 10 (critère 3 planning pondéré à 10%))
-- Plan de gestion des nuisances adapté à un édifice de culte en activité potentielle (exemple=Détailler les horaires d'intervention des engins bruyants, les dispositifs anti-poussières protégeant les vitraux et les décors peints des lots voisins, et le plan de collecte des déchets inertes évacués sans passage par la nef centrale., source=RC Article 7B point 3 (sous-critère gestion des nuisances))
+- Expérience en travaux de revêtements pierre sur monuments historiques ou sites patrimoniaux (exemple=Un candidat présentant des références récentes de pose de pavés et dallages pierre sur parvis d'église classée ou site patrimonial, avec validation par un ACMH, démontrera une familiarité avec les exigences qualitatives et les contraintes d'approbation des matériaux propres à ce type de chantier., source=CCTP — description des travaux et exigences de soumission à l'architecte)
+- Méthodologie détaillée de dépose manuelle des pierres et protection des existants (exemple=Un candidat qui décrit précisément son protocole de dépose (dégarnissage des joints, pose sur outil non-pneumatique, tri et stockage des pierres déposées) et ses mesures de protection des réseaux enterrés (scan sol + DICT + marquage avant toute intervention) scorerait fortement sur le sous-critère méthodologie., source=RC article 7B, CCTP §2 et §5)
+- Planning réaliste et optimisé intégrant les contraintes de coactivité et d'approbation architecte (exemple=Un candidat qui propose un planning détaillé par tâche intégrant les délais d'approbation des échantillons (pavés + dallage), les délais de réception du support après dépose, et les interfaces avec le lot 2 Maçonnerie encore présent sur site, démontrera une maîtrise des risques de retard — critère valorisé à 10%., source=RC article 10 (critère 3 : planning 10%), CCAP article 8)
+- Gestion environnementale des déchets avec traçabilité et filières de valorisation identifiées (exemple=Un candidat qui présente un plan de gestion des déchets identifiant les filières de valorisation pour l'enrobé (RAP — recyclage en centrale), les inertes pierre (recyclage filière agrégats) et les déchets banals, avec engagement sur la fourniture des bordereaux de traçabilité, répondra précisément au sous-critère environnement., source=RC article 7B, CCAP articles 8.11 et 8.12)

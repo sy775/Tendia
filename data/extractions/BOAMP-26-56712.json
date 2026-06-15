@@ -1,296 +1,364 @@
 {
-  "synthese_marche": "La Ville de Bouguenais lance un marché de travaux (procédure adaptée ouverte, lot unique) pour la réalisation et le raccordement au réseau existant d'ouvrages hydrauliques de gestion des eaux pluviales sur le site du Piano'cktail, rue Ginsheim Gustavsburg à Bouguenais (44). Les travaux comprennent 30 jours de préparation et 45 jours calendaires d'exécution, avec un démarrage souhaité au 14 septembre 2026.",
+  "synthese_marche": "La Ville de Bouguenais (44) lance un marché unique de travaux VRD pour la réalisation et le raccordement d'ouvrages hydrauliques de gestion des eaux pluviales sur le site du Piano'cktail, en lien avec la création d'ombrières photovoltaïques sur le parking existant. Les travaux comprennent terrassements, réseaux EP (canalisations béton Ø600 et Ø1000, PVC Ø250), un bassin de rétention aérien (~303 m³), une noue d'infiltration (~31 m³), un ouvrage de régulation à débit limité (1,5 l/s), engazonnements et clôtures. Le délai d'exécution est de 45 jours calendaires, démarrage souhaité le 14/09/2026.",
   "domaines_metier": [
     {
       "code": "btp_voirie_reseaux"
     }
   ],
-  "raison_classification": "Le marché porte explicitement sur la réalisation d'ouvrages hydrauliques de gestion des eaux pluviales (bassins, réseaux, raccordements), relevant des VRD — réseaux humides (eaux pluviales). Le bureau d'études est un bureau VRD (2LM). Le CCTP évoque des plans d'aménagement hydraulique et des inspections télévisées de réseaux existants.",
+  "raison_classification": "Le marché porte exclusivement sur des travaux VRD : terrassements, réseaux d'assainissement eaux pluviales (canalisations, regards, ouvrages de régulation, noue, bassin), engazonnement et clôtures, sans dimension bâtiment. Le CCTP et le BPU confirment un chantier typique de voirie et réseaux divers avec maîtrise d'œuvre bureau d'études VRD (BE 2LM).",
   "caracteristiques_techniques_chantier": {
-    "description": "Réalisation et raccordement au réseau existant d'ouvrages hydrauliques de gestion des eaux pluviales sur le site du Piano'cktail à Bouguenais. Les travaux incluent des ouvrages de rétention/infiltration et leur raccordement au réseau d'eaux pluviales existant, sur la base d'une notice de gestion des eaux pluviales, d'une étude de sol et d'inspections télévisées.",
-    "typologie_ouvrage": "Ouvrages hydrauliques de gestion des eaux pluviales (site Piano'cktail — équipement de loisirs/culture)",
-    "surface_volume": null,
-    "site_occupe": "Non précisé explicitement ; visite de site libre recommandée, aucune contrainte d'occupation mentionnée.",
+    "description": "Réalisation d'ouvrages hydrauliques de gestion des eaux pluviales pour gérer le ruissellement des futures ombrières photovoltaïques du parking Piano'cktail : bassin de stockage aérien (~303 m³, fond cote 14.70-14.80 NGF, NPHE 15.55 NGF), noue d'infiltration (~31 m³), réseau EP en canalisations béton Ø600 et Ø1000 et PVC Ø250, ouvrage de régulation siphoïde en béton (débit fuite 1.5 l/s), regards Ø1000 et Ø1500, têtes de buse, enrochements, engazonnements, clôtures panneaux rigides H=1.50m et portail 4m. Réseaux existants à déposer, investigations complémentaires de réseaux incluses.",
+    "typologie_ouvrage": "Ouvrages hydrauliques de gestion des eaux pluviales (bassin de rétention aérien, noue d'infiltration, réseau EP) — parking existant",
+    "surface_volume": "Bassin de rétention ~303 m³ ; noue d'infiltration ~31 m³ ; surface parking ~33 000 m² (emprise projet plus restreinte)",
+    "site_occupe": "true — chantier en concomitance avec les travaux de montage des ombrières sur le parking existant ; présence simultanée d'autres entreprises sur site",
     "corps_etat": [
-      "Terrassements",
-      "Ouvrages hydrauliques (bassins, cunettes, regards, exutoires)",
-      "Réseaux d'eaux pluviales",
-      "Raccordements réseaux existants",
-      "Éventuels travaux de voirie de remise en état"
+      "Terrassements / VRD",
+      "Assainissement eaux pluviales",
+      "Génie civil (ouvrage de régulation béton)",
+      "Espaces verts (engazonnement)",
+      "Clôtures / portail"
     ],
     "contraintes_specifiques": [
-      "Présence d'un réseau existant à raccorder (inspections télévisées fournies)",
-      "Étude de sol et investigations complémentaires fournies au DCE",
-      "Délai d'exécution contraint : 45 jours calendaires",
-      "Démarrage souhaité le 14/09/2026",
-      "Visite de site libre fortement recommandée pour appréhender les contraintes chantier"
+      "Coactivité avec l'entreprise de montage des ombrières photovoltaïques sur le parking",
+      "Sol peu perméable (K ≈ 1.9 à 3.6 × 10⁻⁸ m/s) — risque de nappe remontante jusqu'à 0,50 m sous la surface",
+      "Présence de nombreux réseaux enterrés (BT, HTA, EP, EU unitaire, AEP, gaz, télécom, fibre) détectés par investigations ADRÉ — DICT obligatoire",
+      "Délai court : 45 jours calendaires (période de préparation 30 jours non incluse)",
+      "Démarrage souhaité 14/09/2026 — travaux en période automnale (risques intempéries)",
+      "Terrassements potentiellement en terrain rocheux (leptynite dès 0.60 m) nécessitant BRH",
+      "Constat d'huissier avant travaux obligatoire",
+      "Inspection télévisée COFRAC de l'ensemble du réseau EP avant réception",
+      "Plans de récolement géoréférencés classe A obligatoires (format SHP/DWG)"
     ]
   },
   "allotissement": {
-    "description": "Marché en lot unique. Le non-recours à l'allotissement est justifié par l'impossibilité d'identifier des prestations distinctes.",
+    "description": "Marché en lot unique — non-allotissement justifié par l'impossibilité d'identifier des prestations distinctes",
     "nb_lots": 1,
     "lots_detailles": [
       {
         "numero": 1,
-        "intitule": "Lot unique — Travaux d'aménagement d'ouvrages hydrauliques",
-        "corps_etat": "VRD — réseaux eaux pluviales, ouvrages hydrauliques",
+        "intitule": "Travaux d'aménagement d'ouvrages hydrauliques sur le site du Piano'cktail à Bouguenais",
+        "corps_etat": "VRD / Assainissement EP / Génie civil / Espaces verts / Clôtures",
         "montant_estime": null,
-        "description": "Réalisation et raccordement au réseau existant d'ouvrages hydrauliques de gestion des eaux pluviales sur le site du Piano'cktail à Bouguenais (44340)."
+        "description": "Ensemble des travaux : terrassements, dépose réseaux existants, réseaux EP (Ø250 PVC, Ø600 et Ø1000 béton), regards, ouvrage de régulation siphoïde béton, bassin aérien, noue, têtes de buse, enrochements, engazonnement, clôtures et portail, plan de récolement"
       }
     ]
   },
   "qualifications_requises": {
-    "description": "Aucune qualification Qualibat ou certification RGE spécifique n'est explicitement exigée dans le RC fourni. Le RC exige des références de travaux similaires, une liste de matériels/équipements, et une attestation d'assurance RC professionnelle.",
-    "qualibat": null,
-    "rge": null,
+    "description": "Le DCE ne mentionne pas explicitement de qualifications Qualibat ou autres certifications exigées à titre d'irrecevabilité. Seule la justification d'une assurance RC chantier est exigée à la remise de l'offre.",
+    "qualibat": [],
+    "rge": false,
+    "rge_specialites": [],
+    "mase": false,
+    "iso_9001": false,
+    "iso_14001": false,
+    "iso_45001": false,
     "opqibi": null,
-    "autres_certifications": []
-  },
-  "caracteristiques_mission": {
-    "typologie_mission": null,
-    "domaine_expertise": null,
-    "livrables_attendus": [],
-    "duree_mission": null,
-    "jours_consultant_estimes": null
-  },
-  "profils_intervenants": {
-    "description": null,
-    "chef_de_mission": null,
-    "consultants": null
-  },
-  "publics_cibles": {
-    "description": null,
-    "criteres_eligibilite": [],
-    "publics_specifiques_signales": []
-  },
-  "volumes": {
-    "nb_beneficiaires_total": null,
-    "nb_beneficiaires_par_lot": null,
-    "duree_par_parcours_heures": null,
-    "duree_par_parcours_semaines": null,
-    "duree_marche_mois": null,
-    "commentaire_volumes": null
-  },
-  "modalites": {
-    "presentiel_obligatoire": null,
-    "distanciel_possible": null,
-    "synchrone_asynchrone": null,
-    "sites_execution": [
-      "Bouguenais (44340)"
-    ],
-    "amplitude_horaire": null
-  },
-  "caracteristiques_mission_moe": {
-    "typologie": null,
-    "phases_couvertes": [],
-    "typologie_ouvrage": null,
-    "montant_travaux_estime": null,
-    "complexite_technique": null
-  },
-  "qualifications_moe": {
-    "opqibi": [],
-    "opqcm": null,
-    "bim": null,
-    "autres": []
-  },
-  "caracteristiques_si": {
-    "description": null,
-    "typologie_projet": null,
-    "technologies_mentionnees": [],
-    "volumetrie": null,
-    "hebergement": null
-  },
-  "qualifications_si": {
-    "iso_27001": null,
-    "anssi": null,
-    "hds": null,
-    "autres": []
-  },
-  "volumes_techniques": {
-    "puissance_totale_kwc": null,
-    "puissance_par_site_kwc": null,
-    "nb_sites": null,
-    "surface_panneaux_m2": null,
-    "productible_annuel_estime_mwh": null,
-    "duree_marche_mois": null,
-    "duree_maintenance_om_annees": null,
-    "commentaire_volumes": "Marché de travaux VRD hydrauliques. Durée d'exécution : 30 jours de préparation + 45 jours calendaires de travaux. Démarrage souhaité le 14/09/2026."
-  },
-  "modalites_execution_chantier": {
-    "raccordement_reseau_inclus": true,
-    "etudes_techniques_incluses": false,
-    "calendrier_chantier_contraint": "Démarrage souhaité le 14/09/2026 ; 45 jours calendaires d'exécution",
-    "sites_execution": [
-      "Bouguenais (44340)"
-    ],
-    "engagement_productible": null,
-    "engagement_disponibilite_om": null
+    "autres_certifications": [
+      "Certification COFRAC pour l'entreprise réalisant l'inspection télévisée des réseaux EP (peut être sous-traitée)"
+    ]
   },
   "bareme_notation": {
-    "valeur_technique_pct": 40,
-    "valeur_prix_pct": 60,
-    "sous_criteres_techniques": [
-      {
-        "libelle": "Cohérence des moyens humains et matériels affectés à l'opération",
-        "ponderation_pct": 15,
-        "description": "L'acheteur évalue l'adéquation et la cohérence des effectifs (encadrement, main-d'œuvre) et du matériel (engins, outillage spécifique) mis en œuvre au regard des travaux hydrauliques à réaliser.",
-        "elements_attendus": [
-          "Liste nominative et qualifiée des personnels affectés au chantier (chef de chantier, conducteur d'engins, ouvriers spécialisés VRD)",
-          "Description précise du matériel et des engins disponibles (pelles, compacteurs, pompes d'épuisement, camions toupie si béton)",
-          "Adéquation des effectifs avec le délai de 45 jours calendaires",
-          "Justification de la disponibilité des ressources à la date de démarrage (14/09/2026)",
-          "Organigramme ou tableau récapitulatif des moyens humains et matériels"
-        ],
-        "exemple_reponse_forte": "L'entreprise affecte un chef de chantier expérimenté en VRD hydraulique, 3 ouvriers spécialisés réseaux et une pelle hydraulique 20T disponible dès le 14/09/2026. Le tableau des moyens démontre une capacité à tenir le planning de 45 jours avec des rotations d'engins planifiées.",
-        "source": "RC §9.2",
-        "sous_criteres": []
-      },
-      {
-        "libelle": "Qualité de la méthodologie (organisation chantier) et des procédés de réalisation (modes opératoires) des travaux",
-        "ponderation_pct": 10,
-        "description": "L'acheteur évalue la pertinence de l'organisation du chantier et la qualité des modes opératoires décrits pour la réalisation des ouvrages hydrauliques (terrassements, pose de réseaux, raccordements, compactage, etc.).",
-        "elements_attendus": [
-          "Description des modes opératoires pour les phases clés (terrassement, pose ouvrages hydrauliques, raccordement au réseau existant, remise en état)",
-          "Plan d'installation de chantier ou schéma d'organisation",
-          "Gestion des eaux de chantier et des évacuations lors des travaux",
-          "Mesures de sécurité et protection des riverains/usagers du site",
-          "Procédés adaptés aux contraintes du sol (étude de sol fournie au DCE)"
-        ],
-        "exemple_reponse_forte": "La note méthodologique détaille les phases de fouilles blindées pour la pose des ouvrages, les procédés d'épuisement préventif eu égard aux résultats de l'étude de sol, et les modalités de raccordement sur le réseau existant (carottage, cunette de raccordement) avec les protections de sécurité associées.",
-        "source": "RC §9.2",
-        "sous_criteres": []
-      },
-      {
-        "libelle": "Qualité de l'organisation du phasage des travaux et planning prévisionnel en adéquation avec les moyens affectés à l'opération",
-        "ponderation_pct": 15,
-        "description": "L'acheteur apprécie la cohérence du planning prévisionnel (phases préparation + travaux) avec les moyens décrits et le délai contractuel de 45 jours calendaires, en vérifiant que le phasage est réaliste et détaillé.",
-        "elements_attendus": [
-          "Planning détaillé sous forme de GANTT couvrant les 30 jours de préparation et les 45 jours d'exécution",
-          "Identification des phases critiques et des jalons (début terrassements, pose réseaux, raccordements, essais, remblaiement)",
-          "Cohérence entre le planning et les moyens humains/matériels annoncés",
-          "Identification des points de rencontre ou d'interface avec les réseaux existants",
-          "Prise en compte de marges ou de provisions pour aléas climatiques ou techniques"
-        ],
-        "exemple_reponse_forte": "Le planning GANTT proposé décompose les 45 jours en 5 phases (installation chantier 3j, terrassements 10j, pose ouvrages 12j, raccordements 8j, remblaiements/remise en état 10j, levée de réserves 2j) et démontre que les effectifs annoncés permettent de respecter le délai contractuel sans ressource sur-allouée.",
-        "source": "RC §9.2",
-        "sous_criteres": []
-      }
-    ],
+    "valeur_technique_pct": null,
+    "valeur_prix_pct": null,
+    "sous_criteres_techniques": [],
     "prix": {
-      "type_formule": "moins_disant",
-      "formule_explicite": "Note prix = (Prix moins-disant / Prix étudié) × 60",
+      "type_formule": "autre",
+      "formule_explicite": "Marché à prix unitaires rémunérés en fonction des quantités réellement exécutées, sur la base du BPU rempli par le candidat. Le RC ne précise pas de formule de notation des offres.",
       "elements_a_chiffrer": [
-        "Bordereau des Prix Unitaires (BPU) — prix unitaires par article",
-        "Détail Quantitatif Estimatif (DQE) — quantités appliquées aux prix unitaires du BPU"
+        "Installation de chantier (forfait FT)",
+        "Signalisation de chantier (forfait FT)",
+        "Marquage-piquetage des réseaux (forfait FT)",
+        "Dépose/repose de bordures existantes (prix ML)",
+        "Dépose de canalisations existantes (prix ML)",
+        "Démolition de regards/grilles existants (prix U)",
+        "Décapage de terre végétale 30 cm — mis en stock (prix M3)",
+        "Décapage de terre végétale 30 cm — évacuation (prix M3)",
+        "Terrassements en déblais — mis en remblais (prix M3)",
+        "Terrassements en déblais — évacuation (prix M3)",
+        "Reprise sur stock et mise en œuvre terre végétale 20 cm (prix M3)",
+        "Préparation de sol et engazonnement (prix M2)",
+        "Tranchée + pose canalisation PVC CR16 Ø250 (prix ML)",
+        "Tranchée + pose canalisation béton Ø600 (prix ML)",
+        "Tranchée + pose canalisation béton Ø1000 (prix ML)",
+        "Regard de visite béton 500×500 (prix U)",
+        "Regard de visite béton Ø1000 (prix U)",
+        "Regard de visite béton Ø1500 (prix U)",
+        "Regard à grille 400×400 de surverse (prix U)",
+        "Tête de buse maçonnée Ø500 (prix U)",
+        "Tête de buse maçonnée Ø600 (prix U)",
+        "Enrochements (prix M2)",
+        "Ouvrage de régulation (prix U)",
+        "Piquage sur regard ou réseau existant (prix U)",
+        "Inspection télévisée EP avec hydrocurage (prix ML)",
+        "Plan de récolement et DOE (forfait FT)",
+        "Clôture grillagée rigide H=1.50m (prix ML)",
+        "Portail double vantaux 4m H=1.50m (prix U)"
       ]
     },
-    "modalite_calcul_prix": "Prix moins disant × 60 / Prix étudié"
+    "modalite_calcul_prix": "Marché à prix unitaires. Les candidats remplissent le BPU avec leurs prix unitaires HT. Le règlement se fait en fonction des quantités réellement exécutées constatées contradictoirement."
   },
   "montant_marche": {
     "valeur_estimee_euros": null,
     "fourchette_min_euros": null,
     "fourchette_max_euros": null,
     "type": "non_communique",
-    "duree_couverte": "45 jours calendaires d'exécution (démarrage souhaité 14/09/2026)",
-    "source_extraction": null,
-    "commentaire": "Aucun montant estimé, plafond ou prix unitaire de référence n'est communiqué dans les pièces du DCE fournies (RC uniquement). Le CCAP et le BPU/DQE non fournis pourraient contenir cette information."
+    "duree_couverte": "45 jours calendaires d'exécution + 30 jours de préparation",
+    "source_extraction": "CCAP article 1.7 — aucun montant estimatif communiqué dans les pièces du DCE",
+    "commentaire": "Aucun montant estimatif n'est fourni dans le RC, le CCAP ou le BPU. L'avance forfaitaire n'est pas accordée car le délai d'exécution est inférieur à 2 mois (CCAP art. 5.1), ce qui suggère un marché inférieur à 50 000 € HT ou en tout cas un délai court. La retenue de garantie de 5% TTC est prévue."
   },
   "revision_prix": {
-    "type": "non_communique",
-    "indices_utilises": [],
-    "ponderation": null,
-    "periodicite": null,
-    "formule_revision": null,
-    "source_extraction": null,
-    "commentaire": "Le CCAP n'est pas fourni dans les pièces analysées ; aucune information sur la révision des prix n'est disponible dans le RC seul."
+    "type": "indexation",
+    "indices_utilises": [
+      "TP01 — Index Travaux Publics, Index général tous travaux, base 2010"
+    ],
+    "ponderation": "100% TP01 — formule simple sans partie fixe",
+    "periodicite": "autre",
+    "formule_revision": "P = Po × (TPm / TPmo) — P : montant révisé HT ; Po : montant initial offre HT ; TPm : valeur index TP connu au mois de démarrage des travaux ; TPmo : valeur index TP du mois d'établissement du prix",
+    "source_extraction": "CCAP article 3.2",
+    "commentaire": "Révision appliquée une seule fois au démarrage des travaux (actualisation de fait) ; formule intégralement indexée sur TP01 sans partie fixe, ce qui est favorable en période inflationniste mais expose le candidat si les prix baissent."
   },
   "alertes_prix": [
-    "Critère prix pondéré à 60% — très prépondérant ; l'offre financière est déterminante pour le classement.",
-    "Formule de notation prix de type 'moins-disant proportionnel' : un écart de prix significatif par rapport au concurrent le moins disant entraîne une pénalité importante sur la note globale.",
-    "Aucun montant estimatif communiqué dans le RC : impossible d'estimer le positionnement prix sans accéder au DQE fourni dans le DCE complet.",
-    "Marché à BPU+DQE : risque d'erreur de quantitatif si le candidat ne visite pas le site avant remise de l'offre (visite libre fortement recommandée)."
+    "Aucun montant estimatif fourni — le candidat doit s'appuyer sur les plans et le BPU pour estimer les quantités sans DQE chiffré, risque d'erreur de métré.",
+    "Présence simultanée d'une autre entreprise (ombrières) sur le chantier : les prix doivent intégrer les sujétions de coactivité sans indemnité possible.",
+    "Délai très court (45 jours calendaires) : les pénalités de retard sont calculées par P = √A (racine carrée du montant du marché) par jour — formule agressive sur petit marché.",
+    "Pas d'avance forfaitaire (délai < 2 mois) : l'entreprise doit préfinancer intégralement les travaux jusqu'au premier acompte mensuel.",
+    "Retenue de garantie de 5% TTC — la Ville s'oppose à la caution personnelle et solidaire, seule la garantie à première demande est acceptée."
   ],
   "references_exigees": {
-    "experience_minimale_annees": 5,
-    "experience_source": "RC §6 — liste des travaux exécutés au cours des cinq dernières années",
+    "experience_minimale_annees": null,
+    "experience_source": null,
     "volume_min_references_similaires": null,
-    "volume_min_references_unite": "marchés similaires (travaux VRD/hydrauliques)",
-    "secteur_experience": "Travaux VRD — réseaux hydrauliques / eaux pluviales",
-    "secteur_source": "RC §6",
-    "certifications_obligatoires": [],
+    "volume_min_references_unite": null,
+    "secteur_experience": "Travaux de VRD / assainissement eaux pluviales — réalisation d'ouvrages hydrauliques",
+    "secteur_source": null,
+    "certifications_obligatoires": [
+      {
+        "libelle": "Assurance RC chantier couvrant les tiers en cas d'accidents ou dommages causés par l'exécution des travaux — justificatif à fournir à la remise de l'offre",
+        "source": "CCAP article 2.3"
+      },
+      {
+        "libelle": "Certification COFRAC pour l'entreprise réalisant l'inspection télévisée des réseaux EP (agrément indépendant exigé pour l'ITV)",
+        "source": "CCTP §III.8.10"
+      }
+    ],
     "autres_exigences": [
       {
-        "libelle": "Liste des travaux exécutés au cours des cinq dernières années avec attestations de bonne exécution (montant, date, lieu, règles de l'art)",
-        "source": "RC §6"
+        "libelle": "Fourniture d'un SOPRE (Schéma d'Organisation du Plan de Respect de l'Environnement) à la remise de l'offre ou pendant la période de préparation",
+        "source": "CCTP §I.6.1"
       },
       {
-        "libelle": "Déclaration des effectifs moyens annuels et personnel d'encadrement sur les trois dernières années",
-        "source": "RC §6"
+        "libelle": "Fourniture d'un SOGED (Schéma d'Organisation et Gestion des Déchets) détaillé",
+        "source": "CCTP §I.6.2"
       },
       {
-        "libelle": "Description de l'outillage, matériel et équipement technique disponible pour le marché",
-        "source": "RC §6"
-      },
-      {
-        "libelle": "Attestation d'assurance de responsabilité civile professionnelle",
-        "source": "RC §6"
+        "libelle": "Constat d'huissier avant travaux obligatoire, à la charge du titulaire",
+        "source": "CCTP §III.4 et BPU 1.01"
       }
     ]
   },
   "lots": [
     {
       "numero": 1,
-      "intitule": "Lot unique — Travaux d'aménagement d'ouvrages hydrauliques sur le site du Piano'cktail",
-      "zone_geographique": "Bouguenais (44340)",
+      "intitule": "Marché de travaux d'aménagements d'ouvrages hydrauliques sur le site du Piano'cktail à Bouguenais",
+      "zone_geographique": "Bouguenais (44340) — Rue Ginsheim Gustavsburg — Parking Piano'cktail",
       "volume_estime": null,
       "volume_estime_unite": null,
-      "particularites": "Lot unique non alloti. Raccordement au réseau existant d'eaux pluviales inclus. Délai d'exécution : 45 jours calendaires. Démarrage souhaité le 14/09/2026."
+      "particularites": "Lot unique — coactivité avec montage ombrières PV — sol peu perméable avec nappe sub-affleurante — nombreux réseaux enterrés — canalisations béton jusqu'à Ø1000 — bassin aérien ~303 m³"
     }
   ],
   "calendrier": {
     "date_limite_offres": "2026-06-30",
     "date_demarrage_prevue": "2026-09-14",
-    "duree_marche": "30 jours de préparation + 45 jours calendaires d'exécution"
+    "duree_marche": "30 jours calendaires de préparation + 45 jours calendaires d'exécution, puis délai de garantie de parfait achèvement (1 an)"
   },
   "alertes_candidat": [
-    "Dossier d'offre incomplet considéré comme irrégulier : BPU, DQE, mémoire technique, planning détaillé et fiches techniques produits TOUS obligatoires.",
-    "Visite de site libre fortement recommandée avant remise de l'offre pour appréhender les contraintes chantier — absence de visite peut nuire à la qualité du mémoire technique et du BPU.",
-    "Planning détaillé couvrant phases études, approvisionnement ET travaux exigé à l'offre — un planning trop sommaire pénalisera le sous-critère C (15 pts).",
-    "Délai de remise des offres très court : du 09/06/2026 au 30/06/2026 à 12h00 (21 jours) — anticiper la préparation du mémoire technique et du BPU.",
-    "Transmission électronique obligatoire via le profil acheteur ville-bouguenais.e-marchespublics.com ; prévoir des tests préalables de la plateforme."
+    "Coactivité obligatoire avec l'entreprise d'installation des ombrières photovoltaïques : aucune indemnité ni réclamation possible pour gêne ou interfaces — à intégrer dans la méthode et les prix.",
+    "Sol potentiellement rocheux dès 0.60 m (leptynite) nécessitant BRH : les prix de terrassement doivent couvrir tout terrain y compris rocher, sans supplément possible.",
+    "Nappe phréatique remontant jusqu'à 0.50 m de la surface en période pluvieuse : prévoir épuisements dans les prix de tranchée — frais de pompage à la charge de l'entreprise.",
+    "Inspection télévisée COFRAC avant réception obligatoire : sous-traiter à une entreprise agréée indépendante certifiée COFRAC — à prévoir dans l'organisation et les prix.",
+    "Plans de récolement géoréférencés classe A obligatoires en format SIG (SHP/MIF-MID) ET DWG AutoCAD 2000 : nécessite un prestataire certifié pour le géoréférencement — coût à intégrer.",
+    "Délai court de 45 jours calendaires avec pénalités de retard calculées par racine carrée du montant du marché par jour : organisation rigoureuse et ressources disponibles immédiatement en septembre 2026 indispensables."
   ],
   "points_differenciants_attendus": [
     {
-      "libelle": "Cohérence et disponibilité des moyens humains et matériels dès le 14/09/2026",
-      "exemple": "Présenter un tableau nominatif des effectifs avec leurs qualifications VRD hydraulique et confirmer la disponibilité du matériel clé (pelle, compacteur, pompes) à la date de démarrage souhaitée, avec un engagement écrit de l'entreprise.",
-      "source": "RC §9.2 sous-critère A"
+      "libelle": "Maîtrise de la gestion des interfaces avec les travaux concomitants d'ombrières",
+      "exemple": "Proposer un plan de phasage détaillé coordonné avec le planning prévisible de montage des ombrières, avec zones de travail séparées et planning semaine par semaine, démontrant la capacité à travailler en coactivité sans allongement de délai.",
+      "source": "CCTP §I.3.2"
     },
     {
-      "libelle": "Planning GANTT détaillé et réaliste en 45 jours calendaires",
-      "exemple": "Fournir un planning GANTT au niveau des tâches élémentaires (terrassements, pose ouvrages, raccordements, essais d'étanchéité, remblaiement) avec identification du chemin critique et marges de sécurité, démontrant une concordance parfaite avec les moyens affectés.",
-      "source": "RC §9.2 sous-critère C"
+      "libelle": "Expérience prouvée en ouvrages hydrauliques de rétention EP sur sol à faible perméabilité",
+      "exemple": "Fournir des références de bassins de rétention aériens avec ouvrage de régulation à débit limité réalisés sur des sols peu perméables (K < 10⁻⁷ m/s), avec volumes similaires (200-400 m³), idéalement en contexte urbain ou péri-urbain.",
+      "source": null
     },
     {
-      "libelle": "Mode opératoire adapté aux résultats de l'étude de sol et aux inspections télévisées fournies",
-      "exemple": "Exploiter les données de l'étude de sol et des résultats d'investigations complémentaires pour proposer des procédés spécifiques (blindages adaptés, gestion des venues d'eau, technique de raccordement sur le réseau existant identifié par les ITV) plutôt qu'une approche générique.",
-      "source": "RC §9.2 sous-critère B"
+      "libelle": "Qualité et précision du SOPRE et du SOGED",
+      "exemple": "Détailler les mesures spécifiques de protection des espaces végétalisés existants (balisage type Heras conformément au CCTP), la gestion des eaux de chantier pour éviter pollution du futur bassin, et les filières de valorisation des déblais de terrassement.",
+      "source": "CCTP §I.6.1 et §I.6.2"
     },
     {
-      "libelle": "Références de travaux hydrauliques/VRD similaires bien documentées",
-      "exemple": "Joindre 2 à 3 attestations de bonne exécution sur des chantiers de réseaux eaux pluviales ou d'ouvrages hydrauliques comparables (bassin de rétention, réseau EP urbain), avec montants, dates et coordonnées du maître d'ouvrage vérifiables.",
-      "source": "RC §6"
+      "libelle": "Capacité à réaliser les plans de récolement géoréférencés classe A en interne ou avec prestataire certifié identifié",
+      "exemple": "Mentionner le prestataire certifié de géoréférencement (ex: ADRÉ Réseaux ou équivalent) déjà identifié et contractualisé, en précisant la méthodologie de levé en tranchée ouverte conforme à l'arrêté du 15 février 2012.",
+      "source": "CCTP §IV.9 et BPU 6.01"
+    },
+    {
+      "libelle": "Disponibilité des ressources humaines et matérielles pour un démarrage en septembre 2026",
+      "exemple": "Indiquer explicitement la disponibilité du chef de chantier, de la pelle hydraulique avec BRH, et de l'équipe de pose de réseaux dès la date de démarrage souhaitée (14/09/2026), avec un planning hebdomadaire prévisionnel sur 45 jours.",
+      "source": "CCAP article 1.7"
     }
   ],
   "_meta": {
     "id_marche": "BOAMP-26-56712",
     "type": "complet",
-    "extraction_le": "2026-06-12T00:12:30.886842+00:00",
+    "date_generation": "2026-06-14T20:14:12.497034+00:00",
+    "extraction_le": "2026-06-14T20:14:12.497034+00:00",
     "modele": "claude-sonnet-4-6",
-    "tokens_input": 22754,
-    "tokens_output": 5317,
-    "cout_eur": 0.1406,
-    "duree_sec": 95.6,
+    "preset_utilise": "btp",
+    "presets_matches": [
+      "btp"
+    ],
+    "prompts_versions": {
+      "btp/_preset.json": "sha256:d1717e0d87f6c265"
+    },
+    "tokens_input": 169509,
+    "tokens_output": 5098,
+    "cout_eur": 0.5557,
+    "duree_sec": 99.2,
     "pdfs_traites": [
+      {
+        "nom": "01_AE_TX_OUVRAGES_HYDRAU_PIANO.pdf",
+        "hash": "dd4f11dc47a6026e67cd4dc3fb70fae4",
+        "taille_chars": 8655
+      },
+      {
+        "nom": "02_CCAP_TX_OUVRAGES_HYDRAU_PIANO.pdf",
+        "hash": "3a4fb795f61cd7b05b875a392b122538",
+        "taille_chars": 68798
+      },
+      {
+        "nom": "03_FICHE_CONTACT_TX_OUVRAGES_HYDRAU_PIANO.pdf",
+        "hash": "185cbf800c8bba65d0398bcf4bd42c70",
+        "taille_chars": 1911
+      },
+      {
+        "nom": "04_CCTP_TX_OUVRAGES_HYDRAU_PIANO.pdf",
+        "hash": "9508f5db3c9fbb57fbcd078e7fd46ce1",
+        "taille_chars": 92658
+      },
+      {
+        "nom": "05_BPU_TX_OUVRAGES_HYDRAU_PIANO.pdf",
+        "hash": "ae0cf2740bfbe97fc8788f638309d439",
+        "taille_chars": 24054
+      },
+      {
+        "nom": "05_BPU_TX_OUVRAGES_HYDRAU_PIANO.xlsx",
+        "hash": "2ac8529171fa6ebe069347c94b54d289",
+        "taille_chars": 29635
+      },
+      {
+        "nom": "06_DQE_TX_OUVRAGES_HYDRAU_PIANO.pdf",
+        "hash": "858c29c66d46fc92197acbef231d7091",
+        "taille_chars": 3716
+      },
+      {
+        "nom": "06_DQE_TX_OUVRAGES_HYDRAU_PIANO.xlsx",
+        "hash": "2e74a4579f9e64785af3003178e80d5e",
+        "taille_chars": 4111
+      },
+      {
+        "nom": "07_MT_TX_OUVRAGES_HYDRAU_PIANO.docx",
+        "hash": "b5b292ed10fecd06c685a02b934528b8",
+        "taille_chars": 1588
+      },
+      {
+        "nom": "07_MT_TX_OUVRAGES_HYDRAU_PIANO.pdf",
+        "hash": "74f61acbfd2e90b36fcc47af27b4a839",
+        "taille_chars": 2179
+      },
+      {
+        "nom": "08_Plan_situation.pdf",
+        "hash": "df1a4b46ed5d83e8d6ca0c127d0c5230",
+        "taille_chars": 521
+      },
+      {
+        "nom": "09_Plan_etat_existant.pdf",
+        "hash": "2deb55193cbc72142258fc43418de736",
+        "taille_chars": 18244
+      },
+      {
+        "nom": "10_Plan_amenagement.pdf",
+        "hash": "05283e01cb96ab96afe4ceaa75937c01",
+        "taille_chars": 13121
+      },
+      {
+        "nom": "11_Plan_travaux.pdf",
+        "hash": "1ae7c44e1e547c58e4ad2c8980ccec28",
+        "taille_chars": 19986
+      },
+      {
+        "nom": "ANNEXE1_Notice_Gestion_Eaux_Pluviales.pdf",
+        "hash": "c59862ba1a79481ae7935df810251eb1",
+        "taille_chars": 15821
+      },
+      {
+        "nom": "ANNEXE2_Essais_permeabilite.pdf",
+        "hash": "7796429196ab749b1ab367327afdb64a",
+        "taille_chars": 1172
+      },
+      {
+        "nom": "ANNEXE2_G2_AVP_Ombrieres_Bouguenais.pdf",
+        "hash": "6cf0ef99bae5d9c67682ac6f16ee7151",
+        "taille_chars": 73947
+      },
+      {
+        "nom": "ANNEXE2_Implantation_essais_permeabilite.pdf",
+        "hash": "9463a409c6fc4daac858c25d22eb2ffc",
+        "taille_chars": 134
+      },
+      {
+        "nom": "ANNEXE3_Bouguenais_Rapport_Photo_ADRE_Reseaux_07_04_2026.pdf",
+        "hash": "deebcd99528861ec3fe6cfd5912cac27",
+        "taille_chars": 7283
+      },
+      {
+        "nom": "ANNEXE3__Bouguenais_Detection_Reseaux_ADRE_IndB_07_04_2026_Plan.pdf",
+        "hash": "738e9a676e6d39fc755d0e84c38d9c58",
+        "taille_chars": 31318
+      },
+      {
+        "nom": "ANNEXE4_INSPECTIONS_2025_ITV251008AE.pdf",
+        "hash": "541251d480956e6af23f85139b998a7b",
+        "taille_chars": 192191
+      },
+      {
+        "nom": "ANNEXE4_INSPECTIONS_2025_PianoCktail_BOUGUENAIS_masse.pdf",
+        "hash": "8d70b5fb6058aacee710e2bd7112dcc6",
+        "taille_chars": 0
+      },
+      {
+        "nom": "ANNEXE4_INSPECTION_2026_ITV260401_1AE.pdf",
+        "hash": "7d964cd13335a25f235c67576e94f9f5",
+        "taille_chars": 14183
+      },
+      {
+        "nom": "ANNEXE4_INSPECTION_2026_PianoCktail_BOUGUENAIS.pdf",
+        "hash": "8d70b5fb6058aacee710e2bd7112dcc6",
+        "taille_chars": 0
+      },
+      {
+        "nom": "ANNEXE4_INSPECTION_2026_Pianococktail_BOUGUENAIS2.pdf",
+        "hash": "c01ba560c7025cdd08019b6cfbe3698c",
+        "taille_chars": 0
+      },
+      {
+        "nom": "Comment repondre par voie dematerialisee sur cette plate-forme.pdf",
+        "hash": "59740cfb43dcc36ff7d4ad8d02257cac",
+        "taille_chars": 9117
+      },
+      {
+        "nom": "How to Submit Your Bid on the Platform.pdf",
+        "hash": "4bb904ae79b2a65b44f5dd27e5318199",
+        "taille_chars": 8554
+      },
       {
         "nom": "Règlement de consultation.pdf",
         "hash": "7f195acf7aec2c18020fd887677390c7",

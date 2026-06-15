@@ -1,310 +1,344 @@
 {
-  "synthese_marche": "Ce marché porte sur la prestation de diffusion numérique à l'article des revues et ouvrages de sciences humaines de la Direction de l'Information Légale et Administrative (DILA), pour le compte de la DSAF (Secrétariat général du Gouvernement). Il s'agit d'un marché composite (accord-cadre à bons de commande + marché ordinaire à prix unitaires) pour une durée maximale de 3 ans, permettant la mise en ligne et la commercialisation des publications de la DILA sur des plateformes numériques. Le marché est non alloti, passé en appel d'offres ouvert, pour un montant estimatif total d'environ 153 000 € HT sur la durée totale.",
+  "synthese_marche": "Ce marché porte sur la diffusion numérique à l'article des revues et ouvrages de sciences humaines de la Direction de l'Information Légale et Administrative (DILA), éditeur public institutionnel. Le titulaire devra assurer la conversion de fichiers, l'hébergement, la distribution commerciale (bouquets, licences, pay-per-view) et le reporting des ventes pour deux revues ('Cahiers français', 'Questions internationales') et un catalogue d'ouvrages en sciences humaines. Il perçoit une commission sur les ventes et reverse le produit brut à la DILA dans le cadre d'un contrat de mandat.",
   "domaines_metier": [
     {
       "code": "autre"
     }
   ],
-  "raison_classification": "Ce marché porte sur la diffusion numérique à l'article (vente en ligne par article/chapitre) de revues et ouvrages de sciences humaines pour la DILA. Il s'agit d'un service d'édition/diffusion numérique (CPV 79970000), hors de toutes les catégories de la taxonomie disponible : ce n'est ni de la formation, ni du conseil, ni du BTP, ni de l'IT au sens applicatif. Le code 'autre' est le seul approprié.",
-  "caracteristiques_techniques_chantier": {
-    "description": "Diffusion numérique à l'article de revues et ouvrages de sciences humaines de la DILA, incluant conversion de fichiers, mise en ligne, paramétrage, métadonnées, reporting et suivi d'exécution.",
-    "typologie_ouvrage": null,
-    "surface_volume": null,
-    "site_occupe": null,
-    "corps_etat": [],
-    "contraintes_specifiques": [
-      "Hébergement numérique avec prise en compte des énergies renouvelables",
-      "Respect du RGPD pour les données à caractère personnel",
-      "Clause sociale de formation sous statut scolaire obligatoire"
-    ]
-  },
-  "allotissement": {
-    "description": "Marché unique non alloti en raison de l'impossibilité d'identifier des prestations distinctes.",
-    "nb_lots": 1,
-    "lots_detailles": [
+  "raison_classification": "Le marché porte sur la diffusion numérique commerciale d'ouvrages et revues de sciences humaines (hébergement de plateforme, vente en ligne, pay-per-view, bouquets institutionnels, reporting éditorial), avec un CPV 79970000 'Services d'édition'. Ce service relève d'un secteur éditorial/diffusion numérique qui ne correspond à aucun des codes disponibles dans la taxonomie fournie — ni IT pur (pas de développement applicatif ou infogérance), ni conseil, ni formation, ni BTP. Le code 'autre' est le seul approprié.",
+  "caracteristiques_mission_it": {
+    "typologie_mission": "infogérance/infrastructure",
+    "typologie_systeme": "autre",
+    "cloud_ou_on_premise": "cloud public",
+    "niveau_securite": "données personnelles RGPD",
+    "technologies_attendues": [
+      "EPUB",
+      "PDF",
+      "XML",
+      "HTML",
+      "DOI",
+      "métadonnées bibliographiques"
+    ],
+    "modele_prestation": "accord-cadre à bons de commande",
+    "volumetrie": "3 revues (5-6 numéros/an chacune), ~100 titres d'ouvrages/an, fond de 42+ numéros par revue existante",
+    "jours_homme_estimes": null,
+    "sla_attendus": "Reporting hebdomadaire S+1 au plus tard le 10 du mois suivant ; reporting annuel A+1 au plus tard le 10 janvier ; délai de conversion à préciser dans le mémoire technique",
+    "livrables_par_phase": [
       {
-        "numero": 1,
-        "intitule": "Prestation de diffusion numérique à l'article des revues et ouvrages de sciences humaines de la DILA",
-        "corps_etat": null,
-        "montant_estime": 153000,
-        "description": "Marché composite : accord-cadre à bons de commande (max 20 000 € HT) + marché ordinaire à prix unitaires (estimé 135 000 € HT) pour la diffusion numérique des publications de la DILA."
+        "phase": "Lancement",
+        "livrables": [
+          "Note d'information sur la part d'énergie renouvelable des datacenters",
+          "Paramétrage de la plateforme",
+          "Mise en ligne du fonds existant (42+ numéros par revue)"
+        ]
+      },
+      {
+        "phase": "Exécution courante",
+        "livrables": [
+          "Conversion et mise en ligne des nouveaux numéros/ouvrages",
+          "Relevés provisoires semestriels (31 juillet)",
+          "Relevés définitifs annuels (31 janvier)",
+          "Reporting de ventes hebdomadaires (S+1)",
+          "Reporting annuel (A+1)",
+          "Reversement du CA à la DILA (N+1)"
+        ]
+      },
+      {
+        "phase": "Fin de marché",
+        "livrables": [
+          "Base d'archivage structurée et normalisée exploitable par un tiers",
+          "Transfert des fichiers rétroconvertis"
+        ]
       }
-    ]
-  },
-  "qualifications_requises": {
-    "description": "Aucun niveau minimal de capacité imposé par l'acheteur.",
-    "qualibat": null,
-    "rge": null,
-    "opqibi": null,
-    "autres_certifications": []
-  },
-  "caracteristiques_mission": {
-    "typologie_mission": "prestation de service — diffusion numérique",
-    "domaine_expertise": "édition numérique, diffusion à l'article, plateformes numériques",
-    "livrables_attendus": [
-      "Fichiers convertis et mis en ligne",
-      "Paramétrage des métadonnées et des accès",
-      "Relevés de ventes et de diffusion",
-      "Reporting et indicateurs de performance",
-      "Contrat de mandat signé"
     ],
-    "duree_mission": "36 mois (1 an reconductible 2 fois)",
-    "jours_consultant_estimes": null,
-    "methodologie_attendue": "Conversion des fichiers fournis par la DILA, mise en ligne sur plateforme(s) de diffusion numérique, paramétrage des métadonnées, gestion des modes d'accès (bouquets, licences, pay per view, agences d'abonnements), reporting périodique vers l'administration.",
-    "livrables_par_phase": [],
-    "jours_consultant_par_profil": [],
-    "accompagnement_apres": null
-  },
-  "profils_intervenants": {
-    "description": "Non précisé dans le RC",
-    "chef_de_mission": {
-      "anciennete_min_annees": null,
-      "secteur_experience": null,
-      "taux_dedie_pct": null,
-      "certifs_requises": []
-    },
-    "consultants": []
-  },
-  "publics_cibles": {
-    "description": "Utilisateurs des plateformes numériques de diffusion (lecteurs, abonnés, acheteurs à l'article) des revues et ouvrages de sciences humaines de la DILA.",
-    "criteres_eligibilite": [],
-    "publics_specifiques_signales": []
-  },
-  "volumes": {
-    "nb_beneficiaires_total": null,
-    "nb_beneficiaires_par_lot": null,
-    "duree_par_parcours_heures": null,
-    "duree_par_parcours_semaines": null,
-    "duree_marche_mois": 36,
-    "commentaire_volumes": "Marché composite : partie marché ordinaire estimée à 135 000 € HT sur la durée totale ; partie accord-cadre à bons de commande plafonnée à 20 000 € HT (estimée à 18 000 € HT). Total estimatif : 153 000 € HT sur 3 ans."
-  },
-  "modalites": {
-    "presentiel_obligatoire": null,
-    "distanciel_possible": null,
-    "synchrone_asynchrone": null,
-    "sites_execution": [
-      "Île-de-France"
+    "profils_attendus": [],
+    "exigences_securite": [
+      "Accès sécurisé login/MDP ou reconnaissance IP",
+      "RGPD — traitement de données personnelles (noms, prénoms, adresses)"
     ],
-    "amplitude_horaire": null
+    "reversibilite": "Constitution d'une base d'archivage structurée et normalisée exploitable pour tous types de traitements ultérieurs par un tiers en fin de marché ; copie des fichiers rétroconvertis fournie à la DILA (CCTP art 2.2)"
   },
-  "caracteristiques_mission_moe": {
-    "typologie": null,
-    "phases_couvertes": [],
-    "typologie_ouvrage": null,
-    "montant_travaux_estime": null,
-    "complexite_technique": null,
-    "livrables_par_phase": [],
-    "taux_remuneration_moe_pct": null,
-    "indices_revision": [],
-    "coordinations_associees": [],
-    "organigramme_attendu": [],
-    "bim_niveau": null
-  },
-  "qualifications_moe": {
-    "opqibi": [],
-    "opqcm": null,
-    "bim": null,
+  "qualifications_it": {
+    "iso_27001": false,
+    "hds": false,
+    "secnumcloud": false,
+    "rgs": false,
+    "referencement_anssi": false,
+    "certifications_securite": [],
+    "certifications_technologiques": [],
     "autres": []
   },
   "bareme_notation": {
-    "valeur_technique_pct": 50,
+    "valeur_technique_pct": 60,
     "valeur_prix_pct": 40,
     "sous_criteres_techniques": [
       {
         "libelle": "Valeur technique de l'offre",
         "ponderation_pct": 50,
-        "description": "Évaluation de la qualité technique de l'offre de diffusion numérique, décomposée en trois sous-critères portant sur les délais de conversion/mise en ligne, la qualité de la diffusion/paramétrage et la qualité des outils de suivi/reporting.",
-        "elements_attendus": [
-          "Délai de conversion des fichiers et de mise en ligne",
-          "Qualité et variété de la diffusion et du paramétrage",
-          "Qualité et pertinence des outils de suivi d'exécution et de reporting",
-          "Cadre de réponse technique (CRT) complété",
-          "Grille de réponse fonctionnelle complétée"
-        ],
+        "description": "Évaluation de la qualité de la solution de diffusion numérique proposée, couvrant les délais de mise en ligne, la richesse de la diffusion et du paramétrage, et la qualité des outils de suivi et reporting. Note obtenue par addition des trois sous-critères.",
+        "elements_attendus": [],
         "exemple_reponse_forte": "—",
-        "source": "RC article 7.3",
+        "source": "RC art 7.3",
         "sous_criteres": [
           {
             "libelle": "Délai de conversion des fichiers et de mise en ligne",
             "ponderation_pct": 10,
-            "description": "Évalue la rapidité du prestataire à convertir les fichiers fournis par la DILA et à les mettre en ligne sur la ou les plateformes de diffusion.",
+            "description": "Évaluation de la rapidité de traitement des fichiers EPUB/PDF transmis par la DILA pour conversion (PDF par articles + XML) et mise en ligne opérationnelle sur la plateforme du titulaire.",
             "elements_attendus": [
-              "Délai précis et engageant de conversion des fichiers",
-              "Délai de mise en ligne après réception des fichiers",
-              "Process de contrôle qualité avant mise en ligne"
+              "Délai précis annoncé pour la conversion des fichiers du fonds existant (42+ numéros)",
+              "Délai précis pour la mise en ligne des nouveaux numéros à paraître",
+              "Délai de traitement des demandes de conversion supplémentaires (UO 01)",
+              "Organisation interne garantissant le respect de ces délais",
+              "Procédure de gestion des retards ou incidents"
             ],
-            "exemple_reponse_forte": "Le prestataire s'engage à convertir et mettre en ligne tout fichier reçu sous 48h ouvrées, avec un contrôle qualité systématique des métadonnées avant publication. Un tableau de bord temps réel permet au commanditaire de suivre l'avancement des mises en ligne.",
-            "source": "RC article 7.3"
+            "exemple_reponse_forte": "Le candidat s'engage à convertir et mettre en ligne le fonds existant (42 numéros 'Cahiers français', 42 numéros 'Questions internationales') dans un délai de 45 jours ouvrés suivant la notification du marché, et tout nouveau numéro dans un délai de 10 jours ouvrés suivant réception des fichiers EPUB/PDF. Une équipe dédiée de 2 ingénieurs éditoriaux assure le traitement, avec escalade au chef de projet sous 24h en cas de blocage.",
+            "source": "RC art 7.3 — Sous-critère 1.1"
           },
           {
             "libelle": "Qualité et variété de la diffusion et du paramétrage",
             "ponderation_pct": 30,
-            "description": "Évalue la qualité et la variété des canaux de diffusion, des offres commerciales (bouquets numériques, licences temporaires, pay per view, agences d'abonnements) et du paramétrage des métadonnées et des accès.",
+            "description": "Évaluation de la richesse de l'offre de diffusion commerciale (types d'offres, canaux, bouquets, pay-per-view), de l'information des utilisateurs de la plateforme, de la mise en valeur éditoriale et de l'alimentation des métadonnées et modes d'accès aux contenus.",
             "elements_attendus": [
-              "Variété des plateformes et canaux de diffusion",
-              "Types d'offres commerciales proposées (bouquets, licences, PPV, abonnements)",
-              "Qualité de l'alimentation des métadonnées",
-              "Modes d'accès aux contenus (DRM, accès institutionnel, etc.)",
-              "Mise en valeur des contenus sur les plateformes",
-              "Information des utilisateurs sur les publications disponibles"
+              "Description précise des bouquets numériques proposés (bouquet général + thématiques) et du nombre d'institutions partenaires accessibles",
+              "Modes de vente disponibles : licences temporaires institutionnelles, pay-per-view à l'article, au numéro, à l'ouvrage, au chapitre, abonnements titre à titre",
+              "Canaux de diffusion couverts (majors type Amazon/Apple, pure players, librairies en ligne, agences d'abonnements)",
+              "Qualité de la présentation des métadonnées (résumés, plans, extraits <2000 signes) en accès libre",
+              "Système d'authentification (login/MDP et reconnaissance IP/plage d'IP)",
+              "Barrière mobile configurable (36 mois revues / 36 mois ouvrages), distribution des DOI, alertes auteurs/sommaires",
+              "Distribution automatique des métadonnées aux sites bibliographiques, moteurs de recherche, bibliothèques"
             ],
-            "exemple_reponse_forte": "Le prestataire diffuse sur 12 plateformes majeures (Cairn, OpenEdition, Amazon KDP, etc.), propose des bouquets thématiques, licences temporaires et pay per view. Il assure l'alimentation des métadonnées ONIX et DOI, et met en place des pages dédiées aux collections de la DILA avec mise en avant éditoriale.",
-            "source": "RC article 7.3"
+            "exemple_reponse_forte": "La plateforme propose 5 bouquets thématiques en sciences humaines accessibles à plus de 3 500 institutions abonnées en France et à l'étranger, avec intégration native aux consortiums universitaires (COUPERIN, ABES). La barrière mobile est paramétrable à 36 mois par titre. Tous les articles sont référencés sur CrossRef via DOI attribués systématiquement. La diffusion pay-per-view est opérée en partenariat avec Amazon, FNAC Numérique et Cairn.info.",
+            "source": "RC art 7.3 — Sous-critère 1.2 ; CCTP art 2.3 et art 3"
           },
           {
             "libelle": "Qualité et pertinence des outils mis en place pour le suivi d'exécution des prestations, pour le compte-rendu (reporting) vers l'administration, pour les indicateurs de performance",
             "ponderation_pct": 10,
-            "description": "Évalue la qualité des outils et processus de reporting mis en place par le prestataire pour rendre compte à la DILA de l'exécution des prestations et des performances commerciales.",
+            "description": "Évaluation des outils de statistiques d'utilisation et de reporting mis à disposition de la DILA : extranet de consultation en ligne, exports Excel, indicateurs de téléchargements/consultations par article/chapitre/revue/ouvrage, ventilation par institution et par mode de vente.",
             "elements_attendus": [
-              "Outil ou tableau de bord de suivi des ventes et diffusions",
-              "Fréquence et format des reportings",
-              "Indicateurs de performance proposés (ventes, téléchargements, revenus, etc.)",
-              "Capacité à personnaliser les rapports selon les besoins de la DILA"
+              "Outil extranet de consultation des statistiques en temps réel accessible à la DILA avec accès personnalisé",
+              "Export des états statistiques au format Excel (consultations, téléchargements par article/chapitre, par revue, par ouvrage, par période)",
+              "Reporting hebdomadaire S+1 (au plus tard le 10 du mois suivant)",
+              "Relevé provisoire semestriel (31 juillet) et relevé définitif annuel (31 janvier) détaillés selon la structure du CCTP art 4",
+              "Indicateurs permettant le calcul des droits d'auteurs et la communication aux institutions partenaires",
+              "Modèle de reporting proposé en annexe"
             ],
-            "exemple_reponse_forte": "Le prestataire met à disposition un portail extranet sécurisé donnant accès en temps réel aux indicateurs de vente par titre, par plateforme et par pays. Un rapport mensuel automatisé est transmis à la DILA avec comparatif N-1 et alertes sur les seuils de performance.",
-            "source": "RC article 7.3"
+            "exemple_reponse_forte": "L'extranet de reporting, accessible 24h/24 via un accès personnalisé DILA, fournit des tableaux de bord actualisés quotidiennement : consultations, téléchargements et CA ventilés par article, numéro, ouvrage, collection et institution. Les exports Excel conformes aux normes COUNTER 5 permettent le calcul automatisé des droits d'auteurs. Un modèle de reporting réel issu d'un éditeur similaire est joint en annexe.",
+            "source": "RC art 7.3 — Sous-critère 1.3 ; CCTP art 2.2 et art 4"
           }
         ]
       },
       {
         "libelle": "Valeur environnementale de l'offre",
         "ponderation_pct": 10,
-        "description": "Évalue la capacité du prestataire à réduire son impact environnemental et son empreinte carbone dans le cadre de l'exécution des prestations, notamment en matière d'hébergement numérique.",
+        "description": "Évaluation de la capacité du candidat à réduire son impact environnemental dans le cadre des prestations, notamment en matière d'efficacité énergétique des datacenters, d'approvisionnement en énergies renouvelables, de labellisation environnementale des serveurs et de bonnes pratiques d'optimisation énergétique.",
         "elements_attendus": [
-          "Politique de recours aux énergies renouvelables pour l'hébergement numérique",
-          "Mesures de réduction de l'empreinte carbone des infrastructures",
-          "Indicateurs environnementaux proposés",
-          "Certifications environnementales des centres de données"
+          "Part d'énergie renouvelable consommée par les datacenters utilisés (chiffre précis)",
+          "Certifications ou labels environnementaux des infrastructures d'hébergement (ISO 14001, HQE, Green Star, etc.)",
+          "Démarches engagées pour accroître la part d'EnR (feuille de route chiffrée)",
+          "Bonnes pratiques d'optimisation énergétique (virtualisation, refroidissement, PUE)",
+          "Livrables dématérialisés (format PDF ou équivalent, supports recyclés si papier)"
         ],
-        "exemple_reponse_forte": "Les serveurs utilisés pour la diffusion sont hébergés dans un datacenter ISO 50001 alimenté à 100% par des énergies renouvelables. Le prestataire s'engage à fournir un bilan carbone annuel de la prestation et à compenser les émissions résiduelles.",
-        "source": "RC article 7.3"
+        "exemple_reponse_forte": "Les datacenters utilisés, hébergés en France, sont alimentés à 85% par des énergies renouvelables certifiées (certificats GO) et affichent un PUE moyen de 1,3. Un plan de transition vers 100% EnR d'ici 2027 est en cours. Tous les livrables sont transmis exclusivement en format PDF dématérialisé.",
+        "source": "RC art 7.3 — Critère 3 ; CCAP art 8.7.1 et 8.7.2 ; CRT annexe 3"
       }
     ],
     "prix": {
       "type_formule": "moins_disant",
       "formule_explicite": "Note sur 40 = (prix le plus bas / prix de l'offre examinée) × 40",
       "elements_a_chiffrer": [
-        "Coût des prestations d'une simulation de commande établie par l'administration sur la base des prix unitaires du BPU",
-        "Prix unitaires du Bordereau des Prix Unitaires (BPU) annexe 1 à l'acte d'engagement",
-        "Mécanismes de rémunération selon le mode de diffusion commerciale (bouquets numériques, licences temporaires, pay per view, agences d'abonnements)"
+        "Taux de commissionnement du titulaire sur les ventes (part variable — composante marché ordinaire)",
+        "Prix unitaire UO 01.1 : conversion PDF par article + XML pour les revues",
+        "Prix unitaire UO 01.2 : conversion PDF par chapitre + XML pour les ouvrages",
+        "Simulation de commande sur la base d'un DQE établi par l'acheteur (non communiqué dans le DCE)"
       ]
     },
-    "modalite_calcul_prix": "Note sur 40 = (prix le plus bas / prix de l'offre examinée) × 40. Les prix sont analysés sur la base d'un détail quantitatif estimatif (DQE) non communiqué, complété par l'acheteur sur la base des prix fournis dans l'annexe financière."
+    "modalite_calcul_prix": "Note sur 40 = (prix le plus bas / prix de l'offre examinée) × 40. Appliquée au coût total d'une simulation de commande élaborée par l'administration sur la base des prix du BPU soumis par chaque candidat. Le DQE est établi par l'acheteur et non communiqué."
   },
   "montant_marche": {
     "valeur_estimee_euros": 153000,
     "fourchette_min_euros": null,
-    "fourchette_max_euros": 155000,
+    "fourchette_max_euros": null,
     "type": "estime_explicite",
-    "duree_couverte": "Durée totale du marché (3 ans maximum)",
-    "source_extraction": "RC article 4.3",
-    "commentaire": "Marché composite : partie marché ordinaire à prix unitaires estimée à 135 000 € HT + partie accord-cadre à bons de commande estimée à 18 000 € HT (plafond 20 000 € HT) = total estimatif 153 000 € HT sur 3 ans."
+    "duree_couverte": "Durée totale maximale du marché (3 ans)",
+    "source_extraction": "RC art 4.3 ; CCAP art 4",
+    "commentaire": "Montant estimé calculé : 135 000 € HT pour la partie marché ordinaire à prix unitaires (rémunération du titulaire via taux de commissionnement sur ventes) + 18 000 € HT estimés pour la partie accord-cadre à bons de commande (UO 01.1 et 01.2 — conversions), soit 153 000 € HT au total sur 3 ans. Le maximum de la partie accord-cadre est plafonné à 20 000 € HT sur la durée totale."
   },
   "revision_prix": {
-    "type": "non_communique",
-    "indices_utilises": [],
-    "ponderation": null,
-    "periodicite": null,
-    "formule_revision": null,
-    "source_extraction": null,
-    "commentaire": "Aucune clause de révision des prix n'est mentionnée dans les pièces fournies (RC uniquement). Le CCAP n'est pas joint au DCE analysé."
+    "type": "indexation",
+    "indices_utilises": [
+      "SYNTEC"
+    ],
+    "ponderation": "50% SYNTEC + 50% partie fixe",
+    "periodicite": "annuelle",
+    "formule_revision": "P = P0 × (0.50 + 0.50 × S/S0)",
+    "source_extraction": "CCAP art 9.2",
+    "commentaire": "Révision annuelle applicable uniquement aux UO 01 (partie bons de commande) ; les taux de commissionnement sont fermes pour toute la durée du marché. La formule 50/50 SYNTEC limite l'effet inflationniste pour l'acheteur mais offre une protection partielle au titulaire."
   },
   "alertes_prix": [
-    "La formule prix (note = prix_le_plus_bas / prix_candidat × 40) pénalise fortement les offres au-dessus du prix le plus bas : 10% plus cher = -4 points sur 40.",
-    "Le DQE (détail quantitatif estimatif) n'est pas communiqué aux candidats : le scénario de commande est élaboré par l'administration sur la base des prix du BPU soumis par chaque candidat — risque d'erreur de stratégie tarifaire.",
-    "Le montant total estimatif (153 000 € HT sur 3 ans) est relativement modeste pour un prestataire de diffusion numérique, ce qui implique des coûts fixes de mise en œuvre à absorber sur un volume limité.",
-    "La partie accord-cadre est plafonnée à 20 000 € HT sur toute la durée : l'atteinte du plafond épuise cette composante (jurisprudence Simonsen & Weel citée)."
+    "Le taux de commissionnement est ferme pour toute la durée du marché (3 ans) : anticiper l'évolution des coûts de plateforme sur la période sans révision possible",
+    "Le DQE utilisé pour noter le critère prix n'est pas communiqué dans le DCE — le candidat doit proposer des prix cohérents sans connaître la simulation exacte de l'acheteur",
+    "La pondération prix à 40 points sur 100 est relativement élevée pour un marché de services éditoriaux complexes : la compétitivité tarifaire est déterminante",
+    "Obligation de ducroire : le titulaire supporte seul le risque de non-recouvrement des paiements clients, à intégrer dans le calcul de la commission"
   ],
   "references_exigees": {
-    "experience_minimale_annees": null,
-    "experience_source": null,
+    "experience_minimale_annees": 3,
+    "experience_source": "RC art 6.1",
     "volume_min_references_similaires": null,
     "volume_min_references_unite": "marchés similaires",
-    "secteur_experience": "Diffusion numérique, services d'édition, plateformes de vente à l'article",
-    "secteur_source": "RC article 6.1",
+    "secteur_experience": "Diffusion numérique d'ouvrages et/ou revues en sciences humaines et sociales auprès d'institutions et particuliers (bouquets, pay-per-view, licences)",
+    "secteur_source": "RC art 6.1",
     "certifications_obligatoires": [],
     "autres_exigences": [
       {
-        "libelle": "Chiffre d'affaires global et/ou dans le domaine d'activité couvert par la consultation, au cours des trois derniers exercices disponibles",
-        "source": "RC article 6.1"
+        "libelle": "Chiffres d'affaires globaux et/ou dans les domaines d'activité couverts au cours des 3 derniers exercices disponibles",
+        "source": "RC art 6.1"
       },
       {
         "libelle": "Déclaration indiquant les effectifs du candidat",
-        "source": "RC article 6.1"
+        "source": "RC art 6.1"
       },
       {
-        "libelle": "Liste des principaux services effectués au cours des trois dernières années, indiquant le montant, la date et le destinataire public ou privé",
-        "source": "RC article 6.1"
+        "libelle": "Liste des principaux services effectués au cours des 3 dernières années (montant, date, destinataire public ou privé), de préférence selon le cadre de références fourni au DCE",
+        "source": "RC art 6.1 — Annexe 1 RC"
       },
       {
-        "libelle": "Fiche entreprise (clause sociale de formation sous statut scolaire) obligatoirement complétée — offre irrégulière si absente",
-        "source": "RC article 4.8.2"
+        "libelle": "Attestation sur l'honneur relative à l'absence de liens avec la Fédération de Russie (règlement UE 2022/576)",
+        "source": "RC Annexe 5"
       }
     ]
   },
-  "lots": [
-    {
-      "numero": 1,
-      "intitule": "Prestation de diffusion numérique à l'article des revues et ouvrages de sciences humaines de la DILA",
-      "zone_geographique": "Île-de-France",
-      "volume_estime": 153000,
-      "volume_estime_unite": "euros HT (durée totale 3 ans)",
-      "particularites": "Marché composite : accord-cadre à bons de commande (UO 01.1 et UO 01.2, plafond 20 000 € HT) + marché ordinaire à prix unitaires (estimé 135 000 € HT). Inclut un contrat de mandat (annexe 3 CCAP)."
-    }
-  ],
+  "lots": [],
   "calendrier": {
     "date_limite_offres": "2026-07-09",
-    "date_demarrage_prevue": null,
-    "duree_marche": "1 an reconductible 2 fois, durée maximale 3 ans"
+    "date_demarrage_prevue": "2026-10-24",
+    "duree_marche": "1 an ferme, reconductible 2 fois par périodes d'1 an — durée totale maximale 3 ans"
   },
   "alertes_candidat": [
-    "La 'Fiche entreprise' (clause sociale de formation sous statut scolaire) doit OBLIGATOIREMENT être jointe à l'offre — toute offre ne la contenant pas est déclarée irrégulière (RC article 4.8.2).",
-    "Le contrat de mandat (annexe 3 CCAP) doit être dûment renseigné et signé dans l'offre initiale — pièce critique souvent oubliée (RC article 7.1).",
-    "L'attestation sur l'honneur portant sur l'interdiction d'attribuer des contrats avec la Russie (annexe 5 RC) est exigée au stade de l'attribution — à préparer en amont.",
-    "Le DQE n'est pas communiqué : le candidat ne connaît pas le scénario de commande utilisé pour noter les prix. La stratégie tarifaire sur le BPU est donc déterminante et incertaine.",
-    "Les questions à l'acheteur doivent être posées au plus tard 8 jours calendaires avant la date limite (soit le 1er juillet 2026 à 12h) — délai court à surveiller."
+    "La 'Fiche entreprise' de clause sociale de formation (Annexe 4 RC) doit obligatoirement être fournie dans l'offre — une offre sans cette fiche est déclarée irrégulière et éliminée (RC art 4.8.2)",
+    "Le titulaire doit accepter le rôle de mandataire encaissant les recettes des clients au nom de la DILA et reverser l'intégralité du CA sans prélèvement de commission — la commission fait l'objet d'une facturation séparée ; ne pas intégrer les frais dans le CA reversé constituerait une violation contractuelle (CCAP art 9.1)",
+    "Obligation de ducroire : le titulaire supporte seul les impayés des clients finaux et doit reverser la somme due à la DILA même en cas de non-recouvrement — risque financier à évaluer (CCAP art 9.1.1)",
+    "Le marché requiert une présence sur toutes les semaines de l'année avec continuité de service assurée même en cas d'absence du personnel (CCAP art 8.6.1) — capacité opérationnelle permanente à démontrer",
+    "La plateforme doit impérativement proposer une base d'archivage structurée et normalisée exploitable par un tiers en fin de marché — la réversibilité est une exigence contractuelle explicite (CCTP art 2.2)"
   ],
   "points_differenciants_attendus": [
     {
-      "libelle": "Étendue et notoriété du réseau de plateformes de diffusion",
-      "exemple": "Un prestataire diffusant sur les grandes plateformes académiques (Cairn.info, OpenEdition, JSTOR) ET les plateformes grand public (Amazon, Google Play Books) se différencie nettement sur le sous-critère 'qualité et variété de la diffusion' (30 points).",
-      "source": "RC article 7.3"
+      "libelle": "Nombre et qualité des canaux de diffusion institutionnels et grand public",
+      "exemple": "Un candidat présent dans les consortiums universitaires majeurs (COUPERIN, BnF, EBSCO, ProQuest) et chez les grandes librairies numériques (Amazon, FNAC, Apple Books) se démarquera fortement sur le sous-critère 1.2 en prouvant sa capacité à toucher les publics cibles SHS visés par la DILA.",
+      "source": "CCTP art 1 et art 2.3"
     },
     {
-      "libelle": "Qualité du paramétrage et de la gestion des métadonnées",
-      "exemple": "Détailler la maîtrise des standards ONIX, Dublin Core, DOI, et la capacité à alimenter automatiquement les métadonnées enrichies (résumés, auteurs, mots-clés, table des matières) valorise l'offre sur le sous-critère à 30 points.",
-      "source": "RC article 7.3"
+      "libelle": "Qualité de l'outil de reporting statistique et conformité COUNTER 5",
+      "exemple": "Proposer un extranet démontrable en temps réel, avec exports Excel détaillés par article/chapitre/revue/ouvrage et conformes aux normes COUNTER 5, permettra de scorer haut sur le sous-critère 1.3 et de rassurer l'acheteur sur le calcul des droits d'auteurs.",
+      "source": "CCTP art 2.2 et art 4 ; RC art 7.3 sous-critère 1.3"
     },
     {
-      "libelle": "Richesse et personnalisation du reporting vers l'administration",
-      "exemple": "Proposer un tableau de bord extranet avec accès temps réel aux données de vente par titre/plateforme/pays, avec export Excel et alertes automatisées, sera différenciant sur le sous-critère reporting (10 points).",
-      "source": "RC article 7.3"
+      "libelle": "Délai de conversion et de mise en ligne compétitif, avec plan de reprise du fonds existant détaillé",
+      "exemple": "Présenter un rétroplanning précis de conversion du fonds existant (42 numéros par revue) avec jalons intermédiaires et recours éventuel à un sous-traitant spécialisé XML/EPUB permettra de se différencier sur le sous-critère 1.1, dont l'évaluation repose uniquement sur les engagements contractuels du mémoire technique.",
+      "source": "RC art 7.3 sous-critère 1.1 ; CCTP art 2.2"
     },
     {
-      "libelle": "Hébergement numérique à faible empreinte carbone",
-      "exemple": "Un candidat dont l'hébergement est certifié ISO 50001 ou alimenté à 100% ENR, et qui propose un bilan carbone annuel de la prestation, maximisera les 10 points environnementaux.",
-      "source": "RC article 7.3"
+      "libelle": "Performance environnementale des datacenters avec preuve chiffrée",
+      "exemple": "Fournir la part exacte d'énergie renouvelable consommée par les datacenters (chiffre certifié, certificats GO) et un PUE documenté permettra de scorer sur le critère 3 'valeur environnementale', souvent négligé par les candidats qui se contentent de déclarations génériques.",
+      "source": "RC art 7.3 critère 3 ; CCAP art 8.7.2"
     },
     {
-      "libelle": "Mécanismes de rémunération transparents et compétitifs",
-      "exemple": "Décrire précisément les taux de reversement selon les modèles commerciaux (PPV, bouquets, licences institutionnelles), avec des exemples chiffrés sur des titres comparables, répond directement à l'attente du critère prix (RC article 7.3).",
-      "source": "RC article 7.3"
+      "libelle": "Expérience démontrée dans la diffusion numérique d'éditeurs publics institutionnels en SHS",
+      "exemple": "Référencer des accords de diffusion actifs avec des éditeurs publics comparables (Presses de Sciences Po, Éditions de l'EHESS, CNRS Éditions) valorisera la crédibilité technique et commerciale du candidat vis-à-vis du public cible universitaire et institutionnel.",
+      "source": "RC art 6.1 — Annexe 1 cadre de références"
     }
   ],
   "_meta": {
     "id_marche": "BOAMP-26-56164",
     "type": "complet",
-    "extraction_le": "2026-06-12T10:39:33.577544+00:00",
+    "date_generation": "2026-06-15T18:35:28.267001+00:00",
+    "extraction_le": "2026-06-15T18:35:28.267001+00:00",
     "modele": "claude-sonnet-4-6",
-    "tokens_input": 34046,
-    "tokens_output": 5697,
-    "cout_eur": 0.1782,
-    "duree_sec": 99.4,
+    "preset_utilise": "it",
+    "presets_matches": [
+      "it"
+    ],
+    "prompts_versions": {
+      "it/_preset.json": "sha256:0113727ecb269e98"
+    },
+    "tokens_input": 120737,
+    "tokens_output": 5928,
+    "cout_eur": 0.4286,
+    "duree_sec": 114.3,
     "pdfs_traites": [
+      {
+        "nom": "26_BAM_627 DC2_Notice_explicative.pdf",
+        "hash": "0dda7c6a5bc1b4e0e7f9d040e4bdb425",
+        "taille_chars": 36728
+      },
+      {
+        "nom": "26_BAM_627 DC4_Notice_explicative.pdf",
+        "hash": "9633811efcebfc51ccf7be413d2222f2",
+        "taille_chars": 45103
+      },
+      {
+        "nom": "26_BAM_627_CCAP.pdf",
+        "hash": "6646e58d591f0dd6db5227e801ca78ae",
+        "taille_chars": 87060
+      },
+      {
+        "nom": "26_BAM_627_CCAP_Annexe 1_Egalite diversite.docx",
+        "hash": "c1c956b79ea2e8610d15a0aa1d6284ae",
+        "taille_chars": 9989
+      },
+      {
+        "nom": "26_BAM_627_CCAP_Annexe 2_RGPD.docx",
+        "hash": "86a542fcc7e748afe6072266e32b98c0",
+        "taille_chars": 3066
+      },
+      {
+        "nom": "26_BAM_627_CCTP.pdf",
+        "hash": "31297ade97a590bae4c456d6ea5f144c",
+        "taille_chars": 34205
+      },
+      {
+        "nom": "26_BAM_627_CCTP_Annexe 2_Detail des ouvrages.xlsx",
+        "hash": "e71a9195bb11503bae6c0a5a235c8045",
+        "taille_chars": 24697
+      },
+      {
+        "nom": "26_BAM_627_DC1_Notice_explicative.pdf",
+        "hash": "2cdda72ef2c04e5a666bae1841275493",
+        "taille_chars": 15538
+      },
+      {
+        "nom": "26_BAM_627_DC4.docx",
+        "hash": "2e4024c438b1b41f868aaeeeb313b7aa",
+        "taille_chars": 7396
+      },
       {
         "nom": "26_BAM_627_RC.pdf",
         "hash": "afcfe900966f32b5d152090a130c4366",
         "taille_chars": 59443
+      },
+      {
+        "nom": "26_BAM_627_RC_Annexe 1_Cadre references.docx",
+        "hash": "f4f5109cb27e0625860fe5917a63a420",
+        "taille_chars": 830
+      },
+      {
+        "nom": "26_BAM_627_RC_Annexe 2_Grille fonctionnelle.xlsx",
+        "hash": "7ea717152f939c2bd40a706ddb4de42c",
+        "taille_chars": 3560
+      },
+      {
+        "nom": "26_BAM_627_RC_Annexe 3_CRT.docx",
+        "hash": "ef84150695c2e39d1615dbba3436c971",
+        "taille_chars": 2477
+      },
+      {
+        "nom": "26_BAM_627_RC_Annexe 4_Clause sociale.docx",
+        "hash": "51fca3bbafdc345ffaede58740691265",
+        "taille_chars": 7908
+      },
+      {
+        "nom": "26_BAM_627_RC_Annexe 5_Attestation_Russie.docx",
+        "hash": "5991d99ab210031019b2a2f182ca1233",
+        "taille_chars": 1910
       }
     ]
   }

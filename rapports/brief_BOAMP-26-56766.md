@@ -1,6 +1,6 @@
 # Brief — Réaménagement des bureaux et Hall d’accueil des services centraux à Nancy
 
-_Généré le 2026-06-12 15:49 par Claude claude-sonnet-4-6_
+_Généré le 2026-06-15 01:18 par Claude claude-sonnet-4-6_
 
 ## Identifiants
 - **ID Tendia** : `BOAMP-26-56766`
@@ -10,103 +10,87 @@ _Généré le 2026-06-12 15:49 par Claude claude-sonnet-4-6_
 - **DCE PLACE** : <https://www.marches-publics.gouv.fr/?page=Entreprise.EntrepriseAdvancedSearch&AllCons&id=3015189&orgAcronyme=f2h>
 
 ## Synthèse
-Le CROUS Lorraine lance un appel d'offres en procédure adaptée pour le réaménagement des bureaux et du hall d'accueil de ses services centraux à Nancy (75 rue de Laxou). Le marché est décomposé en 7 lots couvrant l'ensemble des corps d'état (démolition/gros œuvre, plâtrerie, menuiserie, revêtements/peinture, plomberie/chauffage/ventilation, électricité, ascenseur). Les travaux devront être achevés au plus tard le 28 août 2026.
+Marché de travaux de réaménagement des bureaux et du hall d'accueil des services centraux du CROUS Lorraine situés au 75 rue de Laxou à Nancy. Les travaux sont décomposés en 7 lots couvrant l'ensemble des corps d'état du second œuvre (démolition/gros œuvre, plâtrerie, menuiserie intérieure, revêtements/peinture, chauffage/plomberie, électricité, ascenseur). Le délai d'achèvement est fixé au 26 août 2026, dans un bâtiment occupé.
 
 ## 🏗 Chantier — caractéristiques BTP
-- **Description** : Réaménagement des bureaux et du hall d'accueil des services centraux du CROUS Lorraine à Nancy. Les travaux comprennent des démolitions, gros œuvre, cloisonnements, menuiseries intérieures, revêtements de sols et peinture, plomberie/chauffage/ventilation, électricité courants forts et faibles, et installation d'un ascenseur. Une variante obligatoire sur dalle pleine escalier surpaillasse est exigée pour le lot 1.
-- **Type d'ouvrage** : Bureaux administratifs et hall d'accueil (bâtiment tertiaire occupé par le CROUS Lorraine)
-- **Site occupé pendant travaux** : Probable — site des services centraux du CROUS, travaux à livrer avant le 28 août 2026 (fin de période estivale)
-- **Corps d'état mobilisés** : Démolitions - Gros œuvre - Installations de chantier, Plâtrerie, Menuiserie intérieure, Revêtements de sols et Peinture, Plomberie - Chauffage - Ventilation, Electricité CFO/CFA, Ascenseur
+- **Description** : Réaménagement intérieur des bureaux et du hall d'accueil des services centraux du CROUS Lorraine : démolition de cloisons et faux-plafonds existants, création de nouveaux cloisonnements (plâtre et modulaires), rénovation des sols (revêtements souples caoutchouc, carrelage), peinture générale, mise en conformité sanitaire (WC PMR suspendu), redistribution chauffage/plomberie, mise à jour électricité CFO/CFA, et installation d'un élévateur PMR extérieur.
+- **Type d'ouvrage** : Bureaux administratifs (services centraux d'un CROUS) — bâtiment existant à réaménager
+- **Surface / volume** : Environ 452 m² de surfaces peintes (toile de verre + peinture), 129 m² de sols souples, 129 m² de faux-plafonds Armstrong — surface globale non précisée explicitement
+- **Site occupé pendant travaux** : true — le CCTP mentionne explicitement 'intervention dans des locaux dont une grande partie des finitions sont conservées', impliquant des précautions particulières pour ne pas endommager les sols et murs conservés. Le chantier se déroule dans des locaux en service.
+- **Corps d'état mobilisés** : Démolition / gros œuvre / installations de chantier, Plâtrerie, doublages, cloisons, faux-plafonds, Menuiserie intérieure bois, cloisons modulables, Revêtements de sols souples et durs, peinture, finitions, Chauffage, plomberie sanitaire, ventilation, Electricité courants forts et faibles, Ascenseur / élévateur PMR
 - **Contraintes spécifiques** :
-  - Délai d'achèvement impératif au 28 août 2026
-  - Variante obligatoire pour le lot 1 (dalle pleine escalier surpaillasse)
-  - PSE obligatoire pour le lot 1 (installations de chantier)
-  - Gestion des accès, circulations et zones de travaux en site possiblement occupé
-  - Limitation des nuisances (bruit, poussières, odeurs)
-  - Protection des locaux existants et équipements conservés
-  - Coordination multi-lots (7 corps d'état)
+  - Site occupé : précautions obligatoires pour préserver finitions existantes conservées
+  - Délai contraint : travaux à achever au 26 août 2026
+  - Présence d'un ERP (hall d'accueil) : exigences coupe-feu (cloisons CF 1H, portes CF 1/2H)
+  - Accessibilité PMR : élévateur extérieur, WC suspendu PMR, largeurs de passage normées
+  - Travaux en bâtiment occupé nécessitant protections journalières des ouvrages conservés
+  - Variante obligatoire pour le lot 1 (dalle pleine escalier sur paillasse)
+  - PSE pour le lot 1 (base vie chantier)
+  - Compte prorata géré par le titulaire du lot 1
+  - Coordination multi-lots obligatoire, planning OPC établi par la maîtrise d'œuvre
 
 ### Allotissement
-Marché décomposé en 7 lots, chaque lot faisant l'objet d'un marché distinct. Les candidats peuvent soumettre des offres pour tous les lots.
+Marché décomposé en 7 lots indépendants, chacun faisant l'objet d'un marché séparé à prix global et forfaitaire. Les candidats peuvent soumissionner sur tous les lots.
 - **Nombre de lots** : 7
 - **Lot 1** — Démolitions - Gros œuvre - Installations de chantier
   - Corps d'état : Démolition, gros œuvre, installations de chantier
-  - Travaux de démolition, gros œuvre, installations de chantier. Comprend une variante obligatoire (dalle pleine escalier surpaillasse) et une PSE (installations de chantier). CPV: 45223220-4 / 45112500-0.
+  - Démolitions de parois, faux-plafonds, ouvertures dans cloisons plâtre, rénovation escalier pierre calcaire, modification canalisation EU, décaisses tapis brosse, radier et murs soutènement pour élévateur. Variante obligatoire (dalles pleines escalier sur paillasse). PSE base de vie.
 - **Lot 2** — Plâtrerie
-  - Corps d'état : Plâtrerie
-  - Travaux de plâtrerie. CPV: 45410000-4.
+  - Corps d'état : Plâtrerie, doublages, cloisons, faux-plafonds
+  - Doublages BA13 collés ou enduit plâtre, doublages acoustiques sur ossature, cloisons séparatives SAD 160, cloisons 98/48 (dont CF 1H hall ERP), faux-plafonds Armstrong Ultima 600x600, faux-plafonds plaques de plâtre sanitaire, caisson WC suspendu PMR, raccords finitions.
 - **Lot 3** — Menuiserie intérieure
-  - Corps d'état : Menuiserie intérieure bois
-  - Travaux de menuiserie intérieure, installation de menuiseries non métalliques. CPV: 45421000-4 / 45421150-0.
+  - Corps d'état : Menuiserie intérieure bois, cloisons modulables
+  - Blocs-portes CF 1/2H (7 simples + 1 tierce) sur organigramme BRICARD, châssis intérieurs vitrés, plinthe bois, dépose/repose cloisons modulaires Harmonie P86 Claustra-Hauserman, dépose/repose miroir, trappe de visite gaine, dépose/repose meuble bar. Organigramme complet.
 - **Lot 4** — Revêtements de sols, Peinture
-  - Corps d'état : Revêtements durs, carrelage, peinture
-  - Travaux de carrelage et peinture. CPV: 45431007 / 45442100-8.
+  - Corps d'état : Revêtements de sols souples et durs, peinture, finitions
+  - Dépose sols souples existants, ragréage, revêtements souples caoutchouc Norament 926 (128 m²), carrelage grès céramique et faïence sanitaires, tapis d'entrée Emco, peinture toile de verre sur ensemble des locaux (452 m²), peinture tuyauteries, portes bois, nettoyage mise en service.
 - **Lot 5** — Plomberie - Chauffage - Ventilation
-  - Corps d'état : Plomberie, chauffage, ventilation, climatisation
-  - Travaux d'installation de matériel de chauffage, ventilation, climatisation et plomberie. CPV: 45331000-6 / 45330000-9.
+  - Corps d'état : Chauffage, plomberie sanitaire, ventilation
+  - Dépose et redistribution chauffage (radiateurs panneaux acier FINIMETAL), distribution bitube cuivre, WC suspendu PMR Villeroy & Boch TARGA, lavabo TARGA PRO, évier double bac, accessoires sanitaires PMR, ventilation sanitaires et salle de pose raccordée sur réseau existant.
 - **Lot 6** — Electricité CFO_CFA
-  - Corps d'état : Électricité courants forts et faibles
-  - Travaux d'équipement électrique courants forts et courants faibles. CPV: 45310000-3.
+  - Corps d'état : Electricité courants forts et faibles
+  - Dépose/neutralisation installations existantes, modification tableau électrique existant, distribution CFO/CFA par chemins de câbles séparés, prises courant (32+6 unités), prises RJ45 (16), interrupteurs, luminaires LED (plafonniers encastrés 26W, spots 185, plafonniers 600x600 36W 4000K UGR17), éclairage de sécurité blocs autonomes (9 unités).
 - **Lot 7** — Ascenseur
-  - Corps d'état : Installation d'ascenseur
-  - Travaux d'installation d'ascenseur. CPV: 45313100-5.
+  - Corps d'état : Ascenseur / élévateur PMR
+  - Fourniture et pose d'un appareil élévateur PMR selon EN 81-1 partie 41, capacité 300 kg, 2 arrêts, 2 faces de service opposées, plateau 1400x900 mm, vitesse 0,15 m/s, motorisation vis sans fin sans local machinerie, portillons vitrés automatiques, batterie de secours. Contrat d'entretien proposé pour mémoire.
 
 ### Qualifications BTP exigées
-Le RC demande une copie des qualifications professionnelles ou équivalents attestant du savoir-faire pour le domaine concerné par le lot. Les qualifications Qualibat ou équivalentes sont attendues sans indices explicitement listés dans le RC fourni.
-- **Qualibat** : N, o, n, , p, r, é, c, i, s, é, , d, a, n, s, , l, e, s, , p, i, è, c, e, s, , f, o, u, r, n, i, e, s, , (, m, e, n, t, i, o, n, n, é, , c, o, m, m, e, , e, x, i, g, é, , v, i, a, , ', c, o, p, i, e, , d, e, s, , q, u, a, l, i, f, i, c, a, t, i, o, n, s, , p, r, o, f, e, s, s, i, o, n, n, e, l, l, e, s, ', , s, a, n, s, , d, é, t, a, i, l, , d, e, s, , i, n, d, i, c, e, s, , p, a, r, , l, o, t, )
-- **Autres exigences** :
-  - Qualifications professionnelles par corps d'état (Qualibat ou équivalent) — RC §6.1 point 6
-
-## ⚡ Parc EnR — caractéristiques techniques
-### Volumes techniques
-- **Note** : Marché de travaux BTP — volumes en m² et montants non communiqués dans le RC.
-
-### Modalités d'exécution
-- **Sites d'exécution** : Nancy (54000)
-
-## 🎓 Formation / accompagnement
-### Volumes
-- **Note** : Marché de travaux — indicateurs de volume non applicables (pas de bénéficiaires de formation).
-
-### Modalités
-- **Sites d'exécution** : Nancy (54000)
+Le RC et les CCTP mentionnent que les entreprises sont 'réputées détenir et mettre en œuvre les capacités correspondant aux qualifications professionnelles du niveau de celles exigées pour l'agrément de leur candidature'. Aucune qualification Qualibat spécifique n'est listée numériquement dans les pièces fournies.
+- **OPQIBI** : non
+- **MASE** : non
 
 ## 💶 Montant du marché
 - _Montant non communiqué dans le DCE._
   - Typique des accords-cadres à bons de commande : le volume dépend des commandes effectivement passées par l'acheteur sur la durée du marché.
-- _Note_ : Aucun montant estimatif, plafond ou enveloppe budgétaire n'est mentionné dans le RC fourni. Le DPGF par lot permettra aux candidats de calculer leur offre mais aucune valeur de référence n'est communiquée.
+- _Note_ : Aucun montant estimé global ni par lot n'est mentionné dans les pièces fournies (RC, CCAP, CCTP, CDPGF). Les CDPGF sont des cadres vides sans prix unitaires renseignés. Le montant est à estimer par l'entreprise sur la base des quantités figurant aux CDPGF.
 
 ## Barème de notation
 - **Valeur technique** : 60 %
 - **Valeur prix** : 40 %
 - **Sous-critères techniques** :
-  - Méthodologie dans le temps et l'espace : 20 %
-  - Dispositions proposées en matière environnementale : 5 %
-  - Qualité des produits et des matériaux proposés : 30 %
-  - Complétude du mémoire : 5 %
-- **Calcul du prix** : Note critère prix = 60 x (prix de l'offre la moins disante / prix de l'offre analysée)
+  - Valeur technique de l'offre : 60 %
+  - Prix : 40 %
+- **Calcul du prix** : Prix noté sur 40% — formule exacte non précisée dans le RC. Application probable du rapport prix_moins_disant / prix_candidat × 40.
 
 ## Références et qualifications exigées
-- **Expérience minimale** : 5 ans
-- **Secteur d'expérience** : Travaux du corps d'état concerné par le lot (réaménagement de locaux, bâtiment tertiaire)
-- **Certifications obligatoires** : Qualifications professionnelles ou équivalent attestant du savoir-faire dans le domaine du lot (Qualibat ou équivalent) (source=RC §6.1 point 6)
+- **Expérience minimale** : —
+- **Secteur d'expérience** : Travaux de second œuvre / réaménagement de bâtiments tertiaires ou ERP, avec expérience en site occupé souhaitée. Pour le lot 7 : références locales d'appareils élévateurs similaires exigées dans le mémoire technique.
 - **Autres exigences** :
-  - Chiffre d'affaires hors taxes des trois derniers exercices disponibles à déclarer (DC2) (source=RC §6.1 point 3)
-  - Déclaration des effectifs moyens annuels et du personnel d'encadrement sur les 3 dernières années (source=RC §6.1 point 5)
-  - Déclaration de l'outillage, matériel et équipement technique disponibles pour la réalisation du contrat (source=RC §6.1 point 5)
-  - Déclaration d'assurance responsabilité décennale à souscrire (source=RC §6.1 point 4)
-  - Attestation d'assurance décennale à produire dans un délai de 7 jours après notification (candidat retenu) (source=RC §7.3)
+  - Mémoire technique détaillé pour le lot 7 (ascenseur) précisant références locales d'appareils similaires avec coordonnées maîtres d'ouvrages, organisation service maintenance et dépannage 7j/7-24h/24, modalités gestion téléalarme, 3 attestations de capacités de moins d'un an (source=CCTP lot 7 §Mémoire technique)
+  - Attestations d'assurance responsabilité civile professionnelle et décennale à produire avant signature du marché ou dans les 15 jours de notification (source=CCAP article 13)
+  - Plan Particulier de Sécurité et Protection de la Santé (PPSPS) à transmettre dans les 15 jours après notification du marché (source=CCAP article 10.3.2)
 
 ## ⚠ Alertes candidat
-- VARIANTE OBLIGATOIRE lot 1 : la variante 'Dalle pleine escalier surpaillasse' est exigée — son absence rend l'offre irrégulière et entraîne le rejet automatique.
-- PSE OBLIGATOIRE lot 1 : la PSE n°1 (Installations de chantier) doit être chiffrée pour l'offre de base ET pour l'offre variante — tout oubli rend l'offre irrégulière.
-- DÉLAI TRÈS CONTRAINT : les travaux doivent être achevés au 28 août 2026 — le planning prévisionnel de l'entreprise est évalué sur 10 points (sous-critère le plus pondéré) ; la capacité à tenir le délai est centrale.
-- VISITE FACULTATIVE le 17/06/2026 à 17h00 : fortement recommandée compte tenu des contraintes d'organisation du chantier évaluées au critère technique (1.3 — 5 points).
-- QUALIFICATIONS PROFESSIONNELLES exigées par lot : fournir la copie des qualifications Qualibat ou équivalents sans quoi la candidature peut être rejetée.
+- Délai d'exécution extrêmement court : date limite de dépôt des offres le 30 juin 2026, travaux à achever au 26 août 2026 — vérifier la disponibilité des équipes avant de soumissionner
+- Variante obligatoire pour le lot 1 : l'offre de base ET la variante (dalle pleine escalier sur paillasse) doivent être chiffrées — une offre sans variante pour le lot 1 serait incomplète
+- Bâtiment occupé avec finitions existantes conservées : les CCTP imposent des protections journalières obligatoires, sous peine de pénalités pour manquements hygiène/sécurité (200 €/manquement)
+- Pénalités de retard sans mise en demeure préalable (dérogation au CCAG), 200 €/jour calendaire — le calendrier détaillé OPC est contractuel dès notification par OS
+- Pour le lot 7 (ascenseur) : mémoire technique détaillé obligatoire avec 3 attestations de capacités de moins d'un an et références locales — absence = offre irrégulière probable
+- Retenue de garantie 5% — seule la garantie à première demande est acceptée pour la substituer (caution personnelle et solidaire explicitement refusée par le CCAP)
 
 ## 💡 Points différenciants attendus
-- Planning prévisionnel propre et engagement ferme sur le délai du 28 août 2026 (exemple=Fournir un planning Gantt détaillé propre à l'entreprise (non reprise brute du planning MOE), avec jalons critiques identifiés et analyse des marges — ce sous-critère est le plus pondéré (10 points sur 60 au technique)., source=RC §7.1 — sous-critère 1.2)
-- Fiches techniques ciblées et référencées (30 points sur 60 au technique) (exemple=Le critère 'qualité des produits et matériaux' représente 50% de la note technique — un mémoire avec fiches techniques précises, références surlignées et tableau de correspondance CCTP/produit proposé peut faire la différence décisive., source=RC §7.1 — sous-critère 3)
-- Connaissance des contraintes spécifiques du site (visite recommandée) (exemple=Candidate qui a effectué la visite le 17/06/2026 peut décrire précisément les accès, zones de stockage, contraintes de circulation et de bruit — ce qui nourrit les sous-critères 1.1, 1.3 et 2 du mémoire technique., source=RC §5.2 et §7.1 sous-critères 1.1 et 1.3)
-- Mémoire technique structuré et exhaustif (5 points dédiés à la complétude) (exemple=Un mémoire organisé en 4 sections calquées sur les sous-critères du RC, avec sommaire, annexes fiches techniques et aucun document manquant, capte les 5 points de complétude qui peuvent faire la différence à iso-qualité technique., source=RC §7.1 — sous-critère 4)
-- Organisation déchets et traçabilité (sous-critère environnemental explicite) (exemple=Présenter un bordereau de suivi des déchets type BSD pré-rempli avec les centres de traitement identifiés par flux (inertes/DIB/DD) et un engagement sur la fréquence d'enlèvement — ce sous-critère est évalué sur 5 points., source=RC §7.1 — sous-critère 2)
+- Expérience prouvée en réaménagement de bureaux en site occupé (exemple=Un candidat présentant 3 références récentes de réaménagements de bureaux tertiaires ou ERP réalisés sans interruption de l'activité, avec protocoles de protection des finitions existantes documentés, se différenciera nettement dans la note technique., source=CCTP lots 1 à 6 — prescriptions particulières)
+- Organisation de chantier multi-lots coordonnée et phasage détaillé (exemple=Proposer dès l'offre un planning prévisionnel phasé par zones avec interfaces inter-lots explicites (ex: ordre GO → plâtrerie → menuiserie → peinture/sol → fluides → électricité par bureau), démontrant la maîtrise de la coordination en délai contraint (<2 mois travaux)., source=CCAP article 4.2)
+- Maîtrise des exigences ERP et accessibilité PMR (exemple=Pour les lots 2 et 3, mettre en avant la maîtrise des classements coupe-feu (CF 1H cloisons hall, CF 1/2H portes), et pour le lot 7, démontrer des réalisations d'élévateurs PMR EN 81-41 avec accès opposés en bâtiments tertiaires., source=CCTP lot 2 §3.3, CCTP lot 3 §01.1.1, CCTP lot 7 §3)
+- Références locales récentes pour le lot 7 (ascenseur/élévateur) (exemple=L'ascensoriste joignant 3 fiches de réalisation d'appareils similaires (2 faces opposées, EN 81-41) en région Grand Est avec coordonnées des maîtres d'ouvrages contactables, scores mieux que tout concurrent sans référence locale documentée., source=CCTP lot 7 §Mémoire technique)
+- Proposition de méthodologie de protection des revêtements existants conservés (exemple=Le lot 4 (peinture/sol) peut se différencier en décrivant précisément le protocole de protection des sols en pierre calcaire existants (bâches épaisses, signalétique de circulation), et en proposant un protocole de réception contradictoire des supports avec le lot 1 avant démarrage., source=CCTP lot 4 §B — Prescriptions particulières)

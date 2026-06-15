@@ -1,6 +1,6 @@
 # Brief — Aménagement de chaussée et trottoirs - rue de la Grange Vertu
 
-_Généré le 2026-06-12 15:49 par Claude claude-sonnet-4-6_
+_Généré le 2026-06-15 01:08 par Claude claude-sonnet-4-6_
 
 ## Identifiants
 - **ID Tendia** : `BOAMP-26-56710`
@@ -10,47 +10,41 @@ _Généré le 2026-06-12 15:49 par Claude claude-sonnet-4-6_
 - **DCE PLACE** : <https://marches.ternum-bfc.fr/entreprise/consultation/691965?orgAcronyme=a7w>
 
 ## Synthèse
-La Ville d'Autun lance un marché public de travaux en procédure adaptée pour l'aménagement de chaussée et trottoirs de la rue de la Grange Vertu. Le marché est non alloti, avec un délai d'exécution plafonné à 2 mois et une durée contractuelle de 14 mois. L'attribution se fait sur la base du prix (60%) et de la valeur technique (40%).
+La Ville d'Autun (71400) lance un marché de travaux en procédure adaptée pour l'aménagement de la chaussée et des trottoirs de la rue de la Grange Vertu. Les travaux comprennent le rabotage et la réfection de la chaussée (enrobés bitumineux), la réfection complète des trottoirs, la pose de bordures, la gestion des réseaux EP/EU/réseaux secs existants ainsi que la mise en place d'une clause d'insertion sociale. Le marché est non alloti, à prix unitaires, avec un délai d'exécution plafond de 2 mois.
 
 ## 🏗 Chantier — caractéristiques BTP
-- **Description** : Aménagement de chaussée et trottoirs rue de la Grange Vertu à Autun (71400). Les travaux comprennent la réfection de revêtements de chaussée et de trottoirs. Le CCTP n'a pas été fourni dans les pièces analysées ; les détails techniques précis (couches de structure, surfaces, matériaux) ne sont pas disponibles.
-- **Type d'ouvrage** : Voirie urbaine — chaussée et trottoirs
-- **Corps d'état mobilisés** : Voirie et revêtements de chaussée, Aménagement de trottoirs
+- **Description** : Réfection de la chaussée par rabotage sur 14 cm et mise en œuvre d'enrobés bitumineux (grave bitume 0/14 + BBSG 0/10), réfection complète des trottoirs (décapage, GNT 0/31.5, BB 0/6), pose de bordures T2/A2 et caniveaux CC1, gestion des eaux pluviales (regards, gargouilles, canalisations PVC DN200), mise à niveau de l'ensemble des ouvrages concessionnaires (EP, AEP, Orange, GRDF, ENEDIS), bandes podotactiles en granit, pose de potelets.
+- **Type d'ouvrage** : Voirie urbaine communale — chaussée et trottoirs en milieu urbain dense
+- **Surface / volume** : Chaussée : environ 1 600 m² ; trottoirs : environ 950 m² de décapage (1 170 m² de BB 0/6 + 195 m² de BB 0/10)
+- **Site occupé pendant travaux** : true — travaux en milieu urbain en site construit, maintien obligatoire de la circulation des piétons et des riverains pendant toute la durée des travaux
+- **Corps d'état mobilisés** : Terrassements / VRD, Voirie enrobés, Bordures et caniveaux béton, Réseaux eaux pluviales (assainissement), Réseaux secs (fourreaux, chambres), Signalisation temporaire, Espaces verts (terre végétale)
 - **Contraintes spécifiques** :
-  - Délai d'exécution plafonné à 2 mois calendaires
-  - Gestion et traçabilité de l'évacuation des déchets de chantier (article L541-2 du code de l'environnement)
-  - Visite de site facultative recommandée
-  - Prestations similaires possibles pendant 3 ans (article R.2122-7 CCP)
+  - Maintien de la circulation piétonne et des accès riverains en permanence
+  - Chantier en site urbain dense avec réseaux souterrains multiples (ENEDIS, GRDF, Orange, AEP, EP/EU)
+  - Investigations complémentaires obligatoires sur réseaux gaz (GRDF) et Orange non classe A
+  - Réalisation d'un constat d'huissier contradictoire avant travaux
+  - Délai d'exécution plafond de 2 mois calendaires
+  - Clause d'insertion sociale obligatoire : 105 heures minimum
+  - Archéologie préventive à intégrer : accompagnement du diagnostic archéologique sous responsabilité du service archéologique de la Ville d'Autun
+  - Points d'arrêt obligatoires : essais à la plaque sur plusieurs phases
+  - Fraisât à évacuer au dépôt des services techniques d'Autun (Rond Point Garibaldi)
+  - Réseaux EP/EU : essais d'étanchéité + passage caméra obligatoires
 
 ### Allotissement
-Marché non alloti — l'acheteur ne peut pas identifier des prestations distinctes compte tenu de l'objet des prestations.
+Marché non alloti — lot unique regroupant l'ensemble des travaux de voirie et réseaux
 - **Nombre de lots** : 1
 - **Lot 1** — Aménagement de chaussée et trottoirs - rue de la Grange Vertu
-  - Corps d'état : Voirie, revêtements de chaussée et trottoirs
-  - Travaux d'aménagement de chaussée et trottoirs rue de la Grange Vertu à Autun
+  - Corps d'état : VRD — voirie, enrobés, bordures, réseaux EP/EU, réseaux secs
+  - Travaux de rabotage et réfection de chaussée, réfection complète des trottoirs, pose de bordures et caniveaux, gestion des réseaux eaux pluviales et mise à niveau des ouvrages concessionnaires
 
 ### Qualifications BTP exigées
-Le RC n'exige pas explicitement de qualification Qualibat ou RGE. Les capacités professionnelles, techniques et financières sont évaluées sur la base de références de travaux, effectifs et matériels.
-
-## ⚡ Parc EnR — caractéristiques techniques
-### Volumes techniques
-- **Durée du marché (mois)** : 14
-- **Note** : Délai d'exécution des travaux plafonné à 2 mois. Durée totale du marché 14 mois (incluant garantie de parfait achèvement). Surfaces et volumes de travaux non précisés dans les pièces disponibles (CCTP absent).
-
-### Modalités d'exécution
-- **Sites d'exécution** : Autun (71400)
-
-## 🎓 Formation / accompagnement
-### Volumes
-- **Durée marché (mois)** : 14
-
-### Modalités
-- **Sites d'exécution** : Autun (71400)
+Le RC ne mentionne pas de qualifications Qualibat ou certifications spécifiques obligatoires. Les capacités techniques sont appréciées sur références de travaux similaires et moyens humains/matériels.
+- **MASE** : non
 
 ## 💶 Montant du marché
 - _Montant non communiqué dans le DCE._
   - Typique des accords-cadres à bons de commande : le volume dépend des commandes effectivement passées par l'acheteur sur la durée du marché.
-- _Note_ : Aucun montant estimé, plafond ou fourchette n'est mentionné dans les pièces du DCE disponibles (RC uniquement). Le CCTP et le BPU/DE n'ont pas été fournis dans les pièces analysées.
+- _Note_ : Aucun montant estimatif ou prévisionnel n'est communiqué dans les pièces du DCE. Le devis estimatif valant BPU est fourni sans les prix unitaires complétés. À titre d'ordre de grandeur indicatif, les quantités (1 600 m² chaussée, 950 m² trottoirs, linéaires de réseaux) suggèrent un marché de l'ordre de 150 000 à 300 000 € HT, mais ce chiffre n'est pas issu du DCE.
 
 ## Barème de notation
 - **Valeur technique** : 40 %
@@ -58,28 +52,30 @@ Le RC n'exige pas explicitement de qualification Qualibat ou RGE. Les capacités
 - **Sous-critères techniques** :
   - Méthodologie employée pour la bonne exécution des travaux avec un planning détaillé d'exécution global (ensemble des rues) : 20 %
   - Moyens humains et matériels affectés au chantier : 20 %
-- **Calcul du prix** : Règle de trois : Note offre = (prix de l'offre la plus basse / prix de l'offre) × pondération du critère prix (60)
+- **Calcul du prix** : Note offre = (prix de l'offre la plus basse / prix de l'offre) × 60
 
 ## Références et qualifications exigées
-- **Expérience minimale** : —
-- **Secteur d'expérience** : Travaux de voirie (chaussée, trottoirs, revêtements de rues)
+- **Expérience minimale** : 5 ans
+- **Secteur d'expérience** : Travaux de voirie, revêtements de rues, réseaux VRD en milieu urbain
 - **Autres exigences** :
-  - Déclaration de chiffre d'affaires global et du domaine d'activité sur les 3 derniers exercices disponibles (source=RC article 4.1)
-  - Attestation d'assurance pour les risques professionnels en cours de validité (source=RC article 4.1)
-  - Déclaration des effectifs moyens annuels et de l'encadrement sur les 3 dernières années (source=RC article 4.1)
-  - Description de l'outillage, matériel et équipement technique disponible pour le marché (source=RC article 4.1)
-  - Liste des travaux exécutés sur les 5 dernières années avec attestations de bonne exécution pour les plus importants (montant, date, lieu, règles de l'art) (source=RC article 4.1)
-  - Engagement d'insertion à joindre à l'offre (source=RC article 5.1)
+  - Déclaration de chiffre d'affaires global et du domaine d'activité sur les 3 derniers exercices (source=RC article 4.1 — capacité économique et financière N°1)
+  - Attestation d'assurance pour risques professionnels en cours de validité (source=RC article 4.1 — capacité économique et financière N°2)
+  - Déclaration des effectifs moyens annuels et importance du personnel d'encadrement sur 3 ans (source=RC article 4.1 — capacité technique N°1)
+  - Description de l'outillage, matériel et équipement technique disponible pour le marché (source=RC article 4.1 — capacité technique N°2)
+  - Liste des travaux exécutés au cours des 5 dernières années avec attestations de bonne exécution (montant, date, lieu, exécution selon règles de l'art) (source=RC article 4.1 — capacité technique N°3)
+  - Engagement d'insertion (Annexe 2 CCAP) à produire dans l'offre (source=RC article 5.1 — présentation offre N°3)
 
 ## ⚠ Alertes candidat
-- Un engagement d'insertion est obligatoirement à joindre à l'offre — son absence pourrait rendre l'offre irrecevable (RC article 5.1).
-- Le délai d'exécution ne peut pas dépasser 2 mois calendaires — toute proposition dépassant ce plafond sera non conforme.
-- La visite de site est facultative mais si effectuée, l'attestation de visite doit être jointe à l'offre sous peine d'irrégularité formelle.
-- Les attestations de bonne exécution de travaux sur 5 ans sont exigées pour les travaux les plus importants — des références insuffisantes ou non documentées peuvent entraîner le rejet de la candidature.
-- Le mémoire technique doit impérativement inclure une note sur la gestion et traçabilité des déchets de chantier (art. L541-2 code environnement) — son absence pénalisera la note technique.
+- Clause d'insertion sociale obligatoire de 105 heures : l'entreprise doit s'engager dans l'annexe 2 CCAP et choisir une des 3 modalités (embauche directe, mise à disposition via ETTI/AI/GEIQ, ou sous-traitance SIAE/ESAT). Le non-respect après deux mises en demeure peut conduire à une pénalité de 100 €/heure non réalisée et à la résiliation.
+- Investigations complémentaires IC requises sur réseaux gaz GRDF (ouvrages non classe A dans l'emprise) et sur réseaux Orange : à budgéter et à planifier avant démarrage des travaux — ces investigations sont à la charge du responsable de projet (ville) mais leur organisation incombe à l'entreprise qui doit les anticiper dans son planning.
+- Constat d'huissier contradictoire obligatoire avant tout démarrage (3 exemplaires) : prestation à inclure dans l'offre (poste 1.3 du BPU trottoirs).
+- Points d'arrêt obligatoires pour essais à la plaque : impossibilité de poursuivre les travaux sans validation du maître d'œuvre — tout démarrage prématuré oblige à démolir et reprendre les ouvrages aux frais exclusifs de l'entreprise (CCTP §2.3).
+- Le mémoire technique doit obligatoirement comporter une note spécifique sur la gestion et traçabilité des déchets de chantier (exigence explicite du RC article 5.1) — son absence ou son insuffisance pénalise le critère technique.
+- Négociation possible avec les 3 meilleurs candidats : l'offre initiale doit être sérieuse mais l'acheteur peut affiner lors de la négociation — prévoir une marge de manœuvre dans la proposition commerciale.
 
 ## 💡 Points différenciants attendus
-- Planning détaillé et réaliste couvrant l'ensemble des rues dans le délai de 2 mois (exemple=Proposer un planning semaine par semaine avec phasage des interventions par tronçon, gestion des interfaces et des contraintes riverains/circulation, démontrant la faisabilité dans le délai plafond de 2 mois., source=RC article 6)
-- Dispositif de gestion et de traçabilité des déchets de chantier (exemple=Présenter une organisation précise : convention avec une filière de valorisation agréée, bordereau de suivi des déchets (BSD), tonnages estimés par nature (enrobés, grave, etc.), taux de valorisation visé., source=RC article 5.1)
-- Adéquation des moyens matériels propres à l'entreprise (hors location) (exemple=Lister le matériel en propre (finisseur, fraiseuse, compacteur), ce qui rassure l'acheteur sur la disponibilité et la maîtrise des délais sans dépendance à des locations aléatoires., source=RC article 6)
-- Engagement d'insertion sociale valorisé (exemple=Proposer un engagement d'insertion chiffré et concret (nombre d'heures d'insertion, profil des bénéficiaires, partenariat avec une structure d'insertion locale) au-delà du minimum exigé., source=RC article 5.1)
+- Planning détaillé et réaliste avec gestion du phasage en milieu urbain occupé (exemple=Proposer un planning en 2 phases (côté nord / côté sud de la rue) avec maintien d'un couloir piéton balisé permanent, intégrant les délais de validation des essais à la plaque comme points d'arrêt formels, et la coordination avec les interventions SYDESL (éclairage public) et SMEMAC (eau potable)., source=RC article 6 — critère 2.1)
+- Démonstration de la capacité à gérer les réseaux existants multiples et les concessionnaires (exemple=Mentionner l'expérience sur des chantiers similaires en milieu urbain avec présence simultanée de réseaux ENEDIS HTA, GRDF, Orange et AEP, décrire la procédure DICT/IC préalable et la coordination avec les concessionnaires pour les mises à niveau., source=CCTP §1.7 et §3.5)
+- Note déchets détaillée et traçabilité conforme à l'article L 541-2 du code de l'environnement (exemple=Fournir un schéma d'organisation et de gestion des déchets identifiant la décharge agréée pour les enrobés fraisés (avec destination : dépôt services techniques Autun pour le fraisât), les filières de valorisation pour les gravats de trottoirs, et le nom du responsable déchets désigné sur le chantier., source=RC article 5.1 — mémoire technique)
+- Proximité géographique de la centrale d'enrobage et délai de livraison garanti (exemple=Indiquer la centrale d'enrobage approvisionnant le chantier (distance ≤ 60 km, délai transport < 2h), sa capacité nominale ≥ 120 t/h, et la procédure de contrôle des bons d'identification livraison conforme à la norme NF P 98-150., source=CCTP §2.22.6 et §2.22.8)
+- Engagement concret sur la clause d'insertion avec partenaire identifié (exemple=Présenter dès l'offre le choix de la modalité d'insertion retenue (ex : modalité 2 via ETTI partenaire déjà identifié), avec un profil de poste envisagé (aide maçon voirie ou aide poseur bordures) compatible avec les 105 heures sur 2 mois de chantier., source=CCAP article 13 — Annexe 2)

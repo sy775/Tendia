@@ -1,296 +1,926 @@
 {
-  "synthese_marche": "Marché de transport quotidien et hebdomadaire d'usagers déficients sensoriels et/ou ayant des troubles associés entre leur domicile, les sites de l'Institut Public Ocens et les Unités d'Enseignement Externalisées (UEE) pour l'année scolaire 2026-2027 et les premiers mois de 2027-2028. Il s'agit d'un accord-cadre à bons de commande composé de 56 lots (55 lots mono-attributaires + 1 lot multi-attributaire à marchés subséquents), d'une durée de 15 mois non reconductibles. Le montant maximum global est de 1 200 000 € HT.",
+  "synthese_marche": "L'Institut Public Ocens (établissement médico-social de Loire-Atlantique) recherche des transporteurs pour assurer le transport quotidien et hebdomadaire d'enfants et jeunes déficients sensoriels et/ou ayant des troubles associés, entre leur domicile, les sites de l'Institut et les Unités d'Enseignement Externalisées (UEE). Le marché est structuré en 56 lots (55 circuits réguliers mono-attributaires + 1 lot accord-cadre multi-attributaire pour les nouveaux besoins), couvrant l'année scolaire 2026-2027 et les premiers mois de 2027-2028. Le prix est exprimé au kilomètre, par type de véhicule.",
   "domaines_metier": [
     {
       "code": "transport_logistique_vehicules"
     }
   ],
-  "raison_classification": "Le marché porte exclusivement sur le transport de personnes (usagers déficients sensoriels) entre leur domicile et les sites de l'Institut, avec facturation au kilomètre par type de véhicule. CPV principal 60130000 confirme le transport de personnes. Aucune composante formation, insertion ou autre domaine concurrent.",
-  "caracteristiques_techniques_chantier": {
-    "description": "Transport routier quotidien et hebdomadaire de personnes déficientes sensorielles et/ou ayant des troubles associés. Circuits définis par bons de commande entre domicile des usagers, sites de l'Institut et UEE. Prix au kilomètre tous frais compris par type de véhicule.",
-    "typologie_ouvrage": null,
-    "surface_volume": null,
-    "site_occupe": null,
-    "corps_etat": [],
-    "contraintes_specifiques": [
-      "Public vulnérable : déficients sensoriels et/ou troubles associés",
-      "Circuits susceptibles d'évoluer en cours d'exécution (déménagements, horaires UEE)",
-      "Obligation de reprise du personnel pour certains lots reproduisant des circuits du marché précédent",
-      "Inscription obligatoire au Registre des Entreprises de Transport Public Routier de Personnes (décret n°85-891 du 16 août 1985)"
-    ]
-  },
-  "allotissement": {
-    "description": "56 lots au total : lots 1 à 55 sont des accords-cadres mono-attributaires à bons de commande, le lot 56 est un accord-cadre multi-attributaire à marchés subséquents.",
-    "nb_lots": 56,
-    "lots_detailles": [
-      {
-        "numero": 1,
-        "intitule": "Lot 1 à 55 - Circuits transport mono-attributaires",
-        "corps_etat": "transport de personnes",
-        "montant_estime": null,
-        "description": "Accords-cadres mono-attributaires à bons de commande pour chaque circuit. Prix au km tous frais compris par type de véhicule."
-      },
-      {
-        "numero": 56,
-        "intitule": "Lot 56 - Accord-cadre multi-attributaire à marchés subséquents",
-        "corps_etat": "transport de personnes",
-        "montant_estime": null,
-        "description": "Accord-cadre multi-attributaire à marchés subséquents. Critères d'attribution spécifiques."
-      }
-    ]
-  },
-  "qualifications_requises": {
-    "description": "Inscription obligatoire au Registre des Entreprises de Transport Public Routier de Personnes selon le décret n°85-891 du 16 août 1985, à joindre au mémoire technique.",
-    "qualibat": null,
-    "rge": null,
-    "opqibi": null,
-    "autres_certifications": [
-      {
-        "libelle": "Certificat d'inscription au Registre des Entreprises de Transport Public Routier de Personnes (décret n°85-891 du 16 août 1985)",
-        "source": "RC Article 4a"
-      }
-    ]
-  },
-  "caracteristiques_mission": {
-    "typologie_mission": null,
-    "domaine_expertise": null,
-    "livrables_attendus": [],
-    "duree_mission": "15 mois (août 2026 – octobre 2027)",
-    "jours_consultant_estimes": null
-  },
-  "profils_intervenants": {
-    "description": null,
-    "chef_de_mission": null,
-    "consultants": null
-  },
-  "volumes_techniques": {
-    "puissance_totale_kwc": null,
-    "puissance_par_site_kwc": null,
-    "nb_sites": null,
-    "surface_panneaux_m2": null,
-    "productible_annuel_estime_mwh": null,
-    "duree_marche_mois": 15,
-    "duree_maintenance_om_annees": null,
-    "commentaire_volumes": "56 lots de transport, circuits journaliers/hebdomadaires. Bons de commande indicatifs fournis dans le DQE. Prix au km tous frais compris par type de véhicule."
-  },
-  "modalites_execution_chantier": {
-    "raccordement_reseau_inclus": null,
-    "etudes_techniques_incluses": null,
-    "calendrier_chantier_contraint": "Calendrier scolaire : transports liés à l'année scolaire 2026-2027 et début 2027-2028",
-    "sites_execution": [
-      "Nantes (44)",
-      "Loire-Atlantique"
-    ],
-    "engagement_productible": null,
-    "engagement_disponibilite_om": null
-  },
-  "publics_cibles": {
-    "description": "Usagers déficients sensoriels (déficience visuelle et/ou auditive) et/ou ayant des troubles associés, scolarisés à l'Institut Public Ocens ou dans les Unités d'Enseignement Externalisées (UEE).",
+  "raison_classification": "Le marché porte exclusivement sur la prestation de transport routier de personnes (enfants handicapés) entre domicile et établissement médico-social, avec un prix au kilomètre par type de véhicule. Le CPV principal 60130000 (transport routier spécialisé de passagers) et l'objet du CCTP confirment sans ambiguïté le domaine transport, distinct de toute prestation de formation, d'insertion ou de soin.",
+  "caracteristiques_metier": {
+    "description": "Transport quotidien et hebdomadaire d'usagers déficients sensoriels et/ou ayant des troubles associés (enfants et jeunes orientés par la MDPH) entre leur domicile et les sites de l'Institut Public Ocens (Nantes, Vertou) et les UEE partenaires, sur l'année scolaire 2026-2027 et les premiers mois de 2027-2028. 55 circuits réguliers définis (lots 1 à 55) + 1 lot accord-cadre multi-attributaire (lot 56) pour les nouveaux circuits en cours d'exécution. Les véhicules sont de type 5 places, 7 places/ludospace, 9 places ou TPMR. Certains circuits sont soumis à l'obligation LOM (véhicule à très faibles émissions).",
     "criteres_eligibilite": [
-      {
-        "libelle": "Usagers déficients sensoriels et/ou ayant des troubles associés",
-        "source": "RC Article 1"
-      }
-    ],
-    "publics_specifiques_signales": [
-      "RQTH",
-      "déficients sensoriels",
-      "troubles associés"
+      "Être inscrit au Registre des Entreprises de Transport Public Routier de Personnes (décret n°85-891 du 16 août 1985)",
+      "Disposer d'une flotte de véhicules de moins de 10 ans au 1er septembre de chaque année scolaire, équipés de climatisation et Bluetooth",
+      "Être en mesure de fournir des véhicules à très faibles émissions (loi LOM) pour certains lots identifiés",
+      "Disposer d'une assurance RC couvrant la responsabilité vis-à-vis des usagers, de l'Institut et des tiers",
+      "Les conducteurs de référence sont soumis à l'obligation vaccinale (intervenants réguliers en ESMS)",
+      "Sous-traitance interdite sauf autorisation expresse de l'Institut"
     ]
-  },
-  "volumes": {
-    "nb_beneficiaires_total": null,
-    "nb_beneficiaires_par_lot": null,
-    "duree_par_parcours_heures": null,
-    "duree_par_parcours_semaines": null,
-    "duree_marche_mois": 15,
-    "commentaire_volumes": "56 lots de circuits. Kilométrage hebdomadaire variable selon les bons de commande. Montant maximum 1 200 000 € HT sur 15 mois, sans montant minimum."
-  },
-  "modalites": {
-    "presentiel_obligatoire": null,
-    "distanciel_possible": null,
-    "synchrone_asynchrone": null,
-    "sites_execution": [
-      "Nantes (44)",
-      "Loire-Atlantique"
-    ],
-    "amplitude_horaire": "Transports quotidiens et hebdomadaires liés aux horaires scolaires et des UEE"
-  },
-  "caracteristiques_mission_moe": {
-    "typologie": null,
-    "phases_couvertes": [],
-    "typologie_ouvrage": null,
-    "montant_travaux_estime": null,
-    "complexite_technique": null
-  },
-  "qualifications_moe": {
-    "opqibi": [],
-    "opqcm": null,
-    "bim": null,
-    "autres": []
-  },
-  "caracteristiques_si": {
-    "description": null,
-    "typologie_projet": null,
-    "technologies_mentionnees": [],
-    "volumetrie": null,
-    "hebergement": null
-  },
-  "qualifications_si": {
-    "iso_27001": null,
-    "anssi": null,
-    "hds": null,
-    "autres": []
   },
   "bareme_notation": {
-    "valeur_technique_pct": null,
-    "valeur_prix_pct": null,
+    "valeur_technique_pct": 20,
+    "valeur_prix_pct": 80,
     "sous_criteres_techniques": [
       {
-        "libelle": "Valeur technique (mémoire technique)",
-        "ponderation_pct": null,
-        "description": "Le RC mentionne un mémoire technique de 12 pages maximum comprenant présentation de la société et références, moyens techniques et administratifs, parc de véhicules, engagements développement durable, inscription au registre transport et exemple de facture. Les pondérations exactes ne sont pas précisées dans les pièces fournies.",
+        "libelle": "Valeur technique à l'attribution",
+        "ponderation_pct": 20,
+        "description": "Pour le lot 56 (accord-cadre multi-attributaire à marchés subséquents), la valeur technique représente 20% de la note à l'attribution de chaque marché subséquent. Pour les lots 1 à 55, le barème de notation est centré sur le prix au kilomètre ; la valeur technique est mentionnée dans le RC mais les sous-critères ne sont pas détaillés dans les pièces fournies.",
         "elements_attendus": [
-          "Présentation de la société et 3 références pertinentes en transport de personnes vulnérables",
-          "Moyens techniques et administratifs mis en œuvre sur le marché",
-          "Présentation du parc de véhicules affectés et disponibles en remplacement",
-          "Engagements liés au Développement Durable",
+          "Présentation de la société et de trois références pertinentes dans le transport de personnes à besoins spécifiques",
+          "Moyens techniques et administratifs mis en œuvre sur le marché (parc de véhicules, organisation, astreinte)",
+          "Présentation du parc affecté et disponible en remplacement",
+          "Engagements liés au Développement Durable (véhicules à faibles émissions, pratiques environnementales)",
           "Certificat d'inscription au Registre des Entreprises de Transport Public Routier de Personnes",
-          "Exemple de facture conforme au CCAP"
+          "Exemple de facture conforme aux exigences du CCAP"
         ],
-        "exemple_reponse_forte": "Le candidat présente un parc de véhicules adaptés aux déficients sensoriels (équipements spécifiques, accessibilité PMR), justifie de 3 références similaires de transport de publics vulnérables, et détaille ses procédures de remplacement de véhicule en cas de panne sous 30 minutes.",
-        "source": "RC Article 4a",
+        "exemple_reponse_forte": "La société X dispose d'un parc de 30 véhicules de moins de 5 ans dont 8 véhicules électriques/hybrides répondant aux exigences LOM, avec un véhicule de remplacement disponible sous 30 minutes. Elle justifie de 3 références de transport d'enfants en situation de handicap pour des ESMS de Loire-Atlantique, avec des conducteurs formés aux spécificités du handicap sensoriel.",
+        "source": "RC art. 4 et art. 7 ; CCAP art. 4e",
         "sous_criteres": []
       }
     ],
     "prix": {
-      "type_formule": "autre",
-      "formule_explicite": "Prix au kilomètre tous frais compris par type de véhicule pour chaque lot, sur la base du DQE fourni. La formule exacte de notation n'est pas précisée dans les pièces fournies.",
+      "type_formule": "moins_disant",
+      "formule_explicite": "Prix au kilomètre HT par type de véhicule (5p., 7p./ludospace, 9p., TPMR), appliqué aux kilométrages estimés du DQE. Le titulaire mieux-disant est celui proposant le prix au kilomètre le plus bas pour le véhicule requis (pondération 80% pour le lot 56).",
       "elements_a_chiffrer": [
-        "Prix au kilomètre tous frais compris par type de véhicule pour chaque lot (BPU)",
-        "Chiffrage par lot sur la base des bons de commande circuits indicatifs du DQE"
+        "Prix unitaire HT au kilomètre pour véhicule 5 places",
+        "Prix unitaire HT au kilomètre pour véhicule 7 places / ludospace",
+        "Prix unitaire HT au kilomètre pour véhicule 9 places",
+        "Prix unitaire HT au kilomètre pour véhicule TPMR"
       ]
     },
-    "modalite_calcul_prix": "Prix au kilomètre tous frais compris par type de véhicule. Les candidats s'engagent sur un prix au km pour chaque lot souhaité via le BPU fourni."
+    "modalite_calcul_prix": "Prix au kilomètre HT par type de véhicule, appliqué aux kilométrages indiqués dans les bons de commande circuits. Aucun frais annexe ou de prise en charge n'est applicable. Le kilométrage est calculé sur la base du trajet le plus rapide selon Google Maps."
   },
   "montant_marche": {
-    "valeur_estimee_euros": null,
-    "fourchette_min_euros": 0,
+    "valeur_estimee_euros": 1000000,
+    "fourchette_min_euros": null,
     "fourchette_max_euros": 1200000,
     "type": "plafond",
     "duree_couverte": "15 mois (août 2026 – octobre 2027)",
-    "source_extraction": "RC Article 1",
-    "commentaire": "Accord-cadre sans montant minimum, avec un montant maximum de 1 200 000 € HT sur 15 mois toutes lots confondus. Le montant réel dépend des bons de commande émis."
+    "source_extraction": "CCAP art. 2c (montant maximum 1 000 000 € HT) ; RC art. 1 (montant maximum 1 200 000 € HT)",
+    "commentaire": "Le CCAP fixe le plafond de l'accord-cadre à 1 000 000 € HT sur 15 mois (art. 2c), tandis que le RC mentionne 1 200 000 € HT (art. 1 — version RC V2). Il n'y a pas de montant minimum. L'estimation prévisionnelle hors indexation peut être calculée à partir du DQE : environ 550 000 km totaux estimés tous lots confondus ; à un prix moyen de 1,5-2 €/km, on obtient une fourchette cohérente avec le plafond annoncé."
   },
   "revision_prix": {
-    "type": "non_communique",
+    "type": "indexation",
     "indices_utilises": [],
-    "ponderation": null,
-    "periodicite": null,
+    "ponderation": "Révision semestrielle sur demande justifiée du titulaire par LRAR deux mois avant échéance. L'Institut peut refuser toute révision supérieure à 1% par rapport à la période précédente, et dans ce cas procéder à la résiliation sans indemnité avec un préavis d'un mois.",
+    "periodicite": "semestrielle",
     "formule_revision": null,
-    "source_extraction": null,
-    "commentaire": "Le CCAP n'est pas fourni dans les pièces analysées. La révision des prix est mentionnée par renvoi au CCAP 2411 (article 5) mais non détaillée dans les pièces disponibles."
+    "source_extraction": "CCAP art. 5d",
+    "commentaire": "Mécanisme de révision très encadré : tout dépassement de 1% peut être refusé par l'Institut avec droit de résiliation. Risque significatif pour le titulaire en cas d'inflation des coûts carburant/main-d'œuvre ; le candidat doit impérativement intégrer une marge de sécurité dans son prix initial."
   },
   "alertes_prix": [
-    "Accord-cadre sans montant minimum : risque de volume nul sur certains lots si les circuits évoluent ou disparaissent",
-    "Le montant maximum global est de 1 200 000 € HT pour 56 lots sur 15 mois, soit une enveloppe moyenne très limitée par lot (~21 400 €)",
-    "Les prix au BPU restent révisables par avenant si différence substantielle entre le DQE et le bon de commande réel, mais nécessite négociation",
-    "Obligation de reprise du personnel sur certains lots (liste non encore publiée) : impact important sur le chiffrage du coût de revient"
+    "Révision de prix plafonnée à 1% par période semestrielle : en cas de refus de l'Institut, résiliation possible sans indemnité — risque fort pour le titulaire sur 15 mois en contexte inflationniste.",
+    "Aucun frais annexe ou de prise en charge facturable en dehors du prix au kilomètre : les kilomètres d'exploitation (haut-le-pied) ne sont pas facturables.",
+    "En cas d'absence dite 'prévue' d'un usager, seuls les kilomètres effectivement exécutés sont facturés (pas d'indemnisation du trajet évité) — impact direct sur le chiffre d'affaires réel vs estimé.",
+    "Le montant maximum de l'accord-cadre (1 000 000 € HT CCAP / 1 200 000 € HT RC) est une limite absolue : toute commande supplémentaire est interdite une fois ce plafond atteint.",
+    "Fermeture exceptionnelle hors situation sanitaire : aucune indemnité due au titulaire. Seule la fermeture pour cause sanitaire ouvre droit à une indemnisation de 15% du montant dû."
   ],
   "references_exigees": {
     "experience_minimale_annees": null,
     "experience_source": null,
     "volume_min_references_similaires": 3,
-    "volume_min_references_unite": "références pertinentes en transport",
-    "secteur_experience": "Transport de personnes (idéalement transport de publics vulnérables, déficients sensoriels ou PMR)",
-    "secteur_source": "RC Article 4a",
+    "volume_min_references_unite": "références pertinentes",
+    "secteur_experience": "Transport de personnes, idéalement en milieu médico-social ou transport spécialisé de personnes à besoins spécifiques (handicap, ESMS)",
+    "secteur_source": "RC art. 4 (mémoire technique)",
     "certifications_obligatoires": [
       {
-        "libelle": "Inscription au Registre des Entreprises de Transport Public Routier de Personnes (décret n°85-891 du 16 août 1985) — obligatoire à intégrer dans le mémoire technique",
-        "source": "RC Article 4a"
+        "libelle": "Inscription au Registre des Entreprises de Transport Public Routier de Personnes (décret n°85-891 du 16 août 1985)",
+        "source": "RC art. 4 ; CCAP art. 6"
       }
     ],
     "autres_exigences": [
       {
         "libelle": "Attestation de vigilance 2026 (une par membre si groupement)",
-        "source": "RC Article 4a"
+        "source": "RC art. 4"
       },
       {
         "libelle": "Attestation fiscale 2025 (une par membre si groupement)",
-        "source": "RC Article 4a"
+        "source": "RC art. 4"
       },
       {
-        "libelle": "Attestation certifiant l'acceptation sans modification du dossier de consultation (une par membre si groupement)",
-        "source": "RC Article 4a"
+        "libelle": "Attestation d'assurance RC 2026 (peut être transmise à l'attribution)",
+        "source": "RC art. 4"
       },
       {
-        "libelle": "Attestation d'assurance RC 2026 — peut être transmise à l'attribution mais obligatoire sous 7 jours ouvrés sous peine d'irrecevabilité",
-        "source": "RC Article 4f"
+        "libelle": "Respect de l'obligation vaccinale des conducteurs de référence (intervenants réguliers en ESMS)",
+        "source": "CCAP art. 6"
       }
     ]
   },
   "lots": [
     {
       "numero": 1,
-      "intitule": "Lots 1 à 55 - Circuits transport mono-attributaires",
-      "zone_geographique": "Loire-Atlantique (44) - Nantes et environs",
-      "volume_estime": null,
-      "volume_estime_unite": "km",
-      "particularites": "Accords-cadres mono-attributaires à bons de commande. Circuits définis par DQE indicatif. Certains lots susceptibles d'obligation de reprise du personnel (liste à venir). Prix au km tous frais compris par type de véhicule."
+      "intitule": "C1 - Circuit PDSL : Saint-Michel-Chef-Chef / Le Pellerin → Siège Nantes (Plateforme Jeunes)",
+      "zone_geographique": "Loire-Atlantique (44)",
+      "volume_estime": 14076,
+      "volume_estime_unite": "km estimés sur l'année",
+      "particularites": "Véhicule 5 places, LOM requis. 2 usagers (RAIMBAUD, TOURON). Départ dès 07h00."
+    },
+    {
+      "numero": 2,
+      "intitule": "C2 - Circuit PDSL : Les Moutiers-en-Retz / Saint-Aignan-Grandlieu / Rezé → Siège Nantes (Plateforme Jeunes)",
+      "zone_geographique": "Loire-Atlantique (44)",
+      "volume_estime": 24480,
+      "volume_estime_unite": "km estimés sur l'année",
+      "particularites": "Véhicule 5 places, LOM requis. 3 usagers dont une épileptique avec protocole de crise. 480 km/semaine."
+    },
+    {
+      "numero": 3,
+      "intitule": "C3 - Circuit PDSL : Vertou → Siège Nantes (Plateforme Jeunes)",
+      "zone_geographique": "Loire-Atlantique (44)",
+      "volume_estime": 4080,
+      "volume_estime_unite": "km estimés sur l'année",
+      "particularites": "Véhicule 5 places, LOM requis. 1 usager en temps partiel. Court circuit (~10 km/trajet)."
+    },
+    {
+      "numero": 4,
+      "intitule": "C4 - Circuit PDSL : Ligné / Carquefou-Petit Mars / Saint-Sébastien-sur-Loire → Siège Nantes (Plateforme Jeunes + Collège BG)",
+      "zone_geographique": "Loire-Atlantique (44)",
+      "volume_estime": 18156,
+      "volume_estime_unite": "km estimés sur l'année",
+      "particularites": "Véhicule 5 places, LOM requis. 3 usagers dont un partagé entre Plateforme Jeunes et Collège Basse-Goulaine sur semaines paires/impaires."
+    },
+    {
+      "numero": 5,
+      "intitule": "C5 - Circuit PDSL : Saint-Étienne-de-Montluc / Orvault / Saint-Herblain / Nantes → Siège (Plateforme Jeunes)",
+      "zone_geographique": "Loire-Atlantique (44)",
+      "volume_estime": 17646,
+      "volume_estime_unite": "km estimés sur l'année",
+      "particularites": "Véhicule 7 places/ludospace (sans LOM). 5 usagers. Grand circuit Ouest Loire-Atlantique."
+    },
+    {
+      "numero": 6,
+      "intitule": "C6 - Circuit PDSL : Saint-Émilien-de-Blain / Nantes / Saint-Luce-sur-Loire → Siège (Plateforme Jeunes)",
+      "zone_geographique": "Loire-Atlantique (44)",
+      "volume_estime": 27285,
+      "volume_estime_unite": "km estimés sur l'année",
+      "particularites": "Véhicule 5 places (sans LOM). 3 usagers. Plus grand circuit PDSL en volume km."
+    },
+    {
+      "numero": 7,
+      "intitule": "C7 - Circuit PDSL : Carquefou/Petit Mars → Collège Basse-Goulaine (Plateforme Jeunes + Collège BG)",
+      "zone_geographique": "Loire-Atlantique (44)",
+      "volume_estime": 5967,
+      "volume_estime_unite": "km estimés sur l'année",
+      "particularites": "Véhicule 5 places, LOM requis. 1 usager partagé semaines paires/impaires (16 ou 23 km/trajet selon semaine)."
+    },
+    {
+      "numero": 8,
+      "intitule": "C8 - Circuit PDSL : Saint-Pazanne / Saint-Mars-de-Coutais / Rezé → Collège Basse-Goulaine",
+      "zone_geographique": "Loire-Atlantique (44)",
+      "volume_estime": 18490,
+      "volume_estime_unite": "km estimés sur l'année",
+      "particularites": "Véhicule 5 places, LOM requis. 3 usagers. Démarrage 01/09/2026 (43 semaines). Un usager avec collier de mastication au retour."
+    },
+    {
+      "numero": 9,
+      "intitule": "C9 - Circuit PDSL : Gétigné / Gorges → Collège Basse-Goulaine",
+      "zone_geographique": "Loire-Atlantique (44)",
+      "volume_estime": 11610,
+      "volume_estime_unite": "km estimés sur l'année",
+      "particularites": "Véhicule 5 places, LOM requis. 2 usagers. Lot susceptible d'obligation de reprise du personnel (titulaire actuel : MONAMILIGO)."
+    },
+    {
+      "numero": 10,
+      "intitule": "C10 - Circuit PDSL : Mésanger / Louroux-Bottereau → Collège Basse-Goulaine",
+      "zone_geographique": "Loire-Atlantique (44)",
+      "volume_estime": 18920,
+      "volume_estime_unite": "km estimés sur l'année",
+      "particularites": "Véhicule 5 places, LOM requis. 2 usagers. Horaires susceptibles d'être modifiés en septembre."
+    },
+    {
+      "numero": 11,
+      "intitule": "C11 - Circuit PDSL : Saffré / Treillières / La-Chapelle-sur-Erdre → Collège Basse-Goulaine",
+      "zone_geographique": "Loire-Atlantique (44)",
+      "volume_estime": 19565,
+      "volume_estime_unite": "km estimés sur l'année",
+      "particularites": "Véhicule 5 places, LOM requis. 2 usagers dont une en garde alternée (plusieurs adresses). Horaires susceptibles d'être modifiés."
+    },
+    {
+      "numero": 12,
+      "intitule": "C12 - Circuit PDSL : Orvault / Nantes → Collège Basse-Goulaine",
+      "zone_geographique": "Loire-Atlantique (44)",
+      "volume_estime": 10105,
+      "volume_estime_unite": "km estimés sur l'année",
+      "particularites": "Véhicule 5 places, LOM requis. 2 usagers. Circuit court (23-24 km/trajet)."
+    },
+    {
+      "numero": 13,
+      "intitule": "C13 - Circuit PDSL : Legé → Collège Basse-Goulaine",
+      "zone_geographique": "Loire-Atlantique (44)",
+      "volume_estime": 17630,
+      "volume_estime_unite": "km estimés sur l'année",
+      "particularites": "Véhicule 5 places, LOM requis. 1 usager. Long trajet (41 km/trajet). Horaires susceptibles d'être modifiés."
+    },
+    {
+      "numero": 14,
+      "intitule": "C14 - Circuit PDSL : Bouguenais / Rezé → Collège René Bernier",
+      "zone_geographique": "Loire-Atlantique (44)",
+      "volume_estime": 7095,
+      "volume_estime_unite": "km estimés sur l'année",
+      "particularites": "Véhicule 5 places, LOM requis. 3 usagers (dont 2 de même famille). Circuit court (16-17 km/trajet)."
+    },
+    {
+      "numero": 15,
+      "intitule": "C15 - Circuit PDSL : Nantes / Saint-Sébastien-sur-Loire → Collège René Bernier",
+      "zone_geographique": "Loire-Atlantique (44)",
+      "volume_estime": 5504,
+      "volume_estime_unite": "km estimés sur l'année",
+      "particularites": "Véhicule 7 places/ludospace (sans LOM). 4 usagers. Kilométrages variables selon jours (présence en internat certains jours). Lot susceptible d'obligation de reprise du personnel (TITI FLORIS)."
+    },
+    {
+      "numero": 16,
+      "intitule": "C16 - Circuit PDSL : Herbignac / Saint-Nazaire → Collège René Bernier",
+      "zone_geographique": "Loire-Atlantique (44)",
+      "volume_estime": 18146,
+      "volume_estime_unite": "km estimés sur l'année",
+      "particularites": "Véhicule 5 places (sans LOM). 2 usagers en internat (trajets uniquement lundi matin et vendredi soir). Lot susceptible d'obligation de reprise du personnel (TITI FLORIS)."
+    },
+    {
+      "numero": 17,
+      "intitule": "C17 - Circuit PDSL : Les Herbiers / Mortagne-sur-Sèvre → Collège René Bernier",
+      "zone_geographique": "Loire-Atlantique (44) / Vendée (85)",
+      "volume_estime": 13760,
+      "volume_estime_unite": "km estimés sur l'année",
+      "particularites": "Véhicule 5 places (sans LOM). 2 usagers en internat. Long trajet (80 km/trajet). Nuitées susceptibles de changer."
+    },
+    {
+      "numero": 18,
+      "intitule": "C18 - Circuit PDSL : Mouais → Collège René Bernier",
+      "zone_geographique": "Loire-Atlantique (44)",
+      "volume_estime": 12384,
+      "volume_estime_unite": "km estimés sur l'année",
+      "particularites": "Véhicule 5 places (sans LOM). 1 usager en internat. 70-74 km/trajet. Lot susceptible d'obligation de reprise du personnel (MONAMILIGO)."
+    },
+    {
+      "numero": 19,
+      "intitule": "C19 - Circuit PDSL : Paulx / Bouguenais → École Marie Curie",
+      "zone_geographique": "Loire-Atlantique (44)",
+      "volume_estime": 20554,
+      "volume_estime_unite": "km estimés sur l'année",
+      "particularites": "Véhicule 5 places, LOM requis. 2 usagers avec rehausseurs. Circuit via Siège IPO et École Marie Curie."
+    },
+    {
+      "numero": 20,
+      "intitule": "C20 - Circuit PDSL : Corcoué-sur-Logne → Siège / École Ledru Rollin / École Sarah Bernhardt",
+      "zone_geographique": "Loire-Atlantique (44)",
+      "volume_estime": 12728,
+      "volume_estime_unite": "km estimés sur l'année",
+      "particularites": "Véhicule 5 places, LOM requis. 2 usagers (fratrie) avec sièges auto. Desserte multi-sites. Lot susceptible d'obligation de reprise du personnel (MONAMILIGO)."
+    },
+    {
+      "numero": 21,
+      "intitule": "C21 - Circuit PDSL : Château-Thébaud → Siège / École Ledru Rollin",
+      "zone_geographique": "Loire-Atlantique (44)",
+      "volume_estime": 5160,
+      "volume_estime_unite": "km estimés sur l'année",
+      "particularites": "Véhicule 5 places, LOM requis. 1 usager. Horaires variables selon jours. Lot susceptible d'obligation de reprise du personnel (MONAMILIGO)."
+    },
+    {
+      "numero": 22,
+      "intitule": "C22 - Circuit PDSL : Gorges / Vertou → Siège / École Marie Curie / École Ledru Rollin",
+      "zone_geographique": "Loire-Atlantique (44)",
+      "volume_estime": 10879,
+      "volume_estime_unite": "km estimés sur l'année",
+      "particularites": "Véhicule 5 places, LOM requis. 2 usagers avec rehausseurs. Desserte multi-sites."
+    },
+    {
+      "numero": 23,
+      "intitule": "C23 - Circuit PDSL : Vallet / Saint-Sébastien-sur-Loire → Siège / École Marie Curie / École Ledru Rollin / École Sarah Bernhardt",
+      "zone_geographique": "Loire-Atlantique (44)",
+      "volume_estime": 13115,
+      "volume_estime_unite": "km estimés sur l'année",
+      "particularites": "Véhicule 7 places/ludospace (sans LOM). 4 usagers dont une fratrie. Desserte multi-sites."
+    },
+    {
+      "numero": 24,
+      "intitule": "C24 - Circuit PDSL : Saint-Luce-sur-Loire / Nantes → Siège / École Ledru Rollin",
+      "zone_geographique": "Loire-Atlantique (44)",
+      "volume_estime": 4945,
+      "volume_estime_unite": "km estimés sur l'année",
+      "particularites": "Véhicule 7 places/ludospace (sans LOM). 4 usagers avec rehausseurs. Lot susceptible d'obligation de reprise du personnel (TITI FLORIS)."
+    },
+    {
+      "numero": 25,
+      "intitule": "C25 - Circuit PDSL : Carquefou / Nantes → Siège / École Marie Curie",
+      "zone_geographique": "Loire-Atlantique (44)",
+      "volume_estime": 8815,
+      "volume_estime_unite": "km estimés sur l'année",
+      "particularites": "Véhicule 5 places, LOM requis. 3 usagers avec rehausseurs."
+    },
+    {
+      "numero": 26,
+      "intitule": "C26 - Circuit PDSL : Juigné-des-Moutiers → Siège / École Sarah Bernhardt",
+      "zone_geographique": "Loire-Atlantique (44)",
+      "volume_estime": 26660,
+      "volume_estime_unite": "km estimés sur l'année",
+      "particularites": "Véhicule 5 places (sans LOM). 1 usager. Très long trajet (~77 km/trajet). Protocole épilepsie. Autorisation autoroute. Lot susceptible d'obligation de reprise du personnel (MONAMILIGO)."
+    },
+    {
+      "numero": 27,
+      "intitule": "C27 - Circuit PDSL : Saint-Herblain / Nantes → Siège / École Marie Curie / École Ledru Rollin",
+      "zone_geographique": "Loire-Atlantique (44)",
+      "volume_estime": 4902,
+      "volume_estime_unite": "km estimés sur l'année",
+      "particularites": "Véhicule 5 places, LOM requis. 3 usagers dont une fratrie avec rehausseur."
+    },
+    {
+      "numero": 28,
+      "intitule": "C28 - Circuit PDSL : Savenay / Saint-Étienne-de-Montluc / Nantes / Saint-Herblain → Siège / École Marie Curie / École Ledru Rollin",
+      "zone_geographique": "Loire-Atlantique (44)",
+      "volume_estime": 26703,
+      "volume_estime_unite": "km estimés sur l'année",
+      "particularites": "Véhicule 7 places/ludospace (sans LOM). 4 usagers. Consigne de remise stricte pour un usager (présentation carte d'identité). Grand circuit Ouest."
+    },
+    {
+      "numero": 29,
+      "intitule": "NC1 - Navette PDSL : Siège IPO → École Marie Curie (mercredi et jeudi midi)",
+      "zone_geographique": "Nantes (44)",
+      "volume_estime": 258,
+      "volume_estime_unite": "km estimés sur l'année",
+      "particularites": "2 véhicules requis (5p. + 9p.). 11 usagers. Navette de courte distance (3 km). Lot susceptible d'obligation de reprise du personnel (MONAMILIGO)."
+    },
+    {
+      "numero": 30,
+      "intitule": "NC2 - Navette PDSL : Collège Basse-Goulaine ↔ Siège IPO (jeudi et vendredi)",
+      "zone_geographique": "Basse-Goulaine / Nantes (44)",
+      "volume_estime": 817,
+      "volume_estime_unite": "km estimés sur l'année",
+      "particularites": "Véhicule 9 places. 12 usagers. Navette entre collège et siège. Lot susceptible d'obligation de reprise du personnel (TITI FLORIS)."
+    },
+    {
+      "numero": 31,
+      "intitule": "NC3 - Navette PDSL : Collège René Bernier ↔ Internat APAJH44 Nantes",
+      "zone_geographique": "Saint-Sébastien-sur-Loire / Nantes (44)",
+      "volume_estime": 4816,
+      "volume_estime_unite": "km estimés sur l'année",
+      "particularites": "Véhicule 9 places. 6 usagers en internat. Navette quotidienne matin/soir (lundi-vendredi sauf mercredi matin et vendredi soir). Lot susceptible d'obligation de reprise du personnel (MONAMILIGO)."
+    },
+    {
+      "numero": 32,
+      "intitule": "T1 - Circuit PME : Séverac / Besné ou Carquefou → Les Thébaudières + École La Haye-Fouassière",
+      "zone_geographique": "Loire-Atlantique (44)",
+      "volume_estime": 34043,
+      "volume_estime_unite": "km estimés sur l'année",
+      "particularites": "Véhicule 5 places (sans LOM). 2 usagers dont un avec passage à l'école certains jours. Kilométrage variable selon semaines paires/impaires. Plus grand lot PME en volume."
+    },
+    {
+      "numero": 33,
+      "intitule": "T2 - Circuit PME : Nantes / Saint-Sébastien-sur-Loire → Les Thébaudières",
+      "zone_geographique": "Loire-Atlantique (44)",
+      "volume_estime": 5202,
+      "volume_estime_unite": "km estimés sur l'année",
+      "particularites": "Véhicule 9 places. 5 usagers dont plusieurs absents selon planning. 3 sièges 2/3, 1 securiseat."
+    },
+    {
+      "numero": 34,
+      "intitule": "T3 - Circuit PME : Les Sorinières → Les Thébaudières",
+      "zone_geographique": "Loire-Atlantique (44)",
+      "volume_estime": 3213,
+      "volume_estime_unite": "km estimés sur l'année",
+      "particularites": "Véhicule 9 places. 1 usager. 1 harnais verrouillable. Retour mercredi assuré par l'ASE. Lot susceptible d'obligation de reprise du personnel (TITI FLORIS)."
+    },
+    {
+      "numero": 35,
+      "intitule": "T4 - Circuit PME : La Marne / Saint-Gilles-Croix-de-Vie → Les Thébaudières + Collège Petite Lande",
+      "zone_geographique": "Loire-Atlantique (44) / Vendée (85)",
+      "volume_estime": 17825,
+      "volume_estime_unite": "km estimés sur l'année",
+      "particularites": "Véhicule 5 places (sans LOM). 2 usagers. Passage au Collège Petite Lande hors vacances scolaires. Kilométrage variable semaines paires/impaires. Lot susceptible d'obligation de reprise du personnel (TITI FLORIS)."
+    },
+    {
+      "numero": 36,
+      "intitule": "T5 - Circuit PME : Nantes / Rezé → Les Thébaudières + Collège Petite Lande",
+      "zone_geographique": "Loire-Atlantique (44)",
+      "volume_estime": 9231,
+      "volume_estime_unite": "km estimés sur l'année",
+      "particularites": "Véhicule 5 places, LOM requis. 2 usagers. 1 siège 2/3, 1 marchepied, 1 harnais en prévention."
+    },
+    {
+      "numero": 37,
+      "intitule": "T6 - Circuit PME : Remouillé/Saint-Hilaire-de-Clisson / Monnières / La Haye-Fouassière → Les Thébaudières + École La Haye-Fouassière",
+      "zone_geographique": "Loire-Atlantique (44)",
+      "volume_estime": 10200,
+      "volume_estime_unite": "km estimés sur l'année",
+      "particularites": "Véhicule 5 places, LOM requis. 3 usagers. Passage à l'école certains jours. 1 siège 2/3."
+    },
+    {
+      "numero": 38,
+      "intitule": "T7 - Circuit PME : Sevremoine / Mortagne-sur-Sèvre ou La Remaudière → Les Thébaudières",
+      "zone_geographique": "Loire-Atlantique (44) / Maine-et-Loire (49) / Vendée (85)",
+      "volume_estime": 22568,
+      "volume_estime_unite": "km estimés sur l'année",
+      "particularites": "Véhicule 5 places, LOM requis. 2 usagers. Circuits différents selon semaines paires/impaires (domiciles différents). 1 harnais en prévention. Lot susceptible d'obligation de reprise du personnel (MONAMILIGO)."
+    },
+    {
+      "numero": 39,
+      "intitule": "T8 - Circuit PME : Saint-Père-en-Retz / Brains / Saint-Léger-les-Vignes ou La Montagne / Les Sorinières → Les Thébaudières + École La Haye-Fouassière",
+      "zone_geographique": "Loire-Atlantique (44)",
+      "volume_estime": 16881,
+      "volume_estime_unite": "km estimés sur l'année",
+      "particularites": "Véhicule 7 places/ludospace (sans LOM). 4 usagers. Circuit complexe avec Zoé Gesbert en alternance famille d'accueil/école. Lot susceptible d'obligation de reprise du personnel (TITI FLORIS)."
+    },
+    {
+      "numero": 40,
+      "intitule": "T9 - Circuit PME : Mouzillon / Gesté → Les Thébaudières",
+      "zone_geographique": "Loire-Atlantique (44) / Maine-et-Loire (49)",
+      "volume_estime": 15708,
+      "volume_estime_unite": "km estimés sur l'année",
+      "particularites": "Véhicule 9 places. 2 usagers. Un usager doit être seul sur une banquette. Réducteur de ceinture."
+    },
+    {
+      "numero": 41,
+      "intitule": "T10 - Circuit PME : Divatte-sur-Loire / Le Landreau / Vallet / La-Chapelle-Heulin → Les Thébaudières",
+      "zone_geographique": "Loire-Atlantique (44)",
+      "volume_estime": 13209,
+      "volume_estime_unite": "km estimés sur l'année",
+      "particularites": "Véhicule 7 places/ludospace (sans LOM). 4 usagers. Lot susceptible d'obligation de reprise du personnel (TITI FLORIS)."
+    },
+    {
+      "numero": 42,
+      "intitule": "T11 - Circuit PME : Clisson / Saint-Sébastien-sur-Loire → Les Thébaudières + Collège Petite Lande",
+      "zone_geographique": "Loire-Atlantique (44)",
+      "volume_estime": 8466,
+      "volume_estime_unite": "km estimés sur l'année",
+      "particularites": "Véhicule 5 places, LOM requis. 2 usagers. Passage au Collège Petite Lande tous les matins hors vacances. 1 réducteur de ceinture. Lot susceptible d'obligation de reprise du personnel (MONAMILIGO)."
+    },
+    {
+      "numero": 43,
+      "intitule": "T12 - Circuit PME : Carquefou / Thouaré-sur-Loire / Haute-Goulaine → Les Thébaudières + École La Haye-Fouassière",
+      "zone_geographique": "Loire-Atlantique (44)",
+      "volume_estime": 13974,
+      "volume_estime_unite": "km estimés sur l'année",
+      "particularites": "Véhicule 9 places. 4 usagers. 2 sièges 2/3, 2 harnais verrouillables, 1 cale-tête. Passage à l'école La Haye-Fouassière certains jours."
+    },
+    {
+      "numero": 44,
+      "intitule": "T13 - Circuit PME : Nantes → Les Thébaudières",
+      "zone_geographique": "Nantes (44)",
+      "volume_estime": 12291,
+      "volume_estime_unite": "km estimés sur l'année",
+      "particularites": "Véhicule 9 places. 6 usagers. 1 securiseat, 1 harnais, 3 sièges 2/3. Plusieurs usagers absents selon planning variable."
+    },
+    {
+      "numero": 45,
+      "intitule": "T14 - Circuit PME : Châteaubriant / Vertou / Nort-sur-Erdre / Saint-Mars-du-Désert → Les Thébaudières",
+      "zone_geographique": "Loire-Atlantique (44)",
+      "volume_estime": 24506,
+      "volume_estime_unite": "km estimés sur l'année",
+      "particularites": "Véhicule 9 places. 4 usagers. Kilométrage variable semaines paires/impaires (domiciles différents pour un usager). 1 réducteur de ceinture."
+    },
+    {
+      "numero": 46,
+      "intitule": "T15 - Circuit PME : Nantes → Les Thébaudières",
+      "zone_geographique": "Nantes (44)",
+      "volume_estime": 9843,
+      "volume_estime_unite": "km estimés sur l'année",
+      "particularites": "Véhicule 9 places. 5 usagers. 2 sièges 2/3, 3 harnais dont un en prévention, 2 securiseats, 1 réducteur de ceinture. Équipement de sécurité très spécifique."
+    },
+    {
+      "numero": 47,
+      "intitule": "T16 - Circuit PME : Couëron/Les Sorinières / Saint-Herblain → Les Thébaudières",
+      "zone_geographique": "Loire-Atlantique (44)",
+      "volume_estime": 13158,
+      "volume_estime_unite": "km estimés sur l'année",
+      "particularites": "Véhicule 9 places. 2 usagers. 1 harnais verrouillé + securiseat. Code portail PHE Les Sorinières. Lot susceptible d'obligation de reprise du personnel (TITI FLORIS)."
+    },
+    {
+      "numero": 48,
+      "intitule": "T17 - Circuit PME : Nantes → Les Thébaudières",
+      "zone_geographique": "Nantes (44)",
+      "volume_estime": 11526,
+      "volume_estime_unite": "km estimés sur l'année",
+      "particularites": "Véhicule 7 places/ludospace (sans LOM). 2 usagers. 1 harnais. Lot susceptible d'obligation de reprise du personnel (TITI FLORIS)."
+    },
+    {
+      "numero": 49,
+      "intitule": "T18 - Circuit PME : Vieillevigne / Saint-Philbert-de-Bouaine / Saint-Colomban / Montbert → Les Thébaudières",
+      "zone_geographique": "Loire-Atlantique (44) / Vendée (85)",
+      "volume_estime": 15912,
+      "volume_estime_unite": "km estimés sur l'année",
+      "particularites": "Véhicule 9 places. 4 usagers. 1 securiseat en prévention, 2 casques anti-bruit, 1 siège 2/3. Circuit avec passage optionnel à La Haye-Fouassière. Lot susceptible d'obligation de reprise du personnel (MONAMILIGO)."
+    },
+    {
+      "numero": 50,
+      "intitule": "T19 - Circuit PME : Nantes / Rezé → Les Thébaudières",
+      "zone_geographique": "Loire-Atlantique (44)",
+      "volume_estime": 3468,
+      "volume_estime_unite": "km estimés sur l'année",
+      "particularites": "Véhicule 7 places/ludospace. 3 usagers dont plusieurs souvent absents. 2 sièges 2/3."
+    },
+    {
+      "numero": 51,
+      "intitule": "T20 - Circuit PME : Nantes → Les Thébaudières + École La Haye-Fouassière",
+      "zone_geographique": "Nantes (44)",
+      "volume_estime": 11424,
+      "volume_estime_unite": "km estimés sur l'année",
+      "particularites": "Véhicule 9 places. 2 usagers dont un en temps partiel. 1 siège 2/3. Un usager seul sur banquette."
+    },
+    {
+      "numero": 52,
+      "intitule": "T21 - Circuit PME : Nantes → Les Thébaudières",
+      "zone_geographique": "Nantes (44)",
+      "volume_estime": 2958,
+      "volume_estime_unite": "km estimés sur l'année",
+      "particularites": "Véhicule 7 places/ludospace. 3 usagers. Transport interne principalement (courtes distances). 2 sièges 2/3."
+    },
+    {
+      "numero": 53,
+      "intitule": "NT1 - Navette PME : École La Haye-Fouassière → Les Thébaudières (midi, vacances scolaires)",
+      "zone_geographique": "La Haye-Fouassière / Vertou (44)",
+      "volume_estime": 1020,
+      "volume_estime_unite": "km estimés sur l'année",
+      "particularites": "Véhicule 7 places/ludospace. 4 usagers (Leglise, Gesbert, Baliak, Asaj). Uniquement durant les vacances scolaires (midi). 2 sièges 2/3."
+    },
+    {
+      "numero": 54,
+      "intitule": "NT2 - Navette PME : Collège Petite Lande Rezé → Les Thébaudières (midi, période scolaire)",
+      "zone_geographique": "Rezé / Vertou (44)",
+      "volume_estime": 2550,
+      "volume_estime_unite": "km estimés sur l'année",
+      "particularites": "Véhicule 7 places/ludospace. 5 usagers (Meskour, Houmadi, Thélie, Gouaillier, Bourmaud). Uniquement en période scolaire (trajet midi). 2 sièges 2/3."
+    },
+    {
+      "numero": 55,
+      "intitule": "NT3 - Navette PME : Les Thébaudières → Collège Petite Lande Rezé (mercredi, jeudi, vendredi matin, période scolaire + internat)",
+      "zone_geographique": "Vertou / Rezé (44)",
+      "volume_estime": 1530,
+      "volume_estime_unite": "km estimés sur l'année",
+      "particularites": "Véhicule 7 places/ludospace. 5 usagers (même groupe que NT2). Navette depuis l'internat (Pavillon D) vers le Collège Petite Lande. 2 sièges 2/3."
     },
     {
       "numero": 56,
-      "intitule": "Lot 56 - Accord-cadre multi-attributaire à marchés subséquents",
-      "zone_geographique": "Loire-Atlantique (44) - Nantes et environs",
+      "intitule": "Lot 56 - Accord-cadre multi-attributaire à marchés subséquents (nouveaux circuits en cours d'exécution)",
+      "zone_geographique": "Loire-Atlantique (44)",
       "volume_estime": null,
-      "volume_estime_unite": "km",
-      "particularites": "Accord-cadre multi-attributaire à marchés subséquents. Critères d'attribution spécifiques mentionnés dans le RC mais non détaillés dans les pièces fournies."
+      "volume_estime_unite": null,
+      "particularites": "Lot réservé aux nouveaux besoins de transport régulier identifiés en cours d'exécution. Multi-attributaire, mise en concurrence des titulaires pour chaque marché subséquent. Attribution au mieux-disant : prix 80% / valeur technique 20%. Délai de réponse 3 jours. Offre valable 30 jours."
     }
   ],
   "calendrier": {
     "date_limite_offres": "2026-07-10",
     "date_demarrage_prevue": "2026-08-01",
-    "duree_marche": "15 mois non reconductibles (août 2026 – octobre 2027)"
+    "duree_marche": "15 mois non reconductibles (août 2026 – octobre 2027), avec possibilité de prorogation de 2 mois maximum"
   },
   "alertes_candidat": [
-    "Inscription obligatoire au Registre des Entreprises de Transport Public Routier de Personnes (décret n°85-891 du 16 août 1985) — à joindre impérativement au mémoire technique",
-    "Obligation de reprise du personnel sur certains lots reproduisant des circuits du marché précédent — liste non encore publiée au moment de la publication, à surveiller impérativement (annoncée semaine du 08/06)",
-    "Attestation d'assurance RC 2026 obligatoire sous 7 jours ouvrés après attribution, sous peine d'irrecevabilité et d'attribution au candidat suivant",
-    "Le candidat NE peut PAS modifier le dossier de consultation : toute annexe dérogatoire sera rejetée",
-    "Délai de validité des offres : 30 jours seulement à compter de la date limite de dépôt — attention en cas de procédure longue"
+    "Inscription obligatoire au Registre des Entreprises de Transport Public Routier de Personnes (décret n°85-891) : son absence rend la candidature irrecevable.",
+    "Obligation vaccinale des conducteurs de référence (intervenants réguliers en ESMS) : le titulaire doit en assurer le respect et pouvoir en fournir la preuve sur demande.",
+    "21 lots sont susceptibles d'une obligation de reprise du personnel (Loi Travail / convention collective transport) au titre du marché précédent (titulaires actuels : TITI FLORIS, MONAMILIGO, TRANSALYS) — analyse à mener lot par lot.",
+    "Sous-traitance interdite sauf autorisation expresse de l'Institut : le candidat doit s'assurer de disposer de tous les moyens en propre pour l'ensemble des lots soumissionnés.",
+    "Véhicules à très faibles émissions (LOM) obligatoires pour les lots identifiés (environ 25 lots sur 55) : le candidat doit disposer ou pouvoir acquérir des VTE avant le démarrage du marché en août 2026.",
+    "Révision de prix plafonnée à 1% semestriel avec droit de résiliation unilatérale de l'Institut en cas de refus : risque de perte sur contrat en cas d'inflation carburant/main-d'œuvre."
   ],
   "points_differenciants_attendus": [
     {
-      "libelle": "Parc de véhicules adaptés aux déficients sensoriels et capacité de remplacement rapide",
-      "exemple": "Présenter un parc de véhicules spécifiquement équipés (boucles magnétiques, équipements visuels, accessibilité PMR) avec un engagement de véhicule de remplacement disponible sous 30 minutes sur la zone de Nantes.",
-      "source": "RC Article 4a"
+      "libelle": "Parc de véhicules à très faibles émissions (LOM) disponible dès le démarrage",
+      "exemple": "Un candidat disposant d'un parc incluant des véhicules électriques ou hybrides rechargeables de moins de 5 ans pourra couvrir les ~25 lots identifiés LOM sans surcoût de location, et valoriser cet engagement DD dans son mémoire technique.",
+      "source": "CCTP art. 3d ; RC art. 4 (mémoire technique)"
     },
     {
-      "libelle": "Références en transport de publics vulnérables (déficients, PMR, établissements médico-sociaux)",
-      "exemple": "Mettre en avant 3 références récentes de transport pour des établissements médico-sociaux ou spécialisés (ESMS, IME, SESSAD, ITEP), avec contacts vérifiables et volumes de circuits réalisés.",
-      "source": "RC Article 4a"
+      "libelle": "Capacité à assurer la continuité du service en cas d'absence du conducteur de référence",
+      "exemple": "Présenter un pool de conducteurs remplaçants formés et disponibles sur la zone de Loire-Atlantique, avec un délai d'intervention inférieur à 30 minutes, est un argument fort vis-à-vis du CCAP art. 7 (pénalités sur défaillance) et du CCTP art. 2c.",
+      "source": "CCTP art. 2c ; CCAP art. 7"
     },
     {
-      "libelle": "Engagements Développement Durable (flotte bas carbone, véhicules propres)",
-      "exemple": "Décrire la proportion de véhicules électriques ou hybrides dans le parc affecté, les engagements de réduction d'émissions CO2, et les labels ou certifications environnementales obtenus.",
-      "source": "RC Article 4a"
+      "libelle": "Expérience prouvée dans le transport d'enfants en situation de handicap (ESMS, IME, IES)",
+      "exemple": "Trois références détaillées de marchés de transport d'usagers en établissements médico-sociaux (IME, SESSAD, IES) en Loire-Atlantique ou départements voisins, avec volumes de km et dispositifs de sécurité similaires (securiseat, harnais, casques anti-bruit), démontrent la maîtrise des spécificités.",
+      "source": "RC art. 4 (mémoire technique)"
     },
     {
-      "libelle": "Compétitivité tarifaire au kilomètre par type de véhicule",
-      "exemple": "Proposer un prix au km optimisé en s'appuyant sur une analyse fine des circuits du DQE, en distinguant véhicule léger, véhicule adapté et minibus, pour maximiser le rapport qualité/prix sur les lots les plus kilométriques.",
+      "libelle": "Maîtrise des équipements de sécurité spécifiques (harnais, securiseat, siège auto groupe 2/3, casque anti-bruit)",
+      "exemple": "Indiquer dans le mémoire technique les équipements détenus en stock propre et la procédure d'installation/vérification avant chaque trajet, en lien avec la formation dispensée par l'Institut (CCTP art. 4c), est un signal fort de professionnalisme.",
+      "source": "CCTP art. 3e ; CCTP art. 4c"
+    },
+    {
+      "libelle": "Stratégie de regroupement de lots géographiquement cohérents pour optimiser le prix au km",
+      "exemple": "Un transporteur présent sur le sud-Loire (Clisson, Gorges, Gétigné, Vallet) peut mutualiser sa flotte sur les lots 9, 22, 34, 40, 41 et proposer un prix compétitif grâce à la réduction des km haut-le-pied, élément décisif avec une pondération prix de 80%.",
       "source": null
     }
   ],
   "_meta": {
     "id_marche": "BOAMP-26-56439",
     "type": "complet",
-    "extraction_le": "2026-06-12T02:04:20.520671+00:00",
+    "date_generation": "2026-06-14T20:30:19.802835+00:00",
+    "extraction_le": "2026-06-14T20:30:19.802835+00:00",
     "modele": "claude-sonnet-4-6",
-    "tokens_input": 19322,
-    "tokens_output": 4812,
-    "cout_eur": 0.1236,
-    "duree_sec": 81.0,
+    "preset_utilise": null,
+    "presets_matches": [],
+    "prompts_versions": {},
+    "tokens_input": 122748,
+    "tokens_output": 13589,
+    "cout_eur": 0.5435,
+    "duree_sec": 203.8,
     "pdfs_traites": [
+      {
+        "nom": "2610_BPU_V1.xlsx",
+        "hash": "f747386885c637960977591e023db26f",
+        "taille_chars": 10783
+      },
+      {
+        "nom": "2610_CCAP_V1.pdf",
+        "hash": "65d323efe9ad7660a2689c50266b89a8",
+        "taille_chars": 21382
+      },
+      {
+        "nom": "2610_CCTP_V1.pdf",
+        "hash": "7735c062bf13b1edb966212e73ef4a94",
+        "taille_chars": 14100
+      },
+      {
+        "nom": "2610_RC_V2.pdf",
+        "hash": "172dc025438951564ec06a8a1fee54aa",
+        "taille_chars": 18408
+      },
+      {
+        "nom": "2610_Reglement_Transport_V2.pdf",
+        "hash": "e68ff6ab709b14e941c4f462babc115d",
+        "taille_chars": 25913
+      },
+      {
+        "nom": "Comment repondre par voie dematerialisee sur cette plate-forme.pdf",
+        "hash": "59740cfb43dcc36ff7d4ad8d02257cac",
+        "taille_chars": 9117
+      },
+      {
+        "nom": "How to Submit Your Bid on the Platform.pdf",
+        "hash": "4bb904ae79b2a65b44f5dd27e5318199",
+        "taille_chars": 8554
+      },
+      {
+        "nom": "PDSL-LOT 1 - RAIMBAUD-TOURON.xlsx",
+        "hash": "9ec49055b392863e70b8c0d5c3b8f610",
+        "taille_chars": 2075
+      },
+      {
+        "nom": "PDSL-LOT 10 - TOUFFET-CHAPLAIN.xlsx",
+        "hash": "368b4e89184d79f07a7170f26f8357e7",
+        "taille_chars": 2050
+      },
+      {
+        "nom": "PDSL-LOT 11 - COUDERT-LEDORZE.xlsx",
+        "hash": "df3343e3cb805c3d5f9bf29381541c31",
+        "taille_chars": 2493
+      },
+      {
+        "nom": "PDSL-LOT 12 - BRICAUD-HARDY.xlsx",
+        "hash": "1b079d469125955f68c1a4a880f3e4de",
+        "taille_chars": 2099
+      },
+      {
+        "nom": "PDSL-LOT 13 - BAUDOUX.xlsx",
+        "hash": "7a2eba08aa04c626b59bb193da3e699b",
+        "taille_chars": 1896
+      },
+      {
+        "nom": "PDSL-LOT 14 - ZRIDA A.-ZRIDA W.-RADUCAN.xlsx",
+        "hash": "c6b6cbde210e927cb95ec529664bb6ed",
+        "taille_chars": 2387
+      },
+      {
+        "nom": "PDSL-LOT 15 - DJAMILI-NOUANI-SABRY-CHAMKHI.xlsx",
+        "hash": "a5267895995836325b75e14d4b54feb7",
+        "taille_chars": 2570
+      },
+      {
+        "nom": "PDSL-LOT 16 - GUERIN-DO CARMO.xlsx",
+        "hash": "c8aa726a111f36980c7533550067b5bc",
+        "taille_chars": 2473
+      },
+      {
+        "nom": "PDSL-LOT 17 - KAZANXHI-SAUZE.xlsx",
+        "hash": "43853903df0d273dd70f9d8d53b9a9fc",
+        "taille_chars": 2298
+      },
+      {
+        "nom": "PDSL-LOT 18 - GUILLARD.xlsx",
+        "hash": "dae635911e0b5226ee3261cdd04c9be8",
+        "taille_chars": 1978
+      },
+      {
+        "nom": "PDSL-LOT 19 - RAUTUREAU-GUILBEAU.xlsx",
+        "hash": "30cc6b1eeb50447df1600e9f15b36516",
+        "taille_chars": 2023
+      },
+      {
+        "nom": "PDSL-LOT 2 - BILLON-DURAND-DAVID DURAND.xlsx",
+        "hash": "efc9cf4bfd5fb32697f719c8358dd05c",
+        "taille_chars": 2770
+      },
+      {
+        "nom": "PDSL-LOT 20 - MORANDEAU JAULIN Mathéo-Mathis.xlsx",
+        "hash": "575ddb7230b10133325a602505257355",
+        "taille_chars": 2916
+      },
+      {
+        "nom": "PDSL-LOT 21 - NDONG NZE Ethan.xlsx",
+        "hash": "33734d51838ba8dedb7c88dafa53f762",
+        "taille_chars": 1825
+      },
+      {
+        "nom": "PDSL-LOT 22 - DOUCHIN-LE GALL.xlsx",
+        "hash": "804b72b943bc576d89cbaeba55a78543",
+        "taille_chars": 2127
+      },
+      {
+        "nom": "PDSL-LOT 23 - LE CORRE-BANGUIWET-GRIZON E.-GRIZON L..xlsx",
+        "hash": "a03f17c9faaf3d5faadeb8d0c293a462",
+        "taille_chars": 2778
+      },
+      {
+        "nom": "PDSL-LOT 24 - DKHILI-VALOIS-IMINA-KALONDU.xlsx",
+        "hash": "74b21be6cd36311a864d5de69b524e6d",
+        "taille_chars": 2481
+      },
+      {
+        "nom": "PDSL-LOT 25 - PHILIPPOT-GHARBI-DA FONSECA.xlsx",
+        "hash": "4a1c9b41d92e3684a7ca3d9fa2e648b9",
+        "taille_chars": 2077
+      },
+      {
+        "nom": "PDSL-LOT 26 - OLIVAUD GIRARD.xlsx",
+        "hash": "04755ae0586d74a552a4118ad54aeb6a",
+        "taille_chars": 2056
+      },
+      {
+        "nom": "PDSL-LOT 27 - LUVWALU S.-LUVWALU C.-JOUSSELIN.xlsx",
+        "hash": "38282806365e000c9aaaad74a9127bcd",
+        "taille_chars": 2666
+      },
+      {
+        "nom": "PDSL-LOT 28 - PEYRAS-GRAVEAU-LABORY-DATIN.xlsx",
+        "hash": "43d4a061ee17093b74eedac2feb39197",
+        "taille_chars": 2746
+      },
+      {
+        "nom": "PDSL-LOT 29 - navette MC.xlsx",
+        "hash": "7e2e0003dc44ea36d9e6631d009f2ad3",
+        "taille_chars": 3507
+      },
+      {
+        "nom": "PDSL-LOT 3 - BATT.xlsx",
+        "hash": "521bd4e83a7ed121d8850e6ae00d1b3f",
+        "taille_chars": 1894
+      },
+      {
+        "nom": "PDSL-LOT 30 - navette BG.xlsx",
+        "hash": "d4801e78a2339ae52845874e43d3db8f",
+        "taille_chars": 2811
+      },
+      {
+        "nom": "PDSL-LOT 31 - navette RB (internat).xlsx",
+        "hash": "0116f25f971c46dde304576494ac46bb",
+        "taille_chars": 3682
+      },
+      {
+        "nom": "PDSL-LOT 4 - VRIGNAUD-THIERY-ZUKHAEVA.xlsx",
+        "hash": "9afe947edbb026ce81fe3e22e24bafe4",
+        "taille_chars": 3145
+      },
+      {
+        "nom": "PDSL-LOT 5 - AGBA-LE LEUCH-CAMARA-MOHAMAD BAKIR-KAIMBA.xlsx",
+        "hash": "812c2e56a71cf437bf8529bdb07eec49",
+        "taille_chars": 3010
+      },
+      {
+        "nom": "PDSL-LOT 6 - PRIVEY-LHERMELIN-NOUET.xlsx",
+        "hash": "0c085db36635f112fc7e9075cc2773ae",
+        "taille_chars": 1951
+      },
+      {
+        "nom": "PDSL-LOT 7 - THIERY.xlsx",
+        "hash": "b48e223331803793569ee9260904ad02",
+        "taille_chars": 2776
+      },
+      {
+        "nom": "PDSL-LOT 8 - BOCQUEL-BUCHI-PAUL.xlsx",
+        "hash": "ae3a0e9e84deb9b7151f1c49995a6622",
+        "taille_chars": 2300
+      },
+      {
+        "nom": "PDSL-LOT 9 - RAFFIN-REMAUD.xlsx",
+        "hash": "0dd0cb8c091910ef46ba148c17e4238f",
+        "taille_chars": 2084
+      },
+      {
+        "nom": "PME-Lot 32.xlsx",
+        "hash": "94a649ac7ab0a27365b71e2318d63906",
+        "taille_chars": 3927
+      },
+      {
+        "nom": "PME-Lot 33.xlsx",
+        "hash": "874ec87f57dceb824e30c7e7ca3dd837",
+        "taille_chars": 2789
+      },
+      {
+        "nom": "PME-Lot 34.xlsx",
+        "hash": "93988fdf1452369a7afa7789d4056ceb",
+        "taille_chars": 1713
+      },
+      {
+        "nom": "PME-Lot 35.xlsx",
+        "hash": "3fdf0f5fc91793fcf8d8ae4c36eecef5",
+        "taille_chars": 2595
+      },
+      {
+        "nom": "PME-Lot 36.xlsx",
+        "hash": "fc9034008902a9451324bb3d7b194b49",
+        "taille_chars": 2943
+      },
+      {
+        "nom": "PME-Lot 37.xlsx",
+        "hash": "f5cf21ed09990cee3769c501df5fea08",
+        "taille_chars": 3064
+      },
+      {
+        "nom": "PME-Lot 38.xlsx",
+        "hash": "b54eecbec6699a2e199bbd82d9adbc47",
+        "taille_chars": 3504
+      },
+      {
+        "nom": "PME-Lot 39.xlsx",
+        "hash": "316c50f93adde309fbaddfc1799156eb",
+        "taille_chars": 3969
+      },
+      {
+        "nom": "PME-Lot 40.xlsx",
+        "hash": "1771bcc4bd8a9767f0222762383a1b8d",
+        "taille_chars": 2733
+      },
+      {
+        "nom": "PME-Lot 41.xlsx",
+        "hash": "009fe7d20e64a82c16f89dafd06b9bf8",
+        "taille_chars": 2527
+      },
+      {
+        "nom": "PME-Lot 42.xlsx",
+        "hash": "c2b12f42ee53df95a59f90acdcff4e14",
+        "taille_chars": 2711
+      },
+      {
+        "nom": "PME-Lot 43.xlsx",
+        "hash": "cccf5ad3fecddde1710d49d018484a4d",
+        "taille_chars": 3137
+      },
+      {
+        "nom": "PME-Lot 44.xlsx",
+        "hash": "6fc22884e4d0b17c441f9a421c3df093",
+        "taille_chars": 3248
+      },
+      {
+        "nom": "PME-Lot 45.xlsx",
+        "hash": "e007a9a8a439f4948da4667370c66683",
+        "taille_chars": 2956
+      },
+      {
+        "nom": "PME-Lot 46.xlsx",
+        "hash": "1fda9ec57f18ac2abcc956ff2a799f8c",
+        "taille_chars": 2637
+      },
+      {
+        "nom": "PME-Lot 47.xlsx",
+        "hash": "e9a5d166dad726911cb885509093dfc2",
+        "taille_chars": 2566
+      },
+      {
+        "nom": "PME-Lot 48.xlsx",
+        "hash": "a608551db3f4aad615164b91cf669e2d",
+        "taille_chars": 1959
+      },
+      {
+        "nom": "PME-Lot 49.xlsx",
+        "hash": "9025df514e9827a150ea2a70fe15c4c6",
+        "taille_chars": 3101
+      },
+      {
+        "nom": "PME-Lot 50.xlsx",
+        "hash": "1a2f86f80824d8e114cd9328b6c551f2",
+        "taille_chars": 2172
+      },
+      {
+        "nom": "PME-Lot 51.xlsx",
+        "hash": "0e102e95132162461c1a6a3cfa9fd8a2",
+        "taille_chars": 2589
+      },
+      {
+        "nom": "PME-Lot 52.xlsx",
+        "hash": "faa0180d2c54b03d9be5f9654403d8c9",
+        "taille_chars": 2370
+      },
+      {
+        "nom": "PME-Lot 53.xlsx",
+        "hash": "5128224a5480d6b80b12261c36400a8d",
+        "taille_chars": 1911
+      },
+      {
+        "nom": "PME-Lot 54.xlsx",
+        "hash": "6b34133d2e44b24ec6b6cb32d6411ccd",
+        "taille_chars": 1957
+      },
+      {
+        "nom": "PME-Lot 55.xlsx",
+        "hash": "1d3428bf0556919fa5b0b0c831365b7b",
+        "taille_chars": 1856
+      },
       {
         "nom": "Règlement de consultation.pdf",
         "hash": "2373e1b480e58d3706293131ff664bd7",
