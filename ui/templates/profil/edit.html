@@ -30,8 +30,8 @@
 </label>
 {% endmacro %}
 
-{% macro accordeon(titre) %}
-  <details class="apt-block mb-3"><summary class="px-6 py-4 apt-display-sm apt-fs-16" style="cursor:pointer; list-style:none;">{{ titre }}</summary><div class="px-6 pb-6">{{ caller() }}</div></details>
+{% macro accordeon(titre, ouvert=False) %}
+  <details class="apt-block mb-3" {% if ouvert %}open{% endif %}><summary class="px-6 py-4 apt-display-sm apt-fs-16" style="cursor:pointer; list-style:none;">{{ titre }}</summary><div class="px-6 pb-6">{{ caller() }}</div></details>
 {% endmacro %}
 
 {# ----------------------------- vars ----------------------------- #}
@@ -69,8 +69,138 @@
   </div>
   {% endif %}
 
-  {# ---------- Identité ---------- #}
-  {% call accordeon('Identité') %}
+  {# ================================================================= #}
+  {#  ESSENTIEL POUR LE MATCHING — ouvert par défaut                   #}
+  {# ================================================================= #}
+  <div class="apt-label mb-2" style="color: var(--apt-accent-2); letter-spacing:.04em;">ESSENTIEL POUR LE MATCHING</div>
+
+  {# ---------- Secteur(s) couverts ---------- #}
+  {% call accordeon('Secteur(s) couverts', true) %}
+    <div class="flex flex-wrap gap-x-6">
+      {% for code in presets_connus %}
+      <label class="flex items-center gap-2 mb-2 apt-fs-13" style="cursor:pointer;">
+        <input type="checkbox" name="presets_couverts" value="{{ code }}" {% if code in presets %}checked{% endif %}> {{ code }}
+      </label>
+      {% endfor %}
+    </div>
+    <p class="apt-meta mt-2">Cocher un preset affiche sa section ci-dessous au prochain enregistrement.</p>
+  {% endcall %}
+
+  {# ---------- Sectoriel BTP (périmètre métier en tête) ---------- #}
+  {% if 'btp' in presets %}
+  {% call accordeon('Secteur · BTP', true) %}
+    <div class="apt-label mb-2">Métiers & ouvrages</div>
+    {{ checkboxes_groupees('sect.btp.corps_de_metier', widgets.btp.corps_de_metier, 'Corps de métier') }}
+    {{ checkboxes_groupees('sect.btp.types_ouvrages', widgets.btp.types_ouvrages, 'Types d\'ouvrages') }}
+    {{ checkboxes_groupees('sect.btp.types_clients_publics', widgets.btp.types_clients_publics, 'Types de clients publics') }}
+    {{ f_area('sect.btp.moyens_materiels', 'Moyens matériels', btp.moyens_materiels, 4) }}
+    <div class="apt-label mt-5 mb-2">Qualifications</div>
+    {{ f_area('sect.btp.qualifications.qualibat', 'Codes Qualibat', bq.qualibat, 5, 'Qualibat = qualifications BTP, codes à 4 chiffres (ex : 5413).') }}
+    {{ f_area('sect.btp.qualifications.opqibi', 'Codes OPQIBI', bq.opqibi, 3, 'OPQIBI = qualifications ingénierie, si vous couvrez aussi de la MOE.') }}
+    {{ f_area('sect.btp.qualifications.autres', 'Autres certifications', bq.autres, 3) }}
+    {{ f_chk('sect.btp.qualifications.iso_9001', 'ISO 9001', bq.iso_9001) }}
+    {{ f_chk('sect.btp.qualifications.iso_14001', 'ISO 14001', bq.iso_14001) }}
+    {{ f_chk('sect.btp.qualifications.iso_45001', 'ISO 45001', bq.iso_45001) }}
+    <div class="grid grid-cols-3 gap-4 mt-3">
+      <div>{{ f_chk('sect.btp.qualifications.rge.detenue', 'RGE détenue', (bq.rge or {}).detenue) }}{{ f_txt('sect.btp.qualifications.rge.validite_jusqu', 'RGE validité', (bq.rge or {}).validite_jusqu, 'date') }}</div>
+      <div>{{ f_chk('sect.btp.qualifications.mase.detenue', 'MASE détenue', (bq.mase or {}).detenue) }}{{ f_txt('sect.btp.qualifications.mase.validite_jusqu', 'MASE validité', (bq.mase or {}).validite_jusqu, 'date') }}</div>
+      <div>{{ f_chk('sect.btp.qualifications.amiante.ss3', 'Amiante SS3', (bq.amiante or {}).ss3) }}{{ f_chk('sect.btp.qualifications.amiante.ss4', 'Amiante SS4', (bq.amiante or {}).ss4) }}{{ f_txt('sect.btp.qualifications.amiante.validite_jusqu', 'Amiante validité', (bq.amiante or {}).validite_jusqu, 'date') }}</div>
+    </div>
+    {{ f_area('sect.btp.qualifications.rge.specialites', 'RGE spécialités', (bq.rge or {}).specialites, 2) }}
+    <div class="apt-label mt-5 mb-2">Capacité chantiers</div>
+    <div class="grid grid-cols-3 gap-4">
+      <div>{{ f_txt('sect.btp.capacite_chantiers.ca_btp_annuel', 'CA BTP annuel (€)', (btp.capacite_chantiers or {}).ca_btp_annuel, 'number') }}</div>
+      <div>{{ f_txt('sect.btp.capacite_chantiers.montant_max_par_chantier', 'Montant max / chantier (€)', (btp.capacite_chantiers or {}).montant_max_par_chantier, 'number') }}</div>
+      <div>{{ f_txt('sect.btp.capacite_chantiers.nb_chantiers_simultanes_max', 'Chantiers simultanés max', (btp.capacite_chantiers or {}).nb_chantiers_simultanes_max, 'number') }}</div>
+      <div>{{ f_txt('sect.btp.capacite_chantiers.effectif_chantier_etp', 'Effectif chantier ETP', (btp.capacite_chantiers or {}).effectif_chantier_etp, 'number') }}</div>
+      <div>{{ f_txt('sect.btp.capacite_chantiers.rayon_intervention_km', 'Rayon intervention (km)', (btp.capacite_chantiers or {}).rayon_intervention_km, 'number') }}</div>
+    </div>
+    {{ f_area('sect.btp.rh_chantier.habilitations_diverses', 'Habilitations diverses', (btp.rh_chantier or {}).habilitations_diverses, 3) }}
+    <div class="apt-label mt-5 mb-2">Références chantiers</div>
+    <div id="refs-btp">
+      {% for ref in (btp.references_chantiers or []) %}
+        {{ ref_btp_block(loop.index0, ref, widgets.btp.ref_types_ouvrages) }}
+      {% endfor %}
+    </div>
+    <button type="button" class="apt-btn apt-btn-ghost" onclick="ajouterRef('refs-btp','tpl-ref-btp')">＋ Ajouter une référence</button>
+    <template id="tpl-ref-btp">{{ ref_btp_block('__IDX__', {}, widgets.btp.ref_types_ouvrages) }}</template>
+  {% endcall %}
+  {% endif %}
+
+  {# ---------- Sectoriel INGÉNIERIE (périmètre technique en tête) ---------- #}
+  {% if 'ingenierie' in presets %}
+  {% call accordeon('Secteur · Ingénierie', true) %}
+    <div class="apt-label mb-2">Périmètre technique</div>
+    {{ checkboxes_groupees('sect.ingenierie.typologies_couvertes', widgets.ingenierie.typologies_couvertes, 'Typologies couvertes') }}
+    {{ checkboxes_groupees('sect.ingenierie.competences_specialisees', widgets.ingenierie.competences_specialisees, 'Compétences spécialisées') }}
+    {{ checkboxes_groupees('sect.ingenierie.types_ouvrages_etudies', widgets.ingenierie.types_ouvrages_etudies, 'Types d\'ouvrages étudiés') }}
+    {{ checkboxes_groupees('sect.ingenierie.types_clients_publics', widgets.ingenierie.types_clients_publics, 'Types de clients publics') }}
+    {{ f_area('sect.ingenierie.outils_logiciels', 'Outils logiciels', ing.outils_logiciels, 4) }}
+    <div class="apt-label mt-5 mb-2">Qualifications</div>
+    {{ f_area('sect.ingenierie.qualifications.opqibi', 'Codes OPQIBI', iq.opqibi, 4, 'OPQIBI = qualifications ingénierie, codes à 4 chiffres (clé du go/no-go).') }}
+    {{ f_area('sect.ingenierie.qualifications.opqcm', 'Codes OPQCM', iq.opqcm, 2, 'OPQCM = qualification du management de l\'ingénierie.') }}
+    {{ f_area('sect.ingenierie.qualifications.autres', 'Autres labels', iq.autres, 2) }}
+    {{ f_chk('sect.ingenierie.qualifications.iso_9001', 'ISO 9001', iq.iso_9001) }}
+    {{ f_chk('sect.ingenierie.qualifications.iso_14001', 'ISO 14001', iq.iso_14001) }}
+    {{ f_chk('sect.ingenierie.qualifications.iso_45001', 'ISO 45001', iq.iso_45001) }}
+    <div class="apt-label mt-5 mb-2">Assurances</div>
+    <div class="grid grid-cols-2 gap-6">
+      <div>
+        {{ f_chk('sect.ingenierie.assurances.decennale_ingenierie.detenue', 'Décennale ingénierie détenue', (ia.decennale_ingenierie or {}).detenue) }}
+        {{ f_txt('sect.ingenierie.assurances.decennale_ingenierie.plafond_eur', 'Plafond (€)', (ia.decennale_ingenierie or {}).plafond_eur, 'number') }}
+        {{ f_txt('sect.ingenierie.assurances.decennale_ingenierie.validite_jusqu', 'Validité', (ia.decennale_ingenierie or {}).validite_jusqu, 'date') }}
+      </div>
+      <div>
+        {{ f_chk('sect.ingenierie.assurances.rc_pro.detenue', 'RC pro détenue', (ia.rc_pro or {}).detenue) }}
+        {{ f_txt('sect.ingenierie.assurances.rc_pro.plafond_eur', 'Plafond (€)', (ia.rc_pro or {}).plafond_eur, 'number') }}
+        {{ f_txt('sect.ingenierie.assurances.rc_pro.validite_jusqu', 'Validité', (ia.rc_pro or {}).validite_jusqu, 'date') }}
+      </div>
+    </div>
+    <div class="apt-label mt-5 mb-2">Capacité études</div>
+    <div class="grid grid-cols-2 gap-4">
+      <div>{{ f_txt('sect.ingenierie.capacite_etudes.ca_ingenierie_annuel', 'CA ingénierie annuel (€)', (ing.capacite_etudes or {}).ca_ingenierie_annuel, 'number') }}</div>
+      <div>{{ f_txt('sect.ingenierie.capacite_etudes.montant_travaux_max_supervisable', 'Montant travaux max supervisable (€)', (ing.capacite_etudes or {}).montant_travaux_max_supervisable, 'number') }}</div>
+      <div>{{ f_txt('sect.ingenierie.capacite_etudes.nb_missions_simultanees_max', 'Missions simultanées max', (ing.capacite_etudes or {}).nb_missions_simultanees_max, 'number') }}</div>
+      <div>{{ f_txt('sect.ingenierie.capacite_etudes.effectif_etudes_etp', 'Effectif études ETP', (ing.capacite_etudes or {}).effectif_etudes_etp, 'number') }}</div>
+    </div>
+    <div class="apt-label mt-5 mb-2">Références études</div>
+    <div id="refs-ing">
+      {% for ref in (ing.references_etudes or []) %}
+        {{ ref_ing_block(loop.index0, ref, widgets.ingenierie.ref_types_ouvrages, widgets.ingenierie.ref_typologies, widgets.ingenierie.ref_competences) }}
+      {% endfor %}
+    </div>
+    <button type="button" class="apt-btn apt-btn-ghost" onclick="ajouterRef('refs-ing','tpl-ref-ing')">＋ Ajouter une référence</button>
+    <template id="tpl-ref-ing">{{ ref_ing_block('__IDX__', {}, widgets.ingenierie.ref_types_ouvrages, widgets.ingenierie.ref_typologies, widgets.ingenierie.ref_competences) }}</template>
+  {% endcall %}
+  {% endif %}
+
+  {# ---------- Presets non encore implémentés ---------- #}
+  {% for code in presets %}
+    {% if code in ['conseil', 'it', 'energie_renouvelable'] %}
+    <div class="apt-block px-6 py-4 mb-3" style="background: var(--apt-amber-soft);">
+      <div class="apt-display-sm apt-fs-15">Secteur · {{ code }}</div>
+      <p class="apt-prose apt-fs-13 mt-1">Schéma sectoriel <strong>{{ code }}</strong> non encore défini (Sprint D à venir). Édition non disponible pour ce preset, mais il reste activable pour le matching universel via les mots-clés.</p>
+    </div>
+    {% endif %}
+  {% endfor %}
+
+  {# ---------- Zones d'intervention ---------- #}
+  {% call accordeon('Zones d\'intervention', true) %}
+    {{ zones_intervention(widgets.zones) }}
+  {% endcall %}
+
+  {# ---------- Mots-clés catalogue ---------- #}
+  {% call accordeon('Mots-clés catalogue', true) %}
+    {{ f_area('mots_cles_catalogue', 'Mots-clés catalogue', profil.mots_cles_catalogue, 6, 'Savoir-faire, produits, prestations. Pilote le matching thématique.') }}
+  {% endcall %}
+
+  {# ================================================================= #}
+  {#  OPTIONNEL — administratif, replié par défaut                     #}
+  {# ================================================================= #}
+  <div class="apt-label mt-7 mb-2" style="color: var(--apt-ink-3); letter-spacing:.04em;">OPTIONNEL — INFORMATIONS COMPLÉMENTAIRES</div>
+
+  {# ---------- Identité légale ---------- #}
+  {% call accordeon('Identité légale & contact') %}
     {{ f_txt('identite.raison_sociale', 'Raison sociale', ident.raison_sociale) }}
     <div class="grid grid-cols-3 gap-4">
       <div>{{ f_txt('identite.forme_juridique', 'Forme juridique', ident.forme_juridique) }}</div>
@@ -98,10 +228,9 @@
     </div>
   {% endcall %}
 
-  {# ---------- Zones & capacité ---------- #}
-  {% call accordeon('Zones & capacité globale') %}
-    {{ zones_intervention(widgets.zones) }}
-    <div class="grid grid-cols-3 gap-4 mt-3">
+  {# ---------- Capacité globale (chiffres) ---------- #}
+  {% call accordeon('Capacité globale (chiffres)') %}
+    <div class="grid grid-cols-3 gap-4">
       <div>{{ f_txt('capacite_globale.ca_annuel_n_moins_1', 'CA N-1 (€)', cap.ca_annuel_n_moins_1, 'number') }}</div>
       <div>{{ f_txt('capacite_globale.ca_annuel_n_moins_2', 'CA N-2 (€)', cap.ca_annuel_n_moins_2, 'number') }}</div>
       <div>{{ f_txt('capacite_globale.ca_annuel_n_moins_3', 'CA N-3 (€)', cap.ca_annuel_n_moins_3, 'number') }}</div>
@@ -128,108 +257,6 @@
       </select>
     </div>
   {% endcall %}
-
-  {# ---------- Mots-clés & presets ---------- #}
-  {% call accordeon('Mots-clés & presets couverts') %}
-    {{ f_area('mots_cles_catalogue', 'Mots-clés catalogue', profil.mots_cles_catalogue, 6) }}
-    <div class="apt-label mt-4 mb-2">Presets couverts</div>
-    <div class="flex flex-wrap gap-x-6">
-      {% for code in presets_connus %}
-      <label class="flex items-center gap-2 mb-2 apt-fs-13" style="cursor:pointer;">
-        <input type="checkbox" name="presets_couverts" value="{{ code }}" {% if code in presets %}checked{% endif %}> {{ code }}
-      </label>
-      {% endfor %}
-    </div>
-    <p class="apt-meta mt-2">Cocher un preset affiche sa section ci-dessous au prochain enregistrement.</p>
-  {% endcall %}
-
-  {# ---------- Sectoriel BTP ---------- #}
-  {% if 'btp' in presets %}
-  {% call accordeon('Secteur · BTP') %}
-    <div class="apt-label mb-2">Qualifications</div>
-    {{ f_area('sect.btp.qualifications.qualibat', 'Codes Qualibat', bq.qualibat, 5, 'Qualibat = qualifications BTP, codes à 4 chiffres (ex : 5413).') }}
-    {{ f_area('sect.btp.qualifications.opqibi', 'Codes OPQIBI', bq.opqibi, 3, 'OPQIBI = qualifications ingénierie, si vous couvrez aussi de la MOE.') }}
-    {{ f_area('sect.btp.qualifications.autres', 'Autres certifications', bq.autres, 3) }}
-    {{ f_chk('sect.btp.qualifications.iso_9001', 'ISO 9001', bq.iso_9001) }}
-    {{ f_chk('sect.btp.qualifications.iso_14001', 'ISO 14001', bq.iso_14001) }}
-    {{ f_chk('sect.btp.qualifications.iso_45001', 'ISO 45001', bq.iso_45001) }}
-    <div class="grid grid-cols-3 gap-4 mt-3">
-      <div>{{ f_chk('sect.btp.qualifications.rge.detenue', 'RGE détenue', (bq.rge or {}).detenue) }}{{ f_txt('sect.btp.qualifications.rge.validite_jusqu', 'RGE validité', (bq.rge or {}).validite_jusqu, 'date') }}</div>
-      <div>{{ f_chk('sect.btp.qualifications.mase.detenue', 'MASE détenue', (bq.mase or {}).detenue) }}{{ f_txt('sect.btp.qualifications.mase.validite_jusqu', 'MASE validité', (bq.mase or {}).validite_jusqu, 'date') }}</div>
-      <div>{{ f_chk('sect.btp.qualifications.amiante.ss3', 'Amiante SS3', (bq.amiante or {}).ss3) }}{{ f_chk('sect.btp.qualifications.amiante.ss4', 'Amiante SS4', (bq.amiante or {}).ss4) }}{{ f_txt('sect.btp.qualifications.amiante.validite_jusqu', 'Amiante validité', (bq.amiante or {}).validite_jusqu, 'date') }}</div>
-    </div>
-    {{ f_area('sect.btp.qualifications.rge.specialites', 'RGE spécialités', (bq.rge or {}).specialites, 2) }}
-    <div class="apt-label mt-4 mb-2">Métiers & ouvrages</div>
-    {{ checkboxes_groupees('sect.btp.corps_de_metier', widgets.btp.corps_de_metier, 'Corps de métier') }}
-    {{ checkboxes_groupees('sect.btp.types_ouvrages', widgets.btp.types_ouvrages, 'Types d\'ouvrages') }}
-    {{ checkboxes_groupees('sect.btp.types_clients_publics', widgets.btp.types_clients_publics, 'Types de clients publics') }}
-    {{ f_area('sect.btp.moyens_materiels', 'Moyens matériels', btp.moyens_materiels, 4) }}
-    <div class="apt-label mt-4 mb-2">Capacité chantiers</div>
-    <div class="grid grid-cols-3 gap-4">
-      <div>{{ f_txt('sect.btp.capacite_chantiers.ca_btp_annuel', 'CA BTP annuel (€)', (btp.capacite_chantiers or {}).ca_btp_annuel, 'number') }}</div>
-      <div>{{ f_txt('sect.btp.capacite_chantiers.montant_max_par_chantier', 'Montant max / chantier (€)', (btp.capacite_chantiers or {}).montant_max_par_chantier, 'number') }}</div>
-      <div>{{ f_txt('sect.btp.capacite_chantiers.nb_chantiers_simultanes_max', 'Chantiers simultanés max', (btp.capacite_chantiers or {}).nb_chantiers_simultanes_max, 'number') }}</div>
-      <div>{{ f_txt('sect.btp.capacite_chantiers.effectif_chantier_etp', 'Effectif chantier ETP', (btp.capacite_chantiers or {}).effectif_chantier_etp, 'number') }}</div>
-      <div>{{ f_txt('sect.btp.capacite_chantiers.rayon_intervention_km', 'Rayon intervention (km)', (btp.capacite_chantiers or {}).rayon_intervention_km, 'number') }}</div>
-    </div>
-    {{ f_area('sect.btp.rh_chantier.habilitations_diverses', 'Habilitations diverses', (btp.rh_chantier or {}).habilitations_diverses, 3) }}
-    <div class="apt-label mt-4 mb-2">Références chantiers</div>
-    <div id="refs-btp">
-      {% for ref in (btp.references_chantiers or []) %}
-        {{ ref_btp_block(loop.index0, ref, widgets.btp.ref_types_ouvrages) }}
-      {% endfor %}
-    </div>
-    <button type="button" class="apt-btn apt-btn-ghost" onclick="ajouterRef('refs-btp','tpl-ref-btp')">＋ Ajouter une référence</button>
-    <template id="tpl-ref-btp">{{ ref_btp_block('__IDX__', {}, widgets.btp.ref_types_ouvrages) }}</template>
-  {% endcall %}
-  {% endif %}
-
-  {# ---------- Sectoriel INGÉNIERIE ---------- #}
-  {% if 'ingenierie' in presets %}
-  {% call accordeon('Secteur · Ingénierie') %}
-    <div class="apt-label mb-2">Qualifications</div>
-    {{ f_area('sect.ingenierie.qualifications.opqibi', 'Codes OPQIBI', iq.opqibi, 4, 'OPQIBI = qualifications ingénierie, codes à 4 chiffres (clé du go/no-go).') }}
-    {{ f_area('sect.ingenierie.qualifications.opqcm', 'Codes OPQCM', iq.opqcm, 2, 'OPQCM = qualification du management de l\'ingénierie.') }}
-    {{ f_area('sect.ingenierie.qualifications.autres', 'Autres labels', iq.autres, 2) }}
-    {{ f_chk('sect.ingenierie.qualifications.iso_9001', 'ISO 9001', iq.iso_9001) }}
-    {{ f_chk('sect.ingenierie.qualifications.iso_14001', 'ISO 14001', iq.iso_14001) }}
-    {{ f_chk('sect.ingenierie.qualifications.iso_45001', 'ISO 45001', iq.iso_45001) }}
-    <div class="apt-label mt-4 mb-2">Assurances</div>
-    <div class="grid grid-cols-2 gap-6">
-      <div>
-        {{ f_chk('sect.ingenierie.assurances.decennale_ingenierie.detenue', 'Décennale ingénierie détenue', (ia.decennale_ingenierie or {}).detenue) }}
-        {{ f_txt('sect.ingenierie.assurances.decennale_ingenierie.plafond_eur', 'Plafond (€)', (ia.decennale_ingenierie or {}).plafond_eur, 'number') }}
-        {{ f_txt('sect.ingenierie.assurances.decennale_ingenierie.validite_jusqu', 'Validité', (ia.decennale_ingenierie or {}).validite_jusqu, 'date') }}
-      </div>
-      <div>
-        {{ f_chk('sect.ingenierie.assurances.rc_pro.detenue', 'RC pro détenue', (ia.rc_pro or {}).detenue) }}
-        {{ f_txt('sect.ingenierie.assurances.rc_pro.plafond_eur', 'Plafond (€)', (ia.rc_pro or {}).plafond_eur, 'number') }}
-        {{ f_txt('sect.ingenierie.assurances.rc_pro.validite_jusqu', 'Validité', (ia.rc_pro or {}).validite_jusqu, 'date') }}
-      </div>
-    </div>
-    <div class="apt-label mt-4 mb-2">Périmètre technique</div>
-    {{ checkboxes_groupees('sect.ingenierie.typologies_couvertes', widgets.ingenierie.typologies_couvertes, 'Typologies couvertes') }}
-    {{ checkboxes_groupees('sect.ingenierie.competences_specialisees', widgets.ingenierie.competences_specialisees, 'Compétences spécialisées') }}
-    {{ checkboxes_groupees('sect.ingenierie.types_ouvrages_etudies', widgets.ingenierie.types_ouvrages_etudies, 'Types d\'ouvrages étudiés') }}
-    {{ checkboxes_groupees('sect.ingenierie.types_clients_publics', widgets.ingenierie.types_clients_publics, 'Types de clients publics') }}
-    {{ f_area('sect.ingenierie.outils_logiciels', 'Outils logiciels', ing.outils_logiciels, 4) }}
-    <div class="apt-label mt-4 mb-2">Capacité études</div>
-    <div class="grid grid-cols-2 gap-4">
-      <div>{{ f_txt('sect.ingenierie.capacite_etudes.ca_ingenierie_annuel', 'CA ingénierie annuel (€)', (ing.capacite_etudes or {}).ca_ingenierie_annuel, 'number') }}</div>
-      <div>{{ f_txt('sect.ingenierie.capacite_etudes.montant_travaux_max_supervisable', 'Montant travaux max supervisable (€)', (ing.capacite_etudes or {}).montant_travaux_max_supervisable, 'number') }}</div>
-      <div>{{ f_txt('sect.ingenierie.capacite_etudes.nb_missions_simultanees_max', 'Missions simultanées max', (ing.capacite_etudes or {}).nb_missions_simultanees_max, 'number') }}</div>
-      <div>{{ f_txt('sect.ingenierie.capacite_etudes.effectif_etudes_etp', 'Effectif études ETP', (ing.capacite_etudes or {}).effectif_etudes_etp, 'number') }}</div>
-    </div>
-    <div class="apt-label mt-4 mb-2">Références études</div>
-    <div id="refs-ing">
-      {% for ref in (ing.references_etudes or []) %}
-        {{ ref_ing_block(loop.index0, ref, widgets.ingenierie.ref_types_ouvrages, widgets.ingenierie.ref_typologies, widgets.ingenierie.ref_competences) }}
-      {% endfor %}
-    </div>
-    <button type="button" class="apt-btn apt-btn-ghost" onclick="ajouterRef('refs-ing','tpl-ref-ing')">＋ Ajouter une référence</button>
-    <template id="tpl-ref-ing">{{ ref_ing_block('__IDX__', {}, widgets.ingenierie.ref_types_ouvrages, widgets.ingenierie.ref_typologies, widgets.ingenierie.ref_competences) }}</template>
-  {% endcall %}
-  {% endif %}
 
   {# ---------- Formation legacy ---------- #}
   {% if est_legacy or ('formation' in presets) %}
@@ -258,16 +285,6 @@
     {{ f_chk('sect.formation.certifications.qualiopi_bilans', 'Bilans de compétences', (profil.certifications or {}).qualiopi_bilans) }}
   {% endcall %}
   {% endif %}
-
-  {# ---------- Presets non encore implémentés ---------- #}
-  {% for code in presets %}
-    {% if code in ['conseil', 'it', 'energie_renouvelable'] %}
-    <div class="apt-block px-6 py-4 mb-3" style="background: var(--apt-amber-soft);">
-      <div class="apt-display-sm apt-fs-15">Secteur · {{ code }}</div>
-      <p class="apt-prose apt-fs-13 mt-1">Schéma sectoriel <strong>{{ code }}</strong> non encore défini (Sprint D à venir). Édition non disponible pour ce preset, mais il reste activable pour le matching universel.</p>
-    </div>
-    {% endif %}
-  {% endfor %}
 
   {# ---------- Auto-réponses exigences ---------- #}
   {% call accordeon('Auto-réponses aux exigences') %}

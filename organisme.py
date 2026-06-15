@@ -101,6 +101,35 @@ def schema_sectoriel(code_preset: str) -> Optional[dict]:
         return None
 
 
+def meta_preset(code_preset: str) -> dict:
+    """
+    Métadonnées de présentation d'un preset, lues depuis
+    presets/<code>/_preset.json (bloc `meta`). Sert aux cartes secteur de l'UI.
+
+    Retourne {code, nom, etiquette_courte, description, a_schema} ; valeurs de
+    repli si le fichier est absent/illisible (jamais d'exception).
+    """
+    f = _PRESETS_DIR / code_preset / "_preset.json"
+    meta = {}
+    if f.exists():
+        try:
+            meta = (json.loads(f.read_text(encoding="utf-8")) or {}).get("meta") or {}
+        except Exception:
+            meta = {}
+    return {
+        "code": code_preset,
+        "nom": meta.get("nom") or code_preset,
+        "etiquette_courte": meta.get("etiquette_courte") or code_preset,
+        "description": meta.get("description") or "",
+        "a_schema": schema_sectoriel(code_preset) is not None,
+    }
+
+
+def meta_presets() -> List[dict]:
+    """Métadonnées de tous les presets connus, dans l'ordre de PRESETS_CONNUS."""
+    return [meta_preset(code) for code in PRESETS_CONNUS]
+
+
 # ---------------------------------------------------------------------------
 # Templates (objets pré-remplis avec champs vides)
 # ---------------------------------------------------------------------------

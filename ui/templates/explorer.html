@@ -133,6 +133,22 @@
   }
   .reset-filtres:hover { text-decoration: underline; }
 
+  /* Filtre pertinence (multi-sélection) */
+  .check-item {
+    display: flex; align-items: center; gap: 8px;
+    padding: 4px 2px; font-size: 12.5px; color: var(--apt-ink-2);
+    cursor: pointer; border-radius: 6px;
+  }
+  .check-item:hover { background: var(--apt-line-3); }
+  .check-item input[type="checkbox"] { width: 14px; height: 14px; accent-color: var(--c-violet); cursor: pointer; }
+  .btn-appliquer {
+    margin-top: 12px; width: 100%; padding: 7px 0;
+    background: var(--apt-ink); color: var(--apt-pure);
+    border: none; border-radius: 8px; font: inherit; font-size: 12.5px;
+    font-weight: 600; cursor: pointer; transition: opacity 0.12s ease;
+  }
+  .btn-appliquer:hover { opacity: 0.88; }
+
   /* Tableau résultats */
   .filtres-actifs {
     background: var(--c-violet-soft);
@@ -263,7 +279,7 @@
       <form method="GET" action="{{ url_for('explorer') }}" class="sidebar-section sidebar-search">
         <div class="sidebar-title">Rechercher</div>
         <input type="text" name="recherche" value="{{ filtres.recherche }}"
-               placeholder="Titre, objet, acheteur..."
+               placeholder="Titre, objet, acheteur, n° d'avis..."
                onchange="this.form.submit()">
         {% if filtres.famille %}<input type="hidden" name="famille" value="{{ filtres.famille }}">{% endif %}
         {% if filtres.domaine %}<input type="hidden" name="domaine" value="{{ filtres.domaine }}">{% endif %}
@@ -286,7 +302,7 @@
         <div class="sidebar-title">Secteurs</div>
         {% for fam in familles_triees %}
           {% set fam_active = (filtres.famille == fam.nom) or (filtres.domaine in fam.domaines|map(attribute=0)|list) %}
-          <a href="{{ url_for('explorer', famille=fam.nom, recherche=filtres.recherche, zone=filtres.zone) }}"
+          <a href="{{ url_for('explorer', famille=fam.nom, recherche=filtres.recherche, zone=filtres.zone, brief=filtres.brief) }}"
              class="famille-item {% if fam_active %}active{% endif %}">
             {{ fam.nom }}
             <span class="compte">{{ fam.total }}</span>
@@ -294,7 +310,7 @@
           {% if fam_active %}
             <div class="sous-domaines">
               {% for code, n, libelle in fam.domaines %}
-                <a href="{{ url_for('explorer', domaine=code, recherche=filtres.recherche, zone=filtres.zone) }}"
+                <a href="{{ url_for('explorer', domaine=code, recherche=filtres.recherche, zone=filtres.zone, brief=filtres.brief) }}"
                    class="sous-domaine-item {% if filtres.domaine == code %}active{% endif %}">
                   {{ libelle }}
                   <span class="compte">{{ n }}</span>
@@ -303,21 +319,65 @@
             </div>
           {% endif %}
         {% endfor %}
-        {% if filtres.famille or filtres.domaine or filtres.zone or filtres.recherche %}
+      </div>
+
+      {# Filtre par tag de richesse du brief (= badge ◆ des cartes) #}
+      <div class="sidebar-section">
+        <div class="sidebar-title">Brief</div>
+        {% for opt, lbl in [('', 'Tous'), ('complet', '◆ Complet'), ('partiel', '◆ Partiel'), ('light', '◆ Léger')] %}
+          <a href="{{ url_for('explorer', brief=opt, famille=filtres.famille, domaine=filtres.domaine, zone=filtres.zone, recherche=filtres.recherche) }}"
+             class="famille-item {% if (filtres.brief or '') == opt %}active{% endif %}">{{ lbl }}</a>
+        {% endfor %}
+        {% if filtres.famille or filtres.domaine or filtres.zone or filtres.recherche or filtres.brief or filtres.verdicts or filtres.elig or filtres.score_min %}
           <a href="{{ url_for('explorer') }}" class="reset-filtres">↺ Effacer tous les filtres</a>
         {% endif %}
       </div>
+
+      {# Filtre par pertinence vs profil actif (multi-sélection) #}
+      {% if a_profil %}
+      <form method="GET" action="{{ url_for('explorer') }}" class="sidebar-section pertinence-filtre">
+        <input type="hidden" name="famille" value="{{ filtres.famille }}">
+        <input type="hidden" name="domaine" value="{{ filtres.domaine }}">
+        <input type="hidden" name="zone" value="{{ filtres.zone }}">
+        <input type="hidden" name="recherche" value="{{ filtres.recherche }}">
+        <input type="hidden" name="brief" value="{{ filtres.brief }}">
+        <div class="sidebar-title">Pertinence</div>
+        {% for val, lbl in [('tres_pertinent','Très pertinent'),('pertinent','Pertinent'),('a_verifier','À vérifier'),('non_pertinent','Non pertinent')] %}
+          <label class="check-item">
+            <input type="checkbox" name="verdict" value="{{ val }}" {% if val in filtres.verdicts %}checked{% endif %}>
+            <span>{{ lbl }}</span>
+          </label>
+        {% endfor %}
+        <div class="sidebar-title" style="margin-top:10px;">Éligibilité</div>
+        {% for val, lbl in [('eligible','Éligible'),('bloque','Non éligible')] %}
+          <label class="check-item">
+            <input type="checkbox" name="elig" value="{{ val }}" {% if val in filtres.elig %}checked{% endif %}>
+            <span>{{ lbl }}</span>
+          </label>
+        {% endfor %}
+        <label class="check-item" style="margin-top:10px; gap:6px;">
+          <span style="color:var(--apt-ink-3);">Score min</span>
+          <input type="number" name="score_min" min="0" max="100" step="5" value="{{ filtres.score_min or '' }}"
+                 placeholder="0" style="width:56px; padding:2px 6px; border:1px solid var(--apt-line); border-radius:6px; font:inherit;">
+        </label>
+        <button type="submit" class="btn-appliquer">Appliquer</button>
+      </form>
+      {% endif %}
     </aside>
 
     {# ── MAIN : résultats ── #}
     <main>
-      {% if filtres.famille or filtres.domaine or filtres.zone or filtres.recherche %}
+      {% if filtres.famille or filtres.domaine or filtres.zone or filtres.recherche or filtres.brief or filtres.verdicts or filtres.elig or filtres.score_min %}
         <div class="filtres-actifs">
           <strong>Filtres actifs :</strong>
           {% if filtres.famille %}<span class="badge">{{ filtres.famille }}</span>{% endif %}
           {% if filtres.domaine %}<span class="badge">{{ filtres.domaine }}</span>{% endif %}
           {% if filtres.zone %}<span class="badge">zone: {{ filtres.zone }}</span>{% endif %}
           {% if filtres.recherche %}<span class="badge">recherche: « {{ filtres.recherche }} »</span>{% endif %}
+          {% if filtres.brief %}<span class="badge">brief: {{ filtres.brief }}</span>{% endif %}
+          {% for v in filtres.verdicts %}<span class="badge">{{ verdict_label.get(v, v) }}</span>{% endfor %}
+          {% for e in filtres.elig %}<span class="badge">élig: {{ e }}</span>{% endfor %}
+          {% if filtres.score_min %}<span class="badge">score ≥ {{ filtres.score_min }}</span>{% endif %}
         </div>
       {% endif %}
 
@@ -345,11 +405,25 @@
                 {{ ligne.acheteur }}
                 {% if ligne.perimetre %} · {{ ligne.perimetre }}{% endif %}
                 {% if ligne.date_limite_fmt %} · limite {{ ligne.date_limite_fmt }}{% endif %}
+                {% if ligne.marche.reference_externe %} · <span class="apt-mono" style="color:var(--apt-ink-4); font-size:11px;" title="Numéro d'avis (recherchable)">n° {{ ligne.marche.reference_externe }}</span>{% endif %}
               </p>
               {% if ligne.synthese %}
                 <p class="synthese">{{ ligne.synthese }}</p>
               {% endif %}
               <div class="badges">
+                {# Pertinence vs profil actif : verdict + score #}
+                {% if ligne.verdict %}
+                  {% set vclass = {'tres_pertinent':'apt-verdict-tres-pertinent','pertinent':'apt-verdict-pertinent','a_verifier':'apt-verdict-a-verifier','non_pertinent':'apt-verdict-non-pertinent'}[ligne.verdict] %}
+                  <span class="{{ vclass }}" style="font-size:10.5px; font-weight:700; padding:1px 9px; border-radius:999px;">{{ verdict_label.get(ligne.verdict, ligne.verdict) }}{% if ligne.score is not none %} · {{ ligne.score }}{% endif %}</span>
+                {% endif %}
+                {# Éligibilité #}
+                {% if ligne.eligibilite and ligne.eligibilite.statut != 'inconnu' %}
+                  {% set ec = ligne.eligibilite %}
+                  {% set ebg = '#e5f2ec' if ec.couleur=='green' else ('#fae0e5' if ec.couleur=='rose' else '#ece5dd') %}
+                  {% set efg = '#1f8c5c' if ec.couleur=='green' else ('#d9425a' if ec.couleur=='rose' else '#8c7a6b') %}
+                  {% if ec.avec_reserves %}{% set ebg = '#fbead8' %}{% set efg = '#b06010' %}{% endif %}
+                  <span title="{{ ec.tooltip }}" style="font-size:10.5px; font-weight:700; padding:1px 9px; border-radius:999px; background:{{ ebg }}; color:{{ efg }};">{{ '!' if ec.avec_reserves else ec.icone }} {{ 'À vérifier' if ec.avec_reserves else ec.label_court }}</span>
+                {% endif %}
                 <span class="badge-dom" title="{{ ligne.domaine_principal }}">{{ ligne.domaine_libelle }}</span>
                 {% if ligne.a_brief_complet %}
                   <span class="badge-source" title="Classifié sur la base du DCE lu">✦ DCE lu</span>

@@ -499,7 +499,13 @@ def tranches_ou_lots(brief, profil):
             desc = l.get("description") or l.get("particularites") or l.get("objet") or ""
             vol = None
             if l.get("volume_estime"):
-                vol = f"{l['volume_estime']} {l.get('volume_estime_unite', '')}".strip()
+                _v = l["volume_estime"]
+                try:
+                    _vf = float(_v)
+                    _vs = f"{int(_vf):,}".replace(",", " ") if _vf == int(_vf) else str(_v)
+                except (TypeError, ValueError):
+                    _vs = str(_v)
+                vol = f"{_vs} {l.get('volume_estime_unite', '')}".strip()
             items.append({
                 "numero": l.get("numero"), "intitule": intit, "description": desc,
                 "volume": vol, "exigences": l.get("exigences_specifiques") or l.get("particularites"),

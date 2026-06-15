@@ -13,9 +13,6 @@
   <!-- Police mono uniquement (le reste utilise les polices système :
        Segoe UI sur Windows, San Francisco sur Mac, etc. — familier, natif,
        zéro temps de chargement) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
   <style>
     /* ====================================================================
@@ -105,7 +102,7 @@
       font-weight: 400;
     }
 
-    .apt-mono        { font-family: 'JetBrains Mono', ui-monospace, monospace; font-feature-settings: 'tnum' 1; letter-spacing: -0.005em; }
+    .apt-mono        { font-family: var(--apt-font); font-variant-numeric: tabular-nums; letter-spacing: 0; }
 
     .apt-num {
       font-family: var(--apt-font);
@@ -173,7 +170,7 @@
     .apt-chip:hover           { background: rgba(26, 24, 20, 0.09); }
     .apt-chip-accent          { background: var(--apt-accent-soft); color: var(--apt-accent-2); }
     .apt-chip-accent:hover    { background: var(--apt-accent-glow); }
-    .apt-chip-mono            { font-family: 'JetBrains Mono', monospace; font-size: 10.5px; padding: 2px 8px; font-weight: 500; letter-spacing: 0; }
+    .apt-chip-mono            { font-family: var(--apt-font); font-variant-numeric: tabular-nums; font-size: 10.5px; padding: 2px 8px; font-weight: 500; letter-spacing: 0; }
     .apt-chip-outline         { background: transparent; border: 1px solid var(--apt-line); color: var(--apt-ink-3); }
 
     /* ───── Verdict pills (palette restreinte, mesurée) ───── */
@@ -362,7 +359,8 @@
       letter-spacing: -0.003em;
     }
     .apt-meta {
-      font-family: 'JetBrains Mono', monospace;
+      font-family: var(--apt-font);
+      font-variant-numeric: tabular-nums;
       font-size: 11.5px;
       color: var(--apt-ink-4);
       letter-spacing: 0;

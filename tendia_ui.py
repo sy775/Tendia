@@ -16,11 +16,12 @@ Architecture :
 
 import json
 import os
+import re
 from datetime import date, datetime
 from pathlib import Path
 
 from flask import (Flask, abort, flash, redirect, render_template, request,
-                   url_for)
+                   send_from_directory, url_for)
 
 import organisme
 import profil_form
@@ -129,6 +130,23 @@ def _euro_short_filter(montant):
 app.add_template_filter(_euro_short_filter, name="euro_short")
 
 
+# Filtre Jinja : séparateur de milliers FR (espace) sur n'importe quel nombre.
+# Laisse les chaînes non numériques intactes (ex. déjà formatées "1 500 m²").
+def _milliers_filter(valeur):
+    if valeur is None or valeur == "":
+        return valeur
+    try:
+        f = float(valeur)
+    except (TypeError, ValueError):
+        return valeur
+    if f == int(f):
+        return f"{int(f):,}".replace(",", " ")
+    # garde 2 décimales max, séparateur de milliers sur la partie entière
+    return f"{f:,.2f}".replace(",", " ").rstrip("0").rstrip(".")
+
+app.add_template_filter(_milliers_filter, name="milliers")
+
+
 # Filtre Jinja : nettoyer les sources affichées (§ → art., compactage espaces).
 # Évite les caractères typographiques qui font "techniques de juriste" dans l'UI.
 def _clean_source_filter(text):
@@ -208,6 +226,46 @@ VERDICT_ORDRE = {
     "a_verifier": 2,
     "non_pertinent": 3,
 }
+
+# État du contenu DCE (champ `dce_contenu`, 5 niveaux : voir tendia_dce.py).
+# `montre` = faut-il afficher un badge (on n'attire pas l'œil sur "complet").
+DCE_STATUT_META = {
+    "complet":      {"label": "DCE complet",          "couleur": "green", "montre": False},
+    "candidature":  {"label": "Phase candidature",    "couleur": "stone", "montre": True},
+    "incomplet":    {"label": "DCE incomplet",        "couleur": "amber", "montre": True},
+    "vide":         {"label": "DCE non récupéré",     "couleur": "rose",  "montre": True},
+    "auth_requise": {"label": "DCE — accès restreint", "couleur": "amber", "montre": True},
+    "erreur":       {"label": "DCE — erreur",         "couleur": "rose",  "montre": True},
+}
+
+
+def _dce_badge(marche: dict) -> dict | None:
+    """
+    Meta du badge d'état DCE pour un marché, ou None si rien à signaler
+    (DCE complet, ou aucune info de contenu disponible).
+
+    Retourne {label, couleur, montre, tooltip}.
+    """
+    contenu = marche.get("dce_contenu")
+    meta = DCE_STATUT_META.get(contenu)
+    if not meta:
+        return None
+    manquantes = marche.get("dce_pieces_manquantes") or []
+    # Items hétérogènes : soit des strings (noms de pièces), soit des dicts
+    # ({"nom", "raison_echec", ...} venant des workflows downloader).
+    noms = []
+    for x in manquantes:
+        if isinstance(x, dict):
+            n = x.get("nom") or x.get("piece") or x.get("type_detecte")
+            if n:
+                noms.append(str(n))
+        elif x:
+            noms.append(str(x))
+    raison = marche.get("dce_raison_contenu") or ""
+    tooltip = raison
+    if noms:
+        tooltip = (tooltip + " — " if tooltip else "") + "Manque : " + ", ".join(noms)
+    return {**meta, "tooltip": tooltip or meta["label"]}
 
 
 def _est_actif(marche: dict, fenetre_jours: int = 60) -> bool:
@@ -373,30 +431,31 @@ def dashboard():
     # Marchés actifs (date limite future ou publié récemment)
     actifs = [m for m in marches.values() if _est_actif(m)]
 
-    # === Sprint 3 : filtrage par preset actif ===
-    # Si la collection scores_matching a été calculée (analyse.py a tourné),
-    # on ne garde que les marchés pertinents pour le preset actif.
-    # Sinon (analyse jamais lancée), comportement legacy : tous les actifs.
-    try:
-        import preset as _preset
-        preset_code_actif = _preset.code_actif()
-    except Exception:
-        preset_code_actif = None
-
-    scores_par_preset = {}
-    if preset_code_actif:
+    # === Filtrage par les secteurs (presets) du PROFIL ORGANISME ACTIF ===
+    # Le profil organisme actif définit les secteurs couverts (presets_couverts).
+    # On ne garde que les marchés pertinents pour AU MOINS UN de ces secteurs,
+    # d'après la collection scores_matching (calculée par analyse.py).
+    # Sans scores pour ces secteurs (analyse jamais lancée) : comportement
+    # legacy = tous les marchés actifs.
+    #
+    # NB : on s'appuie sur presets_couverts du profil, PAS sur preset.code_actif()
+    # (réglage global distinct) — c'est le profil activé dans /profil qui pilote
+    # désormais le dashboard.
+    presets_profil = (profil or {}).get("presets_couverts") or []
+    ids_pertinents = set()
+    if presets_profil:
         try:
-            scores_all = stockage.charger("scores_matching")
-            for cle, entree in scores_all.items():
-                if entree.get("preset_code") == preset_code_actif:
-                    scores_par_preset[entree.get("marche_id")] = entree
+            scores_all = stockage.charger("scores_matching") or {}
+            for entree in scores_all.values():
+                if (entree.get("preset_code") in presets_profil
+                        and entree.get("matche")):
+                    ids_pertinents.add(entree.get("marche_id"))
         except Exception:
-            scores_par_preset = {}
+            ids_pertinents = set()
 
-    # On filtre seulement si on a des scores pour ce preset (sinon mode legacy)
-    if scores_par_preset:
-        actifs = [m for m in actifs
-                   if scores_par_preset.get(m["id"], {}).get("matche")]
+    filtre_preset_actif = bool(presets_profil and ids_pertinents)
+    if filtre_preset_actif:
+        actifs = [m for m in actifs if m["id"] in ids_pertinents]
 
     # Charge la collection des briefs SQLite une fois (au lieu de N appels)
     try:
@@ -480,6 +539,7 @@ def dashboard():
             "statut_cycle_meta": cycle_marche.meta(statut_cycle),
             "domaine_llm_principal": domaine_principal,
             "domaine_llm_tooltip": domaine_tooltip,
+            "dce_badge": _dce_badge(m),
         })
 
     # Tri : par verdict puis par score décroissant
@@ -500,9 +560,9 @@ def dashboard():
         "marches_total": len(marches),
         # Pipeline commercial
         "pipeline": pipeline,
-        # Sprint 3 : indique si le filtre par preset est actif
-        "filtre_preset_actif": bool(scores_par_preset),
-        "preset_code_actif": preset_code_actif,
+        # Indique si le filtre par secteurs du profil actif s'applique
+        "filtre_preset_actif": filtre_preset_actif,
+        "preset_code_actif": ", ".join(presets_profil) if presets_profil else None,
     }
 
     return render_template(
@@ -582,6 +642,18 @@ def explorer():
     filtre_domaine = (request.args.get("domaine") or "").strip()
     filtre_zone = (request.args.get("zone") or "").strip().lower()
     filtre_recherche = (request.args.get("recherche") or "").strip().lower()
+    # Filtre par tag de richesse du brief (complet / partiel / light).
+    filtre_brief = (request.args.get("brief") or "").strip().lower()
+    # Filtres de pertinence/éligibilité (MULTI-sélection via getlist).
+    filtre_verdicts = [v for v in request.args.getlist("verdict") if v]
+    filtre_elig = [e for e in request.args.getlist("elig") if e]
+    try:
+        filtre_score_min = int(request.args.get("score_min") or 0)
+    except (TypeError, ValueError):
+        filtre_score_min = 0
+    # Profil actif → évaluation matching (verdict/score/éligibilité) à la volée.
+    import matching_exigences
+    profil_actif = organisme.lire_profil()
 
     # Charge taxonomie pour les libellés
     import json
@@ -633,6 +705,11 @@ def explorer():
                 (marche.get("titre") or ""),
                 (marche.get("objet") or ""),
                 (marche.get("acheteur_nom") or ""),
+                # Référence d'avis : permet de coller un code dans la recherche
+                # (ex. "55977", "26-55977" ou "BOAMP-26-55977" trouvent le marché).
+                str(id_m or ""),
+                (marche.get("reference_externe") or ""),
+                (marche.get("reference_ft") or ""),
             ]).lower()
             if filtre_recherche not in haystack:
                 continue
@@ -640,10 +717,30 @@ def explorer():
         presets_l = fiche_marche.resolve_preset_codes(brief) if (brief and brief.get("domaines_metier")) else []
         richesse_l = (fiche_marche.calculer_richesse_brief(brief, presets_l, marche)
                       if brief else {"score": 0, "niveau": "light"})
+
+        # Évaluation matching vs profil actif (verdict + score + éligibilité), à la volée.
+        evaluation_l = None
+        verdict_elig_l = None
+        if profil_actif:
+            try:
+                evaluation_l = matching.evaluer(profil_actif, marche, brief=brief)
+            except Exception:
+                evaluation_l = None
+            alertes_l = (brief or {}).get("alertes_candidat") or []
+            if alertes_l:
+                try:
+                    verdict_elig_l = matching_exigences.verdict_eligibilite(
+                        matching_exigences.evaluer_alertes(alertes_l, profil_actif))
+                except Exception:
+                    verdict_elig_l = None
+
         lignes.append({
             "marche": marche,
             "id_marche": id_m,
             "richesse": richesse_l,
+            "verdict": (evaluation_l or {}).get("verdict"),
+            "score": (evaluation_l or {}).get("score"),
+            "eligibilite": verdict_elig_l,
             "titre_court": _titre_court(marche),
             "acheteur": marche.get("acheteur_nom") or "—",
             "perimetre": marche.get("perimetre_geographique") or "",
@@ -662,6 +759,17 @@ def explorer():
     # Filtre optionnel : uniquement briefs complets/partiels (Sprint UI L7.3)
     if request.args.get("complet"):
         lignes = [l for l in lignes if l["richesse"]["niveau"] in ("complet", "partiel")]
+    # Filtre par tag de richesse (niveau exact : complet / partiel / light).
+    if filtre_brief in ("complet", "partiel", "light"):
+        lignes = [l for l in lignes if l["richesse"]["niveau"] == filtre_brief]
+    # Filtres pertinence (multi) / éligibilité (multi) / score minimum.
+    if filtre_verdicts:
+        lignes = [l for l in lignes if l.get("verdict") in filtre_verdicts]
+    if filtre_elig:
+        lignes = [l for l in lignes
+                  if (l.get("eligibilite") or {}).get("statut") in filtre_elig]
+    if filtre_score_min > 0:
+        lignes = [l for l in lignes if (l.get("score") or 0) >= filtre_score_min]
 
     # Tri par défaut : richesse brief décroissante, puis urgence (jours croissants)
     lignes.sort(key=lambda x: (
@@ -722,7 +830,13 @@ def explorer():
             "domaine": filtre_domaine,
             "zone": filtre_zone,
             "recherche": filtre_recherche,
+            "brief": filtre_brief,
+            "verdicts": filtre_verdicts,
+            "elig": filtre_elig,
+            "score_min": filtre_score_min,
         },
+        verdict_label=VERDICT_LABEL,
+        a_profil=bool(profil_actif),
         organisme=organisme.lire_profil(),
         now=datetime.now(),
     )
@@ -792,6 +906,129 @@ def detail_marche_notifie(id_marche):
     )
 
 
+# Libellés parlants pour les pièces de DCE (au lieu des sigles RC/CCAP/…).
+# Ordre = du plus spécifique au plus générique (évite que CCP matche avant CCTP).
+_DOC_LABELS = [
+    ("CCTP", "Cahier des clauses techniques (CCTP)"),
+    ("CCTG", "Cahier des clauses techniques générales (CCTG)"),
+    ("CCAP", "Cahier des clauses administratives (CCAP)"),
+    ("CCAG", "Cahier des clauses administratives générales (CCAG)"),
+    ("CCP", "Cahier des clauses particulières (CCP)"),
+    ("DPGF", "Décomposition du prix global et forfaitaire (DPGF)"),
+    ("BPU", "Bordereau des prix unitaires (BPU)"),
+    ("DQE", "Détail quantitatif estimatif (DQE)"),
+    ("DE", "Détail estimatif (DE)"),
+    ("BP", "Bordereau des prix (BP)"),
+    ("CMT", "Cadre de mémoire technique (CMT)"),
+    ("MT", "Mémoire technique"),
+    ("AAPC", "Avis d'appel public à la concurrence"),
+    ("DUME", "Document unique de marché européen (DUME)"),
+    ("DC1", "Lettre de candidature (DC1)"),
+    ("DC2", "Déclaration du candidat (DC2)"),
+    ("DC4", "Déclaration de sous-traitance (DC4)"),
+    ("AE", "Acte d'engagement"),
+    ("RC", "Règlement de consultation"),
+]
+
+
+def _libelle_document(nom: str) -> str:
+    """Transforme un nom de fichier DCE en libellé parlant (sigle → intitulé)."""
+    base = os.path.splitext(nom)[0]
+    tokens = [t.upper() for t in re.split(r"[^A-Za-z0-9]+", base) if t]
+    for abbr, label in _DOC_LABELS:
+        for t in tokens:
+            # token exact, ou sigle suivi d'un chiffre de version (CCTP3, RC2024)
+            if t == abbr or (t.startswith(abbr) and t[len(abbr):len(abbr) + 1].isdigit()):
+                return label
+    # Repli : sigle/intitulé de tête (tokens AVANT la première référence chiffrée),
+    # pour que les pièces sœurs partagent un libellé et soient groupées (variantes).
+    tete = []
+    for t in tokens:
+        if any(c.isdigit() for c in t):
+            break
+        tete.append(t)
+    if tete:
+        return " ".join(tete)
+    propre = re.sub(r"^\d+[\.\)\-_ ]+", "", base).replace("_", " ").strip()
+    return propre or nom
+
+
+def _lcs(a: str, b: str) -> str:
+    """Plus longue sous-chaîne commune (sert à isoler la référence partagée)."""
+    if not a or not b:
+        return ""
+    prev = [0] * (len(b) + 1)
+    best = fin = 0
+    for i in range(1, len(a) + 1):
+        cur = [0] * (len(b) + 1)
+        for j in range(1, len(b) + 1):
+            if a[i - 1] == b[j - 1]:
+                cur[j] = prev[j - 1] + 1
+                if cur[j] > best:
+                    best, fin = cur[j], i
+        prev = cur
+    return a[fin - best:fin]
+
+
+def _prettifier_variante(v: str) -> str:
+    v = v.strip()
+    if not v:
+        return ""
+    if re.fullmatch(r"[A-Za-z]", v):
+        return "partie " + v.upper()
+    m = re.fullmatch(r"[Aa](\d+)", v)
+    if m:
+        return "annexe " + m.group(1)
+    if re.search(r"\d{3,}", v):
+        return ""  # variante qui contient encore une référence → bruit, on masque
+    return v
+
+
+def _distinguer_variantes(docs: list) -> None:
+    """Quand plusieurs documents partagent le même libellé (pièce découpée en
+    parties/annexes), calcule un discriminateur court (« partie A », « annexe 1 »)
+    pour ne pas donner l'impression d'un doublon. Mute `docs` en place."""
+    from collections import defaultdict
+    groupes = defaultdict(list)
+    for d in docs:
+        d["variante"] = ""
+        groupes[d["label"]].append(d)
+    for items in groupes.values():
+        if len(items) < 2:
+            continue
+        bases = [os.path.splitext(d["nom"])[0] for d in items]
+        # référence commune au groupe (ex. "2026031910MV") via LCS réduit
+        ref = bases[0]
+        for b in bases[1:]:
+            ref = _lcs(ref, b)
+            if len(ref) < 4:
+                ref = ""
+                break
+        # sigil de type commun en tête (ex. "CCTP") à retirer
+        def _t0(b):
+            toks = [t for t in re.split(r"[^A-Za-z0-9]+", b) if t]
+            return toks[0].upper() if toks else ""
+        type_tok = _t0(bases[0])
+        if not all(_t0(b) == type_tok for b in bases):
+            type_tok = None
+        for d, base in zip(items, bases):
+            v = base.replace(ref, " ") if ref else base
+            toks = [t for t in re.split(r"[^A-Za-z0-9]+", v) if t and t.upper() != type_tok]
+            d["variante"] = _prettifier_variante(" ".join(toks))
+
+
+@app.route("/marche/<id_marche>/document/<path:nom>")
+def telecharger_document(id_marche, nom):
+    """Télécharge un document analysé du DCE local (clic sur la fiche)."""
+    dossier = (REPERTOIRE_DCE / id_marche).resolve()
+    if not dossier.is_dir():
+        abort(404)
+    try:
+        return send_from_directory(dossier, nom, as_attachment=True)
+    except (FileNotFoundError, NotADirectoryError):
+        abort(404)
+
+
 @app.route("/marche/<id_marche>")
 def detail_marche(id_marche):
     """Page détail d'un marché."""
@@ -854,10 +1091,21 @@ def detail_marche(id_marche):
     # Dossier local DCE
     dossier_dce = REPERTOIRE_DCE / id_marche
     pdfs_locaux = []
+    docs_analyses = []
     if dossier_dce.is_dir():
         for nom in sorted(os.listdir(dossier_dce)):
-            if nom.lower().endswith(".pdf"):
+            bas = nom.lower()
+            if bas.endswith(".pdf"):
                 pdfs_locaux.append(nom)
+            if bas.endswith((".pdf", ".docx", ".xlsx", ".doc")):
+                docs_analyses.append({
+                    "nom": nom,
+                    "label": _libelle_document(nom),
+                    "ext": os.path.splitext(nom)[1].lstrip(".").upper(),
+                })
+    # Distingue les pièces découpées (CCTP partie A, annexe 1…) pour éviter
+    # l'effet « doublon » quand plusieurs fichiers ont le même libellé.
+    _distinguer_variantes(docs_analyses)
 
     # Matching exigences alertes ↔ profil organisme
     import matching_exigences
@@ -914,6 +1162,7 @@ def detail_marche(id_marche):
         scenarios_montant=scenarios_montant,
         montant_marche_eur=montant_marche_eur,
         pdfs_locaux=pdfs_locaux,
+        docs_analyses=docs_analyses,
         dossier_dce=str(dossier_dce),
         organisme=profil,
         alertes_evaluees=alertes_evaluees,
@@ -1092,6 +1341,7 @@ def page_profil():
         actif_id=organisme.id_profil_actif(),
         bibliotheque=organisme.lister_profils_bibliotheque(),
         exemples=organisme.lister_profils_exemples(),
+        preset_labels={m["code"]: m["etiquette_courte"] for m in organisme.meta_presets()},
     )
 
 
@@ -1157,48 +1407,56 @@ def profil_edit(id):
 
 @app.route("/profil/nouveau", methods=["GET", "POST"])
 def profil_nouveau():
-    """Création d'un profil from scratch (étape 1 : socle minimal + presets)."""
+    """
+    Création d'un profil via l'assistant guidé (1 formulaire, étapes côté client).
+
+    Le formulaire respecte la convention de nommage de `profil_form.parse`
+    (`identite.*`, `zones_intervention`, `presets_couverts`, `sect.<code>.*`,
+    `capacite_globale.*`, `mots_cles_catalogue`) : le POST est donc parsé par le
+    même code que l'édition, et produit directement un profil complet.
+    """
     erreurs = []
-    saisi = {"raison_sociale": "", "forme_juridique": "SAS",
-             "effectif_salaries": "", "departement": "", "presets": []}
+    profil = organisme.template_socle_vide()  # défauts pour le ré-affichage GET/erreur
 
     if request.method == "POST":
-        saisi["raison_sociale"] = (request.form.get("identite.raison_sociale") or "").strip()
-        saisi["forme_juridique"] = request.form.get("identite.forme_juridique") or "SAS"
-        saisi["effectif_salaries"] = (request.form.get("identite.effectif_salaries") or "").strip()
-        saisi["departement"] = (request.form.get("identite.adresse_siege.departement") or "").strip()
-        saisi["presets"] = request.form.getlist("presets_couverts")
-
-        # Construit le profil : socle vide + un bloc sectoriel par preset coché
-        # ({} si schéma non encore défini : conseil/it/energie_renouvelable).
+        presets = request.form.getlist("presets_couverts")
         profil = organisme.template_socle_vide()
-        profil["presets_couverts"] = saisi["presets"]
+        profil["presets_couverts"] = presets
+        # un bloc sectoriel par preset coché ({} si schéma non défini : conseil/it)
         profil["profils_sectoriels"] = {
             code: (organisme.template_sectoriel_vide(code) or {})
-            for code in saisi["presets"]
+            for code in presets
         }
-        profil["identite"]["raison_sociale"] = saisi["raison_sociale"]
-        profil["identite"]["forme_juridique"] = saisi["forme_juridique"]
-        if saisi["effectif_salaries"]:
-            try:
-                profil["identite"]["effectif_salaries"] = int(saisi["effectif_salaries"])
-            except ValueError:
-                erreurs.append("Effectif salariés : nombre entier invalide.")
-        profil["identite"]["adresse_siege"]["departement"] = saisi["departement"]
+        # Absorbe identité, zones, périmètre métier, capacité, mots-clés.
+        profil, erreurs_champs = profil_form.parse(request.form, profil)
+        # Seules les erreurs de format (nombre invalide) bloquent ici ; la
+        # complétude sectorielle (corps_de_metier...) reste optionnelle à la
+        # création — validation stricte assurée plus tard dans l'éditeur. La
+        # création applique sa propre validation allégée (raison + ≥1 preset).
+        erreurs += [f"{k} : {v}" for k, v in (erreurs_champs or {}).items()]
 
         if not erreurs:
             res = organisme.creer_profil_bibliotheque(profil)
             if res["ok"]:
-                flash("Profil créé. Complète maintenant les champs sectoriels.", "succes")
-                return redirect(url_for("profil_edit", id=res["id"]))
+                flash(f"Profil « {profil['identite'].get('raison_sociale') or res['id']} » créé.", "succes")
+                return redirect(url_for("profil_detail", source="bibliotheque", id=res["id"]))
             erreurs += res["erreurs"]
+
+    # Widgets des deux secteurs à schéma (BTP + ingénierie) : rendus dans
+    # l'assistant et affichés/masqués par JS selon les secteurs cochés.
+    widgets = profil_widgets.contexte_widgets({
+        "presets_couverts": ["btp", "ingenierie"],
+        "profils_sectoriels": profil.get("profils_sectoriels") or {},
+        "zones_intervention": profil.get("zones_intervention") or [],
+    })
 
     return render_template(
         "profil/nouveau.html",
         organisme=organisme.charger_actif(),
-        presets_connus=organisme.PRESETS_CONNUS,
+        presets_meta=organisme.meta_presets(),
+        widgets=widgets,
+        profil=profil,
         erreurs=erreurs,
-        saisi=saisi,
     )
 
 

@@ -1,9 +1,15 @@
 {% extends "base.html" %}
 {% block title %}Profils — Tendia{% endblock %}
 
-{% macro preset_chips(presets) %}
-  {% for p in presets %}<span class="apt-chip apt-chip-accent apt-chip-mono">{{ p }}</span> {% endfor %}
-  {% if not presets %}<span class="apt-meta">—</span>{% endif %}
+{# Initiales (1-2 lettres) pour le monogramme d'un profil. #}
+{% macro monogram(nom) %}{% set mots = (nom or '?').split() %}{{ ((mots[0][0] if mots else '?') ~ (mots[1][0] if mots|length > 1 else ''))|upper }}{% endmacro %}
+
+{# Secteurs connus pour le coloriage ; tout le reste tombe sur 'default'. #}
+{% set _sect_connus = ['btp', 'ingenierie', 'conseil', 'it', 'energie_renouvelable', 'formation'] %}
+
+{% macro sector_chips(presets) %}
+  {% for p in presets %}<span class="pf-chip pf-sect-{{ p if p in _sect_connus else 'default' }}">{{ preset_labels.get(p, p) }}</span>{% endfor %}
+  {% if not presets %}<span class="apt-meta">Aucun secteur</span>{% endif %}
 {% endmacro %}
 
 {% block content %}
@@ -15,121 +21,218 @@
       <h1 class="apt-display apt-fs-34">Profils</h1>
       <p class="apt-prose mt-2" style="max-width: 640px;">
         Le profil <strong>actif</strong> alimente le matching de tous les marchés.
-        Gérez ici votre bibliothèque, activez un profil, ou partez d'un exemple livré.
+        Gérez votre bibliothèque, activez un profil, ou partez d'un exemple livré.
       </p>
     </div>
-    <div class="flex gap-3">
+    <div class="flex gap-3 apt-nowrap">
       <a href="{{ url_for('profil_nouveau') }}" class="apt-btn apt-btn-accent">＋ Nouveau profil</a>
       <a href="{{ url_for('profil_importer') }}" class="apt-btn apt-btn-ghost">Importer un JSON</a>
     </div>
   </div>
 
-  {# ---------- Carte profil actif ---------- #}
+  {# ====================== Carte profil actif (hero) ====================== #}
   {% if profil_actif %}
-  <div class="apt-block apt-active-glow px-8 py-7 mb-10">
-    <div class="flex items-start justify-between">
-      <div>
-        <div class="apt-label" style="color: var(--apt-accent-2);">Profil actif</div>
-        <div class="apt-display-md apt-fs-22 mt-1">
-          {{ profil_actif.identite.raison_sociale or profil_actif.identite.nom or '(sans nom)' }}
-        </div>
-        <div class="mt-3">{{ preset_chips(profil_actif.presets_couverts) }}</div>
-        <div class="apt-meta mt-3">
-          Zones : {{ (profil_actif.zones_intervention or [])|join(', ') or '—' }}
-          {% if profil_actif.capacite_globale and profil_actif.capacite_globale.ca_annuel_n_moins_1 %}
-            &nbsp;·&nbsp; CA N-1 : {{ '{:,.0f}'.format(profil_actif.capacite_globale.ca_annuel_n_moins_1)|replace(',', ' ') }} €
-          {% endif %}
+  {% set pa_nom = profil_actif.identite.raison_sociale or profil_actif.identite.nom or '(sans nom)' %}
+  {% set pa_presets = profil_actif.presets_couverts or [] %}
+  {% set pa_zones = profil_actif.zones_intervention or [] %}
+  {% set pa_ca = (profil_actif.capacite_globale or {}).ca_annuel_n_moins_1 %}
+  <div class="pf-hero apt-active-glow mb-12">
+    <div class="flex items-start justify-between" style="gap: 20px;">
+      <div class="flex items-start" style="gap: 18px; min-width: 0;">
+        <div class="pf-mono pf-mono-lg pf-sect-{{ pa_presets[0] if pa_presets and pa_presets[0] in _sect_connus else 'default' }}">{{ monogram(pa_nom) }}</div>
+        <div style="min-width: 0;">
+          <div class="pf-active-tag">● Profil actif</div>
+          <div class="apt-display-md apt-fs-22 mt-1" style="overflow-wrap:anywhere;">{{ pa_nom }}</div>
+          <div class="flex flex-wrap mt-3" style="gap: 6px;">{{ sector_chips(pa_presets) }}</div>
         </div>
       </div>
-      <div class="flex flex-col gap-2 apt-nowrap">
+      <div class="flex flex-col apt-nowrap" style="gap: 8px;">
         {% if actif_id %}
         <a href="{{ url_for('profil_edit', id=actif_id) }}" class="apt-btn apt-btn-accent">Éditer</a>
         <a href="{{ url_for('profil_detail', source='bibliotheque', id=actif_id) }}" class="apt-btn apt-btn-ghost">Voir détail</a>
         {% endif %}
       </div>
     </div>
+    <div class="pf-stats">
+      <div class="pf-stat"><span class="v">{{ pa_presets|length }}</span><span class="k">Secteur{{ 's' if pa_presets|length > 1 else '' }}</span></div>
+      <div class="pf-stat-sep"></div>
+      <div class="pf-stat"><span class="v">{{ pa_zones|length or '—' }}</span><span class="k">Département{{ 's' if pa_zones|length > 1 else '' }}</span></div>
+      {% if pa_ca %}
+      <div class="pf-stat-sep"></div>
+      <div class="pf-stat"><span class="v">{{ '{:,.0f}'.format(pa_ca)|replace(',', ' ') }} €</span><span class="k">CA N-1</span></div>
+      {% endif %}
+    </div>
   </div>
   {% else %}
-  <div class="apt-block px-8 py-7 mb-10">
-    <div class="apt-prose">Aucun profil actif. Activez un profil d'exemple ci-dessous, ou importez un JSON.</div>
+  <div class="pf-hero pf-hero-empty mb-12">
+    <div class="apt-display-sm apt-fs-18 mb-1">Aucun profil actif</div>
+    <p class="apt-prose">Activez un profil d'exemple ci-dessous, créez le vôtre, ou importez un JSON. Sans profil actif, le matching des marchés est désactivé.</p>
+    <div class="mt-4"><a href="{{ url_for('profil_nouveau') }}" class="apt-btn apt-btn-accent">＋ Créer mon profil</a></div>
   </div>
   {% endif %}
 
-  {# ---------- Bibliothèque ---------- #}
-  <div class="mb-3 flex items-center gap-3">
+  {# ====================== Bibliothèque ====================== #}
+  <div class="pf-section-head">
     <span class="apt-accent-rule"></span>
     <h2 class="apt-display-sm apt-fs-18">Mes profils</h2>
-    <span class="apt-meta">{{ bibliotheque|length }}</span>
+    <span class="pf-count">{{ bibliotheque|length }}</span>
   </div>
-  <div class="apt-block mb-10">
-    {% if not bibliotheque %}
-      <div class="px-8 py-6 apt-prose">Bibliothèque vide.</div>
-    {% else %}
-      {% for p in bibliotheque %}
-      <div class="px-8 py-5" style="border-top: 1px solid var(--apt-line-2); {% if loop.first %}border-top: 0;{% endif %}">
-        <div class="flex items-center justify-between">
-          <div>
-            <div class="flex items-center gap-3">
-              <span class="apt-display-sm apt-fs-16">{{ p.raison_sociale }}</span>
-              {% if p.est_actif %}<span class="apt-verdict apt-verdict-tres-pertinent"><span class="dot"></span>ACTIF</span>{% endif %}
-              <span class="apt-meta apt-mono">{{ p.id }}</span>
-            </div>
-            <div class="mt-2">{{ preset_chips(p.presets_couverts) }}</div>
-            {% if p.mis_a_jour_le %}<div class="apt-meta mt-1">màj {{ p.mis_a_jour_le[:10] }}</div>{% endif %}
+  {% if not bibliotheque %}
+    <div class="apt-block px-8 py-6 apt-prose mb-12">Bibliothèque vide — créez votre premier profil.</div>
+  {% else %}
+  <div class="pf-grid mb-12">
+    {% for p in bibliotheque %}
+    <div class="pf-card{% if p.est_actif %} pf-card-active{% endif %}">
+      <div class="flex items-start" style="gap: 12px;">
+        <div class="pf-mono pf-sect-{{ p.presets_couverts[0] if p.presets_couverts and p.presets_couverts[0] in _sect_connus else 'default' }}">{{ monogram(p.raison_sociale) }}</div>
+        <div style="flex: 1; min-width: 0;">
+          <div class="flex items-center" style="gap: 8px;">
+            <span class="apt-display-sm apt-fs-16 pf-name">{{ p.raison_sociale }}</span>
+            {% if p.est_actif %}<span class="apt-verdict apt-verdict-tres-pertinent"><span class="dot"></span>ACTIF</span>{% endif %}
           </div>
-          <div class="flex items-center gap-2 apt-nowrap">
-            <a href="{{ url_for('profil_detail', source='bibliotheque', id=p.id) }}" class="apt-btn apt-btn-ghost">Voir</a>
-            {% if not p.est_actif %}
-            <form method="post" action="{{ url_for('profil_activer', source='bibliotheque', id=p.id) }}">
-              <button type="submit" class="apt-btn apt-btn-accent">Activer</button>
-            </form>
-            {% endif %}
-            <a href="{{ url_for('profil_edit', id=p.id) }}" class="apt-btn apt-btn-ghost">Éditer</a>
-            <form method="post" action="{{ url_for('profil_dupliquer', source='bibliotheque', id=p.id) }}">
-              <button type="submit" class="apt-btn apt-btn-ghost">Dupliquer</button>
-            </form>
-          </div>
+          <div class="apt-meta apt-mono apt-fs-11" style="margin-top: 2px;">{{ p.id }}</div>
         </div>
       </div>
-      {% endfor %}
-    {% endif %}
+      <div class="flex flex-wrap" style="gap: 6px;">{{ sector_chips(p.presets_couverts) }}</div>
+      <div class="pf-foot">
+        <span class="apt-meta">{% if p.mis_a_jour_le %}màj {{ p.mis_a_jour_le[:10] }}{% else %}&nbsp;{% endif %}</span>
+        <div class="pf-actions">
+          {% if not p.est_actif %}
+          <form method="post" action="{{ url_for('profil_activer', source='bibliotheque', id=p.id) }}">
+            <button type="submit" class="apt-btn apt-btn-accent pf-btn-sm">Activer</button>
+          </form>
+          {% endif %}
+          <a href="{{ url_for('profil_detail', source='bibliotheque', id=p.id) }}" class="pf-link">Voir</a>
+          <a href="{{ url_for('profil_edit', id=p.id) }}" class="pf-link">Éditer</a>
+          <form method="post" action="{{ url_for('profil_dupliquer', source='bibliotheque', id=p.id) }}">
+            <button type="submit" class="pf-link">Dupliquer</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
   </div>
+  {% endif %}
 
-  {# ---------- Exemples ---------- #}
-  <div class="mb-3 flex items-center gap-3">
+  {# ====================== Exemples ====================== #}
+  <div class="pf-section-head">
     <span class="apt-accent-rule"></span>
     <h2 class="apt-display-sm apt-fs-18">Profils d'exemple</h2>
-    <span class="apt-meta">{{ exemples|length }}</span>
+    <span class="pf-count">{{ exemples|length }}</span>
   </div>
-  <div class="apt-block">
-    {% if not exemples %}
-      <div class="px-8 py-6 apt-prose">Aucun exemple livré.</div>
-    {% else %}
-      {% for p in exemples %}
-      <div class="px-8 py-5" style="border-top: 1px solid var(--apt-line-2); {% if loop.first %}border-top: 0;{% endif %}">
-        <div class="flex items-center justify-between">
-          <div>
-            <div class="flex items-center gap-3">
-              <span class="apt-display-sm apt-fs-16">{{ p.raison_sociale }}</span>
-              <span class="apt-chip apt-chip-outline apt-fs-10_5">EXEMPLE</span>
-              <span class="apt-meta apt-mono">{{ p.id }}</span>
-            </div>
-            <div class="mt-2">{{ preset_chips(p.presets_couverts) }}</div>
+  {% if not exemples %}
+    <div class="apt-block px-8 py-6 apt-prose">Aucun exemple livré.</div>
+  {% else %}
+  <div class="pf-grid">
+    {% for p in exemples %}
+    <div class="pf-card pf-card-muted">
+      <div class="flex items-start" style="gap: 12px;">
+        <div class="pf-mono pf-mono-outline">{{ monogram(p.raison_sociale) }}</div>
+        <div style="flex: 1; min-width: 0;">
+          <div class="flex items-center" style="gap: 8px;">
+            <span class="apt-display-sm apt-fs-16 pf-name">{{ p.raison_sociale }}</span>
+            <span class="apt-chip apt-chip-outline apt-fs-10_5">EXEMPLE</span>
           </div>
-          <div class="flex items-center gap-2 apt-nowrap">
-            <a href="{{ url_for('profil_detail', source='exemple', id=p.id) }}" class="apt-btn apt-btn-ghost">Voir</a>
-            <form method="post" action="{{ url_for('profil_activer', source='exemple', id=p.id) }}">
-              <button type="submit" class="apt-btn apt-btn-accent">Activer</button>
-            </form>
-            <form method="post" action="{{ url_for('profil_dupliquer', source='exemple', id=p.id) }}">
-              <button type="submit" class="apt-btn apt-btn-ghost">Dupliquer</button>
-            </form>
-          </div>
+          <div class="apt-meta apt-mono apt-fs-11" style="margin-top: 2px;">{{ p.id }}</div>
         </div>
       </div>
-      {% endfor %}
-    {% endif %}
+      <div class="flex flex-wrap" style="gap: 6px;">{{ sector_chips(p.presets_couverts) }}</div>
+      <div class="pf-foot">
+        <span class="apt-meta">Modèle prêt à l'emploi</span>
+        <div class="pf-actions">
+          <form method="post" action="{{ url_for('profil_activer', source='exemple', id=p.id) }}">
+            <button type="submit" class="apt-btn apt-btn-accent pf-btn-sm">Activer</button>
+          </form>
+          <a href="{{ url_for('profil_detail', source='exemple', id=p.id) }}" class="pf-link">Voir</a>
+          <form method="post" action="{{ url_for('profil_dupliquer', source='exemple', id=p.id) }}">
+            <button type="submit" class="pf-link">Dupliquer</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
   </div>
+  {% endif %}
 
 </div>
+
+<style>
+  /* ---- Hero profil actif ---- */
+  .pf-hero {
+    background: var(--apt-pure);
+    border-radius: 16px;
+    padding: 26px 30px;
+    box-shadow: 0 1px 0 var(--apt-line-3), 0 0 0 1px var(--apt-line-3);
+  }
+  .pf-hero.apt-active-glow { box-shadow: 0 0 0 1px var(--apt-accent-tint), 0 18px 40px -28px var(--apt-accent-glow); }
+  .pf-hero-empty { border: 1px dashed var(--apt-line); box-shadow: none; background: var(--apt-surface); }
+  .pf-active-tag {
+    font-size: 10.5px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase;
+    color: var(--apt-accent-2);
+  }
+  .pf-stats { display: flex; align-items: center; gap: 22px; flex-wrap: wrap; margin-top: 20px; padding-top: 18px; border-top: 1px solid var(--apt-line-2); }
+  .pf-stat { display: flex; flex-direction: column; gap: 1px; }
+  .pf-stat .v { font-weight: 600; font-size: 17px; color: var(--apt-ink); letter-spacing: -.01em; }
+  .pf-stat .k { font-size: 10.5px; color: var(--apt-ink-4); text-transform: uppercase; letter-spacing: .05em; }
+  .pf-stat-sep { width: 1px; height: 30px; background: var(--apt-line-2); }
+
+  /* ---- Grille de cartes ---- */
+  .pf-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+  @media (max-width: 820px) { .pf-grid { grid-template-columns: 1fr; } }
+  .pf-card {
+    background: var(--apt-pure);
+    border-radius: 14px;
+    padding: 18px 20px;
+    box-shadow: 0 1px 0 var(--apt-line-3), 0 0 0 1px var(--apt-line-3);
+    display: flex; flex-direction: column; gap: 13px;
+    transition: box-shadow .16s ease, transform .16s ease;
+  }
+  .pf-card:hover { transform: translateY(-2px); box-shadow: 0 14px 34px -20px rgba(26, 24, 20, .4), 0 0 0 1px var(--apt-line); }
+  .pf-card-active { box-shadow: 0 0 0 1px var(--apt-accent-tint), 0 10px 28px -22px var(--apt-accent-glow); }
+  .pf-card-muted { background: var(--apt-surface); }
+  .pf-name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+  /* ---- Monogramme ---- */
+  .pf-mono {
+    width: 42px; height: 42px; border-radius: 12px; flex: none;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 600; font-size: 14.5px; letter-spacing: -.01em;
+    background: var(--apt-accent-soft); color: var(--apt-accent-3);
+  }
+  .pf-mono-lg { width: 54px; height: 54px; border-radius: 15px; font-size: 19px; }
+  .pf-mono-outline { background: transparent; border: 1px solid var(--apt-line); color: var(--apt-ink-4); }
+
+  /* ---- Chips secteur (colorées par secteur) ---- */
+  .pf-chip {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 3px 10px; border-radius: 999px;
+    font-size: 11.5px; font-weight: 500; line-height: 1.5; white-space: nowrap;
+  }
+  .pf-chip::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: currentColor; opacity: .85; }
+  .pf-sect-btp                 { background: var(--apt-amber-soft);  color: var(--apt-amber); }
+  .pf-sect-ingenierie          { background: var(--apt-accent-soft); color: var(--apt-accent-2); }
+  .pf-sect-conseil             { background: var(--apt-leaf-soft);   color: var(--apt-leaf); }
+  .pf-sect-it                  { background: rgba(26, 24, 20, .055); color: var(--apt-ink-3); }
+  .pf-sect-energie_renouvelable{ background: var(--apt-leaf-soft);   color: var(--apt-leaf); }
+  .pf-sect-formation           { background: var(--apt-amber-soft);  color: var(--apt-amber); }
+  .pf-sect-default             { background: rgba(26, 24, 20, .055); color: var(--apt-ink-3); }
+
+  /* ---- Pied de carte & actions ---- */
+  .pf-foot { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: auto; padding-top: 11px; border-top: 1px solid var(--apt-line-2); }
+  .pf-actions { display: flex; align-items: center; gap: 4px; }
+  .pf-link {
+    font-size: 12px; color: var(--apt-ink-3); padding: 5px 9px; border-radius: 7px;
+    background: transparent; border: 0; cursor: pointer; text-decoration: none;
+    font-family: inherit; transition: background .12s, color .12s;
+  }
+  .pf-link:hover { background: rgba(26, 24, 20, .05); color: var(--apt-ink); }
+  .pf-btn-sm { padding: 6px 15px; font-size: 12px; }
+
+  /* ---- En-têtes de section ---- */
+  .pf-section-head { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+  .pf-count {
+    font-size: 11px; font-weight: 600; color: var(--apt-ink-4);
+    background: rgba(26, 24, 20, .05); border-radius: 999px; padding: 1px 9px; min-width: 22px; text-align: center;
+  }
+</style>
 {% endblock %}

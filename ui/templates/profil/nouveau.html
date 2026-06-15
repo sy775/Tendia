@@ -1,70 +1,261 @@
 {% extends "base.html" %}
 {% block title %}Nouveau profil — Tendia{% endblock %}
 
+{% from "profil/_macros.html" import checkboxes_groupees, zones_intervention with context %}
+
+{% set ident = profil.identite or {} %}
+{% set adr = ident.adresse_siege or {} %}
+{% set cap = profil.capacite_globale or {} %}
+{% set presets_sel = profil.presets_couverts or [] %}
+
+{# Étapes de l'assistant : (clé, libellé court). La clé pilote la validation JS. #}
+{% set etapes = [
+  ('secteur', 'Secteur'),
+  ('identite', 'Identité'),
+  ('perimetre', 'Périmètre'),
+  ('zones', 'Zones'),
+  ('capacite', 'Capacité')
+] %}
+
 {% block content %}
-<div class="px-10 py-10" style="margin: 0 auto; max-width: 760px;">
+<div class="px-10 py-10" style="margin: 0 auto; max-width: 880px;">
 
   <a href="{{ url_for('page_profil') }}" class="apt-link apt-fs-13">← Tous les profils</a>
-  <h1 class="apt-display apt-fs-34 mt-4 mb-2">Nouveau profil</h1>
-  <p class="apt-prose mb-6" style="max-width: 620px;">
-    Renseignez l'essentiel pour démarrer. Vous compléterez les champs sectoriels
-    (qualifications, références, périmètre technique) à l'étape suivante.
+  <h1 class="apt-display apt-fs-34 mt-4 mb-1">Nouveau profil organisme</h1>
+  <p class="apt-prose mb-5" style="max-width: 640px;">
+    Cinq étapes courtes. Privilégiez les cases à cocher — c'est ce qui permet à Tendia
+    de faire correspondre votre organisme aux bons marchés.
   </p>
 
   {% if erreurs %}
-  <div class="apt-block px-5 py-4 mb-6" style="border-left: 4px solid var(--apt-rose); background: var(--apt-rose-soft);">
-    <ul class="apt-fs-13" style="list-style: disc; padding-left: 20px;">
+  <div class="apt-block px-5 py-4 mb-5" style="border-left: 4px solid var(--apt-rose); background: var(--apt-rose-soft);">
+    <div class="apt-label" style="color: var(--apt-rose);">À corriger avant de créer le profil</div>
+    <ul class="mt-2 apt-fs-13" style="list-style: disc; padding-left: 20px;">
       {% for e in erreurs %}<li>{{ e }}</li>{% endfor %}
     </ul>
   </div>
   {% endif %}
 
-  <form method="post" class="apt-block px-7 py-6">
-    <div class="mb-3">
-      <label class="apt-label">Raison sociale <span style="color: var(--apt-rose);">*</span></label>
-      <input type="text" name="identite.raison_sociale" value="{{ saisi.raison_sociale }}" required
-        class="block w-full mt-1 px-3 py-2 apt-fs-13" style="background: var(--apt-pure); border: 1px solid var(--apt-line); border-radius: 6px;">
+  {# ---------- Barre de progression ---------- #}
+  <div class="flex items-center mb-7" style="gap: 0;">
+    {% for cle, libelle in etapes %}
+    <div class="wz-dot flex items-center" data-idx="{{ loop.index0 }}" style="cursor:pointer; flex:1;">
+      <span class="wz-num apt-fs-12_5" style="display:inline-flex; align-items:center; justify-content:center; width:26px; height:26px; border-radius:50%; border:1px solid var(--apt-line); background:var(--apt-pure); color:var(--apt-ink-3); flex:none;">{{ loop.index }}</span>
+      <span class="wz-lbl apt-fs-12_5 ml-2" style="color:var(--apt-ink-3);">{{ libelle }}</span>
+      {% if not loop.last %}<span style="flex:1; height:1px; background:var(--apt-line); margin:0 10px;"></span>{% endif %}
     </div>
+    {% endfor %}
+  </div>
 
-    <div class="grid grid-cols-3 gap-4">
-      <div class="mb-3">
-        <label class="apt-label">Forme juridique</label>
-        <select name="identite.forme_juridique" class="block w-full mt-1 px-3 py-2 apt-fs-13" style="background: var(--apt-pure); border: 1px solid var(--apt-line); border-radius: 6px;">
-          {% for opt in ['SAS', 'SARL', 'SA', 'EURL', 'association', 'EPIC', 'autre'] %}
-          <option value="{{ opt }}" {% if saisi.forme_juridique == opt %}selected{% endif %}>{{ opt }}</option>
-          {% endfor %}
-        </select>
+  <form method="post">
+
+    {# ===================== Étape 1 · Secteur ===================== #}
+    <section data-step="secteur" class="apt-block px-7 py-6">
+      <div class="apt-display-sm apt-fs-18 mb-1">Quels secteurs couvrez-vous&nbsp;?</div>
+      <p class="apt-meta mb-4">Au moins un. Vous pouvez en cocher plusieurs (ex&nbsp;: BTP + Ingénierie).</p>
+      <div class="grid grid-cols-2 gap-3">
+        {% for p in presets_meta %}
+        <label class="wz-card flex" style="cursor:pointer; gap:12px; padding:14px 16px; border:1px solid var(--apt-line); border-radius:10px; background:var(--apt-pure);">
+          <input type="checkbox" name="presets_couverts" value="{{ p.code }}" style="margin-top:3px; flex:none;"
+            {% if p.code in presets_sel %}checked{% endif %}>
+          <span>
+            <span class="apt-display-sm apt-fs-14" style="display:block;">{{ p.nom }}</span>
+            <span class="apt-meta" style="display:block; margin-top:3px; line-height:1.45;">{{ p.description }}</span>
+          </span>
+        </label>
+        {% endfor %}
       </div>
+    </section>
+
+    {# ===================== Étape 2 · Identité ===================== #}
+    <section data-step="identite" class="apt-block px-7 py-6" style="display:none;">
+      <div class="apt-display-sm apt-fs-18 mb-1">L'essentiel sur l'organisme</div>
+      <p class="apt-meta mb-4">Le strict minimum. Le reste (SIREN, NAF, adresse, contact) se complète plus tard depuis le détail du profil.</p>
       <div class="mb-3">
-        <label class="apt-label">Effectif salariés</label>
-        <input type="number" name="identite.effectif_salaries" value="{{ saisi.effectif_salaries }}"
+        <label class="apt-label">Raison sociale <span style="color: var(--apt-rose);">*</span></label>
+        <input type="text" name="identite.raison_sociale" value="{{ ident.raison_sociale or '' }}"
           class="block w-full mt-1 px-3 py-2 apt-fs-13" style="background: var(--apt-pure); border: 1px solid var(--apt-line); border-radius: 6px;">
       </div>
-      <div class="mb-3">
-        <label class="apt-label">Département siège</label>
-        <input type="text" name="identite.adresse_siege.departement" value="{{ saisi.departement }}"
-          pattern="[0-9]{2,3}|2A|2B" placeholder="ex : 75"
-          class="block w-full mt-1 px-3 py-2 apt-fs-13" style="background: var(--apt-pure); border: 1px solid var(--apt-line); border-radius: 6px;">
+      <div class="grid grid-cols-3 gap-4">
+        <div>
+          <label class="apt-label">Forme juridique</label>
+          <select name="identite.forme_juridique" class="block w-full mt-1 px-3 py-2 apt-fs-13" style="background: var(--apt-pure); border: 1px solid var(--apt-line); border-radius: 6px;">
+            {% for opt in ['SAS', 'SARL', 'SA', 'EURL', 'association', 'EPIC', 'autre'] %}
+            <option value="{{ opt }}" {% if ident.forme_juridique == opt %}selected{% endif %}>{{ opt }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <div>
+          <label class="apt-label">Effectif salariés</label>
+          <input type="number" name="identite.effectif_salaries" value="{{ ident.effectif_salaries if ident.effectif_salaries is not none else '' }}"
+            class="block w-full mt-1 px-3 py-2 apt-fs-13" style="background: var(--apt-pure); border: 1px solid var(--apt-line); border-radius: 6px;">
+        </div>
+        <div>
+          <label class="apt-label">Département siège</label>
+          <input type="text" name="identite.adresse_siege.departement" value="{{ adr.departement or '' }}"
+            pattern="[0-9]{2,3}|2A|2B" placeholder="ex : 75"
+            class="block w-full mt-1 px-3 py-2 apt-fs-13" style="background: var(--apt-pure); border: 1px solid var(--apt-line); border-radius: 6px;">
+        </div>
       </div>
-    </div>
+    </section>
 
-    <div class="mt-3 mb-2">
-      <label class="apt-label">Presets couverts <span style="color: var(--apt-rose);">*</span></label>
-      <p class="apt-meta">Au moins un. Les presets sans schéma (conseil, IT, EnR) restent activables pour le matching universel.</p>
-    </div>
-    <div class="flex flex-wrap gap-x-6">
-      {% for code in presets_connus %}
-      <label class="flex items-center gap-2 mb-2 apt-fs-13" style="cursor:pointer;">
-        <input type="checkbox" name="presets_couverts" value="{{ code }}" {% if code in saisi.presets %}checked{% endif %}> {{ code }}
-      </label>
-      {% endfor %}
-    </div>
+    {# ===================== Étape 3 · Périmètre métier ===================== #}
+    <section data-step="perimetre" class="apt-block px-7 py-6" style="display:none;">
+      <div class="apt-display-sm apt-fs-18 mb-1">Votre périmètre métier</div>
+      <p class="apt-meta mb-4">Cochez ce que vous savez faire. C'est le cœur du matching sectoriel — soyez large.</p>
 
-    <div class="mt-6 flex gap-3">
-      <button type="submit" class="apt-btn apt-btn-accent">Créer et compléter</button>
+      <div id="wz-perim-empty" class="apt-meta" style="display:none;">Revenez à l'étape Secteur pour choisir au moins un secteur.</div>
+
+      {# Bloc BTP (affiché si 'btp' coché) #}
+      <div data-sector-block="btp" style="display:none;">
+        <div class="apt-label mb-2" style="color: var(--apt-accent-2);">Secteur · BTP</div>
+        {{ checkboxes_groupees('sect.btp.corps_de_metier', widgets.btp.corps_de_metier, 'Corps de métier') }}
+        {{ checkboxes_groupees('sect.btp.types_ouvrages', widgets.btp.types_ouvrages, 'Types d\'ouvrages') }}
+      </div>
+
+      {# Bloc Ingénierie (affiché si 'ingenierie' coché) #}
+      <div data-sector-block="ingenierie" style="display:none;">
+        <div class="apt-label mb-2 mt-2" style="color: var(--apt-accent-2);">Secteur · Ingénierie</div>
+        {{ checkboxes_groupees('sect.ingenierie.typologies_couvertes', widgets.ingenierie.typologies_couvertes, 'Typologies de mission') }}
+        {{ checkboxes_groupees('sect.ingenierie.competences_specialisees', widgets.ingenierie.competences_specialisees, 'Compétences spécialisées') }}
+        {{ checkboxes_groupees('sect.ingenierie.types_ouvrages_etudies', widgets.ingenierie.types_ouvrages_etudies, 'Types d\'ouvrages étudiés') }}
+      </div>
+
+      {# Secteurs sans périmètre dédié (conseil, IT, EnR, formation) #}
+      <div id="wz-perim-note" class="apt-block px-5 py-4" style="display:none; background: var(--apt-bg-2);">
+        <p class="apt-prose apt-fs-13">
+          Pour les autres secteurs cochés (conseil, IT, énergies renouvelables, formation), le périmètre
+          est piloté par vos <strong>mots-clés catalogue</strong> — à renseigner à la dernière étape.
+        </p>
+      </div>
+    </section>
+
+    {# ===================== Étape 4 · Zones ===================== #}
+    <section data-step="zones" class="apt-block px-7 py-6" style="display:none;">
+      <div class="apt-display-sm apt-fs-18 mb-1">Où intervenez-vous&nbsp;?</div>
+      <p class="apt-meta mb-4">Cochez les départements. « Toute la région » bascule le groupe entier.</p>
+      {{ zones_intervention(widgets.zones) }}
+    </section>
+
+    {# ===================== Étape 5 · Capacité & mots-clés ===================== #}
+    <section data-step="capacite" class="apt-block px-7 py-6" style="display:none;">
+      <div class="apt-display-sm apt-fs-18 mb-1">Capacité & mots-clés</div>
+      <p class="apt-meta mb-4">Ces montants filtrent les marchés trop petits ou trop gros pour vous. Tout est facultatif mais améliore le matching.</p>
+      <div class="grid grid-cols-2 gap-4">
+        <div>
+          <label class="apt-label">Seuil minimum de marché (€)</label>
+          <input type="number" name="capacite_globale.seuil_minimum_marche_eur" value="{{ cap.seuil_minimum_marche_eur if cap.seuil_minimum_marche_eur is not none else '' }}"
+            placeholder="en-dessous, on ignore" class="block w-full mt-1 px-3 py-2 apt-fs-13" style="background: var(--apt-pure); border: 1px solid var(--apt-line); border-radius: 6px;">
+        </div>
+        <div>
+          <label class="apt-label">Engagement simultané max (€)</label>
+          <input type="number" name="capacite_globale.capacite_engagement_simultane" value="{{ cap.capacite_engagement_simultane if cap.capacite_engagement_simultane is not none else '' }}"
+            placeholder="capacité totale en parallèle" class="block w-full mt-1 px-3 py-2 apt-fs-13" style="background: var(--apt-pure); border: 1px solid var(--apt-line); border-radius: 6px;">
+        </div>
+        <div>
+          <label class="apt-label">Chiffre d'affaires N-1 (€)</label>
+          <input type="number" name="capacite_globale.ca_annuel_n_moins_1" value="{{ cap.ca_annuel_n_moins_1 if cap.ca_annuel_n_moins_1 is not none else '' }}"
+            class="block w-full mt-1 px-3 py-2 apt-fs-13" style="background: var(--apt-pure); border: 1px solid var(--apt-line); border-radius: 6px;">
+        </div>
+        <div>
+          <label class="apt-label">Effectif total (ETP)</label>
+          <input type="number" name="capacite_globale.effectif_total_etp" value="{{ cap.effectif_total_etp if cap.effectif_total_etp is not none else '' }}"
+            class="block w-full mt-1 px-3 py-2 apt-fs-13" style="background: var(--apt-pure); border: 1px solid var(--apt-line); border-radius: 6px;">
+        </div>
+      </div>
+      <div class="mt-4">
+        <label class="apt-label">Mots-clés catalogue <span class="apt-meta">— 1 par ligne</span></label>
+        <p class="apt-meta mb-1">Vos savoir-faire, produits, prestations. Pilote le matching thématique (surtout pour conseil, IT, EnR, formation).</p>
+        <textarea name="mots_cles_catalogue" rows="6"
+          class="block w-full mt-1 px-3 py-2 apt-fs-13 apt-mono"
+          style="background: var(--apt-pure); border: 1px solid var(--apt-line); border-radius: 6px;">{{ (profil.mots_cles_catalogue or [])|join('\n') }}</textarea>
+      </div>
+    </section>
+
+    {# ---------- Barre de navigation ---------- #}
+    <div class="mt-6 flex items-center" style="gap: 12px;">
+      <button type="button" id="wz-prev" class="apt-btn apt-btn-ghost">← Précédent</button>
+      <div style="flex:1;"></div>
       <a href="{{ url_for('page_profil') }}" class="apt-btn apt-btn-ghost">Annuler</a>
+      <button type="button" id="wz-next" class="apt-btn apt-btn-accent">Continuer →</button>
+      <button type="submit" id="wz-submit" class="apt-btn apt-btn-accent" style="display:none;">Créer le profil</button>
     </div>
   </form>
-
 </div>
+
+<style>
+  .wz-card:has(input:checked) { border-color: var(--apt-accent); box-shadow: 0 0 0 1px var(--apt-accent) inset; }
+  .wz-dot-on .wz-num { background: var(--apt-accent); color: var(--apt-pure); border-color: var(--apt-accent); }
+  .wz-dot-on .wz-lbl { color: var(--apt-ink); }
+</style>
+
+<script>
+(function () {
+  var steps = Array.prototype.slice.call(document.querySelectorAll('[data-step]'));
+  var dots = Array.prototype.slice.call(document.querySelectorAll('.wz-dot'));
+  var total = steps.length;
+  var current = 0;
+
+  function selectedPresets() {
+    return Array.prototype.slice.call(
+      document.querySelectorAll('input[name=presets_couverts]:checked')
+    ).map(function (c) { return c.value; });
+  }
+
+  function syncPerimetre() {
+    var sel = selectedPresets();
+    document.querySelectorAll('[data-sector-block]').forEach(function (b) {
+      b.style.display = sel.indexOf(b.dataset.sectorBlock) >= 0 ? '' : 'none';
+    });
+    var sansPerim = sel.filter(function (c) { return ['btp', 'ingenierie'].indexOf(c) < 0; });
+    document.getElementById('wz-perim-note').style.display = sansPerim.length ? '' : 'none';
+    document.getElementById('wz-perim-empty').style.display = sel.length === 0 ? '' : 'none';
+  }
+
+  function show(i) {
+    current = Math.max(0, Math.min(total - 1, i));
+    steps.forEach(function (s, idx) { s.style.display = idx === current ? '' : 'none'; });
+    dots.forEach(function (d, idx) { d.classList.toggle('wz-dot-on', idx <= current); });
+    document.getElementById('wz-prev').style.visibility = current === 0 ? 'hidden' : 'visible';
+    document.getElementById('wz-next').style.display = current === total - 1 ? 'none' : '';
+    document.getElementById('wz-submit').style.display = current === total - 1 ? '' : 'none';
+    if (steps[current].dataset.step === 'perimetre') syncPerimetre();
+    window.scrollTo(0, 0);
+  }
+
+  function validateStep(i) {
+    var cle = steps[i].dataset.step;
+    if (cle === 'secteur' && selectedPresets().length === 0) {
+      alert('Sélectionnez au moins un secteur.'); return false;
+    }
+    if (cle === 'identite') {
+      var rs = document.querySelector('input[name="identite.raison_sociale"]');
+      if (!rs.value.trim()) { rs.focus(); alert('La raison sociale est requise.'); return false; }
+    }
+    return true;
+  }
+
+  document.getElementById('wz-next').addEventListener('click', function () {
+    if (validateStep(current)) show(current + 1);
+  });
+  document.getElementById('wz-prev').addEventListener('click', function () { show(current - 1); });
+  dots.forEach(function (d, idx) {
+    d.addEventListener('click', function () { if (idx < current) show(idx); });
+  });
+
+  document.addEventListener('change', function (e) {
+    if (e.target && e.target.name === 'presets_couverts') syncPerimetre();
+    // Toggle de groupe (cocher/décocher toute une famille de cases).
+    if (e.target && e.target.classList && e.target.classList.contains('cg-toggle')) {
+      var groupe = e.target.closest('.cg-groupe');
+      if (!groupe) return;
+      groupe.querySelectorAll('input[type=checkbox]:not(.cg-toggle)').forEach(function (c) {
+        c.checked = e.target.checked;
+      });
+    }
+  });
+
+  show(0);
+})();
+</script>
 {% endblock %}

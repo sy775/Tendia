@@ -3,7 +3,7 @@
 {% block title %}{{ marche.titre[:60] or marche.objet[:60] }} — Tendia{% endblock %}
 
 {% block content %}
-<div class="apt-fiche-v7" style="max-width: 1320px; margin: 0 auto; padding: 24px 32px 80px;">
+<div class="apt-fiche-v7" style="max-width: 1560px; margin: 0 auto; padding: 24px 40px 80px;">
 
 <style>
   /* ===== Couleurs ===== */
@@ -51,7 +51,7 @@
 
   /* ===== Header avec score ring ===== */
   .apt-fiche-v7 h1.fiche-title {
-    font-family: var(--apt-display, Georgia, serif);
+    font-family: var(--apt-font, system-ui, sans-serif);
     font-size: 26px;
     line-height: 1.25;
     font-weight: 700;
@@ -115,7 +115,7 @@
     font-size: 11.5px;
     line-height: 1.55;
     text-align: left;
-    z-index: 100;
+    z-index: 200;
     opacity: 0;
     visibility: hidden;
     transform: translateY(-4px);
@@ -158,43 +158,44 @@
   .apt-fiche-v7 .meta-inline .sep { color: var(--apt-line-2); margin: 0 8px; }
 
   /* ===== KPI cells avec tint coloré marqué ===== */
+  /* KPI compacts : paddings et tailles réduits pour gagner de la verticale. */
   .apt-fiche-v7 .kpi-cell {
-    border-radius: 10px;
-    padding: 10px 12px;
+    border-radius: 9px;
+    padding: 8px 11px;
     border: 1px solid var(--apt-line-2);
     transition: transform 0.15s;
   }
   .apt-fiche-v7 .kpi-cell:hover { transform: translateY(-1px); }
   .apt-fiche-v7 .kpi-cell .kpi-icon {
-    width: 22px;
-    height: 22px;
+    width: 20px;
+    height: 20px;
     border-radius: 6px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 6px;
+    margin-bottom: 4px;
   }
   .apt-fiche-v7 .kpi-cell .kpi-icon svg {
-    width: 12px;
-    height: 12px;
+    width: 11px;
+    height: 11px;
   }
   .apt-fiche-v7 .kpi-cell .kpi-label {
-    font-size: 10.5px;
+    font-size: 10px;
     color: var(--apt-ink-3);
-    margin-bottom: 2px;
+    margin-bottom: 1px;
     font-weight: 600;
   }
   .apt-fiche-v7 .kpi-cell .kpi-value {
-    font-size: 22px;
+    font-size: 18px;
     color: var(--apt-ink);
     line-height: 1.1;
     font-weight: 700;
     font-variant-numeric: tabular-nums;
   }
   .apt-fiche-v7 .kpi-cell .kpi-sub {
-    font-size: 10.5px;
+    font-size: 10px;
     color: var(--apt-ink-4);
-    margin-top: 3px;
+    margin-top: 2px;
   }
   .apt-fiche-v7 .kpi-cell.kpi-valeur { background: var(--c-blue-soft); border-color: rgba(67,115,181,0.18); }
   .apt-fiche-v7 .kpi-cell.kpi-valeur .kpi-icon { background: var(--c-blue); color: white; }
@@ -293,9 +294,9 @@
     border-bottom: 1px solid var(--apt-line-2);
   }
   .apt-fiche-v7 .aside-card-header.is-alertes {
-    background: var(--c-rose-soft);
-    color: var(--c-rose);
-    border-bottom-color: rgba(217,66,90,0.15);
+    background: var(--c-amber-soft);
+    color: #b06010;
+    border-bottom-color: rgba(232,144,72,0.20);
   }
   .apt-fiche-v7 .aside-card-header.is-verdict {
     background: var(--c-green-soft);
@@ -470,17 +471,15 @@
 </a>
 
 <!-- ============ Header : titre à gauche, score ring à droite ============ -->
-<div class="flex items-start justify-between gap-6 mb-5 fade-up">
+<div class="flex items-start justify-between gap-6 mb-5 fade-up" style="position: relative; z-index: 30;">
   <div style="flex: 1; min-width: 0;">
     <h1 class="fiche-title mb-3">{{ marche.titre or marche.objet }}</h1>
-    {% if brief and brief.synthese_marche %}
-    <p style="font-size: 14px; line-height: 1.6; color: var(--apt-ink-3); margin: 0 0 14px;">{{ brief.synthese_marche | clean_source }}</p>
-    {% endif %}
+    {# Résumé déplacé en encadré « En bref » sous le header (plus visible). #}
 
     {# ── Badges de classification LLM (domaines_metier) ── #}
     {% if brief and brief.domaines_metier %}
     <div style="display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin: 0 0 14px;">
-      <span style="font-size: 10.5px; color: var(--apt-ink-4); text-transform: uppercase; letter-spacing: 0.3px; font-weight: 600; margin-right: 4px;">Domaine LLM ·</span>
+      <span style="font-size: 11px; color: var(--apt-ink-4); font-weight: 500; margin-right: 4px;">Secteur ·</span>
       {% for d in brief.domaines_metier %}
         {% set est_principal = (loop.first or (d.poids and d.poids >= 0.5)) %}
         {% set lib = d.code|replace('_', ' ')|title %}
@@ -496,11 +495,6 @@
         </span>
       {% endfor %}
     </div>
-    {% if brief.raison_classification %}
-    <p style="font-size: 12px; color: var(--apt-ink-4); margin: 0 0 14px; font-style: italic; line-height: 1.5;">
-      <span style="font-weight: 600; font-style: normal;">Classification :</span> {{ brief.raison_classification }}
-    </p>
-    {% endif %}
     {% endif %}
     {# ── Fin badges domaines ── #}
     {% if richesse %}
@@ -509,8 +503,8 @@
         {% if richesse.niveau == 'complet' %}background:var(--c-green-soft); color:var(--c-green);
         {% elif richesse.niveau == 'partiel' %}background:var(--c-amber-soft); color:var(--c-amber);
         {% else %}background:rgba(26,24,20,0.06); color:var(--apt-ink-4);{% endif %}"
-        title="Socle {{ richesse.details.socle }}% · sectoriel {{ richesse.details.sectoriel }}% · DCE {{ 'oui' if richesse.details.dce_complet else 'non' }} · calibration {{ 'oui' if richesse.details.calibre else 'non' }}">
-        ◆ Brief {{ richesse.niveau }} · {{ richesse.score }}/100
+        title="Richesse du brief : {{ richesse.score }}/100">
+        ◆ Analyse {{ {'complet': 'complète', 'partiel': 'partielle', 'light': 'légère'}.get(richesse.niveau, richesse.niveau) }} · {{ richesse.score }}/100
       </span>
     </div>
     {% endif %}
@@ -534,6 +528,15 @@
           <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
         </svg>
         {% if marche.dce_qualite in ('directe', 'via_keyword') %}Télécharger le DCE{% else %}Consultation plateforme{% endif %}
+      </a>
+      {% endif %}
+      {# Avis source (BOAMP/…) — placé juste après le DCE (ordre logique, partout) #}
+      {% if marche.url_avis %}
+      <a href="{{ marche.url_avis }}" target="_blank" rel="noopener" class="btn-ghost">
+        <svg style="width: 12px; height: 12px;" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+        </svg>
+        Avis {{ marche.source }}
       </a>
       {% endif %}
       {# Statut du CONTENU DCE téléchargé (Sprint Téléchargeur) #}
@@ -568,14 +571,6 @@
         </form>
       </div>
       {% endif %}
-      {% endif %}
-      {% if marche.url_avis %}
-      <a href="{{ marche.url_avis }}" target="_blank" rel="noopener" class="btn-ghost">
-        <svg style="width: 12px; height: 12px;" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
-        </svg>
-        Avis {{ marche.source }}
-      </a>
       {% endif %}
       {% if not marche.url_dce and not marche.url_avis %}
       <span style="font-size: 11px; color: var(--apt-ink-4); font-style: italic;">
@@ -637,10 +632,12 @@
     {# Badge d'éligibilité — calculé depuis les alertes du brief vs profil #}
     {% if verdict_eligibilite and verdict_eligibilite.statut != 'inconnu' %}
     {% set ve = verdict_eligibilite %}
-    {% set elig_bg = 'var(--c-green-soft)' if ve.couleur == 'green' else ('var(--c-rose-soft)' if ve.couleur == 'rose' else 'var(--apt-bg)') %}
-    {% set elig_color = 'var(--c-green)' if ve.couleur == 'green' else ('var(--c-rose)' if ve.couleur == 'rose' else 'var(--apt-ink-4)') %}
+    {# Éligible mais avec réserves → on affiche explicitement « À vérifier » en ambre
+       (plutôt qu'un astérisque cryptique). #}
+    {% set elig_bg = 'var(--c-amber-soft)' if ve.avec_reserves else ('var(--c-green-soft)' if ve.couleur == 'green' else ('var(--c-rose-soft)' if ve.couleur == 'rose' else 'var(--apt-bg)')) %}
+    {% set elig_color = 'var(--c-amber)' if ve.avec_reserves else ('var(--c-green)' if ve.couleur == 'green' else ('var(--c-rose)' if ve.couleur == 'rose' else 'var(--apt-ink-4)')) %}
     <span class="verdict-tag apt-elig-tag" style="background: {{ elig_bg }}; color: {{ elig_color }}; cursor: help; position: relative;">
-      <span style="font-size: 11px; font-weight: 800;">{{ ve.icone }}</span> {{ ve.label_court }}{% if ve.avec_reserves %}<span style="color: #c47e1c; font-weight: 700; margin-left: 1px;">*</span>{% endif %}
+      <span style="font-size: 11px; font-weight: 800;">{{ '!' if ve.avec_reserves else ve.icone }}</span> {{ 'Éligibilité à vérifier' if ve.avec_reserves else ve.label_court }}
       <span class="apt-elig-tooltip">
         <span class="apt-elig-tooltip-title">{{ ve.tooltip }}</span>
         {% if ve.points_a_lever %}
@@ -666,39 +663,29 @@
 {% if not brief %}
 
   <section style="background: var(--apt-bg); border: 1px solid var(--apt-line-2); border-radius: 10px; padding: 20px 24px; margin-top: 24px;">
-    <div style="font-size: 16px; color: var(--apt-ink); font-weight: 600; margin-bottom: 8px;">Brief LLM non disponible</div>
+    <div style="font-size: 16px; color: var(--apt-ink); font-weight: 600; margin-bottom: 8px;">Analyse détaillée non disponible</div>
     <p style="font-size: 13px; color: var(--apt-ink-3); line-height: 1.6;">
-      Lance <code style="background: white; padding: 2px 7px; border-radius: 4px; font-size: 11px; font-family: ui-monospace, monospace;">python tendia_briefs_auto.py --marche {{ marche.id }}</code> pour générer une fiche enrichie.
+      L'analyse approfondie de ce marché n'a pas encore été générée. Elle apparaîtra ici une fois le dossier de consultation traité.
     </p>
   </section>
 
 {% else %}
 
-  <!-- ============ Verdict 90 secondes ============ -->
-  {% if verdict_90 %}
-  <div class="apt-block mb-5 fade-up fade-up-2" style="padding: 15px 20px;">
-    <div class="kpi-label" style="margin-bottom: 9px;">Verdict 90 secondes</div>
-    {% for l in verdict_90 %}
-    <div style="display:flex; gap:9px; align-items:flex-start; padding:3px 0; font-size:13.5px;">
-      <span style="font-weight:800; line-height:1.4; color: {% if l.icone == '✗' %}var(--c-rose){% elif l.icone == '⚠' %}var(--c-amber){% else %}var(--c-green){% endif %};">{{ l.icone }}</span>
-      <span style="color: var(--apt-ink-2);">{{ l.texte }}</span>
-    </div>
+  <!-- ============ Verrous go/no-go (juste sous les tags du header) ============ -->
+  {% set verrous_ko = verrous | rejectattr('satisfait') | list %}
+  {% if verrous_ko %}
+  <div class="apt-block mb-5 fade-up fade-up-2" style="padding: 11px 18px; border-left: 4px solid var(--c-rose); background: var(--c-rose-soft);">
+    <div style="font-weight:700; color: var(--c-rose); font-size:13px; margin-bottom:5px;">🔒 {{ verrous_ko|length }} verrou(x) bloquant(s)</div>
+    {% for v in verrous_ko %}
+    <div style="font-size:12.5px; color: var(--apt-ink-2); padding:2px 0;">✗ <strong>{{ v.type }}</strong> — {{ v.libelle }}{% if v.motif %} · {{ v.motif }}{% endif %}</div>
     {% endfor %}
   </div>
-  {% endif %}
-
-  <!-- ============ Verrous go/no-go ============ -->
-  {% set verrous_ko = verrous | rejectattr('satisfait') | list %}
-  <div class="apt-block mb-6 fade-up fade-up-2" style="padding: 11px 18px; border-left: 4px solid {% if verrous_ko %}var(--c-rose){% else %}var(--c-green){% endif %}; background: {% if verrous_ko %}var(--c-rose-soft){% else %}var(--c-green-soft){% endif %};">
-    {% if verrous_ko %}
-      <div style="font-weight:700; color: var(--c-rose); font-size:13px; margin-bottom:5px;">🔒 {{ verrous_ko|length }} verrou(x) bloquant(s)</div>
-      {% for v in verrous_ko %}
-      <div style="font-size:12.5px; color: var(--apt-ink-2); padding:2px 0;">✗ <strong>{{ v.type }}</strong> — {{ v.libelle }}{% if v.motif %} · {{ v.motif }}{% endif %}</div>
-      {% endfor %}
-    {% else %}
-      <div style="font-weight:600; color: var(--c-green); font-size:13px;">✓ Pas de verrou bloquant détecté</div>
-    {% endif %}
+  {% else %}
+  {# Pas de verrou : ligne discrète sous les tags du header (moins criard qu'un bandeau). #}
+  <div class="mb-4" style="display:flex; align-items:center; gap:6px; font-size:11.5px; color: var(--apt-ink-4);">
+    <span style="color: var(--c-green); font-weight:700;">✓</span> Aucun verrou bloquant détecté
   </div>
+  {% endif %}
 
   <!-- ============ KPI Strip — 4 cells tinted ============ -->
   {% set ft_calib = calibration.fourchette_marche_total_estimee if (calibration and calibration.fourchette_marche_total_estimee) else None %}
@@ -779,6 +766,14 @@
       <div class="kpi-sub">{{ fmt_date(marche.date_limite_depot) }}</div>
     </div>
   </div>
+
+  <!-- ============ En bref (résumé, juste sous les KPIs) ============ -->
+  {% if brief.synthese_marche %}
+  <div class="mb-6 fade-up fade-up-2" style="background: var(--apt-bg); border: 1px solid var(--apt-line-2); border-left: 3px solid var(--c-green); border-radius: 10px; padding: 13px 18px;">
+    <div style="font-size: 10.5px; font-weight: 700; letter-spacing: 0.06em; color: var(--c-green); margin-bottom: 5px;">✦ EN BREF</div>
+    <p style="font-size: 14.5px; line-height: 1.6; color: var(--apt-ink-2); margin: 0;">{{ brief.synthese_marche | clean_source }}</p>
+  </div>
+  {% endif %}
 
   <!-- ============ GRID 2 COLONNES ============ -->
   <div class="grid-2col">
@@ -865,7 +860,7 @@
           <p style="font-size: 12px; line-height: 1.55; color: var(--apt-ink-2); font-style: italic; margin: 0;">{{ sc.exemple_reponse_forte }}</p>
         </div>
         {% endif %}
-        {% if sc.source %}<span class="tip" data-tip="Source : {{ sc.source | clean_source }}" style="display: inline-block; font-size: 10.5px; color: var(--apt-ink-4); border-bottom: 1px dotted var(--apt-line); cursor: help; margin-top: 4px;">source ⓘ</span>{% endif %}
+        {% if sc.source %}<div style="font-size: 11px; color: var(--apt-ink-4); margin-top: 4px;"><span style="color: var(--apt-ink-3); font-weight: 600;">Source :</span> {{ sc.source | clean_source }}</div>{% endif %}
 
         {# RÉCURSION : si ce sous-critère a lui-même des enfants, les rendre indentés #}
         {% if sc.sous_criteres %}
@@ -916,6 +911,26 @@
       </div>
 
       <div class="bareme-panel panel-prix">
+      {# Coefficient prix mis en avant (avant tout) + sa source/modalité dans le RC #}
+      <div style="margin-top: 8px; display: flex; align-items: flex-start; gap: 14px; padding: 12px 16px; background: var(--apt-bg); border: 1px solid var(--apt-line-2); border-left: 3px solid var(--apt-ink); border-radius: 9px;">
+        <div style="flex-shrink: 0; text-align: center; min-width: 62px;">
+          <div style="font-size: 26px; font-weight: 800; color: var(--apt-ink); line-height: 1; font-variant-numeric: tabular-nums;">{{ pct_prix }}%</div>
+          <div style="font-size: 9.5px; color: var(--apt-ink-4); font-weight: 600; text-transform: uppercase; letter-spacing: 0.4px; margin-top: 3px;">coeff. prix</div>
+        </div>
+        <div style="flex: 1; min-width: 0; font-size: 12.5px; color: var(--apt-ink-3); line-height: 1.5;">
+          {% set bn = brief.bareme_notation %}
+          {% set prix_modalite = bn.modalite_calcul_prix or (bn.prix.formule_explicite if bn.prix else None) %}
+          {% if prix_modalite %}
+          <div style="color: var(--apt-ink-2); font-weight: 600;">{{ prix_modalite | clean_source }}</div>
+          {% endif %}
+          {% if bn.prix and bn.prix.source %}
+          <div style="margin-top: 4px;"><span style="color: var(--apt-ink-4); font-weight: 600;">Source :</span> {{ bn.prix.source | clean_source }}</div>
+          {% elif not prix_modalite %}
+          <div style="color: var(--apt-ink-4);">Coefficient prix issu du barème du règlement de consultation.</div>
+          {% endif %}
+        </div>
+      </div>
+
       {# ============ VOLET PRIX (valeur RC + fourchette DECP + modalité + révision + alertes) ============ #}
       {% set has_volet_prix = (brief.montant_marche and (brief.montant_marche.commentaire or montant_marche_eur or brief.montant_marche.prix_unitaire_estime)) or
                               (zone_prix and zone_prix.confiance) or
@@ -948,7 +963,7 @@
               {% if brief.montant_marche.type == 'estime_explicite' %}explicite RC
               {% elif brief.montant_marche.type == 'plafond' %}plafond accord-cadre
               {% elif brief.montant_marche.type == 'calcule_volumes' %}calculé depuis BPU
-              {% else %}{{ brief.montant_marche.type }}{% endif %}
+              {% else %}estimé{% endif %}
               </span>
             {% endif %}
           </div>
@@ -982,7 +997,7 @@
               <div style="font-size: 11px; color: var(--c-violet); font-weight: 700; text-transform: uppercase; letter-spacing: 0.3px;">Estimation Tendia · prix unitaire</div>
               <div style="font-size: 10.5px; color: var(--apt-ink-4); margin-top: 2px;">
                 {% if est_calibre %}
-                  ✦ calibrée sur {{ calibration._meta.n_comparables_utilises }} marchés DECP réels
+                  ✦ calibrée sur {{ calibration._meta.n_comparables_utilises }} marchés comparables réels
                 {% else %}
                   basée sur l'analyse du DCE + taux pratique marché FT
                 {% endif %}
@@ -995,12 +1010,12 @@
           <div style="display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; margin-bottom: 10px;">
             {% if est_calibre and pu.mediane_eur %}
               {# Médiane = ancre principale, fourchette = encadrement #}
-              <div style="font-size: 28px; font-weight: 700; color: var(--apt-ink); font-family: ui-monospace, monospace;">{{ pu.mediane_eur | euro_short }}</div>
+              <div style="font-size: 28px; font-weight: 700; color: var(--apt-ink); font-variant-numeric: tabular-nums;">{{ pu.mediane_eur | euro_short }}</div>
               <span style="font-size: 13px; color: var(--apt-ink-3); font-weight: 500;">par {{ unite_pu }}</span>
               {% if pu.min_eur and pu.max_eur and pu.min_eur != pu.max_eur %}
               <div style="margin-left: 6px; padding-left: 12px; border-left: 2px solid var(--c-violet); font-size: 12px; color: var(--apt-ink-3);">
-                <div style="font-size: 10px; color: var(--apt-ink-4); text-transform: uppercase; letter-spacing: 0.3px; font-weight: 600;">fourchette {{ pu.methode_fourchette or 'centrale' }}</div>
-                <div style="font-family: ui-monospace, monospace; font-weight: 600;">{{ pu.min_eur | euro_short }} – {{ pu.max_eur | euro_short }}</div>
+                <div style="font-size: 10.5px; color: var(--apt-ink-4); font-weight: 500;">fourchette estimée</div>
+                <div style="font-variant-numeric: tabular-nums; font-weight: 600;">{{ pu.min_eur | euro_short }} – {{ pu.max_eur | euro_short }}</div>
               </div>
               {% endif %}
             {% else %}
@@ -1045,7 +1060,7 @@
                   {% if pu.bottom_up.heures_effectives_par_beneficiaire %}<div><span style="color: var(--apt-ink-4); font-weight: 600;">Heures effectives · </span>{{ pu.bottom_up.heures_effectives_par_beneficiaire }}</div>{% endif %}
                   {% if pu.bottom_up.coef_complexite %}<div><span style="color: var(--apt-ink-4); font-weight: 600;">Complexité · </span>{{ pu.bottom_up.coef_complexite }}</div>{% endif %}
                 </div>
-                {% if pu.bottom_up.calcul %}<div style="margin-top: 8px; padding-top: 8px; border-top: 1px dashed var(--apt-line-2); font-size: 12px; color: var(--apt-ink); font-family: ui-monospace, monospace; line-height: 1.55;">{{ pu.bottom_up.calcul }}</div>{% endif %}
+                {% if pu.bottom_up.calcul %}<div style="margin-top: 8px; padding-top: 8px; border-top: 1px dashed var(--apt-line-2); font-size: 12px; color: var(--apt-ink); font-variant-numeric: tabular-nums; line-height: 1.55;">{{ pu.bottom_up.calcul }}</div>{% endif %}
 
                 {# Re-pricing par session/journée/lot si l'unité du marché diffère du bénéficiaire #}
                 {% set ur = pu.unit_repricing if pu.unit_repricing else None %}
@@ -1057,21 +1072,21 @@
                   <div style="font-size: 11.5px; color: var(--apt-ink-3); line-height: 1.6;">
                     <div style="font-weight: 600; color: var(--apt-ink-2); margin-bottom: 3px;">Coûts fixes par session (mutualisés) :</div>
                     <ul style="margin: 0 0 6px 14px; padding: 0;">
-                      {% if cf.encadrement_collectif %}<li>Encadrement collectif · <span style="font-family: ui-monospace, monospace; color: var(--apt-ink);">{{ cf.encadrement_collectif }} €</span></li>{% endif %}
-                      {% if cf.logistique %}<li>Logistique (salle, supports) · <span style="font-family: ui-monospace, monospace; color: var(--apt-ink);">{{ cf.logistique }} €</span></li>{% endif %}
-                      {% if cf.coordination_reporting %}<li>Coordination & reporting · <span style="font-family: ui-monospace, monospace; color: var(--apt-ink);">{{ cf.coordination_reporting }} €</span></li>{% endif %}
-                      {% if cf.total_fixes %}<li style="font-weight: 600; color: var(--apt-ink-2); margin-top: 3px;">Total fixes · <span style="font-family: ui-monospace, monospace; color: var(--apt-ink);">{{ cf.total_fixes }} €</span></li>{% endif %}
+                      {% if cf.encadrement_collectif %}<li>Encadrement collectif · <span style="font-variant-numeric: tabular-nums; color: var(--apt-ink);">{{ cf.encadrement_collectif }} €</span></li>{% endif %}
+                      {% if cf.logistique %}<li>Logistique (salle, supports) · <span style="font-variant-numeric: tabular-nums; color: var(--apt-ink);">{{ cf.logistique }} €</span></li>{% endif %}
+                      {% if cf.coordination_reporting %}<li>Coordination & reporting · <span style="font-variant-numeric: tabular-nums; color: var(--apt-ink);">{{ cf.coordination_reporting }} €</span></li>{% endif %}
+                      {% if cf.total_fixes %}<li style="font-weight: 600; color: var(--apt-ink-2); margin-top: 3px;">Total fixes · <span style="font-variant-numeric: tabular-nums; color: var(--apt-ink);">{{ cf.total_fixes }} €</span></li>{% endif %}
                     </ul>
                   </div>
                   {% endif %}
                   {% if ur.cout_variable_par_beneficiaire_eur %}
                   <div style="font-size: 11.5px; color: var(--apt-ink-3); line-height: 1.6; margin-bottom: 6px;">
                     <span style="font-weight: 600; color: var(--apt-ink-2);">Coût variable par bénéficiaire (linéaire) :</span>
-                    <span style="font-family: ui-monospace, monospace; color: var(--apt-ink); margin-left: 4px;">{{ ur.cout_variable_par_beneficiaire_eur }} €</span>
+                    <span style="font-variant-numeric: tabular-nums; color: var(--apt-ink); margin-left: 4px;">{{ ur.cout_variable_par_beneficiaire_eur }} €</span>
                   </div>
                   {% endif %}
                   {% if ur.calcul_session_type %}
-                  <div style="background: var(--c-green-soft); padding: 8px 10px; border-radius: 4px; font-size: 11.5px; color: var(--apt-ink-2); font-family: ui-monospace, monospace; line-height: 1.5;">{{ ur.calcul_session_type }}</div>
+                  <div style="background: var(--c-green-soft); padding: 8px 10px; border-radius: 4px; font-size: 11.5px; color: var(--apt-ink-2); font-variant-numeric: tabular-nums; line-height: 1.5;">{{ ur.calcul_session_type }}</div>
                   {% endif %}
                 </div>
                 {% endif %}
@@ -1097,7 +1112,7 @@
                   {% for s in pu.sources_principales %}
                   <li style="padding: 3px 0; font-size: 12px; line-height: 1.55;">
                     <a href="{{ url_for('detail_marche_notifie', id_marche=s.id_decp) }}"
-                       style="color: var(--c-violet); text-decoration: none; font-family: ui-monospace, monospace; font-size: 11px; font-weight: 600;">{{ s.id_decp }}</a>
+                       style="color: var(--c-violet); text-decoration: none; font-variant-numeric: tabular-nums; font-size: 11px; font-weight: 600;">{{ s.id_decp }}</a>
                     {% if s.titulaire %}<span style="color: var(--apt-ink-3);"> · {{ s.titulaire }}</span>{% endif %}
                     {% if s.annee %}<span style="color: var(--apt-ink-4);"> · {{ s.annee }}</span>{% endif %}
                     {% if s.prix_unitaire_calcule_eur %}<span style="color: var(--apt-ink); font-weight: 600;"> · {{ s.prix_unitaire_calcule_eur | euro_short }}/{{ unite_pu }}</span>{% endif %}
@@ -1158,8 +1173,8 @@
               </div>
               {# Volume effectif sous le montant : "20 sessions (50%)", "30 sessions (75%)"... #}
               {% if sc.volume_effectif %}
-              <div style="font-size: 11px; color: {% if key == 'realiste' %}var(--c-green-deep){% else %}var(--apt-ink-3){% endif %}; font-weight: 600; margin-bottom: 6px; font-family: ui-monospace, monospace;">
-                {{ sc.volume_effectif | round | int }} {{ sc.unite }}{% if sc.volume_effectif >= 2 %}s{% endif %}
+              <div style="font-size: 11px; color: {% if key == 'realiste' %}var(--c-green-deep){% else %}var(--apt-ink-3){% endif %}; font-weight: 600; margin-bottom: 6px; font-variant-numeric: tabular-nums;">
+                {{ sc.volume_effectif | round | int | milliers }} {{ sc.unite }}{% if sc.volume_effectif >= 2 %}s{% endif %}
                 <span style="color: var(--apt-ink-4); font-weight: 400;">&middot; {{ sc.taux_execution_pct }}%</span>
               </div>
               {% endif %}
@@ -1229,20 +1244,20 @@
             <div>
               <label for="apt-sim-prix" style="display: block; font-size: 10.5px; color: var(--apt-ink-4); font-weight: 600; margin-bottom: 3px;">Prix unitaire (€)</label>
               <input type="number" id="apt-sim-prix" value="{{ sim_unit_med }}" min="0" step="50"
-                     style="width: 100%; padding: 8px 10px; border: 1px solid var(--apt-line-2); border-radius: 6px; font-size: 14px; font-weight: 600; color: var(--apt-ink); font-family: ui-monospace, monospace;">
+                     style="width: 100%; padding: 8px 10px; border: 1px solid var(--apt-line-2); border-radius: 6px; font-size: 14px; font-weight: 600; color: var(--apt-ink); font-variant-numeric: tabular-nums;">
               <div style="font-size: 10px; color: var(--apt-ink-4); margin-top: 2px;">par {{ unite_pu | default('unité') }}</div>
             </div>
             <div>
               <label for="apt-sim-benef" style="display: block; font-size: 10.5px; color: var(--apt-ink-4); font-weight: 600; margin-bottom: 3px;">{{ sim_qty_label }}</label>
               <input type="number" id="apt-sim-benef" value="{{ sim_benef_default }}" min="1" step="1"
-                     style="width: 100%; padding: 8px 10px; border: 1px solid var(--apt-line-2); border-radius: 6px; font-size: 14px; font-weight: 600; color: var(--apt-ink); font-family: ui-monospace, monospace;">
+                     style="width: 100%; padding: 8px 10px; border: 1px solid var(--apt-line-2); border-radius: 6px; font-size: 14px; font-weight: 600; color: var(--apt-ink); font-variant-numeric: tabular-nums;">
               <div style="font-size: 10px; color: var(--apt-ink-4); margin-top: 2px;">{{ sim_qty_hint }}</div>
             </div>
           </div>
           <div style="background: var(--apt-bg); padding: 10px 12px; border-radius: 6px; display: flex; align-items: baseline; justify-content: space-between; gap: 10px; flex-wrap: wrap;">
             <div>
               <div style="font-size: 10.5px; color: var(--apt-ink-4); font-weight: 600; text-transform: uppercase; letter-spacing: 0.3px;">Montant total simulé</div>
-              <div id="apt-sim-resultat" style="font-size: 22px; font-weight: 700; color: var(--apt-ink); font-family: ui-monospace, monospace; margin-top: 2px;">—</div>
+              <div id="apt-sim-resultat" style="font-size: 22px; font-weight: 700; color: var(--apt-ink); font-variant-numeric: tabular-nums; margin-top: 2px;">—</div>
             </div>
             {% if zone_prix and zone_prix.estimation and zone_prix.estimation.mediane_eur %}
             <div id="apt-sim-position" style="font-size: 11px; color: var(--apt-ink-3); text-align: right; max-width: 50%;"></div>
@@ -1358,9 +1373,61 @@
 
 
 
+    {# ============ DÉTAIL LOTS / TRANCHES (avant le sectoriel — plus actionnable) ============ #}
+    {% if detail_lots and detail_lots.mode %}
+    {% set nb_coeur = detail_lots.lignes | selectattr('compat', 'equalto', 'coeur') | list | length %}
+    {% set nb_part = detail_lots.lignes | selectattr('compat', 'equalto', 'partielle') | list | length %}
+    {% set lot_teaser_parts = [] %}
+    {% set _ = lot_teaser_parts.append(detail_lots.lignes|length ~ (' lots' if detail_lots.mode == 'lots' else ' tranches')) %}
+    {% if detail_lots.mode == 'lots' and nb_coeur %}{% set _ = lot_teaser_parts.append(nb_coeur ~ ' cœur de cible') %}{% endif %}
+    {% if detail_lots.mode == 'lots' and nb_part %}{% set _ = lot_teaser_parts.append(nb_part ~ ' partiel' ~ ('s' if nb_part > 1 else '')) %}{% endif %}
+    {{ sec(('Détail par lot' if detail_lots.mode == 'lots' else 'Détail par tranche'), lot_teaser_parts | join(' · '), 'blue', true, IC_DOC) }}
+      {% for it in detail_lots.lignes %}
+      <div class="apt-block-soft" style="padding:12px 14px; margin-bottom:10px;">
+        {% if detail_lots.mode == 'lots' %}
+          <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:10px;">
+            <strong style="font-size:13.5px;">{{ it.intitule }}</strong>
+            {% if it.compat == 'coeur' %}<span style="display:inline-flex; align-items:center; gap:4px; padding:3px 11px; border-radius:999px; font-size:11.5px; font-weight:700; white-space:nowrap; background:var(--c-green-soft); color:var(--c-green-deep); border:1px solid rgba(31,140,92,0.30);">✓ Cœur de cible</span>
+            {% elif it.compat == 'partielle' %}<span style="display:inline-flex; align-items:center; gap:4px; padding:3px 11px; border-radius:999px; font-size:11.5px; font-weight:700; white-space:nowrap; background:var(--c-amber-soft); color:#b06010; border:1px solid rgba(232,144,72,0.30);">△ Partielle</span>
+            {% elif it.compat == 'hors' %}<span style="display:inline-flex; align-items:center; gap:4px; padding:3px 11px; border-radius:999px; font-size:11.5px; font-weight:600; white-space:nowrap; background:var(--c-stone-soft); color:var(--c-stone); border:1px solid rgba(140,122,107,0.25);">✗ Hors cible</span>{% endif %}
+          </div>
+          {% if it.volume %}<div class="apt-meta" style="margin-top:3px;">{{ it.volume }}</div>{% endif %}
+          {% if it.description %}<div style="font-size:12.5px; color:var(--apt-ink-2); margin-top:5px;">{{ it.description[:320] }}</div>{% endif %}
+        {% else %}
+          <div><strong style="font-size:13px;">{{ 'Tranche ferme' if it.type == 'ferme' else 'Tranche optionnelle' }}</strong></div>
+          <div style="font-size:12.5px; color:var(--apt-ink-2); margin-top:4px;">{{ it.libelle[:320] }}</div>
+        {% endif %}
+      </div>
+      {% endfor %}
+    </div></details>
+    {% endif %}
+
+    {# ============ DOCUMENTS DU DOSSIER (téléchargeables, section centrale) ============ #}
+    {% if docs_analyses %}
+    {{ sec('Documents du dossier', (docs_analyses|length ~ ' pièce' ~ ('s' if docs_analyses|length > 1 else '') ~ ' · cliquez pour télécharger'), 'blue', true, IC_DOC) }}
+      <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 8px;">
+        {% for d in docs_analyses %}
+        <a href="{{ url_for('telecharger_document', id_marche=marche.id, nom=d.nom) }}"
+           style="display: flex; align-items: center; gap: 10px; padding: 9px 11px; border: 1px solid var(--apt-line-2); border-radius: 9px; text-decoration: none; color: var(--apt-ink-2);"
+           onmouseover="this.style.background='var(--apt-bg)'; this.style.borderColor='var(--c-blue)';"
+           onmouseout="this.style.background='transparent'; this.style.borderColor='var(--apt-line-2)';"
+           title="Télécharger : {{ d.nom }}">
+          <span style="flex-shrink: 0; width: 34px; height: 34px; border-radius: 8px; background: var(--c-blue-soft); color: var(--c-blue); display: flex; align-items: center; justify-content: center; font-size: 9px; font-weight: 800;">{{ d.ext }}</span>
+          <span style="flex: 1; min-width: 0;">
+            <span style="display: block; font-size: 12.5px; font-weight: 600; line-height: 1.3;">{{ d.label }}{% if d.variante %} <span style="color: var(--apt-ink-4); font-weight: 500;">· {{ d.variante }}</span>{% endif %}</span>
+            <span style="display: block; font-size: 10px; color: var(--apt-ink-4); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{ d.nom }}</span>
+          </span>
+          <svg style="width: 14px; height: 14px; flex-shrink: 0; color: var(--apt-ink-4);" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+        </a>
+        {% endfor %}
+      </div>
+    </div></details>
+    {% endif %}
+
     {# ============ BLOC SECTORIEL PRESET-AWARE ============ #}
     {% for b in (blocs_sectoriels or []) %}
-    {{ sec('Secteur · ' ~ b.label, ((b.pct ~ '%') if b.pct else ''), ('green' if b.preset_code == 'btp' else 'violet'), true, IC_CHECK) }}
+    {% set sec_teaser = (b.sections[:4] | map(attribute='label') | join(' · ')) if b.sections else ((b.pct ~ '%') if b.pct else '') %}
+    {{ sec('Exigences ' ~ b.label, sec_teaser, ('green' if b.preset_code == 'btp' else 'violet'), true, IC_CHECK) }}
       {% if not b.implemente %}
         <p style="color: var(--apt-ink-3); font-size: 13px;">{{ b.sections[0].valeur }}</p>
       {% elif not b.sections %}
@@ -1368,7 +1435,7 @@
       {% else %}
         {% for s in b.sections %}
         <div style="margin-bottom: 13px;">
-          <div class="kpi-label" style="margin-bottom: 4px;">{{ s.label }}</div>
+          <div style="margin-bottom: 4px; font-size: 12.5px; font-weight: 700; color: var(--apt-ink);">{{ s.label }}</div>
           {% if s.type == 'list' %}
             <div style="display:flex; flex-wrap:wrap; gap:6px;">{% for it in s.valeur %}<span class="apt-chip apt-chip-mono">{{ it }}</span> {% endfor %}</div>
           {% elif s.type == 'organigramme' %}
@@ -1391,28 +1458,7 @@
     </div></details>
     {% endfor %}
 
-    {# ============ DÉTAIL LOTS / TRANCHES ============ #}
-    {% if detail_lots and detail_lots.mode %}
-    {{ sec(('Détail par lot' if detail_lots.mode == 'lots' else 'Détail par tranche'), (detail_lots.lignes|length ~ (' lots' if detail_lots.mode == 'lots' else ' tranches')), 'blue', false, IC_DOC) }}
-      {% for it in detail_lots.lignes %}
-      <div class="apt-block-soft" style="padding:12px 14px; margin-bottom:10px;">
-        {% if detail_lots.mode == 'lots' %}
-          <div style="display:flex; justify-content:space-between; align-items:center; gap:10px;">
-            <strong style="font-size:13.5px;">{{ it.intitule }}</strong>
-            {% if it.compat == 'coeur' %}<span style="color:var(--c-green); font-size:12px; white-space:nowrap;">✓ cœur de cible</span>
-            {% elif it.compat == 'partielle' %}<span style="color:var(--c-amber); font-size:12px; white-space:nowrap;">△ partielle</span>
-            {% elif it.compat == 'hors' %}<span style="color:var(--apt-ink-4); font-size:12px; white-space:nowrap;">✗ hors cible</span>{% endif %}
-          </div>
-          {% if it.volume %}<div class="apt-meta" style="margin-top:3px;">{{ it.volume }}</div>{% endif %}
-          {% if it.description %}<div style="font-size:12.5px; color:var(--apt-ink-2); margin-top:5px;">{{ it.description[:320] }}</div>{% endif %}
-        {% else %}
-          <div><strong style="font-size:13px;">{{ 'Tranche ferme' if it.type == 'ferme' else 'Tranche optionnelle' }}</strong></div>
-          <div style="font-size:12.5px; color:var(--apt-ink-2); margin-top:4px;">{{ it.libelle[:320] }}</div>
-        {% endif %}
-      </div>
-      {% endfor %}
-    </div></details>
-    {% endif %}
+    {# Détail par lot/tranche déplacé AVANT le bloc sectoriel (plus intéressant à voir). #}
 
 
     {% set diff = brief.points_differenciants_attendus or brief.points_differenciants_probables %}
@@ -1426,7 +1472,7 @@
             {% if p is mapping %}
               <span style="color: var(--apt-ink-2);">{{ p.libelle or p.texte or '' }}</span>
               {% if p.exemple %}<p style="margin: 3px 0 0; font-size: 12px; color: var(--apt-ink-3); line-height: 1.5; font-style: italic;">Ex : {{ p.exemple }}</p>{% endif %}
-              {% if p.source %}<span class="tip" data-tip="{{ p.source | clean_source }}" style="display: inline-block; font-size: 10.5px; color: var(--apt-ink-4); border-bottom: 1px dotted var(--apt-line); cursor: help; margin-top: 2px;">source ⓘ</span>{% endif %}
+              {% if p.source %}<div style="font-size: 11px; color: var(--apt-ink-4); margin-top: 3px;"><span style="color: var(--apt-ink-3); font-weight: 600;">Source :</span> {{ p.source | clean_source }}</div>{% endif %}
             {% else %}
               <span style="color: var(--apt-ink-2);">{{ p }}</span>
             {% endif %}
@@ -1536,8 +1582,8 @@
     {% if brief_type == 'light' and brief.elements_a_verifier_dans_dce %}
     {{ sec('À vérifier dans le DCE', brief.elements_a_verifier_dans_dce | length ~ ' point' ~ ('s' if brief.elements_a_verifier_dans_dce | length > 1 else '') ~ ' à confirmer', 'amber', true, IC_WARN) }}
       <p style="font-size: 12.5px; color: var(--apt-ink-3); line-height: 1.55; margin: 0 0 10px;">
-        Ce brief est généré depuis l'avis seul. Télécharge le DCE et lance
-        <code style="font-family: ui-monospace, monospace; background: var(--apt-bg); padding: 1px 6px; border-radius: 3px; font-size: 11px;">python tendia_extraire.py --marche {{ marche.id }}</code>.
+        Cette analyse est basée sur l'avis de marché seul. Les points ci-dessous seront
+        précisés une fois le dossier de consultation (DCE) téléchargé et analysé.
       </p>
       <ul style="margin: 0; padding: 0; list-style: none;">
         {% for el in brief.elements_a_verifier_dans_dce %}
@@ -1555,6 +1601,35 @@
   <!-- ============ ASIDE — sidebar always-visible ============ -->
   <aside>
 
+    {# ─── Contact acheteur (depuis l'avis BOAMP) — juste avant l'éligibilité ─── #}
+    {% if marche.contact and (marche.contact.email or marche.contact.telephone or marche.contact.nom) %}
+    {% set ct = marche.contact %}
+    <div class="aside-card">
+      <div class="aside-card-header" style="background: var(--c-blue-soft); color: var(--c-blue); border-bottom-color: rgba(67,115,181,0.18);">
+        <svg style="width: 14px; height: 14px;" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.206"/>
+        </svg>
+        Contact acheteur
+      </div>
+      <div class="aside-card-body" style="font-size: 12.5px; line-height: 1.55; color: var(--apt-ink-2);">
+        {% if ct.nom %}<div style="font-weight: 600;">{% if ct.civilite %}{{ ct.civilite | capitalize }} {% endif %}{{ ct.nom }}</div>{% endif %}
+        {% if ct.fonction %}<div style="font-size: 11px; color: var(--apt-ink-4); margin-bottom: 4px;">{{ ct.fonction }}</div>{% endif %}
+        {% if ct.email %}
+        <div style="display: flex; align-items: center; gap: 7px; margin-top: 6px;">
+          <svg style="width: 13px; height: 13px; flex-shrink: 0; color: var(--apt-ink-4);" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          <a href="mailto:{{ ct.email }}" style="color: var(--c-blue); text-decoration: none; word-break: break-all;">{{ ct.email }}</a>
+        </div>
+        {% endif %}
+        {% if ct.telephone %}
+        <div style="display: flex; align-items: center; gap: 7px; margin-top: 5px;">
+          <svg style="width: 13px; height: 13px; flex-shrink: 0; color: var(--apt-ink-4);" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+          <a href="tel:{{ ct.telephone | replace(' ', '') }}" style="color: var(--apt-ink-2); text-decoration: none;">{{ ct.telephone }}</a>
+        </div>
+        {% endif %}
+        <div style="margin-top: 9px; font-size: 10px; color: var(--apt-ink-4); opacity: 0.7;">source : avis BOAMP</div>
+      </div>
+    </div>
+    {% endif %}
 
     {# ─── Critères (en sidebar, avant Public bénéficiaire) ─── #}
     {% if brief.alertes_candidat %}
@@ -1569,7 +1644,7 @@
         <svg style="width: 14px; height: 14px;" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
         </svg>
-        Vigilance · {{ alertes_evaluees | length }} alerte{{ 's' if (alertes_evaluees | length) > 1 else '' }}{% if teaser_side_parts %} · {{ teaser_side_parts | join(' · ') }}{% endif %}
+        Vérifiez votre éligibilité · {{ alertes_evaluees | length }} point{{ 's' if (alertes_evaluees | length) > 1 else '' }}{% if teaser_side_parts %} · {{ teaser_side_parts | join(' · ') }}{% endif %}
       </div>
       <div class="aside-card-body">
         <div style="display: flex; flex-direction: column; gap: 5px;">
@@ -1612,6 +1687,28 @@
               {% endif %}
             </div>
           </details>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+    {% endif %}
+
+    {# ─── Verdict 90 secondes (résumé go/no-go, déplacé depuis le corps) ─── #}
+    {% if verdict_90 %}
+    <div class="aside-card">
+      <div class="aside-card-header is-verdict">
+        <svg style="width: 14px; height: 14px;" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+        </svg>
+        Verdict 90 secondes
+      </div>
+      <div class="aside-card-body">
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          {% for l in verdict_90 %}
+          <div style="display: flex; gap: 8px; align-items: flex-start; font-size: 12.5px; line-height: 1.45;">
+            <span style="font-weight: 800; flex-shrink: 0; color: {% if l.icone == '✗' %}var(--c-rose){% elif l.icone == '⚠' %}var(--c-amber){% else %}var(--c-green){% endif %};">{{ l.icone }}</span>
+            <span style="color: var(--apt-ink-2);">{{ l.texte }}</span>
+          </div>
           {% endfor %}
         </div>
       </div>
@@ -1687,7 +1784,7 @@
         Concurrents historiques
       </div>
       <div class="aside-card-body">
-        <div style="font-size: 10.5px; color: var(--apt-ink-4); margin-bottom: 10px;">DECP · « {{ marche.categorie_metier }} »</div>
+        <div style="font-size: 10.5px; color: var(--apt-ink-4); margin-bottom: 10px;">Attributaires observés sur des marchés comparables</div>
         <ol style="margin: 0; padding: 0; list-style: none;">
           {% for c in concurrents[:5] %}
           <li style="display: flex; align-items: baseline; gap: 10px; padding: 5px 0; border-bottom: 1px dashed var(--apt-line-2);">
