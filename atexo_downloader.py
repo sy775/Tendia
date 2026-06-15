@@ -148,7 +148,11 @@ def telecharger_dce(id_atexo, org_acronyme: str, chemin_destination: str,
            "duree_secondes": 0.0}
 
     # Session « humaine » : UA tournant + TLS Chrome + IP dédiée (anti-ban).
-    session = http_humain.creer_session_humaine(session_id=session_id or str(id_atexo))
+    # PLACE (marches-publics.gouv.fr) est confirmé sans ban → proxy désactivable
+    # via TENDIA_PROXY_FOR_PLACE=0 ; les forks Atexo restent en proxy par défaut.
+    _plateforme = "place" if "marches-publics.gouv.fr" in (url_base or "").lower() else "atexo"
+    session = http_humain.creer_session_humaine(session_id=session_id or str(id_atexo),
+                                                plateforme=_plateforme)
 
     url_form = _construire_url_formulaire(id_atexo, org_acronyme, url_base)
     if verbose:

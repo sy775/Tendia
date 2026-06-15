@@ -84,12 +84,37 @@ def _injecter_session_id(proxy_url: str, session_id: str) -> str:
     return urlunparse(parsed._replace(netloc=new_netloc))
 
 
+def _proxy_pour_plateforme(plateforme: Optional[str]) -> bool:
+    """
+    Décide si le proxy résidentiel doit être utilisé pour une plateforme.
+
+    Politique : proxy ACTIVÉ par défaut (sécurité anti-ban). Désactivation
+    EXPLICITE uniquement via `TENDIA_PROXY_FOR_<PLATEFORME>=0` dans
+    l'environnement (.env). Plateformes confirmées sans ban à désactiver :
+    `place` (marches-publics.gouv.fr), `boamp`, `data_gouv` (DECP).
+
+    Args:
+        plateforme: identifiant court (ex: "place", "dematis", "aws_achat").
+            None → proxy activé (comportement historique).
+
+    Returns:
+        True si le proxy doit être appliqué, False si désactivé pour cette plateforme.
+    """
+    if not plateforme:
+        return True
+    flag = os.environ.get(f"TENDIA_PROXY_FOR_{plateforme.upper()}")
+    if flag is not None and flag.strip() in ("0", "false", "False", "no", "off"):
+        return False
+    return True
+
+
 def creer_session_humaine(ua_fixe: Optional[str] = None,
                           proxy_url: Optional[str] = None,
-                          session_id: Optional[str] = None):
+                          session_id: Optional[str] = None,
+                          plateforme: Optional[str] = None):
     """Crée une session HTTP « humaine » : User-Agent aléatoire, headers
     réalistes, fingerprint TLS Chrome (via http_client/curl_cffi) et, si un
-    proxy Bright Data est configuré, une IP résidentielle dédiée à la session.
+    proxy résidentiel est configuré ET activé pour la plateforme, une IP dédiée.
 
     Args:
         ua_fixe: force ce User-Agent (reproductibilité tests). Sinon aléatoire.
@@ -98,6 +123,10 @@ def creer_session_humaine(ua_fixe: Optional[str] = None,
             id de marché), force une IP stable pour ce marché. Si None et que
             le proxy est Bright Data, un UUID court est généré → nouvelle IP à
             chaque appel.
+        plateforme: identifiant court de la plateforme cible (ex: "place",
+            "dematis", "aws_achat"). Le proxy est ON par défaut ; il est
+            DÉSACTIVÉ pour cette plateforme si `TENDIA_PROXY_FOR_<PLATEFORME>=0`
+            (cf `_proxy_pour_plateforme`). None → proxy ON (rétro-compat).
     """
     session = http_lib.Session()
     ua = ua_fixe if ua_fixe else random.choice(USER_AGENTS_POOL)
@@ -114,9 +143,10 @@ def creer_session_humaine(ua_fixe: Optional[str] = None,
         "Sec-Fetch-User": "?1",
         "Upgrade-Insecure-Requests": "1",
     })
-    # Proxy résidentiel anti-ban : TENDIA_PROXY_URL par défaut. Sur Bright Data,
-    # on injecte un session-id pour piloter la rotation d'IP.
-    if proxy_url is None:
+    # Proxy résidentiel anti-ban : TENDIA_PROXY_URL par défaut. Désactivé pour
+    # les plateformes sans ban (place/boamp/data_gouv) via TENDIA_PROXY_FOR_*=0.
+    # Sur Bright Data, on injecte un session-id pour piloter la rotation d'IP.
+    if proxy_url is None and _proxy_pour_plateforme(plateforme):
         proxy_url = os.environ.get("TENDIA_PROXY_URL")
     if proxy_url:
         if "brd.superproxy.io" in proxy_url and "-session-" not in proxy_url:

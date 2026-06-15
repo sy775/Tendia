@@ -175,7 +175,8 @@ def telecharger_dce(
            "nb_fichiers_extraits": 0}
 
     # Session « humaine » : UA tournant + TLS Chrome + IP dédiée (anti-ban).
-    session = http_humain.creer_session_humaine(session_id=session_id or pcslid)
+    session = http_humain.creer_session_humaine(session_id=session_id or pcslid,
+                                                plateforme="achatpublic")
 
     url_detail = _construire_url_detail(pcslid)
     if verbose:

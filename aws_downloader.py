@@ -423,7 +423,8 @@ def telecharger_dce(
 
     # Session « humaine » : UA tournant + TLS Chrome + IP dédiée (anti-ban).
     # session_id pilote la rotation d'IP Bright Data (1 IP par session-id).
-    session = http_humain.creer_session_humaine(session_id=session_id or idm)
+    session = http_humain.creer_session_humaine(session_id=session_id or idm,
+                                                plateforme="aws_achat")
 
     if verbose:
         print(f"  [AWS-Achat] DCE IDM={idm}")
@@ -708,7 +709,7 @@ def telecharger_dce(
 
 
 def _telecharger_fichier_cdn(session, url: str, dossier: str,
-                              timeout: int = 180, verbose: bool = False):
+                              timeout: int = 180, verbose: bool = False):  # PATCH cdn_bypass : bypass proxy pour le CDN externe
     """
     Télécharge un fichier CDN avec retry (timeout/5xx). Nom = Content-Disposition.
     Retourne (ok, chemin, taille_octets, erreur).
@@ -716,7 +717,7 @@ def _telecharger_fichier_cdn(session, url: str, dossier: str,
     derniere = ""
     for essai in range(1, CDN_MAX_ESSAIS + 1):
         try:
-            r = session.get(url, timeout=timeout, stream=True, allow_redirects=True)
+            r = _session_sans_proxy(session).get(url, timeout=timeout, stream=True, allow_redirects=True)
             code = r.status_code
             if code >= 500:
                 derniere = f"HTTP {code}"
@@ -747,6 +748,26 @@ def _telecharger_fichier_cdn(session, url: str, dossier: str,
             time.sleep(2 * essai)
     return False, None, 0, derniere or "échec"
 
+
+def _session_sans_proxy(session_source):
+    """Cree une session HTTP basee sur session_source mais SANS proxy.
+    
+    PATCH cdn_bypass : pour les telechargements depuis downloads.awsolutions.fr
+    (CDN externe non protege), on n'utilise pas le proxy IPRoyal afin d'economiser
+    99% des couts. Le CDN ne ban pas les IPs (sinon les vrais utilisateurs seraient
+    bloques).
+    """
+    import http_client as _http
+    s = _http.Session()
+    # Copier les headers de la session source (UA, Accept, etc.)
+    try:
+        for k, v in session_source.headers.items():
+            s.headers[k] = v
+    except Exception:
+        pass
+    # Surtout : NE PAS copier les proxies
+    s.proxies = {}
+    return s
 
 def telecharger_dce_pour_marche(
     marche: dict,

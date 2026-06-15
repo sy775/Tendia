@@ -544,7 +544,7 @@ def telecharger_dce(
         if verbose:
             print("  [Dematis] ⚠ vérification SSL désactivée (workaround certifi/CA Windows)")
 
-    session = http_humain.creer_session_humaine(session_id=session_id)
+    session = http_humain.creer_session_humaine(session_id=session_id, plateforme="dematis")
     # Quirk Dematis : récupérer le PHPSESSID malgré le Domain= vide (sinon la
     # session PHP — qui porte la solution du captcha — est perdue).
     _installer_fix_cookies_domaine_vide(session)
