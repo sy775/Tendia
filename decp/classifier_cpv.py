@@ -21,11 +21,14 @@ CONFIANCE = {
 
 # Patterns texte indiquant un marché de maîtrise d'œuvre (raffinement pattern 3).
 # Les acheteurs collent souvent un CPV travaux (45xxx) sur une MOE → ingenierie.
+# Classe d'apostrophes exhaustive : ASCII + smart quotes + prime + accents (raffinement
+# v2 — les extraits DECP mélangent U+0027 / U+2019 / U+2018 selon la source).
+_APOSTROPHE_CLASS = r"['‘’‛′`´]"
 PATTERNS_MOE = re.compile(
-    r"(ma[iî]tris\w*\s+d['’\s]*\s*(?:œuvre|oeuvre)"   # maîtrise/maitrise d'œuvre/oeuvre
-    r"|\bmo[eE]\b"                                       # MOE / moe
-    r"|mission\s+de\s+conception"
-    r"|mission\s+de\s+ma[iî]tris\w*)",
+    rf"(ma[iî]tris\w*\s+d\s*{_APOSTROPHE_CLASS}?\s*(?:œuvre|oeuvre)"  # maîtrise/maitrise d'œuvre
+    rf"|\bmo[eE]\b"                                                    # MOE / moe
+    rf"|mission\s+de\s+conception"
+    rf"|mission\s+de\s+ma[iî]tris\w*)",
     re.IGNORECASE,
 )
 

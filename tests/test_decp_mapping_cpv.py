@@ -64,6 +64,13 @@ check("71314 n'est PLUS enr", p("71314000") != "enr" and p("71314100") != "enr")
 check("71314xxx non listé → ingenierie (préfixe 71)",
       p("71314900") == "ingenierie" and src("71314900") == "cpv_prefixe_2")
 
+print("Pattern 4 — 79415 (design/management consultancy) → LLM")
+check("79415200 → None (LLM, plus conseil_rd)", p("79415200") is None)
+check("79415200 source = cpv_ambigu_explicite", src("79415200") == "cpv_ambigu_explicite")
+check("79415000 → None (LLM)", p("79415000") is None)
+check("794 générique reste conseil_rd (79400000)", p("79400000") == "conseil_rd")
+check("79212 (audit) reste conseil_rd", p("79212000") == "conseil_rd")
+
 print("Ambigus → LLM (None)")
 check("79 générique → None", p("79110000") is None and src("79110000") == "cpv_ambigu_explicite")
 check("50 maintenance → None", p("50700000") is None)

@@ -73,7 +73,10 @@ consommé : **6,80 €**. Voir `RAPPORT_DECP_SPRINT2.md`.
 | `scripts/decp_rapport_sprint2.py` | Audit final + génération `RAPPORT_DECP_SPRINT2.md` (distributions, cohérence vs Sprint 1, coût). |
 | `scripts/decp_explore_cpv.py` | Distribution CPV brute → `data/decp_cpv_distribution.csv` (calibrage du mapping). |
 | `scripts/decp_reclassify_patterns.py` | Raffinement post-validation (3 patterns), re-classification CPV 0 € avec garde-fous. |
-| `tests/test_decp_mapping_cpv.py`, `tests/test_decp_classifier_cpv.py`, `tests/test_decp_classifier_llm.py` | Tests unitaires (mapping + règle MOE + budget/coût LLM). |
+| `scripts/decp_verifier_raffinement.py` | v2 Étape 1 — vérifie en base l'application du raffinement v1 (5 marchés témoins). |
+| `scripts/decp_reclassify_pattern4.py` | v2 Étape 3 — re-classification LLM des CPV 79* (frontière conseil_rd ↔ ingenierie), plafond + garde-fous. |
+| `scripts/decp_valider_classif_v2.py` | v2 Étape 4 — tirage 30 marchés `--focus-fixes` (sur-représente MOE / Pattern 4 / CPV 79*). |
+| `tests/test_decp_mapping_cpv.py`, `tests/test_decp_classifier_cpv.py`, `tests/test_decp_classifier_llm.py` | Tests unitaires (mapping + règle MOE/apostrophes + budget/coût LLM). |
 
 **Résultats** : 127 685 classés par CPV (niveau 1, 89,5 %), 15 050 par LLM (10,5 %), 0 reliquat
 budget. Distribution : hors_perimetre 47 %, btp 35,7 %, ingenierie 8,4 %, it 5,0 %, conseil_rd 1,9 %,
@@ -86,6 +89,58 @@ formation 1,6 %, enr 0,3 %. Pré-validation indicative **~86-90 %** (≥ seuil 8
 `71314`→enr) ; (3) règle texte MOE (`mapping_cpv.py` / `classifier_cpv.py`) → ingenierie
 même si CPV `45xxx` (source `cpv_moe_override`). Distribution finale : btp 35,6 %,
 ingenierie 8,5 %, enr 0,2 %, hors_perimetre 47,1 % (deltas < 0,2 pt).
+
+**Raffinement v2 (suite audit Younes)** — vérifié que v1 était bien appliqué (audit fait
+sur l'export pré-raffinement → précision réelle ~92 %). Durcissement regex MOE (apostrophes
+typographiques) et **Pattern 4** : retrait `79415`→conseil_rd + prompt LLM enrichi
+(distinction ingenierie/conseil_rd, `enr` profil 1+3) + re-classification LLM des CPV 79*
+(356/2867 reclassés, **2,38 €**). Prompt versionné (`PROMPT_VERSION`). Voir
+`RAPPORT_DECP_SPRINT2.md` § Raffinement v2.
+
+## Définitions des presets
+
+Cette section documente les frontières métier de chaque preset Tendia, telles
+qu'elles s'appliquent au pipeline de classification DECP. À mettre à jour à
+chaque décision frontière prise pendant un sprint.
+
+### enr — Énergies renouvelables (validé Sprint DECP 2 raffinement v2)
+
+**Cible** : installateurs, intégrateurs, EPC (Engineering Procurement Construction),
+bureaux d'études et AMO d'installations d'énergies renouvelables (profils 1 + 3).
+
+**Inclus** :
+- Travaux d'installation EnR (photovoltaïque, éolien, biomasse, géothermie, hydraulique)
+- Études techniques EnR (faisabilité, dimensionnement, audits)
+- AMO sur projets EnR
+- Maintenance d'installations EnR
+- Marchés mixtes incluant pose d'équipements EnR
+
+**Exclus (vont en hors_perimetre)** :
+- Fourniture/achat d'énergie (même renouvelable), y compris contrats PPA et autoconsommation collective (profil 2)
+- Services de gestion énergétique pure (sans EnR spécifique → ingenierie selon cas)
+
+**Justification** : Tendia cible des fournisseurs de services/travaux, pas des
+producteurs/fournisseurs de commodités. Cohérent avec les 5 autres presets.
+Mise en œuvre : `71314100` (fourniture élec/gaz) → hors_perimetre ; le prompt LLM
+exclut explicitement la fourniture pure d'énergie.
+
+### ingenierie vs conseil_rd — frontière (validé raffinement v2, Pattern 4)
+
+Confusion fréquente sur les CPV `79xxx`. Règle tranchée :
+- **ingenierie** : étude *technique* (thermique, environnement/PPRN, structure, fluides,
+  géotechnique), maîtrise d'œuvre, AMO bâtiment/aménagement, programmation technique de
+  projet, audit technique/énergétique, géomètre, topographie.
+- **conseil_rd** : conseil *stratégique*/organisationnel, conseil/AMO juridique ou
+  financière, évaluation de politiques publiques, études de marché/socio-économiques,
+  R&D scientifique, AMO foncier.
+
+Mise en œuvre : retrait du mapping CPV `79415`→conseil_rd (trop large : recouvrait l'AMO
+programmation) → renvoyé au LLM ; prompt LLM enrichi d'une section « DISTINCTION CRITIQUE ».
+
+### Autres presets
+
+btp, it, formation : voir le prompt système (`decp/classifier_llm.py`) et le mapping
+CPV (`decp/mapping_cpv.py`). À documenter au fil des décisions frontière.
 
 ## Hors-scope Sprint 2 (→ Sprint 3)
 

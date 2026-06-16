@@ -54,6 +54,12 @@ MAPPING_CPV_PREFIXE = {
     "45": "btp", "71": "ingenierie", "72": "it", "80": "formation", "48": "it",
 }
 
+# Sous-codes explicitement renvoyés au LLM (trop ambigus pour un mapping fixe).
+# 79415 (management/design consultancy) recouvre l'AMO programmation technique bâtiment
+# (→ ingenierie) autant que le conseil en organisation (→ conseil_rd). Le mapping bloc
+# "794"→conseil_rd était trop large : on le laisse trancher au LLM (raffinement v2, pattern 4).
+CPV_SOUS_CODES_VERS_LLM = {"79415"}
+
 # Divisions explicitement ambiguës → LLM (préfixe 2).
 CPV_AMBIGUS_PREFIXE = {"09", "50", "79"}
 
@@ -84,8 +90,11 @@ def classer_par_cpv(cpv_principal: str) -> Tuple[Optional[str], str]:
         return MAPPING_CPV_EXACT[c], "cpv_exact"
     # 2. sous-codes ciblés (du plus précis au plus court) — avant ambigus & préfixe 2
     for L in (5, 4, 3):
-        if c[:L] in MAPPING_CPV_SOUS_CODES:
-            return MAPPING_CPV_SOUS_CODES[c[:L]], f"cpv_prefixe_{L}"
+        pref = c[:L]
+        if pref in CPV_SOUS_CODES_VERS_LLM:   # exclusion explicite (ex. 79415) → LLM
+            return None, "cpv_ambigu_explicite"
+        if pref in MAPPING_CPV_SOUS_CODES:
+            return MAPPING_CPV_SOUS_CODES[pref], f"cpv_prefixe_{L}"
     # 3. ambigu explicite (09/50/79 hors sous-codes mappés ci-dessus) → LLM
     if c[:2] in CPV_AMBIGUS_PREFIXE:
         return None, "cpv_ambigu_explicite"

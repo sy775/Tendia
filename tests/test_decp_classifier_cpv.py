@@ -51,5 +51,30 @@ check("MOE + 71 reste ingenierie (déjà ing, pas d'override hors 45)",
 check("« commande » ne déclenche pas MOE (mot 'moe' borné)",
       cl("45200000", "Travaux de rénovation, commande groupée de matériaux")["preset_principal"] == "btp")
 
+print("Pattern 3 (v2) — apostrophes typographiques (smart quotes)")
+# U+2019 (apostrophe droite typographique, la plus fréquente en base DECP)
+r = cl("45200000", "MAITRISE D’OEUVRE extension de l'école")
+check("U+2019 (’) → ingenierie", r["preset_principal"] == "ingenierie")
+check("U+2019 → source cpv_moe_override", r["source"] == "cpv_moe_override")
+# U+2018 (apostrophe gauche)
+check("U+2018 (‘) → ingenierie",
+      cl("45211000", "MAITRISE D‘OEUVRE phase exécution")["preset_principal"] == "ingenierie")
+# ASCII en majuscules
+check("ASCII (') majuscules → ingenierie",
+      cl("45211000", "MARCHE DE MAITRISE D'OEUVRE - PHASE EXECUTION")["preset_principal"] == "ingenierie")
+# accents complets + smart quote
+check("« Maîtrise d’œuvre » accents + U+2019 → ingenierie",
+      cl("45233000", "Maîtrise d’œuvre pour la requalification")["preset_principal"] == "ingenierie")
+# U+2032 (prime), variante rare
+check("U+2032 (′) prime → ingenierie",
+      cl("45000000", "Maitrise d′oeuvre bâtiment")["preset_principal"] == "ingenierie")
+# Hors CPV 45 : pas d'override
+check("MOE smart quote + CPV 72 → it (pas d'override hors 45)",
+      cl("72000000", "Maîtrise d’œuvre projet logiciel")["preset_principal"] == "it")
+# Non-régression : 'Moulin' ne matche pas \bmoe\b
+r = cl("45000000", "Construction du Moulin de la Croix")
+check("« Moulin » ne déclenche pas MOE (non-régression)",
+      r["preset_principal"] == "btp" and r["source"] != "cpv_moe_override")
+
 print(f"\n=== {ok} OK / {ko} KO ===")
 sys.exit(1 if ko else 0)

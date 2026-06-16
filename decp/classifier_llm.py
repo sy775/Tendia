@@ -6,6 +6,7 @@ avec Claude Haiku 4.5. Budget tracker thread-safe + arrêt net à 50 €.
 
 Tarif Haiku 4.5 : 1 $/1M input, 5 $/1M output (×0.95 €/$). ~430 tok/marché ⇒ ~0,0005 €.
 """
+import hashlib
 import json
 import os
 import re
@@ -24,17 +25,39 @@ PRESETS_VALIDES = {"btp", "it", "ingenierie", "conseil_rd", "formation", "enr", 
 
 PROMPT_SYSTEME = (
     "Tu es un classificateur de marchés publics français. Tu reçois l'objet d'un "
-    "marché et son code CPV, et tu dois retourner UN SEUL preset parmi :\n"
-    "- btp : travaux de construction, bâtiment, génie civil, voirie\n"
-    "- it : informatique, logiciel, infrastructure IT, télécoms, cybersécurité\n"
-    "- ingenierie : architecture, maîtrise d'œuvre, études techniques, ingénierie conseil\n"
-    "- conseil_rd : conseil en stratégie, audit, études économiques, R&D scientifique\n"
-    "- formation : formation professionnelle, enseignement, certification\n"
-    "- enr : énergies renouvelables, solaire, éolien, biomasse, géothermie\n"
-    "- hors_perimetre : tout le reste (transport, alimentation, mobilier, services généraux...)\n\n"
+    "marché et son code CPV, et tu dois retourner UN SEUL preset parmi :\n\n"
+    "- btp : travaux de construction, bâtiment, génie civil, voirie, VRD, second œuvre\n"
+    "- it : informatique, logiciel, infrastructure IT, télécoms, cybersécurité, équipements IT\n"
+    "- ingenierie : architecture, maîtrise d'œuvre, AMO bâtiment/aménagement, études "
+    "techniques (thermiques, environnementales, géotechniques, structures, fluides), "
+    "programmation technique de projet, audits techniques, géomètre, topographie, "
+    "ingénierie environnementale\n"
+    "- conseil_rd : conseil stratégique, conseil juridique, audit organisationnel, "
+    "évaluation de politiques publiques, études de marché, études socio-économiques, "
+    "R&D scientifique, AMO juridique/financière (pas technique)\n"
+    "- formation : formation professionnelle, enseignement, certification, écoles de conduite\n"
+    "- enr : travaux, études, AMO et maintenance d'installations d'énergies renouvelables "
+    "(solaire, éolien, biomasse, géothermie). NE PAS inclure les marchés de fourniture pure "
+    "d'énergie (même verte) — ceux-là sont hors_perimetre.\n"
+    "- hors_perimetre : tout le reste (transport, alimentation, mobilier, services généraux, "
+    "événementiel, fourniture d'énergie/carburant, sécurité/gardiennage, maintenance "
+    "non-spécialisée...)\n\n"
+    "DISTINCTION CRITIQUE ingenierie vs conseil_rd :\n"
+    "- \"Étude technique\" (thermique, environnement, structure, fluides, géotechnique, etc.) → ingenierie\n"
+    "- \"Programme technique et fonctionnel\" / \"AMO programmation\" projet bâtiment → ingenierie\n"
+    "- \"Étude PPRN / aléa naturel\" → ingenierie (étude technique environnement)\n"
+    "- \"Conseil stratégique / d'organisation\" → conseil_rd\n"
+    "- \"Évaluation politique publique\" → conseil_rd\n"
+    "- \"Étude de marché / socio-économique\" → conseil_rd\n"
+    "- \"AMO juridique / financière\" → conseil_rd\n"
+    "- \"AMO Foncier\" → conseil_rd (conseils juridiques foncier)\n"
+    "- \"Mission de conseil et accompagnement stratégique\" → conseil_rd\n\n"
     'Réponds STRICTEMENT en JSON :\n{"preset": "<un_des_codes_ci_dessus>", "confiance": <0.0-1.0>}\n\n'
     "Pas de prose, pas d'explication, juste le JSON."
 )
+
+# Version du prompt (traçabilité re-classification — cf. Chantier 1E).
+PROMPT_VERSION = hashlib.sha256(PROMPT_SYSTEME.encode("utf-8")).hexdigest()[:12]
 
 _client = None
 _client_lock = threading.Lock()
