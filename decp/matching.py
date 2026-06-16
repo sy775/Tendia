@@ -5,11 +5,12 @@ Pondérations (cf prompt sprint) : CPV 0.30, acheteur 0.35, période 0.20, monta
 Le score montant est optionnel : s'il est absent côté Tendia, son poids est
 redistribué proportionnellement sur les 3 autres.
 
-ADAPTATION (documentée) : les marchés Tendia (BOAMP) n'ont PAS de SIRET acheteur
-(`acheteur_id` toujours None). Le score acheteur tombe donc en repli sur une
-similarité de NOM normalisé quand le SIRET manque d'un côté. C'est le principal
-limiteur du matching — à lever en enrichissant les marchés Tendia avec le SIRET
-de l'avis BOAMP (champ `donnees`).
+MATCHING ACHETEUR AU NIVEAU SIREN (enrichissement v2) : la DECP stocke un SIRET (14
+chiffres), l'avis BOAMP fournit un SIREN (9, champ `acheteur_siren`). Le rapprochement
+se fait donc au niveau **SIREN** = 9 premiers chiffres du SIRET DECP (métier-juste : le
+SIREN identifie l'entité juridique). Repli sur similarité de NOM normalisé quand le SIREN
+manque d'un côté (avis legacy sans `donnees` eForms ≈ 55 % des briefs).
+Cf. docs/modules/marche.md SECTION 1.
 """
 import re
 import unicodedata
@@ -53,17 +54,26 @@ def score_cpv(cpv_a, cpv_b) -> float:
     return 0.0
 
 
-def score_acheteur(siret_a, siret_b, nom_a=None, nom_b=None) -> float:
-    """SIRET si dispo des deux côtés ; sinon repli sur similarité de nom."""
-    a = "".join(c for c in str(siret_a or "") if c.isdigit())
-    b = "".join(c for c in str(siret_b or "") if c.isdigit())
-    if len(a) == 14 and len(b) == 14:
-        if a == b:
-            return 1.0
-        if a[:9] == b[:9]:  # même SIREN
-            return 0.6
-        return 0.0
-    # Repli nom (SIRET absent d'au moins un côté)
+def siren_de(identifiant) -> Optional[str]:
+    """SIREN (9 chiffres) depuis un SIRET (14), un SIREN (9) ou variantes. None sinon."""
+    d = "".join(c for c in str(identifiant or "") if c.isdigit())
+    return d[:9] if len(d) >= 9 else None
+
+
+def score_acheteur(id_a, id_b, nom_a=None, nom_b=None) -> float:
+    """Matching au niveau SIREN (cf. docstring module) ; repli nom si SIREN manquant.
+
+    `id_a`/`id_b` acceptent un SIRET (14) ou un SIREN (9) — Tendia fournit le SIREN
+    (`acheteur_siren`), la DECP un SIRET dont on prend les 9 premiers chiffres.
+    """
+    da = "".join(c for c in str(id_a or "") if c.isdigit())
+    db = "".join(c for c in str(id_b or "") if c.isdigit())
+    sa, sb = siren_de(da), siren_de(db)
+    if sa and sb:
+        if len(da) == 14 and len(db) == 14 and da == db:
+            return 1.0          # même établissement (SIRET exact)
+        return 0.9 if sa == sb else 0.0   # même entité juridique (SIREN) → fort
+    # Repli nom (SIREN absent d'au moins un côté : avis legacy)
     ta, tb = _normaliser_nom(nom_a), _normaliser_nom(nom_b)
     if not ta or not tb:
         return 0.0
@@ -123,7 +133,8 @@ def score_montant(montant_estime_tendia, montant_decp) -> Optional[float]:
 def scorer_match(marche_tendia: dict, attribution_decp: dict) -> dict:
     s_cpv = score_cpv(marche_tendia.get("cpv_principal"),
                       attribution_decp.get("cpv_principal"))
-    s_ach = score_acheteur(marche_tendia.get("acheteur_siret"),
+    s_ach = score_acheteur(marche_tendia.get("acheteur_siren")
+                           or marche_tendia.get("acheteur_siret"),
                            attribution_decp.get("acheteur_siret"),
                            marche_tendia.get("acheteur_nom"),
                            attribution_decp.get("acheteur_nom"))

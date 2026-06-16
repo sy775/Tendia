@@ -36,7 +36,10 @@ check("CPV mal formaté toléré", score_cpv("45211000-9", "45211000") == 1.0)
 
 print("score_acheteur")
 check("SIRET identique → 1.0", score_acheteur("13000548100010", "13000548100010") == 1.0)
-check("SIREN identique → 0.6", score_acheteur("13000548100010", "13000548100028") == 0.6)
+check("SIREN identique (matching v2 niveau SIREN) → 0.9",
+      score_acheteur("13000548100010", "13000548100028") == 0.9)
+check("SIREN Tendia (9) ↔ SIRET DECP (14) même entité → 0.9",
+      score_acheteur("130005481", "13000548100028") == 0.9)
 check("SIRET différent → 0.0", score_acheteur("13000548100010", "33071536800297") == 0.0)
 check("SIRET court → repli nom (vide) 0.0", score_acheteur("123", "456") == 0.0)
 check("repli nom exact → 0.9",

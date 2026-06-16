@@ -498,6 +498,223 @@ def _est_avis_ouvert(avis: dict) -> bool:
 
 
 # ---------------------------------------------------------------------------
+# Enrichissement v2 (schéma marché — cf. docs/modules/marche.md SECTION 1)
+# ---------------------------------------------------------------------------
+
+# Champs d'enrichissement suivis pour la couverture (enrichissement_champs_absents).
+_CHAMPS_SUIVIS = [
+    "url_consultation_dce_directe", "acheteur_siren", "montant_estime_eur",
+    "url_profil_acheteur", "acheteur_ville", "acheteur_code_postal", "acheteur_nuts",
+    "cpv_secondaires", "nature", "procedure_libelle", "criteres_attribution",
+    "acheteur_adresse", "dce_consultation_id", "duree_marche_mois",
+]
+
+
+def _parse_donnees(avis: dict):
+    """Parse le bloc `donnees` (chaîne JSON eForms/legacy) → dict, ou None."""
+    d = avis.get("donnees")
+    if isinstance(d, dict):
+        return d
+    if not isinstance(d, str):
+        return None
+    import json as _json
+    try:
+        return _json.loads(d)
+    except (ValueError, TypeError):
+        return None
+
+
+def _trouver_tous(obj, cle_cible: str, max_profondeur: int = 20) -> list:
+    """Toutes les valeurs d'une clé dans un dict/liste imbriqué (≠ première seule)."""
+    out = []
+    if max_profondeur <= 0:
+        return out
+    if isinstance(obj, dict):
+        for k, v in obj.items():
+            if k == cle_cible:
+                out.append(v)
+            else:
+                out.extend(_trouver_tous(v, cle_cible, max_profondeur - 1))
+    elif isinstance(obj, list):
+        for elt in obj:
+            out.extend(_trouver_tous(elt, cle_cible, max_profondeur - 1))
+    return out
+
+
+def _noeud(donnees, cle, prof=20) -> Optional[str]:
+    """Texte aplati de la première occurrence d'une clé eForms, ou None."""
+    if donnees is None:
+        return None
+    v = _texte_simple(_trouver_recursivement(donnees, cle, prof))
+    return v or None
+
+
+def _siren(donnees) -> Optional[str]:
+    """SIREN acheteur (9 chiffres) depuis cbc:CompanyID. Si SIRET (14), garde le SIREN."""
+    v = _noeud(donnees, "cbc:CompanyID") or ""
+    digits = "".join(c for c in v if c.isdigit())
+    return digits[:9] if len(digits) >= 9 else None
+
+
+def _montant(node_txt) -> Optional[float]:
+    """Convertit un montant texte en float (None si absent/illisible ; 0.0 conservé)."""
+    if not node_txt:
+        return None
+    try:
+        return float(str(node_txt).replace(" ", "").replace(",", "."))
+    except (TypeError, ValueError):
+        return None
+
+
+def _duree_en_mois(donnees) -> Optional[int]:
+    """cbc:DurationMeasure (@unitCode MONTH/DAY/ANN) → mois entiers, best-effort."""
+    node = _trouver_recursivement(donnees, "cbc:DurationMeasure", 20)
+    if not isinstance(node, dict):
+        return None
+    txt = node.get("#text")
+    unit = (node.get("@unitCode") or "").upper()
+    try:
+        n = float(txt)
+    except (TypeError, ValueError):
+        return None
+    if unit in ("MON", "MONTH"):
+        return int(round(n))
+    if unit in ("DAY", "DAILY"):
+        return int(round(n / 30.0))
+    if unit in ("ANN", "YEAR"):
+        return int(round(n * 12))
+    if unit in ("WEEK",):
+        return int(round(n / 4.345))
+    return int(round(n)) if n else None
+
+
+def _extraire_lots(donnees) -> list:
+    """Liste des lots : {numero, intitule, cpv, montant_estime, duree, description_complete,
+    criteres_specifiques} (champs présents seulement). Best-effort, robuste aux malformés."""
+    brut = _trouver_recursivement(donnees, "cac:ProcurementProjectLot", 20)
+    if brut is None:
+        return []
+    lots = brut if isinstance(brut, list) else [brut]
+    out = []
+    for i, lot in enumerate(lots, 1):
+        try:
+            proj = _trouver_recursivement(lot, "cac:ProcurementProject", 6) or lot
+            d = {"numero": _noeud(lot, "cbc:ID", 4) or str(i)}
+            intit = _noeud(proj, "cbc:Name", 6)
+            if intit:
+                d["intitule"] = intit[:300]
+            desc = _noeud(proj, "cbc:Description", 6)
+            if desc:
+                d["description_complete"] = desc[:1000]
+            cpv = _noeud(proj, "cbc:ItemClassificationCode", 8)
+            if cpv and cpv.isdigit():
+                d["cpv"] = cpv
+            mtt = _montant(_noeud(lot, "cbc:EstimatedOverallContractAmount", 10))
+            if mtt is not None:
+                d["montant_estime"] = mtt
+            dur = _duree_en_mois(lot)
+            if dur:
+                d["duree"] = dur
+            crit = (_trouver_recursivement(lot, "cac:AwardingCriterion", 12)
+                    or _trouver_recursivement(lot, "efac:AwardCriterionParameter", 12))
+            if crit is not None:
+                noms = [n for n in (_texte_simple(x) for x in _trouver_tous(crit, "cbc:Name", 6)) if n]
+                if noms:
+                    d["criteres_specifiques"] = noms[:8]
+            out.append(d)
+        except Exception:
+            out.append({"numero": str(i)})
+    return out
+
+
+def _champ_ods(avis: dict, cle):
+    """Champ ODS top-niveau : scalaire aplati (None si vide), liste conservée si multi."""
+    v = avis.get(cle)
+    if v in (None, "", []):
+        return None
+    if isinstance(v, list):
+        return v[0] if len(v) == 1 else v
+    return v
+
+
+def extraire_champs_enrichissement(avis: dict, source: str = "crawl") -> dict:
+    """
+    Extrait les ~31 champs d'enrichissement v2 d'un avis BOAMP brut (cf.
+    docs/modules/marche.md SECTION 1). Réutilisable par le crawl (_normaliser) et
+    le backfill. Tous les champs eForms peuvent être None (avis legacy).
+    """
+    import json as _json
+    import re as _re
+    from datetime import datetime, timezone
+
+    d = _parse_donnees(avis)
+
+    # --- Trio critique ---
+    endpoint = _noeud(d, "cbc:EndpointID")
+    url_dce_directe = endpoint if (endpoint and endpoint.lower().startswith("http")) else None
+    montant_estime = _montant(_noeud(d, "cbc:EstimatedOverallContractAmount"))
+
+    # --- CPV secondaires (toutes occurrences hors principal) ---
+    principal = _extraire_cpv_principal(avis)
+    cpv_sec = []
+    for it in _trouver_tous(d, "cbc:ItemClassificationCode"):
+        code = _texte_simple(it)
+        if code and code.isdigit() and code != principal and code not in cpv_sec:
+            cpv_sec.append(code)
+
+    famille = _champ_ods(avis, "famille")
+    famille_lib = (_champ_ods(avis, "famille_libelle") or "")
+    est_europeen = (str(famille).upper() == "JOUE"
+                    or "europ" in str(famille_lib).lower())
+
+    enr = {
+        # 🔴 Trio critique
+        "url_consultation_dce_directe": url_dce_directe,
+        "acheteur_siren": _siren(d),
+        "montant_estime_eur": montant_estime,
+        # 🟠 Priorité 1
+        "url_profil_acheteur": _noeud(d, "cbc:BuyerProfileURI"),
+        "acheteur_ville": _noeud(d, "cbc:CityName"),
+        "acheteur_code_postal": _noeud(d, "cbc:PostalZone"),
+        "acheteur_nuts": _noeud(d, "cbc:CountrySubentityCode"),
+        "nombre_lots": 0,
+        "lots_json": None,
+        # 🟡 Priorité 2
+        "cpv_secondaires": cpv_sec or None,
+        "nature": _champ_ods(avis, "nature"),
+        "nature_libelle": _champ_ods(avis, "nature_libelle"),
+        "procedure_libelle": _champ_ods(avis, "procedure_libelle"),
+        "criteres_attribution": _champ_ods(avis, "criteres"),
+        "est_europeen": bool(est_europeen),
+        "acheteur_adresse": _noeud(d, "cbc:StreetName"),
+        "acheteur_pays": _noeud(d, "cbc:IdentificationCode") or "FR",
+        # 🟢 Priorité 3
+        "dce_consultation_id": _champ_ods(avis, "contractfolderid"),
+        "annonces_anterieures": _champ_ods(avis, "annonces_anterieures"),
+        "annonce_lie": _champ_ods(avis, "annonce_lie"),
+        "date_fin_diffusion": _champ_ods(avis, "datefindiffusion"),
+        "duree_marche_mois": _duree_en_mois(d),
+        "etat": _champ_ods(avis, "etat"),
+        "type_avis_detail": _champ_ods(avis, "type_avis"),
+    }
+
+    lots = _extraire_lots(d)
+    if lots:
+        enr["nombre_lots"] = len(lots)
+        enr["lots_json"] = lots
+
+    # --- ⚙️ Méta ---
+    absents = [c for c in _CHAMPS_SUIVIS if not enr.get(c)]
+    enr["enrichissement_version"] = "v2"
+    enr["enrichissement_le"] = datetime.now(timezone.utc).isoformat()
+    enr["enrichissement_source"] = source
+    enr["enrichissement_champs_absents"] = absents
+    enr["source_schema_eforms"] = _champ_ods(avis, "source_schema")
+    enr["donnees_boamp_brut"] = _json.dumps(avis, ensure_ascii=False)
+    return enr
+
+
+# ---------------------------------------------------------------------------
 # Normalisation
 # ---------------------------------------------------------------------------
 
@@ -507,7 +724,7 @@ def _normaliser(avis: dict, categorie: str) -> Optional[dict]:
         return None
     objet = _texte_objet(avis)
     descripteur = _extraire_descripteur(avis)
-    return {
+    base = {
         "id": f"BOAMP-{idweb}",
         "source": "BOAMP",
         "reference_externe": idweb,
@@ -516,7 +733,7 @@ def _normaliser(avis: dict, categorie: str) -> Optional[dict]:
         "titre": objet[:200],
         "objet": objet,
         "acheteur_nom": _texte_acheteur(avis)[:200],
-        "acheteur_id": None,
+        "acheteur_id": None,  # déprécié v2 → cf. acheteur_siren (docs/modules/marche.md)
         "contact": _extraire_contact(avis),
         "perimetre_geographique": _perimetre(avis),
         "date_publication": _date_publication(avis),
@@ -529,6 +746,9 @@ def _normaliser(avis: dict, categorie: str) -> Optional[dict]:
         "famille_boamp": _famille(avis),
         "notice_type": _notice_type(avis),
     }
+    # Enrichissement v2 (~31 champs : SIREN, montant, URL DCE directe, lots, géo…).
+    base.update(extraire_champs_enrichissement(avis, source="crawl"))
+    return base
 
 
 # ---------------------------------------------------------------------------

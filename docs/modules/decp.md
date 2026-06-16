@@ -52,9 +52,11 @@ python scripts/decp_test_matching.py                # test matching + rapport fi
   Parquet (B) non implémenté (à activer si limites API non récupérables).
 - Filtres systématiques `modification_id=0` + `donneesActuelles=true` (versioning DECP = non).
 - Géo **native** (`acheteur_departement_code`/`region_code`) — pas de `ref_geo.py`.
-- **Limiteur connu** : les marchés Tendia (BOAMP) n'ont ni SIRET acheteur (0 %) ni CPV
-  systématique (45 %). Le score acheteur tombe en repli sur le nom. Levier Sprint 2 :
-  enrichir Tendia avec SIRET+CPV depuis l'avis BOAMP (`donnees`).
+- **Limiteur (levé partiellement, enrichissement v2)** : les marchés Tendia n'avaient ni
+  SIRET acheteur (0 %) ni CPV systématique (45 %). L'**enrichissement BOAMP v2** (16/06)
+  renseigne `acheteur_siren` (44,8 %) → `matching.score_acheteur` matche désormais au
+  **niveau SIREN** (= `substr(decp_marches.acheteur_siret,1,9)`). Repli nom pour les ~55 %
+  d'avis legacy. Cf. `docs/modules/marche.md` + `RAPPORT_ENRICHISSEMENT_BOAMP.md`.
 
 ## Classification preset (Sprint DECP 2)
 
