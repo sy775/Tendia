@@ -72,17 +72,21 @@ consommé : **6,80 €**. Voir `RAPPORT_DECP_SPRINT2.md`.
 | `scripts/decp_valider_classif.py` | Échantillon stratifié 50 marchés (7/preset, 50/50 cpv/llm), mode interactif o/n/? + `--dump` CSV. |
 | `scripts/decp_rapport_sprint2.py` | Audit final + génération `RAPPORT_DECP_SPRINT2.md` (distributions, cohérence vs Sprint 1, coût). |
 | `scripts/decp_explore_cpv.py` | Distribution CPV brute → `data/decp_cpv_distribution.csv` (calibrage du mapping). |
-| `tests/test_decp_mapping_cpv.py`, `tests/test_decp_classifier_llm.py` | Tests unitaires (mapping + budget/coût LLM). |
+| `scripts/decp_reclassify_patterns.py` | Raffinement post-validation (3 patterns), re-classification CPV 0 € avec garde-fous. |
+| `tests/test_decp_mapping_cpv.py`, `tests/test_decp_classifier_cpv.py`, `tests/test_decp_classifier_llm.py` | Tests unitaires (mapping + règle MOE + budget/coût LLM). |
 
 **Résultats** : 127 685 classés par CPV (niveau 1, 89,5 %), 15 050 par LLM (10,5 %), 0 reliquat
 budget. Distribution : hors_perimetre 47 %, btp 35,7 %, ingenierie 8,4 %, it 5,0 %, conseil_rd 1,9 %,
 formation 1,6 %, enr 0,3 %. Pré-validation indicative **~86-90 %** (≥ seuil 85 %) →
 **GO conditionnel** Sprint 3, sous réserve de la validation manuelle formelle.
 
-**Raffinements identifiés pour Sprint 3** : (1) prompt LLM — événementiel CPV `79952` ≠ formation ;
-(2) mapping — `71314100` (fourniture énergie) hors enr ; (3) règle MOE — objet « maîtrise d'œuvre »
-→ ingenierie même si CPV `45`.
+**Raffinement post-validation (appliqué, 0 €)** — 290 marchés reclassés via
+`decp_reclassify_patterns.py` : (1) `79952xxx` événementiel → hors_perimetre ;
+(2) `71314` affiné (ingenierie sauf `71314100` fourniture → hors_perimetre, plus de bloc
+`71314`→enr) ; (3) règle texte MOE (`mapping_cpv.py` / `classifier_cpv.py`) → ingenierie
+même si CPV `45xxx` (source `cpv_moe_override`). Distribution finale : btp 35,6 %,
+ingenierie 8,5 %, enr 0,2 %, hors_perimetre 47,1 % (deltas < 0,2 pt).
 
 ## Hors-scope Sprint 2 (→ Sprint 3)
 
-Triangulation par brief, job mensuel automatisé, intégration UI, application des 3 raffinements.
+Triangulation par brief, job mensuel automatisé, intégration UI, validation manuelle formelle.

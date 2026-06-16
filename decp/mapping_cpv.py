@@ -18,6 +18,17 @@ from typing import Optional, Tuple
 MAPPING_CPV_EXACT = {
     "45000000": "btp", "71000000": "ingenierie", "72000000": "it",
     "80000000": "formation", "48000000": "it", "73000000": "conseil_rd",
+    # 71314 — Énergie et services connexes (raffinement post-validation, pattern 2).
+    # La division est de l'ingénierie, SAUF la fourniture pure d'électricité
+    # (71314100, achat d'énergie) qui est hors périmètre.
+    "71314000": "ingenierie",    # services de conseil en énergie
+    "71314100": "hors_perimetre", # électricité (fourniture / achat pur)
+    "71314200": "ingenierie",    # gestion de l'énergie
+    "71314300": "ingenierie",    # conseil en rendement énergétique / audit
+    "71314310": "ingenierie",    # calculs thermiques bâtiment
+    "71314311": "ingenierie",
+    "71314312": "ingenierie",
+    "71314313": "ingenierie",
 }
 
 # Sous-codes ciblés (préfixe 3 à 5 chiffres) — testés AVANT les ambigus et le préfixe 2.
@@ -25,12 +36,17 @@ MAPPING_CPV_SOUS_CODES = {
     # EnR
     "0933": "enr",     # énergie solaire / géothermie (09330000–09339999)
     "45251": "enr",    # construction de centrales (électricité/eau)
-    "71314": "enr",    # ingénierie de l'énergie et associée
+    # NB : 71314 n'est PLUS mappé en bloc → enr (raffinement pattern 2). Les
+    # 71314xxx tombent en ingenierie par préfixe 2 (71), sauf codes exacts ci-dessus.
     # Conseil & R&D
     "731": "conseil_rd",   # R&D et services connexes
     "732": "conseil_rd",
     "794": "conseil_rd",   # conseil en gestion / management / évaluation
     "79212": "conseil_rd", # services d'audit
+    # Hors périmètre — services événementiels (raffinement post-validation, pattern 1).
+    # 79952xxx (cérémonies, salons, vitrines métiers, remises de diplômes) : le LLM
+    # les classait à tort en 'formation' (mots « diplômes / métiers »).
+    "79952": "hors_perimetre",
 }
 
 # Préfixe 2 chiffres → preset (haute confiance).

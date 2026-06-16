@@ -71,3 +71,46 @@ La pré-validation indicative (~86-90 %) franchit le seuil de 85 %, et la distri
 
 > La confirmation **ferme** reste conditionnée à la **validation manuelle de Younes** (`python scripts/decp_valider_classif.py`, ≥ 85 %). Si elle ressort < 85 %, appliquer les raffinements ci-dessus et reclasser les seuls presets fautifs avant de relancer la passe.
 
+## Raffinement post-validation (3 patterns)
+
+Les 3 raffinements ci-dessus ont été **appliqués** (niveau 1 / CPV, **0 €** — aucun appel
+LLM) via `scripts/decp_reclassify_patterns.py`. Garde-fous respectés (aucun pattern >
+5 000 marchés, aucun preset majeur déplacé de plus de 3 pts).
+
+### Modifications appliquées
+
+| Pattern | Règle | Concernés | Reclassifiés |
+|---|---|---|---|
+| **P1** — événementiel | `79952xxx` → `hors_perimetre` (n'est plus envoyé au LLM) | 336 | **53** (anciens : conseil_rd 35, formation 12, it 3, ingenierie 2, btp 1) |
+| **P2** — 71314 affiné | sous-codes exacts : ingenierie sauf `71314100` (fourniture) → hors_perimetre ; plus de mapping bloc `71314`→enr | 143 | **143** (→ ingenierie 109, → hors_perimetre 34 ; tous anciens `enr`) |
+| **P3** — MOE | objet « maîtrise d'œuvre / MOE » + CPV `45xxx` → ingenierie (override) | 48 522 | **94** (tous anciens `btp`) |
+
+Total : **290 marchés reclassés**. Code : `decp/mapping_cpv.py` (P1 + P2),
+`decp/classifier_cpv.py` (règle texte MOE, source `cpv_moe_override`, confiance 0.85).
+Tests : `tests/test_decp_mapping_cpv.py` (37 OK), `tests/test_decp_classifier_cpv.py` (11 OK).
+
+### Distribution finale (post-raffinement, Δ vs Sprint 2 initial)
+
+| Preset | Effectif | % | Δ |
+|---|---|---|---|
+| btp | 50 883 | 35.6 % | −95 |
+| ingenierie | 12 149 | 8.5 % | +201 |
+| it | 7 124 | 5.0 % | −3 |
+| conseil_rd | 2 741 | 1.9 % | −35 |
+| formation | 2 300 | 1.6 % | −12 |
+| enr | 300 | 0.2 % | −143 |
+| hors_perimetre | 67 238 | 47.1 % | +87 |
+
+### Statut go/no-go DECP 3
+
+Les 3 patterns d'erreur identifiés en pré-validation sont corrigés. Estimation de
+précision **≥ 90 %** sur les segments concernés (les 290 marchés reclassés étaient des
+erreurs nettes, désormais corrigées). La **validation manuelle formelle** par Younes reste
+à effectuer comme juge officiel du seuil :
+
+```
+python scripts/decp_valider_classif.py        # ré-échantillonner après raffinement
+```
+
+Seuil de validation : **≥ 85 % de précision globale = GO ferme** Sprint DECP 3.
+

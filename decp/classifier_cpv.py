@@ -5,6 +5,7 @@ Applique `mapping_cpv.classer_par_cpv` à chaque marché DECP et produit la lign
 d'insertion pour `decp_classification`. preset_principal NULL ⇒ marché à envoyer
 au LLM (niveau 2).
 """
+import re
 from datetime import datetime, timezone
 
 from decp.mapping_cpv import classer_par_cpv, _digits
@@ -15,7 +16,18 @@ CONFIANCE = {
     "cpv_prefixe_2": 0.75,
     "cpv_hors_perimetre": 1.0,
     "cpv_donnees_insuffisantes": 0.7,
+    "cpv_moe_override": 0.85,  # override texte MOE sur CPV travaux (pattern 3)
 }
+
+# Patterns texte indiquant un marché de maîtrise d'œuvre (raffinement pattern 3).
+# Les acheteurs collent souvent un CPV travaux (45xxx) sur une MOE → ingenierie.
+PATTERNS_MOE = re.compile(
+    r"(ma[iî]tris\w*\s+d['’\s]*\s*(?:œuvre|oeuvre)"   # maîtrise/maitrise d'œuvre/oeuvre
+    r"|\bmo[eE]\b"                                       # MOE / moe
+    r"|mission\s+de\s+conception"
+    r"|mission\s+de\s+ma[iî]tris\w*)",
+    re.IGNORECASE,
+)
 
 
 def _row(decp_id, preset, source, confiance):
@@ -40,6 +52,11 @@ def classer_marche_cpv(marche: dict) -> dict:
         if len(objet) < 10:
             return _row(decp_id, "hors_perimetre", "cpv_donnees_insuffisantes", 0.7)
         return _row(decp_id, None, "inconnu", None)  # objet exploitable → LLM
+
+    # Règle texte MOE prioritaire : objet « maîtrise d'œuvre » + CPV travaux (45xxx)
+    # → ingenierie (override le mapping CPV qui dirait btp). Pattern 3 post-validation.
+    if digits.startswith("45") and PATTERNS_MOE.search(objet):
+        return _row(decp_id, "ingenierie", "cpv_moe_override", 0.85)
 
     preset, source = classer_par_cpv(cpv)
     if preset is not None:
