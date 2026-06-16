@@ -316,6 +316,7 @@ def _construire_prompt_utilisateur(contexte_str: str, texte: str,
         hints_calcul_montant=union_hints,
         few_shot_examples=fs_formate,
         regles_specifiques=rs_formate,
+        regles_v2=REGLES_V2,
     )
 
 
@@ -358,6 +359,7 @@ Extrais les informations dans ce schéma JSON :
         ],
         "exemple_reponse_forte": "Court paragraphe (2-3 phrases) illustrant le type de contenu attendu d'une réponse qui scorerait haut sur ce sous-critère. Doit être plausible vis-à-vis du RC.",
         "source": "Référence vers le document où le sous-critère est décrit : 'RC §5.2', 'RC article 6 page 12'. Si pas localisable précisément : 'RC' ou null.",
+        "unite_evaluation": "Unité D'ÉVALUATION du sous-critère (v2) : EXACTEMENT 'euro' si le sous-critère est noté sur une grandeur MONÉTAIRE (coût, prix, €/tonne CO2, coût global, pénalités chiffrées), 'delai_jours' si noté sur un délai en jours/semaines, sinon 'points' (mémoire technique, RSE notée en points, références, qualité). Détermine la famille prix/technique. Présent à TOUS les niveaux de sous-critères.",
         "sous_criteres": [
           {{
             "libelle": "Intitulé du sous-sous-critère",
@@ -396,6 +398,17 @@ Extrais les informations dans ce schéma JSON :
     "duree_couverte": null,
     "source_extraction": null,
     "commentaire": null
+  }},
+  "montant_3_voies": {{
+    "voie_1_eur": null,
+    "voie_1_source": null,
+    "voie_2_disponible": false,
+    "voie_2_min_eur": null,
+    "voie_2_max_eur": null,
+    "voie_2_hypotheses": [
+      {{"hypothese": "Hypothèse retenue avec sa source DCE (ex: 'Surface 1200m² (CCTP p.4)')", "valeur": "1200 m²"}}
+    ],
+    "voie_2_raison_indisponible": null
   }},
   "revision_prix": {{
     "type": "indexation",
@@ -551,7 +564,61 @@ RÈGLES IMPORTANTES :
   - `source` : référence DCE si l'axe est valorisé explicitement par un passage ; null si tu l'infères du contexte sans citation
 {few_shot_examples}
 {regles_specifiques}
+{regles_v2}
 Réponds UNIQUEMENT avec le JSON, sans aucun texte autour."""
+
+
+# === Règles v2 (refonte pipeline) : 3 voies de montant + critères stricts + BOAMP ===
+REGLES_V2 = """
+=== RÈGLES v2 — MONTANT EN 3 VOIES (bloc `montant_3_voies`) ===
+
+Tu remplis `montant_3_voies` EN PLUS de `montant_marche` (rétro-compat).
+
+VOIE 1 — MONTANT PUBLIÉ (priorité absolue) :
+- Cherche dans le DCE (RC, AAPC, CCAP, DUME, BPU, formulaires) tout montant publié
+  explicitement : estimation HT, montant maximum d'accord-cadre, budget/enveloppe annoncé.
+- Si trouvé → `voie_1_eur` = nombre, `voie_1_source` = référence textuelle précise
+  (ex: "RC §3.2 page 8"). Sinon `voie_1_eur` = null.
+
+VOIE 2 — ESTIMATION BOTTOM-UP (UNIQUEMENT si Voie 1 absente) :
+- Si et seulement si `voie_1_eur` est null, tu PRODUIS une estimation à partir des
+  caractéristiques du projet présentes dans le DCE. NE te rabats PAS trop vite sur
+  l'indisponibilité : sur l'ingénierie, le conseil et les services, il y a presque
+  toujours un volume (jours-homme, ETP, durée, surface, nb d'unités) permettant un ordre
+  de grandeur. Tu n'écris `voie_2_disponible=false` qu'en DERNIER recours.
+- Règles : tu listes chaque hypothèse dans `voie_2_hypotheses` ({hypothese, valeur}) AVEC
+  sa source DCE ; tu appliques des ratios de référence métier explicites adaptés au secteur
+  du marché ; tu produis une FOURCHETTE `voie_2_min_eur`/`voie_2_max_eur` (jamais une valeur
+  unique) ; tu n'inventes AUCUN chiffre non justifiable depuis le DCE.
+- Si le DCE est vraiment trop pauvre (aucun volume chiffrable) → `voie_2_disponible=false`
+  + `voie_2_raison_indisponible` (raison précise). Ce cas doit rester rare.
+- (Voie 3 = rapprochement DECP en aval, hors LLM : ne la calcule pas ici.)
+
+=== RÈGLES v2 — CRITÈRES : champ `unite_evaluation` ===
+
+Pour CHAQUE sous-critère technique (à tous les niveaux), tu renseignes `unite_evaluation` :
+- "euro"        → le sous-critère est noté sur une grandeur MONÉTAIRE (coût, coût global,
+                  €/tonne CO2, pénalités chiffrées). ⚠️ Un critère environnemental CHIFFRÉ
+                  en euros est "euro" (→ famille prix), PAS "points".
+- "delai_jours" → noté sur un délai en jours/semaines.
+- "points"      → tout le reste (mémoire technique, méthodologie, RSE notée en points,
+                  références, qualité, performance).
+Le code dérive la famille prix/valeur_technique à partir de `unite_evaluation` ("euro"=prix).
+
+=== RÈGLES v2 — CONTEXTE BOAMP (bloc CONTEXTE DU MARCHÉ) ===
+
+Le contexte inclut des champs BOAMP issus de l'avis (indépendants du DCE) : `acheteur_siren`,
+`acheteur_nuts`, `nature`, `procedure_libelle`, `est_europeen`, `criteres_attribution_boamp`
+(flags ["sociaux","environnementaux"]), `nombre_lots`/`lots`. Tu les utilises pour :
+1. Vérifier la cohérence (si BOAMP annonce N lots et que tu n'en vois qu'un dans le DCE,
+   signale-le dans `synthese_marche`).
+2. Compléter ce que le DCE ne donne pas.
+3. Affiner la Voie 2 (un marché européen implique des seuils minimaux applicables).
+"""
+
+import hashlib as _hashlib
+# Version du prompt v2 (SHA-256 des règles ajoutées) — stockée par brief (prompt_version_sha).
+PROMPT_V2_SHA = _hashlib.sha256(REGLES_V2.encode("utf-8")).hexdigest()[:12]
 
 
 # ---------------------------------------------------------------------------
@@ -584,6 +651,7 @@ _CHAMPS_UNIVERSELS_BRIEF = {
     "raison_classification",
     "bareme_notation",
     "montant_marche",
+    "montant_3_voies",
     "revision_prix",
     "alertes_prix",
     "references_exigees",
@@ -598,6 +666,104 @@ _CHAMPS_UNIVERSELS_BRIEF = {
     "_appel_llm",
     "_meta",
 }
+
+
+def _famille_depuis_unite(unite) -> str:
+    """unite_evaluation → famille critère (v2). 'euro' → prix (résout le bug RSE €/CO2)."""
+    u = (str(unite or "")).strip().lower()
+    if u == "euro":
+        return "prix"
+    if u in ("points", "delai_jours", "delai", ""):
+        return "valeur_technique"
+    return "valeur_technique"
+
+
+def deriver_criteres_attribution_plat(bareme: dict) -> list:
+    """Dérive le schéma PLAT `criteres_attribution_plat` depuis le bareme hiérarchique.
+
+    Une entrée 'Prix' (famille prix, pondération = valeur_prix_pct) + une entrée par
+    sous-critère technique de premier niveau (famille selon `unite_evaluation`).
+    Format : [{libelle, famille, ponderation_pct, unite_evaluation, source_texte}].
+    """
+    bareme = bareme or {}
+    plat = []
+    pct_prix = bareme.get("valeur_prix_pct")
+    if isinstance(pct_prix, (int, float)) and pct_prix > 0:
+        plat.append({
+            "libelle": "Prix",
+            "famille": "prix",
+            "ponderation_pct": pct_prix,
+            "unite_evaluation": "euro",
+            "source_texte": (bareme.get("prix") or {}).get("source"),
+        })
+    for sc in (bareme.get("sous_criteres_techniques") or []):
+        if not isinstance(sc, dict):
+            continue
+        unite = sc.get("unite_evaluation")
+        plat.append({
+            "libelle": sc.get("libelle"),
+            "famille": _famille_depuis_unite(unite),
+            "ponderation_pct": sc.get("ponderation_pct"),
+            "unite_evaluation": unite,
+            "source_texte": sc.get("source"),
+        })
+    return plat
+
+
+def valider_criteres_plat(plat: list) -> dict:
+    """Validation post-LLM du schéma plat. Retourne somme + flags d'alerte."""
+    pcts = [c.get("ponderation_pct") for c in plat
+            if isinstance(c.get("ponderation_pct"), (int, float))]
+    somme = round(sum(pcts), 1)
+    a_prix = any(c.get("famille") == "prix"
+                 and isinstance(c.get("ponderation_pct"), (int, float))
+                 and c["ponderation_pct"] > 0 for c in plat)
+    non_classe = any(c.get("famille") == "non_classe" for c in plat)
+    return {
+        "criteres_somme_ponderations": somme,
+        "criteres_alerte_somme_incorrecte": not (98 <= somme <= 102),
+        "criteres_alerte_pas_de_prix": not a_prix,
+        "criteres_alerte_non_classes": non_classe,
+    }
+
+
+def post_traiter_extraction_v2(data: dict) -> dict:
+    """Post-traitement v2 (après extraire_via_llm) : dérive le plat, valide, versionne.
+
+    Ajoute `criteres_attribution_plat`, les flags `criteres_*`, `montant_voie_*` (aplatis
+    depuis `montant_3_voies`), `version_extraction_llm='2'`, `prompt_version_sha`,
+    `extraction_v2_a_verifier`. Non destructif (conserve le bareme hiérarchique).
+    """
+    if not isinstance(data, dict):
+        return data
+    plat = deriver_criteres_attribution_plat(data.get("bareme_notation") or {})
+    data["criteres_attribution_plat"] = plat
+    validation = valider_criteres_plat(plat)
+    data.update(validation)
+
+    m3 = data.get("montant_3_voies") or {}
+    v1 = m3.get("voie_1_eur")
+    v2_dispo = bool(m3.get("voie_2_disponible"))
+    vmin, vmax = m3.get("voie_2_min_eur"), m3.get("voie_2_max_eur")
+    hypos = m3.get("voie_2_hypotheses") or []
+    data["montant_voie_1_eur"] = v1
+    data["montant_voie_1_source"] = m3.get("voie_1_source")
+    data["montant_voie_2_disponible"] = v2_dispo
+    data["montant_au_moins_une_voie"] = bool(v1) or v2_dispo
+    alerte_v1 = bool(v1) != bool(m3.get("voie_1_source"))
+    alerte_v2 = v2_dispo and (
+        not hypos or not isinstance(vmin, (int, float)) or not isinstance(vmax, (int, float))
+        or vmin > vmax)
+    data["montant_alerte_coherence"] = alerte_v1 or alerte_v2
+
+    nb_alertes = sum([validation["criteres_alerte_somme_incorrecte"],
+                      validation["criteres_alerte_pas_de_prix"],
+                      validation["criteres_alerte_non_classes"],
+                      data["montant_alerte_coherence"]])
+    data["extraction_v2_a_verifier"] = nb_alertes >= 2
+    data["version_extraction_llm"] = "2"
+    data["prompt_version_sha"] = PROMPT_V2_SHA
+    return data
 
 
 def _filtrer_hallucinations(data: dict,

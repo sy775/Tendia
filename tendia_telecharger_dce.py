@@ -970,9 +970,49 @@ def _telecharger_avec_retry(session, piece: dict, dossier_destination: str,
 
 def telecharger_pieces_dce(marche: dict, dossier_destination: str, session=None) -> dict:
     """
+    Wrapper de priorité d'URL (enrichissement BOAMP v2 — résout B12 en pratique).
+
+    Ordre de tentative :
+      1. `url_consultation_dce_directe` (URL directe de consultation + PCSLID issue
+         de l'avis BOAMP) — quand présente ;
+      2. `url_dce` (reconstruite/scrapée) — en repli si la directe est absente OU
+         échoue (aucune pièce récupérée).
+
+    Ajoute `url_utilisee` et `url_source` ('directe'|'reconstruite') au résultat.
+    Rétrocompatible : un marché sans `url_consultation_dce_directe` part directement
+    sur `url_dce` (comportement historique).
+    """
+    url_directe = (marche.get("url_consultation_dce_directe") or "").strip()
+    url_reconstruite = (marche.get("url_dce") or "").strip()
+
+    tentatives = []
+    if url_directe:
+        tentatives.append(("directe", url_directe))
+    if url_reconstruite and url_reconstruite != url_directe:
+        tentatives.append(("reconstruite", url_reconstruite))
+    if not tentatives:
+        return {"pieces_recuperees": [], "pieces_manquantes": [],
+                "raison": "aucune URL DCE (ni directe ni reconstruite)",
+                "duree_secondes": 0.0, "url_utilisee": None, "url_source": None}
+
+    dernier = None
+    for source, url in tentatives:
+        marche_url = {**marche, "url_dce": url}
+        res = _telecharger_pieces_dce_impl(marche_url, dossier_destination, session)
+        res["url_utilisee"] = url
+        res["url_source"] = source
+        if res.get("pieces_recuperees"):
+            return res  # succès : on s'arrête
+        dernier = res  # échec → on tentera le repli (ou on retourne le dernier)
+    return dernier
+
+
+def _telecharger_pieces_dce_impl(marche: dict, dossier_destination: str, session=None) -> dict:
+    """
     Récupère toutes les pièces du DCE en best-effort (ZIP global privilégié,
     sinon pièces unitaires). Retourne {pieces_recuperees, pieces_manquantes,
-    session_cookies, duree_secondes, raison?}.
+    session_cookies, duree_secondes, raison?}. URL lue dans `marche['url_dce']`
+    (surchargée par le wrapper selon la priorité directe/reconstruite).
     """
     debut = datetime.now()
     url_dce = marche.get("url_dce") or ""

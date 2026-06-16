@@ -229,8 +229,12 @@ def _scanner_dossiers_dce(force: bool = False,
 # ---------------------------------------------------------------------------
 
 def _construire_contexte(marche: dict) -> dict:
-    """Réduit le marché à un contexte utile pour le LLM."""
-    return {
+    """Réduit le marché à un contexte utile pour le LLM.
+
+    Inclut le contexte BOAMP v2 (enrichissement) exploité par les RÈGLES v2 du prompt :
+    SIREN, NUTS, nature, procédure, flags critères BOAMP, est_europeen, lots.
+    """
+    ctx = {
         "id": marche.get("id"),
         "source": marche.get("source"),
         "reference_externe": marche.get("reference_externe"),
@@ -243,6 +247,22 @@ def _construire_contexte(marche: dict) -> dict:
         "categorie_metier": marche.get("categorie_metier"),
         "cpv_principal": marche.get("cpv_principal"),
     }
+    # --- Contexte BOAMP v2 (champs non vides seulement, pour ne pas polluer) ---
+    boamp = {
+        "acheteur_siren": marche.get("acheteur_siren"),
+        "acheteur_nuts": marche.get("acheteur_nuts"),
+        "nature": marche.get("nature"),
+        "procedure_libelle": marche.get("procedure_libelle"),
+        "est_europeen": marche.get("est_europeen"),
+        "criteres_attribution_boamp": marche.get("criteres_attribution"),
+        "nombre_lots": marche.get("nombre_lots"),
+        "cpv_secondaires": marche.get("cpv_secondaires"),
+        "lots": marche.get("lots_json"),
+    }
+    boamp = {k: v for k, v in boamp.items() if v not in (None, "", [], 0)}
+    if boamp:
+        ctx["contexte_boamp"] = boamp
+    return ctx
 
 
 def _combiner_textes(pdfs: dict) -> str:

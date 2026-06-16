@@ -132,3 +132,61 @@ _À dérouler sans interruption une fois la SECTION 1 validée :_
 5. **Triangulation** (Sprint DECP 3) sur la base enrichie (preset+CPV+géo+montant
    si couverture ≥ 30 %, flags acheteur par SIREN).
 6. **Tests** : extraction des 30 champs (avis eForms + legacy + champs absents).
+
+---
+
+## SECTION 3 — Extraction LLM v2 (refonte pipeline)
+
+Diagnostic Phase A : **Scénario C** (le prompt estimait déjà le montant avec une logique
+multi-preset neutre via la lib `preset` — pas de purge). Le v2 **enrichit** sans refondre.
+Modèle : `claude-sonnet-4-6`.
+
+### Champ de complétude DCE : `dce_contenu` (≠ `dce_qualite`)
+
+⚠️ `dce_contenu` ∈ {`complet`, `vide`, `incomplet`, `candidature`, `auth_requise`} = complétude
+du DCE téléchargé. `dce_qualite` ∈ {`directe`, `via_keyword`, `racine`, `absente`} = **méthode
+de découverte de l'URL**, PAS la complétude. La re-extraction cible `dce_contenu='complet'`.
+
+### Downloader — priorité URL directe (résout B12)
+
+`tendia_telecharger_dce.telecharger_pieces_dce` est un wrapper : tente
+`url_consultation_dce_directe` (avec PCSLID) **en priorité**, repli sur `url_dce` reconstruite
+si absente ou échec. Ajoute `url_utilisee`/`url_source` au résultat. Re-download :
+`scripts/retenter_download_dce.py` (parallèle 5 workers, écriture mono-thread).
+
+### Montant en 3 voies (`montant_3_voies` + aplatissement)
+
+Le prompt v2 produit `montant_3_voies` (en plus de `montant_marche`, rétro-compat) :
+- **Voie 1** (`voie_1_eur`/`voie_1_source`) : montant publié dans le DCE.
+- **Voie 2** (`voie_2_disponible`, `voie_2_min_eur`/`max`, `voie_2_hypotheses[]`,
+  `voie_2_raison_indisponible`) : estimation bottom-up **uniquement si Voie 1 absente**, avec
+  hypothèses sourcées + fourchette. Le prompt **force la Voie 2 avant `non_communique`**
+  (le LLM s'y rabattait trop vite sur ingénierie/conseil).
+- **Voie 3** = rapprochement DECP en aval (hors LLM, Sprint DECP 3).
+
+`post_traiter_extraction_v2` aplatit en `montant_voie_1_eur`, `montant_voie_2_disponible`,
+`montant_au_moins_une_voie`, `montant_alerte_coherence`.
+
+### Critères : dual hiérarchique + plat, classification par `unite_evaluation`
+
+Le bareme **hiérarchique** existant est conservé (sous-critères, exemples de réponse forte —
+valeur UI). Chaque sous-critère porte désormais `unite_evaluation` ∈ {`euro`, `points`,
+`delai_jours`}. Le code dérive `criteres_attribution_plat` (un par critère) avec la **famille** :
+- `unite_evaluation = "euro"` → **famille prix** (⚠️ **résout le bug RSE** : un critère
+  environnemental chiffré en €/tonne CO2 devient prix, plus technique).
+- sinon → **famille valeur_technique**.
+
+**Validation post-LLM** (`valider_criteres_plat`) : somme = 100 (±2), ≥ 1 critère prix > 0,
+aucun `non_classe` → flags `criteres_alerte_*`. `extraction_v2_a_verifier=true` si ≥ 2 alertes.
+
+### Contexte BOAMP injecté
+
+`_construire_contexte` ajoute `contexte_boamp` (SIREN, NUTS, nature, procédure, est_europeen,
+flags critères BOAMP, lots) → le prompt v2 l'exploite pour cohérence/complétude/Voie 2.
+
+### Versionnement & backup
+
+`prompt_version_sha` (SHA-256 des règles v2) + `version_extraction_llm='2'` par brief. Le brief
+v1 est sauvegardé dans `brief_v1_backup` (rollback 30 j, cf. dette B14). Re-extraction :
+`scripts/reextraire_briefs_v2.py` (parallèle 8 workers, `BudgetTracker` thread-safe `try_reserve`,
+écriture mono-thread anti-lock, cap € dur). Cap d'appels/jour relevé automatiquement.
