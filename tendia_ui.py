@@ -609,12 +609,51 @@ _FAMILLES_RACINE = {
 }
 
 
+# Typos de préfixe fréquents produits par le LLM (ex. 'energia' au lieu de 'energie').
+_TYPO_PREFIXE_DOMAINE = {"energia": "energie", "energy": "energie",
+                         "ingenerie": "ingenierie", "ingeniere": "ingenierie"}
+_TAXO_DOMAINES_CACHE = None
+
+
+def _normaliser_code_domaine(code: str) -> str:
+    """Normalise un code domaine LLM : minuscules, sans accents, typos de préfixe
+    corrigées (energia→energie). Évite le « Autre » dû à une faute de frappe du LLM."""
+    if not code:
+        return ""
+    import unicodedata as _ud
+    c = _ud.normalize("NFKD", str(code).strip().lower())
+    c = "".join(ch for ch in c if not _ud.combining(ch))
+    prefix, sep, reste = c.partition("_")
+    prefix = _TYPO_PREFIXE_DOMAINE.get(prefix, prefix)
+    return f"{prefix}_{reste}" if sep else prefix
+
+
+def _libelle_domaine(code: str) -> str:
+    """Code domaine → libellé lisible de la taxonomie (tolérant aux typos),
+    sinon le code titleisé en repli."""
+    global _TAXO_DOMAINES_CACHE
+    if _TAXO_DOMAINES_CACHE is None:
+        try:
+            import llm_extract
+            _TAXO_DOMAINES_CACHE = (llm_extract._charger_taxonomie() or {}).get("domaines", {})
+        except Exception:
+            _TAXO_DOMAINES_CACHE = {}
+    d = _TAXO_DOMAINES_CACHE.get(_normaliser_code_domaine(code))
+    if isinstance(d, dict) and d.get("libelle"):
+        return d["libelle"]
+    return str(code or "").replace("_", " ").strip().title() or "Autre"
+
+
 def _famille_pour_domaine(code: str) -> str:
-    """Retourne la famille racine d'un code domaine."""
+    """Retourne la famille racine d'un code domaine (typos corrigées)."""
+    code = _normaliser_code_domaine(code)
     if not code:
         return "Autre"
     prefix = code.split("_", 1)[0]
     return _FAMILLES_RACINE.get(prefix, "Autre")
+
+
+app.add_template_filter(_libelle_domaine, name="libelle_domaine")
 
 
 @app.route("/explorer")
@@ -747,7 +786,7 @@ def explorer():
             "date_limite_fmt": _fmt_date(marche.get("date_limite_depot")),
             "jours_restants": _jours_restants(marche.get("date_limite_depot")),
             "domaine_principal": code_principal,
-            "domaine_libelle": (domaines_def.get(code_principal) or {}).get("libelle", code_principal),
+            "domaine_libelle": _libelle_domaine(code_principal),
             "famille": famille,
             "tous_domaines": valides,
             "raison": classif.get("raison_classification", "")[:200],
