@@ -588,8 +588,14 @@ VOIE 2 — ESTIMATION BOTTOM-UP (UNIQUEMENT si Voie 1 absente) :
   de grandeur. Tu n'écris `voie_2_disponible=false` qu'en DERNIER recours.
 - Règles : tu listes chaque hypothèse dans `voie_2_hypotheses` ({hypothese, valeur}) AVEC
   sa source DCE ; tu appliques des ratios de référence métier explicites adaptés au secteur
-  du marché ; tu produis une FOURCHETTE `voie_2_min_eur`/`voie_2_max_eur` (jamais une valeur
-  unique) ; tu n'inventes AUCUN chiffre non justifiable depuis le DCE.
+  du marché ; tu n'inventes AUCUN chiffre non justifiable depuis le DCE.
+- FOURCHETTE `voie_2_min_eur`/`voie_2_max_eur` (jamais une valeur unique) : tu ne fais varier
+  qu'UNE SEULE dimension à la fois — la PLUS incertaine (en général le prix/ratio unitaire OU
+  la quantité, pas les deux) — en gardant l'autre à sa valeur centrale. NE combine JAMAIS
+  min_quantité × min_prix puis max_quantité × max_prix : cela produit des fourchettes
+  irréalistes (rapport max/min > 2). Vise un rapport max/min ≈ 1,3-1,8. Indique dans une
+  hypothèse quelle dimension tu fais varier (ex : « quantité fixée à 1200 m² ; ratio varié
+  2000-2400 €/m² »).
 - Si le DCE est vraiment trop pauvre (aucun volume chiffrable) → `voie_2_disponible=false`
   + `voie_2_raison_indisponible` (raison précise). Ce cas doit rester rare.
 - (Voie 3 = rapprochement DECP en aval, hors LLM : ne la calcule pas ici.)
@@ -917,6 +923,11 @@ def extraire_via_llm(texte: str, contexte: dict,
     contexte_str = json.dumps(contexte, ensure_ascii=False, indent=2)
     prompt_user = _construire_prompt_utilisateur(contexte_str, texte, codes_presets)
     prompt_systeme = _construire_prompt_systeme(codes_presets)
+    # Assainit les surrogates Unicode orphelins (U+D800-U+DFFF) issus d'extractions
+    # PDF bancales : ils font planter l'encodage UTF-8 de la requête API (vu sur de
+    # gros DCE → echec_llm silencieux). encode('ignore') les supprime proprement.
+    prompt_user = prompt_user.encode("utf-8", "ignore").decode("utf-8", "ignore")
+    prompt_systeme = prompt_systeme.encode("utf-8", "ignore").decode("utf-8", "ignore")
 
     client = Anthropic()
 
