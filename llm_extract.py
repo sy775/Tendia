@@ -613,6 +613,33 @@ Pour CHAQUE sous-critère technique (à tous les niveaux), tu renseignes `unite_
                   références, qualité, performance).
 Le code dérive la famille prix/valeur_technique à partir de `unite_evaluation` ("euro"=prix).
 
+=== RÈGLES v2 — BARÈME : POIDS PRIX OBLIGATOIRE + MULTI-LOTS ===
+
+POIDS PRIX (`valeur_prix_pct`) — OBLIGATOIRE dès qu'un critère prix existe :
+- Quasi tous les marchés notent le prix ("Prix 30%", "Coût 40 points", formule
+  moins-disant pondérée…). Dans ce cas tu DOIS renseigner `valeur_prix_pct` avec ce
+  poids (nombre). NE le laisse JAMAIS à null quand un critère prix existe — c'est
+  l'erreur la plus fréquente. Le bloc `bareme_notation.prix` (la formule) ne REMPLACE
+  PAS `valeur_prix_pct` (le poids) : remplis LES DEUX.
+- `valeur_technique_pct` = somme des poids de TOUS les critères non-prix réunis
+  (technique, RSE, délai, qualité…). Et `valeur_technique_pct + valeur_prix_pct = 100`
+  EXACTEMENT.
+- AUTO-VÉRIFICATION : la somme des `ponderation_pct` de tes `sous_criteres_techniques`
+  (niveau racine) doit égaler `valeur_technique_pct`. Si tes sous-critères somment à 75
+  mais que tu allais écrire `valeur_technique_pct=60`, c'est le SCALAIRE qui est faux :
+  mets `valeur_technique_pct=75` (et donc `valeur_prix_pct=25`). Ne tronque jamais le
+  scalaire en-dessous de la somme réelle de tes sous-critères.
+
+MULTI-LOTS — UN SEUL barème par brief :
+- `bareme_notation` décrit UNE grille de notation cohérente sommant à 100. Ne répète
+  JAMAIS le même critère une fois par lot (ex: "Valeur technique — Lot 1" 65% +
+  "Valeur technique — Lot 2" 65% → FAUX, somme 130). C'est une erreur d'aplatissement.
+- Si tous les lots partagent la même grille → extrais-la UNE seule fois.
+- Si les lots ont des grilles DIFFÉRENTES → extrais celle du lot PRINCIPAL (ou la plus
+  représentative) et signale la variation dans `synthese_marche`. Les
+  `sous_criteres_techniques` sont la VRAIE décomposition du critère technique
+  (méthodologie, moyens humains, références, RSE…), PAS une liste de lots.
+
 === RÈGLES v2 — CONTEXTE BOAMP (bloc CONTEXTE DU MARCHÉ) ===
 
 Le contexte inclut des champs BOAMP issus de l'avis (indépendants du DCE) : `acheteur_siren`,
