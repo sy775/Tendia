@@ -1016,6 +1016,45 @@ def _telecharger_pieces_dce_impl(marche: dict, dossier_destination: str, session
     """
     debut = datetime.now()
     url_dce = marche.get("url_dce") or ""
+
+    # === DISPATCH DIRECT (fix P1) ===
+    # Pour les plateformes à `completeDownload` connu, on appelle le downloader
+    # DÉDIÉ sans passer par le parsing HTML (qui ne ramenait que le RC car le parser
+    # ne renvoie pas le marqueur ZIP_GLOBAL_* sur ces URL « consultation »).
+    def _res_zip(res):
+        secs = (datetime.now() - debut).total_seconds()
+        if res.get("ok"):
+            return {"pieces_recuperees": [{"nom": os.path.basename(res.get("chemin") or "dce.zip"),
+                    "type": "ZIP_GLOBAL", "taille": res.get("taille_octets", 0),
+                    "chemin": res.get("chemin")}], "pieces_manquantes": [],
+                    "duree_secondes": secs, "session_cookies": {}}
+        return {"pieces_recuperees": [], "pieces_manquantes": [
+                {"nom": "DCE_complet.zip", "url": url_dce, "raison_echec": res.get("erreur", "?")}],
+                "duree_secondes": secs}
+
+    if "achatpublic.com" in url_dce and "PCSLID=" in url_dce:
+        try:
+            import achatpublic_downloader as _ap
+            parent = (os.path.dirname(dossier_destination)
+                      if os.path.basename(dossier_destination) else dossier_destination)
+            return _res_zip(_ap.telecharger_dce_pour_marche({**marche, "url_dce": url_dce},
+                                                            parent, verbose=False))
+        except Exception as e:
+            return {"pieces_recuperees": [], "pieces_manquantes": [],
+                    "raison": f"achatpublic échec : {type(e).__name__}: {e}",
+                    "duree_secondes": (datetime.now() - debut).total_seconds()}
+    try:
+        import atexo_downloader as _ad
+        base = _ad._detecter_url_base(url_dce)
+        if base:
+            id_atexo, org = _ad._extraire_id_org_depuis_url(url_dce)
+            if id_atexo and org:
+                os.makedirs(dossier_destination, exist_ok=True)
+                chemin_zip = os.path.join(dossier_destination, f"dce_{id_atexo}.zip")
+                return _res_zip(_ad.telecharger_dce(id_atexo, org, chemin_zip, base, verbose=False))
+    except Exception:
+        pass  # repli sur le parsing générique ci-dessous
+
     parseur = trouver_parseur(url_dce)
     if not parseur:
         return {"pieces_recuperees": [], "pieces_manquantes": [],
