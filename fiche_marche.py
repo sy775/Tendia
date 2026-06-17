@@ -27,8 +27,8 @@ _PRESET_LABEL = {
     "btp": "BTP", "ingenierie": "Ingénierie", "formation": "Formation",
     "conseil": "Conseil", "it": "IT", "energie_renouvelable": "Énergie",
 }
-_PRESETS_IMPLEMENTES = {"btp", "ingenierie", "formation"}
-_PRESETS_STUB = {"conseil", "it", "energie_renouvelable"}
+_PRESETS_IMPLEMENTES = {"btp", "ingenierie", "formation", "energie_renouvelable"}
+_PRESETS_STUB = {"conseil", "it"}
 
 # Mots-clés d'alertes critiques (verdict 90s / vigilance).
 _ALERTES_CRITIQUES = ["visite obligatoire", "attestation", "ss4", "ss3",
@@ -414,6 +414,8 @@ def bloc_sectoriel_pour_marche(brief, presets, profil):
             blocs.append(_bloc_ingenierie(brief, profil, pct))
         elif code == "formation":
             blocs.append(_bloc_formation(brief, pct))
+        elif code == "energie_renouvelable":
+            blocs.append(_bloc_energie_renouvelable(brief, profil, pct))
         elif code in _PRESETS_STUB:
             blocs.append({"preset_code": code, "label": _PRESET_LABEL.get(code, code),
                           "pct": pct, "implemente": False,
@@ -522,6 +524,74 @@ def _bloc_formation(brief, pct):
         else:
             sections.append({"label": "Publics cibles", "valeur": str(pc), "type": "text"})
     return {"preset_code": "formation", "label": "Formation", "pct": pct, "implemente": True, "sections": sections}
+
+
+def _bloc_energie_renouvelable(brief, profil, pct):
+    enr = _get(brief, "caracteristiques_techniques_enr") or {}
+    vol = _get(brief, "volumes_techniques") or {}
+    qenr = _get(brief, "qualifications_enr") or {}
+    mod = _get(brief, "modalites_execution_chantier") or {}
+    sections = []
+    if _non_vide(enr.get("description")):
+        sections.append({"label": "Projet EnR", "valeur": enr["description"], "type": "text"})
+    techs = enr.get("technologies_concernees") or []
+    if techs:
+        sections.append({"label": "Technologies", "valeur": techs, "type": "list"})
+    if _non_vide(enr.get("type_de_sites")):
+        sections.append({"label": "Type de sites", "valeur": enr["type_de_sites"], "type": "text"})
+    # Volumes chiffrés (les plus actionnables pour dimensionner / chiffrer la mission)
+    vlignes = []
+    if _non_vide(vol.get("puissance_totale_kwc")):
+        vlignes.append(f"Puissance totale : {vol['puissance_totale_kwc']} kWc")
+    if _non_vide(vol.get("nb_sites")):
+        vlignes.append(f"Nombre de sites : {vol['nb_sites']}")
+    if _non_vide(vol.get("surface_panneaux_m2")):
+        vlignes.append(f"Surface panneaux : {vol['surface_panneaux_m2']} m²")
+    if _non_vide(vol.get("productible_annuel_estime_mwh")):
+        vlignes.append(f"Productible estimé : {vol['productible_annuel_estime_mwh']} MWh/an")
+    if _non_vide(vol.get("duree_marche_mois")):
+        vlignes.append(f"Durée marché : {vol['duree_marche_mois']} mois")
+    if _non_vide(vol.get("duree_maintenance_om_annees")):
+        vlignes.append(f"Maintenance O&M : {vol['duree_maintenance_om_annees']} ans")
+    if vlignes:
+        sections.append({"label": "Volumes techniques", "valeur": vlignes, "type": "list"})
+    if _non_vide(vol.get("commentaire_volumes")):
+        sections.append({"label": "Détail dimensionnement", "valeur": vol["commentaire_volumes"], "type": "text"})
+    # Qualifications RGE EnR détenues / exigées par le marché
+    labels_q = {"qualipv": "QualiPV", "qualisol": "QualiSol",
+                "qualipac": "QualiPAC", "qualibois": "Qualibois"}
+    exigees = [lbl for k, lbl in labels_q.items() if qenr.get(k)]
+    if exigees:
+        sections.append({"label": "Qualifications RGE exigées", "valeur": exigees, "type": "list"})
+    autres_q = qenr.get("autres_certifications") or []
+    if autres_q:
+        sections.append({"label": "Autres certifications", "valeur": autres_q, "type": "list"})
+    # Modalités d'exécution : périmètre (raccordement / études) et contraintes
+    mlignes = []
+    if mod.get("raccordement_reseau_inclus") is not None:
+        mlignes.append("Raccordement réseau inclus" if mod["raccordement_reseau_inclus"]
+                       else "Raccordement réseau NON inclus")
+    if mod.get("etudes_techniques_incluses") is not None:
+        mlignes.append("Études techniques incluses" if mod["etudes_techniques_incluses"]
+                       else "Études techniques NON incluses")
+    if mlignes:
+        sections.append({"label": "Périmètre", "valeur": mlignes, "type": "list"})
+    if _non_vide(mod.get("calendrier_chantier_contraint")):
+        sections.append({"label": "Contrainte calendaire", "valeur": mod["calendrier_chantier_contraint"], "type": "text"})
+    sites = mod.get("sites_execution") or []
+    if sites:
+        sections.append({"label": "Sites d'exécution", "valeur": sites, "type": "list"})
+    if _non_vide(mod.get("engagement_productible")):
+        sections.append({"label": "Engagement productible", "valeur": mod["engagement_productible"], "type": "text"})
+    if _non_vide(mod.get("engagement_disponibilite_om")):
+        sections.append({"label": "Engagement disponibilité O&M", "valeur": mod["engagement_disponibilite_om"], "type": "text"})
+    # Critères d'éligibilité par lot (souvent les verrous certif / référence)
+    crits = enr.get("criteres_eligibilite") or []
+    libelles = [c.get("libelle") if isinstance(c, dict) else c for c in crits if c]
+    if libelles:
+        sections.append({"label": "Critères d'éligibilité", "valeur": libelles, "type": "list"})
+    return {"preset_code": "energie_renouvelable", "label": "Énergie", "pct": pct,
+            "implemente": True, "sections": sections}
 
 
 # ===========================================================================
