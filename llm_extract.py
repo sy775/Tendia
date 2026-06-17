@@ -678,35 +678,54 @@ def _famille_depuis_unite(unite) -> str:
     return "valeur_technique"
 
 
+def _num(v):
+    """Float ou None (tolère les pondérations en string)."""
+    try:
+        return float(v)
+    except (TypeError, ValueError):
+        return None
+
+
 def deriver_criteres_attribution_plat(bareme: dict) -> list:
     """Dérive le schéma PLAT `criteres_attribution_plat` depuis le bareme hiérarchique.
 
-    Une entrée 'Prix' (famille prix, pondération = valeur_prix_pct) + une entrée par
-    sous-critère technique de premier niveau (famille selon `unite_evaluation`).
+    Entrée 'Prix' (valeur_prix_pct) + critères techniques NORMALISÉS pour sommer à
+    valeur_technique_pct (les pondérations de sous-critères sont tantôt en part-de-100,
+    tantôt en part-du-technique : on renormalise → la somme plat = prix_pct + tech_pct).
+    Famille par `unite_evaluation` (euro → prix : résout le bug RSE €/CO2). Si pas de
+    sous-critères, une entrée 'Valeur technique' globale (= valeur_technique_pct).
     Format : [{libelle, famille, ponderation_pct, unite_evaluation, source_texte}].
     """
     bareme = bareme or {}
+    pct_prix = _num(bareme.get("valeur_prix_pct"))
+    pct_tech = _num(bareme.get("valeur_technique_pct"))
+    sous = [sc for sc in (bareme.get("sous_criteres_techniques") or []) if isinstance(sc, dict)]
     plat = []
-    pct_prix = bareme.get("valeur_prix_pct")
-    if isinstance(pct_prix, (int, float)) and pct_prix > 0:
-        plat.append({
-            "libelle": "Prix",
-            "famille": "prix",
-            "ponderation_pct": pct_prix,
-            "unite_evaluation": "euro",
-            "source_texte": (bareme.get("prix") or {}).get("source"),
-        })
-    for sc in (bareme.get("sous_criteres_techniques") or []):
-        if not isinstance(sc, dict):
-            continue
-        unite = sc.get("unite_evaluation")
-        plat.append({
-            "libelle": sc.get("libelle"),
-            "famille": _famille_depuis_unite(unite),
-            "ponderation_pct": sc.get("ponderation_pct"),
-            "unite_evaluation": unite,
-            "source_texte": sc.get("source"),
-        })
+
+    if pct_prix and pct_prix > 0:
+        plat.append({"libelle": "Prix", "famille": "prix", "ponderation_pct": pct_prix,
+                     "unite_evaluation": "euro", "source_texte": (bareme.get("prix") or {}).get("source")})
+
+    if sous and pct_tech and pct_tech > 0:
+        raw = [_num(sc.get("ponderation_pct")) for sc in sous]
+        raw_sum = sum(r for r in raw if r) or 0
+        scale = (pct_tech / raw_sum) if raw_sum > 0 else None
+        for sc, r in zip(sous, raw):
+            p = round(r * scale, 1) if (scale and r) else r
+            plat.append({"libelle": sc.get("libelle"),
+                         "famille": _famille_depuis_unite(sc.get("unite_evaluation")),
+                         "ponderation_pct": p, "unite_evaluation": sc.get("unite_evaluation"),
+                         "source_texte": sc.get("source")})
+    elif pct_tech and pct_tech > 0:
+        plat.append({"libelle": "Valeur technique", "famille": "valeur_technique",
+                     "ponderation_pct": pct_tech, "unite_evaluation": "points", "source_texte": None})
+    else:
+        # Bareme sans pondérations top-niveau : best effort (peut déclencher une alerte légitime).
+        for sc in sous:
+            plat.append({"libelle": sc.get("libelle"),
+                         "famille": _famille_depuis_unite(sc.get("unite_evaluation")),
+                         "ponderation_pct": sc.get("ponderation_pct"),
+                         "unite_evaluation": sc.get("unite_evaluation"), "source_texte": sc.get("source")})
     return plat
 
 

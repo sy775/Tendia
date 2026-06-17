@@ -51,6 +51,28 @@ plat_rse = deriver_criteres_attribution_plat(bareme_rse)
 carbone = [c for c in plat_rse if "carbone" in (c["libelle"] or "").lower()][0]
 check("Bilan carbone €/CO2 → famille PRIX (pas technique)", carbone["famille"] == "prix")
 
+print("Normalisation sous-critères (part-de-100 → part-du-technique)")
+# Sous-critères techniques exprimés en part-de-100 (somment à 105) avec tech_pct=45 :
+# doivent être renormalisés pour que la somme plat = prix(55) + tech(45) = 100.
+bareme_160 = {"valeur_prix_pct": 55, "valeur_technique_pct": 45,
+              "sous_criteres_techniques": [
+                  {"libelle": "Méthodo", "ponderation_pct": 60, "unite_evaluation": "points"},
+                  {"libelle": "Moyens", "ponderation_pct": 45, "unite_evaluation": "points"}]}
+plat_160 = deriver_criteres_attribution_plat(bareme_160)
+v160 = valider_criteres_plat(plat_160)
+check("somme renormalisée = 100 (pas 160)", v160["criteres_somme_ponderations"] == 100)
+check("pas d'alerte après normalisation", v160["criteres_alerte_somme_incorrecte"] is False)
+
+bareme_sans_sous = {"valeur_prix_pct": 40, "valeur_technique_pct": 60, "sous_criteres_techniques": []}
+plat_ss = deriver_criteres_attribution_plat(bareme_sans_sous)
+check("pas de sous-critères → entrée technique globale", len(plat_ss) == 2)
+check("somme = 100 (Prix + Valeur technique globale)",
+      valider_criteres_plat(plat_ss)["criteres_somme_ponderations"] == 100)
+
+check("bareme vide (None/None) → alerte somme légitime",
+      valider_criteres_plat(deriver_criteres_attribution_plat(
+          {"valeur_prix_pct": None, "valeur_technique_pct": None}))["criteres_alerte_somme_incorrecte"] is True)
+
 print("Validation post-LLM")
 v = valider_criteres_plat(plat)
 check("somme = 100", v["criteres_somme_ponderations"] == 100)
