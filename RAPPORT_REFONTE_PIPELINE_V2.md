@@ -51,33 +51,32 @@ maximilien…), soit sur des hôtes qui pendent — limite légitime, non un dé
 > Le run complet a été interrompu (workers pendus sur connexions lentes sans timeout — dette
 > mineure à durcir). Les +7 gains sont commités.
 
-
 ## Étape 6 — Audit couverture v2
 
 ```
 === AUDIT POST-EXTRACTION v2 ===
-Briefs en v2                  : 46
-Briefs complet encore en v1   : 171
+Briefs en v2                  : 181
+Briefs complet encore en v1   : 36
 
 Couverture montants (briefs v2) :
-  Voie 1 (publié)             : 32 (70 %)
-  Voie 2 (estimation)         : 15 (33 %)
-  Au moins une voie           : 46 (100 %)  [cible ≥80%]
-  Aucune voie                 : 0 (0 %)
+  Voie 1 (publié)             : 94 (52 %)
+  Voie 2 (estimation)         : 91 (50 %)
+  Au moins une voie           : 178 (98 %)  [cible ≥80%]
+  Aucune voie                 : 3 (2 %)
 
 Couverture critères (briefs v2) :
-  Critères extraits           : 44 (96 %)
-  Avec ≥1 alerte              : 10 (22 %)
+  Critères extraits           : 162 (90 %)
+  Avec ≥1 alerte              : 51 (28 %)
 
 Distribution preset (v2 vs v1 restant) :
-  (sans cpv)     : v2   0 | v1  85
-  ?              : v2  13 | v1  11
-  btp            : v2   5 | v1  15
-  conseil_rd     : v2   2 | v1   3
-  formation      : v2   1 | v1   4
-  hors_perimetre : v2  18 | v1  36
-  ingenierie     : v2   6 | v1  14
-  it             : v2   1 | v1   3
+  (sans cpv)     : v2  66 | v1  19
+  ?              : v2  21 | v1   3
+  btp            : v2  20 | v1   0
+  conseil_rd     : v2   5 | v1   0
+  formation      : v2   3 | v1   2
+  hors_perimetre : v2  45 | v1   9
+  ingenierie     : v2  17 | v1   3
+  it             : v2   4 | v1   0
 
 Top hypothèses Voie 2 :
     1× Lot 1 : environ 1568 prélèvements/an (eau+air+su
@@ -86,49 +85,44 @@ Top hypothèses Voie 2 :
     1× Lots 4+5 : 264 analyses bactério+endotoxines dia
     1× Lot 6 : ~10 analyses physico-chimiques × 100-200
     1× Lot 7 : ~21 prélèvements alimentaires mensuels ×
-    1× Durée du marché MOE : 36 mois (RC §1 — Caractéri
-    1× Travaux de sûreté blindage sur bâtiment administ
-    1× Taux de rémunération MOE typique pour réhabilita
-    1× Procédure adaptée ouverte (seuil < 215 000 € HT 
+    1× Coût estimatif des travaux mentionné dans le RC
+    1× Taux honoraires AMO programmation + conduite d'o
+    1× Durée de mission jusqu'à fin 2030 (calendrier pr
+    1× Périmètre large : 6 éléments de mission (program
 ```
 
-## Étape 5 — Re-extraction LLM v2 (échantillon limite-50)
 
-`scripts/reextraire_briefs_v2.py` (parallèle 8 workers, BudgetTracker thread-safe, écriture
-mono-thread) sur 50 cibles : **45 re-extraits** (1 échec LLM, 4 sans PDF exploitable),
-**15,73 € / 100 €**, coût moyen **0,350 €/brief**, 16 min.
+## Synthèse finale & recommandation
 
-**Couverture (excellente)** : au moins une voie de montant **100 %** (cible ≥ 80 % large), critères
-**96 %**, Voie 1 (publié) 70 %, Voie 2 (bottom-up) 33 %. Les hypothèses Voie 2 sont granulaires et
-sourcées (ci-dessus).
+Re-extraction v2 menée à terme sur **tous les briefs `dce_contenu='complet'`** (3 runs :
+échantillon 50 + run principal 171 + reprise du reliquat après recharge crédit).
 
-**Alertes critères** : 10/46 (22 %), désormais **toutes légitimes** après correction d'un bug de
-dérivation (les sous-critères techniques étaient tantôt en part-de-100, tantôt en part-du-technique →
-normalisation à `valeur_technique_pct` ; 5 fausses alertes éliminées). Les 10 restantes : 4 bareme
-non chiffré par l'acheteur (None/None), 6 incohérences `prix+technique≠100` du DCE → ce sont de
-**vrais signaux** que la validation doit lever.
-
-## Synthèse & recommandation
-
-| Critère de succès | Cible | Mesuré (échantillon 46) |
+| Critère de succès | Cible | Mesuré (181 briefs v2) |
 |---|---|---|
-| Au moins une voie de montant | ≥ 80 % | **100 %** ✅ |
-| Critères extraits | — | **96 %** ✅ |
-| Bug RSE €/CO2 (euro → prix) | résolu | **résolu** (test + dérivation) ✅ |
+| Briefs re-extraits en v2 | max possible | **181 / 217** complet ✅ |
+| Au moins une voie de montant | ≥ 80 % | **98 %** ✅ |
+| Voie 1 (publié) / Voie 2 (estimation) | — | 52 % / 50 % |
+| Critères extraits | — | **90 %** ✅ |
+| Bug RSE €/CO2 (euro → prix) | résolu | **résolu** ✅ |
 | Gain DCE-complet (B12) | > 0 | **+7** (auth-gating limite le reste) 🟠 |
 | Tests | ≥ 215 OK | **~254 OK / 0 KO** ✅ |
-| Coût | ≤ 100 € | **15,73 €** (échantillon 50) ✅ |
+| Coût LLM total | ≤ 100 € | **~69,5 €** ✅ |
 
-**Reste à faire (ta main)** :
-1. **Étape 7 — validation manuelle** : `python scripts/valider_extraction_v2.py` (20 briefs :
-   gagnés B12 + déjà-complet avec comparaison v1). **Gate Sprint DECP 3** : ≥ 85 % = GO ferme.
-2. **Re-extraction du reste** : seulement **50/216** faits (échantillon progressif). Une fois la
-   validation OK, lancer le complet — budget restant ≈ 84 € pour ~166 briefs à 0,35 € ≈ **58 €**
-   (rentre dans le cap 100 € total). Commande : `python scripts/reextraire_briefs_v2.py --workers 8
-   --plafond 84`.
+**36 briefs non re-extraits** : `dce_contenu='complet'` mais **PDF illisibles** (scannés /
+image-only / corrompus → `pdf_extract` ne tire aucun texte exploitable). Inextractables sans OCR
+(hors scope). Ce n'est pas un problème de crédit ni de prompt.
 
-**Recommandation** : la mécanique v2 est **validée techniquement** (couverture, critères, montants,
-0 régression). Le passage **GO Sprint DECP 3** est conditionné à ta validation manuelle des 20
-briefs (Étape 7). Je n'ai **pas** lancé la re-extraction complète : ta validation qualité est le
-gate avant d'engager le reste du budget.
+**Alertes critères : 51 (28 %)** — légitimes après correction de la dérivation : bareme non
+chiffré par l'acheteur, ou pondérations `prix+technique ≠ 100` dans le DCE. `extraction_v2_a_verifier`
+flag les cas à ≥ 2 alertes pour revue ciblée.
 
+### Reste à faire (ta main)
+1. **Étape 7 — validation manuelle** (GATE Sprint DECP 3) :
+   `python scripts/valider_extraction_v2.py` (20 briefs : gagnés B12 + déjà-complet avec
+   comparaison v1). **≥ 85 % = GO ferme Sprint DECP 3.**
+2. **OCR des 36 sans-PDF** (optionnel, chantier dédié) si on veut couvrir 100 % des complet.
+
+### Recommandation
+Mécanique v2 **validée techniquement** (couverture montant 98 %, critères 90 %, bug RSE résolu,
+0 régression, ~254 tests). Le passage **GO Sprint DECP 3** est conditionné à ta validation
+manuelle des 20 briefs (Étape 7). Coût total maîtrisé (~69,5 € / 100 €).
