@@ -42,7 +42,10 @@ def _candidats(limite=None):
     m = stockage.charger("marches") or {}
     out = []
     for mid, mk in sorted(m.items()):
-        if mk.get("url_consultation_dce_directe") and mk.get("dce_contenu") != "complet":
+        # Cible les DCE incomplets ayant une URL exploitable (le wrapper dispatch
+        # Atexo/achatpublic via id+org/PCSLID sur l'une des 2 URLs).
+        if mk.get("dce_contenu") == "incomplet" and (
+                mk.get("url_consultation_dce_directe") or mk.get("url_dce")):
             out.append((mid, mk))
             if limite and len(out) >= limite:
                 break
