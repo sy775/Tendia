@@ -954,33 +954,54 @@
            LLM contient typiquement des extrapolations bottom-up qui font
            doublon avec — voire divergent de — notre fourchette 3 scénarios
            plus bas. Garder juste "non communiquée" dans ce cas. #}
-        {% if montant_marche_eur or (brief.montant_marche and brief.montant_marche.commentaire and brief.montant_marche.type not in ('non_communique', 'non communique', None)) %}
+        {% set mm = brief.montant_marche %}
+        {% set est_officiel = mm and mm.type in ('estime_explicite', 'plafond') %}
+        {% set est_estimation_bu = mm and mm.type == 'calcule_volumes' %}
+        {% set f_min = mm.fourchette_min_euros if mm else None %}
+        {% set f_max = mm.fourchette_max_euros if mm else None %}
+        {% set a_fourchette = f_min and f_max and f_max > f_min %}
+
+        {# ---- 1A. Valeur officielle (RC) — UNIQUEMENT si un montant est PUBLIÉ au
+           DCE (estime_explicite / plafond = Voie 1). Une estimation bottom-up
+           (calcule_volumes = Voie 2) n'est JAMAIS « officielle » : elle s'affiche
+           dans le bloc estimation ci-dessous. S'il y a un officiel, pas de bottom-up
+           (les deux sont mutuellement exclusifs côté donnée). #}
+        {% if est_officiel and montant_marche_eur %}
         <div style="background: var(--apt-bg); padding: 12px 16px; border-radius: 8px; margin-bottom: 12px;">
           <div style="display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 4px;">
             <div style="font-size: 11px; color: var(--apt-ink-4); font-weight: 600;">Valeur officielle (RC)</div>
-            {% if montant_marche_eur %}
-              <div style="font-size: 18px; color: var(--apt-ink); font-weight: 700;">{{ montant_marche_eur | euro_short }}</div>
-              <span style="font-size: 11px; color: var(--apt-ink-3);">
-              {% if brief.montant_marche.type == 'estime_explicite' %}explicite RC
-              {% elif brief.montant_marche.type == 'plafond' %}plafond accord-cadre
-              {% elif brief.montant_marche.type == 'calcule_volumes' %}calculé depuis BPU
-              {% else %}estimé{% endif %}
-              </span>
-            {% endif %}
+            <div style="font-size: 18px; color: var(--apt-ink); font-weight: 700;">{{ montant_marche_eur | euro_short }}</div>
+            <span style="font-size: 11px; color: var(--apt-ink-3);">{% if mm.type == 'plafond' %}plafond accord-cadre{% else %}explicite RC{% endif %}</span>
           </div>
-          {# Commentaire affiché uniquement si une vraie valeur officielle est présente #}
-          {% if montant_marche_eur and brief.montant_marche.commentaire %}
-          <p style="font-size: 12px; color: var(--apt-ink-3); line-height: 1.55; margin: 4px 0 0; font-style: italic;">{{ brief.montant_marche.commentaire }}</p>
+          {% if mm.commentaire %}
+          <p style="font-size: 12px; color: var(--apt-ink-3); line-height: 1.55; margin: 4px 0 0; font-style: italic;">{{ mm.commentaire }}</p>
           {% endif %}
-          {% if montant_marche_eur and brief.montant_marche.source_extraction %}
-          <div style="margin-top: 4px; font-size: 10.5px; color: var(--apt-ink-4);">Source : {{ brief.montant_marche.source_extraction | clean_source }}</div>
+          {% if mm.source_extraction %}
+          <div style="margin-top: 4px; font-size: 10.5px; color: var(--apt-ink-4);">Source : {{ mm.source_extraction | clean_source }}</div>
           {% endif %}
         </div>
-        {% elif brief.montant_marche and not montant_marche_eur %}
-        {# Cas "non communiquée" : mention courte, pas d'extrapolation #}
+        {% elif mm %}
+        {# Pas de valeur officielle publiée : mention courte. #}
         <div style="background: var(--apt-bg); padding: 8px 16px; border-radius: 8px; margin-bottom: 12px; display: flex; align-items: baseline; gap: 12px;">
           <div style="font-size: 11px; color: var(--apt-ink-4); font-weight: 600;">Valeur officielle (RC)</div>
-          <span style="font-size: 12.5px; color: var(--apt-ink-3); font-style: italic;">non communiquée dans le DCE — voir fourchette ci-dessous</span>
+          <span style="font-size: 12.5px; color: var(--apt-ink-3); font-style: italic;">non communiquée dans le DCE{% if est_estimation_bu %} — estimation Tendia ci-dessous{% endif %}</span>
+        </div>
+        {% endif %}
+
+        {# ---- 1A-bis. Estimation Tendia bottom-up (calcule_volumes = Voie 2) :
+           affichée UNIQUEMENT en l'absence d'un montant officiel. C'est elle qui
+           sert à estimer le coût du marché quand le DCE ne le publie pas. Le
+           commentaire (raisonnement travaux × taux) est porté ICI, plus jamais
+           sous le label « officielle ». #}
+        {% if not est_officiel and est_estimation_bu and (a_fourchette or montant_marche_eur) %}
+        <div style="background: var(--c-violet-soft); padding: 12px 16px; border-radius: 8px; border-left: 4px solid var(--c-violet); margin-bottom: 12px;">
+          <div style="display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 4px;">
+            <div style="font-size: 11px; color: var(--c-violet); font-weight: 700; text-transform: uppercase; letter-spacing: 0.3px;">Estimation Tendia · bottom-up</div>
+            <div style="font-size: 18px; color: var(--apt-ink); font-weight: 700;">{% if a_fourchette %}{{ f_min | euro_short }} – {{ f_max | euro_short }}{% else %}{{ montant_marche_eur | euro_short }}{% endif %}</div>
+          </div>
+          {% if mm.commentaire %}
+          <p style="font-size: 12px; color: var(--apt-ink-3); line-height: 1.55; margin: 4px 0 0; font-style: italic;">{{ mm.commentaire }}</p>
+          {% endif %}
         </div>
         {% endif %}
 
