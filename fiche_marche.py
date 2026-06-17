@@ -111,6 +111,13 @@ def _jours_restants(date_limite):
 
 
 def _duree_compacte(brief):
+    # Priorité au nombre de mois propre (volumes.duree_marche_mois) — le champ
+    # calendrier.duree_marche est souvent une phrase longue (« ~3,5 mois + 3
+    # reconductions de 12 mois ») incohérente en KPI.
+    vol = _get(brief, "volumes") or {}
+    dmm = vol.get("duree_marche_mois")
+    if isinstance(dmm, (int, float)) and dmm > 0:
+        return f"{int(dmm)} mois"
     cal = _get(brief, "calendrier") or {}
     dm = cal.get("duree_mois")
     if dm:
@@ -177,19 +184,24 @@ def kpi_cards_pour_marche(brief, marche, presets, calib=None):
     codes = _codes(presets)
     cards = []
 
-    # 1) Valeur
+    # 1) Valeur — affiche la FOURCHETTE quand c'est une estimation LLM (Voie 2 :
+    # type 'calcule_volumes' avec min/max), sinon la valeur publiée unique.
+    mm = _get(brief, "montant_marche") or {}
+    fmin, fmax = mm.get("fourchette_min_euros"), mm.get("fourchette_max_euros")
+    a_fourchette = (all(isinstance(x, (int, float)) and x > 0 for x in (fmin, fmax))
+                    and float(fmax) > float(fmin))
+    est_estimation = mm.get("type") == "calcule_volumes"
     m = montant_estime(brief)
-    if m:
+    if a_fourchette and est_estimation:
+        cards.append({"icone": "€", "label": "Valeur estimée",
+                      "valeur": f"{_fmt_eur(fmin)} – {_fmt_eur(fmax)}",
+                      "hint": "estimation Tendia", "classe": "val"})
+    elif m:
         cards.append({"icone": "€", "label": "Valeur estimée", "valeur": _fmt_eur(m),
-                      "hint": "", "classe": "val"})
+                      "hint": "estimation Tendia" if est_estimation else "", "classe": "val"})
     else:
-        fourchette = _fourchette_calibration(calib)
-        if fourchette:
-            cards.append({"icone": "€", "label": "Estimation bottom-up",
-                          "valeur": fourchette, "hint": "calibration", "classe": "val"})
-        else:
-            cards.append({"icone": "€", "label": "Valeur estimée", "valeur": "—",
-                          "hint": "non communiqué dans le DCE", "classe": "val muet"})
+        cards.append({"icone": "€", "label": "Valeur estimée", "valeur": "—",
+                      "hint": "non communiqué dans le DCE", "classe": "val muet"})
 
     # 2) Card sectorielle
     if "formation" in codes:
@@ -477,7 +489,20 @@ def _bloc_formation(brief, pct):
     sections = []
     pc = _get(brief, "publics_cibles")
     if _non_vide(pc):
-        sections.append({"label": "Publics cibles", "valeur": pc, "type": "list" if isinstance(pc, list) else "text"})
+        if isinstance(pc, dict):
+            # publics_cibles est un objet {description, criteres_eligibilite,
+            # publics_specifiques_signales} → on l'aplatit (sinon le template affiche
+            # le dict brut). Le détail complet est déjà rendu plus bas dans la fiche.
+            desc = pc.get("description")
+            if desc:
+                sections.append({"label": "Publics cibles", "valeur": desc, "type": "text"})
+            specs = pc.get("publics_specifiques_signales") or []
+            if specs:
+                sections.append({"label": "Publics spécifiques", "valeur": specs, "type": "list"})
+        elif isinstance(pc, list):
+            sections.append({"label": "Publics cibles", "valeur": pc, "type": "list"})
+        else:
+            sections.append({"label": "Publics cibles", "valeur": str(pc), "type": "text"})
     return {"preset_code": "formation", "label": "Formation", "pct": pct, "implemente": True, "sections": sections}
 
 

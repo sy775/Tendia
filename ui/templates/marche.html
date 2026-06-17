@@ -706,7 +706,12 @@
         <span style="display: inline-flex; align-items: center; gap: 3px; margin-left: 4px; padding: 1px 5px; background: var(--c-violet-soft); color: var(--c-violet); font-size: 9px; font-weight: 700; border-radius: 999px; text-transform: uppercase; letter-spacing: 0.4px;">✦ est.</span>
         {% endif %}
       </div>
-      {% if montant_marche_eur %}
+      {# Fourchette d'estimation LLM (Voie 2 : type calcule_volumes avec min/max) #}
+      {% set mm = brief.montant_marche or {} %}
+      {% set est_fourchette = mm.fourchette_min_euros and mm.fourchette_max_euros and mm.type == 'calcule_volumes' and mm.fourchette_max_euros > mm.fourchette_min_euros %}
+      {% if est_fourchette %}
+        <div class="kpi-value" style="color: var(--c-violet); font-size: 18px; line-height: 1.15;">{{ mm.fourchette_min_euros | euro_short }}<span style="color: var(--apt-ink-4); font-weight: 500; margin: 0 4px;">–</span>{{ mm.fourchette_max_euros | euro_short }}</div>
+      {% elif montant_marche_eur %}
         <div class="kpi-value">{{ montant_marche_eur | euro_short }}</div>
       {% elif valeur_est_estimee and kpi_bas and kpi_haut %}
         <div class="kpi-value" style="color: var(--c-violet); font-size: 18px; line-height: 1.15;">{{ kpi_bas | euro_short }}<span style="color: var(--apt-ink-4); font-weight: 500; margin: 0 4px;">–</span>{{ kpi_haut | euro_short }}</div>
@@ -716,7 +721,9 @@
         <div class="kpi-value">—</div>
       {% endif %}
       <div class="kpi-sub">
-        {% if montant_marche_eur %}
+        {% if est_fourchette %}
+          <span style="color: var(--c-violet); font-weight: 600;">estimation Tendia</span>
+        {% elif montant_marche_eur %}
           {% if brief.montant_marche and brief.montant_marche.type == 'estime_explicite' %}explicite RC
           {% elif brief.montant_marche and brief.montant_marche.type == 'plafond' %}plafond RC
           {% elif brief.montant_marche and brief.montant_marche.type == 'calcule_volumes' %}calculé
