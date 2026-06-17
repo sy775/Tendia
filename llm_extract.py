@@ -783,6 +783,27 @@ def post_traiter_extraction_v2(data: dict) -> dict:
         or vmin > vmax)
     data["montant_alerte_coherence"] = alerte_v1 or alerte_v2
 
+    # SYNCHRO montant_marche ← montant_3_voies (l'UI lit encore montant_marche).
+    # Si le LLM a laissé montant_marche vide mais rempli une voie, on reporte la
+    # valeur/fourchette pour que la fiche affiche un montant. Non destructif : on ne
+    # touche pas un montant_marche déjà renseigné.
+    mm = dict(data.get("montant_marche") or {})
+    if not mm.get("valeur_estimee_euros") and not mm.get("fourchette_min_euros"):
+        if v1:
+            mm["valeur_estimee_euros"] = v1
+            mm["type"] = "estime_explicite"
+            mm["source_extraction"] = m3.get("voie_1_source") or mm.get("source_extraction")
+            mm.setdefault("commentaire", "Montant publié (Voie 1).")
+            data["montant_marche"] = mm
+        elif v2_dispo and isinstance(vmin, (int, float)) and isinstance(vmax, (int, float)):
+            mm["fourchette_min_euros"] = vmin
+            mm["fourchette_max_euros"] = vmax
+            mm["valeur_estimee_euros"] = round((vmin + vmax) / 2)
+            mm["type"] = "calcule_volumes"
+            mm["commentaire"] = ("Estimation bottom-up (Voie 2) : "
+                                 + " ; ".join(h.get("hypothese", "") for h in hypos[:2]))[:500]
+            data["montant_marche"] = mm
+
     nb_alertes = sum([validation["criteres_alerte_somme_incorrecte"],
                       validation["criteres_alerte_pas_de_prix"],
                       validation["criteres_alerte_non_classes"],
