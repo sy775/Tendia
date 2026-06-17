@@ -77,7 +77,7 @@ def _relever_cap_appels(n):
         print(f"  ⚠ cap appels non relevé ({e}) — risque de blocage par le quota journalier.")
 
 
-def _cibles(limite=None, marche_id=None, reextract_voie2=False):
+def _cibles(limite=None, marche_id=None, reextract_voie2=False, reextract_sha=False):
     m = stockage.charger("marches") or {}
     be = stockage.charger("briefs_extraits") or {}
     out = []
@@ -88,12 +88,18 @@ def _cibles(limite=None, marche_id=None, reextract_voie2=False):
             continue
         b = be.get(mid) or {}
         est_v2 = str(b.get("version_extraction_llm")) == "2"
+        deja_au_sha = b.get("prompt_version_sha") == llm_extract.PROMPT_V2_SHA
         if reextract_voie2:
             # Mode resserrage fourchettes : on re-extrait UNIQUEMENT les v2 ayant une Voie 2,
             # et PAS ceux déjà ré-extraits avec le prompt courant (idempotence anti-double-spend).
             if not (est_v2 and b.get("montant_voie_2_disponible")):
                 continue
-            if b.get("prompt_version_sha") == llm_extract.PROMPT_V2_SHA:
+            if deja_au_sha:
+                continue
+        elif reextract_sha:
+            # Mode refonte prompt (L1/L2…) : re-extrait tout brief PAS au SHA courant
+            # (v2 obsolète OU v1 OU jamais extrait). Idempotent : un v2 déjà au SHA est sauté.
+            if est_v2 and deja_au_sha:
                 continue
         elif est_v2:
             continue
@@ -172,11 +178,17 @@ def main():
     ap.add_argument("--marche-id", default=None)
     ap.add_argument("--reextract-voie2", action="store_true",
                     help="re-extrait les briefs DÉJÀ v2 ayant une Voie 2 (resserrage fourchettes)")
+    ap.add_argument("--reextract-sha", action="store_true",
+                    help="re-extrait tout brief pas au SHA prompt courant (refonte prompt L1/L2)")
     args = ap.parse_args()
 
-    cibles, be = _cibles(args.limite, args.marche_id, reextract_voie2=args.reextract_voie2)
+    cibles, be = _cibles(args.limite, args.marche_id,
+                         reextract_voie2=args.reextract_voie2,
+                         reextract_sha=args.reextract_sha)
     n = len(cibles)
-    mode = "v2 avec Voie 2 (resserrage)" if args.reextract_voie2 else "dce_contenu=complet, !=v2"
+    mode = ("v2 avec Voie 2 (resserrage)" if args.reextract_voie2
+            else "v2 obsolète (SHA≠courant) + v1/jamais" if args.reextract_sha
+            else "dce_contenu=complet, !=v2")
     print(f"=== Re-extraction LLM v2 — {n} briefs cibles ({mode})"
           f"{' [DRY-RUN]' if args.dry_run else ''} ===")
     if args.dry_run:

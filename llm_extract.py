@@ -412,6 +412,16 @@ Extrais les informations dans ce schéma JSON :
     ],
     "voie_2_raison_indisponible": null
   }},
+  "cout_realisation": {{
+    "cout_total_eur": null,
+    "cout_min_eur": null,
+    "cout_max_eur": null,
+    "postes": [
+      {{"poste": "Poste de coût côté CANDIDAT (ex: 'Ingénierie MOE', 'Main d'œuvre chantier', 'Matériel/fournitures', 'Sous-traitance', 'Encadrement/coordination')", "detail": "Décomposition chiffrée (ex: '90 j-h × 650 €/j')", "montant_eur": null}}
+    ],
+    "taux_journaliers_retenus": "Taux/ratios de référence marché utilisés (ex: 'architecte 750 €/j, ingénieur 600 €/j' ; 'maçonnerie 45 €/h chargé'). Indique que ce sont des taux marché indicatifs.",
+    "commentaire": "Hypothèses de chiffrage du COÛT DE PRODUCTION pour le candidat (distinct du prix du marché). null si non chiffrable."
+  }},
   "revision_prix": {{
     "type": "indexation",
     "indices_utilises": ["SYNTEC", "ILC"],
@@ -595,12 +605,44 @@ VOIE 2 — ESTIMATION BOTTOM-UP (UNIQUEMENT si Voie 1 absente) :
   qu'UNE SEULE dimension à la fois — la PLUS incertaine (en général le prix/ratio unitaire OU
   la quantité, pas les deux) — en gardant l'autre à sa valeur centrale. NE combine JAMAIS
   min_quantité × min_prix puis max_quantité × max_prix : cela produit des fourchettes
-  irréalistes (rapport max/min > 2). Vise un rapport max/min ≈ 1,3-1,8. Indique dans une
-  hypothèse quelle dimension tu fais varier (ex : « quantité fixée à 1200 m² ; ratio varié
-  2000-2400 €/m² »).
+  irréalistes (rapport max/min > 2). Indique dans une hypothèse quelle dimension tu fais
+  varier (ex : « quantité fixée à 1200 m² ; ratio varié 2000-2400 €/m² »).
+- PRÉCISION (priorité) : c'est l'IA qui calibre ici, donc vise la fourchette la PLUS SERRÉE
+  que les données du DCE permettent. Plus tu exploites d'éléments chiffrés précis (surfaces,
+  quantités, durées, volumes du DCE), plus la fourchette doit être étroite : idéalement un
+  rapport max/min ≈ 1,2-1,4 ; ne va vers 1,8 QUE si l'incertitude est réellement forte
+  (donnée manquante au DCE). Une fourchette large = un aveu d'imprécision, à éviter quand
+  le DCE donne de quoi resserrer.
 - Si le DCE est vraiment trop pauvre (aucun volume chiffrable) → `voie_2_disponible=false`
   + `voie_2_raison_indisponible` (raison précise). Ce cas doit rester rare.
 - (Voie 3 = rapprochement DECP en aval, hors LLM : ne la calcule pas ici.)
+
+=== RÈGLES v2 — REVENU / COÛT / MARGE (bloc `cout_realisation`) ===
+
+L'utilisateur est un CANDIDAT qui veut savoir s'il gagnera de l'argent. Il faut donc
+distinguer DEUX grandeurs et ne JAMAIS les confondre :
+- REVENU = le PRIX DU MARCHÉ = ce que l'acheteur PAIE au titulaire. C'est `montant_marche` /
+  `montant_3_voies` (Voie 1 si publié, sinon estimation Voie 2). Pour 56929 (MOE) : les
+  honoraires = travaux × taux MOE = le revenu.
+- COÛT DE RÉALISATION (`cout_realisation`) = ce que ça COÛTE au candidat de PRODUIRE la
+  prestation (sa main d'œuvre, son matériel, sa sous-traitance, son encadrement). C'est
+  TOUJOURS inférieur au revenu sur un marché sain.
+
+Tu remplis `cout_realisation` par une estimation BOTTOM-UP du coût de production :
+- Décompose en `postes` (jours-homme × taux journalier marché, quantités × prix unitaire
+  fournitures, sous-traitance, encadrement…), chacun avec `montant_eur`.
+- Utilise des TAUX MARCHÉ INDICATIFS adaptés au secteur (renseigne-les dans
+  `taux_journaliers_retenus`) — tu n'as pas la structure de coût réelle du candidat, donc
+  c'est une estimation « à taux marché », dis-le.
+- `cout_total_eur` = somme des postes ; donne une fourchette `cout_min_eur`/`cout_max_eur`
+  en ne faisant varier qu'UNE dimension (le taux OU la charge), comme pour la Voie 2 — la
+  PLUS SERRÉE possible (rapport max/min ≈ 1,2-1,4 quand le DCE chiffre la charge).
+- Le CODE calcule ensuite la marge = revenu − coût (ne calcule PAS la marge toi-même).
+- Si le marché est trop flou pour chiffrer un coût crédible → laisse `cout_total_eur=null`
+  et explique dans `commentaire`. Mais sur ingénierie/conseil/BTP/services il y a presque
+  toujours de quoi chiffrer une charge (jours-homme, quantités).
+- COHÉRENCE : si ton coût total dépasse le revenu estimé, re-vérifie (sauf marché
+  structurellement déficitaire, rare) — signale-le alors dans `commentaire`.
 
 === RÈGLES v2 — CRITÈRES : champ `unite_evaluation` ===
 
@@ -687,6 +729,7 @@ _CHAMPS_UNIVERSELS_BRIEF = {
     "bareme_notation",
     "montant_marche",
     "montant_3_voies",
+    "cout_realisation",
     "revision_prix",
     "alertes_prix",
     "references_exigees",
@@ -853,10 +896,46 @@ def post_traiter_extraction_v2(data: dict) -> dict:
                                  + " ; ".join(h.get("hypothese", "") for h in hypos[:2]))[:500]
             data["montant_marche"] = mm
 
+    # === REVENU / COÛT / MARGE (modèle candidat) ===
+    # Revenu = prix du marché (montant_marche, officiel Voie 1 ou estimé Voie 2).
+    # Coût = estimation bottom-up du coût de PRODUCTION côté candidat (cout_realisation).
+    # Marge = revenu − coût (calculée ICI, pas par le LLM).
+    mm_final = data.get("montant_marche") or {}
+    rev_c = mm_final.get("valeur_estimee_euros")
+    rev_min, rev_max = mm_final.get("fourchette_min_euros"), mm_final.get("fourchette_max_euros")
+    revenu_officiel = mm_final.get("type") in ("estime_explicite", "plafond")
+    data["revenu_eur"] = rev_c if isinstance(rev_c, (int, float)) else None
+    data["revenu_min_eur"] = rev_min if isinstance(rev_min, (int, float)) else None
+    data["revenu_max_eur"] = rev_max if isinstance(rev_max, (int, float)) else None
+    data["revenu_source"] = ("officiel" if revenu_officiel
+                             else ("estime_ia" if data["revenu_eur"] else None))
+
+    cr = data.get("cout_realisation") or {}
+    cout_total = cr.get("cout_total_eur")
+    cout_min, cout_max = cr.get("cout_min_eur"), cr.get("cout_max_eur")
+    if (not isinstance(cout_total, (int, float))
+            and isinstance(cout_min, (int, float)) and isinstance(cout_max, (int, float))):
+        cout_total = round((cout_min + cout_max) / 2)
+    data["cout_realisation_eur"] = cout_total if isinstance(cout_total, (int, float)) else None
+    data["cout_min_eur"] = cout_min if isinstance(cout_min, (int, float)) else None
+    data["cout_max_eur"] = cout_max if isinstance(cout_max, (int, float)) else None
+
+    marge = marge_pct = None
+    marge_alerte = False
+    rev, cout = data["revenu_eur"], data["cout_realisation_eur"]
+    if isinstance(rev, (int, float)) and rev > 0 and isinstance(cout, (int, float)):
+        marge = round(rev - cout)
+        marge_pct = round(100 * marge / rev, 1)
+        marge_alerte = cout > rev  # coût > revenu : incohérent (sauf marché déficitaire, rare)
+    data["marge_eur"] = marge
+    data["marge_pct"] = marge_pct
+    data["marge_alerte"] = marge_alerte
+
     nb_alertes = sum([validation["criteres_alerte_somme_incorrecte"],
                       validation["criteres_alerte_pas_de_prix"],
                       validation["criteres_alerte_non_classes"],
-                      data["montant_alerte_coherence"]])
+                      data["montant_alerte_coherence"],
+                      marge_alerte])
     data["extraction_v2_a_verifier"] = nb_alertes >= 2
     data["version_extraction_llm"] = "2"
     data["prompt_version_sha"] = PROMPT_V2_SHA
