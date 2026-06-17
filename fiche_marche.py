@@ -463,6 +463,24 @@ def _bloc_ingenierie(brief, profil, pct):
         sections.append({"label": "BIM", "valeur": moe["bim_niveau"], "type": "text"})
     if _non_vide(moe.get("montant_travaux_estime")):
         sections.append({"label": "Coût travaux estimé", "valeur": _fmt_eur(moe["montant_travaux_estime"]), "type": "text"})
+    # Livrables par phase (souvent l'info la plus actionnable pour chiffrer la mission)
+    livrables = moe.get("livrables_par_phase") or []
+    items_liv = []
+    for lp in livrables:
+        if isinstance(lp, dict):
+            ph = lp.get("phase") or "?"
+            livs = lp.get("livrables") or []
+            if livs:
+                items_liv.append(f"{ph} : {', '.join(str(x) for x in livs)}")
+    if items_liv:
+        sections.append({"label": "Livrables par phase", "valeur": items_liv, "type": "list"})
+    # Coordinations associées (OPC / SPS / SSI inclus ou exclus) — enjeu de périmètre
+    coords = moe.get("coordinations_associees") or []
+    if coords:
+        sections.append({"label": "Coordinations (OPC/SPS/SSI)", "valeur": coords, "type": "list"})
+    indices = moe.get("indices_revision") or []
+    if indices:
+        sections.append({"label": "Indices de révision", "valeur": indices, "type": "list"})
     # Organigramme attendu + couverture profil
     org = moe.get("organigramme_attendu") or []
     if org:
