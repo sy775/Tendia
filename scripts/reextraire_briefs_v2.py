@@ -54,19 +54,27 @@ class BudgetTracker:
 
 
 def _relever_cap_appels(n):
-    """Relève extraction_max_par_jour dans data/budget.json (le vrai garde-fou est le
-    cap € du tracker). Évite le blocage du guard interne à 100 appels/jour."""
+    """Relève extraction_max_par_jour dans data/budget.json AU-DESSUS du cumul d'appels
+    DÉJÀ faits aujourd'hui (le quota est journalier et cumulatif sur tous les runs ; le
+    vrai garde-fou est le cap € du tracker). Sinon un 2ᵉ/3ᵉ run du jour se fait bloquer."""
     try:
         import json
         import budget as B
         cfg = B.lire_config()
-        if cfg.get("extraction_max_par_jour", 0) < n:
-            cfg["extraction_max_par_jour"] = n
+        deja = 0
+        try:
+            deja = B._compter_appels_jour("extraction")  # appels extraction déjà faits ce jour
+        except Exception:
+            pass
+        cible = deja + n + 50  # marge
+        if cfg.get("extraction_max_par_jour", 0) < cible:
+            cfg["extraction_max_par_jour"] = cible
             with open(B.FICHIER_BUDGET, "w", encoding="utf-8") as f:
                 json.dump(cfg, f, ensure_ascii=False, indent=2)
-            print(f"  ⓘ cap appels/jour relevé à {n} (cap € = {n*COUT_ESTIME:.0f}€ via tracker).")
+            print(f"  ⓘ cap appels/jour relevé à {cible} (déjà {deja} aujourd'hui + {n} + marge ; "
+                  f"vrai garde-fou = cap € du tracker).")
     except Exception as e:
-        print(f"  ⚠ cap appels non relevé ({e}) — risque de blocage à 100/jour.")
+        print(f"  ⚠ cap appels non relevé ({e}) — risque de blocage par le quota journalier.")
 
 
 def _cibles(limite=None, marche_id=None, reextract_voie2=False):

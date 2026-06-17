@@ -39,7 +39,9 @@ except ImportError:
 
 
 MODELE = "claude-sonnet-4-6"  # Sonnet 4.6 — canonical ID
-MAX_TOKENS_REPONSE = 16000     # Sonnet 4.6 supporte jusqu'à 16384 ; 8000 tronquait les briefs riches
+MAX_TOKENS_REPONSE = 32000     # Sonnet 4.6 supporte bien au-delà ; les gros DCE multi-lots
+                               # dépassaient 16000 → JSON tronqué → echec_llm. Streaming requis
+                               # à ce niveau (cf. extraire_via_llm) pour éviter le timeout requête.
 MAX_CHARS_INPUT = 400_000
 
 
@@ -939,12 +941,18 @@ def extraire_via_llm(texte: str, contexte: dict,
                 print(f"  → Appel Claude API (tentative {tentative})...")
                 print(f"    input ≈ {len(prompt_user)} chars "
                       f"(≈ {len(prompt_user) // 4} tokens)")
-            message = client.messages.create(
+            # STREAMING (et non messages.create) : indispensable pour les gros DCE
+            # multi-lots dont la génération est longue. En non-streamé, l'appel heurte
+            # le timeout de requête du SDK avant la fin (cause des echec_llm sur les
+            # briefs lourds). Le streaming garde la connexion vivante tant que des
+            # tokens arrivent ; get_final_message() reconstitue le message complet.
+            with client.messages.stream(
                 model=MODELE,
                 max_tokens=MAX_TOKENS_REPONSE,
                 system=prompt_systeme,
                 messages=[{"role": "user", "content": prompt_user}],
-            )
+            ) as stream:
+                message = stream.get_final_message()
             duree = time.time() - debut
             reponse_text = message.content[0].text if message.content else ""
 
