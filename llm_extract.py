@@ -710,30 +710,48 @@ def deriver_criteres_attribution_plat(bareme: dict) -> list:
     sous = [sc for sc in (bareme.get("sous_criteres_techniques") or []) if isinstance(sc, dict)]
     plat = []
 
-    if pct_prix and pct_prix > 0:
+    prix_part = pct_prix if (pct_prix and pct_prix > 0) else 0
+    if prix_part:
         plat.append({"libelle": "Prix", "famille": "prix", "ponderation_pct": pct_prix,
                      "unite_evaluation": "euro", "source_texte": (bareme.get("prix") or {}).get("source")})
 
-    if sous and pct_tech and pct_tech > 0:
-        raw = [_num(sc.get("ponderation_pct")) for sc in sous]
-        raw_sum = sum(r for r in raw if r) or 0
-        scale = (pct_tech / raw_sum) if raw_sum > 0 else None
+    raw = [_num(sc.get("ponderation_pct")) for sc in sous]
+    raw_sum = sum(r for r in raw if r) or 0
+
+    def _entrees_sous(scale):
+        """Construit les entrées plates des sous-critères. scale=None → poids bruts."""
+        out = []
         for sc, r in zip(sous, raw):
-            p = round(r * scale, 1) if (scale and r) else r
-            plat.append({"libelle": sc.get("libelle"),
-                         "famille": _famille_depuis_unite(sc.get("unite_evaluation")),
-                         "ponderation_pct": p, "unite_evaluation": sc.get("unite_evaluation"),
-                         "source_texte": sc.get("source")})
+            p = round(r * scale, 1) if (scale is not None and r) else r
+            out.append({"libelle": sc.get("libelle"),
+                        "famille": _famille_depuis_unite(sc.get("unite_evaluation")),
+                        "ponderation_pct": p, "unite_evaluation": sc.get("unite_evaluation"),
+                        "source_texte": sc.get("source")})
+        return out
+
+    if sous and raw_sum > 0:
+        # D1 — les sous-critères encodent déjà des poids ABSOLUS (part-de-100) si
+        # `prix + Σsous ≈ 100`. Dans ce cas on les garde TELS QUELS : ne pas rescaler
+        # sur `valeur_technique_pct`, scalaire souvent sous-renseigné par le LLM (il
+        # met 60 alors que ses propres sous-critères somment à 75 = la vraie valeur).
+        if 98 <= prix_part + raw_sum <= 102:
+            plat.extend(_entrees_sous(None))
+        # Sinon, si un `valeur_technique_pct` fiable existe, les sous-critères sont
+        # exprimés en part-DU-technique → on les renormalise pour sommer à pct_tech.
+        elif pct_tech and pct_tech > 0:
+            plat.extend(_entrees_sous(pct_tech / raw_sum))
+        # Ni absolus ni rescalables : poids bruts (best effort, alerte possible).
+        else:
+            plat.extend(_entrees_sous(None))
     elif pct_tech and pct_tech > 0:
+        # D2 — sous-critères absents OU tous non pondérés (raw_sum=0). La partie
+        # technique NE DOIT PAS s'évaporer (bug : scale=None → ponderation_pct=None →
+        # 60-70% techniques perdus). Repli : entrée unique « Valeur technique » = pct_tech.
         plat.append({"libelle": "Valeur technique", "famille": "valeur_technique",
                      "ponderation_pct": pct_tech, "unite_evaluation": "points", "source_texte": None})
     else:
-        # Bareme sans pondérations top-niveau : best effort (peut déclencher une alerte légitime).
-        for sc in sous:
-            plat.append({"libelle": sc.get("libelle"),
-                         "famille": _famille_depuis_unite(sc.get("unite_evaluation")),
-                         "ponderation_pct": sc.get("ponderation_pct"),
-                         "unite_evaluation": sc.get("unite_evaluation"), "source_texte": sc.get("source")})
+        # Ni pct_tech ni poids de sous-critères : best effort (alerte légitime possible).
+        plat.extend(_entrees_sous(None))
     return plat
 
 
@@ -745,7 +763,11 @@ def valider_criteres_plat(plat: list) -> dict:
     a_prix = any(c.get("famille") == "prix"
                  and isinstance(c.get("ponderation_pct"), (int, float))
                  and c["ponderation_pct"] > 0 for c in plat)
-    non_classe = any(c.get("famille") == "non_classe" for c in plat)
+    # D3 — flag vivant : un critère sans pondération exploitable (None) échappe à la
+    # somme et signale un barème mal extrait. (L'ancien test `famille=="non_classe"`
+    # était mort : `_famille_depuis_unite` ne renvoie jamais cette valeur.)
+    non_classe = any(c.get("ponderation_pct") is None
+                     or c.get("famille") == "non_classe" for c in plat)
     return {
         "criteres_somme_ponderations": somme,
         "criteres_alerte_somme_incorrecte": not (98 <= somme <= 102),
