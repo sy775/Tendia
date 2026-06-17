@@ -975,6 +975,28 @@
               {% if rev_fourchette %}{{ rev_min | euro_short }} – {{ rev_max | euro_short }}{% elif rev_eur %}{{ rev_eur | euro_short }}{% else %}non communiqué{% endif %}
             </div>
           </div>
+          {# Voie 3 — calibration du revenu sur comparables DECP RÉELS (contrats exécutés).
+             Ancre la fourchette estimée sur des données réelles : c'est la calibration
+             la plus précise quand le DCE ne publie pas de montant officiel. #}
+          {% if voie3 and voie3.disponible %}
+          <div style="margin-top: 8px; padding: 8px 10px; background: var(--c-green-soft); border-radius: 6px; border-left: 3px solid var(--c-green);">
+            <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 10px; flex-wrap: wrap;">
+              <div style="font-size: 10.5px; color: var(--c-green-deep); font-weight: 700; text-transform: uppercase; letter-spacing: 0.3px;">✓ Calibré sur {{ voie3.n }} marchés DECP réels · {{ voie3.strategie }}</div>
+              <div style="font-size: 13px; color: var(--apt-ink); font-weight: 700; font-variant-numeric: tabular-nums;">médiane {{ voie3.montant_median | euro_short }}</div>
+            </div>
+            <div style="font-size: 11px; color: var(--apt-ink-3); margin-top: 2px;">Fourchette réelle (p25–p75) : <span style="font-variant-numeric: tabular-nums; font-weight: 600;">{{ voie3.montant_p25 | euro_short }} – {{ voie3.montant_p75 | euro_short }}</span> · fiabilité {{ voie3.fiabilite }}</div>
+            {% if voie3.echantillon %}
+            <details style="margin-top: 6px;">
+              <summary style="cursor: pointer; font-size: 10.5px; color: var(--c-green-deep); font-weight: 600; list-style: none; user-select: none;">▸ Voir les marchés comparables</summary>
+              <ul style="margin: 6px 0 0; padding-left: 14px; font-size: 11.5px; color: var(--apt-ink-2); line-height: 1.6;">
+                {% for e in voie3.echantillon %}
+                <li><span style="font-weight: 600; font-variant-numeric: tabular-nums;">{{ e.montant | euro_short }}</span>{% if e.annee %} <span style="color: var(--apt-ink-4);">({{ e.annee }})</span>{% endif %} — {{ e.objet }}</li>
+                {% endfor %}
+              </ul>
+            </details>
+            {% endif %}
+          </div>
+          {% endif %}
           {# Coût + Marge (briefs ré-extraits uniquement) #}
           {% if cout_eur %}
           <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding: 8px 0; border-bottom: 1px solid var(--apt-line-2);">

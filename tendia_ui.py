@@ -1166,8 +1166,21 @@ def detail_marche(id_marche):
     detail_lots = fiche_marche.tranches_ou_lots(brief or {}, profil or {})
     richesse = fiche_marche.calculer_richesse_brief(brief or {}, presets_resolus, marche)
 
+    # Voie 3 — comparables DECP (calibration du montant sur contrats réels exécutés).
+    # Calculé au rendu (quelques requêtes SQL indexées, pas de LLM). Sert à ancrer le
+    # Revenu estimé sur des données réelles quand le DCE ne publie pas de montant.
+    try:
+        import decp_comparables
+        _preset_v3 = presets_resolus[0] if presets_resolus else None
+        if isinstance(_preset_v3, (list, tuple)):
+            _preset_v3 = _preset_v3[0]
+        voie3 = decp_comparables.comparables_pour_marche(marche, _preset_v3)
+    except Exception:
+        voie3 = {"disponible": False}
+
     return render_template(
         "marche.html",
+        voie3=voie3,
         marche=marche,
         eval=evaluation,
         brief=brief,
