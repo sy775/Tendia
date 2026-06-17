@@ -1066,24 +1066,12 @@ def detail_marche(id_marche):
     # Zone de prix FT (KNN sur DECP) — B6/B7
     zone_prix = _zone_prix_marche(profil, brief, marche, marches_notifies)
 
-    # Calibration LLM (2e passe : brief + comparables DECP → estimation sourcée)
-    # On charge TOUJOURS depuis le cache disque si présent (instantané, free).
-    # On ne déclenche un nouvel appel LLM qu'avec DECP dispo (sinon, l'utilisateur
-    # passera par `python calibrer_briefs.py` pour faire le bottom-up en batch).
+    # Calibration LLM (2e passe Apptia) RETIRÉE de la fiche : son prompt était
+    # verrouillé sur le preset actif (`formation`) et inadapté aux autres secteurs
+    # (BTP/IT/…) → "indisponible". Elle fait désormais doublon avec la Voie 2 de
+    # l'extraction v2 (`montant_3_voies`), qui est multi-preset. La section est masquée
+    # (calibration=None → le `{% if calibration %}` du template ne rend rien).
     calibration = None
-    if brief:
-        try:
-            import llm_calibration
-            # Cache d'abord (bottom_up_seul OU triangulé)
-            calibration = llm_calibration.charger_si_existe(id_marche)
-            # Pas en cache ET DECP dispo → calibrer triangulé
-            if calibration is None and zone_prix and zone_prix.get("top_comparables"):
-                calibration = llm_calibration.calibrer_et_cacher(
-                    id_marche, brief, zone_prix, marches_notifies,
-                    verbose=False, mode="auto",
-                )
-        except Exception:
-            calibration = None
 
     # Montant estimé du marché extrait par le brief LLM — B3/B11
     montant_marche_eur = _montant_marche_eur(brief)

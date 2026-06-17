@@ -727,14 +727,8 @@
           non communiqué
         {% endif %}
       </div>
-      {% if not montant_marche_eur and not valeur_est_estimee and not calibration and brief %}
-      <form method="post" action="{{ url_for('calibrer_marche', id_marche=marche.id) }}" style="margin-top:7px;">
-        <button type="submit" title="Estimation bottom-up par LLM (~0,1–0,5 €)"
-          style="font-size:10px; padding:3px 9px; border-radius:6px; background:var(--c-violet); color:white; border:0; cursor:pointer; font-weight:600;">
-          Lancer calibration
-        </button>
-      </form>
-      {% endif %}
+      {# Bouton « Lancer calibration » retiré : calibration LLM (formation-biaisée)
+         remplacée par la Voie 2 multi-preset de l'extraction v2. #}
     </div>
     <div class="kpi-cell kpi-benef">
       <div class="kpi-icon">
