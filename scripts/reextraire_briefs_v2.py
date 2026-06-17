@@ -69,7 +69,7 @@ def _relever_cap_appels(n):
         print(f"  ⚠ cap appels non relevé ({e}) — risque de blocage à 100/jour.")
 
 
-def _cibles(limite=None, marche_id=None):
+def _cibles(limite=None, marche_id=None, reextract_voie2=False):
     m = stockage.charger("marches") or {}
     be = stockage.charger("briefs_extraits") or {}
     out = []
@@ -78,7 +78,16 @@ def _cibles(limite=None, marche_id=None):
             continue
         if mk.get("dce_contenu") != "complet":
             continue
-        if str((be.get(mid) or {}).get("version_extraction_llm")) == "2":
+        b = be.get(mid) or {}
+        est_v2 = str(b.get("version_extraction_llm")) == "2"
+        if reextract_voie2:
+            # Mode resserrage fourchettes : on re-extrait UNIQUEMENT les v2 ayant une Voie 2,
+            # et PAS ceux déjà ré-extraits avec le prompt courant (idempotence anti-double-spend).
+            if not (est_v2 and b.get("montant_voie_2_disponible")):
+                continue
+            if b.get("prompt_version_sha") == llm_extract.PROMPT_V2_SHA:
+                continue
+        elif est_v2:
             continue
         dossier = os.path.join(TE.REPERTOIRE_DCE, mid)
         if not os.path.isdir(dossier):
@@ -133,10 +142,15 @@ def _ecrire(mid, mk, r, be):
     }
     ancien = be.get(mid)
     if ancien is not None:
-        # Backup v1 (rollback 30 jours) — sans récursion de backups imbriqués.
-        ancien = {k: v for k, v in ancien.items() if k != "brief_v1_backup"}
-        extraction["brief_v1_backup"] = ancien
-        extraction["brief_v1_backup_expire_le"] = horo
+        if "brief_v1_backup" in ancien:
+            # Re-run d'un brief DÉJÀ v2 (ex. resserrage fourchettes) : on PRÉSERVE le
+            # backup v1 original au lieu de l'écraser par l'ancien v2.
+            extraction["brief_v1_backup"] = ancien["brief_v1_backup"]
+            extraction["brief_v1_backup_expire_le"] = ancien.get("brief_v1_backup_expire_le", horo)
+        else:
+            # Première conversion v1 → v2 : on sauvegarde le v1.
+            extraction["brief_v1_backup"] = {k: v for k, v in ancien.items() if k != "brief_v1_backup"}
+            extraction["brief_v1_backup_expire_le"] = horo
     extraction["extraction_v2_le"] = horo
     stockage.ecrire("briefs_extraits", mid, extraction)
 
@@ -148,11 +162,14 @@ def main():
     ap.add_argument("--plafond", type=float, default=100.0)
     ap.add_argument("--workers", type=int, default=8)
     ap.add_argument("--marche-id", default=None)
+    ap.add_argument("--reextract-voie2", action="store_true",
+                    help="re-extrait les briefs DÉJÀ v2 ayant une Voie 2 (resserrage fourchettes)")
     args = ap.parse_args()
 
-    cibles, be = _cibles(args.limite, args.marche_id)
+    cibles, be = _cibles(args.limite, args.marche_id, reextract_voie2=args.reextract_voie2)
     n = len(cibles)
-    print(f"=== Re-extraction LLM v2 — {n} briefs cibles (dce_contenu=complet, !=v2)"
+    mode = "v2 avec Voie 2 (resserrage)" if args.reextract_voie2 else "dce_contenu=complet, !=v2"
+    print(f"=== Re-extraction LLM v2 — {n} briefs cibles ({mode})"
           f"{' [DRY-RUN]' if args.dry_run else ''} ===")
     if args.dry_run:
         print(f"  Coût estimé si tous traités : ~{n*COUT_ESTIME:.1f} € / {args.plafond:.0f} €")
