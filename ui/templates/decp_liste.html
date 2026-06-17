@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+
+{% block title %}Marchés DECP — Tendia{% endblock %}
+
+{% block content %}
+<div style="max-width: 1100px; margin: 0 auto;">
+
+  <div style="margin-bottom: 20px;">
+    <h1 style="font-size: 22px; font-weight: 800; color: var(--apt-ink); margin: 0 0 4px;">Marchés DECP</h1>
+    <p style="font-size: 13px; color: var(--apt-ink-3); margin: 0;">
+      Contrats publics réellement attribués (open data DECP) — base de comparables pour la calibration des montants.
+      <strong>{{ "{:,}".format(res.total).replace(",", " ") }}</strong> marchés correspondent au filtre.
+    </p>
+  </div>
+
+  {# ---- Filtres ---- #}
+  <form method="get" action="{{ url_for('liste_decp') }}"
+        style="display: flex; gap: 8px; flex-wrap: wrap; align-items: flex-end; background: var(--apt-bg); padding: 14px 16px; border-radius: 10px; margin-bottom: 18px;">
+    <div style="flex: 2; min-width: 200px;">
+      <label style="font-size: 10.5px; color: var(--apt-ink-4); font-weight: 600; display: block; margin-bottom: 3px;">Recherche (objet / acheteur)</label>
+      <input type="text" name="q" value="{{ q }}" placeholder="ex: rénovation, formation…"
+             style="width: 100%; padding: 7px 10px; border: 1px solid var(--apt-line-2); border-radius: 6px; font-size: 13px;">
+    </div>
+    <div style="min-width: 130px;">
+      <label style="font-size: 10.5px; color: var(--apt-ink-4); font-weight: 600; display: block; margin-bottom: 3px;">Secteur</label>
+      <select name="preset" style="width: 100%; padding: 7px 10px; border: 1px solid var(--apt-line-2); border-radius: 6px; font-size: 13px;">
+        <option value="">Tous</option>
+        {% for p in presets_dispo %}
+        <option value="{{ p }}" {% if preset == p %}selected{% endif %}>{{ p }}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <div style="width: 90px;">
+      <label style="font-size: 10.5px; color: var(--apt-ink-4); font-weight: 600; display: block; margin-bottom: 3px;">Dépt</label>
+      <input type="text" name="dept" value="{{ dept }}" placeholder="75"
+             style="width: 100%; padding: 7px 10px; border: 1px solid var(--apt-line-2); border-radius: 6px; font-size: 13px;">
+    </div>
+    <div style="width: 110px;">
+      <label style="font-size: 10.5px; color: var(--apt-ink-4); font-weight: 600; display: block; margin-bottom: 3px;">Montant min</label>
+      <input type="number" name="montant_min" value="{{ montant_min }}" placeholder="€"
+             style="width: 100%; padding: 7px 10px; border: 1px solid var(--apt-line-2); border-radius: 6px; font-size: 13px;">
+    </div>
+    <div style="width: 110px;">
+      <label style="font-size: 10.5px; color: var(--apt-ink-4); font-weight: 600; display: block; margin-bottom: 3px;">Montant max</label>
+      <input type="number" name="montant_max" value="{{ montant_max }}" placeholder="€"
+             style="width: 100%; padding: 7px 10px; border: 1px solid var(--apt-line-2); border-radius: 6px; font-size: 13px;">
+    </div>
+    <button type="submit" style="padding: 8px 16px; background: var(--c-violet); color: white; border: none; border-radius: 6px; font-size: 13px; font-weight: 700; cursor: pointer;">Filtrer</button>
+  </form>
+
+  {# ---- Résultats ---- #}
+  {% if res.items %}
+  <div style="background: white; border: 1px solid var(--apt-line-2); border-radius: 10px; overflow: hidden;">
+    <table style="width: 100%; border-collapse: collapse; font-size: 12.5px;">
+      <thead>
+        <tr style="background: var(--apt-bg); text-align: left;">
+          <th style="padding: 10px 14px; font-size: 10.5px; color: var(--apt-ink-4); text-transform: uppercase; letter-spacing: 0.3px;">Objet</th>
+          <th style="padding: 10px 14px; font-size: 10.5px; color: var(--apt-ink-4); text-transform: uppercase; letter-spacing: 0.3px;">Acheteur</th>
+          <th style="padding: 10px 14px; font-size: 10.5px; color: var(--apt-ink-4); text-transform: uppercase; letter-spacing: 0.3px; text-align: right;">Montant</th>
+          <th style="padding: 10px 14px; font-size: 10.5px; color: var(--apt-ink-4); text-transform: uppercase; letter-spacing: 0.3px;">Dépt</th>
+          <th style="padding: 10px 14px; font-size: 10.5px; color: var(--apt-ink-4); text-transform: uppercase; letter-spacing: 0.3px;">Notifié</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for m in res.items %}
+        <tr style="border-top: 1px solid var(--apt-line-2);">
+          <td style="padding: 10px 14px;">
+            <a href="{{ url_for('detail_marche_notifie', id_marche=m.id) }}"
+               style="color: var(--c-violet); text-decoration: none; font-weight: 600;">{{ (m.objet or '—')[:90] }}</a>
+          </td>
+          <td style="padding: 10px 14px; color: var(--apt-ink-2);">{{ (m.acheteur_nom or '—')[:40] }}</td>
+          <td style="padding: 10px 14px; text-align: right; font-variant-numeric: tabular-nums; font-weight: 600; color: var(--apt-ink);">{{ m.montant_eur | euro_short }}</td>
+          <td style="padding: 10px 14px; color: var(--apt-ink-3);">{{ m.departement or '—' }}</td>
+          <td style="padding: 10px 14px; color: var(--apt-ink-3); font-variant-numeric: tabular-nums;">{{ (m.date_notification or '')[:10] }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  {# ---- Pagination ---- #}
+  {% if res.pages > 1 %}
+  <div style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-top: 18px; font-size: 13px;">
+    {% set base_args = {'q': q, 'preset': preset, 'dept': dept, 'montant_min': montant_min, 'montant_max': montant_max} %}
+    {% if res.page > 1 %}
+    <a href="{{ url_for('liste_decp', page=res.page-1, **base_args) }}" style="color: var(--c-violet); text-decoration: none; font-weight: 600;">‹ Précédent</a>
+    {% endif %}
+    <span style="color: var(--apt-ink-3);">Page {{ res.page }} / {{ res.pages }}</span>
+    {% if res.page < res.pages %}
+    <a href="{{ url_for('liste_decp', page=res.page+1, **base_args) }}" style="color: var(--c-violet); text-decoration: none; font-weight: 600;">Suivant ›</a>
+    {% endif %}
+  </div>
+  {% endif %}
+
+  {% else %}
+  <div style="text-align: center; padding: 40px; color: var(--apt-ink-3); font-size: 14px;">Aucun marché DECP ne correspond à ce filtre.</div>
+  {% endif %}
+
+</div>
+{% endblock %}

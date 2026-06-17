@@ -919,7 +919,30 @@ def detail_marche_notifie(id_marche):
 
     marche_n = marches_notifies.get(id_marche)
     if not marche_n:
-        abort(404)
+        # Repli sur la table SQL decp_marches (142k contrats réels) — source de vérité
+        # de la donnée DECP (marches_notifies n'est pas peuplée). On mappe vers la forme
+        # attendue par le template (titulaire sans nom → SIRET).
+        import decp_comparables
+        d = decp_comparables.get_decp(id_marche)
+        if not d:
+            abort(404)
+        marche_n = {
+            "id": d.get("id"),
+            "objet": d.get("objet"),
+            "acheteur_nom": d.get("acheteur_nom"),
+            "acheteur_id": d.get("acheteur_siret"),
+            "titulaire_nom": (f"SIRET {d['titulaire_siret']}" if d.get("titulaire_siret") else None),
+            "titulaire_siret": d.get("titulaire_siret"),
+            "montant_eur": d.get("montant_eur"),
+            "duree_mois": d.get("duree_mois"),
+            "date_notification": d.get("date_notification"),
+            "cpv_principal": d.get("cpv_principal"),
+            "procedure": d.get("procedure"),
+            "departement": d.get("departement"),
+            "region": d.get("region"),
+            "categorie_metier": d.get("preset"),
+            "lieu_execution_code": d.get("lieu_execution_code"),
+        }
 
     # Construit une URL Google pour recherche externe complémentaire
     # (avis original, profil titulaire, articles presse, etc.)
@@ -942,6 +965,36 @@ def detail_marche_notifie(id_marche):
         "marche_notifie.html",
         m=marche_n,
         url_google=url_google,
+    )
+
+
+@app.route("/decp")
+def liste_decp():
+    """Liste paginée des marchés DECP (contrats publics exécutés, ~142k).
+
+    Permet de parcourir/filtrer la base DECP : recherche objet/acheteur, secteur
+    (preset), département, fourchette de montant. Lecture directe sur la table SQL
+    decp_marches (indexée), 0 LLM.
+    """
+    import decp_comparables
+    q = (request.args.get("q") or "").strip() or None
+    preset = (request.args.get("preset") or "").strip() or None
+    dept = (request.args.get("dept") or "").strip() or None
+    montant_min = request.args.get("montant_min") or None
+    montant_max = request.args.get("montant_max") or None
+    try:
+        page = int(request.args.get("page", 1))
+    except (TypeError, ValueError):
+        page = 1
+    res = decp_comparables.lister_decp(
+        q=q, preset=preset, dept=dept,
+        montant_min=montant_min, montant_max=montant_max, page=page, par_page=50)
+    presets_dispo = ["btp", "ingenierie", "it", "conseil_rd", "formation", "enr"]
+    return render_template(
+        "decp_liste.html",
+        res=res, q=q or "", preset=preset or "", dept=dept or "",
+        montant_min=montant_min or "", montant_max=montant_max or "",
+        presets_dispo=presets_dispo,
     )
 
 

@@ -159,6 +159,65 @@ def comparables_pour_marche(marche: dict, preset: Optional[str] = None) -> dict:
     }
 
 
+def lister_decp(q=None, preset=None, dept=None, montant_min=None, montant_max=None,
+                page=1, par_page=50) -> dict:
+    """Liste paginée des marchés DECP (filtres : recherche, preset, dépt, montant)."""
+    conn = stockage._conn()
+    where = ["m.montant_eur > 0"]
+    params = []
+    join = ""
+    if preset:
+        pdecp = _PRESET_VERS_DECP.get(str(preset).lower(), preset)
+        join = "JOIN decp_classification c ON c.decp_id = m.id "
+        where.append("c.preset_principal = ?")
+        params.append(pdecp)
+    if dept:
+        where.append("m.departement = ?")
+        params.append(str(dept).upper())
+    if montant_min:
+        where.append("m.montant_eur >= ?")
+        params.append(float(montant_min))
+    if montant_max:
+        where.append("m.montant_eur <= ?")
+        params.append(float(montant_max))
+    if q:
+        where.append("(m.objet LIKE ? OR m.acheteur_nom LIKE ?)")
+        params += [f"%{q}%", f"%{q}%"]
+    wsql = " AND ".join(where)
+    try:
+        total = conn.execute(f"SELECT COUNT(*) FROM decp_marches m {join} WHERE {wsql}",
+                             params).fetchone()[0]
+    except Exception:
+        return {"items": [], "total": 0, "page": 1, "pages": 0, "par_page": par_page}
+    page = max(1, int(page))
+    off = (page - 1) * par_page
+    sel = ("m.id, m.objet, m.acheteur_nom, m.titulaire_siret, m.montant_eur, "
+           "m.date_notification, m.cpv_principal, m.departement, m.duree_mois")
+    rows = conn.execute(
+        f"SELECT {sel} FROM decp_marches m {join} WHERE {wsql} "
+        f"ORDER BY m.date_notification DESC LIMIT ? OFFSET ?",
+        params + [par_page, off]).fetchall()
+    cles = ["id", "objet", "acheteur_nom", "titulaire_siret", "montant_eur",
+            "date_notification", "cpv_principal", "departement", "duree_mois"]
+    items = [dict(zip(cles, r)) for r in rows]
+    return {"items": items, "total": total, "page": page, "par_page": par_page,
+            "pages": (total + par_page - 1) // par_page}
+
+
+def get_decp(id_decp: str) -> Optional[dict]:
+    """Charge un marché DECP complet (decp_marches + sa classification preset)."""
+    conn = stockage._conn()
+    cols = [c[1] for c in conn.execute("PRAGMA table_info(decp_marches)").fetchall()]
+    row = conn.execute("SELECT * FROM decp_marches WHERE id = ?", [id_decp]).fetchone()
+    if not row:
+        return None
+    d = dict(zip(cols, tuple(row)))
+    cl = conn.execute("SELECT preset_principal FROM decp_classification WHERE decp_id = ?",
+                      [id_decp]).fetchone()
+    d["preset"] = cl[0] if cl else None
+    return d
+
+
 if __name__ == "__main__":
     import sys
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")
