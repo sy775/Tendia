@@ -338,6 +338,10 @@
   .apt-fiche-v7 .sec-icon.ic-rose { background: var(--c-rose-soft); color: var(--c-rose); }
   .apt-fiche-v7 .sec-icon.ic-stone { background: var(--c-stone-soft); color: var(--c-stone); }
   .apt-fiche-v7 .sec-icon.ic-green-deep { background: var(--c-green-soft); color: var(--c-green-deep); }
+  .apt-fiche-v7 .sec-icon.ic-gold { background: var(--apt-gold-soft); color: var(--apt-gold-deep); font-size: 15px; font-weight: 700; }
+  /* Section « Résumé Tendia » : accent bleu marine (bordure + titre). */
+  .apt-fiche-v7 .sec.sec-resume { border-left: 3px solid var(--apt-accent); }
+  .apt-fiche-v7 .sec.sec-resume .sec-title { color: var(--apt-accent); }
 
   /* ===== Barre de navigation des sections (sticky, scrollspy) ===== */
   .apt-fiche-v7 .fiche-quicknav {
@@ -785,86 +789,6 @@
   </div>
   {% endif %}
 
-  <!-- ============ KPI Strip — 4 cells tinted ============ -->
-  {% set ft_calib = calibration.fourchette_marche_total_estimee if (calibration and calibration.fourchette_marche_total_estimee) else None %}
-  {% set ft_brief = brief.montant_marche.fourchette_marche_total_estimee if (brief and brief.montant_marche) else None %}
-  {% set ft_estimee = ft_calib or (ft_brief if ft_brief and (ft_brief.min_eur or ft_brief.max_eur) else None) %}
-  {% set valeur_est_estimee = (not montant_marche_eur) and ft_estimee and (ft_estimee.min_eur or ft_estimee.max_eur) %}
-  {# Fourchette bas-haut basée sur les 3 scénarios si dispo, sinon min/max de ft_estimee #}
-  {% set kpi_bas = (scenarios_montant.bas.montant_eur if scenarios_montant else (ft_estimee.min_eur if ft_estimee else None)) %}
-  {% set kpi_haut = (scenarios_montant.haut.montant_eur if scenarios_montant else (ft_estimee.max_eur if ft_estimee else None)) %}
-  <div class="grid grid-cols-4 gap-3 mb-7 fade-up fade-up-2">
-    <div class="kpi-cell kpi-valeur" {% if valeur_est_estimee %}title="Estimation Tendia — fourchette bas / haut des scénarios"{% endif %}>
-      <div class="kpi-icon">
-        <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"/></svg>
-      </div>
-      <div class="kpi-label">
-        Valeur
-        {% if valeur_est_estimee %}
-        <span style="display: inline-flex; align-items: center; gap: 3px; margin-left: 4px; padding: 1px 5px; background: var(--c-violet-soft); color: var(--c-violet); font-size: 9px; font-weight: 700; border-radius: 999px; text-transform: uppercase; letter-spacing: 0.4px;">✦ est.</span>
-        {% endif %}
-      </div>
-      {# Fourchette d'estimation LLM (Voie 2 : type calcule_volumes avec min/max) #}
-      {% set mm = brief.montant_marche or {} %}
-      {% set est_fourchette = mm.fourchette_min_euros and mm.fourchette_max_euros and mm.type == 'calcule_volumes' and mm.fourchette_max_euros > mm.fourchette_min_euros %}
-      {% if est_fourchette %}
-        <div class="kpi-value" style="color: var(--c-violet); font-size: 18px; line-height: 1.15;">{{ mm.fourchette_min_euros | euro_short }}<span style="color: var(--apt-ink-4); font-weight: 500; margin: 0 4px;">–</span>{{ mm.fourchette_max_euros | euro_short }}</div>
-      {% elif montant_marche_eur %}
-        <div class="kpi-value">{{ montant_marche_eur | euro_short }}</div>
-      {% elif valeur_est_estimee and kpi_bas and kpi_haut %}
-        <div class="kpi-value" style="color: var(--c-violet); font-size: 18px; line-height: 1.15;">{{ kpi_bas | euro_short }}<span style="color: var(--apt-ink-4); font-weight: 500; margin: 0 4px;">–</span>{{ kpi_haut | euro_short }}</div>
-      {% elif valeur_est_estimee and kpi_bas %}
-        <div class="kpi-value" style="color: var(--c-violet);">~ {{ kpi_bas | euro_short }}</div>
-      {% else %}
-        <div class="kpi-value">—</div>
-      {% endif %}
-      <div class="kpi-sub">
-        {% if est_fourchette %}
-          <span style="color: var(--c-violet); font-weight: 600;">estimation Tendia</span>
-        {% elif montant_marche_eur %}
-          {% if brief.montant_marche and brief.montant_marche.type == 'estime_explicite' %}explicite RC
-          {% elif brief.montant_marche and brief.montant_marche.type == 'plafond' %}plafond RC
-          {% elif brief.montant_marche and brief.montant_marche.type == 'calcule_volumes' %}calculé
-          {% else %}—{% endif %}
-        {% elif valeur_est_estimee %}
-          <span style="color: var(--c-violet); font-weight: 600;">fourchette bas–haut</span>
-        {% else %}
-          non communiqué
-        {% endif %}
-      </div>
-      {# Bouton « Lancer calibration » retiré : calibration LLM (formation-biaisée)
-         remplacée par la Voie 2 multi-preset de l'extraction v2. #}
-    </div>
-    <div class="kpi-cell kpi-benef">
-      <div class="kpi-icon">
-        <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
-      </div>
-      <div class="kpi-label">{{ kpi_cards[1].label if kpi_cards else 'Périmètre' }}</div>
-      <div class="kpi-value">{{ kpi_cards[1].valeur if kpi_cards else '—' }}</div>
-      <div class="kpi-sub">{% if kpi_cards and kpi_cards[1].hint %}{{ kpi_cards[1].hint }}{% else %}&nbsp;{% endif %}</div>
-    </div>
-    <div class="kpi-cell kpi-duree">
-      <div class="kpi-icon">
-        <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-      </div>
-      <div class="kpi-label">Durée</div>
-      <div class="kpi-value">{{ kpi_cards[2].valeur if kpi_cards else '—' }}</div>
-      <div class="kpi-sub">{% if kpi_cards and kpi_cards[2].hint %}{{ kpi_cards[2].hint }}{% else %}&nbsp;{% endif %}</div>
-    </div>
-    <div class="kpi-cell {% if jours_restants is not none and jours_restants < 7 %}kpi-date-urgent{% else %}kpi-date{% endif %}">
-      <div class="kpi-icon">
-        <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-      </div>
-      <div class="kpi-label">Date limite</div>
-      <div class="kpi-value" style="color:
-        {% if jours_restants is not none and jours_restants < 7 %}var(--c-rose)
-        {% elif jours_restants is not none and jours_restants < 21 %}var(--c-amber)
-        {% else %}var(--apt-ink){% endif %};">
-        {% if jours_restants is not none %}J−{{ jours_restants }}{% else %}—{% endif %}
-      </div>
-      <div class="kpi-sub">{{ fmt_date(marche.date_limite_depot) }}</div>
-    </div>
-  </div>
 
   {# « En bref » est désormais le premier ONGLET (cf. <main>), pas un bloc fixe. #}
 
@@ -873,10 +797,10 @@
 
   <main>
 
-    {% macro sec(titre, teaser, color, est_ouverte, icone) -%}
-    <details {% if est_ouverte %}open{% endif %} class="sec">
+    {% macro sec(titre, teaser, color, est_ouverte, icone, cls='') -%}
+    <details {% if est_ouverte %}open{% endif %} class="sec {{ cls }}">
       <summary>
-        <div class="sec-icon ic-{{ color }}">{{ icone | safe }}</div>
+        {% if icone %}<div class="sec-icon ic-{{ color }}">{{ icone | safe }}</div>{% endif %}
         <div class="sec-title-wrap">
           <h2 class="sec-title">{{ titre }}</h2>
           {% if teaser %}<span class="sec-teaser">{{ teaser }}</span>{% endif %}
@@ -970,14 +894,31 @@
     {# Barre de navigation des sections — construite en JS depuis les .sec rendues #}
     <nav id="fiche-quicknav" class="fiche-quicknav" aria-label="Sections du brief"></nav>
 
-    {# ===== Onglet par défaut : En bref (résumé + points d'attention non-vérifiables) ===== #}
-    {% if brief.synthese_marche or alertes_non_verifiables %}
-    {{ sec('En bref', (brief.synthese_marche[:60] ~ '…') if brief.synthese_marche else 'points d\'attention', 'green', true, IC_INFO) }}
+    {# ===== Onglet par défaut : Résumé Tendia (KPIs compacts + résumé + à retenir) ===== #}
+    {% if brief.synthese_marche or alertes_non_verifiables or kpi_cards %}
+    {{ sec('Résumé Tendia', '', 'gold', true, '✦', 'sec-resume') }}
+
+      {# KPIs compacts inline — sans cellule vide, sans icône #}
+      {% set kpis_aff = [] %}
+      {% for k in kpi_cards %}{% if k.valeur and k.valeur not in ('—', '', none) %}{% set _ = kpis_aff.append({'label': k.label, 'valeur': k.valeur}) %}{% endif %}{% endfor %}
+      {% if marche.date_limite_depot %}{% set _ = kpis_aff.append({'label': 'Date limite', 'valeur': ('J−' ~ jours_restants) if jours_restants is not none else fmt_date(marche.date_limite_depot)}) %}{% endif %}
+      {% if kpis_aff %}
+      <div style="display: flex; flex-wrap: wrap; align-items: flex-end; row-gap: 12px; margin-bottom: 16px; padding-bottom: 15px; border-bottom: 1px solid var(--apt-line-2);">
+        {% for k in kpis_aff %}
+        {% if not loop.first %}<span style="width: 1px; align-self: stretch; background: var(--apt-line-2); margin: 0 18px;"></span>{% endif %}
+        <span style="display: inline-flex; flex-direction: column; gap: 3px;">
+          <span style="font-size: 10px; color: var(--apt-ink-4); font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em;">{{ k.label }}</span>
+          <span style="font-size: 16px; font-weight: 700; color: var(--apt-ink); line-height: 1.1; font-variant-numeric: tabular-nums;">{{ k.valeur }}</span>
+        </span>
+        {% endfor %}
+      </div>
+      {% endif %}
+
       {% if brief.synthese_marche %}
       <p style="font-size: 14.5px; line-height: 1.62; color: var(--apt-ink-2); margin: 0;">{{ brief.synthese_marche | clean_source }}</p>
       {% endif %}
       {% if alertes_non_verifiables %}
-      <div style="margin-top: {% if brief.synthese_marche %}18px{% else %}2px{% endif %};">
+      <div style="margin-top: 18px;">
         <div style="font-size: 11px; font-weight: 700; color: var(--apt-ink-4); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 10px;">À retenir · points d'attention</div>
         <div style="display: flex; flex-direction: column; gap: 7px;">
           {% for ae in alertes_non_verifiables %}
