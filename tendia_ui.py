@@ -1219,11 +1219,29 @@ def detail_marche(id_marche):
     alertes_evaluees = matching_exigences.evaluer_alertes(
         (brief or {}).get("alertes_candidat") or [], profil or {}
     )
+
+    def _cle(a):
+        return ((a.get("evaluation") or {}) if isinstance(a, dict) else {}).get("cle_canonique")
+
+    # Complète avec les certifications obligatoires STRUCTURÉES (references_exigees) que le
+    # LLM n'a pas remontées en alerte : sinon une certif exigée (ex CERFF lot 3) manque dans
+    # « Vérifiez votre éligibilité ». Dédup par clé canonique (la même certif déjà alertée
+    # n'est pas ajoutée deux fois).
+    _certs_struct = (((brief or {}).get("references_exigees") or {})
+                     .get("certifications_obligatoires") or [])
+    _cles_vues = {_cle(a) for a in alertes_evaluees if _cle(a)}
+    for _c in _certs_struct:
+        _lib = (_c.get("libelle") if isinstance(_c, dict) else _c) or ""
+        if not _lib:
+            continue
+        _ev = matching_exigences.evaluer_alertes([_lib], profil or {})
+        if _ev and _cle(_ev[0]) and _cle(_ev[0]) not in _cles_vues:
+            _cles_vues.add(_cle(_ev[0]))
+            alertes_evaluees.append(_ev[0])
+
     # Sépare les exigences VÉRIFIABLES (confirmables via une clé canonique → carte
     # 'Vérifiez votre éligibilité') des NON-vérifiables (simples points d'attention →
     # affichés dans 'En bref').
-    def _cle(a):
-        return ((a.get("evaluation") or {}) if isinstance(a, dict) else {}).get("cle_canonique")
     alertes_verifiables = [a for a in alertes_evaluees if _cle(a)]
     alertes_non_verifiables = [a for a in alertes_evaluees if not _cle(a)]
     couverture_synthese = matching_exigences.synthese_couverture(alertes_verifiables)
