@@ -231,23 +231,29 @@
   @media (max-width: 900px) {
     .apt-fiche-v7 .grid-2col { grid-template-columns: 1fr; }
   }
-  /* Rail de décision sticky : suit le scroll, scroll interne si trop haut. */
+  /* Rail de décision : sticky simple (pas de scroll interne — buggé). Les cartes du
+     rail sont repliées en accordéon (sauf le Verdict) pour tenir dans l'écran. */
   @media (min-width: 901px) {
     .apt-fiche-v7 .grid-2col > aside {
       position: sticky;
       top: 14px;
       align-self: start;
-      max-height: calc(100vh - 28px);
-      overflow-y: auto;
-      overflow-x: hidden;
-      padding: 2px 6px 2px 2px;
-      scrollbar-width: thin;
-      scrollbar-color: var(--apt-line) transparent;
     }
-    .apt-fiche-v7 .grid-2col > aside::-webkit-scrollbar { width: 6px; }
-    .apt-fiche-v7 .grid-2col > aside::-webkit-scrollbar-thumb { background: var(--apt-line); border-radius: 3px; }
-    .apt-fiche-v7 .grid-2col > aside::-webkit-scrollbar-track { background: transparent; }
   }
+  .apt-fiche-v7 .aside-card-header { cursor: pointer; user-select: none; }
+  .apt-fiche-v7 .aside-card-header::after {
+    content: '';
+    margin-left: auto;
+    width: 7px; height: 7px;
+    border-right: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+    transform: rotate(45deg);
+    transition: transform 0.2s ease;
+    opacity: 0.55;
+    flex-shrink: 0;
+  }
+  .apt-fiche-v7 .aside-card.collapsed .aside-card-header::after { transform: rotate(-45deg); }
+  .apt-fiche-v7 .aside-card.collapsed .aside-card-body { display: none; }
 
   /* ===== Sections — cartes éditoriales premium ===== */
   @keyframes secIn { from { opacity: 0; transform: translateY(7px); } to { opacity: 1; transform: none; } }
@@ -2046,6 +2052,16 @@
     secs.forEach(function (s, i) { if (s.id === h) start = i; });
   }
   activate(start, false);
+
+  // ===== Rail latéral en accordéon : replie tout sauf le Verdict =====
+  var cards = Array.prototype.slice.call(root.querySelectorAll('aside .aside-card'));
+  cards.forEach(function (card) {
+    var h = card.querySelector('.aside-card-header');
+    if (!h) return;
+    var estVerdict = h.classList.contains('is-verdict');
+    if (!estVerdict) card.classList.add('collapsed');
+    h.addEventListener('click', function () { card.classList.toggle('collapsed'); });
+  });
 })();
 </script>
 {% endblock %}
