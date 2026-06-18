@@ -651,39 +651,7 @@
         Avis {{ marche.source }}
       </a>
       {% endif %}
-      {# Statut du CONTENU DCE téléchargé (Sprint Téléchargeur) #}
-      {% if dce_contenu %}
-      <span title="{{ dce_raison_contenu }}" style="display:inline-flex; align-items:center; gap:5px; padding:5px 11px; border-radius:7px; font-size:11.5px; font-weight:600;
-        {% if dce_contenu == 'complet' %}background:var(--apt-accent-soft); color:var(--apt-accent);
-        {% elif dce_contenu == 'incomplet' %}background:var(--c-amber-soft); color:var(--c-amber);
-        {% elif dce_contenu == 'auth_requise' %}background:var(--c-blue-soft); color:var(--c-blue);
-        {% elif dce_contenu == 'erreur' %}background:var(--c-rose-soft); color:var(--c-rose);
-        {% else %}background:rgba(26,24,20,0.06); color:var(--apt-ink-4);{% endif %}">
-        {% if dce_contenu == 'complet' %}✓ DCE complet{% if dce_pieces %} ({{ dce_pieces|join(' + ') }}){% endif %}
-        {% elif dce_contenu == 'incomplet' %}DCE incomplet{% if dce_pieces %} ({{ dce_pieces|join(', ') }}){% endif %}
-        {% elif dce_contenu == 'auth_requise' %}DCE sur plateforme à authentification
-        {% elif dce_contenu == 'erreur' %}Téléchargement échoué
-        {% else %}DCE indisponible{% endif %}
-      </span>
-      {% if dce_contenu in ('vide', 'incomplet', 'erreur') and not (marche.dce_qualite == 'absente') %}
-      <form method="post" action="{{ url_for('retenter_dce', id_marche=marche.id) }}" style="display:inline;">
-        <button type="submit" class="btn-ghost">↻ Re-tenter téléchargement</button>
-      </form>
-      {% endif %}
-      {% if dce_pieces_manquantes %}
-      <div style="margin-top:6px; width:100%; font-size:11.5px; color:var(--apt-ink-3);">
-        <span class="apt-label" style="color:var(--c-amber);">Pièces manquantes ({{ dce_pieces_manquantes|length }})</span>
-        <ul style="margin:3px 0 5px; padding-left:16px;">
-          {% for p in dce_pieces_manquantes[:6] %}
-          <li>⚠ {{ p.nom or p.type_detecte or 'pièce' }}{% if p.raison_echec %} ({{ p.raison_echec }}){% endif %}</li>
-          {% endfor %}
-        </ul>
-        <form method="post" action="{{ url_for('retenter_pieces_manquantes', id_marche=marche.id) }}" style="display:inline;">
-          <button type="submit" class="btn-ghost">↻ Re-tenter ces pièces</button>
-        </form>
-      </div>
-      {% endif %}
-      {% endif %}
+      {# Statut du CONTENU DCE → déplacé dans la section « Documents du dossier ». #}
       {% if not marche.url_dce and not marche.url_avis %}
       <span style="font-size: 11px; color: var(--apt-ink-4); font-style: italic;">
         Aucun lien externe disponible
@@ -1563,6 +1531,41 @@
     {% if docs_analyses %}
     {{ sec('Documents du dossier', (docs_analyses|length ~ ' pièce' ~ ('s' if docs_analyses|length > 1 else '')), 'blue', true, IC_DOC) }}
       {# Le téléchargement groupé (ZIP) est dans le header. Ici : les pièces individuelles. #}
+      {# Statut du CONTENU DCE téléchargé (déplacé du header). #}
+      {% if dce_contenu %}
+      <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:13px;">
+        <span title="{{ dce_raison_contenu }}" style="display:inline-flex; align-items:center; gap:5px; padding:5px 11px; border-radius:7px; font-size:11.5px; font-weight:600;
+          {% if dce_contenu == 'complet' %}background:var(--apt-accent-soft); color:var(--apt-accent);
+          {% elif dce_contenu == 'incomplet' %}background:var(--c-amber-soft); color:var(--c-amber);
+          {% elif dce_contenu == 'auth_requise' %}background:var(--c-blue-soft); color:var(--c-blue);
+          {% elif dce_contenu == 'erreur' %}background:var(--c-rose-soft); color:var(--c-rose);
+          {% else %}background:rgba(26,24,20,0.06); color:var(--apt-ink-4);{% endif %}">
+          {% if dce_contenu == 'complet' %}✓ DCE complet{% if dce_pieces %} ({{ dce_pieces|join(' + ') }}){% endif %}
+          {% elif dce_contenu == 'incomplet' %}DCE incomplet{% if dce_pieces %} ({{ dce_pieces|join(', ') }}){% endif %}
+          {% elif dce_contenu == 'auth_requise' %}DCE sur plateforme à authentification
+          {% elif dce_contenu == 'erreur' %}Téléchargement échoué
+          {% else %}DCE indisponible{% endif %}
+        </span>
+        {% if dce_contenu in ('vide', 'incomplet', 'erreur') and not (marche.dce_qualite == 'absente') %}
+        <form method="post" action="{{ url_for('retenter_dce', id_marche=marche.id) }}" style="display:inline;">
+          <button type="submit" class="btn-ghost">↻ Re-tenter téléchargement</button>
+        </form>
+        {% endif %}
+      </div>
+      {% if dce_pieces_manquantes %}
+      <div style="margin-bottom:13px; font-size:11.5px; color:var(--apt-ink-3);">
+        <span class="apt-label" style="color:var(--c-amber);">Pièces manquantes ({{ dce_pieces_manquantes|length }})</span>
+        <ul style="margin:3px 0 5px; padding-left:16px;">
+          {% for p in dce_pieces_manquantes[:6] %}
+          <li>⚠ {{ p.nom or p.type_detecte or 'pièce' }}{% if p.raison_echec %} ({{ p.raison_echec }}){% endif %}</li>
+          {% endfor %}
+        </ul>
+        <form method="post" action="{{ url_for('retenter_pieces_manquantes', id_marche=marche.id) }}" style="display:inline;">
+          <button type="submit" class="btn-ghost">↻ Re-tenter ces pièces</button>
+        </form>
+      </div>
+      {% endif %}
+      {% endif %}
       <div style="font-size: 11px; color: var(--apt-ink-4); margin-bottom: 12px;">Téléchargement groupé (ZIP) en haut de page. Cliquez une pièce pour la télécharger seule.</div>
       <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 8px;">
         {% for d in docs_analyses %}
