@@ -330,20 +330,12 @@
   }
   .apt-fiche-v7 .sec .sec-body { padding: 16px 20px 22px; }
 
-  /* Couleurs des icônes de section */
-  .apt-fiche-v7 .sec-icon.ic-green { background: var(--c-green-soft); color: var(--c-green); }
-  .apt-fiche-v7 .sec-icon.ic-blue { background: var(--c-blue-soft); color: var(--c-blue); }
-  .apt-fiche-v7 .sec-icon.ic-violet { background: var(--c-violet-soft); color: var(--c-violet); }
-  .apt-fiche-v7 .sec-icon.ic-amber { background: var(--c-amber-soft); color: var(--c-amber); }
-  .apt-fiche-v7 .sec-icon.ic-yellow { background: var(--c-yellow-soft); color: var(--c-yellow); }
-  .apt-fiche-v7 .sec-icon.ic-rose { background: var(--c-rose-soft); color: var(--c-rose); }
-  .apt-fiche-v7 .sec-icon.ic-stone { background: var(--c-stone-soft); color: var(--c-stone); }
-  .apt-fiche-v7 .sec-icon.ic-green-deep { background: var(--c-green-soft); color: var(--c-green-deep); }
-  .apt-fiche-v7 .sec-icon.ic-gold { background: var(--apt-gold-soft); color: var(--apt-gold-deep); font-size: 15px; font-weight: 700; }
-  /* Section « Résumé Tendia » : accent bleu marine (bordure + titre), icône navy + étoile or. */
+  /* Icônes de section harmonisées : fond bleu marine, icône dorée (toutes sections) */
+  .apt-fiche-v7 .sec-icon { background: var(--apt-accent); color: var(--apt-gold); }
+  .apt-fiche-v7 .sec-icon.ic-gold { font-size: 15px; font-weight: 700; }
+  /* Section « Résumé Tendia » : accent bleu marine (bordure + titre). */
   .apt-fiche-v7 .sec.sec-resume { border-left: 3px solid var(--apt-accent); }
   .apt-fiche-v7 .sec.sec-resume .sec-title { color: var(--apt-accent); }
-  .apt-fiche-v7 .sec.sec-resume .sec-icon { background: var(--apt-accent); color: var(--apt-gold); }
 
   /* ===== Barre de navigation des sections (sticky, scrollspy) ===== */
   .apt-fiche-v7 .fiche-quicknav {
@@ -585,11 +577,13 @@
   <div style="flex: 1; min-width: 0;">
     {% if richesse %}
     <div style="margin-bottom: 11px;">
-      <span class="meta-badge" title="Richesse du brief : {{ richesse.score }}/100" style="
-        {% if richesse.niveau == 'complet' %}background:var(--apt-accent-soft); color:var(--apt-accent);
-        {% elif richesse.niveau == 'partiel' %}background:var(--apt-gold-soft); color:var(--apt-gold-deep);
-        {% else %}background:rgba(15,27,61,0.06); color:var(--apt-ink-4);{% endif %}">
-        ◆ Analyse {{ {'complet': 'complète', 'partiel': 'partielle', 'light': 'légère'}.get(richesse.niveau, richesse.niveau) }} · {{ richesse.score }}/100
+      <span title="Richesse du brief : {{ richesse.score }}/100" style="
+        display:inline-flex; align-items:center; gap:5px; font-size:10.5px; font-weight:600;
+        letter-spacing:0.02em; background:none; padding:0; opacity:0.85;
+        {% if richesse.niveau == 'complet' %}color:var(--apt-accent);
+        {% elif richesse.niveau == 'partiel' %}color:var(--apt-gold-deep);
+        {% else %}color:var(--apt-ink-4);{% endif %}">
+        <span style="font-size:7px;">◆</span> Analyse {{ {'complet': 'complète', 'partiel': 'partielle', 'light': 'légère'}.get(richesse.niveau, richesse.niveau) }} · {{ richesse.score }}/100
       </span>
     </div>
     {% endif %}
