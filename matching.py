@@ -39,6 +39,55 @@ SEUIL_TRES_PERTINENT = 75
 SEUIL_PERTINENT = 50
 SEUIL_A_VERIFIER = 20
 
+# Pondération multi-preset (entreprises diversifiées) — décote « équilibrée ».
+# Rang 1 = activité principale (référence pleine), 2 = secondaire, 3 = tertiaire.
+# La source du rang est `presets_priorites` du profil, sinon l'ordre de `presets_couverts`.
+PRESET_COMPAT_POINTS = {1: 20, 2: 13, 3: 7}   # points de compat selon le rang du preset matché
+PRESET_COMPAT_DEFAULT = 7                       # rang > 3
+PRESET_FACTEUR_SECTORIEL = {1: 1.0, 2: 0.6, 3: 0.35}  # atténue les signaux sectoriels POSITIFS
+PRESET_FACTEUR_DEFAULT = 0.35
+_LIBELLE_RANG = {1: "principal", 2: "secondaire", 3: "tertiaire"}
+
+
+def _rang_preset(organisme: dict, code: str) -> int:
+    """Rang de priorité d'un preset (1 = principal). Source : `presets_priorites`
+    si présent, sinon l'ordre de `presets_couverts` (index + 1). Inconnu → 99."""
+    prio = organisme.get("presets_priorites") or {}
+    if code in prio:
+        try:
+            return max(1, int(prio[code]))
+        except (TypeError, ValueError):
+            pass
+    couverts = organisme.get("presets_couverts") or []
+    if code in couverts:
+        return couverts.index(code) + 1
+    return 99
+
+
+def rang_preset_matche(organisme: dict, presets_marche: list) -> int:
+    """Meilleur rang de priorité (1 = principal) parmi les presets du marché couverts
+    par le profil. Retourne 99 si aucune intersection (marché hors activités).
+    Utilisé pour trier le dashboard par activité prioritaire."""
+    couverts = organisme.get("presets_couverts") or []
+    inter = [p for p in (presets_marche or []) if p in couverts]
+    if not inter:
+        return 99
+    return min(_rang_preset(organisme, c) for c in inter)
+
+
+def _ponderer_motifs_sectoriels(motifs: list, facteur: float) -> list:
+    """Atténue les points POSITIFS des motifs sectoriels par `facteur` (préserve les
+    pénalités go/no-go négatives, par prudence)."""
+    if facteur >= 1.0:
+        return motifs
+    out = []
+    for m in motifs:
+        if (m.get("points") or 0) > 0:
+            m = dict(m)
+            m["points"] = int(round(m["points"] * facteur))
+        out.append(m)
+    return out
+
 
 # ===========================================================================
 # REFERENTIELS GEOGRAPHIQUES
@@ -366,8 +415,15 @@ def _eval_preset_compatibilite(organisme: dict, marche: dict,
                       f"{presets_profil} : pas d'intersection.",
                       valeur_organisme=presets_profil,
                       valeur_marche=presets_marche)
-    return _motif("preset_compatibilite", True, 20,
-                  f"Preset(s) commun(s) : {intersection}.",
+    # Meilleur preset matché = priorité la plus haute (rang minimal). On valorise selon
+    # ce rang : un marché sur l'activité principale vaut plus qu'un marché périphérique.
+    best = min(intersection, key=lambda c: _rang_preset(organisme, c))
+    rang = _rang_preset(organisme, best)
+    pts = PRESET_COMPAT_POINTS.get(rang, PRESET_COMPAT_DEFAULT)
+    lib = _LIBELLE_RANG.get(rang, f"rang {rang}")
+    return _motif("preset_compatibilite", True, pts,
+                  f"Preset(s) commun(s) : {intersection}. Meilleur match : "
+                  f"{best} ({lib}).",
                   valeur_organisme=presets_profil,
                   valeur_marche=presets_marche)
 
@@ -920,11 +976,15 @@ def _evaluer_v2(organisme: dict, marche: dict,
     for code in intersection:
         profil_sec = sectoriels.get(code) or {}
         if code == "btp":
-            motifs.extend(_eval_sectoriel_btp(profil_sec, brief))
+            secm = _eval_sectoriel_btp(profil_sec, brief)
         elif code == "ingenierie":
-            motifs.extend(_eval_sectoriel_ingenierie(profil_sec, brief))
+            secm = _eval_sectoriel_ingenierie(profil_sec, brief)
         else:
-            motifs.extend(_eval_sectoriel_placeholder(code, profil_sec, brief))
+            secm = _eval_sectoriel_placeholder(code, profil_sec, brief)
+        # Atténue les signaux sectoriels POSITIFS selon le rang du preset (cœur vs périphérie).
+        facteur = PRESET_FACTEUR_SECTORIEL.get(_rang_preset(organisme, code),
+                                               PRESET_FACTEUR_DEFAULT)
+        motifs.extend(_ponderer_motifs_sectoriels(secm, facteur))
 
     motifs.append(_eval_synergie_v2(motifs))
 

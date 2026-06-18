@@ -53,18 +53,29 @@
     <section data-step="secteur" class="apt-block px-7 py-6">
       <div class="apt-display-sm apt-fs-18 mb-1">Quels secteurs couvrez-vous&nbsp;?</div>
       <p class="apt-meta mb-4">Au moins un. Vous pouvez en cocher plusieurs (ex&nbsp;: BTP + Ingénierie).</p>
+      {% set prio = profil.presets_priorites or {} %}
       <div class="grid grid-cols-2 gap-3">
         {% for p in presets_meta %}
-        <label class="wz-card flex" style="cursor:pointer; gap:12px; padding:14px 16px; border:1px solid var(--apt-line); border-radius:10px; background:var(--apt-pure);">
-          <input type="checkbox" name="presets_couverts" value="{{ p.code }}" style="margin-top:3px; flex:none;"
-            {% if p.code in presets_sel %}checked{% endif %}>
-          <span>
-            <span class="apt-display-sm apt-fs-14" style="display:block;">{{ p.nom }}</span>
-            <span class="apt-meta" style="display:block; margin-top:3px; line-height:1.45;">{{ p.description }}</span>
-          </span>
-        </label>
+        <div class="wz-card flex" style="gap:12px; padding:14px 16px; border:1px solid var(--apt-line); border-radius:10px; background:var(--apt-pure);">
+          <label class="flex" style="cursor:pointer; gap:12px; flex:1; min-width:0;">
+            <input type="checkbox" name="presets_couverts" value="{{ p.code }}" style="margin-top:3px; flex:none;"
+              {% if p.code in presets_sel %}checked{% endif %}>
+            <span>
+              <span class="apt-display-sm apt-fs-14" style="display:block;">{{ p.nom }}</span>
+              <span class="apt-meta" style="display:block; margin-top:3px; line-height:1.45;">{{ p.description }}</span>
+            </span>
+          </label>
+          <select name="preset_priorite.{{ p.code }}" style="align-self:flex-start; padding:3px 6px; font-size:11px; border:1px solid var(--apt-line); border-radius:6px; background:var(--apt-pure);"
+            title="Priorité dans le matching" onclick="event.stopPropagation();">
+            {% set r = prio.get(p.code) %}
+            <option value="1" {% if r == 1 %}selected{% endif %}>Principal</option>
+            <option value="2" {% if r == 2 %}selected{% endif %}>Secondaire</option>
+            <option value="3" {% if r == 3 %}selected{% endif %}>Tertiaire</option>
+          </select>
+        </div>
         {% endfor %}
       </div>
+      <p class="apt-meta mt-2">La <strong>priorité</strong> pondère le matching : un marché sur l'activité principale score plus haut qu'un marché périphérique.</p>
     </section>
 
     {# ===================== Étape 2 · Identité ===================== #}

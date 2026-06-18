@@ -773,12 +773,19 @@ def explorer():
                 except Exception:
                     verdict_elig_l = None
 
+        # Rang du preset prioritaire matché (1=principal … 99=hors activités) pour le tri.
+        preset_rang_l = 99
+        if profil_actif and evaluation_l:
+            preset_rang_l = matching.rang_preset_matche(
+                profil_actif, evaluation_l.get("presets_marche") or [])
+
         lignes.append({
             "marche": marche,
             "id_marche": id_m,
             "richesse": richesse_l,
             "verdict": (evaluation_l or {}).get("verdict"),
             "score": (evaluation_l or {}).get("score"),
+            "preset_rang": preset_rang_l,
             "eligibilite": verdict_elig_l,
             "titre_court": _titre_court(marche),
             "acheteur": marche.get("acheteur_nom") or "—",
@@ -810,11 +817,20 @@ def explorer():
     if filtre_score_min > 0:
         lignes = [l for l in lignes if (l.get("score") or 0) >= filtre_score_min]
 
-    # Tri par défaut : richesse brief décroissante, puis urgence (jours croissants)
-    lignes.sort(key=lambda x: (
-        -x["richesse"]["score"],
-        x["jours_restants"] if x["jours_restants"] is not None else 9999,
-    ))
+    # Tri : si un profil est actif, on remonte d'abord les marchés sur l'activité
+    # PRIORITAIRE (preset principal avant secondaire/tertiaire avant hors-activités),
+    # puis par score décroissant, puis urgence. Sans profil → richesse puis urgence.
+    if profil_actif:
+        lignes.sort(key=lambda x: (
+            x.get("preset_rang", 99),
+            -(x.get("score") or 0),
+            x["jours_restants"] if x["jours_restants"] is not None else 9999,
+        ))
+    else:
+        lignes.sort(key=lambda x: (
+            -x["richesse"]["score"],
+            x["jours_restants"] if x["jours_restants"] is not None else 9999,
+        ))
 
     # Stats agrégées POUR LES FILTRES (calculées sur TOUT le classifié, pas filtré)
     # → permet d'afficher "Familles: BTP (145), Énergie (12), ..."

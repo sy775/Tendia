@@ -54,3 +54,16 @@ Sprint B - Matching V2 multi-secteurs (12 juin 2026)
 - Validation in vivo : 422 marches profil BTP demo IDF
   -> 1 tres_pertinent (57070), 2 pertinent (56539, 56378), 35 a_verifier (8.3%)
   Premier passage 'pertinent' end-to-end sur base reelle Younes.
+
+Iteration UI/criteres + plan prompt + matching (19 juin 2026)
+- Audit faux criteres (scripts/audit_faux_criteres.py) : 68 verifiables, 0 faux
+  positif. Garde-fou CA (accord-cadre sans minimum != exigence CA). nda/rge en
+  frontiere de mot.
+- Eligibilite : injection des certifications_obligatoires structurees (dedup par
+  cle) -> corrige certifs manquantes (CERFF lot 3 sur 56378).
+- Fiche marche : icones sections navy/or, tag Analyse discret, detail verdict en
+  tooltip sur le score, tags rapproches a droite, Top 5 concurrents sous criteres,
+  tag Secteur dans Resume, repli sectoriel (sous-domaine + lots si non extrait).
+- Profil TEE27 ingere (SEML EnR Eure 27) : presets enr+ingenierie+conseil.
+- Plan prompt (NON lance) + constat matching multi-preset (poids forfaitaire,
+  pas de hierarchie principal/secondaire) -> docs/iteration_prompt_matching_2026-06.md

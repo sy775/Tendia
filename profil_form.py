@@ -368,6 +368,17 @@ def parse(form, profil_existant: dict):
     for code in presets:
         sectoriels.setdefault(code, {})
 
+    # 2bis) presets_priorites (1=principal…) — champ `preset_priorite.<code>` par preset
+    # coché. À défaut, l'ordre de cochage sert de priorité (1er = principal).
+    priorites = {}
+    for i, code in enumerate(presets, 1):
+        brut = form.get(f"preset_priorite.{code}")
+        try:
+            priorites[code] = max(1, int(brut)) if brut else i
+        except (TypeError, ValueError):
+            priorites[code] = i
+    profil["presets_priorites"] = priorites
+
     # 3) auto_reponses_exigences (paires clé/valeur)
     cles = _getlist(form, "ar_cle")
     vals = _getlist(form, "ar_val")

@@ -74,7 +74,9 @@
   <details class="apt-block mb-3" open>
     <summary class="px-6 py-4 apt-display-sm apt-fs-16" style="cursor: pointer; list-style: none;">Presets couverts</summary>
     <div class="px-6 pb-5">
-      {% for p in (profil.presets_couverts or []) %}<span class="apt-chip apt-chip-accent apt-chip-mono">{{ p }}</span> {% endfor %}
+      {% set prio = profil.presets_priorites or {} %}
+      {% set lib_rang = {1: 'principal', 2: 'secondaire', 3: 'tertiaire'} %}
+      {% for p in (profil.presets_couverts or []) %}<span class="apt-chip apt-chip-accent apt-chip-mono">{{ p }}{% if prio.get(p) %} · {{ lib_rang.get(prio.get(p), 'rang ' ~ prio.get(p)) }}{% endif %}</span> {% endfor %}
       {% if not profil.presets_couverts %}<span class="apt-meta">—</span>{% endif %}
     </div>
   </details>

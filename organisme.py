@@ -183,6 +183,10 @@ def template_socle_vide() -> dict:
         },
         "mots_cles_catalogue": [],
         "presets_couverts": [],
+        # Priorité par preset (1=principal, 2=secondaire, 3=tertiaire…). Pilote la
+        # pondération du matching pour les entreprises diversifiées. Si vide, l'ordre
+        # de `presets_couverts` sert de priorité par défaut.
+        "presets_priorites": {},
         "profils_sectoriels": {},
         "auto_reponses_exigences": {}
     }
@@ -223,6 +227,8 @@ def template_profil_complet(codes_presets: List[str]) -> dict:
                          f"Connus : {PRESETS_CONNUS}")
     p = template_socle_vide()
     p["presets_couverts"] = list(codes_presets)
+    # Priorité par défaut = ordre de déclaration (1er = principal).
+    p["presets_priorites"] = {code: i for i, code in enumerate(codes_presets, 1)}
     p["profils_sectoriels"] = {
         code: template_sectoriel_vide(code) for code in codes_presets
     }
