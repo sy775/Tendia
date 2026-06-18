@@ -1541,12 +1541,12 @@
               {% endif %}
             </div>
             {% endif %}
-            {% if it.description %}<div style="font-size:12.5px; color:var(--apt-ink-2); margin-top:7px; line-height:1.55;">{{ it.description[:320] }}</div>{% endif %}
+            {% if it.description %}<div style="font-size:12.5px; color:var(--apt-ink-2); margin-top:7px; line-height:1.55;">{{ it.description }}</div>{% endif %}
           </div>
         {% else %}
           <div style="flex:1;">
             <strong style="font-size:13px; color:var(--apt-ink);">{{ 'Tranche ferme' if it.type == 'ferme' else 'Tranche optionnelle' }}</strong>
-            <div style="font-size:12.5px; color:var(--apt-ink-2); margin-top:4px; line-height:1.55;">{{ it.libelle[:320] }}</div>
+            <div style="font-size:12.5px; color:var(--apt-ink-2); margin-top:4px; line-height:1.55;">{{ it.libelle }}</div>
           </div>
         {% endif %}
       </div>
