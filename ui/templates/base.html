@@ -20,45 +20,61 @@
        ==================================================================== */
 
     :root {
-      /* Canvas — warm paper */
-      --apt-bg:           #F4F0E6;
-      --apt-bg-2:         #EDE7D9;
-      --apt-surface:      #FBF7EC;
-      --apt-pure:         #FFFCF4;
+      /* Canvas — crème chaud (palette prez Tendia) */
+      --apt-bg:           #F5F1E8;
+      --apt-bg-2:         #EBE5D7;
+      --apt-surface:      #FAF7F2;
+      --apt-pure:         #FFFFFF;
 
       /* Sidebar */
-      --apt-sidebar:      #EAE4D3;
-      --apt-sidebar-2:    #DFD8C3;
-      --apt-sidebar-edge: rgba(38, 32, 22, 0.06);
+      --apt-sidebar:      #EFEADD;
+      --apt-sidebar-2:    #E5DDD0;
+      --apt-sidebar-edge: rgba(15, 27, 61, 0.07);
 
-      /* Ink — warm near-black scale */
-      --apt-ink:          #1A1814;
-      --apt-ink-2:        #2F2B23;
-      --apt-ink-3:        #5C5448;
-      --apt-ink-4:        #8C8472;
-      --apt-ink-5:        #BDB6A3;
-      --apt-ink-6:        #DDD7C7;
+      /* Ink — échelle navy (prez #0F1B3D) */
+      --apt-ink:          #0F1B3D;
+      --apt-ink-2:        #2E3B5C;
+      --apt-ink-3:        #56607A;
+      --apt-ink-4:        #8B92A4;
+      --apt-ink-5:        #BAC0CC;
+      --apt-ink-6:        #D5D8E0;
 
       /* Hairlines */
-      --apt-line:         rgba(26, 24, 20, 0.10);
-      --apt-line-2:       rgba(26, 24, 20, 0.06);
-      --apt-line-3:       rgba(26, 24, 20, 0.03);
+      --apt-line:         rgba(15, 27, 61, 0.12);
+      --apt-line-2:       rgba(15, 27, 61, 0.07);
+      --apt-line-3:       rgba(15, 27, 61, 0.035);
 
-      /* Accent — teal préservé, mais désaturé légèrement pour s'accorder au papier */
-      --apt-accent:       #117A6F;
-      --apt-accent-2:     #0E635A;
-      --apt-accent-3:     #084A43;
-      --apt-accent-soft:  rgba(17, 122, 111, 0.07);
-      --apt-accent-glow:  rgba(17, 122, 111, 0.14);
-      --apt-accent-tint:  #D8E5E1;
+      /* Accent — navy Tendia (primaire interactif) */
+      --apt-accent:       #1E2761;
+      --apt-accent-2:     #18214F;
+      --apt-accent-3:     #0F1B3D;
+      --apt-accent-soft:  rgba(30, 39, 97, 0.07);
+      --apt-accent-glow:  rgba(30, 39, 97, 0.14);
+      --apt-accent-tint:  #DFE1EC;
+
+      /* Or champagne — signature Tendia (highlights premium) */
+      --apt-gold:         #C9A961;
+      --apt-gold-2:       #B8954A;
+      --apt-gold-deep:    #9C7A3F;
+      --apt-gold-soft:    rgba(201, 169, 97, 0.16);
 
       /* Sémantique (rare, mesurée) */
-      --apt-leaf:         #4E6B41;     /* pertinent secondaire */
-      --apt-leaf-soft:    rgba(78, 107, 65, 0.08);
-      --apt-amber:        #A86A1F;     /* avertissement */
-      --apt-amber-soft:   rgba(168, 106, 31, 0.08);
-      --apt-rose:         #A33A2A;     /* alerte */
-      --apt-rose-soft:    rgba(163, 58, 42, 0.07);
+      --apt-leaf:         #1E6F4A;     /* positif */
+      --apt-leaf-soft:    rgba(30, 111, 74, 0.09);
+      --apt-amber:        #9C7A3F;     /* avertissement (bronze) */
+      --apt-amber-soft:   rgba(156, 122, 63, 0.10);
+      --apt-rose:         #B85042;     /* alerte (terracotta) */
+      --apt-rose-soft:    rgba(184, 80, 66, 0.09);
+
+      /* Palette --c-* (accents pages) alignée Tendia — héritée par tous les templates
+         (ceux qui redéfinissent un bloc --c- local restent cohérents, mêmes valeurs). */
+      --c-green: #1E6F4A;   --c-green-soft: #E4EDE7;  --c-green-deep: #14512F;
+      --c-blue: #2E3B5C;    --c-blue-soft: #E6E9F0;
+      --c-violet: #1E2761;  --c-violet-soft: #E7E9F1;
+      --c-amber: #B8954A;   --c-amber-soft: #F3EAD7;
+      --c-yellow: #C9A961;  --c-yellow-soft: #F5EDD9;
+      --c-rose: #B85042;    --c-rose-soft: #F3E0DC;
+      --c-stone: #6B7280;   --c-stone-soft: #ECE7E0;
     }
 
     * { box-sizing: border-box; }
@@ -336,7 +352,7 @@
       transform: translateY(-50%);
       width: 3px;
       height: 18px;
-      background: var(--apt-accent);
+      background: var(--apt-gold);
       border-radius: 0 2px 2px 0;
     }
 
@@ -684,7 +700,7 @@
       <div class="px-7 pt-9 pb-8 apt-sidebar-wordmark">
         <div class="apt-display apt-fs-34 text-apptia-dark leading-none" style="color: var(--apt-ink);">
           Tendia
-          <span style="color: var(--apt-accent); font-size: 0.6em; vertical-align: 0.6em;">·</span>
+          <span style="color: var(--apt-gold); font-size: 0.6em; vertical-align: 0.6em;">·</span>
         </div>
         <div class="apt-meta mt-2.5 leading-snug" style="font-size: 10.5px;">
           Veille marchés publics
