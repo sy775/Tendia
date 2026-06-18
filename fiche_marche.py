@@ -399,6 +399,49 @@ def _texte_motif(m):
 # Blocs sectoriels preset-aware
 # ===========================================================================
 
+def _libelle_domaine_court(code):
+    """Libellé lisible d'un code domaine via la taxonomie, sinon prettify."""
+    try:
+        import llm_extract
+        taxo = (llm_extract._charger_taxonomie() or {}).get("domaines", {})
+        d = taxo.get(code)
+        if isinstance(d, dict) and d.get("libelle"):
+            return d["libelle"]
+    except Exception:
+        pass
+    return str(code or "").replace("_", " ").strip().capitalize()
+
+
+def _fallback_sectoriel(brief, preset_code):
+    """Repli quand un preset est détecté mais sans données sectorielles extraites
+    (brief établi sur le preset dominant). On affiche l'info qu'on a vraiment :
+    sous-domaine(s) concerné(s) + lots, depuis `domaines_metier`."""
+    dm = (brief or {}).get("domaines_metier") or []
+    labels, lots_all = [], []
+    for d in dm:
+        code = d.get("code") if isinstance(d, dict) else d
+        if not code:
+            continue
+        ps = (_preset.presets_pour_domaines([code]) or [None])[0]
+        if ps != preset_code:
+            continue
+        labels.append(_libelle_domaine_court(code))
+        for lot in (d.get("lots_concernes") or []) if isinstance(d, dict) else []:
+            m = re.search(r"(\d+)", str(lot))
+            lots_all.append(str(int(m.group(1))) if m else str(lot))
+    if not labels:
+        return []
+    sections = [{"label": "Composante", "valeur": " · ".join(labels), "type": "text"}]
+    if lots_all:
+        sections.append({"label": "Lots concernés",
+                         "valeur": "Lot " + ", ".join(dict.fromkeys(lots_all)),
+                         "type": "text"})
+    sections.append({"label": "", "type": "text", "valeur":
+                     "Détail sectoriel non extrait (brief établi sur le préset dominant). "
+                     "Les exigences communes figurent ci-dessus et dans « Vérifiez votre éligibilité »."})
+    return sections
+
+
 def bloc_sectoriel_pour_marche(brief, presets, profil):
     """
     Retourne [{preset_code, label, pct, implemente, sections}] dans l'ordre de
@@ -422,6 +465,10 @@ def bloc_sectoriel_pour_marche(brief, presets, profil):
                           "sections": [{"label": "", "valeur":
                                         f"Preset {code} détecté — sections sectorielles à venir (Sprint D).",
                                         "type": "stub"}]})
+        # Repli : preset implémenté mais sans données → afficher l'info disponible
+        # (sous-domaine + lots) plutôt qu'une section vide.
+        if blocs and blocs[-1].get("implemente") and not blocs[-1].get("sections"):
+            blocs[-1]["sections"] = _fallback_sectoriel(brief, blocs[-1]["preset_code"])
     return blocs
 
 
