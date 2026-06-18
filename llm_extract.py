@@ -905,6 +905,19 @@ def post_traiter_extraction_v2(data: dict) -> dict:
                                  + " ; ".join(h.get("hypothese", "") for h in hypos[:2]))[:500]
             data["montant_marche"] = mm
 
+    # Valeur centrale manquante mais fourchette présente : le LLM remplit parfois la
+    # fourchette de montant_marche SANS la valeur centrale → revenu/marge/ancre Voie 3
+    # tombaient à None (vu sur 56730 : MOE 178-218k mais revenu_eur=None). On dérive la
+    # centrale = milieu de fourchette.
+    mm_f = data.get("montant_marche") or {}
+    if not mm_f.get("valeur_estimee_euros"):
+        _fmin, _fmax = mm_f.get("fourchette_min_euros"), mm_f.get("fourchette_max_euros")
+        if (isinstance(_fmin, (int, float)) and isinstance(_fmax, (int, float))
+                and _fmax >= _fmin > 0):
+            mm_f = dict(mm_f)
+            mm_f["valeur_estimee_euros"] = round((_fmin + _fmax) / 2)
+            data["montant_marche"] = mm_f
+
     # === REVENU / COÛT / MARGE (modèle candidat) ===
     # Revenu = prix du marché (montant_marche, officiel Voie 1 ou estimé Voie 2).
     # Coût = estimation bottom-up du coût de PRODUCTION côté candidat (cout_realisation).
