@@ -1456,7 +1456,7 @@
     {% set _ = lot_teaser_parts.append(detail_lots.lignes|length ~ (' lots' if detail_lots.mode == 'lots' else ' tranches')) %}
     {% if detail_lots.mode == 'lots' and nb_coeur %}{% set _ = lot_teaser_parts.append(nb_coeur ~ ' cœur de cible') %}{% endif %}
     {% if detail_lots.mode == 'lots' and nb_part %}{% set _ = lot_teaser_parts.append(nb_part ~ ' partiel' ~ ('s' if nb_part > 1 else '')) %}{% endif %}
-    {{ sec(('Détail par lot' if detail_lots.mode == 'lots' else 'Détail par tranche'), lot_teaser_parts | join(' · '), 'blue', true, IC_DOC) }}
+    {{ sec(('Détail par lot' if detail_lots.mode == 'lots' else 'Détail par tranche'), lot_teaser_parts | join(' · '), 'blue', false, IC_DOC) }}
       {% for it in detail_lots.lignes %}
       <div class="apt-block-soft" style="padding:12px 14px; margin-bottom:10px;">
         {% if detail_lots.mode == 'lots' %}
