@@ -1657,7 +1657,14 @@ def repondre_exigence():
     try:
         organisme.ecrire_profil(profil)
     except Exception as e:
+        if request.form.get("ajax") == "1":
+            return {"ok": False, "erreur": str(e)}, 500
         return f"Erreur écriture profil : {e}", 500
+
+    # AJAX (confirmation live depuis la fiche) : pas de redirect, on renvoie l'état.
+    if request.form.get("ajax") == "1":
+        statut = {"oui": "couvert", "non": "non_couvert", "effacer": "inconnu"}.get(reponse)
+        return {"ok": True, "cle": cle, "reponse": reponse, "statut": statut}
 
     return redirect(redirect_to)
 
