@@ -599,24 +599,7 @@
           {% elif jours_restants is not none and jours_restants < 21 %}var(--c-amber)
           {% else %}var(--apt-ink-2){% endif %};">{{ fmt_date(marche.date_limite_depot) }}{% if jours_restants is not none %} · J−{{ jours_restants }}{% endif %}</strong></span>{% endif %}
       {% if marche.perimetre_geographique %}<span class="sep">·</span><span>{{ marche.perimetre_geographique }}</span>{% endif %}
-      {# Secteur + Analyse — placés en DERNIER #}
-      {% if brief and brief.domaines_metier %}
-      <span class="sep">·</span>
-      <span style="font-size: 11px; color: var(--apt-ink-4); font-weight: 500; margin-right: 2px;">Secteur ·</span>
-      {% for d in brief.domaines_metier %}
-        {% set est_principal = (loop.first or (d.poids and d.poids >= 0.5)) %}
-        {% set lib = d.code|libelle_domaine %}
-        <span title="{% if d.poids %}Poids: {{ (d.poids * 100)|round|int }}%{% endif %}{% if d.lots_concernes %} · Lots: {{ d.lots_concernes|join(', ') }}{% endif %}"
-              style="display: inline-flex; align-items: center; gap: 4px; margin-right: 5px;
-                     font-size: 11.5px; padding: 3px 9px; border-radius: 999px;
-                     background: {% if est_principal %}var(--c-violet-soft){% else %}var(--apt-bg-2, #f5f3f0){% endif %};
-                     color: {% if est_principal %}var(--c-violet){% else %}var(--apt-ink-3){% endif %};
-                     border: 1px solid {% if est_principal %}var(--c-violet){% else %}var(--apt-ink-5, #ddd){% endif %};
-                     font-weight: {% if est_principal %}600{% else %}500{% endif %};">
-          {{ lib }}{% if d.poids %}<span style="opacity: 0.7; font-size: 10px;">{{ (d.poids * 100)|round|int }}%</span>{% endif %}
-        </span>
-      {% endfor %}
-      {% endif %}
+      {# Secteur → déplacé en haut à droite de la section « Résumé Tendia ». #}
     </div>
     <div class="flex flex-wrap items-center gap-2">
       {# Bouton d'accès aux pièces — toujours visible si on a une URL exploitable.
@@ -687,8 +670,8 @@
   {% if eval %}
   {% set score_color = 'var(--c-green)' if eval.verdict in ('tres_pertinent', 'pertinent') else ('var(--c-amber)' if eval.verdict == 'a_verifier' else 'var(--apt-ink-4)') %}
   {% set verdict_bg = 'var(--c-green-soft)' if eval.verdict in ('tres_pertinent', 'pertinent') else ('var(--c-amber-soft)' if eval.verdict == 'a_verifier' else 'var(--apt-bg)') %}
-  <div style="display: flex; flex-direction: column; align-items: center; gap: 8px; flex-shrink: 0; margin-right: 40px;">
-    <div class="score-ring">
+  <div style="display: flex; flex-direction: column; align-items: center; gap: 8px; flex-shrink: 0; margin-right: 16px;">
+    <div class="score-ring{% if eval.motifs %} apt-elig-tag{% endif %}"{% if eval.motifs %} style="cursor: help;"{% endif %}>
       <svg viewBox="0 0 80 80">
         <circle cx="40" cy="40" r="34" fill="none" stroke="var(--apt-line-2)" stroke-width="6"/>
         {% set dasharray = 213.6 %}
@@ -701,6 +684,22 @@
         <span class="score-num" style="color: {{ score_color }};">{{ eval.score }}</span>
         <span class="score-unit">/ 100</span>
       </div>
+      {% if eval.motifs %}
+      <span class="apt-elig-tooltip">
+        <span class="apt-elig-tooltip-title">Détail du verdict · {{ eval.score }}/100</span>
+        <span style="display:flex; flex-direction:column;">
+          {% for motif in eval.motifs %}{% if motif.points %}
+          <span style="display:flex; gap:10px; padding:4px 0; {% if not loop.last %}border-bottom:1px dashed var(--apt-line);{% endif %}">
+            <span style="flex-shrink:0; min-width:30px; text-align:right; font-weight:700; font-variant-numeric:tabular-nums; color:{% if motif.points > 0 %}var(--c-green){% else %}var(--c-rose){% endif %};">{% if motif.points > 0 %}+{% endif %}{{ motif.points }}</span>
+            <span style="flex:1; min-width:0;">
+              <span style="display:block; color:var(--apt-ink); font-weight:600;">{{ motif.critere }}</span>
+              {% if motif.commentaire %}<span style="display:block; color:var(--apt-ink-4); font-size:10.5px; line-height:1.4;">{{ motif.commentaire[:90] }}{% if motif.commentaire | length > 90 %}…{% endif %}</span>{% endif %}
+            </span>
+          </span>
+          {% endif %}{% endfor %}
+        </span>
+      </span>
+      {% endif %}
     </div>
     <span class="verdict-tag{% if verdict_90 %} apt-elig-tag{% endif %}" style="background: {{ verdict_bg }}; color: {{ score_color }};{% if verdict_90 %} cursor: help; position: relative;{% endif %}">
       <span style="font-size: 9px;">●</span> {{ verdict_label.get(eval.verdict, '—') }}
@@ -880,6 +879,26 @@
     {# ===== Onglet par défaut : Résumé Tendia (KPIs compacts + résumé + à retenir) ===== #}
     {% if brief.synthese_marche or alertes_non_verifiables or kpi_cards %}
     {{ sec('Résumé Tendia', '', 'gold', true, '✦', 'sec-resume') }}
+
+      {# Secteur — en haut à droite de la section (flottant), forme conservée #}
+      {% if brief and brief.domaines_metier %}
+      <div style="float: right; margin: 0 0 8px 16px; display: inline-flex; align-items: center; gap: 5px;">
+        <span style="font-size: 11px; color: var(--apt-ink-4); font-weight: 500;">Secteur ·</span>
+        {% for d in brief.domaines_metier %}
+          {% set est_principal = (loop.first or (d.poids and d.poids >= 0.5)) %}
+          {% set lib = d.code|libelle_domaine %}
+          <span title="{% if d.poids %}Poids: {{ (d.poids * 100)|round|int }}%{% endif %}{% if d.lots_concernes %} · Lots: {{ d.lots_concernes|join(', ') }}{% endif %}"
+                style="display: inline-flex; align-items: center; gap: 4px;
+                       font-size: 11.5px; padding: 3px 9px; border-radius: 999px;
+                       background: {% if est_principal %}var(--c-violet-soft){% else %}var(--apt-bg-2, #f5f3f0){% endif %};
+                       color: {% if est_principal %}var(--c-violet){% else %}var(--apt-ink-3){% endif %};
+                       border: 1px solid {% if est_principal %}var(--c-violet){% else %}var(--apt-ink-5, #ddd){% endif %};
+                       font-weight: {% if est_principal %}600{% else %}500{% endif %};">
+            {{ lib }}{% if d.poids %}<span style="opacity: 0.7; font-size: 10px;">{{ (d.poids * 100)|round|int }}%</span>{% endif %}
+          </span>
+        {% endfor %}
+      </div>
+      {% endif %}
 
       {# KPIs compacts inline — sans cellule vide, sans icône #}
       {% set kpis_aff = [] %}
@@ -1879,6 +1898,32 @@
 
     {# ─── Verdict 90 secondes : déplacé en TOOLTIP sur le tag verdict du header. ─── #}
 
+    {# ─── Top 5 concurrents historiques (juste sous les critères d'éligibilité) ─── #}
+    {% if concurrents %}
+    <div class="aside-card">
+      <div class="aside-card-header is-neutral">
+        <svg style="width: 13px; height: 13px;" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+        </svg>
+        Top 5 concurrents{% if concurrents | length %} · {{ concurrents[:5] | length }}{% endif %}
+      </div>
+      <div class="aside-card-body">
+        <div style="font-size: 10.5px; color: var(--apt-ink-4); margin-bottom: 10px;">Attributaires les plus actifs sur des marchés comparables (DECP)</div>
+        <ol style="margin: 0; padding: 0; list-style: none;">
+          {% for c in concurrents[:5] %}
+          <li style="display: flex; align-items: baseline; gap: 10px; padding: 5px 0; {% if not loop.last %}border-bottom: 1px dashed var(--apt-line-2);{% endif %}">
+            <span style="flex-shrink: 0; width: 18px; text-align: right; color: var(--apt-gold-deep); font-size: 12px; font-weight: 700;">{{ loop.index }}</span>
+            <div style="flex: 1; min-width: 0;">
+              <div style="color: var(--apt-ink); font-weight: 600; font-size: 12px; line-height: 1.3; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">{{ c.nom }}</div>
+              <div style="font-size: 10.5px; color: var(--apt-ink-4);">{{ c.nb_marches }} marché{{ 's' if c.nb_marches > 1 }} comparable{{ 's' if c.nb_marches > 1 }}</div>
+            </div>
+          </li>
+          {% endfor %}
+        </ol>
+      </div>
+    </div>
+    {% endif %}
+
     {# ─── Public bénéficiaire (en premier dans la sidebar) ─── #}
     {% if brief.publics_cibles and (brief.publics_cibles.criteres_eligibilite or brief.publics_cibles.description) %}
     {% set nb_crit_pub = brief.publics_cibles.criteres_eligibilite | length if brief.publics_cibles.criteres_eligibilite else 0 %}
@@ -1911,58 +1956,8 @@
     </div>
     {% endif %}
 
-    {% if eval and eval.motifs %}
-    <div class="aside-card">
-      <div class="aside-card-header is-verdict">
-        <svg style="width: 14px; height: 14px;" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-        </svg>
-        Détail du verdict · {{ eval.score }}/100
-      </div>
-      <div class="aside-card-body">
-        <ul style="margin: 0; padding: 0; list-style: none;">
-          {% for motif in eval.motifs %}
-          {% if motif.points %}
-          <li style="display: flex; gap: 10px; padding: 6px 0; border-bottom: 1px dashed var(--apt-line-2);">
-            <span style="flex-shrink: 0; min-width: 32px; text-align: right; padding-top: 1px; color: {% if motif.points > 0 %}var(--c-green){% else %}var(--c-rose){% endif %}; font-weight: 700; font-size: 12px; font-variant-numeric: tabular-nums;">
-              {% if motif.points > 0 %}+{% endif %}{{ motif.points }}
-            </span>
-            <div style="flex: 1; min-width: 0;">
-              <div style="color: var(--apt-ink); font-weight: 600; font-size: 12px; line-height: 1.3;">{{ motif.critere }}</div>
-              {% if motif.commentaire %}<div style="color: var(--apt-ink-3); font-size: 11px; line-height: 1.45; margin-top: 1px;">{{ motif.commentaire[:90] }}{% if motif.commentaire | length > 90 %}…{% endif %}</div>{% endif %}
-            </div>
-          </li>
-          {% endif %}
-          {% endfor %}
-        </ul>
-      </div>
-    </div>
-    {% endif %}
-
-    {% if concurrents %}
-    <div class="aside-card">
-      <div class="aside-card-header is-neutral">
-        <svg style="width: 13px; height: 13px;" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
-        </svg>
-        Concurrents historiques
-      </div>
-      <div class="aside-card-body">
-        <div style="font-size: 10.5px; color: var(--apt-ink-4); margin-bottom: 10px;">Attributaires observés sur des marchés comparables</div>
-        <ol style="margin: 0; padding: 0; list-style: none;">
-          {% for c in concurrents[:5] %}
-          <li style="display: flex; align-items: baseline; gap: 10px; padding: 5px 0; border-bottom: 1px dashed var(--apt-line-2);">
-            <span style="flex-shrink: 0; width: 18px; text-align: right; color: var(--c-violet); font-size: 12px; font-weight: 700;">{{ loop.index }}</span>
-            <div style="flex: 1; min-width: 0;">
-              <div style="color: var(--apt-ink); font-weight: 600; font-size: 12px; line-height: 1.3; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">{{ c.nom }}</div>
-              <div style="font-size: 10.5px; color: var(--apt-ink-4);">{{ c.nb_marches }} marché{{ 's' if c.nb_marches > 1 }}</div>
-            </div>
-          </li>
-          {% endfor %}
-        </ol>
-      </div>
-    </div>
-    {% endif %}
+    {# ─── Détail du verdict : déplacé en TOOLTIP sur le score du header. ─── #}
+    {# ─── Top 5 concurrents : déplacé sous les critères d'éligibilité. ─── #}
 
   </aside>
 
