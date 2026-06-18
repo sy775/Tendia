@@ -958,7 +958,25 @@
     {% set pct_prix = brief.bareme_notation.valeur_prix_pct or 30 %}
 
     {# ===== Onglet 1 : Barème technique (critères notés) ===== #}
-    {{ sec('Barème technique', ('Pondération ' ~ pct_tech ~ '% de la note' if brief.bareme_notation.valeur_technique_pct else 'critères de notation'), 'violet', true, IC_CHART) }}
+    {{ sec('Barème technique', ('Technique ' ~ pct_tech ~ '% · Prix ' ~ pct_prix ~ '%' if brief.bareme_notation.valeur_technique_pct else 'critères de notation'), 'violet', true, IC_CHART) }}
+      {# Répartition GLOBALE de la note (barème total : technique + prix) — bien visible #}
+      <div style="margin-bottom: 18px; padding: 15px 18px; background: var(--apt-surface); border: 1px solid var(--apt-line-2); border-radius: 11px;">
+        <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 10px;">
+          <span style="font-size: 10.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--apt-ink-4);">Répartition de la note</span>
+          <span style="font-size: 13px; font-weight: 700; color: var(--apt-ink); font-variant-numeric: tabular-nums;">Technique {{ pct_tech }}% · Prix {{ pct_prix }}%</span>
+        </div>
+        <div style="display: flex; height: 13px; border-radius: 7px; overflow: hidden; background: var(--apt-line-2); box-shadow: inset 0 1px 2px rgba(15,27,61,0.08);">
+          <div style="width: {{ pct_tech }}%; background: var(--apt-accent);" title="Valeur technique {{ pct_tech }}%"></div>
+          <div style="width: {{ pct_prix }}%; background: var(--apt-gold);" title="Prix {{ pct_prix }}%"></div>
+        </div>
+        <div style="display: flex; justify-content: space-between; margin-top: 8px; font-size: 11.5px;">
+          <span style="display:inline-flex; align-items:center; gap:6px; color: var(--apt-ink-2); font-weight: 600;"><span style="width:9px;height:9px;border-radius:2px;background:var(--apt-accent);"></span>Valeur technique · {{ pct_tech }}%</span>
+          <span style="display:inline-flex; align-items:center; gap:6px; color: var(--apt-ink-2); font-weight: 600;"><span style="width:9px;height:9px;border-radius:2px;background:var(--apt-gold);"></span>Prix · {{ pct_prix }}%</span>
+        </div>
+        {% if (pct_tech + pct_prix) != 100 %}
+        <div style="margin-top: 8px; font-size: 11px; color: var(--c-amber);">⚠ Technique + Prix = {{ pct_tech + pct_prix }}% (≠ 100) — barème à revérifier dans le RC.</div>
+        {% endif %}
+      </div>
       {% if brief.bareme_notation.sous_criteres_techniques %}
       <div style="display: flex; flex-direction: column; gap: 8px;">
         {% for sc in brief.bareme_notation.sous_criteres_techniques %}
