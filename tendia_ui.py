@@ -523,11 +523,15 @@ def dashboard():
                     domaine_tooltip = "Classification IA : " + ", ".join(parts)
 
         statut_cycle = cycle_marche.statut(m)
+        preset_rang = (matching.rang_preset_matche(
+            profil, (evaluation or {}).get("presets_marche") or []) if profil else 99)
         enriched.append({
             "marche": m,
             "eval": evaluation,
             "verdict": (evaluation or {}).get("verdict"),
             "score": (evaluation or {}).get("score", 0),
+            "preset_rang": preset_rang,
+            "hors_zone": bool((evaluation or {}).get("hors_zone")),
             "titre_court": _titre_court(m),
             "date_limite_fmt": _fmt_date(m.get("date_limite_depot")),
             "jours_restants": _jours_restants(m.get("date_limite_depot")),
@@ -542,11 +546,22 @@ def dashboard():
             "dce_badge": _dce_badge(m),
         })
 
-    # Tri : par verdict puis par score décroissant
-    enriched.sort(key=lambda x: (
-        VERDICT_ORDRE.get(x["verdict"], 99),
-        -x["score"],
-    ))
+    # Tri : avec un profil actif → non pertinents en bas ; parmi les pertinents, in-zone
+    # avant hors-zone, puis activité PRIORITAIRE (preset principal d'abord), puis score.
+    # Sans profil → tri legacy par verdict puis score.
+    if profil:
+        enriched.sort(key=lambda x: (
+            1 if x["verdict"] == "non_pertinent" else 0,
+            1 if x.get("hors_zone") else 0,
+            x.get("preset_rang", 99),
+            -x["score"],
+            x["jours_restants"] if x["jours_restants"] is not None else 9999,
+        ))
+    else:
+        enriched.sort(key=lambda x: (
+            VERDICT_ORDRE.get(x["verdict"], 99),
+            -x["score"],
+        ))
 
     # KPIs
     ids_actifs = [m["id"] for m in actifs]
@@ -786,6 +801,7 @@ def explorer():
             "verdict": (evaluation_l or {}).get("verdict"),
             "score": (evaluation_l or {}).get("score"),
             "preset_rang": preset_rang_l,
+            "hors_zone": bool((evaluation_l or {}).get("hors_zone")),
             "eligibilite": verdict_elig_l,
             "titre_court": _titre_court(marche),
             "acheteur": marche.get("acheteur_nom") or "—",
@@ -821,11 +837,13 @@ def explorer():
     # PRIORITAIRE (preset principal avant secondaire/tertiaire avant hors-activités),
     # puis par score décroissant, puis urgence. Sans profil → richesse puis urgence.
     if profil_actif:
-        # 1) les marchés non pertinents (hors zone, hors activités…) sombrent en bas ;
-        # 2) parmi les pertinents, tri par activité PRIORITAIRE (preset principal d'abord) ;
-        # 3) puis score décroissant ; 4) puis urgence.
+        # 1) non pertinents (hors activités) tout en bas ;
+        # 2) parmi les pertinents, les IN-ZONE avant les hors-zone (à vérifier) ;
+        # 3) puis activité PRIORITAIRE (preset principal d'abord) ;
+        # 4) puis score décroissant ; 5) puis urgence.
         lignes.sort(key=lambda x: (
             1 if x.get("verdict") == "non_pertinent" else 0,
+            1 if x.get("hors_zone") else 0,
             x.get("preset_rang", 99),
             -(x.get("score") or 0),
             x["jours_restants"] if x["jours_restants"] is not None else 9999,

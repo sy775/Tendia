@@ -137,7 +137,7 @@
         <h2 class="apt-display-md" style="font-size: 28px; color: var(--apt-ink);">
           Marchés en cours
         </h2>
-        <p class="apt-meta mt-1.5">Triés par verdict puis score décroissant</p>
+        <p class="apt-meta mt-1.5">Triés par pertinence (in-zone d'abord), activité prioritaire, puis score</p>
       </div>
       <div class="apt-label">{{ marches_enriched|length }} entrée{{ 's' if marches_enriched|length != 1 else '' }}</div>
     </div>
@@ -174,10 +174,18 @@
                 Pertinent
               </span>
             {% elif e.verdict == 'a_verifier' %}
+              {% if e.hors_zone %}
+              <span class="apt-verdict apt-verdict-a-verifier" style="cursor: help;"
+                    title="Hors de votre zone d'intervention{% if m.perimetre_geographique %} (marché : {{ m.perimetre_geographique }}){% endif %} — pertinent sur le secteur mais à vérifier au cas par cas vu la distance.">
+                <span class="dot"></span>
+                À vérifier · hors zone
+              </span>
+              {% else %}
               <span class="apt-verdict apt-verdict-a-verifier">
                 <span class="dot"></span>
                 À vérifier
               </span>
+              {% endif %}
             {% else %}
               <span class="apt-verdict apt-verdict-non-pertinent">
                 <span class="dot"></span>

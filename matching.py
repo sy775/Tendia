@@ -374,11 +374,13 @@ def _eval_geographie_v2(organisme: dict, marche: dict,
     zone_m = dep_marche or region_marche
     strict = bool(organisme.get("zones_strict"))
     mo = _motif("geographie", False, -12 if strict else -8,
-                f"Hors zone{' (proximité stricte → écarté)' if strict else ''} : marché en "
-                f"{zone_m}, profil couvre {zones_profil}.",
+                f"Hors de votre zone : marché en {zone_m}, vous couvrez {zones_profil}"
+                f"{' (acteur de proximité)' if strict else ''}.",
                 valeur_organisme=zones_profil, valeur_marche=zone_m)
     if strict:
-        mo["go_no_go"] = "hors_zone"
+        # Pas un couperet « non pertinent » : on plafonne le verdict à « à vérifier »
+        # (le marché peut intéresser malgré la distance) + tooltip explicatif côté UI.
+        mo["hors_zone"] = True
     return mo
 
 
@@ -1045,19 +1047,30 @@ def _eval_synergie_v2(motifs: list) -> dict:
 # ===========================================================================
 
 def _calculer_verdict(score: int, motifs: list) -> str:
+    # 1) Go/no-go durs : qualification sectorielle bloquante manquante.
     for m in motifs:
-        # Go/no-go explicite (ex : hors zone d'un acteur de proximité stricte).
-        if m.get("go_no_go"):
-            return "non_pertinent"
         if m["critere"] in ("btp_qualibat", "qualiopi", "ing_opqibi") and m["satisfait"] is False and m["points"] <= -25:
             return "non_pertinent"
+    # 2) Pas de match preset (secteur non couvert OU marché non classifié) → non
+    #    pertinent, même si géo/thématique donnent des points (élimine le bruit :
+    #    un marché in-zone sans rapport avec les activités du profil n'est pas pertinent).
+    preset_mo = next((m for m in motifs if m["critere"] == "preset_compatibilite"), None)
+    if preset_mo is not None and preset_mo.get("satisfait") is not True:
+        return "non_pertinent"
+    # 3) Verdict par seuil.
     if score >= SEUIL_TRES_PERTINENT:
-        return "tres_pertinent"
-    if score >= SEUIL_PERTINENT:
-        return "pertinent"
-    if score >= SEUIL_A_VERIFIER:
-        return "a_verifier"
-    return "non_pertinent"
+        v = "tres_pertinent"
+    elif score >= SEUIL_PERTINENT:
+        v = "pertinent"
+    elif score >= SEUIL_A_VERIFIER:
+        v = "a_verifier"
+    else:
+        v = "non_pertinent"
+    # 4) Hors zone d'un acteur de proximité stricte : jamais mieux que « à vérifier »
+    #    (le marché peut intéresser, mais la distance impose une vérification).
+    if v in ("tres_pertinent", "pertinent") and any(m.get("hors_zone") for m in motifs):
+        v = "a_verifier"
+    return v
 
 
 # ===========================================================================
@@ -1106,11 +1119,12 @@ def _evaluer_v2(organisme: dict, marche: dict,
 
     score_brut = sum(m["points"] for m in motifs)
     score = max(0, min(100, score_brut))
-    # Go/no-go (ex : hors-zone d'un acteur de proximité stricte) → marché DISQUALIFIÉ.
-    # On plafonne le score bas pour qu'il soit cohérent avec le verdict non_pertinent
-    # (sinon un marché « non pertinent » afficherait un score élevé) et qu'il sombre au tri.
-    if any(m.get("go_no_go") for m in motifs):
-        score = min(score, 12)
+    hors_zone = any(m.get("hors_zone") for m in motifs)
+    # Hors zone (proximité stricte) : on plafonne le score dans la bande « à vérifier »
+    # pour rester cohérent avec le verdict plafonné et pour que ces marchés ne devancent
+    # pas les marchés in-zone au tri.
+    if hors_zone:
+        score = min(score, 45)
     verdict = _calculer_verdict(score, motifs)
     return {
         "id_marche": marche.get("id", "?"),
@@ -1119,6 +1133,7 @@ def _evaluer_v2(organisme: dict, marche: dict,
         "motifs": motifs,
         "presets_marche": presets_marche,
         "presets_profil": presets_profil,
+        "hors_zone": hors_zone,
         "_version": "v2",
     }
 
