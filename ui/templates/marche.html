@@ -1613,13 +1613,14 @@
     {% endif %}
 
     {# ============ BLOC SECTORIEL PRESET-AWARE ============ #}
-    {% for b in (blocs_sectoriels or []) %}
+    {# On masque les blocs implémentés SANS données (ex : preset secondaire détecté mais
+       brief extrait avec un autre schéma) — une section vide « non extraites » fait
+       inachevé ; le split sectoriel reste visible via le tag Secteur. #}
+    {% for b in (blocs_sectoriels or []) if b.sections or not b.implemente %}
     {% set sec_teaser = (b.sections[:4] | map(attribute='label') | join(' · ')) if b.sections else ((b.pct ~ '%') if b.pct else '') %}
     {{ sec('Exigences ' ~ b.label, sec_teaser, ('green' if b.preset_code == 'btp' else 'violet'), true, IC_CHECK) }}
       {% if not b.implemente %}
         <p style="color: var(--apt-ink-3); font-size: 13px;">{{ b.sections[0].valeur }}</p>
-      {% elif not b.sections %}
-        <p style="color: var(--apt-ink-4); font-size: 13px;">Données sectorielles {{ b.label }} non extraites pour ce marché.</p>
       {% else %}
         {% for s in b.sections %}
         <div style="margin-bottom: 13px;">
