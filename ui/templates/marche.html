@@ -954,43 +954,27 @@
     {# Barre de navigation des sections — construite en JS depuis les .sec rendues #}
     <nav id="fiche-quicknav" class="fiche-quicknav" aria-label="Sections du brief"></nav>
 
-    {{ sec('Barème & cadrage prix', teaser_bareme, 'violet', true, IC_CHART) }}
+    {% set pct_tech = brief.bareme_notation.valeur_technique_pct or 70 %}
+    {% set pct_prix = brief.bareme_notation.valeur_prix_pct or 30 %}
 
-      {# ============ BARRE-ONGLETS Technique / Prix ============ #}
-      {# La barre de pondération est ELLE-MÊME les onglets cliquables. #}
-      {# Largeur des onglets = pondération (70/30 par défaut). #}
-      {% set pct_tech = brief.bareme_notation.valeur_technique_pct or 70 %}
-      {% set pct_prix = brief.bareme_notation.valeur_prix_pct or 30 %}
-      {% set tab_id = 'bareme-' ~ marche.id %}
-      <div class="bareme-tabs-wrapper">
-        <input type="radio" class="bareme-tab-radio is-tech" name="bareme-tab-{{ tab_id }}" id="tab-tech-{{ tab_id }}" checked>
-        <input type="radio" class="bareme-tab-radio is-prix" name="bareme-tab-{{ tab_id }}" id="tab-prix-{{ tab_id }}">
-        <div class="bareme-tabs-bar">
-          <label for="tab-tech-{{ tab_id }}" class="bareme-tab-pill tab-tech" style="width: {{ pct_tech }}%;">
-            <span>Technique · {{ pct_tech }}%</span>
-            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
-          </label>
-          <label for="tab-prix-{{ tab_id }}" class="bareme-tab-pill tab-prix" style="width: {{ pct_prix }}%;">
-            <span>Prix · {{ pct_prix }}%</span>
-            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
-          </label>
-        </div>
-
-      <div class="bareme-panel panel-tech">
-        {% if brief.bareme_notation.sous_criteres_techniques %}
-        <div style="display: flex; flex-direction: column; gap: 8px;">
-          {% for sc in brief.bareme_notation.sous_criteres_techniques %}
-            {{ render_sous_critere(sc, 1) }}
-          {% endfor %}
-        </div>
-        {% else %}
-        <p style="font-size: 12.5px; color: var(--apt-ink-3); margin: 0; line-height: 1.55; padding: 20px; text-align: center; background: var(--apt-bg); border-radius: 8px;">
-          Aucun sous-critère technique détaillé n'a pu être extrait du DCE.
-        </p>
-        {% endif %}
+    {# ===== Onglet 1 : Barème technique (critères notés) ===== #}
+    {{ sec('Barème technique', ('Pondération ' ~ pct_tech ~ '% de la note' if brief.bareme_notation.valeur_technique_pct else 'critères de notation'), 'violet', true, IC_CHART) }}
+      {% if brief.bareme_notation.sous_criteres_techniques %}
+      <div style="display: flex; flex-direction: column; gap: 8px;">
+        {% for sc in brief.bareme_notation.sous_criteres_techniques %}
+          {{ render_sous_critere(sc, 1) }}
+        {% endfor %}
       </div>
+      {% else %}
+      <p style="font-size: 12.5px; color: var(--apt-ink-3); margin: 0; line-height: 1.55; padding: 20px; text-align: center; background: var(--apt-bg); border-radius: 8px;">
+        Aucun sous-critère technique détaillé n'a pu être extrait du DCE.
+      </p>
+      {% endif %}
+    </div></details>
 
-      <div class="bareme-panel panel-prix">
+    {# ===== Onglet 2 : Prix & estimation (coeff prix + montant) ===== #}
+    {{ sec('Prix & estimation', ('Coeff. prix ' ~ pct_prix ~ '%' if brief.bareme_notation.valeur_prix_pct else 'estimation du montant'), 'green', true, IC_EURO) }}
+      <div>
       {# Coefficient prix mis en avant (avant tout) + sa source/modalité dans le RC #}
       <div style="margin-top: 8px; display: flex; align-items: flex-start; gap: 14px; padding: 12px 16px; background: var(--apt-bg); border: 1px solid var(--apt-line-2); border-left: 3px solid var(--apt-ink); border-radius: 9px;">
         <div style="flex-shrink: 0; text-align: center; min-width: 62px;">
@@ -1521,7 +1505,6 @@
 
       {% endif %}{# fin has_volet_prix #}
       </div>
-      </div>{# fin bareme-tabs-wrapper #}
     </div></details>
     {% endif %}
 
