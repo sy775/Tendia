@@ -699,7 +699,20 @@ candidat de produire CE lot précis (main d'œuvre, matériel, sous-traitance pr
 comme `cout_realisation` mais ventilé par lot. ⚠️ C'est un COÛT, PAS le revenu/prix du lot.
 Appuie-toi sur la nature du lot (corps d'état, surface, quantités du CCTP/DPGF) et des ratios
 marché. Fourchette serrée (rapport max/min ≈ 1,2-1,5). Si un lot n'est pas chiffrable, laisse
-les deux à null. (La somme des coûts de lots ≈ `cout_realisation.cout_total_eur`.)
+les deux à null.
+
+⚠️ ANCRAGE OBLIGATOIRE DÈS QU'IL Y A DES LOTS : tu estimes D'ABORD chaque lot, PUIS tu
+construis l'estimation GLOBALE `cout_realisation` À PARTIR de ces lots — pas l'inverse. Les
+deux sections affichées (« Prix & estimation » globale et « Détail par lot ») doivent montrer
+la MÊME fourchette, cohérente :
+- `cout_realisation.cout_min_eur` = Σ des `cout_estime_min_eur` des lots chiffrés ;
+  `cout_realisation.cout_max_eur` = Σ des `cout_estime_max_eur`.
+- `cout_realisation.cout_total_eur` = somme des valeurs centrales des lots.
+- Chaque lot devient idéalement un `poste` de `cout_realisation` (1 poste = 1 lot), pour que
+  la décomposition globale et le détail par lot racontent la même histoire.
+- Si certains lots ne sont pas chiffrables (null), dis-le dans `commentaire` et borne le
+  global sur les lots chiffrés (ne laisse pas un écart inexpliqué entre les deux sections).
+Objectif : la fourchette en gras est IDENTIQUE des deux côtés ; elle est cadrée par les lots.
 
 === RÈGLES v2 — CONTEXTE BOAMP (bloc CONTEXTE DU MARCHÉ) ===
 
