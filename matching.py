@@ -328,6 +328,11 @@ def _eval_geographie_v2(organisme: dict, marche: dict,
                         break
             if code_postal:
                 break
+    # Périmètre BOAMP (ex « Dept 16 ») — source complémentaire du département.
+    if not code_postal:
+        mp = re.search(r"\b(\d{2,3}|2[AB])\b", str(marche.get("perimetre_geographique") or ""))
+        if mp:
+            code_postal = mp.group(1)
     dep_marche = _detecter_departement(marche.get("acheteur_nom", ""), code_postal)
     region_marche = _detecter_region(marche.get("acheteur_nom", ""))
     deps_profil = [z for z in zones_profil if z and (z.isdigit() or
@@ -362,11 +367,19 @@ def _eval_geographie_v2(organisme: dict, marche: dict,
         return _motif("geographie", None, 0,
                       "Zone du marche non identifiee — a verifier.",
                       valeur_marche=marche.get("acheteur_nom"))
-    return _motif("geographie", False, 0,
-                  f"Hors zone : marche en {dep_marche or region_marche}, "
-                  f"l'organisme ne couvre pas.",
-                  valeur_organisme=zones_profil,
-                  valeur_marche=dep_marche or region_marche)
+    # Hors zone : le marché est géographiquement identifié mais non couvert. On applique
+    # une pénalité MODÉRÉE (la géo est un signal, pas un poids qui écrase le score).
+    # Si `zones_strict` (acteur de proximité), on ajoute un GO/NO-GO : le marché est
+    # filtré en « non pertinent » via le verdict, sans gonfler artificiellement le score.
+    zone_m = dep_marche or region_marche
+    strict = bool(organisme.get("zones_strict"))
+    mo = _motif("geographie", False, -12 if strict else -8,
+                f"Hors zone{' (proximité stricte → écarté)' if strict else ''} : marché en "
+                f"{zone_m}, profil couvre {zones_profil}.",
+                valeur_organisme=zones_profil, valeur_marche=zone_m)
+    if strict:
+        mo["go_no_go"] = "hors_zone"
+    return mo
 
 
 def _eval_capacite_financiere(organisme: dict, marche: dict,
@@ -908,9 +921,107 @@ def _eval_sectoriel_ingenierie(profil_ing: dict, brief: Optional[dict]) -> list:
     return motifs
 
 
+# ===========================================================================
+# EVALUATEUR SECTORIEL ÉNERGIES RENOUVELABLES
+# ===========================================================================
+
+# Familles de technologies EnR → mots-clés (normalisés sans accent) repérables dans
+# l'objet du marché OU dans les valeurs `technologies_maitrisees` du profil.
+_ENR_FAMILLES = {
+    "photovoltaïque": ("photovolta", "panneau solaire", "panneaux solaire",
+                       "centrale solaire", "ombriere", "agrivolta", "solaire pv"),
+    "éolien": ("eolien", "eolienne"),
+    "méthanisation/biomasse": ("methanis", "biogaz", "biomasse", "bois energie",
+                               "chaufferie bois"),
+    "géothermie": ("geotherm",),
+    "pompe à chaleur": ("pompe a chaleur", "aerothermie"),
+    "solaire thermique": ("solaire thermique", "eau chaude solaire"),
+    "réseau de chaleur": ("reseau de chaleur", "reseau chaleur"),
+    "hydraulique": ("hydroelec", "hydrolien", "microcentrale", "micro-hydro"),
+    "stockage": ("stockage", "batterie"),
+    "hydrogène": ("hydrogene",),
+}
+
+# Orientation de prestation EnR (le candidat FAIT quoi ?) → mots-clés.
+_ENR_PRESTA = {
+    "études/AMO": ("etude", "faisabilite", "opportunite", "amo", "assistance maitrise",
+                   "diagnostic", "audit", "schema directeur", "developpement",
+                   "conseil", "maitrise oeuvre", "maitrise d oeuvre", "programmation"),
+    "travaux/fourniture": ("installation", "fourniture et pose", "fourniture pose",
+                           "travaux", "construction", "pose de", "raccordement",
+                           "cle en main", "clef en main", "realisation"),
+    "exploitation/maintenance": ("maintenance", "exploitation", "supervision",
+                                 "monitoring", "telegestion"),
+}
+
+
+def _familles_depuis(textes, familles_map) -> set:
+    """Familles dont au moins un mot-clé apparaît dans l'un des textes (normalisés)."""
+    corpus = " ".join(_normaliser(str(t)) for t in textes if t)
+    return {fam for fam, kws in familles_map.items() if any(k in corpus for k in kws)}
+
+
+def _eval_sectoriel_energie_renouvelable(profil_enr: dict, brief: Optional[dict],
+                                          marche: dict) -> list:
+    motifs = []
+    b = brief or {}
+    # Corpus du marché : objet/titre + synthèse + codes domaines.
+    corpus_marche = [marche.get("objet"), marche.get("titre"), b.get("synthese_marche")]
+    corpus_marche += [d.get("code") for d in (b.get("domaines_metier") or [])
+                      if isinstance(d, dict)]
+
+    # ---- 1) Technologie maîtrisée ET demandée ----
+    prof_fam = _familles_depuis(profil_enr.get("technologies_maitrisees") or [], _ENR_FAMILLES)
+    marche_fam = _familles_depuis(corpus_marche, _ENR_FAMILLES)
+    if not prof_fam:
+        motifs.append(_motif("enr_technologie", None, 0,
+                             "Technologies EnR non renseignees au profil."))
+    elif not marche_fam:
+        motifs.append(_motif("enr_technologie", None, 0,
+                             "Aucune technologie EnR identifiee dans le marche."))
+    else:
+        commun = prof_fam & marche_fam
+        if commun:
+            motifs.append(_motif("enr_technologie", True, 22,
+                                 f"Technologie EnR maitrisee et demandee : {', '.join(sorted(commun))}.",
+                                 valeur_organisme=sorted(prof_fam),
+                                 valeur_marche=sorted(marche_fam)))
+        else:
+            motifs.append(_motif("enr_technologie", False, -8,
+                                 f"Marche EnR sur {', '.join(sorted(marche_fam))} hors "
+                                 f"technologies du profil ({', '.join(sorted(prof_fam))}).",
+                                 valeur_organisme=sorted(prof_fam),
+                                 valeur_marche=sorted(marche_fam)))
+
+    # ---- 2) Type de prestation (le candidat FAIT-il ce que le marché demande ?) ----
+    prof_presta = _familles_depuis(profil_enr.get("types_prestations") or [], _ENR_PRESTA)
+    marche_presta = _familles_depuis(corpus_marche, _ENR_PRESTA)
+    if prof_presta and marche_presta:
+        if prof_presta & marche_presta:
+            motifs.append(_motif("enr_prestation", True, 8,
+                                 f"Type de prestation couvert : {', '.join(sorted(prof_presta & marche_presta))}.",
+                                 valeur_organisme=sorted(prof_presta),
+                                 valeur_marche=sorted(marche_presta)))
+        else:
+            motifs.append(_motif("enr_prestation", False, -6,
+                                 f"Le marche attend {', '.join(sorted(marche_presta))} ; "
+                                 f"le profil fait {', '.join(sorted(prof_presta))} (inadequation de role).",
+                                 valeur_organisme=sorted(prof_presta),
+                                 valeur_marche=sorted(marche_presta)))
+
+    # ---- 3) Segment client (bonus léger) ----
+    seg = profil_enr.get("segments_clients") or []
+    if seg and any("collectivite" in _normaliser(str(s)) or "etat" in _normaliser(str(s))
+                   for s in seg):
+        # Acheteur public probable (cas dominant) → petit alignement.
+        motifs.append(_motif("enr_segment", True, 3,
+                             "Cible clients publics alignee avec l'acheteur."))
+    return motifs
+
+
 def _eval_sectoriel_placeholder(code_preset: str, profil_sec: dict,
                                  brief: Optional[dict]) -> list:
-    """Stub Sprint C pour ingenierie, conseil, IT, EnR."""
+    """Stub Sprint C pour conseil, IT, formation."""
     n_rempli = sum(1 for v in (profil_sec or {}).values() if v) if profil_sec else 0
     return [_motif(
         f"sectoriel_{code_preset}", None, 0,
@@ -935,6 +1046,9 @@ def _eval_synergie_v2(motifs: list) -> dict:
 
 def _calculer_verdict(score: int, motifs: list) -> str:
     for m in motifs:
+        # Go/no-go explicite (ex : hors zone d'un acteur de proximité stricte).
+        if m.get("go_no_go"):
+            return "non_pertinent"
         if m["critere"] in ("btp_qualibat", "qualiopi", "ing_opqibi") and m["satisfait"] is False and m["points"] <= -25:
             return "non_pertinent"
     if score >= SEUIL_TRES_PERTINENT:
@@ -979,6 +1093,8 @@ def _evaluer_v2(organisme: dict, marche: dict,
             secm = _eval_sectoriel_btp(profil_sec, brief)
         elif code == "ingenierie":
             secm = _eval_sectoriel_ingenierie(profil_sec, brief)
+        elif code == "energie_renouvelable":
+            secm = _eval_sectoriel_energie_renouvelable(profil_sec, brief, marche)
         else:
             secm = _eval_sectoriel_placeholder(code, profil_sec, brief)
         # Atténue les signaux sectoriels POSITIFS selon le rang du preset (cœur vs périphérie).

@@ -172,11 +172,31 @@ ingénierie) · 20 (rang 3 conseil) · 361 (hors activités). Le dashboard remon
 cœur EnR d'abord. Barème : `PRESET_COMPAT_POINTS` / `PRESET_FACTEUR_SECTORIEL` en tête
 de `matching.py`, **facilement ajustable**.
 
+### ✅ Évaluateur sectoriel EnR + géographie (19 juin 2026)
+Diagnostic via TEE27 sur un marché PV (56676, Charente) scoré 45 : (a) l'évaluateur
+sectoriel EnR était un **stub** (+0) → l'expertise PV ne comptait pas ; (b) la géo ne
+**pénalisait jamais** le hors-zone (+0). Corrigé :
+- **`_eval_sectoriel_energie_renouvelable`** (`matching.py`) : 3 signaux —
+  `enr_technologie` (familles PV/éolien/méthanisation/géothermie/… maîtrisées ET
+  demandées : +22 / −8 si hors techno), `enr_prestation` (études/AMO vs travaux/fourniture
+  vs exploitation — capte qu'un AMO comme TEE27 n'est pas un installateur : +8 / −6),
+  `enr_segment` (clients publics : +3). Token/famille-matching robuste aux variantes.
+- **Géographie** : lit désormais `perimetre_geographique` (« Dept 16 ») ; hors-zone
+  **pénalité modérée** (−8, ou −12 si strict) — **pas un poids énorme** ; pour un acteur
+  `zones_strict` (proximité), **go/no-go** → verdict `non_pertinent` (champ `go_no_go`
+  sur le motif, lu par `_calculer_verdict`).
+- **`zones_strict`** : nouveau champ profil (socle). TEE27 = True (Eure uniquement).
+
+**Validation TEE27 / marché PV** : Charente (hors zone) → 52 mais **non_pertinent**
+(gate) ; même marché simulé dans l'Eure → **99 très_pertinent** (géo +25, EnR +22,
+synergie +10). BTP demo 57070 → 75 (aucune régression).
+
 ### Pistes restantes (non implémentées)
 - **Croiser avec le poids du domaine côté marché** (`domaines_metier[].poids`) :
   adéquation = poids_marché × priorité_profil (éviter qu'un lot à 15 % pèse autant qu'un objet principal).
-- **Strict géographique** comme go/no-go dur (TEE27 : Eure uniquement) — aujourd'hui
-  la géo est un motif pondéré, pas un couperet.
+- **Évaluateurs sectoriels conseil / IT / formation** encore en stub.
+- **Widgets de formulaire EnR/conseil** (cases guidées) — schéma EnR a des enums riches
+  (technologies, prestations, segments) ; formulaire à enrichir (chantier UX en cours).
 
 ### ✅ Matching plus précis — affinage additif du prompt de classification (19 juin 2026)
 Le matching dépend de la qualité de `domaines_metier`. Affinage **additif** (aucune

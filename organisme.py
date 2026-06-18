@@ -182,6 +182,9 @@ def template_socle_vide() -> dict:
             "agressivite_commerciale": "neutre"
         },
         "mots_cles_catalogue": [],
+        # Acteur de proximité : si True, un marché hors des zones d'intervention est
+        # fortement pénalisé (quasi disqualifiant) au lieu d'une simple décote.
+        "zones_strict": False,
         "presets_couverts": [],
         # Priorité par preset (1=principal, 2=secondaire, 3=tertiaire…). Pilote la
         # pondération du matching pour les entreprises diversifiées. Si vide, l'ordre
