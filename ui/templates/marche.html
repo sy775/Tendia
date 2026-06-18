@@ -738,14 +738,14 @@
         <span class="apt-elig-tooltip-title">{{ ve.tooltip }}</span>
         {% if ve.points_a_lever %}
         <ul>
-          {% for p in ve.points_a_lever[:5] %}
+          {% for p in ve.points_a_lever[:4] %}
           <li>
             {% if p.statut == 'inconnu' %}<span style="color: var(--apt-ink-4); font-weight: 700;">?</span>{% elif p.statut == 'a_verifier' %}<span style="color: var(--c-amber); font-weight: 700;">!</span>{% else %}<span style="color: var(--c-rose); font-weight: 700;">✕</span>{% endif %}
             {{ p.libelle }}
           </li>
           {% endfor %}
-          {% if ve.points_a_lever | length > 5 %}
-          <li style="opacity: 0.7;">… et {{ ve.points_a_lever | length - 5 }} autre{{ 's' if (ve.points_a_lever | length - 5) > 1 else '' }}</li>
+          {% if ve.points_a_lever | length > 4 %}
+          <li style="opacity: 0.7;">… et {{ ve.points_a_lever | length - 4 }} autre{{ 's' if (ve.points_a_lever | length - 4) > 1 else '' }}</li>
           {% endif %}
         </ul>
         {% endif %}

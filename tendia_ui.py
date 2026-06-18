@@ -1227,7 +1227,10 @@ def detail_marche(id_marche):
     alertes_verifiables = [a for a in alertes_evaluees if _cle(a)]
     alertes_non_verifiables = [a for a in alertes_evaluees if not _cle(a)]
     couverture_synthese = matching_exigences.synthese_couverture(alertes_verifiables)
-    verdict_eligibilite = matching_exigences.verdict_eligibilite(alertes_evaluees)
+    # Le verdict d'éligibilité ne porte QUE sur les vrais critères vérifiables (certifs,
+    # CA, local, qualif…) — pas sur les alertes de contexte (délai court, visite des
+    # locaux, coactivité…) qui ne sont pas des conditions d'éligibilité.
+    verdict_eligibilite = matching_exigences.verdict_eligibilite(alertes_verifiables)
 
     # Fourchette montant total : 3 scénarios (bas / réaliste / haut)
     import fourchette_scenarios

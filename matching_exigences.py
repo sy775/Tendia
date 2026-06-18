@@ -446,8 +446,8 @@ def verdict_eligibilite(alertes_evaluees: list) -> dict:
             "label_court": "Non éligible",
             "couleur": "rose",
             "icone": "✕",
-            "tooltip": (f"{nb_bloque} exigence{'s' if nb_bloque > 1 else ''} non couverte{'s' if nb_bloque > 1 else ''} "
-                        f"par votre profil. À lever ou confirmer (✓/✕) dans « Vérifiez votre éligibilité » :"),
+            "tooltip": (f"{nb_bloque} exigence{'s' if nb_bloque > 1 else ''} "
+                        f"non couverte{'s' if nb_bloque > 1 else ''} par votre profil :"),
             "compteurs": compteurs,
             "points_a_lever": points_bloquants,
         }
@@ -460,10 +460,8 @@ def verdict_eligibilite(alertes_evaluees: list) -> dict:
             "label_court": "Éligible",
             "couleur": "green",
             "icone": "✓",
-            "tooltip": (
-                f"Éligible sous réserve — {nb_couvert} exigence{'s' if nb_couvert > 1 else ''} couverte{'s' if nb_couvert > 1 else ''}, "
-                f"{nb_reserves} critère{'s' if nb_reserves > 1 else ''} à confirmer (✓/✕ dans « Vérifiez votre éligibilité ») :"
-            ),
+            "tooltip": (f"{nb_reserves} critère{'s' if nb_reserves > 1 else ''} "
+                        f"à confirmer dans « Vérifiez votre éligibilité » :"),
             "compteurs": compteurs,
             "points_a_lever": points_reserves,
         }
