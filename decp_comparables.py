@@ -199,8 +199,9 @@ def lister_decp(q=None, preset=None, dept=None, montant_min=None, montant_max=No
         params + [par_page, off]).fetchall()
     cles = ["id", "objet", "acheteur_nom", "titulaire_siret", "montant_eur",
             "date_notification", "cpv_principal", "departement", "duree_mois"]
-    items = [dict(zip(cles, r)) for r in rows]
-    return {"items": items, "total": total, "page": page, "par_page": par_page,
+    lignes = [dict(zip(cles, r)) for r in rows]
+    # clé 'lignes' (pas 'items') : en Jinja `res.items` résout la méthode dict.items().
+    return {"lignes": lignes, "total": total, "page": page, "par_page": par_page,
             "pages": (total + par_page - 1) // par_page}
 
 
