@@ -708,8 +708,21 @@
         <span class="score-unit">/ 100</span>
       </div>
     </div>
-    <span class="verdict-tag" style="background: {{ verdict_bg }}; color: {{ score_color }};">
+    <span class="verdict-tag{% if verdict_90 %} apt-elig-tag{% endif %}" style="background: {{ verdict_bg }}; color: {{ score_color }};{% if verdict_90 %} cursor: help; position: relative;{% endif %}">
       <span style="font-size: 9px;">●</span> {{ verdict_label.get(eval.verdict, '—') }}
+      {% if verdict_90 %}
+      <span class="apt-elig-tooltip">
+        <span class="apt-elig-tooltip-title">Verdict en 90 secondes</span>
+        <span style="display:flex; flex-direction:column; gap:7px;">
+          {% for l in verdict_90 %}
+          <span style="display:flex; gap:8px; align-items:flex-start;">
+            <span style="font-weight:800; flex-shrink:0; color:{% if l.icone == '✗' %}var(--c-rose){% elif l.icone == '⚠' %}var(--c-amber){% else %}var(--c-green){% endif %};">{{ l.icone }}</span>
+            <span style="color:var(--apt-ink-2);">{{ l.texte }}</span>
+          </span>
+          {% endfor %}
+        </span>
+      </span>
+      {% endif %}
     </span>
 
     {# Badge d'éligibilité — calculé depuis les alertes du brief vs profil #}
@@ -1870,27 +1883,7 @@
     </div>
     {% endif %}
 
-    {# ─── Verdict 90 secondes (résumé go/no-go, déplacé depuis le corps) ─── #}
-    {% if verdict_90 %}
-    <div class="aside-card">
-      <div class="aside-card-header is-verdict">
-        <svg style="width: 14px; height: 14px;" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-        </svg>
-        Verdict 90 secondes
-      </div>
-      <div class="aside-card-body">
-        <div style="display: flex; flex-direction: column; gap: 8px;">
-          {% for l in verdict_90 %}
-          <div style="display: flex; gap: 8px; align-items: flex-start; font-size: 12.5px; line-height: 1.45;">
-            <span style="font-weight: 800; flex-shrink: 0; color: {% if l.icone == '✗' %}var(--c-rose){% elif l.icone == '⚠' %}var(--c-amber){% else %}var(--c-green){% endif %};">{{ l.icone }}</span>
-            <span style="color: var(--apt-ink-2);">{{ l.texte }}</span>
-          </div>
-          {% endfor %}
-        </div>
-      </div>
-    </div>
-    {% endif %}
+    {# ─── Verdict 90 secondes : déplacé en TOOLTIP sur le tag verdict du header. ─── #}
 
     {# ─── Public bénéficiaire (en premier dans la sidebar) ─── #}
     {% if brief.publics_cibles and (brief.publics_cibles.criteres_eligibilite or brief.publics_cibles.description) %}
