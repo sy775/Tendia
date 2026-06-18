@@ -1534,10 +1534,11 @@
             {% if it.volume or it.cout_min or it.cout_max %}
             <div style="display:flex; align-items:center; gap:9px; flex-wrap:wrap; margin-top:6px;">
               {% if it.volume %}<span class="apt-meta">{{ it.volume }}</span>{% endif %}
-              {% if it.cout_min or it.cout_max %}
-              <span style="display:inline-flex; align-items:baseline; gap:7px; padding:3px 10px; background:var(--apt-gold-soft); border-radius:7px;">
+              {% if it.cout_tag or it.cout_detail %}
+              <span title="{% if it.cout_detail %}{{ it.cout_detail }}&#10;&#10;{% endif %}Estimation Tendia, indicatif — détail complet dans l'onglet « Prix & estimation »." style="cursor:help; display:inline-flex; align-items:baseline; gap:7px; padding:3px 10px; background:var(--apt-gold-soft); border-radius:7px;">
                 <span style="font-size:9px; font-weight:700; color:var(--apt-gold-deep); text-transform:uppercase; letter-spacing:0.03em;">Coût estimé</span>
-                <span style="font-size:13px; font-weight:700; color:var(--apt-ink); font-variant-numeric:tabular-nums;">{% if it.cout_min and it.cout_max and it.cout_max > it.cout_min %}{{ it.cout_min | euro_short }} – {{ it.cout_max | euro_short }}{% else %}{{ (it.cout_min or it.cout_max) | euro_short }}{% endif %}</span>
+                <span style="font-size:12.5px; font-weight:700; color:var(--apt-ink); font-variant-numeric:tabular-nums;">{% if it.cout_tag %}{{ it.cout_tag }}{% else %}voir détail{% endif %}</span>
+                <span style="font-size:10px; color:var(--apt-gold-deep); align-self:center;">ⓘ</span>
               </span>
               {% endif %}
             </div>
@@ -1552,27 +1553,6 @@
         {% endif %}
       </div>
       {% endfor %}
-
-      {# Coût estimé par poste/lot — le LLM ventile déjà dans cout_realisation.postes
-         (ex : 'Lot 1 – plâtrerie ~300-400 k€'). On le surface ici (pas de re-extraction). #}
-      {% set cr = brief.cout_realisation %}
-      {% if detail_lots.mode == 'lots' and cr and cr.postes %}
-      <div style="margin-top:6px;">
-        <div style="font-size:11px; font-weight:700; color:var(--apt-gold-deep); text-transform:uppercase; letter-spacing:0.04em; margin-bottom:9px;">Coût estimé par poste · estimation Tendia (indicatif)</div>
-        <div style="display:flex; flex-direction:column; gap:6px;">
-          {% for p in cr.postes %}{% if p.poste %}
-          <div style="display:flex; gap:12px; align-items:baseline; padding:9px 12px; background:var(--apt-surface); border:1px solid var(--apt-line-2); border-left:3px solid var(--apt-gold); border-radius:8px;">
-            <span style="flex:1; min-width:0;">
-              <span style="font-size:12.5px; font-weight:600; color:var(--apt-ink);">{{ p.poste }}</span>
-              {% if p.detail %}<span style="display:block; font-size:11.5px; color:var(--apt-ink-3); margin-top:2px; line-height:1.5;">{{ p.detail }}</span>{% endif %}
-            </span>
-            {% if p.montant_eur %}<span style="flex-shrink:0; font-size:13px; font-weight:700; color:var(--apt-ink); font-variant-numeric:tabular-nums;">{{ p.montant_eur | euro_short }}</span>{% endif %}
-          </div>
-          {% endif %}{% endfor %}
-        </div>
-        {% if cr.commentaire %}<p style="font-size:11.5px; color:var(--apt-ink-4); font-style:italic; margin:9px 0 0; line-height:1.5;">{{ cr.commentaire }}</p>{% endif %}
-      </div>
-      {% endif %}
     </div></details>
     {% endif %}
 

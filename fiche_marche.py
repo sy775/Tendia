@@ -606,6 +606,27 @@ def tranches_ou_lots(brief, profil):
     lots = _get(brief, "lots") or []
     tranches = _get(brief, "tranches") or {}
     if len(lots) > 1:
+        import re as _re
+        postes = (_get(brief, "cout_realisation", "postes")) or []
+
+        def _poste_lot(num):
+            for p in postes:
+                if isinstance(p, dict) and num is not None and \
+                        _re.search(r"lot\s*0*%s\b" % num, (p.get("poste") or "").lower()):
+                    return p
+            return None
+
+        def _fourchette_txt(txt):
+            """Extrait une fourchette monétaire TOTALE ('300-400 k€') d'un texte de poste.
+            Rejette les prix UNITAIRES (suivis de '/m²', '/j'…) qui ne sont pas le coût du lot."""
+            if not txt:
+                return None
+            m = _re.search(r"(\d[\d\s]{1,9})\s*[-–à]\s*(\d[\d\s]{1,9})\s*(k€|M€|m€|€)(?!\s*/)",
+                           txt, _re.I)
+            if m:
+                return f"{m.group(1).replace(' ', '')}–{m.group(2).replace(' ', '')} {m.group(3)}"
+            return None
+
         items = []
         for l in lots:
             intit = l.get("intitule") or l.get("numero")
@@ -619,10 +640,18 @@ def tranches_ou_lots(brief, profil):
                 except (TypeError, ValueError):
                     _vs = str(_v)
                 vol = f"{_vs} {l.get('volume_estime_unite', '')}".strip()
+            # Coût du lot : fourchette structurée si re-extraite, sinon extraite du poste LLM.
+            cmin, cmax = l.get("cout_estime_min_eur"), l.get("cout_estime_max_eur")
+            p = _poste_lot(l.get("numero"))
+            cout_detail = (p.get("detail") or p.get("poste")) if p else None
+            if isinstance(cmin, (int, float)) and isinstance(cmax, (int, float)):
+                cout_tag = f"{_fmt_eur(cmin)} – {_fmt_eur(cmax)}"
+            else:
+                cout_tag = _fourchette_txt(cout_detail)
             items.append({
                 "numero": l.get("numero"), "intitule": intit, "description": desc,
                 "volume": vol, "exigences": l.get("exigences_specifiques") or l.get("particularites"),
-                "cout_min": l.get("cout_estime_min_eur"), "cout_max": l.get("cout_estime_max_eur"),
+                "cout_tag": cout_tag, "cout_detail": cout_detail,
                 "compat": _compat_lot(intit, desc, profil)})
         return {"mode": "lots", "lignes": items}
     tf = tranches.get("tranche_ferme")
