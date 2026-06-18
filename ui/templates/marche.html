@@ -1496,10 +1496,7 @@
       {% for it in detail_lots.lignes %}
       <div style="display:flex; gap:13px; padding:13px 15px; margin-bottom:10px; background:var(--apt-pure); border:1px solid var(--apt-line-2); border-radius:11px; box-shadow:0 1px 2px rgba(15,27,61,0.03);">
         {% if detail_lots.mode == 'lots' %}
-          <div style="flex-shrink:0; width:36px; height:36px; border-radius:9px; background:var(--apt-accent); color:#fff; display:flex; flex-direction:column; align-items:center; justify-content:center; line-height:1;">
-            <span style="font-size:7.5px; text-transform:uppercase; opacity:0.65; letter-spacing:0.05em;">Lot</span>
-            <span style="font-size:15px; font-weight:800; font-variant-numeric:tabular-nums;">{{ it.numero }}</span>
-          </div>
+          <div style="flex-shrink:0; width:25px; height:25px; border-radius:7px; background:var(--apt-accent); color:#fff; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:700; font-variant-numeric:tabular-nums; margin-top:1px;">{{ it.numero }}</div>
           <div style="flex:1; min-width:0;">
             <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:10px;">
               <strong style="font-size:13.5px; color:var(--apt-ink); line-height:1.3;">{{ it.intitule }}</strong>

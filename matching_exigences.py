@@ -427,7 +427,9 @@ def verdict_eligibilite(alertes_evaluees: list) -> dict:
         ev = ae.get("evaluation") or {}
         statut = ev.get("statut")
         entry = {
-            "libelle": ev.get("libelle_court") or ae.get("alerte", "")[:80],
+            # Le vrai libellé du critère = ae['texte'] (pas ae['alerte'] : clé inexistante
+            # qui affichait le statut « À vérifier » au lieu du critère lui-même).
+            "libelle": (ae.get("texte") or ev.get("libelle_court") or "")[:95],
             "detail": ev.get("detail") or "",
             "statut": statut,
         }
@@ -444,7 +446,8 @@ def verdict_eligibilite(alertes_evaluees: list) -> dict:
             "label_court": "Non éligible",
             "couleur": "rose",
             "icone": "✕",
-            "tooltip": f"{nb_bloque} exigence{'s' if nb_bloque > 1 else ''} non couverte{'s' if nb_bloque > 1 else ''} par le profil organisme.",
+            "tooltip": (f"{nb_bloque} exigence{'s' if nb_bloque > 1 else ''} non couverte{'s' if nb_bloque > 1 else ''} "
+                        f"par votre profil. À lever ou confirmer (✓/✕) dans « Vérifiez votre éligibilité » :"),
             "compteurs": compteurs,
             "points_a_lever": points_bloquants,
         }
@@ -458,9 +461,8 @@ def verdict_eligibilite(alertes_evaluees: list) -> dict:
             "couleur": "green",
             "icone": "✓",
             "tooltip": (
-                f"Éligible — {nb_couvert} exigence{'s' if nb_couvert > 1 else ''} couverte{'s' if nb_couvert > 1 else ''}, "
-                f"{nb_reserves} réserve{'s' if nb_reserves > 1 else ''} à vérifier au cas par cas "
-                f"(données non disponibles dans le profil)."
+                f"Éligible sous réserve — {nb_couvert} exigence{'s' if nb_couvert > 1 else ''} couverte{'s' if nb_couvert > 1 else ''}, "
+                f"{nb_reserves} critère{'s' if nb_reserves > 1 else ''} à confirmer (✓/✕ dans « Vérifiez votre éligibilité ») :"
             ),
             "compteurs": compteurs,
             "points_a_lever": points_reserves,
