@@ -211,7 +211,13 @@ def evaluer_exigence(alerte_texte: str, profil: dict) -> Optional[dict]:
         }
 
     # ----- 3) Capacité financière / CA annuel -----
-    if any(mc in t for mc in ("ca annuel", "chiffre d'affaires",
+    # Garde-fou : « accord-cadre sans minimum / aucun CA garanti » est un RISQUE
+    # commercial (pas de revenu garanti au titulaire), PAS une exigence de CA candidat.
+    _risque_revenu = (("sans minimum" in t or "aucun chiffre d'affaires garanti" in t
+                       or "ca garanti" in t or "chiffre d'affaires garanti" in t)
+                      and not any(x in t for x in ("doit justifier", "minimum exigé",
+                                                   "ca minimum", "ca global", "ca moyen")))
+    if not _risque_revenu and any(mc in t for mc in ("ca annuel", "chiffre d'affaires",
                                 "chiffre d affaires", "capacité financière",
                                 "capacite financiere", "capacité économique",
                                 "seuil financier")):
