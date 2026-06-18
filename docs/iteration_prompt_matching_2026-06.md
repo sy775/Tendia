@@ -178,10 +178,29 @@ de `matching.py`, **facilement ajustable**.
 - **Strict géographique** comme go/no-go dur (TEE27 : Eure uniquement) — aujourd'hui
   la géo est un motif pondéré, pas un couperet.
 
-### Matching plus précis — affiner le prompt de classification (additif)
-Le matching dépend de la qualité de `domaines_metier` (classification IA). Pour
-l'améliorer **sans rien casser** : **ajouter** des précisions au prompt de
-classification (frontières piégeuses, sous-domaines, règles de désambiguïsation)
-**en plus** de l'existant, sans réécrire les règles actuelles. ⚠️ Change la
-classification → nécessite une **re-classification** pour prendre effet ; à scoper
-comme un lot distinct (peut être ciblé sur les marchés mal classés). À détailler.
+### ✅ Matching plus précis — affinage additif du prompt de classification (19 juin 2026)
+Le matching dépend de la qualité de `domaines_metier`. Affinage **additif** (aucune
+règle existante modifiée) appliqué aux **deux** prompts qui classent :
+- `llm_extract.py` → `_section_taxonomie_prompt` (domaines lors de l'extraction) ;
+- `tendia_classification.py` → `_prompt_systeme` (pré-classifieur `classifications_ia`,
+  qui pilote aussi le **routage des presets** à l'extraction et le dashboard).
+
+Deux frontières piégeuses **ajoutées** :
+1. **TRAVAUX vs ÉTUDES** : des travaux techniques (CVC, élec, plomberie, fluides,
+   génie climatique en installation/pose) = **BTP** (corps d'état), PAS `ingenierie_*`
+   ni `moe_*` (réservés aux missions d'études/conception sans travaux). Corrige la
+   racine du cas 56378 (`ingenierie_fluides_climatique` collé à des travaux CVC/élec).
+2. **ÉNERGIE** : projet/AMO/réalisation ENR (`energie_*`) ≠ fourniture pure
+   d'élec/gaz (`fourniture_*`/`autre`) ≠ rénovation thermique (`energie_renovation_thermique`).
+   Utile pour le profil TEE27 (exclut la fourniture d'énergie de son cœur EnR).
+
+⚠️ **Aucun suivi de version dans le classifieur** → l'ajout ne re-classifie rien
+automatiquement (additif pur, « ne rien casser ») : il s'applique aux **nouvelles**
+classifications / extractions. Pour l'appliquer au stock existant → re-classification
+ciblée (lot distinct, p. ex. sur les marchés `ingenierie_*` issus d'avis « nature =
+Travaux », candidats probables au reclassement BTP).
+
+> ⚠️ Tension à arbitrer sur 56378 : avec cette précision, une re-classification le
+> ramènerait vraisemblablement en **BTP seul** (les lots CVC/élec sont des travaux),
+> alors que la décision §2-axe3 était « matché aux deux presets ». À trancher : soit
+> on accepte BTP-seul (plus correct), soit on garde un 2e domaine BTP technique.

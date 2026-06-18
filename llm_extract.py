@@ -199,6 +199,21 @@ def _section_taxonomie_prompt() -> str:
         "`restauration_fournitures_alimentaires` si achat de denrées en gros sans prestation.",
         "- \"espaces verts\" : `amenagement_paysager_creation` si création/aménagement ; "
         "`amenagement_paysager_entretien` si entretien courant (tonte, taille, etc.).",
+        "- **TRAVAUX vs ÉTUDES (distinction structurante)** : un lot/marché de RÉALISATION "
+        "de travaux techniques (installation/pose de CVC, électricité, plomberie, courants "
+        "faibles, fluides, génie climatique) relève du **BTP** (corps d'état second œuvre / "
+        "génie technique), PAS d'un code `ingenierie_*` ni `moe_*`. Les codes `ingenierie_*` "
+        "et `moe_*` sont RÉSERVÉS aux MISSIONS D'ÉTUDES / CONCEPTION (maîtrise d'œuvre, bureau "
+        "d'études, AMO études) SANS exécution de travaux. Ex : « lot CVC — fourniture et pose » "
+        "= BTP ; « mission de BET fluides pour la conception » = `ingenierie_fluides_climatique`. "
+        "Un marché de travaux multi-corps d'état où un lot est technique reste classé BTP "
+        "(éventuellement avec un 2e domaine BTP), pas en ingénierie.",
+        "- **ÉNERGIE — projet/AMO vs fourniture vs rénovation** : `energie_amo_etudes`, "
+        "`energie_pv_solaire`, `energie_eolien`, `energie_biomasse_methanisation`… pour le "
+        "DÉVELOPPEMENT, la faisabilité, l'AMO ou la réalisation d'un projet ENR. Un marché de "
+        "FOURNITURE pure d'électricité ou de gaz (même « verte ») N'EST PAS un projet ENR → "
+        "`fourniture_*` ou `autre`. La rénovation énergétique de bâtiment (isolation, "
+        "remplacement chaufferie) = `energie_renovation_thermique`, pas un code projet ENR.",
         "",
         "Si le marché ne te paraît pas correspondre à un domaine, JUSTIFIE par le champ `raison_classification`.",
     ])

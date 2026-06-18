@@ -211,6 +211,19 @@ def _prompt_systeme() -> str:
         "`restauration_fournitures_alimentaires` si achat de denrées en gros sans prestation.",
         "- \"espaces verts\" : `amenagement_paysager_creation` si création/aménagement ; "
         "`amenagement_paysager_entretien` si entretien courant (tonte, taille, etc.).",
+        "- **TRAVAUX vs ÉTUDES (distinction structurante)** : des TRAVAUX techniques "
+        "(installation/pose de CVC, électricité, plomberie, courants faibles, fluides, génie "
+        "climatique) relèvent du **BTP** (corps d'état), PAS d'un code `ingenierie_*`/`moe_*`. "
+        "Les codes `ingenierie_*`/`moe_*` sont RÉSERVÉS aux missions D'ÉTUDES/CONCEPTION "
+        "(maîtrise d'œuvre, bureau d'études, AMO études) SANS exécution de travaux. Indices "
+        "BOAMP : « travaux de… / réalisation / fourniture et pose » → BTP ; « mission de "
+        "maîtrise d'œuvre / étude / conception / AMO » → ingénierie/MOE. Si « nature = "
+        "Travaux » dans l'avis, ne classe PAS en ingénierie sauf mission d'études explicite.",
+        "- **ÉNERGIE — projet/AMO vs fourniture vs rénovation** : `energie_amo_etudes`, "
+        "`energie_pv_solaire`, `energie_eolien`, `energie_biomasse_methanisation`… pour le "
+        "développement, la faisabilité, l'AMO ou la réalisation d'un projet ENR. Une "
+        "FOURNITURE pure d'électricité/gaz (même « verte ») N'EST PAS un projet ENR → "
+        "`fourniture_*`/`autre`. Rénovation énergétique de bâtiment = `energie_renovation_thermique`.",
         "",
         "## IMPORTANT",
         "",
