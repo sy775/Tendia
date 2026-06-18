@@ -614,8 +614,8 @@
       {% endif %}
       {% if richesse %}
       <span class="meta-badge" title="Richesse du brief : {{ richesse.score }}/100" style="margin-left: 2px;
-        {% if richesse.niveau == 'complet' %}background:var(--apt-gold-soft); color:var(--apt-gold-deep);
-        {% elif richesse.niveau == 'partiel' %}background:var(--apt-accent-soft); color:var(--apt-accent);
+        {% if richesse.niveau == 'complet' %}background:var(--apt-accent-soft); color:var(--apt-accent);
+        {% elif richesse.niveau == 'partiel' %}background:var(--apt-gold-soft); color:var(--apt-gold-deep);
         {% else %}background:rgba(15,27,61,0.06); color:var(--apt-ink-4);{% endif %}">
         ◆ Analyse {{ {'complet': 'complète', 'partiel': 'partielle', 'light': 'légère'}.get(richesse.niveau, richesse.niveau) }} · {{ richesse.score }}/100
       </span>
