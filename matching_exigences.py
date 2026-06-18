@@ -137,6 +137,38 @@ def evaluer_exigence(alerte_texte: str, profil: dict) -> Optional[dict]:
             "source": "certifications",
         }
 
+    # ----- 1bis) Certification / qualification professionnelle NOMMÉE -----
+    #   Qualibat, Qualifelec, RGE, OPQIBI, Qualisol/PV/PAC/Bois, MASE, CERFF, ISO…
+    #   Une certification est par nature VÉRIFIABLE (on la détient ou non) → on émet une
+    #   `cle_canonique` spécifique (par certif + niveau) pour proposer le bouton Oui/Non.
+    import re as _re
+    _CERTIF_NOMS = ("qualibat", "qualifelec", "qualit'enr", "qualit enr", "qualitenr",
+                    "opqibi", "opqtecc", "qualisol", "qualipv", "qualipac", "qualibois",
+                    "mase", "cerff", "iso 9001", "iso 14001", "iso 27001", "iso 45001",
+                    "rge", "qualiroute", "opqformation")
+    _CERTIF_GEN = ("certification", "certifié", "certifie", "habilitation",
+                   "agrément", "agrement", "qualification professionnelle")
+    # Frontières de mot : évite que 'rge' matche 'urgence/charge', 'mase' matche 'masse'…
+    def _mot(mc):
+        return _re.search(r"\b" + _re.escape(mc) + r"\b", t) is not None
+    _nom_cert = next((mc for mc in _CERTIF_NOMS if _mot(mc)), None)
+    if _nom_cert or any(_mot(g) for g in _CERTIF_GEN):
+        base = _nom_cert or "certification"
+        m = _re.search(_re.escape(base) + r"[\s:°n-]*([a-z0-9][a-z0-9 /\-]{0,14})", t)
+        suffixe = (m.group(1).strip() if m else "")
+        cle = "certif_" + (_re.sub(r"[^a-z0-9]+", "_", (base + "_" + suffixe)).strip("_") or "x")[:44]
+        rep = _auto_reponse(profil, cle)
+        if rep:
+            return _statut_depuis_reponse(rep, "Certification " + base)
+        return {
+            "statut": "inconnu",
+            "libelle": "À confirmer",
+            "detail": "Certification / qualification exigée — non vérifiée au profil",
+            "source": "—",
+            "cle_canonique": cle,
+            "question": "Détenez-vous cette certification / qualification ?",
+        }
+
     # ----- 2) Local / présence physique requise dans une ville -----
     a_mot_local = any(mc in t for mc in (
         "local sur", "locaux sur", "local obligatoire", "local requis",
