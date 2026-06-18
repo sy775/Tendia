@@ -1516,6 +1516,23 @@
     {% if detail_lots.mode == 'lots' and nb_coeur %}{% set _ = lot_teaser_parts.append(nb_coeur ~ ' cœur de cible') %}{% endif %}
     {% if detail_lots.mode == 'lots' and nb_part %}{% set _ = lot_teaser_parts.append(nb_part ~ ' partiel' ~ ('s' if nb_part > 1 else '')) %}{% endif %}
     {{ sec(('Détail par lot' if detail_lots.mode == 'lots' else 'Détail par tranche'), lot_teaser_parts | join(' · '), 'blue', false, IC_DOC) }}
+      {# Estimation chiffrée LLM (coût de réalisation, ou à défaut montant). Non ventilée
+         par lot → affichée en total, clairement marquée indicative. #}
+      {% set _cout = brief.cout_realisation_eur %}
+      {% set _coutmin = brief.cout_min_eur %}{% set _coutmax = brief.cout_max_eur %}
+      {% if _cout %}
+      <div style="display:flex; align-items:baseline; gap:12px; flex-wrap:wrap; padding:11px 15px; background:var(--apt-gold-soft); border:1px solid rgba(201,169,97,0.40); border-radius:9px; margin-bottom:14px;">
+        <span style="font-size:10.5px; font-weight:700; color:var(--apt-gold-deep); text-transform:uppercase; letter-spacing:0.04em;">Coût estimé</span>
+        <span style="font-size:15px; font-weight:700; color:var(--apt-ink); font-variant-numeric:tabular-nums;">{% if _coutmin and _coutmax and _coutmax > _coutmin %}{{ _coutmin | euro_short }} – {{ _coutmax | euro_short }}{% else %}{{ _cout | euro_short }}{% endif %}</span>
+        <span style="font-size:11px; color:var(--apt-ink-3);">estimation Tendia (LLM) · indicatif{% if detail_lots.lignes | length > 1 %} · total tous lots (non ventilé par lot){% endif %}</span>
+      </div>
+      {% elif brief.revenu_eur %}
+      <div style="display:flex; align-items:baseline; gap:12px; flex-wrap:wrap; padding:11px 15px; background:var(--apt-surface); border:1px solid var(--apt-line-2); border-radius:9px; margin-bottom:14px;">
+        <span style="font-size:10.5px; font-weight:700; color:var(--apt-ink-4); text-transform:uppercase; letter-spacing:0.04em;">Montant estimé</span>
+        <span style="font-size:15px; font-weight:700; color:var(--apt-ink); font-variant-numeric:tabular-nums;">{% if brief.revenu_min_eur and brief.revenu_max_eur %}{{ brief.revenu_min_eur | euro_short }} – {{ brief.revenu_max_eur | euro_short }}{% else %}{{ brief.revenu_eur | euro_short }}{% endif %}</span>
+        <span style="font-size:11px; color:var(--apt-ink-3);">estimation Tendia · indicatif{% if detail_lots.lignes | length > 1 %} · total tous lots{% endif %}</span>
+      </div>
+      {% endif %}
       {% for it in detail_lots.lignes %}
       <div class="apt-block-soft" style="padding:12px 14px; margin-bottom:10px;">
         {% if detail_lots.mode == 'lots' %}
