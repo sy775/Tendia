@@ -547,13 +547,12 @@ def dashboard():
         })
 
     # Tri : avec un profil actif → non pertinents en bas ; parmi les pertinents, in-zone
-    # avant hors-zone, puis activité PRIORITAIRE (preset principal d'abord), puis score.
-    # Sans profil → tri legacy par verdict puis score.
+    # avant hors-zone, puis par SCORE décroissant (le score encode déjà la priorité du
+    # preset : principal +20 vs secondaire +13). Sans profil → tri legacy verdict puis score.
     if profil:
         enriched.sort(key=lambda x: (
             1 if x["verdict"] == "non_pertinent" else 0,
             1 if x.get("hors_zone") else 0,
-            x.get("preset_rang", 99),
             -x["score"],
             x["jours_restants"] if x["jours_restants"] is not None else 9999,
         ))
@@ -839,12 +838,10 @@ def explorer():
     if profil_actif:
         # 1) non pertinents (hors activités) tout en bas ;
         # 2) parmi les pertinents, les IN-ZONE avant les hors-zone (à vérifier) ;
-        # 3) puis activité PRIORITAIRE (preset principal d'abord) ;
-        # 4) puis score décroissant ; 5) puis urgence.
+        # 3) puis par SCORE décroissant (le score encode déjà la priorité du preset).
         lignes.sort(key=lambda x: (
             1 if x.get("verdict") == "non_pertinent" else 0,
             1 if x.get("hors_zone") else 0,
-            x.get("preset_rang", 99),
             -(x.get("score") or 0),
             x["jours_restants"] if x["jours_restants"] is not None else 9999,
         ))
