@@ -153,8 +153,9 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
+    row-gap: 9px;
     font-size: 13px;
-    line-height: 1.5;
+    line-height: 1.6;
     color: var(--apt-ink-3);
   }
   .apt-fiche-v7 .meta-inline strong { color: var(--apt-ink-2); font-weight: 600; }
@@ -278,7 +279,7 @@
     background: var(--apt-pure);
     border: 1px solid var(--apt-line-2);
     border-radius: 14px;
-    margin-bottom: 12px;
+    margin-bottom: 16px;
     box-shadow: 0 1px 2px rgba(15, 27, 61, 0.04);
     transition: box-shadow 0.22s ease, border-color 0.22s ease;
     scroll-margin-top: 88px;
@@ -586,7 +587,16 @@
 
     {# ── Ligne meta consolidée : Secteur + Analyse + acheteur + dates (une seule ligne) ── #}
     <div class="meta-inline mb-4">
+      <span>par <strong>{{ marche.acheteur_nom or '—' }}</strong></span>
+      {% if marche.date_publication %}<span class="sep">·</span><span>publié le {{ fmt_date(marche.date_publication) }}</span>{% endif %}
+      {% if marche.date_limite_depot %}<span class="sep">·</span><span>limite le <strong style="color:
+          {% if jours_restants is not none and jours_restants < 7 %}var(--c-rose)
+          {% elif jours_restants is not none and jours_restants < 21 %}var(--c-amber)
+          {% else %}var(--apt-ink-2){% endif %};">{{ fmt_date(marche.date_limite_depot) }}{% if jours_restants is not none %} · J−{{ jours_restants }}{% endif %}</strong></span>{% endif %}
+      {% if marche.perimetre_geographique %}<span class="sep">·</span><span>{{ marche.perimetre_geographique }}</span>{% endif %}
+      {# Secteur + Analyse — placés en DERNIER #}
       {% if brief and brief.domaines_metier %}
+      <span class="sep">·</span>
       <span style="font-size: 11px; color: var(--apt-ink-4); font-weight: 500; margin-right: 2px;">Secteur ·</span>
       {% for d in brief.domaines_metier %}
         {% set est_principal = (loop.first or (d.poids and d.poids >= 0.5)) %}
@@ -601,23 +611,15 @@
           {{ lib }}{% if d.poids %}<span style="opacity: 0.7; font-size: 10px;">{{ (d.poids * 100)|round|int }}%</span>{% endif %}
         </span>
       {% endfor %}
-      {% if richesse %}<span class="sep">·</span>{% endif %}
       {% endif %}
       {% if richesse %}
-      <span class="meta-badge" title="Richesse du brief : {{ richesse.score }}/100" style="
+      <span class="meta-badge" title="Richesse du brief : {{ richesse.score }}/100" style="margin-left: 2px;
         {% if richesse.niveau == 'complet' %}background:var(--apt-gold-soft); color:var(--apt-gold-deep);
         {% elif richesse.niveau == 'partiel' %}background:var(--apt-accent-soft); color:var(--apt-accent);
         {% else %}background:rgba(15,27,61,0.06); color:var(--apt-ink-4);{% endif %}">
         ◆ Analyse {{ {'complet': 'complète', 'partiel': 'partielle', 'light': 'légère'}.get(richesse.niveau, richesse.niveau) }} · {{ richesse.score }}/100
       </span>
       {% endif %}
-      <span>par <strong>{{ marche.acheteur_nom or '—' }}</strong></span>
-      {% if marche.date_publication %}<span class="sep">·</span><span>publié le {{ fmt_date(marche.date_publication) }}</span>{% endif %}
-      {% if marche.date_limite_depot %}<span class="sep">·</span><span>limite le <strong style="color:
-          {% if jours_restants is not none and jours_restants < 7 %}var(--c-rose)
-          {% elif jours_restants is not none and jours_restants < 21 %}var(--c-amber)
-          {% else %}var(--apt-ink-2){% endif %};">{{ fmt_date(marche.date_limite_depot) }}{% if jours_restants is not none %} · J−{{ jours_restants }}{% endif %}</strong></span>{% endif %}
-      {% if marche.perimetre_geographique %}<span class="sep">·</span><span>{{ marche.perimetre_geographique }}</span>{% endif %}
     </div>
     <div class="flex flex-wrap items-center gap-2">
       {# Bouton d'accès aux pièces — toujours visible si on a une URL exploitable.
