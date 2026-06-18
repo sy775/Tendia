@@ -150,12 +150,25 @@
   }
 
   .apt-fiche-v7 .meta-inline {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
     font-size: 13px;
-    line-height: 1.55;
+    line-height: 1.5;
     color: var(--apt-ink-3);
   }
   .apt-fiche-v7 .meta-inline strong { color: var(--apt-ink-2); font-weight: 600; }
-  .apt-fiche-v7 .meta-inline .sep { color: var(--apt-line-2); margin: 0 8px; }
+  .apt-fiche-v7 .meta-inline .sep { color: var(--apt-ink-5); margin: 0 9px; }
+  .apt-fiche-v7 .meta-inline .meta-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 2px 10px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 600;
+    margin-right: 12px;
+  }
 
   /* ===== KPI cells avec tint coloré marqué ===== */
   /* KPI compacts : paddings et tailles réduits pour gagner de la verticale. */
@@ -218,8 +231,27 @@
   @media (max-width: 900px) {
     .apt-fiche-v7 .grid-2col { grid-template-columns: 1fr; }
   }
+  /* Rail de décision sticky : suit le scroll, scroll interne si trop haut. */
+  @media (min-width: 901px) {
+    .apt-fiche-v7 .grid-2col > aside {
+      position: sticky;
+      top: 14px;
+      align-self: start;
+      max-height: calc(100vh - 28px);
+      overflow-y: auto;
+      overflow-x: hidden;
+      padding: 2px 6px 2px 2px;
+      scrollbar-width: thin;
+      scrollbar-color: var(--apt-line) transparent;
+    }
+    .apt-fiche-v7 .grid-2col > aside::-webkit-scrollbar { width: 6px; }
+    .apt-fiche-v7 .grid-2col > aside::-webkit-scrollbar-thumb { background: var(--apt-line); border-radius: 3px; }
+    .apt-fiche-v7 .grid-2col > aside::-webkit-scrollbar-track { background: transparent; }
+  }
 
   /* ===== Sections — cartes éditoriales premium ===== */
+  @keyframes secIn { from { opacity: 0; transform: translateY(7px); } to { opacity: 1; transform: none; } }
+  .apt-fiche-v7 details.sec { animation: secIn 0.26s ease both; }
   .apt-fiche-v7 .sec {
     background: var(--apt-pure);
     border: 1px solid var(--apt-line-2);
@@ -546,27 +578,22 @@
     </div>
     {% endif %}
     {# ── Fin badges domaines ── #}
-    {% if richesse %}
-    <div class="mb-3">
-      <span style="display:inline-flex; align-items:center; gap:5px; padding:2px 10px; border-radius:999px; font-size:11px; font-weight:600;
+    <div class="meta-inline mb-4">
+      {% if richesse %}
+      <span class="meta-badge" title="Richesse du brief : {{ richesse.score }}/100" style="
         {% if richesse.niveau == 'complet' %}background:var(--c-green-soft); color:var(--c-green);
         {% elif richesse.niveau == 'partiel' %}background:var(--c-amber-soft); color:var(--c-amber);
-        {% else %}background:rgba(26,24,20,0.06); color:var(--apt-ink-4);{% endif %}"
-        title="Richesse du brief : {{ richesse.score }}/100">
+        {% else %}background:rgba(15,27,61,0.06); color:var(--apt-ink-4);{% endif %}">
         ◆ Analyse {{ {'complet': 'complète', 'partiel': 'partielle', 'light': 'légère'}.get(richesse.niveau, richesse.niveau) }} · {{ richesse.score }}/100
       </span>
-    </div>
-    {% endif %}
-    <div class="meta-inline mb-4">
-      par <strong>{{ marche.acheteur_nom or '—' }}</strong>
-      {% if marche.date_publication %}<span class="sep">·</span>publié le {{ fmt_date(marche.date_publication) }}{% endif %}
-      {% if marche.date_limite_depot %}
-      <span class="sep">·</span>limite le <span style="font-weight: 600; color:
+      {% endif %}
+      <span>par <strong>{{ marche.acheteur_nom or '—' }}</strong></span>
+      {% if marche.date_publication %}<span class="sep">·</span><span>publié le {{ fmt_date(marche.date_publication) }}</span>{% endif %}
+      {% if marche.date_limite_depot %}<span class="sep">·</span><span>limite le <strong style="color:
           {% if jours_restants is not none and jours_restants < 7 %}var(--c-rose)
           {% elif jours_restants is not none and jours_restants < 21 %}var(--c-amber)
-          {% else %}var(--apt-ink-2){% endif %};">{{ fmt_date(marche.date_limite_depot) }}{% if jours_restants is not none %} · J−{{ jours_restants }}{% endif %}</span>
-      {% endif %}
-      {% if marche.perimetre_geographique %}<span class="sep">·</span>{{ marche.perimetre_geographique }}{% endif %}
+          {% else %}var(--apt-ink-2){% endif %};">{{ fmt_date(marche.date_limite_depot) }}{% if jours_restants is not none %} · J−{{ jours_restants }}{% endif %}</strong></span>{% endif %}
+      {% if marche.perimetre_geographique %}<span class="sep">·</span><span>{{ marche.perimetre_geographique }}</span>{% endif %}
     </div>
     <div class="flex flex-wrap items-center gap-2">
       {# Bouton d'accès aux pièces — toujours visible si on a une URL exploitable.
@@ -819,7 +846,7 @@
 
   <!-- ============ En bref (résumé, juste sous les KPIs) ============ -->
   {% if brief.synthese_marche %}
-  <div class="mb-6 fade-up fade-up-2" style="background: var(--apt-bg); border: 1px solid var(--apt-line-2); border-left: 3px solid var(--c-green); border-radius: 10px; padding: 13px 18px;">
+  <div class="mb-6 fade-up fade-up-2" style="background: var(--apt-pure); border: 1px solid var(--apt-line-2); border-left: 3px solid var(--c-green); border-radius: 12px; padding: 15px 20px; box-shadow: 0 1px 2px rgba(15,27,61,0.04);">
     <div style="font-size: 10.5px; font-weight: 700; letter-spacing: 0.06em; color: var(--c-green); margin-bottom: 5px;">✦ EN BREF</div>
     <p style="font-size: 14.5px; line-height: 1.6; color: var(--apt-ink-2); margin: 0;">{{ brief.synthese_marche | clean_source }}</p>
   </div>
@@ -1971,40 +1998,53 @@
   var nav = root.querySelector('#fiche-quicknav');
   if (!nav) return;
   var secs = Array.prototype.slice.call(root.querySelectorAll('details.sec'));
-  if (secs.length < 2) { nav.style.display = 'none'; return; }
+  if (!secs.length) { nav.style.display = 'none'; return; }
+
+  // ===== Mode ONGLETS : une seule section affichée à la fois =====
   var links = [];
+  function activate(idx, doScroll) {
+    secs.forEach(function (s, i) {
+      var on = (i === idx);
+      s.style.display = on ? '' : 'none';
+      s.open = true;
+      if (on) { s.style.animation = 'none'; void s.offsetWidth; s.style.animation = ''; }
+    });
+    links.forEach(function (l, i) { l.classList.toggle('active', i === idx); });
+    try { history.replaceState(null, '', '#' + secs[idx].id); } catch (e) {}
+    if (doScroll) {
+      var top = nav.getBoundingClientRect().top + window.scrollY - 8;
+      if (window.scrollY > top + 1) window.scrollTo({ top: top, behavior: 'smooth' });
+    }
+  }
+
   secs.forEach(function (sec, i) {
     var t = sec.querySelector('.sec-title');
-    if (!t) return;
     var id = sec.id || ('sec-' + i);
     sec.id = id;
-    var label = (t.textContent || '').trim().replace(/\s+/g, ' ');
+    // Neutralise le pliage natif du <details> : c'est l'onglet qui pilote la visibilité.
+    var sum = sec.querySelector('summary');
+    if (sum) {
+      sum.addEventListener('click', function (e) { e.preventDefault(); });
+      sum.style.cursor = 'default';
+      var chev = sum.querySelector('.chev');
+      if (chev) chev.style.display = 'none';
+    }
+    var label = ((t && t.textContent) || ('Section ' + (i + 1))).trim().replace(/\s+/g, ' ');
     var a = document.createElement('a');
     a.href = '#' + id;
     a.textContent = label;
-    a.addEventListener('click', function (e) {
-      e.preventDefault();
-      if (!sec.open) sec.open = true;          // déplie la section ciblée
-      var top = sec.getBoundingClientRect().top + window.scrollY - 64;
-      window.scrollTo({ top: top, behavior: 'smooth' });
-      history.replaceState(null, '', '#' + id);
-    });
+    a.addEventListener('click', function (e) { e.preventDefault(); activate(i, true); });
     nav.appendChild(a);
-    links.push({ a: a, sec: sec });
+    links.push(a);
   });
-  // Scrollspy : surligne la section courante
-  var ticking = false;
-  function spy() {
-    var y = window.scrollY + 130;
-    var cur = links[0];
-    links.forEach(function (l) { if (l.sec.offsetTop <= y) cur = l; });
-    links.forEach(function (l) { l.a.classList.toggle('active', l === cur); });
-    ticking = false;
+
+  // Section initiale : ancre URL si présente, sinon la première.
+  var start = 0;
+  if (location.hash) {
+    var h = location.hash.slice(1);
+    secs.forEach(function (s, i) { if (s.id === h) start = i; });
   }
-  window.addEventListener('scroll', function () {
-    if (!ticking) { window.requestAnimationFrame(spy); ticking = true; }
-  }, { passive: true });
-  spy();
+  activate(start, false);
 })();
 </script>
 {% endblock %}
