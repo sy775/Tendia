@@ -263,11 +263,15 @@
     }
 
     .apt-sidebar-bg {
-      background: var(--apt-sidebar);
-      border-right: 1px solid var(--apt-sidebar-edge);
+      background: linear-gradient(180deg, #0F1B3D 0%, #14203F 55%, #0C1631 100%);
+      border-right: 1px solid rgba(201, 169, 97, 0.16);
       width: 240px;
       transition: width 0.18s ease;
     }
+    /* Sur fond navy : texte crème, filets discrets, accents or */
+    .apt-sidebar-bg .apt-divider { background: rgba(245, 241, 232, 0.12); }
+    .apt-sidebar-bg .apt-meta,
+    .apt-sidebar-bg .apt-label { color: rgba(245, 241, 232, 0.50); }
 
     /* Main : transition sur margin-left pour glisser smoothly avec la sidebar.
        Sans ça, le contenu sautait instantanément alors que la sidebar
@@ -309,8 +313,8 @@
     .apt-sidebar-toggle:checked ~ .flex.apt-page > main.apt-main { margin-left: 64px; }
     .apt-sidebar-toggle:checked ~ .apt-sidebar-toggle-btn { left: 64px; }
     .apt-sidebar-toggle:checked ~ .apt-sidebar-toggle-btn svg { transform: rotate(180deg); }
-    /* Masquage des contenus textuels en mode replié */
-    .apt-sidebar-toggle:checked ~ .flex.apt-page > aside .apt-display.apt-fs-34,
+    /* Masquage des contenus textuels en mode replié (la marque or reste centrée) */
+    .apt-sidebar-toggle:checked ~ .flex.apt-page > aside .brand-text,
     .apt-sidebar-toggle:checked ~ .flex.apt-page > aside .apt-meta,
     .apt-sidebar-toggle:checked ~ .flex.apt-page > aside .apt-nav-label,
     .apt-sidebar-toggle:checked ~ .flex.apt-page > aside .apt-sidebar-footer { display: none; }
@@ -318,14 +322,8 @@
       justify-content: center;
       padding: 10px 0;
     }
-    .apt-sidebar-toggle:checked ~ .flex.apt-page > aside .apt-sidebar-wordmark { padding: 16px 0; text-align: center; }
-    .apt-sidebar-toggle:checked ~ .flex.apt-page > aside .apt-sidebar-wordmark::after {
-      content: 'A';
-      font-family: var(--apt-display);
-      font-size: 28px;
-      color: var(--apt-ink);
-      display: block;
-    }
+    .apt-sidebar-toggle:checked ~ .flex.apt-page > aside .apt-sidebar-wordmark { padding: 18px 0; text-align: center; }
+    .apt-sidebar-toggle:checked ~ .flex.apt-page > aside .apt-sidebar-wordmark .brand-row { justify-content: center; }
     .apt-nav-item {
       display: flex;
       align-items: center;
@@ -334,17 +332,18 @@
       border-radius: 7px;
       font-size: 13.5px;
       font-weight: 500;
-      color: var(--apt-ink-3);
+      color: rgba(245, 241, 232, 0.72);
       letter-spacing: -0.005em;
       transition: background 160ms ease, color 160ms ease;
       position: relative;
     }
-    .apt-nav-item:hover     { background: rgba(26, 24, 20, 0.05); color: var(--apt-ink); }
+    .apt-nav-item:hover     { background: rgba(245, 241, 232, 0.07); color: #FFFFFF; }
     .apt-nav-item.active    {
-      background: var(--apt-pure);
-      color: var(--apt-ink);
-      box-shadow: 0 1px 0 var(--apt-line-3), 0 0 0 1px var(--apt-line-3);
+      background: rgba(201, 169, 97, 0.13);
+      color: #FFFFFF;
+      box-shadow: inset 0 0 0 1px rgba(201, 169, 97, 0.22);
     }
+    .apt-nav-item.active svg { color: var(--apt-gold); }
     .apt-nav-item.active::before {
       content: '';
       position: absolute;
@@ -697,15 +696,18 @@
     <!-- ============================================================== -->
     <aside class="w-60 apt-sidebar-bg flex-shrink-0 fixed top-0 bottom-0 left-0 flex flex-col">
 
-      <!-- Wordmark -->
-      <div class="px-7 pt-9 pb-8 apt-sidebar-wordmark">
-        <div class="apt-display apt-fs-34 text-apptia-dark leading-none" style="color: var(--apt-ink);">
-          Tendia
-          <span style="color: var(--apt-gold); font-size: 0.6em; vertical-align: 0.6em;">·</span>
+      <!-- Wordmark / logo -->
+      <div class="px-7 pt-9 pb-7 apt-sidebar-wordmark">
+        <div class="brand-row" style="display:flex; align-items:center; gap:11px;">
+          <svg width="30" height="30" viewBox="0 0 32 32" fill="none" style="flex-shrink:0;">
+            <circle cx="16" cy="16" r="13.5" stroke="var(--apt-gold)" stroke-width="1.4" opacity="0.40"/>
+            <circle cx="16" cy="16" r="8" stroke="var(--apt-gold)" stroke-width="1.4" opacity="0.72"/>
+            <circle cx="16" cy="16" r="2.6" fill="var(--apt-gold)"/>
+            <path d="M16 16 L25.5 6.5" stroke="var(--apt-gold)" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+          <div class="brand-text" style="font-size:24px; font-weight:700; letter-spacing:-0.02em; color:#FAF7F2; line-height:1;">Tendia</div>
         </div>
-        <div class="apt-meta mt-2.5 leading-snug" style="font-size: 10.5px;">
-          Veille marchés publics
-        </div>
+        <div class="apt-meta brand-text" style="font-size:9.5px; letter-spacing:0.13em; text-transform:uppercase; color:var(--apt-gold); opacity:0.80; margin-top:12px; font-weight:600;">Veille marchés publics</div>
       </div>
 
       <!-- Divider -->
@@ -755,8 +757,8 @@
       {% if organisme %}
       <div class="px-7 pb-7 pt-6 apt-sidebar-footer">
         <div class="apt-divider mb-5" style="opacity: 0.5;"></div>
-        <div class="apt-label" style="font-size: 9.5px;">Profil actif</div>
-        <div class="mt-2 apt-display-sm leading-tight" style="font-size: 14.5px; color: var(--apt-ink);">
+        <div class="apt-label" style="font-size: 9.5px; color: var(--apt-gold); opacity: 0.75;">Profil actif</div>
+        <div class="mt-2 apt-display-sm leading-tight" style="font-size: 14.5px; color: #F5F1E8;">
           {{ organisme.identite.raison_sociale or organisme.identite.nom or '—' }}
         </div>
       </div>
