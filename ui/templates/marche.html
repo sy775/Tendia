@@ -584,32 +584,29 @@
     <h1 class="fiche-title mb-3">{{ marche.titre or marche.objet }}</h1>
     {# Résumé déplacé en encadré « En bref » sous le header (plus visible). #}
 
-    {# ── Badges de classification LLM (domaines_metier) ── #}
-    {% if brief and brief.domaines_metier %}
-    <div style="display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin: 0 0 14px;">
-      <span style="font-size: 11px; color: var(--apt-ink-4); font-weight: 500; margin-right: 4px;">Secteur ·</span>
+    {# ── Ligne meta consolidée : Secteur + Analyse + acheteur + dates (une seule ligne) ── #}
+    <div class="meta-inline mb-4">
+      {% if brief and brief.domaines_metier %}
+      <span style="font-size: 11px; color: var(--apt-ink-4); font-weight: 500; margin-right: 2px;">Secteur ·</span>
       {% for d in brief.domaines_metier %}
         {% set est_principal = (loop.first or (d.poids and d.poids >= 0.5)) %}
         {% set lib = d.code|libelle_domaine %}
         <span title="{% if d.poids %}Poids: {{ (d.poids * 100)|round|int }}%{% endif %}{% if d.lots_concernes %} · Lots: {{ d.lots_concernes|join(', ') }}{% endif %}"
-              style="display: inline-flex; align-items: center; gap: 4px;
+              style="display: inline-flex; align-items: center; gap: 4px; margin-right: 5px;
                      font-size: 11.5px; padding: 3px 9px; border-radius: 999px;
                      background: {% if est_principal %}var(--c-violet-soft){% else %}var(--apt-bg-2, #f5f3f0){% endif %};
                      color: {% if est_principal %}var(--c-violet){% else %}var(--apt-ink-3){% endif %};
                      border: 1px solid {% if est_principal %}var(--c-violet){% else %}var(--apt-ink-5, #ddd){% endif %};
                      font-weight: {% if est_principal %}600{% else %}500{% endif %};">
-          {{ lib }}
-          {% if d.poids %}<span style="opacity: 0.7; font-size: 10px;">{{ (d.poids * 100)|round|int }}%</span>{% endif %}
+          {{ lib }}{% if d.poids %}<span style="opacity: 0.7; font-size: 10px;">{{ (d.poids * 100)|round|int }}%</span>{% endif %}
         </span>
       {% endfor %}
-    </div>
-    {% endif %}
-    {# ── Fin badges domaines ── #}
-    <div class="meta-inline mb-4">
+      {% if richesse %}<span class="sep">·</span>{% endif %}
+      {% endif %}
       {% if richesse %}
       <span class="meta-badge" title="Richesse du brief : {{ richesse.score }}/100" style="
-        {% if richesse.niveau == 'complet' %}background:var(--c-green-soft); color:var(--c-green);
-        {% elif richesse.niveau == 'partiel' %}background:var(--c-amber-soft); color:var(--c-amber);
+        {% if richesse.niveau == 'complet' %}background:var(--apt-gold-soft); color:var(--apt-gold-deep);
+        {% elif richesse.niveau == 'partiel' %}background:var(--apt-accent-soft); color:var(--apt-accent);
         {% else %}background:rgba(15,27,61,0.06); color:var(--apt-ink-4);{% endif %}">
         ◆ Analyse {{ {'complet': 'complète', 'partiel': 'partielle', 'light': 'légère'}.get(richesse.niveau, richesse.niveau) }} · {{ richesse.score }}/100
       </span>
@@ -655,7 +652,7 @@
       {# Statut du CONTENU DCE téléchargé (Sprint Téléchargeur) #}
       {% if dce_contenu %}
       <span title="{{ dce_raison_contenu }}" style="display:inline-flex; align-items:center; gap:5px; padding:5px 11px; border-radius:7px; font-size:11.5px; font-weight:600;
-        {% if dce_contenu == 'complet' %}background:var(--c-green-soft); color:var(--c-green);
+        {% if dce_contenu == 'complet' %}background:var(--apt-accent-soft); color:var(--apt-accent);
         {% elif dce_contenu == 'incomplet' %}background:var(--c-amber-soft); color:var(--c-amber);
         {% elif dce_contenu == 'auth_requise' %}background:var(--c-blue-soft); color:var(--c-blue);
         {% elif dce_contenu == 'erreur' %}background:var(--c-rose-soft); color:var(--c-rose);
@@ -792,11 +789,6 @@
     {% for v in verrous_ko %}
     <div style="font-size:12.5px; color: var(--apt-ink-2); padding:2px 0;">✗ <strong>{{ v.type }}</strong> — {{ v.libelle }}{% if v.motif %} · {{ v.motif }}{% endif %}</div>
     {% endfor %}
-  </div>
-  {% else %}
-  {# Pas de verrou : ligne discrète sous les tags du header (moins criard qu'un bandeau). #}
-  <div class="mb-4" style="display:flex; align-items:center; gap:6px; font-size:11.5px; color: var(--apt-ink-4);">
-    <span style="color: var(--c-green); font-weight:700;">✓</span> Aucun verrou bloquant détecté
   </div>
   {% endif %}
 
