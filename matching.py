@@ -1106,6 +1106,11 @@ def _evaluer_v2(organisme: dict, marche: dict,
 
     score_brut = sum(m["points"] for m in motifs)
     score = max(0, min(100, score_brut))
+    # Go/no-go (ex : hors-zone d'un acteur de proximité stricte) → marché DISQUALIFIÉ.
+    # On plafonne le score bas pour qu'il soit cohérent avec le verdict non_pertinent
+    # (sinon un marché « non pertinent » afficherait un score élevé) et qu'il sombre au tri.
+    if any(m.get("go_no_go") for m in motifs):
+        score = min(score, 12)
     verdict = _calculer_verdict(score, motifs)
     return {
         "id_marche": marche.get("id", "?"),

@@ -821,7 +821,11 @@ def explorer():
     # PRIORITAIRE (preset principal avant secondaire/tertiaire avant hors-activités),
     # puis par score décroissant, puis urgence. Sans profil → richesse puis urgence.
     if profil_actif:
+        # 1) les marchés non pertinents (hors zone, hors activités…) sombrent en bas ;
+        # 2) parmi les pertinents, tri par activité PRIORITAIRE (preset principal d'abord) ;
+        # 3) puis score décroissant ; 4) puis urgence.
         lignes.sort(key=lambda x: (
+            1 if x.get("verdict") == "non_pertinent" else 0,
             x.get("preset_rang", 99),
             -(x.get("score") or 0),
             x["jours_restants"] if x["jours_restants"] is not None else 9999,
