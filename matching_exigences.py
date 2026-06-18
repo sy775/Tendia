@@ -293,9 +293,10 @@ def evaluer_exigence(alerte_texte: str, profil: dict) -> Optional[dict]:
         }
 
     # ----- 6) NDA / déclaration d'activité formation pro -----
-    if any(mc in t for mc in ("nda", "déclaration d'activité",
-                                "declaration d activite", "numéro de déclaration",
-                                "l.6351-1")):
+    #   ⚠ 'nda' en frontière de mot : sinon il matche 'caleNDAires', 'ageNDA'…
+    if _re.search(r"\bnda\b", t) or any(mc in t for mc in (
+            "déclaration d'activité", "declaration d activite",
+            "numéro de déclaration", "l.6351-1")):
         certs = profil.get("certifications") or {}
         if certs.get("qualiopi_actions_formation"):
             return {
