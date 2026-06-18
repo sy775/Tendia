@@ -65,6 +65,13 @@ def _percentiles(vals: list) -> dict:
             "mediane": round(pct(0.5)), "p25": round(pct(0.25)), "p75": round(pct(0.75))}
 
 
+def _cle_marche(r) -> tuple:
+    """Clé d'un marché LOGIQUE (r = montant, titulaire, objet, date). Un accord-cadre
+    multi-attributaires apparaît en N lignes (une par titulaire) ne différant que par le
+    titulaire → cette clé les regroupe (montant + objet + date)."""
+    return (r[0], (r[2] or "")[:80], r[3])
+
+
 def _filtrer_aberrants(rows: list) -> list:
     """rows = [(montant, titulaire, objet, date)]. Écarte les montants aberrants."""
     montants = [r[0] for r in rows if isinstance(r[0], (int, float)) and r[0] > 0]
@@ -133,35 +140,46 @@ def comparables_pour_marche(marche: dict, preset: Optional[str] = None,
             rows = conn.execute(sql, p).fetchall()
         except Exception:
             continue
-        rows = _filtrer_aberrants([tuple(r) for r in rows])
-        if len(rows) >= N_MIN:
-            meilleur = (libelle, rows)
+        rows_raw = _filtrer_aberrants([tuple(r) for r in rows])
+        # Dédup par marché LOGIQUE (un accord-cadre multi-attributaires = N lignes
+        # identiques sauf le titulaire) → ne pas sur-pondérer le compte ni les stats.
+        uniq = {}
+        for r in rows_raw:
+            uniq.setdefault(_cle_marche(r), r)
+        rows_u = list(uniq.values())
+        if len(rows_u) >= N_MIN:
+            meilleur = (libelle, rows_u, rows_raw)
             break
         # garde la plus large tentative comme repli si aucune n'atteint N_MIN
-        if meilleur is None or len(rows) > len(meilleur[1]):
-            meilleur = (libelle, rows)
+        if meilleur is None or len(rows_u) > len(meilleur[1]):
+            meilleur = (libelle, rows_u, rows_raw)
 
     if not meilleur or len(meilleur[1]) < 3:
         return {"disponible": False, "n": len(meilleur[1]) if meilleur else 0}
 
-    libelle, rows = meilleur
+    libelle, rows, rows_raw = meilleur
     stats = _percentiles([r[0] for r in rows])
 
-    # Titulaires fréquents (intel concurrentielle) — par SIRET (nom via SIRENE ultérieurement)
-    from collections import Counter
-    cnt = Counter()
-    mont_par_tit = {}
-    for mont, tit, _, _ in rows:
+    # Titulaires fréquents (intel) : nb de marchés DISTINCTS gagnés par SIRET (un
+    # groupement ne compte pas N fois le même marché). Sur les lignes brutes.
+    from collections import defaultdict
+    tit_marches = defaultdict(set)
+    tit_montants = defaultdict(list)
+    for mont, tit, objet, dt in rows_raw:
         if tit:
-            cnt[tit] += 1
-            mont_par_tit.setdefault(tit, []).append(mont)
-    titulaires = [{"siret": t, "n": c, "montant_median": round(statistics.median(mont_par_tit[t]))}
-                  for t, c in cnt.most_common(5) if c >= 2]
+            tit_marches[tit].add(_cle_marche((mont, tit, objet, dt)))
+            tit_montants[tit].append(mont)
+    titulaires = sorted(
+        ({"siret": t, "n": len(m), "montant_median": round(statistics.median(tit_montants[t]))}
+         for t, m in tit_marches.items() if len(m) >= 2),
+        key=lambda x: x["n"], reverse=True)[:5]
 
-    # Échantillon (les plus proches de la médiane, pour illustrer)
+    # Échantillon : marchés logiques DISTINCTS, les plus proches de la médiane.
+    # html.unescape : les objets DECP contiennent des entités (&#8211;, &amp;…).
+    import html as _html
     med = stats.get("mediane", 0)
     ech = sorted(rows, key=lambda r: abs(r[0] - med))[:6]
-    echantillon = [{"objet": (o or "")[:90], "montant": mt, "titulaire": ti,
+    echantillon = [{"objet": _html.unescape(o or "")[:90], "montant": mt, "titulaire": ti,
                     "annee": (dt or "")[:4]} for mt, ti, o, dt in ech]
 
     return {
@@ -220,7 +238,13 @@ def lister_decp(q=None, preset=None, dept=None, montant_min=None, montant_max=No
         params + [par_page, off]).fetchall()
     cles = ["id", "objet", "acheteur_nom", "titulaire_siret", "montant_eur",
             "date_notification", "cpv_principal", "departement", "duree_mois"]
-    lignes = [dict(zip(cles, r)) for r in rows]
+    import html as _html
+    lignes = []
+    for r in rows:
+        d = dict(zip(cles, r))
+        d["objet"] = _html.unescape(d.get("objet") or "")
+        d["acheteur_nom"] = _html.unescape(d.get("acheteur_nom") or "")
+        lignes.append(d)
     # clé 'lignes' (pas 'items') : en Jinja `res.items` résout la méthode dict.items().
     return {"lignes": lignes, "total": total, "page": page, "par_page": par_page,
             "pages": (total + par_page - 1) // par_page}
