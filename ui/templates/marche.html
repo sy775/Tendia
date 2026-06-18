@@ -219,51 +219,61 @@
     .apt-fiche-v7 .grid-2col { grid-template-columns: 1fr; }
   }
 
-  /* ===== Sections pliables avec icônes colorées ===== */
+  /* ===== Sections — cartes éditoriales premium ===== */
   .apt-fiche-v7 .sec {
-    border-top: 1px solid var(--apt-line-2);
+    background: var(--apt-pure);
+    border: 1px solid var(--apt-line-2);
+    border-radius: 14px;
+    margin-bottom: 12px;
+    box-shadow: 0 1px 2px rgba(15, 27, 61, 0.04);
+    transition: box-shadow 0.22s ease, border-color 0.22s ease;
+    scroll-margin-top: 88px;
+    overflow: hidden;
   }
+  .apt-fiche-v7 .sec:hover { box-shadow: 0 6px 22px rgba(15, 27, 61, 0.07); border-color: var(--apt-line); }
+  .apt-fiche-v7 .sec[open] { box-shadow: 0 3px 14px rgba(15, 27, 61, 0.06); }
   .apt-fiche-v7 .sec > summary {
     list-style: none;
     cursor: pointer;
-    padding: 14px 4px;
+    padding: 16px 20px;
     display: flex;
     align-items: center;
-    gap: 12px;
-    transition: opacity 0.15s;
+    gap: 13px;
+    transition: background 0.15s ease;
   }
-  .apt-fiche-v7 .sec > summary:hover { opacity: 0.75; }
+  .apt-fiche-v7 .sec > summary:hover { background: var(--apt-surface); }
   .apt-fiche-v7 .sec > summary::-webkit-details-marker { display: none; }
+  .apt-fiche-v7 .sec[open] > summary { border-bottom: 1px solid var(--apt-line-3); }
   .apt-fiche-v7 .sec[open] > summary .chev { transform: rotate(180deg); }
   .apt-fiche-v7 .sec .chev { transition: transform 0.2s; flex-shrink: 0; color: var(--apt-ink-4); }
 
   .apt-fiche-v7 .sec-icon {
-    width: 32px;
-    height: 32px;
-    border-radius: 9px;
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
   }
-  .apt-fiche-v7 .sec-icon svg { width: 16px; height: 16px; }
+  .apt-fiche-v7 .sec-icon svg { width: 17px; height: 17px; }
 
-  .apt-fiche-v7 .sec .sec-title-wrap { flex: 1; min-width: 0; }
+  .apt-fiche-v7 .sec .sec-title-wrap { flex: 1; min-width: 0; display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
   .apt-fiche-v7 .sec .sec-title {
-    font-size: 15.5px;
-    font-weight: 600;
+    font-size: 15px;
+    font-weight: 650;
     color: var(--apt-ink);
     margin: 0;
+    letter-spacing: -0.01em;
     display: inline;
   }
   .apt-fiche-v7 .sec .sec-teaser {
     font-size: 12px;
-    margin-left: 10px;
+    margin-left: 0;
     color: var(--apt-ink-4);
     font-weight: 400;
   }
-  .apt-fiche-v7 .sec .sec-body { padding: 4px 4px 22px 44px; }
-  .apt-fiche-v7 .sec:last-of-type { border-bottom: 1px solid var(--apt-line-2); }
+  .apt-fiche-v7 .sec .sec-body { padding: 16px 20px 22px; }
 
   /* Couleurs des icônes de section */
   .apt-fiche-v7 .sec-icon.ic-green { background: var(--c-green-soft); color: var(--c-green); }
@@ -274,6 +284,45 @@
   .apt-fiche-v7 .sec-icon.ic-rose { background: var(--c-rose-soft); color: var(--c-rose); }
   .apt-fiche-v7 .sec-icon.ic-stone { background: var(--c-stone-soft); color: var(--c-stone); }
   .apt-fiche-v7 .sec-icon.ic-green-deep { background: var(--c-green-soft); color: var(--c-green-deep); }
+
+  /* ===== Barre de navigation des sections (sticky, scrollspy) ===== */
+  .apt-fiche-v7 .fiche-quicknav {
+    position: sticky;
+    top: 0;
+    z-index: 30;
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 11px 4px;
+    margin: 6px 0 16px;
+    background: color-mix(in srgb, var(--apt-bg) 82%, transparent);
+    backdrop-filter: saturate(180%) blur(12px);
+    -webkit-backdrop-filter: saturate(180%) blur(12px);
+    border-bottom: 1px solid var(--apt-line-2);
+  }
+  .apt-fiche-v7 .fiche-quicknav:empty { display: none; }
+  .apt-fiche-v7 .fiche-quicknav a {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--apt-ink-3);
+    text-decoration: none;
+    padding: 5px 12px;
+    border-radius: 999px;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+  }
+  .apt-fiche-v7 .fiche-quicknav a:hover {
+    background: var(--apt-pure);
+    color: var(--apt-ink);
+    border-color: var(--apt-line-2);
+  }
+  .apt-fiche-v7 .fiche-quicknav a.active {
+    background: var(--apt-accent);
+    color: #fff;
+    box-shadow: 0 1px 3px rgba(15, 27, 61, 0.25);
+  }
 
   /* ===== Sidebar cards ===== */
   .apt-fiche-v7 .aside-card {
@@ -874,6 +923,9 @@
       </div>
     </details>
     {% endmacro %}
+
+    {# Barre de navigation des sections — construite en JS depuis les .sec rendues #}
+    <nav id="fiche-quicknav" class="fiche-quicknav" aria-label="Sections du brief"></nav>
 
     {{ sec('Barème & cadrage prix', teaser_bareme, 'violet', true, IC_CHART) }}
 
@@ -1911,4 +1963,48 @@
 </details>
 
 </div>
+
+<script>
+(function () {
+  var root = document.querySelector('.apt-fiche-v7');
+  if (!root) return;
+  var nav = root.querySelector('#fiche-quicknav');
+  if (!nav) return;
+  var secs = Array.prototype.slice.call(root.querySelectorAll('details.sec'));
+  if (secs.length < 2) { nav.style.display = 'none'; return; }
+  var links = [];
+  secs.forEach(function (sec, i) {
+    var t = sec.querySelector('.sec-title');
+    if (!t) return;
+    var id = sec.id || ('sec-' + i);
+    sec.id = id;
+    var label = (t.textContent || '').trim().replace(/\s+/g, ' ');
+    var a = document.createElement('a');
+    a.href = '#' + id;
+    a.textContent = label;
+    a.addEventListener('click', function (e) {
+      e.preventDefault();
+      if (!sec.open) sec.open = true;          // déplie la section ciblée
+      var top = sec.getBoundingClientRect().top + window.scrollY - 64;
+      window.scrollTo({ top: top, behavior: 'smooth' });
+      history.replaceState(null, '', '#' + id);
+    });
+    nav.appendChild(a);
+    links.push({ a: a, sec: sec });
+  });
+  // Scrollspy : surligne la section courante
+  var ticking = false;
+  function spy() {
+    var y = window.scrollY + 130;
+    var cur = links[0];
+    links.forEach(function (l) { if (l.sec.offsetTop <= y) cur = l; });
+    links.forEach(function (l) { l.a.classList.toggle('active', l === cur); });
+    ticking = false;
+  }
+  window.addEventListener('scroll', function () {
+    if (!ticking) { window.requestAnimationFrame(spy); ticking = true; }
+  }, { passive: true });
+  spy();
+})();
+</script>
 {% endblock %}
