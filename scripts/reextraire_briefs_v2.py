@@ -77,7 +77,8 @@ def _relever_cap_appels(n):
         print(f"  ⚠ cap appels non relevé ({e}) — risque de blocage par le quota journalier.")
 
 
-def _cibles(limite=None, marche_id=None, reextract_voie2=False, reextract_sha=False):
+def _cibles(limite=None, marche_id=None, reextract_voie2=False, reextract_sha=False,
+            multi_lots=False):
     m = stockage.charger("marches") or {}
     be = stockage.charger("briefs_extraits") or {}
     out = []
@@ -87,6 +88,8 @@ def _cibles(limite=None, marche_id=None, reextract_voie2=False, reextract_sha=Fa
         if mk.get("dce_contenu") != "complet":
             continue
         b = be.get(mid) or {}
+        if multi_lots and len(b.get("lots") or []) <= 1:
+            continue
         est_v2 = str(b.get("version_extraction_llm")) == "2"
         deja_au_sha = b.get("prompt_version_sha") == llm_extract.PROMPT_V2_SHA
         if reextract_voie2:
@@ -180,11 +183,14 @@ def main():
                     help="re-extrait les briefs DÉJÀ v2 ayant une Voie 2 (resserrage fourchettes)")
     ap.add_argument("--reextract-sha", action="store_true",
                     help="re-extrait tout brief pas au SHA prompt courant (refonte prompt L1/L2)")
+    ap.add_argument("--multi-lots", action="store_true",
+                    help="ne cible que les briefs multi-lots (>1 lot) — coût par lot")
     args = ap.parse_args()
 
     cibles, be = _cibles(args.limite, args.marche_id,
                          reextract_voie2=args.reextract_voie2,
-                         reextract_sha=args.reextract_sha)
+                         reextract_sha=args.reextract_sha,
+                         multi_lots=args.multi_lots)
     n = len(cibles)
     mode = ("v2 avec Voie 2 (resserrage)" if args.reextract_voie2
             else "v2 obsolète (SHA≠courant) + v1/jamais" if args.reextract_sha
