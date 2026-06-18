@@ -1227,7 +1227,10 @@ def detail_marche(id_marche):
         _preset_v3 = presets_resolus[0] if presets_resolus else None
         if isinstance(_preset_v3, (list, tuple)):
             _preset_v3 = _preset_v3[0]
-        voie3 = decp_comparables.comparables_pour_marche(marche, _preset_v3)
+        # Ancre montant = revenu officiel si publié, sinon estimation Voie 2. Restreint les
+        # comparables à des pairs de même TAILLE (cf. backtest : secteur seul ne suffit pas).
+        _ancre = (brief or {}).get("revenu_eur")
+        voie3 = decp_comparables.comparables_pour_marche(marche, _preset_v3, montant_ancre=_ancre)
     except Exception:
         voie3 = {"disponible": False}
 

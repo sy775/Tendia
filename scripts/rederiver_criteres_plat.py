@@ -46,7 +46,14 @@ def main():
         avant["non_classe"] += n0; avant["a_verifier"] += v0
 
         # Re-dérive depuis le barème stocké (non destructif sur bareme_notation).
+        # ⚠ post_traiter estampille `prompt_version_sha` au SHA COURANT — or une simple
+        # re-dérivation n'est PAS une re-extraction LLM. On restaure donc le vrai SHA
+        # d'extraction depuis `_meta.prompt_version_sha_v2` (que post_traiter ne touche
+        # pas), sinon `--reextract-sha` croirait à tort les briefs déjà à jour.
         L.post_traiter_extraction_v2(b)
+        vrai_sha = (b.get("_meta") or {}).get("prompt_version_sha_v2")
+        if vrai_sha:
+            b["prompt_version_sha"] = vrai_sha
 
         s1, p1, n1, v1 = _flags(b)
         apres["somme"] += s1; apres["pas_de_prix"] += p1

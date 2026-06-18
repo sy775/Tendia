@@ -24,6 +24,8 @@ N_MIN = 8           # comparables minimum pour une estimation crédible
 N_VISE = 30         # au-delà, inutile d'élargir davantage
 RATIO_ABERRANT = 15  # écarte montants > médiane×ratio ou < médiane/ratio (anti-aberrant)
 LIMITE_SQL = 4000   # garde-fou sur les requêtes larges
+BANDE_MONTANT = (0.5, 2.0)  # bande [×0,5 ; ×2] autour du montant d'ancrage (pairs même taille)
+SEUIL_BOAMP_EUR = 90_000    # seuil légal de publicité obligatoire au BOAMP (HT)
 
 # Tendia preset → preset_principal DECP (decp_classification)
 _PRESET_VERS_DECP = {
@@ -95,10 +97,26 @@ def _strategies(marche: dict, preset_decp: Optional[str]):
     return S
 
 
-def comparables_pour_marche(marche: dict, preset: Optional[str] = None) -> dict:
-    """Renvoie l'estimation Voie 3 + l'échantillon de comparables DECP, ou {disponible: False}."""
+def comparables_pour_marche(marche: dict, preset: Optional[str] = None,
+                            exclure_id: Optional[str] = None,
+                            montant_ancre: Optional[float] = None) -> dict:
+    """Renvoie l'estimation Voie 3 + l'échantillon de comparables DECP, ou {disponible: False}.
+
+    exclure_id : écarte ce marché DECP des comparables (backtest = ne pas se prédire soi-même).
+    montant_ancre : si fourni, restreint les comparables à une BANDE de montant
+        [×0,5 ; ×2] autour de cette valeur → pairs de même TAILLE (et plus seulement même
+        secteur). Le backtest a montré que CPV+géo+objet ne prédisent pas le montant
+        (~70% d'erreur) ; on assume donc de faire confiance à l'estimation pour cibler la
+        taille, au prix d'une légère circularité (acceptée), afin d'obtenir un vrai jeu de
+        pairs (intel concurrentielle, benchmark de coût). Ancre = montant officiel si publié,
+        sinon estimation Voie 2.
+    """
     conn = stockage._conn()
     preset_decp = _PRESET_VERS_DECP.get((preset or "").lower())
+    bande_sql, bande_p = "", []
+    if montant_ancre and montant_ancre > 0:
+        bande_sql = " AND m.montant_eur BETWEEN ? AND ?"
+        bande_p = [montant_ancre * BANDE_MONTANT[0], montant_ancre * BANDE_MONTANT[1]]
 
     meilleur = None
     for libelle, where, params, join_classif in _strategies(marche, preset_decp):
@@ -108,9 +126,11 @@ def comparables_pour_marche(marche: dict, preset: Optional[str] = None) -> dict:
                 "FROM decp_marches m ")
         if join_classif:
             base += "JOIN decp_classification c ON c.decp_id = m.id "
-        sql = base + f"WHERE {where} AND m.montant_eur > 0 LIMIT {LIMITE_SQL}"
+        excl = " AND m.id != ?" if exclure_id else ""
+        p = list(params) + ([exclure_id] if exclure_id else []) + bande_p
+        sql = base + f"WHERE {where} AND m.montant_eur > 0{excl}{bande_sql} LIMIT {LIMITE_SQL}"
         try:
-            rows = conn.execute(sql, params).fetchall()
+            rows = conn.execute(sql, p).fetchall()
         except Exception:
             continue
         rows = _filtrer_aberrants([tuple(r) for r in rows])
@@ -148,6 +168,7 @@ def comparables_pour_marche(marche: dict, preset: Optional[str] = None) -> dict:
         "disponible": stats["n"] >= N_MIN,
         "fiabilite": "haute" if stats["n"] >= N_VISE else ("moyenne" if stats["n"] >= N_MIN else "faible"),
         "strategie": libelle,
+        "ancre_montant": bool(montant_ancre),
         "n": stats["n"],
         "montant_median": stats["mediane"],
         "montant_p25": stats["p25"],

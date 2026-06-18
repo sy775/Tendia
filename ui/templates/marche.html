@@ -975,13 +975,16 @@
               {% if rev_fourchette %}{{ rev_min | euro_short }} – {{ rev_max | euro_short }}{% elif rev_eur %}{{ rev_eur | euro_short }}{% else %}non communiqué{% endif %}
             </div>
           </div>
+          {% if brief.revenu_sous_seuil_boamp %}
+          <div style="font-size: 11px; color: var(--c-amber); margin-top: 4px;">⚠ Sous le seuil de publicité BOAMP (~90 k€ HT) — probable sous-estimation (reconductions/tranches/durée totale ?), sauf lot isolé.</div>
+          {% endif %}
           {# Voie 3 — calibration du revenu sur comparables DECP RÉELS (contrats exécutés).
              Ancre la fourchette estimée sur des données réelles : c'est la calibration
              la plus précise quand le DCE ne publie pas de montant officiel. #}
           {% if voie3 and voie3.disponible %}
           <div style="margin-top: 8px; padding: 8px 10px; background: var(--c-green-soft); border-radius: 6px; border-left: 3px solid var(--c-green);">
             <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 10px; flex-wrap: wrap;">
-              <div style="font-size: 10.5px; color: var(--c-green-deep); font-weight: 700; text-transform: uppercase; letter-spacing: 0.3px;">✓ Calibré sur {{ voie3.n }} marchés DECP réels · {{ voie3.strategie }}</div>
+              <div style="font-size: 10.5px; color: var(--c-green-deep); font-weight: 700; text-transform: uppercase; letter-spacing: 0.3px;">✓ Calibré sur {{ voie3.n }} marchés DECP réels · {{ voie3.strategie }}{% if voie3.ancre_montant %} · taille comparable{% endif %}</div>
               <div style="font-size: 13px; color: var(--apt-ink); font-weight: 700; font-variant-numeric: tabular-nums;">médiane {{ voie3.montant_median | euro_short }}</div>
             </div>
             <div style="font-size: 11px; color: var(--apt-ink-3); margin-top: 2px;">Fourchette réelle (p25–p75) : <span style="font-variant-numeric: tabular-nums; font-weight: 600;">{{ voie3.montant_p25 | euro_short }} – {{ voie3.montant_p75 | euro_short }}</span> · fiabilité {{ voie3.fiabilite }}</div>

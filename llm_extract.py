@@ -43,6 +43,8 @@ MAX_TOKENS_REPONSE = 32000     # Sonnet 4.6 supporte bien au-delà ; les gros DC
                                # dépassaient 16000 → JSON tronqué → echec_llm. Streaming requis
                                # à ce niveau (cf. extraire_via_llm) pour éviter le timeout requête.
 MAX_CHARS_INPUT = 400_000
+SEUIL_PUBLICITE_BOAMP_EUR = 90_000  # seuil légal de publicité obligatoire au BOAMP (HT) :
+                                    # plancher de cohérence d'un revenu estimé (cf. plancher BOAMP)
 
 
 # ---------------------------------------------------------------------------
@@ -615,6 +617,13 @@ VOIE 2 — ESTIMATION BOTTOM-UP (UNIQUEMENT si Voie 1 absente) :
   le DCE donne de quoi resserrer.
 - Si le DCE est vraiment trop pauvre (aucun volume chiffrable) → `voie_2_disponible=false`
   + `voie_2_raison_indisponible` (raison précise). Ce cas doit rester rare.
+- PLANCHER BOAMP : ce marché est publié au BOAMP, donc son montant TOTAL est au-dessus du
+  seuil de publicité obligatoire (~90 000 € HT). Ton estimation (valeur centrale et borne
+  basse) ne doit donc PAS descendre sous ~90 000 € — SAUF s'il s'agit d'un LOT isolé d'un
+  marché multi-lots (un lot peut être plus petit), ou si le DCE donne explicitement un
+  montant publié inférieur. Si ton bottom-up tombe sous ce seuil sans raison de lot/officiel,
+  c'est probablement une sous-estimation : relis les volumes/durées (souvent un oubli de
+  reconductions, de tranches optionnelles ou de la durée totale de l'accord-cadre).
 - (Voie 3 = rapprochement DECP en aval, hors LLM : ne la calcule pas ici.)
 
 === RÈGLES v2 — REVENU / COÛT / MARGE (bloc `cout_realisation`) ===
@@ -931,11 +940,21 @@ def post_traiter_extraction_v2(data: dict) -> dict:
     data["marge_pct"] = marge_pct
     data["marge_alerte"] = marge_alerte
 
+    # PLANCHER BOAMP : un marché publié au BOAMP est au-dessus du seuil de publicité
+    # (~90 k€ HT). Un revenu ESTIMÉ (non officiel) sous ce seuil = probable sous-estimation
+    # (oubli de reconductions/tranches/durée totale), sauf lot isolé. On flague (sans clamper :
+    # un montant officiel publié peut légitimement être plus bas, et un lot aussi).
+    sous_seuil = (data.get("revenu_source") == "estime_ia"
+                  and isinstance(data.get("revenu_eur"), (int, float))
+                  and 0 < data["revenu_eur"] < SEUIL_PUBLICITE_BOAMP_EUR)
+    data["revenu_sous_seuil_boamp"] = sous_seuil
+
     nb_alertes = sum([validation["criteres_alerte_somme_incorrecte"],
                       validation["criteres_alerte_pas_de_prix"],
                       validation["criteres_alerte_non_classes"],
                       data["montant_alerte_coherence"],
-                      marge_alerte])
+                      marge_alerte,
+                      sous_seuil])
     data["extraction_v2_a_verifier"] = nb_alertes >= 2
     data["version_extraction_llm"] = "2"
     data["prompt_version_sha"] = PROMPT_V2_SHA
