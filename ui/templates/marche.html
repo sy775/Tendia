@@ -866,13 +866,7 @@
     </div>
   </div>
 
-  <!-- ============ En bref (résumé, juste sous les KPIs) ============ -->
-  {% if brief.synthese_marche %}
-  <div class="mb-6 fade-up fade-up-2" style="background: var(--apt-pure); border: 1px solid var(--apt-line-2); border-left: 3px solid var(--c-green); border-radius: 12px; padding: 15px 20px; box-shadow: 0 1px 2px rgba(15,27,61,0.04);">
-    <div style="font-size: 10.5px; font-weight: 700; letter-spacing: 0.06em; color: var(--c-green); margin-bottom: 5px;">✦ EN BREF</div>
-    <p style="font-size: 14.5px; line-height: 1.6; color: var(--apt-ink-2); margin: 0;">{{ brief.synthese_marche | clean_source }}</p>
-  </div>
-  {% endif %}
+  {# « En bref » est désormais le premier ONGLET (cf. <main>), pas un bloc fixe. #}
 
   <!-- ============ GRID 2 COLONNES ============ -->
   <div class="grid-2col">
@@ -975,6 +969,28 @@
 
     {# Barre de navigation des sections — construite en JS depuis les .sec rendues #}
     <nav id="fiche-quicknav" class="fiche-quicknav" aria-label="Sections du brief"></nav>
+
+    {# ===== Onglet par défaut : En bref (résumé + points d'attention non-vérifiables) ===== #}
+    {% if brief.synthese_marche or alertes_non_verifiables %}
+    {{ sec('En bref', (brief.synthese_marche[:60] ~ '…') if brief.synthese_marche else 'points d\'attention', 'green', true, IC_INFO) }}
+      {% if brief.synthese_marche %}
+      <p style="font-size: 14.5px; line-height: 1.62; color: var(--apt-ink-2); margin: 0;">{{ brief.synthese_marche | clean_source }}</p>
+      {% endif %}
+      {% if alertes_non_verifiables %}
+      <div style="margin-top: {% if brief.synthese_marche %}18px{% else %}2px{% endif %};">
+        <div style="font-size: 11px; font-weight: 700; color: var(--apt-ink-4); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 10px;">À retenir · points d'attention</div>
+        <div style="display: flex; flex-direction: column; gap: 7px;">
+          {% for ae in alertes_non_verifiables %}
+          <div style="display: flex; gap: 10px; align-items: flex-start; padding: 10px 13px; background: var(--apt-surface); border: 1px solid var(--apt-line-2); border-left: 3px solid var(--apt-gold); border-radius: 9px;">
+            <span style="flex-shrink: 0; color: var(--apt-gold-deep); font-weight: 800; font-size: 12px; margin-top: 1px;">◆</span>
+            <span style="font-size: 12.5px; line-height: 1.55; color: var(--apt-ink-2);">{{ ae.texte | clean_source }}</span>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      {% endif %}
+    </div></details>
+    {% endif %}
 
     {% set pct_tech = brief.bareme_notation.valeur_technique_pct or 70 %}
     {% set pct_prix = brief.bareme_notation.valeur_prix_pct or 30 %}
@@ -1852,8 +1868,8 @@
     </div>
     {% endif %}
 
-    {# ─── Critères (en sidebar, avant Public bénéficiaire) ─── #}
-    {% if brief.alertes_candidat %}
+    {# ─── Critères VÉRIFIABLES (confirmables) — les non-vérifiables sont dans « En bref » ─── #}
+    {% if alertes_verifiables %}
     {% set cs_side = couverture_synthese or {} %}
     {% set teaser_side_parts = [] %}
     {% if cs_side.couvert %}{% set _ = teaser_side_parts.append(cs_side.couvert ~ ' ✓') %}{% endif %}
@@ -1865,11 +1881,11 @@
         <svg style="width: 14px; height: 14px;" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
         </svg>
-        Vérifiez votre éligibilité<span class="elig-teaser"> · {{ alertes_evaluees | length }} point{{ 's' if (alertes_evaluees | length) > 1 else '' }}{% if teaser_side_parts %} · {{ teaser_side_parts | join(' · ') }}{% endif %}</span>
+        Vérifiez votre éligibilité<span class="elig-teaser"> · {{ alertes_verifiables | length }} point{{ 's' if (alertes_verifiables | length) > 1 else '' }}{% if teaser_side_parts %} · {{ teaser_side_parts | join(' · ') }}{% endif %}</span>
       </div>
       <div class="aside-card-body">
         <div style="display: flex; flex-direction: column; gap: 5px;">
-          {% for ae in alertes_evaluees %}
+          {% for ae in alertes_verifiables %}
           {% set ev = ae.evaluation %}
           {% set statut = ev.statut if ev else 'non_evaluable' %}
           {% set glyph = ({'couvert': '✓', 'non_couvert': '✕', 'a_verifier': '!', 'inconnu': '?', 'non_evaluable': '·'})[statut] %}

@@ -1219,7 +1219,14 @@ def detail_marche(id_marche):
     alertes_evaluees = matching_exigences.evaluer_alertes(
         (brief or {}).get("alertes_candidat") or [], profil or {}
     )
-    couverture_synthese = matching_exigences.synthese_couverture(alertes_evaluees)
+    # Sépare les exigences VÉRIFIABLES (confirmables via une clé canonique → carte
+    # 'Vérifiez votre éligibilité') des NON-vérifiables (simples points d'attention →
+    # affichés dans 'En bref').
+    def _cle(a):
+        return ((a.get("evaluation") or {}) if isinstance(a, dict) else {}).get("cle_canonique")
+    alertes_verifiables = [a for a in alertes_evaluees if _cle(a)]
+    alertes_non_verifiables = [a for a in alertes_evaluees if not _cle(a)]
+    couverture_synthese = matching_exigences.synthese_couverture(alertes_verifiables)
     verdict_eligibilite = matching_exigences.verdict_eligibilite(alertes_evaluees)
 
     # Fourchette montant total : 3 scénarios (bas / réaliste / haut)
@@ -1288,6 +1295,8 @@ def detail_marche(id_marche):
         dossier_dce=str(dossier_dce),
         organisme=profil,
         alertes_evaluees=alertes_evaluees,
+        alertes_verifiables=alertes_verifiables,
+        alertes_non_verifiables=alertes_non_verifiables,
         couverture_synthese=couverture_synthese,
         verdict_eligibilite=verdict_eligibilite,
         cycle=cycle_marche.lire_cycle(marche),
