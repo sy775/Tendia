@@ -1518,25 +1518,37 @@
     {{ sec(('Détail par lot' if detail_lots.mode == 'lots' else 'Détail par tranche'), lot_teaser_parts | join(' · '), 'blue', false, IC_DOC) }}
       {% if detail_lots.mode == 'lots' %}<div style="font-size:11px; color:var(--apt-ink-4); margin-bottom:12px; line-height:1.5;">Le <strong style="color:var(--apt-gold-deep);">coût estimé</strong> par lot = ce que ça coûterait au candidat de <em>réaliser</em> ce lot (estimation Tendia, indicatif) — c'est un <strong>coût, pas le revenu/prix</strong>.</div>{% endif %}
       {% for it in detail_lots.lignes %}
-      <div class="apt-block-soft" style="padding:12px 14px; margin-bottom:10px;">
+      <div style="display:flex; gap:13px; padding:13px 15px; margin-bottom:10px; background:var(--apt-pure); border:1px solid var(--apt-line-2); border-radius:11px; box-shadow:0 1px 2px rgba(15,27,61,0.03);">
         {% if detail_lots.mode == 'lots' %}
-          <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:10px;">
-            <strong style="font-size:13.5px;">{{ it.intitule }}</strong>
-            {% if it.compat == 'coeur' %}<span style="display:inline-flex; align-items:center; gap:4px; padding:3px 11px; border-radius:999px; font-size:11.5px; font-weight:700; white-space:nowrap; background:var(--c-green-soft); color:var(--c-green-deep); border:1px solid rgba(31,140,92,0.30);">✓ Cœur de cible</span>
-            {% elif it.compat == 'partielle' %}<span style="display:inline-flex; align-items:center; gap:4px; padding:3px 11px; border-radius:999px; font-size:11.5px; font-weight:700; white-space:nowrap; background:var(--c-amber-soft); color:#b06010; border:1px solid rgba(232,144,72,0.30);">△ Partielle</span>
-            {% elif it.compat == 'hors' %}<span style="display:inline-flex; align-items:center; gap:4px; padding:3px 11px; border-radius:999px; font-size:11.5px; font-weight:600; white-space:nowrap; background:var(--c-stone-soft); color:var(--c-stone); border:1px solid rgba(140,122,107,0.25);">✗ Hors cible</span>{% endif %}
+          <div style="flex-shrink:0; width:36px; height:36px; border-radius:9px; background:var(--apt-accent); color:#fff; display:flex; flex-direction:column; align-items:center; justify-content:center; line-height:1;">
+            <span style="font-size:7.5px; text-transform:uppercase; opacity:0.65; letter-spacing:0.05em;">Lot</span>
+            <span style="font-size:15px; font-weight:800; font-variant-numeric:tabular-nums;">{{ it.numero }}</span>
           </div>
-          {% if it.volume %}<div class="apt-meta" style="margin-top:3px;">{{ it.volume }}</div>{% endif %}
-          {% if it.cout_min or it.cout_max %}
-          <div style="margin-top:7px; display:inline-flex; align-items:baseline; gap:8px; padding:4px 11px; background:var(--apt-gold-soft); border-radius:7px;">
-            <span style="font-size:9.5px; font-weight:700; color:var(--apt-gold-deep); text-transform:uppercase; letter-spacing:0.03em;">Coût estimé</span>
-            <span style="font-size:13.5px; font-weight:700; color:var(--apt-ink); font-variant-numeric:tabular-nums;">{% if it.cout_min and it.cout_max and it.cout_max > it.cout_min %}{{ it.cout_min | euro_short }} – {{ it.cout_max | euro_short }}{% else %}{{ (it.cout_min or it.cout_max) | euro_short }}{% endif %}</span>
+          <div style="flex:1; min-width:0;">
+            <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:10px;">
+              <strong style="font-size:13.5px; color:var(--apt-ink); line-height:1.3;">{{ it.intitule }}</strong>
+              {% if it.compat == 'coeur' %}<span style="flex-shrink:0; display:inline-flex; align-items:center; gap:4px; padding:3px 11px; border-radius:999px; font-size:11px; font-weight:700; white-space:nowrap; background:var(--c-green-soft); color:var(--c-green-deep); border:1px solid rgba(30,111,74,0.30);">✓ Cœur de cible</span>
+              {% elif it.compat == 'partielle' %}<span style="flex-shrink:0; display:inline-flex; align-items:center; gap:4px; padding:3px 11px; border-radius:999px; font-size:11px; font-weight:700; white-space:nowrap; background:var(--c-amber-soft); color:#9c6212; border:1px solid rgba(184,149,74,0.35);">△ Partielle</span>
+              {% elif it.compat == 'hors' %}<span style="flex-shrink:0; display:inline-flex; align-items:center; gap:4px; padding:3px 11px; border-radius:999px; font-size:11px; font-weight:600; white-space:nowrap; background:var(--c-stone-soft); color:var(--c-stone); border:1px solid rgba(107,114,128,0.25);">✗ Hors cible</span>{% endif %}
+            </div>
+            {% if it.volume or it.cout_min or it.cout_max %}
+            <div style="display:flex; align-items:center; gap:9px; flex-wrap:wrap; margin-top:6px;">
+              {% if it.volume %}<span class="apt-meta">{{ it.volume }}</span>{% endif %}
+              {% if it.cout_min or it.cout_max %}
+              <span style="display:inline-flex; align-items:baseline; gap:7px; padding:3px 10px; background:var(--apt-gold-soft); border-radius:7px;">
+                <span style="font-size:9px; font-weight:700; color:var(--apt-gold-deep); text-transform:uppercase; letter-spacing:0.03em;">Coût estimé</span>
+                <span style="font-size:13px; font-weight:700; color:var(--apt-ink); font-variant-numeric:tabular-nums;">{% if it.cout_min and it.cout_max and it.cout_max > it.cout_min %}{{ it.cout_min | euro_short }} – {{ it.cout_max | euro_short }}{% else %}{{ (it.cout_min or it.cout_max) | euro_short }}{% endif %}</span>
+              </span>
+              {% endif %}
+            </div>
+            {% endif %}
+            {% if it.description %}<div style="font-size:12.5px; color:var(--apt-ink-2); margin-top:7px; line-height:1.55;">{{ it.description[:320] }}</div>{% endif %}
           </div>
-          {% endif %}
-          {% if it.description %}<div style="font-size:12.5px; color:var(--apt-ink-2); margin-top:5px;">{{ it.description[:320] }}</div>{% endif %}
         {% else %}
-          <div><strong style="font-size:13px;">{{ 'Tranche ferme' if it.type == 'ferme' else 'Tranche optionnelle' }}</strong></div>
-          <div style="font-size:12.5px; color:var(--apt-ink-2); margin-top:4px;">{{ it.libelle[:320] }}</div>
+          <div style="flex:1;">
+            <strong style="font-size:13px; color:var(--apt-ink);">{{ 'Tranche ferme' if it.type == 'ferme' else 'Tranche optionnelle' }}</strong>
+            <div style="font-size:12.5px; color:var(--apt-ink-2); margin-top:4px; line-height:1.55;">{{ it.libelle[:320] }}</div>
+          </div>
         {% endif %}
       </div>
       {% endfor %}
