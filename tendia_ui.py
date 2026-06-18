@@ -21,7 +21,7 @@ from datetime import date, datetime
 from pathlib import Path
 
 from flask import (Flask, abort, flash, redirect, render_template, request,
-                   send_from_directory, url_for)
+                   send_file, send_from_directory, url_for)
 
 import organisme
 import profil_form
@@ -1119,6 +1119,32 @@ def telecharger_document(id_marche, nom):
         return send_from_directory(dossier, nom, as_attachment=True)
     except (FileNotFoundError, NotADirectoryError):
         abort(404)
+
+
+_EXT_DCE_ZIP = (".pdf", ".docx", ".doc", ".xlsx", ".xls", ".odt", ".ods", ".txt", ".rtf")
+
+
+@app.route("/marche/<id_marche>/dce.zip")
+def telecharger_dce_zip(id_marche):
+    """Télécharge tout le DCE local en UN seul ZIP (généré à la volée)."""
+    import io
+    import zipfile
+    dossier = (REPERTOIRE_DCE / id_marche).resolve()
+    if not dossier.is_dir():
+        abort(404)
+    fichiers = [f for f in sorted(os.listdir(dossier))
+                if (dossier / f).is_file()
+                and os.path.splitext(f)[1].lower() in _EXT_DCE_ZIP
+                and not f.endswith(".bak")]
+    if not fichiers:
+        abort(404)
+    buf = io.BytesIO()
+    with zipfile.ZipFile(buf, "w", zipfile.ZIP_DEFLATED) as z:
+        for f in fichiers:
+            z.write(dossier / f, arcname=f)
+    buf.seek(0)
+    return send_file(buf, mimetype="application/zip", as_attachment=True,
+                     download_name=f"DCE_{id_marche}.zip")
 
 
 @app.route("/marche/<id_marche>")

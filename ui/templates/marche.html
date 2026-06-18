@@ -1479,23 +1479,32 @@
 
     {# ============ DOCUMENTS DU DOSSIER (téléchargeables, section centrale) ============ #}
     {% if docs_analyses %}
-    {{ sec('Documents du dossier', (docs_analyses|length ~ ' pièce' ~ ('s' if docs_analyses|length > 1 else '') ~ ' · cliquez pour télécharger'), 'blue', true, IC_DOC) }}
-      <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 8px;">
-        {% for d in docs_analyses %}
-        <a href="{{ url_for('telecharger_document', id_marche=marche.id, nom=d.nom) }}"
-           style="display: flex; align-items: center; gap: 10px; padding: 9px 11px; border: 1px solid var(--apt-line-2); border-radius: 9px; text-decoration: none; color: var(--apt-ink-2);"
-           onmouseover="this.style.background='var(--apt-bg)'; this.style.borderColor='var(--c-blue)';"
-           onmouseout="this.style.background='transparent'; this.style.borderColor='var(--apt-line-2)';"
-           title="Télécharger : {{ d.nom }}">
-          <span style="flex-shrink: 0; width: 34px; height: 34px; border-radius: 8px; background: var(--c-blue-soft); color: var(--c-blue); display: flex; align-items: center; justify-content: center; font-size: 9px; font-weight: 800;">{{ d.ext }}</span>
-          <span style="flex: 1; min-width: 0;">
-            <span style="display: block; font-size: 12.5px; font-weight: 600; line-height: 1.3;">{{ d.label }}{% if d.variante %} <span style="color: var(--apt-ink-4); font-weight: 500;">· {{ d.variante }}</span>{% endif %}</span>
-            <span style="display: block; font-size: 10px; color: var(--apt-ink-4); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{ d.nom }}</span>
-          </span>
-          <svg style="width: 14px; height: 14px; flex-shrink: 0; color: var(--apt-ink-4);" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+    {{ sec('Documents du dossier', (docs_analyses|length ~ ' pièce' ~ ('s' if docs_analyses|length > 1 else '')), 'blue', true, IC_DOC) }}
+      {# Action primaire : un seul ZIP. Les fichiers individuels sont repliés (compacts). #}
+      <div style="display: flex; align-items: center; gap: 14px; flex-wrap: wrap;">
+        <a href="{{ url_for('telecharger_dce_zip', id_marche=marche.id) }}"
+           style="display: inline-flex; align-items: center; gap: 9px; padding: 11px 18px; background: var(--apt-accent); color: #fff; border-radius: 9px; text-decoration: none; font-size: 13.5px; font-weight: 700; box-shadow: 0 1px 2px rgba(15,27,61,0.18);"
+           onmouseover="this.style.background='var(--apt-accent-2)';" onmouseout="this.style.background='var(--apt-accent)';">
+          <svg style="width:16px;height:16px;" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+          Télécharger tout le DCE
         </a>
-        {% endfor %}
+        <span style="font-size: 12px; color: var(--apt-ink-4);">{{ docs_analyses|length }} pièce{{ 's' if docs_analyses|length > 1 else '' }} · ZIP</span>
       </div>
+      <details style="margin-top: 12px;">
+        <summary style="cursor: pointer; font-size: 11px; color: var(--apt-ink-4); font-weight: 600; list-style: none; user-select: none;">▸ Fichiers individuels ({{ docs_analyses|length }})</summary>
+        <div style="margin-top: 8px; display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 2px 14px;">
+          {% for d in docs_analyses %}
+          <a href="{{ url_for('telecharger_document', id_marche=marche.id, nom=d.nom) }}"
+             style="display: flex; align-items: center; gap: 9px; padding: 6px 8px; border-radius: 6px; text-decoration: none; color: var(--apt-ink-2); font-size: 12.5px;"
+             onmouseover="this.style.background='var(--apt-bg)';" onmouseout="this.style.background='transparent';"
+             title="Télécharger : {{ d.nom }}">
+            <span style="flex-shrink: 0; font-size: 8.5px; font-weight: 800; color: var(--c-blue); width: 28px;">{{ d.ext }}</span>
+            <span style="flex: 1; min-width: 0; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{ d.label }}{% if d.variante %} <span style="color: var(--apt-ink-4); font-weight: 500;">· {{ d.variante }}</span>{% endif %}</span>
+            <svg style="width: 13px; height: 13px; flex-shrink: 0; color: var(--apt-ink-5);" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+          </a>
+          {% endfor %}
+        </div>
+      </details>
     </div></details>
     {% endif %}
 
