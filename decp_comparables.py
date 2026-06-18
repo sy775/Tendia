@@ -66,10 +66,17 @@ def _percentiles(vals: list) -> dict:
 
 
 def _cle_marche(r) -> tuple:
-    """Clé d'un marché LOGIQUE (r = montant, titulaire, objet, date). Un accord-cadre
-    multi-attributaires apparaît en N lignes (une par titulaire) ne différant que par le
-    titulaire → cette clé les regroupe (montant + objet + date)."""
-    return (r[0], (r[2] or "")[:80], r[3])
+    """Clé d'un marché/accord-cadre LOGIQUE. r = (montant, titulaire, objet, date,
+    acheteur, duree). Regroupe deux artefacts DECP qui gonflent les comparables :
+    - multi-attributaires (groupement) : N lignes ne différant que par le titulaire ;
+    - multi-lots d'un accord-cadre : N lignes (Lot 1, Lot 2…) portant le MÊME plafond
+      global, même acheteur, même durée, mais objet/date différents.
+    Clé = (acheteur, montant, durée) quand l'acheteur est connu ; sinon repli
+    (montant, objet, date) pour ne pas sur-fusionner des lignes sans acheteur."""
+    montant, _, objet, date, acheteur, duree = (list(r) + [None] * 6)[:6]
+    if acheteur:
+        return ("ACH", acheteur, round(montant or 0), duree)
+    return ("OBJ", round(montant or 0), (objet or "")[:80], date)
 
 
 def _filtrer_aberrants(rows: list) -> list:
@@ -129,8 +136,8 @@ def comparables_pour_marche(marche: dict, preset: Optional[str] = None,
     for libelle, where, params, join_classif in _strategies(marche, preset_decp):
         # NB : decp_marches n'a pas de colonne nom titulaire (titulaires_json = SIRET).
         # On remonte le SIRET ; l'enrichissement nom (SIRENE) est un chantier séparé.
-        base = ("SELECT m.montant_eur, m.titulaire_siret, m.objet, m.date_notification "
-                "FROM decp_marches m ")
+        base = ("SELECT m.montant_eur, m.titulaire_siret, m.objet, m.date_notification, "
+                "m.acheteur_siret, m.duree_mois FROM decp_marches m ")
         if join_classif:
             base += "JOIN decp_classification c ON c.decp_id = m.id "
         excl = " AND m.id != ?" if exclure_id else ""
@@ -165,9 +172,10 @@ def comparables_pour_marche(marche: dict, preset: Optional[str] = None,
     from collections import defaultdict
     tit_marches = defaultdict(set)
     tit_montants = defaultdict(list)
-    for mont, tit, objet, dt in rows_raw:
+    for r in rows_raw:
+        mont, tit = r[0], r[1]
         if tit:
-            tit_marches[tit].add(_cle_marche((mont, tit, objet, dt)))
+            tit_marches[tit].add(_cle_marche(r))
             tit_montants[tit].append(mont)
     titulaires = sorted(
         ({"siret": t, "n": len(m), "montant_median": round(statistics.median(tit_montants[t]))}
@@ -179,8 +187,8 @@ def comparables_pour_marche(marche: dict, preset: Optional[str] = None,
     import html as _html
     med = stats.get("mediane", 0)
     ech = sorted(rows, key=lambda r: abs(r[0] - med))[:6]
-    echantillon = [{"objet": _html.unescape(o or "")[:90], "montant": mt, "titulaire": ti,
-                    "annee": (dt or "")[:4]} for mt, ti, o, dt in ech]
+    echantillon = [{"objet": _html.unescape(r[2] or "")[:90], "montant": r[0], "titulaire": r[1],
+                    "annee": (r[3] or "")[:4]} for r in ech]
 
     return {
         "disponible": stats["n"] >= N_MIN,
