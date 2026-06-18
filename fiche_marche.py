@@ -622,6 +622,7 @@ def tranches_ou_lots(brief, profil):
             items.append({
                 "numero": l.get("numero"), "intitule": intit, "description": desc,
                 "volume": vol, "exigences": l.get("exigences_specifiques") or l.get("particularites"),
+                "cout_min": l.get("cout_estime_min_eur"), "cout_max": l.get("cout_estime_max_eur"),
                 "compat": _compat_lot(intit, desc, profil)})
         return {"mode": "lots", "lignes": items}
     tf = tranches.get("tranche_ferme")
@@ -673,8 +674,10 @@ _SECTORIEL_BLOC = {
 
 def calculer_richesse_brief(brief, presets, marche=None):
     """
-    Retourne {score 0-100, niveau, details}. Pondération : socle 40%,
-    sectoriel 30%, DCE complet 15%, calibration 15%.
+    Retourne {score 0-100, niveau, details}. Pondération : socle 45%,
+    sectoriel 35%, DCE complet 20%. (La calibration a été retirée du produit ;
+    ses 15 pts ont été redistribués — sinon TOUS les briefs perdaient 15 pts et
+    s'affichaient « partiel » à tort.)
     """
     if not brief:
         return {"score": 0, "niveau": "light", "details": {}}
@@ -713,11 +716,8 @@ def calculer_richesse_brief(brief, presets, marche=None):
         complet = _non_vide(brief.get("caracteristiques_techniques_chantier")) or \
                   _non_vide(brief.get("caracteristiques_mission_moe"))
 
-    # Calibration (15)
-    calibre = calibration_marche((marche or {}).get("id") or brief.get("id") or "") is not None
-
-    score = round(40 * pct_socle + 30 * pct_sect + (15 if complet else 0) + (15 if calibre else 0))
+    score = round(45 * pct_socle + 35 * pct_sect + (20 if complet else 0))
     niveau = "complet" if score >= 70 else ("partiel" if score >= 40 else "light")
     return {"score": score, "niveau": niveau,
             "details": {"socle": round(pct_socle * 100), "sectoriel": round(pct_sect * 100),
-                        "dce_complet": complet, "calibre": calibre}}
+                        "dce_complet": complet}}

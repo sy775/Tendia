@@ -463,6 +463,8 @@ Extrais les informations dans ce schéma JSON :
       "zone_geographique": "Zone si le lot est géographiquement défini, ex: code région (NAQ, IDF), département, ville. null sinon.",
       "volume_estime": null,
       "volume_estime_unite": "Unité du volume de ce lot, adaptée au secteur : 'm²', 'kWc', 'jours-homme', 'utilisateurs', 'bénéficiaires', 'tonnes', etc. Si non précisé, null.",
+      "cout_estime_min_eur": null,
+      "cout_estime_max_eur": null,
       "particularites": "Texte libre"
     }}
   ],
@@ -690,6 +692,14 @@ MULTI-LOTS — UN SEUL barème par brief :
   représentative) et signale la variation dans `synthese_marche`. Les
   `sous_criteres_techniques` sont la VRAIE décomposition du critère technique
   (méthodologie, moyens humains, références, RSE…), PAS une liste de lots.
+
+COÛT PAR LOT (marché multi-lots) : pour CHAQUE lot de `lots[]`, estime son COÛT DE
+RÉALISATION (`cout_estime_min_eur`/`cout_estime_max_eur`) — c'est-à-dire ce que ça COÛTE au
+candidat de produire CE lot précis (main d'œuvre, matériel, sous-traitance propres au lot),
+comme `cout_realisation` mais ventilé par lot. ⚠️ C'est un COÛT, PAS le revenu/prix du lot.
+Appuie-toi sur la nature du lot (corps d'état, surface, quantités du CCTP/DPGF) et des ratios
+marché. Fourchette serrée (rapport max/min ≈ 1,2-1,5). Si un lot n'est pas chiffrable, laisse
+les deux à null. (La somme des coûts de lots ≈ `cout_realisation.cout_total_eur`.)
 
 === RÈGLES v2 — CONTEXTE BOAMP (bloc CONTEXTE DU MARCHÉ) ===
 
