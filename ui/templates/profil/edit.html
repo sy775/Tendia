@@ -95,14 +95,6 @@
     <p class="apt-meta mt-2">Cocher un preset affiche sa section ci-dessous au prochain enregistrement. La <strong>priorité</strong> (principal/secondaire/tertiaire) pondère le matching : un marché sur l'activité principale score plus haut.</p>
   {% endcall %}
 
-  {# ---------- Domaines précis couverts (pilote le matching fin) ---------- #}
-  {% if widgets.domaines_couverts %}
-  {% call accordeon('Domaines précis couverts (matching fin)', true) %}
-    <p class="apt-meta mb-2" style="line-height:1.5;">Cochez les domaines que vous traitez <strong>réellement</strong>. Un marché dont aucun domaine coché ne correspond est écarté du matching — c'est ce qui évite les faux positifs (ex : une formation attrapée via le preset conseil, ou une MOE bâtiment générique via l'ingénierie).</p>
-    {{ checkboxes_groupees('domaines_couverts', widgets.domaines_couverts, '') }}
-  {% endcall %}
-  {% endif %}
-
   {# ---------- Schémas sectoriels des presets actifs (onglets) ---------- #}
   <div id="profil-sect-tabs">
   <div class="psect-nav"></div>
@@ -111,7 +103,9 @@
   {% if 'btp' in presets %}
   <div class="psect" data-label="BTP">
   {% call accordeon('Secteur · BTP', true) %}
-    <div class="apt-label mb-2">Métiers & ouvrages</div>
+    <div class="apt-label mb-2" style="color:var(--apt-accent-2);">Domaines couverts (matching fin)</div>
+    {{ checkboxes_groupees('domaines_couverts', widgets.domaines_par_preset['btp'], '') }}
+    <div class="apt-label mb-2 mt-5">Métiers & ouvrages</div>
     {{ checkboxes_groupees('sect.btp.corps_de_metier', widgets.btp.corps_de_metier, 'Corps de métier') }}
     {{ checkboxes_groupees('sect.btp.types_ouvrages', widgets.btp.types_ouvrages, 'Types d\'ouvrages') }}
     {{ checkboxes_groupees('sect.btp.types_clients_publics', widgets.btp.types_clients_publics, 'Types de clients publics') }}
@@ -154,7 +148,9 @@
   {% if 'ingenierie' in presets %}
   <div class="psect" data-label="Ingénierie">
   {% call accordeon('Secteur · Ingénierie', true) %}
-    <div class="apt-label mb-2">Périmètre technique</div>
+    <div class="apt-label mb-2" style="color:var(--apt-accent-2);">Domaines couverts (matching fin)</div>
+    {{ checkboxes_groupees('domaines_couverts', widgets.domaines_par_preset['ingenierie'], '') }}
+    <div class="apt-label mb-2 mt-5">Périmètre technique</div>
     {{ checkboxes_groupees('sect.ingenierie.typologies_couvertes', widgets.ingenierie.typologies_couvertes, 'Typologies couvertes') }}
     {{ checkboxes_groupees('sect.ingenierie.competences_specialisees', widgets.ingenierie.competences_specialisees, 'Compétences spécialisées') }}
     {{ checkboxes_groupees('sect.ingenierie.types_ouvrages_etudies', widgets.ingenierie.types_ouvrages_etudies, 'Types d\'ouvrages étudiés') }}
@@ -203,6 +199,9 @@
   {% if 'energie_renouvelable' in presets %}
   <div class="psect" data-label="Énergies renouvelables">
   {% call accordeon('Secteur · Énergies renouvelables', true) %}
+    <div class="apt-label mb-2" style="color:var(--apt-accent-2);">Domaines couverts (matching fin)</div>
+    {{ checkboxes_groupees('domaines_couverts', widgets.domaines_par_preset['energie_renouvelable'], '') }}
+    <div class="apt-label mb-2 mt-5">Technologies & prestations</div>
     {{ checkboxes_groupees('sect.energie_renouvelable.technologies_maitrisees', widgets.energie_renouvelable.technologies_maitrisees, 'Technologies maîtrisées') }}
     {{ checkboxes_groupees('sect.energie_renouvelable.types_prestations', widgets.energie_renouvelable.types_prestations, 'Types de prestations (le candidat fait quoi ?)') }}
     {{ checkboxes_groupees('sect.energie_renouvelable.segments_clients', widgets.energie_renouvelable.segments_clients, 'Segments clients') }}
@@ -214,24 +213,31 @@
   {% for code in presets %}
     {% if code in ['conseil', 'it'] %}
     <div class="psect" data-label="{{ code|capitalize }}">
-    <div class="apt-block px-6 py-4 mb-3">
-      <div class="apt-display-sm apt-fs-15">Secteur · {{ code|capitalize }}</div>
-      <p class="apt-prose apt-fs-13 mt-1">Pas de schéma de champs dédié pour <strong>{{ code }}</strong>, mais le matching s'appuie sur les <strong>domaines précis couverts</strong> (ci-dessus) et les mots-clés — donc ce preset est pleinement exploité.</p>
-    </div>
+    {% call accordeon('Secteur · ' ~ code|capitalize, true) %}
+      <p class="apt-meta mb-3" style="line-height:1.5;">Ce secteur se matche par vos <strong>domaines précis</strong> et vos mots-clés catalogue. Cochez ce que vous traitez :</p>
+      {{ checkboxes_groupees('domaines_couverts', widgets.domaines_par_preset[code], '') }}
+    {% endcall %}
     </div>
     {% endif %}
   {% endfor %}
   </div>{# fin #profil-sect-tabs #}
 
   <style>
-    #profil-sect-tabs .psect-nav { display:flex; gap:6px; flex-wrap:wrap; margin-bottom:14px; }
-    #profil-sect-tabs .psect-tab {
-      padding:7px 16px; border:1px solid var(--apt-line); border-radius:999px;
-      background:var(--apt-pure); color:var(--apt-ink-3); font:inherit; font-size:12.5px;
-      font-weight:600; cursor:pointer; transition:all .12s ease;
+    #profil-sect-tabs .psect-nav {
+      display:inline-flex; gap:3px; flex-wrap:wrap; margin-bottom:20px;
+      padding:4px; background:var(--apt-surface); border:1px solid var(--apt-line-2);
+      border-radius:13px;
     }
-    #profil-sect-tabs .psect-tab:hover { border-color:var(--apt-accent); color:var(--apt-accent); }
-    #profil-sect-tabs .psect-tab.active { background:var(--apt-accent); border-color:var(--apt-accent); color:#fff; }
+    #profil-sect-tabs .psect-tab {
+      padding:8px 20px; border:none; border-radius:9px; background:transparent;
+      color:var(--apt-ink-3); font:inherit; font-size:12.5px; font-weight:600;
+      letter-spacing:.1px; cursor:pointer; transition:all .14s ease;
+    }
+    #profil-sect-tabs .psect-tab:hover { color:var(--apt-accent); }
+    #profil-sect-tabs .psect-tab.active {
+      background:var(--apt-accent); color:#fff;
+      box-shadow:0 2px 8px rgba(15,27,61,0.20);
+    }
   </style>
   <script>
   (function(){

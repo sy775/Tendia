@@ -349,7 +349,11 @@ def contexte_widgets(profil: dict) -> dict:
     sect = profil.get("profils_sectoriels") or {}
     ctx = {"zones": widget_zones_intervention(profil.get("zones_intervention")),
            "domaines_couverts": widget_domaines_couverts(
-               presets, profil.get("domaines_couverts"))}
+               presets, profil.get("domaines_couverts")),
+           # Domaines couverts ventilés par preset (pour les afficher dans chaque onglet).
+           "domaines_par_preset": {
+               p: widget_domaines_couverts([p], profil.get("domaines_couverts"))
+               for p in presets}}
 
     if "btp" in presets:
         b = sect.get("btp") or {}

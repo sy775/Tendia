@@ -65,30 +65,48 @@ def main():
         items = items[:limit]
 
     total = len(items)
-    print(f"=== Re-classification affinée : {total} marchés (force=True) ===", flush=True)
+    workers = 8
+    print(f"=== Re-classification affinée : {total} marchés (force=True, {workers} en //) ===", flush=True)
+    from concurrent.futures import ThreadPoolExecutor, as_completed
     debut = time.time()
     cout = 0.0
     stats = {"classifié": 0, "rejeté": 0, "échec": 0}
     changes = 0
-    for i, (mid, marche) in enumerate(items, 1):
-        avant = set(_codes_actuels(mid, marche, briefs, classifs))
-        try:
-            res = tc.classifier_un_marche(mid, marche, modele="haiku", force=True)
-        except Exception as e:
-            print(f"  [{i}/{total}] {mid} ERREUR {e}", flush=True)
-            stats["échec"] += 1
-            continue
-        st = res.get("statut")
-        stats[st] = stats.get(st, 0) + 1
-        if st == "classifié":
-            cl = res["classification"]
-            cout += ((cl.get("_meta") or {}).get("cout_eur") or 0)
-            apres = {d.get("code") for d in (cl.get("domaines_metier") or []) if isinstance(d, dict)}
-            if apres != avant:
-                changes += 1
-                print(f"  [{i}/{total}] {mid} CHANGÉ {sorted(avant)} -> {sorted(apres)}", flush=True)
-        if i % 25 == 0:
-            print(f"  … {i}/{total} · {cout:.3f} € · {time.time()-debut:.0f}s", flush=True)
+
+    def _classer(mid, marche):
+        # Appel LLM uniquement (pas d'écriture storage → thread-safe).
+        rej, _ = tc.pre_filtre_rejette(marche)
+        if rej:
+            return "rejeté", None
+        cl = tc.classifier(marche, modele="haiku")
+        if not cl:
+            return "échec", None
+        cl["marche_id"] = mid
+        return "classifié", cl
+
+    with ThreadPoolExecutor(max_workers=workers) as ex:
+        futs = {ex.submit(_classer, mid, m): (mid, m) for mid, m in items}
+        done = 0
+        for fut in as_completed(futs):
+            mid, marche = futs[fut]
+            done += 1
+            avant = set(_codes_actuels(mid, marche, briefs, classifs))
+            try:
+                st, cl = fut.result()
+            except Exception as e:
+                print(f"  [{done}/{total}] {mid} ERREUR {e}", flush=True)
+                stats["échec"] += 1
+                continue
+            stats[st] = stats.get(st, 0) + 1
+            if st == "classifié":
+                tc.sauver_classification(mid, cl)   # écriture SÉRIE (main thread)
+                cout += ((cl.get("_meta") or {}).get("cout_eur") or 0)
+                apres = {d.get("code") for d in (cl.get("domaines_metier") or []) if isinstance(d, dict)}
+                if apres != avant:
+                    changes += 1
+                    print(f"  [{done}/{total}] {mid} CHANGÉ {sorted(avant)} -> {sorted(apres)}", flush=True)
+            if done % 25 == 0:
+                print(f"  … {done}/{total} · {cout:.3f} € · {time.time()-debut:.0f}s", flush=True)
 
     print(f"=== Terminé : {stats} · {changes} classifications changées · "
           f"{cout:.3f} € · {time.time()-debut:.0f}s ===", flush=True)
