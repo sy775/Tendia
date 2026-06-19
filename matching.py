@@ -75,6 +75,28 @@ def rang_preset_matche(organisme: dict, presets_marche: list) -> int:
     return min(_rang_preset(organisme, c) for c in inter)
 
 
+def _poids_preset_marche(brief: Optional[dict], marche: dict, preset_code: str) -> float:
+    """Poids (0..1) que représente `preset_code` dans le marché, d'après le poids des
+    domaines (`domaines_metier[].poids`). Ex : un lot PV à 10 % d'un marché de construction
+    → 0.1. Retourne 1.0 si aucune info de poids (marché mono-domaine) → pas de pénalité."""
+    sources = ((brief or {}).get("domaines_metier")
+               or (marche or {}).get("domaines_metier") or [])
+    total, vus_poids = 0.0, False
+    for d in sources:
+        if not isinstance(d, dict) or not d.get("code"):
+            continue
+        if preset_code in (_preset.presets_pour_domaines([d["code"]]) or []):
+            p = d.get("poids")
+            if p is not None:
+                total += p
+                vus_poids = True
+            else:
+                total += 1.0
+    if total <= 0:
+        return 1.0          # preset matché autrement (preset_codes) → ne pas pénaliser
+    return min(1.0, total) if vus_poids else 1.0
+
+
 def _ponderer_motifs_sectoriels(motifs: list, facteur: float) -> list:
     """Atténue les points POSITIFS des motifs sectoriels par `facteur` (préserve les
     pénalités go/no-go négatives, par prudence)."""
@@ -1107,6 +1129,20 @@ def _evaluer_v2(organisme: dict, marche: dict,
         facteur = PRESET_FACTEUR_SECTORIEL.get(_rang_preset(organisme, code),
                                                PRESET_FACTEUR_DEFAULT)
         motifs.extend(_ponderer_motifs_sectoriels(secm, facteur))
+
+    # Pondération par le POIDS du domaine côté marché : si le preset matché ne pèse qu'une
+    # fraction du marché (ex lot PV 10 % d'un marché de construction), on atténue les signaux
+    # de FIT (preset, thématique, sectoriels). Géo et capacité restent (contraintes réelles).
+    if intersection:
+        _best = min(intersection, key=lambda c: _rang_preset(organisme, c))
+        _poids = _poids_preset_marche(brief, marche, _best)
+        if _poids < 0.9:
+            _f = max(0.15, _poids)
+            for m in motifs:
+                if (m.get("points") or 0) > 0 and (
+                        m["critere"] in ("preset_compatibilite", "thematique")
+                        or m["critere"].startswith(("enr_", "btp_", "ing_", "sectoriel_"))):
+                    m["points"] = int(round(m["points"] * _f))
 
     motifs.append(_eval_synergie_v2(motifs))
 
