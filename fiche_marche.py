@@ -705,12 +705,13 @@ def tranches_ou_lots(brief, profil):
                 cout_tag = f"{_fmt_eur(cmin)} – {_fmt_eur(cmax)}"
             else:
                 cout_tag = _fourchette_txt(cout_detail)
+            _niv, _kw = _compat_lot(str(intit) + " " + str(corps or ""), desc, profil, domaine)
             items.append({
                 "numero": l.get("numero"), "intitule": intit, "description": desc,
                 "corps_etat": corps, "montant": montant, "domaine": domaine,
                 "volume": vol, "exigences": l.get("exigences_specifiques") or l.get("particularites"),
                 "cout_tag": cout_tag, "cout_detail": cout_detail,
-                "compat": _compat_lot(str(intit) + " " + str(corps or ""), desc, profil)})
+                "compat": _niv, "compat_kw": _kw})
         return {"mode": "lots", "lignes": items}
     tf = tranches.get("tranche_ferme")
     to = tranches.get("tranches_optionnelles") or []
@@ -735,14 +736,19 @@ def _norm_txt(s):
     return re.sub(r"[^a-z0-9]+", " ", norm)
 
 
-def _compat_lot(intit, desc, profil):
-    """Compat d'un lot vs profil par SUBSTRING de mots-clés FORTS (≥6 caractères) : technos
-    EnR + corps de métier + compétences + mots-clés catalogue. Le substring (vs token overlap)
-    évite les faux positifs des mots génériques (« bois » de « bois énergie » dans « charpente
-    bois »). Fallback quand le lot n'a pas de `domaine` extrait."""
+def _compat_lot(intit, desc, profil, domaine=None):
+    """Retourne (niveau, mots_matchés). niveau ∈ {coeur, partielle, hors, ?}.
+
+    - Si le lot a un `domaine` (taxonomie) → comparé directement aux domaines couverts (propre).
+    - Sinon fallback SUBSTRING de mots-clés FORTS (≥6 car.) : technos EnR + corps de métier
+      + compétences + mots-clés catalogue. Un mot-clé TRÈS spécifique (≥10 car., ex
+      « photovoltaique ») suffit pour « cœur » ; sinon 2 mots = cœur, 1 = partielle."""
+    couverts = set((profil or {}).get("domaines_couverts") or [])
+    if domaine and couverts:
+        return ("coeur", [domaine]) if domaine in couverts else ("hors", [])
     txt = _norm_txt(str(intit) + " " + str(desc))
     if not txt.strip():
-        return "?"
+        return ("?", [])
     kws = set()
     for k in ((profil or {}).get("mots_cles_catalogue") or []):
         n = _norm_txt(k).strip()
@@ -756,13 +762,14 @@ def _compat_lot(intit, desc, profil):
             if len(n) >= 6:
                 kws.add(n)
     if not kws:
-        return "?"
-    hits = sum(1 for k in kws if k in txt)
-    if hits >= 2:
-        return "coeur"
-    if hits == 1:
-        return "partielle"
-    return "hors"
+        return ("?", [])
+    hits = [k for k in kws if k in txt]
+    if not hits:
+        return ("hors", [])
+    fort = any(len(k) >= 10 for k in hits)
+    if len(hits) >= 2 or fort:
+        return ("coeur", hits)
+    return ("partielle", hits)
 
 
 def synthese_lots_pertinents(brief, profil):
@@ -782,7 +789,7 @@ def synthese_lots_pertinents(brief, profil):
         if dom and couverts:
             pertinent = dom in couverts
         else:
-            pertinent = _compat_lot(intit, desc, profil) in ("coeur", "partielle")
+            pertinent = _compat_lot(intit, desc, profil)[0] in ("coeur", "partielle")
         if pertinent:
             nb += 1
             intitules.append(str(intit))
