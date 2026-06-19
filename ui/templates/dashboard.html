@@ -231,7 +231,7 @@
               {% if e.verdict_eligibilite and e.verdict_eligibilite.statut != 'inconnu' %}
               {% set ve = e.verdict_eligibilite %}
               <span class="apt-elig-dash apt-elig-{{ ve.statut }}{% if ve.avec_reserves %} apt-elig-reserve{% endif %}">
-                <span class="apt-elig-dot"></span>{{ ve.label_court }}{% if ve.avec_reserves %}<span class="apt-elig-star" title="Avec réserves à vérifier au cas par cas">*</span>{% endif %}
+                <span class="apt-elig-dot"></span>{% if ve.avec_reserves %}À vérifier{% else %}{{ ve.label_court }}{% endif %}
                 <span class="apt-elig-dash-tooltip">
                   <span class="title">{{ ve.tooltip }}</span>
                   {% if ve.points_a_lever %}

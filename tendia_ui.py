@@ -441,21 +441,12 @@ def dashboard():
     # NB : on s'appuie sur presets_couverts du profil, PAS sur preset.code_actif()
     # (réglage global distinct) — c'est le profil activé dans /profil qui pilote
     # désormais le dashboard.
+    # Le dashboard suit le MATCHING AFFINÉ (matching.evaluer) plutôt qu'un pré-filtre CPV
+    # figé (scores_matching) : on évalue tous les marchés actifs et on écarte les marchés
+    # « non pertinents » dans la boucle ci-dessous. Ainsi un marché relevant via la
+    # classification affinée (ex moe_energetique_batiment → EnR) remonte bien.
     presets_profil = (profil or {}).get("presets_couverts") or []
-    ids_pertinents = set()
-    if presets_profil:
-        try:
-            scores_all = stockage.charger("scores_matching") or {}
-            for entree in scores_all.values():
-                if (entree.get("preset_code") in presets_profil
-                        and entree.get("matche")):
-                    ids_pertinents.add(entree.get("marche_id"))
-        except Exception:
-            ids_pertinents = set()
-
-    filtre_preset_actif = bool(presets_profil and ids_pertinents)
-    if filtre_preset_actif:
-        actifs = [m for m in actifs if m["id"] in ids_pertinents]
+    filtre_preset_actif = bool(profil)
 
     # Charge la collection des briefs SQLite une fois (au lieu de N appels)
     try:
@@ -469,6 +460,10 @@ def dashboard():
     enriched = []
     for m in actifs:
         evaluation = _evaluer_marche(profil, m) if profil else None
+        # Suit le matching affiné : on n'affiche pas les marchés non pertinents pour le
+        # profil actif (hors activités, hors zone marquée, secteur non couvert…).
+        if profil and (evaluation or {}).get("verdict") == "non_pertinent":
+            continue
         # a_brief : SQLite (Sprint 3) OU disque (compat Apptia)
         a_brief = (m["id"] in briefs_sqlite
                    or (REPERTOIRE_EXTRACTIONS / f"{m['id']}.json").is_file())
