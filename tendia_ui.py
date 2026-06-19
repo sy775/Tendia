@@ -554,11 +554,13 @@ def dashboard():
             -x["score"],
         ))
 
-    # KPIs
-    ids_actifs = [m["id"] for m in actifs]
+    # KPIs — basés sur les marchés AFFICHÉS (pertinents pour le profil), pas tous les
+    # actifs : sinon le pipeline « à évaluer » comptait les 419 actifs au lieu des affichés.
+    ids_actifs = [e["marche"]["id"] for e in enriched]
     pipeline = cycle_marche.kpis_pipeline(marches, ids_actifs=ids_actifs)
     kpis = {
-        "actifs_total": len(actifs),
+        "actifs_total": len(enriched),
+        "nb_actifs_base": len(actifs),  # tous les actifs (avant filtre pertinence)
         "tres_pertinents": sum(1 for e in enriched
                                   if e["verdict"] == "tres_pertinent"),
         "pertinents": sum(1 for e in enriched if e["verdict"] == "pertinent"),

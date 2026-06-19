@@ -16,7 +16,7 @@
           Veille du {{ now | date_fr }}
         </div>
         <h1 class="apt-display apt-fs-68 mb-5" style="color: var(--apt-ink);">
-          {{ kpis.actifs_total }} marché{{ 's' if kpis.actifs_total != 1 else '' }} actif{{ 's' if kpis.actifs_total != 1 else '' }}
+          {{ kpis.actifs_total }} marché{{ 's' if kpis.actifs_total != 1 else '' }} {% if kpis.filtre_preset_actif %}pertinent{{ 's' if kpis.actifs_total != 1 else '' }}{% else %}actif{{ 's' if kpis.actifs_total != 1 else '' }}{% endif %}
         </h1>
         <p class="apt-prose max-w-xl" style="color: var(--apt-ink-3);">
           {% if organisme %}
@@ -46,10 +46,10 @@
     <div class="grid grid-cols-4 gap-0">
 
       <div class="pr-8 border-r" style="border-color: var(--apt-line);">
-        <div class="apt-label mb-3">Actifs</div>
+        <div class="apt-label mb-3">{% if kpis.filtre_preset_actif %}Pertinents{% else %}Actifs{% endif %}</div>
         <div class="flex items-baseline gap-2">
           <span class="apt-stat-value">{{ kpis.actifs_total }}</span>
-          <span class="apt-stat-unit" style="font-size: 12px;">/ {{ kpis.marches_total }} en base</span>
+          <span class="apt-stat-unit" style="font-size: 12px;">{% if kpis.filtre_preset_actif %}/ {{ kpis.nb_actifs_base }} actifs{% else %}/ {{ kpis.marches_total }} en base{% endif %}</span>
         </div>
       </div>
 
