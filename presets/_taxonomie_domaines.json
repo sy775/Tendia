@@ -193,7 +193,7 @@
     },
     "energie_amo_etudes": {
       "libelle": "AMO et études énergie",
-      "description": "Assistance à maîtrise d'ouvrage énergie, études de faisabilité EnR, schémas directeurs énergétiques, audits énergétiques de patrimoine, accompagnement CEE (Certificats d'Économies d'Énergie). Pas de travaux dans le marché.",
+      "description": "Études techniques énergie (audit technique, instrumentation, dimensionnement, monitoring). HORS AMO/montage/développement de projet (→ energie_amo_developpement).",
       "exemples_oui": [
         "Mission AMO programmation et conduite d'opération sur projet énergétique",
         "Étude de faisabilité photovoltaïque sur patrimoine intercommunal",
@@ -249,7 +249,7 @@
     },
     "btp_voirie_reseaux": {
       "libelle": "VRD - voirie et réseaux divers",
-      "description": "Terrassement, voirie, réseaux humides (eau potable, assainissement), réseaux secs, espaces publics, aménagements urbains.",
+      "description": "Travaux de voirie et chaussées (terrassement VRD, enrobés, trottoirs, aménagements de surface). Les réseaux humides/secs vont dans btp_reseaux_divers.",
       "exemples_oui": [
         "Travaux VRD lotissement",
         "Réfection voirie communale",
@@ -314,7 +314,7 @@
     },
     "ingenierie_environnementale": {
       "libelle": "Ingénierie environnementale",
-      "description": "Études d'impact environnemental, dossiers ICPE, études sites pollués, diagnostics écologiques, études Loi sur l'Eau, dossiers réglementaires environnementaux.",
+      "description": "Études d'impact environnemental, ICPE, loi sur l'eau réglementaire, sites et sols pollués, bilan carbone. HORS eau/milieux opérationnels (→ ingenierie_eau_milieux) et HORS écologie/biodiversité (→ ingenierie_ecologie_biodiversite).",
       "exemples_oui": [
         "Étude d'impact projet d'aménagement",
         "Diagnostic faune-flore sur zone à urbaniser",
@@ -327,8 +327,8 @@
       ]
     },
     "moe_architecte_urbanisme": {
-      "libelle": "Maîtrise d'œuvre, architecture et urbanisme",
-      "description": "Maîtrise d'œuvre architecturale complète (esquisse à AOR), programmation, urbanisme opérationnel, études urbaines, PLU/SCOT, AMO en programmation.",
+      "libelle": "Maîtrise d'œuvre architecturale (bâtiment)",
+      "description": "Maîtrise d'œuvre architecturale du bâtiment (de l'esquisse à l'AOR), construction et réhabilitation. HORS urbanisme (→ moe_urbanisme_amenagement) et HORS dimension énergétique dominante (→ moe_energetique_batiment).",
       "exemples_oui": [
         "Maîtrise d'œuvre complète pour construction d'une médiathèque",
         "Étude pré-opérationnelle d'aménagement urbain",
@@ -739,6 +739,97 @@
       ],
       "exemples_non": [
         "TOUS les marchés qui rentrent dans une classe ci-dessus, même approximativement"
+      ]
+    },
+    "moe_energetique_batiment": {
+      "libelle": "MOE / conception énergétique du bâtiment",
+      "description": "Maîtrise d'œuvre et conception de rénovation énergétique, bâtiment performant ou bas-carbone, audit énergétique opérationnel, CPE (contrat de performance énergétique), AMO énergie sur bâtiment.",
+      "exemples_oui": [
+        "Maîtrise d'œuvre pour la rénovation énergétique d'un groupe scolaire",
+        "Conception bas-carbone d'un bâtiment public",
+        "Mission d'audit énergétique et de maîtrise d'œuvre thermique"
+      ],
+      "exemples_non": [
+        "Travaux de rénovation thermique (→ energie_renovation_thermique)",
+        "MOE architecturale sans dimension énergétique (→ moe_architecte_urbanisme)"
+      ]
+    },
+    "moe_urbanisme_amenagement": {
+      "libelle": "Urbanisme et aménagement",
+      "description": "Urbanisme opérationnel et réglementaire (PLU, SCOT, ZAC), études urbaines, programmation urbaine, conception d'aménagement d'espaces publics (études amont, hors travaux).",
+      "exemples_oui": [
+        "Élaboration du PLU intercommunal",
+        "Étude pré-opérationnelle d'aménagement urbain",
+        "Programmation d'un éco-quartier"
+      ],
+      "exemples_non": [
+        "MOE de bâtiment (→ moe_architecte_urbanisme)",
+        "Travaux d'aménagement de voirie (→ btp_voirie_reseaux)"
+      ]
+    },
+    "moe_infrastructure_vrd": {
+      "libelle": "MOE infrastructure et VRD",
+      "description": "Maîtrise d'œuvre et études d'infrastructures : voirie, réseaux divers (VRD), ouvrages d'art, aménagements routiers. Conception/études, sans exécution de travaux.",
+      "exemples_oui": [
+        "Maîtrise d'œuvre pour la requalification d'une voirie communale",
+        "MOE d'un ouvrage d'art",
+        "Conception d'un réseau d'assainissement"
+      ],
+      "exemples_non": [
+        "Travaux de voirie / réseaux (→ btp_voirie_reseaux ou btp_reseaux_divers)",
+        "MOE de bâtiment (→ moe_architecte_urbanisme)"
+      ]
+    },
+    "ingenierie_eau_milieux": {
+      "libelle": "Ingénierie eau et milieux",
+      "description": "Ingénierie de l'eau (eau potable, assainissement, eaux pluviales, hydraulique) et des milieux aquatiques (rivières, GEMAPI, zones humides) — études et maîtrise d'œuvre.",
+      "exemples_oui": [
+        "Étude de schéma directeur d'assainissement",
+        "Maîtrise d'œuvre d'une station d'épuration",
+        "Étude hydraulique et restauration de cours d'eau (GEMAPI)"
+      ],
+      "exemples_non": [
+        "Travaux de réseaux humides (→ btp_reseaux_divers)",
+        "Étude d'impact réglementaire globale (→ ingenierie_environnementale)"
+      ]
+    },
+    "ingenierie_ecologie_biodiversite": {
+      "libelle": "Écologie et biodiversité",
+      "description": "Génie écologique, expertises faune-flore, biodiversité, Natura 2000, mesures ERC (éviter-réduire-compenser), trame verte et bleue.",
+      "exemples_oui": [
+        "Inventaire faune-flore et dossier Natura 2000",
+        "Étude écologique et mesures compensatoires",
+        "Diagnostic biodiversité d'un site"
+      ],
+      "exemples_non": [
+        "Étude d'impact globale / ICPE (→ ingenierie_environnementale)",
+        "Entretien d'espaces verts (→ amenagement_paysager_entretien)"
+      ]
+    },
+    "energie_amo_developpement": {
+      "libelle": "AMO et développement de projets ENR",
+      "description": "Assistance à maîtrise d'ouvrage, montage, faisabilité, structuration juridique/financière et développement de projets d'énergies renouvelables (PV, éolien, méthanisation, réseaux de chaleur).",
+      "exemples_oui": [
+        "AMO pour le développement d'une centrale photovoltaïque",
+        "Étude de faisabilité et montage d'un projet de méthanisation",
+        "Structuration d'un projet ENR sur friche"
+      ],
+      "exemples_non": [
+        "Études techniques énergie pures (→ energie_amo_etudes)",
+        "Travaux d'installation ENR (→ energie_pv_solaire, etc.)"
+      ]
+    },
+    "btp_reseaux_divers": {
+      "libelle": "Travaux de réseaux (humides et secs)",
+      "description": "Travaux de réseaux humides (eau potable, assainissement, pluvial) et secs (électricité, télécom, éclairage public, fibre) : pose et génie civil de réseaux.",
+      "exemples_oui": [
+        "Travaux d'extension du réseau d'assainissement",
+        "Pose de réseaux secs et éclairage public",
+        "Renouvellement de canalisations d'eau potable"
+      ],
+      "exemples_non": [
+        "Voirie / chaussées (→ btp_voirie_reseaux)",
+        "Études / MOE de réseaux (→ moe_infrastructure_vrd ou ingenierie_eau_milieux)"
       ]
     }
   }

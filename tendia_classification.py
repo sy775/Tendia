@@ -219,11 +219,19 @@ def _prompt_systeme() -> str:
         "BOAMP : « travaux de… / réalisation / fourniture et pose » → BTP ; « mission de "
         "maîtrise d'œuvre / étude / conception / AMO » → ingénierie/MOE. Si « nature = "
         "Travaux » dans l'avis, ne classe PAS en ingénierie sauf mission d'études explicite.",
-        "- **ÉNERGIE — projet/AMO vs fourniture vs rénovation** : `energie_amo_etudes`, "
-        "`energie_pv_solaire`, `energie_eolien`, `energie_biomasse_methanisation`… pour le "
-        "développement, la faisabilité, l'AMO ou la réalisation d'un projet ENR. Une "
-        "FOURNITURE pure d'électricité/gaz (même « verte ») N'EST PAS un projet ENR → "
-        "`fourniture_*`/`autre`. Rénovation énergétique de bâtiment = `energie_renovation_thermique`.",
+        "- **ÉNERGIE — projet/AMO vs fourniture vs rénovation** : `energie_amo_developpement` "
+        "(AMO/montage/développement de projet ENR), `energie_amo_etudes` (études techniques), "
+        "`energie_pv_solaire`/`energie_eolien`/… (réalisation). FOURNITURE pure d'électricité/gaz "
+        "(même « verte ») → `fourniture_*`/`autre`. Rénovation énergétique (travaux) = "
+        "`energie_renovation_thermique` ; sa maîtrise d'œuvre = `moe_energetique_batiment`.",
+        "- **MOE — quel type ?** : dimension ÉNERGÉTIQUE dominante → `moe_energetique_batiment` ; "
+        "URBANISME/PLU/SCOT → `moe_urbanisme_amenagement` ; INFRASTRUCTURE/VRD/ouvrage d'art → "
+        "`moe_infrastructure_vrd` ; MOE architecturale bâtiment classique → `moe_architecte_urbanisme`.",
+        "- **INGÉNIERIE environnementale** : EAU/assainissement/GEMAPI → `ingenierie_eau_milieux` ; "
+        "FAUNE-FLORE/biodiversité/Natura 2000 → `ingenierie_ecologie_biodiversite` ; étude "
+        "d'IMPACT/ICPE/sites pollués/carbone → `ingenierie_environnementale`.",
+        "- **BTP réseaux** : travaux de réseaux HUMIDES/SECS → `btp_reseaux_divers` ; "
+        "voirie/chaussées → `btp_voirie_reseaux`.",
         "",
         "## IMPORTANT",
         "",

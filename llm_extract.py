@@ -208,12 +208,24 @@ def _section_taxonomie_prompt() -> str:
         "= BTP ; « mission de BET fluides pour la conception » = `ingenierie_fluides_climatique`. "
         "Un marché de travaux multi-corps d'état où un lot est technique reste classé BTP "
         "(éventuellement avec un 2e domaine BTP), pas en ingénierie.",
-        "- **ÉNERGIE — projet/AMO vs fourniture vs rénovation** : `energie_amo_etudes`, "
-        "`energie_pv_solaire`, `energie_eolien`, `energie_biomasse_methanisation`… pour le "
-        "DÉVELOPPEMENT, la faisabilité, l'AMO ou la réalisation d'un projet ENR. Un marché de "
-        "FOURNITURE pure d'électricité ou de gaz (même « verte ») N'EST PAS un projet ENR → "
-        "`fourniture_*` ou `autre`. La rénovation énergétique de bâtiment (isolation, "
-        "remplacement chaufferie) = `energie_renovation_thermique`, pas un code projet ENR.",
+        "- **ÉNERGIE — projet/AMO vs fourniture vs rénovation** : `energie_amo_developpement` "
+        "(AMO/montage/faisabilité/développement de projet ENR), `energie_amo_etudes` (études "
+        "techniques pures), `energie_pv_solaire`/`energie_eolien`/… (réalisation/installation). "
+        "Une FOURNITURE pure d'électricité ou de gaz (même « verte ») N'EST PAS un projet ENR → "
+        "`fourniture_*` ou `autre`. La rénovation énergétique de bâtiment (travaux) = "
+        "`energie_renovation_thermique` ; sa MAÎTRISE D'ŒUVRE = `moe_energetique_batiment`.",
+        "- **MOE — quel type ?** : dimension ÉNERGÉTIQUE dominante (rénovation thermique, "
+        "bâtiment performant/bas-carbone, CPE, audit énergétique) → `moe_energetique_batiment` ; "
+        "URBANISME/PLU/SCOT/programmation urbaine → `moe_urbanisme_amenagement` ; "
+        "INFRASTRUCTURE/VRD/ouvrage d'art → `moe_infrastructure_vrd` ; MOE architecturale de "
+        "bâtiment classique → `moe_architecte_urbanisme`.",
+        "- **INGÉNIERIE environnementale — affiner** : EAU/assainissement/hydraulique/GEMAPI → "
+        "`ingenierie_eau_milieux` ; FAUNE-FLORE/biodiversité/Natura 2000/mesures ERC → "
+        "`ingenierie_ecologie_biodiversite` ; étude d'IMPACT globale/ICPE/sites pollués/bilan "
+        "carbone → `ingenierie_environnementale`.",
+        "- **BTP réseaux** : travaux de réseaux HUMIDES (eau/assainissement) ou SECS "
+        "(élec/télécom/éclairage public/fibre) → `btp_reseaux_divers` ; voirie/chaussées/"
+        "terrassement de surface → `btp_voirie_reseaux`.",
         "",
         "Si le marché ne te paraît pas correspondre à un domaine, JUSTIFIE par le champ `raison_classification`.",
     ])

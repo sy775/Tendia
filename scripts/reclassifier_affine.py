@@ -41,6 +41,10 @@ def _codes_actuels(mid, marche, briefs, classifs):
 def main():
     limit = None
     only_ie = "--only-ingenierie-energie" in sys.argv
+    # Cible les codes recentrés par l'enrichissement taxonomie v2 (fourre-tout à scinder).
+    only_enrichi = "--cibles-enrichissement" in sys.argv
+    CODES_ENRICHIS = ("moe_architecte_urbanisme", "ingenierie_environnementale",
+                      "energie_amo_etudes", "btp_voirie_reseaux")
     if "--limit" in sys.argv:
         limit = int(sys.argv[sys.argv.index("--limit") + 1])
 
@@ -52,6 +56,10 @@ def main():
     if only_ie:
         items = [(mid, m) for mid, m in items
                  if any(c and (c.startswith(("ingenierie", "moe", "energie")))
+                        for c in _codes_actuels(mid, m, briefs, classifs))]
+    if only_enrichi:
+        items = [(mid, m) for mid, m in items
+                 if any(c in CODES_ENRICHIS
                         for c in _codes_actuels(mid, m, briefs, classifs))]
     if limit:
         items = items[:limit]
