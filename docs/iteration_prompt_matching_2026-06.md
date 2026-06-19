@@ -306,3 +306,54 @@ Cap validé : « droit au but » secteur (1 formulaire = domaines couverts) + **
   pendant les tests ; éditer via `/profil`. Zones TEE27 = 10 dépts (Normandie + Pays de la Loire).
 - Évaluateurs sectoriels conseil/it/formation = stubs au niveau preset, **mais OK** : le matching
   fin passe par `domaines_couverts`.
+
+### 4.8 Chantier LOTS — pertinence par lot (19 juin 2026)
+Objectif Younes : « toutes les infos rentrées par le user servent à qlq chose » + visualiser la
+pertinence **lot par lot** dans la fiche (allotissement). Décisions et état :
+
+**Allotissement → matching** (`matching._candidature_par_lot`, signal dans `_evaluer_v2`)
+- Parse `allotissement.description` : candidature **par lot** vs **offre globale obligatoire**.
+- Quand le profil ne couvre qu'une fraction du marché (`_poids_preset_marche < 0.6`) :
+  **+7** si on peut candidater par lot (on vise juste nos lots) · **−25** si offre globale
+  obligatoire (on devrait porter tout le marché). Badge dans « Comment candidater »
+  (✓ vert par-lot / ⚠ doré globale / ◆ inconnu).
+
+**Classification de lot — RÉUTILISE LA CLASSIF IA** (`fiche_marche._lot_domaine_depuis_marche`)
+- Demande Younes : « il faut réutiliser la classif IA pour le matching » (≠ mots-clés).
+- Mécanique : chaque lot est **rattaché au domaine du marché** (`domaines_metier`, déjà
+  classifié par l'IA) dont le libellé/code matche le mieux le **texte propre du lot**
+  (intitulé + corps d'état + description PROPRE). **Aucun nouvel appel LLM.**
+- ⚠️ Piège corrigé : ne JAMAIS utiliser `allotissement.description` (globale) pour
+  dériver le domaine d'un lot → elle contamine tous les lots sans desc propre (ex 56456 :
+  « CHARPENTE BOIS » devenait `energie_pv_solaire` car la desc globale parle de PV).
+- Fallback mots-clés (`_compat_lot`, substring de mots-clés forts ≥6 car.) seulement si la
+  classif IA ne tranche pas. `_compat_lot` retourne `(niveau, mots_matchés)` ; un mot-clé
+  **très spécifique** (≥10 car., ex « photovoltaique ») → `coeur` à lui seul.
+- Niveaux : `coeur` (cœur de cible) / `partielle` / `hors` / `?`. Le lot prend `coeur` si son
+  domaine ∈ `domaines_couverts`.
+- Validé 56456 (14 lots BTP+PV, TEE27) : **seul LOT 14 PHOTOVOLTAIQUE = cœur de cible**,
+  les 13 lots BTP = hors. Avant : 5 faux positifs (charpente via « bois énergie »).
+
+**UI fiche** (`ui/templates/marche.html`, `fiche_marche.synthese_lots_pertinents`)
+- « Détail par lot » : carte avec **barre navy à gauche** (généralisée à toutes les sections
+  `.sec`), chip corps d'état (navy), domaine (italique), montant (« prix marché »), coût.
+  **Pas d'icônes/badges numéro** (retirés à la demande). Tag compat avec **tooltip** : survol →
+  niveau + mots-clés/correspondance matchés (cf. les 3 `title=` sur les `<span>` compat).
+- Résumé : mini-section sobre **« Lots pertinents »** (pastille dorée + titres en tirets « – »).
+- Per-lot : montant par lot via `allotissement.lots_detailles` (mergé par `numero`).
+
+**À FAIRE (prochaine session) — important**
+1. **Peupler `lots[].domaine` à l'extraction.** Le prompt `llm_extract` a déjà le champ
+   `lots[].domaine` (« code taxonomie du métier DOMINANT de CE lot »), MAIS les briefs
+   existants ne l'ont pas → on s'appuie aujourd'hui sur `_lot_domaine_depuis_marche` (dérivé
+   du marché). Une **ré-extraction ciblée** (ou un batch de classif de lots) donnerait une
+   maille **plus fine que les `domaines_metier`** du marché (un lot peut sortir de la liste
+   marché). Quand `lots[].domaine` est présent, il a priorité (déjà câblé).
+2. Idem `conseil_transition_energetique` : présent dans le prompt, à peupler sur le stock.
+3. Mutualiser critères communs (§4.6) — capacité + certifications → sections universelles.
+
+### 4.9 État serveur / vérif rapide
+- Serveur : `python tendia_ui.py` (port 5000, debug=False) → **redémarrer à chaque changement**.
+- Profil actif de test = **TEE27** (EnR/ingénierie/conseil, 10 dépts). Marché-témoin lots =
+  **`/marche/BOAMP-26-56456`** (14 lots, doit montrer LOT 14 PV en cœur de cible).
+- Tous les commits du chantier lots sont sur `master` (pas encore mergé `main`).
