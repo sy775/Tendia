@@ -103,8 +103,13 @@
   {% endcall %}
   {% endif %}
 
+  {# ---------- Schémas sectoriels des presets actifs (onglets) ---------- #}
+  <div id="profil-sect-tabs">
+  <div class="psect-nav"></div>
+
   {# ---------- Sectoriel BTP (périmètre métier en tête) ---------- #}
   {% if 'btp' in presets %}
+  <div class="psect" data-label="BTP">
   {% call accordeon('Secteur · BTP', true) %}
     <div class="apt-label mb-2">Métiers & ouvrages</div>
     {{ checkboxes_groupees('sect.btp.corps_de_metier', widgets.btp.corps_de_metier, 'Corps de métier') }}
@@ -142,10 +147,12 @@
     <button type="button" class="apt-btn apt-btn-ghost" onclick="ajouterRef('refs-btp','tpl-ref-btp')">＋ Ajouter une référence</button>
     <template id="tpl-ref-btp">{{ ref_btp_block('__IDX__', {}, widgets.btp.ref_types_ouvrages) }}</template>
   {% endcall %}
+  </div>
   {% endif %}
 
   {# ---------- Sectoriel INGÉNIERIE (périmètre technique en tête) ---------- #}
   {% if 'ingenierie' in presets %}
+  <div class="psect" data-label="Ingénierie">
   {% call accordeon('Secteur · Ingénierie', true) %}
     <div class="apt-label mb-2">Périmètre technique</div>
     {{ checkboxes_groupees('sect.ingenierie.typologies_couvertes', widgets.ingenierie.typologies_couvertes, 'Typologies couvertes') }}
@@ -189,26 +196,63 @@
     <button type="button" class="apt-btn apt-btn-ghost" onclick="ajouterRef('refs-ing','tpl-ref-ing')">＋ Ajouter une référence</button>
     <template id="tpl-ref-ing">{{ ref_ing_block('__IDX__', {}, widgets.ingenierie.ref_types_ouvrages, widgets.ingenierie.ref_typologies, widgets.ingenierie.ref_competences) }}</template>
   {% endcall %}
+  </div>
   {% endif %}
 
   {# ---------- Sectoriel Énergies renouvelables ---------- #}
   {% if 'energie_renouvelable' in presets %}
+  <div class="psect" data-label="Énergies renouvelables">
   {% call accordeon('Secteur · Énergies renouvelables', true) %}
     {{ checkboxes_groupees('sect.energie_renouvelable.technologies_maitrisees', widgets.energie_renouvelable.technologies_maitrisees, 'Technologies maîtrisées') }}
     {{ checkboxes_groupees('sect.energie_renouvelable.types_prestations', widgets.energie_renouvelable.types_prestations, 'Types de prestations (le candidat fait quoi ?)') }}
     {{ checkboxes_groupees('sect.energie_renouvelable.segments_clients', widgets.energie_renouvelable.segments_clients, 'Segments clients') }}
   {% endcall %}
+  </div>
   {% endif %}
 
-  {# ---------- Presets non encore implémentés ---------- #}
+  {# ---------- Presets sans schéma dédié (matching via domaines couverts + mots-clés) ---------- #}
   {% for code in presets %}
     {% if code in ['conseil', 'it'] %}
-    <div class="apt-block px-6 py-4 mb-3" style="background: var(--apt-amber-soft);">
-      <div class="apt-display-sm apt-fs-15">Secteur · {{ code }}</div>
-      <p class="apt-prose apt-fs-13 mt-1">Schéma sectoriel <strong>{{ code }}</strong> non encore défini (Sprint D à venir). Édition non disponible pour ce preset, mais il reste activable pour le matching universel via les mots-clés.</p>
+    <div class="psect" data-label="{{ code|capitalize }}">
+    <div class="apt-block px-6 py-4 mb-3">
+      <div class="apt-display-sm apt-fs-15">Secteur · {{ code|capitalize }}</div>
+      <p class="apt-prose apt-fs-13 mt-1">Pas de schéma de champs dédié pour <strong>{{ code }}</strong>, mais le matching s'appuie sur les <strong>domaines précis couverts</strong> (ci-dessus) et les mots-clés — donc ce preset est pleinement exploité.</p>
+    </div>
     </div>
     {% endif %}
   {% endfor %}
+  </div>{# fin #profil-sect-tabs #}
+
+  <style>
+    #profil-sect-tabs .psect-nav { display:flex; gap:6px; flex-wrap:wrap; margin-bottom:14px; }
+    #profil-sect-tabs .psect-tab {
+      padding:7px 16px; border:1px solid var(--apt-line); border-radius:999px;
+      background:var(--apt-pure); color:var(--apt-ink-3); font:inherit; font-size:12.5px;
+      font-weight:600; cursor:pointer; transition:all .12s ease;
+    }
+    #profil-sect-tabs .psect-tab:hover { border-color:var(--apt-accent); color:var(--apt-accent); }
+    #profil-sect-tabs .psect-tab.active { background:var(--apt-accent); border-color:var(--apt-accent); color:#fff; }
+  </style>
+  <script>
+  (function(){
+    var wrap=document.getElementById('profil-sect-tabs'); if(!wrap) return;
+    var nav=wrap.querySelector('.psect-nav');
+    var panels=Array.prototype.slice.call(wrap.querySelectorAll(':scope > .psect'));
+    if(panels.length<2){ if(nav) nav.style.display='none'; return; }
+    var btns=[];
+    function activate(i){
+      panels.forEach(function(p,j){ p.style.display = j===i?'':'none'; });
+      btns.forEach(function(b,j){ b.classList.toggle('active', j===i); });
+    }
+    panels.forEach(function(p,i){
+      var b=document.createElement('button');
+      b.type='button'; b.className='psect-tab'; b.textContent=p.getAttribute('data-label')||('Secteur '+(i+1));
+      b.addEventListener('click',function(){ activate(i); });
+      nav.appendChild(b); btns.push(b);
+    });
+    activate(0);
+  })();
+  </script>
 
   {# ---------- Zones d'intervention ---------- #}
   {% call accordeon('Zones d\'intervention', true) %}
