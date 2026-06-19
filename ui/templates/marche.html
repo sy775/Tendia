@@ -903,12 +903,21 @@
       </div>
       {% endif %}
 
-      {# Ligne sobre « lots pertinents pour votre profil » (ex : 1 lot PV sur 14). #}
+      {# Mini-section « lots pertinents pour votre profil » — titres en tirets, sobre. #}
       {% if lots_pertinents %}
-      <div style="display:flex; align-items:center; gap:8px; margin-bottom:14px; font-size:12.5px; color:var(--apt-ink-2);"
-           title="{{ lots_pertinents.intitules[:5] | join(' · ') }}">
-        <span style="width:6px; height:6px; border-radius:999px; background:var(--apt-gold); flex-shrink:0;"></span>
-        <span><strong style="color:var(--apt-ink);">{{ lots_pertinents.nb }}/{{ lots_pertinents.total_lots }} lot{{ 's' if lots_pertinents.nb > 1 }}</strong> pertinent{{ 's' if lots_pertinents.nb > 1 }} pour votre profil{% if lots_pertinents.cmin %} · coût estimé ≈ {{ lots_pertinents.cmin | euro_short }}–{{ lots_pertinents.cmax | euro_short }}{% endif %}</span>
+      <div style="margin-bottom:16px;">
+        <div class="apt-label" style="display:flex; align-items:center; gap:6px; margin-bottom:8px;">
+          <span style="width:5px; height:5px; border-radius:999px; background:var(--apt-gold);"></span>
+          Lots pertinents pour votre profil · {{ lots_pertinents.nb }}/{{ lots_pertinents.total_lots }}{% if lots_pertinents.cmin %} · ≈ {{ lots_pertinents.cmin | euro_short }}–{{ lots_pertinents.cmax | euro_short }}{% endif %}
+        </div>
+        <ul style="margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:4px;">
+          {% for t in lots_pertinents.intitules[:6] %}
+          <li style="font-size:12.5px; color:var(--apt-ink-2); padding-left:15px; position:relative; line-height:1.4;">
+            <span style="position:absolute; left:0; color:var(--apt-gold-deep);">–</span>{{ t }}
+          </li>
+          {% endfor %}
+          {% if lots_pertinents.intitules|length > 6 %}<li style="font-size:11.5px; color:var(--apt-ink-4); padding-left:15px;">+{{ lots_pertinents.intitules|length - 6 }} autre{{ 's' if (lots_pertinents.intitules|length - 6) > 1 }}</li>{% endif %}
+        </ul>
       </div>
       {% endif %}
 
@@ -1540,17 +1549,17 @@
           <div style="flex:1; min-width:0;">
             <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:10px;">
               <strong style="font-size:13.5px; color:var(--apt-ink); line-height:1.3;">{{ it.intitule }}</strong>
-              {% if it.compat == 'coeur' %}<span style="flex-shrink:0; display:inline-flex; align-items:center; gap:4px; padding:3px 11px; border-radius:999px; font-size:11px; font-weight:700; white-space:nowrap; background:var(--c-green-soft); color:var(--c-green-deep); border:1px solid rgba(30,111,74,0.30);">✓ Cœur de cible</span>
-              {% elif it.compat == 'partielle' %}<span style="flex-shrink:0; display:inline-flex; align-items:center; gap:4px; padding:3px 11px; border-radius:999px; font-size:11px; font-weight:700; white-space:nowrap; background:var(--c-amber-soft); color:#9c6212; border:1px solid rgba(184,149,74,0.35);">△ Partielle</span>
-              {% elif it.compat == 'hors' %}<span style="flex-shrink:0; display:inline-flex; align-items:center; gap:4px; padding:3px 11px; border-radius:999px; font-size:11px; font-weight:600; white-space:nowrap; background:var(--c-stone-soft); color:var(--c-stone); border:1px solid rgba(107,114,128,0.25);">✗ Hors cible</span>{% endif %}
+              {% if it.compat == 'coeur' %}<span style="flex-shrink:0; padding:3px 11px; border-radius:999px; font-size:11px; font-weight:700; white-space:nowrap; background:var(--c-green-soft); color:var(--c-green-deep); border:1px solid rgba(30,111,74,0.30);">Cœur de cible</span>
+              {% elif it.compat == 'partielle' %}<span style="flex-shrink:0; padding:3px 11px; border-radius:999px; font-size:11px; font-weight:700; white-space:nowrap; background:var(--c-amber-soft); color:#9c6212; border:1px solid rgba(184,149,74,0.35);">Partielle</span>
+              {% elif it.compat == 'hors' %}<span style="flex-shrink:0; padding:3px 11px; border-radius:999px; font-size:11px; font-weight:600; white-space:nowrap; background:var(--c-stone-soft); color:var(--c-stone); border:1px solid rgba(107,114,128,0.25);">Hors cible</span>{% endif %}
             </div>
             {% if it.volume or it.cout_min or it.cout_max %}
             <div style="display:flex; align-items:center; gap:9px; flex-wrap:wrap; margin-top:6px;">
               {% if it.volume %}<span class="apt-meta">{{ it.volume }}</span>{% endif %}
               {% if it.cout_tag %}
-              <span title="Coût estimé de ce lot — voir la section « Prix &amp; estimation »" style="cursor:help; font-size:11.5px; color:var(--apt-ink-3); white-space:nowrap;">≈ {{ it.cout_tag }} <span style="color:var(--apt-ink-5); font-size:10px;">ⓘ</span></span>
+              <span title="Coût estimé de ce lot — voir la section « Prix &amp; estimation »" style="cursor:help; font-size:11.5px; color:var(--apt-ink-3); white-space:nowrap;">≈ {{ it.cout_tag }}</span>
               {% elif it.cout_detail %}
-              <span title="Coût estimé de ce lot — voir la section « Prix &amp; estimation »" style="cursor:help; font-size:11px; color:var(--apt-ink-4); white-space:nowrap;">coût estimé <span style="color:var(--apt-ink-5); font-size:10px;">ⓘ</span></span>
+              <span title="Coût estimé de ce lot — voir la section « Prix &amp; estimation »" style="cursor:help; font-size:11px; color:var(--apt-ink-4); white-space:nowrap;">coût estimé</span>
               {% endif %}
             </div>
             {% endif %}
