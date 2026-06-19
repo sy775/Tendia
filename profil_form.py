@@ -407,6 +407,16 @@ def parse(form, profil_existant: dict):
             _set(bloc, path_rel, _getlist(form, f"sect.ingenierie.{form_court}"))
         _set(bloc, "references_etudes", _parse_references(form, _REF_ING, erreurs))
 
+    # 5bis) Sectoriel ÉNERGIES RENOUVELABLES (enum arrays : technologies / prestations / segments)
+    if "energie_renouvelable" in presets:
+        bloc = sectoriels.setdefault("energie_renouvelable", {})
+        # Garde-fous schéma (id + identite requis) — préservés si déjà présents.
+        bloc.setdefault("id", "energie_renouvelable")
+        if not bloc.get("identite"):
+            bloc["identite"] = {"nom": (profil.get("identite") or {}).get("raison_sociale", "")}
+        for champ in ("technologies_maitrisees", "types_prestations", "segments_clients"):
+            _set(bloc, champ, _getlist(form, f"sect.energie_renouvelable.{champ}"))
+
     # 6) Formation legacy (chemins racine)
     legacy = any(form.get(f"sect.formation.{n}") is not None or _getlist(form, f"sect.formation.{n}")
                  for n, _, _ in _FORMATION)

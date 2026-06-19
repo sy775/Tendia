@@ -183,9 +183,18 @@
   {% endcall %}
   {% endif %}
 
+  {# ---------- Sectoriel Énergies renouvelables ---------- #}
+  {% if 'energie_renouvelable' in presets %}
+  {% call accordeon('Secteur · Énergies renouvelables', true) %}
+    {{ checkboxes_groupees('sect.energie_renouvelable.technologies_maitrisees', widgets.energie_renouvelable.technologies_maitrisees, 'Technologies maîtrisées') }}
+    {{ checkboxes_groupees('sect.energie_renouvelable.types_prestations', widgets.energie_renouvelable.types_prestations, 'Types de prestations (le candidat fait quoi ?)') }}
+    {{ checkboxes_groupees('sect.energie_renouvelable.segments_clients', widgets.energie_renouvelable.segments_clients, 'Segments clients') }}
+  {% endcall %}
+  {% endif %}
+
   {# ---------- Presets non encore implémentés ---------- #}
   {% for code in presets %}
-    {% if code in ['conseil', 'it', 'energie_renouvelable'] %}
+    {% if code in ['conseil', 'it'] %}
     <div class="apt-block px-6 py-4 mb-3" style="background: var(--apt-amber-soft);">
       <div class="apt-display-sm apt-fs-15">Secteur · {{ code }}</div>
       <p class="apt-prose apt-fs-13 mt-1">Schéma sectoriel <strong>{{ code }}</strong> non encore défini (Sprint D à venir). Édition non disponible pour ce preset, mais il reste activable pour le matching universel via les mots-clés.</p>

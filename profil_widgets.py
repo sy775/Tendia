@@ -97,6 +97,25 @@ _LABEL_OVERRIDES = {
     "etablissement_public_national": "Ét. public national",
     "isolation_thermique_exterieure": "Isolation thermique extérieure",
     "signalisation_horizontale": "Signalisation horizontale",
+    # EnR
+    "photovoltaique_toiture": "PV toiture", "photovoltaique_ombriere": "PV ombrière",
+    "photovoltaique_au_sol": "PV au sol", "photovoltaique_agrivoltaisme": "Agrivoltaïsme",
+    "photovoltaique_autoconsommation": "PV autoconsommation",
+    "eolien_terrestre": "Éolien terrestre", "eolien_offshore": "Éolien offshore",
+    "eolien_domestique": "Éolien domestique", "solaire_thermique": "Solaire thermique",
+    "pompe_a_chaleur": "Pompe à chaleur", "reseau_chaleur": "Réseau de chaleur",
+    "stockage_batteries": "Stockage batteries", "amo_maitrise_ouvrage": "AMO maîtrise d'ouvrage",
+    "etude_opportunite": "Étude d'opportunité", "etude_faisabilite": "Étude de faisabilité",
+    "audit_energetique": "Audit énergétique", "maitrise_oeuvre": "Maîtrise d'œuvre",
+    "epc_clef_en_main": "EPC clef en main", "fourniture_pose": "Fourniture & pose",
+    "raccordement_enedis": "Raccordement Enedis", "maintenance_preventive": "Maintenance préventive",
+    "maintenance_curative": "Maintenance curative", "exploitation_om": "Exploitation (O&M)",
+    "monitoring_supervision": "Monitoring / supervision",
+    "demantelement_recyclage": "Démantèlement / recyclage",
+    "financement_tiers_investissement": "Financement / tiers-investissement",
+    "collectivites_locales": "Collectivités locales", "etat_administrations": "État / administrations",
+    "etablissements_scolaires": "Établissements scolaires", "hopitaux_ehpad": "Hôpitaux / EHPAD",
+    "bailleurs_sociaux": "Bailleurs sociaux", "tertiaire_prive": "Tertiaire privé",
 }
 
 
@@ -153,6 +172,34 @@ GROUPAGES_ING_COMPETENCES = {
 }
 
 GROUPAGES_ING_TYPES_OUVRAGES = GROUPAGES_BTP_TYPES_OUVRAGES  # même vocabulaire
+
+GROUPAGES_ENR_TECHNOLOGIES = {
+    "Photovoltaïque": ["photovoltaique_toiture", "photovoltaique_ombriere",
+                       "photovoltaique_au_sol", "photovoltaique_agrivoltaisme",
+                       "photovoltaique_autoconsommation"],
+    "Éolien": ["eolien_terrestre", "eolien_offshore", "eolien_domestique"],
+    "Thermique / chaleur": ["solaire_thermique", "biomasse", "geothermie",
+                            "pompe_a_chaleur", "reseau_chaleur"],
+    "Hydraulique": ["hydraulique", "hydrolien"],
+    "Stockage / vecteurs": ["stockage_batteries", "hydrogene"],
+}
+
+GROUPAGES_ENR_PRESTATIONS = {
+    "Études amont / AMO": ["etude_opportunite", "etude_faisabilite", "audit_energetique",
+                           "amo_maitrise_ouvrage"],
+    "Conception / réalisation": ["maitrise_oeuvre", "epc_clef_en_main", "fourniture_pose",
+                                 "raccordement_enedis"],
+    "Exploitation / maintenance": ["maintenance_preventive", "maintenance_curative",
+                                   "exploitation_om", "monitoring_supervision"],
+    "Fin de vie / financement": ["demantelement_recyclage", "financement_tiers_investissement"],
+}
+
+GROUPAGES_ENR_SEGMENTS = {
+    "Public / collectivités": ["collectivites_locales", "etat_administrations",
+                               "etablissements_scolaires", "hopitaux_ehpad"],
+    "Logement social": ["bailleurs_sociaux"],
+    "Privé": ["industriels", "agriculteurs", "tertiaire_prive", "particuliers"],
+}
 
 GROUPAGES_TYPES_CLIENTS_PUBLICS = {
     "Territoriaux": ["commune", "communaute_communes", "communaute_agglo", "metropole",
@@ -302,6 +349,20 @@ def contexte_widgets(profil: dict) -> dict:
             "ref_types_ouvrages": options_enum("ingenierie", "types_ouvrages_etudies"),
             "ref_typologies": options_enum("ingenierie", "typologies_couvertes"),
             "ref_competences": options_enum("ingenierie", "competences_specialisees"),
+        }
+
+    if "energie_renouvelable" in presets:
+        e = sect.get("energie_renouvelable") or {}
+        ctx["energie_renouvelable"] = {
+            "technologies_maitrisees": widget_checkboxes_groupees(
+                e.get("technologies_maitrisees"), GROUPAGES_ENR_TECHNOLOGIES,
+                options_enum("energie_renouvelable", "technologies_maitrisees")),
+            "types_prestations": widget_checkboxes_groupees(
+                e.get("types_prestations"), GROUPAGES_ENR_PRESTATIONS,
+                options_enum("energie_renouvelable", "types_prestations")),
+            "segments_clients": widget_checkboxes_groupees(
+                e.get("segments_clients"), GROUPAGES_ENR_SEGMENTS,
+                options_enum("energie_renouvelable", "segments_clients")),
         }
 
     return ctx
