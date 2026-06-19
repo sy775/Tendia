@@ -652,6 +652,12 @@ def tranches_ou_lots(brief, profil):
     """
     lots = _get(brief, "lots") or []
     tranches = _get(brief, "tranches") or {}
+    # Données plus riches par lot (corps d'état, montant, description détaillée) depuis
+    # le bloc allotissement, fusionnées par numéro de lot.
+    allot_lots = ((brief or {}).get("allotissement") or {}).get("lots_detailles") or []
+    _allot_by_num = {al.get("numero"): al for al in allot_lots if isinstance(al, dict)}
+    if len(lots) <= 1 and len(allot_lots) > 1:
+        lots = allot_lots  # si lots[] vide mais allotissement détaillé → on prend celui-ci
     if len(lots) > 1:
         import re as _re
         postes = (_get(brief, "cout_realisation", "postes")) or []
@@ -676,8 +682,12 @@ def tranches_ou_lots(brief, profil):
 
         items = []
         for l in lots:
-            intit = l.get("intitule") or l.get("numero")
-            desc = l.get("description") or l.get("particularites") or l.get("objet") or ""
+            al = _allot_by_num.get(l.get("numero")) or {}
+            intit = l.get("intitule") or al.get("intitule") or l.get("numero")
+            corps = l.get("corps_etat") or al.get("corps_etat")
+            montant = l.get("montant_estime") or al.get("montant_estime")
+            domaine = l.get("domaine")  # code taxonomie (si ré-extrait) — classification fine
+            desc = l.get("description") or al.get("description") or l.get("particularites") or l.get("objet") or ""
             vol = None
             if l.get("volume_estime"):
                 _v = l["volume_estime"]
@@ -697,9 +707,10 @@ def tranches_ou_lots(brief, profil):
                 cout_tag = _fourchette_txt(cout_detail)
             items.append({
                 "numero": l.get("numero"), "intitule": intit, "description": desc,
+                "corps_etat": corps, "montant": montant, "domaine": domaine,
                 "volume": vol, "exigences": l.get("exigences_specifiques") or l.get("particularites"),
                 "cout_tag": cout_tag, "cout_detail": cout_detail,
-                "compat": _compat_lot(intit, desc, profil)})
+                "compat": _compat_lot(str(intit) + " " + str(corps or ""), desc, profil)})
         return {"mode": "lots", "lignes": items}
     tf = tranches.get("tranche_ferme")
     to = tranches.get("tranches_optionnelles") or []

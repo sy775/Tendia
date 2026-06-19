@@ -1544,24 +1544,23 @@
     {{ sec(('Détail par lot' if detail_lots.mode == 'lots' else 'Détail par tranche'), lot_teaser_parts | join(' · '), 'blue', false, IC_DOC) }}
       {% if detail_lots.mode == 'lots' %}<div style="font-size:11px; color:var(--apt-ink-4); margin-bottom:12px; line-height:1.5;">Le <strong style="color:var(--apt-gold-deep);">coût estimé</strong> par lot = ce que ça coûterait au candidat de <em>réaliser</em> ce lot (estimation Tendia, indicatif) — c'est un <strong>coût, pas le revenu/prix</strong>.</div>{% endif %}
       {% for it in detail_lots.lignes %}
-      <div style="display:flex; gap:13px; padding:13px 15px; margin-bottom:10px; background:var(--apt-pure); border:1px solid var(--apt-line-2); border-radius:11px; box-shadow:0 1px 2px rgba(15,27,61,0.03);">
+      <div style="padding:13px 16px; margin-bottom:10px; background:var(--apt-pure); border:1px solid var(--apt-line-2); border-left:3px solid var(--apt-accent); border-radius:11px; box-shadow:0 1px 2px rgba(15,27,61,0.03);">
         {% if detail_lots.mode == 'lots' %}
-          <div style="flex-shrink:0; width:25px; height:25px; border-radius:7px; background:var(--apt-accent); color:#fff; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:700; font-variant-numeric:tabular-nums; margin-top:1px;">{{ it.numero }}</div>
-          <div style="flex:1; min-width:0;">
+          <div style="min-width:0;">
             <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:10px;">
               <strong style="font-size:13.5px; color:var(--apt-ink); line-height:1.3;">{{ it.intitule }}</strong>
               {% if it.compat == 'coeur' %}<span style="flex-shrink:0; padding:3px 11px; border-radius:999px; font-size:11px; font-weight:700; white-space:nowrap; background:var(--c-green-soft); color:var(--c-green-deep); border:1px solid rgba(30,111,74,0.30);">Cœur de cible</span>
               {% elif it.compat == 'partielle' %}<span style="flex-shrink:0; padding:3px 11px; border-radius:999px; font-size:11px; font-weight:700; white-space:nowrap; background:var(--c-amber-soft); color:#9c6212; border:1px solid rgba(184,149,74,0.35);">Partielle</span>
               {% elif it.compat == 'hors' %}<span style="flex-shrink:0; padding:3px 11px; border-radius:999px; font-size:11px; font-weight:600; white-space:nowrap; background:var(--c-stone-soft); color:var(--c-stone); border:1px solid rgba(107,114,128,0.25);">Hors cible</span>{% endif %}
             </div>
-            {% if it.volume or it.cout_min or it.cout_max %}
-            <div style="display:flex; align-items:center; gap:9px; flex-wrap:wrap; margin-top:6px;">
+            {% if it.corps_etat or it.domaine or it.volume or it.montant or it.cout_tag or it.cout_detail %}
+            <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin-top:7px;">
+              {% if it.corps_etat %}<span title="Corps d'état / classification du lot" style="font-size:10.5px; font-weight:600; padding:2px 9px; border-radius:999px; background:var(--apt-accent-soft); color:var(--apt-accent);">{{ it.corps_etat }}</span>{% endif %}
+              {% if it.domaine %}<span class="apt-meta" title="Domaine taxonomie (classification fine)" style="font-style:italic;">{{ it.domaine | replace('_', ' ') }}</span>{% endif %}
               {% if it.volume %}<span class="apt-meta">{{ it.volume }}</span>{% endif %}
-              {% if it.cout_tag %}
-              <span title="Coût estimé de ce lot — voir la section « Prix &amp; estimation »" style="cursor:help; font-size:11.5px; color:var(--apt-ink-3); white-space:nowrap;">≈ {{ it.cout_tag }}</span>
-              {% elif it.cout_detail %}
-              <span title="Coût estimé de ce lot — voir la section « Prix &amp; estimation »" style="cursor:help; font-size:11px; color:var(--apt-ink-4); white-space:nowrap;">coût estimé</span>
-              {% endif %}
+              {% if it.montant %}<span style="font-size:11.5px; color:var(--apt-ink-2); font-weight:600; white-space:nowrap;">{{ it.montant | euro_short }} <span class="apt-meta" style="font-weight:400;">prix marché</span></span>{% endif %}
+              {% if it.cout_tag %}<span title="Coût estimé de réalisation de ce lot (estimation Tendia, indicatif) — voir « Prix &amp; estimation »" style="cursor:help; font-size:11.5px; color:var(--apt-gold-deep); white-space:nowrap;">≈ {{ it.cout_tag }} <span class="apt-meta" style="font-weight:400; color:var(--apt-ink-4);">coût</span></span>
+              {% elif it.cout_detail %}<span title="Coût estimé de ce lot — voir « Prix &amp; estimation »" style="cursor:help; font-size:11px; color:var(--apt-ink-4); white-space:nowrap;">coût estimé</span>{% endif %}
             </div>
             {% endif %}
             {% if it.description %}<div style="font-size:12.5px; color:var(--apt-ink-2); margin-top:7px; line-height:1.55;">{{ it.description }}</div>{% endif %}
