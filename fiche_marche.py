@@ -686,8 +686,13 @@ def tranches_ou_lots(brief, profil):
             intit = l.get("intitule") or al.get("intitule") or l.get("numero")
             corps = l.get("corps_etat") or al.get("corps_etat")
             montant = l.get("montant_estime") or al.get("montant_estime")
-            domaine = l.get("domaine")  # code taxonomie (si ré-extrait) — classification fine
             desc = l.get("description") or al.get("description") or l.get("particularites") or l.get("objet") or ""
+            # Domaine du lot : code extrait si présent, sinon dérivé de la classif IA du marché.
+            # IMPORTANT : on n'utilise QUE le texte propre au lot (intitulé + corps d'état +
+            # description PROPRE) — surtout pas `al.description` (description globale de
+            # l'allotissement), qui contaminerait tous les lots sans desc propre.
+            desc_propre = l.get("description") or l.get("particularites") or l.get("objet") or ""
+            domaine = l.get("domaine") or _lot_domaine_depuis_marche(intit, corps, desc_propre, brief)
             vol = None
             if l.get("volume_estime"):
                 _v = l["volume_estime"]
@@ -727,6 +732,33 @@ def _str(v):
     if isinstance(v, dict):
         return v.get("libelle") or v.get("description") or v.get("intitule") or str(v)
     return str(v)
+
+
+def _lot_domaine_depuis_marche(intit, corps, desc, brief):
+    """Assigne à un lot le DOMAINE du marché (classif IA `domaines_metier`) dont le libellé/
+    code matche le mieux le lot. Réutilise la classification IA déjà faite — sans nouvel appel
+    LLM. Permet un matching de lot propre (domaine vs domaines_couverts) au lieu de mots-clés."""
+    doms = [d.get("code") for d in (_get(brief, "domaines_metier") or [])
+            if isinstance(d, dict) and d.get("code")]
+    if not doms:
+        return None
+    if len(doms) == 1:
+        return doms[0]
+    try:
+        import llm_extract
+        tax = (llm_extract._charger_taxonomie() or {}).get("domaines", {})
+    except Exception:
+        tax = {}
+    lot_toks = _tokens(str(intit) + " " + str(corps or "") + " " + str(desc or ""))
+    best, best_score = None, 0
+    for code in doms:
+        info = tax.get(code) or {}
+        dtoks = _tokens((info.get("libelle") or "") + " " + (info.get("description") or "")[:140])
+        dtoks |= _tokens(code.replace("_", " "))
+        score = len(lot_toks & dtoks)
+        if score > best_score:
+            best, best_score = code, score
+    return best if best_score >= 1 else None
 
 
 def _norm_txt(s):
