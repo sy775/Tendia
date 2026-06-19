@@ -331,6 +331,45 @@ def _eval_thematique_v2(organisme: dict, marche: dict,
                   "Aucun mot-cle catalogue dans l'objet.")
 
 
+def _eval_domaines_couverts(organisme: dict, marche: dict,
+                            brief: Optional[dict]) -> dict:
+    """Matching FIN, généralisé à tous les presets : compare les domaines précis du
+    marché (taxonomie 63 domaines) aux `domaines_couverts` déclarés par le profil,
+    pondéré par le poids du domaine côté marché.
+
+    - Aucun domaine déclaré → signal neutre (compat ascendante).
+    - Marché dont AUCUN domaine n'est couvert (alors qu'un preset large matche) → faux
+      positif fortement pénalisé (ex : formation softskills attrapée via le preset conseil).
+    - Sinon → bonus proportionnel au poids des domaines couverts.
+    Chaque domaine déclaré par le user SERT donc directement au matching.
+    """
+    couverts = set(organisme.get("domaines_couverts") or [])
+    if not couverts:
+        return _motif("domaines_couverts", None, 0,
+                      "Domaines précis non déclarés au profil.")
+    sources = ((brief or {}).get("domaines_metier")
+               or (marche or {}).get("domaines_metier") or [])
+    codes, overlap, communs = [], 0.0, []
+    for d in sources:
+        code = d.get("code") if isinstance(d, dict) else d
+        if not code:
+            continue
+        codes.append(code)
+        if code in couverts:
+            p = d.get("poids") if (isinstance(d, dict) and d.get("poids") is not None) else 1.0
+            overlap += p
+            communs.append(code)
+    if not codes:
+        return _motif("domaines_couverts", None, 0, "Domaines du marche non classifies.")
+    if overlap <= 0:
+        return _motif("domaines_couverts", False, -30,
+                      f"Hors spécialité : domaine(s) du marché {codes} non couvert(s) par le profil.",
+                      valeur_organisme=sorted(couverts), valeur_marche=codes)
+    return _motif("domaines_couverts", True, int(round(min(1.0, overlap) * 28)),
+                  f"Domaine(s) précis couvert(s) : {', '.join(communs)}.",
+                  valeur_organisme=communs, valeur_marche=codes)
+
+
 def _eval_geographie_v2(organisme: dict, marche: dict,
                          brief: Optional[dict]) -> dict:
     zones_profil = organisme.get("zones_intervention", []) or []
@@ -1110,6 +1149,7 @@ def _evaluer_v2(organisme: dict, marche: dict,
 
     motifs = []
     motifs.append(_eval_preset_compatibilite(organisme, marche, presets_marche))
+    motifs.append(_eval_domaines_couverts(organisme, marche, brief))
     motifs.append(_eval_thematique_v2(organisme, marche, brief))
     motifs.append(_eval_geographie_v2(organisme, marche, brief))
     motifs.append(_eval_capacite_financiere(organisme, marche, brief))

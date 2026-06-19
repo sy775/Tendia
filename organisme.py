@@ -182,6 +182,9 @@ def template_socle_vide() -> dict:
             "agressivite_commerciale": "neutre"
         },
         "mots_cles_catalogue": [],
+        # Domaines précis couverts (codes taxonomie, ex 'energie_pv_solaire'). Matching FIN
+        # généralisé : un marché dont aucun domaine n'est ici est filtré (faux positif preset).
+        "domaines_couverts": [],
         # Acteur de proximité : si True, un marché hors des zones d'intervention est
         # fortement pénalisé (quasi disqualifiant) au lieu d'une simple décote.
         "zones_strict": False,
