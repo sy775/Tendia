@@ -163,6 +163,7 @@
 
           <!-- Verdict -->
           <div>
+            <span class="apt-verdict-wrap">
             {% if e.verdict == 'tres_pertinent' %}
               <span class="apt-verdict apt-verdict-tres-pertinent">
                 <span class="dot"></span>
@@ -184,6 +185,17 @@
                 Non pertinent
               </span>
             {% endif %}
+            {% if e.eval and e.eval.motifs %}
+              <span class="apt-elig-dash-tooltip">
+                <span class="title">Détail du score · {{ e.score }}/100</span>
+                <ul>
+                  {% for mo in e.eval.motifs if mo.points %}
+                  <li><span class="ico" style="color: {% if mo.points > 0 %}#1f8c5c{% else %}#c14b6b{% endif %};">{% if mo.points > 0 %}+{% endif %}{{ mo.points }}</span> <span>{{ mo.commentaire[:72] }}{% if mo.commentaire and mo.commentaire|length > 72 %}…{% endif %}</span></li>
+                  {% endfor %}
+                </ul>
+              </span>
+            {% endif %}
+            </span>
           </div>
 
           <!-- Titre + meta source/brief -->

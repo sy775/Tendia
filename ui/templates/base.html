@@ -658,6 +658,39 @@
   .apt-elig-dash-tooltip li:not(:last-child) {
     border-bottom: 1px dashed var(--apt-line);
   }
+
+  /* Tooltip « détail du score » sur le tag verdict (réutilise apt-elig-dash-tooltip,
+     aligné à gauche car le tag verdict est en 1ère colonne du dashboard). */
+  .apt-verdict-wrap { position: relative; cursor: help; display: inline-flex; }
+  .apt-verdict-wrap .apt-elig-dash-tooltip {
+    position: absolute;
+    bottom: calc(100% + 8px);
+    left: 0;
+    transform: translateY(-4px);
+    background: white;
+    color: var(--apt-ink-2);
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1px solid var(--apt-line-2);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+    min-width: 260px;
+    max-width: 360px;
+    font-size: 11.5px;
+    line-height: 1.55;
+    text-align: left;
+    z-index: 100;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.15s, transform 0.15s, visibility 0.15s;
+    pointer-events: none;
+    font-weight: 400;
+    white-space: normal;
+  }
+  .apt-verdict-wrap:hover .apt-elig-dash-tooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
   </style>
 </head>
 
