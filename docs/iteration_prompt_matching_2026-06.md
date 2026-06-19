@@ -246,3 +246,63 @@ Travaux », candidats probables au reclassement BTP).
 > ramènerait vraisemblablement en **BTP seul** (les lots CVC/élec sont des travaux),
 > alors que la décision §2-axe3 était « matché aux deux presets ». À trancher : soit
 > on accepte BTP-seul (plus correct), soit on garde un 2e domaine BTP technique.
+
+---
+
+## 4. Matching généralisé au DOMAINE + refonte UI (19 juin 2026, suite)
+
+### 4.1 Matching fin généralisé — `domaines_couverts` (changement majeur)
+**Problème** : le matching au niveau PRESET était trop grossier → faux positifs (formation
+softskills attrapée via le preset `conseil` de TEE27, MOE bâtiment générique via `ingenierie`).
+Presets `conseil`/`it` sans évaluateur.
+
+**Solution** (`matching._eval_domaines_couverts`) : le profil déclare ses **domaines précis
+couverts** (`domaines_couverts`, taxonomie 63 codes). Le matching compare les `domaines_metier`
+du marché à ces domaines, **pondéré par le poids du domaine côté marché** :
+- aucun domaine déclaré → neutre (compat ascendante) ;
+- marché dont AUCUN domaine n'est couvert (preset large matché) → **−30** (faux positif) ;
+- sinon → **+28 × poids**.
+
+Uniforme pour tous les presets (plus de schéma/évaluateur bespoke nécessaire), chaque domaine
+déclaré SERT, faux positifs filtrés. Validation TEE27 : 57028 → non_pertinent · 56456 PV 10% →
+à_vérifier · 56576 → 96 · MOE bâtiment générique → filtré · BTP demo 75 (pas de régression).
+
+Pondération complémentaire `_poids_preset_marche` : atténue preset/thématique/sectoriels quand
+le preset matché ne pèse qu'une fraction du marché (56456 : 99 → 40).
+
+> **Décision (Younes)** : ne PAS dissoudre le preset « ingénierie ». La maille de matching est
+> le DOMAINE ; le preset n'est qu'un regroupement de formulaire. Migration inutile.
+
+### 4.2 Taxonomie
+- `conseil_transition_energetique` (→ conseil + énergie) : comble le trou « conseil sans
+  énergie » (PCAET, schéma directeur énergie). Frontière piégeuse vs AMO projet vs conseil généraliste.
+- Re-classification **parallélisée** (8 workers) : 418 marchés en **2,7 min** (vs 21 min), 137 reclassés, 2,5 €.
+
+### 4.3 Formulaire profil
+- **Domaines couverts éditables** par onglet preset (chaque onglet = ses domaines + son sectoriel).
+- Widgets **EnR** ; conseil/it montrent leurs domaines (fin du « Sprint D »).
+- **Onglets** des presets actifs (segmented control navy). Généralisé à la création aussi.
+
+### 4.4 Fiche marché — fix majeur
+Un `{% if bareme_notation %}` englobait nav onglets + Résumé + Prix → **26 fiches** (ex 56456)
+perdaient onglets + moitié haute. Déverrouillé : seule la section Barème reste gatée. **Design
+généralisé à 232/232 fiches.**
+
+### 4.5 Refonte dashboard + explorer
+Largeur 1560px, accent verdict coloré, score coloré, barre KPI premium + pipeline compact,
+tooltips « Verdict en 90s » + « Détail du score » comme la fiche, badge « À vérifier ». Dashboard
+suit le matching affiné (écarte les non-pertinents). KPIs sur marchés affichés.
+
+### 4.6 Direction proposée (NON implémentée) — mutualiser les critères communs
+Cap validé : « droit au but » secteur (1 formulaire = domaines couverts) + **mutualiser le reste** :
+- **Géo** : déjà mutualisé (socle).
+- **Capacité** : dupliquée (socle + `capacite_chantiers` BTP + `capacite_etudes` ingé) → **1 section universelle**.
+- **Certifications & assurances** : éparpillées (ISO/RGE/Qualibat/OPQIBI/décennale) → **1 section universelle**.
+- Onglets preset = seulement le sector-specific (corps de métier, technologies EnR, typologies).
+- Refactor moyen (champs sectoriel → socle + matching qui lit `*.qualifications` → un `qualifications` universel). **Prochaine session.**
+
+### 4.7 Notes / dette
+- `scripts/ingester_profil_tee27.py` **réécrit** le profil à chaque run → **ne pas le relancer**
+  pendant les tests ; éditer via `/profil`. Zones TEE27 = 10 dépts (Normandie + Pays de la Loire).
+- Évaluateurs sectoriels conseil/it/formation = stubs au niveau preset, **mais OK** : le matching
+  fin passe par `domaines_couverts`.
