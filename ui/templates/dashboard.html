@@ -29,68 +29,50 @@
         </p>
       </div>
 
-      {# Barre KPI premium — pastilles colorées, fond blanc, filets dorés discrets #}
-      <div style="display:flex; align-items:stretch; border:1px solid var(--apt-line); border-radius:14px; overflow:hidden; background:var(--apt-pure); box-shadow:0 1px 0 var(--apt-line-3);">
-        {% for kn, kl, kc in [
-            (kpis.tres_pertinents, 'Très pertinents', 'var(--apt-accent)'),
-            (kpis.pertinents, 'Pertinents', 'var(--apt-leaf)'),
-            (kpis.a_verifier, 'À vérifier', 'var(--apt-gold-2)'),
-            (kpis.avec_brief, 'Briefs LLM', 'var(--apt-ink-3)')
-        ] %}
-        <div style="padding:15px 26px; text-align:center; {% if not loop.last %}border-right:1px solid var(--apt-line-2);{% endif %}">
-          <div style="font-size:30px; font-weight:700; color:{{ kc }}; font-variant-numeric:tabular-nums; line-height:1; letter-spacing:-0.02em;">{{ kn }}</div>
-          <div class="apt-label" style="margin-top:7px; font-size:8.5px; white-space:nowrap;">{{ kl }}</div>
+      {# Colonne droite : barre KPI premium + pipeline commercial compact #}
+      <div style="display:flex; flex-direction:column; gap:9px; align-items:flex-end;">
+        {# Barre KPI premium — pastilles colorées, fond blanc, filets discrets #}
+        <div style="display:flex; align-items:stretch; border:1px solid var(--apt-line); border-radius:14px; overflow:hidden; background:var(--apt-pure); box-shadow:0 1px 0 var(--apt-line-3);">
+          {% for kn, kl, kc in [
+              (kpis.tres_pertinents, 'Très pertinents', 'var(--apt-accent)'),
+              (kpis.pertinents, 'Pertinents', 'var(--apt-leaf)'),
+              (kpis.a_verifier, 'À vérifier', 'var(--apt-gold-2)'),
+              (kpis.avec_brief, 'Briefs LLM', 'var(--apt-ink-3)')
+          ] %}
+          <div style="padding:15px 26px; text-align:center; {% if not loop.last %}border-right:1px solid var(--apt-line-2);{% endif %}">
+            <div style="font-size:30px; font-weight:700; color:{{ kc }}; font-variant-numeric:tabular-nums; line-height:1; letter-spacing:-0.02em;">{{ kn }}</div>
+            <div class="apt-label" style="margin-top:7px; font-size:8.5px; white-space:nowrap;">{{ kl }}</div>
+          </div>
+          {% endfor %}
         </div>
-        {% endfor %}
+
+        {# Pipeline commercial — compact, sans « À évaluer » (déjà dans le titre) #}
+        {% if kpis.pipeline and (kpis.pipeline.nb_actifs + kpis.pipeline.nb_clos) > 0 %}
+        <div style="display:flex; align-items:stretch; align-self:stretch; border:1px solid var(--apt-line-2); border-radius:11px; overflow:hidden; background:var(--apt-surface);">
+          {% for st, lbl, col in [
+              ('candidate','Candidaté','#3B6FB2'),
+              ('gagne','Gagné','var(--apt-leaf)'),
+              ('perdu','Perdu','var(--apt-rose)'),
+              ('abandonne','Abandonné','var(--apt-ink-4)')
+          ] %}
+          <div style="flex:1; padding:7px 12px; text-align:center; border-right:1px solid var(--apt-line-2);">
+            <div style="font-size:16px; font-weight:700; color:{{ col }}; font-variant-numeric:tabular-nums; line-height:1;">{{ kpis.pipeline['nb_' + st] }}</div>
+            <div class="apt-label" style="font-size:7.5px; margin-top:3px;">{{ lbl }}</div>
+          </div>
+          {% endfor %}
+          {% if kpis.pipeline.taux_conversion_pct is not none %}
+          <div style="padding:7px 14px; text-align:center; background:var(--apt-accent-soft);">
+            <div style="font-size:16px; font-weight:700; color:var(--apt-accent); font-variant-numeric:tabular-nums; line-height:1;">{{ kpis.pipeline.taux_conversion_pct }}<span style="font-size:10px;">%</span></div>
+            <div class="apt-label" style="font-size:7.5px; margin-top:3px;">Conv.</div>
+          </div>
+          {% endif %}
+        </div>
+        {% endif %}
       </div>
     </div>
     <div style="height:1px; background:linear-gradient(90deg, var(--apt-gold) 0%, var(--apt-line) 18%, var(--apt-line-2) 100%); margin-top:26px;"></div>
   </header>
 
-  <!-- ====================================================================
-       PIPELINE COMMERCIAL — cycle de vie des marchés
-       ==================================================================== -->
-  {% if kpis.pipeline and (kpis.pipeline.nb_actifs + kpis.pipeline.nb_clos) > 0 %}
-  <section class="mb-12 fade-up fade-up-1">
-    <div class="flex items-end justify-between mb-5">
-      <div>
-        <h2 class="apt-display-md" style="font-size: 22px; color: var(--apt-ink); letter-spacing: -0.02em;">
-          Pipeline commercial
-        </h2>
-        <p class="apt-meta mt-1">Cycle de vie des appels d'offre</p>
-      </div>
-      {% if kpis.pipeline.taux_conversion_pct is not none %}
-      <div class="text-right">
-        <div class="apt-label" style="font-size: 9.5px;">Taux de conversion</div>
-        <div class="mt-1" style="font-size: 22px; font-weight: 600; color: var(--apt-ink); font-variant-numeric: tabular-nums;">
-          {{ kpis.pipeline.taux_conversion_pct }}<span style="font-size: 13px; color: var(--apt-ink-4);">%</span>
-        </div>
-        <div class="apt-meta mt-0.5" style="font-size: 10px;">{{ kpis.pipeline.nb_gagne }} gagnés / {{ kpis.pipeline.nb_gagne + kpis.pipeline.nb_perdu }} décidés</div>
-      </div>
-      {% endif %}
-    </div>
-
-    <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px;">
-      {% for col_statut, col_label, col_couleur in [
-          ('a_evaluer', 'À évaluer', '#9b958c'),
-          ('candidate', 'Candidaté', '#3b6fb2'),
-          ('gagne', 'Gagné', '#1f8c5c'),
-          ('perdu', 'Perdu', '#c14b6b'),
-          ('abandonne', 'Abandonné', '#9b958c')
-      ] %}
-      {% set count = kpis.pipeline['nb_' + col_statut] %}
-      <div style="background: white; border: 1px solid var(--apt-line-2); border-radius: 8px; padding: 11px 13px; border-top: 3px solid {{ col_couleur }};">
-        <div style="font-size: 10px; color: var(--apt-ink-4); font-weight: 600; text-transform: uppercase; letter-spacing: 0.4px;">{{ col_label }}</div>
-        <div style="font-size: 24px; font-weight: 600; color: {{ col_couleur }}; font-variant-numeric: tabular-nums; margin-top: 4px; line-height: 1;">{{ count }}</div>
-      </div>
-      {% endfor %}
-    </div>
-  </section>
-  {% endif %}
-
-  <!-- ==================================================================== -->
-  <!--      ANCRE FIN STATS - DÉBUT LISTE                                   -->
-  <!-- ==================================================================== -->
 
   <!-- ====================================================================
        LISTE MARCHÉS — pas de tableau, des lignes éditoriales
