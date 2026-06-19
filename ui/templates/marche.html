@@ -1755,6 +1755,22 @@
         {% if marche.url_dce %}<a href="{{ marche.url_dce }}" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:6px; padding:9px 13px; border:1px solid var(--apt-line); border-radius:8px; text-decoration:none; font-size:12.5px; color:var(--apt-ink-2); font-weight:600;">Plateforme ↗</a>{% endif %}
       </div>
 
+      {# Allotissement — peut-on candidater par lot ? (impacte la pertinence si profil partiel) #}
+      {% if brief.allotissement and (brief.allotissement.nb_lots or candidature_par_lot is not none) %}
+      <div style="display:flex; align-items:center; gap:9px; padding:10px 14px; border-radius:10px; margin-bottom:18px;
+        {% if candidature_par_lot %}background:var(--apt-leaf-soft); border:1px solid var(--apt-leaf);
+        {% elif candidature_par_lot is false %}background:var(--apt-gold-soft); border:1px solid var(--apt-gold);
+        {% else %}background:var(--apt-surface); border:1px solid var(--apt-line-2);{% endif %}">
+        <span style="font-size:15px;">{% if candidature_par_lot %}✓{% elif candidature_par_lot is false %}⚠{% else %}◆{% endif %}</span>
+        <div style="font-size:12.5px; color:var(--apt-ink-2); line-height:1.5;">
+          {% if brief.allotissement.nb_lots %}<strong style="color:var(--apt-ink);">{{ brief.allotissement.nb_lots }} lots</strong> · {% endif %}
+          {% if candidature_par_lot %}<strong style="color:var(--apt-leaf);">Candidature par lot possible</strong> — vous pouvez ne déposer que sur vos lots.
+          {% elif candidature_par_lot is false %}<strong style="color:var(--apt-gold-deep);">Offre globale obligatoire</strong> — il faut couvrir l'ensemble du marché.
+          {% else %}Vérifiez dans le RC si la candidature par lot est possible.{% endif %}
+        </div>
+      </div>
+      {% endif %}
+
       {# 2. Le dossier à déposer — 3 volets #}
       <div style="font-size:11px; font-weight:700; color:var(--apt-ink-4); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:10px;">Le dossier à déposer</div>
       <div style="display:flex; flex-direction:column; gap:10px; margin-bottom:18px;">

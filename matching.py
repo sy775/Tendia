@@ -97,6 +97,27 @@ def _poids_preset_marche(brief: Optional[dict], marche: dict, preset_code: str) 
     return min(1.0, total) if vus_poids else 1.0
 
 
+def _candidature_par_lot(brief: Optional[dict]):
+    """True si on peut candidater lot par lot, False si offre GLOBALE obligatoire, None inconnu.
+    Lit le champ structuré `allotissement.candidature_par_lot` si présent, sinon parse la
+    description. Déterminant quand le profil ne couvre qu'une PARTIE du marché."""
+    allot = (brief or {}).get("allotissement") or {}
+    if not allot:
+        return None
+    v = allot.get("candidature_par_lot")
+    if isinstance(v, bool):
+        return v
+    desc = _normaliser(str(allot.get("description") or ""))
+    if any(x in desc for x in ("offre globale", "ensemble des lots", "tous les lots obligat",
+                               "marche global", "globale obligatoire", "un seul titulaire",
+                               "ne peuvent soumissionner que pour l ensemble", "offre unique")):
+        return False
+    if any(x in desc for x in ("separement", "par lot", "un ou plusieurs lots", "chaque lot",
+                               "lot par lot", "soumissionner pour un")):
+        return True
+    return None
+
+
 def _ponderer_motifs_sectoriels(motifs: list, facteur: float) -> list:
     """Atténue les points POSITIFS des motifs sectoriels par `facteur` (préserve les
     pénalités go/no-go négatives, par prudence)."""
@@ -1183,6 +1204,19 @@ def _evaluer_v2(organisme: dict, marche: dict,
                         m["critere"] in ("preset_compatibilite", "thematique")
                         or m["critere"].startswith(("enr_", "btp_", "ing_", "sectoriel_"))):
                     m["points"] = int(round(m["points"] * _f))
+        # Allotissement : quand le profil ne couvre qu'une PARTIE du marché (poids faible),
+        # la possibilité de candidater PAR LOT change tout (on vise juste sa partie).
+        if _poids < 0.6:
+            par_lot = _candidature_par_lot(brief)
+            if par_lot is False:
+                motifs.append(_motif("allotissement", False, -25,
+                    "Offre GLOBALE obligatoire alors que votre profil ne couvre qu'une part du "
+                    "marché → il faudrait tout réaliser : peu pertinent.",
+                    valeur_marche="offre globale"))
+            elif par_lot is True:
+                motifs.append(_motif("allotissement", True, 7,
+                    "Candidature PAR LOT possible → vous pouvez ne viser que vos lots.",
+                    valeur_marche="par lot"))
 
     motifs.append(_eval_synergie_v2(motifs))
 
