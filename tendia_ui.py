@@ -1304,6 +1304,7 @@ def detail_marche(id_marche):
     verdict_90 = fiche_marche.verdict_90_secondes(brief or {}, evaluation, profil or {}, verrous)
     blocs_sectoriels = fiche_marche.bloc_sectoriel_pour_marche(brief or {}, presets_resolus, profil or {})
     detail_lots = fiche_marche.tranches_ou_lots(brief or {}, profil or {})
+    lots_pertinents = fiche_marche.synthese_lots_pertinents(brief or {}, profil or {})
     richesse = fiche_marche.calculer_richesse_brief(brief or {}, presets_resolus, marche)
 
     # Voie 3 — comparables DECP (calibration du montant sur contrats réels exécutés).
@@ -1333,6 +1334,7 @@ def detail_marche(id_marche):
         verdict_90=verdict_90,
         blocs_sectoriels=blocs_sectoriels,
         detail_lots=detail_lots,
+        lots_pertinents=lots_pertinents,
         richesse=richesse,
         dce_contenu=marche.get("dce_contenu"),
         dce_raison_contenu=marche.get("dce_raison_contenu"),

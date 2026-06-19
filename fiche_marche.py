@@ -717,24 +717,73 @@ def _str(v):
     return str(v)
 
 
+def _norm_txt(s):
+    import unicodedata
+    norm = unicodedata.normalize("NFKD", str(s or "").lower())
+    norm = "".join(c for c in norm if not unicodedata.combining(c))
+    return re.sub(r"[^a-z0-9]+", " ", norm)
+
+
 def _compat_lot(intit, desc, profil):
-    """Mini-scoring de compatibilité d'un lot vs corps de métier du profil."""
-    toks = _tokens(str(intit) + " " + str(desc))
-    if not toks:
+    """Compat d'un lot vs profil par SUBSTRING de mots-clés FORTS (≥6 caractères) : technos
+    EnR + corps de métier + compétences + mots-clés catalogue. Le substring (vs token overlap)
+    évite les faux positifs des mots génériques (« bois » de « bois énergie » dans « charpente
+    bois »). Fallback quand le lot n'a pas de `domaine` extrait."""
+    txt = _norm_txt(str(intit) + " " + str(desc))
+    if not txt.strip():
         return "?"
-    profil_toks = set()
-    for c in (_profil_sectoriel(profil, "btp").get("corps_de_metier") or []):
-        profil_toks |= _tokens(c)
-    for c in (_profil_sectoriel(profil, "ingenierie").get("competences_specialisees") or []):
-        profil_toks |= _tokens(c)
-    if not profil_toks:
+    kws = set()
+    for k in ((profil or {}).get("mots_cles_catalogue") or []):
+        n = _norm_txt(k).strip()
+        if len(n) >= 6:
+            kws.add(n)
+    for sec, champ in (("energie_renouvelable", "technologies_maitrisees"),
+                       ("btp", "corps_de_metier"),
+                       ("ingenierie", "competences_specialisees")):
+        for c in (_profil_sectoriel(profil, sec).get(champ) or []):
+            n = _norm_txt(str(c).replace("_", " ")).strip()
+            if len(n) >= 6:
+                kws.add(n)
+    if not kws:
         return "?"
-    inter = toks & profil_toks
-    if len(inter) >= 2:
+    hits = sum(1 for k in kws if k in txt)
+    if hits >= 2:
         return "coeur"
-    if inter:
+    if hits == 1:
         return "partielle"
     return "hors"
+
+
+def synthese_lots_pertinents(brief, profil):
+    """Sur un marché multi-lots, repère les lots PERTINENTS pour le profil (cœur/partielle)
+    et somme leur coût estimé. Retourne {nb, total_lots, cmin, cmax, intitules} ou None.
+    Rend visible qu'un marché n'est qu'une opportunité PARTIELLE (ex 1 lot PV / 14)."""
+    lots = _get(brief, "lots") or []
+    if len(lots) < 2:
+        return None
+    couverts = set((profil or {}).get("domaines_couverts") or [])
+    nb, cmin, cmax, intitules, has_cout = 0, 0, 0, [], False
+    for l in lots:
+        intit = l.get("intitule") or l.get("numero")
+        desc = l.get("description") or l.get("particularites") or ""
+        dom = l.get("domaine")
+        # Priorité au domaine du lot (extrait par le LLM) si dispo ; sinon fallback mots-clés.
+        if dom and couverts:
+            pertinent = dom in couverts
+        else:
+            pertinent = _compat_lot(intit, desc, profil) in ("coeur", "partielle")
+        if pertinent:
+            nb += 1
+            intitules.append(str(intit))
+            a, b = l.get("cout_estime_min_eur"), l.get("cout_estime_max_eur")
+            if isinstance(a, (int, float)) and isinstance(b, (int, float)):
+                cmin += a
+                cmax += b
+                has_cout = True
+    if nb == 0:
+        return None
+    return {"nb": nb, "total_lots": len(lots), "intitules": intitules,
+            "cmin": cmin if has_cout else None, "cmax": cmax if has_cout else None}
 
 
 # ===========================================================================

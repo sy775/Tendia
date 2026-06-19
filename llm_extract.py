@@ -491,6 +491,7 @@ Extrais les informations dans ce schéma JSON :
     {{
       "numero": 1,
       "intitule": "Intitulé exact du lot tel qu'écrit dans le RC",
+      "domaine": "Code taxonomie du métier DOMINANT de CE lot précis (MÊME taxonomie que `domaines_metier`, ex: 'btp_gros_oeuvre', 'energie_pv_solaire', 'btp_reseaux_divers'). Permet de savoir quel lot relève de quel métier → matching candidat par lot. null si indéterminable.",
       "zone_geographique": "Zone si le lot est géographiquement défini, ex: code région (NAQ, IDF), département, ville. null sinon.",
       "volume_estime": null,
       "volume_estime_unite": "Unité du volume de ce lot, adaptée au secteur : 'm²', 'kWc', 'jours-homme', 'utilisateurs', 'bénéficiaires', 'tonnes', etc. Si non précisé, null.",

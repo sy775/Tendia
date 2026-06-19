@@ -903,6 +903,15 @@
       </div>
       {% endif %}
 
+      {# Ligne sobre « lots pertinents pour votre profil » (ex : 1 lot PV sur 14). #}
+      {% if lots_pertinents %}
+      <div style="display:flex; align-items:center; gap:8px; margin-bottom:14px; font-size:12.5px; color:var(--apt-ink-2);"
+           title="{{ lots_pertinents.intitules[:5] | join(' · ') }}">
+        <span style="width:6px; height:6px; border-radius:999px; background:var(--apt-gold); flex-shrink:0;"></span>
+        <span><strong style="color:var(--apt-ink);">{{ lots_pertinents.nb }}/{{ lots_pertinents.total_lots }} lot{{ 's' if lots_pertinents.nb > 1 }}</strong> pertinent{{ 's' if lots_pertinents.nb > 1 }} pour votre profil{% if lots_pertinents.cmin %} · coût estimé ≈ {{ lots_pertinents.cmin | euro_short }}–{{ lots_pertinents.cmax | euro_short }}{% endif %}</span>
+      </div>
+      {% endif %}
+
       {# KPIs compacts inline — sans cellule vide, sans icône #}
       {% set kpis_aff = [] %}
       {% for k in kpi_cards %}{% if k.valeur and k.valeur not in ('—', '', none) %}{% set _ = kpis_aff.append({'label': k.label, 'valeur': k.valeur}) %}{% endif %}{% endfor %}
