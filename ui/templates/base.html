@@ -659,26 +659,27 @@
     border-bottom: 1px dashed var(--apt-line);
   }
 
-  /* Tooltip « détail du score » sur le tag verdict (réutilise apt-elig-dash-tooltip,
-     aligné à gauche car le tag verdict est en 1ère colonne du dashboard). */
+  /* Tooltip « détail du score » sur le tag verdict (réutilise apt-elig-dash-tooltip).
+     Positionné EN DESSOUS → pas de découpe sur la 1re ligne. */
   .apt-verdict-wrap { position: relative; cursor: help; display: inline-flex; }
   .apt-verdict-wrap .apt-elig-dash-tooltip {
     position: absolute;
-    bottom: calc(100% + 8px);
+    top: calc(100% + 8px);
+    bottom: auto;
     left: 0;
-    transform: translateY(-4px);
+    transform: translateY(4px);
     background: white;
     color: var(--apt-ink-2);
     padding: 10px 12px;
     border-radius: 8px;
     border: 1px solid var(--apt-line-2);
-    box-shadow: 0 4px 16px rgba(0,0,0,0.12);
-    min-width: 260px;
-    max-width: 360px;
+    box-shadow: 0 6px 22px rgba(15,27,61,0.13);
+    min-width: 270px;
+    max-width: 380px;
     font-size: 11.5px;
     line-height: 1.55;
     text-align: left;
-    z-index: 100;
+    z-index: 200;
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.15s, transform 0.15s, visibility 0.15s;
@@ -690,6 +691,53 @@
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
+  }
+
+  /* ===== Liste marchés — composants partagés (dashboard + explorer) =====
+     Langage visuel commun : accent vertical coloré par verdict (variable --vc). */
+  .va-tres_pertinent { --vc: var(--apt-accent); --vc-soft: var(--apt-accent-soft); }
+  .va-pertinent      { --vc: var(--apt-leaf);   --vc-soft: var(--apt-leaf-soft); }
+  .va-a_verifier     { --vc: var(--apt-gold-2); --vc-soft: var(--apt-gold-soft); }
+  .va-non_pertinent  { --vc: var(--apt-ink-5);  --vc-soft: rgba(15,27,61,0.05); }
+
+  /* Ligne dashboard : barre d'accent à gauche + hover surface */
+  .apt-mkt-row {
+    border-left: 3px solid var(--vc, transparent);
+    transition: background .14s ease, box-shadow .14s ease;
+  }
+  .apt-mkt-row:hover {
+    background: var(--apt-surface);
+    box-shadow: inset 0 0 0 1px var(--apt-line-2);
+  }
+  .apt-score-n {
+    font-variant-numeric: tabular-nums;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--vc, var(--apt-ink));
+  }
+  /* Pastille verdict compacte (réutilisable hors .apt-verdict historique) */
+  .apt-vchip {
+    display: inline-flex; align-items: center; gap: 5px;
+    padding: 2px 9px; border-radius: 999px;
+    font-size: 10.5px; font-weight: 650; letter-spacing: 0.1px;
+    background: var(--vc-soft); color: var(--vc);
+  }
+  .apt-vchip .dot { width: 5px; height: 5px; border-radius: 999px; background: currentColor; flex-shrink: 0; }
+
+  /* Carte explorer : accent gauche coloré + hover surélevé */
+  .apt-mkt-card {
+    background: var(--apt-pure);
+    border: 1px solid var(--apt-line-2);
+    border-left: 3px solid var(--vc, var(--apt-ink-6));
+    border-radius: 10px;
+    padding: 13px 16px;
+    transition: border-color .14s ease, box-shadow .14s ease, transform .14s ease;
+  }
+  .apt-mkt-card:hover {
+    box-shadow: 0 6px 20px rgba(15,27,61,0.08);
+    transform: translateY(-1px);
+    border-color: var(--apt-line);
+    border-left-color: var(--vc);
   }
   </style>
 </head>

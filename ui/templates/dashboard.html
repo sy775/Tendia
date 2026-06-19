@@ -3,84 +3,49 @@
 {% block title %}Dashboard — Tendia{% endblock %}
 
 {% block content %}
-<div class="apt-mw-1180 mx-auto px-14 pt-16 pb-20">
+<div class="apt-dash" style="max-width: 1560px; margin: 0 auto; padding: 34px 40px 80px;">
 
   <!-- ====================================================================
-       HERO ÉDITORIAL
+       HEADER — titre éditorial + barre KPI premium
        ==================================================================== -->
-  <header class="mb-16 fade-up">
-    <div class="flex items-end justify-between gap-10">
-      <div class="max-w-2xl">
-        <div class="apt-eyebrow mb-4 flex items-center gap-2">
-          <span class="apt-live-dot inline-block w-1.5 h-1.5 rounded-full" style="background: var(--apt-accent);"></span>
+  <header class="fade-up" style="margin-bottom: 30px;">
+    <div style="display:flex; align-items:flex-end; justify-content:space-between; gap:48px; flex-wrap:wrap;">
+      <div style="min-width:0;">
+        <div class="apt-eyebrow" style="display:flex; align-items:center; gap:8px; margin-bottom:13px;">
+          <span style="width:6px; height:6px; border-radius:999px; background:var(--apt-gold);"></span>
           Veille du {{ now | date_fr }}
         </div>
-        <h1 class="apt-display apt-fs-68 mb-5" style="color: var(--apt-ink);">
-          {{ kpis.actifs_total }} marché{{ 's' if kpis.actifs_total != 1 else '' }} {% if kpis.filtre_preset_actif %}pertinent{{ 's' if kpis.actifs_total != 1 else '' }}{% else %}actif{{ 's' if kpis.actifs_total != 1 else '' }}{% endif %}
+        <h1 class="apt-display" style="font-size:58px; line-height:1.0; color:var(--apt-ink); letter-spacing:-0.03em;">
+          {{ kpis.actifs_total }}<span style="color:var(--apt-ink-4); font-weight:600; font-size:34px; letter-spacing:-0.02em; margin-left:14px;">marché{{ 's' if kpis.actifs_total != 1 else '' }} {% if kpis.filtre_preset_actif %}pertinent{{ 's' if kpis.actifs_total != 1 else '' }}{% else %}actif{{ 's' if kpis.actifs_total != 1 else '' }}{% endif %}</span>
         </h1>
-        <p class="apt-prose max-w-xl" style="color: var(--apt-ink-3);">
+        <p style="margin-top:15px; font-size:14px; color:var(--apt-ink-3); line-height:1.5;">
           {% if organisme %}
           Triés par pertinence pour
-          <span style="color: var(--apt-ink); font-weight: 500;">{{ organisme.identite.nom }}</span>.
+          <span style="color:var(--apt-ink); font-weight:600;">{{ organisme.identite.nom }}</span>
+          {% if kpis.filtre_preset_actif %}<span style="color:var(--apt-ink-4);"> · {{ kpis.nb_actifs_base }} marchés actifs au total</span>{% endif %}.
           {% else %}
           Aucun profil actif. <a href="/profil" class="apt-link">Configurer le profil</a> pour activer le scoring.
           {% endif %}
         </p>
       </div>
 
-      <div class="text-right">
-        <div class="apt-label" style="font-size: 9.5px;">Mise à jour</div>
-        <div class="apt-mono mt-1.5" style="font-size: 12px; color: var(--apt-ink-3);">
-          {{ now.strftime('%d.%m.%Y · %Hh%M') }}
+      {# Barre KPI premium — pastilles colorées, fond blanc, filets dorés discrets #}
+      <div style="display:flex; align-items:stretch; border:1px solid var(--apt-line); border-radius:14px; overflow:hidden; background:var(--apt-pure); box-shadow:0 1px 0 var(--apt-line-3);">
+        {% for kn, kl, kc in [
+            (kpis.tres_pertinents, 'Très pertinents', 'var(--apt-accent)'),
+            (kpis.pertinents, 'Pertinents', 'var(--apt-leaf)'),
+            (kpis.a_verifier, 'À vérifier', 'var(--apt-gold-2)'),
+            (kpis.avec_brief, 'Briefs LLM', 'var(--apt-ink-3)')
+        ] %}
+        <div style="padding:15px 26px; text-align:center; {% if not loop.last %}border-right:1px solid var(--apt-line-2);{% endif %}">
+          <div style="font-size:30px; font-weight:700; color:{{ kc }}; font-variant-numeric:tabular-nums; line-height:1; letter-spacing:-0.02em;">{{ kn }}</div>
+          <div class="apt-label" style="margin-top:7px; font-size:8.5px; white-space:nowrap;">{{ kl }}</div>
         </div>
+        {% endfor %}
       </div>
     </div>
+    <div style="height:1px; background:linear-gradient(90deg, var(--apt-gold) 0%, var(--apt-line) 18%, var(--apt-line-2) 100%); margin-top:26px;"></div>
   </header>
-
-  <!-- ====================================================================
-       STATS LINE — pas de boîtes, juste de la typo séparée par des filets
-       ==================================================================== -->
-  <section class="mb-16 fade-up fade-up-1">
-    <div class="apt-divider mb-9"></div>
-
-    <div class="grid grid-cols-4 gap-0">
-
-      <div class="pr-8 border-r" style="border-color: var(--apt-line);">
-        <div class="apt-label mb-3">{% if kpis.filtre_preset_actif %}Pertinents{% else %}Actifs{% endif %}</div>
-        <div class="flex items-baseline gap-2">
-          <span class="apt-stat-value">{{ kpis.actifs_total }}</span>
-          <span class="apt-stat-unit" style="font-size: 12px;">{% if kpis.filtre_preset_actif %}/ {{ kpis.nb_actifs_base }} actifs{% else %}/ {{ kpis.marches_total }} en base{% endif %}</span>
-        </div>
-      </div>
-
-      <div class="pl-8 pr-8 border-r" style="border-color: var(--apt-line);">
-        <div class="apt-label mb-3 flex items-center gap-2">
-          <span class="w-1.5 h-1.5 rounded-full" style="background: var(--apt-accent);"></span>
-          Très pertinents
-        </div>
-        <div class="apt-stat-value apt-stat-value-accent">{{ kpis.tres_pertinents }}</div>
-      </div>
-
-      <div class="pl-8 pr-8 border-r" style="border-color: var(--apt-line);">
-        <div class="apt-label mb-3 flex items-center gap-2">
-          <span class="w-1.5 h-1.5 rounded-full" style="background: var(--apt-leaf);"></span>
-          Pertinents
-        </div>
-        <div class="apt-stat-value" style="color: var(--apt-leaf);">{{ kpis.pertinents }}</div>
-      </div>
-
-      <div class="pl-8">
-        <div class="apt-label mb-3">Briefs LLM</div>
-        <div class="flex items-baseline gap-2">
-          <span class="apt-stat-value">{{ kpis.avec_brief }}</span>
-          <span class="apt-stat-unit" style="font-size: 12px;">/ {{ kpis.actifs_total }} marchés</span>
-        </div>
-      </div>
-
-    </div>
-
-    <div class="apt-divider mt-9"></div>
-  </section>
 
   <!-- ====================================================================
        PIPELINE COMMERCIAL — cycle de vie des marchés
@@ -132,26 +97,26 @@
        ==================================================================== -->
   <section class="fade-up fade-up-2">
 
-    <div class="flex items-end justify-between mb-8">
-      <div>
-        <h2 class="apt-display-md" style="font-size: 28px; color: var(--apt-ink);">
-          Marchés en cours
+    <div class="flex items-end justify-between" style="margin-bottom:18px;">
+      <div style="display:flex; align-items:baseline; gap:12px;">
+        <h2 class="apt-display-md" style="font-size: 22px; color: var(--apt-ink);">
+          Marchés à traiter
         </h2>
-        <p class="apt-meta mt-1.5">Triés par pertinence (in-zone d'abord), activité prioritaire, puis score</p>
+        <span class="apt-meta">— triés par score de pertinence</span>
       </div>
       <div class="apt-label">{{ marches_enriched|length }} entrée{{ 's' if marches_enriched|length != 1 else '' }}</div>
     </div>
 
     {% if marches_enriched %}
-    <div class="apt-block overflow-hidden">
+    <div class="apt-block overflow-hidden" style="border-radius:14px;">
 
       <!-- En-tête colonnes (très discret) -->
-      <div class="grid items-center px-7 py-3.5 apt-label" style="grid-template-columns: 180px minmax(0, 1fr) 200px 100px 110px 70px; background: var(--apt-surface); border-bottom: 1px solid var(--apt-line-2); font-size: 9.5px;">
+      <div class="grid items-center apt-label" style="grid-template-columns: 158px minmax(0, 1fr) 206px 112px 116px 74px; column-gap:14px; padding:13px 24px; background: var(--apt-surface); border-bottom: 1px solid var(--apt-line-2); font-size: 9px;">
         <div>Verdict</div>
         <div>Intitulé</div>
         <div>Acheteur</div>
-        <div class="text-right">Montant</div>
-        <div>Date limite</div>
+        <div class="text-right">Montant est.</div>
+        <div>Échéance</div>
         <div class="text-right">Score</div>
       </div>
 
@@ -159,7 +124,7 @@
       {% for e in marches_enriched %}
       {% set m = e.marche %}
       <a href="/marche/{{ m.id }}" class="block">
-        <div class="apt-row grid items-center" style="grid-template-columns: 180px minmax(0, 1fr) 200px 100px 110px 70px; padding: 20px 28px;">
+        <div class="apt-row grid items-center va-{{ e.verdict or 'non_pertinent' }}" style="grid-template-columns: 158px minmax(0, 1fr) 206px 112px 116px 74px; padding: 15px 24px 15px 21px; column-gap: 14px; border-left: 3px solid var(--vc);">
 
           <!-- Verdict -->
           <div>
@@ -302,8 +267,8 @@
 
           <!-- Score -->
           <div class="text-right">
-            <span class="apt-num" style="font-size: 22px; color: var(--apt-ink);">{{ e.score }}</span>
-            <span class="apt-meta" style="color: var(--apt-ink-5);">/100</span>
+            <span class="apt-score-n" style="font-size: 24px;">{{ e.score }}</span>
+            <span class="apt-meta" style="color: var(--apt-ink-5); font-size:10px;">/100</span>
           </div>
 
         </div>

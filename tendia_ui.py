@@ -564,6 +564,7 @@ def dashboard():
         "tres_pertinents": sum(1 for e in enriched
                                   if e["verdict"] == "tres_pertinent"),
         "pertinents": sum(1 for e in enriched if e["verdict"] == "pertinent"),
+        "a_verifier": sum(1 for e in enriched if e["verdict"] == "a_verifier"),
         "avec_brief": sum(1 for e in enriched if e["a_brief_llm"]),
         "marches_total": len(marches),
         # Pipeline commercial
