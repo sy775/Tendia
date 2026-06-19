@@ -1,8 +1,28 @@
 # Itération — corrections UI/critères, plan prompt & matching multi-preset
 
-Session du 19 juin 2026. Trois volets : (1) modifications déjà appliquées,
+Session du 19 juin 2026. Quatre volets : (1) modifications déjà appliquées,
 (2) plan d'optimisation du prompt d'extraction (préparé, **non lancé**),
-(3) constat de conception sur le matching multi-preset (entreprises diversifiées).
+(3) matching multi-preset pour entreprises diversifiées (**implémenté**),
+(4) matching généralisé au DOMAINE + chantier LOTS + refonte UI (**implémenté**).
+
+> **Doc faisant autorité sur l'état courant.** `docs/passation_claude.md` reste
+> l'onboarding canonique mais ses chiffres sont datés du 13-15 juin (cf. §4.10 ici
+> pour l'état vérifié au 19 juin).
+
+---
+
+## TL;DR — état au 19 juin 2026
+
+- **Fait & en place** : matching généralisé au **domaine** (`domaines_couverts`, 63 codes) ·
+  pondération par **priorité de preset** (1/2/3) · évaluateur **EnR** + **géo stricte**
+  (`zones_strict`) · taxonomie 56→**63 codes** · **chantier LOTS** (pertinence lot par lot
+  via classif IA, allotissement→matching) · refonte dashboard/explorer/fiche.
+- **Préparé, NON lancé** : passe unique de ré-extraction (§2) regroupant ancrage coût/lots,
+  routage multi-preset, champ « pièces à fournir » — change `PROMPT_V2_SHA`.
+- **À FAIRE prochaine session** (§4.8) : peupler `lots[].domaine` + `conseil_transition_energetique`
+  à l'extraction ; mutualiser critères communs (capacité + certifications → sections universelles, §4.6).
+- **Branche** : `feat/decp-sprint-3`, **non mergée sur `master`**.
+- **Profil de test actif** : TEE27. **Marché-témoin** : `/marche/BOAMP-26-56456`.
 
 ---
 
@@ -121,10 +141,10 @@ signature électronique / nombre d'exemplaires ?
 
 ---
 
-## 3. Constat — matching multi-preset & entreprises diversifiées
+## 3. Matching multi-preset & entreprises diversifiées (constat → implémenté)
 
 **Remarque Younes** : « le système match tous les preset au même poids, et n'est pas
-designé pour des entreprises diversifiées ». **Confirmé.**
+designé pour des entreprises diversifiées ». **Confirmé, puis corrigé** (cf. ✅ ci-dessous).
 
 ### Ce que fait le moteur (`matching.py`, `_evaluer_v2` l.906-942)
 - **`_eval_preset_compatibilite`** (l.351-372) : **+20 forfaitaire** dès qu'il existe
@@ -354,6 +374,39 @@ pertinence **lot par lot** dans la fiche (allotissement). Décisions et état :
 
 ### 4.9 État serveur / vérif rapide
 - Serveur : `python tendia_ui.py` (port 5000, debug=False) → **redémarrer à chaque changement**.
-- Profil actif de test = **TEE27** (EnR/ingénierie/conseil, 10 dépts). Marché-témoin lots =
+- Profil actif de test = **TEE27** (EnR/ingénierie/conseil). Marché-témoin lots =
   **`/marche/BOAMP-26-56456`** (14 lots, doit montrer LOT 14 PV en cœur de cible).
-- Tous les commits du chantier lots sont sur `master` (pas encore mergé `main`).
+- ⚠️ **Branche** : tous les commits du chantier lots sont sur **`feat/decp-sprint-3`**,
+  **PAS mergés sur `master`** (master pointe encore sur `1ee9412`). À merger quand validé.
+
+### 4.10 Tour de l'appli — vérifié le 19 juin 2026 (run de passation)
+Serveur lancé, navigation des pages principales : **toutes 200**.
+
+| Page | Statut | Observé |
+|---|---|---|
+| `/` (dashboard) | 200 | 3 `tres_pertinent`, 16 `pertinent`, 1 `à vérifier` (profil TEE27) |
+| `/explorer` | 200 | OK |
+| `/profil` | 200 | OK |
+| `/marche/BOAMP-26-56456` | 200 | **LOT 14 PHOTOVOLTAIQUE = Cœur de cible** ; 13 lots BTP = Hors cible. Chantier lots **validé en réel.** |
+| `/concurrence` `/veille` `/decp` | 200 | OK |
+
+**État réel de la base (≠ chiffres des passations antérieures, batchs downloaders passés depuis)** :
+
+| Collection / champ | Valeur |
+|---|---:|
+| `marches` | 422 |
+| `classifications_ia` | 421 |
+| `briefs_extraits` | **232** |
+| `scores_matching` | 2532 |
+| `profils_bibliotheque` | 5 |
+| `dce_contenu = complet` | **217** |
+| `dce_contenu = vide` | 187 |
+| `dce_contenu = incomplet` | 15 |
+| `dce_contenu = candidature` | 2 |
+| `dce_contenu = auth_requise` | 1 |
+
+**Dette/anomalie repérée pendant le tour** : le profil **TEE27** a un `domaines_couverts`
+de **36 entrées dont 12 uniques** (triplication). Cause probable : `ingester_profil_tee27.py`
+empile au lieu de remplacer (cf. note §4.7 « réécrit à chaque run »). Sans impact fonctionnel
+(le matching dédoublonne implicitement par appartenance), mais à **dédoublonner** côté ingester
+ou via `/profil`.

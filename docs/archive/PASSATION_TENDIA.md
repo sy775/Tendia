@@ -1,5 +1,11 @@
 # Tendia — Passation de session
 
+> ⚠️ **DOCUMENT OBSOLÈTE (état ~13 juin, avant les downloaders).** Décrit un stade
+> dépassé (5/35 marchés affichables, login PLACE/achatpublic à faire — tout cela est
+> réglé depuis). **Ne pas s'y fier.** Onboarding canonique : `docs/passation_claude.md`.
+> État courant vérifié : `docs/iteration_prompt_matching_2026-06.md` §4.10. Conservé
+> uniquement pour l'historique.
+
 > Document destiné à un prochain Claude qui reprendra le travail.  
 > Younes attendra de toi que tu lises ce document **avant** d'agir, et que tu réfléchisses à voix haute avant de coder.  
 > Voir aussi `SPECS_TECHNIQUES_TENDIA.md` pour les détails techniques (schémas, modules, contrats d'interface).

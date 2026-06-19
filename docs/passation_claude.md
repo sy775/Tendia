@@ -99,7 +99,8 @@ UI : Dashboard (strict) + Explorer (tri richesse, Sprint UI) + Fiche marché
 - **Pas de profils sectoriels IT/conseil/EnR** (reste de Sprint C — modèles BTP et ingénierie sont OK)
 - **Pas d'évaluateurs matching sectoriels** pour conseil/IT/EnR (Sprint C — stubs en place ; BTP et ingénierie faits)
 - **`ing_opqibi` ne mord pas sur les briefs actuels** : le LLM remplit `qualifications_moe.opqibi` en texte libre, pas en codes à 4 chiffres → garde-fou neutre (piège 10). Le go/no-go OPQIBI n'agira que si l'extraction des codes est fiabilisée côté `llm_extract.py`.
-- **DCE : 0 marché `complet`, 94 `incomplet` (RC seul), 200 `vide`, 128 `auth_requise`** (post backfill `dce_contenu`, AVANT le batch Atexo). FINDING majeur : le téléchargeur récupère le **RC seul ~90% du temps**, jamais le DCE complet (CCAP/CCTP/DPGF) → tous les briefs sont construits sur le RC. **Le Sprint Atexo a livré le downloader 2-POST** : **76 marchés `incomplet` routables Atexo** — `python retelecharger_incomplet.py` (par Younes, réseau) devrait les faire passer `complet`, puis `python reextraire_briefs_complet.py` re-génère les briefs riches. À FAIRE par Younes.
+- ✅ **RÉSOLU depuis (19 juin)** : les batchs Atexo/AWS/Dematis ont tourné → DCE **217 `complet`** / 187 `vide` / 15 `incomplet` / 2 `candidature` / 1 `auth_requise`. Le constat ci-dessous est conservé pour l'historique.
+- **DCE (13-15 juin, avant batchs) : 0 marché `complet`, 94 `incomplet` (RC seul), 200 `vide`, 128 `auth_requise`** (post backfill `dce_contenu`, AVANT le batch Atexo). FINDING majeur : le téléchargeur récupère le **RC seul ~90% du temps**, jamais le DCE complet (CCAP/CCTP/DPGF) → tous les briefs sont construits sur le RC. **Le Sprint Atexo a livré le downloader 2-POST** : **76 marchés `incomplet` routables Atexo** — `python retelecharger_incomplet.py` (par Younes, réseau) devrait les faire passer `complet`, puis `python reextraire_briefs_complet.py` re-génère les briefs riches. À FAIRE par Younes.
 - **e-marchespublics (Dematis)** : moteur distinct d'Atexo. **Sprint Dematis (14/06/2026) — ✅ downloader anonyme VALIDÉ BOUT-EN-BOUT en réel** (calé sur HAR `dematis exemple/hautsdeseine-habitat.e-marchespublics.com.har`, cas `BOAMP-26-57070`).
   - **Workflow HAR strict** : GET annonce → **lien anonyme à token SHA-1 (40 hex)** — la page expose AUSSI un leurre token MD5 (32 hex) qui redirige vers l'accueil, à NE jamais suivre → GET `/dossier_de_consultation_marche_public_anonyme_<token40>` (page captcha, form `inscriptionEntreprise` : `captcha[id]`+`captcha[input]`+`submit`, image `/captcha/<captcha_id>.png`, **leurre `captchaResult` à ne pas soumettre**) → 2captcha → **POST sur la même URL → 302 `Location: /acces_dce_marche_public_anonyme_<token40>`** (un captcha refusé = 200) → GET acces_dce → pièces servies par `private.e-marchespublics.com/dce/getfile.php?id=…&anonyme=<token40>&fromnew` → DL + décompression ZIP imbriqués.
   - **Validé sur 3 acheteurs** : `hautsdeseine-habitat` (17 fichiers), `cmar-occitanie` / CMA Gard (17), `sdis13` (14). Généricité confirmée (sous-domaines + `pack` variables).
@@ -130,10 +131,14 @@ UI : Dashboard (strict) + Explorer (tri richesse, Sprint UI) + Fiche marché
 
 | Métrique | Valeur |
 |---|---:|
+> ⚠️ **Chiffres ci-dessous datés du 13-15 juin (AVANT les batchs downloaders).**
+> **État réel à jour : voir `docs/iteration_prompt_matching_2026-06.md` §4.10** (tour
+> vérifié du 19 juin : 232 briefs, DCE 217 `complet` / 187 `vide` / 15 `incomplet`).
+
 | Marchés en base | 422 |
 | Classifiés IA | 421 (100%) |
 | Pertinents (6 presets) | 275 (65%) |
-| Briefs complets | 102 |
+| Briefs complets | ~~102~~ → **232** (19 juin, post-batchs) |
 | Briefs avec verdict `pertinent`+ (profil BTP démo IDF) | **3** (57070, 56539, 56378) |
 | Coût total LLM depuis le début | ~25-30€ (incl. Sprint 2bis Phase 3c ~3€) |
 | Coût mensuel régime | ~30€/mois (1 client) |
