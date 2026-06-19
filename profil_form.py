@@ -379,6 +379,9 @@ def parse(form, profil_existant: dict):
             priorites[code] = i
     profil["presets_priorites"] = priorites
 
+    # 2ter) domaines_couverts (cases taxonomie) — pilote le matching fin généralisé.
+    profil["domaines_couverts"] = _getlist(form, "domaines_couverts")
+
     # 3) auto_reponses_exigences (paires clé/valeur)
     cles = _getlist(form, "ar_cle")
     vals = _getlist(form, "ar_val")

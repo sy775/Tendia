@@ -306,6 +306,39 @@ PHASES_ETUDES = ["ESQ", "APS", "APD", "PRO", "DCE", "ACT", "EXE", "OPC", "AOR", 
 STATUTS_REFERENCE = ["livre", "en_cours", "abandonne"]
 
 
+_PRESET_LABEL = {
+    "btp": "BTP", "ingenierie": "Ingénierie", "conseil": "Conseil", "it": "IT",
+    "energie_renouvelable": "Énergies renouvelables", "formation": "Formation",
+}
+
+
+def widget_domaines_couverts(presets_couverts, selection) -> list:
+    """Domaines précis (taxonomie) groupés par preset couvert, pour cases à cocher.
+    Retourne [{"famille", "options": [{"value","label","checked"}]}]. Pilote le matching
+    fin `domaines_couverts` : seuls les domaines des presets cochés sont proposés (+ tout
+    domaine déjà sélectionné hors périmètre, pour robustesse)."""
+    import llm_extract
+    import preset as _preset
+    tax = (llm_extract._charger_taxonomie() or {}).get("domaines", {})
+    sel = set(selection or [])
+    groupes, vus = [], set()
+    for pcode in (presets_couverts or []):
+        opts = []
+        for code, info in tax.items():
+            if pcode in (_preset.presets_pour_domaines([code]) or []):
+                vus.add(code)
+                opts.append({"value": code, "label": info.get("libelle", code),
+                             "checked": code in sel})
+        if opts:
+            groupes.append({"famille": _PRESET_LABEL.get(pcode, pcode),
+                            "options": sorted(opts, key=lambda o: o["label"])})
+    autres = [{"value": c, "label": (tax.get(c) or {}).get("libelle", c), "checked": True}
+              for c in sel if c not in vus]
+    if autres:
+        groupes.append({"famille": "Autres", "options": autres})
+    return groupes
+
+
 def contexte_widgets(profil: dict) -> dict:
     """
     Pré-calcule toutes les structures de widgets nécessaires à l'édition d'un
@@ -314,7 +347,9 @@ def contexte_widgets(profil: dict) -> dict:
     """
     presets = profil.get("presets_couverts") or []
     sect = profil.get("profils_sectoriels") or {}
-    ctx = {"zones": widget_zones_intervention(profil.get("zones_intervention"))}
+    ctx = {"zones": widget_zones_intervention(profil.get("zones_intervention")),
+           "domaines_couverts": widget_domaines_couverts(
+               presets, profil.get("domaines_couverts"))}
 
     if "btp" in presets:
         b = sect.get("btp") or {}

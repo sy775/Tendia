@@ -95,6 +95,14 @@
     <p class="apt-meta mt-2">Cocher un preset affiche sa section ci-dessous au prochain enregistrement. La <strong>priorité</strong> (principal/secondaire/tertiaire) pondère le matching : un marché sur l'activité principale score plus haut.</p>
   {% endcall %}
 
+  {# ---------- Domaines précis couverts (pilote le matching fin) ---------- #}
+  {% if widgets.domaines_couverts %}
+  {% call accordeon('Domaines précis couverts (matching fin)', true) %}
+    <p class="apt-meta mb-2" style="line-height:1.5;">Cochez les domaines que vous traitez <strong>réellement</strong>. Un marché dont aucun domaine coché ne correspond est écarté du matching — c'est ce qui évite les faux positifs (ex : une formation attrapée via le preset conseil, ou une MOE bâtiment générique via l'ingénierie).</p>
+    {{ checkboxes_groupees('domaines_couverts', widgets.domaines_couverts, '') }}
+  {% endcall %}
+  {% endif %}
+
   {# ---------- Sectoriel BTP (périmètre métier en tête) ---------- #}
   {% if 'btp' in presets %}
   {% call accordeon('Secteur · BTP', true) %}
