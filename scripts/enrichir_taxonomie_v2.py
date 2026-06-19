@@ -96,6 +96,19 @@ NOUVEAUX = {
             "Travaux d'installation ENR (→ energie_pv_solaire, etc.)",
         ],
     },
+    "conseil_transition_energetique": {
+        "libelle": "Conseil & stratégie énergétique territoriale",
+        "description": "Conseil stratégique aux collectivités sur la transition énergétique : planification (PCAET, schéma directeur énergie/chaleur), stratégie territoriale bas-carbone, animation/sensibilisation, accompagnement de politiques énergie. HORS AMO de projet ENR (→ energie_amo_developpement) et HORS conseil généraliste (→ conseil_strategie_organisation).",
+        "exemples_oui": [
+            "Élaboration du Plan Climat-Air-Énergie Territorial (PCAET)",
+            "Schéma directeur des énergies / réseaux de chaleur d'une collectivité",
+            "Conseil en stratégie de transition énergétique territoriale",
+        ],
+        "exemples_non": [
+            "AMO pour développer une centrale PV (→ energie_amo_developpement)",
+            "Conseil en organisation sans dimension énergie (→ conseil_strategie_organisation)",
+        ],
+    },
     "btp_reseaux_divers": {
         "libelle": "Travaux de réseaux (humides et secs)",
         "description": "Travaux de réseaux humides (eau potable, assainissement, pluvial) et secs (électricité, télécom, éclairage public, fibre) : pose et génie civil de réseaux.",
@@ -137,6 +150,7 @@ CABLAGE = {
     "ingenierie_ecologie_biodiversite": {"ingenierie": "accepte"},
     "energie_amo_developpement": {"energie_renouvelable": "accepte", "ingenierie": "optionnel"},
     "btp_reseaux_divers": {"btp": "accepte", "ingenierie": "optionnel"},
+    "conseil_transition_energetique": {"conseil": "accepte", "energie_renouvelable": "accepte"},
 }
 
 

@@ -232,6 +232,9 @@ def _prompt_systeme() -> str:
         "d'IMPACT/ICPE/sites pollués/carbone → `ingenierie_environnementale`.",
         "- **BTP réseaux** : travaux de réseaux HUMIDES/SECS → `btp_reseaux_divers` ; "
         "voirie/chaussées → `btp_voirie_reseaux`.",
+        "- **CONSEIL énergie** : conseil/stratégie/planification énergétique territoriale "
+        "(PCAET, schéma directeur énergie) → `conseil_transition_energetique` ; AMO de projet "
+        "ENR → `energie_amo_developpement` ; conseil organisation sans énergie → `conseil_strategie_organisation`.",
         "",
         "## IMPORTANT",
         "",

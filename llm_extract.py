@@ -226,6 +226,10 @@ def _section_taxonomie_prompt() -> str:
         "- **BTP réseaux** : travaux de réseaux HUMIDES (eau/assainissement) ou SECS "
         "(élec/télécom/éclairage public/fibre) → `btp_reseaux_divers` ; voirie/chaussées/"
         "terrassement de surface → `btp_voirie_reseaux`.",
+        "- **CONSEIL énergie** : conseil/stratégie/planification énergétique territoriale "
+        "(PCAET, schéma directeur énergie, stratégie bas-carbone) → `conseil_transition_energetique` ; "
+        "AMO de projet ENR concret → `energie_amo_developpement` ; conseil en organisation "
+        "sans dimension énergie → `conseil_strategie_organisation`.",
         "",
         "Si le marché ne te paraît pas correspondre à un domaine, JUSTIFIE par le champ `raison_classification`.",
     ])
