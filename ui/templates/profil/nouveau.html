@@ -132,11 +132,28 @@
         {{ checkboxes_groupees('sect.ingenierie.types_ouvrages_etudies', widgets.ingenierie.types_ouvrages_etudies, 'Types d\'ouvrages étudiés') }}
       </div>
 
-      {# Secteurs sans périmètre dédié (conseil, IT, EnR, formation) #}
+      {# Bloc Énergies renouvelables (affiché si 'energie_renouvelable' coché) #}
+      <div data-sector-block="energie_renouvelable" style="display:none;">
+        <div class="apt-label mb-2 mt-2" style="color: var(--apt-accent-2);">Secteur · Énergies renouvelables</div>
+        {{ checkboxes_groupees('sect.energie_renouvelable.technologies_maitrisees', widgets.energie_renouvelable.technologies_maitrisees, 'Technologies maîtrisées') }}
+        {{ checkboxes_groupees('sect.energie_renouvelable.types_prestations', widgets.energie_renouvelable.types_prestations, 'Types de prestations') }}
+        {{ checkboxes_groupees('sect.energie_renouvelable.segments_clients', widgets.energie_renouvelable.segments_clients, 'Segments clients') }}
+      </div>
+
+      {# Domaines précis couverts — pilote le matching fin (groupés par preset) #}
+      {% if widgets.domaines_couverts %}
+      <div style="margin-top:18px; padding-top:16px; border-top:1px solid var(--apt-line-2);">
+        <div class="apt-label mb-2" style="color: var(--apt-accent-2);">Domaines précis couverts</div>
+        <p class="apt-meta mb-3" style="line-height:1.5;">Cochez ce que vous traitez <strong>réellement</strong> — c'est ce qui évite les faux positifs (ex : une MOE bâtiment générique ne matchera pas si vous ne faites que de l'énergétique).</p>
+        {{ checkboxes_groupees('domaines_couverts', widgets.domaines_couverts, '') }}
+      </div>
+      {% endif %}
+
+      {# Secteurs sans schéma de champs dédié (conseil, IT, formation) #}
       <div id="wz-perim-note" class="apt-block px-5 py-4" style="display:none; background: var(--apt-bg-2);">
         <p class="apt-prose apt-fs-13">
-          Pour les autres secteurs cochés (conseil, IT, énergies renouvelables, formation), le périmètre
-          est piloté par vos <strong>mots-clés catalogue</strong> — à renseigner à la dernière étape.
+          Pour conseil / IT / formation, le matching s'appuie sur vos <strong>domaines précis</strong> (ci-dessus)
+          et vos <strong>mots-clés catalogue</strong> (dernière étape).
         </p>
       </div>
     </section>

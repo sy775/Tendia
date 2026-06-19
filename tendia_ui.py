@@ -1627,12 +1627,14 @@ def profil_nouveau():
                 return redirect(url_for("profil_detail", source="bibliotheque", id=res["id"]))
             erreurs += res["erreurs"]
 
-    # Widgets des deux secteurs à schéma (BTP + ingénierie) : rendus dans
-    # l'assistant et affichés/masqués par JS selon les secteurs cochés.
+    # Widgets de TOUS les secteurs à schéma (BTP, ingénierie, EnR) + domaines couverts :
+    # rendus dans l'assistant et affichés/masqués par JS selon les secteurs cochés.
     widgets = profil_widgets.contexte_widgets({
-        "presets_couverts": ["btp", "ingenierie"],
+        "presets_couverts": ["btp", "ingenierie", "energie_renouvelable",
+                             "conseil", "it", "formation"],
         "profils_sectoriels": profil.get("profils_sectoriels") or {},
         "zones_intervention": profil.get("zones_intervention") or [],
+        "domaines_couverts": profil.get("domaines_couverts") or [],
     })
 
     return render_template(
