@@ -810,7 +810,10 @@
     {% endif %}
 
     {# ============ BARÈME & CADRAGE PRIX (consolidé) ============ #}
-    {% if brief.bareme_notation and (brief.bareme_notation.valeur_technique_pct or brief.bareme_notation.sous_criteres_techniques) %}
+    {# NB : ce bloc englobe le nav des onglets + Résumé + Prix → il doit TOUJOURS rendre
+       dès qu'il y a un brief (sinon les fiches sans pondération technique perdent les
+       onglets et la moitié haute). Seule la SECTION Barème est gatée plus bas. #}
+    {% if brief %}
     {% set teaser_bareme = '' %}
     {% if brief.bareme_notation.valeur_technique_pct and brief.bareme_notation.valeur_prix_pct %}
       {% set teaser_bareme = 'Technique ' ~ brief.bareme_notation.valeur_technique_pct ~ '% / Prix ' ~ brief.bareme_notation.valeur_prix_pct ~ '%' %}
@@ -938,7 +941,8 @@
     {% set pct_tech = brief.bareme_notation.valeur_technique_pct or 70 %}
     {% set pct_prix = brief.bareme_notation.valeur_prix_pct or 30 %}
 
-    {# ===== Onglet 1 : Barème technique (critères notés) ===== #}
+    {# ===== Onglet 1 : Barème technique (critères notés) — gaté : seulement si données ===== #}
+    {% if brief.bareme_notation and (brief.bareme_notation.valeur_technique_pct or brief.bareme_notation.sous_criteres_techniques) %}
     {{ sec('Barème technique', ('Technique ' ~ pct_tech ~ '% · Prix ' ~ pct_prix ~ '%' if brief.bareme_notation.valeur_technique_pct else 'critères de notation'), 'violet', true, IC_CHART) }}
       {# Répartition GLOBALE de la note (barème total : technique + prix) — bien visible #}
       <div style="margin-bottom: 18px; padding: 15px 18px; background: var(--apt-surface); border: 1px solid var(--apt-line-2); border-radius: 11px;">
@@ -970,6 +974,7 @@
       </p>
       {% endif %}
     </div></details>
+    {% endif %}{# fin gate section Barème #}
 
     {# ===== Onglet 2 : Prix & estimation (coeff prix + montant) ===== #}
     {{ sec('Prix & estimation', ('Coeff. prix ' ~ pct_prix ~ '%' if brief.bareme_notation.valeur_prix_pct else 'estimation du montant'), 'green', true, IC_EURO) }}
