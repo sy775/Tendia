@@ -520,11 +520,17 @@ def dashboard():
         statut_cycle = cycle_marche.statut(m)
         preset_rang = (matching.rang_preset_matche(
             profil, (evaluation or {}).get("presets_marche") or []) if profil else 99)
+        # Verdict en 90 secondes (3-5 lignes synthétiques) pour le tooltip du tag verdict.
+        try:
+            verdict_90 = fiche_marche.verdict_90_secondes(brief_m or {}, evaluation, profil or {})
+        except Exception:
+            verdict_90 = []
         enriched.append({
             "marche": m,
             "eval": evaluation,
             "verdict": (evaluation or {}).get("verdict"),
             "score": (evaluation or {}).get("score", 0),
+            "verdict_90": verdict_90,
             "preset_rang": preset_rang,
             "titre_court": _titre_court(m),
             "date_limite_fmt": _fmt_date(m.get("date_limite_depot")),

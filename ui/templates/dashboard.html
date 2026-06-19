@@ -46,24 +46,24 @@
           {% endfor %}
         </div>
 
-        {# Pipeline commercial — compact, sans « À évaluer » (déjà dans le titre) #}
+        {# Pipeline commercial — même taille de cellules que la barre KPI, sans « À évaluer » #}
         {% if kpis.pipeline and (kpis.pipeline.nb_actifs + kpis.pipeline.nb_clos) > 0 %}
-        <div style="display:flex; align-items:stretch; align-self:stretch; border:1px solid var(--apt-line-2); border-radius:11px; overflow:hidden; background:var(--apt-surface);">
+        <div style="display:flex; align-items:stretch; border:1px solid var(--apt-line); border-radius:14px; overflow:hidden; background:var(--apt-pure); box-shadow:0 1px 0 var(--apt-line-3);">
           {% for st, lbl, col in [
               ('candidate','Candidaté','#3B6FB2'),
               ('gagne','Gagné','var(--apt-leaf)'),
               ('perdu','Perdu','var(--apt-rose)'),
               ('abandonne','Abandonné','var(--apt-ink-4)')
           ] %}
-          <div style="flex:1; padding:7px 12px; text-align:center; border-right:1px solid var(--apt-line-2);">
-            <div style="font-size:16px; font-weight:700; color:{{ col }}; font-variant-numeric:tabular-nums; line-height:1;">{{ kpis.pipeline['nb_' + st] }}</div>
-            <div class="apt-label" style="font-size:7.5px; margin-top:3px;">{{ lbl }}</div>
+          <div style="padding:15px 26px; text-align:center; border-right:1px solid var(--apt-line-2);">
+            <div style="font-size:30px; font-weight:700; color:{{ col }}; font-variant-numeric:tabular-nums; line-height:1; letter-spacing:-0.02em;">{{ kpis.pipeline['nb_' + st] }}</div>
+            <div class="apt-label" style="margin-top:7px; font-size:8.5px; white-space:nowrap;">{{ lbl }}</div>
           </div>
           {% endfor %}
           {% if kpis.pipeline.taux_conversion_pct is not none %}
-          <div style="padding:7px 14px; text-align:center; background:var(--apt-accent-soft);">
-            <div style="font-size:16px; font-weight:700; color:var(--apt-accent); font-variant-numeric:tabular-nums; line-height:1;">{{ kpis.pipeline.taux_conversion_pct }}<span style="font-size:10px;">%</span></div>
-            <div class="apt-label" style="font-size:7.5px; margin-top:3px;">Conv.</div>
+          <div style="padding:15px 26px; text-align:center; background:var(--apt-accent-soft);">
+            <div style="font-size:30px; font-weight:700; color:var(--apt-accent); font-variant-numeric:tabular-nums; line-height:1; letter-spacing:-0.02em;">{{ kpis.pipeline.taux_conversion_pct }}<span style="font-size:15px;">%</span></div>
+            <div class="apt-label" style="margin-top:7px; font-size:8.5px; white-space:nowrap;">Conversion</div>
           </div>
           {% endif %}
         </div>
@@ -132,12 +132,12 @@
                 Non pertinent
               </span>
             {% endif %}
-            {% if e.eval and e.eval.motifs %}
+            {% if e.verdict_90 %}
               <span class="apt-elig-dash-tooltip">
-                <span class="title">Détail du score · {{ e.score }}/100</span>
+                <span class="title">Verdict en 90 secondes</span>
                 <ul>
-                  {% for mo in e.eval.motifs if mo.points %}
-                  <li><span class="ico" style="color: {% if mo.points > 0 %}#1f8c5c{% else %}#c14b6b{% endif %};">{% if mo.points > 0 %}+{% endif %}{{ mo.points }}</span> <span>{{ mo.commentaire[:72] }}{% if mo.commentaire and mo.commentaire|length > 72 %}…{% endif %}</span></li>
+                  {% for l in e.verdict_90 %}
+                  <li><span class="ico" style="color: {% if l.icone == '✗' %}var(--apt-rose){% elif l.icone == '⚠' %}var(--apt-gold-2){% else %}var(--apt-leaf){% endif %};">{{ l.icone }}</span> <span>{{ l.texte }}</span></li>
                   {% endfor %}
                 </ul>
               </span>
@@ -247,10 +247,21 @@
             {% endif %}
           </div>
 
-          <!-- Score -->
+          <!-- Score (tooltip détail au survol) -->
           <div class="text-right">
-            <span class="apt-score-n" style="font-size: 24px;">{{ e.score }}</span>
-            <span class="apt-meta" style="color: var(--apt-ink-5); font-size:10px;">/100</span>
+            <span class="apt-score-wrap">
+              <span class="apt-score-n" style="font-size: 24px;">{{ e.score }}</span><span class="apt-meta" style="color: var(--apt-ink-5); font-size:10px;">/100</span>
+              {% if e.eval and e.eval.motifs %}
+              <span class="apt-elig-dash-tooltip">
+                <span class="title">Détail du score · {{ e.score }}/100</span>
+                <ul>
+                  {% for mo in e.eval.motifs if mo.points %}
+                  <li><span class="ico" style="color: {% if mo.points > 0 %}var(--apt-leaf){% else %}var(--apt-rose){% endif %};">{% if mo.points > 0 %}+{% endif %}{{ mo.points }}</span> <span>{{ mo.commentaire[:72] }}{% if mo.commentaire and mo.commentaire|length > 72 %}…{% endif %}</span></li>
+                  {% endfor %}
+                </ul>
+              </span>
+              {% endif %}
+            </span>
           </div>
 
         </div>
