@@ -371,17 +371,14 @@ def _eval_geographie_v2(organisme: dict, marche: dict,
     # une pénalité MODÉRÉE (la géo est un signal, pas un poids qui écrase le score).
     # Si `zones_strict` (acteur de proximité), on ajoute un GO/NO-GO : le marché est
     # filtré en « non pertinent » via le verdict, sans gonfler artificiellement le score.
+    # Hors zone : simple motif négatif (la géo est un signal parmi d'autres). Le verdict
+    # découle du SCORE — pas de cas spécial. Pénalité plus marquée si proximité stricte.
     zone_m = dep_marche or region_marche
     strict = bool(organisme.get("zones_strict"))
-    mo = _motif("geographie", False, -12 if strict else -8,
-                f"Hors de votre zone : marché en {zone_m}, vous couvrez {zones_profil}"
-                f"{' (acteur de proximité)' if strict else ''}.",
-                valeur_organisme=zones_profil, valeur_marche=zone_m)
-    if strict:
-        # Pas un couperet « non pertinent » : on plafonne le verdict à « à vérifier »
-        # (le marché peut intéresser malgré la distance) + tooltip explicatif côté UI.
-        mo["hors_zone"] = True
-    return mo
+    return _motif("geographie", False, -20 if strict else -10,
+                  f"Hors de votre zone : marché en {zone_m}, vous couvrez {zones_profil}"
+                  f"{' (acteur de proximité)' if strict else ''}.",
+                  valeur_organisme=zones_profil, valeur_marche=zone_m)
 
 
 def _eval_capacite_financiere(organisme: dict, marche: dict,
@@ -1066,10 +1063,6 @@ def _calculer_verdict(score: int, motifs: list) -> str:
         v = "a_verifier"
     else:
         v = "non_pertinent"
-    # 4) Hors zone d'un acteur de proximité stricte : jamais mieux que « à vérifier »
-    #    (le marché peut intéresser, mais la distance impose une vérification).
-    if v in ("tres_pertinent", "pertinent") and any(m.get("hors_zone") for m in motifs):
-        v = "a_verifier"
     return v
 
 
@@ -1119,12 +1112,6 @@ def _evaluer_v2(organisme: dict, marche: dict,
 
     score_brut = sum(m["points"] for m in motifs)
     score = max(0, min(100, score_brut))
-    hors_zone = any(m.get("hors_zone") for m in motifs)
-    # Hors zone (proximité stricte) : on plafonne le score dans la bande « à vérifier »
-    # pour rester cohérent avec le verdict plafonné et pour que ces marchés ne devancent
-    # pas les marchés in-zone au tri.
-    if hors_zone:
-        score = min(score, 45)
     verdict = _calculer_verdict(score, motifs)
     return {
         "id_marche": marche.get("id", "?"),
@@ -1133,7 +1120,6 @@ def _evaluer_v2(organisme: dict, marche: dict,
         "motifs": motifs,
         "presets_marche": presets_marche,
         "presets_profil": presets_profil,
-        "hors_zone": hors_zone,
         "_version": "v2",
     }
 

@@ -191,12 +191,34 @@ sectoriel EnR était un **stub** (+0) → l'expertise PV ne comptait pas ; (b) l
 (gate) ; même marché simulé dans l'Eure → **99 très_pertinent** (géo +25, EnR +22,
 synergie +10). BTP demo 57070 → 75 (aucune régression).
 
+### ✅ Granularité de la taxonomie (19 juin 2026)
+Tour des presets : les fourre-tout étaient `moe_architecte_urbanisme` (26 marchés),
+`ingenierie_environnementale` (16), `btp_voirie_reseaux` (50), `energie_amo_etudes`.
+**+7 codes fins** ajoutés (taxonomie 56 → 63), 4 descriptions recentrées :
+- `moe_energetique_batiment` ★ (→ ingénierie + EnR), `moe_urbanisme_amenagement`, `moe_infrastructure_vrd`
+- `ingenierie_eau_milieux` (→ ing + btp), `ingenierie_ecologie_biodiversite`
+- `energie_amo_developpement` ★ (→ EnR + ing) — cœur AMO/montage TEE27
+- `btp_reseaux_divers` (→ btp + ing)
+
+**Méthode d'enrichissement** (réutilisable, cf `scripts/enrichir_taxonomie_v2.py`) :
+1. Ajouter le code à `presets/_taxonomie_domaines.json` (libellé, description, exemples oui/non).
+2. Câbler dans `presets/<preset>/_preset.json` → `veille.domaines_acceptes`/`optionnels`
+   (pilote `presets_pour_domaines` donc le matching).
+3. Recentrer la description du fourre-tout d'origine (renvois « → nouveau_code »).
+4. Ajouter une **frontière piégeuse** dans les 2 prompts classeurs
+   (`llm_extract._section_taxonomie_prompt` + `tendia_classification._prompt_systeme`).
+5. **Re-classification ciblée** : `python scripts/reclassifier_affine.py --cibles-enrichissement`
+   (ne touche que les marchés des codes recentrés).
+Le gain pour TEE27 : une « MOE rénovation énergétique » sort de la MOE générique → matche
+l'EnR au bon rang ; un « AMO développement PV » → `energie_amo_developpement` (cœur métier).
+
 ### Pistes restantes (non implémentées)
 - **Croiser avec le poids du domaine côté marché** (`domaines_metier[].poids`) :
   adéquation = poids_marché × priorité_profil (éviter qu'un lot à 15 % pèse autant qu'un objet principal).
 - **Évaluateurs sectoriels conseil / IT / formation** encore en stub.
 - **Widgets de formulaire EnR/conseil** (cases guidées) — schéma EnR a des enums riches
   (technologies, prestations, segments) ; formulaire à enrichir (chantier UX en cours).
+- **Granularité BTP/IT plus fine** si besoin (BTP matche déjà via corps_de_metier).
 
 ### ✅ Matching plus précis — affinage additif du prompt de classification (19 juin 2026)
 Le matching dépend de la qualité de `domaines_metier`. Affinage **additif** (aucune

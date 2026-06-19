@@ -531,7 +531,6 @@ def dashboard():
             "verdict": (evaluation or {}).get("verdict"),
             "score": (evaluation or {}).get("score", 0),
             "preset_rang": preset_rang,
-            "hors_zone": bool((evaluation or {}).get("hors_zone")),
             "titre_court": _titre_court(m),
             "date_limite_fmt": _fmt_date(m.get("date_limite_depot")),
             "jours_restants": _jours_restants(m.get("date_limite_depot")),
@@ -546,13 +545,11 @@ def dashboard():
             "dce_badge": _dce_badge(m),
         })
 
-    # Tri : avec un profil actif → non pertinents en bas ; parmi les pertinents, in-zone
-    # avant hors-zone, puis par SCORE décroissant (le score encode déjà la priorité du
-    # preset : principal +20 vs secondaire +13). Sans profil → tri legacy verdict puis score.
+    # Tri : avec un profil actif → non pertinents en bas, puis par SCORE décroissant (le
+    # score encode déjà la priorité du preset et la pénalité géo). Sans profil → legacy.
     if profil:
         enriched.sort(key=lambda x: (
             1 if x["verdict"] == "non_pertinent" else 0,
-            1 if x.get("hors_zone") else 0,
             -x["score"],
             x["jours_restants"] if x["jours_restants"] is not None else 9999,
         ))
@@ -800,7 +797,6 @@ def explorer():
             "verdict": (evaluation_l or {}).get("verdict"),
             "score": (evaluation_l or {}).get("score"),
             "preset_rang": preset_rang_l,
-            "hors_zone": bool((evaluation_l or {}).get("hors_zone")),
             "eligibilite": verdict_elig_l,
             "titre_court": _titre_court(marche),
             "acheteur": marche.get("acheteur_nom") or "—",
@@ -836,12 +832,10 @@ def explorer():
     # PRIORITAIRE (preset principal avant secondaire/tertiaire avant hors-activités),
     # puis par score décroissant, puis urgence. Sans profil → richesse puis urgence.
     if profil_actif:
-        # 1) non pertinents (hors activités) tout en bas ;
-        # 2) parmi les pertinents, les IN-ZONE avant les hors-zone (à vérifier) ;
-        # 3) puis par SCORE décroissant (le score encode déjà la priorité du preset).
+        # Non pertinents en bas, puis par SCORE décroissant (le score encode déjà la
+        # priorité du preset et la pénalité géo).
         lignes.sort(key=lambda x: (
             1 if x.get("verdict") == "non_pertinent" else 0,
-            1 if x.get("hors_zone") else 0,
             -(x.get("score") or 0),
             x["jours_restants"] if x["jours_restants"] is not None else 9999,
         ))

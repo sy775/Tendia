@@ -174,18 +174,10 @@
                 Pertinent
               </span>
             {% elif e.verdict == 'a_verifier' %}
-              {% if e.hors_zone %}
-              <span class="apt-verdict apt-verdict-a-verifier" style="cursor: help;"
-                    title="Hors de votre zone d'intervention{% if m.perimetre_geographique %} (marché : {{ m.perimetre_geographique }}){% endif %} — pertinent sur le secteur mais à vérifier au cas par cas vu la distance.">
-                <span class="dot"></span>
-                À vérifier · hors zone
-              </span>
-              {% else %}
               <span class="apt-verdict apt-verdict-a-verifier">
                 <span class="dot"></span>
                 À vérifier
               </span>
-              {% endif %}
             {% else %}
               <span class="apt-verdict apt-verdict-non-pertinent">
                 <span class="dot"></span>
