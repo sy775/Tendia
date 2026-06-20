@@ -26,7 +26,6 @@
     </div>
     <div class="flex gap-3 apt-nowrap">
       <a href="{{ url_for('profil_nouveau') }}" class="apt-btn apt-btn-accent">＋ Nouveau profil</a>
-      <a href="{{ url_for('profil_importer') }}" class="apt-btn apt-btn-ghost">Importer un JSON</a>
     </div>
   </div>
 
@@ -165,6 +164,8 @@
     box-shadow: 0 1px 0 var(--apt-line-3), 0 0 0 1px var(--apt-line-3);
   }
   .pf-hero.apt-active-glow { box-shadow: 0 0 0 1px var(--apt-accent-tint), 0 18px 40px -28px var(--apt-accent-glow); }
+  /* Le liseré gauche doit suivre le radius de la carte (16px), pas 10px par défaut. */
+  .pf-hero.apt-active-glow::before { border-radius: 16px 0 0 16px; }
   .pf-hero-empty { border: 1px dashed var(--apt-line); box-shadow: none; background: var(--apt-surface); }
   .pf-active-tag {
     font-size: 10.5px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase;

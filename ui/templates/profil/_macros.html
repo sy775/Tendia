@@ -26,24 +26,78 @@
 
 {# --- Zones d'intervention : départements groupés par région --- #}
 {% macro zones_intervention(zones_data) %}
-<div class="mb-4">
+<div class="mb-4" id="zones-root">
   <label class="apt-label">Zones d'intervention</label>
-  <p class="apt-meta mb-1">Cochez les départements. « Toute la région » bascule le groupe.</p>
+  <p class="apt-meta mb-1">Choix large (toute la France / métropole) ou dépliez une région pour des départements précis.</p>
+  <div style="display:flex; flex-wrap:wrap; gap:8px; margin:9px 0 12px;">
+    <button type="button" class="zone-quick" data-zone-action="all">Toute la France</button>
+    <button type="button" class="zone-quick" data-zone-action="metro">France métropolitaine</button>
+    <button type="button" class="zone-quick zone-quick-clear" data-zone-action="none">Tout décocher</button>
+  </div>
   {% for reg in zones_data %}
-  <div class="cg-groupe" style="margin-top: 9px;">
-    <label class="apt-label" style="cursor:pointer; color: var(--apt-accent-2); font-size: 10.5px;">
-      <input type="checkbox" class="cg-toggle"> Toute la région — {{ reg.label }}
-    </label>
-    <div class="flex flex-wrap" style="gap: 2px 14px; margin-top: 3px;">
+  {% set reg_checked = reg.departements | selectattr('checked') | list | length %}
+  <details class="zone-reg" {% if reg_checked %}open{% endif %}>
+    <summary class="zone-reg-sum">
+      <span class="zone-reg-chev"></span>
+      <label onclick="event.stopPropagation()" style="cursor:pointer; display:inline-flex; align-items:center; gap:6px;">
+        <input type="checkbox" class="cg-region"> <span style="font-weight:600; color:var(--apt-accent-2); font-size:12px;">{{ reg.label }}</span>
+      </label>
+      <span class="zone-reg-count">{{ reg_checked }}/{{ reg.departements|length }}</span>
+    </summary>
+    <div class="flex flex-wrap" style="gap: 2px 14px; margin-top: 6px; padding-left: 18px;">
       {% for d in reg.departements %}
       <label class="flex items-center gap-1.5 apt-fs-12" style="cursor:pointer; width: 23%; min-width: 145px;">
-        <input type="checkbox" name="zones_intervention" value="{{ d.code }}" {% if d.checked %}checked{% endif %}>
+        <input type="checkbox" class="cg-dept" data-code="{{ d.code }}" name="zones_intervention" value="{{ d.code }}" {% if d.checked %}checked{% endif %}>
         <span class="apt-mono apt-fs-11">{{ d.code }}</span> {{ d.nom }}
       </label>
       {% endfor %}
     </div>
-  </div>
+  </details>
   {% endfor %}
+  <style>
+    #zones-root .zone-quick { font:inherit; font-size:11.5px; font-weight:600; padding:6px 13px; border-radius:999px; border:1px solid var(--apt-accent); background:var(--apt-accent-soft); color:var(--apt-accent); cursor:pointer; transition:all .13s; }
+    #zones-root .zone-quick:hover { background:var(--apt-accent); color:#fff; }
+    #zones-root .zone-quick-clear { border-color:var(--apt-line); background:var(--apt-surface); color:var(--apt-ink-3); }
+    #zones-root .zone-quick-clear:hover { background:var(--apt-ink-5); color:#fff; }
+    #zones-root .zone-reg { border:1px solid var(--apt-line-2); border-radius:9px; padding:7px 11px; margin-bottom:6px; background:var(--apt-surface); }
+    #zones-root .zone-reg-sum { list-style:none; cursor:pointer; display:flex; align-items:center; gap:9px; user-select:none; }
+    #zones-root .zone-reg-sum::-webkit-details-marker { display:none; }
+    #zones-root .zone-reg-chev { width:6px;height:6px; border-right:1.5px solid var(--apt-ink-4); border-bottom:1.5px solid var(--apt-ink-4); transform:rotate(-45deg); transition:transform .15s; flex:none; }
+    #zones-root .zone-reg[open] .zone-reg-chev { transform:rotate(45deg); }
+    #zones-root .zone-reg-count { margin-left:auto; font-size:10.5px; color:var(--apt-ink-4); font-variant-numeric:tabular-nums; }
+  </style>
+  <script>
+  (function(){
+    var root = document.getElementById('zones-root'); if(!root) return;
+    function refresh(){
+      root.querySelectorAll('.zone-reg').forEach(function(g){
+        var ds=g.querySelectorAll('input.cg-dept'), n=0;
+        ds.forEach(function(c){ if(c.checked) n++; });
+        var rt=g.querySelector('input.cg-region'); if(rt) rt.checked = ds.length>0 && n===ds.length;
+        var cnt=g.querySelector('.zone-reg-count'); if(cnt) cnt.textContent = n+'/'+ds.length;
+      });
+    }
+    root.querySelectorAll('[data-zone-action]').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        var a=btn.dataset.zoneAction;
+        root.querySelectorAll('input.cg-dept').forEach(function(c){
+          if(a==='all') c.checked=true;
+          else if(a==='metro') c.checked = !/^97/.test(c.dataset.code||'');
+          else if(a==='none') c.checked=false;
+        });
+        refresh();
+      });
+    });
+    root.querySelectorAll('input.cg-region').forEach(function(rt){
+      rt.addEventListener('change', function(){
+        rt.closest('.zone-reg').querySelectorAll('input.cg-dept').forEach(function(c){ c.checked=rt.checked; });
+        refresh();
+      });
+    });
+    root.querySelectorAll('input.cg-dept').forEach(function(c){ c.addEventListener('change', refresh); });
+    refresh();
+  })();
+  </script>
 </div>
 {% endmacro %}
 

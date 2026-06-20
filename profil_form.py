@@ -102,6 +102,7 @@ _SOCLE = [
     ("economie.frais_de_structure_pct", "economie.frais_de_structure_pct", "num"),
     ("economie.agressivite_commerciale", "economie.agressivite_commerciale", "text"),
     ("mots_cles_catalogue", "mots_cles_catalogue", "lignes"),
+    ("zones_strict", "zones_strict", "bool"),
 ]
 # zones_intervention est rendu en checkboxes (départements) -> getlist, pas textarea.
 
@@ -390,7 +391,10 @@ def parse(form, profil_existant: dict):
         c = (c or "").strip()
         if c:
             auto[c] = (v or "").strip()
-    profil["auto_reponses_exigences"] = auto
+    # Ne touche l'existant QUE si le bloc Avancé/auto-réponses est dans le form
+    # (sinon retirer l'onglet Avancé effacerait les valeurs au save).
+    if cles:
+        profil["auto_reponses_exigences"] = auto
 
     # 4) Sectoriel BTP
     if "btp" in presets:
@@ -423,7 +427,9 @@ def parse(form, profil_existant: dict):
     # 6) Formation legacy (chemins racine)
     legacy = any(form.get(f"sect.formation.{n}") is not None or _getlist(form, f"sect.formation.{n}")
                  for n, _, _ in _FORMATION)
-    if legacy or "thematiques_metiers" in (profil_existant or {}):
+    # Seulement si le form contient réellement des champs formation (panel présent) —
+    # sinon on préserve l'existant (l'onglet Avancé/Formation legacy a été retiré).
+    if legacy:
         for form_name, path, typ in _FORMATION:
             _appliquer(profil, form, f"sect.formation.{form_name}", path, typ, erreurs)
         profil["directions_regionales_couvertes"] = _getlist(form, "sect.formation.directions_regionales_couvertes")
