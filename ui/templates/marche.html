@@ -683,8 +683,12 @@
   </div>
 
   {% if eval %}
-  {% set score_color = 'var(--c-green)' if eval.verdict in ('tres_pertinent', 'pertinent') else ('var(--c-amber)' if eval.verdict == 'a_verifier' else 'var(--apt-ink-4)') %}
-  {% set verdict_bg = 'var(--c-green-soft)' if eval.verdict in ('tres_pertinent', 'pertinent') else ('var(--c-amber-soft)' if eval.verdict == 'a_verifier' else 'var(--apt-bg)') %}
+  {# Couleurs alignées sur le dashboard : très pertinent = navy, pertinent = vert,
+     à vérifier = or, non pertinent = gris (mêmes teintes que les tags `.va-*`). #}
+  {% set _vc = {'tres_pertinent': 'var(--apt-accent)', 'pertinent': 'var(--apt-leaf)', 'a_verifier': 'var(--apt-gold-2)', 'non_pertinent': 'var(--apt-ink-5)'} %}
+  {% set _vcs = {'tres_pertinent': 'var(--apt-accent-soft)', 'pertinent': 'var(--apt-leaf-soft)', 'a_verifier': 'var(--apt-gold-soft)', 'non_pertinent': 'rgba(15,27,61,0.05)'} %}
+  {% set score_color = _vc.get(eval.verdict, 'var(--apt-ink-4)') %}
+  {% set verdict_bg = _vcs.get(eval.verdict, 'var(--apt-bg)') %}
   <div style="display: flex; flex-direction: column; align-items: center; gap: 8px; flex-shrink: 0; margin-right: 16px;">
     <div class="score-ring{% if eval.motifs %} apt-elig-tag{% endif %}"{% if eval.motifs %} style="cursor: help;"{% endif %}>
       <svg viewBox="0 0 80 80">
