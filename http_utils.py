@@ -9,6 +9,7 @@ retry sur erreurs transitoires, timeout par défaut.
 Aucun état persistant. Module utilitaire pur.
 """
 
+import random
 import time
 import requests
 from typing import Optional
@@ -19,9 +20,30 @@ USER_AGENT = (
     "contact via projet local)"
 )
 DELAI_POLITESSE_SEC = 0.5
-NB_TENTATIVES = 3
-DELAI_ENTRE_TENTATIVES_SEC = 2.0
+NB_TENTATIVES = 5
+# Backoff exponentiel + jitter : 3 → 6 → 12 → 24 s (plafonné à DELAI_MAX_SEC).
+# Indispensable face au soft rate-limiting d'OpenDataSoft/BOAMP, qui se traduit
+# par des resets TLS (SSLError, sous-classe de ConnectionError) sur les rafales
+# de pagination : un backoff court de 2 s ne laissait pas le throttle retomber.
+DELAI_BASE_SEC = 3.0
+DELAI_MAX_SEC = 30.0
+DELAI_ENTRE_TENTATIVES_SEC = DELAI_BASE_SEC  # conservé pour compat (imports tiers)
 TIMEOUT_DEFAUT = 30
+
+
+def _dormir_backoff(tentative: int, reponse=None) -> None:
+    """Attente avant retry : respecte `Retry-After` si présent, sinon backoff
+    exponentiel (DELAI_BASE × 2^(n-1), plafonné) avec jitter ±30 %."""
+    if reponse is not None:
+        retry_after = reponse.headers.get("Retry-After")
+        if retry_after:
+            try:
+                time.sleep(min(float(retry_after), DELAI_MAX_SEC))
+                return
+            except (ValueError, TypeError):
+                pass
+    base = min(DELAI_BASE_SEC * (2 ** (tentative - 1)), DELAI_MAX_SEC)
+    time.sleep(base + random.uniform(0, base * 0.3))
 
 
 _session = requests.Session()
@@ -56,6 +78,17 @@ def get_json(url: str, params: Optional[dict] = None,
             if verbose:
                 print(f"  GET {url} (tentative {tentative}/{NB_TENTATIVES})")
             reponse = _session.get(url, params=params, timeout=timeout)
+            # 429 (rate-limit) et 5xx : ré-essayables avec backoff.
+            if reponse.status_code == 429 or reponse.status_code >= 500:
+                derniere_erreur = requests.HTTPError(
+                    f"HTTP {reponse.status_code} : {reponse.text[:200]}"
+                )
+                if tentative < NB_TENTATIVES:
+                    if verbose:
+                        print(f"    -> HTTP {reponse.status_code}, backoff...")
+                    _dormir_backoff(tentative, reponse)
+                    continue
+            # Autres 4xx : erreur définitive, pas de retry.
             if 400 <= reponse.status_code < 500:
                 try:
                     detail = reponse.json()
@@ -64,21 +97,14 @@ def get_json(url: str, params: Optional[dict] = None,
                 raise requests.HTTPError(
                     f"HTTP {reponse.status_code} sur {url} : {detail}"
                 )
-            if reponse.status_code >= 500:
-                derniere_erreur = requests.HTTPError(
-                    f"HTTP {reponse.status_code} : {reponse.text[:200]}"
-                )
-                if tentative < NB_TENTATIVES:
-                    time.sleep(DELAI_ENTRE_TENTATIVES_SEC * tentative)
-                    continue
             reponse.raise_for_status()
             return reponse.json()
         except (requests.ConnectionError, requests.Timeout) as e:
             derniere_erreur = e
             if tentative < NB_TENTATIVES:
                 if verbose:
-                    print(f"    -> erreur réseau, retry...")
-                time.sleep(DELAI_ENTRE_TENTATIVES_SEC * tentative)
+                    print(f"    -> erreur réseau ({type(e).__name__}), backoff...")
+                _dormir_backoff(tentative)
                 continue
         except ValueError as e:
             raise RuntimeError(f"Réponse non-JSON depuis {url} : {e}")
@@ -100,6 +126,17 @@ def post_json(url: str, body: dict, timeout: int = TIMEOUT_DEFAUT,
                 url, json=body, timeout=timeout,
                 headers={"Content-Type": "application/json"}
             )
+            # 429 (rate-limit) et 5xx : ré-essayables avec backoff.
+            if reponse.status_code == 429 or reponse.status_code >= 500:
+                derniere_erreur = requests.HTTPError(
+                    f"HTTP {reponse.status_code} : {reponse.text[:200]}"
+                )
+                if tentative < NB_TENTATIVES:
+                    if verbose:
+                        print(f"    -> HTTP {reponse.status_code}, backoff...")
+                    _dormir_backoff(tentative, reponse)
+                    continue
+            # Autres 4xx : erreur définitive, pas de retry.
             if 400 <= reponse.status_code < 500:
                 try:
                     detail = reponse.json()
@@ -108,21 +145,14 @@ def post_json(url: str, body: dict, timeout: int = TIMEOUT_DEFAUT,
                 raise requests.HTTPError(
                     f"HTTP {reponse.status_code} sur {url} : {detail}"
                 )
-            if reponse.status_code >= 500:
-                derniere_erreur = requests.HTTPError(
-                    f"HTTP {reponse.status_code} : {reponse.text[:200]}"
-                )
-                if tentative < NB_TENTATIVES:
-                    time.sleep(DELAI_ENTRE_TENTATIVES_SEC * tentative)
-                    continue
             reponse.raise_for_status()
             return reponse.json()
         except (requests.ConnectionError, requests.Timeout) as e:
             derniere_erreur = e
             if tentative < NB_TENTATIVES:
                 if verbose:
-                    print(f"    -> erreur réseau, retry...")
-                time.sleep(DELAI_ENTRE_TENTATIVES_SEC * tentative)
+                    print(f"    -> erreur réseau ({type(e).__name__}), backoff...")
+                _dormir_backoff(tentative)
                 continue
         except ValueError as e:
             raise RuntimeError(f"Réponse non-JSON depuis {url} : {e}")
