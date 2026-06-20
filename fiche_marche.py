@@ -129,22 +129,56 @@ def _duree_compacte(brief):
     return None
 
 
+def somme_ca_lots(brief):
+    """Somme des CA estimés des lots → fourchette (min, max) du marché TOTAL,
+    UNIQUEMENT si le marché est alloti ET que TOUS les lots détaillés portent une
+    estimation (sinon la somme sous-estime). Garantit la cohérence affichée :
+    total = Σ lots. Retourne (min, max) ou None.
+
+    Cross-check avec allotissement.nb_lots si dispo : on n'agrège que si lots[]
+    couvre bien l'ensemble (len(lots) == nb_lots), pour ne pas sommer un sous-ensemble.
+    """
+    lots = _get(brief, "lots") or []
+    if not isinstance(lots, list) or len(lots) < 2:
+        return None
+    nb_lots_total = _get(brief, "allotissement", "nb_lots")
+    if isinstance(nb_lots_total, int) and nb_lots_total > len(lots):
+        return None  # lots[] ne couvre pas tout le marché → pas d'agrégation
+    tot_min = tot_max = 0.0
+    n_ok = 0
+    for l in lots:
+        if not isinstance(l, dict):
+            return None
+        a, b = l.get("cout_estime_min_eur"), l.get("cout_estime_max_eur")
+        if not (isinstance(a, (int, float)) and isinstance(b, (int, float)) and a > 0 and b > 0):
+            return None  # un lot sans estimation → la somme serait fausse
+        tot_min += float(a)
+        tot_max += float(b)
+        n_ok += 1
+    return (tot_min, tot_max) if n_ok >= 2 else None
+
+
 def montant_estime(brief):
     """Valeur estimée € (valeur directe ou milieu de fourchette), sinon None.
 
-    Retombe sur `montant_3_voies` (Voie 1 = prix officiel, Voie 2 = bottom-up IA)
-    quand `montant_marche` est non communiqué (ex 26-56676)."""
+    Priorité : prix publié (montant_marche.valeur / Voie 1) > somme des CA lots
+    (cohérence total = Σ lots) > fourchette montant_marche > Voie 2. Retombe sur
+    `montant_3_voies` quand `montant_marche` est non communiqué (ex 26-56676)."""
     mm = _get(brief, "montant_marche") or {}
     v = mm.get("valeur_estimee_euros")
     if isinstance(v, (int, float)) and v > 0:
         return float(v)
-    fmin, fmax = mm.get("fourchette_min_euros"), mm.get("fourchette_max_euros")
-    if all(isinstance(x, (int, float)) and x > 0 for x in (fmin, fmax)):
-        return (float(fmin) + float(fmax)) / 2
     v3 = _get(brief, "montant_3_voies") or {}
     v1 = v3.get("voie_1_eur")
     if isinstance(v1, (int, float)) and v1 > 0:
         return float(v1)
+    # Somme des lots (cohérence) — prime sur les estimations globales non publiées.
+    sca = somme_ca_lots(brief)
+    if sca:
+        return (sca[0] + sca[1]) / 2
+    fmin, fmax = mm.get("fourchette_min_euros"), mm.get("fourchette_max_euros")
+    if all(isinstance(x, (int, float)) and x > 0 for x in (fmin, fmax)):
+        return (float(fmin) + float(fmax)) / 2
     v2min, v2max = v3.get("voie_2_min_eur"), v3.get("voie_2_max_eur")
     if all(isinstance(x, (int, float)) and x > 0 for x in (v2min, v2max)):
         return (float(v2min) + float(v2max)) / 2
@@ -206,12 +240,17 @@ def kpi_cards_pour_marche(brief, marche, presets, calib=None):
         return isinstance(x, (int, float)) and x > 0
     fmin = fmax = None
     via_voie2 = False
+    _sca = somme_ca_lots(brief)
     if _pos(mm.get("valeur_estimee_euros")):
         pass  # valeur officielle unique → pas de fourchette
-    elif _pos(mm.get("fourchette_min_euros")) and _pos(mm.get("fourchette_max_euros")):
-        fmin, fmax = mm.get("fourchette_min_euros"), mm.get("fourchette_max_euros")
     elif _pos(v3.get("voie_1_eur")):
         pass  # Voie 1 = prix officiel unique → pas de fourchette
+    elif _sca:
+        # Cohérence : total = Σ CA des lots (marché alloti complet).
+        fmin, fmax = _sca
+        via_voie2 = True
+    elif _pos(mm.get("fourchette_min_euros")) and _pos(mm.get("fourchette_max_euros")):
+        fmin, fmax = mm.get("fourchette_min_euros"), mm.get("fourchette_max_euros")
     elif _pos(v3.get("voie_2_min_eur")) and _pos(v3.get("voie_2_max_eur")):
         fmin, fmax = v3.get("voie_2_min_eur"), v3.get("voie_2_max_eur")
         via_voie2 = True

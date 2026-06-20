@@ -312,36 +312,12 @@ def _charger_extraction_llm(id_marche: str) -> dict | None:
 
 
 def _montant_marche_eur(brief: dict | None) -> float | None:
-    """
-    Extrait la valeur estimée du marché en euros depuis le brief LLM.
-    Sources par ordre de fiabilité : valeur_estimee_euros, ou moyenne
-    de la fourchette si fourchette min+max fournies.
-    """
+    """Valeur estimée du marché en € — délègue à fiche_marche.montant_estime
+    (source unique de vérité : prix publié > somme CA lots > fourchette > Voie 2)
+    pour garantir la cohérence entre KPI résumé, bloc estimation et total."""
     if not brief:
         return None
-    mm = brief.get("montant_marche") or {}
-    v = mm.get("valeur_estimee_euros")
-    if v and isinstance(v, (int, float)) and v > 0:
-        return float(v)
-    fmin = mm.get("fourchette_min_euros")
-    fmax = mm.get("fourchette_max_euros")
-    if (fmin and fmax
-            and isinstance(fmin, (int, float)) and isinstance(fmax, (int, float))
-            and fmin > 0 and fmax > 0):
-        return (float(fmin) + float(fmax)) / 2
-    # Fallback extraction v2 : l'estimation peut vivre dans `montant_3_voies`
-    # (Voie 1 = prix officiel ; Voie 2 = bottom-up IA) quand `montant_marche`
-    # est `non_communique` (ex 26-56676 : Voie 2 = 480 k–620 k €).
-    v3 = brief.get("montant_3_voies") or {}
-    v1 = v3.get("voie_1_eur")
-    if v1 and isinstance(v1, (int, float)) and v1 > 0:
-        return float(v1)
-    v2min, v2max = v3.get("voie_2_min_eur"), v3.get("voie_2_max_eur")
-    if (v2min and v2max
-            and isinstance(v2min, (int, float)) and isinstance(v2max, (int, float))
-            and v2min > 0 and v2max > 0):
-        return (float(v2min) + float(v2max)) / 2
-    return None
+    return fiche_marche.montant_estime(brief)
 
 
 def _zone_prix_marche(profil: dict | None, brief: dict | None,
@@ -1278,6 +1254,13 @@ def detail_marche(id_marche):
 
     # Montant estimé du marché extrait par le brief LLM — B3/B11
     montant_marche_eur = _montant_marche_eur(brief)
+    # Cohérence total ↔ lots : si le marché est alloti et complet, la fourchette
+    # globale = Σ CA des lots (sinon None → le template garde mm/Voie 2).
+    # Sauf si un PRIX PUBLIÉ existe (valeur / Voie 1) : il prime, pas de surcharge.
+    _mm = (brief or {}).get("montant_marche") or {}
+    _v3 = (brief or {}).get("montant_3_voies") or {}
+    _publie = (_mm.get("valeur_estimee_euros") or _v3.get("voie_1_eur"))
+    _ca_lots = None if (_publie or not brief) else fiche_marche.somme_ca_lots(brief)
 
     # Dossier local DCE
     dossier_dce = REPERTOIRE_DCE / id_marche
@@ -1403,6 +1386,8 @@ def detail_marche(id_marche):
         calibration=calibration,
         scenarios_montant=scenarios_montant,
         montant_marche_eur=montant_marche_eur,
+        ca_lots_min=(_ca_lots[0] if _ca_lots else None),
+        ca_lots_max=(_ca_lots[1] if _ca_lots else None),
         pdfs_locaux=pdfs_locaux,
         docs_analyses=docs_analyses,
         dossier_dce=str(dossier_dce),

@@ -1052,74 +1052,40 @@
            (type calcule_volumes, ex 26-56995) ou dans montant_3_voies.voie_2
            (ex 26-56676 : montant_marche non_communique). #}
         {% set v3 = brief.montant_3_voies %}
-        {% set rev_min = brief.revenu_min_eur or (mm.fourchette_min_euros if mm else None) or (v3.voie_2_min_eur if v3 else None) %}
-        {% set rev_max = brief.revenu_max_eur or (mm.fourchette_max_euros if mm else None) or (v3.voie_2_max_eur if v3 else None) %}
+        {# Fourchette CA : priorité à la Σ des CA des lots (cohérence total = lots,
+           passée par la route en ca_lots_*), sinon revenu_*, sinon montant_marche
+           (calcule_volumes) ou Voie 2. #}
+        {% set rev_min = ca_lots_min or brief.revenu_min_eur or (mm.fourchette_min_euros if mm else None) or (v3.voie_2_min_eur if v3 else None) %}
+        {% set rev_max = ca_lots_max or brief.revenu_max_eur or (mm.fourchette_max_euros if mm else None) or (v3.voie_2_max_eur if v3 else None) %}
         {% set rev_fourchette = rev_min and rev_max and rev_max > rev_min %}
         {% set cr = brief.cout_realisation %}
-        {# Fallback coût : champs top-level souvent vides → on retombe sur le bloc
-           cout_realisation (cout_total_eur / min / max), ex 26-56662. #}
-        {% set cout_eur = brief.cout_realisation_eur or (cr.cout_total_eur if cr else None) %}
-        {% set cout_min = brief.cout_min_eur or (cr.cout_min_eur if cr else None) %}
-        {% set cout_max = brief.cout_max_eur or (cr.cout_max_eur if cr else None) %}
-        {% set cout_fourchette = cout_min and cout_max and cout_max > cout_min %}
-        {# Marge = revenu estimé − coût bottom-up (pas de taux fixe ; coût estimé
-           poste par poste / par lot). Calculée si pas déjà fournie par le brief. #}
-        {% set marge_val = brief.get('marge_eur') if brief.get('marge_eur') is not none
-                           else ((rev_eur - cout_eur) if (rev_eur and cout_eur) else none) %}
-        {% set marge_pct_val = brief.get('marge_pct') if brief.get('marge_pct') is not none
-                               else (((rev_eur - cout_eur) / rev_eur * 100) if (rev_eur and cout_eur and rev_eur > 0) else none) %}
 
-        {% if rev_eur or cout_eur or mm %}
+        {% if rev_eur or mm %}
         <div style="background: var(--c-violet-soft); border: 1px solid var(--c-violet); border-radius: 12px; padding: 15px 17px; margin-bottom: 12px;">
           <div style="font-size: 11px; font-weight: 700; color: var(--c-violet); text-transform: uppercase; letter-spacing: 0.4px; margin-bottom: 12px;"><span style="color: var(--apt-gold);">✦</span> Estimation Tendia <span style="color: var(--apt-ink-4); font-weight: 600;">· bottom-up</span></div>
-          {# Revenu — même disposition que Médiane : montant à GAUCHE, fourchette à DROITE #}
-          <div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 14px; flex-wrap: wrap; {% if cout_eur %}padding-bottom: 10px; border-bottom: 1px solid rgba(30,39,97,0.12);{% endif %}">
+          {# CA estimé — montant à GAUCHE, fourchette à DROITE #}
+          <div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 14px; flex-wrap: wrap;">
             <div>
               <div style="font-size: 25px; font-weight: 800; color: var(--apt-ink); line-height: 1; font-variant-numeric: tabular-nums;">
                 {% if rev_fourchette and rev_eur and rev_min < rev_eur and rev_eur < rev_max %}{{ rev_eur | euro_short }}{% elif rev_fourchette %}{{ rev_min | euro_short }} – {{ rev_max | euro_short }}{% elif rev_eur %}{{ rev_eur | euro_short }}{% else %}<span style="font-size: 16px; color: var(--apt-ink-4);">non communiqué</span>{% endif %}
               </div>
-              <div style="font-size: 10.5px; color: var(--c-violet); font-weight: 700; margin-top: 4px; text-transform: uppercase; letter-spacing: 0.3px;">Revenu · {% if est_officiel %}prix officiel{% if mm.type == 'plafond' %} (plafond){% endif %}{% else %}estimé IA{% endif %}{% if rev_fourchette and rev_eur and rev_min < rev_eur and rev_eur < rev_max %} (médiane){% endif %}</div>
+              <div style="font-size: 10.5px; color: var(--c-violet); font-weight: 700; margin-top: 4px; text-transform: uppercase; letter-spacing: 0.3px;">CA marché · {% if est_officiel %}prix officiel{% if mm.type == 'plafond' %} (plafond){% endif %}{% elif ca_lots_min %}Σ des lots{% else %}estimé IA{% endif %}{% if rev_fourchette and rev_eur and rev_min < rev_eur and rev_eur < rev_max %} (médiane){% endif %}</div>
             </div>
             {% if rev_fourchette %}
             <div style="text-align: right;">
               <div style="font-variant-numeric: tabular-nums; font-weight: 700; color: var(--apt-ink); font-size: 16px;">{{ rev_min | euro_short }} – {{ rev_max | euro_short }}</div>
-              <div style="font-size: 10.5px; color: var(--apt-ink-4);">fourchette estimée</div>
+              <div style="font-size: 10.5px; color: var(--apt-ink-4);">{% if ca_lots_min %}somme des lots{% else %}fourchette estimée{% endif %}</div>
             </div>
             {% endif %}
           </div>
           {% if brief.revenu_sous_seuil_boamp %}
           <div style="font-size: 11px; color: var(--c-amber); margin-top: 4px;">⚠ Sous le seuil de publicité BOAMP (~90 k€ HT) — probable sous-estimation (reconductions/tranches/durée totale ?), sauf lot isolé.</div>
           {% endif %}
-          {# Coût + Marge (briefs ré-extraits uniquement) #}
-          {% if cout_eur %}
-          <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding: 8px 0; border-bottom: 1px solid var(--apt-line-2);">
-            <div style="font-size: 11px; color: var(--apt-ink-4); font-weight: 600;">Coût réalisation · bottom-up</div>
-            <div style="font-size: 15px; color: var(--apt-ink-2); font-weight: 600; font-variant-numeric: tabular-nums;">
-              {% if cout_fourchette %}{{ cout_min | euro_short }} – {{ cout_max | euro_short }}{% else %}{{ cout_eur | euro_short }}{% endif %}
-            </div>
-          </div>
-          {% if marge_val is not none %}
-          {# Coût et revenu sont estimés INDÉPENDAMMENT par l'IA → la marge implicite
-             peut être incohérente. On n'affiche un chiffre que si elle est plausible
-             (positive, 5–70 %) ; sinon un caveat sobre au lieu d'un nombre trompeur. #}
-          {% set marge_coherente = (marge_val > 0 and marge_pct_val is not none and marge_pct_val >= 5 and marge_pct_val <= 70) %}
-          <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding-top: 8px;">
-            <div style="font-size: 11px; color: var(--apt-ink-4); font-weight: 600; cursor: help;"
-                 title="Marge ≈ revenu estimé − coût de réalisation. Les deux sont estimés INDÉPENDAMMENT par l'IA (le coût bottom-up poste par poste, le revenu côté marché), sans réconciliation — pas de taux fixe. Strictement indicatif, à vérifier.">
-              Marge estimée <span style="opacity:0.7;">ⓘ</span></div>
-            {% if marge_coherente %}
-            <div style="font-size: 17px; font-weight: 700; color: var(--c-green-deep); font-variant-numeric: tabular-nums;">{{ marge_val | euro_short }} <span style="font-size: 12px;">(~{{ marge_pct_val | round | int }} %)</span></div>
-            {% else %}
-            <div style="font-size: 11px; color: var(--c-amber); font-weight: 600; max-width: 230px; text-align: right; line-height: 1.4;">incohérente (coût/revenu estimés séparément) — à vérifier</div>
-            {% endif %}
-          </div>
-          {% endif %}
-          {% endif %}
 
-          {# Détail du coût estimé (postes, taux, hypothèses) #}
+          {# Décomposition de l'estimation (postes, taux, hypothèses) — la BASE du CA #}
           {% if cr and (cr.postes or cr.taux_journaliers_retenus or cr.commentaire) %}
           <details style="margin-top: 10px;">
-            <summary style="cursor: pointer; font-size: 11px; color: var(--c-violet); font-weight: 700; text-transform: uppercase; letter-spacing: 0.3px; list-style: none; user-select: none;">▸ Détail du coût estimé</summary>
+            <summary style="cursor: pointer; font-size: 11px; color: var(--c-violet); font-weight: 700; text-transform: uppercase; letter-spacing: 0.3px; list-style: none; user-select: none;">▸ Décomposition de l'estimation</summary>
             <div style="margin-top: 8px;">
               {% if cr.postes %}
               <ul style="margin: 0 0 6px; padding-left: 16px; font-size: 12px; color: var(--apt-ink-2); line-height: 1.6;">
@@ -1584,7 +1550,7 @@
     {% if detail_lots.mode == 'lots' and nb_coeur %}{% set _ = lot_teaser_parts.append(nb_coeur ~ ' cœur de cible') %}{% endif %}
     {% if detail_lots.mode == 'lots' and nb_part %}{% set _ = lot_teaser_parts.append(nb_part ~ ' partiel' ~ ('s' if nb_part > 1 else '')) %}{% endif %}
     {{ sec(('Détail par lot' if detail_lots.mode == 'lots' else 'Détail par tranche'), lot_teaser_parts | join(' · '), 'blue', false, IC_DOC) }}
-      {% if detail_lots.mode == 'lots' %}<div style="font-size:11px; color:var(--apt-ink-4); margin-bottom:12px; line-height:1.5;">Le <strong style="color:var(--apt-gold-deep);">coût estimé</strong> par lot = ce que ça coûterait au candidat de <em>réaliser</em> ce lot (estimation Tendia, indicatif) — c'est un <strong>coût, pas le revenu/prix</strong>.</div>{% endif %}
+      {% if detail_lots.mode == 'lots' %}<div style="font-size:11px; color:var(--apt-ink-4); margin-bottom:12px; line-height:1.5;">Le <strong style="color:var(--apt-gold-deep);">CA estimé</strong> par lot = le <em>prix marché</em> estimé de ce lot (estimation Tendia, indicatif). La somme des lots = le CA total du marché.</div>{% endif %}
       {% for it in detail_lots.lignes %}
       <div style="padding:13px 16px; margin-bottom:10px; background:var(--apt-surface); border:1px solid var(--apt-line-2); border-radius:11px; box-shadow:0 1px 2px rgba(15,27,61,0.03);">
         {% if detail_lots.mode == 'lots' %}
@@ -1601,8 +1567,8 @@
               {% if it.domaine %}<span class="apt-meta" title="Domaine taxonomie (classification fine)" style="font-style:italic;">{{ it.domaine | replace('_', ' ') }}</span>{% endif %}
               {% if it.volume %}<span class="apt-meta">{{ it.volume }}</span>{% endif %}
               {% if it.montant %}<span style="font-size:11.5px; color:var(--apt-ink-2); font-weight:600; white-space:nowrap;">{{ it.montant | euro_short }} <span class="apt-meta" style="font-weight:400;">prix marché</span></span>{% endif %}
-              {% if it.cout_tag %}<span title="Coût estimé de réalisation de ce lot (estimation Tendia, indicatif) — voir « Prix &amp; estimation »" style="cursor:help; font-size:11.5px; color:var(--apt-gold-deep); white-space:nowrap;">≈ {{ it.cout_tag }} <span class="apt-meta" style="font-weight:400; color:var(--apt-ink-4);">coût</span></span>
-              {% elif it.cout_detail %}<span title="Coût estimé de ce lot — voir « Prix &amp; estimation »" style="cursor:help; font-size:11px; color:var(--apt-ink-4); white-space:nowrap;">coût estimé</span>{% endif %}
+              {% if it.cout_tag %}<span title="CA estimé (prix marché) de ce lot — estimation Tendia, indicatif. Voir « Prix &amp; estimation »" style="cursor:help; font-size:11.5px; color:var(--apt-gold-deep); white-space:nowrap;">≈ {{ it.cout_tag }} <span class="apt-meta" style="font-weight:400; color:var(--apt-ink-4);">CA</span></span>
+              {% elif it.cout_detail %}<span title="CA estimé (prix marché) de ce lot — voir « Prix &amp; estimation »" style="cursor:help; font-size:11px; color:var(--apt-ink-4); white-space:nowrap;">CA estimé</span>{% endif %}
             </div>
             {% endif %}
             {% if it.description %}<div style="font-size:12.5px; color:var(--apt-ink-2); margin-top:7px; line-height:1.55;">{{ it.description }}</div>{% endif %}
