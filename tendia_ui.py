@@ -831,6 +831,11 @@ def explorer():
             "a_brief_complet": source == "brief_complet",
         })
 
+    # Nb de marchés pertinents (très pertinent + pertinent) sur TOUTE la base
+    # classifiée — calculé AVANT les filtres (KPI stable). Pertinent que si profil actif.
+    nb_pertinents = sum(1 for l in lignes
+                        if l.get("verdict") in ("tres_pertinent", "pertinent"))
+
     # Filtre optionnel : uniquement briefs complets/partiels (Sprint UI L7.3)
     if request.args.get("complet"):
         lignes = [l for l in lignes if l["richesse"]["niveau"] in ("complet", "partiel")]
@@ -925,6 +930,7 @@ def explorer():
         total_classifies=sum(stats_familles.values()),
         total_marches=len(marches),
         nb_briefs=sum(1 for k in briefs if ".bak" not in k),
+        nb_pertinents=nb_pertinents,
         filtres={
             "familles": filtre_familles,
             "domaines": filtre_domaines,

@@ -66,6 +66,11 @@
     font-size: 9px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
     color: var(--apt-ink-4); margin-top: 9px; white-space: nowrap;
   }
+  /* Variante « marchés pertinents » : même format, accent vert (pertinence) */
+  .explorer-kpi-pertinents::after {
+    background: linear-gradient(90deg, var(--apt-leaf) 0%, var(--c-green-deep) 100%);
+  }
+  .explorer-kpi-pertinents .kn { color: var(--apt-leaf); }
   .explorer-rule {
     height: 1px; margin: 26px 0 28px;
     background: linear-gradient(90deg, var(--apt-gold) 0%, var(--apt-line) 18%, var(--apt-line-2) 100%);
@@ -447,9 +452,17 @@
     </div>
     <div style="display:flex; flex-direction:column; align-items:flex-end; gap:11px;">
       <a href="{{ url_for('dashboard') }}" class="apt-link" style="font-size:13px;">← Retour au dashboard</a>
-      <div class="explorer-kpi-solo">
-        <div class="kn">{{ nb_briefs }}</div>
-        <div class="kl">Briefs analysés</div>
+      <div style="display:flex; gap:12px; align-items:stretch;">
+        <div class="explorer-kpi-solo">
+          <div class="kn">{{ nb_briefs }}</div>
+          <div class="kl">Briefs analysés</div>
+        </div>
+        {% if a_profil %}
+        <div class="explorer-kpi-solo explorer-kpi-pertinents">
+          <div class="kn">{{ nb_pertinents }}</div>
+          <div class="kl">Marchés pertinents</div>
+        </div>
+        {% endif %}
       </div>
     </div>
   </header>
