@@ -509,7 +509,7 @@ def dashboard():
                     for d in doms:
                         if not isinstance(d, dict):
                             continue
-                        c = d.get("code", "?")
+                        c = _libelle_domaine(d.get("code", "?"))
                         p = d.get("poids")
                         if p:
                             parts.append(f"{c} ({int(p*100)}%)")
@@ -671,6 +671,31 @@ def _famille_pour_domaine(code: str) -> str:
 app.add_template_filter(_libelle_domaine, name="libelle_domaine")
 
 
+_RE_CODE_DEPT = re.compile(r"\d{1,3}|2[AB]|20[AB]")
+
+
+def _extraire_codes_depts(zone_str):
+    """Extrait les codes département normalisés d'un `perimetre_geographique`.
+
+    Le champ est du texte libre bruité, ex. "Dept 92 | 75 | FNSimple",
+    "Dept 6 | DIRECTIVE-24", "Dept 20B | MAPA". On isole les tokens qui sont
+    de vrais codes département (en ignorant les suffixes de procédure du type
+    FNSimple / MAPA / DIRECTIVE-24) et on les normalise vers la forme de
+    DEPARTEMENT_LIBELLE (zéro initial pour 1→09, 20A/20B → 2A/2B).
+    """
+    codes = set()
+    for part in (zone_str or "").split("|"):
+        p = part.replace("Dept", "").strip()
+        if not _RE_CODE_DEPT.fullmatch(p):
+            continue
+        if p in ("20A", "20B"):
+            p = p.replace("20", "2")
+        elif p.isdigit() and len(p) == 1:
+            p = "0" + p
+        codes.add(p)
+    return codes
+
+
 @app.route("/explorer")
 def explorer():
     """
@@ -692,9 +717,10 @@ def explorer():
     briefs = stockage.charger("briefs_extraits") or {}
 
     # Lecture des filtres URL
-    filtre_famille = (request.args.get("famille") or "").strip()
-    filtre_domaine = (request.args.get("domaine") or "").strip()
-    filtre_zone = (request.args.get("zone") or "").strip().lower()
+    # Secteurs (familles) et sous-domaines : MULTI-sélection (cumulables).
+    filtre_familles = [f for f in request.args.getlist("famille") if f.strip()]
+    filtre_domaines = [d for d in request.args.getlist("domaine") if d.strip()]
+    filtre_zone = (request.args.get("zone") or "").strip()
     filtre_recherche = (request.args.get("recherche") or "").strip().lower()
     # Filtre par tag de richesse du brief (complet / partiel / light).
     filtre_brief = (request.args.get("brief") or "").strip().lower()
@@ -745,14 +771,14 @@ def explorer():
         code_principal = principal.get("code")
         famille = _famille_pour_domaine(code_principal)
 
-        # Filtres
-        if filtre_famille and famille != filtre_famille:
+        # Filtres (multi : on garde si le marché matche AU MOINS une des valeurs)
+        if filtre_familles and famille not in filtre_familles:
             continue
-        if filtre_domaine and code_principal != filtre_domaine:
+        if filtre_domaines and code_principal not in filtre_domaines:
             continue
         if filtre_zone:
-            zone_str = (marche.get("perimetre_geographique") or "").lower()
-            if filtre_zone not in zone_str:
+            codes_dept_m = _extraire_codes_depts(marche.get("perimetre_geographique"))
+            if filtre_zone not in codes_dept_m:
                 continue
         if filtre_recherche:
             haystack = " ".join([
@@ -854,6 +880,7 @@ def explorer():
     from collections import Counter
     stats_familles = Counter()
     stats_domaines = Counter()
+    stats_depts = Counter()       # code dept → nb de marchés
     domaines_par_famille = {}  # famille → set(domaines)
     for id_m, marche in marches.items():
         classif = None
@@ -876,6 +903,15 @@ def explorer():
         stats_familles[fam] += 1
         stats_domaines[code] += 1
         domaines_par_famille.setdefault(fam, set()).add(code)
+        for code_dep in _extraire_codes_depts(marche.get("perimetre_geographique")):
+            stats_depts[code_dep] += 1
+
+    # Liste des départements présents → options du filtre zone (libellé + compte).
+    zones_disponibles = sorted(
+        [(c, profil_widgets.DEPARTEMENT_LIBELLE.get(c, c), n)
+         for c, n in stats_depts.items()],
+        key=lambda x: x[1].lower(),   # tri alphabétique par nom de département
+    )
 
     # Pour la sidebar : familles triées par volume desc + sous-domaines triés
     familles_triees = [
@@ -895,11 +931,15 @@ def explorer():
         "explorer.html",
         lignes=lignes,
         familles_triees=familles_triees,
+        zones_disponibles=zones_disponibles,
+        zone_libelle=(profil_widgets.DEPARTEMENT_LIBELLE.get(filtre_zone, filtre_zone)
+                      if filtre_zone else ""),
         total_classifies=sum(stats_familles.values()),
         total_marches=len(marches),
+        nb_briefs=sum(1 for k in briefs if ".bak" not in k),
         filtres={
-            "famille": filtre_famille,
-            "domaine": filtre_domaine,
+            "familles": filtre_familles,
+            "domaines": filtre_domaines,
             "zone": filtre_zone,
             "recherche": filtre_recherche,
             "brief": filtre_brief,

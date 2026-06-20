@@ -7,33 +7,68 @@
   .explorer-wrap {
     max-width: 1560px;
     margin: 0 auto;
-    padding: 30px 40px 80px;
-    --c-violet: #1E2761;
+    padding: 40px 40px 80px;   /* calqué sur la fiche marché */
+    --c-violet: var(--apt-accent);
     --c-violet-soft: var(--apt-accent-soft);
-    --c-green: #1E6F4A;
+    --c-green: var(--apt-leaf);
     --c-green-soft: var(--apt-leaf-soft);
-    --c-amber: #B8954A;
+    --c-amber: var(--apt-gold-deep);
     --c-amber-soft: var(--apt-gold-soft);
-    --c-rose: #B85042;
-    --c-stone: #6B7280;
+    --c-rose: var(--apt-rose);
+    --c-stone: var(--apt-ink-4);
   }
+  /* ===== Header éditorial premium (identité Tendia) ===== */
   .explorer-header {
     display: flex;
     justify-content: space-between;
-    align-items: baseline;
+    align-items: flex-end;
     flex-wrap: wrap;
-    gap: 16px;
-    margin-bottom: 24px;
+    gap: 40px;
+    margin-bottom: 0;
   }
+  .explorer-eyebrow {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 10.5px; font-weight: 700; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--apt-ink-4); margin-bottom: 12px;
+  }
+  .explorer-eyebrow .dot { width: 6px; height: 6px; border-radius: 999px; background: var(--apt-gold); }
   .explorer-title {
-    font-size: 24px;
-    font-weight: 600;
-    color: var(--apt-ink);
-    margin: 0;
+    font-family: var(--apt-display, inherit);
+    font-size: 46px; line-height: 1; font-weight: 700;
+    color: var(--apt-ink); letter-spacing: -0.03em; margin: 0;
+  }
+  .explorer-title .sub {
+    color: var(--apt-ink-4); font-weight: 600; font-size: 27px;
+    letter-spacing: -0.02em; margin-left: 12px;
   }
   .explorer-meta {
-    font-size: 13px;
-    color: var(--apt-ink-3);
+    font-size: 13.5px; color: var(--apt-ink-3); line-height: 1.5; margin-top: 13px; max-width: 560px;
+  }
+  /* KPI unique — fond blanc épuré, chiffre navy, fine barre dorée (pro) */
+  .explorer-kpi-solo {
+    display: inline-flex; flex-direction: column; align-items: center;
+    padding: 14px 32px 15px;
+    background: var(--apt-pure);
+    border: 1px solid var(--apt-line);
+    border-radius: 14px;
+    box-shadow: 0 5px 18px rgba(15,27,61,0.07);
+    position: relative; overflow: hidden;
+  }
+  .explorer-kpi-solo::after {
+    content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 3px;
+    background: linear-gradient(90deg, var(--apt-gold) 0%, var(--apt-gold-deep) 100%);
+  }
+  .explorer-kpi-solo .kn {
+    font-size: 38px; font-weight: 800; line-height: 1; letter-spacing: -0.025em;
+    font-variant-numeric: tabular-nums; color: var(--apt-accent);
+  }
+  .explorer-kpi-solo .kl {
+    font-size: 9px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--apt-ink-4); margin-top: 9px; white-space: nowrap;
+  }
+  .explorer-rule {
+    height: 1px; margin: 26px 0 28px;
+    background: linear-gradient(90deg, var(--apt-gold) 0%, var(--apt-line) 18%, var(--apt-line-2) 100%);
   }
   .explorer-grid {
     display: grid;
@@ -44,20 +79,53 @@
   @media (max-width: 900px) {
     .explorer-grid { grid-template-columns: 1fr; }
   }
-  .sidebar-section {
-    background: var(--apt-bg, white);
-    border: 1px solid var(--apt-ink-6, #e5e2dc);
-    border-radius: 10px;
-    padding: 14px 16px;
-    margin-bottom: 14px;
+  /* Sidebar collante — les filtres restent visibles au scroll */
+  .explorer-sidebar {
+    position: sticky;
+    top: 16px;
   }
+  @media (max-width: 900px) {
+    .explorer-sidebar { position: static; }
+  }
+  .sidebar-section {
+    background: var(--apt-surface);            /* fond crémeux — esprit Tendia */
+    border: 1px solid var(--apt-line-2);
+    border-radius: 12px;
+    padding: 12px 14px;
+    margin-bottom: 9px;
+    box-shadow: 0 2px 10px rgba(15,27,61,0.04);
+  }
+  /* Sections pliables (dépliées par défaut) */
+  details.sidebar-section > summary {
+    list-style: none; cursor: pointer; user-select: none;
+    position: relative; padding-right: 18px;
+  }
+  details.sidebar-section > summary::-webkit-details-marker { display: none; }
+  details.sidebar-section > summary::after {
+    content: ''; position: absolute; right: 2px; top: 3px;
+    width: 6px; height: 6px;
+    border-right: 1.5px solid var(--apt-ink-4); border-bottom: 1.5px solid var(--apt-ink-4);
+    transform: rotate(45deg); transition: transform .15s ease;
+  }
+  details.sidebar-section[open] > summary::after { transform: rotate(-135deg); top: 6px; }
+  details.sidebar-section > summary:hover::after { border-color: var(--apt-accent); }
+  .sidebar-body { margin-top: 12px; }
   .sidebar-title {
-    font-size: 11px;
+    display: flex; align-items: center; gap: 7px;
+    font-size: 10px;
     text-transform: uppercase;
-    letter-spacing: 0.4px;
+    letter-spacing: 0.1em;
     font-weight: 700;
-    color: var(--apt-ink-4);
-    margin: 0 0 10px;
+    color: var(--apt-ink-3);
+    margin: 0;
+  }
+  .sidebar-title::before {
+    content: ''; width: 5px; height: 5px; border-radius: 999px;
+    background: var(--apt-gold); flex: none;
+  }
+  .sidebar-sublabel {
+    font-size: 9.5px; text-transform: uppercase; letter-spacing: 0.1em;
+    font-weight: 700; color: var(--apt-ink-4); margin: 13px 0 5px;
   }
   .sidebar-search input {
     width: 100%;
@@ -67,6 +135,57 @@
     font-size: 13px;
     background: white;
   }
+  .zone-select {
+    width: 100%;
+    padding: 8px 30px 8px 10px;
+    border: 1px solid var(--apt-ink-5, #ddd);
+    border-radius: 6px;
+    font: inherit; font-size: 13px;
+    color: var(--apt-ink-2);
+    background: white url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%238c8472' stroke-width='1.6' fill='none' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat right 11px center;
+    -webkit-appearance: none; -moz-appearance: none; appearance: none;
+    cursor: pointer;
+  }
+  .zone-select:focus { outline: none; border-color: var(--c-violet); }
+  /* Petit hint à côté d'un titre de section */
+  .sidebar-hint {
+    font-size: 8.5px; font-weight: 700; letter-spacing: 0.06em;
+    text-transform: uppercase; color: var(--apt-ink-4);
+    background: var(--apt-line-3); padding: 1px 6px; border-radius: 999px;
+    margin-left: 6px; vertical-align: middle;
+  }
+  /* ── Secteur repliable (multi-sélection) ── */
+  .secteur-fold { border-radius: 5px; }
+  .secteur-fold > summary {
+    list-style: none; cursor: pointer; user-select: none;
+    display: flex; align-items: center; gap: 7px;
+    padding: 6px 8px; margin: 0 -8px; border-radius: 5px;
+    transition: background 0.1s;
+  }
+  .secteur-fold > summary::-webkit-details-marker { display: none; }
+  .secteur-fold > summary:hover { background: var(--apt-bg-2, #f4f1ed); }
+  .secteur-chev {
+    width: 6px; height: 6px; flex: none; margin-left: 2px;
+    border-right: 1.5px solid var(--apt-ink-4); border-bottom: 1.5px solid var(--apt-ink-4);
+    transform: rotate(-45deg); transition: transform .15s ease;
+  }
+  .secteur-fold[open] > summary .secteur-chev { transform: rotate(45deg); }
+  .secteur-name {
+    flex: 1; min-width: 0; font-size: 13px; color: var(--apt-ink-2);
+    text-decoration: none; border-radius: 4px;
+    overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  }
+  .secteur-name:hover { color: var(--c-violet); }
+  .secteur-name.sel { color: var(--c-violet); font-weight: 600; }
+  .secteur-fold > summary.sel-row {
+    background: var(--c-violet-soft);
+    box-shadow: inset 2px 0 0 var(--apt-gold);
+  }
+  .secteur-count {
+    flex: none; color: var(--apt-ink-4); font-size: 11.5px;
+    font-variant-numeric: tabular-nums;
+  }
+  .secteur-fold > summary.sel-row .secteur-count { color: var(--c-violet); }
   .famille-item {
     display: block;
     padding: 6px 8px;
@@ -85,6 +204,7 @@
     background: var(--c-violet-soft);
     color: var(--c-violet);
     font-weight: 600;
+    box-shadow: inset 2px 0 0 var(--apt-gold);
   }
   .famille-item .compte {
     float: right;
@@ -150,33 +270,65 @@
   .btn-appliquer:hover { opacity: 0.88; }
 
   /* Tableau résultats */
+  /* Zone collante regroupant le bandeau de filtres + le compteur de résultats.
+     Fond opaque couleur page → masque proprement les cartes qui défilent dessous,
+     en haut comme en bas (marge incluse). */
+  .explorer-stickytop {
+    position: sticky;
+    top: 0;
+    z-index: 6;
+    background: var(--apt-bg);
+    padding: 16px 0 10px;
+    margin-bottom: 4px;
+    box-shadow: 0 8px 12px -10px rgba(15,27,61,0.22);
+  }
   .filtres-actifs {
-    background: var(--c-violet-soft);
+    /* Fond OPAQUE (chip-bar distincte sur la zone collante) */
+    background: color-mix(in srgb, var(--c-violet) 9%, var(--apt-bg));
     padding: 10px 14px;
     border-radius: 8px;
-    margin-bottom: 14px;
+    margin-bottom: 12px;
     font-size: 12.5px;
     color: var(--c-violet);
+    border: 1px solid color-mix(in srgb, var(--c-violet) 16%, transparent);
   }
-  .filtres-actifs strong { margin-right: 6px; }
+  .filtres-actifs { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+  .filtres-actifs strong { margin-right: 2px; }
   .filtres-actifs .badge {
-    display: inline-block;
+    display: inline-flex; align-items: center; gap: 5px;
     background: white;
     color: var(--c-violet);
-    padding: 2px 8px;
+    padding: 3px 9px;
     border-radius: 999px;
-    margin-right: 6px;
     font-weight: 500;
+    text-decoration: none;
+    border: 1px solid transparent;
+    transition: border-color .12s ease, box-shadow .12s ease;
   }
+  .filtres-actifs .badge-rm .rm {
+    font-size: 9px; line-height: 1; color: var(--apt-ink-4);
+    border-radius: 999px; padding: 1px;
+  }
+  .filtres-actifs .badge-rm:hover {
+    border-color: color-mix(in srgb, var(--c-violet) 35%, transparent);
+    box-shadow: 0 1px 5px rgba(15,27,61,0.10);
+  }
+  .filtres-actifs .badge-rm:hover .rm { color: var(--c-rose); }
+  .filtres-actifs .badge-clear-all {
+    margin-left: auto;
+    font-size: 11.5px; font-weight: 600;
+    color: var(--c-violet); text-decoration: none;
+    opacity: .75;
+  }
+  .filtres-actifs .badge-clear-all:hover { opacity: 1; text-decoration: underline; }
   .resultat-count {
     font-size: 13px;
     color: var(--apt-ink-3);
-    margin: 0 0 12px;
+    margin: 0;
   }
   .marche-card {
     background: var(--apt-pure);
     border: 1px solid var(--apt-line-2);
-    border-left: 3px solid var(--vc, var(--apt-ink-6));
     border-radius: 10px;
     padding: 13px 18px;
     margin-bottom: 9px;
@@ -190,7 +342,6 @@
     box-shadow: 0 6px 20px rgba(15,27,61,0.08);
     transform: translateY(-1px);
     border-color: var(--apt-line);
-    border-left-color: var(--vc, var(--apt-accent));
   }
   /* Accent verdict (variable --vc) */
   .marche-card.va-tres_pertinent { --vc: var(--apt-accent); }
@@ -251,14 +402,19 @@
   .marche-card .echeance.urgent { color: var(--c-rose); font-weight: 600; }
   .marche-card .echeance.proche { color: var(--c-amber); font-weight: 600; }
   .famille-separateur {
+    display: flex; align-items: center; gap: 8px;
     font-size: 11.5px;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
-    color: var(--c-violet);
-    margin: 20px 0 8px;
-    padding-bottom: 4px;
-    border-bottom: 1px solid var(--c-violet-soft);
+    letter-spacing: 0.08em;
+    color: var(--apt-ink);
+    margin: 22px 0 10px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--apt-line-2);
+  }
+  .famille-separateur::before {
+    content: ''; width: 6px; height: 6px; border-radius: 999px;
+    background: var(--apt-gold); flex: none;
   }
   .famille-separateur:first-child { margin-top: 0; }
   .empty-state {
@@ -269,97 +425,129 @@
   .empty-state h3 { font-size: 18px; margin: 0 0 8px; color: var(--apt-ink-2); }
 </style>
 
+{# Réémet TOUS les filtres actifs (sauf `sauf`) comme champs cachés → garantit
+   que les filtres se cumulent au lieu de s'effacer mutuellement. #}
+{%- macro hidden_filtres(sauf) -%}
+  {% if sauf != 'famille' %}{% for f in filtres.familles %}<input type="hidden" name="famille" value="{{ f }}">{% endfor %}{% endif %}
+  {% if sauf != 'domaine' %}{% for d in filtres.domaines %}<input type="hidden" name="domaine" value="{{ d }}">{% endfor %}{% endif %}
+  {% if filtres.zone and sauf != 'zone' %}<input type="hidden" name="zone" value="{{ filtres.zone }}">{% endif %}
+  {% if filtres.recherche and sauf != 'recherche' %}<input type="hidden" name="recherche" value="{{ filtres.recherche }}">{% endif %}
+  {% if filtres.brief and sauf != 'brief' %}<input type="hidden" name="brief" value="{{ filtres.brief }}">{% endif %}
+  {% if sauf != 'verdict' %}{% for v in filtres.verdicts %}<input type="hidden" name="verdict" value="{{ v }}">{% endfor %}{% endif %}
+  {% if sauf != 'elig' %}{% for e in filtres.elig %}<input type="hidden" name="elig" value="{{ e }}">{% endfor %}{% endif %}
+  {% if filtres.score_min and sauf != 'score_min' %}<input type="hidden" name="score_min" value="{{ filtres.score_min }}">{% endif %}
+{%- endmacro -%}
+
 <div class="explorer-wrap">
-  <div class="explorer-header">
-    <div>
-      <h1 class="explorer-title">Explorer la base</h1>
-      <p class="explorer-meta">
-        {{ total_classifies }} marchés classifiés · {{ total_marches }} en base ·
-        Vue exhaustive pour explorer secteurs et identifier opportunités prospect
-      </p>
+  <header class="explorer-header">
+    <div style="min-width:0;">
+      <div class="explorer-eyebrow"><span class="dot"></span> Explorer · base complète</div>
+      <h1 class="explorer-title">{{ total_classifies }}<span class="sub">marché{{ 's' if total_classifies != 1 else '' }} classifié{{ 's' if total_classifies != 1 else '' }}</span></h1>
+      <p class="explorer-meta">Vue exhaustive de la base — explorez par secteur et zone, repérez les opportunités{% if a_profil %}, triées par pertinence pour votre profil actif{% endif %}.</p>
     </div>
-    <div>
-      <a href="{{ url_for('dashboard') }}" style="color: var(--apt-ink-4); text-decoration: none; font-size: 13px;">← Retour au dashboard</a>
+    <div style="display:flex; flex-direction:column; align-items:flex-end; gap:11px;">
+      <a href="{{ url_for('dashboard') }}" class="apt-link" style="font-size:13px;">← Retour au dashboard</a>
+      <div class="explorer-kpi-solo">
+        <div class="kn">{{ nb_briefs }}</div>
+        <div class="kl">Briefs analysés</div>
+      </div>
     </div>
-  </div>
+  </header>
+  <div class="explorer-rule"></div>
 
   <div class="explorer-grid">
     {# ── SIDEBAR : familles + sous-domaines ── #}
-    <aside>
+    <aside class="explorer-sidebar">
       {# Recherche libre #}
-      <form method="GET" action="{{ url_for('explorer') }}" class="sidebar-section sidebar-search">
-        <div class="sidebar-title">Rechercher</div>
-        <input type="text" name="recherche" value="{{ filtres.recherche }}"
-               placeholder="Titre, objet, acheteur, n° d'avis..."
-               onchange="this.form.submit()">
-        {% if filtres.famille %}<input type="hidden" name="famille" value="{{ filtres.famille }}">{% endif %}
-        {% if filtres.domaine %}<input type="hidden" name="domaine" value="{{ filtres.domaine }}">{% endif %}
-        {% if filtres.zone %}<input type="hidden" name="zone" value="{{ filtres.zone }}">{% endif %}
-      </form>
+      <details class="sidebar-section" open>
+        <summary class="sidebar-title">Rechercher</summary>
+        <form method="GET" action="{{ url_for('explorer') }}" class="sidebar-body sidebar-search">
+          <input type="text" name="recherche" value="{{ filtres.recherche }}"
+                 placeholder="Titre, objet, acheteur, n° d'avis..."
+                 onchange="this.form.submit()">
+          {{ hidden_filtres('recherche') }}
+        </form>
+      </details>
 
-      {# Filtre zone géo #}
-      <form method="GET" action="{{ url_for('explorer') }}" class="sidebar-section sidebar-search">
-        <div class="sidebar-title">Zone géographique</div>
-        <input type="text" name="zone" value="{{ filtres.zone }}"
-               placeholder="Ex: Aquitaine, 75, Paris..."
-               onchange="this.form.submit()">
-        {% if filtres.famille %}<input type="hidden" name="famille" value="{{ filtres.famille }}">{% endif %}
-        {% if filtres.domaine %}<input type="hidden" name="domaine" value="{{ filtres.domaine }}">{% endif %}
-        {% if filtres.recherche %}<input type="hidden" name="recherche" value="{{ filtres.recherche }}">{% endif %}
-      </form>
+      {# Filtre zone géo — liste des départements présents dans la base #}
+      <details class="sidebar-section" open>
+        <summary class="sidebar-title">Zone géographique</summary>
+        <form method="GET" action="{{ url_for('explorer') }}" class="sidebar-body sidebar-search">
+          <select name="zone" class="zone-select" onchange="this.form.submit()">
+            <option value="">Toutes les zones</option>
+            {% for code, libelle, n in zones_disponibles %}
+              <option value="{{ code }}" {% if filtres.zone == code %}selected{% endif %}>{{ code }} · {{ libelle }} ({{ n }})</option>
+            {% endfor %}
+          </select>
+          {{ hidden_filtres('zone') }}
+        </form>
+      </details>
 
-      {# Familles + sous-domaines #}
-      <div class="sidebar-section">
-        <div class="sidebar-title">Secteurs</div>
+      {# Familles + sous-domaines — multi-sélection (cumulable) + chaque secteur repliable #}
+      <details class="sidebar-section" open>
+        <summary class="sidebar-title">Secteurs</summary>
+        <div class="sidebar-body">
         {% for fam in familles_triees %}
-          {% set fam_active = (filtres.famille == fam.nom) or (filtres.domaine in fam.domaines|map(attribute=0)|list) %}
-          <a href="{{ url_for('explorer', famille=fam.nom, recherche=filtres.recherche, zone=filtres.zone, brief=filtres.brief) }}"
-             class="famille-item {% if fam_active %}active{% endif %}">
-            {{ fam.nom }}
-            <span class="compte">{{ fam.total }}</span>
-          </a>
-          {% if fam_active %}
+          {% set fam_sel = fam.nom in filtres.familles %}
+          {% set fam_doms = fam.domaines|map(attribute=0)|list %}
+          {% set fam_dom_sel = filtres.domaines|select('in', fam_doms)|list %}
+          {% set fam_active = fam_sel or (fam_dom_sel|length > 0) %}
+          {% set fam_new = (filtres.familles|reject('equalto', fam.nom)|list) if fam_sel else (filtres.familles + [fam.nom]) %}
+          <details class="secteur-fold" data-fam="{{ fam.nom }}">
+            <summary class="{% if fam_sel %}sel-row{% endif %}">
+              <span class="secteur-chev"></span>
+              <a href="{{ url_for('explorer', famille=fam_new, domaine=filtres.domaines, recherche=filtres.recherche, zone=filtres.zone, brief=filtres.brief, verdict=filtres.verdicts, elig=filtres.elig, score_min=(filtres.score_min or none)) }}"
+                 class="secteur-name {% if fam_sel %}sel{% endif %}" onclick="event.stopPropagation()"
+                 title="{% if fam_sel %}Retirer{% else %}Ajouter{% endif %} ce secteur du filtre">{{ fam.nom }}</a>
+              <span class="secteur-count">{{ fam.total }}</span>
+            </summary>
             <div class="sous-domaines">
               {% for code, n, libelle in fam.domaines %}
-                <a href="{{ url_for('explorer', domaine=code, recherche=filtres.recherche, zone=filtres.zone, brief=filtres.brief) }}"
-                   class="sous-domaine-item {% if filtres.domaine == code %}active{% endif %}">
+                {% set dom_sel = code in filtres.domaines %}
+                {% set dom_new = (filtres.domaines|reject('equalto', code)|list) if dom_sel else (filtres.domaines + [code]) %}
+                <a href="{{ url_for('explorer', domaine=dom_new, famille=filtres.familles, recherche=filtres.recherche, zone=filtres.zone, brief=filtres.brief, verdict=filtres.verdicts, elig=filtres.elig, score_min=(filtres.score_min or none)) }}"
+                   class="sous-domaine-item {% if dom_sel %}active{% endif %}">
                   {{ libelle }}
                   <span class="compte">{{ n }}</span>
                 </a>
               {% endfor %}
             </div>
-          {% endif %}
+          </details>
         {% endfor %}
-      </div>
+        </div>
+      </details>
 
       {# Filtre par tag de richesse du brief (= badge ◆ des cartes) #}
-      <div class="sidebar-section">
-        <div class="sidebar-title">Brief</div>
+      <details class="sidebar-section" open>
+        <summary class="sidebar-title">Brief</summary>
+        <div class="sidebar-body">
         {% for opt, lbl in [('', 'Tous'), ('complet', '◆ Complet'), ('partiel', '◆ Partiel'), ('light', '◆ Léger')] %}
-          <a href="{{ url_for('explorer', brief=opt, famille=filtres.famille, domaine=filtres.domaine, zone=filtres.zone, recherche=filtres.recherche) }}"
+          <a href="{{ url_for('explorer', brief=opt, famille=filtres.familles, domaine=filtres.domaines, zone=filtres.zone, recherche=filtres.recherche, verdict=filtres.verdicts, elig=filtres.elig, score_min=(filtres.score_min or none)) }}"
              class="famille-item {% if (filtres.brief or '') == opt %}active{% endif %}">{{ lbl }}</a>
         {% endfor %}
-        {% if filtres.famille or filtres.domaine or filtres.zone or filtres.recherche or filtres.brief or filtres.verdicts or filtres.elig or filtres.score_min %}
+        {% if filtres.familles or filtres.domaines or filtres.zone or filtres.recherche or filtres.brief or filtres.verdicts or filtres.elig or filtres.score_min %}
           <a href="{{ url_for('explorer') }}" class="reset-filtres">↺ Effacer tous les filtres</a>
         {% endif %}
-      </div>
+        </div>
+      </details>
 
       {# Filtre par pertinence vs profil actif (multi-sélection) #}
       {% if a_profil %}
-      <form method="GET" action="{{ url_for('explorer') }}" class="sidebar-section pertinence-filtre">
-        <input type="hidden" name="famille" value="{{ filtres.famille }}">
-        <input type="hidden" name="domaine" value="{{ filtres.domaine }}">
+      <details class="sidebar-section" open>
+        <summary class="sidebar-title">Pertinence &amp; éligibilité</summary>
+        <form method="GET" action="{{ url_for('explorer') }}" class="sidebar-body pertinence-filtre">
+        {% for f in filtres.familles %}<input type="hidden" name="famille" value="{{ f }}">{% endfor %}
+        {% for d in filtres.domaines %}<input type="hidden" name="domaine" value="{{ d }}">{% endfor %}
         <input type="hidden" name="zone" value="{{ filtres.zone }}">
         <input type="hidden" name="recherche" value="{{ filtres.recherche }}">
         <input type="hidden" name="brief" value="{{ filtres.brief }}">
-        <div class="sidebar-title">Pertinence</div>
         {% for val, lbl in [('tres_pertinent','Très pertinent'),('pertinent','Pertinent'),('a_verifier','À vérifier'),('non_pertinent','Non pertinent')] %}
           <label class="check-item">
             <input type="checkbox" name="verdict" value="{{ val }}" {% if val in filtres.verdicts %}checked{% endif %}>
             <span>{{ lbl }}</span>
           </label>
         {% endfor %}
-        <div class="sidebar-title" style="margin-top:10px;">Éligibilité</div>
+        <div class="sidebar-sublabel">Éligibilité</div>
         {% for val, lbl in [('eligible','Éligible'),('bloque','Non éligible')] %}
           <label class="check-item">
             <input type="checkbox" name="elig" value="{{ val }}" {% if val in filtres.elig %}checked{% endif %}>
@@ -372,30 +560,45 @@
                  placeholder="0" style="width:56px; padding:2px 6px; border:1px solid var(--apt-line); border-radius:6px; font:inherit;">
         </label>
         <button type="submit" class="btn-appliquer">Appliquer</button>
-      </form>
+        </form>
+      </details>
       {% endif %}
     </aside>
 
     {# ── MAIN : résultats ── #}
     <main>
-      {% if filtres.famille or filtres.domaine or filtres.zone or filtres.recherche or filtres.brief or filtres.verdicts or filtres.elig or filtres.score_min %}
+      {%- macro lien_sans(drop, drop_val=None) -%}
+        {{ url_for('explorer',
+           famille=(filtres.familles|reject('equalto', drop_val)|list if drop=='famille' else filtres.familles),
+           domaine=(filtres.domaines|reject('equalto', drop_val)|list if drop=='domaine' else filtres.domaines),
+           zone=('' if drop=='zone' else filtres.zone),
+           recherche=('' if drop=='recherche' else filtres.recherche),
+           brief=('' if drop=='brief' else filtres.brief),
+           verdict=(filtres.verdicts|reject('equalto', drop_val)|list if drop=='verdict' else filtres.verdicts),
+           elig=(filtres.elig|reject('equalto', drop_val)|list if drop=='elig' else filtres.elig),
+           score_min=('' if drop=='score_min' else filtres.score_min)) }}
+      {%- endmacro -%}
+      <div class="explorer-stickytop">
+      {% if filtres.familles or filtres.domaines or filtres.zone or filtres.recherche or filtres.brief or filtres.verdicts or filtres.elig or filtres.score_min %}
         <div class="filtres-actifs">
           <strong>Filtres actifs :</strong>
-          {% if filtres.famille %}<span class="badge">{{ filtres.famille }}</span>{% endif %}
-          {% if filtres.domaine %}<span class="badge">{{ filtres.domaine }}</span>{% endif %}
-          {% if filtres.zone %}<span class="badge">zone: {{ filtres.zone }}</span>{% endif %}
-          {% if filtres.recherche %}<span class="badge">recherche: « {{ filtres.recherche }} »</span>{% endif %}
-          {% if filtres.brief %}<span class="badge">brief: {{ filtres.brief }}</span>{% endif %}
-          {% for v in filtres.verdicts %}<span class="badge">{{ verdict_label.get(v, v) }}</span>{% endfor %}
-          {% for e in filtres.elig %}<span class="badge">élig: {{ e }}</span>{% endfor %}
-          {% if filtres.score_min %}<span class="badge">score ≥ {{ filtres.score_min }}</span>{% endif %}
+          {% for f in filtres.familles %}<a href="{{ lien_sans('famille', f) }}" class="badge badge-rm">{{ f }} <span class="rm">✕</span></a>{% endfor %}
+          {% for d in filtres.domaines %}<a href="{{ lien_sans('domaine', d) }}" class="badge badge-rm">{{ d|libelle_domaine }} <span class="rm">✕</span></a>{% endfor %}
+          {% if filtres.zone %}<a href="{{ lien_sans('zone') }}" class="badge badge-rm">zone : {{ zone_libelle }} <span class="rm">✕</span></a>{% endif %}
+          {% if filtres.recherche %}<a href="{{ lien_sans('recherche') }}" class="badge badge-rm">recherche : « {{ filtres.recherche }} » <span class="rm">✕</span></a>{% endif %}
+          {% if filtres.brief %}<a href="{{ lien_sans('brief') }}" class="badge badge-rm">brief : {{ filtres.brief }} <span class="rm">✕</span></a>{% endif %}
+          {% for v in filtres.verdicts %}<a href="{{ lien_sans('verdict', v) }}" class="badge badge-rm">{{ verdict_label.get(v, v) }} <span class="rm">✕</span></a>{% endfor %}
+          {% for e in filtres.elig %}<a href="{{ lien_sans('elig', e) }}" class="badge badge-rm">élig : {{ e }} <span class="rm">✕</span></a>{% endfor %}
+          {% if filtres.score_min %}<a href="{{ lien_sans('score_min') }}" class="badge badge-rm">score ≥ {{ filtres.score_min }} <span class="rm">✕</span></a>{% endif %}
+          <a href="{{ url_for('explorer') }}" class="badge-clear-all">Tout effacer</a>
         </div>
       {% endif %}
 
       <p class="resultat-count">
-        <strong>{{ lignes|length }}</strong> marché{{ 's' if lignes|length > 1 else '' }} 
+        <strong>{{ lignes|length }}</strong> marché{{ 's' if lignes|length > 1 else '' }}
         {% if lignes|length != total_classifies %}sur {{ total_classifies }}{% endif %}
       </p>
+      </div>{# /.explorer-stickytop #}
 
       {% if not lignes %}
         <div class="empty-state">
@@ -413,7 +616,7 @@
             <div>
               <p class="titre"><a href="{{ url_for('detail_marche', id_marche=ligne.id_marche) }}">{{ ligne.titre_court }}</a></p>
               <p class="meta">
-                {{ ligne.acheteur }}
+                <strong style="color: var(--apt-ink-2); font-weight: 700;">{{ ligne.acheteur }}</strong>
                 {% if ligne.perimetre %} · {{ ligne.perimetre }}{% endif %}
                 {% if ligne.date_limite_fmt %} · limite {{ ligne.date_limite_fmt }}{% endif %}
                 {% if ligne.marche.reference_externe %} · <span class="apt-mono" style="color:var(--apt-ink-4); font-size:11px;" title="Numéro d'avis (recherchable)">n° {{ ligne.marche.reference_externe }}</span>{% endif %}
@@ -463,4 +666,22 @@
     </main>
   </div>
 </div>
+
+<script>
+  /* Mémorise l'état plié/déplié de chaque secteur (persiste au rechargement
+     déclenché par les filtres). Un état sauvegardé prime sur le défaut serveur. */
+  (function () {
+    document.querySelectorAll('details.secteur-fold[data-fam]').forEach(function (d) {
+      var key = 'explorer-secteur:' + d.getAttribute('data-fam');
+      try {
+        var saved = localStorage.getItem(key);
+        if (saved === 'open') d.open = true;
+        else if (saved === 'closed') d.open = false;
+      } catch (e) {}
+      d.addEventListener('toggle', function () {
+        try { localStorage.setItem(key, d.open ? 'open' : 'closed'); } catch (e) {}
+      });
+    });
+  })();
+</script>
 {% endblock %}

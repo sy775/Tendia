@@ -330,6 +330,18 @@
     font-weight: 400;
   }
   .apt-fiche-v7 .sec .sec-body { padding: 16px 20px 22px; }
+  /* Sous-blocs pliables dans « Comment candidater » (repliés par défaut) */
+  .apt-fiche-v7 details.cc-fold > summary {
+    list-style: none; cursor: pointer; user-select: none;
+    display: inline-flex; align-items: center; gap: 7px;
+  }
+  .apt-fiche-v7 details.cc-fold > summary::-webkit-details-marker { display: none; }
+  .apt-fiche-v7 details.cc-fold > summary::after {
+    content: ''; width: 5px; height: 5px;
+    border-right: 1.5px solid var(--apt-ink-4); border-bottom: 1.5px solid var(--apt-ink-4);
+    transform: rotate(-45deg); transition: transform .15s ease; margin-left: 2px;
+  }
+  .apt-fiche-v7 details.cc-fold[open] > summary::after { transform: rotate(45deg); }
 
   /* Icônes de section harmonisées : fond bleu marine, icône dorée (toutes sections) */
   .apt-fiche-v7 .sec-icon { background: var(--apt-accent); color: var(--apt-gold); }
@@ -761,16 +773,8 @@
 
 {% else %}
 
-  <!-- ============ Verrous go/no-go (juste sous les tags du header) ============ -->
+  {# Verrous go/no-go : plus de bannière séparée — intégrés dans « points d'attention » (Résumé). #}
   {% set verrous_ko = verrous | rejectattr('satisfait') | list %}
-  {% if verrous_ko %}
-  <div class="apt-block mb-5 fade-up fade-up-2" style="padding: 11px 18px; border-left: 4px solid var(--c-rose); background: var(--c-rose-soft);">
-    <div style="font-weight:700; color: var(--c-rose); font-size:13px; margin-bottom:5px;">🔒 {{ verrous_ko|length }} verrou(x) bloquant(s)</div>
-    {% for v in verrous_ko %}
-    <div style="font-size:12.5px; color: var(--apt-ink-2); padding:2px 0;">✗ <strong>{{ v.type }}</strong> — {{ v.libelle }}{% if v.motif %} · {{ v.motif }}{% endif %}</div>
-    {% endfor %}
-  </div>
-  {% endif %}
 
 
   {# « En bref » est désormais le premier ONGLET (cf. <main>), pas un bloc fixe. #}
@@ -800,7 +804,7 @@
     {% set IC_CHART = '<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>' %}
     {% set IC_CALC = '<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>' %}
     {% set IC_BULB = '<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>' %}
-    {% set IC_EURO = '<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14.121 7.629A3 3 0 009.017 9.43c-.023.212-.022.425.001.636l.428 3.929m12.422 1.913c-3.197.778-7.221 1.092-12.422 1.092M3 16h10.5m-9-4h11"/></svg>' %}
+    {% set IC_EURO = '<span style="font-size:19px; font-weight:800; line-height:1;">€</span>' %}
     {% set IC_BADGE = '<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>' %}
     {% set IC_INFO = '<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>' %}
     {% set IC_WARN = '<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>' %}
@@ -904,21 +908,14 @@
       </div>
       {% endif %}
 
-      {# Mini-section « lots pertinents pour votre profil » — titres en tirets, sobre. #}
+      {# Mini-section « lots pertinents pour votre profil » — liste complète dans le tooltip. #}
       {% if lots_pertinents %}
+      {% set lots_tip = '– ' + (lots_pertinents.intitules | join('\n– ')) %}
       <div style="margin-bottom:16px;">
-        <div class="apt-label" style="display:flex; align-items:center; gap:6px; margin-bottom:8px;">
+        <div class="apt-label" title="{{ lots_tip }}" style="display:inline-flex; align-items:center; gap:6px; cursor:help; border-bottom:1px dotted var(--apt-line); padding-bottom:3px;">
           <span style="width:5px; height:5px; border-radius:999px; background:var(--apt-gold);"></span>
           Lots pertinents pour votre profil · {{ lots_pertinents.nb }}/{{ lots_pertinents.total_lots }}{% if lots_pertinents.cmin %} · ≈ {{ lots_pertinents.cmin | euro_short }}–{{ lots_pertinents.cmax | euro_short }}{% endif %}
         </div>
-        <ul style="margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:4px;">
-          {% for t in lots_pertinents.intitules[:6] %}
-          <li style="font-size:12.5px; color:var(--apt-ink-2); padding-left:15px; position:relative; line-height:1.4;">
-            <span style="position:absolute; left:0; color:var(--apt-gold-deep);">–</span>{{ t }}
-          </li>
-          {% endfor %}
-          {% if lots_pertinents.intitules|length > 6 %}<li style="font-size:11.5px; color:var(--apt-ink-4); padding-left:15px;">+{{ lots_pertinents.intitules|length - 6 }} autre{{ 's' if (lots_pertinents.intitules|length - 6) > 1 }}</li>{% endif %}
-        </ul>
       </div>
       {% endif %}
 
@@ -930,9 +927,9 @@
       <div style="display: flex; flex-wrap: wrap; align-items: flex-end; row-gap: 12px; margin-bottom: 16px; padding-bottom: 15px; border-bottom: 1px solid var(--apt-line-2);">
         {% for k in kpis_aff %}
         {% if not loop.first %}<span style="width: 1px; align-self: stretch; background: var(--apt-line-2); margin: 0 18px;"></span>{% endif %}
-        <span style="display: inline-flex; flex-direction: column; gap: 3px;">
+        <span style="display: inline-flex; flex-direction: column; gap: 3px; min-width: 0; max-width: 260px;">
           <span style="font-size: 10px; color: var(--apt-ink-4); font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em;">{{ k.label }}</span>
-          <span style="font-size: 16px; font-weight: 700; color: var(--apt-ink); line-height: 1.1; font-variant-numeric: tabular-nums;">{{ k.valeur }}</span>
+          <span style="font-size: 16px; font-weight: 700; color: var(--apt-ink); line-height: 1.2; font-variant-numeric: tabular-nums; white-space: normal; overflow-wrap: anywhere;">{{ k.valeur }}</span>
         </span>
         {% endfor %}
       </div>
@@ -941,10 +938,17 @@
       {% if brief.synthese_marche %}
       <p style="font-size: 14.5px; line-height: 1.62; color: var(--apt-ink-2); margin: 0;">{{ brief.synthese_marche | clean_source }}</p>
       {% endif %}
-      {% if alertes_non_verifiables %}
+      {% if alertes_non_verifiables or verrous_ko %}
       <div style="margin-top: 18px;">
-        <div style="font-size: 11px; font-weight: 700; color: var(--apt-ink-4); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 10px;">À retenir · points d'attention</div>
+        <div style="font-size: 11px; font-weight: 700; color: var(--apt-ink-4); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 10px;">À retenir · points d'attention{% if verrous_ko %} <span style="color: var(--c-rose);">· {{ verrous_ko|length }} bloquant{{ 's' if verrous_ko|length > 1 else '' }}</span>{% endif %}</div>
         <div style="display: flex; flex-direction: column; gap: 7px;">
+          {# Verrous go/no-go en tête : ce sont les points les plus sévères (irrecevabilité). #}
+          {% for v in verrous_ko %}
+          <div style="display: flex; gap: 10px; align-items: flex-start; padding: 10px 13px; background: var(--c-rose-soft); border: 1px solid var(--apt-line-2); border-left: 3px solid var(--c-rose); border-radius: 9px;">
+            <span style="flex-shrink: 0; color: var(--c-rose); font-weight: 800; font-size: 12px; margin-top: 1px;">🔒</span>
+            <span style="font-size: 12.5px; line-height: 1.55; color: var(--apt-ink-2);"><strong>{{ v.type }}</strong> — {{ v.libelle }}{% if v.motif %} · {{ v.motif }}{% endif %}</span>
+          </div>
+          {% endfor %}
           {% for ae in alertes_non_verifiables %}
           <div style="display: flex; gap: 10px; align-items: flex-start; padding: 10px 13px; background: var(--apt-surface); border: 1px solid var(--apt-line-2); border-left: 3px solid var(--apt-gold); border-radius: 9px;">
             <span style="flex-shrink: 0; color: var(--apt-gold-deep); font-weight: 800; font-size: 12px; margin-top: 1px;">◆</span>
@@ -998,25 +1002,26 @@
     {# ===== Onglet 2 : Prix & estimation (coeff prix + montant) ===== #}
     {{ sec('Prix & estimation', ('Coeff. prix ' ~ pct_prix ~ '%' if brief.bareme_notation.valeur_prix_pct else 'estimation du montant'), 'green', true, IC_EURO) }}
       <div>
-      {# Coefficient prix mis en avant (avant tout) + sa source/modalité dans le RC #}
-      <div style="margin-top: 8px; display: flex; align-items: flex-start; gap: 14px; padding: 12px 16px; background: var(--apt-bg); border: 1px solid var(--apt-line-2); border-left: 3px solid var(--apt-ink); border-radius: 9px;">
-        <div style="flex-shrink: 0; text-align: center; min-width: 62px;">
-          <div style="font-size: 26px; font-weight: 800; color: var(--apt-ink); line-height: 1; font-variant-numeric: tabular-nums;">{{ pct_prix }}%</div>
-          <div style="font-size: 9.5px; color: var(--apt-ink-4); font-weight: 600; text-transform: uppercase; letter-spacing: 0.4px; margin-top: 3px;">coeff. prix</div>
+      {# Bandeau coeff prix : pondération + formule/source #}
+      <div style="margin-top: 8px; display: flex; align-items: center; gap: 14px; padding: 11px 16px; background: var(--apt-bg); border: 1px solid var(--apt-line-2); border-left: 3px solid var(--apt-gold); border-radius: 9px;">
+        <div style="flex-shrink: 0; text-align: center; min-width: 66px;" title="Le prix compte pour {{ pct_prix }} % de la note finale (barème de notation du RC).">
+          <div style="font-size: 23px; font-weight: 800; color: var(--c-blue); line-height: 1; font-variant-numeric: tabular-nums;">{{ pct_prix }}%</div>
+          <div style="font-size: 9px; color: var(--apt-gold-deep); font-weight: 700; text-transform: uppercase; letter-spacing: 0.4px; margin-top: 3px;">Poids au barème</div>
         </div>
-        <div style="flex: 1; min-width: 0; font-size: 12.5px; color: var(--apt-ink-3); line-height: 1.5;">
+        <div style="flex: 1; min-width: 0; font-size: 12px; color: var(--apt-ink-3); line-height: 1.5;">
           {% set bn = brief.bareme_notation %}
           {% set prix_modalite = bn.modalite_calcul_prix or (bn.prix.formule_explicite if bn.prix else None) %}
-          {% if prix_modalite %}
+          {% set type_f = (bn.prix.type_formule if bn.prix else None) %}
+          {% if type_f == 'moins_disant' %}
+          <div style="color: var(--apt-ink-2); font-weight: 600;{% if prix_modalite %} cursor: help; border-bottom: 1px dotted var(--apt-line); display: inline-block;{% endif %}"{% if prix_modalite %} title="Formule exacte du RC : {{ prix_modalite | clean_source }}"{% endif %}>Notation <strong>au moins-disant</strong> : l'offre la moins chère obtient les {{ pct_prix }} points, les autres notées au prorata.</div>
+          {% elif prix_modalite %}
           <div style="color: var(--apt-ink-2); font-weight: 600;">{{ prix_modalite | clean_source }}</div>
           {% endif %}
-          {% if bn.prix and bn.prix.source %}
-          <div style="margin-top: 4px;"><span style="color: var(--apt-ink-4); font-weight: 600;">Source :</span> {{ bn.prix.source | clean_source }}</div>
-          {% elif not prix_modalite %}
-          <div style="color: var(--apt-ink-4);">Coefficient prix issu du barème du règlement de consultation.</div>
-          {% endif %}
+          {% if bn.prix and bn.prix.source %}<div style="margin-top: 3px;"><span style="color: var(--apt-ink-4); font-weight: 600;">Source :</span> {{ bn.prix.source | clean_source }}</div>
+          {% elif not prix_modalite and type_f != 'moins_disant' %}<div style="color: var(--apt-ink-4);">Coefficient prix issu du barème du règlement de consultation.</div>{% endif %}
         </div>
       </div>
+
 
       {# ============ VOLET PRIX (valeur RC + fourchette DECP + modalité + révision + alertes) ============ #}
       {% set has_volet_prix = (brief.montant_marche and (brief.montant_marche.commentaire or montant_marche_eur or brief.montant_marche.prix_unitaire_estime)) or
@@ -1029,11 +1034,6 @@
       {# BLOC 1 — ESTIMATION DU MARCHÉ (LLM + Simulateur)              #}
       {# ============================================================ #}
       <div style="margin-top: 8px; padding-top: 18px; border-top: 1px solid var(--apt-line-2);">
-        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 14px;">
-          <svg style="width: 14px; height: 14px; color: var(--c-violet);" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14.121 7.629A3 3 0 009.017 9.43c-.023.212-.022.425.001.636l.428 3.929m12.422 1.913c-3.197.778-7.221 1.092-12.422 1.092M3 16h10.5m-9-4h11"/></svg>
-          <h3 style="margin: 0; font-size: 12px; font-weight: 700; color: var(--apt-ink); text-transform: uppercase; letter-spacing: 0.5px;">Estimation du marché</h3>
-        </div>
-
         {# ---- 1A. REVENU / COÛT / MARGE (modèle candidat) ----
            Revenu = prix du marché (officiel Voie 1 si publié, sinon estimé IA).
            Coût = estimation bottom-up du coût de PRODUCTION côté candidat
@@ -1053,38 +1053,25 @@
         {% set cr = brief.cout_realisation %}
 
         {% if rev_eur or cout_eur or mm %}
-        <div style="background: var(--apt-bg); padding: 14px 16px; border-radius: 8px; margin-bottom: 12px;">
-          {# Revenu #}
-          <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 12px; flex-wrap: wrap; {% if cout_eur %}padding-bottom: 8px; border-bottom: 1px solid var(--apt-line-2);{% endif %}">
-            <div style="font-size: 11px; color: var(--apt-ink-4); font-weight: 600;">Revenu · {% if est_officiel %}prix officiel{% if mm.type == 'plafond' %} (plafond){% endif %}{% else %}estimé IA{% endif %}</div>
-            <div style="font-size: 17px; color: var(--apt-ink); font-weight: 700; font-variant-numeric: tabular-nums;">
-              {% if rev_fourchette %}{{ rev_min | euro_short }} – {{ rev_max | euro_short }}{% elif rev_eur %}{{ rev_eur | euro_short }}{% else %}non communiqué{% endif %}
+        <div style="background: var(--c-violet-soft); border: 1px solid var(--c-violet); border-radius: 12px; padding: 15px 17px; margin-bottom: 12px;">
+          <div style="font-size: 11px; font-weight: 700; color: var(--c-violet); text-transform: uppercase; letter-spacing: 0.4px; margin-bottom: 12px;"><span style="color: var(--apt-gold);">✦</span> Estimation Tendia <span style="color: var(--apt-ink-4); font-weight: 600;">· bottom-up</span></div>
+          {# Revenu — même disposition que Médiane : montant à GAUCHE, fourchette à DROITE #}
+          <div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 14px; flex-wrap: wrap; {% if cout_eur %}padding-bottom: 10px; border-bottom: 1px solid rgba(30,39,97,0.12);{% endif %}">
+            <div>
+              <div style="font-size: 25px; font-weight: 800; color: var(--apt-ink); line-height: 1; font-variant-numeric: tabular-nums;">
+                {% if rev_fourchette and rev_eur and rev_min < rev_eur and rev_eur < rev_max %}{{ rev_eur | euro_short }}{% elif rev_fourchette %}{{ rev_min | euro_short }} – {{ rev_max | euro_short }}{% elif rev_eur %}{{ rev_eur | euro_short }}{% else %}<span style="font-size: 16px; color: var(--apt-ink-4);">non communiqué</span>{% endif %}
+              </div>
+              <div style="font-size: 10.5px; color: var(--c-violet); font-weight: 700; margin-top: 4px; text-transform: uppercase; letter-spacing: 0.3px;">Revenu · {% if est_officiel %}prix officiel{% if mm.type == 'plafond' %} (plafond){% endif %}{% else %}estimé IA{% endif %}{% if rev_fourchette and rev_eur and rev_min < rev_eur and rev_eur < rev_max %} (médiane){% endif %}</div>
             </div>
+            {% if rev_fourchette %}
+            <div style="text-align: right;">
+              <div style="font-variant-numeric: tabular-nums; font-weight: 700; color: var(--apt-ink); font-size: 16px;">{{ rev_min | euro_short }} – {{ rev_max | euro_short }}</div>
+              <div style="font-size: 10.5px; color: var(--apt-ink-4);">fourchette estimée</div>
+            </div>
+            {% endif %}
           </div>
           {% if brief.revenu_sous_seuil_boamp %}
           <div style="font-size: 11px; color: var(--c-amber); margin-top: 4px;">⚠ Sous le seuil de publicité BOAMP (~90 k€ HT) — probable sous-estimation (reconductions/tranches/durée totale ?), sauf lot isolé.</div>
-          {% endif %}
-          {# Voie 3 — calibration du revenu sur comparables DECP RÉELS (contrats exécutés).
-             Ancre la fourchette estimée sur des données réelles : c'est la calibration
-             la plus précise quand le DCE ne publie pas de montant officiel. #}
-          {% if voie3 and voie3.disponible %}
-          <div style="margin-top: 8px; padding: 8px 10px; background: var(--c-green-soft); border-radius: 6px; border-left: 3px solid var(--c-green);">
-            <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 10px; flex-wrap: wrap;">
-              <div style="font-size: 10.5px; color: var(--c-green-deep); font-weight: 700; text-transform: uppercase; letter-spacing: 0.3px;">✓ Calibré sur {{ voie3.n }} marchés DECP réels · {{ voie3.strategie }}{% if voie3.ancre_montant %} · taille comparable{% endif %}</div>
-              <div style="font-size: 13px; color: var(--apt-ink); font-weight: 700; font-variant-numeric: tabular-nums;">médiane {{ voie3.montant_median | euro_short }}</div>
-            </div>
-            <div style="font-size: 11px; color: var(--apt-ink-3); margin-top: 2px;">Fourchette réelle (p25–p75) : <span style="font-variant-numeric: tabular-nums; font-weight: 600;">{{ voie3.montant_p25 | euro_short }} – {{ voie3.montant_p75 | euro_short }}</span> · fiabilité {{ voie3.fiabilite }}</div>
-            {% if voie3.echantillon %}
-            <details style="margin-top: 6px;">
-              <summary style="cursor: pointer; font-size: 10.5px; color: var(--c-green-deep); font-weight: 600; list-style: none; user-select: none;">▸ Voir les marchés comparables</summary>
-              <ul style="margin: 6px 0 0; padding-left: 14px; font-size: 11.5px; color: var(--apt-ink-2); line-height: 1.6;">
-                {% for e in voie3.echantillon %}
-                <li><span style="font-weight: 600; font-variant-numeric: tabular-nums;">{{ e.montant | euro_short }}</span>{% if e.annee %} <span style="color: var(--apt-ink-4);">({{ e.annee }})</span>{% endif %} — {{ e.objet }}</li>
-                {% endfor %}
-              </ul>
-            </details>
-            {% endif %}
-          </div>
           {% endif %}
           {# Coût + Marge (briefs ré-extraits uniquement) #}
           {% if cout_eur %}
@@ -1127,8 +1114,8 @@
              avec le budget travaux lui-même. Ex 56730 : « travaux 1,985 M€ × taux 9-11% ». #}
           {% set hypos = (brief.montant_3_voies.voie_2_hypotheses if brief.montant_3_voies else None) %}
           {% if not est_officiel and hypos %}
-          <details style="margin-top: 8px;" open>
-            <summary style="cursor: pointer; font-size: 10.5px; color: var(--apt-ink-4); font-weight: 700; text-transform: uppercase; letter-spacing: 0.3px; list-style: none; user-select: none;">Base de l'estimation</summary>
+          <details style="margin-top: 8px;">
+            <summary style="cursor: pointer; font-size: 10.5px; color: var(--apt-ink-4); font-weight: 700; text-transform: uppercase; letter-spacing: 0.3px; list-style: none; user-select: none;">▸ Base de l'estimation</summary>
             <ul style="margin: 6px 0 0; padding-left: 16px; font-size: 11.5px; color: var(--apt-ink-3); line-height: 1.6;">
               {% for h in hypos %}{% if h.hypothese %}
               <li>{{ h.hypothese[:130] }}{% if h.valeur %} <span style="color: var(--apt-ink-2); font-weight: 600; font-variant-numeric: tabular-nums;">({{ h.valeur }})</span>{% endif %}</li>
@@ -1142,6 +1129,34 @@
           <div style="margin-top: 4px; font-size: 10.5px; color: var(--apt-ink-4);">Source revenu : {{ mm.source_extraction | clean_source }}</div>
           {% endif %}
         </div>
+        {% endif %}
+
+        {# ============ BLOC 2 — MÉDIANE COMPARABLE (top-down · DECP réels) ============ #}
+        {% if voie3 and voie3.disponible %}
+        <div style="background: var(--apt-gold-soft); border: 1px solid var(--apt-gold); border-radius: 12px; padding: 15px 17px; margin-bottom: 14px;">
+          <div style="font-size: 11px; font-weight: 700; color: var(--apt-gold-deep); text-transform: uppercase; letter-spacing: 0.4px; margin-bottom: 12px;">Médiane comparable <span style="color: var(--apt-ink-4); font-weight: 600;">· marchés réels (DECP)</span></div>
+          <div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 14px; flex-wrap: wrap; margin-bottom: 10px;">
+            <div>
+              <div style="font-size: 28px; font-weight: 800; color: var(--apt-ink); line-height: 1; font-variant-numeric: tabular-nums;">{{ voie3.montant_median | euro_short }}</div>
+              <div style="font-size: 10.5px; color: var(--apt-gold-deep); font-weight: 700; margin-top: 4px; text-transform: uppercase; letter-spacing: 0.3px;">montant médian</div>
+            </div>
+            <div style="text-align: right;" title="La moitié des marchés comparables se situent entre ces deux montants (intervalle interquartile p25–p75).">
+              <div style="font-variant-numeric: tabular-nums; font-weight: 700; color: var(--apt-ink); font-size: 16px;">{{ voie3.montant_p25 | euro_short }} – {{ voie3.montant_p75 | euro_short }}</div>
+              <div style="font-size: 10.5px; color: var(--apt-ink-4); cursor: help;">la moitié des marchés comparables</div>
+            </div>
+          </div>
+          <div style="font-size: 10.5px; color: var(--apt-gold-deep); font-weight: 600;">✓ Calibré sur {{ voie3.n }} marchés DECP réels · {{ voie3.strategie }}{% if voie3.ancre_montant %} · taille comparable{% endif %} · fiabilité {{ voie3.fiabilite }}</div>
+          {% if voie3.echantillon %}
+            <details style="margin-top: 8px;">
+              <summary style="cursor: pointer; font-size: 10.5px; color: var(--apt-gold-deep); font-weight: 600; list-style: none; user-select: none;">▸ Voir les marchés comparables</summary>
+              <ul style="margin: 6px 0 0; padding-left: 14px; font-size: 11.5px; color: var(--apt-ink-2); line-height: 1.6;">
+                {% for e in voie3.echantillon %}
+                <li><span style="font-weight: 600; font-variant-numeric: tabular-nums;">{{ e.montant | euro_short }}</span>{% if e.annee %} <span style="color: var(--apt-ink-4);">({{ e.annee }})</span>{% endif %} — {{ e.objet }}</li>
+                {% endfor %}
+              </ul>
+            </details>
+            {% endif %}
+          </div>
         {% endif %}
 
         {# ---- 1B. Estimation unitaire (priorité : calibration LLM, fallback : brief) ---- #}
@@ -1480,8 +1495,9 @@
         {% set has_revprix = brief.revision_prix and brief.revision_prix.type and brief.revision_prix.type != 'non_communique' %}
         {% set has_alertes_prix = brief.alertes_prix %}
         {% if has_modnot or has_revprix or has_alertes_prix %}
-        <div style="background: var(--c-rose-soft); padding: 12px 16px; border-radius: 8px; border-left: 4px solid var(--c-rose);">
-          <div style="font-size: 11px; color: var(--c-rose); font-weight: 700; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.4px;">À retenir pour le chiffrage</div>
+        <details style="background: var(--c-rose-soft); padding: 12px 16px; border-radius: 8px; border-left: 4px solid var(--c-rose);">
+          <summary style="font-size: 11px; color: var(--c-rose); font-weight: 700; text-transform: uppercase; letter-spacing: 0.4px; cursor: pointer; list-style: none; user-select: none;">▸ À retenir pour le chiffrage</summary>
+          <div style="margin-top: 8px;"></div>
 
           {# Modalités contractuelles : notation + révision, 1-2 lignes #}
           {% if has_modnot or has_revprix %}
@@ -1521,7 +1537,7 @@
             {% endfor %}
           </ul>
           {% endif %}
-        </div>
+        </details>
         {% endif %}
       </div>
 
@@ -1544,7 +1560,7 @@
     {{ sec(('Détail par lot' if detail_lots.mode == 'lots' else 'Détail par tranche'), lot_teaser_parts | join(' · '), 'blue', false, IC_DOC) }}
       {% if detail_lots.mode == 'lots' %}<div style="font-size:11px; color:var(--apt-ink-4); margin-bottom:12px; line-height:1.5;">Le <strong style="color:var(--apt-gold-deep);">coût estimé</strong> par lot = ce que ça coûterait au candidat de <em>réaliser</em> ce lot (estimation Tendia, indicatif) — c'est un <strong>coût, pas le revenu/prix</strong>.</div>{% endif %}
       {% for it in detail_lots.lignes %}
-      <div style="padding:13px 16px; margin-bottom:10px; background:var(--apt-pure); border:1px solid var(--apt-line-2); border-left:3px solid var(--apt-accent); border-radius:11px; box-shadow:0 1px 2px rgba(15,27,61,0.03);">
+      <div style="padding:13px 16px; margin-bottom:10px; background:var(--apt-surface); border:1px solid var(--apt-line-2); border-radius:11px; box-shadow:0 1px 2px rgba(15,27,61,0.03);">
         {% if detail_lots.mode == 'lots' %}
           <div style="min-width:0;">
             <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:10px;">
@@ -1672,27 +1688,8 @@
     {# Détail par lot/tranche déplacé AVANT le bloc sectoriel (plus intéressant à voir). #}
 
 
-    {% set diff = brief.points_differenciants_attendus or brief.points_differenciants_probables %}
-    {% if diff %}
-    {{ sec('Points de différenciation', diff | length ~ ' axe' ~ ('s' if diff | length > 1 else ''), 'yellow', false, IC_BULB) }}
-      <ul style="margin: 0; padding: 0; list-style: none;">
-        {% for p in diff %}
-        <li style="display: flex; gap: 10px; padding: 5px 0; font-size: 13px; line-height: 1.55;">
-          <span style="flex-shrink: 0; margin-top: 7px; width: 5px; height: 5px; border-radius: 999px; background: var(--c-yellow);"></span>
-          <div style="flex: 1;">
-            {% if p is mapping %}
-              <span style="color: var(--apt-ink-2);">{{ p.libelle or p.texte or '' }}</span>
-              {% if p.exemple %}<p style="margin: 3px 0 0; font-size: 12px; color: var(--apt-ink-3); line-height: 1.5; font-style: italic;">Ex : {{ p.exemple }}</p>{% endif %}
-              {% if p.source %}<div style="font-size: 11px; color: var(--apt-ink-4); margin-top: 3px;"><span style="color: var(--apt-ink-3); font-weight: 600;">Source :</span> {{ p.source | clean_source }}</div>{% endif %}
-            {% else %}
-              <span style="color: var(--apt-ink-2);">{{ p }}</span>
-            {% endif %}
-          </div>
-        </li>
-        {% endfor %}
-      </ul>
-    </div></details>
-    {% endif %}
+    {# Section « Points de différenciation » supprimée : redondante avec « Pour scorer haut »
+       désormais intégrée (et pliable) dans la section « Comment candidater ». #}
 
     {# ============ COMPARABLES APPTIA ✦ — visible si ≥ 3 entrées validées ============ #}
     {# Section affichée UNIQUEMENT quand notre base interne marches_apptia_attribues
@@ -1764,6 +1761,18 @@
         {% if marche.url_dce %}<a href="{{ marche.url_dce }}" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:6px; padding:9px 13px; border:1px solid var(--apt-line); border-radius:8px; text-decoration:none; font-size:12.5px; color:var(--apt-ink-2); font-weight:600;">Plateforme ↗</a>{% endif %}
       </div>
 
+      {# Modalités de remise (extraites du RC) — affichées seulement si renseignées #}
+      {% set _dc = brief.dossier_candidature %}
+      {% if _dc and (_dc.mode_remise or _dc.signature_electronique_exigee or _dc.nombre_exemplaires or _dc.duree_validite_offres_jours) %}
+      <div style="display:flex; flex-wrap:wrap; gap:8px 16px; font-size:12px; color:var(--apt-ink-3); padding:9px 14px; background:var(--apt-surface); border:1px solid var(--apt-line-2); border-radius:9px; margin-bottom:18px;">
+        {% if _dc.mode_remise %}<span><span style="color:var(--apt-ink-4);">Remise :</span> {{ _dc.mode_remise }}{% if _dc.plateforme_depot %} ({{ _dc.plateforme_depot }}){% endif %}</span>{% endif %}
+        {% if _dc.signature_electronique_exigee %}<span><span style="color:var(--apt-ink-4);">Signature élec. :</span> requise{% if _dc.format_signature %} ({{ _dc.format_signature }}){% endif %}</span>{% endif %}
+        {% if _dc.nombre_exemplaires %}<span><span style="color:var(--apt-ink-4);">Exemplaires :</span> {{ _dc.nombre_exemplaires }}</span>{% endif %}
+        {% if _dc.duree_validite_offres_jours %}<span><span style="color:var(--apt-ink-4);">Validité offres :</span> {{ _dc.duree_validite_offres_jours }} j</span>{% endif %}
+        {% if _dc.modalites_source %}<span style="margin-left:auto; color:var(--apt-ink-5); font-size:11px;" title="Source de ces modalités dans le règlement de consultation">↳ {{ _dc.modalites_source }}</span>{% endif %}
+      </div>
+      {% endif %}
+
       {# Allotissement — peut-on candidater par lot ? (impacte la pertinence si profil partiel) #}
       {% if brief.allotissement and (brief.allotissement.nb_lots or candidature_par_lot is not none) %}
       <div style="display:flex; align-items:center; gap:9px; padding:10px 14px; border-radius:10px; margin-bottom:18px;
@@ -1786,11 +1795,16 @@
         <div style="border:1px solid var(--apt-line-2); border-left:3px solid var(--c-blue); border-radius:9px; padding:11px 14px;">
           <div style="font-size:12.5px; font-weight:700; color:var(--apt-ink); margin-bottom:5px;">① Dossier de candidature</div>
           <div style="font-size:12.5px; color:var(--apt-ink-3); line-height:1.6;">
+            {% set _pc_cand = (_dc.pieces_a_fournir | selectattr('phase', 'equalto', 'candidature') | list) if (_dc and _dc.pieces_a_fournir) else [] %}
+            {% if _pc_cand %}
+            <ul style="margin:0 0 4px; padding-left:16px;">{% for p in _pc_cand %}<li>{{ p.libelle }}{% if p.source %} <span class="apt-meta">· {{ p.source }}</span>{% endif %}</li>{% endfor %}</ul>
+            {% else %}
             Lettre de candidature (DC1), déclaration du candidat (DC2), attestations fiscales &amp; sociales.
+            {% endif %}
             {% if brief.references_exigees and brief.references_exigees.certifications_obligatoires %}
             <div style="margin-top:6px;"><span style="font-weight:600; color:var(--apt-ink-2);">Certifications / qualifications exigées :</span>
               <ul style="margin:4px 0 0; padding-left:16px;">
-              {% for c in brief.references_exigees.certifications_obligatoires %}<li>{{ c.libelle if c is mapping else c }}</li>{% endfor %}
+              {% for c in brief.references_exigees.certifications_obligatoires %}<li>{{ c.libelle if c is mapping else c }}{% if c is mapping and c.bloquante %} <span title="Exigée à peine d'irrecevabilité — sans elle, la candidature est éliminée." style="font-size:9px; font-weight:700; text-transform:uppercase; letter-spacing:0.03em; color:var(--c-rose); background:var(--c-rose-soft); padding:1px 6px; border-radius:4px; vertical-align:middle; white-space:nowrap;">éliminatoire</span>{% endif %}{% if c is mapping and c.source %} <span class="apt-meta">· {{ c.source }}</span>{% endif %}</li>{% endfor %}
               </ul>
             </div>
             {% endif %}
@@ -1815,7 +1829,12 @@
         <div style="border:1px solid var(--apt-line-2); border-left:3px solid var(--apt-gold); border-radius:9px; padding:11px 14px;">
           <div style="font-size:12.5px; font-weight:700; color:var(--apt-ink); margin-bottom:5px;">③ Offre financière{% if pprix %} <span style="font-weight:500; color:var(--apt-ink-4);">— {{ pprix }}% de la note</span>{% endif %}</div>
           <div style="font-size:12.5px; color:var(--apt-ink-3); line-height:1.6;">
+            {% set _pc_offre = (_dc.pieces_a_fournir | selectattr('phase', 'equalto', 'offre') | list) if (_dc and _dc.pieces_a_fournir) else [] %}
+            {% if _pc_offre %}
+            <ul style="margin:0 0 4px; padding-left:16px;">{% for p in _pc_offre %}<li>{{ p.libelle }}{% if p.source %} <span class="apt-meta">· {{ p.source }}</span>{% endif %}</li>{% endfor %}</ul>
+            {% else %}
             Acte d'engagement + bordereau de prix.
+            {% endif %}
             {% if brief.bareme_notation and brief.bareme_notation.prix and brief.bareme_notation.prix.elements_a_chiffrer %}
             <div style="margin-top:5px;"><span style="font-weight:600; color:var(--apt-ink-2);">À chiffrer :</span> {{ brief.bareme_notation.prix.elements_a_chiffrer | map('string') | join(' · ') }}</div>
             {% endif %}
@@ -1823,20 +1842,24 @@
         </div>
       </div>
 
-      {# 3. Pour scorer haut #}
+      {# 3. Pour scorer haut — pliable, replié par défaut #}
       {% if brief.points_differenciants_attendus %}
-      <div style="font-size:11px; font-weight:700; color:var(--c-green); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:8px;">↑ Pour scorer haut</div>
-      <ul style="margin:0 0 16px; padding-left:16px; font-size:12.5px; color:var(--apt-ink-2); line-height:1.7;">
-        {% for p in brief.points_differenciants_attendus[:4] %}<li>{{ p.libelle if p is mapping else p }}</li>{% endfor %}
-      </ul>
+      <details class="cc-fold" style="margin-bottom:12px;">
+        <summary style="font-size:11px; font-weight:700; color:var(--c-green); text-transform:uppercase; letter-spacing:0.05em;">↑ Pour scorer haut <span style="color:var(--apt-ink-4); font-weight:600;">· {{ brief.points_differenciants_attendus|length }}</span></summary>
+        <ul style="margin:9px 0 0; padding-left:16px; font-size:12.5px; color:var(--apt-ink-2); line-height:1.7;">
+          {% for p in brief.points_differenciants_attendus[:4] %}<li>{{ p.libelle if p is mapping else p }}</li>{% endfor %}
+        </ul>
+      </details>
       {% endif %}
 
-      {# 4. Vigilance #}
+      {# 4. Vigilance — pliable, replié par défaut #}
       {% if brief.alertes_candidat %}
-      <div style="font-size:11px; font-weight:700; color:var(--c-rose); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:8px;">⚠ Points bloquants à vérifier</div>
-      <ul style="margin:0; padding-left:16px; font-size:12.5px; color:var(--apt-ink-2); line-height:1.7;">
-        {% for a in brief.alertes_candidat[:5] %}<li>{{ a }}</li>{% endfor %}
-      </ul>
+      <details class="cc-fold">
+        <summary style="font-size:11px; font-weight:700; color:var(--c-rose); text-transform:uppercase; letter-spacing:0.05em;">⚠ Points bloquants à vérifier <span style="color:var(--apt-ink-4); font-weight:600;">· {{ brief.alertes_candidat|length }}</span></summary>
+        <ul style="margin:9px 0 0; padding-left:16px; font-size:12.5px; color:var(--apt-ink-2); line-height:1.7;">
+          {% for a in brief.alertes_candidat[:5] %}<li>{{ a }}</li>{% endfor %}
+        </ul>
+      </details>
       {% endif %}
     </div></details>
     {% endif %}

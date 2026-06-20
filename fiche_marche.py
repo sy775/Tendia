@@ -718,13 +718,35 @@ def tranches_ou_lots(brief, profil):
                 "cout_tag": cout_tag, "cout_detail": cout_detail,
                 "compat": _niv, "compat_kw": _kw})
         return {"mode": "lots", "lignes": items}
-    tf = tranches.get("tranche_ferme")
-    to = tranches.get("tranches_optionnelles") or []
-    if tf or to:
-        items = [{"type": "ferme", "libelle": _str(tf)}] if tf else []
-        for t in to:
-            items.append({"type": "optionnelle", "libelle": _str(t)})
-        return {"mode": "tranches", "lignes": items}
+    # Nouveau schéma (re-extraction v3) : `tranches` = LISTE d'objets
+    # {type, intitule, objet, montant_estime_eur, condition_affermissement}.
+    if isinstance(tranches, list) and tranches:
+        items = []
+        for t in tranches:
+            if not isinstance(t, dict):
+                continue
+            typ = "ferme" if "ferme" in (t.get("type") or "").lower() else "optionnelle"
+            base = t.get("intitule") or t.get("objet") or "(tranche)"
+            extra = []
+            if t.get("objet") and t.get("objet") != base:
+                extra.append(_str(t["objet"]))
+            if isinstance(t.get("montant_estime_eur"), (int, float)):
+                extra.append(f"≈ {_fmt_eur(t['montant_estime_eur'])}")
+            if t.get("condition_affermissement"):
+                extra.append("Affermissement : " + _str(t["condition_affermissement"]))
+            libelle = base + (" — " + " · ".join(extra) if extra else "")
+            items.append({"type": typ, "libelle": libelle})
+        if items:
+            return {"mode": "tranches", "lignes": items}
+    # Compat ancien schéma (dict tranche_ferme / tranches_optionnelles).
+    elif isinstance(tranches, dict):
+        tf = tranches.get("tranche_ferme")
+        to = tranches.get("tranches_optionnelles") or []
+        if tf or to:
+            items = [{"type": "ferme", "libelle": _str(tf)}] if tf else []
+            for t in to:
+                items.append({"type": "optionnelle", "libelle": _str(t)})
+            return {"mode": "tranches", "lignes": items}
     return {"mode": None, "lignes": []}
 
 
