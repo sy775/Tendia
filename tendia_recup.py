@@ -40,6 +40,7 @@ def recuperer_tout(fenetre_mois: int = 6,
                     sources: list = None,
                     limite_par_source: int = None,
                     mode_large: bool = False,
+                    differentiel: bool = False,
                     dry_run: bool = False,
                     verbose: bool = True) -> dict:
     """
@@ -89,6 +90,20 @@ def recuperer_tout(fenetre_mois: int = 6,
     if verbose:
         print(f"  Existant en base : {len(deja_en_base)} marchés")
 
+    # Mode DIFFÉRENTIEL : on ne récupère QUE ce qui est postérieur au dernier
+    # avis connu (borne basse de date côté API) et on n'écrit QUE les nouveaux
+    # (les existants ne sont ni re-fetchés à fond, ni ré-écrits). Évite de
+    # re-télécharger tout le window à chaque passe (utile + ménage l'hôte BOAMP).
+    date_min = None
+    if differentiel:
+        dates_connues = [m.get("date_publication") for m in deja_en_base.values()
+                         if isinstance(m, dict) and m.get("date_publication")]
+        if dates_connues:
+            date_min = max(dates_connues)[:10]
+        if verbose:
+            print(f"  Mode             : DIFFÉRENTIEL"
+                  f"{f' (depuis {date_min})' if date_min else ' (base vide → fenêtre complète)'}")
+
     stats = {
         "sources_appelees": sources_a_appeler,
         "nb_recuperes": 0,
@@ -119,6 +134,7 @@ def recuperer_tout(fenetre_mois: int = 6,
                 limite=limite_par_source,
                 filtre_acheteur=(not mode_large),
                 inclure_autre=mode_large,
+                date_min=date_min,
                 verbose=verbose,
             )
         except Exception as e:
@@ -149,6 +165,13 @@ def recuperer_tout(fenetre_mois: int = 6,
     for m in nouveaux_marches:
         mid = m["id"]
         stats["par_categorie"][m.get("categorie_metier", "?")] += 1
+
+        if differentiel and mid in deja_en_base:
+            # Mode différentiel : on n'écrit QUE les nouveaux. Les marchés déjà
+            # connus (re-captés par recouvrement de date au même jour) sont
+            # ignorés — aucune ré-écriture, aucun bump de version.
+            stats["nb_ignores_existants"] = stats.get("nb_ignores_existants", 0) + 1
+            continue
 
         if mid in deja_en_base:
             # Mise à jour : on conserve la date de première récup, on

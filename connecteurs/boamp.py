@@ -835,6 +835,7 @@ def _recuperer_bruts(date_debut: date, date_fin: date,
 def lister_marches(fenetre_mois: int = 6, limite: Optional[int] = None,
                     filtre_acheteur: bool = True,
                     inclure_autre: bool = False,
+                    date_min: Optional[str] = None,
                     verbose: bool = True) -> list:
     """
     Liste les marchés BOAMP de la fenêtre demandée.
@@ -847,10 +848,20 @@ def lister_marches(fenetre_mois: int = 6, limite: Optional[int] = None,
                           (mode Sprint 3 ingestion large).
         inclure_autre: True = inclut les marchés catégorisés "autre"
                        (mode large). False = exclut (mode legacy).
+        date_min: borne basse explicite (YYYY-MM-DD) — ingestion DIFFÉRENTIELLE.
+                  Si fournie, prime sur fenetre_mois : on ne récupère que les
+                  avis publiés à partir de cette date (≈ dernier connu en base),
+                  évitant de re-télécharger tout le window déjà ingéré.
         verbose: affichage console.
     """
     date_fin = date.today()
-    date_debut = date_fin - timedelta(days=fenetre_mois * 30)
+    if date_min:
+        try:
+            date_debut = date.fromisoformat(date_min[:10])
+        except (ValueError, TypeError):
+            date_debut = date_fin - timedelta(days=fenetre_mois * 30)
+    else:
+        date_debut = date_fin - timedelta(days=fenetre_mois * 30)
     avis_bruts = _recuperer_bruts(date_debut, date_fin,
                                    filtre_acheteur=filtre_acheteur,
                                    verbose=verbose)
