@@ -1043,8 +1043,11 @@
         {% set mm = brief.montant_marche %}
         {% set est_officiel = mm and mm.type in ('estime_explicite', 'plafond') %}
         {% set rev_eur = brief.revenu_eur or montant_marche_eur %}
-        {% set rev_min = brief.revenu_min_eur %}
-        {% set rev_max = brief.revenu_max_eur %}
+        {# Fallback fourchette : si les champs revenu_* ne sont pas renseignés mais
+           que l'estimation bottom-up vit dans montant_marche (type calcule_volumes),
+           on retombe dessus — sinon la fourchette ne s'affichait pas (ex 26-56995). #}
+        {% set rev_min = brief.revenu_min_eur or (mm.fourchette_min_euros if mm else None) %}
+        {% set rev_max = brief.revenu_max_eur or (mm.fourchette_max_euros if mm else None) %}
         {% set rev_fourchette = rev_min and rev_max and rev_max > rev_min %}
         {% set cout_eur = brief.cout_realisation_eur %}
         {% set cout_min = brief.cout_min_eur %}
