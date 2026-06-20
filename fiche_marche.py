@@ -130,7 +130,10 @@ def _duree_compacte(brief):
 
 
 def montant_estime(brief):
-    """Valeur estimée € (valeur directe ou milieu de fourchette), sinon None."""
+    """Valeur estimée € (valeur directe ou milieu de fourchette), sinon None.
+
+    Retombe sur `montant_3_voies` (Voie 1 = prix officiel, Voie 2 = bottom-up IA)
+    quand `montant_marche` est non communiqué (ex 26-56676)."""
     mm = _get(brief, "montant_marche") or {}
     v = mm.get("valeur_estimee_euros")
     if isinstance(v, (int, float)) and v > 0:
@@ -138,6 +141,13 @@ def montant_estime(brief):
     fmin, fmax = mm.get("fourchette_min_euros"), mm.get("fourchette_max_euros")
     if all(isinstance(x, (int, float)) and x > 0 for x in (fmin, fmax)):
         return (float(fmin) + float(fmax)) / 2
+    v3 = _get(brief, "montant_3_voies") or {}
+    v1 = v3.get("voie_1_eur")
+    if isinstance(v1, (int, float)) and v1 > 0:
+        return float(v1)
+    v2min, v2max = v3.get("voie_2_min_eur"), v3.get("voie_2_max_eur")
+    if all(isinstance(x, (int, float)) and x > 0 for x in (v2min, v2max)):
+        return (float(v2min) + float(v2max)) / 2
     return None
 
 
@@ -186,11 +196,27 @@ def kpi_cards_pour_marche(brief, marche, presets, calib=None):
 
     # 1) Valeur — affiche la FOURCHETTE quand c'est une estimation LLM (Voie 2 :
     # type 'calcule_volumes' avec min/max), sinon la valeur publiée unique.
+    # Cascade de priorité IDENTIQUE à montant_estime() : valeur officielle unique
+    # > fourchette montant_marche > Voie 1 (officiel) > fourchette Voie 2 (IA).
+    # La card affiche une FOURCHETTE seulement dans les cas « fourchette estimée »
+    # (montant_marche calcule_volumes, ou Voie 2). Sinon valeur unique.
     mm = _get(brief, "montant_marche") or {}
-    fmin, fmax = mm.get("fourchette_min_euros"), mm.get("fourchette_max_euros")
-    a_fourchette = (all(isinstance(x, (int, float)) and x > 0 for x in (fmin, fmax))
-                    and float(fmax) > float(fmin))
-    est_estimation = mm.get("type") == "calcule_volumes"
+    v3 = _get(brief, "montant_3_voies") or {}
+    def _pos(x):
+        return isinstance(x, (int, float)) and x > 0
+    fmin = fmax = None
+    via_voie2 = False
+    if _pos(mm.get("valeur_estimee_euros")):
+        pass  # valeur officielle unique → pas de fourchette
+    elif _pos(mm.get("fourchette_min_euros")) and _pos(mm.get("fourchette_max_euros")):
+        fmin, fmax = mm.get("fourchette_min_euros"), mm.get("fourchette_max_euros")
+    elif _pos(v3.get("voie_1_eur")):
+        pass  # Voie 1 = prix officiel unique → pas de fourchette
+    elif _pos(v3.get("voie_2_min_eur")) and _pos(v3.get("voie_2_max_eur")):
+        fmin, fmax = v3.get("voie_2_min_eur"), v3.get("voie_2_max_eur")
+        via_voie2 = True
+    a_fourchette = (fmin and fmax and float(fmax) > float(fmin))
+    est_estimation = mm.get("type") == "calcule_volumes" or via_voie2
     m = montant_estime(brief)
     if a_fourchette and est_estimation:
         cards.append({"icone": "€", "label": "Valeur estimée",
