@@ -77,20 +77,31 @@
   }
   .explorer-grid {
     display: grid;
-    grid-template-columns: 280px 1fr;
+    grid-template-columns: 320px 1fr;
     gap: 24px;
     align-items: start;
   }
   @media (max-width: 900px) {
     .explorer-grid { grid-template-columns: 1fr; }
   }
-  /* Sidebar collante — les filtres restent visibles au scroll */
+  /* Sidebar collante AVEC son propre scroll — sinon le bas des secteurs (sidebar
+     plus haute que l'écran) est inatteignable : le scroll partait sur les marchés. */
   .explorer-sidebar {
     position: sticky;
     top: 16px;
+    max-height: calc(100vh - 32px);
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-right: 7px;
+    scrollbar-width: thin;
+    scrollbar-color: var(--apt-line) transparent;
   }
+  .explorer-sidebar::-webkit-scrollbar { width: 8px; }
+  .explorer-sidebar::-webkit-scrollbar-track { background: transparent; }
+  .explorer-sidebar::-webkit-scrollbar-thumb { background: var(--apt-line); border-radius: 999px; }
+  .explorer-sidebar::-webkit-scrollbar-thumb:hover { background: var(--apt-ink-5); }
   @media (max-width: 900px) {
-    .explorer-sidebar { position: static; }
+    .explorer-sidebar { position: static; max-height: none; overflow: visible; padding-right: 0; }
   }
   .sidebar-section {
     background: var(--apt-surface);            /* fond crémeux — esprit Tendia */
@@ -187,7 +198,8 @@
     box-shadow: inset 2px 0 0 var(--apt-gold);
   }
   .secteur-count {
-    flex: none; color: var(--apt-ink-4); font-size: 11.5px;
+    flex: none; margin-left: auto; padding-left: 8px;
+    color: var(--apt-ink-4); font-size: 11.5px;
     font-variant-numeric: tabular-nums;
   }
   .secteur-fold > summary.sel-row .secteur-count { color: var(--c-violet); }
@@ -225,7 +237,7 @@
     padding-left: 8px;
   }
   .sous-domaine-item {
-    display: block;
+    display: flex; align-items: baseline; gap: 8px;
     padding: 3px 6px;
     margin: 1px 0;
     border-radius: 4px;
@@ -243,7 +255,7 @@
     font-weight: 600;
   }
   .sous-domaine-item .compte {
-    float: right;
+    margin-left: auto; flex: none;
     font-size: 10.5px;
     color: var(--apt-ink-4);
     font-variant-numeric: tabular-nums;
