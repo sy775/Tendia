@@ -888,30 +888,11 @@
     {% if brief.synthese_marche or alertes_non_verifiables or kpi_cards %}
     {{ sec('Résumé Tendia', '', 'gold', true, '✦', 'sec-resume') }}
 
-      {# Secteur — en haut à droite de la section (flottant), forme conservée #}
-      {% if brief and brief.domaines_metier %}
-      <div style="float: right; margin: 0 0 8px 16px; display: inline-flex; align-items: center; gap: 5px;">
-        <span style="font-size: 11px; color: var(--apt-ink-4); font-weight: 500;">Secteur ·</span>
-        {% for d in brief.domaines_metier %}
-          {% set est_principal = (loop.first or (d.poids and d.poids >= 0.5)) %}
-          {% set lib = d.code|libelle_domaine %}
-          <span title="{% if d.poids %}Poids: {{ (d.poids * 100)|round|int }}%{% endif %}{% if d.lots_concernes %} · Lots: {{ d.lots_concernes|join(', ') }}{% endif %}"
-                style="display: inline-flex; align-items: center; gap: 4px;
-                       font-size: 11.5px; padding: 3px 9px; border-radius: 999px;
-                       background: {% if est_principal %}var(--c-violet-soft){% else %}var(--apt-bg-2, #f5f3f0){% endif %};
-                       color: {% if est_principal %}var(--c-violet){% else %}var(--apt-ink-3){% endif %};
-                       border: 1px solid {% if est_principal %}var(--c-violet){% else %}var(--apt-ink-5, #ddd){% endif %};
-                       font-weight: {% if est_principal %}600{% else %}500{% endif %};">
-            {{ lib }}{% if d.poids %}<span style="opacity: 0.7; font-size: 10px;">{{ (d.poids * 100)|round|int }}%</span>{% endif %}
-          </span>
-        {% endfor %}
-      </div>
-      {% endif %}
-
-      {# Mini-section « lots pertinents pour votre profil » — liste complète dans le tooltip. #}
-      {% if lots_pertinents %}
-      {% set lots_tip = '– ' + (lots_pertinents.intitules | join('\n– ')) %}
-      <div style="margin-bottom:16px;">
+      {# Lots pertinents (gauche) + Secteur (droite) sur UNE seule ligne — gain de place. #}
+      {% if (brief and brief.domaines_metier) or lots_pertinents %}
+      <div style="display:flex; align-items:center; gap:10px 16px; flex-wrap:wrap; margin-bottom:16px;">
+        {% if lots_pertinents %}
+        {% set lots_tip = '– ' + (lots_pertinents.intitules | join('\n– ')) %}
         <span title="{{ lots_tip }}" style="display:inline-flex; align-items:center; gap:8px; cursor:help;
               background:var(--apt-gold-soft); border:1px solid color-mix(in srgb, var(--apt-gold) 38%, transparent);
               border-radius:999px; padding:4px 12px;">
@@ -920,6 +901,25 @@
           <strong style="font-size:12px; font-weight:800; color:var(--apt-accent); font-variant-numeric:tabular-nums;">{{ lots_pertinents.nb }}/{{ lots_pertinents.total_lots }}</strong>
           {% if lots_pertinents.cmin %}<span style="font-size:12px; font-weight:700; color:var(--apt-gold-deep); font-variant-numeric:tabular-nums;">≈ {{ lots_pertinents.cmin | euro_short }}–{{ lots_pertinents.cmax | euro_short }}</span>{% endif %}
         </span>
+        {% endif %}
+        {% if brief and brief.domaines_metier %}
+        <div style="margin-left:auto; display:inline-flex; align-items:center; gap:5px; flex-wrap:wrap;">
+          <span style="font-size: 11px; color: var(--apt-ink-4); font-weight: 500;">Secteur ·</span>
+          {% for d in brief.domaines_metier %}
+            {% set est_principal = (loop.first or (d.poids and d.poids >= 0.5)) %}
+            {% set lib = d.code|libelle_domaine %}
+            <span title="{% if d.poids %}Poids: {{ (d.poids * 100)|round|int }}%{% endif %}{% if d.lots_concernes %} · Lots: {{ d.lots_concernes|join(', ') }}{% endif %}"
+                  style="display: inline-flex; align-items: center; gap: 4px;
+                         font-size: 11.5px; padding: 3px 9px; border-radius: 999px;
+                         background: {% if est_principal %}var(--c-violet-soft){% else %}var(--apt-bg-2, #f5f3f0){% endif %};
+                         color: {% if est_principal %}var(--c-violet){% else %}var(--apt-ink-3){% endif %};
+                         border: 1px solid {% if est_principal %}var(--c-violet){% else %}var(--apt-ink-5, #ddd){% endif %};
+                         font-weight: {% if est_principal %}600{% else %}500{% endif %};">
+              {{ lib }}{% if d.poids %}<span style="opacity: 0.7; font-size: 10px;">{{ (d.poids * 100)|round|int }}%</span>{% endif %}
+            </span>
+          {% endfor %}
+        </div>
+        {% endif %}
       </div>
       {% endif %}
 
