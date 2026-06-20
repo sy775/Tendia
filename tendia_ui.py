@@ -1267,6 +1267,13 @@ def detail_marche(id_marche):
     _v3 = (brief or {}).get("montant_3_voies") or {}
     _publie = (_mm.get("valeur_estimee_euros") or _v3.get("voie_1_eur"))
     _ca_lots = None if (_publie or not brief) else fiche_marche.somme_ca_lots(brief)
+    # Coût global = Σ coûts des lots, sinon cout_realisation (fourchette).
+    _cout_lots = fiche_marche.somme_cout_lots(brief) if brief else None
+    if not _cout_lots and brief:
+        _cr = brief.get("cout_realisation") or {}
+        _cm, _cM = _cr.get("cout_min_eur"), _cr.get("cout_max_eur")
+        if isinstance(_cm, (int, float)) and isinstance(_cM, (int, float)) and _cm > 0:
+            _cout_lots = (_cm, _cM)
 
     # Dossier local DCE
     dossier_dce = REPERTOIRE_DCE / id_marche
@@ -1394,6 +1401,8 @@ def detail_marche(id_marche):
         montant_marche_eur=montant_marche_eur,
         ca_lots_min=(_ca_lots[0] if _ca_lots else None),
         ca_lots_max=(_ca_lots[1] if _ca_lots else None),
+        cout_lots_min=(_cout_lots[0] if _cout_lots else None),
+        cout_lots_max=(_cout_lots[1] if _cout_lots else None),
         pdfs_locaux=pdfs_locaux,
         docs_analyses=docs_analyses,
         dossier_dce=str(dossier_dce),

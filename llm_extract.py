@@ -163,6 +163,11 @@ def _section_taxonomie_prompt() -> str:
         "  Poids ∈ [0.05, 1.0], somme strictement = 1.0.",
         "- JAMAIS plus de 3 domaines. Au-delà = surclassification.",
         "- Si vraiment hors taxonomie : un seul domaine = `autre`.",
+        "- **CODES EXACTS — RÈGLE STRICTE** : recopie le `code` caractère pour caractère "
+        "depuis la liste ci-dessous (vaut aussi pour `lots[].domaine`). N'invente AUCUNE "
+        "variante orthographique (écris `energie_...`, JAMAIS `energia_...` ni `energy_...`), "
+        "ne traduis pas, n'abrège pas, ne change pas accents/underscores. Tout code hors "
+        "liste est INVALIDE.",
         "",
         "Liste des codes disponibles :",
         "",
@@ -477,6 +482,8 @@ Extrais les informations dans ce schéma JSON :
     "certifications_obligatoires": [
       {{
         "libelle": "Certification ou qualification requise, recopiée fidèlement du RC. Adapter au secteur : Qualibat XXXX pour BTP, ISO 27001/HDS pour IT, OPQIBI pour ingénierie, Qualiopi pour formation, RGE pour énergie, ordre professionnel pour conseil juridique, etc.",
+        "codes": "Liste des CODES NORMALISÉS à 4 chiffres si la qualification en a un (Qualibat, OPQIBI, OPQCM), ex: [\\"5413\\", \\"5414\\"]. [] si la certif n'a pas de code chiffré (ISO, RGE, Qualiopi…).",
+        "bloquante": "true si la certif est exigée À PEINE D'IRRECEVABILITÉ / d'élimination (condition d'admission de la candidature), false si simplement valorisée/notée. null si non précisé.",
         "source": "Ex: 'RC art 4.1' ou 'CCAP art 2'"
       }}
     ],
@@ -486,6 +493,24 @@ Extrais les informations dans ce schéma JSON :
         "source": "Ex: 'RC art 4.3.2' ou null"
       }}
     ]
+  }},
+  "dossier_candidature": {{
+    "pieces_a_fournir": [
+      {{
+        "libelle": "Pièce exacte EXIGÉE par le RC, recopiée fidèlement (ex: 'Lettre de candidature DC1', 'Déclaration du candidat DC2', 'Acte d'engagement (ATTRI1) complété et signé', 'Bordereau des prix unitaires (BPU)', 'Mémoire technique', 'Attestation d'assurance décennale', 'Extrait Kbis < 3 mois').",
+        "phase": "'candidature' (capacités/admission) ou 'offre' (proposition technique+prix). Si le RC ne distingue pas, mets 'offre'.",
+        "obligatoire": "true si la pièce est exigée (absence = irrecevabilité), false si seulement recommandée/conditionnelle. null si non précisé.",
+        "source": "Référence RC : 'RC art 3.2' ou null"
+      }}
+    ],
+    "mode_remise": "Mode de remise des plis : 'dématérialisé' (dépôt en ligne), 'papier', ou 'dématérialisé + copie de sauvegarde'. null si non précisé.",
+    "plateforme_depot": "Nom/URL de la plateforme de dépôt si dématérialisé (ex: 'PLACE — marches-publics.gouv.fr', 'AWS', 'e-marchespublics'). null sinon.",
+    "signature_electronique_exigee": "true si une signature électronique est requise au dépôt, false si non, null si non précisé.",
+    "format_signature": "Format/niveau de signature exigé si précisé (ex: 'PAdES', 'XAdES', 'certificat RGS**', 'eIDAS qualifié'). null sinon.",
+    "nombre_exemplaires": "Nombre d'exemplaires papier exigés (entier), uniquement si remise papier. null si dématérialisé/non précisé.",
+    "langue": "Langue exigée des plis (ex: 'français'). null si non précisé.",
+    "duree_validite_offres_jours": "Durée de validité des offres en jours (ex: 90, 120). null si non précisé.",
+    "modalites_source": "Référence RC des MODALITÉS de remise/dépôt/signature/délai de validité (ex: 'RC §3.1', 'RC art 7.2'). C'est la source des champs mode_remise, plateforme_depot, signature, exemplaires, validité. null si non localisable."
   }},
   "lots": [
     {{
@@ -497,7 +522,21 @@ Extrais les informations dans ce schéma JSON :
       "volume_estime_unite": "Unité du volume de ce lot, adaptée au secteur : 'm²', 'kWc', 'jours-homme', 'utilisateurs', 'bénéficiaires', 'tonnes', etc. Si non précisé, null.",
       "cout_estime_min_eur": null,
       "cout_estime_max_eur": null,
+      "ca_estime_min_eur": null,
+      "ca_estime_max_eur": null,
+      "marge_brute_pct": null,
       "particularites": "Texte libre"
+    }}
+  ],
+  "tranches": [
+    {{
+      "type": "'ferme' (tranche ferme, exécutée d'office), 'optionnelle' ou 'conditionnelle' (affermie sous condition).",
+      "numero": "Numéro/identifiant de la tranche si le DCE en donne un (ex: 'TF', 'TO1', 1, 2). null sinon.",
+      "intitule": "Intitulé court de la tranche tel qu'écrit au DCE.",
+      "objet": "1 phrase décrivant ce que couvre cette tranche.",
+      "montant_estime_eur": "Montant estimé de la tranche si chiffrable (côté marché), sinon null.",
+      "condition_affermissement": "Condition de déclenchement pour une tranche optionnelle/conditionnelle (ex: 'sur décision du MOA dans les 12 mois', 'sous réserve de financement'). null pour une tranche ferme.",
+      "source": "Référence DCE (CCAP/AE art X) ou null"
     }}
   ],
   "calendrier": {{
@@ -680,7 +719,8 @@ Tu remplis `cout_realisation` par une estimation BOTTOM-UP du coût de productio
 - `cout_total_eur` = somme des postes ; donne une fourchette `cout_min_eur`/`cout_max_eur`
   en ne faisant varier qu'UNE dimension (le taux OU la charge), comme pour la Voie 2 — la
   PLUS SERRÉE possible (rapport max/min ≈ 1,2-1,4 quand le DCE chiffre la charge).
-- Le CODE calcule ensuite la marge = revenu − coût (ne calcule PAS la marge toi-même).
+- La marge GLOBALE (revenu − coût) est dérivée côté code ; tu calcules en revanche la marge
+  brute PAR LOT (`lots[].marge_brute_pct`, voir section CA PAR LOT plus bas).
 - Si le marché est trop flou pour chiffrer un coût crédible → laisse `cout_total_eur=null`
   et explique dans `commentaire`. Mais sur ingénierie/conseil/BTP/services il y a presque
   toujours de quoi chiffrer une charge (jours-homme, quantités).
@@ -746,6 +786,72 @@ la MÊME fourchette, cohérente :
   global sur les lots chiffrés (ne laisse pas un écart inexpliqué entre les deux sections).
 Objectif : la fourchette en gras est IDENTIQUE des deux côtés ; elle est cadrée par les lots.
 
+CA PAR LOT + MARGE BRUTE (le REVENU/lot, distinct du COÛT/lot) :
+- Pour CHAQUE lot, estime AUSSI son CA / prix marché (`ca_estime_min_eur`/`ca_estime_max_eur`)
+  = ce que l'ACHETEUR PAIERA pour ce lot. Base : quantités × prix marché (bordereau, €/unité
+  posée), ou % d'un budget de référence / TJM facturés selon le métier. C'est ≥ le coût du lot
+  (marge positive sur marché sain). Fourchette serrée (rapport max/min ≈ 1,2-1,5).
+- `marge_brute_pct` du lot = round((ca_centrale − cout_centrale) / ca_centrale × 100), où
+  ca_centrale = (ca_min+ca_max)/2 et cout_centrale = (cout_min+cout_max)/2. Calcule-le PAR LOT.
+- PLAUSIBILITÉ par nature du lot (GARDE-FOU, pas un taux imposé — tu te places dedans et
+  justifies) : marge brute typique — travaux/installation 10-25 % ; ingénierie/études/MOE/AMO
+  25-45 % ; conseil 25-50 % ; services techniques (labo, IT, contrôle) 15-35 % ; services
+  opérationnels (propreté, sécurité, restauration, transport) 5-15 % ; fournitures/négoce 5-15 %.
+  Si la marge d'un lot sort de sa bande (ou < 0), RE-VÉRIFIE le coût ET le CA du lot.
+- AGRÉGATION : `montant_3_voies.voie_2_min/max` (le CA GLOBAL) = Σ des `ca_estime` des lots —
+  exactement comme `cout_realisation` = Σ des coûts. Les DEUX totaux dérivent des lots.
+
+=== RÈGLES v2 — PASS DE COHÉRENCE FINALE (obligatoire avant de rendre le JSON) ===
+
+Avant de produire le JSON, RELIS-TOI et corrige toute incohérence chiffrée :
+1. Σ des `ca_estime` des lots == `montant_3_voies.voie_2_min/max` == `montant_marche.fourchette`
+   (le CA est UN seul nombre, raconté pareil partout). Aligne si ça diverge.
+2. Σ des `cout_estime` des lots == `cout_realisation.cout_min/max/total`. Aligne.
+3. Pour CHAQUE lot ET au global : CA ≥ coût, et marge brute dans la bande plausible de l'archétype.
+4. Si un PRIX est PUBLIÉ (Voie 1) : c'est LUI le CA de référence — réconcilie les CA des lots
+   pour qu'ils somment au prix publié (ajuste, ne laisse pas un écart muet).
+5. `voie_2_hypotheses` doit décrire les MÊMES montants que les lots — pas une 3e estimation
+   parallèle. Un seul récit chiffré : coût, CA et marge tiennent ensemble, total = Σ lots.
+
+=== RÈGLES v2 — DOSSIER DE CANDIDATURE (bloc `dossier_candidature`) ===
+
+Le RC liste TOUJOURS les pièces à remettre et les modalités de dépôt. Extrais-les
+fidèlement — ne te rabats PAS sur une liste générique (DC1/DC2…) si le RC précise sa
+propre liste.
+- `pieces_a_fournir` : UNE entrée par pièce réellement exigée, `libelle` recopié du RC,
+  `phase` = 'candidature' (capacités/admission) ou 'offre' (technique + prix), `obligatoire`
+  (true si son absence rend le pli irrecevable), `source` (réf RC). Couvre AU MOINS l'acte
+  d'engagement, le(s) bordereau(x) de prix (BPU/DPGF), le mémoire technique, les
+  DC1/DC2/DUME, et les attestations exigées. Si le RC ne détaille rien, mets [] (la fiche
+  affichera un repli générique).
+- `mode_remise`, `plateforme_depot`, `signature_electronique_exigee`, `format_signature`,
+  `nombre_exemplaires` (papier seulement), `langue`, `duree_validite_offres_jours` :
+  remplis ce que le RC précise, null sinon. Ne JAMAIS inventer une plateforme ou un format.
+  Renseigne `modalites_source` avec la RÉFÉRENCE RC de ces modalités (ex 'RC §3.1') — comme
+  pour les pièces, l'utilisateur doit pouvoir remonter à la source.
+
+=== RÈGLES v2 — TRANCHES (bloc `tranches`) ===
+
+UNIQUEMENT si le marché est structuré en TRANCHES (tranche ferme + tranches optionnelles/
+conditionnelles, au sens du CCP) — à NE PAS confondre avec les LOTS (découpage par métier/
+objet) ni avec les phases d'une mission. Si le marché n'a pas de tranches → `tranches: []`.
+- Une entrée par tranche : `type` (ferme/optionnelle/conditionnelle), `intitule`, `objet`,
+  `montant_estime_eur` (si chiffrable), `condition_affermissement` (pour les non-fermes),
+  `source`. La tranche ferme est exécutée d'office ; signale dans `synthese_marche` si une
+  large part du marché est en tranches optionnelles (risque commercial : volume non garanti).
+
+=== RÈGLES v2 — CERTIFICATIONS / QUALIFICATIONS EXIGÉES (durcissement) ===
+
+`references_exigees.certifications_obligatoires` doit lister TOUTE certification ou
+qualification dont l'absence entraîne l'IRRECEVABILITÉ ou l'élimination (condition d'admission).
+- Mets `bloquante: true` pour ces dernières, `bloquante: false` pour celles seulement
+  valorisées/notées. Ne te limite PAS aux 3-5 alertes de `alertes_candidat` : une certif
+  bloquante DOIT figurer ici même si elle n'est pas dans les alertes.
+- `codes` : dès qu'une qualification a un CODE NORMALISÉ à 4 chiffres (Qualibat, OPQIBI,
+  OPQCM), extrais-le en liste de codes (ex: ["5413"]). Ces codes pilotent les verrous
+  go/no-go côté matching — n'écris JAMAIS le code en texte libre noyé dans `libelle` sans
+  le reporter aussi dans `codes`.
+
 === RÈGLES v2 — CONTEXTE BOAMP (bloc CONTEXTE DU MARCHÉ) ===
 
 Le contexte inclut des champs BOAMP issus de l'avis (indépendants du DCE) : `acheteur_siren`,
@@ -797,7 +903,9 @@ _CHAMPS_UNIVERSELS_BRIEF = {
     "revision_prix",
     "alertes_prix",
     "references_exigees",
+    "dossier_candidature",
     "lots",
+    "tranches",
     "calendrier",
     "alertes_candidat",
     "points_differenciants_attendus",
@@ -1065,6 +1173,47 @@ def _filtrer_hallucinations(data: dict,
     return data
 
 
+# Préfixes de typo fréquents produits par le LLM malgré la règle prompt.
+# Garde-fou de dernier recours : `energia_xxx` n'existe pas dans la taxonomie,
+# donc il est ignoré par le matching → on le ramène au préfixe canonique.
+_TYPO_PREFIXE_DOMAINE = {"energia": "energie", "energy": "energie"}
+
+
+def _normaliser_prefixe_code(code):
+    """Corrige le préfixe (avant le 1er '_') si c'est une typo connue. Renvoie
+    le code corrigé (inchangé si propre ou non-string)."""
+    if not code or not isinstance(code, str):
+        return code
+    prefixe, sep, reste = code.partition("_")
+    corrige = _TYPO_PREFIXE_DOMAINE.get(prefixe)
+    if corrige and corrige != prefixe:
+        return f"{corrige}{sep}{reste}" if sep else corrige
+    return code
+
+
+def _normaliser_codes_domaines(data: dict, verbose: bool = False) -> dict:
+    """Normalise les préfixes de codes domaine dans `domaines_metier[].code`
+    et `lots[].domaine`, en place. Idempotent."""
+    if not isinstance(data, dict):
+        return data
+    corriges = []
+    for d in (data.get("domaines_metier") or []):
+        if isinstance(d, dict) and d.get("code"):
+            nouveau = _normaliser_prefixe_code(d["code"])
+            if nouveau != d["code"]:
+                corriges.append((d["code"], nouveau))
+                d["code"] = nouveau
+    for lot in (data.get("lots") or []):
+        if isinstance(lot, dict) and lot.get("domaine"):
+            nouveau = _normaliser_prefixe_code(lot["domaine"])
+            if nouveau != lot["domaine"]:
+                corriges.append((lot["domaine"], nouveau))
+                lot["domaine"] = nouveau
+    if corriges and verbose:
+        print(f"  🔧 Codes domaine normalisés (typo) : {corriges}")
+    return data
+
+
 def _resoudre_presets_pour_marche(marche_id: Optional[str]) -> list:
     """
     Pour un marche_id donné, retourne la liste des codes presets pertinents
@@ -1083,24 +1232,42 @@ def _resoudre_presets_pour_marche(marche_id: Optional[str]) -> list:
     """
     if not marche_id:
         return []
-    try:
-        import stockage as _stockage
-        classifs = _stockage.charger("classifications_ia") or {}
-        classif = classifs.get(marche_id)
-        if not classif:
-            return []
-        domaines = classif.get("domaines_metier") or []
-        codes_domaines = []
-        for d in domaines:
+
+    def _codes_depuis(domaines):
+        out = []
+        for d in (domaines or []):
             if isinstance(d, dict):
                 code = d.get("code")
                 if isinstance(code, str) and code:
-                    codes_domaines.append(code)
+                    out.append(code)
             elif isinstance(d, str) and d:
-                codes_domaines.append(d)
+                out.append(d)
+        return out
+
+    try:
+        import stockage as _stockage
+        codes_domaines = []
+        # Source 1 : classification IA (pré-classifieur Haiku).
+        classifs = _stockage.charger("classifications_ia") or {}
+        classif = classifs.get(marche_id)
+        if classif:
+            codes_domaines += _codes_depuis(classif.get("domaines_metier"))
+        # Source 2 (Axe 3) : UNION avec les domaines du brief existant, souvent plus
+        # riches que la classif initiale (le Sonnet a lu le DCE complet). Capte un
+        # 2e métier que la classif Haiku avait manqué → extraction multi-preset.
+        try:
+            briefs = _stockage.charger("briefs_extraits") or {}
+            brief = briefs.get(marche_id)
+            if brief:
+                codes_domaines += _codes_depuis(brief.get("domaines_metier"))
+        except Exception:
+            pass
         if not codes_domaines:
             return []
-        return _preset.presets_pour_domaines(codes_domaines)
+        # Dédoublonne en préservant l'ordre, puis mappe vers les presets.
+        vus = set()
+        codes_uniques = [c for c in codes_domaines if not (c in vus or vus.add(c))]
+        return _preset.presets_pour_domaines(codes_uniques)
     except Exception:
         return []
 
@@ -1226,6 +1393,11 @@ def extraire_via_llm(texte: str, contexte: dict,
                 data_parsee = _filtrer_hallucinations(
                     data_parsee, codes_presets, verbose=verbose
                 )
+                # Garde-fou typo : normalise les préfixes de codes domaine
+                # (energia→energie, energy→energie) AVANT persistance, pour
+                # qu'aucune faute de frappe LLM ne casse silencieusement le
+                # matching (cf. BOAMP-26-56995 : domaine dominant perdu).
+                _normaliser_codes_domaines(data_parsee, verbose=verbose)
                 # Attache les méta d'appel au dict retourné. Le caller
                 # (tendia_extraire ou autre) peut récupérer ces infos et
                 # les déplacer dans son propre _meta.

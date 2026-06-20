@@ -129,33 +129,37 @@ def _duree_compacte(brief):
     return None
 
 
-def somme_ca_lots(brief):
-    """Somme des CA estimés des lots → fourchette (min, max) du marché TOTAL,
-    UNIQUEMENT si le marché est alloti ET que TOUS les lots détaillés portent une
-    estimation (sinon la somme sous-estime). Garantit la cohérence affichée :
-    total = Σ lots. Retourne (min, max) ou None.
-
-    Cross-check avec allotissement.nb_lots si dispo : on n'agrège que si lots[]
-    couvre bien l'ensemble (len(lots) == nb_lots), pour ne pas sommer un sous-ensemble.
-    """
+def _somme_lots(brief, champ_min, champ_max):
+    """Σ d'un champ (min, max) sur TOUS les lots, UNIQUEMENT si le marché est alloti
+    ET que tous les lots détaillés portent ce champ (sinon la somme sous-estime).
+    Retourne (min, max) ou None. Cross-check allotissement.nb_lots."""
     lots = _get(brief, "lots") or []
     if not isinstance(lots, list) or len(lots) < 2:
         return None
     nb_lots_total = _get(brief, "allotissement", "nb_lots")
     if isinstance(nb_lots_total, int) and nb_lots_total > len(lots):
-        return None  # lots[] ne couvre pas tout le marché → pas d'agrégation
+        return None
     tot_min = tot_max = 0.0
-    n_ok = 0
     for l in lots:
         if not isinstance(l, dict):
             return None
-        a, b = l.get("cout_estime_min_eur"), l.get("cout_estime_max_eur")
+        a, b = l.get(champ_min), l.get(champ_max)
         if not (isinstance(a, (int, float)) and isinstance(b, (int, float)) and a > 0 and b > 0):
-            return None  # un lot sans estimation → la somme serait fausse
+            return None
         tot_min += float(a)
         tot_max += float(b)
-        n_ok += 1
-    return (tot_min, tot_max) if n_ok >= 2 else None
+    return (tot_min, tot_max)
+
+
+def somme_ca_lots(brief):
+    """Σ des CA estimés des lots (`ca_estime_*`) → fourchette CA du marché TOTAL.
+    None pour les vieux briefs sans `ca_estime` (→ fallback voie_2/montant_marche)."""
+    return _somme_lots(brief, "ca_estime_min_eur", "ca_estime_max_eur")
+
+
+def somme_cout_lots(brief):
+    """Σ des COÛTS estimés des lots (`cout_estime_*`) → fourchette coût du marché."""
+    return _somme_lots(brief, "cout_estime_min_eur", "cout_estime_max_eur")
 
 
 def montant_estime(brief):
@@ -775,12 +779,18 @@ def tranches_ou_lots(brief, profil):
                 cout_tag = f"{_fmt_eur(cmin)} – {_fmt_eur(cmax)}"
             else:
                 cout_tag = _fourchette_txt(cout_detail)
+            # CA du lot (prix marché) + marge brute — nouveau modèle (réextraction).
+            amin, amax = l.get("ca_estime_min_eur"), l.get("ca_estime_max_eur")
+            ca_tag = (f"{_fmt_eur(amin)} – {_fmt_eur(amax)}"
+                      if isinstance(amin, (int, float)) and isinstance(amax, (int, float)) else None)
+            marge_pct = l.get("marge_brute_pct")
             _niv, _kw = _compat_lot(str(intit) + " " + str(corps or ""), desc, profil, domaine)
             items.append({
                 "numero": l.get("numero"), "intitule": intit, "description": desc,
                 "corps_etat": corps, "montant": montant, "domaine": domaine,
                 "volume": vol, "exigences": l.get("exigences_specifiques") or l.get("particularites"),
                 "cout_tag": cout_tag, "cout_detail": cout_detail,
+                "ca_tag": ca_tag, "marge_pct": marge_pct,
                 "compat": _niv, "compat_kw": _kw})
         return {"mode": "lots", "lignes": items}
     # Nouveau schéma (re-extraction v3) : `tranches` = LISTE d'objets
