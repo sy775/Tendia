@@ -329,6 +329,18 @@ def _montant_marche_eur(brief: dict | None) -> float | None:
             and isinstance(fmin, (int, float)) and isinstance(fmax, (int, float))
             and fmin > 0 and fmax > 0):
         return (float(fmin) + float(fmax)) / 2
+    # Fallback extraction v2 : l'estimation peut vivre dans `montant_3_voies`
+    # (Voie 1 = prix officiel ; Voie 2 = bottom-up IA) quand `montant_marche`
+    # est `non_communique` (ex 26-56676 : Voie 2 = 480 k–620 k €).
+    v3 = brief.get("montant_3_voies") or {}
+    v1 = v3.get("voie_1_eur")
+    if v1 and isinstance(v1, (int, float)) and v1 > 0:
+        return float(v1)
+    v2min, v2max = v3.get("voie_2_min_eur"), v3.get("voie_2_max_eur")
+    if (v2min and v2max
+            and isinstance(v2min, (int, float)) and isinstance(v2max, (int, float))
+            and v2min > 0 and v2max > 0):
+        return (float(v2min) + float(v2max)) / 2
     return None
 
 
