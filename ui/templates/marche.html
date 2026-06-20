@@ -315,6 +315,7 @@
   .apt-fiche-v7 .sec-icon svg { width: 17px; height: 17px; }
 
   .apt-fiche-v7 .sec .sec-title-wrap { flex: 1; min-width: 0; display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+  .apt-fiche-v7 .sec .sec-right { flex-shrink: 0; display: flex; align-items: center; gap: 5px; flex-wrap: wrap; justify-content: flex-end; }
   .apt-fiche-v7 .sec .sec-title {
     font-size: 15px;
     font-weight: 650;
@@ -784,7 +785,7 @@
 
   <main>
 
-    {% macro sec(titre, teaser, color, est_ouverte, icone, cls='') -%}
+    {% macro sec(titre, teaser, color, est_ouverte, icone, cls='', right='') -%}
     <details {% if est_ouverte %}open{% endif %} class="sec {{ cls }}">
       <summary>
         {% if icone %}<div class="sec-icon ic-{{ color }}">{{ icone | safe }}</div>{% endif %}
@@ -792,6 +793,7 @@
           <h2 class="sec-title">{{ titre }}</h2>
           {% if teaser %}<span class="sec-teaser">{{ teaser }}</span>{% endif %}
         </div>
+        {% if right|trim %}<div class="sec-right">{{ right | safe }}</div>{% endif %}
         <svg class="chev" style="width: 14px; height: 14px;" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
         </svg>
@@ -886,13 +888,14 @@
 
     {# ===== Onglet par défaut : Résumé Tendia (KPIs compacts + résumé + à retenir) ===== #}
     {% if brief.synthese_marche or alertes_non_verifiables or kpi_cards %}
-    {{ sec('Résumé Tendia', '', 'gold', true, '✦', 'sec-resume') }}
+    {# Tags secteur capturés pour les afficher À HAUTEUR DU TITRE (slot droit de sec()). #}
+    {% set secteur_tags %}{% if brief and brief.domaines_metier %}<span style="font-size: 10.5px; color: var(--apt-ink-4); font-weight: 500;">Secteur ·</span>{% for d in brief.domaines_metier %}{% set est_principal = (loop.first or (d.poids and d.poids >= 0.5)) %}<span title="{% if d.poids %}Poids: {{ (d.poids * 100)|round|int }}%{% endif %}{% if d.lots_concernes %} · Lots: {{ d.lots_concernes|join(', ') }}{% endif %}" style="display: inline-flex; align-items: center; gap: 4px; font-size: 11px; padding: 2px 8px; border-radius: 999px; background: {% if est_principal %}var(--c-violet-soft){% else %}var(--apt-bg-2, #f5f3f0){% endif %}; color: {% if est_principal %}var(--c-violet){% else %}var(--apt-ink-3){% endif %}; border: 1px solid {% if est_principal %}var(--c-violet){% else %}var(--apt-ink-5, #ddd){% endif %}; font-weight: {% if est_principal %}600{% else %}500{% endif %};">{{ d.code|libelle_domaine }}{% if d.poids %}<span style="opacity: 0.7; font-size: 10px;">{{ (d.poids * 100)|round|int }}%</span>{% endif %}</span>{% endfor %}{% endif %}{% endset %}
+    {{ sec('Résumé Tendia', '', 'gold', true, '✦', 'sec-resume', secteur_tags) }}
 
-      {# Lots pertinents (gauche) + Secteur (droite) sur UNE seule ligne — gain de place. #}
-      {% if (brief and brief.domaines_metier) or lots_pertinents %}
-      <div style="display:flex; align-items:center; gap:10px 16px; flex-wrap:wrap; margin-bottom:16px;">
-        {% if lots_pertinents %}
-        {% set lots_tip = '– ' + (lots_pertinents.intitules | join('\n– ')) %}
+      {# Lots pertinents pour votre profil (chip) #}
+      {% if lots_pertinents %}
+      {% set lots_tip = '– ' + (lots_pertinents.intitules | join('\n– ')) %}
+      <div style="margin-bottom:16px;">
         <span title="{{ lots_tip }}" style="display:inline-flex; align-items:center; gap:8px; cursor:help;
               background:var(--apt-gold-soft); border:1px solid color-mix(in srgb, var(--apt-gold) 38%, transparent);
               border-radius:999px; padding:4px 12px;">
@@ -901,25 +904,6 @@
           <strong style="font-size:12px; font-weight:800; color:var(--apt-accent); font-variant-numeric:tabular-nums;">{{ lots_pertinents.nb }}/{{ lots_pertinents.total_lots }}</strong>
           {% if lots_pertinents.cmin %}<span style="font-size:12px; font-weight:700; color:var(--apt-gold-deep); font-variant-numeric:tabular-nums;">≈ {{ lots_pertinents.cmin | euro_short }}–{{ lots_pertinents.cmax | euro_short }}</span>{% endif %}
         </span>
-        {% endif %}
-        {% if brief and brief.domaines_metier %}
-        <div style="margin-left:auto; display:inline-flex; align-items:center; gap:5px; flex-wrap:wrap;">
-          <span style="font-size: 11px; color: var(--apt-ink-4); font-weight: 500;">Secteur ·</span>
-          {% for d in brief.domaines_metier %}
-            {% set est_principal = (loop.first or (d.poids and d.poids >= 0.5)) %}
-            {% set lib = d.code|libelle_domaine %}
-            <span title="{% if d.poids %}Poids: {{ (d.poids * 100)|round|int }}%{% endif %}{% if d.lots_concernes %} · Lots: {{ d.lots_concernes|join(', ') }}{% endif %}"
-                  style="display: inline-flex; align-items: center; gap: 4px;
-                         font-size: 11.5px; padding: 3px 9px; border-radius: 999px;
-                         background: {% if est_principal %}var(--c-violet-soft){% else %}var(--apt-bg-2, #f5f3f0){% endif %};
-                         color: {% if est_principal %}var(--c-violet){% else %}var(--apt-ink-3){% endif %};
-                         border: 1px solid {% if est_principal %}var(--c-violet){% else %}var(--apt-ink-5, #ddd){% endif %};
-                         font-weight: {% if est_principal %}600{% else %}500{% endif %};">
-              {{ lib }}{% if d.poids %}<span style="opacity: 0.7; font-size: 10px;">{{ (d.poids * 100)|round|int }}%</span>{% endif %}
-            </span>
-          {% endfor %}
-        </div>
-        {% endif %}
       </div>
       {% endif %}
 
