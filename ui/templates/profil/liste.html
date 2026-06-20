@@ -163,12 +163,14 @@
     padding: 26px 30px;
     box-shadow: 0 1px 0 var(--apt-line-3), 0 0 0 1px var(--apt-line-3);
   }
-  .pf-hero.apt-active-glow { box-shadow: 0 0 0 1px var(--apt-accent-tint), 0 18px 40px -28px var(--apt-accent-glow); }
-  /* Liseré en PILULE (bouts arrondis), inséré du haut/bas — comme la fiche marché. */
-  .pf-hero.apt-active-glow::before {
-    top: 18px; bottom: 18px; left: 9px; width: 4px;
-    border-radius: 999px;
+  /* Accent gauche = bordure de la carte (3px) qui épouse les coins arrondis,
+     comme la section « Résumé Tendia » de la fiche marché. Pas de pseudo-barre. */
+  .pf-hero.apt-active-glow {
+    border: 1px solid var(--apt-accent-tint);
+    border-left: 3px solid var(--apt-accent);
+    box-shadow: 0 18px 40px -28px var(--apt-accent-glow);
   }
+  .pf-hero.apt-active-glow::before { display: none; }
   .pf-hero-empty { border: 1px dashed var(--apt-line); box-shadow: none; background: var(--apt-surface); }
   .pf-active-tag {
     font-size: 10.5px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase;
