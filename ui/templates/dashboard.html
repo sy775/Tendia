@@ -30,7 +30,7 @@
       </div>
 
       {# Colonne droite : barre KPI premium + pipeline commercial compact #}
-      <div style="display:flex; flex-direction:column; gap:9px; align-items:flex-end;">
+      <div style="display:flex; flex-direction:column; gap:9px; align-items:stretch;">
         {# Barre KPI premium — pastilles colorées, fond blanc, filets discrets #}
         <div style="display:flex; align-items:stretch; border:1px solid var(--apt-line); border-radius:14px; overflow:hidden; background:var(--apt-pure); box-shadow:0 1px 0 var(--apt-line-3);">
           {% for kn, kl, kc in [
@@ -39,7 +39,7 @@
               (kpis.a_verifier, 'À vérifier', 'var(--apt-gold-2)'),
               (kpis.avec_brief, 'Briefs LLM', 'var(--apt-ink-3)')
           ] %}
-          <div style="padding:15px 26px; text-align:center; {% if not loop.last %}border-right:1px solid var(--apt-line-2);{% endif %}">
+          <div style="flex:1; padding:15px 26px; text-align:center; {% if not loop.last %}border-right:1px solid var(--apt-line-2);{% endif %}">
             <div style="font-size:30px; font-weight:700; color:{{ kc }}; font-variant-numeric:tabular-nums; line-height:1; letter-spacing:-0.02em;">{{ kn }}</div>
             <div class="apt-label" style="margin-top:7px; font-size:8.5px; white-space:nowrap;">{{ kl }}</div>
           </div>
@@ -55,13 +55,13 @@
               ('perdu','Perdu','var(--apt-rose)'),
               ('abandonne','Abandonné','var(--apt-ink-4)')
           ] %}
-          <div style="padding:15px 26px; text-align:center; border-right:1px solid var(--apt-line-2);">
+          <div style="flex:1; padding:15px 26px; text-align:center; border-right:1px solid var(--apt-line-2);">
             <div style="font-size:30px; font-weight:700; color:{{ col }}; font-variant-numeric:tabular-nums; line-height:1; letter-spacing:-0.02em;">{{ kpis.pipeline['nb_' + st] }}</div>
             <div class="apt-label" style="margin-top:7px; font-size:8.5px; white-space:nowrap;">{{ lbl }}</div>
           </div>
           {% endfor %}
           {% if kpis.pipeline.taux_conversion_pct is not none %}
-          <div style="padding:15px 26px; text-align:center; background:var(--apt-accent-soft);">
+          <div style="flex:1; padding:15px 26px; text-align:center; background:var(--apt-accent-soft);">
             <div style="font-size:30px; font-weight:700; color:var(--apt-accent); font-variant-numeric:tabular-nums; line-height:1; letter-spacing:-0.02em;">{{ kpis.pipeline.taux_conversion_pct }}<span style="font-size:15px;">%</span></div>
             <div class="apt-label" style="margin-top:7px; font-size:8.5px; white-space:nowrap;">Conversion</div>
           </div>
@@ -90,10 +90,10 @@
     </div>
 
     {% if marches_enriched %}
-    <div class="apt-block overflow-hidden" style="border-radius:14px;">
+    <div class="apt-block" style="border-radius:14px;">
 
       <!-- En-tête colonnes (très discret) -->
-      <div class="grid items-center apt-label" style="grid-template-columns: 158px minmax(0, 1fr) 206px 112px 116px 74px; column-gap:14px; padding:13px 24px; background: var(--apt-surface); border-bottom: 1px solid var(--apt-line-2); font-size: 9px;">
+      <div class="grid items-center apt-label" style="grid-template-columns: 158px minmax(0, 1fr) 206px 112px 116px 74px; column-gap:14px; padding:13px 24px; background: var(--apt-surface); border-bottom: 1px solid var(--apt-line-2); font-size: 9px; border-radius: 14px 14px 0 0;">
         <div>Verdict</div>
         <div>Intitulé</div>
         <div>Acheteur</div>
@@ -106,7 +106,7 @@
       {% for e in marches_enriched %}
       {% set m = e.marche %}
       <a href="/marche/{{ m.id }}" class="block">
-        <div class="apt-row grid items-center va-{{ e.verdict or 'non_pertinent' }}" style="grid-template-columns: 158px minmax(0, 1fr) 206px 112px 116px 74px; padding: 15px 24px 15px 21px; column-gap: 14px; border-left: 3px solid var(--vc);">
+        <div class="apt-row grid items-center va-{{ e.verdict or 'non_pertinent' }}" style="grid-template-columns: 158px minmax(0, 1fr) 206px 112px 116px 74px; padding: 15px 24px 15px 21px; column-gap: 14px; border-left: 3px solid var(--vc);{% if loop.last %} border-radius: 0 0 13px 13px;{% endif %}">
 
           <!-- Verdict -->
           <div>
@@ -183,7 +183,7 @@
               {% if e.domaine_llm_principal %}
               <span class="inline-flex items-center" style="font-size: 10.5px; padding: 1px 7px; border-radius: 999px; background: var(--c-violet-soft, #E7E9F1); color: var(--c-violet, #1E2761); font-weight: 500;"
                     title="{{ e.domaine_llm_tooltip or 'Classification IA' }}">
-                {{ e.domaine_llm_principal|replace('_', ' ') }}
+                {{ e.domaine_llm_principal|libelle_domaine }}
               </span>
               {% endif %}
               {# Badge d'éligibilité — design sobre, pastille colorée + label fin #}
