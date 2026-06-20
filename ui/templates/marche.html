@@ -912,10 +912,14 @@
       {% if lots_pertinents %}
       {% set lots_tip = '– ' + (lots_pertinents.intitules | join('\n– ')) %}
       <div style="margin-bottom:16px;">
-        <div class="apt-label" title="{{ lots_tip }}" style="display:inline-flex; align-items:center; gap:6px; cursor:help; border-bottom:1px dotted var(--apt-line); padding-bottom:3px;">
-          <span style="width:5px; height:5px; border-radius:999px; background:var(--apt-gold);"></span>
-          Lots pertinents pour votre profil · {{ lots_pertinents.nb }}/{{ lots_pertinents.total_lots }}{% if lots_pertinents.cmin %} · ≈ {{ lots_pertinents.cmin | euro_short }}–{{ lots_pertinents.cmax | euro_short }}{% endif %}
-        </div>
+        <span title="{{ lots_tip }}" style="display:inline-flex; align-items:center; gap:8px; cursor:help;
+              background:var(--apt-gold-soft); border:1px solid color-mix(in srgb, var(--apt-gold) 38%, transparent);
+              border-radius:999px; padding:4px 12px;">
+          <span style="width:6px; height:6px; border-radius:999px; background:var(--apt-gold); flex:none;"></span>
+          <span style="font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; color:var(--apt-ink-3);">Lots pertinents pour votre profil</span>
+          <strong style="font-size:12px; font-weight:800; color:var(--apt-accent); font-variant-numeric:tabular-nums;">{{ lots_pertinents.nb }}/{{ lots_pertinents.total_lots }}</strong>
+          {% if lots_pertinents.cmin %}<span style="font-size:12px; font-weight:700; color:var(--apt-gold-deep); font-variant-numeric:tabular-nums;">≈ {{ lots_pertinents.cmin | euro_short }}–{{ lots_pertinents.cmax | euro_short }}</span>{% endif %}
+        </span>
       </div>
       {% endif %}
 
@@ -1051,11 +1055,19 @@
         {% set rev_min = brief.revenu_min_eur or (mm.fourchette_min_euros if mm else None) or (v3.voie_2_min_eur if v3 else None) %}
         {% set rev_max = brief.revenu_max_eur or (mm.fourchette_max_euros if mm else None) or (v3.voie_2_max_eur if v3 else None) %}
         {% set rev_fourchette = rev_min and rev_max and rev_max > rev_min %}
-        {% set cout_eur = brief.cout_realisation_eur %}
-        {% set cout_min = brief.cout_min_eur %}
-        {% set cout_max = brief.cout_max_eur %}
-        {% set cout_fourchette = cout_min and cout_max and cout_max > cout_min %}
         {% set cr = brief.cout_realisation %}
+        {# Fallback coût : champs top-level souvent vides → on retombe sur le bloc
+           cout_realisation (cout_total_eur / min / max), ex 26-56662. #}
+        {% set cout_eur = brief.cout_realisation_eur or (cr.cout_total_eur if cr else None) %}
+        {% set cout_min = brief.cout_min_eur or (cr.cout_min_eur if cr else None) %}
+        {% set cout_max = brief.cout_max_eur or (cr.cout_max_eur if cr else None) %}
+        {% set cout_fourchette = cout_min and cout_max and cout_max > cout_min %}
+        {# Marge = revenu estimé − coût bottom-up (pas de taux fixe ; coût estimé
+           poste par poste / par lot). Calculée si pas déjà fournie par le brief. #}
+        {% set marge_val = brief.get('marge_eur') if brief.get('marge_eur') is not none
+                           else ((rev_eur - cout_eur) if (rev_eur and cout_eur) else none) %}
+        {% set marge_pct_val = brief.get('marge_pct') if brief.get('marge_pct') is not none
+                               else (((rev_eur - cout_eur) / rev_eur * 100) if (rev_eur and cout_eur and rev_eur > 0) else none) %}
 
         {% if rev_eur or cout_eur or mm %}
         <div style="background: var(--c-violet-soft); border: 1px solid var(--c-violet); border-radius: 12px; padding: 15px 17px; margin-bottom: 12px;">
@@ -1086,11 +1098,20 @@
               {% if cout_fourchette %}{{ cout_min | euro_short }} – {{ cout_max | euro_short }}{% else %}{{ cout_eur | euro_short }}{% endif %}
             </div>
           </div>
-          {% if brief.marge_eur is not none %}
-          {% set marge_col = 'var(--c-amber)' if brief.marge_alerte else ('var(--c-green-deep)' if brief.marge_eur > 0 else 'var(--c-stone)') %}
+          {% if marge_val is not none %}
+          {# Coût et revenu sont estimés INDÉPENDAMMENT par l'IA → la marge implicite
+             peut être incohérente. On n'affiche un chiffre que si elle est plausible
+             (positive, 5–70 %) ; sinon un caveat sobre au lieu d'un nombre trompeur. #}
+          {% set marge_coherente = (marge_val > 0 and marge_pct_val is not none and marge_pct_val >= 5 and marge_pct_val <= 70) %}
           <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding-top: 8px;">
-            <div style="font-size: 11px; color: var(--apt-ink-4); font-weight: 600;">Marge estimée{% if brief.marge_alerte %} ⚠ coût &gt; revenu{% endif %}</div>
-            <div style="font-size: 17px; font-weight: 700; color: {{ marge_col }}; font-variant-numeric: tabular-nums;">{{ brief.marge_eur | euro_short }}{% if brief.marge_pct is not none %} <span style="font-size: 12px;">({{ brief.marge_pct }} %)</span>{% endif %}</div>
+            <div style="font-size: 11px; color: var(--apt-ink-4); font-weight: 600; cursor: help;"
+                 title="Marge ≈ revenu estimé − coût de réalisation. Les deux sont estimés INDÉPENDAMMENT par l'IA (le coût bottom-up poste par poste, le revenu côté marché), sans réconciliation — pas de taux fixe. Strictement indicatif, à vérifier.">
+              Marge estimée <span style="opacity:0.7;">ⓘ</span></div>
+            {% if marge_coherente %}
+            <div style="font-size: 17px; font-weight: 700; color: var(--c-green-deep); font-variant-numeric: tabular-nums;">{{ marge_val | euro_short }} <span style="font-size: 12px;">(~{{ marge_pct_val | round | int }} %)</span></div>
+            {% else %}
+            <div style="font-size: 11px; color: var(--c-amber); font-weight: 600; max-width: 230px; text-align: right; line-height: 1.4;">incohérente (coût/revenu estimés séparément) — à vérifier</div>
+            {% endif %}
           </div>
           {% endif %}
           {% endif %}
