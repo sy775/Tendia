@@ -1082,18 +1082,34 @@
           <div style="font-size: 11px; color: var(--c-amber); margin-top: 4px;">⚠ Sous le seuil de publicité BOAMP (~90 k€ HT) — probable sous-estimation (reconductions/tranches/durée totale ?), sauf lot isolé.</div>
           {% endif %}
 
-          {# Coût de réalisation (le « comment » du chiffrage) — sans marge affichée. #}
+          {# ── COMMENT LE CA EST ESTIMÉ — directement sous le CA ── #}
+          {% set hypos = (brief.montant_3_voies.voie_2_hypotheses if brief.montant_3_voies else None) %}
+          {% if not est_officiel and hypos %}
+          <details style="margin-top: 8px;">
+            <summary style="cursor: pointer; font-size: 10.5px; color: var(--apt-gold-deep); font-weight: 700; text-transform: uppercase; letter-spacing: 0.3px; list-style: none; user-select: none;">▸ Comment le CA est estimé</summary>
+            <ul style="margin: 6px 0 0; padding-left: 16px; font-size: 11.5px; color: var(--apt-ink-3); line-height: 1.6;">
+              {% for h in hypos %}{% if h.hypothese %}
+              <li>{{ h.hypothese[:130] }}{% if h.valeur %} <span style="color: var(--apt-ink-2); font-weight: 600; font-variant-numeric: tabular-nums;">({{ h.valeur }})</span>{% endif %}</li>
+              {% endif %}{% endfor %}
+            </ul>
+          </details>
+          {% elif not est_officiel and mm.commentaire %}
+          <p style="font-size: 12px; color: var(--apt-ink-3); line-height: 1.55; margin: 8px 0 0; font-style: italic;">{{ mm.commentaire }}</p>
+          {% endif %}
+          {% if mm and mm.source_extraction and est_officiel %}
+          <div style="margin-top: 4px; font-size: 10.5px; color: var(--apt-ink-4);">Source du CA : {{ mm.source_extraction | clean_source }}</div>
+          {% endif %}
+
+          {# ── COÛT DE RÉALISATION + comment il est estimé ── #}
           {% if cout_lots_min and cout_lots_max %}
-          <div style="margin-top: 10px; padding-top: 10px; border-top: 1px solid rgba(30,39,97,0.12);">
+          <div style="margin-top: 12px; padding-top: 10px; border-top: 1px solid rgba(30,39,97,0.12);">
             <span style="font-size: 11px; color: var(--apt-ink-4); font-weight: 600;">Coût de réalisation estimé</span>
             <span style="font-size: 14px; color: var(--apt-ink-2); font-weight: 700; font-variant-numeric: tabular-nums; margin-left: 6px;">{{ cout_lots_min | euro_short }} – {{ cout_lots_max | euro_short }}</span>
           </div>
           {% endif %}
-
-          {# Décomposition de l'estimation (postes, taux, hypothèses) — la BASE du CA #}
           {% if cr and (cr.postes or cr.taux_journaliers_retenus or cr.commentaire) %}
-          <details style="margin-top: 10px;">
-            <summary style="cursor: pointer; font-size: 11px; color: var(--c-violet); font-weight: 700; text-transform: uppercase; letter-spacing: 0.3px; list-style: none; user-select: none;">▸ Décomposition du coût</summary>
+          <details style="margin-top: 6px;">
+            <summary style="cursor: pointer; font-size: 10.5px; color: var(--apt-ink-4); font-weight: 700; text-transform: uppercase; letter-spacing: 0.3px; list-style: none; user-select: none;">▸ Comment le coût est estimé</summary>
             <div style="margin-top: 8px;">
               {% if cr.postes %}
               <ul style="margin: 0 0 6px; padding-left: 16px; font-size: 12px; color: var(--apt-ink-2); line-height: 1.6;">
@@ -1106,27 +1122,6 @@
               {% if cr.commentaire %}<p style="font-size: 12px; color: var(--apt-ink-3); line-height: 1.55; margin: 0; font-style: italic;">{{ cr.commentaire }}</p>{% endif %}
             </div>
           </details>
-          {% endif %}
-
-          {# Revenu : BASE de l'estimation (hypothèses Voie 2). Toujours visible pour un
-             montant estimé (même avec coût) — lève l'ambiguïté fréquente sur les marchés
-             de MOE : le revenu = honoraires (≈ % du budget travaux), à NE PAS confondre
-             avec le budget travaux lui-même. Ex 56730 : « travaux 1,985 M€ × taux 9-11% ». #}
-          {% set hypos = (brief.montant_3_voies.voie_2_hypotheses if brief.montant_3_voies else None) %}
-          {% if not est_officiel and hypos %}
-          <details style="margin-top: 8px;">
-            <summary style="cursor: pointer; font-size: 10.5px; color: var(--apt-ink-4); font-weight: 700; text-transform: uppercase; letter-spacing: 0.3px; list-style: none; user-select: none;">▸ Base du CA estimé</summary>
-            <ul style="margin: 6px 0 0; padding-left: 16px; font-size: 11.5px; color: var(--apt-ink-3); line-height: 1.6;">
-              {% for h in hypos %}{% if h.hypothese %}
-              <li>{{ h.hypothese[:130] }}{% if h.valeur %} <span style="color: var(--apt-ink-2); font-weight: 600; font-variant-numeric: tabular-nums;">({{ h.valeur }})</span>{% endif %}</li>
-              {% endif %}{% endfor %}
-            </ul>
-          </details>
-          {% elif not est_officiel and mm.commentaire %}
-          <p style="font-size: 12px; color: var(--apt-ink-3); line-height: 1.55; margin: 8px 0 0; font-style: italic;">{{ mm.commentaire }}</p>
-          {% endif %}
-          {% if mm and mm.source_extraction and est_officiel %}
-          <div style="margin-top: 4px; font-size: 10.5px; color: var(--apt-ink-4);">Source revenu : {{ mm.source_extraction | clean_source }}</div>
           {% endif %}
         </div>
         {% endif %}
