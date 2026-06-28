@@ -555,13 +555,23 @@ def _telecharger_marche(marche: dict, session, force=False,
 
     dossier = REPERTOIRE_DCE / id_m
 
-    # Skip si déjà fait (sauf --force)
+    # Skip UNIQUEMENT si le dossier est déjà COMPLET (sauf --force). Un dossier
+    # partiel (RC seul, etc.) ne doit PAS court-circuiter le chemin profond
+    # ci-dessous, sinon le marché reste éternellement « incomplet » (le batch le
+    # saute en voyant le RC, sans jamais déclencher le completeDownload).
     if not force and dossier.is_dir():
         fichiers = (list(dossier.glob('*.pdf')) + list(dossier.glob('*.zip'))
                     + list(dossier.glob('*.doc*')) + list(dossier.glob('*.xls*')))
         if fichiers:
-            return {'statut': 'skip_deja_fait', 'nb_fichiers': len(fichiers),
-                    'raison': f"{len(fichiers)} fichiers déjà présents"}
+            try:
+                import tendia_dce
+                deja_complet = tendia_dce.qualifier_dce(str(dossier)).get('qualite') == 'complet'
+            except Exception:
+                deja_complet = True  # prudence : on ne re-télécharge pas en cas de doute
+            if deja_complet:
+                return {'statut': 'skip_deja_fait', 'nb_fichiers': len(fichiers),
+                        'raison': f"{len(fichiers)} fichiers déjà présents (complet)"}
+            # dossier partiel → on poursuit vers le chemin profond pour compléter
 
     # --- Chemin profond d'abord (fix durable couverture) ----------------------
     # Le parsing HTML rapide ci-dessous n'attrape souvent que le RC (→ dossier
