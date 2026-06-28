@@ -151,6 +151,7 @@ def main():
             extra.append("--ignorer-heures")
         _executer_script("retelecharger_aws_achat_anti_ban.py", extra)
         _executer_script("retelecharger_dematis_anti_ban.py", extra)
+        _executer_script("retelecharger_xmarches.py", ["--oui", "--max", str(args.max_dedies)])
 
     # === Étape 5 : Extraction LLM ===
     if args.skip_llm:
