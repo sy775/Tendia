@@ -71,7 +71,11 @@ def _detecter_url_base(url_dce: str) -> Optional[str]:
     if not parsed.netloc:
         return None
     host_connu = any(h in low for h in HOSTS_ATEXO)
-    signature = ("orgacronyme=" in low) and ("entreprise." in low)
+    # Signature Atexo : orgAcronyme + soit l'ancien format `page=Entreprise.…`,
+    # soit le nouveau format path `/entreprise/consultation/<id>` (forks
+    # municipaux type marchespublics596280.fr, marchespublics.eure.fr…).
+    signature = ("orgacronyme=" in low) and (
+        "entreprise." in low or "/entreprise/consultation/" in low)
     if host_connu or signature:
         return f"{parsed.scheme}://{parsed.netloc}"
     return None
@@ -122,7 +126,8 @@ def _extraire_id_org_depuis_url(url: str):
         return None, None
     id_m = re.search(r'[?&]id=(\d+)', url)
     id_m2 = re.search(r'/consultation/(\d+)', url)
-    org_m = re.search(r'[?&]orgAcronyme=([a-zA-Z0-9]+)', url)
+    # orgAcronyme peut contenir _ et - (ex: MAIRIE_33_300, cg-55) → ne pas tronquer.
+    org_m = re.search(r'[?&]orgAcronyme=([a-zA-Z0-9_\-]+)', url)
     id_v = (id_m.group(1) if id_m else id_m2.group(1) if id_m2 else None)
     org_v = org_m.group(1) if org_m else None
     return id_v, org_v
