@@ -850,6 +850,9 @@ def telecharger_dce_pour_marche(
     out["chemin"] = dossier_cible
     out["taille_octets"] = res.get("taille_octets_total", 0)
     out["tentatives_ip"] = tentatives_ip
+    # Expose nb_fichiers dans le retour (le batch/qualif n'en dépend pas, mais le
+    # dict ne le portait pas → reporting trompeur « nb_fichiers=None »).
+    out["nb_fichiers"] = len(out.get("fichiers_telecharges") or [])
 
     evt = {
         "ok": out.get("ok"),
