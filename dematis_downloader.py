@@ -102,11 +102,16 @@ DL_MAX_ESSAIS = 3
 # ===========================================================================
 
 def est_url_dematis(url: str) -> bool:
-    """True si l'URL est servie par une plateforme Dematis (e-marchespublics)."""
-    try:
-        return HOST_DEMATIS in urlparse(url or "").netloc.lower()
-    except Exception:
-        return HOST_DEMATIS in (url or "").lower()
+    """True si l'URL est servie par le moteur Dematis. Reconnaît e-marchespublics
+    ET les forks sur d'autres domaines (ex. ville-pornichet.marchespublics.com),
+    identifiés par la signature de chemin du moteur."""
+    low = (url or "").lower()
+    if HOST_DEMATIS in low:
+        return True
+    # Signature moteur Dematis (mêmes chemins quel que soit le host) :
+    return ("/pack/annonce_marche_public_" in low
+            or "dossier_de_consultation_marche_public_anonyme" in low
+            or "acces_dce_marche_public_anonyme" in low)
 
 
 def _entetes_set_cookie(resp) -> list:
