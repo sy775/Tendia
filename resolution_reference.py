@@ -18,6 +18,7 @@ import json
 import re
 from typing import Optional
 
+import requests
 import dce_finder
 
 # Moteurs Atexo (marques blanches + PLACE) où la recherche GET fonctionne.
@@ -70,3 +71,52 @@ def resoudre_url_via_reference(marche: dict) -> Optional[str]:
                                                       verbose=False)
     except Exception:
         return None
+
+
+_UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+       "(KHTML, like Gecko) Chrome/120.0 Safari/537.36")
+_RE_DETAIL = re.compile(r"EntrepriseDetailsConsultation[^\"']*id=(\d+)[^\"']*orgAcronyme=(\w+)")
+
+
+def _chercher_consultations(base: str, keyword: str) -> list:
+    """Liste des URLs de consultation pour une recherche keyword (Atexo)."""
+    base = base.rstrip("/")
+    if not base.startswith("http"):
+        base = "https://" + base
+    url = (f"{base}/?page=Entreprise.EntrepriseAdvancedSearch&searchAnnCons"
+           f"&keyWord={requests.utils.quote(keyword)}")
+    try:
+        h = requests.get(url, timeout=25, headers={"User-Agent": _UA,
+                         "Accept-Language": "fr-FR"}).text.replace("&amp;", "&")
+    except Exception:
+        return []
+    vus, out = set(), []
+    for mid_, org in _RE_DETAIL.findall(h):
+        u = (f"{base}/?page=Entreprise.EntrepriseDetailsConsultation"
+             f"&id={mid_}&orgAcronyme={org}")
+        if u not in vus:
+            vus.add(u)
+            out.append(u)
+    return out
+
+
+def _mots_cles_objet(objet: str, n: int = 3) -> str:
+    mots = [w for w in re.findall(r"[A-Za-zÀ-ÿ]{5,}", objet or "")
+            if w.lower() not in ("marche", "marché", "public", "prestation",
+                                 "prestations", "travaux", "fourniture", "service",
+                                 "services", "consultation")][:n]
+    return " ".join(mots)
+
+
+def resoudre_url_via_objet(marche: dict) -> Optional[str]:
+    """Fallback (UUID-only, pas de référence) : recherche par mots-clés d'OBJET
+    sur la plateforme Atexo. CONSERVATEUR : ne résout que si la recherche renvoie
+    UN SEUL résultat (haute confiance), pour éviter d'attacher un mauvais DCE."""
+    base, ref = extraire_plateforme_reference(marche)
+    if ref or not (base and est_moteur_atexo(base)):
+        return None  # géré par la voie référence
+    kw = _mots_cles_objet(marche.get("objet") or "")
+    if len(kw) < 6:
+        return None
+    res = _chercher_consultations(normaliser_base(base), kw)
+    return res[0] if len(res) == 1 else None

@@ -38,23 +38,31 @@ def main():
     print(f"=== RÉSOLUTION url_dce PAR RÉFÉRENCE (moteur Atexo) ===")
     print(f"Avis sans-URL sur moteur Atexo : {len(cibles)}\n")
 
-    resolus = 0
+    resolus = par_ref = par_objet = 0
     for i, (mid, m) in enumerate(cibles, 1):
         base, ref = RR.extraire_plateforme_reference(m)
         url = RR.resoudre_url_via_reference(m)
+        source = "recherche_reference"
+        if not url:                       # fallback objet (conservateur, 1 résultat)
+            url = RR.resoudre_url_via_objet(m)
+            source = "recherche_objet"
         if url:
             resolus += 1
-            print(f"  [{i}/{len(cibles)}] {mid} : {base} (réf {ref}) → ✅ {url[:60]}")
+            par_ref += source == "recherche_reference"
+            par_objet += source == "recherche_objet"
+            tag = "réf" if source == "recherche_reference" else "OBJET"
+            print(f"  [{i}/{len(cibles)}] {mid} : {base} → ✅ [{tag}] {url[:55]}")
             if not args.dry_run:
                 m["url_dce"] = url
-                m["url_dce_source"] = "recherche_reference"
+                m["url_dce_source"] = source
                 stockage.ecrire("marches", mid, m)
         else:
             print(f"  [{i}/{len(cibles)}] {mid} : {base} (réf {ref}) → introuvable")
         if i < len(cibles):
             time.sleep(RATE_LIMIT_SEC)
 
-    print(f"\n⇒ {resolus}/{len(cibles)} url_dce résolues"
+    print(f"\n⇒ {resolus}/{len(cibles)} url_dce résolues "
+          f"({par_ref} par référence, {par_objet} par objet)"
           f"{' (dry-run, non persisté)' if args.dry_run else ''}")
     if resolus and not args.dry_run:
         print("⇒ Télécharger : python tendia_telecharger_dce.py  (ou retelecharger_incomplet.py)")
