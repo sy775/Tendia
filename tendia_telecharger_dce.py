@@ -1034,14 +1034,17 @@ def telecharger_pieces_dce(marche: dict, dossier_destination: str, session=None)
     url_directe = (marche.get("url_consultation_dce_directe") or "").strip()
     url_reconstruite = (marche.get("url_dce") or "").strip()
 
-    # Une URL directe de type RECHERCHE (EntrepriseAdvancedSearch) n'est pas une
-    # consultation : elle ne ramène que le RC et, comme on s'arrête au premier
-    # résultat non vide, elle masque l'url_dce (fiche DetailsConsultation) qui,
-    # elle, donne le dossier complet via completeDownload. On l'écarte dès qu'une
-    # url_dce de repli existe.
-    if (url_directe and url_reconstruite
-            and "advancedsearch" in url_directe.lower()):
-        url_directe = ""
+    # Une URL directe inexploitable comme consultation masque l'url_dce (fiche
+    # DetailsConsultation, dossier complet) car on s'arrête au 1er résultat non
+    # vide. On l'écarte dès qu'une url_dce de repli existe, dans 2 cas :
+    #   - URL de RECHERCHE (EntrepriseAdvancedSearch) : ne ramène que le RC ;
+    #   - RACINE du site (https://host sans chemin ni query) : page d'accueil.
+    if url_directe and url_reconstruite:
+        _pd = urlparse(url_directe)
+        _est_recherche = "advancedsearch" in url_directe.lower()
+        _est_racine = (len(_pd.path.strip("/")) <= 1) and not _pd.query
+        if _est_recherche or _est_racine:
+            url_directe = ""
 
     tentatives = []
     if url_directe:
@@ -1103,13 +1106,16 @@ def _telecharger_pieces_dce_impl(marche: dict, dossier_destination: str, session
                     "duree_secondes": (datetime.now() - debut).total_seconds()}
     try:
         import atexo_downloader as _ad
-        base = _ad._detecter_url_base(url_dce)
-        if base:
-            id_atexo, org = _ad._extraire_id_org_depuis_url(url_dce)
-            if id_atexo and org:
-                os.makedirs(dossier_destination, exist_ok=True)
-                chemin_zip = os.path.join(dossier_destination, f"dce_{id_atexo}.zip")
-                return _res_zip(_ad.telecharger_dce(id_atexo, org, chemin_zip, base, verbose=False))
+        if _ad._detecter_url_base(url_dce):
+            # On délègue au wrapper robuste telecharger_dce_pour_marche (proxy +
+            # rotation IP + retry), pas au telecharger_dce brut : ce dernier
+            # échouait silencieusement dans ce contexte (except pass) → repli RC.
+            parent = (os.path.dirname(dossier_destination)
+                      if os.path.basename(dossier_destination) else dossier_destination)
+            res_atexo = _ad.telecharger_dce_pour_marche(
+                {**marche, "url_dce": url_dce}, parent, verbose=False)
+            if res_atexo.get("ok"):
+                return _res_zip(res_atexo)
     except Exception:
         pass  # repli sur le parsing générique ci-dessous
 
