@@ -303,10 +303,15 @@ def qualifier_dce(dossier_dce_path: str, log_telechargement: dict = None) -> dic
         return res
 
     # Classement des noms
+    _EXT_DOC = (".pdf", ".doc", ".docx", ".xls", ".xlsx", ".ppt", ".pptx",
+                ".odt", ".ods", ".dwg", ".dxf", ".rtf", ".csv")
     types = set()
     n_admin = 0
+    n_substantiel = 0   # documents « métier » réels (hors administratif)
     a_dc = False
     for nom in noms:
+        if nom.endswith("/"):
+            continue  # entrée dossier dans un zip
         nn = _norm_nom(nom)
         if _est_dc_candidature(nn):
             a_dc = True
@@ -316,8 +321,20 @@ def qualifier_dce(dossier_dce_path: str, log_telechargement: dict = None) -> dic
         tc = _type_contractuel(nn)
         if tc:
             types.add(tc)
+        if nom.lower().endswith(_EXT_DOC):
+            n_substantiel += 1
     pieces = sorted(types)
     res["pieces_contractuelles"] = pieces
+
+    # 3bis) Dossier RICHE : le completeDownload a ramené un vrai dossier multi-
+    # documents dont les noms ne suivent pas la nomenclature canonique (cadres de
+    # réponse, annexes, présentations, tableaux de candidature, plans...). Avec
+    # ≥3 documents substantiels, c'est un DCE complet même si <2 pièces nommées
+    # sont reconnues — sinon on marquait à tort « incomplet » des dossiers entiers.
+    if n_substantiel >= 3:
+        res.update(qualite="complet",
+                   raison=f"complet : {n_substantiel} documents (dossier riche)")
+        return res
 
     # 4) Aucune pièce contractuelle
     if not pieces:
