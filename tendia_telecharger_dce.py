@@ -1034,6 +1034,15 @@ def telecharger_pieces_dce(marche: dict, dossier_destination: str, session=None)
     url_directe = (marche.get("url_consultation_dce_directe") or "").strip()
     url_reconstruite = (marche.get("url_dce") or "").strip()
 
+    # Une URL directe de type RECHERCHE (EntrepriseAdvancedSearch) n'est pas une
+    # consultation : elle ne ramène que le RC et, comme on s'arrête au premier
+    # résultat non vide, elle masque l'url_dce (fiche DetailsConsultation) qui,
+    # elle, donne le dossier complet via completeDownload. On l'écarte dès qu'une
+    # url_dce de repli existe.
+    if (url_directe and url_reconstruite
+            and "advancedsearch" in url_directe.lower()):
+        url_directe = ""
+
     tentatives = []
     if url_directe:
         tentatives.append(("directe", url_directe))
