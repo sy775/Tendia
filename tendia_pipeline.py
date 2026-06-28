@@ -7,17 +7,23 @@ Une seule commande :
     python tendia_pipeline.py
 
 Enchainement :
-1. tendia_recup        : récupère les nouveaux avis BOAMP + TED
-2. tendia_dce          : résout les URLs DCE (eForms + PLACE keyWord)
-3. place_downloader    : télécharge anonymement les zips DCE depuis PLACE
-4. tendia_extraire     : auto-dézip + extraction LLM (Claude Sonnet 4.6)
-5. génération rapport final marches_actifs_<date>.md
+1. tendia_recup            : récupère les nouveaux avis BOAMP + TED
+2. tendia_dce              : résout les URLs DCE (eForms + PLACE keyWord)
+3. tendia_telecharger_dce  : DCE connecteurs anonymes (PLACE, Atexo, achatpublic,
+                             e-marchespublics) — dossier complet via chemin profond
+4. connecteurs dédiés      : AWS-Achat + Dematis (captcha 2captcha + anti-ban),
+                             auto-limités aux heures de bureau et au cap --max-dedies
+5. tendia_extraire         : auto-dézip + extraction LLM (Claude Sonnet 4.6)
+6. génération rapport final marches_actifs_<date>.md
 
 Aucune intervention humaine.
 
 Options :
     --skip-recup       : passe l'étape récupération (utilise la base actuelle)
-    --skip-download    : passe l'étape téléchargement PLACE (PDFs déjà déposés)
+    --skip-download    : passe l'étape téléchargement DCE anonyme
+    --skip-dedies      : passe les connecteurs dédiés à captcha (AWS, Dematis)
+    --max-dedies N     : cap de marchés par connecteur dédié captcha (défaut: 15)
+    --ignorer-heures   : lance les dédiés hors heures de bureau (tests)
     --skip-llm         : passe l'étape extraction LLM (économiser des appels API)
     --jours N          : fenêtre marchés sans date limite (défaut: 60)
 """
@@ -49,7 +55,7 @@ def _est_actif(marche: dict, fenetre_jours: int = 60) -> bool:
         return False
 
 
-def _print_etape(num: int, titre: str, total: int = 5):
+def _print_etape(num: int, titre: str, total: int = 6):
     print()
     print("─" * 78)
     print(f"  [{num}/{total}]  {titre}")
@@ -93,6 +99,12 @@ def main():
                         help="Force la re-extraction LLM même si déjà fait")
     parser.add_argument("--jours", type=int, default=60,
                         help="Fenêtre marchés sans date limite (défaut: 60)")
+    parser.add_argument("--skip-dedies", action="store_true",
+                        help="Passe les connecteurs DCE dédiés à captcha (AWS, Dematis)")
+    parser.add_argument("--max-dedies", type=int, default=15,
+                        help="Cap de marchés par connecteur dédié captcha (défaut: 15)")
+    parser.add_argument("--ignorer-heures", action="store_true",
+                        help="Lance les connecteurs dédiés hors heures de bureau (tests)")
     args = parser.parse_args()
 
     debut_global = time.time()
@@ -107,7 +119,7 @@ def main():
 
     # === Étape 1 : Récupération BOAMP + TED ===
     if args.skip_recup:
-        print("\n  [1/5]  Récupération BOAMP/TED  →  SKIPPÉ (--skip-recup)")
+        print("\n  [1/6]  Récupération BOAMP/TED  →  SKIPPÉ (--skip-recup)")
     else:
         _print_etape(1, "Récupération avis BOAMP + TED")
         _executer_script("tendia_recup.py")
@@ -116,23 +128,40 @@ def main():
     _print_etape(2, "Résolution URLs DCE (eForms + PLACE keyWord)")
     _executer_script("tendia_dce.py", ["--jours", str(args.jours)])
 
-    # === Étape 3 : Téléchargement automatique des DCE depuis PLACE ===
+    # === Étape 3 : Téléchargement DCE — connecteurs anonymes (sans captcha) ===
+    # Couvre PLACE, Atexo (+ marques blanches), achatpublic, e-marchespublics via
+    # le chemin profond (dossier complet en une passe). AWS/Dematis sont EXCLUS ici
+    # (captcha + pacing) → traités à l'étape 4.
     if args.skip_download:
-        print("\n  [3/5]  Téléchargement DCE PLACE  →  SKIPPÉ (--skip-download)")
+        print("\n  [3/6]  Téléchargement DCE (anonyme)  →  SKIPPÉ (--skip-download)")
     else:
-        _print_etape(3, "Téléchargement automatique des DCE depuis PLACE")
-        _telecharger_dce_marches_actifs(args.jours)
+        _print_etape(3, "Téléchargement DCE — PLACE / Atexo / achatpublic / e-marchespublics")
+        _executer_script("tendia_telecharger_dce.py")
 
-    # === Étape 4 : Extraction LLM ===
-    if args.skip_llm:
-        print("\n  [4/5]  Extraction LLM  →  SKIPPÉ (--skip-llm)")
+    # === Étape 4 : Connecteurs DCE dédiés à captcha (AWS-Achat, Dematis) ===
+    # Intégration structurelle : ces plateformes exigent 2captcha + un pacing
+    # anti-ban (délais gaussiens, heures de bureau). Les batchs dédiés s'auto-
+    # limitent aux heures ouvrées (sauf --ignorer-heures) et au cap --max-dedies.
+    if args.skip_dedies:
+        print("\n  [4/6]  Connecteurs DCE dédiés (captcha)  →  SKIPPÉ (--skip-dedies)")
     else:
-        _print_etape(4, "Extraction LLM des DCE (Claude Sonnet 4.6)")
+        _print_etape(4, "Connecteurs DCE dédiés à captcha (AWS-Achat, Dematis)")
+        extra = ["--oui", "--max", str(args.max_dedies)]
+        if args.ignorer_heures:
+            extra.append("--ignorer-heures")
+        _executer_script("retelecharger_aws_achat_anti_ban.py", extra)
+        _executer_script("retelecharger_dematis_anti_ban.py", extra)
+
+    # === Étape 5 : Extraction LLM ===
+    if args.skip_llm:
+        print("\n  [5/6]  Extraction LLM  →  SKIPPÉ (--skip-llm)")
+    else:
+        _print_etape(5, "Extraction LLM des DCE (Claude Sonnet 4.6)")
         args_extract = ["--force"] if args.force else []
         _executer_script("tendia_extraire.py", args_extract)
 
-    # === Étape 5 : Rapport final ===
-    _print_etape(5, "Génération du rapport final")
+    # === Étape 6 : Rapport final ===
+    _print_etape(6, "Génération du rapport final")
     _executer_script("tendia_dce.py", ["--jours", str(args.jours),
                                          "--rapport-seul"])
 
