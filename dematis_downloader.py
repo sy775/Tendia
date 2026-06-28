@@ -92,7 +92,7 @@ MOTIFS_URL_TELECHARGEMENT = (
     "fichier", "document", "pieces", "dossier_de_consultation", "retirer",
 )
 
-TWOCAPTCHA_MAX_TENTATIVES = 3
+TWOCAPTCHA_MAX_TENTATIVES = 5      # captchas OCR parfois faux, on retente
 RATE_LIMIT_FICHIERS_SEC = 1
 DL_MAX_ESSAIS = 3
 

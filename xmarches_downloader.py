@@ -41,7 +41,7 @@ from aws_downloader import _resoudre_captcha_2captcha
 HOST_XMARCHES = "xmarches.fr"
 _UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
        "(KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36")
-CAPTCHA_MAX_ESSAIS = 3
+CAPTCHA_MAX_ESSAIS = 5
 
 
 def est_url_xmarches(url: str) -> bool:

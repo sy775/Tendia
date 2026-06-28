@@ -107,6 +107,7 @@ def main():
     traites = 0
     bw_octets = 0          # bande passante consommée (proxy Bright Data)
     nb_captchas = 0        # captchas résolus (2captcha)
+    retry_captcha = []     # échecs captcha (transitoires) à retenter après la boucle
 
     for i, (mid, marche) in enumerate(cibles, 1):
         # Garde-fou heures de bureau à chaque itération (les runs sont longs).
@@ -187,6 +188,8 @@ def main():
             erreurs.append((mid, f"[{etape}] {err}"))
             marche["dce_telecharge_le"] = datetime.now().isoformat()
             marche["dce_raison_contenu"] = f"echec aws-achat [{etape}]: {err}"
+            if etape == "captcha":   # transitoire → on retentera après la boucle
+                retry_captcha.append((mid, marche))
 
         stockage.ecrire("marches", mid, marche)
 
@@ -203,6 +206,50 @@ def main():
             http_humain.attendre_humain(
                 RATE_LIMIT_MIN_SEC, RATE_LIMIT_MAX_SEC,
                 mu=RATE_LIMIT_MOYEN_SEC, sigma=RATE_LIMIT_ECART_SEC, verbose=True)
+
+    # --- Passes de retry des échecs CAPTCHA (transitoires). Additive, après la
+    # boucle ; on s'abstient si ban/solde/hors-heures. ---
+    passe = 0
+    while (retry_captcha and passe < 2 and not solde_epuise
+           and bans_consecutifs < BANS_CONSECUTIFS_STOP
+           and (args.ignorer_heures or http_humain.heure_actuelle_est_bureau())):
+        passe += 1
+        print(f"\n--- Retry captcha (passe {passe}) : {len(retry_captcha)} marché(s) ---")
+        encore = []
+        for j, (mid, marche) in enumerate(retry_captcha, 1):
+            dossier = REPERTOIRE_DCE / mid
+            try:
+                res = A.telecharger_dce_pour_marche(marche, str(REPERTOIRE_DCE),
+                                                    api_key_2captcha=api_key, verbose=False)
+            except Exception as e:
+                res = {"ok": False, "erreur": str(e), "etape_erreur": "exception"}
+            bw_octets += res.get("taille_octets", 0) or 0
+            nb_captchas += res.get("nb_captcha_resolus", 0) or 0
+            if res.get("solde_2captcha_epuise"):
+                solde_epuise = True
+                break
+            if res.get("ok"):
+                qual = tendia_dce.qualifier_dce(str(dossier))
+                marche["dce_contenu"] = qual["qualite"]
+                marche["dce_pieces_contractuelles"] = qual["pieces_contractuelles"]
+                marche["dce_raison_contenu"] = qual["raison"]
+                marche["dce_telecharge_le"] = datetime.now().isoformat()
+                stockage.ecrire("marches", mid, marche)
+                bilan[f"captcha_retry_to_{qual['qualite']}"] = \
+                    bilan.get(f"captcha_retry_to_{qual['qualite']}", 0) + 1
+                if qual["qualite"] == "complet":
+                    gains.append((mid, [], qual["pieces_contractuelles"]))
+                print(f"  ✓ {mid} → {qual['qualite']}")
+            elif res.get("etape_erreur") == "captcha":
+                encore.append((mid, marche))
+                print(f"  ⚠ {mid} : captcha encore raté")
+            else:
+                print(f"  ✗ {mid} : {str(res.get('erreur'))[:45]}")
+            if j < len(retry_captcha):
+                http_humain.attendre_humain(RATE_LIMIT_MIN_SEC, RATE_LIMIT_MAX_SEC,
+                                            mu=RATE_LIMIT_MOYEN_SEC,
+                                            sigma=RATE_LIMIT_ECART_SEC, verbose=False)
+        retry_captcha = encore
 
     # --- Bilan ---
     print()

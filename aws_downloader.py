@@ -67,7 +67,7 @@ TYPE_DEFAUT = "DCE"
 SOUMISSION_DEFAUT = "0"     # 0 = retrait DCE (opposé à dépôt offre)
 
 # Captcha 2captcha
-TWOCAPTCHA_MAX_TENTATIVES = 3      # captchas OCR parfois faux, on retente
+TWOCAPTCHA_MAX_TENTATIVES = 5      # captchas OCR parfois faux, on retente
 TWOCAPTCHA_TIMEOUT_SEC = 90        # résolution typique 5-30 s
 
 # Téléchargement CDN
