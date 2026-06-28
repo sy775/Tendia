@@ -84,6 +84,11 @@ def _est_url_specifique(url: str) -> bool:
     if not url:
         return False
     url_low = url.lower()
+    # Page de RECHERCHE PLACE : spécifique UNIQUEMENT si elle porte un id= de
+    # consultation (sera réécrite en consultation par _corriger_url_recherche_place).
+    # Sans id, c'est une page de résultats → NON spécifique (→ recherche par mot-clé).
+    if RE_URL_PLACE_RECHERCHE.search(url):
+        return bool(re.search(r"[?&]id=\d+", url))
     # Présence d'un id de consultation
     if re.search(r"(?:[?&])(?:id|idconsultation|refconsultation)=\w+",
                   url_low):
@@ -139,6 +144,37 @@ def _corriger_url_agent(url: str):
             return reecrite, None
     # Intrinsèquement différente (pas un simple swap de path) → non réécrivable.
     return None, {"raison": "url_cote_agent_non_reecrivable", "url": url}
+
+
+# URL PLACE de RECHERCHE (EntrepriseAdvancedSearch / *Search) : c'est une page de
+# résultats, PAS une consultation. Mais quand elle porte déjà un id= de consultation
+# (+ orgAcronyme), on tombe sur la recherche au lieu de la fiche → on réécrit vers
+# EntrepriseDetailsConsultation. Sans id, on laisse la cascade faire la recherche
+# par mot-clé (cf. _est_url_specifique qui la déclasse).
+RE_URL_PLACE_RECHERCHE = re.compile(r"page=Entreprise\.Entreprise\w*Search", re.IGNORECASE)
+
+
+def _corriger_url_recherche_place(url):
+    """Réécrit une URL PLACE de recherche portant un id= de consultation en URL de
+    consultation directe (EntrepriseDetailsConsultation). Sinon retourne l'URL telle quelle."""
+    if not url or not RE_URL_PLACE_RECHERCHE.search(url):
+        return url
+    m_id = re.search(r"[?&]id=(\d+)", url)
+    if not m_id:
+        return url  # pas d'id → la recherche par mot-clé prendra le relais
+    org = re.search(r"[?&]orgAcronyme=([a-zA-Z0-9]+)", url)
+    base = url.split("?", 1)[0]
+    nouvelle = f"{base}?page=Entreprise.EntrepriseDetailsConsultation&id={m_id.group(1)}"
+    if org:
+        nouvelle += f"&orgAcronyme={org.group(1)}"
+    return nouvelle
+
+
+def _corriger_url(url):
+    """Normalisation structurelle d'une URL PLACE/Atexo avant stockage :
+    1. recherche PLACE + id  → consultation directe ;
+    2. espace agent          → espace entreprise (ou incident si non réécrivable)."""
+    return _corriger_url_agent(_corriger_url_recherche_place(url))
 
 
 # Domaines connus de plateformes de marchés publics françaises. Utilisé pour
@@ -445,7 +481,7 @@ def _extraire_dce_boamp(record: dict, reference: str) -> Dict:
     # === Niveau 1 : URL spécifique dans eForms (chemin standard UBL) ===
     for uri in uris_trouvees:
         if _est_url_specifique(uri):
-            uri_ok, incident = _corriger_url_agent(uri)
+            uri_ok, incident = _corriger_url(uri)
             if incident:
                 # URL côté agent non réécrivable → on l'écarte et on laisse la
                 # cascade tenter la recherche par mot-clé (URL entreprise propre).
@@ -454,7 +490,7 @@ def _extraire_dce_boamp(record: dict, reference: str) -> Dict:
             out["url_dce"] = uri_ok
             out["qualite"] = "directe"
             out["champ_source"] = ("cac:CallForTendersDocumentReference"
-                                   + (" (réécrite agent→entreprise)"
+                                   + (" (réécrite recherche/agent→consultation)"
                                       if uri_ok != uri else ""))
             return out
 
@@ -471,7 +507,7 @@ def _extraire_dce_boamp(record: dict, reference: str) -> Dict:
     # possible, sinon incident + exclusion).
     urls_corrigees = []
     for u in urls_specifiques:
-        u_ok, incident = _corriger_url_agent(u)
+        u_ok, incident = _corriger_url(u)
         if incident:
             out["incidents"].append(incident)
             continue

@@ -897,10 +897,11 @@
     {% set secteur_tags %}{% if brief and brief.domaines_metier %}<span style="font-size: 10.5px; color: var(--apt-ink-4); font-weight: 500;">Secteur ·</span>{% for d in brief.domaines_metier %}{% set est_principal = (loop.first or (d.poids and d.poids >= 0.5)) %}<span title="{% if d.poids %}Poids: {{ (d.poids * 100)|round|int }}%{% endif %}{% if d.lots_concernes %} · Lots: {{ d.lots_concernes|join(', ') }}{% endif %}" style="display: inline-flex; align-items: center; gap: 4px; font-size: 11px; padding: 2px 8px; border-radius: 999px; background: {% if est_principal %}var(--c-violet-soft){% else %}var(--apt-bg-2, #f5f3f0){% endif %}; color: {% if est_principal %}var(--c-violet){% else %}var(--apt-ink-3){% endif %}; border: 1px solid {% if est_principal %}var(--c-violet){% else %}var(--apt-ink-5, #ddd){% endif %}; font-weight: {% if est_principal %}600{% else %}500{% endif %};">{{ d.code|libelle_domaine }}{% if d.poids %}<span style="opacity: 0.7; font-size: 10px;">{{ (d.poids * 100)|round|int }}%</span>{% endif %}</span>{% endfor %}{% endif %}{% endset %}
     {{ sec('Résumé Tendia', '', 'gold', true, '✦', 'sec-resume', secteur_tags) }}
 
-      {# Lots pertinents pour votre profil (chip) #}
-      {% if lots_pertinents %}
-      {% set lots_tip = '– ' + (lots_pertinents.intitules | join('\n– ')) %}
-      <div style="margin-bottom:16px;">
+      {# Lots pertinents pour votre profil (chip) + tag candidature par lot (discret) #}
+      {% if lots_pertinents or candidature_par_lot is not none %}
+      <div style="margin-bottom:16px; display:flex; align-items:center; flex-wrap:wrap; gap:10px;">
+        {% if lots_pertinents %}
+        {% set lots_tip = '– ' + (lots_pertinents.intitules | join('\n– ')) %}
         <span title="{{ lots_tip }}" style="display:inline-flex; align-items:center; gap:8px; cursor:help;
               background:var(--apt-gold-soft); border:1px solid color-mix(in srgb, var(--apt-gold) 38%, transparent);
               border-radius:999px; padding:4px 12px;">
@@ -909,12 +910,21 @@
           <strong style="font-size:12px; font-weight:800; color:var(--apt-accent); font-variant-numeric:tabular-nums;">{{ lots_pertinents.nb }}/{{ lots_pertinents.total_lots }}</strong>
           {% if lots_pertinents.cmin %}<span style="font-size:12px; font-weight:700; color:var(--apt-gold-deep); font-variant-numeric:tabular-nums;">≈ {{ lots_pertinents.cmin | euro_short }}–{{ lots_pertinents.cmax | euro_short }}</span>{% endif %}
         </span>
+        {% endif %}
+        {% if candidature_par_lot is not none %}
+        <span title="{% if candidature_par_lot %}Vous pouvez ne déposer une offre que sur les lots qui vous intéressent.{% else %}Le marché impose une offre couvrant l'ensemble des lots.{% endif %}"
+              style="display:inline-flex; align-items:center; gap:5px; cursor:help; font-size:10px; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; color:var(--apt-ink-4);">
+          <span style="width:6px; height:6px; border-radius:999px; flex:none; background:{% if candidature_par_lot %}var(--apt-leaf){% else %}var(--apt-gold){% endif %};"></span>
+          {% if candidature_par_lot %}Candidature par lot{% else %}Offre globale obligatoire{% endif %}
+        </span>
+        {% endif %}
       </div>
       {% endif %}
 
       {# KPIs compacts inline — sans cellule vide, sans icône #}
       {% set kpis_aff = [] %}
-      {% for k in kpi_cards %}{% if k.valeur and k.valeur not in ('—', '', none) %}{% set _ = kpis_aff.append({'label': k.label, 'valeur': k.valeur}) %}{% endif %}{% endfor %}
+      {# « Date limite » est ajoutée explicitement ci-dessous (format J−X) → on l'exclut ici pour éviter le doublon avec kpi_cards #}
+      {% for k in kpi_cards %}{% if k.valeur and k.valeur not in ('—', '', none) and k.label != 'Date limite' %}{% set _ = kpis_aff.append({'label': k.label, 'valeur': k.valeur}) %}{% endif %}{% endfor %}
       {% if marche.date_limite_depot %}{% set _ = kpis_aff.append({'label': 'Date limite', 'valeur': ('J−' ~ jours_restants) if jours_restants is not none else fmt_date(marche.date_limite_depot)}) %}{% endif %}
       {% if kpis_aff %}
       <div style="display: flex; flex-wrap: wrap; align-items: flex-end; row-gap: 12px; margin-bottom: 16px; padding-bottom: 15px; border-bottom: 1px solid var(--apt-line-2);">
@@ -978,9 +988,9 @@
         <div style="margin-top: 8px; font-size: 11px; color: var(--c-amber);">⚠ Technique + Prix = {{ pct_tech + pct_prix }}% (≠ 100) — barème à revérifier dans le RC.</div>
         {% endif %}
       </div>
-      {% if brief.bareme_notation.sous_criteres_techniques %}
+      {% if bareme_cascade %}
       <div style="display: flex; flex-direction: column; gap: 8px;">
-        {% for sc in brief.bareme_notation.sous_criteres_techniques %}
+        {% for sc in bareme_cascade %}
           {{ render_sous_critere(sc, 1) }}
         {% endfor %}
       </div>
@@ -991,6 +1001,102 @@
       {% endif %}
     </div></details>
     {% endif %}{# fin gate section Barème #}
+
+    {# ===== Grille de notation : barème × CCTP → actions pondérées (tableau, par domaine) ===== #}
+    {% macro grille_table(groupes, gprix) %}
+      <div style="overflow-x:auto;">
+      <table style="width:100%; border-collapse:collapse; font-size:12px;">
+        <thead>
+          <tr style="text-align:left;">
+            <th style="padding:6px 10px; font-size:9.5px; text-transform:uppercase; letter-spacing:0.04em; color:var(--apt-ink-4); font-weight:700; border-bottom:2px solid var(--apt-line-2);">Critère technique</th>
+            <th style="padding:6px 10px; font-size:9.5px; text-transform:uppercase; letter-spacing:0.04em; color:var(--apt-ink-4); font-weight:700; border-bottom:2px solid var(--apt-line-2);">Sous-critère</th>
+            <th style="padding:6px 10px; font-size:9.5px; text-transform:uppercase; letter-spacing:0.04em; color:var(--apt-ink-4); font-weight:700; border-bottom:2px solid var(--apt-line-2);">Action</th>
+            <th style="padding:6px 10px; font-size:9.5px; text-transform:uppercase; letter-spacing:0.04em; color:var(--apt-ink-4); font-weight:700; border-bottom:2px solid var(--apt-line-2); text-align:right;">Poids</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for g in groupes %}
+          {% set gtot = namespace(n=0) %}
+          {% for sc in g.sous_criteres %}{% set gtot.n = gtot.n + (sc.actions | length) %}{% endfor %}
+          {% set ns = namespace(crit_done=false) %}
+          {% for sc in g.sous_criteres %}
+            {% for a in sc.actions %}
+            <tr style="border-top:1px solid var(--apt-line-3);">
+              {% if not ns.crit_done %}
+              <td rowspan="{{ gtot.n }}" style="padding:8px 10px; vertical-align:top; font-weight:600; color:var(--apt-ink); border-right:1px solid var(--apt-line-3); min-width:120px;">{{ g.critere }}{% if g.ponderation %}<div style="font-size:11px; color:var(--c-violet); font-weight:700; margin-top:2px;">{{ g.ponderation }}%</div>{% endif %}</td>
+              {% set ns.crit_done = true %}
+              {% endif %}
+              {% if loop.first %}
+              <td rowspan="{{ sc.actions | length }}" style="padding:8px 10px; vertical-align:top; color:var(--apt-ink-2); border-right:1px solid var(--apt-line-3); min-width:110px;">{% if sc.libelle %}{{ sc.libelle }}{% if sc.ponderation %}<div style="font-size:11px; color:var(--c-violet); font-weight:700; margin-top:2px;">{{ sc.ponderation }}%</div>{% endif %}{% endif %}</td>
+              {% endif %}
+              <td style="padding:8px 10px; color:var(--apt-ink-2); line-height:1.5;">{{ a.action }}</td>
+              <td style="padding:8px 10px; text-align:right; vertical-align:top; font-weight:800; color:var(--c-violet); font-variant-numeric:tabular-nums; white-space:nowrap;">{{ a.poids }}%</td>
+            </tr>
+            {% endfor %}
+          {% endfor %}
+        {% endfor %}
+        {% if gprix %}
+        <tr style="border-top:2px solid var(--apt-line-2); background:var(--apt-bg);">
+          <td style="padding:8px 10px; vertical-align:top; font-weight:600; color:var(--apt-ink); border-right:1px solid var(--apt-line-3);">Prix{% if gprix.pct %}<div style="font-size:11px; color:var(--apt-gold-deep); font-weight:700; margin-top:2px;">{{ gprix.pct }}%</div>{% endif %}</td>
+          <td style="padding:8px 10px; border-right:1px solid var(--apt-line-3);"></td>
+          <td style="padding:8px 10px; color:var(--apt-ink-2); line-height:1.5;">{{ gprix.methode }}</td>
+          <td style="padding:8px 10px; text-align:right; vertical-align:top; font-weight:800; color:var(--apt-gold-deep); font-variant-numeric:tabular-nums; white-space:nowrap;">{{ gprix.pct }}%</td>
+        </tr>
+        {% endif %}
+        </tbody>
+      </table>
+      </div>
+    {% endmacro %}
+
+    {% if grilles_domaines %}
+    {% set total_actions = namespace(n=0) %}
+    {% for gd in grilles_domaines %}{% for g in gd.groupes %}{% for sc in g.sous_criteres %}{% set total_actions.n = total_actions.n + (sc.actions | length) %}{% endfor %}{% endfor %}{% endfor %}
+    {{ sec('Grille de notation', (total_actions.n ~ ' actions priorisées' ~ (' · ' ~ grilles_domaines|length ~ ' domaines' if grilles_domaines|length > 1 else '')), 'violet', false, IC_CHECK) }}
+      <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:12px; margin-bottom:12px;">
+        <div style="font-size:11px; color:var(--apt-ink-4); line-height:1.5;">Croisement du barème technique et du cahier des charges : les actions à mener par critère, avec leur <strong>poids estimé</strong> dans la note (estimation Tendia).{% if grilles_domaines|length > 1 %} <strong>Une grille par domaine</strong> (lots de métiers différents).{% endif %}</div>
+        <a href="{{ url_for('telecharger_grille_xlsx', id_marche=marche.id) }}" style="flex-shrink:0; display:inline-flex; align-items:center; gap:6px; padding:6px 12px; border:1px solid var(--apt-gold); background:var(--apt-gold-soft); color:var(--apt-gold-deep); border-radius:8px; text-decoration:none; font-size:11.5px; font-weight:600; white-space:nowrap;" title="Exporter la grille de notation en Excel">
+          <svg style="width:14px; height:14px;" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+          Export Excel
+        </a>
+      </div>
+      {% if grilles_domaines | length > 1 %}
+      {# Onglets par domaine (lots de métiers différents) #}
+      <div class="grille-dom-tabs" style="display:flex; gap:6px; flex-wrap:wrap; margin-bottom:14px;">
+        {% for gd in grilles_domaines %}
+        <button type="button" class="grille-dom-tab{% if loop.first %} active{% endif %}" data-grille-tab="{{ loop.index0 }}"
+                style="cursor:pointer; font-size:11.5px; font-weight:600; padding:6px 12px; border-radius:999px; border:1px solid var(--apt-line-2); background:var(--apt-surface); color:var(--apt-ink-2);">
+          {{ gd.label }}{% if gd.lots %} <span style="opacity:.65; font-weight:500;">· Lots {{ gd.lots|join(', ') }}</span>{% endif %}
+        </button>
+        {% endfor %}
+      </div>
+      {% for gd in grilles_domaines %}
+      <div class="grille-dom-panel" data-grille-panel="{{ loop.index0 }}" style="{% if not loop.first %}display:none;{% endif %}">
+        {{ grille_table(gd.groupes, grille_prix) }}
+      </div>
+      {% endfor %}
+      <script>
+        (function() {
+          const root = document.currentScript.parentElement;
+          const tabs = root.querySelectorAll('.grille-dom-tab');
+          const panels = root.querySelectorAll('.grille-dom-panel');
+          tabs.forEach(t => t.addEventListener('click', () => {
+            const i = t.dataset.grilleTab;
+            tabs.forEach(x => { const on = x.dataset.grilleTab === i;
+              x.classList.toggle('active', on);
+              x.style.background = on ? 'var(--c-violet)' : 'var(--apt-surface)';
+              x.style.color = on ? '#fff' : 'var(--apt-ink-2)';
+              x.style.borderColor = on ? 'var(--c-violet)' : 'var(--apt-line-2)'; });
+            panels.forEach(p => p.style.display = (p.dataset.grillePanel === i) ? 'block' : 'none');
+          }));
+          // état initial du 1er onglet
+          if (tabs[0]) { tabs[0].style.background='var(--c-violet)'; tabs[0].style.color='#fff'; tabs[0].style.borderColor='var(--c-violet)'; }
+        })();
+      </script>
+      {% else %}
+      {{ grille_table(grilles_domaines[0].groupes, grille_prix) }}
+      {% endif %}
+    </div></details>
+    {% endif %}
 
     {# ===== Onglet 2 : Prix & estimation (coeff prix + montant) ===== #}
     {{ sec('Prix & estimation', ('Coeff. prix ' ~ pct_prix ~ '%' if brief.bareme_notation.valeur_prix_pct else 'estimation du montant'), 'green', true, IC_EURO) }}
@@ -1005,13 +1111,18 @@
           {% set bn = brief.bareme_notation %}
           {% set prix_modalite = bn.modalite_calcul_prix or (bn.prix.formule_explicite if bn.prix else None) %}
           {% set type_f = (bn.prix.type_formule if bn.prix else None) %}
-          {% if type_f == 'moins_disant' %}
+          {# Le label « moins-disant » n'est retenu que si la formule le PROUVE (sinon le
+             modèle y rabat par défaut). À défaut de preuve → notation au prix de référence. #}
+          {% set _fl = (prix_modalite | lower | replace('_', ' ') | replace('-', ' ')) if prix_modalite else '' %}
+          {% set moins_disant_avere = type_f == 'moins_disant' and ('plus bas' in _fl or 'plus basse' in _fl or 'moins disant' in _fl) %}
+          {% if moins_disant_avere %}
           <div style="color: var(--apt-ink-2); font-weight: 600;{% if prix_modalite %} cursor: help; border-bottom: 1px dotted var(--apt-line); display: inline-block;{% endif %}"{% if prix_modalite %} title="Formule exacte du RC : {{ prix_modalite | clean_source }}"{% endif %}>Notation <strong>au moins-disant</strong> : l'offre la moins chère obtient les {{ pct_prix }} points, les autres notées au prorata.</div>
-          {% elif prix_modalite %}
+          {% elif prix_modalite and type_f in ('lineaire', 'ecart_type', 'seuil') %}
           <div style="color: var(--apt-ink-2); font-weight: 600;">{{ prix_modalite | clean_source }}</div>
+          {% else %}
+          <div style="color: var(--apt-ink-2); font-weight: 600;{% if prix_modalite %} cursor: help; border-bottom: 1px dotted var(--apt-line); display: inline-block;{% endif %}"{% if prix_modalite %} title="Indication du DCE : {{ prix_modalite | clean_source }}"{% endif %}>Notation <strong>par rapport au prix de référence</strong> : l'offre la plus proche du prix de référence de l'acheteur obtient le maximum de points ; les offres trop hautes comme anormalement basses sont pénalisées.</div>
           {% endif %}
-          {% if bn.prix and bn.prix.source %}<div style="margin-top: 3px;"><span style="color: var(--apt-ink-4); font-weight: 600;">Source :</span> {{ bn.prix.source | clean_source }}</div>
-          {% elif not prix_modalite and type_f != 'moins_disant' %}<div style="color: var(--apt-ink-4);">Coefficient prix issu du barème du règlement de consultation.</div>{% endif %}
+          {% if bn.prix and bn.prix.source %}<div style="margin-top: 3px;"><span style="color: var(--apt-ink-4); font-weight: 600;">Source :</span> {{ bn.prix.source | clean_source }}</div>{% endif %}
         </div>
       </div>
 
@@ -1375,7 +1486,8 @@
         {% endif %}
 
         {# ---- 1D. Simulateur interactif (l'utilisateur saisit ses propres hypothèses) ---- #}
-        {% if pu or (brief.volumes and brief.volumes.nb_beneficiaires_total) %}
+        {# Masqué sur les briefs formation/insertion (peu pertinent — retiré à la demande). #}
+        {% if (pu or (brief.volumes and brief.volumes.nb_beneficiaires_total)) and not est_formation %}
         {% set sim_unit_default = pu.min_eur if pu and pu.min_eur else 1500 %}
         {% set sim_unit_max_default = pu.max_eur if pu and pu.max_eur else 2500 %}
         {% set sim_unit_med = ((sim_unit_default + sim_unit_max_default) // 2) if (sim_unit_default and sim_unit_max_default) else 2000 %}
@@ -1542,6 +1654,16 @@
     {% if detail_lots.mode == 'lots' and nb_coeur %}{% set _ = lot_teaser_parts.append(nb_coeur ~ ' cœur de cible') %}{% endif %}
     {% if detail_lots.mode == 'lots' and nb_part %}{% set _ = lot_teaser_parts.append(nb_part ~ ' partiel' ~ ('s' if nb_part > 1 else '')) %}{% endif %}
     {{ sec(('Détail par lot' if detail_lots.mode == 'lots' else 'Détail par tranche'), lot_teaser_parts | join(' · '), 'blue', false, IC_DOC) }}
+      {# Candidature mono-lot vs offre globale — déterminant quand on ne couvre qu'une partie des lots #}
+      {% if detail_lots.mode == 'lots' and candidature_par_lot is not none %}
+      <div style="display:inline-flex; align-items:center; gap:7px; font-size:11.5px; font-weight:600; padding:5px 11px; border-radius:999px; margin-bottom:12px;
+        {% if candidature_par_lot %}background:var(--apt-leaf-soft); border:1px solid var(--apt-leaf); color:var(--apt-leaf);
+        {% else %}background:var(--apt-gold-soft); border:1px solid var(--apt-gold); color:var(--apt-gold-deep);{% endif %}">
+        <span style="font-size:13px;">{% if candidature_par_lot %}✓{% else %}⚠{% endif %}</span>
+        {% if candidature_par_lot %}Candidature par lot possible — vous pouvez ne déposer que sur vos lots
+        {% else %}Offre globale obligatoire — il faut couvrir l'ensemble des lots{% endif %}
+      </div>
+      {% endif %}
       {% if detail_lots.mode == 'lots' %}<div style="font-size:11px; color:var(--apt-ink-4); margin-bottom:12px; line-height:1.5;"><strong style="color:var(--apt-gold-deep);">CA</strong> = prix marché estimé du lot · <strong>coût</strong> = ce que ça coûte de le produire (estimation Tendia, indicatif). La somme des CA = le CA total du marché.</div>{% endif %}
       {% for it in detail_lots.lignes %}
       <div style="padding:13px 16px; margin-bottom:10px; background:var(--apt-surface); border:1px solid var(--apt-line-2); border-radius:11px; box-shadow:0 1px 2px rgba(15,27,61,0.03);">
@@ -1761,15 +1883,13 @@
 
       {# Allotissement — peut-on candidater par lot ? (impacte la pertinence si profil partiel) #}
       {% if brief.allotissement and (brief.allotissement.nb_lots or candidature_par_lot is not none) %}
-      <div style="display:flex; align-items:center; gap:9px; padding:10px 14px; border-radius:10px; margin-bottom:18px;
-        {% if candidature_par_lot %}background:var(--apt-leaf-soft); border:1px solid var(--apt-leaf);
-        {% elif candidature_par_lot is false %}background:var(--apt-gold-soft); border:1px solid var(--apt-gold);
-        {% else %}background:var(--apt-surface); border:1px solid var(--apt-line-2);{% endif %}">
-        <span style="font-size:15px;">{% if candidature_par_lot %}✓{% elif candidature_par_lot is false %}⚠{% else %}◆{% endif %}</span>
-        <div style="font-size:12.5px; color:var(--apt-ink-2); line-height:1.5;">
+      <div style="display:flex; align-items:center; gap:8px; margin-bottom:18px; font-size:12.5px; color:var(--apt-ink-2); line-height:1.5;">
+        <span style="width:7px; height:7px; border-radius:999px; flex:none;
+          background:{% if candidature_par_lot %}var(--apt-leaf){% elif candidature_par_lot is false %}var(--apt-gold){% else %}var(--apt-ink-5){% endif %};"></span>
+        <div>
           {% if brief.allotissement.nb_lots %}<strong style="color:var(--apt-ink);">{{ brief.allotissement.nb_lots }} lots</strong> · {% endif %}
-          {% if candidature_par_lot %}<strong style="color:var(--apt-leaf);">Candidature par lot possible</strong> — vous pouvez ne déposer que sur vos lots.
-          {% elif candidature_par_lot is false %}<strong style="color:var(--apt-gold-deep);">Offre globale obligatoire</strong> — il faut couvrir l'ensemble du marché.
+          {% if candidature_par_lot %}<strong style="color:var(--apt-ink);">Candidature par lot possible</strong> — vous pouvez ne déposer que sur vos lots.
+          {% elif candidature_par_lot is false %}<strong style="color:var(--apt-ink);">Offre globale obligatoire</strong> — il faut couvrir l'ensemble du marché.
           {% else %}Vérifiez dans le RC si la candidature par lot est possible.{% endif %}
         </div>
       </div>
@@ -1779,7 +1899,7 @@
       <div style="font-size:11px; font-weight:700; color:var(--apt-ink-4); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:10px;">Le dossier à déposer</div>
       <div style="display:flex; flex-direction:column; gap:10px; margin-bottom:18px;">
         <div style="border:1px solid var(--apt-line-2); border-left:3px solid var(--c-blue); border-radius:9px; padding:11px 14px;">
-          <div style="font-size:12.5px; font-weight:700; color:var(--apt-ink); margin-bottom:5px;">① Dossier de candidature</div>
+          <div style="font-size:12.5px; font-weight:700; color:var(--apt-ink); margin-bottom:5px;"><span style="display:inline-flex; align-items:center; justify-content:center; width:18px; height:18px; border-radius:999px; background:var(--c-blue); color:#fff; font-size:10.5px; font-weight:700; margin-right:8px; vertical-align:middle;">1</span>Dossier de candidature</div>
           <div style="font-size:12.5px; color:var(--apt-ink-3); line-height:1.6;">
             {% set _pc_cand = (_dc.pieces_a_fournir | selectattr('phase', 'equalto', 'candidature') | list) if (_dc and _dc.pieces_a_fournir) else [] %}
             {% if _pc_cand %}
@@ -1800,7 +1920,7 @@
           </div>
         </div>
         <div style="border:1px solid var(--apt-line-2); border-left:3px solid var(--apt-accent); border-radius:9px; padding:11px 14px;">
-          <div style="font-size:12.5px; font-weight:700; color:var(--apt-ink); margin-bottom:5px;">② Mémoire technique{% if ptech %} <span style="font-weight:500; color:var(--apt-ink-4);">— {{ ptech }}% de la note</span>{% endif %}</div>
+          <div style="font-size:12.5px; font-weight:700; color:var(--apt-ink); margin-bottom:5px;"><span style="display:inline-flex; align-items:center; justify-content:center; width:18px; height:18px; border-radius:999px; background:var(--apt-accent); color:#fff; font-size:10.5px; font-weight:700; margin-right:8px; vertical-align:middle;">2</span>Mémoire technique{% if ptech %} <span style="font-weight:500; color:var(--apt-ink-4);">— {{ ptech }}% de la note</span>{% endif %}</div>
           {% if brief.bareme_notation and brief.bareme_notation.sous_criteres_techniques %}
           <div style="font-size:12.5px; color:var(--apt-ink-3); line-height:1.5;">À structurer selon les critères notés :</div>
           <ul style="margin:5px 0 0; padding-left:16px; font-size:12.5px; color:var(--apt-ink-2); line-height:1.7;">
@@ -1811,9 +1931,128 @@
           {% else %}
           <div style="font-size:12.5px; color:var(--apt-ink-3);">Mémoire couvrant méthodologie, moyens et références (cf. onglet Barème technique).</div>
           {% endif %}
+
+          {# ── Génération de la mémoire technique (.docx) — Sprint B ── #}
+          {% set _lots_mem = (detail_lots.lignes if (detail_lots and detail_lots.lignes) else [{'numero': 1, 'intitule': None}]) %}
+          {% set _multi_lots = (_lots_mem | length) > 1 %}
+          <div style="margin-top:13px; padding-top:12px; border-top:1px dashed var(--apt-line-2);">
+            <div style="display:flex; align-items:center; gap:7px; font-size:11px; font-weight:700; color:var(--apt-accent); text-transform:uppercase; letter-spacing:0.04em; margin-bottom:9px;">
+              ✍ Générer la mémoire technique (.docx)
+              <span style="font-weight:500; text-transform:none; letter-spacing:0; color:var(--apt-ink-5);">— brouillon pré-rempli, ~10–15 min / lot</span>
+            </div>
+            <div id="mem-gen"
+                 data-statut-tpl="{{ url_for('memoire_statut', id_marche=marche.id, numero_lot=0) }}"
+                 data-gen-tpl="{{ url_for('generer_memoire_lot', id_marche=marche.id, numero_lot=0) }}"
+                 data-lot="{{ _lots_mem[0].numero or 1 }}"
+                 style="display:flex; flex-direction:column; gap:8px; padding:9px 12px; border:1px solid var(--apt-line-2); border-radius:8px; background:var(--apt-surface);">
+              <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
+                {% if _multi_lots %}
+                <label for="mem-lot-select" style="font-size:12px; color:var(--apt-ink-3); font-weight:600;">Lot :</label>
+                <select id="mem-lot-select" style="font-size:12px; padding:6px 9px; border:1px solid var(--apt-line); border-radius:7px; background:#fff; color:var(--apt-ink-2); max-width:360px;">
+                  {% for it in _lots_mem %}
+                  {% set _ln = it.numero or 1 %}
+                  <option value="{{ _ln }}">Lot {{ _ln }}{% if it.intitule %} — {{ it.intitule }}{% endif %}</option>
+                  {% endfor %}
+                </select>
+                {% else %}
+                <span style="font-size:12px; color:var(--apt-ink-2); font-weight:600;">Lot {{ _lots_mem[0].numero or 1 }}{% if _lots_mem[0].intitule %} — <span style="font-weight:500; color:var(--apt-ink-3);">{{ _lots_mem[0].intitule }}</span>{% endif %}</span>
+                {% endif %}
+                <span class="mem-actions" style="margin-left:auto; display:inline-flex; align-items:center; gap:8px;">
+                  <span style="font-size:11.5px; color:var(--apt-ink-5);">…</span>
+                </span>
+              </div>
+              <div class="mem-feedback" style="display:none;"></div>
+            </div>
+          </div>
+          <script>
+          (function(){
+            var box = document.getElementById('mem-gen');
+            if(!box) return;
+            var sel = document.getElementById('mem-lot-select');
+            var actions = box.querySelector('.mem-actions');
+            var feedback = box.querySelector('.mem-feedback');
+            var statutTpl = box.getAttribute('data-statut-tpl');
+            var genTpl = box.getAttribute('data-gen-tpl');
+            function currentLot(){ return sel ? sel.value : box.getAttribute('data-lot'); }
+            function urlFor(tpl, lot){ return tpl.replace(/\/0$/, '/' + lot); }
+            function actBtn(lot, label, mode){
+              return '<button type="button" data-mode="'+mode+'" class="mem-act-btn" '+
+                'style="display:inline-flex;align-items:center;gap:5px;padding:6px 11px;background:#fff;border:1px solid var(--apt-line);color:var(--apt-ink-2);border-radius:7px;font-size:11.5px;font-weight:600;cursor:pointer;">'+label+'</button>';
+            }
+            function etaTxt(s){
+              if(s.elapsed_s==null || !s.progress || s.progress < 0.08) return '';
+              var rem = s.elapsed_s * (1 - s.progress) / s.progress;
+              if(rem < 90) return '~' + Math.max(5, Math.round(rem/5)*5) + ' s restantes';
+              return '~' + Math.round(rem/60) + ' min restantes';
+            }
+            function bar(pct, label, right){
+              pct = Math.max(3, Math.round((pct||0)*100));
+              return '<div style="height:7px;background:var(--apt-line-2);border-radius:999px;overflow:hidden;">'+
+                '<div style="height:100%;width:'+pct+'%;background:var(--apt-accent);transition:width .5s ease;"></div></div>'+
+                '<div style="display:flex;justify-content:space-between;gap:8px;font-size:11px;color:var(--apt-ink-4);margin-top:4px;">'+
+                '<span>'+label+'</span><span>'+pct+'%'+(right?' · '+right:'')+'</span></div>';
+            }
+            function showFeedback(html){ feedback.innerHTML = html; feedback.style.display = html ? 'block' : 'none'; }
+            function render(lot, s){
+              if(String(lot) !== String(currentLot())) return;   // lot changé entre-temps
+              if(s.etat === 'en_cours'){
+                actions.innerHTML = '<span style="font-size:11.5px;color:var(--apt-gold-deep);font-weight:600;">⏳ génération…</span>';
+                showFeedback(bar(s.progress, (s.message||'En cours…'), etaTxt(s)));
+              } else if(s.etat === 'pret' || s.disponible){
+                var manq = s.sections_manquantes || 0;
+                var html = '<a href="'+s.download_url+'" style="display:inline-flex;align-items:center;gap:5px;padding:6px 12px;background:var(--apt-accent);color:#fff;border-radius:7px;text-decoration:none;font-size:11.5px;font-weight:700;">⬇ Télécharger (.docx)</a>';
+                html += actBtn(lot, '↻ Régénérer', 'reviser');
+                actions.innerHTML = html;
+                var rec = '';
+                if(s.nb_sections!=null){
+                  rec = '✓ '+s.nb_sections+' sections';
+                  if(manq) rec += ' · <strong style="color:var(--apt-gold-deep);">'+manq+' à compléter</strong>';
+                  if(s.nb_completer!=null) rec += ' · '+s.nb_completer+' [À COMPLÉTER]';
+                  if(s.cout!=null) rec += ' · '+Number(s.cout).toFixed(2)+' €';
+                  if(s.duree_s!=null) rec += ' · '+Math.round(s.duree_s/60)+' min';
+                }
+                showFeedback(rec ? '<div style="font-size:11.5px;color:var(--apt-ink-3);line-height:1.5;">'+rec+'</div>' : '');
+              } else if(s.etat === 'erreur'){
+                actions.innerHTML = '<span style="font-size:11.5px;color:var(--c-rose);">⚠ échec</span>' + actBtn(lot, 'Réessayer', 'force');
+                showFeedback('<div style="font-size:11px;color:var(--c-rose);">'+(s.message||'Erreur')+'</div>');
+              } else {
+                actions.innerHTML = actBtn(lot, '✍ Générer', 'generer');
+                showFeedback('');
+              }
+              actions.querySelectorAll('.mem-act-btn').forEach(function(btn){
+                btn.addEventListener('click', function(){ lancer(lot, btn.getAttribute('data-mode')); });
+              });
+            }
+            function lancer(lot, mode){
+              var body = 'ajax=1';
+              if(mode === 'force') body += '&force=1';
+              if(mode === 'reviser') body += '&completer=1';
+              actions.innerHTML = '<span style="font-size:11.5px;color:var(--apt-gold-deep);font-weight:600;">⏳ génération…</span>';
+              showFeedback(bar(0.05, 'Démarrage…', ''));
+              fetch(urlFor(genTpl, lot), {
+                method:'POST',
+                headers:{'Content-Type':'application/x-www-form-urlencoded'},
+                body: body
+              }).then(function(r){return r.json();}).then(function(){ poll(lot); }).catch(function(){ poll(lot); });
+            }
+            function poll(lot){
+              fetch(urlFor(statutTpl, lot)).then(function(r){return r.json();}).then(function(s){
+                render(lot, s);
+                if(String(lot) === String(currentLot()) && s.etat === 'en_cours'){ setTimeout(function(){ poll(lot); }, 4000); }
+              }).catch(function(){});
+            }
+            function refresh(){
+              actions.innerHTML = '<span style="font-size:11.5px;color:var(--apt-ink-5);">…</span>';
+              showFeedback('');
+              poll(currentLot());
+            }
+            if(sel){ sel.addEventListener('change', refresh); }
+            refresh();
+          })();
+          </script>
         </div>
         <div style="border:1px solid var(--apt-line-2); border-left:3px solid var(--apt-gold); border-radius:9px; padding:11px 14px;">
-          <div style="font-size:12.5px; font-weight:700; color:var(--apt-ink); margin-bottom:5px;">③ Offre financière{% if pprix %} <span style="font-weight:500; color:var(--apt-ink-4);">— {{ pprix }}% de la note</span>{% endif %}</div>
+          <div style="font-size:12.5px; font-weight:700; color:var(--apt-ink); margin-bottom:5px;"><span style="display:inline-flex; align-items:center; justify-content:center; width:18px; height:18px; border-radius:999px; background:var(--apt-gold); color:var(--apt-ink); font-size:10.5px; font-weight:700; margin-right:8px; vertical-align:middle;">3</span>Offre financière{% if pprix %} <span style="font-weight:500; color:var(--apt-ink-4);">— {{ pprix }}% de la note</span>{% endif %}</div>
           <div style="font-size:12.5px; color:var(--apt-ink-3); line-height:1.6;">
             {% set _pc_offre = (_dc.pieces_a_fournir | selectattr('phase', 'equalto', 'offre') | list) if (_dc and _dc.pieces_a_fournir) else [] %}
             {% if _pc_offre %}

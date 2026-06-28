@@ -1,0 +1,134 @@
+{
+  "meta": {
+    "code": "proprete",
+    "nom": "Proprete — nettoyage et entretien de locaux",
+    "etiquette_courte": "Proprete",
+    "description": "Marches publics de nettoyage et d'entretien de locaux : nettoyage courant, bionettoyage, vitrerie, remise en etat, gestion des dechets associes.",
+    "version": 1,
+    "qualite": "mvp",
+    "_notes": "Preset pilote pour le domaine entretien_proprete_locaux (~11 marches sans preset). Apporte des champs metier specifiques au lieu d'une extraction generique."
+  },
+  "veille": {
+    "description": "Criteres de filtrage Proprete.",
+    "domaines_acceptes": [
+      "entretien_proprete_locaux"
+    ],
+    "domaines_optionnels": [
+      "services_dechets_proprete",
+      "services_environnement_analyses"
+    ],
+    "mots_cles_inclusion": [
+      "nettoyage",
+      "proprete",
+      "entretien des locaux",
+      "bionettoyage",
+      "vitrerie",
+      "autolaveuse",
+      "desinfection",
+      "remise en etat",
+      "agent de service",
+      "nettoyage industriel",
+      "hygiene des locaux"
+    ],
+    "mots_cles_exclusion": [
+      "fourniture de produits d'entretien uniquement sans prestation"
+    ],
+    "cpv_inclusion": [
+      "90910000",
+      "90911*",
+      "90919*",
+      "9092*"
+    ]
+  },
+  "vocabulaire_llm": {
+    "description": "Termes injectes dans les prompts LLM pour calibrer le vocabulaire metier.",
+    "secteur_libelle": "marches publics de nettoyage et d'entretien de locaux",
+    "type_pieces_dce_typiques": "d'un Reglement de Consultation (RC), d'un CCTP decrivant les locaux, surfaces, frequences et prestations, souvent d'un BPU/DPGF au m2 ou a l'heure, parfois d'un plan des locaux et d'un cadre de memoire technique",
+    "type_repondant": "entreprise de proprete / societe de nettoyage (FEP), seule ou en groupement, avec des agents de service et un encadrement de proximite",
+    "unite_principale_facturation": "m2 entretenu / heure d'agent / forfait mensuel par site",
+    "references_attendues": "references de marches de nettoyage similaires (typologie de locaux, surfaces, milieu sensible le cas echeant)",
+    "alertes_typiques": [
+      "reprise du personnel en place (convention collective proprete, annexe 7)",
+      "bionettoyage en milieu de sante (protocoles, tracabilite)",
+      "produits ecolabellises exiges",
+      "intervention en site occupe / hors heures d'ouverture",
+      "certification Qualipropre ou equivalent",
+      "encadrement de proximite et taux d'encadrement"
+    ],
+    "exemples_synthese": [
+      "Marche de nettoyage des locaux d'une collectivite (~8 000 m2, bureaux + sanitaires), frequences variables, en site occupe hors heures d'ouverture, sur 3 ans.",
+      "Accord-cadre de bionettoyage d'un EHPAD avec protocoles de desinfection et tracabilite des passages.",
+      "Marche d'entretien et de vitrerie d'un complexe sportif, produits ecolabellises exiges."
+    ]
+  },
+  "prompt_extraction": {
+    "description": "Champs metier ajoutes au schema JSON de sortie du brief LLM.",
+    "bloc_schema_specifique": "  \"caracteristiques_proprete\": {\n    \"surface_totale_m2\": null,\n    \"nb_sites\": null,\n    \"types_locaux\": [\"Ex: bureaux, sanitaires, circulations, vestiaires, locaux techniques, salles de sport, locaux medicaux\"],\n    \"prestations\": [\"Ex: nettoyage courant, bionettoyage, vitrerie, remise en etat, decapage/cristallisation des sols, desinfection, gestion des dechets\"],\n    \"frequences_passage\": \"Frequences par type de local si precisees (ex: 'bureaux 3x/semaine, sanitaires quotidien, vitrerie 2x/an'). null sinon.\",\n    \"plages_horaires\": \"Contraintes horaires d'intervention (ex: 'hors heures d'ouverture', '6h-9h et 18h-20h'). null sinon.\",\n    \"site_occupe\": null,\n    \"milieu_sensible\": \"Ex: ERP, milieu hospitalier/EHPAD (bionettoyage), agroalimentaire (HACCP), petite enfance. null si bureaux classiques.\",\n    \"effectif_agents_estime\": null,\n    \"materiel_et_produits_fournis_par\": \"prestataire ou acheteur\",\n    \"produits_ecolabel_exiges\": null,\n    \"controle_qualite_attendu\": \"Modalites de controle qualite demandees (ex: 'autocontroles + controles contradictoires mensuels'). null sinon.\"\n  },\n  \"qualifications_proprete\": {\n    \"iso_9001\": false,\n    \"iso_14001\": false,\n    \"certifications_proprete\": [\"Ex: Qualipropre, label ABClean, MASE si milieu industriel\"],\n    \"agrement_bionettoyage\": false,\n    \"habilitations_specifiques\": [\"Ex: travail en hauteur (vitrerie), CACES nacelle, habilitation milieu hospitalier\"]\n  }",
+    "regles_specifiques": "- Reperer la REPRISE DU PERSONNEL en place (annexe 7 de la convention collective proprete) : enjeu majeur, a signaler dans alertes_candidat.\n- Distinguer le nettoyage courant du BIONETTOYAGE (milieu de sante : protocoles, tracabilite, desinfection).\n- Reperer les exigences de produits ECOLABELLISES et de materiel (autolaveuses, fourni par qui).\n- DOUBLE-REMPLISSAGE : les certifications exigees (Qualipropre, ISO, ABClean) vont dans qualifications_proprete ET dans references_exigees.certifications_obligatoires.",
+    "exemples_elements_a_chiffrer": "\"Ex: 'Prix au m2 par type de local et par frequence'\",\n        \"Ex: 'Taux horaire agent de proprete'\",\n        \"Ex: 'Forfait mensuel par site'\"",
+    "hints_calcul_montant": "Mots-cles : 'prix au m2', 'taux horaire agent', 'forfait mensuel', 'heures par semaine'. Si surface et prix au m2/an donnes -> CALCULE le montant. Sinon si volume d'heures hebdo et taux horaire donnes -> CALCULE (heures x 52 x taux).",
+    "few_shot_examples": "Exemple — nettoyage de bureaux :\nSi le RC dit : 'Nettoyage de 8 000 m2 de bureaux et sanitaires, 5 agents, intervention 6h-9h hors presence, produits ecolabel exiges, reprise du personnel annexe 7, sur 3 ans.'\nExtraction attendue :\n{ \"caracteristiques_proprete\": { \"surface_totale_m2\": 8000, \"types_locaux\": [\"bureaux\",\"sanitaires\"], \"plages_horaires\": \"6h-9h hors presence\", \"site_occupe\": true, \"effectif_agents_estime\": 5, \"produits_ecolabel_exiges\": true }, \"alertes_candidat\": [\"Reprise du personnel en place (annexe 7 CCN proprete)\"] }"
+  },
+  "calibration_llm": {
+    "baremes_horaires_eur": {
+      "agent_de_service": [
+        22,
+        28
+      ],
+      "chef_d_equipe": [
+        26,
+        34
+      ],
+      "agent_qualifie_bionettoyage": [
+        26,
+        33
+      ]
+    },
+    "marge_prestataire_pct": [
+      8,
+      18
+    ],
+    "unites_typiques": [
+      "m2/an",
+      "heure agent",
+      "forfait mensuel par site"
+    ]
+  },
+  "matching": {
+    "alertes_critiques": [
+      {
+        "cle": "reprise_personnel",
+        "libelle_court": "Reprise du personnel (annexe 7)",
+        "type": "info_bool",
+        "profil_attr": null
+      },
+      {
+        "cle": "bionettoyage",
+        "libelle_court": "Bionettoyage milieu de sante",
+        "type": "contains_in_profil_bool",
+        "profil_attr": "profils_sectoriels.proprete.bionettoyage"
+      },
+      {
+        "cle": "certif_proprete",
+        "libelle_court": "Certification proprete (Qualipropre/ISO)",
+        "type": "contains_in_profil_bool",
+        "profil_attr": "profils_sectoriels.proprete.certifications"
+      }
+    ],
+    "seuils_score": {
+      "tres_pertinent": 75,
+      "pertinent": 50,
+      "a_verifier": 20
+    }
+  },
+  "taxonomie": {
+    "categories_metier": [
+      "nettoyage_courant",
+      "bionettoyage_sante",
+      "vitrerie_hauteur",
+      "remise_en_etat",
+      "gestion_dechets",
+      "autre"
+    ]
+  }
+}

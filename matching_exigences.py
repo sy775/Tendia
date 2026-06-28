@@ -129,12 +129,16 @@ def evaluer_exigence(alerte_texte: str, profil: dict) -> Optional[dict]:
                 "libelle": "Couvert",
                 "detail": "Qualiopi " + ", ".join(actives),
                 "source": "certifications",
+                "cle_canonique": "qualiopi",
+                "question": "Êtes-vous certifié Qualiopi (actions de formation) ?",
             }
         return {
             "statut": "non_couvert",
             "libelle": "Non couvert",
             "detail": "Aucune Qualiopi déclarée au profil",
             "source": "certifications",
+            "cle_canonique": "qualiopi",
+            "question": "Êtes-vous certifié Qualiopi (actions de formation) ?",
         }
 
     # ----- 1bis) Certification / qualification professionnelle NOMMÉE -----

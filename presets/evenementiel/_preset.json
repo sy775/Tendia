@@ -1,0 +1,103 @@
+{
+  "meta": {
+    "code": "evenementiel",
+    "nom": "Événementiel & culture — organisation, technique, scénographie",
+    "etiquette_courte": "Événementiel",
+    "description": "Marchés d'organisation d'événements, prestations techniques (son/lumière/scène), scénographie, animation culturelle.",
+    "version": 1,
+    "qualite": "mvp",
+    "_notes": "Preset créé en lot (chantier presets manquants) — contenu métier MVP à affiner."
+  },
+  "veille": {
+    "description": "Critères de filtrage Événementiel.",
+    "domaines_acceptes": [
+      "evenementiel_culture"
+    ],
+    "domaines_optionnels": [],
+    "mots_cles_inclusion": [
+      "événement",
+      "événementiel",
+      "organisation",
+      "scénographie",
+      "régie",
+      "son",
+      "lumière",
+      "scène",
+      "salon",
+      "exposition",
+      "festival",
+      "animation",
+      "spectacle"
+    ],
+    "mots_cles_exclusion": [],
+    "cpv_inclusion": [
+      "7995*",
+      "92*",
+      "798*"
+    ]
+  },
+  "vocabulaire_llm": {
+    "description": "Termes injectés dans les prompts LLM.",
+    "secteur_libelle": "marchés d'organisation d'événements et de prestations techniques événementielles",
+    "type_pieces_dce_typiques": "d'un RC, d'un CCTP décrivant l'événement, la jauge, les prestations attendues, souvent d'un cadre de mémoire technique et d'un BPU",
+    "type_repondant": "agence événementielle, prestataire technique (son/lumière/scène) ou groupement",
+    "unite_principale_facturation": "forfait événement / jour-technicien / location de matériel",
+    "references_attendues": "références d'événements similaires (type, jauge, complexité)",
+    "alertes_typiques": [
+      "respect des délais de montage/démontage",
+      "sécurité du public (ERP, SSIAP)",
+      "assurances spécifiques événement",
+      "saisonnalité et dates imposées",
+      "moyens techniques et personnel mobilisable en pic"
+    ],
+    "exemples_synthese": [
+      "Marché d'organisation d'un festival culturel (jauge 5 000), scénographie + régie technique + sécurité.",
+      "Accord-cadre de prestations son et lumière pour les événements d'une collectivité."
+    ]
+  },
+  "prompt_extraction": {
+    "description": "Champs métier ajoutés au schéma JSON du brief.",
+    "bloc_schema_specifique": "  \"caracteristiques_evenementiel\": {\n    \"type_evenement\": \"Ex: festival, salon, cérémonie, exposition, spectacle, séminaire\",\n    \"jauge_public\": null,\n    \"lieux\": \"Lieu(x) de l'événement si précisé. null sinon.\",\n    \"dates_ou_saisonnalite\": \"Dates imposées ou périodes (ex: 'juin-juillet chaque année'). null sinon.\",\n    \"prestations\": [\"Ex: scénographie, son, lumière, structure/scène, régie, sécurité, accueil, traiteur, communication\"],\n    \"delais_montage_demontage\": \"Contraintes de montage/démontage si précisées. null sinon.\",\n    \"moyens_techniques_attendus\": \"Matériel technique attendu (puissance son, parc lumière, structures). null sinon.\",\n    \"exigences_securite_public\": \"Ex: ERP, SSIAP, dispositif de sécurité, plan d'évacuation. null sinon.\"\n  }",
+    "regles_specifiques": "- Distinguer l'ORGANISATION globale d'événement de la simple PRESTATION TECHNIQUE (son/lumière/scène).\n- Repérer la jauge, les dates imposées, les contraintes de montage/démontage et la sécurité du public (ERP/SSIAP).\n- Les assurances spécifiques événement sont souvent exigées.",
+    "hints_calcul_montant": "Mots-clés : 'forfait par événement', 'jour-technicien', 'location matériel'. Si nb d'événements et forfait unitaire donnés -> CALCULE le montant."
+  },
+  "calibration_llm": {
+    "baremes_horaires_eur": {
+      "technicien": [
+        28,
+        45
+      ],
+      "regisseur": [
+        35,
+        55
+      ]
+    },
+    "marge_prestataire_pct": [
+      10,
+      25
+    ],
+    "unites_typiques": [
+      "forfait événement",
+      "jour-technicien",
+      "location matériel"
+    ]
+  },
+  "matching": {
+    "alertes_critiques": [],
+    "seuils_score": {
+      "tres_pertinent": 75,
+      "pertinent": 50,
+      "a_verifier": 20
+    }
+  },
+  "taxonomie": {
+    "categories_metier": [
+      "organisation_globale",
+      "technique_son_lumiere",
+      "scenographie",
+      "securite_accueil",
+      "animation_culturelle",
+      "autre"
+    ]
+  }
+}

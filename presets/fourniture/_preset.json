@@ -1,0 +1,91 @@
+{
+  "meta": {
+    "code": "fourniture",
+    "nom": "Fourniture — biens, matériels et équipements",
+    "etiquette_courte": "Fourniture",
+    "description": "Marchés de fournitures : achat de biens, matériels, équipements, consommables (souvent accord-cadre à bons de commande).",
+    "version": 1,
+    "qualite": "mvp",
+    "_notes": "Preset créé en lot (chantier presets manquants) — contenu métier MVP à affiner."
+  },
+  "veille": {
+    "description": "Critères de filtrage Fourniture.",
+    "domaines_acceptes": [
+      "fourniture_materiel",
+      "fourniture_consommables"
+    ],
+    "domaines_optionnels": [],
+    "mots_cles_inclusion": [
+      "fourniture",
+      "acquisition",
+      "achat",
+      "matériel",
+      "équipement",
+      "consommables",
+      "livraison",
+      "accord-cadre",
+      "bons de commande",
+      "mobilier"
+    ],
+    "mots_cles_exclusion": [],
+    "cpv_inclusion": [
+      "3*",
+      "4*"
+    ]
+  },
+  "vocabulaire_llm": {
+    "description": "Termes injectés dans les prompts LLM.",
+    "secteur_libelle": "marchés de fournitures de biens et d'équipements",
+    "type_pieces_dce_typiques": "d'un RC, d'un CCTP décrivant les biens et spécifications techniques, d'un BPU/catalogue, souvent d'un accord-cadre à bons de commande",
+    "type_repondant": "fournisseur, distributeur ou fabricant, seul ou en groupement",
+    "unite_principale_facturation": "prix unitaire par article / catalogue avec remise / bon de commande",
+    "references_attendues": "références de fournitures similaires (nature, volumes, clients)",
+    "alertes_typiques": [
+      "conformité normes/CE et marquages",
+      "délais de livraison fermes",
+      "garantie et SAV / pièces détachées",
+      "échantillons à fournir",
+      "clauses environnementales (écolabel, recyclabilité)"
+    ],
+    "exemples_synthese": [
+      "Accord-cadre de fourniture de mobilier de bureau à bons de commande sur 4 ans.",
+      "Marché de fourniture de matériel informatique avec garantie 3 ans et SAV."
+    ]
+  },
+  "prompt_extraction": {
+    "description": "Champs métier ajoutés au schéma JSON du brief.",
+    "bloc_schema_specifique": "  \"caracteristiques_fourniture\": {\n    \"nature_biens\": \"Description des biens/équipements à fournir.\",\n    \"quantites_estimees\": \"Quantités/volumes si précisés (ou min/max de l'accord-cadre). null sinon.\",\n    \"accord_cadre_bons_commande\": null,\n    \"delai_livraison\": \"Délai de livraison exigé (ex: '15 jours', '48h'). null sinon.\",\n    \"garantie_exigee\": \"Durée/nature de garantie (ex: '2 ans pièces et main d'oeuvre'). null sinon.\",\n    \"sav_pieces_detachees\": \"Exigences de SAV / disponibilité des pièces. null sinon.\",\n    \"normes_conformite\": [\"Ex: marquage CE, NF, normes sectorielles\"],\n    \"exigences_environnementales\": [\"Ex: écolabel, recyclabilité, faible consommation\"],\n    \"echantillons_demandes\": null\n  }",
+    "regles_specifiques": "- Un marché de fournitures est souvent jugé majoritairement sur le PRIX et la VALEUR TECHNIQUE des produits (échantillons, fiches techniques) — la mémoire technique est parfois secondaire.\n- Repérer s'il s'agit d'un ACCORD-CADRE à bons de commande (min/max).\n- Repérer délais de livraison, garantie, SAV, normes/CE.",
+    "hints_calcul_montant": "Mots-clés : 'prix unitaire', 'catalogue', 'remise sur catalogue', 'montant min/max accord-cadre'. Si quantités et prix unitaires donnés -> CALCULE le montant."
+  },
+  "calibration_llm": {
+    "baremes_horaires_eur": {},
+    "marge_prestataire_pct": [
+      10,
+      25
+    ],
+    "unites_typiques": [
+      "prix unitaire",
+      "catalogue",
+      "bon de commande"
+    ]
+  },
+  "matching": {
+    "alertes_critiques": [],
+    "seuils_score": {
+      "tres_pertinent": 75,
+      "pertinent": 50,
+      "a_verifier": 20
+    }
+  },
+  "taxonomie": {
+    "categories_metier": [
+      "mobilier",
+      "informatique_bureautique",
+      "materiel_technique",
+      "consommables",
+      "vehicules_engins",
+      "autre"
+    ]
+  }
+}

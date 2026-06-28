@@ -17,8 +17,18 @@ Architecture :
 import json
 import os
 import re
+import sys
 from datetime import date, datetime
 from pathlib import Path
+
+# stdout/stderr en UTF-8 : les services loggent des emojis (⚠ ✓ →). Sans ça, un
+# print dans un thread de génération plante sur cp1252 (Windows) et fait échouer
+# le job. (Cause d'un « échec » observé alors que la génération avait abouti.)
+try:
+    sys.stdout.reconfigure(encoding="utf-8")
+    sys.stderr.reconfigure(encoding="utf-8")
+except Exception:
+    pass
 
 from flask import (Flask, abort, flash, redirect, render_template, request,
                    send_file, send_from_directory, url_for)
@@ -1090,12 +1100,34 @@ _DOC_LABELS = [
 ]
 
 
+# Intitulés en TOUTES LETTRES — prioritaires sur les sigles courts ambigus
+# (ex : « Règlement de consultation » ne doit pas être pris pour « DE »).
+_DOC_MOTS_CLES = [
+    ("REGLEMENT", "Règlement de consultation"),
+    ("CONTRAT", "Contrat"),
+    ("CANDIDATURE", "Dossier de candidature"),
+    ("ENGAGEMENT", "Acte d'engagement"),
+    ("MEMOIRE", "Mémoire technique"),
+    ("CHARTE", "Charte"),
+]
+# Mots-outils français : ne doivent JAMAIS matcher un sigle (« de » ≠ « DE »).
+_STOPWORDS_DOC = {"DE", "DES", "DU", "LA", "LE", "LES", "ET", "EN", "AU", "AUX",
+                  "UN", "UNE", "POUR", "SUR", "A", "L", "D"}
+
+
 def _libelle_document(nom: str) -> str:
     """Transforme un nom de fichier DCE en libellé parlant (sigle → intitulé)."""
     base = os.path.splitext(nom)[0]
     tokens = [t.upper() for t in re.split(r"[^A-Za-z0-9]+", base) if t]
+    # 1) Intitulé en toutes lettres (prioritaire — évite les collisions de sigles).
+    for mot, label in _DOC_MOTS_CLES:
+        if mot in tokens:
+            return label
+    # 2) Sigles — en ignorant les mots-outils (évite que « de » → sigle « DE »).
     for abbr, label in _DOC_LABELS:
         for t in tokens:
+            if t in _STOPWORDS_DOC:
+                continue
             # token exact, ou sigle suivi d'un chiffre de version (CCTP3, RC2024)
             if t == abbr or (t.startswith(abbr) and t[len(abbr):len(abbr) + 1].isdigit()):
                 return label
@@ -1212,6 +1244,91 @@ def telecharger_dce_zip(id_marche):
     buf.seek(0)
     return send_file(buf, mimetype="application/zip", as_attachment=True,
                      download_name=f"DCE_{id_marche}.zip")
+
+
+@app.route("/marche/<id_marche>/grille.xlsx")
+def telecharger_grille_xlsx(id_marche):
+    """Exporte la grille de notation (Critère · Sous-critère · Action · Poids) en Excel."""
+    import io
+    import openpyxl
+    from openpyxl.styles import Font, PatternFill, Alignment, Border, Side
+
+    brief = _charger_extraction_llm(id_marche)
+    if not brief:
+        abort(404)
+    grilles = fiche_marche.grilles_par_domaine(brief, organisme.lire_profil())
+    prix = fiche_marche.grille_prix_pour_marche(brief)
+    if not grilles and not prix:
+        abort(404)
+
+    hdr_fill = PatternFill("solid", fgColor="2F2A6B")
+    hdr_font = Font(bold=True, color="FFFFFF", size=10)
+    thin = Side(style="thin", color="DDDDDD")
+    border = Border(left=thin, right=thin, top=thin, bottom=thin)
+    entetes = ["Critère technique", "Poids critère", "Sous-critère", "Poids sous-critère",
+               "Action", "Poids action"]
+
+    def _remplir(ws, groupes):
+        ws.append(entetes)
+        for c in ws[1]:
+            c.fill = hdr_fill
+            c.font = hdr_font
+            c.alignment = Alignment(horizontal="left", vertical="center", wrap_text=True)
+            c.border = border
+        r = 2
+        for g in groupes:
+            crit_debut = r
+            for sc in g["sous_criteres"]:
+                sc_debut = r
+                for a in sc["actions"]:
+                    ws.cell(r, 1, g.get("critere"))
+                    ws.cell(r, 2, (f"{g.get('ponderation')}%" if g.get("ponderation") is not None else ""))
+                    ws.cell(r, 3, sc.get("libelle") or "")
+                    ws.cell(r, 4, (f"{sc.get('ponderation')}%" if sc.get("ponderation") is not None else ""))
+                    ws.cell(r, 5, a.get("action"))
+                    ws.cell(r, 6, (f"{a.get('poids')}%" if a.get("poids") is not None else ""))
+                    r += 1
+                if r - sc_debut > 1:
+                    for col in (3, 4):
+                        ws.merge_cells(start_row=sc_debut, start_column=col, end_row=r - 1, end_column=col)
+            if r - crit_debut > 1:
+                for col in (1, 2):
+                    ws.merge_cells(start_row=crit_debut, start_column=col, end_row=r - 1, end_column=col)
+        if prix:
+            ws.append([])
+            r += 1
+            ws.cell(r, 1, "Prix")
+            ws.cell(r, 2, (f"{prix.get('pct')}%" if prix.get("pct") is not None else ""))
+            ws.cell(r, 5, prix.get("methode") or "")
+            ws.cell(r, 6, (f"{prix.get('pct')}%" if prix.get("pct") is not None else ""))
+            for col in range(1, 7):
+                ws.cell(r, col).fill = PatternFill("solid", fgColor="FBF3DD")
+                ws.cell(r, col).font = Font(bold=(col == 1))
+        for row in ws.iter_rows(min_row=2, max_row=ws.max_row, max_col=6):
+            for c in row:
+                c.alignment = Alignment(vertical="top", wrap_text=True)
+                c.border = border
+        for col, width in zip("ABCDEF", (26, 11, 24, 14, 70, 11)):
+            ws.column_dimensions[col].width = width
+        ws.freeze_panes = "A2"
+
+    wb = openpyxl.Workbook()
+    wb.remove(wb.active)
+    _vus = set()
+    for i, gd in enumerate(grilles or [{"label": "Grille", "groupes": []}]):
+        # Nom d'onglet Excel : ≤31 car, unique, sans caractères interdits.
+        nom = re.sub(r"[:\\/?*\[\]]", " ", (gd.get("label") or "Grille"))[:28] or "Grille"
+        while nom in _vus:
+            nom = f"{nom[:26]} {i}"
+        _vus.add(nom)
+        _remplir(wb.create_sheet(nom), gd.get("groupes") or [])
+
+    buf = io.BytesIO()
+    wb.save(buf)
+    buf.seek(0)
+    return send_file(
+        buf, as_attachment=True, download_name=f"Grille_notation_{id_marche}.xlsx",
+        mimetype="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")
 
 
 @app.route("/marche/<id_marche>")
@@ -1355,6 +1472,13 @@ def detail_marche(id_marche):
     lots_pertinents = fiche_marche.synthese_lots_pertinents(brief or {}, profil or {})
     candidature_par_lot = matching._candidature_par_lot(brief)
     richesse = fiche_marche.calculer_richesse_brief(brief or {}, presets_resolus, marche)
+    grilles_domaines = fiche_marche.grilles_par_domaine(brief or {}, profil)
+    grille_prix = fiche_marche.grille_prix_pour_marche(brief or {})
+    bareme_cascade = fiche_marche.bareme_technique_cascade(brief or {})
+    est_formation = any(
+        (c[0] if isinstance(c, (list, tuple)) else c) == "formation"
+        for c in (presets_resolus or [])
+    )
 
     # Voie 3 — comparables DECP (calibration du montant sur contrats réels exécutés).
     # Calculé au rendu (quelques requêtes SQL indexées, pas de LLM). Sert à ancrer le
@@ -1389,6 +1513,10 @@ def detail_marche(id_marche):
         lots_pertinents=lots_pertinents,
         candidature_par_lot=candidature_par_lot,
         richesse=richesse,
+        grilles_domaines=grilles_domaines,
+        grille_prix=grille_prix,
+        bareme_cascade=bareme_cascade,
+        est_formation=est_formation,
         dce_contenu=marche.get("dce_contenu"),
         dce_raison_contenu=marche.get("dce_raison_contenu"),
         dce_pieces=marche.get("dce_pieces_contractuelles") or [],
@@ -1443,6 +1571,195 @@ def calibrer_marche(id_marche):
     except Exception as e:
         flash(f"Échec de la calibration : {e}", "erreur")
     return redirect(url_for("detail_marche", id_marche=id_marche))
+
+
+# ---------------------------------------------------------------------------
+# Mémoire technique (.docx) — génération asynchrone par lot (Sprint B)
+# ---------------------------------------------------------------------------
+import threading as _threading  # noqa: E402
+from services import pipeline_memoire as _pipeline_memoire  # noqa: E402
+
+# Registre des générations en cours (thread de fond). Clé = id_marche|lot|user.
+_MEMOIRE_JOBS = {}
+_MEMOIRE_JOBS_LOCK = _threading.Lock()
+
+
+def _memoire_id_user():
+    """Profil organisme actif : (id_user, profil_dict). L'id sert de clé mémoire."""
+    prof = organisme.lire_profil() or {}
+    return (prof.get("id") or "principal"), prof
+
+
+def _job_key(id_marche, numero_lot, id_user):
+    return f"{id_marche}|{numero_lot}|{id_user}"
+
+
+_ETAPE_LIBELLE = {
+    "digest": "Préparation du digest du lot…",
+    "plan": "Analyse du plan de rédaction…",
+    "redaction": "Rédaction des sections…",
+    "assemblage": "Assemblage du document Word…",
+}
+
+
+def _job_generer_memoire(id_marche, numero_lot, id_user, profil, force, completer=False):
+    cle = _job_key(id_marche, numero_lot, id_user)
+
+    def maj(**kw):
+        with _MEMOIRE_JOBS_LOCK:
+            _MEMOIRE_JOBS.setdefault(cle, {}).update(kw)
+
+    def progress(etape, faites, total):
+        # Pondération des étapes pour une barre de progression lisible.
+        if etape == "plan":
+            prog, msg = 0.18, _ETAPE_LIBELLE["plan"]
+        elif etape == "redaction":
+            frac = (faites / total) if total else 0
+            prog = 0.20 + 0.70 * frac
+            msg = f"Rédaction {faites}/{total} sections…" if total else _ETAPE_LIBELLE["redaction"]
+        elif etape == "assemblage":
+            prog, msg = 0.95, _ETAPE_LIBELLE["assemblage"]
+        else:
+            prog, msg = 0.10, _ETAPE_LIBELLE.get(etape, "En cours…")
+        maj(etape=etape, sections_faites=faites, sections_total=total,
+            progress=round(prog, 3), message=msg)
+
+    try:
+        # 1. Digest lazy (généré si absent ; instantané s'il existe déjà).
+        maj(etat="en_cours", etape="digest", progress=0.06,
+            message=("Régénération en cours…" if completer
+                     else _ETAPE_LIBELLE["digest"]))
+        from services import digest_memoire
+        digest_memoire.generer_digest_memoire_lot(id_marche, numero_lot, force=False, verbose=False)
+        # 2. Plan + rédaction parallèle + assemblage (ou complétion mutualisée).
+        memoire = _pipeline_memoire.generer_memoire(
+            id_marche, numero_lot, id_user=id_user, profil=profil, force=force,
+            completer=completer, verbose=False, progress_callback=progress)
+        meta = (memoire or {}).get("_meta") or {}
+        secs = (memoire or {}).get("sections_redigees") or {}
+        nb_comp = sum(len(re.findall(r"\[À COMPLÉTER", t)) for t in secs.values() if isinstance(t, str))
+        maj(etat="pret", etape="fini", progress=1.0, message="Mémoire prête.",
+            cout=meta.get("cout_total_eur"), nb_sections=len(secs),
+            nb_completer=nb_comp, duree_s=meta.get("duree_totale_s"),
+            sections_manquantes=len(meta.get("sections_manquantes") or []))
+    except Exception as e:
+        maj(etat="erreur", etape="erreur", message=f"{type(e).__name__}: {e}")
+
+
+@app.route("/marche/<id_marche>/generer-memoire/<int:numero_lot>", methods=["POST"])
+def generer_memoire_lot(id_marche, numero_lot):
+    """Lance en tâche de fond la génération de la mémoire technique d'un lot."""
+    marche = (stockage.charger("marches") or {}).get(id_marche)
+    if not marche:
+        abort(404)
+    if not _charger_extraction_llm(id_marche):
+        flash("Aucun brief pour ce marché — impossible de générer la mémoire.", "erreur")
+        return redirect(url_for("detail_marche", id_marche=id_marche))
+
+    id_user, profil = _memoire_id_user()
+    force = request.form.get("force") == "1"
+    completer = request.form.get("completer") == "1"
+    ajax = request.form.get("ajax") == "1"
+    cle = _job_key(id_marche, numero_lot, id_user)
+    with _MEMOIRE_JOBS_LOCK:
+        en_cours = (_MEMOIRE_JOBS.get(cle) or {}).get("etat") == "en_cours"
+    existante = _pipeline_memoire.cle_memoire_existante(id_marche, numero_lot, id_user)
+
+    if en_cours:
+        etat, niveau = "en_cours", "info"
+        msg = f"Génération du lot {numero_lot} déjà en cours…"
+    elif existante and not force and not completer:
+        etat, niveau = "deja", "info"
+        msg = f"Mémoire du lot {numero_lot} déjà disponible (compléter ou régénérer)."
+    else:
+        with _MEMOIRE_JOBS_LOCK:
+            _MEMOIRE_JOBS[cle] = {"etat": "en_cours", "etape": "demarrage",
+                                  "message": "Démarrage…", "depuis": datetime.now().isoformat()}
+        _threading.Thread(target=_job_generer_memoire,
+                          args=(id_marche, numero_lot, id_user, profil, force, completer),
+                          daemon=True).start()
+        etat, niveau = "lancee", "succes"
+        msg = (f"Régénération du lot {numero_lot} lancée (plan réutilisé, plus rapide)."
+               if completer else
+               f"Génération de la mémoire du lot {numero_lot} lancée (~6–9 min). "
+               f"La page se met à jour toute seule.")
+
+    if ajax:
+        return {"ok": True, "etat": etat, "message": msg}
+    flash(msg, niveau)
+    return redirect(url_for("detail_marche", id_marche=id_marche) + f"#mem-gen")
+
+
+@app.route("/marche/<id_marche>/memoire-statut/<int:numero_lot>")
+def memoire_statut(id_marche, numero_lot):
+    """Statut JSON de la génération d'une mémoire (polling de la fiche)."""
+    id_user, _ = _memoire_id_user()
+    cle = _job_key(id_marche, numero_lot, id_user)
+    with _MEMOIRE_JOBS_LOCK:
+        job = dict(_MEMOIRE_JOBS.get(cle) or {})
+    existante = _pipeline_memoire.cle_memoire_existante(id_marche, numero_lot, id_user)
+    etat = job.get("etat") or ("pret" if existante else "absent")
+    elapsed = None
+    if job.get("depuis"):
+        try:
+            elapsed = round((datetime.now() - datetime.fromisoformat(job["depuis"])).total_seconds())
+        except Exception:
+            elapsed = None
+
+    # Récap calculé depuis la BASE (source de vérité, survit à un redémarrage) :
+    # permet d'afficher l'état réel + de proposer « Compléter (N) ».
+    recap = {}
+    if existante:
+        m = stockage.lire("memoires_techniques", existante) or {}
+        secs = m.get("sections_redigees") or {}
+        meta = m.get("_meta") or {}
+        manq = _pipeline_memoire.sections_manquantes_memoire(m)
+        recap = {
+            "nb_sections": len(secs),
+            "sections_manquantes": len(manq),
+            "nb_completer": sum(len(re.findall(r"\[À COMPLÉTER", t))
+                                for t in secs.values() if isinstance(t, str)),
+            "cout": meta.get("cout_total_eur"),
+            "duree_s": meta.get("duree_totale_s"),
+        }
+
+    def pick(k):  # priorité au job en cours, sinon au récap base
+        v = job.get(k)
+        return v if v is not None else recap.get(k)
+
+    return {
+        "etat": etat,
+        "etape": job.get("etape"),
+        "message": job.get("message"),
+        "progress": job.get("progress"),
+        "elapsed_s": elapsed,
+        "sections_faites": job.get("sections_faites"),
+        "sections_total": job.get("sections_total"),
+        "depuis": job.get("depuis"),
+        "cout": pick("cout"),
+        "nb_sections": pick("nb_sections"),
+        "nb_completer": pick("nb_completer"),
+        "sections_manquantes": pick("sections_manquantes"),
+        "duree_s": pick("duree_s"),
+        "disponible": bool(existante),
+        "download_url": (url_for("telecharger_memoire", id_marche=id_marche, numero_lot=numero_lot)
+                         if existante else None),
+    }
+
+
+@app.route("/marche/<id_marche>/memoire/<int:numero_lot>/download")
+def telecharger_memoire(id_marche, numero_lot):
+    """Télécharge le .docx de la mémoire du lot pour le profil actif."""
+    id_user, _ = _memoire_id_user()
+    cle = _pipeline_memoire.cle_memoire_existante(id_marche, numero_lot, id_user)
+    if not cle:
+        abort(404)
+    memoire = stockage.lire("memoires_techniques", cle) or {}
+    chemin = memoire.get("chemin_docx")
+    if not chemin or not os.path.isfile(chemin):
+        abort(404)
+    return send_file(os.path.abspath(chemin), as_attachment=True,
+                     download_name=os.path.basename(chemin))
 
 
 @app.route("/marche/<id_marche>/retenter-dce", methods=["POST"])
@@ -1834,4 +2151,4 @@ if __name__ == "__main__":
     print(f"  Serveur démarré sur : http://localhost:5000")
     print(f"  Pour arrêter        : Ctrl+C")
     print()
-    app.run(host="127.0.0.1", port=5000, debug=False)
+    app.run(host="127.0.0.1", port=5000, debug=False, threaded=True)

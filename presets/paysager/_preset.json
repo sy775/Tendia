@@ -1,0 +1,108 @@
+{
+  "meta": {
+    "code": "paysager",
+    "nom": "Espaces verts — création et entretien paysager",
+    "etiquette_courte": "Paysager",
+    "description": "Marchés d'aménagement et d'entretien d'espaces verts : tonte, taille, élagage, fleurissement, gestion différenciée, zéro phyto.",
+    "version": 1,
+    "qualite": "mvp",
+    "_notes": "Preset créé en lot (chantier presets manquants) — contenu métier MVP à affiner."
+  },
+  "veille": {
+    "description": "Critères de filtrage Paysager.",
+    "domaines_acceptes": [
+      "amenagement_paysager_entretien",
+      "amenagement_paysager_creation"
+    ],
+    "domaines_optionnels": [
+      "btp_voirie_reseaux"
+    ],
+    "mots_cles_inclusion": [
+      "espaces verts",
+      "paysager",
+      "tonte",
+      "taille",
+      "élagage",
+      "fleurissement",
+      "gestion différenciée",
+      "zéro phyto",
+      "arrosage",
+      "plantation",
+      "engazonnement"
+    ],
+    "mots_cles_exclusion": [],
+    "cpv_inclusion": [
+      "77*",
+      "451123*"
+    ]
+  },
+  "vocabulaire_llm": {
+    "description": "Termes injectés dans les prompts LLM.",
+    "secteur_libelle": "marchés d'aménagement et d'entretien d'espaces verts",
+    "type_pieces_dce_typiques": "d'un RC, d'un CCTP décrivant les surfaces, les prestations et fréquences, souvent d'un BPU au m² ou à l'unité et d'un plan des espaces",
+    "type_repondant": "entreprise du paysage (UNEP), seule ou en groupement, avec personnel qualifié et matériel adapté",
+    "unite_principale_facturation": "m²/an entretenu / heure / forfait par site",
+    "references_attendues": "références de marchés d'entretien d'espaces verts similaires (surfaces, type d'espaces)",
+    "alertes_typiques": [
+      "certiphyto et démarche zéro phyto / gestion différenciée",
+      "certification d'élagage et travail en hauteur",
+      "reprise du personnel possible",
+      "matériel à faibles émissions/bruit",
+      "périodes d'intervention (nidification, floraison)"
+    ],
+    "exemples_synthese": [
+      "Marché d'entretien des espaces verts d'une commune (~12 ha), gestion différenciée, zéro phyto, sur 3 ans.",
+      "Marché de création paysagère d'un parc urbain avec plantations et engazonnement."
+    ]
+  },
+  "prompt_extraction": {
+    "description": "Champs métier ajoutés au schéma JSON du brief.",
+    "bloc_schema_specifique": "  \"caracteristiques_paysager\": {\n    \"type_prestation\": \"Ex: entretien courant, création/aménagement, élagage, fleurissement\",\n    \"surface_totale_m2\": null,\n    \"nb_sites\": null,\n    \"types_espaces\": [\"Ex: pelouses, massifs, haies, arbres d'alignement, terrains de sport, aires de jeux\"],\n    \"prestations\": [\"Ex: tonte, taille, élagage, désherbage, fleurissement, arrosage, ramassage de feuilles\"],\n    \"frequences\": \"Fréquences par prestation si précisées. null sinon.\",\n    \"gestion_differenciee_zero_phyto\": null,\n    \"contraintes_environnementales\": \"Ex: protection biodiversité, périodes de nidification, matériel électrique. null sinon.\"\n  },\n  \"qualifications_paysager\": {\n    \"certiphyto\": false,\n    \"certification_elagage\": false,\n    \"label_qualite\": [\"Ex: label Qualipaysage, UNEP, démarche environnementale\"]\n  }",
+    "regles_specifiques": "- Repérer la GESTION DIFFÉRENCIÉE / ZÉRO PHYTO (certiphyto) : enjeu majeur des marchés publics d'espaces verts.\n- Distinguer ENTRETIEN courant de la CRÉATION/aménagement (travaux paysagers).\n- L'élagage et le travail en hauteur exigent des certifications spécifiques.",
+    "hints_calcul_montant": "Mots-clés : 'prix au m²/an', 'heure', 'forfait par site', 'prix à l'unité (arbre, ml de haie)'. Si surface et prix au m²/an donnés -> CALCULE le montant."
+  },
+  "calibration_llm": {
+    "baremes_horaires_eur": {
+      "ouvrier_paysagiste": [
+        24,
+        30
+      ],
+      "chef_equipe_paysage": [
+        28,
+        36
+      ],
+      "elagueur": [
+        28,
+        38
+      ]
+    },
+    "marge_prestataire_pct": [
+      10,
+      25
+    ],
+    "unites_typiques": [
+      "m²/an",
+      "heure",
+      "forfait par site",
+      "unité"
+    ]
+  },
+  "matching": {
+    "alertes_critiques": [],
+    "seuils_score": {
+      "tres_pertinent": 75,
+      "pertinent": 50,
+      "a_verifier": 20
+    }
+  },
+  "taxonomie": {
+    "categories_metier": [
+      "entretien_courant",
+      "creation_amenagement",
+      "elagage",
+      "fleurissement",
+      "gestion_differenciee",
+      "autre"
+    ]
+  }
+}

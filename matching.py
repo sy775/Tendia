@@ -42,8 +42,9 @@ SEUIL_A_VERIFIER = 20
 # Pondération multi-preset (entreprises diversifiées) — décote « équilibrée ».
 # Rang 1 = activité principale (référence pleine), 2 = secondaire, 3 = tertiaire.
 # La source du rang est `presets_priorites` du profil, sinon l'ordre de `presets_couverts`.
-PRESET_COMPAT_POINTS = {1: 20, 2: 13, 3: 7}   # points de compat selon le rang du preset matché
-PRESET_COMPAT_DEFAULT = 7                       # rang > 3
+PRESET_COMPAT_POINTS = {1: 14, 2: 9, 3: 5}    # compat preset (signal large) — réduit : le fit fin
+                                               # passe par domaines_couverts/sectoriels, pas par le preset
+PRESET_COMPAT_DEFAULT = 5                       # rang > 3
 PRESET_FACTEUR_SECTORIEL = {1: 1.0, 2: 0.6, 3: 0.35}  # atténue les signaux sectoriels POSITIFS
 PRESET_FACTEUR_DEFAULT = 0.35
 _LIBELLE_RANG = {1: "principal", 2: "secondaire", 3: "tertiaire"}
@@ -108,13 +109,25 @@ def _candidature_par_lot(brief: Optional[dict]):
     if isinstance(v, bool):
         return v
     desc = _normaliser(str(allot.get("description") or ""))
+    # Priorité au signal "offre globale" : ne jamais annoncer une candidature
+    # partielle possible si le RC impose de couvrir tout le marché.
     if any(x in desc for x in ("offre globale", "ensemble des lots", "tous les lots obligat",
                                "marche global", "globale obligatoire", "un seul titulaire",
                                "ne peuvent soumissionner que pour l ensemble", "offre unique")):
         return False
     if any(x in desc for x in ("separement", "par lot", "un ou plusieurs lots", "chaque lot",
-                               "lot par lot", "soumissionner pour un")):
+                               "lot par lot", "soumissionner pour un", "lots independant",
+                               "independant")):
         return True
+    # Repli : le dossier de candidature trahit souvent une candidature par lot
+    # (« acte d'engagement un par lot candidaté », « DPGF remplie par lot »…).
+    pieces = (brief or {}).get("dossier_candidature", {}).get("pieces_a_fournir") or []
+    for p in pieces:
+        lib = _normaliser(str((p or {}).get("libelle") or ""))
+        if any(x in lib for x in ("par lot candidat", "un par lot", "par lot)",
+                                  "remplie par lot", "rempli par lot", "acte d engagement par lot",
+                                  "un acte d engagement par lot")):
+            return True
     return None
 
 
@@ -340,12 +353,12 @@ def _eval_thematique_v2(organisme: dict, marche: dict,
         return _motif("thematique", None, 0, "Objet du marche vide.")
     trouves = [m for m in mots if _mot_cle_present(m, objet_norm)]
     if len(trouves) >= 2:
-        return _motif("thematique", True, 25,
+        return _motif("thematique", True, 18,
                       f"Match catalogue : {len(trouves)} mots-cles "
                       f"({', '.join(trouves[:5])}).",
                       valeur_organisme=trouves)
     if len(trouves) == 1:
-        return _motif("thematique", True, 15,
+        return _motif("thematique", True, 11,
                       f"Match catalogue partiel : {trouves[0]}.",
                       valeur_organisme=trouves)
     return _motif("thematique", False, 0,
@@ -425,20 +438,20 @@ def _eval_geographie_v2(organisme: dict, marche: dict,
     regs_couvertes = set(regs_profil) | regs_via_deps
 
     if dep_marche and dep_marche in deps_profil:
-        return _motif("geographie", True, 25,
+        return _motif("geographie", True, 16,
                       f"Match departement direct : {dep_marche}.",
                       valeur_organisme=zones_profil,
                       valeur_marche=dep_marche)
     if dep_marche:
         reg_via_dep = DEPARTEMENT_VERS_REGION.get(dep_marche)
         if reg_via_dep and reg_via_dep in regs_couvertes:
-            return _motif("geographie", True, 15,
+            return _motif("geographie", True, 10,
                           f"Match region : {dep_marche} (region "
                           f"{reg_via_dep}) couvert.",
                           valeur_organisme=list(regs_couvertes),
                           valeur_marche=f"dep {dep_marche} / reg {reg_via_dep}")
     if region_marche and region_marche in regs_couvertes:
-        return _motif("geographie", True, 12,
+        return _motif("geographie", True, 8,
                       f"Match region : {region_marche} couverte.",
                       valeur_organisme=list(regs_couvertes),
                       valeur_marche=region_marche)
@@ -1114,8 +1127,8 @@ def _eval_synergie_v2(motifs: list) -> dict:
     score_them = next((m["points"] for m in motifs if m["critere"] == "thematique"), 0)
     score_geo = next((m["points"] for m in motifs if m["critere"] == "geographie"), 0)
     score_preset = next((m["points"] for m in motifs if m["critere"] == "preset_compatibilite"), 0)
-    if score_them >= 15 and score_geo >= 15 and score_preset >= 20:
-        return _motif("synergie", True, 10,
+    if score_them >= 11 and score_geo >= 10 and score_preset >= 9:
+        return _motif("synergie", True, 6,
                       "Thematique + geographie + preset alignes — candidature "
                       "naturelle.")
     return _motif("synergie", None, 0, "")
@@ -1136,9 +1149,16 @@ def _calculer_verdict(score: int, motifs: list) -> str:
     preset_mo = next((m for m in motifs if m["critere"] == "preset_compatibilite"), None)
     if preset_mo is not None and preset_mo.get("satisfait") is not True:
         return "non_pertinent"
-    # 3) Verdict par seuil.
+    # 3) Verdict par seuil. « Très pertinent » exige un VRAI fit positif (domaine précis
+    #    couvert OU signal sectoriel positif) — pas seulement région + secteur large +
+    #    mot-clé. Sinon le marché est rétrogradé à « pertinent ».
+    def _fit_reel(m):
+        c = m["critere"]
+        return (m.get("points") or 0) > 0 and (
+            c == "domaines_couverts" or c.startswith(("btp_", "ing_", "enr_", "sectoriel_")))
+    a_fit_reel = any(_fit_reel(m) for m in motifs)
     if score >= SEUIL_TRES_PERTINENT:
-        v = "tres_pertinent"
+        v = "tres_pertinent" if a_fit_reel else "pertinent"
     elif score >= SEUIL_PERTINENT:
         v = "pertinent"
     elif score >= SEUIL_A_VERIFIER:

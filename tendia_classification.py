@@ -177,6 +177,11 @@ def _prompt_systeme() -> str:
         "  Exemple : `[{\"code\": \"btp_gros_oeuvre\", \"poids\": 0.6, \"lots_concernes\": [1,2]}, "
         "{\"code\": \"btp_voirie_reseaux\", \"poids\": 0.4, \"lots_concernes\": [3]}]`",
         "- JAMAIS plus de 3 domaines. Si vraiment hors taxonomie, un seul : `autre`.",
+        "- **CODES EXACTS — RÈGLE STRICTE** : le `code` doit être RECOPIÉ caractère pour "
+        "caractère depuis la liste ci-dessous. N'invente AUCUNE variante orthographique "
+        "(écris `energie_...`, JAMAIS `energia_...` ni `energy_...`), ne traduis pas, "
+        "n'abrège pas, ne change pas les accents/underscores. Tout code absent de la "
+        "liste est INVALIDE et sera rejeté.",
         "",
         "Liste des codes disponibles :",
         "",

@@ -1,0 +1,106 @@
+{
+  "meta": {
+    "code": "sante",
+    "nom": "Santé & médical — prestations médicales, biologie, analyses",
+    "etiquette_courte": "Santé",
+    "description": "Marchés de prestations médicales et paramédicales : médecine du travail/prévention, biologie/analyses, imagerie, dispositifs médicaux.",
+    "version": 1,
+    "qualite": "mvp",
+    "_notes": "Preset créé en lot (chantier presets manquants) — contenu métier MVP à affiner."
+  },
+  "veille": {
+    "description": "Critères de filtrage Santé.",
+    "domaines_acceptes": [
+      "services_sante_medical"
+    ],
+    "domaines_optionnels": [],
+    "mots_cles_inclusion": [
+      "médical",
+      "santé",
+      "médecine du travail",
+      "biologie",
+      "analyses",
+      "laboratoire",
+      "prévention",
+      "soins",
+      "infirmier",
+      "dépistage",
+      "vaccination"
+    ],
+    "mots_cles_exclusion": [],
+    "cpv_inclusion": [
+      "851*",
+      "853*",
+      "73111*"
+    ]
+  },
+  "vocabulaire_llm": {
+    "description": "Termes injectés dans les prompts LLM.",
+    "secteur_libelle": "marchés de prestations médicales, paramédicales et d'analyses de biologie",
+    "type_pieces_dce_typiques": "d'un RC, d'un CCTP décrivant les prestations médicales et le public concerné, souvent d'un BPU à l'acte",
+    "type_repondant": "professionnel de santé, laboratoire, centre médical ou prestataire agréé, seul ou en groupement",
+    "unite_principale_facturation": "acte / vacation / forfait par agent ou par site",
+    "references_attendues": "références de prestations médicales similaires (public, volumes, type d'actes)",
+    "alertes_typiques": [
+      "inscription à l'Ordre des médecins / qualification des praticiens",
+      "accréditation COFRAC pour les laboratoires de biologie",
+      "autorisations ARS et conformité HAS",
+      "confidentialité et secret médical (RGPD santé)",
+      "agrément des dispositifs médicaux (marquage CE médical)"
+    ],
+    "exemples_synthese": [
+      "Marché de surveillance médicale (médecine de prévention) des agents d'une collectivité, à la vacation.",
+      "Accord-cadre d'analyses de biologie médicale pour un établissement, laboratoire accrédité COFRAC."
+    ]
+  },
+  "prompt_extraction": {
+    "description": "Champs métier ajoutés au schéma JSON du brief.",
+    "bloc_schema_specifique": "  \"caracteristiques_sante\": {\n    \"type_prestation\": \"Ex: médecine du travail/prévention, biologie médicale, imagerie, soins infirmiers, dépistage, dispositifs médicaux\",\n    \"public_concerne\": \"Ex: agents, patients, résidents EHPAD, scolaires. null sinon.\",\n    \"volumes_estimes\": \"Nombre d'actes/agents/analyses si précisé. null sinon.\",\n    \"lieux_intervention\": \"Sur site / en cabinet / mobile. null sinon.\",\n    \"exigences_qualite\": [\"Ex: accréditation COFRAC, conformité HAS, démarche qualité labo\"],\n    \"donnees_sensibles_rgpd\": null\n  },\n  \"qualifications_sante\": {\n    \"inscription_ordre\": \"Ex: médecins inscrits au Conseil de l'Ordre. null si non exigée.\",\n    \"accreditation_cofrac\": false,\n    \"autorisation_ars\": false,\n    \"marquage_ce_medical\": false,\n    \"habilitations\": [\"Ex: habilitation à la médecine de prévention, qualification spécifique\"]\n  }",
+    "regles_specifiques": "- Repérer les exigences réglementaires fortes : inscription à l'Ordre, accréditation COFRAC (labos), autorisation ARS, conformité HAS.\n- Les données de santé sont des données sensibles : RGPD renforcé, à signaler.\n- DOUBLE-REMPLISSAGE : accréditations/inscriptions exigées vont dans qualifications_sante ET references_exigees.certifications_obligatoires.",
+    "hints_calcul_montant": "Mots-clés : 'prix à l'acte', 'vacation', 'forfait par agent'. Si nb d'actes/agents et prix unitaire donnés -> CALCULE le montant."
+  },
+  "calibration_llm": {
+    "baremes_horaires_eur": {
+      "medecin_vacation_heure": [
+        80,
+        150
+      ],
+      "infirmier_heure": [
+        30,
+        45
+      ],
+      "technicien_labo_heure": [
+        28,
+        40
+      ]
+    },
+    "marge_prestataire_pct": [
+      10,
+      25
+    ],
+    "unites_typiques": [
+      "acte",
+      "vacation",
+      "forfait par agent",
+      "forfait par site"
+    ]
+  },
+  "matching": {
+    "alertes_critiques": [],
+    "seuils_score": {
+      "tres_pertinent": 75,
+      "pertinent": 50,
+      "a_verifier": 20
+    }
+  },
+  "taxonomie": {
+    "categories_metier": [
+      "medecine_prevention",
+      "biologie_analyses",
+      "imagerie",
+      "soins",
+      "dispositifs_medicaux",
+      "autre"
+    ]
+  }
+}

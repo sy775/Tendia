@@ -407,7 +407,11 @@ Extrais les informations dans ce schéma JSON :
             "description": "Sous-niveau imbriqué : présent UNIQUEMENT si le RC structure réellement le critère parent en sous-rubriques chiffrées.",
             "elements_attendus": ["..."],
             "exemple_reponse_forte": "...",
-            "source": "RC §5.2.1"
+            "source": "RC §5.2.1",
+            "grille_actions": [
+              {{"action": "Action concrète à mener dans le mémoire pour scorer sur CE critère feuille (verbe + livrable/argument)", "type": "livrable", "poids_pct": 60, "source": "CCTP §3.2"}},
+              {{"action": "Levier différenciant vs concurrence (au-delà du minimum exigé)", "type": "levier", "poids_pct": 40, "source": "estimé"}}
+            ]
           }},
           {{
             "libelle": "Intitulé d'un autre sous-sous-critère",
@@ -589,6 +593,23 @@ RÈGLES IMPORTANTES :
 
   - Le champ `sous_criteres` est OPTIONNEL : omets-le complètement (ou mets `[]`) quand le sous-critère est terminal (feuille).
 
+- **GRILLE D'ACTIONS (`grille_actions`) — sur les critères FEUILLES uniquement** : pour CHAQUE
+  critère feuille (terminal, sans `sous_criteres`), croise sa définition avec les exigences du
+  CCTP/RC et produis 2 à 5 ACTIONS concrètes que le candidat doit mener dans son mémoire pour
+  scorer haut sur ce critère. NE mets PAS de `grille_actions` sur un critère qui a des
+  sous-critères (ses feuilles les portent) — sinon doublon.
+  Chaque action :
+  - `action` : formulation concrète et actionnable (un verbe + le livrable/argument), SPÉCIFIQUE
+    au métier et au marché (pas une généralité). Sur un marché alloti à métiers différents,
+    reste sur ce qui est COMMUN ; le détail par lot se gère ailleurs.
+  - `type` : "livrable" si élément/preuve EXIGÉ par le DCE (sans lui on perd des points) ;
+    "levier" si argument DIFFÉRENCIANT qui fait gagner des points vs concurrence.
+  - `poids_pct` : ENTIER, part estimée de cette action DANS la note du critère feuille ; la
+    somme des `poids_pct` des actions d'un même critère = EXACTEMENT 100. C'est une ESTIMATION
+    (le DCE chiffre rarement l'intérieur d'un critère) — fonde-la sur l'importance des attendus.
+  - `source` : référence précise ("CCTP §3.2", "RC art 5") si l'attendu est explicite, sinon "estimé".
+  Si le critère est trop générique pour des actions justes, produis-en moins mais pertinentes.
+
 - **COHÉRENCE DES PONDÉRATIONS** : à chaque niveau, la somme des `ponderation_pct` doit valoir le `ponderation_pct` du parent (ou 100 au niveau racine pour la partie technique). Si tu vois une incohérence (ex: 50% = 30% + 15% + 10% = 55%), c'est probablement que tu as mal lu le RC — relis ce passage spécifique. Si l'incohérence persiste après vérification, mentionne-la dans la `description` du parent ("le RC affiche un sous-total à 55% au lieu de 50%").
 
 - **CRITIQUE BARÈME** : `valeur_technique_pct` + `valeur_prix_pct` doit faire EXACTEMENT 100. Les critères RSE/environnementaux/sociaux sont presque toujours des SOUS-critères du technique (à ranger dans `sous_criteres_techniques`), pas un 3e critère principal. Ne crée jamais un troisième pourcentage qui ferait dépasser 100.
@@ -599,8 +620,14 @@ RÈGLES IMPORTANTES :
     `lineaire` (note linéaire entre min et max)
     `ecart_type` (note vs moyenne, pénalise les extrêmes)
     `seuil` (note plein/zéro selon seuil)
+    `prix_reference` (l'offre la plus proche du prix de référence de l'acheteur obtient le maximum de points ; les offres trop hautes comme anormalement basses sont pénalisées)
     `autre`
-    Si le RC ne précise pas explicitement la formule, mets "autre".
+    RÈGLE STRICTE — NE PAS sur-classer en `moins_disant` :
+    • `moins_disant` UNIQUEMENT si le RC donne EXPLICITEMENT une formule au prix le plus bas
+      (ex: "note = X × prix le plus bas / prix de l'offre", "l'offre la moins-disante obtient la note max").
+    • Si le RC ne précise PAS la formule de notation du prix (ou seulement « le prix est apprécié
+      sur le bordereau » sans formule), le DÉFAUT est `prix_reference` — JAMAIS `moins_disant`.
+    • Une simple mention d'un bordereau/BPU à remplir n'est PAS une formule au moins-disant.
   - `formule_explicite` : recopie textuellement la formule du RC si elle est là (en LaTeX simplifié ou prose). Sinon 1 phrase descriptive.
   - `source` : OÙ dans le RC se trouve le critère prix et sa pondération (ex: "RC art 5.3 page 14", "RC §6.2"). Si non localisable précisément : "RC". Si vraiment introuvable : null.
   - `elements_a_chiffrer` : liste des postes/lignes à chiffrer dans le bordereau de prix (BPU, DPGF, etc.) selon le RC.
@@ -657,6 +684,8 @@ Réponds UNIQUEMENT avec le JSON, sans aucun texte autour."""
 
 # === Règles v2 (refonte pipeline) : 3 voies de montant + critères stricts + BOAMP ===
 REGLES_V2 = """
+=== VERSION v3 — grille d'actions (`grille_actions`) intégrée sur les critères feuilles ===
+
 === RÈGLES v2 — MONTANT EN 3 VOIES (bloc `montant_3_voies`) ===
 
 Tu remplis `montant_3_voies` EN PLUS de `montant_marche` (rétro-compat).

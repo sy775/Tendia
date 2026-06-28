@@ -1,0 +1,102 @@
+{
+  "meta": {
+    "code": "restauration",
+    "nom": "Restauration collective — production et service de repas",
+    "etiquette_courte": "Restauration",
+    "description": "Marchés de restauration collective : production et/ou livraison de repas (scolaire, EHPAD, hospitalier), liaison chaude/froide, EGalim.",
+    "version": 1,
+    "qualite": "mvp",
+    "_notes": "Preset créé en lot (chantier presets manquants) — contenu métier MVP à affiner."
+  },
+  "veille": {
+    "description": "Critères de filtrage Restauration.",
+    "domaines_acceptes": [
+      "restauration_collective_prestations",
+      "restauration_fournitures_alimentaires"
+    ],
+    "domaines_optionnels": [],
+    "mots_cles_inclusion": [
+      "restauration",
+      "repas",
+      "cantine",
+      "restauration collective",
+      "liaison froide",
+      "liaison chaude",
+      "convives",
+      "cuisine centrale",
+      "EGalim",
+      "bio",
+      "denrées"
+    ],
+    "mots_cles_exclusion": [],
+    "cpv_inclusion": [
+      "553*",
+      "15*"
+    ]
+  },
+  "vocabulaire_llm": {
+    "description": "Termes injectés dans les prompts LLM.",
+    "secteur_libelle": "marchés de restauration collective (production et service de repas)",
+    "type_pieces_dce_typiques": "d'un RC, d'un CCTP décrivant le nombre de couverts, le type de convives, les grammages et exigences EGalim, souvent d'un BPU au repas et de menus types",
+    "type_repondant": "société de restauration collective ou cuisine centrale, seule ou en groupement",
+    "unite_principale_facturation": "prix du repas / couvert servi / forfait journalier",
+    "references_attendues": "références de restauration collective similaires (type de convives, nb de couverts/jour)",
+    "alertes_typiques": [
+      "agrément sanitaire et plan HACCP",
+      "exigences EGalim (% bio, % local/durable)",
+      "gestion des allergènes et régimes spéciaux",
+      "grammages et qualité nutritionnelle (GEMRCN)",
+      "liaison froide/chaude et chaîne du froid",
+      "reprise du personnel possible"
+    ],
+    "exemples_synthese": [
+      "Marché de fourniture de repas en liaison froide pour les écoles d'une commune (~800 couverts/jour), 50% EGalim.",
+      "Marché de restauration d'un EHPAD avec textures modifiées et régimes spéciaux."
+    ]
+  },
+  "prompt_extraction": {
+    "description": "Champs métier ajoutés au schéma JSON du brief.",
+    "bloc_schema_specifique": "  \"caracteristiques_restauration\": {\n    \"type_convives\": \"Ex: scolaire, petite enfance, EHPAD, hospitalier, portage à domicile, administratif\",\n    \"nb_couverts_jour\": null,\n    \"nb_repas_an_estime\": null,\n    \"type_liaison\": \"Ex: liaison froide, liaison chaude, sur place, livrée\",\n    \"exigences_egalim\": \"Ex: % de produits bio, % de produits durables/locaux, lutte anti-gaspillage. null sinon.\",\n    \"regimes_allergenes\": \"Ex: textures modifiées, régimes sans porc/allergènes, PAI. null sinon.\",\n    \"grammages_gemrcn\": null,\n    \"reprise_personnel\": null\n  },\n  \"qualifications_restauration\": {\n    \"agrement_sanitaire\": false,\n    \"plan_haccp\": false,\n    \"certification_bio\": false,\n    \"demarche_qualite\": [\"Ex: ISO 22000, label qualité, démarche développement durable\"]\n  }",
+    "regles_specifiques": "- Repérer les exigences EGalim (% bio, % local/durable) : critère majeur en restauration collective publique.\n- Repérer le type de LIAISON (froide/chaude) et les régimes/allergènes (textures modifiées en EHPAD).\n- L'agrément sanitaire et le plan HACCP sont obligatoires ; la reprise du personnel est fréquente.",
+    "hints_calcul_montant": "Mots-clés : 'prix du repas', 'prix du couvert', 'nb de couverts/jour'. Si nb de repas/an et prix du repas donnés -> CALCULE le montant."
+  },
+  "calibration_llm": {
+    "baremes_horaires_eur": {
+      "cuisinier": [
+        24,
+        32
+      ],
+      "agent_restauration": [
+        22,
+        28
+      ]
+    },
+    "marge_prestataire_pct": [
+      10,
+      25
+    ],
+    "unites_typiques": [
+      "repas",
+      "couvert",
+      "forfait journalier"
+    ]
+  },
+  "matching": {
+    "alertes_critiques": [],
+    "seuils_score": {
+      "tres_pertinent": 75,
+      "pertinent": 50,
+      "a_verifier": 20
+    }
+  },
+  "taxonomie": {
+    "categories_metier": [
+      "scolaire",
+      "ehpad_sante",
+      "portage_domicile",
+      "administratif",
+      "petite_enfance",
+      "autre"
+    ]
+  }
+}

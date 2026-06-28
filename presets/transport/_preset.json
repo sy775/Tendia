@@ -1,0 +1,100 @@
+{
+  "meta": {
+    "code": "transport",
+    "nom": "Transport — personnes, marchandises, location de véhicules",
+    "etiquette_courte": "Transport",
+    "description": "Marchés de transport (personnes, scolaire, sanitaire, marchandises) et location de véhicules avec ou sans chauffeur.",
+    "version": 1,
+    "qualite": "mvp",
+    "_notes": "Preset créé en lot (chantier presets manquants) — contenu métier MVP à affiner."
+  },
+  "veille": {
+    "description": "Critères de filtrage Transport.",
+    "domaines_acceptes": [
+      "transport_logistique_vehicules"
+    ],
+    "domaines_optionnels": [],
+    "mots_cles_inclusion": [
+      "transport",
+      "transport de personnes",
+      "transport scolaire",
+      "navette",
+      "véhicules",
+      "location de véhicules",
+      "logistique",
+      "acheminement",
+      "chauffeur",
+      "autocar"
+    ],
+    "mots_cles_exclusion": [],
+    "cpv_inclusion": [
+      "60*",
+      "34*"
+    ]
+  },
+  "vocabulaire_llm": {
+    "description": "Termes injectés dans les prompts LLM.",
+    "secteur_libelle": "marchés de transport de personnes/marchandises et de location de véhicules",
+    "type_pieces_dce_typiques": "d'un RC, d'un CCTP décrivant les circuits/volumes/véhicules, souvent d'un BPU au km ou à l'heure-véhicule",
+    "type_repondant": "transporteur, loueur de véhicules ou groupement, disposant d'une flotte et de conducteurs qualifiés",
+    "unite_principale_facturation": "km / heure-véhicule / circuit / forfait mensuel",
+    "references_attendues": "références de marchés de transport similaires (volumes, type de public, zones)",
+    "alertes_typiques": [
+      "licence de transport (LOTI) et capacité de transport exigées",
+      "FIMO/FCO des conducteurs",
+      "accessibilité PMR",
+      "normes environnementales (Crit'Air, GNV/électrique)",
+      "ponctualité et continuité de service"
+    ],
+    "exemples_synthese": [
+      "Marché de transport scolaire sur plusieurs circuits, véhicules accessibles PMR, sur 3 ans.",
+      "Location longue durée d'une flotte de véhicules de service avec entretien inclus."
+    ]
+  },
+  "prompt_extraction": {
+    "description": "Champs métier ajoutés au schéma JSON du brief.",
+    "bloc_schema_specifique": "  \"caracteristiques_transport\": {\n    \"type_prestation\": \"Ex: transport scolaire, transport de personnes, transport sanitaire, transport de marchandises, location avec chauffeur, location sans chauffeur\",\n    \"nb_vehicules\": null,\n    \"types_vehicules\": [\"Ex: autocar, minibus, VL, VUL, véhicule PMR, poids lourd\"],\n    \"km_annuels_estimes\": null,\n    \"nb_circuits_ou_lignes\": null,\n    \"zones_desservies\": \"Zones/communes desservies si précisé. null sinon.\",\n    \"accessibilite_pmr\": null,\n    \"normes_environnementales\": [\"Ex: Crit'Air, GNV, électrique, faibles émissions\"],\n    \"amplitude_horaire\": \"Plages/horaires de service si précisés. null sinon.\"\n  },\n  \"qualifications_transport\": {\n    \"licence_transport\": \"Ex: licence LOTI, licence communautaire. null si non exigée.\",\n    \"capacite_transport\": false,\n    \"fimo_fco_conducteurs\": false,\n    \"certifications\": [\"Ex: ISO 9001, ISO 39001 (sécurité routière)\"]\n  }",
+    "regles_specifiques": "- Distinguer transport de PERSONNES (licence, capacité, FIMO conducteurs) du transport de MARCHANDISES et de la LOCATION de véhicules.\n- Repérer l'accessibilité PMR et les exigences environnementales (Crit'Air, GNV).\n- DOUBLE-REMPLISSAGE : licences/capacités exigées vont dans qualifications_transport ET references_exigees.certifications_obligatoires.",
+    "hints_calcul_montant": "Mots-clés : 'prix au km', 'heure-véhicule', 'forfait par circuit'. Si km annuels et prix au km donnés -> CALCULE le montant."
+  },
+  "calibration_llm": {
+    "baremes_horaires_eur": {
+      "conducteur": [
+        22,
+        30
+      ],
+      "vehicule_avec_chauffeur_heure": [
+        40,
+        70
+      ]
+    },
+    "marge_prestataire_pct": [
+      10,
+      25
+    ],
+    "unites_typiques": [
+      "km",
+      "heure-véhicule",
+      "circuit",
+      "forfait mensuel"
+    ]
+  },
+  "matching": {
+    "alertes_critiques": [],
+    "seuils_score": {
+      "tres_pertinent": 75,
+      "pertinent": 50,
+      "a_verifier": 20
+    }
+  },
+  "taxonomie": {
+    "categories_metier": [
+      "transport_personnes",
+      "transport_scolaire",
+      "transport_sanitaire",
+      "transport_marchandises",
+      "location_vehicules",
+      "autre"
+    ]
+  }
+}

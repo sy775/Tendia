@@ -43,6 +43,26 @@ def _construire_url_formulaire(id_place: int | str, org_acronyme: str) -> str:
     )
 
 
+def _identite_telechargement() -> dict:
+    """Identité utilisée pour les consultations PLACE qui refusent l'anonyme.
+    Configurable via .env (TENDIA_DL_*), sinon valeurs génériques de veille."""
+    return {
+        "nom": os.environ.get("TENDIA_DL_NOM", "Veille"),
+        "prenom": os.environ.get("TENDIA_DL_PRENOM", "Tendia"),
+        "email": os.environ.get("TENDIA_DL_EMAIL", "contact@tendia.fr"),
+        "raison_sociale": os.environ.get("TENDIA_DL_RAISON_SOCIALE", "Tendia"),
+        "adresse": os.environ.get("TENDIA_DL_ADRESSE", "1 rue de la Republique"),
+        "cp": os.environ.get("TENDIA_DL_CP", "75001"),
+        "ville": os.environ.get("TENDIA_DL_VILLE", "Paris"),
+        "tel": os.environ.get("TENDIA_DL_TEL", "0100000000"),
+        # SIRET/SIREN : certaines consultations PLACE valident le checksum → un faux
+        # échoue. À renseigner dans .env (TENDIA_DL_SIRET) avec un SIRET RÉEL pour
+        # débloquer le téléchargement identifié de ces consultations.
+        "siret": os.environ.get("TENDIA_DL_SIRET", ""),
+        "siren": os.environ.get("TENDIA_DL_SIREN", os.environ.get("TENDIA_DL_SIRET", "")[:9]),
+    }
+
+
 def _extraire_inputs_form(html: str) -> dict:
     """
     Extrait tous les inputs nommés d'un formulaire HTML.
@@ -144,48 +164,40 @@ def telecharger_dce(
         out["erreur"] = f"Erreur GET étape 1 : {e}"
         return out
 
-    # ----- Étape 2 : POST 1 (anonyme + CGU) -----
+    # ----- Étape 2 : POST 1 — anonyme d'abord, puis identifié si refusé -----
+    # Certaines consultations PLACE (France Travail notamment) REFUSENT le
+    # téléchargement anonyme et exigent une identité (nom/prénom/email/raison
+    # sociale). On tente l'anonyme, et si la page de téléchargement n'est pas
+    # atteinte, on bascule automatiquement sur le téléchargement identifié.
     try:
-        if verbose:
-            print(f"    [2/3] POST 1 : anonyme + CGU...")
-        # Extrait tous les champs du formulaire
-        payload1 = _extraire_inputs_form(html1)
-
-        # Cherche la radio "choixAnonyme" (sa name + sa value)
-        radio_anon = None
-        for m in re.finditer(r'<input[^>]+type=["\']?radio[^>]*>', html1, re.IGNORECASE):
-            inp = m.group(0)
-            value_m = re.search(r'value=["\']([^"\']*)["\']', inp)
-            name_m = re.search(r'name=["\']([^"\']+)["\']', inp)
-            if value_m and name_m and "choixAnonyme" in value_m.group(1):
-                radio_anon = (name_m.group(1), value_m.group(1))
-                break
-        if not radio_anon:
-            out["erreur"] = "Radio 'choixAnonyme' introuvable"
-            return out
-        payload1[radio_anon[0]] = radio_anon[1]
-
-        # Cherche la checkbox CGU
+        # --- Champs communs au formulaire (CGU, bouton Valider, action, radios) ---
         cb_cgu = None
         for m in re.finditer(r'<input[^>]+type=["\']?checkbox[^>]*>', html1, re.IGNORECASE):
-            inp = m.group(0)
-            name_m = re.search(r'name=["\']([^"\']+)["\']', inp)
+            name_m = re.search(r'name=["\']([^"\']+)["\']', m.group(0))
             if name_m and "accepterConditions" in name_m.group(1):
                 cb_cgu = name_m.group(1)
                 break
-        if cb_cgu:
-            payload1[cb_cgu] = "on"
-
-        # Bouton "Valider"
+        submit_field = None
         for m in re.finditer(r'<input[^>]+type=["\']?submit[^>]*>', html1, re.IGNORECASE):
-            inp = m.group(0)
-            name_m = re.search(r'name=["\']([^"\']+)["\']', inp)
-            value_m = re.search(r'value=["\']([^"\']+)["\']', inp)
+            name_m = re.search(r'name=["\']([^"\']+)["\']', m.group(0))
+            value_m = re.search(r'value=["\']([^"\']+)["\']', m.group(0))
             if name_m and value_m and value_m.group(1).lower() == "valider":
-                payload1[name_m.group(1)] = value_m.group(1)
+                submit_field = (name_m.group(1), value_m.group(1))
                 break
+        # Radios disponibles : groupe principal (anonyme / téléchargement identifié)
+        # + établissement (france / étranger).
+        radios = {}
+        for m in re.finditer(r'<input[^>]+type=["\']?radio[^>]*>', html1, re.IGNORECASE):
+            name_m = re.search(r'name=["\']([^"\']+)["\']', m.group(0))
+            value_m = re.search(r'value=["\']([^"\']*)["\']', m.group(0))
+            if name_m and value_m:
+                radios.setdefault(name_m.group(1), []).append(value_m.group(1))
+        grp = next((n for n in radios if n.endswith("$RadioGroup")), None)
+        val_anon = next((v for v in radios.get(grp, []) if "choixAnonyme" in v), None)
+        val_dl = next((v for v in radios.get(grp, []) if "choixTelechargement" in v), None)
+        etab = next((n for n in radios if n.endswith("$etablissementEntreprise")), None)
+        val_fr = next((v for v in radios.get(etab, []) if v.endswith("$france")), None)
 
-        # Action POST = main_form action attribute
         action_url = url_form  # par défaut
         for m_form in re.finditer(r'<form([^>]*)>', html1, re.IGNORECASE):
             attrs = m_form.group(1)
@@ -199,16 +211,55 @@ def telecharger_dce(
                         action_url = URL_BASE_PLACE + action_attr
                 break
 
-        r2 = session.post(
-            action_url, data=payload1, timeout=timeout,
-            allow_redirects=True, headers={"Referer": url_form},
-        )
-        if r2.status_code != 200:
-            out["erreur"] = f"POST 1 HTTP {r2.status_code}"
-            return out
-        html2 = r2.text
-        if "completeDownload" not in html2:
-            out["erreur"] = "POST 1 : page téléchargement non atteinte (pas de bouton completeDownload)"
+        def _construire_payload(mode):
+            p = _extraire_inputs_form(html1)
+            if cb_cgu:
+                p[cb_cgu] = "on"
+            if submit_field:
+                p[submit_field[0]] = submit_field[1]
+            if mode == "anonyme" and grp and val_anon:
+                p[grp] = val_anon
+            elif mode == "identifie" and grp and val_dl:
+                p[grp] = val_dl
+                ident = _identite_telechargement()
+                base = grp.rsplit("$", 1)[0]  # …$EntrepriseFormulaireDemande
+                p[base + "$nom"] = ident["nom"]
+                p[base + "$prenom"] = ident["prenom"]
+                p[base + "$email"] = ident["email"]
+                p[base + "$raisonSocial"] = ident["raison_sociale"]
+                p[base + "$address"] = ident["adresse"]
+                p[base + "$cp"] = ident["cp"]
+                p[base + "$ville"] = ident["ville"]
+                p[base + "$tel"] = ident["tel"]
+                if ident.get("siret"):
+                    p[base + "$siret"] = ident["siret"]
+                if ident.get("siren"):
+                    p[base + "$siren"] = ident["siren"]
+                if etab and val_fr:
+                    p[etab] = val_fr
+            return p
+
+        html2 = None
+        r2 = None
+        for mode in ("anonyme", "identifie"):
+            if mode == "anonyme" and not val_anon:
+                continue
+            if mode == "identifie" and not val_dl:
+                break
+            if verbose:
+                print(f"    [2/3] POST 1 : {mode} + CGU...")
+            r2 = session.post(action_url, data=_construire_payload(mode), timeout=timeout,
+                              allow_redirects=True, headers={"Referer": url_form})
+            if r2.status_code != 200:
+                out["erreur"] = f"POST 1 ({mode}) HTTP {r2.status_code}"
+                continue
+            if "completeDownload" in r2.text:
+                html2 = r2.text
+                if verbose and mode == "identifie":
+                    print("        ↳ bascule téléchargement identifié (anonyme refusé)")
+                break
+        if not html2:
+            out["erreur"] = "POST 1 : page téléchargement non atteinte (anonyme et identifié refusés)"
             return out
     except Exception as e:
         out["erreur"] = f"Erreur POST 1 : {e}"

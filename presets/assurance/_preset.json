@@ -1,0 +1,88 @@
+{
+  "meta": {
+    "code": "assurance",
+    "nom": "Assurance — couverture des risques",
+    "etiquette_courte": "Assurance",
+    "description": "Marchés d'assurance : dommages aux biens, responsabilité civile, flotte automobile, protection juridique, prévoyance/statutaire.",
+    "version": 1,
+    "qualite": "mvp",
+    "_notes": "Preset créé en lot (chantier presets manquants) — contenu métier MVP à affiner."
+  },
+  "veille": {
+    "description": "Critères de filtrage Assurance.",
+    "domaines_acceptes": [
+      "assurance"
+    ],
+    "domaines_optionnels": [],
+    "mots_cles_inclusion": [
+      "assurance",
+      "garantie",
+      "responsabilité civile",
+      "dommages aux biens",
+      "flotte automobile",
+      "protection juridique",
+      "prévoyance",
+      "statutaire",
+      "sinistre",
+      "prime"
+    ],
+    "mots_cles_exclusion": [],
+    "cpv_inclusion": [
+      "66*"
+    ]
+  },
+  "vocabulaire_llm": {
+    "description": "Termes injectés dans les prompts LLM.",
+    "secteur_libelle": "marchés d'assurance (couverture des risques d'un acheteur public)",
+    "type_pieces_dce_typiques": "d'un RC, d'un cahier des charges décrivant les risques à couvrir, l'historique de sinistralité, les garanties et franchises attendues",
+    "type_repondant": "compagnie d'assurance ou courtier (mandaté), seul ou en groupement coassurance",
+    "unite_principale_facturation": "prime annuelle (TTC) par lot de risque",
+    "references_attendues": "références de contrats d'assurance similaires pour des collectivités/établissements publics",
+    "alertes_typiques": [
+      "agrément ACPR de l'assureur / inscription ORIAS du courtier",
+      "qualité de la sinistralité historique fournie",
+      "niveaux de garantie et franchises imposés",
+      "capacité financière et notation de l'assureur",
+      "délais de gestion des sinistres"
+    ],
+    "exemples_synthese": [
+      "Marché d'assurance d'une collectivité en plusieurs lots (dommages aux biens, RC, flotte, protection juridique).",
+      "Marché d'assurance statutaire du personnel d'un établissement public."
+    ]
+  },
+  "prompt_extraction": {
+    "description": "Champs métier ajoutés au schéma JSON du brief.",
+    "bloc_schema_specifique": "  \"caracteristiques_assurance\": {\n    \"branches_couvertes\": [\"Ex: dommages aux biens, responsabilité civile, flotte automobile, protection juridique, prévoyance/statutaire, tous risques chantier\"],\n    \"capitaux_ou_garanties\": \"Niveaux de garantie/capitaux assurés si précisés. null sinon.\",\n    \"franchises\": \"Franchises imposées ou souhaitées. null sinon.\",\n    \"sinistralite_fournie\": null,\n    \"duree_contrat_annees\": null,\n    \"patrimoine_ou_flotte\": \"Description du patrimoine/flotte à assurer (nb bâtiments, nb véhicules). null sinon.\"\n  },\n  \"qualifications_assurance\": {\n    \"agrement_acpr\": false,\n    \"inscription_orias\": false,\n    \"notation_financiere_exigee\": \"Ex: notation minimale exigée (A-, etc.). null sinon.\"\n  }",
+    "regles_specifiques": "- Un marché d'assurance se juge largement sur le PRIX (prime) et la VALEUR TECHNIQUE (étendue des garanties, franchises, gestion des sinistres) : la 'mémoire technique' = note de couverture.\n- Repérer la SINISTRALITÉ historique fournie (déterminante pour le chiffrage).\n- Agrément ACPR (assureur) / inscription ORIAS (courtier) à vérifier.",
+    "hints_calcul_montant": "Mots-clés : 'prime annuelle', 'cotisation', 'taux'. Le montant du marché = prime annuelle x durée. Si prime annuelle et durée donnés -> CALCULE."
+  },
+  "calibration_llm": {
+    "baremes_horaires_eur": {},
+    "marge_prestataire_pct": [
+      10,
+      25
+    ],
+    "unites_typiques": [
+      "prime annuelle",
+      "cotisation"
+    ]
+  },
+  "matching": {
+    "alertes_critiques": [],
+    "seuils_score": {
+      "tres_pertinent": 75,
+      "pertinent": 50,
+      "a_verifier": 20
+    }
+  },
+  "taxonomie": {
+    "categories_metier": [
+      "dommages_biens",
+      "responsabilite_civile",
+      "flotte_auto",
+      "protection_juridique",
+      "prevoyance_statutaire",
+      "autre"
+    ]
+  }
+}

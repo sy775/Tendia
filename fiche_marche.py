@@ -260,11 +260,18 @@ def kpi_cards_pour_marche(brief, marche, presets, calib=None):
         via_voie2 = True
     a_fourchette = (fmin and fmax and float(fmax) > float(fmin))
     est_estimation = mm.get("type") == "calcule_volumes" or via_voie2
+    # Montant OFFICIEL = explicitement publié dans le DCE (estimé explicite ou plafond),
+    # ou Voie 1 (prix officiel) — par opposition à l'estimation bottom-up Tendia.
+    est_officiel = mm.get("type") in ("estime_explicite", "plafond") or _pos(v3.get("voie_1_eur"))
     m = montant_estime(brief)
     if a_fourchette and est_estimation:
         cards.append({"icone": "€", "label": "Valeur estimée",
                       "valeur": f"{_fmt_eur(fmin)} – {_fmt_eur(fmax)}",
                       "hint": "estimation Tendia", "classe": "val"})
+    elif m and est_officiel:
+        cards.append({"icone": "€", "label": "Valeur officielle", "valeur": _fmt_eur(m),
+                      "hint": "plafond du marché" if mm.get("type") == "plafond" else "montant publié",
+                      "classe": "val"})
     elif m:
         cards.append({"icone": "€", "label": "Valeur estimée", "valeur": _fmt_eur(m),
                       "hint": "estimation Tendia" if est_estimation else "", "classe": "val"})
@@ -274,7 +281,8 @@ def kpi_cards_pour_marche(brief, marche, presets, calib=None):
 
     # 2) Card sectorielle
     if "formation" in codes:
-        nb = (_get(brief, "caracteristiques_formation", "nb_beneficiaires_estime")
+        nb = (_get(brief, "volumes", "nb_beneficiaires_total")
+              or _get(brief, "caracteristiques_formation", "nb_beneficiaires_estime")
               or _get(brief, "volumes", "nb_beneficiaires"))
         cards.append({"icone": "◍", "label": "Bénéficiaires",
                       "valeur": str(nb) if _non_vide(nb) else "—", "hint": "", "classe": ""})
@@ -639,6 +647,62 @@ def _bloc_formation(brief, pct):
             sections.append({"label": "Publics cibles", "valeur": pc, "type": "list"})
         else:
             sections.append({"label": "Publics cibles", "valeur": str(pc), "type": "text"})
+
+    # Volumes pédagogiques (sessions, durées, bénéficiaires) — l'info la plus
+    # actionnable pour dimensionner et chiffrer une réponse formation.
+    vol = _get(brief, "volumes") or {}
+    if isinstance(vol, dict):
+        vlignes = []
+        if _non_vide(vol.get("nb_beneficiaires_total")):
+            vlignes.append(f"Bénéficiaires : {vol['nb_beneficiaires_total']}")
+        if _non_vide(vol.get("duree_par_parcours_heures")):
+            vlignes.append(f"Durée parcours : {vol['duree_par_parcours_heures']} h")
+        if _non_vide(vol.get("duree_par_parcours_semaines")):
+            vlignes.append(f"Durée parcours : {vol['duree_par_parcours_semaines']} sem.")
+        if _non_vide(vol.get("duree_marche_mois")):
+            vlignes.append(f"Durée marché : {vol['duree_marche_mois']} mois")
+        if vlignes:
+            sections.append({"label": "Volumes", "valeur": vlignes, "type": "list"})
+        if _non_vide(vol.get("commentaire_volumes")):
+            sections.append({"label": "Détail volumétrie", "valeur": vol["commentaire_volumes"], "type": "text"})
+
+    # Modalités pédagogiques : présentiel/distanciel, sites, amplitude.
+    mod = _get(brief, "modalites") or {}
+    if isinstance(mod, dict):
+        mlignes = []
+        if mod.get("presentiel_obligatoire") is not None:
+            mlignes.append("Présentiel obligatoire" if mod["presentiel_obligatoire"]
+                           else "Présentiel non obligatoire")
+        if mod.get("distanciel_possible") is not None:
+            mlignes.append("Distanciel possible" if mod["distanciel_possible"]
+                           else "Distanciel non prévu")
+        if mlignes:
+            sections.append({"label": "Modalités", "valeur": mlignes, "type": "list"})
+        if _non_vide(mod.get("synchrone_asynchrone")):
+            sections.append({"label": "Synchrone / asynchrone", "valeur": mod["synchrone_asynchrone"], "type": "text"})
+        sites = mod.get("sites_execution") or []
+        if sites:
+            sections.append({"label": "Sites de formation", "valeur": sites, "type": "list"})
+        if _non_vide(mod.get("amplitude_horaire")):
+            sections.append({"label": "Amplitude horaire", "valeur": mod["amplitude_horaire"], "type": "text"})
+
+    # Qualifications / certifications attendues (Qualiopi est souvent éliminatoire).
+    qf = _get(brief, "qualifications_formation") or {}
+    if isinstance(qf, dict):
+        qlignes = []
+        if qf.get("qualiopi"):
+            qlignes.append("Qualiopi exigé")
+        if qf.get("rncp"):
+            titres = qf.get("rncp_titres") or []
+            qlignes.append("RNCP" + (f" ({', '.join(str(t) for t in titres)})" if titres else ""))
+        if qf.get("cpf"):
+            qlignes.append("Éligible CPF")
+        if qlignes:
+            sections.append({"label": "Qualifications", "valeur": qlignes, "type": "list"})
+        autres = qf.get("autres_certifications") or []
+        if autres:
+            sections.append({"label": "Autres certifications", "valeur": autres, "type": "list"})
+
     return {"preset_code": "formation", "label": "Formation", "pct": pct, "implemente": True, "sections": sections}
 
 
@@ -708,6 +772,251 @@ def _bloc_energie_renouvelable(brief, profil, pct):
         sections.append({"label": "Critères d'éligibilité", "valeur": libelles, "type": "list"})
     return {"preset_code": "energie_renouvelable", "label": "Énergie", "pct": pct,
             "implemente": True, "sections": sections}
+
+
+def grille_prix_pour_marche(brief):
+    """Ligne PRIX de la grille : poids du critère prix, mode de jugement (moins-disant
+    avéré sinon prix de référence), et montant (prix officiel ou fourchette Tendia).
+    Retourne {pct, methode, montant_label} ou None si pas de critère prix."""
+    bn = _get(brief, "bareme_notation") or {}
+    pct = bn.get("valeur_prix_pct")
+    if not pct:
+        return None
+    prix = bn.get("prix") or {}
+    formule = prix.get("formule_explicite") or bn.get("modalite_calcul_prix") or ""
+    fl = str(formule).lower().replace("_", " ").replace("-", " ")
+    moins_disant = (prix.get("type_formule") == "moins_disant"
+                    and any(k in fl for k in ("plus bas", "plus basse", "moins disant")))
+    methode = ("Au moins-disant : l'offre la moins chère prend le maximum de points, "
+               "les autres notées au prorata."
+               if moins_disant else
+               "Par rapport au prix de référence : l'offre la plus proche du prix de "
+               "référence de l'acheteur obtient le maximum de points (offres trop hautes "
+               "ou anormalement basses pénalisées).")
+
+    mm = _get(brief, "montant_marche") or {}
+    v3 = _get(brief, "montant_3_voies") or {}
+    def _pos(x):
+        return isinstance(x, (int, float)) and x > 0
+    est_officiel = mm.get("type") in ("estime_explicite", "plafond") or _pos(v3.get("voie_1_eur"))
+    sca = somme_ca_lots(brief)
+    m = montant_estime(brief)
+    montant_label = None
+    if est_officiel and m:
+        montant_label = "Prix officiel : " + _fmt_eur(m) + (" (plafond)" if mm.get("type") == "plafond" else "")
+    elif sca:
+        montant_label = f"Fourchette Tendia : {_fmt_eur(sca[0])} – {_fmt_eur(sca[1])}"
+    elif _pos(mm.get("fourchette_min_euros")) and _pos(mm.get("fourchette_max_euros")):
+        montant_label = f"Fourchette Tendia : {_fmt_eur(mm['fourchette_min_euros'])} – {_fmt_eur(mm['fourchette_max_euros'])}"
+    elif _pos(v3.get("voie_2_min_eur")) and _pos(v3.get("voie_2_max_eur")):
+        montant_label = f"Fourchette Tendia : {_fmt_eur(v3['voie_2_min_eur'])} – {_fmt_eur(v3['voie_2_max_eur'])}"
+    elif m:
+        montant_label = "Estimation Tendia : " + _fmt_eur(m)
+    return {"pct": pct, "methode": methode, "montant_label": montant_label}
+
+
+def _arrondi_propre(x):
+    """Arrondi à 0,1, en entier si la valeur est ronde (12.0 → 12, 4.5 → 4.5)."""
+    if x is None:
+        return None
+    x = round(x, 1)
+    return int(x) if x == int(x) else x
+
+
+def _repartir_poids(total, rels, entier=False):
+    """Répartit `total` (poids absolu) entre les éléments au prorata de `rels`, sommant
+    EXACTEMENT à `total`. Par défaut arrondi à 0,1 ; `entier=True` arrondit à l'entier
+    (méthode du plus grand reste). Si `total` est None → poids relatifs tels quels."""
+    if total is None:
+        return [(int(round(r)) if entier else _arrondi_propre(r)) for r in rels]
+    s = sum(rels) or 1
+    raw = [r / s * total for r in rels]
+    if entier:
+        arr = [int(round(x)) for x in raw]
+        diff = int(round(total - sum(arr)))
+        if diff:
+            ordre = sorted(range(len(raw)), key=lambda i: (raw[i] - arr[i]), reverse=(diff > 0))
+            for k in range(abs(diff)):
+                arr[ordre[k % len(ordre)]] += 1 if diff > 0 else -1
+        return arr
+    arr = [round(x, 1) for x in raw]
+    diff = round(total - sum(arr), 1)
+    if arr and diff:
+        i_max = max(range(len(arr)), key=lambda i: raw[i])
+        arr[i_max] = round(arr[i_max] + diff, 1)
+    return [_arrondi_propre(x) for x in arr]
+
+
+def _poids_absolus_bareme(bn):
+    """Poids ABSOLU (% du total marché) de chaque nœud du barème technique, par CASCADE :
+    les critères de tête sont normalisés sur `valeur_technique_pct`, puis chaque niveau
+    d'enfants est normalisé sur le poids absolu de son parent. Robuste que les
+    pondérations du brief soient exprimées en % du parent OU en % de 100.
+    Retourne {id(noeud): poids_absolu_float}."""
+    abs_map = {}
+    tech = bn.get("valeur_technique_pct")
+
+    def _cascade(noeuds, total):
+        noeuds = [n for n in (noeuds or []) if isinstance(n, dict)]
+        if not noeuds:
+            return
+        poids = [(n.get("ponderation_pct") or 0) for n in noeuds]
+        s = sum(poids)
+        for n, p in zip(noeuds, poids):
+            if total is None:
+                abs_map[id(n)] = n.get("ponderation_pct")
+            elif s > 0:
+                abs_map[id(n)] = p / s * total
+            else:
+                abs_map[id(n)] = total / len(noeuds)
+            _cascade(n.get("sous_criteres"), abs_map[id(n)])
+
+    _cascade(bn.get("sous_criteres_techniques"), tech)
+    return abs_map
+
+
+def _actions_noeud(node, domaine):
+    """Actions de grille d'un nœud pour le domaine demandé. `domaine=None` → champ
+    historique `grille_actions` ; sinon `grille_actions_par_domaine[domaine]`."""
+    if domaine is None:
+        return node.get("grille_actions")
+    return (node.get("grille_actions_par_domaine") or {}).get(domaine)
+
+
+def grille_notation_pour_marche(brief, domaine=None):
+    """Aplatit la grille d'actions d'un domaine en groupes pour un tableau
+    Critère technique · Sous-critère · Action · Poids.
+
+    `domaine=None` lit le champ historique `grille_actions` (marché mono-domaine) ;
+    sinon lit `grille_actions_par_domaine[domaine]`.
+    Retourne [{critere, ponderation, sans_sous_critere, sous_criteres:[{libelle, actions:[{action, poids}]}]}]."""
+    bar = _get(brief, "bareme_notation") or {}
+    groupes = []
+
+    def _a_descendant_avec_grille(node):
+        for ch in (node.get("sous_criteres") or []):
+            if isinstance(ch, dict) and (_actions_noeud(ch, domaine)
+                                         or _a_descendant_avec_grille(ch)):
+                return True
+        return False
+
+    def _collecter(node, acc):
+        if not isinstance(node, dict):
+            return
+        # Un critère ne contribue ses actions QUE s'il est une feuille de grille :
+        # si ses enfants ont déjà une grille, on ne reprend pas les actions du parent
+        # (sinon doublon parent/enfant). On descend dans les enfants.
+        if _actions_noeud(node, domaine) and not _a_descendant_avec_grille(node):
+            acc.append(node)
+        for ch in (node.get("sous_criteres") or []):
+            _collecter(ch, acc)
+
+    # Poids absolus calculés par cascade (généralisé à toute la hiérarchie).
+    abs_map = _poids_absolus_bareme(bar)
+
+    for sc in (bar.get("sous_criteres_techniques") or []):
+        if not isinstance(sc, dict):
+            continue
+        acc = []
+        _collecter(sc, acc)
+        if not acc:
+            continue
+        # Sans sous-critère = la grille est posée directement sur le critère de tête.
+        sans_sc = (len(acc) == 1 and acc[0] is sc)
+        sous = []
+        for node in acc:
+            actions = _actions_noeud(node, domaine) or []
+            # Poids ABSOLU du sous-critère (cascade) ; les actions s'y répartissent.
+            pond_abs = abs_map.get(id(node))
+            rels = [a.get("poids_pct") or 0 for a in actions]
+            abs_poids = _repartir_poids(pond_abs, rels)
+            sous.append({
+                "libelle": "" if node is sc else node.get("libelle"),
+                "ponderation": _arrondi_propre(pond_abs),
+                "actions": [{"action": a.get("action"), "poids": p}
+                            for a, p in zip(actions, abs_poids)],
+            })
+        groupes.append({"critere": sc.get("libelle"),
+                        "ponderation": _arrondi_propre(abs_map.get(id(sc))),
+                        "sans_sous_critere": sans_sc,
+                        "sous_criteres": sous})
+    return groupes
+
+
+def _lots_pertinents_numeros(brief, profil):
+    """Numéros de lots COEUR/PARTIELLE pour le profil (réutilise la compat lot du détail)."""
+    try:
+        dl = tranches_ou_lots(brief, profil or {})
+    except Exception:
+        return set()
+    if dl.get("mode") != "lots":
+        return set()
+    nums = set()
+    for it in dl.get("lignes") or []:
+        if it.get("compat") in ("coeur", "partielle") and it.get("numero") is not None:
+            nums.add(str(it.get("numero")))
+    return nums
+
+
+def grilles_par_domaine(brief, profil=None):
+    """Grilles à afficher : [{domaine, label, lots, groupes}]. Une entrée par domaine
+    (multi-domaine) ou une seule (mono). Le brief est MUTUALISÉ (toutes les grilles
+    métier) mais, si `profil` est fourni, on ne renvoie que les domaines dont AU MOINS
+    un lot est pertinent pour ce profil (chaque organisme ne voit que ses métiers)."""
+    meta = (_get(brief, "grille_notation") or {}).get("domaines")
+    out = []
+    if meta:
+        for d in meta:
+            dom = d.get("domaine")
+            groupes = grille_notation_pour_marche(brief, domaine=dom)
+            if groupes:
+                out.append({"domaine": dom,
+                            "label": (d.get("label") or _libelle_domaine_court(dom)) if dom else "Grille",
+                            "lots": d.get("lots") or [],
+                            "groupes": groupes})
+    if not out:
+        # Repli mono-grille (briefs antérieurs, champ grille_actions historique).
+        groupes = grille_notation_pour_marche(brief, domaine=None)
+        out = [{"domaine": None, "label": "Grille", "lots": [], "groupes": groupes}] if groupes else []
+
+    # Filtrage par profil : ne garder que les domaines dont un lot est pertinent.
+    if profil and len(out) > 1:
+        pert = _lots_pertinents_numeros(brief, profil)
+        if pert:
+            filtres = [g for g in out
+                       if not g["lots"] or any(str(l) in pert for l in g["lots"])]
+            if filtres:  # garde-fou : si rien ne matche, on montre tout
+                return filtres
+    return out
+
+
+def bareme_technique_cascade(brief):
+    """Arbre des sous-critères techniques avec `ponderation_pct` = poids ABSOLU cascadé
+    (exact : les enfants somment au parent, les critères de tête à `valeur_technique_pct`).
+    Sert à afficher un barème cohérent même quand le brief exprime les sous-critères sur
+    une échelle 100 (ex 56310 : « Qualité technique » 65% dont les enfants sommaient à 100).
+    Copies superficielles : ne mute pas le brief d'origine."""
+    bn = _get(brief, "bareme_notation") or {}
+
+    def _construire(noeuds, total):
+        noeuds = [n for n in (noeuds or []) if isinstance(n, dict)]
+        if not noeuds:
+            return []
+        rels = [(n.get("ponderation_pct") or 0) for n in noeuds]
+        # Barème technique : poids ENTIERS, sommant exactement au parent.
+        vals = ([int(round(r)) for r in rels] if total is None
+                else _repartir_poids(total, rels, entier=True))
+        out = []
+        for n, v in zip(noeuds, vals):
+            nc = dict(n)
+            nc["ponderation_pct"] = v
+            nc["sous_criteres"] = _construire(n.get("sous_criteres"), v)
+            out.append(nc)
+        # Tri par poids DÉCROISSANT (à chaque niveau : critères et sous-critères).
+        out.sort(key=lambda x: (x.get("ponderation_pct") or 0), reverse=True)
+        return out
+
+    return _construire(bn.get("sous_criteres_techniques"), bn.get("valeur_technique_pct"))
 
 
 # ===========================================================================
@@ -976,6 +1285,16 @@ def calculer_richesse_brief(brief, presets, marche=None):
             feuilles = list(bloc.values())
             ratios.append(sum(1 for v in feuilles if _non_vide(v)) / max(1, len(feuilles)))
         elif _non_vide(bloc):
+            ratios.append(1.0)
+    # Repli : domaines SANS schéma sectoriel dédié (insertion, sécurité,
+    # restauration…) produisent un bloc générique `caracteristiques_metier`.
+    # Sans ce repli, ces briefs scorent sectoriel=0 → « partiel » à tort.
+    if not ratios:
+        gen = brief.get("caracteristiques_metier")
+        if isinstance(gen, dict):
+            feuilles = list(gen.values())
+            ratios.append(sum(1 for v in feuilles if _non_vide(v)) / max(1, len(feuilles)))
+        elif _non_vide(gen):
             ratios.append(1.0)
     pct_sect = sum(ratios) / len(ratios) if ratios else 0.0
 

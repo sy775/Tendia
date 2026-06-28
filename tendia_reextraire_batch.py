@@ -23,6 +23,13 @@ import subprocess
 import sys
 from pathlib import Path
 
+# stdout/stderr en UTF-8 (évite les plantages cp1252 sur caractères spéciaux).
+try:
+    sys.stdout.reconfigure(encoding="utf-8")
+    sys.stderr.reconfigure(encoding="utf-8")
+except Exception:
+    pass
+
 
 _BASE_DIR = Path(__file__).resolve().parent
 REPERTOIRE_DCE = _BASE_DIR / "data" / "dce"
