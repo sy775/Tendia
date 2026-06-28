@@ -48,6 +48,18 @@ from urllib.parse import unquote, urljoin, urlparse
 
 import requests
 
+# SSL : ce module fait ses requêtes via un requests.Session() brut. Sur ce poste
+# Windows, le magasin certifi ne contient pas tous les CA intermédiaires des
+# plateformes (PLACE, e-marchespublics, achatpublic, Atexo...), d'où des
+# CERTIFICATE_VERIFY_FAILED systématiques (dette technique B4). `truststore`
+# bascule Python sur le magasin de certificats système. Injection globale au
+# process et idempotente.
+try:
+    import truststore as _truststore
+    _truststore.inject_into_ssl()
+except Exception:
+    pass
+
 # Force UTF-8 sur stdout/stderr (Windows cp1252 sinon UnicodeEncodeError sur
 # les caracteres de mise en forme tableau ├ ─ etc.). Cohérent avec
 # diagnostic_dce_pertinents.py et enrichir_complet.py.
@@ -550,6 +562,33 @@ def _telecharger_marche(marche: dict, session, force=False,
         if fichiers:
             return {'statut': 'skip_deja_fait', 'nb_fichiers': len(fichiers),
                     'raison': f"{len(fichiers)} fichiers déjà présents"}
+
+    # --- Chemin profond d'abord (fix durable couverture) ----------------------
+    # Le parsing HTML rapide ci-dessous n'attrape souvent que le RC (→ dossier
+    # « incomplet ») et échoue sur achatpublic (login). Le chemin complet
+    # `telecharger_pieces_dce` déclenche le completeDownload Atexo/PLACE, le
+    # workflow anonyme achatpublic, etc. → dossier COMPLET en une passe. On le
+    # tente en premier pour toutes les plateformes ; s'il ne ramène rien, on
+    # laisse la logique HTML rapide tenter le repli (elle reste en dessous).
+    #
+    # Exception AWS (marches-publics.info) : son workflow ColdFusion+2captcha
+    # consomme du proxy et exige un pacing anti-ban → RÉSERVÉ au batch dédié
+    # retelecharger_aws_achat_anti_ban.py, jamais dans cette boucle rapide.
+    url_l = url_dce.lower()
+    if "marches-publics.info" in url_l:
+        return {'statut': 'manuel_requis', 'nb_fichiers': 0,
+                'raison': "AWS-Achat (marches-publics.info) : réservé au batch "
+                          "anti-ban retelecharger_aws_achat_anti_ban.py"}
+    if not dry_run:
+        try:
+            res = telecharger_pieces_dce(marche, str(dossier), session)
+            pieces = res.get('pieces_recuperees') or []
+            if pieces:
+                return {'statut': 'ok', 'nb_fichiers': len(pieces),
+                        'raison': f"{len(pieces)} pièces (chemin complet)"}
+        except Exception as e:
+            if verbose:
+                print(f"      chemin complet KO ({type(e).__name__}: {e}), repli HTML")
 
     # 1. GET page consultation
     if verbose:
@@ -1314,6 +1353,23 @@ def main():
             marche['dce_telechargement_raison'] = raison
             marche['dce_telechargement_date'] = datetime.now(timezone.utc).isoformat()
             marche['dce_telechargement_nb_fichiers'] = nb_f
+            # Qualification : pose `dce_contenu` (complet/incomplet/vide) après un
+            # téléchargement réussi. Sans ça le batch de base laissait `dce_contenu`
+            # à None et les DCE bien récupérés étaient comptés comme non-couverts
+            # (dette B15.a). Aligné sur ce que font les `retelecharger_*`.
+            if statut in ('ok', 'skip_deja_fait'):
+                try:
+                    import tendia_dce
+                    qual = tendia_dce.qualifier_dce(str(REPERTOIRE_DCE / id_m))
+                    marche['dce_contenu'] = qual.get('qualite')
+                    marche['dce_pieces_contractuelles'] = qual.get('pieces_contractuelles')
+                    marche['dce_raison_contenu'] = qual.get('raison')
+                    marche['dce_telecharge_le'] = marche['dce_telechargement_date']
+                    if statut == 'ok':
+                        print(f"             → qualité : {qual.get('qualite')}")
+                except Exception as e:
+                    if args.verbose:
+                        print(f"             ⚠ qualification échouée : {e}")
 
     if not args.dry_run:
         _sauver_marches(marches)

@@ -14,6 +14,17 @@ import time
 import requests
 from typing import Optional
 
+# SSL : sur ce poste Windows, le magasin certifi ne contient pas tous les CA
+# intermédiaires de BOAMP/OpenDataSoft (et e-marchespublics, etc.). `truststore`
+# fait pointer Python sur le magasin de certificats système. Sans cette injection,
+# `get_json` échoue en CERTIFICATE_VERIFY_FAILED (dette technique B4). L'injection
+# est globale au process et idempotente.
+try:
+    import truststore as _truststore
+    _truststore.inject_into_ssl()
+except Exception:
+    pass
+
 
 USER_AGENT = (
     "Tendia/0.1 (veille marches publics formation France Travail; "
