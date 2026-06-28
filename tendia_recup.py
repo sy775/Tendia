@@ -41,6 +41,7 @@ def recuperer_tout(fenetre_mois: int = 6,
                     limite_par_source: int = None,
                     mode_large: bool = False,
                     differentiel: bool = False,
+                    depuis: str = None,
                     dry_run: bool = False,
                     verbose: bool = True) -> dict:
     """
@@ -95,7 +96,13 @@ def recuperer_tout(fenetre_mois: int = 6,
     # (les existants ne sont ni re-fetchés à fond, ni ré-écrits). Évite de
     # re-télécharger tout le window à chaque passe (utile + ménage l'hôte BOAMP).
     date_min = None
-    if differentiel:
+    if depuis:
+        # Override explicite : on cible une borne basse de dateparution précise
+        # (ex. un jour donné). Prioritaire sur le calcul différentiel.
+        date_min = depuis
+        if verbose:
+            print(f"  Borne date       : dateparution >= {date_min} (override --depuis)")
+    elif differentiel:
         dates_connues = [m.get("date_publication") for m in deja_en_base.values()
                          if isinstance(m, dict) and m.get("date_publication")]
         if dates_connues:
@@ -318,6 +325,10 @@ def main():
                              "France Travail/Pôle Emploi.")
     parser.add_argument("--limite", type=int, default=None,
                         help="Plafond par source (debug).")
+    parser.add_argument("--depuis", default=None, metavar="YYYY-MM-DD",
+                        help="Borne basse de dateparution (override). Ex. "
+                             "--depuis 2026-06-26 cible les avis publiés ce "
+                             "jour-là et après. Prioritaire sur le différentiel.")
     parser.add_argument("--dry-run", action="store_true",
                         help="N'écrit rien en base.")
     parser.add_argument("--purge-source", default=None,
@@ -342,6 +353,7 @@ def main():
         sources=sources_choisies,
         limite_par_source=args.limite,
         mode_large=args.large,
+        depuis=args.depuis,
         dry_run=args.dry_run,
         verbose=True,
     )
