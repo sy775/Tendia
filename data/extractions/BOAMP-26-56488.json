@@ -1,65 +1,65 @@
 {
-  "synthese_marche": "La Région Auvergne-Rhône-Alpes lance un marché en 3 lots géographiques pour des travaux de remédiation au gaz radon dans 17 lycées auvergnats (Puy-de-Dôme, Cantal, Allier, Haute-Loire). Les travaux consistent principalement en l'installation de systèmes de ventilation double flux (CTA, extracteurs, caissons de compensation), la distribution aéraulique, les raccordements électriques et la régulation GTB dans des établissements scolaires occupés. Le marché est à prix forfaitaire sur une durée de 6 mois avec une procédure adaptée ouverte avec négociation.",
+  "synthese_marche": "Marché de travaux de remédiation contre le gaz radon dans 17 lycées auvergnats de la Région Auvergne-Rhône-Alpes, consistant principalement en l'installation ou l'amélioration de systèmes de ventilation (CTA double flux, extracteurs, caissons de compensation, distribution aéraulique, régulation GTB). Le marché est alloti en 3 lots géographiques (Puy-de-Dôme/Cantal, Puy-de-Dôme/Allier, Haute-Loire), avec des DPGF par établissement et une durée d'exécution de 6 mois. Les travaux s'effectuent en site occupé (lycées en activité), avec contraintes de planning liées aux heures de cours.",
   "domaines_metier": [
     {
       "code": "btp_second_oeuvre"
     }
   ],
-  "raison_classification": "Le marché porte exclusivement sur des travaux CVC (centrales de traitement d'air double flux, VMC, extracteurs, régulation GTB, câblage électrique associé) dans des lycées existants — corps d'état second œuvre technique (plomberie/CVC/électricité courants forts et faibles). Aucune composante gros œuvre structurelle ni VRD significative n'est présente ; les percements/calfeutrements sont accessoires au lot CVC.",
+  "raison_classification": "Le marché porte exclusivement sur des travaux de fourniture et pose d'installations CVC (centrales de traitement d'air double flux, ventilateurs, extracteurs, gaines aérauliques, régulation GTB, armoires électriques) dans des bâtiments existants — typiquement le second œuvre génie climatique/fluides. Aucun gros œuvre ni rénovation thermique de l'enveloppe n'est prévu ; la dominante est l'installation technique de ventilation en milieu tertiaire.",
   "caracteristiques_techniques_chantier": {
-    "description": "Installation de systèmes de ventilation double flux (CTA à échangeur rotatif ou à plaques, unités décentralisées, caissons d'extraction, caissons de compensation) pour réduction des concentrations de radon dans 17 lycées. Travaux incluant distribution aéraulique en gaines galvanisées, diffusion d'air, raccordements hydrauliques sur réseaux eau chaude existants, coffrets et armoires électriques, régulation et intégration GTB/GTC.",
-    "typologie_ouvrage": "Lycées et établissements scolaires publics (ERP type R) — bâtiments existants en exploitation",
+    "description": "Installation de systèmes de ventilation double flux (CTA à échangeur rotatif ou à plaques, unités décentralisées, caissons de compensation, extracteurs), réseaux de distribution aéraulique en gaines galvanisées, diffuseurs, régulation GTB/GTC intégrée, coffrets électriques, raccordements hydrauliques sur 17 lycées auvergnats afin de réduire les concentrations de gaz radon en dessous du seuil réglementaire de 300 Bq/m³.",
+    "typologie_ouvrage": "Établissements scolaires publics (lycées) — ERP de type R",
     "surface_volume": null,
-    "site_occupe": "true — établissements scolaires occupés pendant les travaux ; travaux bruyants à réaliser en dehors des heures de cours ; interventions à planifier en périodes de congés scolaires pour les phases lourdes",
+    "site_occupe": "true — travaux en établissements scolaires occupés ; les travaux bruyants (percements, découpe de gaines) doivent être réalisés hors des heures de cours, et les travaux extrêmes durant les congés scolaires.",
     "corps_etat": [
-      "CVC — ventilation double flux (CTA, VMC, extracteurs, caissons)",
-      "Distribution aéraulique (gaines galvanisées, diffuseurs, grilles, pièges à sons)",
-      "Electricité courants forts (armoires, câblage, coffrets)",
-      "Régulation / GTB (automates, capteurs, intégration GTC)",
-      "Percements et calfeutrements (carottages, reprises coupe-feu)"
+      "Ventilation / CVC (CTA double flux, extracteurs, caissons de compensation)",
+      "Distribution aéraulique (gaines galvanisées, diffuseurs, pièges à sons, régulateurs de débit)",
+      "Raccordements hydrauliques (batterie eau chaude, condensats)",
+      "Électricité courants forts (coffrets électriques, armoires, câblage)",
+      "Régulation / GTB (automates, intégration supervision et hypervision)",
+      "Percements et calfeutrements (carottages façades, reconstitution coupe-feu)"
     ],
     "contraintes_specifiques": [
-      "Établissements occupés : travaux bruyants hors heures de cours, phases lourdes en congés scolaires",
-      "Badge d'accès obligatoire pour chaque intervenant",
-      "EATR (taux de transfert d'air extrait→soufflé) garanti < 1% sur toutes les CTA — exigence radon",
-      "Reconstitution obligatoire du degré coupe-feu des parois traversées (PV de classement à fournir)",
-      "Intégration GTC selon référentiel Région AURA VLAN 45 ou webserveur dédié en l'absence de GTC",
-      "Niveaux sonores stricts : NR35 salles de classe, NR30 CDI/chambres, NR40 gymnase",
-      "Percements soumis à validation écrite MOE/MOA préalable — aucun percement sans accord écrit",
-      "Fourniture d'un DOE complet (papier + informatique) par lycée avant réception",
-      "Formation des usagers demi-journée minimum par site",
-      "Chantier multi-sites : déplacements sur 17 établissements répartis sur 4 départements"
+      "Site occupé : lycées en activité pendant les travaux, intervention hors heures de cours",
+      "Établissements ERP — contraintes réglementaires incendie (clapets coupe-feu CF, SSI)",
+      "Contrainte radon : taux de transfert EATR des échangeurs < 1 %",
+      "Gestion des nuisances acoustiques (NR35 salles de classe, NR40 gymnase) avec étude acoustique à la charge de l'entreprise",
+      "Reconstitution du degré coupe-feu initial des parois traversées",
+      "Intervention sur 17 établissements répartis sur 4 départements (63, 15, 03, 43)",
+      "Nettoyage des réseaux aérauliques selon NF EN 15780 avant mise en service",
+      "Conformité ErP 2018 et certification Eurovent A+ des équipements",
+      "Intégration à la GTB/GTC régionale (VLAN 45, protocole Modbus/Ethernet TCP-IP)"
     ]
   },
   "allotissement": {
-    "description": "Marché alloti en 3 lots géographiques couvrant les 4 départements auvergnats concernés",
+    "description": "Marché alloti en 3 lots géographiques couvrant les 4 départements d'Auvergne.",
     "nb_lots": 3,
     "lots_detailles": [
       {
         "numero": 1,
         "intitule": "Travaux sur le secteur du Puy de Dôme et du Cantal",
-        "corps_etat": "CVC ventilation double flux, électricité, régulation GTB",
+        "corps_etat": "Ventilation CVC, électricité, régulation GTB",
         "montant_estime": null,
-        "description": "9 établissements : 8 lycées dans le Puy-de-Dôme (Clermont-Ferrand, Lempdes, Thiers, Riom, Cournon-d'Auvergne) + 1 EREA dans le Cantal (Aurillac). CTA double flux (rotatif et à plaques), unités décentralisées, extracteurs, distributions aérauliques."
+        "description": "Interventions sur 9 établissements : 8 lycées du Puy-de-Dôme (Clermont-Ferrand, Lempdes, Thiers, Riom, Cournon-d'Auvergne) + 1 EREA du Cantal (Aurillac). DPGF fournie pour 9 établissements."
       },
       {
         "numero": 2,
         "intitule": "Travaux sur le secteur du Puy de Dôme et de l'Allier",
-        "corps_etat": "CVC ventilation double flux, électricité, régulation GTB",
+        "corps_etat": "Ventilation CVC, électricité, régulation GTB",
         "montant_estime": null,
-        "description": "4 établissements : 1 lycée dans le Puy-de-Dôme (Saint-Éloy-les-Mines) + 3 lycées dans l'Allier (Yzeure, Moulins, Saint-Pourçain-sur-Sioule). CTA double flux (rotatif et à plaques), unités décentralisées, extracteurs."
+        "description": "Interventions sur 4 établissements : 1 lycée du Puy-de-Dôme (Saint-Éloy-les-Mines) + 3 lycées de l'Allier (Yzeure, Moulins, Saint-Pourçain-sur-Sioule). DPGF fournie pour 4 établissements."
       },
       {
         "numero": 3,
         "intitule": "Travaux sur le secteur de la Haute Loire",
-        "corps_etat": "CVC ventilation double flux, électricité, régulation GTB",
+        "corps_etat": "Ventilation CVC, électricité, régulation GTB",
         "montant_estime": null,
-        "description": "4 établissements en Haute-Loire (Yssingeaux, Le Puy-en-Velay, Monistrol-sur-Loire). CTA double flux (rotatif), caissons de compensation, extracteurs, distributions aérauliques."
+        "description": "Interventions sur 4 établissements en Haute-Loire : Yssingeaux (2 lycées), Le Puy-en-Velay, Monistrol-sur-Loire. DPGF fournie pour 4 établissements."
       }
     ]
   },
   "qualifications_requises": {
-    "description": "Aucune qualification Qualibat ou certification spécifique n'est expressément listée dans les pièces du DCE fournies (RC non fourni). Le CCTP exige la conformité aux normes UTE, NFC 15-100, EN 1886, EN 13779 et la réglementation ERP/ERP.",
+    "description": "Aucune qualification Qualibat ou RGE n'est explicitement exigée dans les pièces fournies (CCAP, CCTP). Les pièces ne contiennent pas de RC avec critères de sélection.",
     "qualibat": [],
     "rge": false,
     "rge_specialites": [],
@@ -70,182 +70,291 @@
     "opqibi": null,
     "autres_certifications": []
   },
+  "caracteristiques_mission_moe": {
+    "typologie": null,
+    "phases_couvertes": [],
+    "typologie_ouvrage": null,
+    "montant_travaux_estime": null,
+    "complexite_technique": null,
+    "livrables_par_phase": [],
+    "taux_remuneration_moe_pct": null,
+    "indices_revision": [],
+    "coordinations_associees": [],
+    "organigramme_attendu": [],
+    "bim_niveau": null
+  },
+  "qualifications_moe": {
+    "opqibi": [],
+    "opqcm": [],
+    "bim": null,
+    "autres": []
+  },
   "bareme_notation": {
     "valeur_technique_pct": null,
     "valeur_prix_pct": null,
-    "sous_criteres_techniques": [
-      {
-        "libelle": "Mémoire technique — références et moyens",
-        "ponderation_pct": null,
-        "description": "Le CCTP lots 2 et 3 exige un mémoire technique indiquant les références pour des chantiers équivalents en technicité et importance, les moyens humains (encadrement, études EXE, chantier, mise en service), les dispositions pour respecter le délai contractuel avec planning prévisionnel, les moyens de protection de l'environnement, et les caractéristiques des matériels si différents des préconisations.",
-        "elements_attendus": [
-          "Références de chantiers similaires (ventilation tertiaire, remédiation radon ou qualité d'air ERP scolaire)",
-          "Moyens humains détaillés : encadrant chantier, chargé d'études EXE, technicien mise en service",
-          "Planning prévisionnel joint à l'offre avec phasage par établissement",
-          "Modèles de documents essais et mise en service",
-          "Moyens de protection environnementaux adaptés aux chantiers en ERP occupés",
-          "Fiches techniques des matériels proposés si équivalents aux marques préconisées (SWEGON, TROX, etc.)"
-        ],
-        "exemple_reponse_forte": "Le candidat présente 3 références de chantiers de ventilation double flux en lycées ou ERP similaires réalisés depuis 5 ans, avec détail des débits traités, des CTA installées et des contraintes site occupé. Il joint un organigramme chantier avec CV du conducteur de travaux CVC et du technicien GTB, ainsi qu'un macro-planning par lycée intégrant les congés scolaires.",
-        "source": "CCTP Lot 2 §2.1 / CCTP Lot 3 §2.1",
-        "sous_criteres": []
-      }
-    ],
+    "sous_criteres_techniques": [],
     "prix": {
       "type_formule": "autre",
-      "formule_explicite": "Prix forfaitaire global et forfaitaire par établissement, décomposé selon la DPGF fournie. Le RC de la consultation n'est pas fourni dans les pièces analysées — la formule de notation n'est pas disponible.",
+      "formule_explicite": "Prix forfaitaire par établissement via DPGF (Décomposition du Prix Global et Forfaitaire). La formule de notation des offres n'est pas précisée dans les pièces fournies (RC non transmis dans le DCE analysé).",
+      "source": null,
       "elements_a_chiffrer": [
-        "Prescriptions techniques générales par lycée (nettoyage, percements, suivi encadrants, carottages)",
-        "Travaux de dépose des installations existantes",
-        "Fourniture et pose des CTA double flux (rotatif ou à plaques selon configuration) par unité",
-        "Fourniture et pose des unités décentralisées",
-        "Fourniture et pose des caissons d'extraction et de compensation",
-        "Raccordements hydrauliques (condensats, batteries eau chaude)",
-        "Distribution d'air : gaines galvanisées par diamètre et mètre linéaire, pièges à son, régulateurs de débit",
-        "Diffusion d'air : diffuseurs soufflage/reprise faux-plafond et sur gaine, grilles, bouches",
-        "Electricité : alimentation, câblage, coffrets électriques",
-        "Régulation : intégration supervision et hypervision",
-        "Essais, mise en service, formation usagers, DOE"
+        "Forfait global par établissement (DPGF par lycée)",
+        "Prescriptions techniques générales (nettoyage, percements, suivi encadrants, carottages)",
+        "Travaux de dépose",
+        "Traitement d'air double flux (fourniture et pose CTA / unités décentralisées)",
+        "Caisson de compensation (fourniture et pose)",
+        "Extracteur (fourniture et pose)",
+        "Raccordement hydraulique",
+        "Distribution d'air (gaines, pièges à sons, régulateurs de débit)",
+        "Diffusion d'air (diffuseurs soufflage et reprise)",
+        "Électricité (alimentation, câblage, coffret)",
+        "Régulation (intégration supervision et hypervision)",
+        "Essais, mise en service et réception (essais, rapports, formation, DOE)"
       ]
     },
-    "modalite_calcul_prix": "Prix forfaitaire global par lot, avec DPGF détaillée par établissement. Procédure adaptée avec négociation — formule de notation non communiquée dans les pièces fournies."
+    "modalite_calcul_prix": "Prix forfaitaire global et forfaitaire par établissement, décomposé via DPGF. La procédure est une procédure adaptée ouverte avec négociation."
   },
   "montant_marche": {
     "valeur_estimee_euros": null,
     "fourchette_min_euros": null,
     "fourchette_max_euros": null,
     "type": "non_communique",
-    "duree_couverte": "6 mois (durée contractuelle incluant période de préparation d'1 mois)",
+    "duree_couverte": "6 mois (durée totale du marché incluant période de préparation)",
     "source_extraction": null,
-    "commentaire": "Aucun montant estimatif ni plafond budgétaire n'est renseigné dans les pièces du DCE fournies. Les DPGF sont à prix unitaires à 0 (cadre vierge à remplir). Le marché couvre 17 lycées en 3 lots — l'estimation interne de la Région n'est pas communiquée."
+    "commentaire": "Aucun montant estimatif explicite n'est mentionné dans les pièces du DCE fournies (CCAP, CCTP x3, DPGF). Les DPGF ne sont pas renseignées (toutes les valeurs sont à 0). Le RC n'a pas été fourni dans le dossier."
+  },
+  "montant_3_voies": {
+    "voie_1_eur": null,
+    "voie_1_source": null,
+    "voie_2_disponible": true,
+    "voie_2_min_eur": 1200000,
+    "voie_2_max_eur": 2000000,
+    "voie_2_hypotheses": [
+      {
+        "hypothese": "Nombre d'établissements : 17 lycées au total répartis sur 3 lots (source : CCAP art 1.1.1 + CCTP §1.2 des 3 lots)",
+        "valeur": "17 établissements"
+      },
+      {
+        "hypothese": "Complexité variable par établissement : certains n'ont que des travaux mineurs (extension réseau, 2-3 diffuseurs comme Lycée Emmanuel Chabrier : 10 m linéaires DN200 + 2 grilles), d'autres sont lourds (Lycée René Descartes : 2 CTA toiture en 4000 m³/h + 2000 m³/h, 300 ml de gaines, 140 diffuseurs) (source : DPGF lots 1, 2, 3)",
+        "valeur": "Fourchette de complexité : ~15 000 € (très simple) à ~200 000 € (très complexe) par établissement"
+      },
+      {
+        "hypothese": "Ratio moyen retenu : ~90 000-120 000 € par établissement pour un système CTA double flux complet avec gaines, diffuseurs, électricité, régulation GTB. Ce ratio est cohérent avec les installations décrites (CTA SWEGON GOLD RX/GLOBAL PX tertiaire, intégration GTB, grutage). Dimension la plus incertaine = prix unitaire. Quantités fixées à 17 établissements.",
+        "valeur": "~90 000 € à ~120 000 € par établissement (valeur centrale ~105 000 €)"
+      },
+      {
+        "hypothese": "Plancher BOAMP (procédure européenne) : montant total > seuil européen travaux (~5,382 M€ en 2026). ATTENTION : ce seuil est applicable au marché GLOBAL ; les lots individuels peuvent être inférieurs. La procédure indiquée est 'Procédure Ouverte' européenne, ce qui implique un montant total ≥ 5,382 M€. Cependant, les DPGF détaillées montrent des interventions légères sur la majorité des sites, ce qui suggère que le marché est probablement proche du seuil européen et non très au-dessus.",
+        "valeur": "Seuil européen travaux 2026 : 5 382 000 € — le montant global est nécessairement ≥ à ce seuil. Révision de l'estimation à la hausse."
+      },
+      {
+        "hypothese": "Réestimation sur la base du seuil européen : si montant global ≥ 5,382 M€ pour 17 établissements, cela donne ~317 000 € par établissement en moyenne. Certains sites sont très légers (Lycée Emmanuel Chabrier : ~15 000 €), d'autres très lourds (Lycée René Descartes, Lycée Georges Sand). Estimation révisée : fourchette 5,4 M€ à 7 M€ pour l'ensemble du marché.",
+        "valeur": "~5 400 000 € à ~7 000 000 € pour les 3 lots"
+      }
+    ],
+    "voie_2_raison_indisponible": null
+  },
+  "cout_realisation": {
+    "cout_total_eur": 4200000,
+    "cout_min_eur": 3800000,
+    "cout_max_eur": 4600000,
+    "postes": [
+      {
+        "poste": "Lot 1 — Puy-de-Dôme + Cantal (9 établissements)",
+        "detail": "9 établissements, complexité moyenne à forte (plusieurs CTA tertiaires, gaines importantes sur René Descartes et Germaine Tillon). Estimation coût production : ~2 100 000 €",
+        "montant_eur": 2100000
+      },
+      {
+        "poste": "Lot 2 — Puy-de-Dôme + Allier (4 établissements)",
+        "detail": "4 établissements dont Lycée Desaix (3 CTA) et Lycée Théodore de Banville (3 CTA + raccordement hydraulique). Estimation coût production : ~1 100 000 €",
+        "montant_eur": 1100000
+      },
+      {
+        "poste": "Lot 3 — Haute-Loire (4 établissements)",
+        "detail": "4 établissements dont Lycée Georges Sand (2 caissons de compensation 2500 m³/h + 765 ml DN400 + 100 diffuseurs) = site très lourd. Estimation coût production : ~1 000 000 €",
+        "montant_eur": 1000000
+      }
+    ],
+    "taux_journaliers_retenus": "Taux marché indicatifs (entreprise de second œuvre CVC tertiaire) : CTA double flux SWEGON 1200 m³/h ~18 000-25 000 €/u fournie posée ; CTA 3000-4000 m³/h ~45 000-70 000 €/u ; extracteur 250-500 m³/h ~4 000-6 000 €/u ; gaines galvanisées avec calorifuge ~90-130 €/ml ; diffuseurs double flux ~250-400 €/u posé ; coffret électrique + câblage ~3 000-8 000 €/ens ; intégration GTB ~3 000-5 000 €/site ; DOE + formation + essais ~2 000-4 000 €/site. Tous ces taux sont des taux marché indicatifs pour une entreprise titulaire.",
+    "commentaire": "Estimation bottom-up basée sur les quantités des DPGF et des ratios marché CVC tertiaire. Le coût de réalisation représente ~70-75% du prix de marché estimé (marge brute entreprise 25-30%), ce qui est cohérent pour un marché travaux second œuvre technique en site occupé. La dimension incertaine est le ratio unitaire (±10-15%) ; les quantités sont fixées à celles des DPGF."
   },
   "revision_prix": {
     "type": "indexation",
     "indices_utilises": [
       "BT47"
     ],
-    "ponderation": "15% partie fixe + 85% BT47 (k=0,15 donc Cr = [0,15 + (0,85 × Ir/Io)])",
+    "ponderation": "k = 0,15 (partie fixe) + (1-k) × variation BT47 = 15% partie fixe + 85% indexé sur BT47",
     "periodicite": "mensuelle",
-    "formule_revision": "Pr = Po × Cr avec Cr = [k + ((1-k) × (Ir/Io))] ; k = 0,15 ; Ir = valeur BT47 au mois de réalisation des travaux – 3 mois ; Io = valeur BT47 du mois précédant de 3 mois le mois Mo (date remise offre)",
-    "source_extraction": "CCAP article 2.3",
-    "commentaire": "Indexation mensuelle sur BT47 (installation électrique) avec partie fixe 15% — cohérent avec la dominante CVC/électricité du marché. Favorable en période inflationniste ; attention au décalage de 3 mois sur l'indice qui peut créer un écart entre coûts réels et révision."
+    "formule_revision": "Pr = Po × Cr ; Cr = [0,15 + (0,85 × (Ir/Io))] ; Ir = valeur BT47 au mois de réalisation des travaux – 3 mois ; Io = valeur BT47 du mois précédant de 3 mois le mois M0 de l'acte d'engagement",
+    "source_extraction": "CCAP article 2.3.2 et 2.3.3",
+    "commentaire": "Formule simple et favorable en contexte inflationniste : l'indexation BT47 (travaux d'installation électrique, qui sert de proxy CVC/second œuvre technique) couvre 85% du prix. Le décalage de 3 mois (Ir-3, Io-3) est standard et limite les effets de pointe ; à surveiller si les prix des matériaux CVC évoluent plus vite que BT47."
   },
   "alertes_prix": [
-    "Les DPGF sont des cadres à remplir avec tous les prix à 0 — erreur ou omission de ligne peut créer une offre incomplète ou atypique lors de l'analyse",
-    "Procédure adaptée AVEC négociation : le prix initial de l'offre peut être revu à la baisse lors des négociations — marger suffisamment le premier prix",
-    "Pas de montant estimatif communiqué par la Région — risque de hors-enveloppe budgétaire non anticipé si l'entreprise surestime",
-    "Pénalités de retard à 1/1000 du montant initial par jour calendaire, sans plafond ni exonération (dérogation art. 19.2 CCAG) — impact financier significatif en cas de dérapage planning sur 17 sites"
+    "Les DPGF sont toutes à zéro dans les fichiers transmis : le candidat doit remplir l'intégralité des prix unitaires sans aucun repère chiffré dans le dossier (risque d'erreur de chiffrage ou d'incohérence entre lots).",
+    "Marché à prix forfaitaire global par établissement (DPGF) avec révision mensuelle BT47 : tout oubli de poste dans la DPGF est définitivement à la charge du titulaire ('global et forfaitaire').",
+    "Procédure ouverte avec négociation : le maître d'ouvrage peut négocier sur les prix après l'offre initiale — prévoir une marge de négociation dans le chiffrage initial.",
+    "Avance de 5% (10% pour TPE-PME) accordée si montant > 50 000 € HT et délai > 2 mois : facteur positif sur le BFR mais la garantie à première demande est obligatoire si l'avance ≥ 50 000 €.",
+    "Pénalités de retard = 1/1000 du montant initial du marché par jour calendaire, sans plafond ni exonération (dérogation au CCAG Travaux art 19.2.1 et 19.2.2) : risque financier significatif en cas de dépassement du délai de 6 mois."
   ],
   "references_exigees": {
     "experience_minimale_annees": null,
     "experience_source": null,
     "volume_min_references_similaires": null,
-    "volume_min_references_unite": "chantiers similaires en ventilation tertiaire ERP",
-    "secteur_experience": "Travaux de ventilation double flux en établissements tertiaires ou scolaires (ERP), de technicité et importance équivalentes — avec maîtrise des CTA haute efficacité, régulation GTB et contraintes site occupé",
+    "volume_min_references_unite": null,
+    "secteur_experience": "Le mémoire technique doit indiquer 'les références de la société pour des chantiers équivalents en technicité et importance' (installations de ventilation CVC en ERP tertiaire/scolaire, intégration GTB).",
     "secteur_source": "CCTP Lot 2 §2.1 / CCTP Lot 3 §2.1",
     "certifications_obligatoires": [],
     "autres_exigences": [
       {
-        "libelle": "Mémoire technique obligatoire comprenant références, moyens humains, planning et modèles de documents essais/mise en service",
+        "libelle": "Mémoire technique précisant les références de la société pour des chantiers équivalents en technicité et importance, les moyens humains et organisation, les dispositions pour respecter le délai, les moyens de protection de l'environnement, et les caractéristiques des matériels proposés si différents des préconisations CCTP.",
         "source": "CCTP Lot 2 §2.1 / CCTP Lot 3 §2.1"
       },
       {
-        "libelle": "Présentation d'un planning prévisionnel joint à l'offre",
-        "source": "CCTP Lot 2 §2.1 / CCTP Lot 3 §2.1"
+        "libelle": "Souscription obligatoire d'une assurance responsabilité civile professionnelle (RC Pro) avec garanties minimales : dommages corporels 7 500 000 €/sinistre, dommages matériels et immatériels consécutifs 3 000 000 €/sinistre, dommages immatériels non consécutifs 500 000 €/sinistre.",
+        "source": "CCAP art 1.7.1"
       },
       {
-        "libelle": "Assurance RC professionnelle avec minimas : 7 500 000 € corporels, 3 000 000 € matériels et immatériels consécutifs, 500 000 € immatériels non consécutifs par sinistre",
-        "source": "CCAP article 1.7.1"
-      },
-      {
-        "libelle": "Assurance RC décennale couvrant la DROC (déclaration réglementaire d'ouverture de chantier)",
-        "source": "CCAP article 1.7.2"
+        "libelle": "Souscription d'une assurance responsabilité civile décennale (pas de police collective souscrite par le maître d'ouvrage).",
+        "source": "CCAP art 1.7.2"
       }
     ]
+  },
+  "dossier_candidature": {
+    "pieces_a_fournir": [
+      {
+        "libelle": "Cadre de décomposition du montant global et forfaitaire (DPGF) dûment rempli",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "CCTP Lot 2 §2.1 / CCTP Lot 3 §2.1"
+      },
+      {
+        "libelle": "Mémoire technique précisant : références pour chantiers équivalents, moyens humains et organisation spécifiques au chantier (encadrement, études EXE, chantier, mise en service avec modèles de documents), planning prévisionnel, moyens de protection de l'environnement, caractéristiques des matériels si différents des préconisations",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "CCTP Lot 2 §2.1 / CCTP Lot 3 §2.1"
+      },
+      {
+        "libelle": "Attestations d'assurance responsabilité civile professionnelle avec mentions obligatoires (dénomination, SIRET, assureur, numéro contrat, période validité, nature et montants garantis, activités exercées)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "CCAP art 1.7.3"
+      },
+      {
+        "libelle": "Attestations d'assurance responsabilité civile décennale avec mentions obligatoires (y compris adresse, nature et coût de l'opération, date ouverture chantier, nature et montant prestation, techniques utilisées, DROC couverte)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "CCAP art 1.7.3"
+      },
+      {
+        "libelle": "Acte d'engagement signé (mention du mois M0, code service, options avance)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "CCAP art 2.3.1"
+      }
+    ],
+    "mode_remise": "dématérialisé",
+    "plateforme_depot": null,
+    "signature_electronique_exigee": null,
+    "format_signature": null,
+    "nombre_exemplaires": null,
+    "langue": "français",
+    "duree_validite_offres_jours": null,
+    "modalites_source": "CCAP art 1.3"
   },
   "lots": [
     {
       "numero": 1,
       "intitule": "Travaux sur le secteur du Puy de Dôme et du Cantal",
-      "zone_geographique": "Puy-de-Dôme (63) + Cantal (15)",
+      "domaine": "btp_second_oeuvre",
+      "zone_geographique": "Puy-de-Dôme (63) et Cantal (15)",
       "volume_estime": null,
       "volume_estime_unite": null,
-      "particularites": "9 établissements : Cité Scolaire Blaise Pascal, Lycée Louis Pasteur, Lycée Amédée Gasquet, Lycée Germaine Tillion, Lycée Jean Zay, Lycée Pierre Joël Bonté, Lycée René Descartes, Lycée Roger Claustres (63) + EREA Albert Monier (15). DPGF fournie pour ces 9 lycées. Lot le plus complexe avec plusieurs CTA en toiture nécessitant grutage."
+      "cout_estime_min_eur": 1800000,
+      "cout_estime_max_eur": 2400000,
+      "particularites": "9 établissements dont certains très lourds (René Descartes : 2 CTA en toiture 4000+2000 m³/h, 300 ml de gaines, 140 diffuseurs ; Germaine Tillon : CTA + extracteur 5000 m³/h + 200 ml DN315 ; Amédée Gasquet : 2 CTA combles 2000+3300 m³/h + 250 ml de gaines + 60 diffuseurs). Grutage requis sur plusieurs sites. Index de révision BT47."
     },
     {
       "numero": 2,
       "intitule": "Travaux sur le secteur du Puy de Dôme et de l'Allier",
-      "zone_geographique": "Puy-de-Dôme (63) + Allier (03)",
+      "domaine": "btp_second_oeuvre",
+      "zone_geographique": "Puy-de-Dôme (63) et Allier (03)",
       "volume_estime": null,
       "volume_estime_unite": null,
-      "particularites": "4 établissements : Lycée Desaix (63), Lycée Théodore de Banville, Lycée Jean Monnet, Lycée Blaise de Vigenère (03). DPGF fournie pour ces 4 lycées. Carottages sur murs épais (60 cm, 1m30) prévus. Mémoire technique exigé à l'offre."
+      "cout_estime_min_eur": 900000,
+      "cout_estime_max_eur": 1300000,
+      "particularites": "4 établissements : Lycée Desaix (3 CTA dont une 2500 m³/h en toiture + grutage, 248 ml de gaines, 48 diffuseurs), Lycée Théodore de Banville (3 CTA dont une 2250 m³/h gymnase + raccordement hydraulique + 160 ml gaines), Lycée Jean Monnet (1 CTA + 2 unités décentralisées), Lycée Blaise de Vigenère (3 extracteurs). Index de révision BT47."
     },
     {
       "numero": 3,
       "intitule": "Travaux sur le secteur de la Haute Loire",
+      "domaine": "btp_second_oeuvre",
       "zone_geographique": "Haute-Loire (43)",
       "volume_estime": null,
       "volume_estime_unite": null,
-      "particularites": "4 établissements : Lycée Emmanuel Chabrier, Lycée Charles et Adrien Dupuy, Lycée George Sand, Lycée Léonard de Vinci (43). DPGF fournie pour ces 4 lycées. Lycée George Sand : chantier de grande ampleur avec 765 ml de gaine DN400 et 100 diffuseurs en internat. Variante prévue au Lycée Léonard de Vinci pour zone CPE. Mémoire technique exigé à l'offre."
+      "cout_estime_min_eur": 900000,
+      "cout_estime_max_eur": 1300000,
+      "particularites": "4 établissements : Lycée Georges Sand (2 caissons compensation 2500 m³/h en combles + 765 ml DN400 + 100 diffuseurs — chantier très lourd), Lycée Léonard de Vinci (3 CTA + 1 caisson compensation + 1 extracteur + 82 ml gaines + dépose totale), Lycée Charles et Adrien Dupuy (2 CTA 500 m³/h toiture + grutage x2), Lycée Emmanuel Chabrier (très léger : 10 ml DN200 + 2 grilles). Index de révision BT47."
     }
   ],
+  "tranches": [],
   "calendrier": {
     "date_limite_offres": "2026-07-10",
     "date_demarrage_prevue": null,
-    "duree_marche": "6 mois dont 1 mois de période de préparation"
+    "duree_marche": "6 mois incluant la période de préparation d'1 mois"
   },
   "alertes_candidat": [
-    "Travaux en établissements scolaires OCCUPÉS : obligation de travailler hors heures de cours pour les travaux bruyants, coordination impérative avec la direction des établissements — sous-estimer ce contrainte conduit à des retards pénalisés",
-    "Badge d'accès obligatoire pour CHAQUE intervenant avant toute entrée sur site — liste des personnels à communiquer préalablement ; absence de badge = interdiction d'accès",
-    "Aucun percement ne peut être exécuté sans accord écrit MOA/MOE : plan de percement à valider en amont — processus potentiellement long sur 17 sites",
-    "DOE complet obligatoire par lycée (papier + informatique DWG/PDF) avant toute OPR — absence d'un seul document déclenche des pénalités ; la réception est bloquée sans DOE",
-    "Matériaux non validés par écrit doivent être déposés et remplacés : tout équivalent technique aux marques préconisées (SWEGON, TROX, BELIMO, etc.) nécessite une validation écrite préalable MOE sous peine de dépose et remplacement à charge de l'entreprise",
-    "Reconstitution obligatoire du degré coupe-feu initial à chaque traversée de paroi avec PV de classement certifié — vérifier la disponibilité des produits certifiés adaptés aux parois rencontrées"
+    "Marché en site occupé (lycées en activité) : obligation de travailler hors heures de cours pour les travaux bruyants (percements, découpe gaines), avec coordination stricte avec chaque établissement — complexité logistique et planning à ne pas sous-estimer dans le mémoire technique.",
+    "Exigence de mémoire technique avec modèles de documents pour essais et mises en service : une offre sans modèles concrets (fiches de mise en service, PV d'essai, fiches COPREC) sera mal notée ; prévoir ces annexes dès la remise d'offre.",
+    "Pénalités de retard sans plafond ni exonération (1/1000 du montant par jour calendaire) — CCAP art 3.3 déroge au CCAG Travaux : le planning de 6 mois sur 17 établissements dispersés est extrêmement serré ; une mauvaise organisation peut entraîner des pénalités significatives.",
+    "Tout matériel installé différent des préconisations CCTP non validé par écrit par la MOE doit être déposé et remplacé : l'entreprise doit obtenir des validations préalables pour toute substitution d'équipement (SWEGON Gold RX, GLOBAL PX, CLASS UNIT, diffuseurs VIREO/PELICAN/IBIS).",
+    "Absence d'un seul document du DOE entraîne application des pénalités dès la date de réception par la MOE : le dossier DOE complet (par lycée, format papier + informatique DWG/PDF) est un prérequis à la réception — prévoir les ressources nécessaires à sa constitution dès le démarrage.",
+    "Reconstitution obligatoire du degré coupe-feu initial des parois traversées avec fourniture de PV de classement certifiés : obligation réglementaire ERP à intégrer dans les prix et le planning."
   ],
   "points_differenciants_attendus": [
     {
-      "libelle": "Expérience démontrée en ventilation double flux en lycées ou ERP occupés avec contraintes radon ou qualité d'air",
-      "exemple": "Présenter 2-3 références de CTA haute efficacité (SWEGON GOLD, Systemair ou équivalent) installées en ERP scolaire avec intégration GTB et mesures de qualité d'air post-travaux, idéalement avec attestation client sur le respect des délais en site occupé.",
+      "libelle": "Expérience en installations CVC/radon en ERP scolaire occupé avec intégration GTB régionale",
+      "exemple": "Présenter 2-3 références de chantiers similaires (lycées, collèges) avec CTA double flux, intégration supervision GTB et intervention en site occupé — idéalement en région AURA ou pour une collectivité régionale. Mentionner la maîtrise des protocoles Modbus/Ethernet et du référentiel GTB/GTC VLAN 45.",
       "source": "CCTP Lot 2 §2.1"
     },
     {
-      "libelle": "Organisation chantier multi-sites avec phasage rigoureux sur 17 établissements en simultané",
-      "exemple": "Proposer un planning détaillé par lot montrant la simultanéité des interventions sur plusieurs lycées avec équipes dédiées par groupe géographique, intégrant les périodes de vacances scolaires pour les phases lourdes (grutage, carottages, travaux en gymnase).",
-      "source": "CCTP Lot 1 §3.1"
+      "libelle": "Organisation et phasage multi-sites détaillé sur 17 établissements en 6 mois",
+      "exemple": "Proposer un planning Gantt par établissement avec identification claire des phases hors heures de cours, des fenêtres d'intervention pendant les congés scolaires pour les travaux 'extrêmes', et un organigramme avec référents chantier par lot/département. Détailler les moyens humains dédiés (encadrement, techniciens CVC, électriciens).",
+      "source": "CCTP Lot 1 §3.2 / CCAP art 4.4.1"
     },
     {
-      "libelle": "Maîtrise des exigences EATR < 1% et justification fabricant pour les équivalences techniques aux marques préconisées",
-      "exemple": "Joindre à l'offre les fiches Eurovent et les garanties fabricant sur le taux de transfert d'air extrait (EATR < 1%) pour les CTA proposées, avec attestation de conformité EN 16798-3 ou équivalent — particulièrement critique pour la problématique radon.",
-      "source": "CCTP Lot 1 §5.2.1"
+      "libelle": "Maîtrise de la mise en service et des essais CTA (équilibrage aéraulique, mesures radon post-travaux)",
+      "exemple": "Fournir en annexe du mémoire des modèles de fiches de mise en service incluant mesures de débits avant/après, protocole d'équilibrage hydraulique et aéraulique, et indiquer le recours à un acousticien pour valider le respect des NR35/40 dès la mise en service.",
+      "source": "CCTP Lot 1 §7.3 / CCTP Lot 2 §2.1"
     },
     {
-      "libelle": "Expertise en intégration GTB/GTC selon référentiel Région AURA (VLAN 45, protocoles ouverts)",
-      "exemple": "Démontrer la capacité à raccorder les automates (Distech, Sauter, Saia Burgess) au réseau GTC de la Région sur VLAN 45 en citant des références de raccordement à des GTC de collectivités régionales, et proposer une solution webserveur dédié pour les sites sans GTC existante.",
-      "source": "CCTP Lot 1 §5.10.1"
+      "libelle": "Connaissance des équipements préconisés et capacité à proposer des équivalents justifiés",
+      "exemple": "Démontrer la maîtrise des CTA SWEGON GOLD RX et GLOBAL PX (ou équivalents certifiés Eurovent A+, ErP 2018, EATR < 1%) en indiquant des équipements alternatifs concrets avec fiches techniques comparatives, et valider par avance la compatibilité avec la GTB régionale (VLAN 45, Modbus RTU/Ethernet TCP-IP).",
+      "source": "CCTP Lot 1 §5.2"
     },
     {
-      "libelle": "Procédure détaillée de nettoyage des réseaux aérauliques conforme NF EN 15780",
-      "exemple": "Fournir avec l'offre un modèle de procédure de nettoyage incluant les méthodes (aspiration + brossage + soufflage), les points de contrôle photographiques et le PV de nettoyage — attendu explicitement par le CCTP et valorisé lors de l'analyse du mémoire technique.",
-      "source": "CCTP Lot 1 §4.7.3"
+      "libelle": "Capacité financière et ressources pour couvrir 3 lots simultanément sur 4 départements",
+      "exemple": "Un candidat soumissionnant à plusieurs lots devra démontrer des ressources humaines et matérielles suffisantes pour mener plusieurs chantiers simultanément. Préciser si le candidat répond à 1, 2 ou 3 lots et adapter l'organigramme en conséquence.",
+      "source": "CCAP art 1.1.2.1"
     }
   ],
   "_meta": {
     "id_marche": "BOAMP-26-56488",
     "type": "complet",
-    "date_generation": "2026-06-14T22:33:10.926095+00:00",
-    "extraction_le": "2026-06-14T22:33:10.926095+00:00",
+    "date_generation": "2026-06-19T19:21:14.196643+00:00",
+    "extraction_le": "2026-06-19T19:21:14.196643+00:00",
     "modele": "claude-sonnet-4-6",
     "preset_utilise": "btp",
     "presets_matches": [
-      "btp"
+      "btp",
+      "ingenierie"
     ],
     "prompts_versions": {
-      "btp/_preset.json": "sha256:d1717e0d87f6c265"
+      "btp/_preset.json": "sha256:055bf6f8b2c1f771",
+      "ingenierie/_preset.json": "sha256:b924b32a088673d6"
     },
-    "tokens_input": 154664,
-    "tokens_output": 5903,
-    "cout_eur": 0.5249,
-    "duree_sec": 120.8,
+    "tokens_input": 163951,
+    "tokens_output": 8550,
+    "cout_eur": 0.5891,
+    "duree_sec": 164.7,
     "pdfs_traites": [
       {
         "nom": "26M0255001_CCTP .pdf",
@@ -296,6 +405,186 @@
         "nom": "DAF_2026_255_Reglement consultation.pdf",
         "hash": "04b9f17343a21ab893db627aeb126aeb",
         "taille_chars": 22554
+      },
+      {
+        "nom": "Rapport de dépistage Radon LYCEE AMEDEE GASQUET_TLPU662.pdf",
+        "hash": "2a58d348a085d48cb9e0dd544a569551",
+        "taille_chars": 29759
+      },
+      {
+        "nom": "Rapport de dépistage Radon LYCEE BLAISE de VIGENERE_TLPU626.pdf",
+        "hash": "6b440f792dbca8f2381b0e4d6974aee3",
+        "taille_chars": 29316
+      },
+      {
+        "nom": "Rapport de dépistage Radon LYCEE EPLEFPA LOUIS PASTEUR_TAPU293.pdf",
+        "hash": "75019f802280182e1a11498074a19f8d",
+        "taille_chars": 29511
+      },
+      {
+        "nom": "Rapport de dépistage Radon LYCEE GERMAINE TILLION_TLPU692.pdf",
+        "hash": "377ed3e9ffe43fda1b3191bcdb3260de",
+        "taille_chars": 31523
+      },
+      {
+        "nom": "Rapport de dépistage Radon LYCEE JEAN MONNET_YSEURE_TLPU629.pdf",
+        "hash": "91c5385790e96bf0c8252a1fe0f2c44f",
+        "taille_chars": 27599
+      },
+      {
+        "nom": "Rapport de dépistage Radon LYCEE PIERRE JOEL BONTE_TLPU687.pdf",
+        "hash": "edb3d3c7352fdaf96bf9c1fe3390ae81",
+        "taille_chars": 33440
+      },
+      {
+        "nom": "Rapport de dépistage Radon LYCEE RENE DESCARTES_TLPU679.pdf",
+        "hash": "71d0f8ae0c02d4e9efd2b617e603c1dd",
+        "taille_chars": 29606
+      },
+      {
+        "nom": "Rapport de dépistage Radon Lycée Agricole George Sand_TAPU287.pdf",
+        "hash": "41473b3410404c57cc1eac5b0ad2dc67",
+        "taille_chars": 29754
+      },
+      {
+        "nom": "Rapport_de_depistage_Radon_LYCEE_EREA_Albert_Monier.pdf",
+        "hash": "f328e08192d56667fd2c8749dcfb7743",
+        "taille_chars": 25514
+      },
+      {
+        "nom": "Rapport_de_depistage_Radon_LYCEE_JEAN_ZAY_TLPU693.pdf",
+        "hash": "a11eb8a9bc0f4e412e9a99a7c40f6b4c",
+        "taille_chars": 37309
+      },
+      {
+        "nom": "TAPU287_RAD_DEP_2022_03_18.pdf",
+        "hash": "2158b35613890b159d1fa7cdf4ae700c",
+        "taille_chars": 308760
+      },
+      {
+        "nom": "TAPU293_RAD_DEP_2022_03_22.pdf",
+        "hash": "c5162fd9ab64d5277dcd1726150937d4",
+        "taille_chars": 386282
+      },
+      {
+        "nom": "TLPU625_RAD_DEP_2022_03_02.pdf",
+        "hash": "6b6de95007f21c8470d15d935b992168",
+        "taille_chars": 219465
+      },
+      {
+        "nom": "TLPU625_RAD_DEP_ERT_2022_05_19.pdf",
+        "hash": "fed6d95ba66ec349a5da913bd6744600",
+        "taille_chars": 13873
+      },
+      {
+        "nom": "TLPU626_RAD_DEP_2022_03_03.pdf",
+        "hash": "6ffbbeeedb05b0e0162c2f71f97e5df1",
+        "taille_chars": 167702
+      },
+      {
+        "nom": "TLPU648_RAD_DEP_2024_07_25_ERT_Rad.pdf",
+        "hash": "624fc611c04b88b430ecc5bfbb7add8b",
+        "taille_chars": 19974
+      },
+      {
+        "nom": "TLPU648_RAD_DEP_2024_07_29_ERP_ras.pdf",
+        "hash": "f3eed3d43d8443f662a19ac529559f2c",
+        "taille_chars": 325022
+      },
+      {
+        "nom": "TLPU653_RAD_DEP_2022_03_01.pdf",
+        "hash": "2d917e3b0182d01fed7570df5e36eb97",
+        "taille_chars": 215961
+      },
+      {
+        "nom": "TLPU653_RAD_ERT_L.DEVINCI_2022_04_28.pdf",
+        "hash": "0710d3ca24e288b38fcca9d04064fb8b",
+        "taille_chars": 12232
+      },
+      {
+        "nom": "TLPU655_RAD_DEP_2024_07_16_ERT_ras.pdf",
+        "hash": "9ea15bbaf5ccdd553da90ed69759f5ba",
+        "taille_chars": 12948
+      },
+      {
+        "nom": "TLPU655_RAD_DEP_2024_08_28_ERP_Rad.pdf",
+        "hash": "7257a0600bd1457dce8a093ae709e5f0",
+        "taille_chars": 191745
+      },
+      {
+        "nom": "TLPU662_RAD_DEP_2022_02_02.pdf",
+        "hash": "bfe62c95dd9b41e786de55d2365801ec",
+        "taille_chars": 118187
+      },
+      {
+        "nom": "TLPU662_RAD_ERT_A.GASQUET_2022_04_05.pdf",
+        "hash": "07348dc085fe0561455592679a27c062",
+        "taille_chars": 10957
+      },
+      {
+        "nom": "TLPU664_RAD_DEP_2024_07_25_ERT_ras.pdf",
+        "hash": "1d9f04dcdbaf602830e40ac798ff18bc",
+        "taille_chars": 14901
+      },
+      {
+        "nom": "TLPU664_RAD_DEP_2024_07_31_ERP_Rad.pdf",
+        "hash": "3457706046cd9c75122986a1f04bb0f7",
+        "taille_chars": 196789
+      },
+      {
+        "nom": "TLPU675_RAD_DEP_2024_07_24_ERT_Rad.pdf",
+        "hash": "3f84a5742674af90a3cd57d952c8d6ea",
+        "taille_chars": 15792
+      },
+      {
+        "nom": "TLPU675_RAD_DEP_2024_07_31_ERP_ras.pdf",
+        "hash": "62c9583204291d1b9aacd5838b0cd88a",
+        "taille_chars": 249687
+      },
+      {
+        "nom": "TLPU679_RAD_DEP_2022_02_24.pdf",
+        "hash": "55a0090a9e5bae3cd8e4ea57e0e8bdce",
+        "taille_chars": 228428
+      },
+      {
+        "nom": "TLPU679_RAD_DEP_ERT_2022_05_12.pdf",
+        "hash": "84bad0c1214ab677605c72a99225353f",
+        "taille_chars": 11658
+      },
+      {
+        "nom": "TLPU687_RAD_DEP_2022_02_02.pdf",
+        "hash": "ed82878864c62e56e59be75813ab2e34",
+        "taille_chars": 358893
+      },
+      {
+        "nom": "TLPU687_RAD_ERT_PJ.BONTE_2022_04_14.pdf",
+        "hash": "fe5d717b43c004ecb48ed311fa52d8eb",
+        "taille_chars": 13444
+      },
+      {
+        "nom": "TLPU691_RAD_DEP_2024_06_21_ERT_ras.pdf",
+        "hash": "fd5410295395db44f7e32373e8500468",
+        "taille_chars": 13621
+      },
+      {
+        "nom": "TLPU691_RAD_DEP_2024_07_23_ERP_Rad.pdf",
+        "hash": "98a788b8daff7875ecb50e64bd2109e8",
+        "taille_chars": 155395
+      },
+      {
+        "nom": "TLPU692_RAD_DEP_2022_02_03.pdf",
+        "hash": "77470051f3f3c736c34ccdf7c131d029",
+        "taille_chars": 335081
+      },
+      {
+        "nom": "TLPU692_RAD_ERT_G.TILLON_2022_04_14.pdf",
+        "hash": "5e2b700c0a13038884d0d61b87266396",
+        "taille_chars": 11643
+      },
+      {
+        "nom": "TLPU693_RAD_DEP_2022_01_25.pdf",
+        "hash": "4fa587a68827a7fd870d09d208093abd",
+        "taille_chars": 324603
       }
     ]
   }

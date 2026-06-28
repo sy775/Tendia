@@ -1,6 +1,6 @@
 # Brief — Evacuation et traitement des déchets de balayage, des déchets verts et des bois traités des services de la Ville de Vannes
 
-_Généré le 2026-06-12 15:49 par Claude claude-sonnet-4-6_
+_Généré le 2026-06-21 01:36 par Claude claude-sonnet-4-6_
 
 ## Identifiants
 - **ID Tendia** : `BOAMP-26-56391`
@@ -11,84 +11,50 @@ _Généré le 2026-06-12 15:49 par Claude claude-sonnet-4-6_
 - **DCE PLACE** : <https://marches.megalis.bretagne.bzh/entreprise/consultation/234595?orgAcronyme=a4u&code=&echanges#messagerie>
 
 ## Synthèse
-La Ville de Vannes lance un accord-cadre en 2 lots pour l'évacuation et le traitement des déchets de balayage (lot 1) et des déchets verts et bois traités (lot 2). Le marché est passé en appel d'offres ouvert pour une durée de 4 ans, avec des montants maximum respectifs de 450 000 € HT et 250 000 € HT. Les prestations couvrent la prise en charge, le transport et le traitement/valorisation des déchets produits par les services municipaux.
-
-## 🏗 Chantier — caractéristiques BTP
-- **Description** : Evacuation, transport et traitement/valorisation des déchets de balayage, des déchets verts et des bois traités issus des services de la Ville de Vannes. Le titulaire doit disposer d'un site autorisé pour la prise en charge et le traitement des déchets. Les procédés de traitement et valorisation (recyclage, réutilisation, enfouissement limité) sont évalués.
-- **Type d'ouvrage** : Service de traitement et valorisation de déchets municipaux
-- **Site occupé pendant travaux** : non
-- **Contraintes spécifiques** :
-  - Arrêté préfectoral d'autorisation d'exploitation du site de traitement et de valorisation des déchets obligatoire
-  - Objectif de valorisation maximale et limitation des déchets ultimes enfouis
-  - Certification et contrôles de la bascule exigés
-  - Le coût du transport (lot 2) est intégré dans l'analyse prix en fonction de la distance entre le dépôt du candidat et le centre-ville de Vannes
-
-### Allotissement
-Marché décomposé en 2 lots, chacun faisant l'objet d'un accord-cadre séparé attribué à un seul opérateur économique.
-- **Nombre de lots** : 2
-- **Lot 1** — Déchets de balayage
-  - Corps d'état : Traitement déchets de balayage
-  - Montant estimé : 450 000 €
-  - Evacuation et traitement des déchets de balayage des services de la Ville de Vannes. Montant minimum HT 100 000 € / maximum HT 450 000 € pour 4 ans.
-- **Lot 2** — Déchets verts et des bois traités
-  - Corps d'état : Traitement déchets verts et bois traités
-  - Montant estimé : 250 000 €
-  - Evacuation et traitement des déchets verts et des bois traités des services de la Ville de Vannes. Montant minimum HT 20 000 € / maximum HT 250 000 € pour 4 ans. Le coût du transport à la charge de la Ville est intégré dans le critère prix (50 €/h, distance calculée depuis le centre-ville de Vannes).
-
-### Qualifications BTP exigées
-Aucune qualification type Qualibat ou RGE exigée. En revanche, le candidat doit produire l'arrêté préfectoral d'autorisation d'exploitation du site de traitement et de valorisation des déchets.
-- **Autres exigences** :
-  - Arrêté préfectoral d'autorisation d'exploitation du site de traitement et de valorisation des déchets (RC §5.1)
-
-## ⚡ Parc EnR — caractéristiques techniques
-### Volumes techniques
-- **Durée du marché (mois)** : 48
-- **Note** : Accord-cadre de 4 ans. Lot 1 : min 100 000 € / max 450 000 € HT. Lot 2 : min 20 000 € / max 250 000 € HT. Total : min 120 000 € / max 700 000 € HT.
-
-### Modalités d'exécution
-- **Sites d'exécution** : Vannes (56)
-
-## 🎓 Formation / accompagnement
-### Volumes
-- **Durée marché (mois)** : 48
-- **Note** : Accord-cadre de 4 ans avec bons de commande. Pas de volume de déchets précisé dans les pièces disponibles.
-
-### Modalités
-- **Sites d'exécution** : Vannes (56)
+Accord-cadre à bons de commande de la Ville de Vannes portant sur l'évacuation et le traitement des déchets de balayage (Lot 1, ~800 t/an) et l'élimination/valorisation des déchets verts et bois traités (Lot 2, 1 000 à 1 500 t/an). Le marché est conclu pour 4 ans (à compter du 1er octobre 2026) avec un montant total maximum de 700 000 € HT toutes lots confondus. Chaque lot est attribué à un opérateur unique ; les prestataires doivent disposer d'une autorisation préfectorale d'exploitation d'un site de traitement conforme.
 
 ## 💶 Montant du marché
 - **Valeur estimée** : **700 000 €**
-  - sur 4 ans (accord-cadre)
-  - _source : RC §1.4 — tableau des lots_
-- _Note_ : Montant maximum HT pour 4 ans : lot 1 = 450 000 € + lot 2 = 250 000 € = 700 000 € HT. Montant minimum HT pour 4 ans : lot 1 = 100 000 € + lot 2 = 20 000 € = 120 000 € HT.
+  - sur 4 ans (octobre 2026 – octobre 2030)
+  - _source : RC §1.4 et CCAP §1.2_
+- _Note_ : Accord-cadre avec minimum et maximum : minimum total 120 000 € HT (Lot 1 : 100 000 €, Lot 2 : 20 000 €) et maximum total 700 000 € HT (Lot 1 : 450 000 €, Lot 2 : 250 000 €) sur 4 ans. La valeur estimée retenue correspond au plafond maximum de l'accord-cadre.
 
 ## Barème de notation
-- **Valeur technique** : 30 %
+- **Valeur technique** : 40 %
 - **Valeur prix** : 60 %
 - **Sous-critères techniques** :
   - Valeur technique : 30 %
   - Performances en matière de protection de l'environnement : 10 %
-- **Calcul du prix** : Lot 1 : montant total HT du DQE. Lot 2 : montant total HT du DQE + coût transport estimé (50 €/h × temps de trajet calculé depuis centre-ville de Vannes au dépôt candidat à 50 km/h).
+- **Calcul du prix** : Prix 60% — Lot 1 : montant total HT du DQE. Lot 2 : montant total HT DQE + coût transport estimé par la Ville (50 €HT/h, vitesse 50 km/h, distance depuis centre-ville de Vannes).
 
 ## Références et qualifications exigées
 - **Expérience minimale** : 5 ans
-- **Secteur d'expérience** : Traitement et évacuation de déchets de balayage, déchets verts, bois traités
-- **Certifications obligatoires** : Arrêté préfectoral d'autorisation d'exploitation du site de traitement et de valorisation des déchets (source=RC §5.1)
+- **Secteur d'expérience** : Évacuation, traitement et valorisation de déchets de nettoyage de voirie / déchets verts pour des collectivités ou donneurs d'ordre publics.
+- **Certifications obligatoires** : Arrêté préfectoral d'autorisation d'exploitation du site de traitement et de valorisation des déchets en cours de validité (bloquante=True, source=RC §5.1a)
 - **Autres exigences** :
-  - Déclaration du chiffre d'affaires global et du CA concernant les prestations objet du contrat sur les 3 derniers exercices disponibles (source=RC §5.1)
-  - Déclaration indiquant l'outillage, le matériel et l'équipement technique dont le candidat dispose pour la réalisation du contrat (source=RC §5.1)
-  - Déclaration indiquant les effectifs moyens annuels et l'importance du personnel d'encadrement sur les 3 dernières années (source=RC §5.1)
-  - Liste des principales prestations de même nature effectuées au cours des 5 dernières années (montant, date, destinataire) (source=RC §5.1)
+  - Déclaration du chiffre d'affaires global et chiffre d'affaires sur les prestations objet du contrat sur les 3 derniers exercices disponibles (source=RC §5.1a)
+  - Déclaration indiquant l'outillage, le matériel et l'équipement technique disponibles pour la réalisation du contrat (source=RC §5.1a)
+  - Déclaration des effectifs moyens annuels et personnel d'encadrement sur les 3 dernières années (source=RC §5.1a)
+
+## Lots
+- **Lot 1** — Evacuation et traitement des déchets de balayage
+  - Zone : Vannes (56)
+  - Volume estimé : 800 tonnes/an
+  - Le prestataire doit fournir et gérer 2 bennes ampliroll 10m³ sur la plateforme ZI du Prat (Vannes), effectuer les rotations le jeudi (environ 100 bennes/an). Les bennes vides doivent être replacées avant le mercredi suivant 14h. Aucun tri préalable par la Ville. Le prestataire assure le traitement en ISDND avec valorisation maximale des déchets de balayage (CED 200303). Compte rendu mensuel avec bons de pesée obligatoire.
+- **Lot 2** — Elimination et valorisation des déchets verts et des bois traités
+  - Zone : Vannes (56)
+  - Volume estimé : 1250 tonnes/an (fourchette 1 000-1 500 t/an)
+  - Lot principalement en dépôt sur le site du prestataire par les véhicules de la Ville. Horaires d'ouverture minimum 8h-17h, 3 jours/semaine. Le site doit disposer d'une autorisation préfectorale valide. Enlèvements ponctuels sur sites Ville (cimetières...) possibles. Le prestataire doit proposer un site de secours. La distance du site par rapport au centre-ville de Vannes impacte directement le critère prix (50 €HT/h de transport intégré dans l'évaluation). Compte rendu annuel obligatoire par type de déchet. Brochure de consignes de tri à remettre avec l'offre.
 
 ## ⚠ Alertes candidat
-- L'arrêté préfectoral d'autorisation d'exploitation du site de traitement est OBLIGATOIRE à produire à la candidature — son absence peut entraîner l'irrecevabilité de l'offre (RC §5.1)
-- Pour le lot 2, la localisation géographique du dépôt du candidat est prise en compte dans le critère prix (coût transport calculé depuis Vannes) — les candidats éloignés sont pénalisés financièrement
-- La transmission des offres est EXCLUSIVEMENT électronique via Megalis Bretagne — aucun envoi papier autorisé (RC §6.2)
-- Le mémoire technique doit obligatoirement couvrir 5 thèmes précis : moyens humains, moyens matériels, descriptif du site, procédés de traitement/valorisation, certifications et contrôles de bascule (RC §5.1 et §7.2)
-- Le cadre de réponse environnementale doit être complété et remis — il est évalué au titre des 10% du critère environnement (RC §5.1)
+- BLOQUANT — Arrêté préfectoral d'autorisation d'exploitation en cours de validité OBLIGATOIRE : son absence rend la candidature irrecevable. À joindre impérativement au dossier de candidature (RC §5.1a).
+- Pour le Lot 2, la localisation géographique du site de traitement est un facteur clé : le coût de transport (50 €HT/h × distance depuis centre-ville de Vannes à 50 km/h) est intégré dans le critère prix à 60% — un prestataire éloigné est pénalisé même avec des prix à la tonne compétitifs.
+- La sous-traitance est strictement interdite sans autorisation expresse de la Ville : tout sous-traitant doit être déclaré à l'offre et formellement accepté (CCTP Lot 1 §3 et CCTP Lot 2 Article 3).
+- Le minimum garanti est très faible (100 k€ Lot 1, 20 k€ Lot 2 sur 4 ans) : l'accord-cadre ne garantit que 17% du plafond pour le Lot 1 et 8% pour le Lot 2 — risque financier important si la Ville sous-consomme.
+- Le mémoire technique doit inclure pour le Lot 2 une brochure A4 de consignes de tri ET un plan de circulation sur le site — documents oubliés fréquemment qui sont explicitement demandés dans les CCTP.
 
 ## 💡 Points différenciants attendus
-- Taux de valorisation élevé avec limitation maximale des déchets enfouis (exemple=Un candidat qui affiche un taux de valorisation matière ≥ 90% avec des partenariats avec des filières agréées de compostage (NFU44-051) ou de recyclage granulat, et un taux d'enfouissement inférieur à 5%, se distinguera nettement sur les 60% du critère environnement dédié à ce point., source=RC §7.2)
-- Proximité géographique du site de traitement par rapport à Vannes (lot 2) (exemple=Pour le lot 2, un site de traitement localisé à moins de 20 km du centre-ville de Vannes réduit significativement le coût transport intégré dans le critère prix, améliorant mécaniquement la compétitivité de l'offre par rapport à des concurrents plus éloignés., source=RC §7.2)
-- Certifications et contrôles rigoureux de la bascule (exemple=Produire les attestations de vérification périodique de la bascule par un organisme accrédité (COFRAC) et détailler les procédures de pesée différentielle démontrent un niveau de fiabilité élevé dans la facturation, valorisé dans le critère valeur technique., source=RC §5.1 et §7.2)
-- Moyens matériels adaptés et récents (exemple=Une flotte de véhicules récents (Euro 6 ou motorisation alternative), des équipements de manutention spécifiques aux déchets de balayage ou aux bois traités, et une capacité de stockage tampon sur site renforcent la valeur technique tout en appuyant le volet environnemental., source=RC §7.2)
+- Taux de valorisation élevé et économie circulaire (critère environnemental à 60% du sous-critère RSE) (exemple=Un candidat qui démontre un taux de valorisation matière >80% pour les déchets verts (compostage certifié NFU 44-051 pour usage agricole) et une valorisation énergétique des bois traités (chaufferies biomasse) surpasse les concurrents qui se contentent de l'enfouissement en ISDND., source=RC §7.2)
+- Proximité géographique du site de traitement par rapport à Vannes (impact direct sur le critère prix du Lot 2) (exemple=Un prestataire dont le site est à 10 km de Vannes intègre un coût transport de 10 €HT/benne (10 km/50 km/h × 50 €HT/h), contre 30 €HT/benne pour un site à 30 km — avantage cumulé sur 5 000 tonnes significatif dans la notation prix., source=RC §7.2)
+- Qualité et fiabilité de la traçabilité (bons de pesée, reporting numérique, certifications bascule) (exemple=Un candidat qui propose un portail de suivi numérique en temps réel des enlèvements avec exports automatiques des bons de pesée certifiés COFRAC se différencie fortement sur le sous-critère 'valeur technique — certifications et contrôles de la bascule'., source=RC §7.2 et CCTP Lot 1 §2.5)
+- Capacité à gérer les pics saisonniers de déchets verts (1 000 à 1 500 t/an de variabilité) (exemple=Démontrer une capacité de stockage tampon sur site et des partenariats avec des plateformes de compostage complémentaires permet de rassurer la Ville sur la continuité du service en automne/hiver (périodes de forte production d'élagage)., source=CCTP Lot 2 Article 6)

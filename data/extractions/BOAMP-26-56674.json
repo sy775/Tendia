@@ -1,89 +1,129 @@
 {
-  "synthese_marche": "Marché de travaux pour la rénovation, l'extension et la mise aux normes PMR de l'Aire Permanente d'Accueil (APA) des gens du voyage de Saint-Médard-en-Jalles, conduit par Bordeaux Métropole. Le projet comprend la démolition et reconstruction de 8 blocs sanitaires, la rénovation du bâtiment d'accueil existant, la création de 15 emplacements de 200 m², la mise en place de réseaux VRD, clôtures, plantations et espaces communs. Les travaux concernent un site à réhabiliter entièrement avec de nouvelles constructions légères (blocs sanitaires en bac acier isolé) et rénovation lourde du bâtiment gestionnaire.",
+  "synthese_marche": "Marché de travaux de rénovation, extension et mise aux normes PMR de l'Aire Permanente d'Accueil (APA) des gens du voyage de Saint-Médard-en-Jalles, pour le compte de Bordeaux Métropole. Le projet comprend la réhabilitation du bâtiment d'accueil existant, la démolition et reconstruction de 8 blocs sanitaires (dont des blocs PMR), des travaux de voirie/VRD, clôtures, espaces verts et plantations sur un terrain d'environ 7 000 m². Procédure ouverte européenne, marché passé en corps d'état séparés (lots multiples).",
   "domaines_metier": [
     {
-      "code": "btp_renovation_rehabilitation"
+      "code": "btp_renovation_rehabilitation",
+      "poids": 0.5,
+      "lots_concernes": [
+        "Gros œuvre",
+        "Second œuvre",
+        "Bâtiment accueil"
+      ]
+    },
+    {
+      "code": "btp_voirie_reseaux",
+      "poids": 0.3,
+      "lots_concernes": [
+        "VRD",
+        "Voirie",
+        "Clôtures"
+      ]
+    },
+    {
+      "code": "btp_second_oeuvre",
+      "poids": 0.2,
+      "lots_concernes": [
+        "CVC-plomberie",
+        "Électricité",
+        "Revêtements"
+      ]
     }
   ],
-  "raison_classification": "Le marché porte sur la rénovation et extension d'une aire d'accueil existante des gens du voyage : démolition des blocs sanitaires existants, reconstruction neuve, réhabilitation du bâtiment d'accueil, VRD, clôtures, plantations. La dominante est clairement la réhabilitation lourde de bâti existant avec extensions, sans dimension énergétique thermique prépondérante justifiant 'energie_renovation_thermique', et sans caractère patrimonial.",
+  "raison_classification": "Le marché porte principalement sur la réhabilitation lourde d'une aire d'accueil existante (démolition blocs sanitaires, rénovation bâtiment d'accueil, extension des emplacements), ce qui relève du btp_renovation_rehabilitation. Les travaux incluent aussi une composante significative de VRD (voirie, réseaux EU/EP, clôtures) et de second œuvre technique (CVC, plomberie, électricité) documentés dans le CCTP et les plans CVC fournis.",
   "caracteristiques_techniques_chantier": {
-    "description": "Rénovation, extension et mise aux normes PMR de l'Aire Permanente d'Accueil (APA) de Saint-Médard-en-Jalles : démolition totale de 8 blocs sanitaires existants et reconstruction neuve (7 blocs doubles + 1 bloc simple PMR), rénovation du bâtiment d'accueil (112 m²) avec redistribution intérieure, doublage CF1h, remplacement menuiseries/volets, mise aux normes PMR. Création de 15 emplacements de 200 m², voiries internes en enrobé et béton balayé, portail coulissant, clôtures béton et grillagées, espaces verts (haies champêtres, arbres), enclos poubelles, stationnement personnel. Réseaux CVC-plomberie (VMC, ballons ECS électriques, convecteurs, plomberie sanitaire), VRD, électricité.",
-    "typologie_ouvrage": "Aire permanente d'accueil des gens du voyage — bâtiment d'accueil + blocs sanitaires préfabriqués + VRD",
-    "surface_volume": "Bâtiment accueil : ~112 m² SHON ; 8 blocs sanitaires doubles/simples (~38 m² à ~42 m² chacun) ; surface totale site : ~8 098 m² (parcelles IS 30 + IS 56)",
-    "site_occupe": "Non précisé explicitement — un plan d'installation de chantier est prévu avec base de vie séparée, ce qui suggère un site potentiellement partiellement occupé ou à proximité de zone humide contraignante",
+    "description": "Rénovation, extension et mise aux normes PMR d'une aire permanente d'accueil des gens du voyage : démolition totale des 8 blocs sanitaires existants et reconstruction (7 blocs doubles + 1 bloc simple PMR), réhabilitation du bâtiment d'accueil (env. 112 m²), extension des 15 emplacements de 200 m² chacun, aménagement des voiries internes, clôtures (béton et grillage), espaces collectifs, espace de stockage des ordures ménagères, stationnement personnel, plantations (haies champêtres, arbres). Réseau EU/EP, alimentation AEP, VMC, CVC (convecteurs, ballons ECS électriques), électricité courants forts/faibles.",
+    "typologie_ouvrage": "Aire permanente d'accueil des gens du voyage — infrastructure sociale publique avec bâtiments de petite taille (blocs sanitaires ~38-42 m², bâtiment d'accueil ~112 m²)",
+    "surface_volume": "Parcelle d'environ 7 144 m² (parcelle IS 30) + 954 m² (IS 56). 15 emplacements de 200 m² chacun = 3 000 m² emplacements. Bâtiment d'accueil 112 m² SHON. 8 blocs sanitaires (7 doubles ~38 m² + 1 simple ~42 m²). Surface totale construite ~380 m².",
+    "site_occupe": "Présence probable d'occupation partielle en cours de chantier (aire d'accueil active), mais le DCE ne précise pas explicitement les modalités de maintien en exploitation. Un plan d'installation de chantier avec base de vie est prévu (plan masse chantier fourni).",
     "corps_etat": [
-      "Gros œuvre / maçonnerie (fondations, dallages, murs béton clôtures)",
+      "Démolition / désamiantage (blocs sanitaires existants)",
+      "Gros œuvre / maçonnerie (construction blocs sanitaires neufs, extensions emplacements)",
       "Charpente / couverture bac acier isolé",
-      "Menuiseries extérieures acier / PVC",
-      "Plâtrerie / doublage CF1h / faux plafonds",
-      "Carrelage / revêtements de sol (R11, carrelage mural)",
-      "CVC-Plomberie (VMC, ECS électrique, convecteurs, plomberie sanitaire)",
+      "Bardage bois / façades",
+      "Menuiseries intérieures et extérieures (portes acier, volets acier, grilles)",
+      "Plomberie sanitaire / CVC (VMC, convecteurs, ballons ECS, réseaux EU/EF/ECS)",
       "Électricité courants forts / courants faibles",
-      "VRD (voirie enrobé, béton balayé, grave stabilisée, réseaux EU/EV/EP/AEP)",
-      "Serrurerie / métallerie (portails, clôtures grillagées, volets acier)",
-      "Espaces verts / plantations (haies champêtres, arbres)",
-      "Démolition / dépose"
+      "Carrelage / revêtements de sol (carrelage R11, chape talochée)",
+      "Peinture / enduit",
+      "VRD (voirie enrobée, grave stabilisée, réseaux EU/EP, AEP, clôtures, portails)",
+      "Espaces verts / plantations (haies champêtres, arbres, gazon rustique)",
+      "Aménagements extérieurs (bancs béton, bandes de guidage PMR, signalétique)"
     ],
     "contraintes_specifiques": [
-      "Présence d'une zone humide avec bassin dense en végétation sur le site — contrainte environnementale",
-      "Terrain en pente légère avec cotes NGF variables (~40,80 à 42,67 NGF)",
-      "Réseaux enterrés existants (géoradar partiellement inexploitable — caravanes, brouillage signal)",
-      "Mise aux normes PMR obligatoire sur l'ensemble du site (accès, blocs sanitaires, bande de guidage, parkings)",
-      "Phasage chantier à prévoir avec installation de chantier sur site (base de vie + sanitaires de chantier)",
-      "Espace de manœuvre SDIS à maintenir dégagé",
-      "Prescriptions techniques Bordeaux Métropole (Cahier de Prescriptions Techniques V1.7 juillet 2023) applicables : CVC, électricité, GTB, etc."
+      "Site en zone humide partielle (bassin + végétation dense) — zone à préserver",
+      "Présence de souches à supprimer et réseaux existants (géoradar réalisé, détection difficile signalée sur plans)",
+      "Mise aux normes PMR obligatoire (bandes de guidage, blocs sanitaires PMR, stationnement PMR)",
+      "Terrain en légère déclivité (côtes NGF entre 40,50 et 42,50 env.) avec terrassements à gérer",
+      "Raccordement à la panoplie AEP existante et aux réseaux publics (VRD lot séparé)",
+      "Prescriptions techniques détaillées Bordeaux Métropole (CVC, électricité, GTB, portails motorisés)",
+      "Espace de manœuvre SDIS à préserver (retournement pompiers)",
+      "Coordinations à respecter entre lots (lot VRD fournit AEP, lot CVC pose les extracteurs VMC avant isolation)"
     ]
   },
   "allotissement": {
-    "description": "La structure en lots n'est pas explicitement détaillée dans les pièces transmises (pas de RC ni de CCAP fournis). Les plans CVC et le dossier de plans PRO-DCE suggèrent une décomposition en corps d'état classique. Le CPT de Bordeaux Métropole mentionne des lots CVC-Plomberie, Électricité, GTC-Régulation comme lots distincts.",
+    "description": "Marché en corps d'état séparés — plusieurs lots probables (VRD, gros œuvre/maçonnerie, couverture/bardage, menuiseries, CVC-plomberie, électricité, espaces verts). Le DCE fourni ne présente pas de règlement de consultation explicite listant les lots numérotés, mais le plan CVC01 distingue clairement les périmètres : lot VRD, lot CVC-PB, lot électricité. Le CCTP (Cahier des Prescriptions Techniques Bordeaux Métropole) liste également des lots GTB, CVC, Électricité séparés.",
     "nb_lots": null,
     "lots_detailles": [
       {
         "numero": 1,
-        "intitule": "Démolition / Gros œuvre / VRD",
-        "corps_etat": "Démolition blocs sanitaires existants, fondations, dallages, murs béton, voiries enrobé/béton balayé, réseaux EU/EV/EP/AEP, clôtures béton",
+        "intitule": "VRD — Voirie et réseaux divers",
+        "corps_etat": "voirie, terrassements, réseaux EU/EP/AEP, clôtures, portails, pavage",
         "montant_estime": null,
-        "description": "Démolition totale des 8 blocs sanitaires, terrassements, fondations des nouveaux blocs, voiries et réseaux divers, portail coulissant, clôtures"
+        "description": "Terrassements, voirie enrobée et grave stabilisée, réseaux d'eaux usées/pluviales, amenée AEP jusqu'aux bâtiments, clôtures béton et grillage, portail coulissant 8 m, ralentisseurs, bandes de guidage PMR"
       },
       {
         "numero": 2,
-        "intitule": "Bâtiment accueil — rénovation",
-        "corps_etat": "Rénovation bâtiment accueil : doublage CF1h, menuiseries, carrelage, faux plafonds, plâtrerie",
+        "intitule": "Gros œuvre — Maçonnerie / Démolition / Construction blocs sanitaires et bâtiment accueil",
+        "corps_etat": "démolition, gros œuvre, maçonnerie, béton",
         "montant_estime": null,
-        "description": "Réhabilitation intérieure et extérieure du bâtiment d'accueil existant : cloisonnement, doublage, menuiseries, carrelage"
+        "description": "Démolition totale des 8 blocs sanitaires existants, reconstruction des blocs neufs (fondations, maçonnerie, béton), réhabilitation du bâtiment d'accueil (démolitions partielles, bouchements, créations d'ouvertures)"
       },
       {
         "numero": 3,
-        "intitule": "Blocs sanitaires — construction neuve",
-        "corps_etat": "Construction des 8 nouveaux blocs sanitaires (charpente bac acier isolé, maçonnerie, carrelage, menuiseries)",
+        "intitule": "Couverture — Charpente / Bac acier isolé / Bardage",
+        "corps_etat": "couverture bac acier, charpente, bardage bois",
         "montant_estime": null,
-        "description": "Construction des 7 blocs doubles et 1 bloc simple PMR en ossature bac acier isolé laine de roche 100mm, plafond plâtre, carrelage"
+        "description": "Couverture bac acier isolé laine de roche 100 mm, rives acier, descentes et gouttières acier, bardage bois façades bâtiment accueil"
       },
       {
         "numero": 4,
-        "intitule": "CVC-Plomberie",
-        "corps_etat": "Plomberie sanitaire, VMC, ECS électrique, convecteurs, chauffage",
+        "intitule": "Menuiseries extérieures et intérieures",
+        "corps_etat": "menuiseries, serrurerie",
         "montant_estime": null,
-        "description": "Ballons ECS électriques, VMC extracteurs de conduit, convecteurs soufflants, robinetterie, réseaux EF/ECS/EU/EV"
+        "description": "Menuiseries PVC et acier, volets acier, grilles, portillons, porte accordéon acier, portes PMR, coffret fort encastré"
       },
       {
         "numero": 5,
-        "intitule": "Électricité courants forts / courants faibles",
-        "corps_etat": "Électricité",
+        "intitule": "CVC — Plomberie / Chauffage / VMC",
+        "corps_etat": "plomberie sanitaire, CVC, VMC",
         "montant_estime": null,
-        "description": "Alimentation électrique des blocs sanitaires et bâtiment accueil, éclairage, prises, tableau divisionnaire"
+        "description": "Réseaux EF/ECS dans blocs sanitaires et bâtiment accueil, ballons ECS électriques (50 L bâtiment accueil, 2×300 L blocs doubles), VMC extracteurs de conduit (315 m³/h bâtiment, 75 m³/h blocs), convecteurs soufflants et panneau rayonnant, ventilation primaire, robinets extérieurs, réseaux EU encastrés"
       },
       {
         "numero": 6,
-        "intitule": "Espaces verts / plantations",
-        "corps_etat": "Espaces verts",
+        "intitule": "Électricité — Courants forts / Courants faibles",
+        "corps_etat": "électricité CF/CFA, éclairage, GTB",
         "montant_estime": null,
-        "description": "Haies champêtres mixtes (Elaeagnus, Photinia, Carpinus, Cornus, Viburnum, Ligustrum), arbres (Quercus ilex, Acer campestre), gazon rustique, bancs béton"
+        "description": "Tableaux électriques, éclairage LED intérieur et extérieur, prises de courant, éclairage de sécurité, vidéosurveillance éventuelle, contrôle d'accès portail, GTB conforme prescriptions Bordeaux Métropole"
+      },
+      {
+        "numero": 7,
+        "intitule": "Revêtements de sol / Carrelage / Peinture",
+        "corps_etat": "carrelage, revêtements, peinture",
+        "montant_estime": null,
+        "description": "Carrelage R11 douches et sanitaires, carrelage faïence mural, chape talochée pièces de vie, peinture murs"
+      },
+      {
+        "numero": 8,
+        "intitule": "Espaces verts / Plantations / Mobilier urbain",
+        "corps_etat": "espaces verts, paysagisme",
+        "montant_estime": null,
+        "description": "Haies champêtres arbustives mixtes (Elaeagnus, Photinia, Cornus, Carpinus, Viburnum, Ligustrum), arbres (Quercus ilex 14/16, Acer campestre 16/18), gazon rustique, bancs béton, étendoirs"
       }
     ]
   },
   "qualifications_requises": {
-    "description": "Aucun RC ni CCAP fourni — les qualifications exigées ne sont pas explicitement listées dans les pièces transmises. Les qualifications suivantes sont attendues au regard des corps d'état mobilisés et des prescriptions techniques Bordeaux Métropole.",
+    "description": "Le Règlement de Consultation n'a pas été fourni dans les pièces du DCE. Les qualifications Qualibat et autres certifications exigées ne peuvent donc pas être extraites. Le Cahier des Prescriptions Techniques Bordeaux Métropole mentionne des qualifications pour les installateurs PV (QualiPV) et les mesureurs d'étanchéité (Qualibat 8721), mais ces éléments sont des prescriptions générales de Bordeaux Métropole et non des exigences propres à ce marché.",
     "qualibat": [],
     "rge": false,
     "rge_specialites": [],
@@ -92,7 +132,9 @@
     "iso_14001": false,
     "iso_45001": false,
     "opqibi": null,
-    "autres_certifications": []
+    "autres_certifications": [
+      "Qualibat 8721 (mesure étanchéité à l'air réseaux aérauliques) — mentionné dans le CPT Bordeaux Métropole §4.9.2 pour la réception des réseaux VMC, exigé pour le sous-traitant mesureur"
+    ]
   },
   "caracteristiques_mission_moe": {
     "typologie": null,
@@ -119,20 +161,20 @@
     "sous_criteres_techniques": [],
     "prix": {
       "type_formule": "autre",
-      "formule_explicite": "Non communiquée — le RC n'est pas fourni dans les pièces analysées",
+      "formule_explicite": "Non disponible — le Règlement de Consultation n'a pas été fourni dans les pièces du DCE.",
+      "source": null,
       "elements_a_chiffrer": [
-        "Démolition des 8 blocs sanitaires existants",
-        "Fourniture et pose des 8 nouveaux blocs sanitaires (7 doubles + 1 simple PMR)",
-        "Rénovation du bâtiment d'accueil (~112 m²)",
-        "Voiries et réseaux divers (enrobé, béton balayé, grave stabilisée, EU/EV/EP/AEP)",
-        "Clôtures (béton ht 160, grillagées rigides ht 160, portail coulissant L8m)",
-        "CVC-Plomberie (VMC, ballons ECS, convecteurs, plomberie)",
-        "Électricité (TGBT, éclairage, prises, éclairage extérieur)",
-        "Espaces verts (haies champêtres, arbres, gazon rustique, bancs béton)",
-        "Installation de chantier"
+        "Travaux par lot (bordereau des prix unitaires ou DPGF par corps d'état)",
+        "Forfait global par lot ou décomposition en postes de travaux",
+        "Quantités de maçonnerie / gros œuvre (m², ml, u)",
+        "Quantités de carrelage / revêtements (m²)",
+        "Fourniture et pose équipements CVC (VMC, convecteurs, ballons ECS)",
+        "Réseaux plomberie EU/EF/ECS (ml de canalisations)",
+        "VRD : voirie enrobée (m²), réseaux EU/EP (ml), clôtures (ml), portails (u)",
+        "Espaces verts : arbres (u), haies (ml), gazon (m²)"
       ]
     },
-    "modalite_calcul_prix": "Non communiquée — RC absent des pièces transmises"
+    "modalite_calcul_prix": "Non disponible — RC non fourni."
   },
   "montant_marche": {
     "valeur_estimee_euros": null,
@@ -141,7 +183,100 @@
     "type": "non_communique",
     "duree_couverte": null,
     "source_extraction": null,
-    "commentaire": "Aucun montant estimé n'est mentionné dans les pièces transmises (dossier de plans PRO-DCE, CPT Bordeaux Métropole, plan CVC-Plomberie). Le RC et le CCAP ne sont pas fournis."
+    "commentaire": "Le RC n'a pas été fourni dans les pièces du DCE. Aucun montant estimatif n'apparaît dans les plans architecturaux ni dans le CPT Bordeaux Métropole. Une estimation bottom-up est produite dans montant_3_voies."
+  },
+  "montant_3_voies": {
+    "voie_1_eur": null,
+    "voie_1_source": null,
+    "voie_2_disponible": true,
+    "voie_2_min_eur": 1400000,
+    "voie_2_max_eur": 1900000,
+    "voie_2_hypotheses": [
+      {
+        "hypothese": "8 blocs sanitaires neufs (7 doubles ~38 m² + 1 simple ~42 m²) soit env. 308 m² de construction neuve blocs — coût de construction bâtiment simple avec sanitaires : ratio varié 2 200-2 800 €/m² TTC (fourchette unique, quantité fixe)",
+        "valeur": "308 m² × 2 500 €/m² central = 770 000 €"
+      },
+      {
+        "hypothese": "Réhabilitation bâtiment d'accueil 112 m² — réhabilitation lourde intérieure avec second œuvre complet : ratio central 1 500 €/m² (quantité fixe, ratio marché réhabilitation ERP léger)",
+        "valeur": "112 m² × 1 500 €/m² = 168 000 €"
+      },
+      {
+        "hypothese": "VRD : voirie enrobée (env. 2 500 m²), réseaux EU/EP/AEP, clôtures (env. 300 ml béton + 200 ml grillage), portail coulissant — forfait estimé",
+        "valeur": "Forfait VRD estimé : 200 000-300 000 €"
+      },
+      {
+        "hypothese": "Espaces verts, plantations, mobilier urbain (bancs, étendoirs) — forfait estimé",
+        "valeur": "50 000-80 000 €"
+      },
+      {
+        "hypothese": "Démolition blocs sanitaires existants (8 blocs, env. 280 m²) + dépose réseaux",
+        "valeur": "40 000-60 000 €"
+      },
+      {
+        "hypothese": "Aléas, études de prix, travaux préparatoires, installation de chantier — 10-12% du total travaux",
+        "valeur": "130 000-170 000 €"
+      }
+    ],
+    "voie_2_raison_indisponible": null
+  },
+  "cout_realisation": {
+    "cout_total_eur": 1550000,
+    "cout_min_eur": 1400000,
+    "cout_max_eur": 1900000,
+    "postes": [
+      {
+        "poste": "Lot VRD (voirie, réseaux, clôtures, portails)",
+        "detail": "Voirie enrobée 2 500 m², réseaux EU/EP/AEP ~800 ml, clôtures 500 ml, portail coulissant, bandes de guidage",
+        "montant_eur": 250000
+      },
+      {
+        "poste": "Lot Démolition blocs sanitaires existants",
+        "detail": "Démolition 8 blocs ~280 m², dépose réseaux, évacuation déchets",
+        "montant_eur": 55000
+      },
+      {
+        "poste": "Lot Gros œuvre / Construction blocs sanitaires neufs",
+        "detail": "8 blocs neufs 308 m² (fondations, maçonnerie, chape), extensions emplacements 15 × béton balayé",
+        "montant_eur": 450000
+      },
+      {
+        "poste": "Lot Couverture / Bardage bâtiment accueil et blocs",
+        "detail": "Bac acier isolé LR 100 mm sur blocs + bâtiment accueil, tuile existante dépose/repose, bardage bois",
+        "montant_eur": 120000
+      },
+      {
+        "poste": "Lot Menuiseries extérieures et intérieures",
+        "detail": "Portes acier, volets acier, grilles, menuiseries PVC, serrurerie portillons",
+        "montant_eur": 90000
+      },
+      {
+        "poste": "Lot CVC-Plomberie (VMC, chauffage, réseaux EF/ECS/EU)",
+        "detail": "Ballons ECS 50L + 2×300L, VMC 315+8×75 m³/h, convecteurs, panneaux rayonnants, réseaux plomberie blocs + accueil",
+        "montant_eur": 200000
+      },
+      {
+        "poste": "Lot Électricité courants forts / faibles",
+        "detail": "Tableaux, éclairage LED intérieur/extérieur, câblage, éclairage sécurité, contrôle d'accès portail",
+        "montant_eur": 110000
+      },
+      {
+        "poste": "Lot Carrelage / Revêtements / Peinture",
+        "detail": "Carrelage R11 douches 308 m², faïence murale, chape, peinture",
+        "montant_eur": 85000
+      },
+      {
+        "poste": "Lot Espaces verts / Plantations / Mobilier",
+        "detail": "Haies champêtres, arbres QI et AC, gazon rustique, bancs béton, étendoirs",
+        "montant_eur": 65000
+      },
+      {
+        "poste": "Installation de chantier / OPC / Divers aléas (10%)",
+        "detail": "Base de vie, sanitaires chantier, coordination, imprévus",
+        "montant_eur": 125000
+      }
+    ],
+    "taux_journaliers_retenus": "Ratios marché indicatifs : construction bâtiment simple ERP ~2 200-2 800 €/m² TTC ; réhabilitation lourde second œuvre ~1 200-1 800 €/m² ; VRD voirie enrobée ~50-80 €/m² ; réseau EU/EP ~150-250 €/ml ; clôture béton ~200-350 €/ml ; CVC-plomberie bâtiment collectif ~450-700 €/m² SdP ; électricité bâtiment ERP ~300-500 €/m² SdP.",
+    "commentaire": "Estimation bottom-up sur la base des surfaces et programmes extraits des plans architecturaux et du plan CVC01. La fourchette reflète l'incertitude sur les prix unitaires (1 dimension variée). Rapport max/min = 1,36. Cohérent avec un marché européen BOAMP (seuil ~90 000 € largement dépassé). Le RC non fourni ne permet pas de confirmer l'enveloppe MOA."
   },
   "revision_prix": {
     "type": "non_communique",
@@ -150,78 +285,179 @@
     "periodicite": null,
     "formule_revision": null,
     "source_extraction": null,
-    "commentaire": "Le CCAP n'est pas fourni dans les pièces analysées. Les indices de révision ne peuvent être déterminés."
+    "commentaire": "Le CCAP n'a pas été fourni dans les pièces du DCE analysées. Le Cahier des Prescriptions Techniques Bordeaux Métropole ne contient pas de clause de révision des prix. La révision des prix applicable à ce marché de travaux n'a pas pu être extraite."
   },
   "alertes_prix": [
-    "Le montant estimé du marché n'est pas communiqué dans les pièces transmises — risque de sous-estimation du chiffrage sans consultation préalable du site.",
-    "Présence d'une zone humide avec bassin sur le site : risque de surcoûts liés aux contraintes environnementales et à la gestion des eaux en phase chantier.",
-    "Signal géoradar perturbé sur une partie du site (caravanes, brouillage) : incertitude sur les réseaux enterrés existants pouvant générer des travaux supplémentaires.",
-    "15 emplacements de 200 m² à créer partiellement (surfaces en extension variables de 44 à 165 m²) : quantitatifs à vérifier précisément sur les plans avant chiffrage."
+    "Le montant du marché n'est pas publié dans les pièces du DCE fournies — l'estimation bottom-up indique un marché entre 1,4 M€ et 1,9 M€ HT, avec une incertitude notable sur le lot VRD.",
+    "Marché multi-lots à corps d'état séparés : chaque lot est évalué séparément, le risque de sous-estimation d'un lot (notamment CVC ou VRD) peut disqualifier l'offre sur OAB.",
+    "Absence de RC fourni : la pondération prix/technique et la présence d'une formule OAB sont inconnues — à vérifier impérativement sur la plateforme de dépôt.",
+    "Le programme impose des blocs sanitaires neufs avec équipements PMR et VMC spécifiques — le bordereau de prix devra être très précis sur les équipements (risque de variation en exécution)."
   ],
   "references_exigees": {
     "experience_minimale_annees": null,
     "experience_source": null,
     "volume_min_references_similaires": null,
     "volume_min_references_unite": null,
-    "secteur_experience": "Réhabilitation et construction de bâtiments d'accueil collectif et d'équipements sanitaires, VRD, mise aux normes PMR",
+    "secteur_experience": "Réhabilitation / construction de bâtiments de type ERP ou infrastructure sociale (blocs sanitaires collectifs, bâtiments d'accueil) avec mise aux normes PMR — RC non fourni, exigences précises indisponibles.",
     "secteur_source": null,
-    "certifications_obligatoires": [],
+    "certifications_obligatoires": [
+      {
+        "libelle": "Qualibat 8721 — Mesure de l'étanchéité à l'air des réseaux aérauliques (exigé pour le sous-traitant mesureur VMC, en application du CPT Bordeaux Métropole §4.9.2)",
+        "codes": [
+          "8721"
+        ],
+        "bloquante": null,
+        "source": "CPT Bordeaux Métropole §4.9.2"
+      }
+    ],
     "autres_exigences": []
+  },
+  "dossier_candidature": {
+    "pieces_a_fournir": [],
+    "mode_remise": null,
+    "plateforme_depot": null,
+    "signature_electronique_exigee": null,
+    "format_signature": null,
+    "nombre_exemplaires": null,
+    "langue": "français",
+    "duree_validite_offres_jours": null,
+    "modalites_source": null
   },
   "lots": [
     {
       "numero": 1,
-      "intitule": "Travaux de rénovation, extension et mises aux normes PMR de l'APA de Saint-Médard-en-Jalles",
-      "zone_geographique": "Saint-Médard-en-Jalles (33160) — 93 Avenue de Mazeau",
+      "intitule": "VRD — Voirie, réseaux divers, clôtures, portails",
+      "domaine": "btp_voirie_reseaux",
+      "zone_geographique": "Saint-Médard-en-Jalles (33), 93 avenue de Mazeau",
       "volume_estime": null,
       "volume_estime_unite": null,
-      "particularites": "Marché apparemment en entreprise générale ou allotissement corps d'état — structure de lot non précisée dans les pièces fournies. Site avec zone humide classée. Prescriptions techniques Bordeaux Métropole obligatoires (CPT V1.7 juillet 2023)."
+      "cout_estime_min_eur": 200000,
+      "cout_estime_max_eur": 300000,
+      "particularites": "Fourniture AEP jusqu'aux panoplies des bâtiments (plan CVC01 indique 'AEP Lot VRD'). Voirie enrobée et grave stabilisée. Portail coulissant 8 m motorisé, clôtures béton 160 et 250 cm, bandes de guidage PMR."
+    },
+    {
+      "numero": 2,
+      "intitule": "Démolition / Gros œuvre / Maçonnerie",
+      "domaine": "btp_gros_oeuvre",
+      "zone_geographique": "Saint-Médard-en-Jalles (33)",
+      "volume_estime": null,
+      "volume_estime_unite": null,
+      "cout_estime_min_eur": 420000,
+      "cout_estime_max_eur": 560000,
+      "particularites": "Démolition totale 8 blocs sanitaires existants (bac acier + maçonnerie). Construction 8 blocs neufs dont blocs PMR. Réhabilitation bâtiment accueil (démolitions partielles, bouchements, créations d'ouvertures, dallage). Extensions béton balayé emplacements caravanes."
+    },
+    {
+      "numero": 3,
+      "intitule": "Couverture / Bardage",
+      "domaine": "btp_second_oeuvre",
+      "zone_geographique": "Saint-Médard-en-Jalles (33)",
+      "volume_estime": null,
+      "volume_estime_unite": null,
+      "cout_estime_min_eur": 100000,
+      "cout_estime_max_eur": 150000,
+      "particularites": "Bac acier isolé laine de roche 100 mm (U-value imposé), rives, gouttières et descentes acier. Dépose/repose tuiles bâtiment accueil. Bardage bois. L'extracteur VMC doit être posé AVANT isolation (coordination avec lot CVC)."
+    },
+    {
+      "numero": 4,
+      "intitule": "Menuiseries / Serrurerie",
+      "domaine": "btp_second_oeuvre",
+      "zone_geographique": "Saint-Médard-en-Jalles (33)",
+      "volume_estime": null,
+      "volume_estime_unite": null,
+      "cout_estime_min_eur": 75000,
+      "cout_estime_max_eur": 110000,
+      "particularites": "Portes acier avec barre anti-panique, portes acier accordéon, volets acier barreaudés, grilles, portillons PMR, menuiseries PVC. Prescriptions conformité PMR (passages libres 80 cm min, volet accessible)."
+    },
+    {
+      "numero": 5,
+      "intitule": "CVC — Plomberie / Chauffage / VMC",
+      "domaine": "btp_second_oeuvre",
+      "zone_geographique": "Saint-Médard-en-Jalles (33)",
+      "volume_estime": null,
+      "volume_estime_unite": null,
+      "cout_estime_min_eur": 170000,
+      "cout_estime_max_eur": 240000,
+      "particularites": "Périmètre détaillé sur plan CVC-01 : ballons ECS électriques (50 L bâtiment accueil, 2×300 L blocs doubles), VMC extracteurs de conduit (1×315 m³/h bâtiment accueil, 8×75 m³/h blocs), convecteurs soufflants avec bouton poussoir, panneaux rayonnants, ventilation primaire tuile, entrées d'air VB/VH 300×125. Réseaux EF/ECS calorifugés. Prescriptions GTB/GTC applicables pour comptage et regulation selon CPT Bordeaux Métropole."
+    },
+    {
+      "numero": 6,
+      "intitule": "Électricité — Courants forts / Courants faibles",
+      "domaine": "btp_second_oeuvre",
+      "zone_geographique": "Saint-Médard-en-Jalles (33)",
+      "volume_estime": null,
+      "volume_estime_unite": null,
+      "cout_estime_min_eur": 90000,
+      "cout_estime_max_eur": 130000,
+      "particularites": "Prescriptions techniques très détaillées CPT Bordeaux Métropole : TGBT avec centrale de mesure, compteurs communicants par usage, éclairage LED (efficacité > 100 lm/W), éclairage extérieur horloge astronomique, éclairage sécurité adressable (si >30 blocs), contrôle accès portail, vidéosurveillance IP ONVIF, câblage VDI Cat6A FTP. Normes NFC 15-100 obligatoires."
+    },
+    {
+      "numero": 7,
+      "intitule": "Revêtements de sol / Carrelage / Peinture",
+      "domaine": "btp_second_oeuvre",
+      "zone_geographique": "Saint-Médard-en-Jalles (33)",
+      "volume_estime": null,
+      "volume_estime_unite": null,
+      "cout_estime_min_eur": 70000,
+      "cout_estime_max_eur": 105000,
+      "particularites": "Carrelage R11 obligatoire en douches (antidérapant), carrelage mural toute hauteur 4 murs dans salles d'eau, carrelage partiel 60 cm dans sanitaires extérieurs. Chape talochée pièces de vie. Carrelage 20×20 ou dalles 60×60 au bureau accueil. Plans de finition de sol fournis (plans architecturaux)."
+    },
+    {
+      "numero": 8,
+      "intitule": "Espaces verts / Plantations / Mobilier urbain",
+      "domaine": "amenagement_paysager_creation",
+      "zone_geographique": "Saint-Médard-en-Jalles (33)",
+      "volume_estime": null,
+      "volume_estime_unite": null,
+      "cout_estime_min_eur": 50000,
+      "cout_estime_max_eur": 80000,
+      "particularites": "Haies champêtres arbustives mixtes type H01 (6 espèces) et H02 (5 espèces) — plan de plantation détaillé fourni. Arbres Quercus ilex MT 16/18 et Acer campestre MT 16/18. Gazon rustique zones enherbées. Bancs béton. Suppression souches existantes. Arbre existant à conserver."
     }
   ],
+  "tranches": [],
   "calendrier": {
     "date_limite_offres": "2026-07-08",
     "date_demarrage_prevue": null,
     "duree_marche": null
   },
   "alertes_candidat": [
-    "Le RC et le CCAP ne sont pas fournis dans les pièces analysées — les exigences de qualification, les critères de sélection et les conditions administratives ne peuvent être vérifiés : télécharger impérativement le dossier complet sur la plateforme de dématérialisation.",
-    "Présence d'une zone humide avec bassin dense sur le site : des contraintes réglementaires (Loi sur l'Eau, dossier IOTA) peuvent s'appliquer et nécessiter des mesures de protection ou compensatoires.",
-    "Signal géoradar fortement perturbé sur une partie du site (caravanes, signal brouillé) : incertitude sur les réseaux enterrés existants — une visite de site préalable au dépôt est fortement recommandée.",
-    "Mise aux normes PMR intégrale obligatoire (bandes de guidage, espaces sanitaires PMR, stationnement PMR, portillon PMR) : vérifier la maîtrise des exigences réglementaires d'accessibilité sur l'ensemble du site.",
-    "Le Cahier de Prescriptions Techniques Bordeaux Métropole (V1.7 juillet 2023) est opposable et très détaillé (GTB, CVC, électricité, VDI, SSI, portes motorisées) : toute dérogation doit être justifiée et soumise à validation."
+    "Règlement de Consultation non fourni dans les pièces du DCE — les conditions de candidature, qualifications exigées, critères d'attribution et modalités de dépôt sont INCONNUES : vérifier impérativement le RC sur la plateforme de dépôt (BOAMP / profil acheteur Bordeaux Métropole).",
+    "Coordination entre lots obligatoire : le plan CVC-01 précise explicitement que l'extracteur VMC doit être posé AVANT la mise en œuvre de l'isolation thermique (lot couverture), et que la liaison PE/AEP est à la charge du lot CVC-PB mais l'arrivée AEP relève du lot VRD — le candidat doit intégrer ces interfaces dans son planning.",
+    "Zone humide (bassin + végétation dense) identifiée sur le plan masse — zone à préserver impérativement ; des travaux à proximité nécessitent des précautions environnementales et potentiellement une déclaration loi sur l'eau.",
+    "Prescriptions techniques Bordeaux Métropole très détaillées (CPT 77 pages) pour les lots CVC, électricité, GTB : les candidats à ces lots doivent les avoir lues intégralement — notamment les exigences BACnet/IP, VDI Cat6A, éclairage gradable, compteurs communicants qui ont un impact direct sur le chiffrage.",
+    "Détection de réseaux enterrés difficile signalée sur les plans (géoradar perturbé par caravane, signal non trouvé, perte de signal) — risque de découvertes fortuites sur le lot VRD, à provisionner dans les prix."
   ],
   "points_differenciants_attendus": [
     {
-      "libelle": "Maîtrise des contraintes environnementales liées à la zone humide",
-      "exemple": "Proposer un plan de gestion des eaux de chantier avec batardeau ou pompage contrôlé, et justifier la non-destruction de la zone humide par un plan de protection écologique.",
+      "libelle": "Maîtrise des interfaces entre lots (VRD / CVC / Électricité / GO)",
+      "exemple": "Un candidat à la coordination (ou un groupement) qui propose un planning détaillé gérant la séquence : pose extracteurs VMC (lot CVC) avant isolation (lot couverture), raccordement AEP depuis panoplie existante (lot VRD) avant mise en service plomberie (lot CVC), démarrage électricité après clos-couvert — montrant une vraie maîtrise des interfaces entre lots.",
+      "source": "Plan CVC-01 (note 'extracteur à poser avant isolation' et 'AEP Lot VRD')"
+    },
+    {
+      "libelle": "Conformité PMR complète et documentée",
+      "exemple": "Un candidat qui démontre sa connaissance des exigences PMR spécifiques à ce type de programme (bandes de guidage, passages libres 80/90 cm, bloc sanitaire PMR dédié avec circulation adaptée, espace de manœuvre 1,50 m, stationnement PMR dimensionné) et propose une vérification systématique par un BET accessibilité.",
+      "source": "Plans architecturaux (blocs 05 PMR, 08 PMR, bandes de guidage plan masse)"
+    },
+    {
+      "libelle": "Expérience sur des programmes similaires (aires d'accueil gens du voyage ou équipements sanitaires collectifs en site contraint)",
+      "exemple": "Un candidat lot GO/blocs sanitaires qui présente 2-3 références de construction de blocs sanitaires collectifs (campings, aires de repos, bâtiments sociaux) avec mise aux normes PMR, démontrant la maîtrise des contraintes d'étanchéité, carrelage R11, ventilation primaire en toiture.",
       "source": null
     },
     {
-      "libelle": "Expérience en construction de blocs sanitaires pour aires d'accueil des gens du voyage",
-      "exemple": "Présenter des références de réalisations d'aires d'accueil similaires (blocs sanitaires bac acier isolé, mise aux normes PMR, VRD) réalisées pour des collectivités dans les 5 dernières années.",
-      "source": null
+      "libelle": "Respect strict des prescriptions techniques Bordeaux Métropole (CPT v1.7)",
+      "exemple": "Pour les lots CVC et électricité, un candidat qui cite explicitement dans son mémoire les exigences CPT applicables (BACnet/IP profil B-BC, TGBT avec centrale de mesure, éclairage LED >100 lm/W, gradation automatique, VDI Cat6A F/FTP) et détaille comment il les respecte, démontre une lecture approfondie du CPT et limite les risques de non-conformité à la réception.",
+      "source": "CPT Bordeaux Métropole V1.7 (pièce 3 du DCE)"
     },
     {
-      "libelle": "Conformité aux prescriptions techniques Bordeaux Métropole (CPT V1.7)",
-      "exemple": "Démontrer la maîtrise des exigences spécifiques du CPT Bordeaux Métropole : codification des équipements techniques, prescriptions CVC (PAC, VMC double flux si applicable), prescriptions électricité (TGBT, éclairage LED gradable, GTB BACnet).",
-      "source": "3- Cahier de prescriptions Techniques.pdf"
-    },
-    {
-      "libelle": "Phasage chantier et gestion de la coactivité",
-      "exemple": "Proposer un phasage démolition/reconstruction permettant de maintenir une partie du site opérationnelle si nécessaire, avec un plan d'installation de chantier détaillé intégrant l'espace de manœuvre SDIS.",
-      "source": "24-32c - PRO-DCE - 01 DOSSIER DE PLANS.pdf — page 15 (installation de chantier)"
-    },
-    {
-      "libelle": "Intégration paysagère et qualité des espaces collectifs",
-      "exemple": "Mettre en avant la maîtrise des essences proposées (haies champêtres mixtes autochtones, arbres de haute tige), la durabilité du gazon rustique et la cohérence des choix paysagers avec le contexte périurbain.",
-      "source": "24-32c - PRO-DCE - 01 DOSSIER DE PLANS.pdf — pages 34-35 (plan plantations)"
+      "libelle": "Gestion des contraintes environnementales (zone humide, arbres conservés)",
+      "exemple": "Un candidat lot VRD/espaces verts qui propose une méthodologie de protection de la zone humide (bassin + végétation dense) pendant le chantier (balisage, filet de protection, gestion des eaux de ruissellement) et détaille la procédure de conservation de l'arbre existant lors des travaux de terrassement proches.",
+      "source": "Plan masse projet (zone humide identifiée, 'arbre existant conservé')"
     }
   ],
   "_meta": {
     "id_marche": "BOAMP-26-56674",
     "type": "complet",
-    "date_generation": "2026-06-14T23:01:20.303073+00:00",
-    "extraction_le": "2026-06-14T23:01:20.303073+00:00",
+    "date_generation": "2026-06-19T21:56:52.400837+00:00",
+    "extraction_le": "2026-06-19T21:56:52.400837+00:00",
     "modele": "claude-sonnet-4-6",
     "preset_utilise": "btp",
     "presets_matches": [
@@ -229,13 +465,13 @@
       "ingenierie"
     ],
     "prompts_versions": {
-      "btp/_preset.json": "sha256:d1717e0d87f6c265",
-      "ingenierie/_preset.json": "sha256:56f813f829343e24"
+      "btp/_preset.json": "sha256:055bf6f8b2c1f771",
+      "ingenierie/_preset.json": "sha256:b924b32a088673d6"
     },
-    "tokens_input": 163194,
-    "tokens_output": 4875,
-    "cout_eur": 0.5346,
-    "duree_sec": 89.6,
+    "tokens_input": 171219,
+    "tokens_output": 9923,
+    "cout_eur": 0.6294,
+    "duree_sec": 174.2,
     "pdfs_traites": [
       {
         "nom": "1-calendrier prévisionnel d'exécution.pdf",

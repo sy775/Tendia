@@ -1,6 +1,6 @@
 # Brief — MARCHE DE TRAVAUX POUR LE DEMENAGEMENT DE L’OFPRA
 
-_Généré le 2026-06-15 00:19 par Claude claude-sonnet-4-6_
+_Généré le 2026-06-21 01:30 par Claude claude-sonnet-4-6_
 
 ## Identifiants
 - **ID Tendia** : `BOAMP-26-56378`
@@ -11,55 +11,59 @@ _Généré le 2026-06-15 00:19 par Claude claude-sonnet-4-6_
 - **DCE PLACE** : <https://www.marches-publics.gouv.fr/?page=Entreprise.EntrepriseAdvancedSearch&AllCons&id=3014579&orgAcronyme=g6l>
 
 ## Synthèse
-Marché de travaux d'aménagement intérieur pour le déménagement de l'OFPRA dans son futur siège social (immeuble Joya, 198-200 rue Carnot, Fontenay-sous-Bois), portant sur les niveaux RDC, R+1 et R+2. Les travaux comprennent la création d'espaces d'accueil public, de salles d'attente et de boxes d'entretien. Le marché est alloti en 5 lots de second œuvre (plâtrerie-peinture, revêtements de sol, cloisons modulaires, électricité, CVC-plomberie), avec un délai d'exécution contraint (travaux de juillet à décembre 2026).
+Marché de travaux d'aménagement intérieur pour le déménagement de l'OFPRA dans son nouveau siège social (immeuble Joya, 198 rue Carnot, Fontenay-sous-Bois, Val-de-Marne). Le marché est structuré en 5 lots de second œuvre (plâtrerie/peinture, revêtements de sols, cloisons modulaires, électricité, CVC/plomberie) pour transformer des espaces en ERP (espace d'accueil public, salles d'attente, boxes d'entretien) sur RDC, R+1 et R+2. Le calendrier est contraint par la fin des baux de l'OFPRA au 31 décembre 2026, avec un délai de réception des offres réduit à moins de 30 jours en raison d'une urgence impérieuse.
 
 ## 🏗 Chantier — caractéristiques BTP
-- **Description** : Aménagement intérieur de 3 niveaux (RDC, R+1, R+2) d'un immeuble tertiaire pour créer un espace d'accueil ERP de type W (1ère catégorie) : curage du RDC (ex-cafétéria), création d'une banque d'accueil, salle d'attente, boxes d'entretien, sanitaires PMR, local caméra, local ménage, salle d'allaitement. Travaux en coordination avec le contractant général SEDRI (travaux bailleur) qui réalise simultanément les prestations des bureaux et les courants forts/faibles ERP.
-- **Type d'ouvrage** : Immeuble de bureaux tertiaire reconverti en ERP de type W (administration publique) — aménagement intérieur multi-niveaux
-- **Surface / volume** : Revêtement PVC : 2 598 m² (lot 2) ; cloisons amovibles pleines : 2 002 m² ; cloisons amovibles vitrées : 459 m² — surface totale non précisée globalement
-- **Site occupé pendant travaux** : true — chantier dans un immeuble occupé par d'autres locataires ; coordination impérative avec SEDRI intervenant simultanément ; respect des horaires définis par le maître d'œuvre sans nuisances pour les autres occupants
-- **Corps d'état mobilisés** : Plâtrerie, Plafonds suspendus, Menuiseries intérieures, Peinture, Revêtements de sols, Cloisons modulaires / amovibles, Électricité courants forts, Électricité courants faibles, CVC (chauffage, ventilation, climatisation), Plomberie sanitaire
+- **Description** : Aménagement intérieur d'un ERP de 1ère catégorie type W sur 3 niveaux (RDC, R+1, R+2) de l'immeuble Joya : création d'espaces d'accueil, salles d'attente, boxes d'entretien, sanitaires, locaux techniques. Travaux incluant cloisonnement en plaques de plâtre (cloisons 98/48 coupe-feu EI60), cloisons amovibles modulaires (2 000 m² pleines + 460 m² vitrées), revêtements de sols (PVC 2 600 m², carrelage, sol sportif), installations électriques CF/CFA, CVC et plomberie sanitaire, mobiliers fixes intégrés.
+- **Type d'ouvrage** : ERP 1ère catégorie type W — espace d'accueil du public, bureaux administratifs
+- **Surface / volume** : 3 niveaux (RDC, R+1, R+2) — surface totale non précisée explicitement ; quantités issues des DPGF : revêtement PVC 2 598 m², cloisons amovibles pleines 2 002 m², cloisons amovibles vitrées 459 m², peinture acrylique 628 m²
+- **Site occupé pendant travaux** : false — le bâtiment est un futur siège en cours d'aménagement, l'OFPRA n'y est pas encore installé. Coactivité avec le contractant général SEDRI (travaux bailleur) à coordonner impérativement.
+- **Corps d'état mobilisés** : Plâtrerie / cloisons / plafonds suspendus, Peinture, Menuiseries intérieures (portes bois, portes vitrées, portes blindées, châssis vitrés), Mobilier fixe (banque d'accueil, tour ludique, bornes, kitchenettes), Revêtements de sols (carrelage, PVC LVT, sol sportif, ragréage, revêtements muraux), Cloisons modulaires amovibles et boxes autonomes, Électricité courant fort (tableaux, éclairage, appareillage, nourrices), Électricité courants faibles (VDI, vidéophonie PMR, kits ventouses CF), CVC (ventilo-convecteur, VMC, brasseurs d'air, clapets coupe-feu), Plomberie sanitaire (EF/EC, EU/EV, appareils sanitaires, ballons ECS, mini-stations relevage)
 - **Contraintes spécifiques** :
-  - Calendrier très contraint : délai de consultation réduit pour urgence impérieuse (bail se terminant le 31/12/2026) — travaux de juillet à décembre 2026
-  - Coactivité obligatoire avec le contractant général SEDRI qui réalise les travaux bailleur simultanément
-  - ERP de 1ère catégorie type W : respect de la réglementation incendie ERP stricte
-  - Présence de plancher chauffant existant au RDC : repérage obligatoire par caméra thermique avant tout percement
-  - Bâtiment occupé par d'autres locataires : horaires d'intervention contraints
-  - Coordination SPS avec SARL COSSEC et contrôle technique SOCOTEC
-  - Planning en deux phases d'installation de chantier (base vie intérieure R+1 puis base vie modulaire extérieure)
-  - Facturation obligatoire via CHORUS Pro (dématérialisation)
+  - Urgence impérieuse : délai de consultation réduit à moins de 30 jours (art. R.2161-3 CCP), offres attendues le 29/06/2026 pour travaux démarrant en juillet 2026
+  - Coactivité et coordination obligatoire avec SEDRI (contractant général bailleur) pour les distributions électriques CF/CFA, les attentes plomberie et les travaux ERP
+  - ERP 1ère catégorie type W : respect strict de la réglementation incendie, EI60, DAS, clapet coupe-feu, accessibilité PMR (HAND)
+  - Repérage des circuits de plancher chauffant par caméra thermique infrarouge avant tout percement
+  - Planning contraint : travaux de juillet à décembre 2026 (105 jours ouvrés), fin prévue 18/12/2026
+  - Base vie en 2 phases : phase 1 au R+1 puis phase 2 en bungalow modulaire extérieur rue Carnot
+  - Gestion des déchets de chantier à la charge du lot 1 (bennes pour tous les lots)
+  - Qualification E2 - classification 3 de Qualifelec exigée pour le lot électricité
+  - Coordination SPS (COSSEC/Degouy) et contrôle technique (SOCOTEC) présents
+  - Respect du RGPD et secret professionnel (OFPRA traite des données sensibles réfugiés/apatrides)
 
 ### Allotissement
-Marché alloti en 5 lots de second œuvre, tous à prix global et forfaitaire, sans montant minimum ni maximum. Une même entreprise peut candidater à plusieurs lots.
+Marché alloti en 5 lots de second œuvre et installations techniques. Chaque lot est passé à prix global et forfaitaire. Une même entreprise peut candidater à plusieurs lots.
 - **Nombre de lots** : 5
 - **Lot 1** — Plâtrerie – Plafonds – Menuiseries intérieures – Peinture
-  - Corps d'état : Plâtrerie, plafonds suspendus, menuiseries intérieures, peinture
-  - Cloisons 98/48 (299,63 m²), plafonds en fibre minérale (67 m²) et bacs métalliques (11,4 m²), retombées (23,89 m²), peinture acrylique (628 m²), portes intérieures (11 unités dont DAS et blindée), châssis vitrés (38 m²), plinthes (52,38 ml), mobiliers fixes (banque d'accueil, tour ludique, borne numérique, kitchenettes), banquettes d'attente (122 places toutes PMR comprises), habillages de nourrices. Inclut installation de chantier complète.
+  - Corps d'état : Plâtrerie, plafonds suspendus, cloisons plâtre, menuiseries intérieures, peinture, mobilier fixe, installation de chantier (base vie tous lots)
+  - Cloisonnement 98/48 EI60 (299 m²), plafonds fibre minérale (67 m²) et bacs métalliques (11 m²), peinture acrylique (628 m²), portes intérieures (bois, vitrées, blindée), châssis vitrés (38 m²), plinthes, banquettes d'attente (119 unités), mobiliers fixes (banque accueil, tour ludique, borne numérique, kitchenette, meuble local caméra). Gestion de la base vie et des bennes pour tous les lots.
 - **Lot 2** — Revêtements de sol
-  - Corps d'état : Revêtements de sols (carrelage, PVC, sol sportif, faïences)
-  - Dépose carrelage existant (32,21 m²), carrelage U4P4 45x45 avec isolation phonique (32,21 m²), ragréage (37,12 m²), faïences (65,93 m²), panneaux stratifié compact (4,5 m²), revêtement PVC LVT acoustique (2 598,34 m²), sol sportif (27,12 m²), protections des ouvrages finis (2 657,67 m²).
+  - Corps d'état : Carrelage, ragréage, revêtements muraux, sol souple PVC, sol sportif
+  - Dépose de carrelage existant (32 m²), carrelage 45×45 U4P4 (32 m²), ragréage (37 m²), faïences murales (66 m²), panneaux stratifié compact (4,5 m²), revêtement PVC LVT acoustique (2 598 m²), sol sportif PVC (27 m²), protection des sols finis.
 - **Lot 3** — Cloisons modulaires
   - Corps d'état : Cloisons amovibles et démontables, boxes autonomes
-  - Cloisons amovibles pleines (2 002 m²) et vitrées (459,43 m²) avec certification CERFF exigée, 157 portes stratifiées, 10 boxes autonomes (3 standard, 3 PMR, 4 ordre public) avec plafonds intégrés, éclairage LED, ventilation à détecteur de présence.
+  - Cloisons amovibles pleines CERFF (2 002 m²), cloisons amovibles vitrées double vitrage feuilleté (459 m²), 157 portes stratifiées, boxes autonomes (3 standards + 3 PMR + 4 ordre public) avec plafond dalle minérale, éclairage LED intégré, ventilation à 2 vitesses.
 - **Lot 4** — Electricité
-  - Corps d'état : Électricité courants forts et courants faibles
-  - Pose luminaires (43 suspensions conservées + 37 neufs de types 2 à 6), petit appareillage (prises, interrupteurs, nourrices), perches techniques, goulottes, détecteurs de présence, sèche-mains, raccordements boxes autonomes, nourrices RJ45, kits ventouses portes CF, vidéophonie PMR. Coordination avec SEDRI pour les distributions principales. Qualification E2 classe 3 Qualifelec requise.
+  - Corps d'état : Électricité courant fort et courants faibles
+  - Fourniture et pose des luminaires (6 types, 43 suspensions BEGA conservées + neufs), petit appareillage, nourrices prises, détecteurs de présence, colonnes techniques, goulottes, sèche-mains électriques, raccordements boxes autonomes. CFA : nourrices RJ45, kits ventouses CF (3 unités), vidéophonie PMR. Coordination avec SEDRI pour distributions principales. Qualification Qualifelec E2-3 requise.
 - **Lot 5** — CVC – Plomberie
-  - Corps d'état : CVC (chauffage, ventilation, climatisation) et plomberie sanitaire
-  - VMC simple flux RDC (sanitaires, vestiaire, local ménage, salle allaitement), ventilation double flux (3 boxes fond bâtiment + local caméra), ventilo-convecteur cassette local caméra, 6 brasseurs d'air, plomberie sanitaire complète RDC (WC, lavabos PMR/non PMR, kitchenette, vidoir, ballons ECS), mini-stations de relevage, attentes EF/EU pour fontaines et distributeurs (RDC/R+1/R+2).
+  - Corps d'état : CVC (chauffage, ventilation, climatisation), plomberie sanitaire
+  - VMC simple flux RDC (bouches, gaines, clapets coupe-feu), ventilo-convecteur cassette local caméra, 6 brasseurs d'air, ventilation double flux boxes B11-B13. Plomberie : réseaux EF/EC, EU/EV, appareils sanitaires WC/lavabos/vidoir, 2 ballons ECS accumulation électrique, mini-stations relevage (salle allaitement + local ménage), attentes fontaines à eau et distributeurs boissons.
 
 ### Qualifications BTP exigées
-Aucune qualification Qualibat ou RGE explicitement listée dans le RC. Pour le lot 4 électricité, une qualification Qualifelec E2 classe 3 est exigée dans le CCTP. Les cloisons modulaires (lot 3) doivent être certifiées CERFF.
-- **OPQIBI** : non
+Qualification Qualifelec E2 - classification 3 exigée pour le lot 4 électricité. Aucune qualification Qualibat formellement exigée dans le RC mais des capacités professionnelles similaires sont requises via les références.
 - **MASE** : non
 - **Autres exigences** :
-  - Qualifelec E2 classification 3 (lot 4 Électricité) — exigée dans le CCTP lot 4 §0.14.1
-  - Certification CERFF pour les cloisons amovibles (lot 3) — exigée dans le CCTP lot 3 §1.4
+  - Qualifelec E2 - classification 3 (lot 4 électricité)
+  - Certificat CERFF d'amovibilité requis pour les cloisons amovibles (lot 3)
+
+## 🧮 Mission MOE / ingénierie
+- **Indices révision** : BT01
 
 ## 💶 Montant du marché
-- _Montant non communiqué dans le DCE._
-  - Typique des accords-cadres à bons de commande : le volume dépend des commandes effectivement passées par l'acheteur sur la durée du marché.
-- _Note_ : Le marché est conclu à prix global et forfaitaire sans montant minimum ni maximum indiqué. Les DPGF sont vierges (prix à remplir par les candidats). Aucune estimation budgétaire n'est communiquée dans les pièces du DCE.
+- **Fourchette** : entre 2,20 M€ et 3,20 M€
+  - sur Travaux juillet à décembre 2026 (marché à prix global et forfaitaire, sans montant min ni max)
+  - _source : RC §1.3 et DPGF lots 1 à 5 (quantités issues des DPGF)_
 
 ## Barème de notation
 - **Valeur technique** : 55 %
@@ -67,29 +71,26 @@ Aucune qualification Qualibat ou RGE explicitement listée dans le RC. Pour le l
 - **Sous-critères techniques** :
   - Moyens humains et techniques, afin notamment de respecter les délais du planning : 35 %
   - Qualité d'exécution des ouvrages et méthodologie d'exécution, prenant en compte les contraintes du site : 20 %
-- **Calcul du prix** : Offre économiquement la plus avantageuse — critère prix pondéré à 45%. Formule exacte non précisée dans le RC.
+- **Calcul du prix** : 45% sur le critère prix — mécanisme moins-disant (formule exacte non précisée dans le RC)
 
 ## Références et qualifications exigées
 - **Expérience minimale** : —
-- **Secteur d'expérience** : Références détaillées dans un domaine analogue au présent marché (aménagement intérieur ERP ou tertiaire, travaux de second œuvre), avec noms et numéros de téléphone des clients, type de prestation, volume et périodicité — sur les 3 dernières années.
-- **Certifications obligatoires** : Qualifelec E2 classification 3 (lot 4 Électricité) (source=CCTP lot 4 §0.14.1), Certification CERFF pour les cloisons amovibles et démontables (lot 3) (source=CCTP lot 3 §1.4)
+- **Secteur d'expérience** : Travaux d'aménagement intérieur (second œuvre) dans un domaine analogue au présent marché
+- **Certifications obligatoires** : Qualification Qualifelec E2 - classification 3 (lot 4 Électricité) (bloquante=True, source=CCTP lot 4 §0.14.1), Certificat CERFF d'amovibilité, stabilité et résistance aux chocs pour les cloisons modulaires (lot 3) (bloquante=True, source=CCTP lot 3 §1.4)
 - **Autres exigences** :
-  - Chiffres d'affaires ou bilans annuels sur les 3 dernières années (capacités financières) (source=RC article 4.1)
-  - Effectif actuel (personnel d'encadrement et exécutant avec qualifications) et évolution sur 3 ans (source=RC article 4.1)
-  - Extrait Kbis d'inscription au registre du commerce (source=RC article 4.1)
-  - Attestation sur l'honneur de non-exclusion (articles L.2141-1 à L.2141-4 CCP) (source=RC article 4.1)
-  - Attestation d'assurance RC et assurance décennale (garantie des responsabilités articles 1792 à 1792-2 et 1792-4-1 du Code Civil) (source=CCAP article 11.3)
+  - Présentation du candidat sur 3 dernières années : capacités financières (CA ou bilans annuels), capacités techniques (effectif réparti en personnel d'encadrement et exécutant avec qualifications), capacités professionnelles (références détaillées dans un domaine analogue avec noms et numéros de téléphone des clients, type de prestation, volume et périodicité) (source=RC §4.1)
+  - Attestation sur l'honneur de non-exclusion (articles L. 2141-1 à L. 2141-4 CCP) (source=RC §4.1)
+  - Extrait Kbis — inscription au registre du commerce (source=RC §4.1)
 
 ## ⚠ Alertes candidat
-- Délai de réponse réduit à moins de 30 jours (urgence impérieuse) : date limite au 29/06/2026 pour une publication le 10/06/2026 — soit seulement 19 jours pour préparer l'offre et visiter les lieux (visites les 15 et 17 juin).
-- Lot 4 Électricité : qualification Qualifelec E2 classification 3 obligatoire — l'absence de cette qualification entraîne le rejet de la candidature (CCTP lot 4 §0.14.1).
-- Lot 3 Cloisons modulaires : délai de commande et fabrication de 45 jours intégré au planning — si la notification intervient fin juillet, les cloisons doivent être commandées immédiatement ; tout retard en phase conception/commande décale l'ensemble du chantier.
-- Coordination obligatoire avec SEDRI (contractant général du bailleur) intervenant simultanément sur le même site : les candidats doivent intégrer des sujétions de coordination non rémunérées séparément dans leur prix forfaitaire.
-- Le lot 1 supporte la charge de l'installation de chantier complète pour tous les lots (base vie, bennes, sanitaires) selon le CCTP — les candidats aux autres lots doivent vérifier que cette charge est bien prise en compte dans le lot 1 et non refacturée.
+- Délai de remise des offres TRÈS COURT : 19 jours calendaires (publication 10/06, limite 29/06/2026) — urgence impérieuse justifiée par fin des baux OFPRA au 31/12/2026. Le temps de chiffrage est très limité, notamment pour le lot 3 (cloisons modulaires sur mesure, délai de fabrication 45 jours) et le lot 4 (consultation Qualifelec et revue des limites SEDRI/OFPRA).
+- Qualification Qualifelec E2 - classification 3 exigée pour le lot 4 (CCTP §0.14.1) : son absence disqualifie le candidat pour ce lot.
+- Certificat CERFF obligatoire pour les cloisons modulaires (lot 3 §1.4) : seuls les fabricants/installateurs certifiés CERFF peuvent répondre à ce lot.
+- Coactivité complexe avec SEDRI (contractant général bailleur) : les limites de prestations CF/CFA (lot 4) et CVC (lot 5) entre OFPRA et SEDRI sont détaillées mais complexes — une erreur d'interprétation peut conduire à des oublis coûteux (ex: distributions électriques principales hors lot, mais raccordements et intégrations mobilier dans le lot).
+- Visite des locaux vivement conseillée (15 ou 17 juin 2026, sur RDV préalable) — le bâtiment est un ERP en cours d'aménagement avec le lot curage déjà réalisé ; sans visite, le risque de mauvaise appréciation des travaux existants est élevé (plancher chauffant, installations conservées BEGA, tableau divisionnaire TD Boulangerie).
 
 ## 💡 Points différenciants attendus
-- Démonstration de la capacité à tenir le planning ultra-contraint avec ressources mobilisables immédiatement (exemple=Un candidat qui présente un organigramme nominatif avec CV du chef de chantier, un tableau de charge des compagnons semaine par semaine de juillet à décembre et un engagement sur les approvisionnements pré-commandes différenciera fortement son offre sur le critère 'Moyens humains et techniques' pondéré à 35%., source=RC §5.2)
-- Expérience avérée en chantier ERP de 1ère catégorie en coactivité (exemple=Présenter des références de chantiers similaires (ERP type W ou bureau ouvert au public) réalisés en coactivité avec d'autres corps d'état, avec coordonnées des maîtres d'ouvrage vérifiables, renforce directement la crédibilité sur les critères de capacité professionnelle et de méthodologie., source=RC article 4.1)
-- Méthodologie précise de gestion de la coactivité avec SEDRI et de protection des occupants (exemple=Proposer un plan de coordination hebdomadaire formalisé avec SEDRI, incluant des zones d'intervention dédiées et un processus de levée de réserves contradictoires, répond directement au sous-critère 'qualité d'exécution et contraintes du site' (20%)., source=RC §5.2)
-- Procédure de repérage du plancher chauffant existant au RDC avec restitution documentée (exemple=Décrire la procédure caméra thermique avec rapport photographique géolocalisé et marquage physique sur site avant tout percement démontre une maîtrise des risques propre à ce chantier et valorise l'offre technique., source=CCTP lot 4 §1.5 et CCTP lot 5 §3.1)
-- Pour le lot 3 : présentation d'un processus de BOX témoin validé rapidement (exemple=Proposer une procédure de réalisation et de validation du BOX témoin dans les 10 premiers jours du chantier, avec planning détaillé intégrant les 45 jours de délai de fabrication des cloisons, rassure l'acheteur sur la maîtrise du délai critique de ce lot., source=CCTP lot 3 §2.1.1)
+- Mobilisation immédiate des moyens humains et planning détaillé cohérent avec le phasage UBIQUE/SEDRI (exemple=Un candidat présentant un organigramme nominatif avec chef de chantier disponible dès la notification, une courbe de charge hebdomadaire sur les 22 semaines de travaux et une analyse des jalons critiques (délai de fabrication cloisons 45 jours = commande impérative semaine 31) se différenciera nettement — ce sous-critère pèse 35% de la note., source=RC §5.2)
+- Méthodologie précise de gestion de la coactivité OFPRA/SEDRI et des interfaces inter-lots (exemple=Pour le lot 4, un mémoire qui cartographie les attentes SEDRI (tableau TD Boulangerie, nourrices RJ45 en attente) et décrit point par point la procédure de coordination (réunions synthèse bi-hebdomadaires avec SEDRI, validation des plans d'exécution avant percement plancher chauffant) démontrera la maîtrise des contraintes site., source=RC §5.2)
+- Références récentes en ERP 1ère catégorie avec contraintes DAS, EI60 et accessibilité PMR (exemple=Citer un chantier ERP similaire (accueil public, boxes d'entretien, portes DAS EI60) réalisé dans les 3 dernières années, avec coordonnées client vérifiables, surface et délai respecté, renforce significativement la crédibilité de la candidature sur les sous-critères qualité et moyens., source=RC §4.1)
+- Proposition d'un BOX témoin dans le mémoire technique (lot 3) pour rassurer sur la qualité acoustique (exemple=Le candidat au lot 3 peut proposer un protocole de validation du BOX témoin (planning de réalisation J+15 après OS, composition du panel de validation MOE/MOA, critères de mesure acoustique Rw+C ≥ 44 dB) pour montrer sa maîtrise du processus qualité exigé par le CCTP., source=CCTP lot 3 §2.1.1)

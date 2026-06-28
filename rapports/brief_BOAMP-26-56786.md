@@ -1,6 +1,6 @@
 # Brief — Relocalisation du Foyer de l'Enfance Le Passadou à Vals Pres Le Puy - reconsultation lot 3 Maçonnerie
 
-_Généré le 2026-06-15 01:23 par Claude claude-sonnet-4-6_
+_Généré le 2026-06-20 01:38 par Claude claude-sonnet-4-6_
 
 ## Identifiants
 - **ID Tendia** : `BOAMP-26-56786`
@@ -10,76 +10,81 @@ _Généré le 2026-06-15 01:23 par Claude claude-sonnet-4-6_
 - **DCE PLACE** : <https://www.marches-publics.info/mpiaws/index.cfm?fuseaction=dematent.login&type=Dce&Idm=1832752>
 
 ## Synthèse
-Marché public de travaux portant sur la relocalisation du Foyer de l'Enfance Le Passadou à Vals Près Le Puy (43750), lot n°3 Maçonnerie uniquement, en reconsultation suite à une nouvelle étude géotechnique. Les travaux comprennent des fondations (semelles, longrines, reprises en sous-œuvre), des élévations (prémurs béton, blocs béton, poteaux BA), des réseaux enterrés (EU/EV/EP, fourreaux), des revêtements extérieurs en enrobé, une terrasse et des clôtures, sur un bâtiment existant faisant l'objet d'une extension et d'un réaménagement.
+Marché public de travaux portant sur la relocalisation du Foyer de l'Enfance Le Passadou à Vals Près Le Puy (43750), lot 3 Maçonnerie uniquement (reconsultation suite à refonte du DPGF après nouvelle étude géotechnique). Les travaux comprennent le gros œuvre d'extension (fondations, dallages, élévations en prémurs béton, réseaux enterrés, VRD enrobés, clôtures) et des interventions sur bâtiment existant (percements en sous-œuvre, bouchements, reprise de fondations). Procédure adaptée ouverte avec négociation, prix global forfaitaire, durée 14 mois (1 mois préparation + 13 mois travaux).
 
 ## 🏗 Chantier — caractéristiques BTP
-- **Description** : Travaux de maçonnerie gros œuvre dans le cadre de la relocalisation d'un foyer de l'enfance : terrassements, fondations (semelles isolées, longrines, tirants, reprises en sous-œuvre), élévations en prémurs béton 20 cm et blocs béton, dallages béton intérieurs (18 cm) et extérieurs (15 cm), plancher préfabriqué poutrelles-entrevous, réseaux enterrés EU/EV/EP et fourreaux, revêtements extérieurs en enrobés, terrasse sud, clôtures métalliques et portail. Travaux sur bâtiment existant (réaménagement 2 niveaux + extensions ossature bois/zinc).
-- **Type d'ouvrage** : Foyer de l'Enfance (établissement social avec locaux de sommeil, catégorie 5ème ERP type PE)
-- **Surface / volume** : Non communiqué explicitement — surfaces partielles DPGF : dallage intérieur ~144 m², dallage extérieur ~42 m², revêtements enrobés ~264 m²
-- **Site occupé pendant travaux** : Non précisé — site à 5 Rue André Bernard, 43750 Vals Près Le Puy ; présence d'amiante et de plomb dans l'existant (diagnostic AUDIT CONSTRUCTION du 04/04/2025) ; phase désamiantage/démolition préalable (lot 1)
-- **Corps d'état mobilisés** : Lot 1 : Désamiantage - Démolition, Lot 2 : Fondations spéciales Micro-Pieux, Lot 3 : Maçonnerie (présent lot), Lot 4 : Étanchéité, Lot 5 : Charpente Couverture Bardage, Lot 6 : ITE, Lot 7 : Menuiseries extérieures, Lot 8 : Serrurerie, Lot 9 : Menuiseries intérieures, Lot 10 : Isolation - Plâtrerie - Peinture, Lot 11 : Sols minces et carrelage mural, Lot 12 : CVC - Plomberie Sanitaire, Lot 13 : Électricité - Courants faibles
+- **Description** : Réhabilitation et extension d'un bâtiment existant R+1 pour y relocaliser le Foyer de l'Enfance Le Passadou. Le lot 3 comprend : installation de chantier (grue, base vie, clôtures Heras), fondations par semelles isolées et longrines BA, dallages portés 18 cm, prémurs béton 20 cm, plancher préfabriqué poutrelles-entrevous, poteaux BA, ouvertures en sous-œuvre avec linteaux métalliques HEA, bouchements, réseaux EU/EV/EP sous dallage, fourreaux TPC et PVC, regards, revêtements extérieurs en enrobés, terrasse extérieure Sud dallettes béton sur plots, clôtures métalliques rigides et portail. Présence d'amiante dans l'existant (mastics vitres, joints) ayant fait l'objet d'un diagnostic.
+- **Type d'ouvrage** : Foyer de l'Enfance — établissement social accueillant des mineurs, bâtiment existant R+1 réhabilité avec extensions (ossature bois et toiture zinc selon CCTP commun), catégorie ERP 5ème catégorie type PE avec locaux de sommeil
+- **Surface / volume** : Non précisé explicitement dans les pièces disponibles. DPGF indique : cour Nord 264 m² (enrobés), dallage ext. terrasse Sud 42 m², prémurs extension Est 61 m², prémurs existant contre rue 48 m², dallage intérieur extension ~111 m² + 33,5 m²
+- **Site occupé pendant travaux** : Non précisé directement. Le PGC mentionne une présence de voisinage et un accès en secteur urbain (5 rue André Bernard, Vals Près Le Puy). Le foyer semble relocalisé, donc site a priori non occupé pendant les travaux mais voisinage à gérer.
+- **Corps d'état mobilisés** : Gros œuvre / maçonnerie (lot 3 — objet de la consultation), Désamiantage-Démolition (lot 1), Fondations spéciales Micro-Pieux (lot 2), Étanchéité (lot 4), Charpente Couverture Bardage (lot 5), ITE (lot 6), Menuiseries extérieures (lot 7), Serrurerie (lot 8), Menuiseries intérieures (lot 9), Isolation-Plâtrerie-Peinture (lot 10), Sols minces et carrelage mural (lot 11), CVC-Plomberie Sanitaire (lot 12), Électricité-Courants faibles (lot 13)
 - **Contraintes spécifiques** :
-  - Présence d'amiante confirmée (mastic vitre, joint vitre) — désamiantage préalable par lot 1
-  - Présence de plomb dans l'existant (diagnostic 04/04/2025)
-  - Rapport géotechnique CELIGEO N°2026-43-FB-7384 du 06/05/2026 imposant des dispositions de fondations spécifiques (micro-pieux lot 2, reprise en sous-œuvre)
-  - Travaux sur existant : reprises de fondations en sous-œuvre par tronçons et phases alternées selon BET Structure
-  - Zone sismicité 2 (faible), zone vent région 2 zone IIIb, zone neige A2 altitude 665 m NGF
-  - Lot de maçonnerie désigné gestionnaire du compte prorata et responsable de l'installation de chantier (clôtures, signalisation, base de vie, plan d'installation)
-  - Accès unique par 5 Rue André Bernard en secteur urbain
-  - Reconsultation suite à refonte du DPGF après nouvelle étude géotechnique — quantités modifiées
+  - Présence d'amiante dans l'existant (mastics vitrages, joints) — diagnostic AUDIT CONSTRUCTION réf. 0404090025G du 04/04/2025
+  - Présence de plomb dans l'existant (concentrations non nulles selon diagnostic)
+  - Reprise de fondations en sous-œuvre par tronçons alternés selon phasage BET Structure
+  - Travaux contigus à bâtiment existant conservé : vérification des niveaux de raccordement obligatoire avant démarrage
+  - Essais à la plaque exigés avant et après hérisson (Kw > 50 MPa, EV2 > 50 MPa, EV2/EV1 < 2,2)
+  - Rapport géotechnique CELIGEO N°2026-43-FB-7384 du 06/05/2026 à respecter
+  - PPSPS obligatoire — pénalité 9 000 € en cas de défaut de remise
+  - Le lot maçonnerie est gestionnaire du compte prorata pour l'ensemble de l'opération
+  - Le lot maçonnerie assure et maintient l'ensemble des protections collectives pour tous les corps d'état
+  - Zone sismique 2, vent région 2 zone IIIb, neige zone A2 altitude 665 m NGF
+  - Objectif d'étanchéité à l'air Q4 ≤ 1,0 m³/(h.m²) — tests intermédiaires et finaux à charge MOA
+  - Chantier en milieu urbain — nuisances sonores et poussières à maîtriser
+  - Reconsultation suite à nouvelle étude géotechnique (premier appel déclaré sans suite)
 
 ### Allotissement
-Opération décomposée en 13 lots séparés. La présente consultation ne porte que sur la reconsultation du lot 3 Maçonnerie.
+Marché global structuré en 13 lots séparés selon le PGC. La présente consultation ne porte que sur le lot 3 Maçonnerie (reconsultation isolée).
 - **Nombre de lots** : 13
 - **Lot 1** — Désamiantage - Démolition
-  - Corps d'état : désamiantage, démolition
-  - Désamiantage des matériaux amiantés repérés, démolitions préalables
+  - Corps d'état : btp_demolition
+  - Désamiantage des matériaux identifiés au diagnostic et démolitions préparatoires
 - **Lot 2** — Fondations spéciales Micro-Pieux
-  - Corps d'état : fondations spéciales
-  - Réalisation de micro-pieux selon rapport géotechnique
+  - Corps d'état : btp_gros_oeuvre
+  - Réalisation des fondations spéciales par micro-pieux
 - **Lot 3** — Maçonnerie
-  - Corps d'état : gros œuvre, maçonnerie
-  - Fondations BA, élévations prémurs et blocs béton, dallages, réseaux enterrés, revêtements extérieurs enrobés, terrasse, clôtures
+  - Corps d'état : btp_gros_oeuvre
+  - Gros œuvre : fondations BA, dallages, prémurs, poteaux, réseaux enterrés, VRD enrobés, clôtures, installation de chantier et gestion compte prorata
 - **Lot 4** — Étanchéité
-  - Corps d'état : étanchéité
-  - Étanchéité toitures et terrasses
+  - Corps d'état : btp_second_oeuvre
+  - Étanchéité des toitures et terrasses
 - **Lot 5** — Charpente Couverture Bardage
-  - Corps d'état : charpente, couverture, bardage
-  - Extension ossature bois, toiture zinc, bardage
+  - Corps d'état : btp_second_oeuvre
+  - Charpente ossature bois, couverture zinc et bardage
 - **Lot 6** — ITE
-  - Corps d'état : isolation thermique par l'extérieur
+  - Corps d'état : energie_renovation_thermique
   - Isolation thermique par l'extérieur
 - **Lot 7** — Menuiseries extérieures
-  - Corps d'état : menuiseries extérieures
+  - Corps d'état : btp_second_oeuvre
   - Fourniture et pose des menuiseries extérieures
 - **Lot 8** — Serrurerie
-  - Corps d'état : serrurerie métallerie
+  - Corps d'état : btp_second_oeuvre
   - Garde-corps, serrurerie diverse
 - **Lot 9** — Menuiseries intérieures
-  - Corps d'état : menuiseries intérieures
-  - Menuiseries intérieures
+  - Corps d'état : btp_second_oeuvre
+  - Portes intérieures, blocs-portes, placards
 - **Lot 10** — Isolation - Plâtrerie - Peinture
-  - Corps d'état : plâtrerie, peinture, isolation
-  - Cloisons, doublages, faux plafonds, peintures
+  - Corps d'état : btp_second_oeuvre
+  - Cloisons, doublages, plafonds, peinture intérieure
 - **Lot 11** — Sols minces et carrelage mural
-  - Corps d'état : revêtements de sols, carrelage
-  - Revêtements de sols souples, carrelages
-- **Lot 12** — CVC - Plomberie Sanitaire
-  - Corps d'état : chauffage, ventilation, plomberie
-  - Chauffage, ventilation, climatisation, plomberie sanitaire
+  - Corps d'état : btp_second_oeuvre
+  - Revêtements de sols souples, carrelage
+- **Lot 12** — Chauffage Ventilation Rafraîchissement - Plomberie Sanitaire
+  - Corps d'état : btp_second_oeuvre
+  - CVC et plomberie sanitaire
 - **Lot 13** — Électricité - Courants faibles
-  - Corps d'état : électricité, courants faibles
-  - Installations électriques et courants faibles
+  - Corps d'état : btp_second_oeuvre
+  - Électricité courants forts et courants faibles
 
 ### Qualifications BTP exigées
-Aucune qualification Qualibat ou autre certification spécifique explicitement exigée dans les pièces du DCE analysées. L'acte d'engagement mentionne le CPV 45262522-6 (Travaux de maçonnerie) et la nomenclature T6303 (Gros œuvre et maçonnerie). L'assurance décennale est obligatoire.
+Aucune qualification Qualibat ou certification spécifique n'est explicitement listée comme exigée dans le RC pour ce lot. Le RC demande une déclaration concernant le CA global et une assurance RC professionnelle. Une attestation décennale est requise après attribution.
 - **OPQIBI** : non
 - **MASE** : non
 
 ## 💶 Montant du marché
-- _Montant non communiqué dans le DCE._
-  - Typique des accords-cadres à bons de commande : le volume dépend des commandes effectivement passées par l'acheteur sur la durée du marché.
-- _Note_ : Aucun montant estimatif n'est communiqué dans les pièces du DCE. La DPGF est fournie vierge de prix (totaux à 0 €). La reconsultation fait suite à une refonte du DPGF suite à nouvelle étude géotechnique, ce qui implique une modification significative des quantités.
+- **Fourchette** : entre 350 000 € et 550 000 €
+  - sur Marché ferme — 14 mois (1 mois préparation + 13 mois travaux)
+  - _source : DPGF lot 3 (quantités détaillées) + ratios gros œuvre réhabilitation/extension_
 
 ## Barème de notation
 - **Valeur technique** : 40 %
@@ -87,31 +92,27 @@ Aucune qualification Qualibat ou autre certification spécifique explicitement e
 - **Sous-critères techniques** :
   - Valeur technique : 30 %
   - Valeur environnementale : 10 %
-- **Calcul du prix** : Note globale sur 20, critère prix pondéré à 60%. La formule de notation n'est pas explicitée dans le RC.
+- **Calcul du prix** : Note prix = (prix le plus bas soumis / prix du candidat) × 60
 
 ## Références et qualifications exigées
 - **Expérience minimale** : —
-- **Secteur d'expérience** : Travaux de maçonnerie gros œuvre — aucune exigence sectorielle explicite dans le RC au-delà de la déclaration de CA et assurance
-- **Certifications obligatoires** : Assurance responsabilité civile (articles 1240 à 1242 du Code civil) (source=CCAP article 13), Assurance garantie décennale (articles 1792, 1792-1, 1792-2, 1792-4, 1792-4-1 du Code civil) (source=CCAP article 13)
+- **Secteur d'expérience** : Travaux de maçonnerie gros œuvre — réhabilitation et extension de bâtiment (non précisé explicitement dans le RC)
+- **Certifications obligatoires** : Attestation d'assurance décennale — à produire dans les 10 jours suivant l'attribution provisoire (bloquante=True, source=RC §8.2), Attestation d'assurance responsabilité civile professionnelle (source=RC §6.1 — déclaration appropriée de banques ou preuve d'assurance pour les risques professionnels)
 - **Autres exigences** :
-  - Déclaration sur l'honneur justifiant l'absence d'interdiction de soumissionner (articles L.2141-1 à L.2141-14 CCP) (source=RC §6.1)
-  - Déclaration du chiffre d'affaires global et CA concernant les travaux de maçonnerie sur les 3 derniers exercices (source=RC §6.1)
-  - Déclaration appropriée de banques ou preuve d'assurance pour les risques professionnels (source=RC §6.1)
-  - Acte d'engagement signé (obligatoire avec signature) (source=RC §6.1)
-  - Mémoire technique conforme au cadre joint (source=RC §6.1)
-  - Attestation d'assurance décennale à produire dans les 10 jours suivant l'attribution provisoire (source=RC §8.2)
+  - Déclaration concernant le chiffre d'affaires global et le CA concernant les prestations objet du contrat, réalisées au cours des trois derniers exercices disponibles (source=RC §6.1)
+  - Déclaration sur l'honneur justifiant que le candidat n'entre dans aucun cas d'interdiction de soumissionner (articles L.2141-1 à L.2141-14 CCP) (source=RC §6.1 et AE)
+  - PPSPS à remettre au coordonnateur SPS dans les 30 jours du début de la période de préparation — pénalité 100 €/j de retard et exclusion du chantier en cas de défaut (source=CCAP §9.3.1 et PGC §2.3)
 
 ## ⚠ Alertes candidat
-- Le lot 3 Maçonnerie est désigné gestionnaire du compte prorata et responsable de l'installation de chantier complète (base de vie, clôtures HERAS, signalisation, plan d'installation, grue) jusqu'à fin de chantier — charges financières et organisationnelles significatives à intégrer dans le forfait
-- Présence confirmée d'amiante (mastic vitre) et de plomb dans l'existant : l'entreprise doit prendre connaissance du diagnostic AUDIT CONSTRUCTION et respecter les procédures de co-activité avec le désamianteur (lot 1)
-- Reprises de fondations en sous-œuvre imposées par la nouvelle étude géotechnique — travaux à risque élevé (tronçons alternés, étaiement, coulage rapide) avec contraintes d'interface avec lot 2 Micro-Pieux
-- Visite sur site préconisée (jeudis 18 et 25 juin et mercredi 1er juillet 2026 à 9h sur RDV avec Mme Malige au 06-73-72-02-64) — fortement recommandée compte tenu des contraintes géotechniques et de la reconsultation
-- Dépôt électronique obligatoire sur la plateforme AWS avant le 10/07/2026 à 16h00 strictement — anticiper 48h avant ; aucune transmission papier autorisée
-- PPSPS obligatoire à remettre au coordinateur SPS dans les 30 jours suivant le début de la période de préparation ; pénalité de 100 €/jour de retard sans mise en demeure préalable
+- Rôle de LOT PRINCIPAL imposé au lot 3 Maçonnerie : gestion du compte prorata pour l'ensemble des 13 lots, mise en place et maintenance des protections collectives pour tous les corps d'état, responsabilité de fermeture du chantier — charges organisationnelles et financières à intégrer dans le prix
+- Reconsultation après déclaration sans suite : le premier appel a été annulé pour refonte du DPGF suite à nouvelle étude géotechnique — les quantités ont évolué, une vérification minutieuse de toutes les quantités DPGF est impérative avant chiffrage
+- PPSPS obligatoire avant démarrage des travaux : son absence est une infraction pénale (amende 9 000 €, récidive emprisonnement) et bloque le démarrage — délai de 30 jours à compter du début de la préparation
+- Implantation par géomètre-expert agréé à la charge du lot 3 (CCTP §2.2) — prestation à intégrer dans le prix (sous-traitance spécialisée)
+- Pénalités de retard 100 €/j sans plafond et sans exonération (dérogation CCAP art. 12.1) — chantier de 13 mois en milieu contraignant (sous-œuvre, amiante résiduel) : risque de retard à anticiper dans le planning
+- Visite sur site préconisée (jeudis 18 et 25 juin, mercredi 1er juillet 2026 à 9h sur RDV auprès de Mme Sylvie MALIGE, 06-73-72-02-64) — indispensable compte tenu des reprises en sous-œuvre et de la complexité du bâtiment existant
 
 ## 💡 Points différenciants attendus
-- Maîtrise des travaux en sous-œuvre et sur existant (exemple=Décrire précisément la méthodologie de reprise des fondations en sous-œuvre par tronçons alternés (phasage BET Structure), avec mentions de l'étaiement provisoire, des délais de cure du béton entre phases, et des dispositifs de contrôle de tassement différentiel., source=CCTP Lot 3 §6 — CCTP Commun §5.4)
-- Expérience en gestion de chantier multi-lots comme lot pilote (exemple=Valoriser des références de chantiers où l'entreprise a assuré la gestion du compte prorata, l'installation de chantier complète et la coordination des protections collectives pour l'ensemble des corps d'état., source=CCTP Commun §5.3 — PGC §3.4)
-- Gestion des déchets et traçabilité environnementale (exemple=Présenter un plan détaillé de tri sélectif avec les filières de valorisation retenues pour chaque type de déchet (béton, métaux, terres, emballages), les BSD prévus et les objectifs de valorisation chiffrés., source=RC §8.2 (critère valeur environnementale 10%))
-- Anticipation des interfaces avec le lot micro-pieux et le désamianteur (exemple=Proposer un planning de co-activité détaillant les séquences d'intervention entre lot 2 (micro-pieux), lot 1 (désamiantage) et lot 3 (maçonnerie), avec les délais d'inspection commune CSPS et les zones de co-activité balisées., source=PGC §4.1 séquences 1-2-3)
-- Qualification des ressources humaines affectées (exemple=Présenter nominativement le chef de chantier avec ses références en maçonnerie gros œuvre sur bâtiments ERP existants, ainsi que les habilitations AIPR et PPSPS de l'encadrement de chantier.)
+- Méthodologie détaillée pour les reprises de fondations en sous-œuvre (exemple=Présenter un plan de phasage précis des tronçons de sous-œuvre alternés (conform au BET Structure DCE01 indice C), avec les dispositifs d'étaiement provisoire et les protocoles de coulage rapide pour éviter la décompression. Un schéma de phasage numéroté avec délais par tronçon renforce considérablement la crédibilité., source=CCTP §6 et CCTP §2.14.1)
+- Gestion du compte prorata et coordination inter-lots — plan d'installation de chantier détaillé (exemple=Soumettre un plan d'installation de chantier (PIC) avec localisation de la grue, zones de stockage par corps d'état, bennes de tri, circulations piétonnes/engins séparées, et tableau récapitulatif des prestations gérées par le lot 3 (circulations, cantonnements, protections collectives). Démontrer l'expérience dans la gestion du compte prorata comme lot principal., source=PGC §3.3.2 et CCTP commun §5.3)
+- Expérience en chantier de réhabilitation d'ERP avec contraintes amiante et coactivité (exemple=Citer 2-3 chantiers récents (moins de 5 ans) de réhabilitation d'ERP en site semi-occupé, avec reprises en sous-œuvre et coordination de 8+ lots, incluant un contexte amiante résiduel. Joindre attestations de maîtres d'ouvrage avec montant et délai respecté.)
+- Dispositions environnementales différenciantes pour la gestion des déchets (exemple=Présenter un plan de tri à 5 flux minimum (béton granulats/ferrailles/bois coffrage/plastiques/DIB) avec convention de recyclage signée et taux de valorisation ≥ 75%, et mesures anti-poussières spécifiques pour la phase enrobés et terrassements en milieu urbain., source=RC §8.2 — critère valeur environnementale 10%)

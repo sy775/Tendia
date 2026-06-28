@@ -1,91 +1,196 @@
 {
-  "synthese_marche": "La Communauté de communes du Pays Sabolien lance un marché de travaux en 9 lots pour la création d'une installation multi-énergie (chaufferie biomasse, solaire thermique, photovoltaïque en ombrière) au Centre Aquatique de Sablé-sur-Sarthe. Le projet vise à atteindre un taux de couverture EnR de 83,8% des besoins de chaleur du site. La procédure est adaptée, avec une date limite de remise des offres fixée au 3 juillet 2026.",
+  "synthese_marche": "Marché public de travaux alloti en 9 lots pour la création d'une installation multi-énergie (chaufferie biomasse bois déchiqueté 250 kW, panneaux solaires thermiques et ombrières photovoltaïques en autoconsommation) au Centre Aquatique de la Communauté de communes du Pays Sabolien à Sablé-sur-Sarthe (72). Le marché est passé en procédure adaptée, avec un délai d'exécution de 6 mois hors période de préparation de 1,5 mois, en site occupé. Les lots couvrent VRD, gros œuvre, étanchéité, bardage bois, serrurerie/métallerie, fluides biomasse, solaire thermique, structure photovoltaïque et CFO/CFA photovoltaïque.",
   "domaines_metier": [
     {
       "code": "energie_biomasse_methanisation",
       "poids": 0.45,
       "lots_concernes": [
-        "Lot 2 - Chaufferie biomasse Gros Œuvre",
-        "Lot 3 - Chaufferie biomasse Étanchéité",
-        "Lot 4 - Chaufferie biomasse Bardage Bois",
-        "Lot 5 - Chaufferie biomasse Serrurerie/Métallerie",
-        "Lot 6 - Chaufferie biomasse Fluides"
+        "Lot 2",
+        "Lot 3",
+        "Lot 4",
+        "Lot 5",
+        "Lot 6"
       ]
     },
     {
       "code": "energie_pv_solaire",
       "poids": 0.35,
       "lots_concernes": [
-        "Lot 7 - Solaire thermique",
-        "Lot 8 - Photovoltaïque Fondations/charpente/couverture",
-        "Lot 9 - Photovoltaïque CFO/CFA"
+        "Lot 7",
+        "Lot 8",
+        "Lot 9"
       ]
     },
     {
       "code": "btp_voirie_reseaux",
       "poids": 0.2,
       "lots_concernes": [
-        "Lot 1 - VRD"
+        "Lot 1"
       ]
     }
   ],
-  "raison_classification": "Le marché est explicitement multi-technologie EnR avec une chaufferie biomasse (chaudière bois déchiqueté 250 kW, 5 lots dédiés), une installation solaire thermique (lot 7) et des ombrières photovoltaïques en autoconsommation (lots 8 et 9). Le lot 1 VRD constitue le terrassement/voirie support. La biomasse représente le cœur du projet en termes de volume de lots et d'enjeux techniques (process hydraulique, fumisterie, silo), d'où sa pondération dominante.",
+  "raison_classification": "Le marché porte explicitement sur trois technologies ENR distinctes : une chaufferie biomasse (lots 2 à 6, dominante en nombre de lots et en complexité technique), une installation solaire thermique (lot 7) et des ombrières photovoltaïques (lots 8 et 9). Le lot 1 VRD est un lot de support nécessaire à l'ensemble. La biomasse reste la technologie structurante (bâtiment chaufferie neuve, process complet), mais le photovoltaïque et le solaire thermique représentent une part significative de l'opération.",
+  "caracteristiques_techniques_chantier": {
+    "description": "Construction d'une chaufferie biomasse neuve (chaudière bois déchiqueté 250 kW + silo 89 m³ + ballon tampon 6 000 L) accolée au bâtiment technique existant du centre aquatique, avec installation de panneaux solaires thermiques sur structure acier galvanisé + container technique, et ombrières photovoltaïques (structure bois Douglas + bac acier) sur le parking employé. Raccordement hydraulique et électrique aux installations existantes (TGBT, chaufferie gaz 499 kW, GTC SOFREL S4TH/TOPKAPI). Aménagement VRD des abords et accès camions benne 35 m³.",
+    "typologie_ouvrage": "Centre aquatique communautaire — bâtiment technique + locaux extérieurs, ERP en exploitation",
+    "surface_volume": "Silo 89 m³ utile, chaufferie nouvelle (emprise non précisée), ombrières PV sur parking (surface non précisée dans les pièces fournies)",
+    "site_occupe": "true — le centre aquatique reste en exploitation pendant la majeure partie des travaux ; intervention sur TGBT uniquement en semaine 36 (fermeture annuelle) ; accès livraison et pompier à maintenir en permanence",
+    "corps_etat": [
+      "VRD (terrassements, réseaux enterrés, voiries)",
+      "Gros œuvre béton armé (fondations, planchers, structures chaufferie et silo)",
+      "Étanchéité (toiture terrasse bicouche, couvertines, descentes EP)",
+      "Bardage bois (Douglas horizontal, tasseautage, ossature secondaire)",
+      "Serrurerie / Métallerie (portes CF, grilles, enclos technique, échelles crinoline, trappe silo hydraulique)",
+      "Fluides (chaudière biomasse, hydraulique, fumisterie, électricité CFO/CFA, régulation GTC)",
+      "Solaire thermique (structure + panneaux + circuit hydraulique)",
+      "Photovoltaïque – structure (fondations, charpente bois, couverture bac acier)",
+      "Photovoltaïque – électricité (CFO/CFA, raccordement autoconsommation)"
+    ],
+    "contraintes_specifiques": [
+      "Intervention sur TGBT obligatoirement en semaine 36 (fermeture annuelle piscine) — aucun report admis sans accord MOA",
+      "Site occupé : maintien permanent de l'accès livraison et pompier via parking existant",
+      "Coordination inter-lots forte (GO, VRD, Fluides, Serrurerie, Étanchéité, Bardage)",
+      "Zone sismique 2 — fournitures justifiées en zone sismique",
+      "Permis de construire déposé (CERFA 13409*16) — 8 arbres abattus, 14 restitués",
+      "Abattage d'arbres en période hivernale uniquement",
+      "Raccordement électrique TGBT existant avec coupure programmée"
+    ]
+  },
+  "allotissement": {
+    "description": "Marché divisé en 9 lots indépendants couvrant l'ensemble de l'opération multi-énergie",
+    "nb_lots": 9,
+    "lots_detailles": [
+      {
+        "numero": 1,
+        "intitule": "Voiries et réseaux divers (VRD)",
+        "corps_etat": "VRD, terrassements, réseaux enterrés, voiries, espaces verts",
+        "montant_estime": null,
+        "description": "Terrassements généraux, plateformes, tranchées réseaux, fourreaux CFO/CFA, voiries, aménagements extérieurs et remises en état. Intervention en S36 pour raccordement TGBT."
+      },
+      {
+        "numero": 2,
+        "intitule": "Chaufferie biomasse – Gros Œuvre",
+        "corps_etat": "Gros œuvre béton armé, fondations, planchers, structures",
+        "montant_estime": null,
+        "description": "Fondations, structure porteuse de la chaufferie et du silo, réservations pour tous corps d'état, socles béton équipements, dalle."
+      },
+      {
+        "numero": 3,
+        "intitule": "Chaufferie biomasse – Étanchéité",
+        "corps_etat": "Étanchéité toiture",
+        "montant_estime": null,
+        "description": "Complexe étanchéité bicouche autoprotégée sur toiture terrasse chaufferie et silo, couvertines RAL 9006, naissances EP, lignes de vie, descentes PVC, chandelles support enclos."
+      },
+      {
+        "numero": 4,
+        "intitule": "Chaufferie biomasse – Bardage Bois",
+        "corps_etat": "Bardage bois, ossature secondaire",
+        "montant_estime": null,
+        "description": "Ossature secondaire et bardage Douglas horizontal pré-grisé sur 4 façades chaufferie + silo + enclos technique, finitions angles et entourages d'ouvertures."
+      },
+      {
+        "numero": 5,
+        "intitule": "Chaufferie biomasse – Serrurerie/Métallerie",
+        "corps_etat": "Serrurerie, métallerie",
+        "montant_estime": null,
+        "description": "Portes coupe-feu 1/2H, grilles de ventilation, trappe d'accès CF, trappe basculante hydraulique silo (3,40×2,65 m), obturation silo, enclos techniques en toiture, échelles à crinoline. PSE : modification portail."
+      },
+      {
+        "numero": 6,
+        "intitule": "Chaufferie biomasse – Fluides",
+        "corps_etat": "Chauffage, plomberie, électricité CFO/CFA, régulation",
+        "montant_estime": null,
+        "description": "Fourniture et pose chaudière biomasse 250 kW, silo avec dessileur et vis, ballon tampon 6 000 L, réseau PEHD préisolé DN80 vers chaufferie existante, armoire électrique, GTC, régulation automate. Raccordement sur TGBT en S36."
+      },
+      {
+        "numero": 7,
+        "intitule": "Solaire thermique",
+        "corps_etat": "Installation solaire thermique",
+        "montant_estime": null,
+        "description": "Structure acier galvanisé + container technique + panneaux solaires thermiques. Variante libre sur la conception solaire (éléments surlignés CCTP p.17-20). Certification Qualisol Collectif exigée."
+      },
+      {
+        "numero": 8,
+        "intitule": "Photovoltaïque – Fondations, charpente bois et couverture",
+        "corps_etat": "Structure photovoltaïque, charpente bois, fondations",
+        "montant_estime": null,
+        "description": "Fondations (béton ou pieux vissés en variante), charpente bois Douglas, couverture bac acier RAL 9006 des ombrières photovoltaïques. Installateur certifié exigé."
+      },
+      {
+        "numero": 9,
+        "intitule": "Photovoltaïque – CFO/CFA",
+        "corps_etat": "Électricité photovoltaïque, raccordement",
+        "montant_estime": null,
+        "description": "Raccordement électrique CFO/CFA des ombrières PV, autoconsommation sans injection réseau. Certification COFRAC (QUALIBAT, QUALIT'ENR, QUALIFELEC ou équivalent) et assurance décennale exigées."
+      }
+    ]
+  },
+  "qualifications_requises": {
+    "description": "Qualifications professionnelles et certifications exigées selon le RC",
+    "qualibat": [],
+    "rge": false,
+    "rge_specialites": [],
+    "mase": false,
+    "iso_9001": false,
+    "iso_14001": false,
+    "iso_45001": false,
+    "opqibi": false,
+    "autres_certifications": [
+      "Qualisol Collectif (ou équivalent) pour lot 7 — certification solaire thermique collectif",
+      "Installateur certifié (formation spécifique) pour lot 8 — photovoltaïque",
+      "Certification photovoltaïque raccordé réseau COFRAC (QUALIBAT, QUALIT'ENR, QUALIFELEC ou équivalent) pour lot 9",
+      "Assurance décennale couvrant installations photovoltaïques en intégration simplifiée pour lot 9"
+    ]
+  },
   "caracteristiques_techniques_enr": {
-    "description": "Construction d'une chaufferie biomasse accolée au Centre Aquatique de Sablé-sur-Sarthe avec chaudière bois déchiqueté de 250 kW, silo de 89 m³ (autonomie 12 jours), ballon tampon 6 000 L, raccordement à la chaufferie existante via PEHD préisolé DN80. Complémentarité avec installation solaire thermique (lot 7, hors lot du présent marché pour la conception mais objet d'un lot travaux) et ombrières photovoltaïques en autoconsommation sans injection surplus réseau (lots 8 et 9). Taux de couverture EnR estimé à 83,8%.",
+    "description": "Création d'une installation multi-énergie combinant biomasse (chaudière bois déchiqueté 250 kW + silo 89 m³ + ballon tampon 6 000 L), solaire thermique (panneaux sur structure acier + container) et photovoltaïque en ombrières autoconsommation sur parking. Taux de couverture ENR estimé à 83,8% (bois 1 093 MWh + solaire thermique 146 MWh sur un total de 1 509 MWh).",
     "technologies_concernees": [
       "biomasse",
       "solaire thermique",
       "photovoltaïque ombrière"
     ],
-    "type_de_sites": "Centre aquatique communautaire, bâtiment occupé, site en exploitation continue",
+    "type_de_sites": "Centre aquatique communautaire en exploitation, site occupé, bâtiment technique + parking employé",
     "criteres_eligibilite": [
       {
-        "libelle": "Déclaration concernant le chiffre d'affaires global du candidat (et CA du domaine d'activité) sur les 3 derniers exercices disponibles",
-        "source": "RC art 4.1 tableau capacité économique"
+        "libelle": "Pour le lot 7 : certification Qualisol Collectif ou équivalent attestant de la capacité à réaliser des installations solaires thermiques de puissance comparable",
+        "source": "RC art 4.1"
       },
       {
-        "libelle": "Déclaration indiquant les effectifs moyens annuels et l'importance du personnel d'encadrement sur les 3 dernières années",
-        "source": "RC art 4.1 tableau capacité technique n°1"
+        "libelle": "Pour le lot 8 : installateur agréé à l'issue d'une formation spécifique pour obtenir la qualification d'installateur certifié",
+        "source": "RC art 4.1"
       },
       {
-        "libelle": "Description de l'outillage, du matériel et de l'équipement technique dont le candidat disposera pour réaliser le marché",
-        "source": "RC art 4.1 tableau capacité technique n°2"
-      },
-      {
-        "libelle": "Liste des travaux exécutés au cours des 5 dernières années, assortie d'attestations de bonne exécution pour les travaux les plus importants (montant, date, lieu, exécution selon les règles de l'art)",
-        "source": "RC art 4.1 tableau capacité technique n°3"
-      },
-      {
-        "libelle": "L'installateur du lot 8 devra être agréé à l'issue d'une formation spécifique pour obtenir la qualification d'installateur certifié",
-        "source": "RC art 4.1 tableau capacité technique n°4"
-      },
-      {
-        "libelle": "Pour le lot 9 : documents présentant pour les 3 derniers exercices la part du CA consacrée à l'installation photovoltaïque",
-        "source": "RC art 4.1 tableau capacité technique n°5"
-      },
-      {
-        "libelle": "Pour le lot 9 : certification de l'entreprise dans le domaine du photovoltaïque raccordé réseau, délivrée par un organisme accrédité par le COFRAC (QUALIBAT, QUALIT'ENR, QUALIFELEC ou équivalent)",
-        "source": "RC art 4.1 tableau capacité technique n°6"
-      },
-      {
-        "libelle": "Pour le lot 7 : certification de l'entreprise dans le domaine du solaire thermique de type Qualisol Collectif ou équivalent, attestant de sa capacité à réaliser des installations solaires thermiques de puissance comparable",
-        "source": "RC art 4.1 tableau capacité technique n°7"
+        "libelle": "Pour le lot 9 : certification photovoltaïque raccordé réseau délivrée par organisme accrédité COFRAC (QUALIBAT, QUALIT'ENR, QUALIFELEC ou équivalent)",
+        "source": "RC art 4.1"
       },
       {
         "libelle": "Pour le lot 9 : attestation d'assurance décennale à jour couvrant tous travaux d'installations et d'entretiens pour la gamme de puissance de l'installation photovoltaïque en intégration simplifiée au bâti sur toiture",
-        "source": "RC art 4.1 tableau capacité technique n°8"
+        "source": "RC art 4.1"
       },
       {
-        "libelle": "Visite de site obligatoire pour les lots 1, 2 et 9 (attestation à joindre à l'offre) ; visite recommandée pour les lots 3, 4, 5, 6, 7 et 8",
-        "source": "RC art 3.5"
+        "libelle": "Pour le lot 9 : documents présentant pour les 3 derniers exercices la part de l'activité en %CA consacrée à l'installation photovoltaïque",
+        "source": "RC art 4.1"
+      },
+      {
+        "libelle": "Pour tous les lots : déclaration sur le chiffre d'affaires global portant au maximum sur les 3 derniers exercices disponibles",
+        "source": "RC art 4.1"
+      },
+      {
+        "libelle": "Pour tous les lots : déclaration sur les effectifs moyens annuels et le personnel d'encadrement sur 3 dernières années",
+        "source": "RC art 4.1"
+      },
+      {
+        "libelle": "Pour tous les lots : liste des travaux exécutés au cours des 5 dernières années avec attestations de bonne exécution pour les plus importants",
+        "source": "RC art 4.1"
       }
     ],
     "contraintes_site_signalees": [
-      "site occupé (centre aquatique en fonctionnement)",
-      "intervention en période de fermeture annuelle uniquement pour raccordement TGBT (semaine 36)",
-      "maintien de l'accès livraison et pompier en permanence",
-      "coordination multi-lots obligatoire",
-      "travaux en hauteur (toiture chaufferie)"
+      "site occupé (piscine en exploitation)",
+      "travail en hauteur (toiture, ombrières)",
+      "intervention en coupure programmée S36 uniquement pour TGBT",
+      "accès livraison et pompier à maintenir en permanence",
+      "zone sismique 2",
+      "coordination multi-lots stricte"
     ]
   },
   "volumes_techniques": {
@@ -93,15 +198,15 @@
     "puissance_par_site_kwc": null,
     "nb_sites": 1,
     "surface_panneaux_m2": null,
-    "productible_annuel_estime_mwh": null,
-    "duree_marche_mois": 7,
+    "productible_annuel_estime_mwh": 1239.5,
+    "duree_marche_mois": 9,
     "duree_maintenance_om_annees": null,
-    "commentaire_volumes": "Chaudière biomasse : 250 kW thermique, silo 89 m³. Production annuelle estimée : 1 093,2 MWh th bois + 146,3 MWh th solaire thermique + 269,7 MWh th gaz = ~1 509 MWh th/an total. La puissance crête des ombrières PV (lots 8 et 9) n'est pas précisée dans les pièces disponibles. Délai d'exécution : 1,5 mois préparation + 6 mois travaux. Intervention TGBT impérative en semaine 36."
+    "commentaire_volumes": "Biomasse 250 kW thermique + ballon tampon 6 000 L + silo 89 m³ (autonomie 12 jours par grand froid). Production annuelle estimée : biomasse 1 093 MWh + solaire thermique 146 MWh = 1 239 MWh ENR (taux couverture ENR 83,8%). Chaudière gaz appoint 499 kW existante (269 MWh/an). Puissance crête PV non précisée dans les pièces fournies. Durée totale marché : 1,5 mois préparation + 6 mois travaux = 7,5 mois + garantie parfait achèvement 12 mois."
   },
   "modalites_execution_chantier": {
     "raccordement_reseau_inclus": true,
     "etudes_techniques_incluses": true,
-    "calendrier_chantier_contraint": "Intervention sur TGBT existant obligatoirement en semaine 36 (période de fermeture annuelle du centre aquatique) ; aucun report admis sauf accord MO",
+    "calendrier_chantier_contraint": "Intervention sur TGBT existant obligatoirement en semaine 36 (fermeture annuelle de la piscine) — aucun report sans accord MOA. Travaux en site occupé avec maintien de l'exploitation.",
     "sites_execution": [
       "Sablé-sur-Sarthe (72)"
     ],
@@ -114,9 +219,9 @@
     "qualipac": false,
     "qualibois": false,
     "autres_certifications": [
-      "Qualification installateur certifié PV (formation spécifique) pour lot 8",
-      "QUALIBAT, QUALIT'ENR, QUALIFELEC ou équivalent COFRAC pour lot 9",
-      "Qualisol Collectif ou équivalent pour lot 7"
+      "Certification photovoltaïque raccordé réseau COFRAC (QUALIBAT, QUALIT'ENR, QUALIFELEC ou équivalent) — lot 9",
+      "Installateur certifié photovoltaïque (formation spécifique) — lot 8",
+      "Assurance décennale installations PV intégration simplifiée — lot 9"
     ]
   },
   "bareme_notation": {
@@ -124,87 +229,280 @@
     "valeur_prix_pct": 40,
     "sous_criteres_techniques": [
       {
-        "libelle": "L'organisation et les moyens humains pour réaliser les travaux dans le respect du planning",
+        "libelle": "Organisation et moyens humains pour réaliser les travaux dans le respect du planning",
         "ponderation_pct": 15,
-        "description": "Ce critère évalue l'organigramme fonctionnel de l'équipe, la répartition des effectifs chantier, les compétences spécifiques et l'encadrement. S'applique aux lots 1, 2, 3, 4, 5, 6, 8 et 9.",
+        "description": "Évaluation de l'organigramme fonctionnel de l'équipe, des effectifs, de l'encadrement et des qualifications spécifiques du personnel affecté au chantier.",
         "elements_attendus": [
-          "Organigramme fonctionnel détaillé avec rôles et responsabilités identifiés",
-          "Répartition des effectifs chantier par phase (préparation, exécution, réception)",
-          "Qualifications et compétences spécifiques du personnel (habilitations électriques, AIPR, etc.)",
-          "Nom et CV du responsable de chantier / conducteur de travaux",
-          "Présence de sous-traitants qualifiés avec rôles définis"
+          "Organigramme fonctionnel avec rôles et responsabilités de chaque intervenant",
+          "Répartition des effectifs chantier et compétences spécifiques par phase",
+          "Qualification et expérience du chef de chantier et de l'encadrement",
+          "Adéquation des ressources humaines au planning global"
         ],
-        "exemple_reponse_forte": "L'équipe sera composée d'un conducteur de travaux expérimenté en chaufferie biomasse (5 ans d'expérience sur installations similaires), secondé par un chef de chantier habilité B2V et AIPR. Les effectifs chantier comprendront 3 techniciens spécialisés en tuyauterie industrielle pour la phase fluides. Un planning de présence détaillé, intégrant la contrainte de la semaine 36 pour l'intervention TGBT, sera fourni.",
-        "source": "RC art 6 tableau critères, sous-critère 2.1",
-        "sous_criteres": []
+        "exemple_reponse_forte": "Présenter un organigramme nominatif avec CV synthétiques du chef de chantier (10 ans en chaufferie biomasse) et du conducteur de travaux. Montrer la disponibilité de 3 techniciens qualifiés AIPR pour la phase VRD-fluides et d'un électricien habilité H pour l'intervention TGBT en S36.",
+        "source": "RC art 6",
+        "unite_evaluation": "points",
+        "grille_actions": [
+          {
+            "action": "Produire un organigramme nominatif avec CV synthétiques des personnels clés (chef de chantier, conducteur de travaux, techniciens spécialisés)",
+            "type": "livrable",
+            "poids_pct": 45,
+            "source": "RC art 6"
+          },
+          {
+            "action": "Détailler la répartition des effectifs par phase (préparation, gros œuvre, fluides, mise en service) en lien avec le planning global",
+            "type": "livrable",
+            "poids_pct": 30,
+            "source": "RC art 6"
+          },
+          {
+            "action": "Mettre en avant des habilitations spécifiques pertinentes (AIPR, habilitations électriques, certifications BiB/biomasse) pour se différencier",
+            "type": "levier",
+            "poids_pct": 25,
+            "source": "estimé"
+          }
+        ]
       },
       {
-        "libelle": "Les moyens techniques pour réaliser les prestations, la méthodologie et les détails sur la mise en œuvre des matériels",
+        "libelle": "Moyens techniques pour réaliser les prestations, méthodologie et détails sur la mise en œuvre des matériels",
         "ponderation_pct": 25,
-        "description": "Ce critère évalue les moyens matériels, la méthodologie en phases préparatoire et de levée de réserves, le mode opératoire avec descriptif des produits et matériaux proposés. S'applique aux lots 1, 2, 3, 4, 5, 6, 8 et 9.",
+        "description": "Évaluation des moyens matériels et équipements, de la méthodologie en phase préparatoire (EXE/synthèse) et en phase de levée de réserves, du mode opératoire et des fiches techniques des produits et matériaux proposés.",
         "elements_attendus": [
           "Liste des équipements et matériels utilisés pour l'exécution des travaux",
-          "Méthodologie détaillée en phase EXE/synthèse et liste prévisionnelle des documents d'exécution",
-          "Mode opératoire : techniques d'exécution, pose, assemblages",
-          "Fiches techniques des produits et matériaux proposés avec provenance des principales fournitures",
-          "Références des fournisseurs et performances des équipements (ex : fiche technique chaudière biomasse)",
-          "Plan de commissionnement / protocoles de mise en service"
+          "Méthodologie de phase préparatoire (EXE, synthèse multi-lots, plans de réservation)",
+          "Mode opératoire détaillé décrivant les techniques d'exécution (pose chaudière, raccordement hydraulique, fumisterie, ombrières)",
+          "Fiches techniques complètes des produits proposés (chaudière, panneaux, structure)",
+          "Indication de la provenance des fournitures et références des fournisseurs",
+          "Analyse fonctionnelle des choix techniques et leur adéquation avec le projet"
         ],
-        "exemple_reponse_forte": "La méthodologie s'articule en 3 phases : préparation (plans EXE avec réservations GO, validation par MOE), exécution (phasage VRD > GO > étanchéité > fluides en coordination), commissionnement (essais hydrauliques, épreuves COPREC, mise en service chaudière avec PV fabricant). Les équipements proposés incluent une chaudière biomasse COMPTE-R ENERGY 250 kW avec convoyeur à vis, conforme aux spécifications CCTP §4.1.1.",
-        "source": "RC art 6 tableau critères, sous-critère 2.2",
-        "sous_criteres": []
+        "exemple_reponse_forte": "Présenter une note méthodologique détaillant le phasage d'installation de la chaudière bois (levage, ancrage sur socle GO, raccordement hydraulique PEHD DN80, mise en service régulation GTC SOFREL) avec le planning d'études EXE. Joindre les fiches techniques de la chaudière biomasse 250 kW proposée et les PV essais prévus, en précisant que l'intervention sur TGBT sera préparée 4 semaines à l'avance avec consignation validée par l'exploitant.",
+        "source": "RC art 6",
+        "unite_evaluation": "points",
+        "grille_actions": [
+          {
+            "action": "Remettre les fiches techniques complètes des équipements principaux (chaudière biomasse, panneaux, structure) incluant performances et certifications",
+            "type": "livrable",
+            "poids_pct": 30,
+            "source": "RC art 6"
+          },
+          {
+            "action": "Décrire le mode opératoire de chaque phase critique : levage chaudière, raccordement hydraulique et électrique, intervention S36 TGBT, mise en service biomasse",
+            "type": "livrable",
+            "poids_pct": 35,
+            "source": "RC art 6"
+          },
+          {
+            "action": "Fournir la liste des équipements de chantier (grues, engins de levage, matériel de soudure) avec justification de leur adéquation aux contraintes d'accès en site occupé",
+            "type": "livrable",
+            "poids_pct": 20,
+            "source": "RC art 6"
+          },
+          {
+            "action": "Proposer une analyse fonctionnelle démontrant la compréhension des interactions inter-lots (GO/Fluides/VRD) et du séquencement des réservations béton",
+            "type": "levier",
+            "poids_pct": 15,
+            "source": "estimé"
+          }
+        ]
       },
       {
         "libelle": "Planning",
         "ponderation_pct": 15,
-        "description": "Ce critère évalue le planning d'intervention proposé par l'entreprise en corrélation avec le planning global, sa compréhension des contraintes, les moyens mobilisés et les mesures correctives éventuelles. S'applique aux lots 1, 2, 3, 4, 5, 6, 8 et 9.",
+        "description": "Évaluation du planning d'intervention proposé par l'entreprise en corrélation avec le planning global (compréhension, moyens, engagement, mesures correctives éventuelles).",
         "elements_attendus": [
-          "Planning détaillé et réaliste en corrélation avec le planning prévisionnel joint au DCE",
-          "Intégration explicite de la contrainte semaine 36 pour l'intervention TGBT",
-          "Marges de sécurité identifiées",
-          "Mesures correctives en cas de retard",
-          "Phasage cohérent avec l'exploitation continue du centre aquatique"
+          "Planning détaillé et réaliste en corrélation avec le planning général du chantier",
+          "Intégration des contraintes de la semaine 36 (intervention TGBT)",
+          "Marges de sécurité et mesures correctives en cas de retard",
+          "Phasage des interventions en site occupé compatible avec l'exploitation de la piscine"
         ],
-        "exemple_reponse_forte": "Le planning prévisionnel proposé respecte les 6 mois de délai d'exécution avec 1,5 mois de préparation. Il intègre une réservation ferme de la semaine 36 pour l'intervention sur le TGBT avec une équipe dédiée, les travaux préparatoires (attentes réseaux à proximité du local TGBT) étant finalisés avant S35. Une marge de 2 semaines est prévue sur les phases VRD/GO pour absorber les aléas météo.",
-        "source": "RC art 6 tableau critères, sous-critère 2.3",
-        "sous_criteres": []
+        "exemple_reponse_forte": "Présenter un planning Gantt sur 8 mois (1,5 + 6) identifiant clairement la fenêtre S36 pour l'intervention TGBT, les jalons de réception des études EXE, les phases de raccordement hydraulique et la mise en service de la chaudière. Prévoir une marge de 2 semaines avant la date de mise en service prévue et indiquer le scénario de rattrapage en cas de retard de livraison chaudière.",
+        "source": "RC art 6",
+        "unite_evaluation": "points",
+        "grille_actions": [
+          {
+            "action": "Produire un planning Gantt détaillé intégrant les contraintes spécifiques du chantier (S36, site occupé, coordination inter-lots)",
+            "type": "livrable",
+            "poids_pct": 50,
+            "source": "RC art 6"
+          },
+          {
+            "action": "Identifier explicitement les jalons critiques et les marges de sécurité, notamment pour l'intervention TGBT en semaine 36",
+            "type": "livrable",
+            "poids_pct": 30,
+            "source": "CCTP §5"
+          },
+          {
+            "action": "Proposer des mesures correctives documentées (ressources supplémentaires, heures supplémentaires) en cas de dérive planning",
+            "type": "levier",
+            "poids_pct": 20,
+            "source": "estimé"
+          }
+        ]
       },
       {
         "libelle": "Gestion de chantier",
         "ponderation_pct": 5,
-        "description": "Ce critère évalue les mesures prises pour le traitement des déchets, les dispositions et moyens mis en œuvre pour le tri et le recyclage des matériaux déposés (SOGED). S'applique aux lots 1, 2, 3, 4, 5, 6, 8 et 9.",
+        "description": "Évaluation des mesures prises pour le traitement des déchets (SOGED), tri et recyclage des matériaux déposés, et RSE (nuisances de chantier, économies d'énergie).",
         "elements_attendus": [
-          "SOGED (Schéma d'Organisation et de Gestion des Déchets de chantier) complété",
-          "Identification des filières de valorisation/élimination par type de déchet",
-          "Méthode de tri sur chantier",
-          "Désignation d'un responsable déchets",
-          "Traçabilité via bordereaux de suivi"
+          "SOGED (schéma d'organisation et de gestion des déchets) complété",
+          "Méthode de tri et recyclage des matériaux",
+          "Mesures pour limiter les nuisances (bruit, poussières, air extracteurs)",
+          "Mesures pour économies d'énergie sur le chantier"
         ],
-        "exemple_reponse_forte": "Le SOGED identifie 5 flux de déchets : terres excavées (réutilisation en remblai ou centre agréé), béton (recycleur local), métaux (ferrailleur), bois (broyage), déchets dangereux (collecteur agréé). Un responsable déchets est désigné sur chantier. Des bennes séparatives seront mises en place dans la zone de base vie.",
-        "source": "RC art 6 tableau critères, sous-critère 2.4",
-        "sous_criteres": []
+        "exemple_reponse_forte": "Joindre un SOGED précisant les filières de valorisation des déchets bois (bardage déposé), béton et métaux ferreux, avec identification des déchetteries agréées à moins de 30 km du site. Décrire le plan de bâchage des zones de découpe bardage et les horaires de travaux bruyants limités à 8h-17h.",
+        "source": "RC art 6",
+        "unite_evaluation": "points",
+        "grille_actions": [
+          {
+            "action": "Remettre un SOGED complété et signé avec filières de tri identifiées par nature de déchet (béton, bois, métaux, emballages)",
+            "type": "livrable",
+            "poids_pct": 60,
+            "source": "RC art 6"
+          },
+          {
+            "action": "Décrire les mesures RSE concrètes : limitation des nuisances sonores (horaires, bâchage), réduction des émissions (véhicules récents), économies d'énergie chantier",
+            "type": "levier",
+            "poids_pct": 40,
+            "source": "RC art 6"
+          }
+        ]
       }
     ],
     "prix": {
       "type_formule": "moins_disant",
-      "formule_explicite": "Note offre = (prix de l'offre la plus basse / prix de l'offre) × pondération du critère prix",
+      "formule_explicite": "Note offre = (prix de l'offre la plus basse / prix de l'offre) × pondération du critère prix (40 pour les lots 1-6, 8 et 9 ; 50 pour le lot 7)",
+      "source": "RC art 6",
       "elements_a_chiffrer": [
-        "Décomposition du Prix Global et Forfaitaire (DPGF) par lot, dûment remplie",
-        "Acte d'engagement par lot avec prix global et forfaitaire",
-        "Chiffrage des Prestations Supplémentaires Éventuelles (PSE obligatoires : lot 1 portail coulissant, lot 5 modification portail)",
-        "Chiffrage des variantes si proposées (lot 7 variante conception solaire, lot 8 variante fondations pieux vissés)"
+        "DPGF lot 1 : VRD (terrassements, réseaux, voiries, espaces verts) — prix global et forfaitaire",
+        "DPGF lot 1 PSE : fourniture et pose portail coulissant manuel + dépose portail existant",
+        "DPGF lot 2 : gros œuvre chaufferie et silo — prix global et forfaitaire",
+        "DPGF lot 3 : étanchéité bicouche, couvertines, naissances, lignes de vie — prix global et forfaitaire",
+        "DPGF lot 4 : bardage bois Douglas — prix global et forfaitaire",
+        "DPGF lot 5 : serrurerie/métallerie (portes CF, grilles, enclos, échelles, trappe silo) — prix global et forfaitaire",
+        "DPGF lot 5 PSE : modification portail métal et clôture existante",
+        "DPGF lot 6 : fluides (chaudière biomasse 250 kW, hydraulique, fumisterie, électricité, GTC) — prix global et forfaitaire",
+        "DPGF lot 7 : solaire thermique — prix global et forfaitaire + variante libre conception solaire",
+        "DPGF lots 8 et 9 : photovoltaïque (fondations/charpente/couverture + CFO/CFA) — prix global et forfaitaire + variante pieux vissés lot 8"
       ]
     },
-    "modalite_calcul_prix": "Note offre = (prix de l'offre la plus basse / prix de l'offre) × pondération du critère prix (40 points pour lots 1-6, 8, 9 ; 50 points pour lot 7)"
+    "modalite_calcul_prix": "Note offre = (prix de l'offre la plus basse / prix de l'offre) × pondération du critère prix. Lots 1-6, 8 et 9 : prix pondéré à 40. Lot 7 : prix pondéré à 50."
   },
   "montant_marche": {
     "valeur_estimee_euros": null,
-    "fourchette_min_euros": null,
-    "fourchette_max_euros": null,
-    "type": "non_communique",
-    "duree_couverte": "7,5 mois (1,5 mois préparation + 6 mois exécution)",
-    "source_extraction": null,
-    "commentaire": "Aucun montant estimatif n'est mentionné dans les pièces du DCE fournies (RC, CCAP, CCTP). Les DPGF sont fournis sous format Excel mais leur contenu chiffré n'est pas disponible dans l'extraction. Le marché comprend 9 lots de natures très différentes (VRD, gros œuvre, étanchéité, bardage bois, serrurerie, fluides biomasse, solaire thermique, charpente PV, électricité PV) ce qui rend difficile une estimation globale sans les DPGF."
+    "fourchette_min_euros": 1800000,
+    "fourchette_max_euros": 2800000,
+    "type": "calcule_volumes",
+    "duree_couverte": "Marché de travaux — délai d'exécution 6 mois hors préparation",
+    "source_extraction": "Estimation bottom-up à partir des lots et des caractéristiques techniques (CCTP lots 1 à 9, RC)",
+    "commentaire": "Aucun montant explicite communiqué dans les pièces fournies. Estimation bottom-up par lot : Lot 1 VRD 80-120 k€ ; Lot 2 GO chaufferie 150-220 k€ ; Lot 3 Étanchéité 30-50 k€ ; Lot 4 Bardage bois 40-70 k€ ; Lot 5 Serrurerie 60-100 k€ ; Lot 6 Fluides biomasse (chaudière 250 kW + ballon 6 000 L + GTC + réseau DN80) 500-750 k€ ; Lot 7 Solaire thermique (structure + panneaux + installation) 200-350 k€ ; Lot 8 PV structure ombrières 300-500 k€ ; Lot 9 PV CFO/CFA 80-140 k€. Total estimé 1 440-2 300 k€ en coût de réalisation, soit environ 1,8-2,8 M€ en prix marché (marge 15-25%)."
+  },
+  "montant_3_voies": {
+    "voie_1_eur": null,
+    "voie_1_source": null,
+    "voie_2_disponible": true,
+    "voie_2_min_eur": 1800000,
+    "voie_2_max_eur": 2800000,
+    "voie_2_hypotheses": [
+      {
+        "hypothese": "Lot 1 VRD : terrassements, réseaux, voiries, aménagements parking + arbres (ratio VRD centre aquatique)",
+        "valeur": "80 000-120 000 €"
+      },
+      {
+        "hypothese": "Lot 2 Gros Œuvre chaufferie + silo : fondations, structure BA (ratio GO local technique industriel 150-300 m²)",
+        "valeur": "150 000-220 000 €"
+      },
+      {
+        "hypothese": "Lot 3 Étanchéité : bicouche autoprotégée toiture chaufferie + silo + couvertines",
+        "valeur": "30 000-50 000 €"
+      },
+      {
+        "hypothese": "Lot 4 Bardage Douglas : 4 façades chaufferie + silo + enclos (ratio bardage bois spécial 100-150 €/m²)",
+        "valeur": "40 000-70 000 €"
+      },
+      {
+        "hypothese": "Lot 5 Serrurerie : portes CF, trappe hydraulique silo 3,40×2,65 m, enclos, échelles crinoline",
+        "valeur": "60 000-100 000 €"
+      },
+      {
+        "hypothese": "Lot 6 Fluides biomasse : chaudière bois 250 kW (fourniture + pose ~120-180 k€) + ballon 6 000 L (~25 k€) + réseau PEHD DN80 + armoire électrique + GTC (ratio chaufferie biomasse 250 kW)",
+        "valeur": "500 000-750 000 €"
+      },
+      {
+        "hypothese": "Lot 7 Solaire thermique collectif : structure acier + container + panneaux (ratio solaire thermique collectif 150-250 kW thermique)",
+        "valeur": "200 000-350 000 €"
+      },
+      {
+        "hypothese": "Lot 8 PV ombrières fondations + charpente Douglas + bac acier (ombrières parking, puissance non précisée, hypothèse 100-200 kWc)",
+        "valeur": "300 000-500 000 €"
+      },
+      {
+        "hypothese": "Lot 9 PV CFO/CFA raccordement autoconsommation",
+        "valeur": "80 000-140 000 €"
+      },
+      {
+        "hypothese": "Dimension variée : le prix unitaire par kWc PV (lots 8+9) varié entre 800 €/kWc et 1 200 €/kWc ; quantité fixée hypothèse centrale 150 kWc",
+        "valeur": "120 000-180 000 € pour les lots PV"
+      }
+    ],
+    "voie_2_raison_indisponible": null
+  },
+  "cout_realisation": {
+    "cout_total_eur": 1610000,
+    "cout_min_eur": 1440000,
+    "cout_max_eur": 2300000,
+    "postes": [
+      {
+        "poste": "Lot 1 VRD",
+        "detail": "Main d'œuvre VRD + matériaux terrassement/réseaux + engins",
+        "montant_eur": 90000
+      },
+      {
+        "poste": "Lot 2 Gros Œuvre",
+        "detail": "Béton, coffrage, armatures, fondations, planchers chaufferie + silo",
+        "montant_eur": 175000
+      },
+      {
+        "poste": "Lot 3 Étanchéité",
+        "detail": "Membranes bicouche, couvertines, accessoires, pose",
+        "montant_eur": 38000
+      },
+      {
+        "poste": "Lot 4 Bardage Bois",
+        "detail": "Bardage Douglas + tasseautage + accessoires finition",
+        "montant_eur": 52000
+      },
+      {
+        "poste": "Lot 5 Serrurerie/Métallerie",
+        "detail": "Portes CF, trappe hydraulique silo, enclos, échelles crinoline, fabrication atelier + pose",
+        "montant_eur": 78000
+      },
+      {
+        "poste": "Lot 6 Fluides biomasse",
+        "detail": "Fourniture chaudière bois 250 kW + ballon 6 000 L + réseau PEHD DN80 + armoire élec + GTC + main d'œuvre installation",
+        "montant_eur": 600000
+      },
+      {
+        "poste": "Lot 7 Solaire thermique",
+        "detail": "Fourniture panneaux ST + structure acier galvanisé + container + installation hydraulique",
+        "montant_eur": 250000
+      },
+      {
+        "poste": "Lot 8 PV structure",
+        "detail": "Fondations + charpente Douglas + bac acier + matériaux + pose",
+        "montant_eur": 360000
+      },
+      {
+        "poste": "Lot 9 PV CFO/CFA",
+        "detail": "Onduleurs + câblage + coffrets + raccordement autoconsommation + mise en service",
+        "montant_eur": 100000
+      },
+      {
+        "poste": "Encadrement / coordination multi-lots",
+        "detail": "Chef de chantier et conducteur de travaux — inclus dans les lots",
+        "montant_eur": null
+      }
+    ],
+    "taux_journaliers_retenus": "Taux marché indicatifs : main d'œuvre BTP 45-55 €/h chargé ; chaudière biomasse 250 kW fourniture ~120-180 k€ (fournisseurs français/européens) ; ballon tampon 6 000 L ~18-25 k€ ; réseau PEHD préisolé DN80 ~80-150 €/ml pose comprise ; panneaux PV 0,30-0,45 €/Wc pose comprise pour structure + CFO.",
+    "commentaire": "Estimation bottom-up à partir des lots et ratios de marché. Le lot 6 (fluides biomasse) est le lot dominant en valeur (chaudière + ballon + GTC). Les lots PV (8+9) sont estimés sur une hypothèse de 150 kWc faute de puissance précisée dans les pièces fournies. Rapport max/min ≈ 1,6 lié à l'incertitude sur la puissance PV et le périmètre exact du solaire thermique."
   },
   "revision_prix": {
     "type": "indexation",
@@ -217,194 +515,386 @@
       "BT07",
       "BT40",
       "BT06a",
-      "BT16b",
       "BT34",
+      "BT16b",
       "BT47"
     ],
-    "ponderation": "Formule par lot : Lot 1 : 15% fixe + 85% TP01+EV3 ; Lot 2 : 15% fixe + 85% BT06 ; Lot 3 : 15% fixe + 85% BT53 ; Lot 4 : 15% fixe + 85% BT54 ; Lot 5 : 15% fixe + 85% BT07 ; Lots 6 et 7 : 15% fixe + 85% BT40 ; Lot 8 : 15% fixe + 85% (20% BT06a + 60% BT16b + 20% BT34) ; Lot 9 : 100% BT47",
+    "ponderation": "Lot 1 : 15% fixe + 85% TP01+EV3 ; Lot 2 : 15% fixe + 85% BT06 ; Lot 3 : 15% fixe + 85% BT53 ; Lot 4 : 15% fixe + 85% BT54 ; Lot 5 : 15% fixe + 85% BT07 ; Lot 6 : 15% fixe + 85% BT40 ; Lot 7 : 15% fixe + 85% BT40 ; Lot 8 : 15% fixe + 85% (20% BT06a + 60% BT16b + 20% BT34) ; Lot 9 : 100% BT47",
     "periodicite": "mensuelle",
-    "formule_revision": "Lot 1 : Cn=15%+85%(TP01+EV3(n)/TP01+EV3(0)) ; Lot 2 : Cn=15%+85%(BT06(n)/BT06(0)) ; Lot 3 : Cn=15%+85%(BT53(n)/BT53(0)) ; Lot 4 : Cn=15%+85%(BT54(n)/BT54(0)) ; Lot 5 : Cn=15%+85%(BT07(n)/BT07(0)) ; Lots 6 et 7 : Cn=15%+85%(BT40(n)/BT40(0)) ; Lot 8 : Cn=0,15+0,85×[0,20×(BT06a_n/BT06a_0)+0,60×(BT16b_n/BT16b_0)+0,20×(BT34_n/BT34_0)] ; Lot 9 : Cn=BT47(n)/BT47(0)",
+    "formule_revision": "Lots 1-7 : Cn = 15% + 85% × (Index(n) / Index(0)) ; Lot 8 : Cn = 0,15 + 0,85 × [0,20 × (BT06a_n/BT06a_0) + 0,60 × (BT16b_n/BT16b_0) + 0,20 × (BT34_n/BT34_0)] ; Lot 9 : Cn = BT47(n) / BT47(0)",
     "source_extraction": "CCAP art 7.3",
-    "commentaire": "Les formules sont bien adaptées à chaque corps d'état (indice électricité BT47 pour le lot CFO/CFA, indices bois BT54 pour bardage, etc.). Le lot 9 est intégralement variable (pas de part fixe), ce qui est favorable en cas d'inflation mais expose davantage à la volatilité. L'entreprise doit annexer à chaque facture le calcul de révision avec la valeur des indices."
+    "commentaire": "Révision mensuelle avec part fixe de 15% (sauf lot 9 : 100% variable) — formules bien adaptées aux corps d'état respectifs. La part fixe à 15% protège partiellement le candidat contre les fluctuations de coûts. Le lot 9 (électricité) est entièrement indexé BT47 (indice électricité INSEE), sans part fixe, ce qui est atypique et expose à une volatilité plus forte."
   },
   "alertes_prix": [
-    "Pondération prix à 40% (lots 1-6, 8, 9) et 50% (lot 7) : la valeur technique reste dominante ou égale, mais le prix compte fortement — ne pas sur-évaluer les marges",
-    "PSE obligatoires (lot 1 : portail coulissant ; lot 5 : modification portail/clôture) : l'absence de chiffrage de la PSE rend l'offre irrégulière selon le RC",
-    "Révision des prix à calculer par l'entreprise à chaque étape de facturation avec justificatifs — risque d'erreur ou de rejet de facture si mal calculée",
-    "Lot 9 : formule de révision 100% variable sur BT47 (électricité) sans part fixe — volatilité à anticiper dans le chiffrage",
-    "Offre anormalement basse : le maître d'ouvrage peut demander justification si le prix paraît trop bas (articles L.2152-5 à L.2152-6 CCP) — pas de seuil numérique annoncé mais la procédure est explicitement prévue"
+    "Critère prix pondéré à 40% pour les lots 1-6, 8 et 9 — compétition tarifaire modérée ; mais 50% pour le lot 7 (solaire thermique), rendant le prix très déterminant sur ce lot",
+    "Formule prix 'moins-disant' explicite : la note maximale revient à l'offre la plus basse — toute sur-évaluation de l'offre est fortement pénalisée, notamment sur le lot 7",
+    "Le lot 6 (fluides biomasse, lot dominant en valeur ~500-750 k€) est soumis à la même formule moins-disante : le chiffrage de la chaudière 250 kW et du réseau PEHD DN80 est un enjeu majeur",
+    "Prix global et forfaitaire pour tous les lots — les erreurs de quantitatif dans la DPGF ne peuvent pas être rattrapées après signature ; la visite obligatoire (lots 1, 2 et 9) doit impérativement précéder le chiffrage"
   ],
   "references_exigees": {
     "experience_minimale_annees": 5,
-    "experience_source": "RC art 4.1 tableau capacité technique n°3",
+    "experience_source": "RC art 4.1 (références 5 dernières années)",
     "volume_min_references_similaires": null,
-    "volume_min_references_unite": "chantiers réalisés",
-    "secteur_experience": "Travaux similaires au lot concerné (chaufferie biomasse, solaire thermique, photovoltaïque, VRD, gros œuvre, etc.) avec attestations de bonne exécution",
-    "secteur_source": "RC art 4.1 tableau capacité technique n°3",
+    "volume_min_references_unite": "marchés similaires (attestations de bonne exécution)",
+    "secteur_experience": "Travaux dans la spécialité du lot concerné (VRD, gros œuvre, étanchéité, bardage, serrurerie, chaufferie biomasse, solaire thermique, photovoltaïque), avec attestations de bonne exécution précisant montant, date et lieu",
+    "secteur_source": "RC art 4.1",
     "certifications_obligatoires": [
       {
-        "libelle": "Qualification installateur certifié (formation spécifique) pour lot 8 - Photovoltaïque Fondations/charpente",
-        "source": "RC art 4.1 tableau capacité technique n°4"
+        "libelle": "Qualification d'installateur certifié (formation spécifique photovoltaïque) — Lot 8",
+        "codes": [],
+        "bloquante": true,
+        "source": "RC art 4.1"
       },
       {
-        "libelle": "Certification photovoltaïque raccordé réseau délivrée par organisme accrédité COFRAC (QUALIBAT, QUALIT'ENR, QUALIFELEC ou équivalent) pour lot 9",
-        "source": "RC art 4.1 tableau capacité technique n°6"
+        "libelle": "Certification photovoltaïque raccordé réseau délivrée par organisme accrédité COFRAC (QUALIBAT, QUALIT'ENR, QUALIFELEC ou équivalent) — Lot 9",
+        "codes": [],
+        "bloquante": true,
+        "source": "RC art 4.1"
       },
       {
-        "libelle": "Certification Qualisol Collectif ou équivalent pour lot 7 - Solaire thermique",
-        "source": "RC art 4.1 tableau capacité technique n°7"
+        "libelle": "Certification Qualisol Collectif ou équivalent — capacité à réaliser des installations solaires thermiques de puissance comparable — Lot 7",
+        "codes": [],
+        "bloquante": true,
+        "source": "RC art 4.1"
       },
       {
-        "libelle": "Attestation d'assurance décennale à jour couvrant l'installation photovoltaïque en intégration simplifiée au bâti pour lot 9",
-        "source": "RC art 4.1 tableau capacité technique n°8"
+        "libelle": "Attestation d'assurance décennale à jour couvrant installations photovoltaïques en intégration simplifiée — Lot 9",
+        "codes": [],
+        "bloquante": true,
+        "source": "RC art 4.1"
       }
     ],
     "autres_exigences": [
       {
-        "libelle": "Attestation de visite du site obligatoire pour les lots 1, 2 et 9 (absence = offre irrégulière possible)",
+        "libelle": "Déclaration concernant le chiffre d'affaires global portant au maximum sur les 3 derniers exercices disponibles — tous lots",
+        "source": "RC art 4.1"
+      },
+      {
+        "libelle": "Déclaration sur les effectifs moyens annuels et le personnel d'encadrement sur les 3 dernières années — tous lots",
+        "source": "RC art 4.1"
+      },
+      {
+        "libelle": "Description de l'outillage, matériel et équipement technique dont le candidat disposera — tous lots",
+        "source": "RC art 4.1"
+      },
+      {
+        "libelle": "Documents présentant pour les 3 derniers exercices la part de l'activité en %CA consacrée à l'installation photovoltaïque — Lot 9",
+        "source": "RC art 4.1"
+      },
+      {
+        "libelle": "Liste de travaux exécutés au cours des 5 dernières années avec attestations de bonne exécution (montant, date, lieu, bonne fin) — tous lots",
+        "source": "RC art 4.1"
+      }
+    ]
+  },
+  "dossier_candidature": {
+    "pieces_a_fournir": [
+      {
+        "libelle": "DC1 (lettre de candidature et habilitation du mandataire) ou DUME",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC art 4.1"
+      },
+      {
+        "libelle": "DC2 (déclaration du candidat) ou DUME",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC art 4.1"
+      },
+      {
+        "libelle": "Déclaration sur le chiffre d'affaires global (3 derniers exercices)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC art 4.1"
+      },
+      {
+        "libelle": "Déclaration sur les effectifs moyens annuels et personnel d'encadrement (3 ans)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC art 4.1"
+      },
+      {
+        "libelle": "Description de l'outillage, matériel et équipement technique",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC art 4.1"
+      },
+      {
+        "libelle": "Liste des travaux exécutés (5 dernières années) avec attestations de bonne exécution",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC art 4.1"
+      },
+      {
+        "libelle": "Certification Qualisol Collectif ou équivalent (lot 7)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC art 4.1"
+      },
+      {
+        "libelle": "Qualification installateur certifié photovoltaïque (lot 8)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC art 4.1"
+      },
+      {
+        "libelle": "Certification photovoltaïque raccordé réseau COFRAC (lot 9)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC art 4.1"
+      },
+      {
+        "libelle": "Documents %CA photovoltaïque sur 3 derniers exercices (lot 9)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC art 4.1"
+      },
+      {
+        "libelle": "Attestation d'assurance décennale installations PV intégration simplifiée (lot 9)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC art 4.1"
+      },
+      {
+        "libelle": "Acte d'engagement dûment rempli et daté (un par lot)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC art 5.1"
+      },
+      {
+        "libelle": "DPGF (décomposition du prix global et forfaitaire) dûment remplie",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC art 5.1"
+      },
+      {
+        "libelle": "Cadre SOGED complété",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC art 5.1"
+      },
+      {
+        "libelle": "Mémoire technique (organisation/moyens humains, moyens techniques/méthodologie, planning, gestion chantier, RSE)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC art 5.1"
+      },
+      {
+        "libelle": "Relevé d'identité bancaire (RIB)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC art 5.1"
+      },
+      {
+        "libelle": "Attestation de visite du site (obligatoire pour lots 1, 2 et 9 ; recommandée pour lots 3, 4, 5, 6, 7 et 8)",
+        "phase": "offre",
+        "obligatoire": true,
         "source": "RC art 3.5"
       },
       {
-        "libelle": "SOGED (Schéma d'Organisation et de Gestion des Déchets) obligatoirement remis avec l'offre",
-        "source": "RC art 5.1"
+        "libelle": "DC4 (déclaration de sous-traitance) le cas échéant",
+        "phase": "offre",
+        "obligatoire": false,
+        "source": "RC art 4.2"
       },
       {
-        "libelle": "Mémoire technique obligatoirement remis avec l'offre, couvrant organisation/moyens humains, moyens techniques, planning, gestion chantier, RSE",
-        "source": "RC art 5.1"
+        "libelle": "Offre variante avec chiffrage distinct (lot 7 : variante conception solaire ; lot 8 : variante fondations pieux vissés) si proposée",
+        "phase": "offre",
+        "obligatoire": false,
+        "source": "RC art 5.2"
       }
-    ]
+    ],
+    "mode_remise": "dématérialisé",
+    "plateforme_depot": "marches-publics.info — https://www.marches-publics.info/_extranet/",
+    "signature_electronique_exigee": false,
+    "format_signature": "XAdES, CAdES ou PAdES (certificat RGS accepté dans sa période de validité)",
+    "nombre_exemplaires": null,
+    "langue": "français",
+    "duree_validite_offres_jours": 120,
+    "modalites_source": "RC art 7"
   },
   "lots": [
     {
       "numero": 1,
       "intitule": "Voiries et réseaux divers (VRD)",
+      "domaine": "btp_voirie_reseaux",
       "zone_geographique": "Sablé-sur-Sarthe (72)",
       "volume_estime": null,
       "volume_estime_unite": null,
-      "particularites": "Visite de site OBLIGATOIRE. Inclut une intervention en semaine 36 dans le TGBT et la chaufferie existante pendant l'arrêt technique de la piscine. PSE obligatoire : fourniture et pose d'un portail coulissant manuel + dépose et évacuation du portail existant."
+      "cout_estime_min_eur": 72000,
+      "cout_estime_max_eur": 108000,
+      "ca_estime_min_eur": 85000,
+      "ca_estime_max_eur": 130000,
+      "marge_brute_pct": 16,
+      "particularites": "Visite obligatoire. Intervention en S36 (fermeture annuelle piscine) pour raccordement TGBT. PSE : fourniture et pose portail coulissant manuel. Comprend espaces verts (remplacement 8 arbres abattus par 14 arbres)."
     },
     {
       "numero": 2,
       "intitule": "Chaufferie biomasse – Gros Œuvre",
+      "domaine": "btp_gros_oeuvre",
       "zone_geographique": "Sablé-sur-Sarthe (72)",
       "volume_estime": null,
       "volume_estime_unite": null,
-      "particularites": "Visite de site OBLIGATOIRE. Comprend les fondations, planchers et structures porteuses de la chaufferie biomasse et du silo. Gestion du compte prorata pour l'ensemble des lots."
+      "cout_estime_min_eur": 140000,
+      "cout_estime_max_eur": 200000,
+      "ca_estime_min_eur": 165000,
+      "ca_estime_max_eur": 240000,
+      "marge_brute_pct": 15,
+      "particularites": "Visite obligatoire. Gestionnaire du compte prorata (répartition des frais communs de chantier). Constructions en zone sismique 2. Inclut socles béton équipements process (fournis par lot Fluides)."
     },
     {
       "numero": 3,
       "intitule": "Chaufferie biomasse – Étanchéité",
+      "domaine": "btp_second_oeuvre",
       "zone_geographique": "Sablé-sur-Sarthe (72)",
       "volume_estime": null,
       "volume_estime_unite": null,
-      "particularites": "Visite recommandée. Étanchéité bicouche toiture terrasse, couvertines RAL 9006, descentes EP, lignes de vie."
+      "cout_estime_min_eur": 25000,
+      "cout_estime_max_eur": 42000,
+      "ca_estime_min_eur": 30000,
+      "ca_estime_max_eur": 52000,
+      "marge_brute_pct": 16,
+      "particularites": "Visite recommandée. Étanchéité bicouche DTU 43.1 sur toiture terrasse à pente nulle. Comprend chandelles acier galvanisé pour enclos technique (pose seulement, fourniture lot 5) et sortie conduit fumée."
     },
     {
       "numero": 4,
       "intitule": "Chaufferie biomasse – Bardage Bois",
+      "domaine": "btp_second_oeuvre",
       "zone_geographique": "Sablé-sur-Sarthe (72)",
       "volume_estime": null,
       "volume_estime_unite": null,
-      "particularites": "Visite recommandée. Bardage Douglas horizontal rainuré languette pré-grisé, similaire au bâtiment existant."
+      "cout_estime_min_eur": 38000,
+      "cout_estime_max_eur": 62000,
+      "ca_estime_min_eur": 45000,
+      "ca_estime_max_eur": 75000,
+      "marge_brute_pct": 17,
+      "particularites": "Visite recommandée. Bardage Douglas pré-grisé certifié FDES, garantie 10 ans min. Apparence similaire au bâtiment principal existant. Comprend enclos technique (bardage sur structure métal lot 5)."
     },
     {
       "numero": 5,
       "intitule": "Chaufferie biomasse – Serrurerie/Métallerie",
+      "domaine": "btp_second_oeuvre",
       "zone_geographique": "Sablé-sur-Sarthe (72)",
       "volume_estime": null,
       "volume_estime_unite": null,
-      "particularites": "Visite recommandée. Portes et trappes CF, grilles de ventilation, enclos technique, échelles à crinoline, trappe de remplissage silo motorisée. PSE obligatoire : modification du portail métal et de la clôture existante côté entrée Nord du parking."
+      "cout_estime_min_eur": 62000,
+      "cout_estime_max_eur": 95000,
+      "ca_estime_min_eur": 75000,
+      "ca_estime_max_eur": 115000,
+      "marge_brute_pct": 18,
+      "particularites": "Visite recommandée. Trappe hydraulique silo 3,40×2,65 m (SCADAMEAL ou équivalent) — pièce technique complexe. PSE : modification portail métal et clôture existante. Enclos technique acier galvanisé à chaud dimension-nable."
     },
     {
       "numero": 6,
       "intitule": "Chaufferie biomasse – Fluides",
+      "domaine": "energie_biomasse_methanisation",
       "zone_geographique": "Sablé-sur-Sarthe (72)",
       "volume_estime": null,
       "volume_estime_unite": null,
-      "particularites": "Visite recommandée. Chaudière biomasse 250 kW, ballon tampon 6 000 L, réseau PEHD préisolé DN80, régulation GTC (SOFREL S4TH/TOPKAPI), CFO/CFA. Nécessite coordination étroite avec lot 7. Intervention TGBT en semaine 36 impérative."
+      "cout_estime_min_eur": 480000,
+      "cout_estime_max_eur": 700000,
+      "ca_estime_min_eur": 560000,
+      "ca_estime_max_eur": 820000,
+      "marge_brute_pct": 16,
+      "particularites": "Visite recommandée. Lot dominant en valeur. Fourniture et pose chaudière biomasse 250 kW + dessileur + vis sans fin + ballon tampon 6 000 L + réseau PEHD préisolé DN80. Raccordement GTC SOFREL S4TH/TOPKAPI. Intervention S36 sur TGBT existant. Ensemble équipements d'un même fournisseur ou agréés par fournisseur chaudière."
     },
     {
       "numero": 7,
       "intitule": "Solaire thermique",
+      "domaine": "energie_pv_solaire",
       "zone_geographique": "Sablé-sur-Sarthe (72)",
       "volume_estime": null,
       "volume_estime_unite": null,
-      "particularites": "Visite recommandée. Critères d'attribution spécifiques (50% prix / 50% technique avec seuils éliminatoires). Variante libre sur la conception solaire (éléments surlignés en jaune dans CCTP pages 17 à 20). Qualisol Collectif ou équivalent exigé. Production estimée 146,3 MWh th/an."
+      "cout_estime_min_eur": 195000,
+      "cout_estime_max_eur": 310000,
+      "ca_estime_min_eur": 230000,
+      "ca_estime_max_eur": 370000,
+      "marge_brute_pct": 16,
+      "particularites": "Certification Qualisol Collectif obligatoire. Critères d'attribution prix/technique à 50/50 (plus favorable au prix que les autres lots). Variante libre sur la conception solaire (éléments surlignés CCTP p.17-20). Production annuelle estimée 146,3 MWh th."
     },
     {
       "numero": 8,
       "intitule": "Photovoltaïque – Fondations, charpente bois et couverture",
+      "domaine": "energie_pv_solaire",
       "zone_geographique": "Sablé-sur-Sarthe (72)",
       "volume_estime": null,
       "volume_estime_unite": null,
-      "particularites": "Visite recommandée. Ombrières photovoltaïques sur structure bois Douglas et bac acier RAL 9006, panneaux au sol sur structure acier galvanisé. Variante autorisée : fondations par pieux vissés (à justifier techniquement avec étude géotechnique G2 AVP fournie). Qualification installateur certifié exigée."
+      "cout_estime_min_eur": 280000,
+      "cout_estime_max_eur": 450000,
+      "ca_estime_min_eur": 340000,
+      "ca_estime_max_eur": 550000,
+      "marge_brute_pct": 17,
+      "particularites": "Visite obligatoire. Installateur certifié exigé. Variante possible : fondations par pieux vissés (à justifier par note de calcul structurelle basée sur rapport géotechnique G2 AVP fourni au DCE). Ombrières sur structure bois Douglas + bac acier RAL 9006."
     },
     {
       "numero": 9,
       "intitule": "Photovoltaïque – CFO/CFA",
+      "domaine": "energie_pv_solaire",
       "zone_geographique": "Sablé-sur-Sarthe (72)",
       "volume_estime": null,
       "volume_estime_unite": null,
-      "particularites": "Visite de site OBLIGATOIRE. Autoconsommation sans injection surplus réseau. Certification COFRAC (QUALIBAT, QUALIT'ENR, QUALIFELEC ou équivalent) obligatoire. Assurance décennale à jour requise. Indice révision 100% BT47 (électricité). Justificatifs %CA photovoltaïque sur 3 derniers exercices exigés."
+      "cout_estime_min_eur": 78000,
+      "cout_estime_max_eur": 120000,
+      "ca_estime_min_eur": 92000,
+      "ca_estime_max_eur": 145000,
+      "marge_brute_pct": 17,
+      "particularites": "Visite obligatoire. Certification COFRAC (QUALIBAT, QUALIT'ENR, QUALIFELEC ou équivalent) obligatoire. Assurance décennale PV obligatoire. Documents %CA photovoltaïque sur 3 exercices exigés. Autoconsommation sans injection réseau. Révision prix entièrement sur BT47 (indice électricité) sans part fixe."
     }
   ],
+  "tranches": [],
   "calendrier": {
     "date_limite_offres": "2026-07-03",
     "date_demarrage_prevue": null,
-    "duree_marche": "7,5 mois (1,5 mois préparation + 6 mois exécution) + délai de garantie de parfait achèvement 12 mois"
+    "duree_marche": "7,5 mois (1,5 mois préparation + 6 mois exécution) + 12 mois garantie de parfait achèvement"
   },
   "alertes_candidat": [
-    "Attestation de visite obligatoire pour les lots 1, 2 et 9 : son absence est susceptible de rendre l'offre irrégulière — rendez-vous à programmer entre le 16 et le 26 juin 2026 par mail à dalal.batikh@sablesursarthe.fr au moins 48h à l'avance",
-    "Certifications obligatoires différentes par lot : Qualisol Collectif pour lot 7, certification COFRAC photovoltaïque pour lot 9, qualification installateur certifié pour lot 8 — vérifier l'éligibilité avant de candidater à ces lots spécifiques",
-    "PSE (Prestations Supplémentaires Éventuelles) obligatoires pour lots 1 et 5 : l'absence de chiffrage rend l'offre irrégulière selon le RC",
-    "Intervention TGBT impérativement en semaine 36 (fermeture annuelle piscine) : les entreprises des lots concernés doivent anticiper les études EXE, mettre les réseaux en attente à proximité du TGBT avant cette fenêtre — aucun report admis sans accord MO",
-    "Réponse à la PSE obligatoire et au critère Gestion de chantier (SOGED) : ces documents sont obligatoires et leur absence ou insuffisance entraîne le rejet ou une note éliminatoire",
-    "Pour le lot 7, des notes inférieures à 2/5 sur les fiches techniques ou 4/10 sur la méthodologie/planning sont éliminatoires — seuils explicites dans les critères d'attribution"
+    "VISITE OBLIGATOIRE pour les lots 1, 2 et 9 : l'absence d'attestation de visite rend l'offre irrégulière — rendez-vous à programmer entre le 16 et le 26 juin 2026 (au moins 48h à l'avance à dalal.batikh@sablesursarthe.fr)",
+    "RÉPONSE À LA PSE OBLIGATOIRE : le lot 1 (portail) et le lot 5 (portail métal/clôture) comportent une PSE dont le chiffrage est obligatoire — l'absence de réponse rend l'offre irrégulière",
+    "CERTIFICATIONS SECTORIELLES BLOQUANTES : Qualisol Collectif pour lot 7, installateur certifié pour lot 8, certification COFRAC pour lot 9 — à justifier impérativement dans le dossier de candidature",
+    "DPGF OBLIGATOIRE COMPLÈTE : toute DPGF incomplète peut entraîner le rejet de l'offre comme irrégulière — vérifier chaque poste avant remise",
+    "INTERVENTION S36 NON REPORTABLE : l'intervention sur le TGBT existant doit être planifiée en semaine 36 (fermeture annuelle piscine) — les entreprises des lots 1, 6 et 9 doivent en anticiper les contraintes dès la phase préparatoire"
   ],
   "points_differenciants_attendus": [
     {
-      "libelle": "Commissionnement détaillé avec protocoles de mise en service pour le lot 7",
-      "exemple": "Fournir un plan de commissionnement détaillé incluant les protocoles de remplissage/dégazage du circuit solaire thermique, les tests de performance sur la durée (rendement collecteurs, températures de départ/retour), et les procédures de vérification de l'interface hydraulique avec la chaufferie biomasse.",
-      "source": "RC art 6 tableau lot 7, sous-critère 2.2"
+      "libelle": "Expertise démontrée en chaufferie biomasse collective de puissance comparable (250 kW)",
+      "exemple": "Présenter 2-3 références de chaufferies biomasse 200-400 kW pour ERP collectif (piscines, gymnases, bâtiments tertiaires) réalisées dans les 5 dernières années, avec attestations de bonne exécution précisant le taux de couverture ENR atteint et les performances de régulation.",
+      "source": "RC art 4.1"
     },
     {
-      "libelle": "Justification technique de la variante fondations pieux vissés pour lot 8",
-      "exemple": "Présenter une note de calcul structurelle s'appuyant sur l'étude géotechnique G2 AVP fournie au DCE, démontrant la compatibilité des pieux vissés avec la nature des sols identifiés et les efforts de vent/neige sur les ombrières. Chiffrer l'écart de coût et de délai par rapport à la solution de base.",
-      "source": "RC art 5.2 variante lot 8"
+      "libelle": "Maîtrise de la coordination inter-lots et du séquencement en site occupé",
+      "exemple": "Décrire dans le mémoire technique le processus de synthèse multi-lots géré avec les lots GO, Fluides et VRD pour les réservations béton, et le protocole d'intervention en S36 (consignation TGBT, planning heure par heure validé par l'exploitant), démontrant une expérience des chantiers en piscine ou ERP en exploitation.",
+      "source": "CCTP §5 (interventions sur équipements existants)"
     },
     {
-      "libelle": "Gestion de la contrainte site occupé avec plan de phasage précis",
-      "exemple": "Proposer un schéma de cloisonnement des zones de travaux permettant l'accès continu des usagers au centre aquatique, un plan de circulation des engins de livraison compatible avec l'exploitation, et un planning d'intervention spécifique pour la semaine 36 avec affectation nominative des intervenants au TGBT.",
-      "source": "CCTP LOT 00 §2.15 et CCAP art 12.3"
+      "libelle": "Analyse fonctionnelle et choix techniques détaillés sur le lot 7 (solaire thermique)",
+      "exemple": "Sur le lot 7 où le critère technique pèse 50%, proposer une analyse fonctionnelle démontrant l'adéquation entre la surface et l'orientation des capteurs, le volume de stockage et les 146 MWh th ciblés, avec des justifications hydrauliques sur l'intégration avec la chaudière biomasse et la GTC existante.",
+      "source": "RC art 6 (critères lot 7)"
     },
     {
-      "libelle": "Fiches techniques complètes et conformes pour les équipements EnR proposés",
-      "exemple": "Pour le lot 6 (fluides), fournir la fiche technique complète de la chaudière biomasse proposée (puissance nominale, rendement, émissions NOx, type de cendrier, système de dessilage) ainsi que les caractéristiques du ballon tampon 6 000 L et du réseau PEHD préisolé DN80, en précisant la provenance des fournitures et les références fournisseurs.",
-      "source": "RC art 5.1 mémoire technique"
-    },
-    {
-      "libelle": "Intégration GTC et continuité du suivi énergétique pour lot 6",
-      "exemple": "Détailler l'architecture de communication proposée entre la régulation de la chaudière biomasse et la GTC existante (SOFREL S4TH/TOPKAPI), en listant les points de communication (protocole Modbus/BACnet, nature des données, synoptiques à créer) et en proposant une maquette du synoptique dédié à la chaufferie biomasse.",
-      "source": "CCTP LOT 06 §4.2"
+      "libelle": "Commissionnement détaillé et protocoles de mise en service documentés",
+      "exemple": "Pour le lot 7 (critère éliminatoire si note < 4/10 sur l'organisationnel), présenter un plan de commissionnement exhaustif incluant les protocoles de remplissage et rinçage du circuit, les essais hydrauliques (pression, débit), les essais de régulation biomasse/solaire/gaz, et les procès-verbaux AQC prévus.",
+      "source": "RC art 6 (critères lot 7)"
     }
   ],
   "_meta": {
     "id_marche": "BOAMP-26-56995",
     "type": "complet",
-    "date_generation": "2026-06-14T20:33:22.393565+00:00",
-    "extraction_le": "2026-06-14T20:33:22.393565+00:00",
+    "date_generation": "2026-06-21T02:14:41.514767+00:00",
+    "extraction_le": "2026-06-21T02:14:41.514767+00:00",
     "modele": "claude-sonnet-4-6",
-    "preset_utilise": "energie_renouvelable",
+    "preset_utilise": "btp",
     "presets_matches": [
+      "btp",
       "energie_renouvelable"
     ],
     "prompts_versions": {
-      "energie_renouvelable/_preset.json": "sha256:6e0b4503bef6c585"
+      "btp/_preset.json": "sha256:055bf6f8b2c1f771",
+      "energie_renouvelable/_preset.json": "sha256:d5db6e4d3d386add"
     },
-    "tokens_input": 141037,
-    "tokens_output": 9175,
-    "cout_eur": 0.5327,
-    "duree_sec": 165.1,
+    "tokens_input": 152007,
+    "tokens_output": 15893,
+    "cout_eur": 0.6597,
+    "duree_sec": 269.9,
     "pdfs_traites": [
       {
         "nom": "72SS-PC-PC1-Plan situation.pdf",

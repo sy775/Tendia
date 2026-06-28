@@ -1,6 +1,6 @@
 # Brief — Jardins Familiaux Sur Le Gue - Prelevement Et Traitement De Fragments Fibrociment Amiantes Dans Les Terres
 
-_Généré le 2026-06-15 01:25 par Claude claude-sonnet-4-6_
+_Généré le 2026-06-20 01:44 par Claude claude-sonnet-4-6_
 
 ## Identifiants
 - **ID Tendia** : `BOAMP-26-56791`
@@ -10,75 +10,72 @@ _Généré le 2026-06-15 01:25 par Claude claude-sonnet-4-6_
 - **DCE PLACE** : <https://www.marches-publics.info/mpiaws/index.cfm?fuseaction=dematent.login&type=Dce&Idm=1833316>
 
 ## Synthèse
-La Ville de Metz lance un marché de travaux pour le prélèvement et le traitement de fragments de fibrociment amiantés dans les terres du site de jardins familiaux sur le Gué à Metz Magny. Les travaux comprennent le terrassement sur 20 cm, l'évacuation des terres polluées en décharge spécialisée ISDD (environ 600 tonnes), le ramassage de fragments visibles par des désamianteurs certifiés SS4, et la mise en place d'une unité mobile de décontamination. Le délai d'exécution est de 2 mois avec une fin de chantier fixée au 30 septembre 2026.
+La Ville de Metz lance un marché de travaux pour le prélèvement et le traitement de fragments de fibrociment amiantés dans les terres des jardins familiaux sur le Gué à Metz Magny. Les travaux consistent en des terrassements sur 20 cm, le ramassage de fragments de fibrociment amiantés, leur conditionnement, transport et évacuation vers une installation de stockage pour déchets dangereux (ISDD). Le marché est un lot unique à prix unitaires, d'une durée de 2 mois avec fin prévue au 30 septembre 2026, nécessitant une certification amiante sous-section 3.
 
 ## 🏗 Chantier — caractéristiques BTP
-- **Description** : Prélèvement et traitement de fragments de plaques en fibres-ciment amiantés (issus de dépôts sauvages) mélangés à la terre végétale d'un site de jardins familiaux. Les travaux incluent : installation d'une unité mobile de décontamination, terrassement sur 20 cm d'épaisseur avec pelle pressurisée (chauffeur SS4), conditionnement des terres en bags étanches, ramassage visuel de fragments par désamianteurs SS4, évacuation vers une décharge ISDD agréée avec traçabilité Trackdéchets/BSDA.
-- **Type d'ouvrage** : Site extérieur — jardins familiaux en cours de réaménagement (création de 61 jardins familiaux)
-- **Surface / volume** : 340 m³ de terre végétale / 600 tonnes estimées
-- **Site occupé pendant travaux** : true — site en cours de réaménagement avec d'autres lots de travaux en cours (espaces végétalisés, voirie, clôture, cabanon) ; chantier adjacent à des parcelles riveraines
-- **Corps d'état mobilisés** : Désamiantage (sous-section 3 — certification SS4), Terrassement / VRD (pelle pressurisée), Gestion des déchets dangereux amiante
+- **Description** : Prélèvement et traitement de fragments de plaques en fibrociment amiantés mélangés aux terres végétales du site. Les travaux comprennent : (1) terrassements sur 20 cm d'épaisseur avec pelle pressurisée et chauffeur SS4, (2) ramassage manuel de fragments visibles par des désamianteurs SS4, (3) conditionnement en emballages étanches labellisés amiante (big bags ou contenants adaptés), (4) transport par camion vers une ISDD agréée, (5) traçabilité via BSDA et application Trackdéchets. Volume estimé : 340 m³ / 600 tonnes de terres polluées. 8 zones identifiées contenant de l'amiante (chrysotile + crocidolite). Certification amiante sous-section 3 requise.
+- **Type d'ouvrage** : Site de jardins familiaux en cours de réaménagement (parcelle à l'air libre), dépôts sauvages de plaques fibrociment amiantées mélangées aux terres végétales
+- **Surface / volume** : 340 m³ de terres végétales à traiter / 600 tonnes estimées ; 8 zones diagnostiquées (estimé 1337 m² de plaques fibrociment selon diagnostic amiante)
+- **Site occupé pendant travaux** : true — site en cours de réaménagement avec d'autres lots de travaux (espaces verts, voirie, clôture, cabanons) pouvant être en coactivité ; présence de riverains et piétons à proximité
+- **Corps d'état mobilisés** : Désamiantage / retrait matériaux amiantés (SS4 sous-section 3), Terrassement (pelle pressurisée avec chauffeur SS4), Transport et élimination de déchets dangereux (transporteur ADR agréé)
 - **Contraintes spécifiques** :
-  - Certification obligatoire sous-section 3 (SS4) pour tous les opérateurs
-  - Plan de retrait à transmettre 1 mois avant démarrage à l'Inspection du Travail, CARSAT et OPPBTP
+  - Certification amiante sous-section 3 obligatoire (Article R4412-129 à 132 du Code du travail)
+  - Personnel opérateur et chauffeur formés et habilités SS4
+  - Plan de retrait à transmettre un mois avant travaux à l'Inspection du travail, CARSAT et OPPBTP
+  - Unité mobile de décontamination à mettre en place sur chantier
   - Mesures d'empoussièrement réglementaires pendant les travaux
-  - Unité mobile de décontamination obligatoire sur site
-  - Traçabilité complète via BSDA et application Trackdéchets
   - Fin de chantier impérative au 30 septembre 2026
-  - Visite obligatoire préalable au dépôt de l'offre avec attestation
-  - Non-dégradation des ouvrages déjà réalisés (voirie, aire de stationnement, coffrage)
-  - Constat d'état des lieux avant démarrage
-  - Coactivité avec les autres lots du chantier de jardins familiaux
+  - Visite obligatoire avec attestation avant remise de l'offre
+  - Traçabilité BSDA et application Trackdéchets obligatoire
+  - Coactivité avec autres lots du chantier de jardins familiaux (paysage, voirie, clôture, cabanons)
+  - Constat d'état des lieux avant démarrage obligatoire
+  - Présence de chrysotile et crocidolite (deux types d'amiante)
 
 ### Allotissement
-Marché en lot unique — pas de décomposition en lots, l'acheteur justifie ce choix par le coût plus élevé d'une exécution allotie.
+Marché non décomposé en lots — lot unique
 - **Nombre de lots** : 1
 - **Lot 1** — Prélèvement et traitement de fragments fibrociment amiantés dans les terres
-  - Corps d'état : Désamiantage — terrassement terres polluées amiante
-  - Lot unique comprenant installation de chantier, unité mobile de décontamination, terrassement sur 20 cm avec évacuation en ISDD (600 tonnes estimées), ramassage de fragments visibles par désamianteurs SS4
+  - Corps d'état : Désamiantage — terrassement et élimination de déchets amiantés
+  - Terrassement sur 20 cm, ramassage de fragments fibrociment amiantés, conditionnement, transport et élimination en ISDD. Inclut installation de chantier, unité mobile de décontamination, documents administratifs (plan de retrait, PPSPS, SOGED, BSDA).
 
 ### Qualifications BTP exigées
-Certification obligatoire pour travaux de retrait/encapsulage d'amiante sous-section 3 (article R4412-129 à R4412-132 du Code du travail) ; formation SS4 des opérateurs ; certifications AFNOR selon décret 2017-899 et normes NF X46-010, NF X46-020
+Certification amiante obligatoire conforme à l'article R4412-129 à R4412-132 du Code du travail (certification sous-section 3 pour travaux de retrait/encapsulage d'amiante). Qualifications AFNOR mentionnées, normes NF X46-010 et NF X46-020. Autorisation de transport matières dangereuses ADR requise pour le transporteur.
 - **MASE** : non
 - **Autres exigences** :
-  - Certification entreprise sous-section 3 (SS4) pour travaux de retrait d'amiante — article R4412-129 à R4412-132 du Code du travail
-  - Attestations de formation SS4 des opérateurs
-  - Certificats de qualifications professionnelles AFNOR
-  - Autorisation transport déchets dangereux amiante (ADR) en cours de validité
+  - Certification amiante sous-section 3 conforme à l'article R4412-129 à R4412-132 du Code du travail
+  - Autorisation de transport de déchets d'amiante en cours de validité (ADR)
+  - Certificats de qualifications professionnelles AFNOR (Décret n°2017-899, NF X46-010, NF X46-020)
 
 ## 💶 Montant du marché
 - _Montant non communiqué dans le DCE._
   - Typique des accords-cadres à bons de commande : le volume dépend des commandes effectivement passées par l'acheteur sur la durée du marché.
-- _Note_ : Aucun montant estimatif explicite n'est communiqué dans les pièces du DCE. Le BPU ne comporte pas de prix unitaires renseignés. À titre indicatif, le marché porte sur ~600 tonnes de terres amiantées à évacuer en ISDD et ~16 heures de ramassage manuel, mais les prix unitaires ne sont pas précisés pour permettre une estimation fiable.
 
 ## Barème de notation
 - **Valeur technique** : 40 %
 - **Valeur prix** : 60 %
 - **Sous-critères techniques** :
-  - Pertinence et qualité du mode opératoire : 20 %
-  - Adéquation et pertinence du planning : 15 %
+  - Valeur technique : 35 %
   - Valeur environnementale : 5 %
-- **Calcul du prix** : N = No × Po / P — analyse effectuée sur la base du DQE. Note maximale (No = 60) attribuée à l'offre la moins disante.
+- **Calcul du prix** : N = No × Po / P (formule proportionnelle au moins-disant, analyse sur DQE)
 
 ## Références et qualifications exigées
 - **Expérience minimale** : 5 ans
-- **Secteur d'expérience** : Travaux de retrait d'amiante (désamiantage SS4 / sous-section 3) — prélèvement et traitement de matériaux fibrociment amiantés dans des terres ou similaires
-- **Certifications obligatoires** : Certification entreprise pour travaux de retrait ou d'encapsulage d'amiante — sous-section 3 (SS4) conformément à l'article R4412-129 à R4412-132 du Code du travail et à l'arrêté du 14 décembre 2012 (source=RC §3 — Qualifications professionnelles ; CCTP Article 1), Attestations de formation SS4 des opérateurs intervenants (source=CCTP Article 8 ; RC §4 critères techniques), Autorisation de transport de déchets dangereux amiante (ADR) en cours de validité (source=CCTP Article 6), Certificats de qualifications professionnelles AFNOR — Décret n°2017-899 du 9 mai 2017, Norme NF X46-010, Norme NF X46-020 (source=RC §3 — Qualifications professionnelles)
+- **Secteur d'expérience** : Travaux de retrait d'amiante dans les terres / décontamination de sol amianté / gestion de déchets amiante
+- **Certifications obligatoires** : Certification amiante sous-section 3 conforme à l'article R4412-129 à R4412-132 du Code du travail (certification entreprises réalisant des travaux de retrait ou d'encapsulage d'amiante) (bloquante=True, source=CCTP Article 8 ; RC §3 Qualifications professionnelles ; PGCSPS §3.7.3), Certificats de qualifications professionnelles AFNOR — Décret n°2017-899 du 9 mai 2017 (bloquante=True, source=RC §3 — Qualifications professionnelles), Norme NF X46-010 du 08/2012 (repérage amiante avant travaux) (source=RC §3 — Qualifications professionnelles ; CCTP Article 1), Norme NF X46-020 du 08/2017 (prélèvement et traitement d'amiante) (source=RC §3 — Qualifications professionnelles ; CCTP Article 1), Autorisation de transport de déchets d'amiante en cours de validité (ADR — transport matières dangereuses) (bloquante=True, source=CCTP Article 6 — Transport des déchets)
 - **Autres exigences** :
-  - Liste des travaux exécutés sur les 5 dernières années avec attestations de bonne exécution pour les travaux les plus importants (montant, époque, lieu d'exécution) (source=RC §3 — Références Travaux)
-  - Déclaration des effectifs moyens annuels et importance du personnel d'encadrement sur les 3 dernières années (source=RC §3 — Moyens humains)
-  - Déclaration de l'outillage, matériel et équipement technique disponibles (pelle pressurisée, UMD, etc.) (source=RC §3 — Moyens techniques)
-  - Attestation de visite obligatoire du site (sur rendez-vous avec M. CORDAZZO au 03 87 55 54 86) — en l'absence d'attestation, 20 points sont retirés de la note technique (source=RC §2 — Visite des lieux ; RC §4 critères d'attribution)
+  - Visite obligatoire du site avec attestation de visite remise par l'acheteur — en l'absence d'attestation, 20 pts sont retirés de la note technique (source=RC §2 — Visite des lieux ; RC §4 — Critères de jugement)
+  - Déclaration indiquant les effectifs moyens annuels et l'importance du personnel d'encadrement sur les 3 dernières années (source=RC §3 — Moyens humains)
+  - Déclaration indiquant l'outillage, le matériel et l'équipement technique disponibles pour des marchés de même nature (source=RC §3 — Moyens techniques)
 
 ## ⚠ Alertes candidat
-- VISITE OBLIGATOIRE avec attestation — en l'absence d'attestation de visite, 20 points sont automatiquement retirés de la note technique (soit une pénalité majeure sur un critère à 35%). Contacter M. CORDAZZO au 03 87 55 54 86 pour fixer le RDV.
-- CERTIFICATION SS4 OBLIGATOIRE — l'entreprise doit être certifiée sous-section 3 (article R4412-129) pour le retrait d'amiante ; les attestations de formation SS4 des opérateurs nommément désignés doivent être jointes au mémoire technique.
-- PLANNING CONTRAINT — fin de chantier au 30 septembre 2026 impérative, avec une période administrative d'août pour le dépôt du plan de retrait aux organismes (Inspection du Travail, CARSAT, OPPBTP). Attribution prévue fin juillet, ce qui laisse très peu de marge.
-- AUTORISATION DE TRANSPORT ADR exigée pour le transport de déchets amiante — fournir copie des autorisations en cours de validité lors du dépôt de l'offre (CCTP Art. 6).
-- PÉNALITÉS SANS PLAFOND — les pénalités de retard (1 000 €/jour) s'appliquent dès le premier euro, sans plafond et sans observation préalable ; absence à réunion de chantier = 1 000 € immédiat.
+- VISITE OBLIGATOIRE avec attestation : sans attestation de visite, 20 points sont automatiquement déduits de la note technique (sur 35 pts max) — prendre rendez-vous avec M. CORDAZZO au 03 87 55 54 86 avant le 6 juillet 2026
+- Certification amiante sous-section 3 (Article R4412-129 à R4412-132 du Code du travail) OBLIGATOIRE : absence = irrecevabilité probable de la candidature ; vérifier que la certification est en cours de validité au moment de la soumission
+- Autorisation de transport de déchets d'amiante (ADR) en cours de validité requise pour le ou les transporteurs — fournir copie des autorisations dans le mémoire technique
+- Délai contraignant : fin de chantier imposée au 30 septembre 2026, avec pénalité de 1 000 €/jour sans plafond ni seuil d'exonération dès le premier jour de retard
+- BPU à remettre en double format (Excel ET PDF) — l'oubli d'un des deux formats peut entraîner une irrégularité, l'acte d'engagement et le BPU étant des pièces dont l'absence n'est pas régularisable
 
 ## 💡 Points différenciants attendus
-- Mode opératoire détaillé et adapté au contexte spécifique terres amiantées extérieures (exemple=Décrire précisément la séquence opératoire pour un chantier extérieur (pas un bâtiment) : gestion du confinement des zones en plein air, technique de terrassement humide avec pelle pressurisée, modalités de mesure d'empoussièrement en conditions extérieures. Joindre des photos de chantiers similaires réalisés., source=RC §4 — Pertinence et qualité du mode opératoire (20 pts))
-- Présentation de l'exutoire ISDD agréé avec arrêté préfectoral et CAP joint à l'offre (exemple=Joindre dès l'offre le Certificat d'Acceptation Préalable (CAP) de la décharge ISDD retenue, la copie de l'arrêté préfectoral, et les bons de pesée de chantiers antérieurs pour démontrer la réalité de la filière. Cela rassure l'acheteur sur la faisabilité et évite les aléas d'attribution tardive., source=CCTP Article 7 ; RC §4 — Valeur environnementale (5 pts))
-- Organisation des désamianteurs et planning serré intégrant la contrainte administrative d'août (exemple=Présenter un planning qui détaille explicitement la phase administrative (plan de retrait transmis en août avant le 1er septembre), avec noms et habilitations des opérateurs SS4 disponibles sur la période septembre. Montrer la réserve de capacité pour absorber un éventuel dépassement de volumes., source=RC §4 — Adéquation et pertinence du planning (15 pts) ; CCTP Article 1)
-- Expérience documentée sur chantiers de désamiantage en milieu extérieur ou terres polluées (exemple=Fournir 2-3 attestations de bonne exécution de chantiers de retrait de fragments fibrociment amiantés dans des terres (dépôts sauvages, réhabilitation de friches), avec tonnages évacués et dates récentes, pour démontrer la maîtrise spécifique de ce type de chantier hors bâtiment., source=RC §3 — Références Travaux)
+- Détail du mode opératoire adapté à la présence simultanée de chrysotile ET de crocidolite (deux types d'amiante identifiés au diagnostic) (exemple=Le mémoire technique identifie explicitement la présence de crocidolite (amiante bleu, plus dangereux) en zones 1/2/5/6 et justifie le renforcement du niveau de protection (masques P3 FFP3, double emballage, mesures d'empoussièrement renforcées) par rapport aux zones à chrysotile seul., source=CCTP Article 3 ; Rapport diagnostic amiante Alpes Contrôles réf. A12B2634)
+- Justification précise et documentée du choix de l'ISDD : filière d'élimination locale/proximité pour optimiser l'impact environnemental et les coûts (exemple=Fournir la copie de l'arrêté préfectoral de l'ISDD retenu, les conditions d'accueil, les moyens de pesage et le CAP (Certificat d'Acceptation Préalable) dans le mémoire, en valorisant la proximité géographique pour réduire les km parcourus., source=CCTP Article 7 ; RC §4 — Valeur environnementale)
+- Proposition de valorisation matière avant élimination en ISDD (critère environnemental 5%) (exemple=Si les fragments fibrociment amiantés peuvent être orientés vers une filière de vitrification (inertage) plutôt que l'enfouissement pur, le le valoriser : cela répond directement au critère environnemental qui demande explicitement une 'valorisation matière ou énergétique privilégiée avant toute élimination'., source=RC §4 — Valeur environnementale 5% ; CCAP §6.3)
+- Planning démontrant la maîtrise des délais administratifs préalables (plan de retrait 1 mois avant, transmission organismes) (exemple=Intégrer dans le planning la période de préparation avec les dates précises de transmission du plan de retrait à l'Inspection du travail, la CARSAT et l'OPPBTP (1 mois avant démarrage = mi-août 2026 au plus tard), montrant une parfaite connaissance des obligations réglementaires SS3., source=PGCSPS §3.7.3 ; CCTP Article 8)

@@ -1,96 +1,102 @@
 {
-  "synthese_marche": "L'ASNR (Autorité de Sûreté Nucléaire et de Radioprotection) lance un appel d'offres ouvert pour la Tierce Maintenance Applicative (TMA) de deux applications métier spécifiques : SYMBIOSE (lot 1, plateforme de modélisation du risque radiologique en C++/Qt, copropriété ASNR-EDF) et PARIS (lot 2, LIMS de gestion des données de laboratoire en WinDev/VBA/SQL Server). Chaque lot constitue un accord-cadre à bons de commande d'une durée maximale de 48 mois (12 mois ferme + 3 reconductions tacites), avec un plafond de 400 000 € HT pour le lot 1 et 380 000 € HT pour le lot 2. Les prestations couvrent la prise en charge, la MCO (correctif, adaptatif, préventif), la maintenance évolutive et la réversibilité.",
+  "synthese_marche": "L'ASNR (Autorité de Sûreté Nucléaire et de Radioprotection) lance un appel d'offres ouvert en deux lots pour la Tierce Maintenance Applicative (TMA) de ses applications SYMBIOSE (plateforme de modélisation du risque radiologique, lot 1, 400 000 € HT max) et PARIS (LIMS de gestion des analyses de laboratoire, lot 2, 380 000 € HT max). Chaque lot constitue un accord-cadre à bons de commande de 48 mois maximum (12 mois fermes + 3 reconductions tacites), couvrant prise en charge, MCO, maintenance évolutive et réversibilité. Le prestataire intervient principalement depuis ses locaux avec des déplacements occasionnels à Cadarache (lot 1) ou au Vésinet/Orsay (lot 2).",
   "domaines_metier": [
     {
       "code": "it_maintenance_support"
     }
   ],
-  "raison_classification": "Le marché porte exclusivement sur la Tierce Maintenance Applicative (TMA) de deux applications spécifiques (SYMBIOSE et PARIS), couvrant MCO corrective/adaptative/préventive, maintenance évolutive et réversibilité. Il s'agit du cœur de la définition du domaine 'it_maintenance_support' (TMA, maintenance évolutive, MCO). La dimension développement est présente (maintenance évolutive) mais reste accessoire par rapport à la mission principale de maintien en conditions opérationnelles.",
+  "raison_classification": "Les deux lots portent exclusivement sur de la Tierce Maintenance Applicative (TMA) : MCO corrective/préventive/adaptative, maintenance évolutive et réversibilité d'applications existantes (SYMBIOSE et PARIS). Le code CPV 72262000-9 (services de développement de logiciels) est secondaire ; la dominante est clairement la maintenance applicative et le support (TMA/MCO), ce qui correspond au code it_maintenance_support.",
   "caracteristiques_mission_it": {
     "typologie_mission": "maintenance/support (TMA/MCO)",
     "typologie_systeme": "TMA",
     "cloud_ou_on_premise": "on-premise",
-    "niveau_securite": "données personnelles RGPD, exigences ANSSI/PSSIE, CCSC cybersécurité, accès soumis à enquête de sécurité (Laisser Passer Entreprise)",
+    "niveau_securite": "données sensibles ASNR (nucléaire), obligations PSSIE, CCSC, OWASP, RGPD — habilitation sécurité (LPE/enquête CoSSeN) requise pour le personnel",
     "technologies_attendues": [
-      "C++ (norme ANSI)",
-      "Qt 4.8.4",
+      "C++ (ANSI)",
       "Fortran",
+      "QT 4.8.4",
       "Python",
       "QGIS",
-      "WinDev version 25+",
-      "VBA Office 365",
-      "MS SQL Server (10.0 / 2016)",
-      "Microsoft Access Office 365",
-      "GitLab (CI/CD)",
       "SVN/CVS",
+      "GitLab (CI/CD)",
+      "VBA MS Excel",
+      "WinDev version 23+",
+      "MS SQL Server",
+      "Microsoft Access Office 365",
       "Linux Debian",
       "Windows 64 bits"
     ],
     "modele_prestation": "accord-cadre à bons de commande",
-    "volumetrie": "Lot 1 SYMBIOSE : ~25 utilisateurs actifs, environ 20 anomalies/an en MCO, version majeure V3.2 prévue 2027-2028. Lot 2 PARIS : ~25 utilisateurs simultanés, estimation historique ~83 j-h/an EVO + 43 j-h/an MCO.",
-    "jours_homme_estimes": 126,
-    "sla_attendus": "Lot 1 SYMBIOSE : anomalie bloquante qualification 1j/correction 5j, majeure 1j/10j, mineure 5j/40j. Lot 2 PARIS : bloquante qualification 1j/correction 3j, majeure 2j/5j, mineure 5j/pas d'exigence. Évolutions mineures : spécifications 3j, livraison 10j. Couverture 8h30-18h (12h30 pause déjeuner), lundi-vendredi.",
+    "volumetrie": "Lot 1 (SYMBIOSE) : ~20 anomalies/an en MCO, ~10-40 évolutions/an ; Lot 2 (PARIS) : estimation historique ~83 j-h EVO + 43 j-h MCO par an (soit ~126 j-h/an), env. 25 utilisateurs simultanés",
+    "jours_homme_estimes": null,
+    "sla_attendus": "Lot 1 — Bloquante : qualification 1j / correction 5j ; Majeure : qualification 1j / correction 10j ; Mineure : qualification 5j / correction 40j. Lot 2 — Bloquante : qualification 1j / correction 3j ; Majeure : qualification 2j / correction 5j ; Mineure : qualification 5j / sans exigence. Disponibilité VSR : indisponibilités cumulées < 2% de 8h-18h lun-ven hors fériés.",
     "livrables_par_phase": [
       {
-        "phase": "Prise en charge",
+        "phase": "Prise en charge (2 mois max)",
         "livrables": [
           "Compte-rendu de réunion de lancement (J+15)",
-          "Plan d'Assurance Qualité et de Sécurité PAQS (J+1 mois)",
-          "Plan de réversibilité (J+1 mois)",
-          "Comptes rendus réguliers d'avancement bimensuels",
-          "Dossier initial d'expertise avec propositions d'amélioration (lot 2 uniquement)"
+          "Plan d'Assurance Qualité et de Sécurité — PAQS (J+30)",
+          "Plan de réversibilité (J+30)",
+          "Comptes rendus bimensuels d'avancement",
+          "Dossier initial d'expertise avec propositions d'amélioration (lot 2)"
         ]
       },
       {
-        "phase": "MCO opérationnelle",
+        "phase": "MCO (opérationnel)",
         "livrables": [
-          "Fiches de demande de correction clôturées",
-          "Procédures de mise en production",
-          "Bons de livraison avec référence des fiches traitées",
-          "Documentation technique/fonctionnelle mise à jour",
-          "Code source intégral versionné dans GitLab",
+          "Fiches de correction enrichies dans l'outil de ticketing",
+          "Code source versionné dans GitLab",
+          "Procédure de mise en production et bon de livraison",
+          "Documentations techniques/fonctionnelles actualisées",
           "Manuels d'exploitation et d'utilisation actualisés",
-          "Indicateurs de maintenance corrective (rapport trimestriel)"
+          "Tableau de bord et indicateurs trimestriels"
         ]
       },
       {
         "phase": "Maintenance évolutive",
         "livrables": [
           "Spécifications fonctionnelles et techniques détaillées",
-          "Plan de charge et calendrier",
-          "Plan de tests",
-          "Code source développements spécifiques",
-          "Manuels d'exploitation/utilisation actualisés",
-          "Documentation architecture mise à jour"
+          "Plan de charge et dates de livraison",
+          "Code source intégral (GitLab)",
+          "Tests unitaires et de non-régression",
+          "Manuels d'utilisation et d'exploitation mis à jour"
         ]
       },
       {
         "phase": "Gouvernance (lot 2)",
         "livrables": [
-          "Compte-rendu de COPIL trimestriel (dans la semaine suivant le COPIL)",
-          "Tableau de bord d'indicateurs",
-          "Liste des composants et versions (suivi failles sécurité)"
+          "Compte-rendu de COPIL trimestriel (dans la semaine suivant la réunion)",
+          "Indicateurs de satisfaction et de suivi de charge",
+          "Liste des composants et versions pour suivi des failles de sécurité"
         ]
       },
       {
         "phase": "Réversibilité",
         "livrables": [
-          "Compte rendu trimestriel de revue de documentation",
-          "Codes sources exhaustifs commentés et schéma des bases de données",
-          "Documentation complète à jour (architecture, spécifications, procédures, manuels, plans de tests)",
-          "Procès-verbal de recette de réversibilité signé par toutes parties"
+          "Codes sources spécifiques complets et commentés",
+          "Schéma complet des bases de données",
+          "Ensemble de la documentation à jour (architecture, spécifications, procédures)",
+          "Plans et jeux de tests pour les tests de non-régression",
+          "Compte rendu trimestriel de revue documentaire",
+          "PV de recette de réversibilité signé tripartite (lot 2)"
         ]
       }
     ],
     "profils_attendus": [
       {
-        "profil": "Développeur C++/Qt (lot 1 SYMBIOSE)",
+        "profil": "Développeur C++/QT (lot 1 — SYMBIOSE)",
         "nombre": null,
         "anciennete_min_annees": null,
         "certifs_requises": []
       },
       {
-        "profil": "Développeur WinDev/VBA/SQL Server (lot 2 PARIS)",
+        "profil": "Développeur Fortran / Python (lot 1 — moteur de calcul SYMBIOSE)",
+        "nombre": null,
+        "anciennete_min_annees": null,
+        "certifs_requises": []
+      },
+      {
+        "profil": "Développeur VBA MS Excel / WinDev / SQL Server (lot 2 — PARIS)",
         "nombre": null,
         "anciennete_min_annees": null,
         "certifs_requises": []
@@ -100,27 +106,20 @@
         "nombre": null,
         "anciennete_min_annees": null,
         "certifs_requises": []
-      },
-      {
-        "profil": "Ingénieur qualité / référent PAQS",
-        "nombre": null,
-        "anciennete_min_annees": null,
-        "certifs_requises": []
       }
     ],
     "exigences_securite": [
-      "CCSC (Cahier des Clauses Simplifiées de Cybersécurité, arrêté 18 sept 2018)",
-      "PSSIE (Politique de Sécurité des Systèmes d'Information de l'État)",
+      "PSSIE (Politique de Sécurité des SI de l'État)",
+      "CCSC (Cahier des Clauses Simplifiées de Cybersécurité — arrêté 18/09/2018)",
       "OWASP Top 10 version 2025",
       "VPN avec authentification multi-facteurs pour accès distants",
-      "Hébergement données dans l'UE",
-      "Cloisonnement environnements clients",
-      "Enquête de sécurité (Laisser Passer Entreprise) pour tout intervenant",
+      "Hébergement des données dans l'UE",
+      "Habilitation individuelle du personnel (Laisser Passer Entreprise + enquête CoSSeN, délai 4-6 semaines)",
       "RGPD",
-      "RGAA (accessibilité numérique)",
+      "RGAA (accessibilité)",
       "RGESN (écoconception)"
     ],
-    "reversibilite": "Phase de réversibilité prévue jusqu'à 3 mois (lot 2) ou 2 mois (lot 1). Le titulaire sortant continue de piloter les prestations pendant toute la phase, transfère les compétences au titulaire entrant, dispense une formation d'au moins 2 jours (lot 2) et une assistance technique de 5 jours minimum pour l'installation des environnements. Libération des obligations uniquement après signature du PV de recette de réversibilité par ASNR, titulaire entrant et sortant. UO_REV forfaitaire non subdivisable."
+    "reversibilite": "Phase de réversibilité de 2 mois max (lot 1) ou 3 mois max (lot 2) : le titulaire sortant maintient les prestations, transfère les connaissances au titulaire entrant, dispense une formation minimale de 2 jours et une assistance technique de 5 jours minimum (lot 2). Le titulaire n'est dégagé qu'après signature tripartite du PV de recette. UO_REV forfaitaire prévue."
   },
   "qualifications_it": {
     "iso_27001": false,
@@ -131,9 +130,9 @@
     "certifications_securite": [],
     "certifications_technologiques": [],
     "autres": [
-      "CCSC (arrêté du 18 septembre 2018)",
-      "PSSIE",
-      "OWASP 2025"
+      "Respect du CCSC (arrêté 18/09/2018)",
+      "Conformité OWASP Top 10 2025",
+      "Cloisonnement des environnements clients"
     ]
   },
   "bareme_notation": {
@@ -143,223 +142,309 @@
       {
         "libelle": "Organisation et méthodologies proposées pour les prestations de prise en charge et réversibilité",
         "ponderation_pct": 5,
-        "description": "Applicable au lot 1 (SYMBIOSE). L'acheteur évalue la pertinence de l'organisation et des méthodologies proposées pour les phases de prise en charge et de réversibilité, deux phases critiques de transition.",
+        "description": "Évaluation de l'approche organisationnelle et méthodologique spécifique aux phases de prise en charge (montée en compétences, transfert) et de réversibilité (transfert sortant). Commun aux deux lots.",
         "elements_attendus": [
-          "Plan de prise en charge détaillé avec jalons et livrables (PAQS, plan de réversibilité dans les délais contractuels)",
-          "Organisation de la transition depuis le titulaire sortant sans dégradation de service",
-          "Méthodologie de montée en compétences sur les technologies C++/Qt/Fortran spécifiques à SYMBIOSE",
-          "Plan de réversibilité anticipé dès la prise en charge",
-          "Gestion des accès sécurisés (LPE, enquête de sécurité) et prise en compte des délais afférents"
+          "Plan de prise en charge détaillé avec jalons et état d'avancement bimensuel",
+          "Modalités de montée en compétences et gestion du titulaire sortant",
+          "Plan de réversibilité avec description des livrables et conditions de transfert",
+          "Organisation pour garantir la continuité de service pendant les transitions"
         ],
-        "exemple_reponse_forte": "Le candidat décrit un plan de prise en charge en 3 phases (immersion documentaire, binômage avec le titulaire sortant, bascule progressive) avec un tableau de jalons précis sur 2 mois. Le plan de réversibilité est présenté dès le départ comme un livrable vivant mis à jour trimestriellement, incluant la gestion des accès sécurisés ASNR avec anticiper 4-6 semaines pour les enquêtes LPE.",
+        "exemple_reponse_forte": "Notre équipe démarrera par un audit de 2 semaines aux côtés du titulaire sortant afin d'inventorier codes sources, documentation et procédures. Le plan de réversibilité, remis à J+30, décrit les jalons hebdomadaires de transfert de compétences, les critères de validation par l'ASNR et les mécanismes de double compétence pour garantir la continuité pendant toute la phase.",
         "source": "RC art 6.2.2.1",
+        "unite_evaluation": "points",
         "sous_criteres": []
       },
       {
         "libelle": "Organisation et méthodologies proposées relatives aux prestations de TMA",
         "ponderation_pct": 25,
-        "description": "Applicable au lot 1 (SYMBIOSE). L'acheteur évalue l'organisation et les méthodes proposées pour assurer la MCO (corrective, adaptative, préventive) et la maintenance évolutive tout au long du marché.",
+        "description": "Appréciation de l'organisation et des méthodes pour la MCO et la maintenance évolutive (lot 1). Pour le lot 2, ce sous-critère couvre MCO, maintenance évolutive, prise en charge et réversibilité à 15%.",
         "elements_attendus": [
-          "Organisation du flux de traitement des anomalies avec respect des SLA (bloquante 5j, majeure 10j, mineure 40j)",
-          "Méthodologie de qualification et priorisation des tickets dans l'outil de ticketing ASNR",
-          "Processus de livraison versionné dans GitLab avec pipelines CI/CD",
-          "Gestion des évolutions mineures (< 5 UO) et majeures avec phases VA/VSR",
-          "Indicateurs de performance proposés (non-régression, délai prise en charge, taux de retour livraison)",
-          "Méthodologie Agile (sprints) si proposée"
+          "Organisation MCO : gestion des tickets, priorisation des anomalies, respect des délais (bloquante 5j, majeure 10j, mineure 40j pour lot 1)",
+          "Indicateurs de suivi qualité (délai de prise en charge, taux de non-régression, respect engagements de livraison)",
+          "Organisation de la maintenance évolutive : processus de chiffrage en 10j ouvrés, gestion des sprints Agile, livrables attendus",
+          "Description de l'usine logicielle et pratiques CI/CD dans GitLab",
+          "Gestion de la cybersécurité : OWASP, CCSC, cloisonnement",
+          "Procédures de livraison versionnée (semver, GitLab, bon de livraison)"
         ],
-        "exemple_reponse_forte": "Le candidat décrit un processus de gestion des anomalies avec outil de ticketing intégré, un tableau de bord mensuel d'indicateurs (taux résolution dans SLA, nombre anomalies par gravité, taux régression) et une organisation de livraison structurée par branches GitLab avec pipeline de tests automatisés avant chaque mise en production.",
+        "exemple_reponse_forte": "Notre dispositif MCO s'appuie sur un outil de ticketing partagé avec l'ASNR, avec un triptyque qualification-correction-livraison tracé. Pour les anomalies bloquantes, un développeur senior est mobilisable en 1j, avec une correction en 5j maximum (lot 1). Les évolutions sont chiffrées dans un délai garanti de 10 jours ouvrés et réalisées en sprints de 2 semaines avec démo bi-mensuelle. Les livraisons sont taguées semver dans GitLab et intègrent les pipelines CI/CD (tests unitaires, SonarQube).",
         "source": "RC art 6.2.2.1",
+        "unite_evaluation": "points",
         "sous_criteres": []
       },
       {
         "libelle": "Compétences proposées (CV) et garanties en termes de maintien des compétences et de continuité de service",
         "ponderation_pct": 30,
-        "description": "Applicable au lot 1 (SYMBIOSE). C'est le critère le plus pondéré côté technique. L'acheteur évalue les CV des intervenants proposés et les mécanismes garantissant la continuité et le maintien des compétences sur la durée du marché (48 mois).",
+        "description": "Évaluation des profils CV présentés et des garanties organisationnelles de continuité (remplacement, recouvrement, gestion des départs). C'est le sous-critère le plus pondéré pour les deux lots.",
         "elements_attendus": [
-          "CV détaillés des intervenants avec expérience C++, Qt 4.8, Fortran, Python, QGIS",
-          "Maîtrise des outils GitLab, Gforge, Harbor, Nexus",
-          "Plan de continuité en cas d'absence (remplacement avec recouvrement de compétences)",
-          "Procédure de changement d'intervenant (délai 1 mois, soumis à approbation ASNR)",
-          "Expérience en TMA de logiciels scientifiques ou plateformes de simulation",
-          "Bonne maîtrise du français écrit et oral pour la rédaction de rapports techniques"
+          "CV détaillés des intervenants principaux avec expériences sur les technologies requises (C++/QT/Fortran pour lot 1 ; VBA/WinDev/SQL Server pour lot 2)",
+          "Dispositif de remplacement en cas d'absence et délai de recouvrement garanti",
+          "Politique de maintien des compétences (formation, documentation interne)",
+          "Engagement sur la procédure de remplacement (délai d'approbation ASNR = 1 mois)",
+          "Profil chef de projet TMA avec expérience de coordination",
+          "Gestion des habilitations sécurité (anticipation délais LPE 4-6 semaines)"
         ],
-        "exemple_reponse_forte": "Le candidat présente 2 intervenants : un développeur senior C++/Qt avec 8 ans d'expérience en logiciels scientifiques (simulation numérique), maîtrisant Python et QGIS, et un développeur confirmé Fortran/C++. Il décrit un processus de doublon systématique (binômage 2 mois) lors de tout changement d'intervenant et un engagement de délai d'un mois pour validation ASNR.",
+        "exemple_reponse_forte": "Nous présentons deux développeurs C++/QT seniors (8 et 12 ans d'expérience sur applications scientifiques) et un expert moteur de calcul Fortran. Notre dispositif de continuité prévoit un binôme systématique : tout intervenant est doublé par un back-up formé en 4 semaines. Tout changement est notifié à l'ASNR un mois à l'avance. Les demandes LPE sont anticipées dès la notification du marché.",
         "source": "RC art 6.2.2.1",
-        "sous_criteres": []
-      },
-      {
-        "libelle": "Organisation et méthodologies proposées pour les prestations de prise en charge, réversibilité, MCO et maintenance évolutive",
-        "ponderation_pct": 15,
-        "description": "Applicable au lot 2 (PARIS). L'acheteur évalue l'ensemble de l'organisation et des méthodes pour les quatre types de prestations : prise en charge, MCO, maintenance évolutive et réversibilité.",
-        "elements_attendus": [
-          "Plan de prise en charge sur 2 mois maximum avec jalons documentés",
-          "Organisation MCO avec respect des SLA spécifiques lot 2 (bloquante 3j, majeure 5j)",
-          "Méthodologie de traitement des évolutions mineures (≤5j) en prix unitaires et majeures (>5j) en forfait",
-          "Gouvernance : organisation des COPIL trimestriels et comités de suivi techniques",
-          "Plan de réversibilité jusqu'à 3 mois avec formation 2 jours et assistance technique 5 jours",
-          "Maîtrise de l'architecture PARIS (WinDev/VBA/SQL Server/ARIANE) dès la prise en charge"
-        ],
-        "exemple_reponse_forte": "Le candidat décrit une phase de prise en charge en 3 étapes : analyse documentaire et code source (semaines 1-3), binômage avec le titulaire sortant sur les processus métier SAME (semaines 3-6), et bascule sous responsabilité complète avec livraison du PAQS en fin de mois 2. Il propose un COPIL trimestriel avec tableau de bord incluant suivi des bons de commande MCO et EVO.",
-        "source": "RC art 6.2.2.1",
-        "sous_criteres": []
-      },
-      {
-        "libelle": "Compétences proposées (CV) et garanties en termes de maintien des compétences et de continuité de service",
-        "ponderation_pct": 45,
-        "description": "Applicable au lot 2 (PARIS). Critère dominant (45% sur 60%). L'acheteur évalue les profils WinDev/VBA/SQL Server proposés et les dispositifs garantissant la continuité de service sur 48 mois pour une application métier de laboratoire très spécifique.",
-        "elements_attendus": [
-          "CV des intervenants avec expérience WinDev (version 23+), VBA Office 365, MS SQL Server, Microsoft Access",
-          "Expérience en développement applicatif de type LIMS ou application métier laboratoire",
-          "Compétences en analyse des besoins fonctionnels et interfaçage applicatif (flux FIL1/FIL3)",
-          "Maîtrise des méthodologies de tests (intégration, fonctionnels, performance)",
-          "Plan de continuité (remplacement, binômage, délai recouvrement sans dégradation de service)",
-          "Expérience Agile et gestion de projet"
-        ],
-        "exemple_reponse_forte": "Le candidat présente un développeur principal avec 6 ans d'expérience WinDev et VBA Excel dans un contexte LIMS industriel, accompagné d'un développeur junior WinDev. Il décrit un processus de transmission systématique des connaissances (wiki technique interne), un binômage obligatoire de 6 semaines avant tout changement d'intervenant, et un engagement à soumettre tout remplacement à l'ASNR avec délai d'un mois.",
-        "source": "RC art 6.2.2.1",
+        "unite_evaluation": "points",
         "sous_criteres": []
       }
     ],
     "prix": {
       "type_formule": "moins_disant",
-      "formule_explicite": "Note sous-critère prix = (somme des prix de l'offre la moins distante / somme des prix de l'offre considérée) × pondération du sous-critère. La note du critère Prix est la somme des notes pondérées des sous-critères de prix.",
+      "formule_explicite": "Note prix par sous-critère = (somme des prix de l'offre la moins distante / somme des prix de l'offre considérée) × pondération du sous-critère. La note du critère Prix = somme des notes pondérées de l'ensemble des sous-critères de prix.",
+      "source": "RC art 6.2.2.2.a",
       "elements_a_chiffrer": [
-        "Lot 1 : UO_PEC (prise en charge, forfait non subdivisable) — pondéré 5%",
-        "Lot 1 : UO_REV (réversibilité, forfait non subdivisable) — inclus dans sous-critère 5%",
-        "Lot 1 : UO_MCO (maintenance corrective/préventive/adaptative, par jour) — inclus dans 35%",
-        "Lot 1 : UO_EVO_MOTEUR (maintenance évolutive moteur de calcul, par jour) — inclus dans 35%",
-        "Lot 1 : UO_EVO_IHM (maintenance évolutive IHM, par jour) — inclus dans 35%",
-        "Lot 2 : UO_PEC (prise en charge, forfait non subdivisable) — pondéré 5%",
-        "Lot 2 : UO_REV (réversibilité, forfait non subdivisable) — inclus dans 5%",
-        "Lot 2 : UO_MCO (maintenance corrective/préventive/adaptative, par jour) — pondéré 10%",
-        "Lot 2 : UO_EVO (maintenance évolutive, par jour) — pondéré 25%"
+        "Lot 1 — UO_PEC (prise en charge, forfait) : 5% du critère global",
+        "Lot 1 — UO_REV (réversibilité, forfait) : inclus dans UO_PEC+REV à 5%",
+        "Lot 1 — UO_MCO (maintenance corrective/préventive/adaptative, prix/jour) : inclus dans 'autres UOs' 35%",
+        "Lot 1 — UO_EVO_MOTEUR (évolution moteur de calcul, prix/jour) : inclus dans 'autres UOs' 35%",
+        "Lot 1 — UO_EVO_IHM (évolution IHM, prix/jour) : inclus dans 'autres UOs' 35%",
+        "Lot 2 — UO_PEC (prise en charge, forfait) : 5% du critère global",
+        "Lot 2 — UO_REV (réversibilité, forfait) : inclus dans UO_PEC+REV à 5%",
+        "Lot 2 — UO_MCO (maintenance corrective/préventive/adaptative/gouvernance, prix/jour) : 10% du critère global",
+        "Lot 2 — UO_EVO (maintenance évolutive, prix/jour) : 25% du critère global"
       ]
     },
-    "modalite_calcul_prix": "Note prix = (somme pondérée des prix de l'offre la moins distante) × (pondération du sous-critère) / (somme pondérée des prix de l'offre considérée). Formule explicite RC art 6.2.2.2a : '[somme(*) des prix de l'offre la moins distante] × [pondération du sous-critère] / [somme(*) des prix de l'offre considérée]'."
+    "modalite_calcul_prix": "Note prix = (prix de l'offre la moins distante × pondération du sous-critère) / prix de l'offre considérée, puis somme des notes pondérées. RC art 6.2.2.2.a."
   },
   "montant_marche": {
     "valeur_estimee_euros": 780000,
-    "fourchette_min_euros": null,
+    "fourchette_min_euros": 400000,
     "fourchette_max_euros": 780000,
     "type": "plafond",
-    "duree_couverte": "Durée totale accord-cadre 48 mois maximum (12 mois ferme + 3 reconductions tacites de 12 mois)",
-    "source_extraction": "AE_ASNR_2026_027_3000091499 (lot 1) et AE_ASNR_ASNR_2026_027_3000091437 (lot 2), article 2 Engagement du titulaire ; RC art 2.4",
-    "commentaire": "Plafond lot 1 (SYMBIOSE) : 400 000 € HT + plafond lot 2 (PARIS) : 380 000 € HT = 780 000 € HT total sur 48 mois maximum. L'atteinte du montant maximum entraîne de fait l'expiration de l'accord-cadre pour le lot considéré. Aucun montant minimum n'est fixé."
+    "duree_couverte": "48 mois maximum (accord-cadre, périodes de reconduction comprises)",
+    "source_extraction": "RC art 2.4 / AE_SYMBIOSE et AE_PARIS / CCAP_PARIS art 3.2 / CCAP_SYMBIOSE art 3.2",
+    "commentaire": "Lot 1 SYMBIOSE : plafond 400 000 € HT sur 48 mois. Lot 2 PARIS : plafond 380 000 € HT sur 48 mois. Total plafond consolidé : 780 000 € HT. Sans montant minimum garanti (les bons de commande sont émis selon les besoins). La valeur réelle consommée sera inférieure au plafond selon l'activité réelle de l'ASNR."
+  },
+  "montant_3_voies": {
+    "voie_1_eur": 780000,
+    "voie_1_source": "RC art 2.4 — plafond Lot 1 : 400 000 € HT + plafond Lot 2 : 380 000 € HT = 780 000 € HT sur 48 mois",
+    "voie_2_disponible": false,
+    "voie_2_min_eur": null,
+    "voie_2_max_eur": null,
+    "voie_2_hypotheses": [],
+    "voie_2_raison_indisponible": "Montant publié explicitement (plafond d'accord-cadre par lot) dans le RC et les CCAP — Voie 1 suffisante."
+  },
+  "cout_realisation": {
+    "cout_total_eur": 520000,
+    "cout_min_eur": 420000,
+    "cout_max_eur": 620000,
+    "postes": [
+      {
+        "poste": "Lot 1 — SYMBIOSE (développeurs C++/QT/Fortran + chef de projet)",
+        "detail": "Estimation ~130 j-h/an × 48 mois × (taux moyen marché 650 €/j) = env. 260 j-h sur durée ferme + reconductions, taux variable selon seniors/juniors",
+        "montant_eur": 260000
+      },
+      {
+        "poste": "Lot 2 — PARIS (développeurs VBA/WinDev/SQL + chef de projet)",
+        "detail": "Estimation historique ~126 j-h/an × 4 ans × 500 €/j moyen = ~252 000 € ; ajusté à 260 000 € avec encadrement et prise en charge",
+        "montant_eur": 260000
+      }
+    ],
+    "taux_journaliers_retenus": "Développeur senior C++/QT/Fortran : 700-800 €/j (taux marché indicatif). Développeur VBA/WinDev/SQL Server : 550-650 €/j. Chef de projet TMA : 700-800 €/j. Taux moyens retenus : 650 €/j lot 1, 550 €/j lot 2.",
+    "commentaire": "Estimation bottom-up basée sur les historiques de charge fournis dans le CCTP (lot 2 : ~126 j-h/an d'après la répartition UO) et les statistiques lot 1 (~20 anomalies/an MCO + 10-40 évolutions). La charge réelle dépend des bons de commande émis par l'ASNR (accord-cadre sans minimum). Fourchette obtenue en faisant varier le taux journalier moyen (dimension la plus incertaine) entre -15% et +15%."
   },
   "revision_prix": {
     "type": "indexation",
     "indices_utilises": [
       "SYNTEC"
     ],
-    "ponderation": "30% partie fixe + 70% partie variable indexée SYNTEC : P1 = P0 × (0,3 + 0,7 × S1/S0)",
+    "ponderation": "30% partie fixe + 70% partie variable indexée sur SYNTEC (formule : P1 = P0 × (0,3 + 0,7 × S1/S0))",
     "periodicite": "annuelle",
-    "formule_revision": "P1 = P0 × (0,3 + 0,7 × S1/S0) où S1 est le dernier indice SYNTEC connu au moment de la demande de révision et S0 l'indice du mois de dépôt des offres.",
-    "source_extraction": "CCAP_ASNR_2026_027_3000091437 art 6.2.3 (lot 2) et CCAP_ASNR_2026_027_3000091499 art 6.2.3 (lot 1)",
-    "commentaire": "Révision de droit après 2 ans d'exécution puis annuellement, mais plafonnée à +3%/an sous peine de résiliation possible par l'ASNR — clause de sauvegarde contraignante à anticiper dans le chiffrage. La révision ne porte que sur les UO de maintenance applicative (pas sur les forfaits PEC et REV)."
+    "formule_revision": "P1 = P0 × (0,3 + 0,7 × S1/S0) — avec S0 = indice SYNTEC du mois de dépôt des offres, S1 = dernier indice connu au moment de la révision",
+    "source_extraction": "CCAP_PARIS art 6.3 / CCAP_SYMBIOSE art 6.3",
+    "commentaire": "Révision applicable après 2 ans d'exécution puis annuellement. Clause butoir : si la révision annuelle dépasse 3%, l'ASNR peut résilier ou bloquer la révision à 3%. Formule favorable pour le candidat en contexte inflationniste mais plafonnée à 3%/an — impact limité sur le chiffrage initial."
   },
   "alertes_prix": [
-    "Clause butoir à +3%/an : si la révision SYNTEC dépasse 3% annuels, l'ASNR peut résilier le marché ou bloquer la révision à ce taux — risque à anticiper sur 4 ans.",
-    "Plafond contractuel strict (400 k€ et 380 k€ par lot) : l'atteinte du plafond entraîne expiration automatique de l'accord-cadre, sans recours pour le titulaire — risque de sous-chiffrage initial.",
-    "Aucun montant minimum garanti : le titulaire ne peut pas s'appuyer sur un volume minimal de commandes.",
-    "Critère prix à 40% avec sous-critère UO_EVO dominant (25% sur 40% pour lot 2) : le TJM sur la maintenance évolutive est l'élément de prix le plus discriminant — attention à ne pas s'aligner au moins-disant sans marge."
+    "Accord-cadre sans montant minimum : aucun volume de chiffre d'affaires garanti — le candidat prend un risque de sous-consommation si l'ASNR n'émet pas de bons de commande.",
+    "Clause butoir à 3% : si l'inflation SYNTEC dépasse 3%/an, l'ASNR peut bloquer la révision ou résilier — risque de dérapage de marge sur longue durée.",
+    "Pondération prix 40% et technique 60% : pondération standard mais critère compétences/CV à 30% très dominant — une offre peu chère mais avec des CV faibles sera pénalisée.",
+    "Formule prix moins-disant par sous-critère : les UO à 35% (lot 1) et 25% (lot 2) sont les plus impactantes — un positionnement agressif sur ces UO améliorera significativement la note prix."
   ],
   "references_exigees": {
-    "experience_minimale_annees": 3,
-    "experience_source": "RC art 4.4 §2.3.3",
+    "experience_minimale_annees": null,
+    "experience_source": null,
     "volume_min_references_similaires": null,
     "volume_min_references_unite": "marchés similaires",
-    "secteur_experience": "Tierce Maintenance Applicative ou développement de logiciels (liste des principales livraisons/services fournis en lien avec l'objet du marché au cours des 3 dernières années)",
-    "secteur_source": "RC art 4.4 §2.3.3",
+    "secteur_experience": "TMA d'applications informatiques scientifiques ou métier (logiciels de calcul, LIMS, SI de laboratoire) — aucun secteur spécifique explicitement exigé dans le RC",
+    "secteur_source": "RC art 4.4",
     "certifications_obligatoires": [],
     "autres_exigences": [
       {
-        "libelle": "Déclaration de chiffre d'affaires global et du domaine d'activité sur les 3 derniers exercices disponibles",
-        "source": "RC art 4.4 §2.3.2"
+        "libelle": "Déclaration du chiffre d'affaires global et du CA dans le domaine d'activité faisant l'objet du marché (3 derniers exercices)",
+        "source": "RC art 4.4 (tableau capacités économiques)"
       },
       {
-        "libelle": "Déclarations appropriées de banques et preuve d'une assurance couvrant les risques pertinents",
-        "source": "RC art 4.4 §2.3.2"
+        "libelle": "Déclarations appropriées de banques et preuve d'assurance couvrant les risques pertinents",
+        "source": "RC art 4.4"
       },
       {
-        "libelle": "Bilans ou extraits de bilans des 3 dernières années (si établissement obligatoire par la loi)",
-        "source": "RC art 4.4 §2.3.2"
+        "libelle": "Bilans ou extraits de bilan des 3 dernières années",
+        "source": "RC art 4.4"
       },
       {
-        "libelle": "Déclaration des effectifs moyens annuels et importance du personnel d'encadrement sur les 3 dernières années",
-        "source": "RC art 4.4 §2.3.3"
+        "libelle": "Liste des principales prestations/livraisons en lien avec l'objet du marché au cours des 3 dernières années",
+        "source": "RC art 4.4"
       },
       {
-        "libelle": "DC1 (attestation d'absence de cas d'exclusion) et DC2",
-        "source": "RC art 4.4 §2.3.1"
-      },
-      {
-        "libelle": "En cas de groupement : groupement conjoint avec mandataire solidaire obligatoirement",
-        "source": "RC art 4.2"
+        "libelle": "Déclaration des effectifs moyens annuels et importance du personnel d'encadrement sur 3 ans",
+        "source": "RC art 4.4"
       }
     ]
+  },
+  "dossier_candidature": {
+    "pieces_a_fournir": [
+      {
+        "libelle": "DC1 — Lettre de candidature (attestation sur l'honneur, absence de cas d'exclusion)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC art 4.4"
+      },
+      {
+        "libelle": "DC2 — Déclaration du candidat (chiffre d'affaires, effectifs, références)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC art 4.4"
+      },
+      {
+        "libelle": "Numéro SIREN du candidat",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC art 4.4"
+      },
+      {
+        "libelle": "Bilans ou extraits de bilan des 3 dernières années",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC art 4.4"
+      },
+      {
+        "libelle": "Déclarations appropriées de banques et preuve d'assurance",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC art 4.4"
+      },
+      {
+        "libelle": "Liste des principales livraisons/services en lien avec l'objet du marché (3 dernières années)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC art 4.4"
+      },
+      {
+        "libelle": "Déclaration des effectifs moyens annuels et du personnel d'encadrement (3 dernières années)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC art 4.4"
+      },
+      {
+        "libelle": "Copie du ou des jugements prononcés (en cas de redressement judiciaire uniquement)",
+        "phase": "candidature",
+        "obligatoire": false,
+        "source": "RC art 4.4"
+      },
+      {
+        "libelle": "Acte d'engagement (AE) complété — en format Word, par lot",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC art 5.1"
+      },
+      {
+        "libelle": "Annexe financière (AF) complétée (BPU/prix unitaires par UO)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC art 5.1"
+      },
+      {
+        "libelle": "Mémoire technique (chapitres : moyens communs, méthodologie MCO, maintenance évolutive, CV des intervenants)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC art 5.1"
+      },
+      {
+        "libelle": "DC4 — Déclaration de sous-traitance (si sous-traitance envisagée)",
+        "phase": "offre",
+        "obligatoire": false,
+        "source": "RC art 4.3"
+      }
+    ],
+    "mode_remise": "dématérialisé + copie de sauvegarde",
+    "plateforme_depot": "PLACE — marches-publics.gouv.fr",
+    "signature_electronique_exigee": true,
+    "format_signature": "PAdES (format de signature électronique qualifié eIDAS, certificat RGS)",
+    "nombre_exemplaires": null,
+    "langue": "français",
+    "duree_validite_offres_jours": 240,
+    "modalites_source": "RC art 3.4, art 9, Annexe n°2"
   },
   "lots": [
     {
       "numero": 1,
-      "intitule": "TMA de l'application SYMBIOSE",
-      "zone_geographique": "Cadarache (13) pour les réunions et transferts de compétence",
-      "volume_estime": 400000,
-      "volume_estime_unite": "€ HT plafond sur 48 mois",
-      "particularites": "SYMBIOSE est une plateforme de modélisation du risque radiologique copropriété ASNR-EDF, développée en C++/Qt 4.8.4/Fortran sous Windows 64 bits et Linux Debian. La TMA inclut l'IHM, le moteur de calcul (PELICANS), l'application cartographique Geo-SYMBIOSE et les librairies. Livraison version majeure V3.2 prévue 2027-2028. Toutes les prestations sont à prix forfaitaires (UO_PEC, UO_MCO, UO_EVO_MOTEUR, UO_EVO_IHM, UO_REV)."
+      "intitule": "Tierce Maintenance Applicative de l'application SYMBIOSE",
+      "domaine": "it_maintenance_support",
+      "zone_geographique": "Fontenay-aux-Roses / Cadarache (13) — prestations principalement en locaux titulaire",
+      "volume_estime": null,
+      "volume_estime_unite": "jours-homme",
+      "cout_estime_min_eur": 200000,
+      "cout_estime_max_eur": 320000,
+      "particularites": "Application scientifique SYMBIOSE (C++/QT/Fortran) de modélisation radiologique, copropriété ASNR/EDF. Deux composants à maintenir : IHM (QT 4.8.4/C++) et moteur de calcul (C++/Fortran via plateforme PELICANS). UOs différenciées : UO_MCO, UO_EVO_MOTEUR, UO_EVO_IHM, UO_PEC, UO_REV. Versioning SVN existant, migration vers GitLab. Déplacements occasionnels à Cadarache (13). Enquête sécurité (LPE) obligatoire pour tout intervenant."
     },
     {
       "numero": 2,
-      "intitule": "TMA de l'application PARIS",
-      "zone_geographique": "Vésinet (78) et Orsay (91) pour les réunions et transferts de compétence",
-      "volume_estime": 380000,
-      "volume_estime_unite": "€ HT plafond sur 48 mois",
-      "particularites": "PARIS est un LIMS (Laboratory Information Management System) développé en WinDev 25/VBA Office 365/MS SQL Server 2016 pour les laboratoires d'analyse du SAME (LERCA, LMN, LMRE). La TMA inclut MCO et évolutions significatives (intégration de nouveaux processus analytiques : ICP-MS, ICP-AES, spectrométrie alpha pour le LMRE). Mix prix forfaitaires (prise en charge >5j EVO, réversibilité) et prix unitaires (MCO, EVO mineures ≤5j, gouvernance). Accueil de besoins évolutifs importants sur la durée du marché (convergence des processus LMRE vers PARIS)."
+      "intitule": "Tierce Maintenance Applicative de l'application PARIS pour le compte de l'ASNR",
+      "domaine": "it_maintenance_support",
+      "zone_geographique": "Vésinet (78) / Orsay (91) — prestations principalement en locaux titulaire",
+      "volume_estime": 126,
+      "volume_estime_unite": "jours-homme/an",
+      "cout_estime_min_eur": 200000,
+      "cout_estime_max_eur": 300000,
+      "particularites": "LIMS PARIS (WinDev 25, VBA Office 365, SQL Server, MS Access) utilisé par 25 utilisateurs simultanés dans les laboratoires SAME du Vésinet et d'Orsay. Répartition historique : 63% UO_EVO (83 j-h/an) + 33% UO_MCO (43 j-h/an). Besoins évolutifs importants : intégration de nouveaux processus analytiques LMRE (ICP-MS, ICP-AES, spectrométrie alpha, etc.). Gouvernance COPIL trimestrielle facturée en UO_MCO. IA autorisée pour développements (Claude Code, GitHub Copilot). Enquête sécurité (LPE) obligatoire."
     }
   ],
+  "tranches": [],
   "calendrier": {
     "date_limite_offres": "2026-07-29",
     "date_demarrage_prevue": null,
-    "duree_marche": "12 mois ferme reconductible 3 fois 12 mois (48 mois maximum), avec possibilité d'exécution des bons de commande jusqu'à 6 mois après l'échéance"
+    "duree_marche": "48 mois maximum (12 mois fermes + 3 reconductions tacites de 12 mois chacune) à compter du premier bon de commande"
   },
   "alertes_candidat": [
-    "Enquête de sécurité obligatoire (Laisser Passer Entreprise) pour chaque intervenant avec délai de 4 à 6 semaines : à anticiper dès la notification pour ne pas bloquer le démarrage des prestations.",
-    "Compétences technologiques très spécifiques requises pour chaque lot : C++/Qt/Fortran/Python/QGIS (lot 1) ou WinDev 25+/VBA/SQL Server (lot 2) — un généraliste sans ces stacks sera éliminé à l'examen technique.",
-    "Postes informatiques fournis par l'ASNR uniquement — interdiction formelle d'utiliser les portables du prestataire ou de les connecter au réseau ASNR ; accès VPN avec MFA obligatoire.",
-    "Le PAQS (Plan d'Assurance Qualité et de Sécurité) doit être livré dans le mois suivant la réunion de lancement et son acceptation déclenche la bascule de responsabilité — un PAQS refusé bloque la prise en charge.",
-    "Délai de validité des offres de 8 mois à compter de la date limite — prévoir une mise à jour des prix si les négociations s'étendent."
+    "Habilitation sécurité individuelle obligatoire pour TOUT intervenant (Laisser Passer Entreprise + enquête CoSSeN) : délai de 4 à 6 semaines, à anticiper dès notification — tout personnel refusé ne peut ni accéder au site ni faire partie de l'équipe.",
+    "Les CV des intervenants représentent 30% de la note globale (sous-critère le plus pondéré) : un dossier avec des profils non maîtres des technologies requises (C++/QT/Fortran pour lot 1 ; VBA/WinDev/SQL Server pour lot 2) sera éliminatoire en pratique.",
+    "Lot 1 (SYMBIOSE) : compétences en C++, Fortran, QT, Python ET QGIS requises simultanément — profil rare combinant développement scientifique bas-niveau et SIG ; vérifier la disponibilité de tels profils avant de candidater.",
+    "Accord-cadre sans montant minimum garanti : aucun chiffre d'affaires n'est garanti sur 48 mois — la charge réelle peut être très inférieure au plafond selon les priorités de l'ASNR ; dimensionner l'équipe en conséquence.",
+    "Clause butoir de résiliation si révision de prix > 3%/an : risque de résiliation unilatérale par l'ASNR en cas d'inflation supérieure à ce seuil — à intégrer dans la stratégie de pricing et la gestion des risques."
   ],
   "points_differenciants_attendus": [
     {
-      "libelle": "Maîtrise démontrable des technologies spécifiques des lots (C++/Qt pour SYMBIOSE, WinDev/VBA pour PARIS)",
-      "exemple": "Présenter des CV avec références de missions TMA sur des logiciels scientifiques C++/Qt ou sur des applications WinDev/VBA métier, idéalement en contexte industriel ou réglementé (nucléaire, défense, laboratoire), avec des exemples de livrables (cahiers de recette, release notes, documentation d'architecture).",
-      "source": "CCTP_ASNR_2026_027_3000091499 §6.4.2 et CCTP_ASNR_2026_027_3000091437 §6.4.2"
+      "libelle": "Présentation de CV nominatifs ultra-ciblés sur les technologies spécifiques de chaque application",
+      "exemple": "Pour le lot 1 : présenter un CV détaillant des réalisations concrètes en C++11/14 sur des applications scientifiques, avec expérience QT 4.x et idéalement connaissance d'une plateforme de simulation numérique. Pour le lot 2 : CV montrant des projets WinDev sur LIMS ou applications de laboratoire, avec maîtrise SQL Server et VBA Excel.",
+      "source": "RC art 6.2.2.1 — sous-critère 'Compétences proposées' à 30%"
     },
     {
-      "libelle": "Expérience TMA sur des logiciels à forte dimension scientifique ou métier réglementé",
-      "exemple": "Mettre en avant des références de TMA sur des plateformes de simulation numérique ou des LIMS en environnement industriel ou de recherche, avec gestion de versions rigoureuse (GitLab/SVN) et cycles VA/VSR documentés.",
-      "source": "CCTP_ASNR_2026_027_3000091499 §4.1.4 et RC art 6.2.2.1"
+      "libelle": "Dispositif de continuité de service documenté et robuste face aux contraintes d'habilitation sécurité",
+      "exemple": "Démontrer qu'au moins 2 intervenants habilités (ou en cours d'habilitation anticipée) sont disponibles pour chaque lot, avec une politique de binômage explicite et des engagements sur les délais de remplacement — en anticipant les 4 à 6 semaines de délai LPE.",
+      "source": "CCTP_SYMBIOSE §6.4 / CCTP_PARIS §6.4"
     },
     {
-      "libelle": "Dispositif de continuité de service robuste sur 48 mois (critère à 45% pour le lot 2)",
-      "exemple": "Décrire un mécanisme de binômage systématique sur PARIS (WinDev/VBA très spécifique), une politique de knowledge management interne (wiki, sessions de partage) et des engagements contractuels de délai de remplacement (1 mois soumis à approbation ASNR) avec liste de remplaçants identifiés.",
-      "source": "RC art 6.2.2.1 (lot 2 critère 45%), CCTP §6.4.1"
+      "libelle": "Maîtrise des outils de l'usine logicielle ASNR (GitLab, CI/CD, SonarQube) dès la prise en charge",
+      "exemple": "Citer des projets récents où le candidat a mis en place ou opéré des pipelines CI/CD sur GitLab (tests unitaires, qualité de code via SonarQube, gestion semver), en démontrant que l'équipe est opérationnelle sans temps d'apprentissage sur ces outils.",
+      "source": "CCTP_PARIS §6.5.1 / CCTP_SYMBIOSE §6.5.1"
     },
     {
-      "libelle": "Proposition d'organisation en Agile adaptée aux contraintes de l'ASNR (sprints, backlog IceScrum)",
-      "exemple": "Proposer une organisation en sprints de 2 semaines avec backlog dans IceScrum (outil mentionné au CCTP), comités bimensuels de revue et tableau de bord d'indicateurs partagé — démontre une appropriation directe des attendus du CCTP.",
-      "source": "CCTP_ASNR_2026_027_3000091437 §6.5.5 et CCTP_ASNR_2026_027_3000091499"
+      "libelle": "Compréhension du contexte scientifique et métier (radioprotection, LIMS, modélisation radiologique)",
+      "exemple": "Valoriser toute expérience antérieure en maintenance d'applications scientifiques (calcul, simulation) ou de LIMS dans un contexte réglementé (nucléaire, laboratoires accrédités COFRAC) — même si non exigée formellement, elle réduit le risque perçu par l'ASNR.",
+      "source": null
     },
     {
-      "libelle": "Autorisation et maîtrise de l'utilisation de l'IA pour le développement (Claude Code, GitHub Copilot)",
-      "exemple": "L'ASNR autorise explicitement l'IA dans les développements : mettre en avant les pratiques de revue de code IA, la politique de non-transmission de secrets/données sensibles aux LLMs cloud, et les outils utilisés (Continue+LLM, GitHub Copilot Enterprise en mode réseau privé).",
-      "source": "CCTP_ASNR_2026_027_3000091437 §6.5.9 et CCTP_ASNR_2026_027_3000091499 §6.5.5"
+      "libelle": "Utilisation maîtrisée de l'IA pour les développements (lot 2 — explicitement autorisée par l'ASNR)",
+      "exemple": "Décrire un retour d'expérience concret sur l'utilisation de GitHub Copilot ou Claude Code pour accélérer la maintenance corrective/évolutive, avec les garde-fous mis en place (revue de code, non-exposition de données sensibles aux LLM cloud, conformité OWASP).",
+      "source": "CCTP_PARIS §6.5.9 / CCTP_SYMBIOSE §6.5.5"
     }
   ],
   "_meta": {
     "id_marche": "BOAMP-26-56760",
     "type": "complet",
-    "date_generation": "2026-06-14T20:24:48.312287+00:00",
-    "extraction_le": "2026-06-14T20:24:48.312287+00:00",
+    "date_generation": "2026-06-19T23:09:46.484583+00:00",
+    "extraction_le": "2026-06-19T23:09:46.484583+00:00",
     "modele": "claude-sonnet-4-6",
     "preset_utilise": "it",
     "presets_matches": [
@@ -368,10 +453,10 @@
     "prompts_versions": {
       "it/_preset.json": "sha256:0113727ecb269e98"
     },
-    "tokens_input": 129502,
-    "tokens_output": 8618,
-    "cout_eur": 0.4919,
-    "duree_sec": 160.4,
+    "tokens_input": 138061,
+    "tokens_output": 9356,
+    "cout_eur": 0.5268,
+    "duree_sec": 169.8,
     "pdfs_traites": [
       {
         "nom": "AE_ASNR_2026_027_3000091499_SYMBIOSE.docx",

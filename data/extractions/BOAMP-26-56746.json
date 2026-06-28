@@ -1,0 +1,460 @@
+{
+  "synthese_marche": "La CPRPF (Caisse de Prévoyance et de Retraite du Personnel Ferroviaire) lance un accord-cadre mono-attribué à bons de commande pour des prestations de contrôles médicaux des arrêts de travail de courte durée (1 à 120 jours) des agents SNCF. Le prestataire devra mobiliser un réseau de médecins omnipraticiens couvrant l'ensemble du territoire national (métropole, DOM-TOM, zones frontalières) pour réaliser des contre-visites à domicile ou en cabinet dans un délai de 48h maximum. Le marché est structuré pour 1 an reconductible 3 fois (4 ans maximum) avec un montant maximum de 3 000 000 € HT sur la durée totale.",
+  "domaines_metier": [
+    {
+      "code": "services_sante_medical"
+    }
+  ],
+  "raison_classification": "Le marché porte exclusivement sur des contrôles médicaux par des médecins omnipraticiens dans le cadre d'arrêts de travail, relevant du domaine médical/santé. Les CPV principaux sont 66512220 (assurance maladie) et 66512200, mais la prestation réelle est la réalisation d'examens médicaux de contrôle (contre-visites) par des médecins, ce qui relève de `services_sante_medical` (médecine, services médicaux).",
+  "caracteristiques_metier": {
+    "description": "Prestations de contrôles médicaux (contre-visites) des arrêts de travail de courte durée des agents SNCF et du personnel ferroviaire, réalisées par des médecins omnipraticiens mandatés par le prestataire, à domicile ou en cabinet, dans un délai de 48h (ou 72h pour sorties libres), sur l'ensemble du territoire national. Le prestataire gère l'organisation logistique, le reporting via un portail internet dédié, les bordereaux récapitulatifs mensuels et la confidentialité des données médicales.",
+    "criteres_eligibilite": [
+      "Disposer d'un réseau de médecins omnipraticiens couvrant au minimum 1 médecin par département en métropole et dans les DOM-TOM",
+      "Capacité à réaliser des contre-visites dans un délai de 48h maximum après réception de la demande",
+      "Expérience dans la gestion de contrôles médicaux d'arrêts de travail",
+      "Couverture nationale : métropole, DOM-TOM et zones frontalières",
+      "Capacité à fournir un portail internet sécurisé pour la gestion des échanges",
+      "Respect des obligations de confidentialité et du secret médical (RGPD, secret professionnel)"
+    ]
+  },
+  "bareme_notation": {
+    "valeur_technique_pct": 60,
+    "valeur_prix_pct": 40,
+    "sous_criteres_techniques": [
+      {
+        "libelle": "Qualité technique de l'offre",
+        "ponderation_pct": 55,
+        "description": "Apprécié sur la base des réponses du candidat dans son mémoire technique établi conformément au cadre de réponse annexé au RC.",
+        "elements_attendus": [
+          "Tableau récapitulatif du nombre et répartition géographique des médecins par département",
+          "Note d'organisation pour le respect de la confidentialité et du secret médical",
+          "Organisation et reporting pour répondre aux délais et exigences du CCTP",
+          "Description des moyens humains et techniques mis à disposition"
+        ],
+        "exemple_reponse_forte": "Le candidat présente un réseau de 350 médecins couvrant 100% des départements métropolitains et l'ensemble des DOM-TOM, avec un système de portail internet sécurisé permettant la traçabilité en temps réel de chaque contre-visite, une équipe dédiée de 3 gestionnaires et un médecin coordonnateur disponible 5j/7.",
+        "source": "RC §7.1.1",
+        "unite_evaluation": "points",
+        "sous_criteres": [
+          {
+            "libelle": "Nombre et répartition géographique des médecins mis à disposition pour l'exécution du marché",
+            "ponderation_pct": 15,
+            "description": "Le candidat fournit un tableau récapitulatif précisant le nombre et la répartition géographique (par département) des médecins en métropole et dans les DOM-TOM. 1 médecin minimum par département est exigé sous peine d'exclusion.",
+            "elements_attendus": [
+              "Tableau Excel ou équivalent listant les médecins par département",
+              "Couverture de 100% des départements métropolitains (au minimum 1 médecin par département)",
+              "Couverture DOM-TOM et zones frontalières",
+              "Justificatifs : protocoles d'accord signés avec les médecins validés par l'ordre ou lettres d'engagement",
+              "Documents classés par département permettant de vérifier la localisation géographique"
+            ],
+            "exemple_reponse_forte": "Tableau Excel détaillant 380 médecins partenaires répartis dans les 101 départements français (métropole + outre-mer), accompagné de 380 lettres d'engagement individuelles validées par les conseils départementaux de l'Ordre, classées par département avec localisation géographique.",
+            "source": "RC §7.1.1 - Sous-critère A",
+            "unite_evaluation": "points",
+            "sous_criteres": []
+          },
+          {
+            "libelle": "Note précisant l'organisation pour le respect de la confidentialité mise en place",
+            "ponderation_pct": 10,
+            "description": "Le candidat décrit les moyens mis en œuvre pour veiller au respect du secret professionnel et du secret médical dans la réception des informations transmises par la CPR et dans la transmission des résultats des contre-visites.",
+            "elements_attendus": [
+              "Description des moyens de sécurisation de la réception des informations médicales transmises par la CPRPF (5 points)",
+              "Description des moyens de sécurisation de la transmission des résultats de contre-visites (5 points)",
+              "Procédures de chiffrement et pseudonymisation des données",
+              "Organisation du contrôle d'accès aux données médicales",
+              "Engagement de formation du personnel au secret médical"
+            ],
+            "exemple_reponse_forte": "Le candidat décrit un canal de transmission chiffré TLS 1.3 pour la réception des ordres de mission, un portail avec authentification à double facteur, un accès cloisonné par dossier, et une procédure de destruction sécurisée des données après transmission des conclusions au service demandeur.",
+            "source": "RC §7.1.1 - Sous-critère B",
+            "unite_evaluation": "points",
+            "sous_criteres": []
+          },
+          {
+            "libelle": "Organisation et reporting pour répondre aux délais et exigences du CCTP",
+            "ponderation_pct": 10,
+            "description": "Le candidat rédige une note d'organisation pour répondre aux exigences de réalisation des visites et de la communication à la CPR, et décrit les modalités mises en place pour assurer le reporting de l'activité.",
+            "elements_attendus": [
+              "Note d'organisation décrivant le processus de traitement des demandes en 48h (5 points)",
+              "Description des modalités de reporting mensuel (bordereaux récapitulatifs) (5 points)",
+              "Process de gestion des cas particuliers (absence, refus, digicode)",
+              "Outil de suivi des délais d'intervention",
+              "Modalités de communication des numéros RPPS des médecins mandatés (envoi journalier)"
+            ],
+            "exemple_reponse_forte": "Le candidat décrit un processus de dispatch automatique des demandes aux médecins disponibles avec confirmation de prise en charge sous 2h, un tableau de bord temps réel accessible à la CPRPF, et des bordereaux récapitulatifs mensuels générés automatiquement distinguant les 4 sous-entités (M/GDR1 CPRPF sélectivité, M/GDR1 Pôles RH, M/SPSCM CPRPF sélectivité, M/SPSCM Pôles RH).",
+            "source": "RC §7.1.1 - Sous-critère C",
+            "unite_evaluation": "points",
+            "sous_criteres": []
+          },
+          {
+            "libelle": "Moyens humains et techniques mis à disposition pour l'exécution du présent marché",
+            "ponderation_pct": 20,
+            "description": "Le candidat décrit l'équipe dédiée, la ligne téléphonique et mail dédiés, le médecin interlocuteur dédié et le portail internet sécurisé proposé pour l'exécution du contrat.",
+            "elements_attendus": [
+              "Création d'une ligne téléphonique et d'une adresse mail dédiées à la CPRPF (2 points)",
+              "Composition de l'équipe chargée de l'exécution des prestations CPRPF (5 points)",
+              "Nom et contacts du médecin interlocuteur dédié (3 points)",
+              "Description détaillée de l'outil informatique 'Portail internet' dédié au contrat avec fonctionnalités (10 points)",
+              "Portail permettant la centralisation des échanges, l'archivage des pièces et les bordereaux de facturation"
+            ],
+            "exemple_reponse_forte": "Le candidat présente une équipe dédiée composée d'un responsable de compte CPRPF, 2 gestionnaires opérationnels et 1 médecin coordonnateur (Docteur X, omnipraticien), une ligne directe 04XXXXXXXX et adresse cprpf@prestataire.fr, ainsi qu'un portail internet démontré en vidéo permettant la saisie/consultation des demandes, la mise à disposition des conclusions sous 24h, l'archivage par numéro de matricule SNCF et la génération automatique des bordereaux Excel mensuels.",
+            "source": "RC §7.1.1 - Sous-critère D",
+            "unite_evaluation": "points",
+            "sous_criteres": []
+          }
+        ]
+      },
+      {
+        "libelle": "Stratégie RSE",
+        "ponderation_pct": 5,
+        "description": "Apprécié au vu des mesures spécifiques décrites par le candidat en faveur du développement durable dans ses dimensions économiques, sociales et environnementales, dans le cadre de l'exécution du présent marché.",
+        "elements_attendus": [
+          "Mesures spécifiques (non générales) liées au développement durable pour ce marché précis",
+          "Engagement d'heures d'insertion professionnelle (jeune en difficulté, chômeur longue durée, senior)",
+          "Embauche de personnels handicapés",
+          "Total des heures d'insertion engagées (à reporter dans l'acte d'engagement)"
+        ],
+        "exemple_reponse_forte": "Le candidat s'engage à réaliser 200 heures d'insertion annuelles en confiant des missions de gestion administrative à des personnes éloignées de l'emploi via une association intermédiaire partenaire, avec un engagement formalisé dans l'AE et un suivi trimestriel remis à la CPRPF.",
+        "source": "RC §7.1.1 - Critère RSE",
+        "unite_evaluation": "points",
+        "sous_criteres": []
+      }
+    ],
+    "prix": {
+      "type_formule": "moins_disant",
+      "formule_explicite": "Note du candidat = (prix de l'offre la moins disante / Prix de l'offre du candidat) × 40. Le montant de l'offre est le montant total TTC du DQE.",
+      "source": "RC §7.1.1 - Critère 3",
+      "elements_a_chiffrer": [
+        "Prix unitaire de la contre-visite médicale en semaine (domicile ou cabinet)",
+        "Prix unitaire de la contre-visite le week-end/jours fériés",
+        "Kilomètres parcourus en plaine (hors forfait 25 km)",
+        "Kilomètres parcourus en montagne (hors forfait 25 km)",
+        "Convocation au domicile (livraison)",
+        "Convocation au cabinet du médecin",
+        "Contrôles en DOM-TOM",
+        "Contrôles en zones frontalières"
+      ]
+    },
+    "modalite_calcul_prix": "Note du candidat = (prix de l'offre la moins disante / Prix de l'offre du candidat) × 40. Le montant de l'offre est le montant total TTC du DQE."
+  },
+  "montant_marche": {
+    "valeur_estimee_euros": 3000000,
+    "fourchette_min_euros": null,
+    "fourchette_max_euros": 3000000,
+    "type": "plafond",
+    "duree_couverte": "4 ans (1 an ferme + 3 reconductions de 12 mois)",
+    "source_extraction": "RC §2.4 et CCAP Article 1.3",
+    "commentaire": "Montant maximum de l'accord-cadre sur 4 ans fixé à 3 000 000 € HT. La valeur estimée pour la phase initiale d'1 an est de 1 600 000 € selon les données BOAMP (montant estimé du lot LOT-0001)."
+  },
+  "montant_3_voies": {
+    "voie_1_eur": 3000000,
+    "voie_1_source": "RC §2.4 — 'Le montant maximum pour 4 ans est le suivant : 3 000 000 € HT' et CCAP Article 1.3",
+    "voie_2_disponible": false,
+    "voie_2_min_eur": null,
+    "voie_2_max_eur": null,
+    "voie_2_hypotheses": [],
+    "voie_2_raison_indisponible": "Montant maximum publié explicitement dans le RC et le CCAP (3 000 000 € HT sur 4 ans). Estimation BOAMP complémentaire : 1 600 000 € pour la période initiale d'un an. Voie 1 disponible, Voie 2 non nécessaire."
+  },
+  "cout_realisation": {
+    "cout_total_eur": 2100000,
+    "cout_min_eur": 1800000,
+    "cout_max_eur": 2400000,
+    "postes": [
+      {
+        "poste": "Honoraires médecins (contre-visites)",
+        "detail": "Estimation ~3 500 contre-visites/an × 4 ans × 60-80 € honoraire médecin = 840 000 à 1 120 000 € sur 4 ans. Taux journalier médecin omnipraticien pour ce type de prestation estimé à 60-80 €/acte.",
+        "montant_eur": 980000
+      },
+      {
+        "poste": "Frais de déplacement médecins (indemnités kilométriques)",
+        "detail": "Estimation ~20 km par visite en moyenne × 3 500 visites/an × 4 ans × 0,50 €/km = 140 000 € environ sur 4 ans",
+        "montant_eur": 140000
+      },
+      {
+        "poste": "Personnel de gestion et coordination (équipe dédiée)",
+        "detail": "2-3 gestionnaires opérationnels + 1 responsable de compte × 4 ans × coût salarial chargé. Estimation 2,5 ETP × 45 000 € chargé/an × 4 ans = 450 000 €",
+        "montant_eur": 450000
+      },
+      {
+        "poste": "Médecin coordonnateur",
+        "detail": "Vacation partielle ~0,2 ETP × 80 000 €/an × 4 ans = 64 000 €",
+        "montant_eur": 64000
+      },
+      {
+        "poste": "Portail internet et infrastructure IT",
+        "detail": "Développement/maintenance du portail dédié CPRPF, hébergement sécurisé, maintenance. Estimation 30 000 € setup + 20 000 €/an × 4 ans = 110 000 € sur 4 ans",
+        "montant_eur": 110000
+      },
+      {
+        "poste": "Frais généraux et encadrement",
+        "detail": "Direction, administration, assurances RC pro, frais de structure (~20% des coûts directs)",
+        "montant_eur": 356000
+      }
+    ],
+    "taux_journaliers_retenus": "Honoraire médecin omnipraticien pour contre-visite : 60-80 €/acte (taux marché indicatif) ; gestionnaire opérationnel : 45 000 €/an chargé ; indemnité kilométrique médecin : 0,50 €/km. Ce sont des taux marché indicatifs, la structure de coût réelle dépend du réseau médecin et de l'organisation du candidat.",
+    "commentaire": "Estimation du coût de production sur 4 ans (durée totale du marché). Le coût principal est celui des honoraires médecins qui représente environ 45-50% du coût total. La marge cible implicite est de 28-40% du montant maximum de 3 M€. Cette estimation reste très indicative car le volume réel de contre-visites n'est pas communiqué dans le DCE."
+  },
+  "revision_prix": {
+    "type": "indexation",
+    "indices_utilises": [
+      "ICHTrev-TS"
+    ],
+    "ponderation": "75% partie fixe + 25% indexé sur l'indice ICHTrev-TS (Coût du travail tous salariés confondus, INSEE)",
+    "periodicite": "annuelle",
+    "formule_revision": "P = P0 (0.75 + [0.25 × ICHTrev-TS / ICHTrev-TS0])",
+    "source_extraction": "CCAP Article 8.3",
+    "commentaire": "Formule de révision annuelle (à chaque reconduction) basée à 75% sur une partie fixe et 25% sur l'indice du coût horaire du travail. La forte pondération de la partie fixe (75%) limite l'effet de l'indexation — favorable à l'acheteur en inflation, peu protecteur pour le candidat si ses coûts salariaux augmentent fortement. Prix fermes sur la durée initiale d'1 an."
+  },
+  "alertes_prix": [
+    "Pondération prix à 40% est significative pour un marché de services médicaux — l'offre financière est déterminante dans l'attribution.",
+    "Les prix sont fermes sur la durée initiale (1 an) et seulement révisables en cas de reconduction, avec une formule limitée à 25% d'indexation sur l'ICHTrev-TS — risque de sous-évaluation si les honoraires médicaux ou les coûts salariaux augmentent.",
+    "Le montant maximum de l'accord-cadre (3 M€ sur 4 ans = ~750 000 €/an) est un plafond non garanti — le volume réel de commandes peut être bien inférieur, avec un risque commercial sur la rentabilité de l'équipe dédiée.",
+    "La formule de notation prix est purement moins-disante (ratio offre la moins chère / offre candidat × 40) : une politique de prix très agressive peut pénaliser fortement les autres candidats.",
+    "Les contre-visites réalisées hors délai contractuel ne donnent pas lieu à rémunération (risque de pertes sèches en cas de dépassement des délais)."
+  ],
+  "references_exigees": {
+    "experience_minimale_annees": null,
+    "experience_source": null,
+    "volume_min_references_similaires": null,
+    "volume_min_references_unite": "marchés similaires",
+    "secteur_experience": "Prestations de contrôles médicaux des arrêts de travail (contre-visites médicales) pour des organismes publics ou privés",
+    "secteur_source": "RC §5.1.1",
+    "certifications_obligatoires": [
+      {
+        "libelle": "Réseau de médecins omnipraticiens : au minimum 1 médecin par département (métropole et DOM-TOM), inscrits à l'Ordre des Médecins, avec numéros RPPS valides",
+        "codes": [],
+        "bloquante": true,
+        "source": "RC §7.1.1 - Sous-critère A : 'Le candidat devra a minima pouvoir proposer 1 médecin par Département sous peine de se voir exclu'"
+      },
+      {
+        "libelle": "Assurance responsabilité civile professionnelle en cours de validité",
+        "codes": [],
+        "bloquante": true,
+        "source": "RC §5.1.1 et CCAP Article 17"
+      }
+    ],
+    "autres_exigences": [
+      {
+        "libelle": "Liste des principales prestations de même nature réalisées au cours des 3 dernières années (montant, date, destinataire)",
+        "source": "RC §5.1.1"
+      },
+      {
+        "libelle": "Déclaration indiquant les effectifs moyens annuels pour chacune des 3 dernières années",
+        "source": "RC §5.1.1"
+      },
+      {
+        "libelle": "Documents relatifs aux pouvoirs de la personne habilitée à engager l'entreprise",
+        "source": "RC §5.1.1"
+      },
+      {
+        "libelle": "Chiffre d'affaires global et chiffre d'affaires concernant les prestations objet du contrat, réalisés au cours des 3 derniers exercices disponibles",
+        "source": "RC §5.1.1 (DC2)"
+      }
+    ]
+  },
+  "dossier_candidature": {
+    "pieces_a_fournir": [
+      {
+        "libelle": "Lettre de candidature (formulaire DC1 ou équivalent) avec déclaration sur l'honneur",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §5.1.1"
+      },
+      {
+        "libelle": "Déclaration du candidat (formulaire DC2 ou équivalent) avec situation juridique, capacité économique et financière (CA global et CA prestations similaires sur 3 ans)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §5.1.1"
+      },
+      {
+        "libelle": "Documents relatifs aux pouvoirs de la personne habilitée à engager l'entreprise",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §5.1.1"
+      },
+      {
+        "libelle": "Attestations d'assurance de responsabilité civile professionnelle",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §5.1.1"
+      },
+      {
+        "libelle": "Déclaration indiquant les effectifs moyens annuels sur les 3 dernières années",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §5.1.1"
+      },
+      {
+        "libelle": "Liste des principales prestations de même nature au cours des 3 dernières années (montant, date, destinataire) avec attestations du destinataire ou déclaration de l'opérateur",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §5.1.1"
+      },
+      {
+        "libelle": "Acte d'Engagement (AE) intégralement renseigné, tamponné, daté et signé",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §5.2"
+      },
+      {
+        "libelle": "Bordereau des Prix Unitaires (BPU) dûment renseigné, sans modification de la trame",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §5.2"
+      },
+      {
+        "libelle": "Détail Quantitatif Estimatif (DQE) — simulation financière — dûment renseigné, sans modification de la trame",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §5.2"
+      },
+      {
+        "libelle": "Mémoire technique du candidat suivant la trame du cadre de réponse annexé au RC (contenant l'intégralité des informations de la trame)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §5.2"
+      },
+      {
+        "libelle": "Justificatifs concernant les médecins partenaires (tableau de répartition géographique + protocoles d'accord ou lettres d'engagement des médecins validés par l'Ordre, classés par département)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §5.2 et §7.1.1"
+      },
+      {
+        "libelle": "Formulaire DC4 (déclaration de sous-traitance) si recours à la sous-traitance",
+        "phase": "offre",
+        "obligatoire": false,
+        "source": "RC §5.2"
+      }
+    ],
+    "mode_remise": "dématérialisé + copie de sauvegarde",
+    "plateforme_depot": "achatpublic.com — https://www.achatpublic.com",
+    "signature_electronique_exigee": false,
+    "format_signature": "PAdES, CAdES ou XAdES (si le candidat choisit de signer électroniquement)",
+    "nombre_exemplaires": null,
+    "langue": "français",
+    "duree_validite_offres_jours": 180,
+    "modalites_source": "RC §5.3, Préambule RC, Annexe 2 RC (Notice dématérialisation)"
+  },
+  "lots": [
+    {
+      "numero": 1,
+      "intitule": "CONTROLES MEDICAUX DES ARRETS DE TRAVAIL DE COURTE DUREE",
+      "domaine": "services_sante_medical",
+      "zone_geographique": "National (métropole, DOM-TOM, zones frontalières)",
+      "volume_estime": null,
+      "volume_estime_unite": null,
+      "cout_estime_min_eur": 1800000,
+      "cout_estime_max_eur": 2400000,
+      "particularites": "Marché non alloti (1 seul lot). Accord-cadre mono-attribué à bons de commande. Montant maximum 3 000 000 € HT sur 4 ans. Couverture nationale obligatoire avec au minimum 1 médecin par département."
+    }
+  ],
+  "tranches": [],
+  "calendrier": {
+    "date_limite_offres": "2026-06-22",
+    "date_demarrage_prevue": "2026-10-22",
+    "duree_marche": "1 an ferme reconductible 3 fois (4 ans maximum)"
+  },
+  "alertes_candidat": [
+    "CRITÈRE ÉLIMINATOIRE : le candidat doit impérativement proposer au minimum 1 médecin omnipraticien par département (101 départements incluant DOM-TOM) sous peine d'exclusion directe — vérifier la complétude du réseau avant de candidater.",
+    "Les justificatifs médecins (protocoles d'accord ou lettres d'engagement signés, validés par l'Ordre des Médecins, classés par département) sont des pièces obligatoires de l'offre — leur absence ou insuffisance peut entraîner l'irrégularité.",
+    "Le BPU et le DQE ne doivent pas être modifiés dans leur trame, sous peine d'irrégularité formelle de l'offre.",
+    "Délai de remise des offres très court : 12 jours seulement entre la publication (10/06/2026) et la date limite (22/06/2026) — anticiper la constitution du dossier médecins département par département.",
+    "Les contre-visites réalisées hors délai contractuel (48h ou 72h) ne donnent pas lieu à rémunération et peuvent entraîner des pénalités de 200 €/jour de retard — le candidat doit démontrer une capacité opérationnelle immédiate sur tout le territoire."
+  ],
+  "points_differenciants_attendus": [
+    {
+      "libelle": "Densité et qualité du réseau médecin (au-delà du minimum exigé)",
+      "exemple": "Un candidat proposant 2 à 3 médecins par département (versus le minimum d'1) et couvrant les zones rurales peu médicalisées sera mieux noté sur le sous-critère A (15 points). Il peut illustrer cela avec une carte de chaleur de son réseau et indiquer un taux de couverture moyen de XX médecins/département.",
+      "source": "RC §7.1.1 - Sous-critère A"
+    },
+    {
+      "libelle": "Qualité et ergonomie du portail internet dédié",
+      "exemple": "Le portail internet représente 10 des 20 points du sous-critère D. Un candidat présentant une démonstration vidéo ou des captures d'écran du portail avec : recherche par matricule SNCF, archivage par dossier, génération automatique des bordereaux Excel en 4 sous-entités, et système d'alertes temps réel, se démarquera fortement.",
+      "source": "RC §7.1.1 - Sous-critère D et CCTP §9"
+    },
+    {
+      "libelle": "Médecin coordonnateur dédié avec profil adapté",
+      "exemple": "La présence d'un médecin coordonnateur (bien que non obligatoire selon le CCTP §10) est valorisée dans la notation. Un candidat présentant un médecin coordonnateur nommément identifié, avec expérience en contrôle médical d'arrêts de travail et disponibilité dédiée CPRPF, peut capter les 3 points associés et se différencier sur la crédibilité médicale de l'offre.",
+      "source": "RC §7.1.1 - Sous-critère D et CCTP §10"
+    },
+    {
+      "libelle": "Proposition d'heures d'insertion professionnelle concrètes et crédibles",
+      "exemple": "Sur le critère RSE (5 points), un candidat s'engageant sur un nombre précis d'heures d'insertion (ex: 150h/an soit 600h sur 4 ans) via un partenariat formalisé avec une structure d'insertion locale (ETTI, EI) sera mieux noté qu'une réponse générique sur la politique RSE de l'entreprise.",
+      "source": "RC §7.1.1 - Critère RSE et Annexe 3 RSE"
+    },
+    {
+      "libelle": "Organisation dédiée CPRPF clairement identifiée (ligne téléphonique + mail dédiés)",
+      "exemple": "Présenter dès l'offre une ligne téléphonique directe et une adresse mail exclusivement dédiés à la CPRPF (et non un standard général), avec les horaires de disponibilité, est valorisé à hauteur de 2 points sur le sous-critère D mais contribue aussi à la crédibilité générale de l'organisation proposée.",
+      "source": "RC §7.1.1 - Sous-critère D"
+    }
+  ],
+  "_meta": {
+    "id_marche": "BOAMP-26-56746",
+    "type": "complet",
+    "date_generation": "2026-06-19T22:49:43.818235+00:00",
+    "extraction_le": "2026-06-19T22:49:43.818235+00:00",
+    "modele": "claude-sonnet-4-6",
+    "preset_utilise": null,
+    "presets_matches": [],
+    "prompts_versions": {},
+    "tokens_input": 75951,
+    "tokens_output": 8622,
+    "cout_eur": 0.3393,
+    "duree_sec": 153.1,
+    "pdfs_traites": [
+      {
+        "nom": "Annexe 2 au RC - Notice Démat.pdf",
+        "hash": "664a94248a592b2af5aabd7aba5cd7f9",
+        "taille_chars": 4054
+      },
+      {
+        "nom": "Annexe 3 Etat récapitulatif des anomalies constatées par la CPRPF.pdf",
+        "hash": "e7ce9a762d4097f82dcdf04dea8c0b11",
+        "taille_chars": 327
+      },
+      {
+        "nom": "Annexe 3 au RC _RSE.pdf",
+        "hash": "e9250a617702988b92aecfed3813bc02",
+        "taille_chars": 13584
+      },
+      {
+        "nom": "Annexe CCTP 2.1 Relevés détaillés mensuels CPRPF.pdf",
+        "hash": "9129e7ccaabf2ab41c2526cd14aced15",
+        "taille_chars": 1157
+      },
+      {
+        "nom": "Annexe CCTP 2.2   Relevés détaillés mensuelsPole RH.pdf",
+        "hash": "984de673ac1b624891946ba5f64121fa",
+        "taille_chars": 1147
+      },
+      {
+        "nom": "CCAP VD.pdf",
+        "hash": "bdd1e9549df2a531964c0a565b73acc2",
+        "taille_chars": 55757
+      },
+      {
+        "nom": "CCTP Annexe 1 formulaire de demandes.pdf",
+        "hash": "497a417e931a2d363e6666a0c921da00",
+        "taille_chars": 1179
+      },
+      {
+        "nom": "CCTP Controles médicaux VD.pdf",
+        "hash": "38e81595079a0d75b546469981f01bb9",
+        "taille_chars": 25423
+      },
+      {
+        "nom": "Charte fournisseur pour des achats responsables.pdf",
+        "hash": "565f51c20843b1b99d7cef32e9fb4c83",
+        "taille_chars": 12216
+      },
+      {
+        "nom": "DC4_2024 _ CPRPF VD.docx",
+        "hash": "bd31ec9cab86a0e0941c48e0d17cba65",
+        "taille_chars": 16706
+      },
+      {
+        "nom": "RC v2 du 9 6 2026.pdf",
+        "hash": "717b2db0894deb34caf99f2da3c326f5",
+        "taille_chars": 39407
+      }
+    ]
+  }
+}

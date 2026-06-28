@@ -1,73 +1,79 @@
 {
-  "synthese_marche": "Marché de conception-réalisation portant sur le désamiantage, la démolition d'une résidence sociale existante de 287 chambres et la reconstruction de 206 logements autonomes (110 en résidence sociale + 96 en résidence sociale jeunes actifs) avec 59 places de parking en sous-sol, locaux communs et espaces extérieurs, situé Boulevard Ferdinand de Lesseps à Toulon (83000). Le chantier se déroule en site semi-occupé avec maintien d'au moins 220 logements opérationnels pendant toute la durée des travaux. L'enveloppe budgétaire globale est fixée à 14 500 000 € HT (honoraires MOE + travaux).",
+  "synthese_marche": "Marché de conception-réalisation pour la démolition-reconstruction de la résidence sociale Toulon Loubière (Adoma) à Toulon. Le projet comprend le désamiantage et la démolition de 287 chambres existantes, la reconstruction de 206 logements autonomes (110 en résidence sociale + 96 en résidence sociale jeunes actifs) avec stationnements en infrastructure, locaux communs et techniques, dans un contexte de chantier en site semi-occupé (220 logements minimum maintenus en activité). Budget global 14,5 M€ HT, durée 30 mois (6 mois conception + 24 mois réalisation), procédure négociée en 2 phases (candidature puis offre).",
   "domaines_metier": [
     {
       "code": "btp_demolition",
       "poids": 0.35,
-      "lots_concernes": "Phase 1 : désamiantage et démolition de la résidence existante de 287 chambres"
+      "lots_concernes": [
+        "LOT-0001 — désamiantage et démolition"
+      ]
     },
     {
       "code": "btp_gros_oeuvre",
-      "poids": 0.65,
-      "lots_concernes": "Phase 2 : reconstruction d'un ensemble de 206 logements autonomes en habitat collectif"
+      "poids": 0.45,
+      "lots_concernes": [
+        "LOT-0001 — reconstruction 206 logements"
+      ]
+    },
+    {
+      "code": "moe_architecte_urbanisme",
+      "poids": 0.2,
+      "lots_concernes": [
+        "LOT-0001 — mission de conception architecturale intégrée"
+      ]
     }
   ],
-  "raison_classification": "Le marché associe explicitement une opération de désamiantage-démolition (foyer existant de 287 chambres) et une reconstruction neuve (206 logements, sous-sol, locaux communs) en habitat collectif. Les deux domaines sont indissociables dans ce marché unique de conception-réalisation, la démolition représentant une phase critique du calendrier et de la complexité opérationnelle, la reconstruction constituant le cœur de la valeur ajoutée constructive.",
+  "raison_classification": "Marché de conception-réalisation unique qui intègre trois familles de prestations indissociables : démolition/désamiantage (btp_demolition), construction neuve d'habitat collectif (btp_gros_oeuvre, corps d'état complet), et mission de maîtrise d'œuvre architecturale intégrée obligatoire (moe_architecte_urbanisme, architecte obligatoire par la loi de 1977). Le RC impose explicitement un groupement mandataire constructeur + sous-groupement de concepteurs avec architecte. Le domaine BTP gros œuvre reste prépondérant par le montant (travaux de reconstruction sur 14,5 M€ HT).",
   "caracteristiques_techniques_chantier": {
-    "description": "Désamiantage et démolition d'un foyer social de 287 chambres (5 055 m²) avec locaux communs et techniques, puis reconstruction d'un ensemble de 206 logements autonomes (R+3 maximum, 1 niveau de sous-sol commun aux deux bâtiments, 59 places de parking en infrastructure), le tout en site semi-occupé avec maintien en fonctionnement d'au minimum 220 logements pendant toute la durée du chantier. Opération en 3 phases maximum avec opérations tiroirs de démolition-reconstruction. Performance énergétique RE2020 seuil 2028 visée.",
-    "typologie_ouvrage": "Habitat collectif — résidence sociale (RS) et résidence sociale jeunes actifs (RSJA), R+3 maximum, avec sous-sol 1 niveau",
-    "surface_volume": "Démolition : 5 055 m² existants ; Reconstruction : SDP totale estimée à 5 311 m² (RS : 2 786 m² SDP + RSJA : 2 524 m² SDP)",
-    "site_occupe": "true — site occupé à 100% au démarrage ; minimum 220 logements maintenus en conditions opérationnelles pendant toute la durée du chantier ; maintien des locaux du personnel gestionnaire ; présence de 60 places asile relogées en amont du démarrage",
+    "description": "Démolition-reconstruction en site semi-occupé d'une résidence sociale. Phase 1 : désamiantage et démolition phasée (3 phases max) de 287 chambres sur 5 055 m², avec maintien opérationnel de 220 logements minimum durant les travaux. Phase 2 : reconstruction d'un ensemble R+3 max avec 1 niveau de sous-sol commun comprenant 206 logements autonomes T1/T1'/T1bis, 59 places de parking en infrastructure, locaux vélos, locaux 2 roues motorisés, locaux communs et techniques pour 2 résidences distinctes (RS + RSJA). Performances RE2020 seuil 2028 exigées. Démarche réemploi des matériaux de démolition obligatoire.",
+    "typologie_ouvrage": "Résidence sociale d'habitat collectif — construction neuve (R+3 max, 1 sous-sol) après démolition-reconstruction, logements autonomes meublés et équipés",
+    "surface_volume": "SDP totale estimée 5 311 m² (RS : 2 786 m² + RSJA : 2 524 m²) + sous-sol parking commun ; terrain 5 039 m²",
+    "site_occupe": "true — 220 logements minimum occupés en permanence durant toute la durée du chantier ; maintien des locaux de gestion et de la chaufferie en activité ; opération en 3 phases maximum avec gestion des déménagements/relogements à la charge du groupement",
     "corps_etat": [
       "Désamiantage",
       "Démolition",
-      "Gros œuvre / fondations (fondations spéciales à confirmer selon étude de sol)",
-      "Second œuvre tous corps d'état (cloisons, plâtrerie, revêtements sols/murs)",
-      "Menuiseries intérieures et extérieures",
-      "Plomberie sanitaire",
-      "Chauffage / ECS",
-      "Ventilation VMC",
-      "Électricité courant fort et faible",
-      "Réseaux informatiques et fibre optique",
-      "Contrôle d'accès / visiophonie / vidéo-prévention",
-      "VRD / espaces extérieurs / aménagements paysagers",
-      "Stationnement en sous-sol (59 places)",
+      "Terrassements / VRD / sous-sol",
+      "Gros œuvre / structure béton",
+      "Second œuvre (cloisons, revêtements, menuiseries)",
+      "Fluides (plomberie, chauffage, ECS, VMC)",
+      "Électricité courants forts et faibles",
+      "Génie climatique",
+      "Aménagement paysager et espaces extérieurs",
       "Ascenseurs",
-      "Signalétique"
+      "Contrôle d'accès / visiophonie / vidéo-prévention",
+      "Fibre optique / réseaux informatiques"
     ],
     "contraintes_specifiques": [
-      "Présence d'amiante confirmée — RAAT en cours de lancement",
-      "Présence de plomb — diagnostic en cours",
-      "Site semi-occupé : minimum 220 logements opérationnels en permanence pendant les travaux",
-      "Phasage en 3 phases maximum avec opérations tiroirs de démolition-reconstruction",
-      "Maintien en fonctionnement des réseaux de la résidence (chaufferie notamment) pendant une partie du chantier",
-      "Maintien des locaux gestionnaires (atelier, bureaux) pendant toute la durée",
-      "Accès au sous-sol parking : rampe à optimiser en point bas du Boulevard Ferdinand de Lesseps — accès par rue du Repos formellement proscrit",
-      "Un seul accès piéton depuis la voie publique pour les deux résidences",
-      "Site en zone bruyante (voie ferrée + axe routier secondaire) — traitement acoustique renforcé",
-      "Proximité zone pavillonnaire — nuisances à limiter",
-      "Déménagement-relogement des résidents à la charge du groupement en coordination avec Adoma",
-      "Réemploi des matériaux de démolition à étudier (démarche économie circulaire + projet mémoire)",
-      "Performance énergétique RE2020 seuil 2028 obligatoire",
-      "Hauteur maximale R+3",
-      "Fondations spéciales : à confirmer selon étude de sol (création du sous-sol)"
+      "Présence avérée d'amiante et de plomb (RAAT à lancer en phase offre)",
+      "Chantier en site occupé : 220 logements minimum maintenus en activité",
+      "Opération phasée en 3 phases maximum (phasage à proposer par le groupement)",
+      "Déménagements et relogements temporaires des résidents à la charge du groupement",
+      "Maintien de la chaufferie existante en fonctionnement sur une partie du chantier",
+      "Site en zone bruyante (voie ferrée + axe routier)",
+      "Proximité zone pavillonnaire (nuisances à limiter)",
+      "Accès rampe parking interdit depuis rue du Repos (urbanisme Toulon)",
+      "Un seul accès piéton depuis la voie publique",
+      "Hauteur maximale R+3, sous-sol 1 niveau max",
+      "RE2020 seuil 2028 exigé",
+      "Démarche HQE volontaire + réemploi matériaux obligatoire",
+      "Fondations spéciales à confirmer (étude de sol à réaliser)"
     ]
   },
   "allotissement": {
-    "description": "Marché unique — pas de décomposition en lots. Dévolution en marché unique de conception-réalisation avec un groupement mandataire conjoint solidaire comprenant une équipe conception (architecte obligatoire) et une équipe réalisation (entreprise générale ou sous-groupement TCE).",
+    "description": "Marché unique, non alloti, en conception-réalisation. Un seul lot couvrant l'ensemble des prestations (études + travaux + démolition/désamiantage).",
     "nb_lots": 1,
     "lots_detailles": [
       {
         "numero": 1,
-        "intitule": "Marché unique de conception-réalisation — démolition/désamiantage et reconstruction résidence Toulon Loubière",
-        "corps_etat": "Tous corps d'état (désamiantage, démolition, gros œuvre, second œuvre TCE, VRD, espaces extérieurs, fluides, électricité, ascenseurs, contrôle d'accès)",
+        "intitule": "Marché de conception-réalisation pour la démolition-reconstruction de la résidence dite Toulon Loubière",
+        "corps_etat": "Tous corps d'état (désamiantage, démolition, gros œuvre, second œuvre, fluides, électricité, génie climatique, VRD, paysager, ascenseurs, courants faibles) + mission de conception architecturale complète",
         "montant_estime": 14500000,
-        "description": "Marché global incluant honoraires MOE (conception, APD, PRO, EXE, DET, OPC, AOR, GPA) et travaux de désamiantage, démolition et reconstruction de 206 logements avec parkings sous-sol, locaux communs et espaces extérieurs"
+        "description": "Prestations de conception (APS, APD, PRO, EXE, DET, OPC, AOR) et de réalisation (désamiantage, démolition, reconstruction tous corps d'état) pour 206 logements autonomes, 59 places parking en sous-sol, locaux communs et techniques, en site occupé à Toulon"
       }
     ]
   },
   "qualifications_requises": {
-    "description": "Aucune qualification Qualibat n'est expressément citée par code dans le RC. Le règlement de consultation exige des certificats de qualification professionnelle établis par organismes indépendants et des certifications qualité. Les compétences obligatoires sont listées nominalement.",
+    "description": "Qualifications professionnelles exigées pour les membres du groupement. L'architecte doit être inscrit à l'Ordre des Architectes. Des certifications de qualification professionnelle établies par organismes indépendants sont attendues pour les entreprises travaux et BET.",
     "qualibat": [],
     "rge": false,
     "rge_specialites": [],
@@ -77,70 +83,249 @@
     "iso_45001": false,
     "opqibi": null,
     "autres_certifications": [
-      "Attestation d'inscription à l'Ordre des Architectes (obligatoire pour l'architecte du groupement)",
-      "Certificats de qualification professionnelle établis par organismes indépendants (pour chaque membre du groupement)",
-      "Attestation d'assurance responsabilité civile professionnelle (RCP)",
-      "Attestation d'assurance responsabilité civile décennale (RCD)",
-      "Qualification QUALIFANTENNE niveau T2 (pour les travaux d'antenne TV collective)",
-      "Habilitation désamiantage / certification entreprise de désamiantage (implicite, membre obligatoire du groupement)"
+      "Inscription à l'Ordre des Architectes (attestation obligatoire)",
+      "Qualifications professionnelles BTP (certificats d'organismes indépendants, équivalents Qualibat ou similaires, attendus pour l'entreprise mandataire et les BET)"
+    ]
+  },
+  "caracteristiques_mission_moe": {
+    "typologie": "MOE complète intégrée dans un marché de conception-réalisation (sous-groupement de concepteurs au sein du groupement conception-réalisation)",
+    "phases_couvertes": [
+      "APS",
+      "APD",
+      "PRO",
+      "VISA",
+      "EXE",
+      "DET",
+      "OPC",
+      "AOR",
+      "GPA"
+    ],
+    "typologie_ouvrage": "Habitat collectif social — résidence sociale et résidence sociale jeunes actifs, construction neuve R+3 après démolition",
+    "montant_travaux_estime": 14500000,
+    "complexite_technique": "complexe",
+    "livrables_par_phase": [
+      {
+        "phase": "APS",
+        "livrables": [
+          "Dossier APS",
+          "Dossier permis de construire et autres autorisations administratives"
+        ]
+      },
+      {
+        "phase": "APD",
+        "livrables": [
+          "Études APD",
+          "Plans meublés par typologie de logement",
+          "Bilan thermique / calcul RE2020"
+        ]
+      },
+      {
+        "phase": "PRO",
+        "livrables": [
+          "Études de Projet (PRO)",
+          "Dossier marché"
+        ]
+      },
+      {
+        "phase": "EXE",
+        "livrables": [
+          "Études d'exécution (EXE)",
+          "Études de synthèse",
+          "Gestion cellule de synthèse (SYN)",
+          "VISA des plans d'exécution"
+        ]
+      },
+      {
+        "phase": "AOR",
+        "livrables": [
+          "Assistance à la réception (AOR)",
+          "DOE (Dossier des Ouvrages Exécutés)",
+          "Levée de réserves",
+          "Suivi GPA 1 an"
+        ]
+      }
+    ],
+    "taux_remuneration_moe_pct": null,
+    "indices_revision": [],
+    "coordinations_associees": [
+      "OPC inclus (Organisation du chantier / phasage)",
+      "DET inclus (Direction de l'exécution des travaux)",
+      "SPS hors marché (à consulter séparément)",
+      "Bureau de contrôle technique hors marché (consultation à lancer)",
+      "Coordonnateur SPS hors marché (consultation à lancer)",
+      "Mission réemploi matériaux incluse",
+      "Mission assistance locataires/déménagement incluse",
+      "Mission mobilier incluse (plans meublés par phase)"
+    ],
+    "organigramme_attendu": [
+      {
+        "profil": "Architecte mandataire du sous-groupement conception (inscrit Ordre des Architectes)",
+        "nombre": 1,
+        "anciennete_min_annees": null
+      },
+      {
+        "profil": "Économiste de la construction",
+        "nombre": 1,
+        "anciennete_min_annees": null
+      },
+      {
+        "profil": "BET Structure",
+        "nombre": 1,
+        "anciennete_min_annees": null
+      },
+      {
+        "profil": "BET Fluides / Génie climatique / Thermique / Performance énergétique",
+        "nombre": 1,
+        "anciennete_min_annees": null
+      },
+      {
+        "profil": "BE Environnement / Performance RE2020",
+        "nombre": 1,
+        "anciennete_min_annees": null
+      },
+      {
+        "profil": "Paysagiste concepteur (compétence réalisation et suivi d'exécution)",
+        "nombre": 1,
+        "anciennete_min_annees": null
+      },
+      {
+        "profil": "Pilote réemploi des déchets de chantier",
+        "nombre": 1,
+        "anciennete_min_annees": null
+      },
+      {
+        "profil": "MOE d'exécution (si différent de l'architecte)",
+        "nombre": null,
+        "anciennete_min_annees": null
+      },
+      {
+        "profil": "Ingénierie sociale (préconisé dans le cadre de réponse Annexe 1)",
+        "nombre": null,
+        "anciennete_min_annees": null
+      }
+    ],
+    "bim_niveau": null
+  },
+  "qualifications_moe": {
+    "opqibi": [],
+    "opqcm": [],
+    "bim": null,
+    "autres": [
+      "Architecte inscrit à l'Ordre des Architectes (obligatoire, loi 77-2 du 3 janvier 1977)",
+      "Qualifications professionnelles BET attendues (certificats d'organismes indépendants)"
     ]
   },
   "bareme_notation": {
     "valeur_technique_pct": 100,
-    "valeur_prix_pct": 0,
+    "valeur_prix_pct": null,
     "sous_criteres_techniques": [
       {
         "libelle": "Capacités professionnelles et techniques",
         "ponderation_pct": 50,
-        "description": "Évaluation de l'adéquation des compétences et moyens humains de chaque membre du groupement au regard de l'opération, et de la pertinence des qualifications des membres (mandataire, architecte, BET) au regard des spécificités du projet.",
+        "description": "Évaluation de l'adéquation des compétences et moyens humains de chaque membre du groupement au regard des spécificités de l'opération, et pertinence des qualifications pour chaque rôle (mandataire constructeur, architecte, BET).",
         "elements_attendus": [
-          "Composition détaillée du groupement avec rôles clairement définis (mandataire constructeur, architecte, BET structure, BET fluides/énergétique, désamiantage/démolition, paysagiste, pilotage réemploi)",
-          "Effectifs moyens annuels et encadrement sur N-3, N-2, N-1 pour chaque membre",
-          "Adéquation des compétences humaines aux objectifs de l'opération (site occupé, phasage tiroir, RE2020 seuil 2028)",
-          "Moyens assurant la continuité et la coordination entre MOE conception et MOE d'exécution si différents",
-          "Titres d'études et professionnels des responsables de conduite des travaux et de MOE",
-          "Description des outils et matériels disponibles pour l'opération"
+          "Adéquation des compétences de chaque membre du groupement à l'opération (phasage complexe, site occupé, RE2020)",
+          "Pertinence des qualifications (architecte, BET fluides/thermique, démolition-désamiantage, paysagiste, réemploi)",
+          "Moyens d'assurer la continuité et la coordination entre MOE conception et MOE d'exécution",
+          "Effectifs et personnel d'encadrement sur les 3 dernières années",
+          "Description de l'outillage, matériel et équipement technique disponible"
         ],
-        "exemple_reponse_forte": "Le groupement présente un mandataire constructeur avec 150 salariés dont 20 cadres, spécialisé en logement social en site occupé, associé à un architecte DPLG inscrit à l'Ordre et un BET fluides certifié RE2020. Un chef de projet dédié assure la continuité conception-exécution, avec une cellule de synthèse intégrée. Les CV des responsables clés (conducteur de travaux, architecte projet, ingénieur thermique) sont joints avec références détaillées sur opérations similaires.",
-        "source": "RC Article 3 et Article 5",
+        "exemple_reponse_forte": "Le groupement présente un tableau des moyens humains (Annexe 1) faisant apparaître un architecte mandataire avec référence à des opérations en site occupé, un BET fluides certifié RE2020, un spécialiste désamiantage niveau 3, et un pilote réemploi ayant conduit des diagnostics PEMD. La note explicite les passerelles prévues entre l'équipe de conception et le MOE d'exécution pour éviter toute rupture en phase chantier.",
+        "source": "RC Article 5",
+        "unite_evaluation": "points",
         "sous_criteres": []
       },
       {
-        "libelle": "Qualité et pertinence des 3 références proposées par chacune des entités (Architecte/MOEx, Entreprise Générale, BET et autres membres)",
+        "libelle": "Qualité et pertinence des 3 références proposées par chacune des entités (Architecte/MOE exécution, Entreprise Générale, BET et autres membres)",
         "ponderation_pct": 50,
-        "description": "Adéquation des références des opérateurs principaux au regard des spécificités de l'opération : phasage démolition-reconstruction en site occupé, maintien en conditions opérationnelles, nature d'ouvrages (habitat collectif), et performances énergétiques RE2020 seuil 2028 pour les BET fluides/thermiques.",
+        "description": "Évaluation de l'adéquation des références fournies par les opérateurs principaux au regard des spécificités de l'opération : phasage en site occupé avec démolition-reconstruction, nature des ouvrages (habitat collectif social), et performances énergétiques RE2020 seuil 2028 (pour les BET fluides/thermiques).",
         "elements_attendus": [
-          "3 références chacun pour : mandataire constructeur (5 dernières années), architecte (3 dernières années), BET (3 dernières années), membres démolition/désamiantage et paysagiste",
-          "Références en logement social et/ou logements gérés",
-          "Références démontrant complexité d'exécution : accès chantier restreint, démolition-reconstruction par phase, opération tiroir, déménagements/relogements, travaux en site occupé",
-          "Références en habitat collectif",
-          "Pour BET fluides/thermiques : références avec performances énergétiques RE2020 seuil 2028 ou équivalent",
-          "Références renseignées via cadre de réponse Annexe 2 avec montant, date, maître d'ouvrage, surface et spécificités"
+          "Opérations de logement social et/ou logements gérés similaires",
+          "Complexité d'exécution similaire : accès chantier restreint, démolition-reconstruction par phase, opération tiroir, déménagements/relogements, travaux en site occupé",
+          "Type d'ouvrage : habitat collectif",
+          "Pour les BET fluides/thermiques : performances énergétiques RE2020 seuil 2028",
+          "3 références exactement par opérateur (architecte, entreprise générale, BET), livrées ou en cours",
+          "Attestations du maître d'ouvrage ou déclaration de l'opérateur économique"
         ],
-        "exemple_reponse_forte": "Le mandataire présente 3 opérations de démolition-reconstruction en résidence sociale en site occupé (ANRU) livrées entre 2021 et 2025, dont une opération tiroir de 180 logements avec maintien de 120 logements occupés pendant le chantier. L'architecte justifie de 3 références en habitat collectif social similaires dont une avec label BBC Effinergie Rénovation. Le BET fluides présente une référence avec attestation RE2020 seuil 2025 anticipé.",
-        "source": "RC Article 3 et Article 5",
+        "exemple_reponse_forte": "L'entreprise générale présente 3 références de démolition-reconstruction en site occupé sur des résidences sociales (>100 logements) avec phasage de chantier et relogement temporaire des occupants. L'architecte cite 3 opérations de logement collectif social livrées en 3 ans. Le BET fluides référence 3 opérations conformes RE2020 seuil 2025 ou 2028 avec attestations RT.",
+        "source": "RC Article 5",
+        "unite_evaluation": "points",
         "sous_criteres": []
       }
     ],
     "prix": {
       "type_formule": "autre",
-      "formule_explicite": "Phase candidature uniquement — aucune offre financière n'est demandée à ce stade. La notation financière interviendra en phase offre (phase 2 de la procédure avec négociation). Le budget global est plafonné à 14 500 000 € HT.",
+      "formule_explicite": "Phase candidature uniquement : le critère de sélection ne porte que sur les capacités professionnelles, techniques et financières — aucune notation de prix à ce stade. Le barème de notation de l'offre (prix + technique) sera précisé dans le dossier de consultation de la phase offre.",
+      "source": "RC Article 5",
       "elements_a_chiffrer": [
-        "La phase candidature ne comporte pas de bordereau de prix à chiffrer",
-        "En phase offre (T4 2026) : décomposition du prix global et forfaitaire honoraires MOE + travaux dans l'enveloppe de 14 500 000 € HT",
-        "Indemnité de participation : 25 000 € HT pour offre initiale seule, 40 000 € HT si admission à négociation avec remise d'offre finale"
+        "Budget global du marché de conception-réalisation (démolition, désamiantage, honoraires MOE et travaux inclus) : 14 500 000 € HT (enveloppe plafond)",
+        "Montant global et forfaitaire du groupement (honoraires MOE + travaux)",
+        "Décomposition par phase : phase études (PC, APS, APD, PRO, VISA, assistance locataires, réemploi) et phase réalisation (EXE, SYN, travaux, DET, OPC, AOR, GPA)"
       ]
     },
-    "modalite_calcul_prix": "Phase candidature — pas de critère prix à ce stade. La procédure est en deux phases : sélection des candidats (objet du présent RC) puis phase offre en T4 2026 où les critères de jugement des offres seront précisés dans le dossier de consultation transmis aux candidats retenus."
+    "modalite_calcul_prix": "Non précisé à la phase candidature. Sera défini dans le RC de la phase offre."
   },
   "montant_marche": {
     "valeur_estimee_euros": 14500000,
     "fourchette_min_euros": null,
     "fourchette_max_euros": null,
-    "type": "plafond",
-    "duree_couverte": "30 mois (6 mois phase conception + 24 mois phase réalisation) — hors GPA",
-    "source_extraction": "RC Article 1.1 page 3 et Pré-programme page 14",
-    "commentaire": "Budget global du marché de conception-réalisation fixé à 14 500 000 € HT incluant honoraires MOE et travaux (désamiantage, démolition, reconstruction). Ce montant constitue une enveloppe plafond ferme communiquée aux candidats."
+    "type": "estime_explicite",
+    "duree_couverte": "30 mois (6 mois conception + 24 mois réalisation, hors GPA)",
+    "source_extraction": "RC Article 1.1 page 3 ; Préprogramme ESTIMATION FINANCIÈRE page 14",
+    "commentaire": "Budget global du marché de conception-réalisation explicitement annoncé à 14 500 000 € HT, honoraires MOE + travaux inclus (désamiantage et démolition compris). Ce montant constitue une enveloppe plafond."
+  },
+  "montant_3_voies": {
+    "voie_1_eur": 14500000,
+    "voie_1_source": "RC Article 1.1 — 'Le montant de l'enveloppe budgétaire consacrée au marché de conception-réalisation est de 14 500 000 € HT (honoraires MOE + travaux)' ; Préprogramme page 14",
+    "voie_2_disponible": false,
+    "voie_2_min_eur": null,
+    "voie_2_max_eur": null,
+    "voie_2_hypotheses": [],
+    "voie_2_raison_indisponible": "Voie 1 disponible et explicite : montant publié de 14,5 M€ HT. Estimation bottom-up non nécessaire."
+  },
+  "cout_realisation": {
+    "cout_total_eur": 12180000,
+    "cout_min_eur": 11200000,
+    "cout_max_eur": 13100000,
+    "postes": [
+      {
+        "poste": "Désamiantage et démolition",
+        "detail": "5 055 m² de SHON existante à désamianter + démolir en 3 phases, ratio marché ~250-350 €/m² tout compris (présence amiante avérée, site occupé, phasage complexe)",
+        "montant_eur": 1515000
+      },
+      {
+        "poste": "Gros œuvre / fondations / sous-sol",
+        "detail": "5 311 m² SDP neuve R+3 + 1 sous-sol commun avec 59 places parking. Ratio GO neuf logement collectif ~550-650 €/m² SDP hors VRD",
+        "montant_eur": 3186600
+      },
+      {
+        "poste": "Second œuvre tous corps d'état (cloisons, revêtements, menuiseries, plomberie, chauffage, VMC, électricité, courants faibles)",
+        "detail": "5 311 m² SDP neuve. Résidence sociale avec prestations Adoma (cahier des charges 2026) : ratio SO ~750 €/m² SDP (ascenseurs, contrôle d'accès, vidéo-prévention, fibre optique, mobilier intégré)",
+        "montant_eur": 3983250
+      },
+      {
+        "poste": "VRD, espaces extérieurs, parking aérien et paysager",
+        "detail": "Terrain 5 039 m², aménagements extérieurs, voirie privée, clôtures, éclairage, bornes IRVE (100% précâblage), espaces verts. Forfait estimé",
+        "montant_eur": 800000
+      },
+      {
+        "poste": "Honoraires MOE conception (architecte, BET structure, BET fluides/thermique, économiste, paysagiste, pilote réemploi)",
+        "detail": "Honoraires sous-groupement concepteurs : environ 7-8% de l'enveloppe travaux (~11,5 M€ travaux × 7,5%)",
+        "montant_eur": 862500
+      },
+      {
+        "poste": "OPC, DET, assistance locataires, déménagements/relogements, mission réemploi",
+        "detail": "Prestations complémentaires d'organisation de chantier en site occupé (220 logements maintenu), mission MOUS relogement, pilotage réemploi. Forfait estimé",
+        "montant_eur": 350000
+      },
+      {
+        "poste": "Encadrement chantier, assurances, études géotechniques, frais généraux groupement",
+        "detail": "Coordination chantier complexe (3 phases), assurance décennale/RC pro groupement, étude de sol (fondations spéciales à confirmer), frais généraux mandataire",
+        "montant_eur": 480000
+      }
+    ],
+    "taux_journaliers_retenus": "Taux marché indicatifs 2024-2025 : architecte chef de projet 750 €/j, ingénieur BET 650 €/j, économiste construction 600 €/j ; ratio GRO neuf logement collectif 550-650 €/m² SDP ; ratio second œuvre résidentiel collectif 700-800 €/m² SDP (équipements Adoma inclus) ; désamiantage/démolition site occupé 250-350 €/m² SDP. Ces taux sont des références de marché indicatives — la structure de coûts réelle du candidat peut varier significativement.",
+    "commentaire": "Estimation du coût de réalisation à la charge du groupement candidat, hors revente/marge. Le budget publié (revenu) est de 14,5 M€ HT. L'estimation de coût central est de ~12,2 M€, laissant une marge brute potentielle de ~2,3 M€ (~16%), cohérente avec la complexité du chantier (site occupé, phasage, amiante). L'incertitude principale porte sur les coûts de désamiantage (RAAT non encore remis aux candidats) et sur les fondations spéciales (à confirmer par étude de sol). Dimension variée pour la fourchette : ratio unitaire des travaux (±10%)."
   },
   "revision_prix": {
     "type": "non_communique",
@@ -149,121 +334,249 @@
     "periodicite": null,
     "formule_revision": null,
     "source_extraction": null,
-    "commentaire": "Aucun CCAP ni clause de révision des prix n'est présent dans les pièces fournies à ce stade (phase candidature uniquement). Les modalités de révision des prix seront probablement précisées dans le DCE phase offre."
+    "commentaire": "Le CCAP n'est pas fourni dans les pièces du DCE de phase candidature. La révision des prix sera précisée dans le dossier de la phase offre. Pour un marché de conception-réalisation de 30 mois, une formule d'indexation BTP (type BT01 ou index bâtiment) est classiquement prévue."
   },
   "alertes_prix": [
-    "Enveloppe budgétaire plafonnée à 14 500 000 € HT ferme pour l'ensemble MOE + travaux sur 206 logements + désamiantage/démolition + parking sous-sol — soit environ 70 400 €/logement toutes prestations incluses, niveau potentiellement tendu au regard des contraintes de site occupé et de phasage.",
-    "Indemnité de participation de 40 000 € HT versée aux candidats admis à négocier et ayant remis une offre finale — à déduire de la rémunération du titulaire attributaire.",
-    "Phase candidature uniquement : aucun critère prix n'est évalué à ce stade. Les modalités de jugement financier des offres seront définies en phase offre (T4 2026).",
-    "Budget déclaré incluant déménagements-relogements des résidents à la charge du groupement — coût à intégrer dans le chiffrage sans budget séparé identifié."
+    "Budget plafond ferme à 14 500 000 € HT incluant honoraires MOE + travaux + désamiantage : enveloppe all-in contraignante pour un chantier de cette complexité (site occupé, amiante, phasage 3 phases, RE2020 seuil 2028)",
+    "Indemnité de participation différenciée : 25 000 € HT pour offre initiale seule, 40 000 € HT pour les candidats admis à négocier ayant remis une nouvelle offre — l'indemnité est déduite de la rémunération de l'attributaire",
+    "Présence d'amiante confirmée mais RAAT complémentaires non encore remis aux candidats en phase candidature (transmis en phase offre) : risque de sous-estimation du poste désamiantage à budgéter avec marge de sécurité",
+    "Fondations spéciales 'à confirmer' par étude de sol pour le sous-sol parking : aléa géotechnique non chiffré pouvant impacter significativement le coût GRO"
   ],
   "references_exigees": {
     "experience_minimale_annees": 5,
-    "experience_source": "RC Article 3 — références entreprise travaux sur 5 dernières années",
+    "experience_source": "RC Article 3 — références entreprise travaux sur 5 dernières années ; références architecte et BET sur 3 dernières années",
     "volume_min_references_similaires": 3,
-    "volume_min_references_unite": "références d'opérations similaires livrées",
-    "secteur_experience": "Opérations de logement social et/ou logements gérés en habitat collectif, avec complexité d'exécution (démolition-reconstruction par phase, opérations tiroirs, travaux en site occupé, déménagements/relogements).",
-    "secteur_source": "RC Article 3",
+    "volume_min_references_unite": "références par opérateur (architecte, entreprise générale, BET)",
+    "secteur_experience": "Opérations de logement social et/ou logements gérés en habitat collectif, avec complexité d'exécution (site occupé, démolition-reconstruction par phase, opération tiroir, déménagements/relogements). Pour les BET fluides/thermiques : performances énergétiques RE2020 seuil 2028.",
+    "secteur_source": "RC Article 3 et Article 5",
     "certifications_obligatoires": [
       {
-        "libelle": "Attestation d'inscription à l'Ordre des Architectes (loi 77-2 du 03/01/1977)",
-        "source": "RC Article 2.2"
+        "libelle": "Inscription à l'Ordre des Architectes (attestation obligatoire) — conformément à la loi n° 77-2 du 3 janvier 1977 sur l'architecture",
+        "codes": [],
+        "bloquante": true,
+        "source": "RC Article 2.2 et Article 3"
       },
       {
-        "libelle": "Attestations assurance responsabilité civile professionnelle (RCP)",
+        "libelle": "Assurance Responsabilité Civile Professionnelle (RCP) pour l'ensemble des membres du groupement",
+        "codes": [],
+        "bloquante": true,
         "source": "RC Article 6"
       },
       {
-        "libelle": "Attestations assurance responsabilité civile décennale (RCD)",
+        "libelle": "Assurance Responsabilité Civile Décennale (RCD) pour les membres intervenant en travaux",
+        "codes": [],
+        "bloquante": true,
         "source": "RC Article 6"
       },
       {
-        "libelle": "Certificats de qualification professionnelle établis par organismes indépendants pour chaque membre du groupement",
+        "libelle": "Certificats de qualification professionnelle établis par des organismes indépendants (Qualibat ou équivalent) pour les corps d'état travaux",
+        "codes": [],
+        "bloquante": false,
         "source": "RC Article 3"
       }
     ],
     "autres_exigences": [
       {
-        "libelle": "Chiffre d'affaires global de l'entreprise mandataire ou du groupement mandataire (moyenne des 3 derniers exercices) ≥ 21 900 000 € HT",
+        "libelle": "Chiffre d'affaires global du mandataire constructeur (ou groupement mandataire) : moyenne sur 3 derniers exercices ≥ 21 900 000 € HT (1,5× le montant du marché)",
+        "source": "RC Article 3 — 'le chiffre d'affaires global de l'entreprise ou groupement d'entreprise mandataire, calculé sur la moyenne des 3 dernières années, ne peut être inférieur à vingt et un millions neuf cent milles euros HT (21,9 M€ HT)'"
+      },
+      {
+        "libelle": "Déclarations appropriées de banques ou preuve d'assurance des risques professionnels pertinents",
         "source": "RC Article 3"
       },
       {
-        "libelle": "Déclaration sur l'honneur de non-interdiction de soumissionner (articles L.2141-1 à L.2141-5 et L.2141-7 à L.2141-11 CCP)",
-        "source": "RC Article 3"
-      },
-      {
-        "libelle": "Justification de la régularité au regard de l'emploi des travailleurs handicapés (articles L.5212-1 à L.5212-11 code du travail)",
+        "libelle": "Effectifs moyens annuels et importance du personnel d'encadrement sur 3 dernières années (à renseigner dans l'Annexe 1)",
         "source": "RC Article 3"
       }
     ]
   },
+  "dossier_candidature": {
+    "pieces_a_fournir": [
+      {
+        "libelle": "Lettre de candidature ou DC1 indiquant l'intention de soumissionner, les membres du groupement et le mandataire",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC Article 3"
+      },
+      {
+        "libelle": "Document relatif aux pouvoirs de la personne habilitée à engager le candidat",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC Article 3"
+      },
+      {
+        "libelle": "Déclaration sur l'honneur (modèle Annexe 1 du RC) attestant l'absence de cas d'interdiction de soumissionner et la conformité emploi travailleurs handicapés",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC Article 3"
+      },
+      {
+        "libelle": "Cadre de réponse Annexe 1 complété : composition du groupement, compétences, effectifs et capacités financières (CA) de chaque membre",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC Article 3 et Article 5"
+      },
+      {
+        "libelle": "Cadre de réponse Annexe 2 complété : 3 références par opérateur principal (constructeur/mandataire, architecte, BET fluides, autres membres)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC Article 3 et Article 5"
+      },
+      {
+        "libelle": "Attestation d'inscription à l'Ordre des Architectes pour le(s) architecte(s) du groupement",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC Article 2.2 et Article 3"
+      },
+      {
+        "libelle": "Déclaration concernant le chiffre d'affaires global et CA domaine d'activité, sur 3 derniers exercices",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC Article 3"
+      },
+      {
+        "libelle": "Déclarations appropriées de banques ou preuve d'assurance des risques professionnels pertinents",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC Article 3"
+      },
+      {
+        "libelle": "Certificats de qualification professionnelle (organismes indépendants) pour les membres du groupement",
+        "phase": "candidature",
+        "obligatoire": false,
+        "source": "RC Article 3"
+      },
+      {
+        "libelle": "Certificats de qualité (accessibilité, normes européennes) le cas échéant",
+        "phase": "candidature",
+        "obligatoire": false,
+        "source": "RC Article 3"
+      },
+      {
+        "libelle": "Description de l'outillage, matériel et équipement technique disponible",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC Article 3"
+      },
+      {
+        "libelle": "Indication des titres d'études et professionnels des responsables de prestations",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC Article 3"
+      },
+      {
+        "libelle": "Engagements écrits des sous-traitants/co-traitants si leurs capacités sont utilisées pour justifier les capacités du candidat",
+        "phase": "candidature",
+        "obligatoire": false,
+        "source": "RC Article 3"
+      },
+      {
+        "libelle": "Copie du/des jugements de redressement judiciaire le cas échéant",
+        "phase": "candidature",
+        "obligatoire": false,
+        "source": "RC Article 3"
+      },
+      {
+        "libelle": "Attestations RCP et RCD (demandées aux candidats sélectionnés avant passage en phase offre)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC Article 6"
+      },
+      {
+        "libelle": "Attestations fiscales et sociales (demandées aux candidats envisagés pour la phase offre)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC Article 6"
+      },
+      {
+        "libelle": "Extrait Kbis ou extrait K ou équivalent (demandé aux candidats envisagés pour la phase offre)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC Article 6"
+      }
+    ],
+    "mode_remise": "dématérialisé + copie de sauvegarde",
+    "plateforme_depot": "www.achatpublic.com",
+    "signature_electronique_exigee": null,
+    "format_signature": null,
+    "nombre_exemplaires": null,
+    "langue": "français",
+    "duree_validite_offres_jours": 180,
+    "modalites_source": "RC Article 4"
+  },
   "lots": [
     {
       "numero": 1,
-      "intitule": "Marché unique de conception-réalisation — démolition/désamiantage et reconstruction résidence Toulon Loubière",
-      "zone_geographique": "Toulon (83000) — Boulevard Ferdinand de Lesseps",
-      "volume_estime": 14500000,
-      "volume_estime_unite": "€ HT (enveloppe globale MOE + travaux)",
-      "particularites": "Marché unique sans allotissement. Groupement conjoint avec mandataire solidaire obligatoire. Équipe conception (architecte obligatoire + BET) + équipe réalisation (EG ou sous-groupement TCE). Opération en site semi-occupé, 3 phases maximum, 206 logements reconstruits sur 5 311 m² SDP, désamiantage et démolition de 5 055 m² existants, 59 places parking sous-sol."
+      "intitule": "Marché de conception-réalisation pour la démolition-reconstruction de la résidence dite Toulon Loubière située Boulevard Ferdinand de Lesseps, à Toulon (83000)",
+      "domaine": "btp_gros_oeuvre",
+      "zone_geographique": "Toulon (83000) — département Var, région Provence-Alpes-Côte d'Azur",
+      "volume_estime": 5311,
+      "volume_estime_unite": "m² SDP neuve (+ 5 055 m² de démolition existant)",
+      "cout_estime_min_eur": 11200000,
+      "cout_estime_max_eur": 13100000,
+      "particularites": "Marché unique toutes prestations conception + réalisation. Montant plafond 14,5 M€ HT. Site occupé en permanence (220 logements minimum), désamiantage obligatoire, 3 phases maximum, RE2020 seuil 2028, démarche réemploi obligatoire. Groupement obligatoire (constructeur mandataire + sous-groupement de concepteurs avec architecte)."
     }
   ],
+  "tranches": [],
   "calendrier": {
     "date_limite_offres": "2026-07-15",
-    "date_demarrage_prevue": "2027-11-01",
-    "duree_marche": "30 mois hors GPA (6 mois phase conception + 24 mois phase réalisation) — réception prévue décembre 2029, fin GPA décembre 2030"
+    "date_demarrage_prevue": "2027-05-01",
+    "duree_marche": "30 mois hors GPA (6 mois conception + 24 mois réalisation) ; GPA 12 mois supplémentaires. Réception prévue décembre 2029."
   },
   "alertes_candidat": [
-    "CA minimum OBLIGATOIRE : le chiffre d'affaires global du mandataire ou groupement mandataire (moyenne 3 derniers exercices) doit être ≥ 21 900 000 € HT — condition éliminatoire explicite (RC Article 3).",
-    "Inscription à l'Ordre des Architectes OBLIGATOIRE pour le membre architecte du groupement — attestation à fournir impérativement à peine d'irrecevabilité (RC Article 2.2).",
-    "Un même membre du groupement NE PEUT PAS appartenir à plusieurs groupements candidats, sauf pour les BET (structure, fluide, thermique, paysagiste, pilotage réemploi) — la violation entraîne le rejet de la candidature (RC Article 2.2).",
-    "Compétences obligatoires toutes présentes dans le groupement : architecture, économie de la construction, ingénierie structure, ingénierie génie climatique/fluide/thermique/VRD, désamiantage ET démolition, travaux TCE, aménagement paysager, MOE d'exécution si différent du MOE conception — tout manquant = candidature insuffisante (RC Article 2.2).",
-    "3 références distinctes OBLIGATOIRES pour chaque entité principale (mandataire constructeur, architecte, BET) remplies via les cadres de réponse Annexes 1 et 2 — toute référence non conforme au cadre ou insuffisante peut entraîner l'élimination ou la réduction de note (RC Article 5).",
-    "Remise des candidatures UNIQUEMENT par voie électronique sur www.achatpublic.com avant le 15/07/2026 à 12h00 — la remise par voie papier est proscrite (RC Article 4)."
+    "SEUIL CA ÉLIMINATOIRE : le chiffre d'affaires moyen du mandataire constructeur doit être ≥ 21 900 000 € HT sur 3 ans — condition d'élimination directe, non régularisable (RC Article 3)",
+    "ARCHITECTE OBLIGATOIRE INSCRIT À L'ORDRE : l'absence d'attestation d'inscription à l'Ordre des Architectes rend la candidature irrecevable (loi 77-2 du 3 janvier 1977, RC Article 2.2)",
+    "GROUPEMENT OBLIGATOIRE : le marché est attribué à un groupement (constructeur mandataire solidaire + sous-groupement de concepteurs). Une candidature solo ou sans architecte est irrecevable",
+    "PARTICIPATION À UN SEUL GROUPEMENT : interdiction de figurer comme membre de plusieurs groupements, sauf pour les BET spécialisés (structure, fluide, thermique, paysagiste, pilote réemploi) avec engagement anti-conflit d'intérêt — toute violation entraîne le rejet (RC Article 2.2)",
+    "PHASE CANDIDATURE UNIQUEMENT : ce DCE porte sur la sélection des candidats (3 à 5 retenus). Le dossier d'offre technique et le prix ne seront demandés qu'en phase offre (T4 2026). Ne pas remettre d'offre à ce stade.",
+    "RAAT AMIANTE NON REMIS : les rapports d'audit amiante complémentaires seront transmis uniquement aux candidats retenus en phase offre — le risque amiante est avéré mais non encore quantifié précisément pour chiffrer l'offre"
   ],
   "points_differenciants_attendus": [
     {
-      "libelle": "Expérience démontrée en opérations tiroirs de démolition-reconstruction en site occupé avec relogements",
-      "exemple": "Un groupement présentant une référence d'opération ANRU en résidence sociale avec démolition par phases, maintien de plus de 150 logements occupés et coordination déménagement-relogement documentée scorerait très haut sur le critère références (50% de la note).",
-      "source": "RC Article 3 et Article 5"
+      "libelle": "Expérience prouvée en démolition-reconstruction en site occupé avec phasage et relogement de résidents",
+      "exemple": "L'entreprise générale cite 3 références d'opérations tiroir sur des résidences sociales ou FTM occupées, avec phasage en 3 phases maximum et gestion des déménagements temporaires, attestées par le maître d'ouvrage. Elle décrit son organisation logistique pour assurer la sécurité des 220 résidents présents.",
+      "source": "RC Article 5 — critère références, spécificité 'phasage de l'opération – désamiantage et démolition en site occupé avec maintien en conditions opérationnelles'"
     },
     {
-      "libelle": "Proposition d'un phasage optimisé en moins de 3 phases réduisant la durée globale du chantier",
-      "exemple": "Le maître d'ouvrage est explicitement sensible à une réduction du délai de réalisation : un groupement proposant un phasage innovant permettant de livrer en 22 mois au lieu de 24 avec maintien continu des 220 logements sera valorisé.",
-      "source": "Pré-programme page 13"
+      "libelle": "Maîtrise des performances RE2020 seuil 2028 pour le BET fluides/thermique",
+      "exemple": "Le BET fluides produit 3 références de logement collectif social avec certification RE2020 (seuil 2025 ou 2028 anticipé), incluant une étude comparative énergétique (chauffage urbain vs ENR) et un bilan thermique prévisionnel. Il décrit sa méthode de dimensionnement pour éviter les ICPE (chaudières <1 MW total).",
+      "source": "RC Article 5 — 'Performances énergétiques attendues RE2020 seuil 2028 (uniquement pour les BET fluides, thermiques, génie climatique)'"
     },
     {
-      "libelle": "Maîtrise des performances RE2020 seuil 2028 avec approche bioclimatique adaptée au climat toulonnais",
-      "exemple": "Un BET fluides présentant des références RE2020 seuil 2028 avec calcul thermique dynamique et protections solaires passives adaptées au climat méditerranéen (confort d'été sans climatisation) répondra précisément aux attentes du cahier des charges Adoma et du critère BET.",
-      "source": "RC Article 5 et Pré-programme page 13"
+      "libelle": "Démarche réemploi des matériaux de démolition structurée et tracée",
+      "exemple": "Le groupement propose un pilote réemploi avec expérience de diagnostics PEMD sur des FTM/résidences sociales, une liste des matériaux valorisables identifiés (menuiseries, nez-de-marche, équipements chaufferie, panneaux solaires éventuels) et un plan de filière de récupération hors-site vers d'autres sites Adoma si la réutilisation in situ n'est pas possible.",
+      "source": "RC Article 2.2 — 'Pilotage du réemploi des déchets issus du chantier' ; Cahier des charges Adoma page 10"
     },
     {
-      "libelle": "Démarche de réemploi structurée et pilotage dédié intégré au groupement",
-      "exemple": "Un groupement intégrant un BDM/pilote réemploi avec méthodologie PEMD documentée (identification des matériaux réutilisables, circuits de valorisation, projet mémoire) se différencie sur une compétence appréciée par Adoma comme spécificité du projet.",
-      "source": "RC Article 2.2 et Cahier des charges Adoma section 'Le projet mémoire et la démarche de réemploi'"
+      "libelle": "Proposition de phasage optimisé réduisant la durée globale",
+      "exemple": "Le constructeur mandataire propose un planning en 2 phases au lieu de 3, avec une organisation chantier permettant une livraison en avance sur le délai de 24 mois, démontrant la maîtrise logistique de la coactivité entre les zones démolies et les zones habitées.",
+      "source": "Préprogramme page 13 — 'Le maître d'ouvrage sera sensible à une réduction du délai de réalisation des travaux'"
     },
     {
-      "libelle": "Modularité et évolutivité des logements et des structures",
-      "exemple": "Une proposition architecturale privilégiant des structures poteaux-poutres avec typologies de logements modulables (surélévation future possible, conversion RS/RSJA) valorise un critère optionnel mais explicitement apprécié par Adoma dans le cahier des charges.",
-      "source": "RC Article 2.2 et Cahier des charges Adoma section 'La rationalisation de la construction'"
+      "libelle": "Compétence en modularité et évolutivité des logements et des espaces",
+      "exemple": "L'architecte présente des références où la structure poteaux-poutres a permis des modifications ultérieures de la taille des logements, et propose des dispositions constructives facilitant une future surélévation ou une densification du programme, conformément aux attendus du cahier des charges Adoma.",
+      "source": "RC Article 2.2 — 'Les compétences suivantes sans être obligatoires seront appréciées pour leur apport au projet : Modularité et évolutivité des logements et des bureaux'"
     }
   ],
   "_meta": {
     "id_marche": "BOAMP-26-56633",
     "type": "complet",
-    "date_generation": "2026-06-14T22:56:17.333480+00:00",
-    "extraction_le": "2026-06-14T22:56:17.333480+00:00",
+    "date_generation": "2026-06-19T21:22:31.503957+00:00",
+    "extraction_le": "2026-06-19T21:22:31.503957+00:00",
     "modele": "claude-sonnet-4-6",
     "preset_utilise": "btp",
     "presets_matches": [
-      "btp"
+      "btp",
+      "ingenierie"
     ],
     "prompts_versions": {
-      "btp/_preset.json": "sha256:d1717e0d87f6c265"
+      "btp/_preset.json": "sha256:055bf6f8b2c1f771",
+      "ingenierie/_preset.json": "sha256:b924b32a088673d6"
     },
-    "tokens_input": 101836,
-    "tokens_output": 6380,
-    "cout_eur": 0.3811,
-    "duree_sec": 122.1,
+    "tokens_input": 111545,
+    "tokens_output": 10685,
+    "cout_eur": 0.4702,
+    "duree_sec": 194.9,
     "pdfs_traites": [
       {
         "nom": "0_RC phase candidatures_TOULON LOUBIERE_V.F du 09062026.PDF",
@@ -284,6 +597,51 @@
         "nom": "Cahier des charges ADOMA.pdf",
         "hash": "985e6aa7bf2662efe2881f89c5a90e03",
         "taille_chars": 205146
+      },
+      {
+        "nom": "PLAN COUPE FACADE NORD - OUEST.pdf",
+        "hash": "6f6e9d242a60c79c4665f6f7793e2490",
+        "taille_chars": 0
+      },
+      {
+        "nom": "PLAN COUPE FACADE SUD -EST.pdf",
+        "hash": "6564317fda04d7cad30dada076aaec01",
+        "taille_chars": 0
+      },
+      {
+        "nom": "PLAN DE MASSE.pdf",
+        "hash": "583a6c68a895edd0b5bd0774241e9792",
+        "taille_chars": 0
+      },
+      {
+        "nom": "PLAN NIVEAU 1 NIVEAU 2.pdf",
+        "hash": "22a9afcfbe5f1cc25b0cd4d4a0798a8e",
+        "taille_chars": 0
+      },
+      {
+        "nom": "PLAN NIVEAU 3.pdf",
+        "hash": "233df9b252afa2dafbca8761d836ffed",
+        "taille_chars": 0
+      },
+      {
+        "nom": "PLAN NIVEAU 4.pdf",
+        "hash": "beec93317d2b21f08dbdb1d90dc37a99",
+        "taille_chars": 0
+      },
+      {
+        "nom": "PLAN NIVEAU 5.pdf",
+        "hash": "987d303a87b9d81c2c4a8cb0dfcc9f3b",
+        "taille_chars": 0
+      },
+      {
+        "nom": "PLAN NIVEAU 6.pdf",
+        "hash": "ee05ba726c884a34b6ade29dbfe4ef2b",
+        "taille_chars": 0
+      },
+      {
+        "nom": "PLAN NIVEAU RDC.pdf",
+        "hash": "0ad23a7a16f298280a54846acd26ad97",
+        "taille_chars": 0
       },
       {
         "nom": "Pre_Programme de travaux _ DM_CN La LOUBIERRE _ Toulon_052026.pdf",

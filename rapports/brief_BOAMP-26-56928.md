@@ -1,6 +1,6 @@
 # Brief — Travaux d'aménagement du Parc du Mont Noir dans le cadre du projet Interreg Clim@tmont - 2 lots - Relance
 
-_Généré le 2026-06-15 01:32 par Claude claude-sonnet-4-6_
+_Généré le 2026-06-20 02:10 par Claude claude-sonnet-4-6_
 
 ## Identifiants
 - **ID Tendia** : `BOAMP-26-56928`
@@ -10,50 +10,50 @@ _Généré le 2026-06-15 01:32 par Claude claude-sonnet-4-6_
 - **DCE PLACE** : <https://www.marches-publics.info/mpiaws/index.cfm?fuseaction=dematent.login&type=Dce&Idm=1833123>
 
 ## Synthèse
-Accord-cadre de travaux d'aménagement du Parc du Mont Noir (Espace Naturel Sensible, commune de Saint-Jans-Cappel, Nord) dans le cadre du projet européen Interreg Clim@tMont. Le marché est décomposé en 2 lots : Lot 1 (fourniture et pose de mobilier extérieur en bois de châtaignier et acier Corten : bancs, plateaux d'assises, tables d'information, gardes-corps) et Lot 2 (réfection et création de cheminements en mélange terre-pierre, sable stabilisé et béton désactivé, avec emmarchements en bois). Accord-cadre mixte (bons de commande + marchés subséquents), durée 24 mois, montant maximum cumulé 145 000 € HT.
+Accord-cadre de travaux de 24 mois pour l'aménagement du Parc du Mont Noir (Espaces Naturels Sensibles, commune de Saint-Jans-Cappel, Nord), dans le cadre du projet Interreg Clim@tMont. Le marché est décomposé en 2 lots : Lot 1 – fourniture et pose de mobilier extérieur en bois (châtaignier) et acier Corten (bancs, plateaux d'assise, tables d'information, rampes d'escalier) ; Lot 2 – réfection et création de cheminements (terre-pierre, sable stabilisé, béton désactivé) et emmarchements. Montant maximum total : 145 000 € HT sur la durée du marché.
 
 ## 🏗 Chantier — caractéristiques BTP
-- **Description** : Fourniture et pose de mobilier extérieur (bancs 1,8×0,45m en bois châtaignier et acier Corten, plateaux d'assises 4,8×4,8m, tables d'information, gardes-corps) et réfection/création de cheminements (mélange terre-pierre 650m², sable stabilisé ~250m², béton désactivé ~300m², emmarchements bois ~35 marches) sur site naturel sensible avec fortes contraintes écologiques et topographiques.
-- **Type d'ouvrage** : Espace naturel sensible — mobilier paysager et cheminements en milieu naturel forestier
-- **Surface / volume** : Lot 1 : mobilier (bancs, 3 plateaux 4,8×4,8m, tables, gardes-corps) — Lot 2 : ~1200 m² de cheminements estimés (650m² terre-pierre + 250m² sable stabilisé + 300m² béton désactivé)
-- **Site occupé pendant travaux** : true — site ouvert au public (Espace Naturel Sensible), circulation maintenue ; contraintes d'accès aux engins réduites (largeur et poids limités) ; zones de haute qualité écologique à préserver en permanence
-- **Corps d'état mobilisés** : Charpente / construction bois (Lot 1 : bancs, plateaux, emmarchements), Métallerie / serrurerie acier Corten (Lot 1 : structures, gardes-corps, tables), VRD / terrassement (Lot 2 : cheminements, drainage, busage), Maçonnerie béton (Lot 2 : béton désactivé, emmarchements béton ; Lot 1 : maçonnerie grès ferrugineux sur tables), Aménagement paysager (Lot 2 : semis graminées, remise en état)
+- **Description** : Aménagement d'un espace naturel sensible (ENS) : fourniture et pose de mobilier extérieur en acier Corten et bois de châtaignier (bancs 1,8 m, plateaux d'assise 4,8×4,8 m, tables d'information, garde-corps/rampes d'escalier) ; réfection et création de cheminements (environ 1200 m² au total : 650 m² terre-pierre, 250 m² sable stabilisé, 300 m² béton désactivé) et emmarchements en bois et mélange terre-pierre ou béton désactivé.
+- **Type d'ouvrage** : Espace naturel sensible — mobilier extérieur de parc et voirie douce (cheminements piétonniers)
+- **Surface / volume** : Environ 1 200 m² de cheminements (650 m² terre-pierre + 250 m² sable stabilisé + 300 m² béton désactivé)
+- **Site occupé pendant travaux** : true — site en exploitation (espace naturel ouvert au public, présence de zones de haute qualité écologique à préserver, contraintes de circulation d'engins)
+- **Corps d'état mobilisés** : Menuiserie/serrurerie (mobilier bois-métal : bancs, plateaux, tables, garde-corps en acier Corten), Terrassement (cheminements, emmarchements, caniveaux), VRD léger (drainage, regards, buses PVC, fourreaux électriques), Maçonnerie légère (semelles béton, regards, parement pierres)
 - **Contraintes spécifiques** :
-  - Site classé Espace Naturel Sensible : zones de haute qualité écologique à préserver impérativement
-  - Validation des plans par l'Architecte des Bâtiments de France — aucune variante visuelle autorisée
-  - Accès engins très contraint : engins de petite taille (largeur et poids réduits), travail possible manuellement
-  - Arrêt possible du chantier pour nidification (mars-août) jusqu'à 6 mois sur décision du maître d'ouvrage
-  - Topographie particulière (pentes, dénivelé, zones boisées)
-  - Colorimétrie imposée très précise (grès ferrugineux ocre/rouge pour sables et béton désactivé)
-  - Bois provenant de forêts durablement gérées, certificat de provenance obligatoire, aucun traitement autoclave
-  - Visite obligatoire du site avant remise d'offre (18/06/2026)
-  - Financement partiel européen Interreg — contraintes de traçabilité
+  - Site en zone de haute qualité écologique (ENS) : protection stricte de la végétation, faune et flore
+  - Topographie accidentée du site (pente, relief irrégulier)
+  - Accessibilité réduite de certaines zones : nécessité d'engins de faible gabarit (largeur et poids réduits) voire intervention manuelle
+  - Arrêt de chantier possible jusqu'à 6 mois pour nidification (mars-août)
+  - Travaux bruyants (>70 dB) interdits les samedis et dimanches
+  - Visuels validés par l'Architecte des Bâtiments de France : aucune variante visuelle acceptée
+  - Bois fournis partiellement par le Département (moins-value à chiffrer)
+  - Constat d'huissier avant/après travaux obligatoire (Lot 2)
+  - Colorimétrie des matériaux contrainte (jaune-ocre pour sables/bétons, ocre-rouge pour graviers)
+  - Financement partiel par fonds européens Interreg
 
 ### Allotissement
-Accord-cadre mixte décomposé en 2 lots indépendants, chacun attribué à un opérateur économique unique (mono-attributaire par lot).
+Accord-cadre mixte (bons de commande + marchés subséquents) décomposé en 2 lots, mono-attributaire par lot, sans montant minimum et avec montant maximum sur 24 mois.
 - **Nombre de lots** : 2
 - **Lot 1** — Pose et fourniture de mobilier extérieur en bois et acier
-  - Corps d'état : Charpente bois / Métallerie acier Corten / Maçonnerie grès
+  - Corps d'état : Menuiserie/serrurerie métallique et bois (mobilier paysager acier Corten + bois châtaignier)
   - Montant estimé : 80 000 €
-  - Conception, fourniture et pose de bancs (4×1,80m), plateaux d'assises (3×4,8×4,8m), tables d'information (6), gardes-corps escalier (2+), tous en bois de châtaignier et acier Corten. Comprend fondations, platines galvanisées, visseries inox, maçonnerie grès en option.
+  - Fourniture et pose de bancs, plateaux d'assise, tables d'information et rampes d'escalier en acier Corten et bois de châtaignier. Comprend implantation, réalisation des plans d'exécution, fondations, visseries inoxydables. Possibilité de moins-value pour bois fourni par le Département.
 - **Lot 2** — Rénovation et création de cheminements
-  - Corps d'état : VRD / Terrassement / Béton / Aménagement paysager
+  - Corps d'état : Terrassement, VRD léger, maçonnerie légère, ouvrages bois (emmarchements)
   - Montant estimé : 65 000 €
-  - Réfection et création de cheminements en mélange terre-pierre (650m²), sable stabilisé (250m²), béton désactivé (300m²), emmarchements bois+terre-pierre et bois+béton (~35 marches), drainage (caniveaux, regards, buses PVC), fourreaux électriques, dégagement souches.
+  - Réfection et création de cheminements en mélange terre-pierre, sable stabilisé et béton désactivé. Emmarchements en traverses bois et terre-pierre ou béton désactivé. Aménagements connexes : caniveaux de drainage, regards hydrauliques, buses PVC, fourreaux électriques. Constat d'huissier, topographie, plan de récolement.
 
 ### Qualifications BTP exigées
-Le RC ne mentionne pas de qualifications Qualibat, RGE, MASE ou ISO explicitement exigées à titre d'irrecevabilité. L'assurance décennale (Lot 1, ouvrages garantis 10 ans) et l'assurance RC professionnelle sont requises de l'attributaire.
+Aucune qualification Qualibat, RGE ou certification normative n'est explicitement exigée dans le RC ou le CCAP. La visite obligatoire est exigée à peine d'irrecevabilité.
 - **MASE** : non
 - **Autres exigences** :
-  - Certificats de provenance des bois issus de forêts durablement gérées (PEFC ou équivalent) — CCTP §2.3.1 / §3.3.1
-  - Assurance décennale (Lot 1) — RC art. 'Justificatifs attributaire'
-  - Assurance RC professionnelle — RC art. 'Justificatifs attributaire'
+  - Certificats de provenance des bois (forêts durablement gérées) exigés au démarrage des travaux
+  - Attestation de mise en séchage des bois exigée avant pose
 
 ## 💶 Montant du marché
 - **Plafond accord-cadre** : **145 000 €**
   - sur 24 mois (durée de l'accord-cadre)
-  - _source : RC Tableau 7 / CCAP Tableau 7 / Avis AAPC rubrique 'Quantité ou étendue'_
-- _Note_ : Montant maximum cumulé : Lot 1 plafond 80 000 € HT + Lot 2 plafond 65 000 € HT = 145 000 € HT. Aucun montant minimum fixé. Les plafonds ne seront pas forcément atteints (accord-cadre sans minimum garanti).
+  - _source : RC tableau 7 et AAPC rubrique lots_
+- _Note_ : Lot 1 : maximum 80 000 € HT ; Lot 2 : maximum 65 000 € HT. Total maximum 145 000 € HT. Pas de montant minimum fixé. Ces plafonds sont déterminés sur la base des besoins estimés majorés d'un delta pour aléas.
 
 ## Barème de notation
 - **Valeur technique** : 60 %
@@ -61,26 +61,27 @@ Le RC ne mentionne pas de qualifications Qualibat, RGE, MASE ou ISO explicitemen
 - **Sous-critères techniques** :
   - Valeur technique : 50 %
   - Performances en matière de protection de l'environnement : 10 %
-- **Calcul du prix** : Note = (prix_le_plus_bas / prix_candidat) × 40 — note maximale à l'offre la moins disante, inversement proportionnelle pour les autres. Calcul appliqué sur la commande type (DQE) sur 24 mois.
+- **Calcul du prix** : Note prix = (prix_le_plus_bas / prix_candidat) × 40 — offre la moins disante obtient 40 points, les autres sont notées inversement proportionnellement.
 
 ## Références et qualifications exigées
 - **Expérience minimale** : —
-- **Secteur d'expérience** : Fourniture et pose de mobilier extérieur en bois et acier / aménagement de cheminements en espace naturel sensible
-- **Certifications obligatoires** : Certificats de provenance des bois issus de forêts durablement gérées (PEFC, FSC ou équivalent) (source=CCTP §2.3.1 / §3.3.1), Attestation d'assurance décennale (obligatoire pour l'attributaire — Lot 1 garanti 10 ans) (source=RC art. 'Justificatifs à produire par l'attributaire'), Attestation d'assurance de responsabilité civile professionnelle (source=RC art. 'Justificatifs à produire par l'attributaire'), Attestation de visite obligatoire du site (18/06/2026) ou justification documentée de connaissance approfondie du site (source=RC art. 'Visite obligatoire')
+- **Secteur d'expérience** : Non précisé dans le RC — aucune référence minimum exigée formellement. Le mémoire technique valorise l'expérience en aménagements ENS et travaux sur sites naturels sensibles.
+- **Certifications obligatoires** : Attestation de visite obligatoire du site (ou justification documentée de connaissance approfondie du site) (bloquante=True, source=RC — Visite obligatoire), Certificats de provenance des bois (origine forêts durablement gérées, ex. PEFC ou FSC) — exigés avant démarrage des travaux (source=CCTP article 2.3.1), Attestation d'assurance décennale (article L241-1 du Code des assurances) (bloquante=True, source=RC — Justificatifs à produire par l'attributaire), Attestation d'assurance de responsabilité civile professionnelle (bloquante=True, source=RC — Justificatifs à produire par l'attributaire)
 - **Autres exigences** :
-  - Carte d'identification professionnelle du BTP pour les salariés sur chantier (article L.8291-1 Code du travail) (source=CCAP §7)
-  - Déclaration d'intention de commencement des travaux (DICT) avant démarrage (source=CCTP §4.4)
+  - Certificat URSSAF (régularité sociale) et attestation fiscale datant de moins de 6 mois, fournis par l'attributaire avant notification (source=CCAP article 7 — Obligation de vigilance)
+  - Attestation sur l'honneur d'absence d'exclusion de la procédure de passation (source=RC — Contenu des plis)
+  - Pour les entreprises BTP : attestation congés payés (organismes compétents, au 31 décembre de l'année précédente) (source=RC — Justificatifs à produire par l'attributaire)
 
 ## ⚠ Alertes candidat
-- VISITE OBLIGATOIRE du site le 18/06/2026 (avant la date limite de dépôt) : l'attestation de visite doit impérativement être jointe à l'offre, sous peine d'irrecevabilité — RC art. 'Visite obligatoire'
-- Plans validés par l'Architecte des Bâtiments de France : aucune variante visuelle autorisée, l'entreprise doit être en mesure de respecter des prescriptions architecturales contraignantes et de produire des plans d'exécution visés par le MO avant toute fabrication
-- Bois strictement non traités par autoclave avec certificat de provenance forêts gérées durables obligatoire — le non-respect est rédhibitoire car le CCTP impose une vérification avant démarrage
-- Arrêt chantier possible jusqu'à 6 mois consécutifs pour nidification (mars-août) sans indemnité ni prolongation de délai automatique : à anticiper impérativement dans le planning et le chiffrage des charges fixes
-- Le RC ne liste pas de qualification Qualibat exigée à titre d'irrecevabilité, mais la complexité du Lot 1 (acier Corten + bois + maçonnerie sur site ENS) exige une expérience avérée que le sous-critère 'Qualité des matériaux' (30%) valorisera fortement : un dossier sans références similaires sera très pénalisé
+- VISITE OBLIGATOIRE le 18/06/2026 : l'attestation de visite doit impérativement être jointe à l'offre. Aucune autre visite ne sera organisée — tout candidat n'ayant pas visité le site (ou ne pouvant justifier une connaissance documentée approfondie) sera irrecevable.
+- ARRÊT DE CHANTIER POTENTIEL jusqu'à 6 mois pour nidification (mars-août) : le candidat doit intégrer ce risque dans ses prix sans pouvoir prétendre à rémunération complémentaire.
+- BOIS CERTIFIÉ OBLIGATOIRE : les certificats de provenance (forêts durablement gérées) et les attestations de séchage des bois doivent être fournis avant démarrage des travaux — toute défaillance peut bloquer le chantier.
+- MARCHÉ SANS MONTANT MINIMUM : aucun revenu n'est garanti sur les 24 mois. La décision de candidater doit tenir compte du coût de réponse (mémoire technique, visite) par rapport au chiffre d'affaires espéré.
+- CHANTIER EN ENS (Espace Naturel Sensible) : contraintes environnementales très strictes (zones protégées balisées, engins à faible emprise, interdiction de traitement des bois par autoclave) — la méconnaissance de ces contraintes peut entraîner des pénalités élevées.
 
 ## 💡 Points différenciants attendus
-- Maîtrise colorimétrique et esthétique des matériaux de cheminement (exemple=Fournir des échantillons physiques ou des photos comparatives montrant la correspondance des graviers et béton désactivé proposés avec les grès ferrugineux du Mont Noir (nuance ocre/rouge vs jaune-ocre selon le cheminement), avec justification de la source de carrière., source=CCTP §3.1 / Annexe 6 'Colorimétrie des matériaux')
-- Expérience en milieu naturel sensible avec engins à gabarit réduit (exemple=Présenter des références de chantiers réalisés en espace naturel ou forestier avec des engins de largeur ≤1,2m et justifier la disponibilité de ces engins (fiche matériel avec photo, localisation du dépôt à moins de 50km)., source=CCTP §4.5 / BPU Lot 1 §1.1.1)
-- Circuits d'approvisionnement courts pour le bois de châtaignier (exemple=Identifier un fournisseur de bois de châtaignier régional (Hauts-de-France ou région limitrophe) disposant d'un séchoir et capable de fournir l'attestation de mise en séchage, en démontrant que les délais de séchage (6-8 semaines étuve) sont compatibles avec le planning de démarrage en septembre 2026., source=CCTP §2.3.1 / RC critère environnemental 'filières d'approvisionnement')
-- SOPRE et SOSED adaptés spécifiquement aux ENS (protection faune/flore, pollution accidentelle) (exemple=Décrire des procédures concrètes propres aux espaces naturels : balisage des zones protégées par espèces, kit anti-pollution systématique sur chaque engin, procédure d'alerte en cas de découverte d'espèce protégée, filières de valorisation des souches et déchets verts en circuit local (broyage sur site, compostage)., source=RC Tableau 10 critère environnemental / CCTP §4.11)
-- Proposition d'organisation du chantier compatible avec la contrainte nidification (mars-août) (exemple=Dans le mémoire technique, proposer un phasage explicite anticipant l'arrêt potentiel de mars à août 2027 : réaliser les travaux les plus impactants (terrassements, fondations) avant mars 2027, puis finitions et mobilier après août 2027, avec planning de Gantt joint., source=CCAP §5.1 / CCTP §4.6)
+- Expertise avérée en mobilier bois-métal sur mesure pour espaces naturels sensibles (exemple=Présenter des références de réalisations similaires (mobilier acier Corten + bois châtaignier en site ENS ou classé) avec photos et coordonnées du maître d'ouvrage, montrant la maîtrise de la colorimétrie et des contraintes ABF., source=CCTP article 2.1 et RC tableau 10)
+- Maîtrise de la colorimétrie des matériaux validée par l'Architecte des Bâtiments de France (exemple=Fournir des échantillons physiques ou visuels de référence (planches couleur) pour chaque matériau (acier Corten patiné, sable stabilisé jaune-ocre, béton désactivé) démontrant la cohérence avec la palette approuvée par l'ABF., source=CCTP annexe 6 et article 3.2)
+- Disponibilité d'engins de faible gabarit adaptés aux zones à accessibilité réduite (exemple=Décrire précisément les engins mobilisables (mini-pelle ≤ 2 t avec largeur < 1,5 m, dumper chenillé) avec fiches techniques et photos, et préciser les modes opératoires manuels pour les zones inaccessibles aux engins., source=CCTP article 4.5 et CCAP article 5.1)
+- Filières d'approvisionnement locales et circulaires pour les matériaux (exemple=Proposer un approvisionnement en bois châtaignier issu de forêts certifiées PEFC situées dans un rayon de 150 km, des graviers siliceux de carrière régionale et un fournisseur d'acier Corten disposant d'un stock en France, avec justification des distances et des certifications., source=RC tableau 10 — Performances en matière de protection de l'environnement)
+- Protocole de protection de la faune et flore pendant le chantier (SOPRE détaillé) (exemple=Décrire un protocole de balisage ECO préalable avec écologue référent, une procédure d'arrêt immédiat en cas de découverte d'espèces protégées, et un plan d'alerte formalisé avec contacts des services de l'État compétents (DREAL, ABF)., source=CCTP article 4.11 et RC tableau 10)

@@ -1,0 +1,464 @@
+{
+  "synthese_marche": "Marché public de restauration collective pour AG2R LA MONDIALE (IRC Agirc-Arrco), portant sur l'exploitation de 4 restaurants d'entreprise (RIE/RE) et prestations annexes (room service, événementiel, petits déjeuners). Le marché est divisé en 2 lots géographiques : Lot 1 (Paris, Esvres, Chartres) avec un plafond de 8 000 000 € HT, et Lot 2 (Marseille) avec un plafond de 2 500 000 € HT. Accord-cadre mono-attributaire d'une durée ferme de 3 ans, reconductible 1 fois pour 1 an, exécuté à prix unitaires (frais fixes d'admission + prix repas à la consommation).",
+  "domaines_metier": [
+    {
+      "code": "restauration_collective_prestations"
+    }
+  ],
+  "raison_classification": "Le marché porte exclusivement sur la gestion déléguée de restaurants d'entreprise (production culinaire, distribution des repas, encaissement, plonge, nettoyage, prestations annexes événementielles) pour les salariés d'AG2R LA MONDIALE. Le CPV 55000000, le CCAP et le CCTP décrivent explicitement une prestation de restauration collective déléguée avec BPU par composantes tarifaires et frais fixes d'admission, correspondant exactement à la définition de 'restauration_collective_prestations'.",
+  "caracteristiques_metier": {
+    "description": "Exploitation de 4 restaurants d'entreprise (RIE Paris, RIE Esvres, RE Chartres, RE Marseille) pour les collaborateurs d'AG2R LA MONDIALE : production culinaire, distribution des repas, encaissement par badge avec retenue sur paie, plonge, nettoyage, gestion des offices, animations, reporting, plus prestations annexes à la demande (room service, événementiel, petits déjeuners buffet). Reprise du personnel transférable de la convention collective nationale restauration collective n°3225.",
+    "criteres_eligibilite": [
+      "Expérience en restauration collective d'entreprise",
+      "Convention collective nationale restauration collective n°3225 applicable",
+      "Capacité à assurer la reprise du personnel transférable",
+      "Respect des réglementations EGAlim et Climat & Résilience (produits biologiques et labellisés)",
+      "Clause d'insertion par l'activité économique : 300 heures/an/établissement",
+      "Assurance responsabilité civile professionnelle et intoxication alimentaire obligatoire"
+    ]
+  },
+  "bareme_notation": {
+    "valeur_technique_pct": null,
+    "valeur_prix_pct": null,
+    "sous_criteres_techniques": [],
+    "prix": {
+      "type_formule": "autre",
+      "formule_explicite": "Le barème de notation détaillé n'est pas disponible dans les pièces fournies (RC non fourni). La facturation est à prix unitaires selon BPU (frais fixes d'admission + prix repas à la consommation) avec révision annuelle au 1er janvier à partir de 2028.",
+      "source": null,
+      "elements_a_chiffrer": [
+        "Frais de personnel mensuels par établissement",
+        "Frais généraux mensuels par établissement",
+        "Amortissement mensuel des investissements",
+        "Prix par catégorie tarifaire des entrées, plats, fromages, laitages, desserts, fruits, boissons, pains",
+        "Formules repas économiques (2 et 3 composantes)",
+        "Formule visiteurs/extérieurs (montant TTC fixe)",
+        "Frais fixes d'admission à la consommation (prix unitaire par repas)",
+        "Prestations annexes : boissons, petits déjeuners, plateaux repas, cocktails, boissons alcoolisées, vacations personnel"
+      ]
+    },
+    "modalite_calcul_prix": "Révision annuelle au 1er janvier à partir de 2028. Coûts alimentaires variables : P = P0 × (A/A0) indice INSEE N°001763856 alimentation. Coûts non alimentaires d'admission : P = P0 × (S/S0) indice INSEE N°0010562705 salaires hébergement-restauration."
+  },
+  "montant_marche": {
+    "valeur_estimee_euros": 10500000,
+    "fourchette_min_euros": 8000000,
+    "fourchette_max_euros": 10500000,
+    "type": "plafond",
+    "duree_couverte": "Durée totale maximale du marché (3 ans ferme + 1 an reconductible = 4 ans)",
+    "source_extraction": "CCAP Article 4.1 page 8 — plafonds accordé-cadre : Lot 1 = 8 000 000 € HT, Lot 2 = 2 500 000 € HT",
+    "commentaire": "Plafonds accord-cadre publiés : Lot 1 = 8 000 000 € HT, Lot 2 = 2 500 000 € HT, soit un total plafond de 10 500 000 € HT sur 4 ans maximum. Ces montants sont des plafonds et non des estimations garanties."
+  },
+  "montant_3_voies": {
+    "voie_1_eur": 10500000,
+    "voie_1_source": "CCAP Article 4.1 page 8 — plafonds accordé-cadre Lot 1 = 8 000 000 € HT et Lot 2 = 2 500 000 € HT",
+    "voie_2_disponible": false,
+    "voie_2_min_eur": null,
+    "voie_2_max_eur": null,
+    "voie_2_hypotheses": [],
+    "voie_2_raison_indisponible": "Voie 1 disponible : les plafonds sont explicitement publiés dans le CCAP. Voie 2 non nécessaire. Par recoupement indicatif : volume annuel de référence = 36 798 + 49 259 + 35 437 + 28 118 = 149 612 repas/an × ~5-6 € admission + denrées ≈ 2,5 M€/an soit ~8-10 M€ sur 4 ans, cohérent avec les plafonds publiés."
+  },
+  "cout_realisation": {
+    "cout_total_eur": 8400000,
+    "cout_min_eur": 7200000,
+    "cout_max_eur": 9600000,
+    "postes": [
+      {
+        "poste": "Lot 1 — Frais de personnel (3 sites : Paris, Esvres, Chartres)",
+        "detail": "Équipes cuisine/distribution/direction sur 3 sites, personnel CCN restauration collective. Estimation : ~15 ETP × 30 000 €/an chargé × 4 ans = 1 800 000 € base, + remplacements ~15%",
+        "montant_eur": 2070000
+      },
+      {
+        "poste": "Lot 1 — Denrées alimentaires (3 sites)",
+        "detail": "121 494 repas/an × ~3,80 € denrées/repas × 4 ans",
+        "montant_eur": 1846815
+      },
+      {
+        "poste": "Lot 1 — Frais généraux d'exploitation (3 sites)",
+        "detail": "Entretien préventif, produits nettoyage, emballages, linge, EPI, informatique, encaissement, contrôles sanitaires, assurances à charge prestataire",
+        "montant_eur": 900000
+      },
+      {
+        "poste": "Lot 1 — Investissements et amortissements (3 sites)",
+        "detail": "Batterie de cuisine, vaisselle, signalétique, équipements de distribution, systèmes d'encaissement — amortis sur durée du marché",
+        "montant_eur": 350000
+      },
+      {
+        "poste": "Lot 2 — Frais de personnel (Marseille)",
+        "detail": "Équipe site Marseille. Estimation : ~4 ETP × 30 000 €/an chargé × 4 ans = 480 000 €, + remplacements ~15%",
+        "montant_eur": 552000
+      },
+      {
+        "poste": "Lot 2 — Denrées alimentaires (Marseille)",
+        "detail": "28 118 repas/an × ~3,80 €/repas × 4 ans",
+        "montant_eur": 427394
+      },
+      {
+        "poste": "Lot 2 — Frais généraux d'exploitation (Marseille)",
+        "detail": "Entretien, produits, emballages, EPI, informatique, assurances à charge prestataire",
+        "montant_eur": 210000
+      },
+      {
+        "poste": "Lot 2 — Investissements et amortissements (Marseille)",
+        "detail": "Renouvellement partiel équipements vétustes signalés dans audit PPA (chambres froides BOF et négative en mauvais état)",
+        "montant_eur": 150000
+      }
+    ],
+    "taux_journaliers_retenus": "Taux marché indicatifs restauration collective : agent de restauration CCN ~2 000 €/mois brut; charges patronales + 13e mois ~40% = ~2 800 €/mois chargé; ratio denrées ~3,60-4,00 €/repas pour restauration d'entreprise de qualité EGAlim; marge brute sectorielle 8-13% pour restauration collective déléguée. Taux indicatifs à ajuster selon offre réelle.",
+    "commentaire": "Estimation bottom-up basée sur les volumes de référence du BPU (149 612 repas/an total, 4 sites) et la structure de charges type d'un prestataire de restauration collective. Les frais généraux à charge du prestataire sont importants (systèmes d'encaissement, entretien préventif cuisine, nettoyage zones production, produits d'entretien, emballages, tenues, contrôles HACCP, assurances RC intoxication). La reprise du personnel transférable génère des coûts fixes maîtrisables. Le BPU vierge ne permet pas de chiffrer le prix de vente réel retenu par le candidat."
+  },
+  "revision_prix": {
+    "type": "indexation",
+    "indices_utilises": [
+      "INSEE N°001763856 Alimentation y compris restaurants cantines cafés",
+      "INSEE N°0010562705 Salaires mensuels de base Hébergement et restauration"
+    ],
+    "ponderation": "Deux formules distinctes selon la nature des coûts : (1) Coûts alimentaires variables (prix repas, prestations annexes) : P = P0 × (A/A0) avec A = moyenne 12 derniers mois indice alimentation INSEE. (2) Coûts non alimentaires d'admission (frais fixes) : P = P0 × (S/S0) avec S = indice salaires hébergement-restauration INSEE.",
+    "periodicite": "annuelle",
+    "formule_revision": "Alimentaire : P = P0 × (A/A0). Non-alimentaire/admission : P = P0 × (S/S0). Première révision au 1er janvier 2028.",
+    "source_extraction": "CCAP Article 9.1 pages 15-16",
+    "commentaire": "Formule bi-index adaptée au secteur restauration collective : l'index alimentaire protège contre l'inflation des denrées, l'index salarial couvre les coûts de main d'œuvre. Favorable au prestataire en période d'inflation. Attention : la première révision n'intervient qu'au 1er janvier 2028 (soit ~18 mois après le début du marché si démarrage mi-2026), le prestataire doit absorber l'inflation initiale sans révision."
+  },
+  "alertes_prix": [
+    "Plafond accord-cadre publié (Lot 1 : 8 M€, Lot 2 : 2,5 M€) mais sans minimum garanti — le volume réel dépendra de la fréquentation constatée",
+    "Mécanisme de seuil de déclenchement sur fréquentation : si écart > ±8% sur 3 mois consécutifs, analyse conjointe et possible ajustement des frais fixes par avenant (CCAP Article 9.2) — risque de renégociation du fixe si la fréquentation baisse",
+    "Première révision de prix uniquement au 1er janvier 2028 : le prestataire supporte l'inflation 2026-2027 sans compensation — à anticiper dans le chiffrage initial",
+    "Le modèle d'encaissement par retenue sur salaire (sans passage en caisse classique) génère des coûts back-office spécifiques à intégrer dans les frais fixes (référent paie & réconciliation par lot — CCAP Article 9.3)",
+    "Pénalité hebdomadaire de 40% du CA des 2 semaines précédentes en cas de défaillance non-force majeure (CCAP Article 8.11) — risque financier majeur à couvrir par PCA solide"
+  ],
+  "references_exigees": {
+    "experience_minimale_annees": null,
+    "experience_source": null,
+    "volume_min_references_similaires": null,
+    "volume_min_references_unite": null,
+    "secteur_experience": "Restauration collective d'entreprise (restaurants inter-entreprises, restaurants d'entreprise), connaissance de la convention collective nationale restauration collective n°3225",
+    "secteur_source": "CCAP Article 8.12",
+    "certifications_obligatoires": [
+      {
+        "libelle": "Assurance responsabilité civile professionnelle et d'exploitation incluant la couverture intoxication alimentaire",
+        "codes": [],
+        "bloquante": true,
+        "source": "CCAP Article 21"
+      },
+      {
+        "libelle": "Assurance perte de produits alimentaires",
+        "codes": [],
+        "bloquante": true,
+        "source": "CCAP Article 21"
+      }
+    ],
+    "autres_exigences": [
+      {
+        "libelle": "Attestation sur l'honneur relative au travail dissimulé et main d'œuvre étrangère (Annexe 1 CCAP)",
+        "source": "CCAP Annexe 1"
+      },
+      {
+        "libelle": "Fourniture des documents de lutte contre le travail illégal (article D.8222-5 Code du Travail) tous les 6 mois",
+        "source": "CCAP Article 19.1"
+      },
+      {
+        "libelle": "Engagement clause d'insertion par l'activité économique : 300 heures/an/établissement minimum",
+        "source": "CCAP Article 26.1"
+      },
+      {
+        "libelle": "Respect des obligations EGAlim et Climat & Résilience (taux produits bio et labellisés restauration collective)",
+        "source": "CCAP Article 8.4"
+      }
+    ]
+  },
+  "dossier_candidature": {
+    "pieces_a_fournir": [
+      {
+        "libelle": "Cadre de réponse technique (offre technique à forme imposée) — complété",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "CCAP Article 1"
+      },
+      {
+        "libelle": "Plan de menus sur 1 semaine (exemple de menus types représentatifs de l'offre technique)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "CCAP Article 1"
+      },
+      {
+        "libelle": "Mémoire technique (offre technique à forme libre)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "CCAP Article 1"
+      },
+      {
+        "libelle": "Bordereau des Prix Unitaires (BPU) — Annexe 5 du CCAP, complété pour le(s) lot(s) concerné(s)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "CCAP Article 1, Annexe 5"
+      },
+      {
+        "libelle": "Attestation sur l'honneur relative au travail dissimulé (Annexe 1 CCAP)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "CCAP Annexe 1"
+      },
+      {
+        "libelle": "Attestation d'assurance (Annexe 2 CCAP)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "CCAP Annexe 2"
+      },
+      {
+        "libelle": "Charte d'utilisation des systèmes d'information et de communication (Annexe 3 CCAP)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "CCAP Annexe 3"
+      },
+      {
+        "libelle": "Clauses protection des données à caractère personnel (Annexe 4 CCAP) — tableau des sous-traitants ultérieurs complété",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "CCAP Annexe 4"
+      }
+    ],
+    "mode_remise": null,
+    "plateforme_depot": null,
+    "signature_electronique_exigee": null,
+    "format_signature": null,
+    "nombre_exemplaires": null,
+    "langue": "français",
+    "duree_validite_offres_jours": null,
+    "modalites_source": null
+  },
+  "lots": [
+    {
+      "numero": 1,
+      "intitule": "Lot 1 : RIE Paris, RIE Esvres, RE Chartres",
+      "domaine": "restauration_collective_prestations",
+      "zone_geographique": "Paris (75), Esvres (37), Chartres (28)",
+      "volume_estime": 121494,
+      "volume_estime_unite": "repas/an (total 3 sites : 36 798 + 49 259 + 35 437)",
+      "cout_estime_min_eur": 4800000,
+      "cout_estime_max_eur": 5700000,
+      "ca_estime_min_eur": 6000000,
+      "ca_estime_max_eur": 8000000,
+      "marge_brute_pct": 12,
+      "particularites": "3 sites de volumes différents : RIE Esvres est le plus gros (49 259 repas/an), suivi de RIE Paris (36 798) et RE Chartres (35 437). Personnel transférable identifié sur Chartres (4 personnes : 2 employés, 1 chef de groupe, 1 chef de cuisine, 1 responsable de site). Plan pluriannuel d'équipements fourni pour Paris (nombreux équipements vétustes avec fluides frigorigènes R404A/R134A interdits après 2030) et Esvres. Plafond accord-cadre 8 000 000 € HT sur 4 ans."
+    },
+    {
+      "numero": 2,
+      "intitule": "Lot 2 : RE Marseille",
+      "domaine": "restauration_collective_prestations",
+      "zone_geographique": "Marseille (13)",
+      "volume_estime": 28118,
+      "volume_estime_unite": "repas/an",
+      "cout_estime_min_eur": 1200000,
+      "cout_estime_max_eur": 1500000,
+      "ca_estime_min_eur": 1800000,
+      "ca_estime_max_eur": 2500000,
+      "marge_brute_pct": 11,
+      "particularites": "Site unique 485 Avenue du Prado, Marseille. Personnel transférable identifié (3 personnes Sogeres SAS : 1 cuisinier, 1 chef gérant, 1 employée restauration caisse temps partiel). Audit PPA février 2026 révèle plusieurs équipements en mauvais état nécessitant renouvellement urgent (chambre froide BOF et chambre froide négative en très mauvais état). Plafond accord-cadre 2 500 000 € HT sur 4 ans."
+    }
+  ],
+  "tranches": [],
+  "calendrier": {
+    "date_limite_offres": null,
+    "date_demarrage_prevue": null,
+    "duree_marche": "3 ans ferme + reconduction tacite 1 fois pour 1 an (durée totale maximale 4 ans)"
+  },
+  "alertes_candidat": [
+    "Reprise OBLIGATOIRE du personnel transférable (CCN restauration collective n°3225) : les listes par site sont annexées au CCTP — le candidat doit intégrer ces salariés avec leurs niveaux de rémunération existants dans son chiffrage des frais de personnel",
+    "Clause d'insertion par l'activité économique contraignante : 300 heures/an/établissement minimum, soit 1 200 heures/an pour le Lot 1 (3 établissements) et 300 heures/an pour le Lot 2 — pénalité de 60 €/heure non réalisée (CCAP Article 27.2.2)",
+    "Équipements frigorifiques : plusieurs équipements au R404A, R134A et R449A (interdits ou à usage limité selon réglementation F-Gas 2030) à Paris et Esvres — le candidat doit prévoir un plan d'investissement de renouvellement et le chiffrer dans son BPU (investissements à sa charge selon la répartition des frais généraux)",
+    "Modèle d'encaissement atypique : les prix convives sont déduits sur bulletin de paie (pas de caisse traditionnelle) — le prestataire doit disposer d'un système de badgeage nominatif, de réconciliation mensuelle et d'un référent paie dédié (CCAP Article 9.3), coût à intégrer dans les frais fixes",
+    "Enquête de satisfaction : un résultat inférieur à 85% sur le critère satisfaction générale entraîne une pénalité de 2 000 € par tranche de 5% en dessous de l'objectif (CCAP Article 27.2.1) — les enquêtes 2025 par site sont fournies en annexe du CCTP pour évaluer le niveau de départ",
+    "Plan de Continuité d'Activité (PCA) spécifique à chaque établissement obligatoire avant le démarrage des prestations — son absence déclenche les pénalités de retard (CCAP Article 31)"
+  ],
+  "points_differenciants_attendus": [
+    {
+      "libelle": "Offre tarifaire compétitive avec structure de coûts transparente via BPU",
+      "exemple": "Proposer des prix de catégories tarifaires repas cohérents avec un taux de prise théorique global > 200% (exigence BPU), tout en maintenant des frais fixes d'admission compétitifs sur les 4 sites — en valorisant les économies d'échelle possibles si le candidat est attributaire des 2 lots.",
+      "source": "CCAP Annexe 5 — BPU Lots 1 et 2"
+    },
+    {
+      "libelle": "Qualité et traçabilité des produits EGAlim avec engagements chiffrés",
+      "exemple": "Présenter dans le BPU (onglets 'Engagement produits') des taux d'approvisionnement bio, local et labellisé supérieurs aux minimums légaux, avec des fréquences d'approvisionnement hebdomadaires engagées par famille de produits et des circuits courts identifiés pour chaque site (ex: maraîcher local Indre-et-Loire pour Esvres, producteurs PACA pour Marseille).",
+      "source": "CCAP Article 8.4 ; CCTP (onglets Engagement produits BPU)"
+    },
+    {
+      "libelle": "Plan d'investissement et de renouvellement des équipements vétustes",
+      "exemple": "Proposer un plan d'investissement chiffré pour le renouvellement des équipements frigorifiques non-conformes F-Gas à Paris (R404A, R134A) et pour les chambres froides en très mauvais état à Marseille, avec calendrier priorisé 2026-2028, démontrant ainsi la maîtrise des risques HACCP et la vision long terme.",
+      "source": "CCTP Annexes 4.1 à 4.4 — Plans PPA équipements"
+    },
+    {
+      "libelle": "Organisation du back-office paie & réconciliation badges",
+      "exemple": "Décrire précisément le processus de réconciliation mensuelle avec le service paie d'AG2R (transmissions J+3 ouvrés, taux d'anomalies ≤ 0,5%, désignation d'un référent unique par lot), en présentant les outils et procédures de secours en cas de panne système — point différenciant car ce modèle est atypique dans le secteur.",
+      "source": "CCAP Article 9.3"
+    },
+    {
+      "libelle": "Proposition d'animations et d'offres restauration alternatives (Click & Collect, salad'bar, restauration alternative)",
+      "exemple": "Développer dans le mémoire technique des concepts d'animation innovants (semaines thématiques, menus végétariens structurés, offre équilibre nutritionnel) ainsi qu'une offre de restauration alternative (sandwichs, salades Click & Collect) pour augmenter le taux de fréquentation et dépasser les objectifs d'enquête de satisfaction à 85%.",
+      "source": "CCAP Article 25 — Plan de progrès ; BPU onglets 'Cahier facturation & grammages'"
+    }
+  ],
+  "_meta": {
+    "id_marche": "BOAMP-26-56413",
+    "type": "complet",
+    "date_generation": "2026-06-20T23:46:52.217178+00:00",
+    "extraction_le": "2026-06-20T23:46:52.217178+00:00",
+    "modele": "claude-sonnet-4-6",
+    "preset_utilise": null,
+    "presets_matches": [],
+    "prompts_versions": {},
+    "tokens_input": 173127,
+    "tokens_output": 6144,
+    "cout_eur": 0.581,
+    "duree_sec": 122.2,
+    "pdfs_traites": [
+      {
+        "nom": "CCAP - Annexe 5 - BPU - Lot 1 - Restauration ALM.xlsx",
+        "hash": "8f40d3d71ce7bf0574a374cce5c004cd",
+        "taille_chars": 92426
+      },
+      {
+        "nom": "CCAP - Annexe 5 - BPU - Lot 2 - Restauration ALM.xlsx",
+        "hash": "09181a6da35479bae376674f8ece0567",
+        "taille_chars": 30942
+      },
+      {
+        "nom": "CCAP - Annexes 1, 2, 3, 4 - Restauration ALM.docx",
+        "hash": "9ba3b3d8269f551701fbc38858e48241",
+        "taille_chars": 11504
+      },
+      {
+        "nom": "CCAP - L1&2 - Restauration ALM.pdf",
+        "hash": "218b74b0a644267c331dfc6cb6f96b36",
+        "taille_chars": 134507
+      },
+      {
+        "nom": "CCTP - Ann 1.1 - Répartition charges exploit - L1(Paris).pdf",
+        "hash": "e029261e57baf8eeb664e775ef017163",
+        "taille_chars": 5360
+      },
+      {
+        "nom": "CCTP - Ann 1.2 - Répartition charges exploit - L1(Esvres).pdf",
+        "hash": "0d1ff1382935b70c380a36d64d4d1dde",
+        "taille_chars": 5358
+      },
+      {
+        "nom": "CCTP - Ann 1.3 - Répartition charges exploit - L1(Chartres).pdf",
+        "hash": "4711b76115f307fe9255f14a50d8f3da",
+        "taille_chars": 5360
+      },
+      {
+        "nom": "CCTP - Ann 1.4 - Répartition charges exploit - L2(Mars).pdf",
+        "hash": "90592aa3e5fa75686f1d54d76bdc0808",
+        "taille_chars": 5366
+      },
+      {
+        "nom": "CCTP - Ann 2.1 - Plans espaces - L1(Paris).pdf",
+        "hash": "ba0c4d4260099f6afdb4b5fd6497143c",
+        "taille_chars": 0
+      },
+      {
+        "nom": "CCTP - Ann 2.2 - Plans espaces - L1(Esvres).pdf",
+        "hash": "b8966e9c7f9ffe951bb18f07177d07a8",
+        "taille_chars": 0
+      },
+      {
+        "nom": "CCTP - Ann 2.3 - Plans espaces - L1(Chartres).pdf",
+        "hash": "420e633cf7bcfdb004b6146003108c33",
+        "taille_chars": 0
+      },
+      {
+        "nom": "CCTP - Ann 2.4 - Plans espaces - L2(Mars).pdf",
+        "hash": "a24eced34d0a50c5fb2b4b86863bdf39",
+        "taille_chars": 0
+      },
+      {
+        "nom": "CCTP - Ann 3.1 - Liste pers transférable - L1(Paris).pdf",
+        "hash": "8b5011ad0969314c83bf9ba34da5c5b3",
+        "taille_chars": 0
+      },
+      {
+        "nom": "CCTP - Ann 3.2 - Liste pers transférable - L1(Esvres).pdf",
+        "hash": "f34dafa2ff729cda3ee3899db1a2f2a8",
+        "taille_chars": 802
+      },
+      {
+        "nom": "CCTP - Ann 3.3 - Liste pers transférable - L1(Chartres).pdf",
+        "hash": "93845e180a04081b57810264e8b891d6",
+        "taille_chars": 1100
+      },
+      {
+        "nom": "CCTP - Ann 3.4 - Liste pers transférable - L2(Mars).pdf",
+        "hash": "cd5b997dbdf20410885488535ba13a42",
+        "taille_chars": 1267
+      },
+      {
+        "nom": "CCTP - Ann 4.1 - Liste PPA équipements - L1(Paris).pdf",
+        "hash": "674c2bc411895c91eaa4296107e73b55",
+        "taille_chars": 19987
+      },
+      {
+        "nom": "CCTP - Ann 4.2 - Liste PPA équipements - L1(Esvres).pdf",
+        "hash": "25721f5b99878bec22787fadde367c84",
+        "taille_chars": 2230
+      },
+      {
+        "nom": "CCTP - Ann 4.3 - Liste PPA équipements - L1(Chartres).pdf",
+        "hash": "377e5fbf2d7f90797d1a95bbdcc6cb43",
+        "taille_chars": 9984
+      },
+      {
+        "nom": "CCTP - Ann 4.4 - Liste PPA équipements - L2(Mars).pdf",
+        "hash": "019b911799853e6babb68bffb14bd1d7",
+        "taille_chars": 150863
+      },
+      {
+        "nom": "CCTP - Ann 5.1 - Enquête satisf 2025 - L1(Paris).pdf",
+        "hash": "60e3966ab8177b485f54d719b3501b24",
+        "taille_chars": 14361
+      },
+      {
+        "nom": "CCTP - Ann 5.2 - Enquête satisf 2025 - L1(Esvres).pdf",
+        "hash": "4f785c32935e5ec90676a363be999806",
+        "taille_chars": 14460
+      },
+      {
+        "nom": "CCTP - Ann 5.3 - Enquête satisf 2025 - L1(Chartres).pdf",
+        "hash": "97776f3a969fc456cb2be52d26cf0b2a",
+        "taille_chars": 13546
+      },
+      {
+        "nom": "CCTP - Ann 5.4 - Enquête satisf 2025 - L2(Mars).pdf",
+        "hash": "2d84faab6372a76cb9d286383113e8ad",
+        "taille_chars": 10998
+      },
+      {
+        "nom": "CCTP - L1&2 - Restauration ALM.pdf",
+        "hash": "0d74b1883e423b3404c6651114fa1772",
+        "taille_chars": 112007
+      },
+      {
+        "nom": "Cadre de réponse technique - L1 - Restauration ALM.xlsx",
+        "hash": "01f374efe6bb4e41c309593f76f21584",
+        "taille_chars": 20103
+      },
+      {
+        "nom": "Cadre de réponse technique - L2 - Restauration ALM.xlsx",
+        "hash": "5bc96b308e07d604f93540fd16feb5ba",
+        "taille_chars": 6703
+      },
+      {
+        "nom": "Menus sur 1 sem - L1 - Restauration ALM.xlsx",
+        "hash": "6941ed1d3d669e1fe7c1666fbf42031c",
+        "taille_chars": 50718
+      },
+      {
+        "nom": "Menus sur 1 sem - L2 - Restauration ALM.xlsx",
+        "hash": "5e15802950a7559d7518c2db68ce9f58",
+        "taille_chars": 16914
+      },
+      {
+        "nom": "RC - Restauration ALM.pdf",
+        "hash": "d5ce83b25b39d644d94cb4a891a6d4d4",
+        "taille_chars": 40572
+      }
+    ]
+  }
+}

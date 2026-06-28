@@ -1,6 +1,6 @@
 # Brief — Voie verte n°1 - La Roche Vineuse - PR 60+70 à 60+390 Modification du tracé de la voie verte et réparation du mur de soutènement
 
-_Généré le 2026-06-15 01:50 par Claude claude-sonnet-4-6_
+_Généré le 2026-06-20 05:19 par Claude claude-sonnet-4-6_
 
 ## Identifiants
 - **ID Tendia** : `BOAMP-26-57168`
@@ -10,71 +10,62 @@ _Généré le 2026-06-15 01:50 par Claude claude-sonnet-4-6_
 - **DCE PLACE** : <https://marches.ternum-bfc.fr/entreprise/consultation/692016?orgAcronyme=t5s>
 
 ## Synthèse
-Marché de travaux de voirie et génie civil pour la modification du tracé de la voie verte n°1 à La Roche Vineuse (71), incluant la construction d'un mur de soutènement en gabions de 43 m de long et 4,50 m de haut, des terrassements importants en déblai (jusqu'à 9 m de hauteur provisoire), la réfection de la plateforme cyclable et la mise en œuvre de remblais. Le marché est passé par le Département de Saône-et-Loire en procédure adaptée, sans allotissement.
+Le Département de Saône-et-Loire lance un appel d'offres ouvert pour la modification du tracé de la voie verte n°1 à La Roche Vineuse (PR 60+070 à 60+390) et la réparation/construction d'un mur de soutènement en gabions de 43 m de long et 4,50 m de haut. Les travaux incluent des terrassements importants (déblais jusqu'à 9 m de hauteur provisoire), la démolition d'un soutènement existant, la construction du mur gabions sur assise béton, la mise en œuvre de remblais d'épaulement et la réfection de la plateforme voie verte. Le DCE joint comprend essentiellement des études géotechniques G2 AVP et PRO (GÉOTEC) et des plans de profils en travers, sans RC ni CCAP fournis.
 
 ## 🏗 Chantier — caractéristiques BTP
-- **Description** : Modification du tracé de la voie verte n°1 entre les PR 60+70 et 60+390, comprenant : construction d'un mur de soutènement en gabions électrosoudés de 43 m de long et 4,50 m de haut sur assise béton, terrassements en déblai jusqu'à 9 m de hauteur provisoire dans calcaire fracturé et argile à cailloux, remblais d'épaulement (GNT 0/150), réfection de la plateforme cyclable (enrobé BB10, GNT 0/31,5, GNT 0/63), réseau de drainage (drains PEHD diam 150, regards), dispositifs de retenue MVL, barrière bois, garde-corps galvanisé sur mur gabion, signalisation temporaire.
-- **Type d'ouvrage** : Voie verte cyclable avec ouvrage de soutènement (mur gabions) — infrastructure linéaire de voirie
-- **Surface / volume** : Linéaire de 320 m environ (PR 60+70 à 60+390), mur gabions 43 m de long
-- **Site occupé pendant travaux** : true — travaux en milieu habité/sportif (terrains de tennis adjacents, voirie communale en exploitation, accès riverains à maintenir, voie verte à dévier pour cyclistes pendant travaux)
-- **Corps d'état mobilisés** : Terrassements / VRD, Mur de soutènement gabions, Chaussée / enrobés, Réseaux pluviaux (drains, regards EP), Équipements de sécurité (MVL, garde-corps), Espaces verts / enherbement, Mobilier urbain (barrière bois), Signalisation temporaire et information chantier
+- **Description** : Modification du tracé de la voie verte n°1 sur 320 m linéaires (PR 60+070 à 60+390) avec construction d'un mur de soutènement en gabions de 43 m de long et 4,50 m de haut (profils PT13+2m à PT18+5m), terrassements en déblai jusqu'à 9 m de hauteur provisoire dans calcaire fracturé et argile à cailloux, démolition d'un soutènement existant, mise en œuvre d'une assise béton de 30 cm, remblais d'apport drainants 0/80 à 0/150, remblai d'épaulement GNT 0/150, réfection de la chaussée voie verte (enrobé 4 cm + GNT), garde-corps acier galvanisé, drain longitudinal.
+- **Type d'ouvrage** : Voie verte / chemin cyclable — infrastructure linéaire départementale avec ouvrage de soutènement en gabions
+- **Surface / volume** : Mur gabions : 43 ml × 4,50 m de haut ; plateforme voie verte : environ 320 ml × 3,40 m de large ≈ 1 100 m² ; terrassements déblai : talus provisoires jusqu'à 9 m de hauteur
+- **Site occupé pendant travaux** : false — site en zone semi-rurale, en limite de terrain de tennis, mais la voie verte est susceptible d'être en service partiel ; présence d'avoisinants sensibles (terrains de tennis, voirie communale)
+- **Corps d'état mobilisés** : Terrassements / déblais / démolition soutènement existant, Maçonnerie / ouvrages de soutènement en gabions, Béton (assise béton, gros béton de rattrapage), Remblais et compactage (GNT 0/150, remblai technique 0/80), Chaussée / voirie légère (enrobé, GNT 0/31,5, GNT 0/63), Drainage (géotextile, matériaux drainants 40/80, drain longitudinal), Garde-corps acier galvanisé
 - **Contraintes spécifiques** :
-  - Terrassements en terrain de 2e catégorie (calcaire fracturé à remplissage argileux) nécessitant BRH
-  - Talus provisoires de 9 m de hauteur maximale avec purge obligatoire du coin argileux
-  - Présence de réseaux enterrés et d'ouvrages existants à démolir (muret de soutènement existant)
-  - Zone de sismicité 2 (faible) — vérifications sismiques non requises pour ouvrage cat. II
-  - Sols argileux sensibles à l'eau (GTR A2/A3) — travaux à réaliser en période climatique favorable
-  - Terrains de tennis adjacents et voirie communale à protéger (avoisinants sensibles)
-  - Mission G3 géotechnique à la charge de l'entreprise (forfait prix 107)
-  - Clause d'insertion sociale : 80 heures minimum
-  - Risque de présence de réseaux enterrés non répertoriés
-  - Maintien de la circulation sur voie communale et déviation cyclistes pendant travaux
-  - Matériaux excavés pouvant prendre statut de déchets (réglementation AGEC)
+  - Terrassements en déblai très importants (talus provisoires 9 m de hauteur) nécessitant engins de forte puissance (BRH, fraise hydraulique) en terrain calcaire fracturé et argileux
+  - Présence avérée de réseaux souterrains (eau potable SUEZ, éclairage public SMEE, électricité ENEDIS, télécom Orange/Iliad/SFR) — DT réalisée
+  - Soutènement existant à démolir (profil 18) — risque d'instabilité en phases provisoires
+  - Sols argileux très plastiques sensibles à l'eau : travaux à réaliser en période climatique favorable
+  - Risque de poches argileuses, surprofondeurs du toit calcaire, vestiges enterrés
+  - Mission G3 (suivi géotechnique d'exécution) à la charge de l'entreprise — dimensionnement EXE à confirmer par le fournisseur/concepteur des gabions
+  - Avoisinants sensibles : terrains de tennis à l'aval, voirie communale hameau de l'Eau Vive à l'amont
+  - Zone de sismicité 2 (faible) — vérification sismique non requise pour catégorie II
+  - Présence de réseaux d'éclairage public au droit du projet (contrainte plan de fondation)
+  - Garde-corps à sceller dans les gabions avec réservations béton (dim 0,25 × 0,50 m mini)
+  - Procédure ouverte européenne — exigences BOAMP
 
 ### Allotissement
-Marché non alloti — ensemble homogène et intégré
-- **Nombre de lots** : 1
+Le marché semble être un marché unique non alloti (un seul objet : modification tracé voie verte + mur soutènement). Le RC n'est pas fourni dans le DCE, donc la structure en lots ne peut pas être confirmée.
 - **Lot 1** — Modification du tracé de la voie verte et réparation du mur de soutènement
-  - Corps d'état : Terrassements, VRD, mur gabions, chaussée, équipements, espaces verts
-  - Marché unique comprenant l'ensemble des travaux : préparation de chantier, terrassements, mur de soutènement gabions, drainage, chaussée enrobée, équipements de sécurité, espaces verts et mobilier
+  - Corps d'état : terrassements, soutènement gabions, voirie légère, drainage
+  - Terrassements déblais, démolition soutènement existant, construction mur gabions 43 ml h=4,50 m sur assise béton, remblais d'épaulement, réfection plateforme voie verte, garde-corps, drainage
 
 ### Qualifications BTP exigées
-Le CCAP et le RC ne mentionnent pas explicitement de qualifications Qualibat obligatoires. Le BPU et le CCTP impliquent des compétences en terrassements TP, ouvrages de soutènement gabions et voirie.
+Le RC n'est pas fourni dans le DCE analysé. Les qualifications exigibles sont inférées du type de travaux (terrassements, soutènement, voirie) mais ne peuvent pas être confirmées textuellement.
+- **OPQIBI** : non
 - **MASE** : non
-- **Autres exigences** :
-  - AIPR (Autorisation d'Intervention à Proximité des Réseaux) obligatoire pour concepteur, encadrant et opérateur
 
 ## 💶 Montant du marché
 - _Montant non communiqué dans le DCE._
   - Typique des accords-cadres à bons de commande : le volume dépend des commandes effectivement passées par l'acheteur sur la durée du marché.
-- _Note_ : Aucun montant estimatif n'est mentionné dans les pièces fournies (CCAP, BPU, rapports géotechniques, plans). Le Règlement de Consultation n'a pas été fourni dans le DCE analysé. L'estimation pourrait figurer dans le Détail Estimatif non fourni.
+- _Note_ : Aucun montant explicite publié dans les pièces fournies (études géotechniques GÉOTEC, plans de profils en travers, DT réseaux). Le RC, CCAP, BPU et DPGF ne sont pas joints au DCE analysé. Voir estimation bottom-up dans montant_3_voies.
 
 ## Barème de notation
 - **Valeur technique** : —
 - **Valeur prix** : —
-- **Calcul du prix** : Non précisée dans les pièces fournies — RC non inclus dans le DCE analysé.
+- **Calcul du prix** : Non disponible — RC absent du DCE
 
 ## Références et qualifications exigées
 - **Expérience minimale** : —
-- **Secteur d'expérience** : Travaux de voirie, terrassements TP et ouvrages de soutènement (murs gabions) — infrastructure linéaire cyclable ou routière
-- **Certifications obligatoires** : AIPR (Autorisation d'Intervention à Proximité des Réseaux) — obligatoire pour le concepteur, l'encadrant et l'ensemble des opérateurs (source=CCAP article 3-4)
-- **Autres exigences** :
-  - Attestation sur l'honneur relative à l'emploi de salariés étrangers et déclaration de détachement le cas échéant (source=CCAP article 3-2-1)
-  - Attestation de régularité sociale et fiscale de moins de 6 mois (source=CCAP article 3-2-1)
-  - Attestations d'assurance RC et décennale à fournir avant notification du marché (source=CCAP article 3-6-1)
-  - Clause d'insertion sociale : 80 heures minimum d'emploi de publics éloignés de l'emploi sur la durée du marché (source=CCAP article 3-2-2)
+- **Secteur d'expérience** : Travaux de soutènement (mur en gabions ou béton), terrassements en terrain difficile (calcaire fracturé), voirie / infrastructure cyclable ou routière — RC non fourni, conditions exactes à vérifier.
 
 ## ⚠ Alertes candidat
-- AIPR obligatoire pour TOUS les opérateurs (concepteur, encadrant, opérateurs) — à vérifier impérativement avant dépôt de l'offre sous peine d'irrecevabilité (CCAP art. 3-4).
-- Mission G3 géotechnique entièrement à la charge de l'entreprise (prix 107) : inclut sondages complémentaires, essais laboratoire, notes de calcul stabilité mur gabion et suivi d'exécution — compétence géotechnique spécialisée requise ou sous-traitant G3 à prévoir.
-- Terrassements en terrain de 2e catégorie (calcaire fracturé) sur des hauteurs importantes (jusqu'à 9 m provisoire) : l'entreprise devra disposer de matériels lourds (BRH, pelle grande puissance) et d'une expérience prouvée en terrain rocheux pour les talus provisoires.
-- Clause d'insertion sociale contraignante : 80 heures minimum à réaliser et justifier trimestriellement — pénalités en cas de non-respect (CCAP art. 4-4), désignation d'un correspondant opérationnel obligatoire.
-- Assurances RC et décennale à produire AVANT notification (et non après) — délai à anticiper si renouvellement nécessaire (CCAP art. 3-6-1).
-- Présence avérée de réseaux enterrés et d'anciens ouvrages dans les emprises : le titulaire supporte intégralement les conséquences d'une mauvaise prise en compte (CCAP art. 3-4 et prix 105 à 112).
+- RC, CCAP, BPU et DPGF non fournis dans le DCE analysé : les conditions exactes de candidature, qualifications exigées et décomposition des prix restent à vérifier à réception des pièces complètes.
+- Mission G3 (étude et suivi géotechniques d'exécution) obligatoirement à la charge de l'entreprise selon la norme NF P 94-500 — nécessite de prévoir une sous-traitance géotechnicienne ou des compétences internes.
+- Terrassements en calcaire fracturé nécessitant BRH et engins de forte puissance : risque de hors-profils et surprises géotechniques importants — les études GÉOTEC signalent explicitement des incertitudes sur le toit du substratum et les poches argileuses.
+- Présence de réseaux souterrains multiples au droit du projet (eau potable classe A/C, éclairage public, électricité BT/HTA) : investigations complémentaires et clauses particulières de marché probables — DT réalisée mais des tronçons sont en classe C (précision > 1,50 m).
+- Démolition du soutènement existant au profil 18 recommandée par GÉOTEC (contrairement au projet initial qui prévoyait de le conserver) : vérifier si le projet a été modifié en conséquence et anticiper le surcoût de démolition.
 
 ## 💡 Points différenciants attendus
-- Maîtrise du phasage terrassements en terrain rocheux avec gestion des talus provisoires instables (exemple=Un candidat démontrant une méthodologie détaillée de purge du coin argileux (argile à cailloux et blocs) avant talutage 2H/5V dans le calcaire, avec planning de réalisation en période sèche et dispositif de drainage provisoire, se différenciera nettement., source=CCTP / Rapport géotechnique G2PRO §4 et §5.3)
-- Expérience prouvée en construction de murs gabions électrosoudés sur assise béton en site contraint (exemple=Présenter des références récentes de murs gabions de hauteur ≥ 4 m avec garde-corps intégré et assise béton sur calcaire fracturé, idéalement en milieu sportif ou périurbain, avec retour sur les difficultés géotechniques rencontrées., source=BPU prix 1001)
-- Organisation de la mission G3 géotechnique et coordination avec le maître d'œuvre PMM (exemple=Proposer un sous-traitant G3 nommé avec CV de l'ingénieur géotechnicien, planning des interventions géotechniques calé sur le phasage travaux, et note sur la méthode de vérification de la portance en fond de fouille (EV2 > 50 MPa)., source=BPU prix 107 / Rapport G2PRO §5.9)
-- Gestion des terres excavées comme déchets et traçabilité (loi AGEC) (exemple=Présenter un plan de gestion des terres excavées avec identification d'une filière de valorisation agréée pour les argiles A3ts non réutilisables, registre de traçabilité conforme au décret du 1er avril 2021., source=Rapport G2PRO §3.6 / BPU prix 303)
-- Plan de maintien de la circulation des cyclistes et des riverains pendant les travaux (exemple=Fournir un DESC détaillé avec déviation cycliste balisée sur itinéraire alternatif, maintien des accès aux terrains de tennis, signalisation modulaire par phase, et planning des fermetures de voirie communale validé avec la commune., source=BPU prix 113 / CCAP article 6-5)
+- Maîtrise des phases provisoires de terrassement en terrain difficile (exemple=Proposer une méthodologie détaillée de purge du coin de terre résiduel argilo-calcaire, avec phasage par plots, protection des talus provisoires et plan de mise hors d'eau, en référençant les prescriptions GÉOTEC (purge jusqu'au calcaire franc, pente 2H/5V dans calcaire sain)., source=Rapport G2PRO GÉOTEC §4 et §5.3)
+- Intégration de la mission G3 géotechnique dans l'offre (exemple=Identifier un sous-traitant géotechnicien nommément pour la mission G3, en précisant les modalités de suivi des auscultations et d'adaptation du dimensionnement EXE selon les conditions rencontrées en fouille — point distinctif fort sur un chantier à forts aléas géotechniques., source=Rapport G2PRO GÉOTEC §1.3 et Tableau missions G1-G4)
+- Références en mur de soutènement gabions sur infrastructure linéaire (exemple=Présenter des références de murs gabions réalisés en pied de talus sur voirie ou voie verte, avec hauteurs similaires (4-5 m), en terrain calcaire fracturé, en précisant les méthodes de contrôle de compactage du remblai drainant arrière.)
+- Prise en compte des contraintes de drainage et de la durabilité de l'ouvrage (exemple=Détailler la solution de drainage proposée (géocomposite Macdrain + drain de pied + géotextile anticontaminant) en cohérence avec les profils en travers fournis, et proposer un plan d'entretien des dispositifs drainants sur la durée., source=Plans profils en travers indB 28-04-2026 et G2PRO §4.5)
+- Gestion des terres excavées et traçabilité réglementaire (loi AGEC) (exemple=Présenter une procédure de caractérisation des terres excavées (argiles de classe A2/A3 ts potentiellement non réutilisables sans analyse) et un plan de gestion/traçabilité conforme au décret du 1er avril 2021 et à l'arrêté du 4 juin 2021., source=Rapport G2PRO GÉOTEC §3.6)

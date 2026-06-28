@@ -1,0 +1,495 @@
+{
+  "synthese_marche": "Ce marché est un Système d'Acquisition Dynamique (SAD 1) mis en place par l'AGEPS de l'AP-HP dans le cadre du Réseau Public-Privé du Médicament (RPPM), pour une durée de 12 ans, couvrant l'achat de matières premières à usage pharmaceutique (MPUP), le développement galénique et analytique, la fabrication, et l'importation de médicaments destinés à répondre aux situations de pénurie et de tension d'approvisionnement. Le dispositif est structuré en deux catégories : Approvisionnement MPUP/AC et Fabrication, pour un montant prévisionnel maximal de 150 millions d'euros HT sur la durée du SAD. ⚠️ Attention : les pièces fournies dans le DCE (CCAP, CCTP, RC, CRT) correspondent à un marché hospitalier pharmaceutique de l'AP-HP (ref. 110.26-01.RPPM), sans aucun lien avec le marché de collecte et traitement de déchets industriels BOAMP-26-56520 (RESE de la Charente-Maritime) mentionné dans le contexte BOAMP — les deux marchés semblent avoir été confondus dans la transmission du DCE.",
+  "domaines_metier": [
+    {
+      "code": "services_sante_medical"
+    }
+  ],
+  "raison_classification": "L'intégralité du DCE fourni porte sur l'approvisionnement, le développement pharmaceutique, la fabrication et l'importation de médicaments à usage hospitalier (matières premières pharmaceutiques, établissements pharmaceutiques certifiés BPF, contrôle qualité pharmaceutique), ce qui relève clairement du domaine des services médicaux et de biologie humaine au sens large (fourniture/fabrication de produits pharmaceutiques hospitaliers). Bien que le contexte BOAMP mentionne un marché de déchets industriels (SIREN RESE Charente-Maritime), les pièces du DCE sont sans équivoque relatives à un marché pharmaceutique AP-HP.",
+  "caracteristiques_metier": {
+    "description": "Système d'Acquisition Dynamique (SAD 1) permettant à l'Établissement Pharmaceutique de l'AP-HP de mobiliser des industriels pharmaceutiques privés et publics pour : (1) l'approvisionnement en matières premières à usage pharmaceutique (MPUP) et articles de conditionnement (AC), contrôle qualité, pesée, reconditionnement et importation ; (2) le développement galénique et analytique, la fabrication de médicaments stériles et oraux, le conditionnement, l'étiquetage, la certification des lots et, le cas échéant, la distribution directe. Les candidats doivent être des établissements pharmaceutiques autorisés et certifiés BPF (Bonnes Pratiques de Fabrication). Le SAD fonctionne en deux phases : référencement (phase 1) puis consultation pour marchés spécifiques (phase 2).",
+    "criteres_eligibilite": [
+      "Être un établissement pharmaceutique autorisé (autorisation d'ouverture d'établissement pharmaceutique) pour la catégorie 2 — Fabrication",
+      "Être certifié BPF (Bonnes Pratiques de Fabrication) en cours de validité, référencé EudraGMDP pour la catégorie 1 ou 2",
+      "Pour la catégorie 1 : être fabricant d'API européen autorisé BPF Partie II, ou importateur/distributeur d'API enregistré à l'ANSM, ou producteur d'excipients qualifié IPEC, ou fournisseur hors UE avec Written Confirmation",
+      "Pour la distribution : détenir une autorisation de distribution en gros et un certificat BPDG en cours de validité",
+      "Capacité financière : chiffre d'affaires global sur 3 dernières années disponibles",
+      "Réactivité opérationnelle compatible avec les urgences sanitaires (réception MPUP sous 15 jours, lancement fabrication dans le même délai)"
+    ]
+  },
+  "bareme_notation": {
+    "valeur_technique_pct": 65,
+    "valeur_prix_pct": 35,
+    "sous_criteres_techniques": [
+      {
+        "libelle": "Critère n°2 – Qualité du dossier technique",
+        "ponderation_pct": 62,
+        "description": "Évalue la capacité du candidat à garantir un approvisionnement/fabrication conforme, sécurisé et continu, y compris en situation de tension ou d'urgence sanitaire, sur la base des éléments techniques, réglementaires, documentaires et organisationnels fournis.",
+        "elements_attendus": [
+          "Certificats GMP/BPF en cours de validité, référencés EudraGMDP",
+          "Note de savoir-faire et organisation qualité (3 à 5 pages) décrivant l'expérience, le dispositif CAPA, la gestion des déviations",
+          "Schéma logistique complet avec plan de continuité d'activité (PCA) et délais d'approvisionnement standard et urgence",
+          "Documentation qualité : COA type, FDS, procédure d'acceptation des lots, projet de Quality Agreement",
+          "Pour la fabrication : dossier de lot type (Master Batch Record), rapport de validation du procédé, validation analytique ICH",
+          "Pour la distribution : description des sites de stockage, réseau de transport, organisation 24h/24-7j/7, système d'information logistique"
+        ],
+        "exemple_reponse_forte": "Le candidat fournit le certificat BPF en cours de validité référencé EudraGMDP couvrant les formes injectables et orales, accompagné d'un extrait du manuel qualité décrivant la gestion des déviations et CAPA, un schéma de flux logistique avec double sourcing certifié GDP, un PCA spécifique aux MPUP garantissant la livraison sous 10 jours en situation normale et 5 jours en urgence sanitaire, et un projet de Quality Agreement précisant les responsabilités pharmaceutiques et modalités d'audit.",
+        "source": "RC §VII.C",
+        "unite_evaluation": "points",
+        "sous_criteres": [
+          {
+            "libelle": "2.1 – Approvisionnement en MPUP et AC (Catégorie 1)",
+            "ponderation_pct": null,
+            "description": "Évalue la conformité réglementaire, le savoir-faire qualité, la robustesse logistique et la documentation qualité du candidat pour l'approvisionnement en matières premières pharmaceutiques et articles de conditionnement.",
+            "elements_attendus": [
+              "Certificat GMP du fabricant/reconditionneur avec périmètre de certification et date de dernière inspection (EudraGMDP)",
+              "Note de savoir-faire (3-5 pages) : expérience hospitalière/industrielle, organisation qualité, capacités de sourcing et distribution",
+              "Schéma de flux logistique avec sources alternatives, stocks de sécurité, délais standard et urgence",
+              "COA type, FDS représentatives, procédure d'acceptation des lots, projet de Quality Agreement"
+            ],
+            "exemple_reponse_forte": "Le candidat présente un certificat GMP EudraGMDP couvrant la fabrication et le reconditionnement d'API, avec lien direct vers la fiche EudraGMDP, accompagné d'un schéma logistique mentionnant deux sites de stockage GDP, un double sourcing pour 80% des références, et un PCA documentant la continuité en cas de défaillance fournisseur principal avec délai de bascule de 72h.",
+            "source": "RC §VII.C — Catégorie 1 Sous-critères 2.1.1 à 2.1.4",
+            "unite_evaluation": "points"
+          },
+          {
+            "libelle": "2.2 – Importation et prestations associées (Catégorie 1)",
+            "ponderation_pct": null,
+            "description": "Évalue le cadre réglementaire de l'importation, la certification pharmaceutique (Annexe 16), le système qualité documentaire et la logistique internationale du candidat.",
+            "elements_attendus": [
+              "Autorisation d'importation et certificats GMP du site importateur",
+              "Liste des sites tiers de fabrication avec written confirmations",
+              "Schéma de certification QP (Annexe 16) et répartition des rôles",
+              "Schéma logistique international complet (entrepôts sous douane, transporteurs, gestion température, traçabilité)",
+              "Plan de continuité d'activité et procédures ADR"
+            ],
+            "exemple_reponse_forte": "Le candidat produit l'autorisation d'importation ANSM, les written confirmations pour 3 sites tiers (Inde, Corée, USA avec rapport FDA), un schéma de certification QP distinguant les responsabilités entre importateur et EP AP-HP, et un plan de continuité documentant la redondance des transporteurs qualifiés GDP pour les produits à température dirigée.",
+            "source": "RC §VII.C — Catégorie 1 Sous-critères 2.2.1 à 2.2.4",
+            "unite_evaluation": "points"
+          },
+          {
+            "libelle": "2.1 – Fabrication (Catégorie 2)",
+            "ponderation_pct": null,
+            "description": "Évalue le dossier technique de fabrication, le contrôle qualité analytique, la qualification et validation des équipements et procédés, et la capacité de développement pharmaceutique et transfert industriel.",
+            "elements_attendus": [
+              "Rapport de validation du procédé et Dossier de Lot Type (Master Batch Record) conforme BPF chapitres 4 et 5",
+              "Bulletin d'analyse type, plan de contrôle du produit fini, rapports de validation analytique ICH Q2(R2)",
+              "Statut de qualification des équipements (IQ/OQ/PQ) conformément à l'Annexe 15 des BPF",
+              "Note de développement galénique avec exemples de projets antérieurs (reformulations, PHS)",
+              "Procédure de transfert industriel avec rétroplanning et organigramme des équipes projet",
+              "Capacités de mobilisation rapide pour production urgente"
+            ],
+            "exemple_reponse_forte": "Le candidat fournit un Master Batch Record annoté pour la forme injectable ciblée, les rapports IQ/OQ/PQ des lignes de remplissage aseptique, un exemple documenté de transfert industriel réussi en 8 semaines pour un anticancéreux injectable, et un organigramme précisant les 12 ETP dédiés à la production avec disponibilité de créneaux de production urgents sous 5 jours ouvrés.",
+            "source": "RC §VII.C — Catégorie 2 Sous-critères 2.1.1 à 2.2.5",
+            "unite_evaluation": "points"
+          },
+          {
+            "libelle": "2.2 – Prestations associées – Distribution (Catégorie 2)",
+            "ponderation_pct": null,
+            "description": "Pour les offres 'Full service', évalue la capacité de distribution pharmaceutique : réception/stockage, transport, système qualité distribution, système d'information logistique et continuité d'activité 24h/7j.",
+            "elements_attendus": [
+              "Description des modalités de réception, conditions de stockage (températures, sécurité, conformité BPDG)",
+              "Organisation du transport avec couverture géographique France entière et gestion du froid/ADR",
+              "Procédures de gestion des retours, retraits et rappels avec indicateurs de performance",
+              "Description du système d'information logistique et capacité d'échange de données avec l'EP AP-HP",
+              "Plan de continuité d'activité pour distribution 24h/24-7j/7"
+            ],
+            "exemple_reponse_forte": "Le candidat décrit un entrepôt de 2 000 m² certifié BPDG avec 3 zones température (+15/+25°C, +2/+8°C, <-20°C), une organisation d'astreinte pharmaceutique 24h/7j, un système WMS interfaçable avec l'EP AP-HP via API, et un PCA garantissant la continuité de la distribution en 4 heures maximum en cas de sinistre.",
+            "source": "RC §VII.C — Catégorie 2 Sous-critère 2.2.5",
+            "unite_evaluation": "points"
+          }
+        ]
+      },
+      {
+        "libelle": "Critère n°3 – Développement durable et responsabilité sociale",
+        "ponderation_pct": 4,
+        "description": "Évalue les actions de l'entreprise en matière environnementale (recyclage, performance énergétique, gestion des effluents, réduction empreinte carbone) et sociale (conditions de travail, équité sociale dans les pays producteurs, politique d'achats responsables, lutte contre le travail forcé).",
+        "elements_attendus": [
+          "Actions de recyclage et performance énergétique documentées",
+          "Politique de responsabilité environnementale : gestion des effluents, réduction de l'empreinte carbone transport",
+          "Conditions de travail et bien-être au travail",
+          "Politique d'achats responsables et éthique fournisseurs",
+          "Lutte contre le travail forcé et le travail des enfants"
+        ],
+        "exemple_reponse_forte": "Le candidat présente son bilan carbone Scope 1-3 avec objectif de réduction de 30% à 2030, sa politique d'achats responsables avec audit annuel des fournisseurs sur critères sociaux et environnementaux, son rapport RSE certifié avec indicateurs mesurables sur la réduction des déchets de production et la traçabilité sociale de la chaîne d'approvisionnement.",
+        "source": "RC §VII.C — Critère n°3",
+        "unite_evaluation": "points"
+      }
+    ],
+    "prix": {
+      "type_formule": "autre",
+      "formule_explicite": "Les offres sont jugées sur le prix unitaire et/ou global forfaitaire, incluant frais de transport, assurance, douane et stockage intermédiaire si applicable. La pondération varie de 30% à 40% selon la lettre de consultation du marché spécifique.",
+      "source": "RC §VII.C — Critère n°1",
+      "elements_a_chiffrer": [
+        "Prix unitaire par MPUP ou prestation pharmaceutique",
+        "Prix global et forfaitaire de l'offre de base",
+        "Frais de transport et d'assurance",
+        "Frais de douane le cas échéant",
+        "Frais de stockage intermédiaire si applicable"
+      ]
+    },
+    "modalite_calcul_prix": "Prix unitaire et/ou global forfaitaire incluant frais de transport, assurance, douane et stockage intermédiaire. Pondération prix entre 30% et 40% selon lettre de consultation. Transparence attendue sur les coûts logistiques associés."
+  },
+  "montant_marche": {
+    "valeur_estimee_euros": null,
+    "fourchette_min_euros": null,
+    "fourchette_max_euros": 150000000,
+    "type": "plafond",
+    "duree_couverte": "12 ans (durée totale du SAD)",
+    "source_extraction": "CCAP §1.4 — 'Le montant du seuil maximum prévisionnel de l'ensemble des marchés spécifiques passés dans le cadre du SAD n°1 pour une durée de 12 ans est fixé à 150 000 000 € HT' ; RC §I.D 'Le montant prévisionnel des achats envisagés pour toute la durée du système d'acquisition dynamique SAD 1 est de 150 millions € HT'",
+    "commentaire": "Plafond accord-cadre toutes tranches et marchés spécifiques confondus sur 12 ans. Le CCAP précise que ce montant ne correspond pas à un budget dédié mais inclut une marge pour couvrir des besoins futurs inconnus. Aucun minimum n'est fixé. Chaque marché spécifique aura son propre montant maximum défini dans son CCAP dédié."
+  },
+  "montant_3_voies": {
+    "voie_1_eur": null,
+    "voie_1_source": "CCAP §1.4 — plafond 150 000 000 € HT sur 12 ans (non utilisable comme valeur annuelle — le montant annuel par marché spécifique n'est pas communiqué)",
+    "voie_2_disponible": true,
+    "voie_2_min_eur": 3000000,
+    "voie_2_max_eur": 5000000,
+    "voie_2_hypotheses": [
+      {
+        "hypothese": "Plafond global SAD 1 sur 12 ans : 150 M€ HT (RC §I.D)",
+        "valeur": "150 000 000 €"
+      },
+      {
+        "hypothese": "Estimation du nombre de marchés spécifiques sur 12 ans : entre 15 et 30 (volume SAD avec 5 catégories de produits, consultations annuelles)",
+        "valeur": "15 à 30 marchés spécifiques"
+      },
+      {
+        "hypothese": "Valeur moyenne d'un marché spécifique = 150M€ / 20 marchés = 7,5 M€ par marché spécifique en moyenne (borne haute) ; avec 30 marchés = 5 M€ (borne basse)",
+        "valeur": "5 à 7,5 M€ par marché spécifique"
+      },
+      {
+        "hypothese": "Un seul candidat se positionne sur une catégorie et obtient 1 marché spécifique de taille modeste (médicament en pénurie, volume limité) : estimation 3 à 5 M€",
+        "valeur": "3 à 5 M€"
+      },
+      {
+        "hypothese": "Dimension incertaine faite varier : nombre de marchés spécifiques (15 à 30) ; prix unitaire fixé à la valeur centrale du plafond",
+        "valeur": "ratio fixé : 150M€/durée"
+      }
+    ],
+    "voie_2_raison_indisponible": null
+  },
+  "cout_realisation": {
+    "cout_total_eur": null,
+    "cout_min_eur": null,
+    "cout_max_eur": null,
+    "postes": [
+      {
+        "poste": "Préparation dossier de candidature phase 1 (SAD)",
+        "detail": "Constitution du dossier réglementaire, rédaction CRT, coordination qualité réglementaire : estimé 5 à 10 j-h de responsable réglementaire (800-1000 €/j)",
+        "montant_eur": 7000
+      },
+      {
+        "poste": "Participation à un marché spécifique phase 2 (réponse technique + prix)",
+        "detail": "Rédaction mémoire technique, chiffrage, coordination équipe projet : 15 à 25 j-h de chef de projet senior (900-1200 €/j)",
+        "montant_eur": 22500
+      },
+      {
+        "poste": "Exécution d'un marché spécifique type Fabrication (coût de production)",
+        "detail": "Dépend fortement de la molécule et du volume. À titre indicatif pour un lot injectables : coût MPUP + fabrication + contrôle qualité + conditionnement. Très variable selon la forme pharmaceutique.",
+        "montant_eur": null
+      }
+    ],
+    "taux_journaliers_retenus": "Directeur réglementaire pharmaceutique : 900-1200 €/j ; Chef de projet industriel senior : 850-1100 €/j ; Pharmacien qualifié (QP) : 1000-1300 €/j. Taux marché indicatifs prestataires pharmaceutiques spécialisés.",
+    "commentaire": "Le coût de réalisation d'un marché spécifique est impossible à chiffrer à ce stade du SAD (phase d'admission uniquement) : il dépend entièrement de la nature de chaque marché spécifique futur (molécule, volume, forme galénique, niveau de développement requis). Le coût de préparation du dossier de candidature (phase 1) est estimé à 5 000-15 000 € selon la complexité du dossier réglementaire à constituer. Le coût d'exécution des marchés spécifiques représentera l'essentiel et ne peut être estimé sans la lettre de consultation de chaque marché spécifique."
+  },
+  "revision_prix": {
+    "type": "indexation",
+    "indices_utilises": [
+      "INSEE"
+    ],
+    "ponderation": "Formule simple basée sur un indice INSEE défini dans chaque CCAP de marché spécifique selon les formules de calcul de référence applicables",
+    "periodicite": "annuelle",
+    "formule_revision": "P = Po × (S/So) où P = nouveau prix révisé, Po = prix initial, S = indice INSEE du mois de révision, So = indice INSEE du mois de notification du marché ou de la dernière révision",
+    "source_extraction": "CCAP §3.2 — 'Révision des prix'",
+    "commentaire": "Révision annuelle à compter de la 2ème année, plafonnée à 3% par an (clause butoir). Une clause de révision exceptionnelle existe pour les hausses de matières premières liées à des circonstances imprévisibles. Les indices spécifiques seront définis dans chaque CCAP de marché spécifique, ce qui crée une incertitude pour le chiffrage initial."
+  },
+  "alertes_prix": [
+    "Plafond global du SAD à 150 M€ HT sur 12 ans : aucun minimum garanti — risque commercial de volume nul si aucun marché spécifique n'est lancé dans la catégorie du candidat",
+    "Révision annuelle plafonnée à 3% (clause butoir) : en période d'inflation forte des matières premières pharmaceutiques, ce plafond peut être insuffisant — une clause de révision exceptionnelle existe mais nécessite justification documentée",
+    "Pondération prix entre 30% et 40% selon les marchés spécifiques : variation significative d'un appel d'offres à l'autre rendant difficile l'anticipation de la stratégie prix",
+    "Frais de dédouanement inclus dans le prix proposé pour la catégorie 2 : risque de sous-évaluation si importation de MPUP hors UE concernée"
+  ],
+  "references_exigees": {
+    "experience_minimale_annees": null,
+    "experience_source": null,
+    "volume_min_references_similaires": null,
+    "volume_min_references_unite": "marchés similaires",
+    "secteur_experience": "Fourniture de matières premières à usage pharmaceutique, fabrication de médicaments, importation pharmaceutique ou distribution pharmaceutique en gros, dans le cadre de marchés hospitaliers ou industriels pharmaceutiques",
+    "secteur_source": "RC §III.B",
+    "certifications_obligatoires": [
+      {
+        "libelle": "Certification BPF (Bonnes Pratiques de Fabrication) en cours de validité, référencée dans la base EudraGMDP — obligatoire pour la catégorie 2 (Fabrication)",
+        "codes": [],
+        "bloquante": true,
+        "source": "RC §III.B — Catégorie 2 Aptitudes ; RC §VII.D"
+      },
+      {
+        "libelle": "Autorisation d'ouverture d'établissement pharmaceutique précisant les formes autorisées — obligatoire pour la catégorie 2 (Fabrication)",
+        "codes": [],
+        "bloquante": true,
+        "source": "RC §III.B — Catégorie 2 Aptitudes ; RC §VII.D"
+      },
+      {
+        "libelle": "Certificat GMP BPF Partie II (ICH Q7) et référencement EudraGMDP — pour fabricants d'API européens, catégorie 1",
+        "codes": [],
+        "bloquante": true,
+        "source": "RC §III.B — Catégorie 1 Aptitudes"
+      },
+      {
+        "libelle": "Certificat BPDG (Bonnes Pratiques de Distribution en Gros) en cours de validité — si le candidat effectue la distribution",
+        "codes": [],
+        "bloquante": true,
+        "source": "RC §III.B — Catégorie 2 Aptitudes (distribution)"
+      },
+      {
+        "libelle": "Autorisation d'établissement importateur conforme aux BPF — si le candidat effectue l'importation de médicaments",
+        "codes": [],
+        "bloquante": true,
+        "source": "RC §III.B — Catégorie 1 Aptitudes"
+      }
+    ],
+    "autres_exigences": [
+      {
+        "libelle": "Déclaration du chiffre d'affaires global et du CA du domaine d'activité sur les 3 dernières années",
+        "source": "RC §III.B"
+      },
+      {
+        "libelle": "Déclaration des effectifs moyens annuels et du personnel d'encadrement sur les 3 dernières années",
+        "source": "RC §III.B"
+      },
+      {
+        "libelle": "Organigramme de la société et CV détaillés de l'équipe dédiée",
+        "source": "RC §III.B"
+      },
+      {
+        "libelle": "Plan de formation annuel",
+        "source": "RC §III.B"
+      },
+      {
+        "libelle": "Description des procédés de fabrication et formes pharmaceutiques maîtrisés, substances actives pouvant être prises en charge, et périmètre non faisable",
+        "source": "RC §III.B"
+      },
+      {
+        "libelle": "Casier judiciaire vierge (B3 sans inscription) pour tout intervenant sur site AP-HP",
+        "source": "CCAP §6.7.3"
+      },
+      {
+        "libelle": "Compte bancaire français de préférence",
+        "source": "RC §III.B"
+      }
+    ]
+  },
+  "dossier_candidature": {
+    "pieces_a_fournir": [
+      {
+        "libelle": "Formulaire DUME (Document Unique de Marché Européen) complété en ligne sur PLACE — ou DC1/DC2 en substitution",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §III.B"
+      },
+      {
+        "libelle": "K-Bis de l'entreprise de moins de 6 mois",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §III.B"
+      },
+      {
+        "libelle": "Attestation d'assurance en cours de validité",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §III.B"
+      },
+      {
+        "libelle": "Attestations sociales et fiscales URSSAF",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §III.B"
+      },
+      {
+        "libelle": "Facture vierge",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §III.B"
+      },
+      {
+        "libelle": "Annexe 2 : Coordonnées des correspondants et interlocuteurs (adresse mail générique 'service marchés' ou au moins 3 adresses mail nominatives)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §III.B"
+      },
+      {
+        "libelle": "Annexe 1 : Cadre de Réponse Technique (CRT) phase de candidature dûment complété avec pièces justificatives",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §III.B ; Annexe 1 CRT type SAD 1"
+      },
+      {
+        "libelle": "Documents justifiant du statut d'établissement pharmaceutique et certificats BPF/BPD en cours de validité",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §III.B"
+      },
+      {
+        "libelle": "Acte d'Engagement signé",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §III.B — stade marchés spécifiques"
+      },
+      {
+        "libelle": "Annexe financière signée",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §III.B — stade marchés spécifiques"
+      },
+      {
+        "libelle": "RIB",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §III.B — stade marchés spécifiques"
+      },
+      {
+        "libelle": "Délégation de pouvoir (le cas échéant)",
+        "phase": "offre",
+        "obligatoire": false,
+        "source": "RC §III.B — stade marchés spécifiques"
+      },
+      {
+        "libelle": "Cadre de Réponses Techniques (CRT) et ses pièces jointes",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §III.B — stade marchés spécifiques"
+      },
+      {
+        "libelle": "CCAP et CCTP dûment signés et paraphés",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §III.B — stade marchés spécifiques"
+      }
+    ],
+    "mode_remise": "dématérialisé + copie de sauvegarde",
+    "plateforme_depot": "PLACE — marches-publics.gouv.fr",
+    "signature_electronique_exigee": false,
+    "format_signature": "XAdES, CAdES ou PAdES",
+    "nombre_exemplaires": null,
+    "langue": "français",
+    "duree_validite_offres_jours": null,
+    "modalites_source": "RC §IV.B"
+  },
+  "lots": [
+    {
+      "numero": 1,
+      "intitule": "Catégorie 1 : Approvisionnement de MPUP, d'AC et de produits importés et prestations associées",
+      "domaine": "services_sante_medical",
+      "zone_geographique": null,
+      "volume_estime": null,
+      "volume_estime_unite": null,
+      "cout_estime_min_eur": null,
+      "cout_estime_max_eur": null,
+      "particularites": "Achat de matières premières à usage pharmaceutique (principes actifs et excipients), articles de conditionnement (primaires et extérieurs), contrôle qualité, pesée, reconditionnement, importation de médicaments sans AMM en France et produits semi-finis, distribution des MPUP et AC. CPV 33600000 – Produits pharmaceutiques."
+    },
+    {
+      "numero": 2,
+      "intitule": "Catégorie 2 : Fabrication et prestations associées",
+      "domaine": "services_sante_medical",
+      "zone_geographique": null,
+      "volume_estime": null,
+      "volume_estime_unite": null,
+      "cout_estime_min_eur": null,
+      "cout_estime_max_eur": null,
+      "particularites": "Développement galénique et analytique, transfert industriel, contrôle qualité, stabilités, pesée, formulation, production médicaments stériles (injectables) et formes orales, confirmation et certification des lots par Personne Qualifiée, conditionnement primaire et extérieur, étiquetage, distribution directe par le fabricant le cas échéant. Accès possible à l'offre 'Full service'. CPV 33600000."
+    }
+  ],
+  "tranches": [],
+  "calendrier": {
+    "date_limite_offres": null,
+    "date_demarrage_prevue": null,
+    "duree_marche": "12 ans pour le SAD (durée maximale de chaque marché spécifique : 4 ans)"
+  },
+  "alertes_candidat": [
+    "Statut d'établissement pharmaceutique autorisé obligatoire POUR LA CATÉGORIE 2 (Fabrication) à la date de notification de chaque marché spécifique — son absence entraîne l'irrecevabilité (condition d'admission et condition préalable à la signature)",
+    "Certification BPF en cours de validité et référencement EudraGMDP exigés à peine d'élimination pour les deux catégories — à mettre à jour tous les 6 mois sur la plateforme ACTRADIS obligatoirement",
+    "Réactivité opérationnelle imposée : capacité à réceptionner les MPUP dans les 15 jours maximum et à lancer la fabrication dans le même délai — à démontrer impérativement dans le CRT",
+    "Toute personne intervenant sur site AP-HP doit avoir un casier judiciaire vierge (B3) vérifié avant la première intervention et annuellement — contrainte de sécurité non négociable",
+    "Le SAD ne garantit aucun volume minimum : l'admission en phase 1 ne garantit pas l'attribution de marchés spécifiques — risque commercial important pour les candidats avec des coûts fixes élevés de mise en conformité",
+    "Pièces candidature à déposer exclusivement en dématérialisé sur PLACE — réponse papier strictement interdite depuis le 1er octobre 2018",
+    "Incohérence dans le contexte BOAMP : le marché référencé BOAMP-26-56520 concerne des déchets industriels (RESE Charente-Maritime) alors que toutes les pièces du DCE portent sur un marché pharmaceutique AP-HP (ref. 110.26-01.RPPM) — vérifier l'origine exacte des pièces avant de candidater"
+  ],
+  "points_differenciants_attendus": [
+    {
+      "libelle": "Double sourcing certifié GDP et plan de continuité d'activité (PCA) documenté",
+      "exemple": "Le candidat qui démontre disposer d'au moins deux sources qualifiées pour les MPUP clés et d'un PCA opérationnel avec délais de bascule testés scorerait très haut sur le sous-critère 2.1.3 (Capacité de sourcing, robustesse logistique et continuité d'approvisionnement), directement lié à la mission anti-pénurie du RPPM.",
+      "source": "RC §VII.C — Sous-critère 2.1.3 Catégorie 1"
+    },
+    {
+      "libelle": "Réactivité démontrée en situation d'urgence sanitaire",
+      "exemple": "Fournir un exemple documenté de mobilisation rapide (ex: production lancée en 10 jours pour un médicament en rupture, avec preuves de lot produit et livré) constitue un différenciateur fort sur la capacité à répondre aux demandes du Ministère de la Santé ou de l'ANSM dans des délais compatibles avec l'urgence.",
+      "source": "CCTP §VIII — Gestion de l'urgence"
+    },
+    {
+      "libelle": "Expérience sur des formes pharmaceutiques complexes (injectables, formes pédiatriques, anticancéreux)",
+      "exemple": "Un candidat justifiant d'une expérience documentée sur les anticancéreux injectables (5-FU, Méthotrexate) ou les formes pédiatriques sensibles (suspensions buvables, gélules) sera mieux positionné lors des marchés spécifiques portant sur ces molécules identifiées comme prioritaires dans le CCTP.",
+      "source": "CCTP §I — Liste prioritaire indicative des médicaments concernés"
+    },
+    {
+      "libelle": "Capacité 'Full Service' intégrant fabrication ET distribution directe",
+      "exemple": "Un établissement pharmaceutique disposant à la fois des certifications BPF de fabrication et BPDG de distribution peut se positionner comme opérateur unique pour les marchés spécifiques nécessitant une chaîne complète du MPUP à la dispensation, simplifiant la coordination pour l'EP AP-HP et renforçant l'offre.",
+      "source": "CCTP §Article 1 — SAD 1 Full Service ; RC §VII.C Sous-critère 2.2.5"
+    },
+    {
+      "libelle": "Maturité du système qualité pharmaceutique et traçabilité documentaire",
+      "exemple": "Un candidat qui soumet un Quality Agreement pré-rempli et détaillé, des COA types clairs, et un extrait du manuel qualité couvrant explicitement la gestion des déviations, CAPA et OOS démontrera une maturité pharmaceutique rassurante pour l'acheteur et se distinguera des candidats fournissant des documents génériques.",
+      "source": "RC §VII.C — Sous-critères 2.1.4 (Cat.1) et 2.1.2 (Cat.2)"
+    }
+  ],
+  "_meta": {
+    "id_marche": "BOAMP-26-56520",
+    "type": "complet",
+    "date_generation": "2026-06-19T19:40:40.648773+00:00",
+    "extraction_le": "2026-06-19T19:40:40.648773+00:00",
+    "modele": "claude-sonnet-4-6",
+    "preset_utilise": null,
+    "presets_matches": [],
+    "prompts_versions": {},
+    "tokens_input": 80748,
+    "tokens_output": 10002,
+    "cout_eur": 0.3727,
+    "duree_sec": 183.7,
+    "pdfs_traites": [
+      {
+        "nom": "110.26-01.RPPM Réponses aux questions 7 des entreprises.pdf",
+        "hash": "9c1ac80f2c079b1237b4be17fbc50fe6",
+        "taille_chars": 0
+      },
+      {
+        "nom": "110.26-01.RPPM_CCAP type SAD1 VF.pdf",
+        "hash": "d5586c0c957debe8fd32253cd96e6c48",
+        "taille_chars": 73405
+      },
+      {
+        "nom": "110.26-01.RPPM_CCTP type_SAD1_ VF.pdf",
+        "hash": "2854f8095979c71b0cc3bb64041680a4",
+        "taille_chars": 30910
+      },
+      {
+        "nom": "110.26-01.RPPM_RC typeSAD1_VF.pdf",
+        "hash": "3f33eb8532a6887d015f22d25981b113",
+        "taille_chars": 66943
+      },
+      {
+        "nom": "Annexe 1 CRT type SAD 1 phase de candidature VF.docx",
+        "hash": "c352c5f7fd47c20408392f9dd5cab26c",
+        "taille_chars": 7402
+      },
+      {
+        "nom": "Annexe 1 CRT type SAD 1 phase de candidature VF.pdf",
+        "hash": "7e2a52df8e856f49b4854d7fcc7955c0",
+        "taille_chars": 6957
+      },
+      {
+        "nom": "Document type Coordonnees VD.docx",
+        "hash": "a8020c34a7bdc55257a4be031ccc1600",
+        "taille_chars": 1530
+      }
+    ]
+  }
+}

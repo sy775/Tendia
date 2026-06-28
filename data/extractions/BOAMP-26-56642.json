@@ -1,75 +1,147 @@
 {
-  "synthese_marche": "Marché de maintenance, entretien et dépannages des installations de chauffage (chaudières gaz), ventilation (VMC, CTA), traitement d'air et production d'eau chaude sanitaire pour la Chambre de Métiers et de l'Artisanat des Pays de la Loire. Le marché est alloti en 5 lots géographiques couvrant les 5 départements de la région (44, 49, 53, 72, 85). Les prestations comprennent la maintenance préventive systématique et conditionnelle, la maintenance corrective avec astreinte, et le gros entretien.",
+  "synthese_marche": "La Chambre de Métiers et de l'Artisanat des Pays de la Loire (CMA PdL) lance un appel d'offres ouvert pour la maintenance, l'entretien et les dépannages des installations de chauffage, ventilation, traitement d'air et production d'eau chaude sanitaire (CVC/ECS) sur l'ensemble de ses sites dans les 5 départements des Pays de la Loire. Le marché est alloti en 5 lots géographiques (un par département : Loire-Atlantique, Maine-et-Loire, Mayenne, Sarthe, Vendée), chacun couvrant un ou plusieurs bâtiments de la CMA (sièges CND + centres de formation CMAF). Les prestations comprennent la maintenance préventive systématique et conditionnelle, la maintenance corrective avec astreinte, la conduite des installations et la remise de rapports annuels de synthèse énergétique.",
   "domaines_metier": [
     {
-      "code": "ingenierie_fluides_climatique"
+      "code": "btp_second_oeuvre"
     }
   ],
-  "raison_classification": "Le marché porte exclusivement sur la maintenance et l'entretien d'installations de chauffage (chaudières gaz, sous-stations), de ventilation (VMC, CTA double flux) et de production d'eau chaude sanitaire dans des bâtiments tertiaires. Il s'agit typiquement d'une prestation relevant de l'ingénierie fluides et climatique (CVC), couvrant la conduite, l'entretien préventif et correctif de ces installations techniques.",
-  "caracteristiques_mission_it": {
-    "typologie_mission": null,
-    "typologie_systeme": null,
-    "cloud_ou_on_premise": null,
-    "niveau_securite": null,
-    "technologies_attendues": [],
-    "modele_prestation": "forfait",
-    "volumetrie": "11 sites répartis sur 5 départements des Pays de la Loire, multiples bâtiments par site, chaufferies de 100 kW à 1 952 kW",
-    "jours_homme_estimes": null,
-    "sla_attendus": "Délai d'intervention 4h en jours ouvrés (7h-19h), 8h en dehors ; résolution problème confort sous 7 jours calendaires ; mise à l'arrêt/mise en route du chauffage sous 12h",
-    "livrables_par_phase": [
-      {
-        "phase": "Démarrage (1er mois)",
-        "livrables": [
-          "Plannings prévisionnels de maintenance",
-          "Liste nominative du personnel agréé",
-          "Attestations d'assurance",
-          "Numéro SAV"
-        ]
-      },
-      {
-        "phase": "Exploitation courante",
-        "livrables": [
-          "Rapports d'intervention signés après chaque intervention",
-          "Fiches de visite mensuelle",
-          "Attestations d'entretien chaudières (dans les 15 jours après visite)",
-          "Livrets d'entretien filtres et installations gaz"
-        ]
-      },
-      {
-        "phase": "Annuel",
-        "livrables": [
-          "Rapport annuel de synthèse",
-          "Planning de maintenance N+1",
-          "Programme de travaux de gros entretien/renouvellement"
-        ]
-      }
+  "raison_classification": "Le marché porte exclusivement sur la maintenance/entretien/dépannage d'installations de chauffage (chaudières gaz), ventilation (VMC, CTA) et production d'ECS — c'est-à-dire le génie climatique/CVC dans des bâtiments existants, relevant du second œuvre technique. Il n'y a pas de travaux neufs ni de rénovation énergétique au sens isolation/thermique, mais une prestation de service de maintenance récurrente sur des équipements CVC existants.",
+  "caracteristiques_techniques_chantier": {
+    "description": "Maintenance préventive et corrective d'installations CVC/ECS : chaudières gaz (puissances de 100 kW à 1 952 kW par site), centrales de traitement d'air (CTA), VMC simple et double flux, réseaux eau chaude, planchers chauffants, climatisations, ballons ECS. Les interventions incluent l'entretien annuel réglementaire des chaudières, le ramonage, la vérification des installations gaz, l'entretien des filtres de ventilation et le dépannage en urgence (délai 4h en heures ouvrées, 8h hors heures ouvrées).",
+    "typologie_ouvrage": "Bâtiments tertiaires ERP (sièges administratifs CND) et établissements de formation (CMAF) — centres de formation pour apprentis, catégories R, N, W, X de diverses catégories ERP. Bâtiments construits entre 1970 et 2025 (dont plusieurs récents 2022-2025).",
+    "surface_volume": null,
+    "site_occupe": "true — les bâtiments sont en activité (centres de formation en fonctionnement), les interventions doivent éviter de perturber l'exploitation ; les arrêts de chaudières pour maintenance sont à planifier en période estivale.",
+    "corps_etat": [
+      "Chauffage/chaudières gaz",
+      "Ventilation et traitement d'air (VMC, CTA)",
+      "Production d'eau chaude sanitaire (ECS)",
+      "Régulation et automatismes",
+      "Installations gaz"
     ],
-    "profils_attendus": [
-      {
-        "profil": "Responsable de contrat (technicien supérieur ou cadre)",
-        "nombre": 1,
-        "anciennete_min_annees": null,
-        "certifs_requises": []
-      },
-      {
-        "profil": "Techniciens d'intervention CVC",
-        "nombre": null,
-        "anciennete_min_annees": null,
-        "certifs_requises": []
-      }
-    ],
-    "exigences_securite": [],
-    "reversibilite": null
+    "contraintes_specifiques": [
+      "Interventions en site occupé (centres de formation en activité)",
+      "Arrêts de chaudières à réaliser en période estivale de faible besoin",
+      "Délai d'intervention de 4h en heures ouvrées (7h-19h), 8h hors heures ouvrées",
+      "Responsabilité permanente 24h/24 7j/7 du bon fonctionnement",
+      "Certaines chaufferies soumises à déclaration ICPE (CMAF 44 : 1 952 kW)",
+      "Bâtiments ERP soumis à réglementation incendie spécifique (CH57, GZ29, GZ30)",
+      "Chaudières > 400 kW nécessitant analyseur de combustion portatif et déprimomètre",
+      "Fourniture de consommables < 150 € HT incluse dans le forfait",
+      "Rapport annuel de synthèse obligatoire avec présentation orale",
+      "Couverture multi-sites sur chaque département (CND + CMAF)"
+    ]
   },
-  "qualifications_it": {
-    "iso_27001": false,
-    "hds": false,
-    "secnumcloud": false,
-    "rgs": false,
-    "referencement_anssi": false,
-    "certifications_securite": [],
-    "certifications_technologiques": [],
+  "allotissement": {
+    "description": "5 lots géographiques correspondant aux 5 départements des Pays de la Loire, chacun couvrant le siège CND et le(s) centre(s) de formation CMAF du département concerné.",
+    "nb_lots": 5,
+    "lots_detailles": [
+      {
+        "numero": 1,
+        "intitule": "Lot n°01 — Département de la Loire-Atlantique",
+        "corps_etat": "Maintenance CVC/ECS",
+        "montant_estime": null,
+        "description": "Siège CMA PdL (100 kW gaz + VMC double flux), CND Loire-Atlantique (250 kW gaz), CMAF 44 bâtiment principal (1 952 kW gaz + CTA), self (136 kW), bâtiment des Liards (tubes radiants gaz), bâtiment H (285 kW + 3 CTA). Chaufferie ICPE à Sainte-Luce-sur-Loire."
+      },
+      {
+        "numero": 2,
+        "intitule": "Lot n°02 — Département du Maine-et-Loire",
+        "corps_etat": "Maintenance CVC/ECS",
+        "montant_estime": null,
+        "description": "CND Maine-et-Loire et CMAF 49 à Angers : plusieurs bâtiments (AB, C en construction jusqu'à 2027, D, E) chauffés par réseau urbain, multiples CTA et VMC."
+      },
+      {
+        "numero": 3,
+        "intitule": "Lot n°03 — Département de la Mayenne",
+        "corps_etat": "Maintenance CVC/ECS",
+        "montant_estime": null,
+        "description": "CMAF 53 à Laval sur 4 adresses (30, 84, 115 bd Volney et 39 av. Chanzy) : multiples chaudières gaz (Atlantic, Viessmann, Buderus, Remeha), CTA double flux, climatisations, ballons ECS. CND Mayenne non concernée."
+      },
+      {
+        "numero": 4,
+        "intitule": "Lot n°04 — Département de la Sarthe",
+        "corps_etat": "Maintenance CVC/ECS",
+        "montant_estime": null,
+        "description": "CND Sarthe et CMAF 72 au Mans : chaudières Weishaupt (remplacées 2020-2021), chaudières Hoval, multiples CTA et VMC sur bâtiments A, B, C."
+      },
+      {
+        "numero": 5,
+        "intitule": "Lot n°05 — Département de la Vendée",
+        "corps_etat": "Maintenance CVC/ECS",
+        "montant_estime": null,
+        "description": "CND Vendée (La Roche-sur-Yon, ERP 3e catégorie, chaudière 1998 315/420 kW, groupes de climatisation et VMC) et CMAF 85 sur plusieurs bâtiments (C, B, maison des apprentis, bâtiment L avec CTA R+2)."
+      }
+    ]
+  },
+  "qualifications_requises": {
+    "description": "Le CCP ne mentionne pas explicitement de qualifications Qualibat numérotées. Il exige que le personnel soit qualifié pour les interventions (habilitations, agréments administratifs ou techniques justifiés par diplômes). Des compétences spécifiques gaz et chaudières haute puissance sont requises (analyseur de combustion, déprimomètre pour chaudières > 400 kW).",
+    "qualibat": [],
+    "rge": false,
+    "rge_specialites": [],
+    "mase": false,
+    "iso_9001": false,
+    "iso_14001": false,
+    "iso_45001": false,
+    "opqibi": null,
+    "autres_certifications": []
+  },
+  "caracteristiques_mission_moe": {
+    "typologie": null,
+    "phases_couvertes": [],
+    "typologie_ouvrage": null,
+    "montant_travaux_estime": null,
+    "complexite_technique": null,
+    "livrables_par_phase": [],
+    "taux_remuneration_moe_pct": null,
+    "indices_revision": [
+      "BT01"
+    ],
+    "coordinations_associees": [],
+    "organigramme_attendu": [],
+    "bim_niveau": null
+  },
+  "qualifications_moe": {
+    "opqibi": [],
+    "opqcm": [],
+    "bim": null,
     "autres": []
+  },
+  "caracteristiques_techniques_enr": {
+    "description": null,
+    "technologies_concernees": [],
+    "type_de_sites": null,
+    "criteres_eligibilite": [],
+    "contraintes_site_signalees": []
+  },
+  "volumes_techniques": {
+    "puissance_totale_kwc": null,
+    "puissance_par_site_kwc": null,
+    "nb_sites": null,
+    "surface_panneaux_m2": null,
+    "productible_annuel_estime_mwh": null,
+    "duree_marche_mois": null,
+    "duree_maintenance_om_annees": null,
+    "commentaire_volumes": "Puissances totales chaufferie par lot : Lot 1 environ 2 773 kW thermique (siège 100 + CND44 250 + CMAF44 1952+136+285 = 2 723 kW + siège 100 kW), Lots 2-5 données partielles. Il s'agit de kW thermique (chaudières gaz), pas de kWc PV."
+  },
+  "modalites_execution_chantier": {
+    "raccordement_reseau_inclus": null,
+    "etudes_techniques_incluses": null,
+    "calendrier_chantier_contraint": "Arrêts de chaudières pour maintenance à réaliser en période estivale (faible besoin de chaleur). Mises en route/arrêt du chauffage dans les 12h après demande par mail.",
+    "sites_execution": [
+      "Loire-Atlantique (44)",
+      "Maine-et-Loire (49)",
+      "Mayenne (53)",
+      "Sarthe (72)",
+      "Vendée (85)"
+    ],
+    "engagement_productible": null,
+    "engagement_disponibilite_om": "Délai d'intervention 4h en heures ouvrées (7h-19h), 8h hors heures ouvrées. Résolution des dysfonctionnements dans les 7 jours calendaires."
+  },
+  "qualifications_enr": {
+    "qualipv": false,
+    "qualisol": false,
+    "qualipac": false,
+    "qualibois": false,
+    "autres_certifications": []
   },
   "bareme_notation": {
     "valeur_technique_pct": null,
@@ -77,15 +149,17 @@
     "sous_criteres_techniques": [],
     "prix": {
       "type_formule": "autre",
-      "formule_explicite": "Non précisée dans les pièces disponibles — le RC complet (critères de sélection et d'attribution) n'est pas fourni au DCE analysé.",
+      "formule_explicite": "Le CCP ne détaille pas explicitement les critères de notation et leur pondération. Un DPGF/bordereau de prix est mentionné (périodicités des opérations de maintenance définies dans le DPGF, tarifs pour les devis hors-forfait au chapitre 2 du bordereau de prix). La formule exacte n'est pas disponible dans les pièces fournies (RC non transmis).",
+      "source": null,
       "elements_a_chiffrer": [
-        "Forfait annuel de maintenance préventive et corrective par site/lot",
-        "Prix unitaires horaires de main-d'œuvre (heures normales, heures supplémentaires) pour devis de travaux complémentaires",
-        "Coût des petites fournitures et consommables < 150 € HT (inclus dans le forfait)",
-        "Coût des prestations exceptionnelles et remplacement de grosses pièces (sur devis)"
+        "Forfait annuel de maintenance préventive par lot (par site)",
+        "Tarifs horaires main-d'œuvre pour dépannages hors forfait (heures ouvrées, heures non ouvrées)",
+        "Tarifs de déplacement",
+        "Coefficient de majoration sur fournitures/pièces détachées",
+        "Prix unitaires des principales opérations de maintenance (par équipement : chaudière, CTA, VMC, etc.)"
       ]
     },
-    "modalite_calcul_prix": "Non précisée dans les pièces fournies (RC absent du DCE analysé)."
+    "modalite_calcul_prix": "Non communiqué dans les pièces transmises (RC absent du DCE fourni)"
   },
   "montant_marche": {
     "valeur_estimee_euros": null,
@@ -94,159 +168,308 @@
     "type": "non_communique",
     "duree_couverte": null,
     "source_extraction": null,
-    "commentaire": "Le RC (Règlement de Consultation) n'a pas été fourni dans les pièces analysées. Aucun montant estimé, plafond ou valeur prévisionnelle n'est mentionné dans les CCP fournis. La durée du marché et les montants budgétaires ne sont pas précisés dans les pièces disponibles."
+    "commentaire": "Aucun montant explicite dans les pièces transmises. Le RC n'a pas été fourni dans son intégralité. Le marché est européen (BOAMP), ce qui implique un montant total estimé supérieur au seuil de procédure formalisée pour les services (~221 000 € HT pour les entités adjudicatrices). Voir estimation Voie 2."
+  },
+  "montant_3_voies": {
+    "voie_1_eur": null,
+    "voie_1_source": null,
+    "voie_2_disponible": true,
+    "voie_2_min_eur": 280000,
+    "voie_2_max_eur": 420000,
+    "voie_2_hypotheses": [
+      {
+        "hypothese": "5 lots × environ 10-12 sites CVC au total (CND + CMAF par département)",
+        "valeur": "~12 sites couverts"
+      },
+      {
+        "hypothese": "Forfait annuel maintenance préventive par site (chaudières + CTA + VMC), estimé à 8 000-12 000 €/site/an pour un patrimoine de cette taille (chaudières gaz industrielles, multiples CTA)",
+        "valeur": "8 000 à 12 000 €/site/an"
+      },
+      {
+        "hypothese": "Durée estimée 1 an ferme + 3 reconductions annuelles (hypothèse classique pour ce type de marché) soit 4 ans",
+        "valeur": "4 ans"
+      },
+      {
+        "hypothese": "Montant annuel estimé : 12 sites × 10 000 €/site = 120 000 €/an × 4 ans = 480 000 € total. Fourchette : 70 000 à 105 000 €/an selon complexité → 280 000 à 420 000 € sur 4 ans",
+        "valeur": "350 000 € valeur centrale"
+      },
+      {
+        "hypothese": "Variable ajustée : le prix unitaire par site (8 000 à 12 000 €), la quantité de sites fixée à 12. Le lot 1 (CMAF 44 avec chaufferie ICPE 1 952 kW) est nettement plus lourd que les autres.",
+        "valeur": "Lot 1 représente ~35-40% du total"
+      }
+    ],
+    "voie_2_raison_indisponible": null
+  },
+  "cout_realisation": {
+    "cout_total_eur": 196000,
+    "cout_min_eur": 168000,
+    "cout_max_eur": 224000,
+    "postes": [
+      {
+        "poste": "Main-d'œuvre technicien CVC — Lot 1 (CMAF 44 + CND 44 + Siège : sites lourds)",
+        "detail": "Estimation ~60 visites/an × 4h + 20 dépannages × 3h = 300h/an × 45 €/h chargé",
+        "montant_eur": 54000
+      },
+      {
+        "poste": "Main-d'œuvre technicien CVC — Lots 2 à 5 (sites moins complexes)",
+        "detail": "Moyenne 40h/an par site × 8 sites × 45 €/h chargé",
+        "montant_eur": 72000
+      },
+      {
+        "poste": "Consommables et petites fournitures (<150 € unitaire, inclus dans forfait)",
+        "detail": "Budget forfaitaire estimé 5 000 €/an × 4 ans (joints, filtres, produits d'entretien)",
+        "montant_eur": 20000
+      },
+      {
+        "poste": "Encadrement et coordination (responsable de compte, rapport annuel, réunions)",
+        "detail": "~15 j-h/an × 4 ans × 600 €/j",
+        "montant_eur": 36000
+      },
+      {
+        "poste": "Frais de déplacement multi-sites (5 départements, interventions régulières)",
+        "detail": "Estimation forfaitaire 3 500 €/an × 4 ans",
+        "montant_eur": 14000
+      }
+    ],
+    "taux_journaliers_retenus": "Technicien CVC chargé : 45 €/h (360 €/j) ; Responsable de compte : 600 €/j — taux marchés indicatifs pour maintenance CVC tertiaire.",
+    "commentaire": "Estimation sur 4 ans (hypothèse 1 an ferme + 3 reconductions). Le coût est dominé par la main-d'œuvre terrain. Le Lot 1 est structurellement plus coûteux (CMAF 44 : chaufferie ICPE 1 952 kW avec obligations de contrôles renforcés). Variable ajustée : le taux horaire main-d'œuvre (fourchette 40-50 €/h chargé). Ces chiffres sont à titre indicatif — le candidat doit chiffrer sur la base de ses propres DPGF."
   },
   "revision_prix": {
     "type": "indexation",
     "indices_utilises": [
       "BT01"
     ],
-    "ponderation": "100% indice BT01 (bâtiment, tous corps d'état, base 2010, publié par l'INSEE)",
+    "ponderation": "Révision annuelle à la date anniversaire, formule : Pr = P0 × (In/I0) avec I = indice BT01 (bâtiment tous corps d'état, base 2010, INSEE). Augmentation limitée à 2% maximum par an.",
     "periodicite": "annuelle",
-    "formule_revision": "Pr = P0 (In / I0) — avec Pr = prix révisé, P0 = prix initial, I0 = valeur du dernier indice publié, In = valeur de l'indice du mois de remise des offres. Augmentation limitée à 2% maximum par an.",
+    "formule_revision": "Pr = P0 × (In / I0) — avec I0 = dernier indice publié à la date de remise des offres, In = indice à la date de révision. Plafond à +2%/an.",
     "source_extraction": "CCP article 9",
-    "commentaire": "Prix fermes la première année, puis révision annuelle à la date anniversaire, plafonnée à +2%/an — clause protectrice pour l'acheteur mais limitante pour le prestataire en période d'inflation élevée des coûts de main-d'œuvre et matériaux."
+    "commentaire": "Formule BT01 pure avec plafonnement à +2%/an : protège l'acheteur en cas d'inflation forte sur les matériaux, mais potentiellement défavorable au prestataire si inflation réelle > 2%. Les prix sont fermes la première année. Prix de référence établis sur la base des conditions économiques de septembre 2023."
   },
   "alertes_prix": [
-    "Révision des prix plafonnée à 2% par an alors que l'indice BT01 peut évoluer davantage : risque de dérive financière pour le prestataire sur les reconductions",
-    "Marché à forfait annuel : tout dépassement lié aux consommables < 150 € HT est à la charge du prestataire (PFIC inclus dans le forfait)",
-    "Aucun montant estimé communiqué dans les pièces disponibles : difficile d'évaluer la rentabilité sans visiter les sites",
-    "Pénalité de retard égale au DOUBLE du montant de la prestation concernée (dérogation CCAG) : risque financier élevé en cas de non-respect des délais"
+    "Révision des prix plafonnée à +2%/an (indice BT01) : en contexte inflationniste sur l'énergie et la main-d'œuvre, le plafond peut ne pas couvrir les hausses réelles de coûts.",
+    "Le marché est traité à forfait annuel : le prestataire supporte le risque de sous-estimation sur les interventions correctives incluses dans le forfait.",
+    "Les consommables < 150 € HT unitaire sont à la charge du prestataire dans le forfait : estimer rigoureusement cette ligne avant de chiffrer.",
+    "Pénalité en cas de non-exécution = double du montant de la prestation concernée (article 10 du CCP) : impact financier fort sur les forfaits mensuels.",
+    "Aucun RC avec grille de notation fourni : impossible de vérifier la pondération prix/technique avant dépôt."
   ],
   "references_exigees": {
     "experience_minimale_annees": null,
     "experience_source": null,
     "volume_min_references_similaires": null,
     "volume_min_references_unite": null,
-    "secteur_experience": "Maintenance d'installations de chauffage, ventilation, traitement d'air et production d'eau chaude sanitaire dans des établissements recevant du public ou des bâtiments tertiaires",
+    "secteur_experience": "Maintenance d'installations de chauffage, ventilation et traitement d'air (CVC) en bâtiments tertiaires/ERP, incluant chaudières gaz de moyenne et haute puissance.",
     "secteur_source": null,
     "certifications_obligatoires": [
       {
-        "libelle": "Qualification pour entretien de chaudières (conformité arrêtés du 15 septembre 2009 et du 2 octobre 2009)",
-        "source": "CCP article 3.4.1"
+        "libelle": "Qualifications et habilitations du personnel d'intervention : diplômes, habilitations réglementaires et agréments administratifs ou techniques attestés (gaz, électricité, fluides frigorigènes le cas échéant)",
+        "codes": [],
+        "bloquante": true,
+        "source": "CCP article 3.8.3"
       },
       {
-        "libelle": "Attestation de capacité RGE ou équivalent pour les chaudières — non explicitement requis mais implicite des réglementations citées",
-        "source": "CCP article 3.2"
+        "libelle": "Compétences pour les chaudières > 400 kW : possession d'un analyseur portatif des gaz de combustion et d'un déprimomètre en état de bon fonctionnement",
+        "codes": [],
+        "bloquante": true,
+        "source": "CCP article 3.4.1"
       }
     ],
     "autres_exigences": [
       {
-        "libelle": "Personnel agréé préalablement par la CMA PdL, avec justificatifs de qualification (diplômes, habilitations, agréments) remis 15 jours avant la première intervention",
-        "source": "CCP article 3.8.3"
-      },
-      {
-        "libelle": "Responsable de contrat de niveau technicien supérieur ou cadre désigné nominativement dans l'offre",
+        "libelle": "Responsable de niveau technicien supérieur ou cadre désigné comme interlocuteur unique de la CMA PdL durant toute la durée du marché",
         "source": "CCP article 3.8.2"
       },
       {
-        "libelle": "Contrat d'assurance responsabilité civile (dommages corporels, matériels, immatériels, biens confiés) justifié dans les 15 jours après notification",
+        "libelle": "Liste nominative du personnel agréée par la CMA PdL au moins 15 jours avant la première intervention",
+        "source": "CCP article 3.8.3"
+      },
+      {
+        "libelle": "Attestation d'assurance RC couvrant dommages corporels, matériels et immatériels non consécutifs — à fournir dans les 15 jours de la notification",
         "source": "CCP article 14"
       },
       {
-        "libelle": "Possession d'analyseur portatif des gaz de combustion et déprimomètre pour les chaudières > 400 kW",
-        "source": "CCP article 3.4.1"
+        "libelle": "Justificatifs de non-travail dissimulé à fournir tous les 6 mois",
+        "source": "CCP article 16.1"
       }
     ]
+  },
+  "dossier_candidature": {
+    "pieces_a_fournir": [
+      {
+        "libelle": "Lettre de candidature DC1 (modèle joint au DCE)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "DC1 joint au DCE"
+      },
+      {
+        "libelle": "Acte d'engagement ATTRI1 (modèle joint au DCE) complété",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "AE_ATTRI1.docx joint au DCE"
+      },
+      {
+        "libelle": "Cahier des Charges Particulières (CCP) signé par le candidat avec mention 'lu et approuvé'",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "CCP article final — signature"
+      },
+      {
+        "libelle": "DPGF (Décomposition du Prix Global et Forfaitaire) / Bordereau de prix complété par lot(s) candidaté(s)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "CCP article 3.4 et 3.5.3 (référence au DPGF et au bordereau de prix)"
+      },
+      {
+        "libelle": "Mémoire technique incluant la méthodologie d'équilibrage des installations de chauffage",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "CCP article 3.1"
+      },
+      {
+        "libelle": "Présentation du responsable désigné interlocuteur CMA PdL (CV ou équivalent)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "CCP article 3.8.2"
+      },
+      {
+        "libelle": "Annexe RGPD (clauses niveau 3) signée",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "Annexe RGPD jointe au DCE"
+      },
+      {
+        "libelle": "Relevé d'identité bancaire (RIB)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "AE_ATTRI1.docx section B3"
+      }
+    ],
+    "mode_remise": null,
+    "plateforme_depot": null,
+    "signature_electronique_exigee": null,
+    "format_signature": null,
+    "nombre_exemplaires": null,
+    "langue": "français",
+    "duree_validite_offres_jours": null,
+    "modalites_source": null
   },
   "lots": [
     {
       "numero": 1,
-      "intitule": "Lot n°01 département de la Loire Atlantique",
+      "intitule": "Lot n°01 — Département de la Loire-Atlantique",
+      "domaine": "btp_second_oeuvre",
       "zone_geographique": "Loire-Atlantique (44)",
       "volume_estime": null,
       "volume_estime_unite": null,
-      "particularites": "3 sites : Siège social CMA PdL (100 kW), CND Loire-Atlantique (250 kW), CMAF 44 (chaufferie 1 952 kW soumise à déclaration ICPE, tubes radiants gaz, bâtiment H 225+60 kW). Patrimoine le plus important et le plus complexe avec une chaufferie classée ICPE."
+      "cout_estime_min_eur": 60000,
+      "cout_estime_max_eur": 84000,
+      "particularites": "Lot le plus complexe : CMAF 44 avec chaufferie ICPE de 1 952 kW (4 × 488 kW), chaufferie au 5e étage, équipements en galerie technique et toiture terrasse. Siège CMA PdL inclus. Obligations réglementaires ICPE spécifiques."
     },
     {
       "numero": 2,
-      "intitule": "Lot n°02 département du Maine et Loire",
+      "intitule": "Lot n°02 — Département du Maine-et-Loire",
+      "domaine": "btp_second_oeuvre",
       "zone_geographique": "Maine-et-Loire (49)",
       "volume_estime": null,
       "volume_estime_unite": null,
-      "particularites": "Sites CND Maine-et-Loire et CMAF 49 à Angers (plusieurs bâtiments dont certains en construction jusqu'en 2026-2027) — chauffage par réseau urbain. Complexité liée aux bâtiments neufs en cours de livraison (bâtiments C et E finalisés en 2026-2027)."
+      "cout_estime_min_eur": 32000,
+      "cout_estime_max_eur": 44000,
+      "particularites": "Bâtiments récents (2024-2025) reliés au réseau de chaleur urbain. Bâtiment C en construction jusqu'à mars/avril 2027, bâtiment E jusqu'en juillet 2026 : périmètre évolutif en cours de marché."
     },
     {
       "numero": 3,
-      "intitule": "Lot n°03 département de la Mayenne",
+      "intitule": "Lot n°03 — Département de la Mayenne",
+      "domaine": "btp_second_oeuvre",
       "zone_geographique": "Mayenne (53)",
       "volume_estime": null,
       "volume_estime_unite": null,
-      "particularites": "CMAF 53 à Laval uniquement (CND Mayenne exclue). Plusieurs bâtiments sur plusieurs adresses (bd Volney et avenue Chanzy). Équipements variés : chaudières ATLANTIC, VIESSMANN, BUDERUS, REMEHA, CTA double flux SWEGON."
+      "cout_estime_min_eur": 28000,
+      "cout_estime_max_eur": 40000,
+      "particularites": "CMAF 53 dispersé sur 4 adresses à Laval : logistique multi-sites complexe. Parc d'équipements hétérogène (Atlantic, Viessmann, Buderus, Remeha, Swegon, Daikin). CND Mayenne exclue du périmètre."
     },
     {
       "numero": 4,
-      "intitule": "Lot n°04 département de la Sarthe",
+      "intitule": "Lot n°04 — Département de la Sarthe",
+      "domaine": "btp_second_oeuvre",
       "zone_geographique": "Sarthe (72)",
       "volume_estime": null,
       "volume_estime_unite": null,
-      "particularites": "CND Sarthe (Le Mans) et CMAF 72. Bâtiments des années 1970-1980 rénovés, chaudières Weishaupt et Hoval. Parc d'équipements de taille moyenne."
+      "cout_estime_min_eur": 24000,
+      "cout_estime_max_eur": 33000,
+      "particularites": "CND Sarthe et CMAF 72 au Mans. Bâtiment A réhabilité 2019-2020, bâtiment B partiellement rénové 2018-2019. Chaudières Weishaupt remplacées récemment (2020-2021)."
     },
     {
       "numero": 5,
-      "intitule": "Lot n°05 département de la Vendée",
+      "intitule": "Lot n°05 — Département de la Vendée",
+      "domaine": "btp_second_oeuvre",
       "zone_geographique": "Vendée (85)",
       "volume_estime": null,
       "volume_estime_unite": null,
-      "particularites": "CND Vendée et CMAF 85 à La Roche-sur-Yon. CND 85 : bâtiment ERP 3ème catégorie mutualisé avec CAPEB Vendée (seules les installations CND concernées). CMAF 85 : site multi-bâtiments avec chaufferies multiples."
+      "cout_estime_min_eur": 24000,
+      "cout_estime_max_eur": 33000,
+      "particularites": "CND Vendée dans un bâtiment mutualisé avec CAPEB Vendée — seules les installations de la CND 85 sont dans le périmètre. Chaudière ancienne de 1998 (315/420 kW). CMAF 85 sur site multi-bâtiments (C, B, maison des apprentis, bâtiment L)."
     }
   ],
+  "tranches": [],
   "calendrier": {
     "date_limite_offres": "2026-07-27",
     "date_demarrage_prevue": null,
-    "duree_marche": "Durée non précisée dans les pièces disponibles (RC absent) — marché reconductible selon formulaire ATTRI1"
+    "duree_marche": "Durée non précisée dans les pièces transmises — hypothèse 1 an ferme reconductible (classique pour ce type de contrat de maintenance). Prix fermes la 1re année, révisables annuellement ensuite."
   },
   "alertes_candidat": [
-    "Pénalité de retard égale au DOUBLE du montant de la prestation concernée (dérogation à l'article 14 du CCAG-FCS) : clause particulièrement sévère à anticiper dans l'organisation opérationnelle",
-    "Personnel d'intervention doit être nominativement agréé par la CMA PdL avec justificatifs de qualification (diplômes, habilitations) remis 15 jours avant la première intervention — tout nouvel intervenant doit être déclaré",
-    "Responsable de contrat de niveau technicien supérieur/cadre doit être présenté nominativement dans l'offre ; la CMA peut demander son remplacement sous quinzaine sans motiver sa décision",
-    "Lot 1 comporte une chaufferie soumise à déclaration ICPE (1 952 kW) : nécessite des compétences et habilitations spécifiques pour les chaudières > 400 kW (analyseur gaz de combustion et déprimomètre obligatoires)",
-    "Obligation d'intervenir 24h/24 et 7j/7 avec délais d'intervention contractuels (4h en heures ouvrées, 8h hors heures ouvrées) : nécessite une organisation d'astreinte opérationnelle sur la zone géographique du lot"
+    "Le lot 1 (Loire-Atlantique) impose une chaufferie ICPE de 1 952 kW : le prestataire doit maîtriser les obligations réglementaires ICPE et disposer d'un analyseur de combustion portatif et d'un déprimomètre — exigence technique impérative pour les chaudières > 400 kW (CCP art. 3.4.1).",
+    "Responsabilité permanente 24h/24 7j/7 du bon fonctionnement avec délai d'intervention contractuel de 4h en heures ouvrées : le candidat doit disposer d'une astreinte opérationnelle couvrant les 5 départements des Pays de la Loire.",
+    "Le personnel d'intervention doit être nominativement agréé par la CMA PdL 15 jours avant toute intervention, avec justificatifs de qualification : toute évolution de l'équipe nécessite une démarche d'agrément préalable.",
+    "Pénalité = double du montant de la prestation non exécutée ou mal exécutée (CCP art. 10) : risque financier élevé sur les forfaits mensuels en cas de défaillance.",
+    "Le lot 2 (Maine-et-Loire) couvre des bâtiments encore en construction (bâtiment C jusqu'à avril 2027, bâtiment E jusqu'en juillet 2026) : le périmètre est évolutif et le prestataire devra intégrer ces nouveaux équipements en cours de marché."
   ],
   "points_differenciants_attendus": [
     {
       "libelle": "Méthodologie d'équilibrage hydraulique des installations de chauffage",
-      "exemple": "Décrire précisément la méthodologie de mesure des débits et pressions, les outils utilisés (équilibreurs, débitmètres), et fournir un exemple de rapport d'équilibrage avec les paramètres relevés — la CMA demande explicitement que cette méthodologie soit décrite dans le mémoire technique.",
+      "exemple": "Un candidat fort présentera une méthodologie détaillée d'équilibrage (mesures de débit/pression par réseau, outils de mesure utilisés, logiciel de simulation hydraulique) avec des exemples de rapports de réglage sur des installations similaires (réseaux eau chaude multi-circuits à température régulée).",
       "source": "CCP article 3.1"
     },
     {
-      "libelle": "Organisation de la maintenance préventive et traçabilité des interventions",
-      "exemple": "Présenter un exemple de planning type de maintenance préventive systématique, l'outil de GMAO utilisé pour le suivi des interventions et le format du rapport annuel de synthèse proposé (statistiques pannes, suivi énergétique, DJU).",
-      "source": "CCP articles 3.4 et 4"
-    },
-    {
-      "libelle": "Réactivité et organisation de l'astreinte sur la zone géographique du lot",
-      "exemple": "Détailler la localisation des techniciens d'intervention dans le département, le dispositif d'astreinte 24h/24, le temps de trajet estimé vers les sites les plus éloignés, et les moyens de remplacement en cas d'indisponibilité.",
+      "libelle": "Couverture géographique et délais d'intervention garantis sur les 5 départements",
+      "exemple": "Un candidat structuré avec des techniciens basés dans chacun des 5 départements (ou a minima sur la zone couverte par le lot candidaté) pourra démontrer la faisabilité du délai d'intervention de 4h en heures ouvrées, avec un tableau des temps de trajet par site.",
       "source": "CCP article 3.5.1"
     },
     {
-      "libelle": "Expertise sur les chaudières de forte puissance et équipements spécifiques",
-      "exemple": "Pour le lot 1, valoriser l'expérience sur des chaudières > 400 kW et sur des installations classées ICPE, ainsi que la possession des équipements de mesure réglementaires (analyseur combustion, déprimomètre).",
-      "source": "CCP articles 3.4.1 et 3.2"
+      "libelle": "Expérience sur chaudières haute puissance (>400 kW) et installations ICPE",
+      "exemple": "Présenter des références de contrats de maintenance sur des chaufferies gaz de puissance comparable (>1 MW) en ERP ou établissements de formation, avec mention des obligations ICPE gérées et des rapports d'entretien annuels fournis.",
+      "source": "CCP article 3.4.1"
     },
     {
-      "libelle": "Proposition d'interface numérique pour l'historique des interventions et le reporting",
-      "exemple": "Proposer une interface web ou application de consultation de l'historique des interventions, accessible au responsable des Moyens Généraux de la CMA, avec génération automatique des rapports d'intervention signés.",
+      "libelle": "Qualité et format du rapport annuel de synthèse énergétique",
+      "exemple": "Soumettre un modèle de rapport annuel d'exploitation (existant ou maquette) incluant le suivi des DJU, les courbes de consommation, la statistique de pannes et les propositions de gros entretien — montrant la capacité à accompagner la CMA PdL dans sa gestion patrimoniale.",
+      "source": "CCP article 4.2.1"
+    },
+    {
+      "libelle": "Outil de traçabilité des interventions accessible en ligne",
+      "exemple": "Proposer une plateforme ou interface GMAO permettant à la CMA PdL d'accéder à l'historique des interventions, aux rapports signés et aux plannings de maintenance préventive — valorise directement l'exigence de dossier d'interventions numérique avec historique accessible.",
       "source": "CCP article 4.1.1"
     }
   ],
   "_meta": {
     "id_marche": "BOAMP-26-56642",
     "type": "complet",
-    "date_generation": "2026-06-15T18:46:33.114951+00:00",
-    "extraction_le": "2026-06-15T18:46:33.114951+00:00",
+    "date_generation": "2026-06-19T21:27:21.276411+00:00",
+    "extraction_le": "2026-06-19T21:27:21.276411+00:00",
     "modele": "claude-sonnet-4-6",
-    "preset_utilise": "it",
+    "preset_utilise": "btp",
     "presets_matches": [
-      "it"
+      "btp",
+      "ingenierie",
+      "energie_renouvelable"
     ],
     "prompts_versions": {
-      "it/_preset.json": "sha256:0113727ecb269e98"
+      "btp/_preset.json": "sha256:055bf6f8b2c1f771",
+      "ingenierie/_preset.json": "sha256:b924b32a088673d6",
+      "energie_renouvelable/_preset.json": "sha256:d5db6e4d3d386add"
     },
-    "tokens_input": 148235,
-    "tokens_output": 3732,
-    "cout_eur": 0.4757,
-    "duree_sec": 78.2,
+    "tokens_input": 158823,
+    "tokens_output": 8807,
+    "cout_eur": 0.5781,
+    "duree_sec": 159.5,
     "pdfs_traites": [
       {
         "nom": "AE_ATTRI1.docx",

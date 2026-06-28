@@ -1,0 +1,387 @@
+{
+  "synthese_marche": "Marché de services d'assurance 'Responsabilité et risques annexes' pour 11 établissements du GHT Basse Alsace Sud Moselle, piloté par les HUS (établissement support) et géré par l'EPSAN. Le marché est divisé en 2 lots géographiques couvrant respectivement les CH Saverne, Haguenau, Wissembourg, Sarrebourg (Lot 1) et les 7 autres établissements (Lot 2). Durée des marchés : 48 mois à compter du 01/01/2027.",
+  "domaines_metier": [
+    {
+      "code": "assurance"
+    }
+  ],
+  "raison_classification": "Le marché porte exclusivement sur des contrats d'assurance 'Responsabilité et risques annexes' (CPV 66516000 - Services d'assurance responsabilité civile) pour des établissements publics de santé. Le domaine 'assurance' s'impose sans ambiguïté.",
+  "caracteristiques_metier": {
+    "description": "Souscription de contrats d'assurance 'Responsabilité et risques annexes' pour 11 établissements hospitaliers et médico-sociaux du GHT Basse Alsace Sud Moselle (CH, EPSAN, EHPAD, CRS), répartis en 2 lots géographiques. La prestation couvre la garantie responsabilité civile et les risques annexes, avec gestion des sinistres.",
+    "criteres_eligibilite": [
+      "Être une compagnie d'assurance ou un intermédiaire d'assurance (agent ou courtier)",
+      "Inscription à un registre des intermédiaires en assurance (attestation ORIAS ou équivalent européen) pour les intermédiaires",
+      "Attestation d'assurance et caution financière conforme au Code des assurances pour les intermédiaires",
+      "Mandat de la compagnie d'assurance pour les courtiers et agents",
+      "Références significatives dans le domaine des établissements publics de santé",
+      "Déclaration chiffre d'affaires sur 3 derniers exercices"
+    ]
+  },
+  "bareme_notation": {
+    "valeur_technique_pct": 60,
+    "valeur_prix_pct": 40,
+    "sous_criteres_techniques": [
+      {
+        "libelle": "Conditions de garanties",
+        "ponderation_pct": 50,
+        "description": "Ce sous-critère évalue la qualité et l'étendue des garanties proposées par le candidat dans le cadre du contrat d'assurance responsabilité et risques annexes. Le détail de la répartition des points est précisé au début du cahier des clauses particulières de chaque lot.",
+        "elements_attendus": [
+          "Étendue et niveau des garanties proposées par rapport aux conditions minimales du CCP",
+          "Couverture des risques annexes spécifiques aux établissements de santé",
+          "Franchises proposées (niveau et conditions)",
+          "Exclusions et limitations de garantie",
+          "Conditions de mise en jeu des garanties"
+        ],
+        "exemple_reponse_forte": "Le candidat propose une couverture responsabilité civile générale étendue incluant les actes médicaux, avec des garanties annexes couvrant notamment la responsabilité des produits et la protection juridique. Les franchises sont inférieures aux seuils minimaux demandés et les exclusions sont limitées au strict minimum réglementaire.",
+        "source": "RC art 7.2",
+        "unite_evaluation": "points",
+        "sous_criteres": []
+      },
+      {
+        "libelle": "Modalités de gestion des dossiers et des sinistres",
+        "ponderation_pct": 10,
+        "description": "Ce sous-critère est noté à partir des réponses apportées par le candidat à l'annexe n°2 à l'acte d'engagement 'convention de gestion', évaluant la qualité du dispositif de gestion des sinistres proposé.",
+        "elements_attendus": [
+          "Organisation et délais de traitement des déclarations de sinistres",
+          "Interlocuteurs dédiés et disponibilité du gestionnaire",
+          "Procédures de suivi et de reporting des dossiers sinistres",
+          "Délais d'indemnisation",
+          "Moyens mis en œuvre pour la gestion des dossiers complexes"
+        ],
+        "exemple_reponse_forte": "La convention de gestion prévoit un gestionnaire dédié par établissement, avec un engagement sur des délais de traitement inférieurs à 15 jours pour les déclarations simples et un tableau de bord mensuel de suivi des sinistres transmis automatiquement aux établissements concernés.",
+        "source": "RC art 7.2",
+        "unite_evaluation": "points",
+        "sous_criteres": []
+      }
+    ],
+    "prix": {
+      "type_formule": "moins_disant",
+      "formule_explicite": "40 × montant de la prime moins-disante / montant de la prime de l'offre analysée. La prime TTC est calculée par application du prix unitaire sur la dernière assiette de prime connue et/ou sur une assiette estimative, avec ajout des éventuels honoraires de courtage ou frais de gestion.",
+      "source": "RC art 7.2",
+      "elements_a_chiffrer": [
+        "Prime TTC par établissement (prix unitaire × assiette de prime)",
+        "Honoraires de courtage ou frais de gestion le cas échéant",
+        "Prime totale TTC tous établissements du lot"
+      ]
+    },
+    "modalite_calcul_prix": "40 × montant de la prime moins-disante / montant de la prime de l'offre analysée. Note arrondie à 2 chiffres après la virgule."
+  },
+  "montant_marche": {
+    "valeur_estimee_euros": null,
+    "fourchette_min_euros": null,
+    "fourchette_max_euros": null,
+    "type": "non_communique",
+    "duree_couverte": "48 mois à compter du 01/01/2027",
+    "source_extraction": null,
+    "commentaire": "Aucun montant estimatif publié dans les pièces du DCE disponibles (RC et AAPC). L'assiette de prime et les statistiques sinistres figurent dans le dossier technique (non fourni). Le calcul du prix est fondé sur l'assiette de prime réelle des établissements, non communiquée dans les documents analysés."
+  },
+  "montant_3_voies": {
+    "voie_1_eur": null,
+    "voie_1_source": null,
+    "voie_2_disponible": true,
+    "voie_2_min_eur": 400000,
+    "voie_2_max_eur": 700000,
+    "voie_2_hypotheses": [
+      {
+        "hypothese": "11 établissements hospitaliers et médico-sociaux de taille moyenne à grande (CH, EPSAN, EHPAD, CRS) en Alsace-Moselle",
+        "valeur": "11 établissements"
+      },
+      {
+        "hypothese": "Prime d'assurance RC hospitalière typique par établissement de taille moyenne : 45 000 à 75 000 € TTC/an (selon masse salariale, nombre de lits, historique sinistres). Source : données marché assurance santé publique.",
+        "valeur": "45 000 - 75 000 €/établissement/an"
+      },
+      {
+        "hypothese": "Durée du marché : 48 mois (4 ans) ; estimation portée sur la durée totale ferme",
+        "valeur": "48 mois (AAPC)"
+      },
+      {
+        "hypothese": "Dimension variée : fourchette basse = 11 établissements × 45 000 €/an × 4 ans × 0.20 (part Lot 1 + Lot 2 sans pondération) → estimation annuelle globale 495 000 €/an, min 4 ans = 1,98 M€ ; ramené à l'annuel pour comparaison avec seuils. Ici on présente la valeur annuelle de la prime totale sur les 2 lots.",
+        "valeur": "Prime annuelle estimée 2 lots : 495 000 - 825 000 €/an"
+      },
+      {
+        "hypothese": "Dimension variée : seul le ratio prime/établissement est varié (45 000 à 75 000 €) ; nombre d'établissements fixé à 11. Fourchette annuelle : 11 × 45 000 = 495 000 € à 11 × 75 000 = 825 000 €. Ramené sur la durée (48 mois) : 1,98 M€ à 3,3 M€. Valeur ci-dessus est la prime annuelle totale 2 lots.",
+        "valeur": "495 000 - 825 000 €/an (annuel)"
+      }
+    ],
+    "voie_2_raison_indisponible": null
+  },
+  "cout_realisation": {
+    "cout_total_eur": null,
+    "cout_min_eur": null,
+    "cout_max_eur": null,
+    "postes": [
+      {
+        "poste": "Coût de production de l'offre (analyse du dossier technique, statistiques sinistres, tarification actuarielle)",
+        "detail": "Estimation : 3-5 jours technicien souscripteur × 600 €/j = 1 800 à 3 000 €",
+        "montant_eur": null
+      },
+      {
+        "poste": "Coût de gestion des sinistres (gestionnaire dédié, suivi dossiers)",
+        "detail": "Variable selon fréquence sinistres des établissements. Non chiffrable sans statistiques sinistres.",
+        "montant_eur": null
+      }
+    ],
+    "taux_journaliers_retenus": "Taux marché indicatifs : souscripteur/actuaire 600-800 €/j ; gestionnaire sinistres 400-550 €/j.",
+    "commentaire": "Le coût de réalisation d'un contrat d'assurance correspond principalement à la charge sinistres attendue (partie technique) et aux frais de gestion. Sans les statistiques sinistres (dossier technique non fourni), il est impossible d'estimer la charge sinistres qui constitue la majeure partie du coût. Le coût de production de la réponse (souscription) est marginal. Le coût total ne peut être chiffré de façon fiable sans les données actuarielles des établissements."
+  },
+  "revision_prix": {
+    "type": "non_communique",
+    "indices_utilises": [],
+    "ponderation": null,
+    "periodicite": null,
+    "formule_revision": null,
+    "source_extraction": null,
+    "commentaire": "Le RC ne mentionne pas de clause de révision des prix. Les conditions de révision figurent probablement dans le CCP (cahier des clauses particulières) non fourni dans les pièces analysées. En assurance, la révision tarifaire est généralement encadrée par les conditions du contrat (révision annuelle possible selon sinistralité)."
+  },
+  "alertes_prix": [
+    "Pondération du prix à 40% sur 100 : significative mais inférieure à la valeur technique (60%) — la qualité des garanties prime sur le prix seul.",
+    "La prime TTC est calculée sur l'assiette de prime réelle des établissements (figurant dans le dossier technique non disponible) : une erreur d'interprétation de l'assiette peut conduire à une offre hors marché.",
+    "Les honoraires de courtage et frais de gestion s'ajoutent à la prime dans le calcul du critère prix : leur niveau doit être soigneusement calibré pour ne pas dégrader la note tarification.",
+    "Formule moins-disante pure (40 × prime_min / prime_candidat) : une prime élevée est fortement pénalisée — la marge de tarification doit être maîtrisée face à des concurrents potentiellement agressifs sur des établissements publics de santé."
+  ],
+  "references_exigees": {
+    "experience_minimale_annees": 3,
+    "experience_source": "RC art 6.1",
+    "volume_min_references_similaires": null,
+    "volume_min_references_unite": "marchés similaires",
+    "secteur_experience": "Assurance des établissements publics de santé",
+    "secteur_source": "RC art 6.1",
+    "certifications_obligatoires": [
+      {
+        "libelle": "Attestation d'inscription à un registre des intermédiaires en assurance (attestation ORIAS ou certificat équivalent d'un organisme d'un autre État membre de l'UE) — pour les intermédiaires d'assurance uniquement",
+        "codes": [],
+        "bloquante": true,
+        "source": "RC art 6.1"
+      },
+      {
+        "libelle": "Attestation d'assurance et de caution financière conforme au Code des assurances — pour les intermédiaires d'assurance",
+        "codes": [],
+        "bloquante": true,
+        "source": "RC art 6.1"
+      },
+      {
+        "libelle": "Mandat de la compagnie d'assurance au courtier ou agent (sur modèle joint au RC)",
+        "codes": [],
+        "bloquante": true,
+        "source": "RC art 6.1"
+      }
+    ],
+    "autres_exigences": [
+      {
+        "libelle": "Déclaration concernant le chiffre d'affaires global et le chiffre d'affaires concernant les services objet du marché, réalisés au cours des trois derniers exercices disponibles",
+        "source": "RC art 6.1"
+      },
+      {
+        "libelle": "Liste de références significatives, notamment dans le domaine des établissements publics de santé, pour chacune des trois dernières années",
+        "source": "RC art 6.1"
+      },
+      {
+        "libelle": "Déclaration indiquant les effectifs moyens annuels du candidat et l'importance du personnel d'encadrement",
+        "source": "RC art 6.1"
+      },
+      {
+        "libelle": "Une même compagnie d'assurance ne peut présenter plus d'une offre par lot ; un même intermédiaire ne peut présenter plus d'une offre par lot ; une même personne ne peut représenter plus d'un candidat par lot",
+        "source": "RC art 2.9"
+      }
+    ]
+  },
+  "dossier_candidature": {
+    "pieces_a_fournir": [
+      {
+        "libelle": "Lettre de candidature modèle DC1 (version mise à jour du 01/04/2019) ou équivalent",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC art 6.1"
+      },
+      {
+        "libelle": "Déclaration du candidat modèle DC2 (version mise à jour du 21/11/2023) ou équivalent (une par membre du groupement)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC art 6.1"
+      },
+      {
+        "libelle": "Pouvoir de la personne habilitée à engager le candidat",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC art 6.1"
+      },
+      {
+        "libelle": "Pour les courtiers : mandat de la compagnie au courtier sur modèle annexe du RC",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC art 6.1"
+      },
+      {
+        "libelle": "Pour les agents : mandat de la compagnie à l'agent sur modèle annexe du RC",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC art 6.1"
+      },
+      {
+        "libelle": "Pour les intermédiaires : attestation d'inscription ORIAS ou équivalent européen",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC art 6.1"
+      },
+      {
+        "libelle": "Pour les intermédiaires : attestation d'assurance et de caution financière conforme au Code des assurances",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC art 6.1"
+      },
+      {
+        "libelle": "Déclaration concernant le chiffre d'affaires global et le CA sur les services objet du marché, au cours des trois derniers exercices disponibles",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC art 6.1"
+      },
+      {
+        "libelle": "Liste de références significatives dans le domaine des établissements publics de santé pour les trois dernières années",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC art 6.1"
+      },
+      {
+        "libelle": "Déclaration indiquant les effectifs moyens annuels et l'importance du personnel d'encadrement",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC art 6.1"
+      },
+      {
+        "libelle": "Déclaration sur l'honneur (si DC1 non utilisé) attestant l'absence de cas d'interdiction de soumissionner (articles L.2141-1 à L.2141-5 ou L.2141-7 à L.2141-10 CCP)",
+        "phase": "candidature",
+        "obligatoire": false,
+        "source": "RC art 6.1"
+      },
+      {
+        "libelle": "Acte d'engagement complété (par lot)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC art 6.1"
+      },
+      {
+        "libelle": "Annexe n°1 à l'acte d'engagement 'attestation de la compagnie d'assurance' (confirmation que la compagnie a reçu l'intégralité du cahier des charges et de la statistique sinistre)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC art 6.1"
+      },
+      {
+        "libelle": "Annexe n°2 à l'acte d'engagement 'convention de gestion' complétée",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC art 6.1"
+      },
+      {
+        "libelle": "Conditions particulières du CCP complétées",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC art 6.1"
+      },
+      {
+        "libelle": "Offre du candidat (conditions particulières additionnelles, conventions spéciales, annexes, conditions générales, etc.)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC art 6.1"
+      }
+    ],
+    "mode_remise": "dématérialisé + copie de sauvegarde",
+    "plateforme_depot": "marches-publics.gouv.fr",
+    "signature_electronique_exigee": false,
+    "format_signature": "eIDAS — signature électronique avancée reposant sur un certificat qualifié (si signature électronique choisie par l'acheteur)",
+    "nombre_exemplaires": null,
+    "langue": "français",
+    "duree_validite_offres_jours": 180,
+    "modalites_source": "RC art 6.2, RC art 4, RC art 8.2"
+  },
+  "lots": [
+    {
+      "numero": 1,
+      "intitule": "Assurance « Responsabilité et risques annexes » (CH Saverne, CH Haguenau, CH Wissembourg, CH Sarrebourg) - Lot n° 1",
+      "domaine": "assurance",
+      "zone_geographique": "Alsace du Nord / Moselle — CH Saverne, CH Haguenau, CH Wissembourg, CH Sarrebourg",
+      "volume_estime": null,
+      "volume_estime_unite": null,
+      "cout_estime_min_eur": null,
+      "cout_estime_max_eur": null,
+      "ca_estime_min_eur": 180000,
+      "ca_estime_max_eur": 340000,
+      "marge_brute_pct": null,
+      "particularites": "4 établissements (CH) de taille variable. Durée 48 mois à compter du 01/01/2027. Assiette de prime réelle dans le dossier technique (non fourni). La prime est calculée annuellement sur l'assiette de l'acheteur."
+    },
+    {
+      "numero": 2,
+      "intitule": "Assurance « Responsabilité et risques annexes » (EPSAN, CH Bischwiller, CH Erstein Ville, CH La Grafenbourg / EHPAD La Roselière, CH Molsheim – Portes de Rosheim, CRS Abreschviller, CH Erstein psychiatrie) - Lot n° 2",
+      "domaine": "assurance",
+      "zone_geographique": "Bas-Rhin — EPSAN Brumath, CH Bischwiller, CH Erstein, CH La Grafenbourg, CH Molsheim, CRS Abreschviller",
+      "volume_estime": null,
+      "volume_estime_unite": null,
+      "cout_estime_min_eur": null,
+      "cout_estime_max_eur": null,
+      "ca_estime_min_eur": 220000,
+      "ca_estime_max_eur": 490000,
+      "marge_brute_pct": null,
+      "particularites": "7 établissements dont des établissements psychiatriques (EPSAN, CH Erstein psychiatrie, CRS Abreschviller) et un EHPAD. Le risque psychiatrique peut entraîner des primes plus élevées. Durée 48 mois à compter du 01/01/2027."
+    }
+  ],
+  "tranches": [],
+  "calendrier": {
+    "date_limite_offres": "2026-07-17",
+    "date_demarrage_prevue": "2027-01-01",
+    "duree_marche": "48 mois à compter du 01/01/2027 (sans reconduction)"
+  },
+  "alertes_candidat": [
+    "Les intermédiaires doivent impérativement fournir le mandat de la compagnie d'assurance sur le modèle annexe du RC — pièce bloquante à peine d'irrecevabilité.",
+    "La même compagnie d'assurance ne peut présenter qu'une seule offre par lot (interdiction de double soumission via plusieurs intermédiaires distincts) — vérifier l'absence de conflit avant de déposer.",
+    "L'annexe n°1 à l'acte d'engagement doit attester que la compagnie a bien reçu l'intégralité du CCP ET des statistiques sinistres — son absence invalide l'offre.",
+    "Les conditions particulières du CCP non complétées valent acceptation des souhaits de l'acheteur (case vide = acceptation) — toute dérogation doit être explicitement formulée.",
+    "La visite des risques peut être organisée à la demande des candidats — y participer est fortement recommandé pour affiner la tarification sur des établissements psychiatriques et spécialisés (Lot 2)."
+  ],
+  "points_differenciants_attendus": [
+    {
+      "libelle": "Étendue et qualité des garanties proposées (50 pts sur 100)",
+      "exemple": "Un candidat qui propose des garanties supérieures aux minimums du CCP — notamment une couverture élargie des actes médico-légaux, une garantie protection juridique étendue ou des plafonds de couverture majorés — se distinguera nettement sur le sous-critère le plus pondéré.",
+      "source": "RC art 7.2"
+    },
+    {
+      "libelle": "Qualité de la convention de gestion des sinistres (10 pts)",
+      "exemple": "Proposer un gestionnaire dédié nommément désigné par établissement, avec des engagements de délais quantifiés (ex : accusé réception sinistre sous 48h, rapport d'instruction sous 30 jours) et un outil de reporting dématérialisé permettra de scorer haut sur l'annexe n°2.",
+      "source": "RC art 7.2"
+    },
+    {
+      "libelle": "Maîtrise du risque psychiatrique et médico-social pour le Lot 2",
+      "exemple": "Face à un lot concentrant EPSAN, deux établissements d'Erstein psychiatrie et un CRS, un assureur avec un portefeuille historique d'établissements psychiatriques et une expertise en risques psychiatriques (hospitalisation sans consentement, fugues, agressions) peut proposer des conditions de garanties plus adaptées et rassurer l'acheteur sur la solidité de la couverture.",
+      "source": null
+    },
+    {
+      "libelle": "Tarification compétitive sur l'assiette de prime réelle",
+      "exemple": "Après visite des risques et analyse des statistiques sinistres (dossier technique), un candidat maîtrisant le ratio sinistres/primes historique des établissements pourra proposer une prime ajustée au plus juste, maximisant sa note sur le critère tarification (40 pts) tout en maintenant une couverture complète.",
+      "source": "RC art 7.2"
+    }
+  ],
+  "_meta": {
+    "id_marche": "BOAMP-26-56338",
+    "type": "complet",
+    "date_generation": "2026-06-20T22:58:53.909510+00:00",
+    "extraction_le": "2026-06-20T22:58:53.909510+00:00",
+    "modele": "claude-sonnet-4-6",
+    "preset_utilise": null,
+    "presets_matches": [],
+    "prompts_versions": {},
+    "tokens_input": 31111,
+    "tokens_output": 6918,
+    "cout_eur": 0.1872,
+    "duree_sec": 118.2,
+    "pdfs_traites": [
+      {
+        "nom": "AWS-MPI-1832568-RC.pdf",
+        "hash": "b08bae88a4583a2cbbe9e48a73de4230",
+        "taille_chars": 31286
+      },
+      {
+        "nom": "MPI1832568_AAPC.pdf",
+        "hash": "455017d0322dd434af55d4758b00462f",
+        "taille_chars": 3917
+      }
+    ]
+  }
+}

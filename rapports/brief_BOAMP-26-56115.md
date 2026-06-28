@@ -1,6 +1,6 @@
 # Brief — Nettoyage des locaux tertiaires et prestation de plonge au profit des unités ou formations bénéficiaires soutenues par le GSC de Mourmelon le Grand - 
 
-_Généré le 2026-06-12 15:49 par Claude claude-sonnet-4-6_
+_Généré le 2026-06-20 16:15 par Claude claude-sonnet-4-6_
 
 ## Identifiants
 - **ID Tendia** : `BOAMP-26-56115`
@@ -11,76 +11,48 @@ _Généré le 2026-06-12 15:49 par Claude claude-sonnet-4-6_
 - **DCE PLACE** : <https://www.marches-publics.gouv.fr/?page=Entreprise.EntrepriseDetailsConsultation&id=2969083&orgAcronyme=g7h>
 
 ## Synthèse
-Marché de services portant sur le nettoyage des locaux tertiaires et la prestation de plonge (vaisselle et batterie) au profit des unités militaires soutenues par le GSC de Mourmelon le Grand, garnison de Charleville-Mézières. Il s'agit d'un accord-cadre mono-attributaire à bons de commande, non alloti, combinant des prestations forfaitaires programmées (nettoyage tertiaire) et des prestations à la demande (plonge habituelle et occasionnelle, nettoyage de vitres). Le marché est passé par appel d'offres ouvert pour une durée initiale d'un an reconductible trois fois, soit 48 mois au total.
-
-## ⚡ Parc EnR — caractéristiques techniques
-- **Description** : Nettoyage de locaux tertiaires (bureaux, sanitaires, salles de réunion, communs, vitres) et prestation de plonge (vaisselle et batterie) dans plusieurs bâtiments militaires de la garnison de Charleville-Mézières : 3ème Régiment du génie, restaurant Dumerbion, restaurant QDR, USID 08, DMD 08 / CIRFA 08, Zone Technique du Bois Fortant. Accès soumis à filtrage et présentation de pièce d'identité. Visite obligatoire des sites avant remise d'offre.
-- **Type de sites** : Bâtiments militaires tertiaires et restaurants militaires, accès filtré (carte d'identité obligatoire)
-- **Critères d'éligibilité** :
-  - Visite obligatoire des sites avant remise de l'offre, attestée par un document visé par le représentant du pouvoir adjudicateur (source=RC art 4.5)
-  - Le titulaire doit reprendre le personnel affecté à ces missions (convention collective des entreprises de nettoyage, L.1224-1 du Code du travail) (source=RC art 2)
-  - Réalisation d'au minimum 450 heures annuelles d'insertion par l'activité économique (source=RC art 3.8)
-- **Contraintes site signalées** :
-  - accès filtré avec présentation de pièce d'identité
-  - horaires d'ouverture restreints selon les sites
-  - site militaire (accès réglementé)
-
-### Volumes techniques
-- **Nombre de sites** : 6
-- **Durée du marché (mois)** : 48
-- **Note** : 6 sites d'exécution à Charleville-Mézières. Prestations programmées forfaitaires (nettoyage tertiaire) + prestations à la demande (plonge habituelle : ~175 000 rationnaires/an pour le restaurant Dumerbion, ~21 000 pour le restaurant QDR). Montant maximum annuel des prestations à la demande : 300 000 € HT (dont 270 000 € pour la plonge et 30 000 € pour le tertiaire). Durée initiale : 1 an (01/11/2026 au 31/10/2027), reconductible 3 fois pour un total de 48 mois.
-
-### Modalités d'exécution
-- **Sites d'exécution** : Charleville-Mézières (08)
-
-## 🎓 Formation / accompagnement
-### Publics cibles
-Pas de public bénéficiaire de formation. Ce marché concerne des prestations de services de nettoyage et de plonge pour des unités militaires.
-
-### Volumes
-- **Durée marché (mois)** : 48
-- **Note** : Accord-cadre de 48 mois maximum (1 an ferme + 3 reconductions). Montant total toutes périodes confondues estimé à 1 517 465,12 € HT selon le RC.
-
-### Modalités
-- **Présentiel/distanciel** : présentiel obligatoire
-- **Amplitude horaire** : Variable selon les sites : 6h30-19h00 (restaurants), 8h00-17h30 (régiment), 10h00-15h00 (USID, DMD), 7h45-17h30 lun-jeu / 7h45-11h45 ven (Zone Bois Fortant)
-- **Sites d'exécution** : Charleville-Mézières (08)
+Marché de nettoyage des locaux tertiaires et de prestation de plonge pour les unités militaires soutenues par le GSC de Mourmelon le Grand, garnison de Charleville-Mézières. L'accord-cadre mono-attributaire couvre deux postes : nettoyage tertiaire (forfait mensuel programmé) et plonge vaisselle/batterie (bons de commande). Il inclut une clause sociale obligatoire (450 heures/an d'insertion) et des exigences environnementales (éco-labels, BEGES).
 
 ## 💶 Montant du marché
-- **Valeur estimée** : **1,52 M€**
-  - sur Montant total pris en compte pour la consultation (toutes périodes : 48 mois maximum)
-  - _source : RC art 3.3 page 4_
-- _Note_ : Le RC mentionne explicitement : 'Le montant total pris en compte pour définir les modalités de la présente consultation est de : 1 517 465,12 euros Hors Taxe (HT)'. Ce montant couvre les 48 mois maximum (période ferme + 3 reconductions). Le montant maximum annuel des prestations à la demande est de 300 000 € HT.
+- **Valeur estimée** : **1,20 M€**
+  - sur Durée totale de l'accord-cadre : 1 an ferme (01/11/2026 au 31/10/2027) + 3 reconductions annuelles possibles = 4 ans maximum
+  - _source : Contexte BOAMP — lots[0].montant_estime = 1 201 833,57 €_
+- _Note_ : Montant estimé total publié dans l'avis BOAMP pour le lot unique. Comprend les prestations programmées forfaitaires (nettoyage tertiaire) et les prestations à la demande (plonge habituelle plafonnée à 270 000 € HT/an, tertiaire à demande 30 000 € HT/an). Sur 4 ans, le montant annuel moyen serait d'environ 300 000 €.
 
 ## Barème de notation
-- **Valeur technique** : 50 %
-- **Valeur prix** : 50 %
+- **Valeur technique** : 60 %
+- **Valeur prix** : 40 %
 - **Sous-critères techniques** :
-  - Valeur technique : 30 %
-  - Socio-responsabilité : 10 %
-  - Environnemental : 10 %
-- **Calcul du prix** : Note maximale (20) attribuée au prix le plus bas. Simulation sur la base du montant annuel forfaitaire + estimation des prestations à la demande selon l'Annexe 3 au RC. Note pondérée à 50%.
+  - CRITÈRE DE PONDÉRATION VALEUR TECHNIQUE : 40 %
+  - CRITÈRE DE PONDÉRATION SOCIO-RESPONSABILITÉ : 10 %
+  - CRITÈRE DE PONDÉRATION ENVIRONNEMENTAL : 10 %
+- **Calcul du prix** : Critère PRIX pondéré à 40 %. Basé sur le montant total proposé dans les bordereaux de prix (Annexes 5, 6, 7, 8). Mécanisme exact de notation non précisé dans les pièces disponibles.
 
 ## Références et qualifications exigées
 - **Expérience minimale** : —
-- **Secteur d'expérience** : Services de nettoyage de locaux tertiaires et/ou plonge en restauration collective
+- **Secteur d'expérience** : Nettoyage de locaux tertiaires et prestations de plonge en restauration collective, de préférence en environnement réglementé (ministère, collectivité, défense). Expérience en gestion de sites multiples avec contraintes d'accès.
+- **Certifications obligatoires** : Attestation de sécurité signée : reconnaissance des articles 413-9 à 413-12 du code pénal, engagement de confidentialité pour l'ensemble du personnel intervenant en zone militaire. (bloquante=True, source=Annexe 2 AE (Attestation de sécurité) ; CCAP article 9.3.3), Attestation de formation du personnel aux règles de bonnes pratiques d'hygiène en restauration collective (HACCP ou équivalent) — exigée avant tout début d'exécution poste plonge. (bloquante=True, source=CCTP article 10.4), Contrat d'assurance Responsabilité Civile en cours de validité couvrant les dommages corporels sans limitation et les dommages matériels machines à concurrence de 56 431 € (poste plonge). (bloquante=True, source=CCAP article 11.4)
 - **Autres exigences** :
-  - Présentation d'une liste des principaux services effectués au cours des trois dernières années (montant, date, destinataire public ou privé), prouvée par attestations ou déclaration (source=RC art 5.4)
-  - Description de l'équipement technique, mesures qualité et moyens d'étude et de recherche de l'entreprise (source=RC art 5.4)
-  - Preuve d'une assurance pour les risques professionnels à jour (source=RC art 5.4 et art 6.1)
-  - Certificats de qualité ou équivalent attestant le respect des normes d'assurance qualité (le cas échéant) (source=RC art 5.3 et 5.4)
-  - Pièces relatives au pouvoir des personnes habilitées à engager le candidat (source=RC art 5.4)
+  - Engagement à réaliser minimum 450 heures d'insertion par an au profit de personnes éloignées de l'emploi (clause sociale obligatoire), avec prise de contact du facilitateur COOPELIS dans le mois suivant la notification. (source=CCAP article 9.5 ; Annexe 3 AE)
+  - Fourniture de la liste nominative du personnel intervenant (nom, prénom, date et lieu de naissance, adresse + copie pièces d'identité) pour délivrance des laissez-passer militaires avant tout début d'exécution. (source=CCAP article 9.3.3)
+  - Transmission tous les 6 mois des attestations de régularité des cotisations sociales (< 6 mois) et de la liste des salariés étrangers, via la plateforme https://portal.aprovall.com/fr/ (source=CCAP article 11.5)
+  - Vêtements de travail fournis dès le 1er jour, comportant le logo de la société, adaptés aux tâches (vêtements clairs cuisine/plonge, chaussures de sécurité). (source=CCTP article 10.3 ; CCAP article 9.2.5)
+
+## Lots
+- **Lot 1** — Lot unique - Nettoyage des locaux tertiaires et prestation de plonge au profit des unités ou formations bénéficiaires soutenues par le GSC de Mourmelon le Grand - Garnison de Charleville-Mézières
+  - Zone : Charleville-Mézières (08) — Ardennes
+  - Marché mixte : forfait mensuel tertiaire (programmé, sans bon de commande) + bons de commande plonge (habituels et occasionnels). Accès en emprise militaire réglementée (laissez-passer, enquêtes administratives). Machines à laver mise à disposition par le ministère. Plafond à la demande : 300 000 € HT/an (dont 270 000 € plonge). Durée 4 ans (1 ferme + 3 reconductions).
 
 ## ⚠ Alertes candidat
-- Visite obligatoire des sites IMPÉRATIVE avant remise de l'offre — attestation à joindre à l'offre (visée par le représentant du PA). Créneaux limités : semaines 25, 26 et 27 (15-30 juin 2026). Sans attestation, l'offre est irrecevable.
-- Reprise obligatoire du personnel en place (L.1224-1 Code du travail) : 9 agents listés en annexe 4, avec anciennetés allant jusqu'à 1995 — impact direct sur la masse salariale à intégrer dans le prix.
-- Obligation de réaliser 450 heures minimum annuelles d'insertion par l'activité économique — constitue une condition d'exécution, pas un simple engagement déclaratif.
-- Accès aux sites militaires : tous les personnels intervenant devront présenter une pièce d'identité à l'entrée des régiments. Prévoir le processus d'habilitation/badge pour l'ensemble des équipes.
-- Marchés sur sites militaires : contraintes de sécurité et règles comportementales spécifiques (armement, tenues, alcool) décrites dans le règlement intérieur du Cercle — à intégrer dans la formation du personnel.
+- Accès en zone militaire : tout le personnel intervenant doit faire l'objet d'une enquête administrative préalable et disposer d'un laissez-passer individuel — délai à anticiper avant le démarrage du 01/11/2026 ; tout refus d'agrément contraint le titulaire à remplacer le personnel sans droit à indemnité.
+- Attestation de sécurité (Annexe 2 AE) obligatoire : le candidat doit certifier que lui-même et son personnel ne détiennent pas d'informations couvertes par le secret défense — à faire signer par chaque intervenant avant tout accès au site.
+- Obligation de résultat stricte avec système de réfaction : une satisfaction < 50 % déclenche une réfaction de 60 % du forfait mensuel ET peut entraîner la résiliation du marché — le candidat doit prévoir une organisation robuste de remplacement en cas d'absence.
+- Clause sociale contraignante : 450 heures d'insertion/an sont OBLIGATOIRES (pénalité de 50 €/h non réalisée) ; le titulaire doit contacter le facilitateur COOPELIS dans le mois suivant la notification et ne peut pas globaliser les heures.
+- Règlement intérieur militaire applicable : tout manquement comportemental d'un agent entraîne son remplacement immédiat sur demande du bénéficiaire — le candidat doit disposer d'un vivier de personnels habilités pour assurer la continuité.
 
 ## 💡 Points différenciants attendus
-- Reporting structuré et communication proactive avec le Groupement de Soutien (9 points sur 20 pour le sous-critère 1) (exemple=Proposer un tableau de bord mensuel (FMSF complétée sous 48h après intervention), un compte-rendu trimestriel (CRT) avec indicateurs de taux de satisfaction et un système d'alerte immédiate pour toute anomalie constatée. Démontrer l'expérience en contexte militaire ou administrations de défense., source=RC art 6.3.1 sous-critère a)
-- Volume horaire généreux et taux d'encadrement élevé sur site (exemple=Proposer un volume horaire supérieur à la stricte nécessité calculée et un chef de site présent quotidiennement (taux d'encadrement > 15%) permet de se différencier sur les sous-critères 2 et 3, sans nécessairement impacter le critère prix si le coût horaire est maîtrisé., source=RC art 6.3.1 sous-critères b et c)
-- Dépassement de l'objectif d'insertion (450h/an) avec un dispositif d'accompagnement qualitatif (exemple=S'engager sur 600h/an d'insertion avec partenariat formalisé avec la structure facilitatrice locale COOPELIS DEVELOPPEMENT et un suivi individualisé des bénéficiaires (bilan à mi-parcours, taux de sortie positive) permet de scorer haut sur le critère socio-responsabilité., source=RC art 3.8 et art 6.3.1 critère socio-responsabilité)
-- Certification Ecolabel européen des produits et management environnemental certifié (ISO 14001) (exemple=Présenter une liste exhaustive des produits certifiés Ecolabel utilisés, la certification ISO 14001 en cours de validité, et un plan de réduction de consommation d'eau mesurable (ex: -20% vs référence) pour maximiser les 20 points disponibles sur le critère environnemental., source=RC art 3.9 et art 6.3.1 critère environnemental)
-- Expérience en restauration militaire ou en site à accès contrôlé (exemple=Valoriser des références similaires sur des sites à accès filtré (défense, gendarmerie, prisons, centrales nucléaires) pour rassurer l'acheteur sur la capacité à gérer les contraintes de sécurité spécifiques aux régiments militaires.)
+- Personnalisation du mémoire technique aux spécificités des 5 sites visités (exemple=Le mémoire technique décrit explicitement les contraintes de chaque site (horaires d'ouverture filtrés, types de locaux, machines de plonge présentes) et propose une organisation site par site avec des fiches méthode adaptées aux locaux médicaux (TYPE M), aux salles de sport (TYPE SP) et aux restaurants MDR/QDR., source=Annexe 1 AE — instructions générales : 'Cette offre technique sera personnalisée et adaptée aux spécificités des différents sites')
+- Qualité et réalisme du système de management qualité et de traçabilité (exemple=Présentation d'un outil de traçabilité numérique (registre de liaison dématérialisé signable sur tablette) permettant au GSC de consulter en temps réel les passages et fiches d'anomalies, avec un délai de correction garanti en moins de 24 h et un processus de Compte Rendu Trimestriel (CRT) pré-renseigné., source=Annexe 1 AE — Chapitre I §3 ; CCAP article 9.2.4)
+- Solidité du plan d'insertion et partenariats IAE locaux dans les Ardennes (exemple=Présentation d'un accord-cadre signé avec une SIAE ardennaise (ETTI ou entreprise d'insertion de Charleville-Mézières) garantissant le recrutement de 500 h/an d'agents en insertion, avec un correspondant opérationnel dédié et un reporting mensuel automatisé au facilitateur COOPELIS., source=CCAP article 9.5 ; Annexe 3 AE)
+- Engagement concret sur les produits éco-labélisés avec preuves documentaires (exemple=Fournir les certificats Ecolabel européen de l'ensemble des produits détergents et désinfectants utilisés (accompagnés des fiches FDS), et présenter 5 matériels avec leur empreinte environnementale chiffrée (consommation eau en litres/m², consommation électrique en kWh) comparée aux matériels standard du marché., source=CCTP article 10.2 ; Annexe 1 AE — Chapitre III)
+- Expérience documentée en restauration collective avec prestation de plonge (exemple=Citer au moins 2 références récentes (< 5 ans) de prestations de plonge vaisselle et batterie en restauration collective de volume comparable (> 5 000 rationnaires/mois), avec coordonnées du bénéficiaire, détail des machines utilisées et résultats de contrôle qualité., source=CCTP article 5.1 ; CCAP article 9.4)

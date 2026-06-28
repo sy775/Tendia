@@ -1,72 +1,71 @@
 {
-  "synthese_marche": "Marché de travaux de viabilisation primaire de l'extension de la phase IV des voiries de la ZAC du Prieuré Est à Bailly-Romainvilliers (77), maître d'ouvrage EPAFRANCE. Le marché est alloti en deux lots : Lot 1 VRD (terrassement, réseaux divers, assainissement, voiries) et Lot 2 AEP (adduction en eau potable), pour un délai global respectif de 25 et 11 mois.",
+  "synthese_marche": "Marché de travaux publics en deux lots pour la viabilisation primaire de l'extension de la phase IV des voiries de la ZAC du Prieuré Est à Bailly-Romainvilliers (Seine-et-Marne), maîtrise d'ouvrage EPAFRANCE. Le Lot 1 couvre les terrassements, réseaux divers, assainissement et voiries (VRD) pour un délai de 25 mois, le Lot 2 concerne l'adduction en eau potable (AEP) pour 11 mois. Le marché comprend une clause d'insertion sociale obligatoire (1 337 h pour le lot 1, 160 h pour le lot 2).",
   "domaines_metier": [
     {
       "code": "btp_voirie_reseaux",
-      "poids": 0.85,
+      "poids": 0.7,
       "lots_concernes": [
-        "Lot 1 - VRD",
-        "Lot 2 - AEP"
+        "LOT-0001"
       ]
     },
     {
-      "code": "btp_gros_oeuvre",
-      "poids": 0.15,
+      "code": "btp_reseaux_divers",
+      "poids": 0.3,
       "lots_concernes": [
-        "Lot 1 - VRD"
+        "LOT-0002"
       ]
     }
   ],
-  "raison_classification": "Le marché porte essentiellement sur la création de voiries, réseaux divers (assainissement EP/EU, fourreaux, éclairage provisoire) et adduction en eau potable dans une ZAC, ce qui correspond au domaine btp_voirie_reseaux. Une composante terrassement/fondation de chaussée (traitement de sol, mise en œuvre de couches de forme) justifie une part mineure en btp_gros_oeuvre.",
+  "raison_classification": "Le Lot 1 porte sur des travaux de terrassement, assainissement EP/EU, génie civil réseaux et voiries — cœur du domaine btp_voirie_reseaux (CPV 45112500). Le Lot 2 concerne exclusivement l'adduction en eau potable (canalisations AEP, CPV 45232150), ce qui relève de btp_reseaux_divers (réseaux humides eau potable). Les deux domaines sont représentatifs des lots du marché avec une dominante VRD pour le lot 1.",
   "caracteristiques_techniques_chantier": {
-    "description": "Viabilisation primaire de l'extension de la phase IV des voiries de la ZAC du Prieuré Est : terrassements généraux, traitement de sols, génie civil réseaux (fourreaux, chambres de tirage), assainissement eaux pluviales et eaux usées, voiries avec structures lourdes en EME, trottoirs provisoires, signalisation verticale et horizontale, éclairage public provisoire, et adduction en eau potable (lot séparé).",
-    "typologie_ouvrage": "Voiries et réseaux divers (VRD) en ZAC — création ex nihilo sur terrain en cours d'aménagement",
+    "description": "Création des espaces publics et viabilisation primaire d'une extension de ZAC : terrassements généraux, traitement des sols, réseaux divers (génie civil fourreaux éclairage/télécom/HTA), assainissement eaux pluviales et eaux usées, éclairage public provisoire, voirie structure lourde (EME 0/14 classe 2, traitement sol en place), signalisation, semis espaces verts. Lot 2 : pose de canalisations AEP avec accessoires (ventouses, regard décharge, chambre GC).",
+    "typologie_ouvrage": "Voirie et réseaux divers en ZAC — viabilisation primaire de voiries neuves",
     "surface_volume": null,
-    "site_occupe": "false — chantier en ZAC en cours d'aménagement, mais coactivité avec chantiers de bâtiment adjacents et livraisons de lots privés à coordonner",
+    "site_occupe": "false — chantier sur emprise de ZAC en cours d'aménagement, avec coactivité avec chantiers de bâtiment voisins",
     "corps_etat": [
-      "Terrassements généraux",
-      "Traitement de sol (chaux/ciment)",
-      "Génie civil réseaux (fourreaux, chambres de tirage, chambres EP120)",
-      "Assainissement EP et EU",
-      "Voirie (EME, enduit gravillonné, bordures, caniveaux)",
+      "Terrassements et démolitions",
+      "Génie civil réseaux (fourreaux, chambres de tirage)",
+      "Assainissement eaux pluviales et eaux usées",
       "Éclairage public provisoire",
+      "Voirie (structure lourde EME, enrobés, bordures)",
       "Signalisation verticale et horizontale",
-      "Espaces verts (semis, engazonnement)",
-      "Adduction en eau potable (lot 2)"
+      "Espaces verts (semis)",
+      "Adduction en eau potable (Lot 2)"
     ],
     "contraintes_specifiques": [
-      "Coactivité avec chantiers de bâtiment sur la ZAC, coordination obligatoire",
-      "Livraison phasée des accès aux lots privés (AC4A4-5 début 2027, AC4A18 fin 2027)",
-      "Zone de stockage limitée à la plateforme Bellesmes, pas d'emprises complémentaires fournies par le MOA",
-      "Réseaux souterrains existants à identifier (campagne de détection obligatoire)",
-      "Clause d'insertion sociale obligatoire : 1 337 h pour le lot 1 et 160 h pour le lot 2",
-      "Récolement en classe de précision A obligatoire par géomètre agréé EPAFRANCE",
-      "Présence de HTA, GAZ, réseaux télécom, VEA dans les emprises",
-      "Délai d'exécution long (23 mois de travaux pour le lot 1), prix révisables annuellement"
+      "Coactivité avec chantiers de bâtiment privé à proximité",
+      "Phasage en plusieurs tranches avec livraisons par lots (AC4A4-5 début 2027, AC4A18 fin 2027)",
+      "Clause d'insertion sociale obligatoire (1 337 h lot 1, 160 h lot 2)",
+      "Récolements obligatoires par géomètre agréé EPAFRANCE en classe de précision A",
+      "Présence de réseaux HTA, gaz, télécom existants à gérer",
+      "Période de préparation obligatoire (2 mois lot 1, 1 mois lot 2) avant démarrage des travaux",
+      "Traitement de sol en place à la chaux/ciment sur fond de forme",
+      "Mise à niveau des chambres concessionnaires à chaque tranche",
+      "Prescriptions particulières Val d'Europe Agglomération (interdiction des coudes sur EU, tampons PAMREX)"
     ]
   },
   "allotissement": {
-    "description": "Marché alloti en 2 lots distincts, CCAP commun",
+    "description": "Marché alloti en 2 lots, chacun avec BPU propre et délais d'exécution distincts",
     "nb_lots": 2,
     "lots_detailles": [
       {
         "numero": 1,
-        "intitule": "Terrassement, Réseaux divers, Assainissement, Voiries (VRD)",
-        "corps_etat": "VRD — terrassements, génie civil réseaux, assainissement EP/EU, voirie, éclairage provisoire, signalisation",
+        "intitule": "Lot 1 : Terrassement, Réseaux divers, Assainissement, voiries (VRD)",
+        "corps_etat": "Terrassements, génie civil réseaux, assainissement EP/EU, éclairage public provisoire, voirie, signalisation, espaces verts",
         "montant_estime": null,
-        "description": "Réalisation des voiries primaires, réseaux secs (fourreaux, chambres), assainissement eaux pluviales et eaux usées, éclairage public provisoire, signalisation et espaces verts provisoires. Délai global 25 mois (2 mois préparation + 23 mois travaux). Insertion sociale : 1 337 h."
+        "description": "Travaux de viabilisation primaire : terrassements généraux et traitement de sol, ouverture/fermeture de tranchées, pose des réseaux divers (fourreaux éclairage, télécom, HTA), assainissement eaux pluviales et eaux usées, éclairage public provisoire, réalisation de la structure de voirie lourde (EME classe 2), bordures, signalisation et semis. Délai global : 25 mois (2 mois préparation + 23 mois travaux)."
       },
       {
         "numero": 2,
-        "intitule": "Adduction en Eau Potable (AEP)",
-        "corps_etat": "Réseaux humides — adduction en eau potable",
+        "intitule": "Lot 2 : Adduction en Eau Potable (AEP)",
+        "corps_etat": "Canalisations AEP, accessoires hydrauliques, chambres à ventouse",
         "montant_estime": null,
-        "description": "Pose des canalisations AEP, raccordements et ouvrages associés. Délai global 11 mois (1 mois préparation + 10 mois travaux). Insertion sociale : 160 h."
+        "description": "Pose de canalisations d'eau potable en PEHD ou fonte, ventouses, regard décharge, chambre GC. Délai global : 11 mois (1 mois préparation + 10 mois travaux)."
       }
     ]
   },
   "qualifications_requises": {
-    "description": "Aucune qualification Qualibat ou autre certification n'est explicitement exigée dans les pièces transmises (CCAP et CCTP). Les exigences portent sur les capacités techniques et l'expérience.",
+    "description": "Qualifications professionnelles et certifications exigées non précisées explicitement dans les documents fournis (RC non fourni). Les prescriptions CCTP indiquent des habilitations électriques pour interventions sur réseau éclairage public.",
     "qualibat": [],
     "rge": false,
     "rge_specialites": [],
@@ -75,7 +74,28 @@
     "iso_14001": false,
     "iso_45001": false,
     "opqibi": null,
-    "autres_certifications": []
+    "autres_certifications": [
+      "Habilitation électrique (UTE C18-510) pour interventions sur réseaux d'éclairage public et basse tension (CCTP §5.5.11)"
+    ]
+  },
+  "caracteristiques_mission_moe": {
+    "typologie": null,
+    "phases_couvertes": [],
+    "typologie_ouvrage": null,
+    "montant_travaux_estime": null,
+    "complexite_technique": null,
+    "livrables_par_phase": [],
+    "taux_remuneration_moe_pct": null,
+    "indices_revision": [],
+    "coordinations_associees": [],
+    "organigramme_attendu": [],
+    "bim_niveau": null
+  },
+  "qualifications_moe": {
+    "opqibi": [],
+    "opqcm": [],
+    "bim": null,
+    "autres": []
   },
   "bareme_notation": {
     "valeur_technique_pct": null,
@@ -83,25 +103,96 @@
     "sous_criteres_techniques": [],
     "prix": {
       "type_formule": "autre",
-      "formule_explicite": "Le marché est à prix unitaires (BPU propre à chaque lot) appliqués aux quantités réellement exécutées. La formule d'attribution n'est pas précisée dans les pièces transmises (RC non fourni).",
+      "formule_explicite": "Critères de notation non précisés dans les pièces fournies (RC absent du DCE communiqué). Le contexte BOAMP mentionne des critères sociaux et environnementaux.",
+      "source": null,
       "elements_a_chiffrer": [
-        "Prix unitaires du BPU Lot 1 (terrassements, fourreaux, regards, canalisations EP/EU, couches de voirie, bordures, signalisation, éclairage provisoire…)",
-        "Prix unitaires du BPU Lot 2 (canalisations AEP, raccordements, ouvrages)",
-        "Prix spécifiques arrêt de travaux (BPU dédié mentionné au CCTP §5.14.2.2)",
-        "Prix de marquage-piquetage (forfait)",
-        "Prix d'opérations de localisation des réseaux"
+        "Bordereau des Prix Unitaires (BPU) propre à chaque lot",
+        "Détail Quantitatif Estimatif (DQE) propre à chaque lot",
+        "Sous-détail des prix unitaires à fournir en période de préparation",
+        "Offre technique",
+        "Offre environnementale"
       ]
     },
-    "modalite_calcul_prix": "Marché à prix unitaires. Les acomptes mensuels intègrent la révision de prix. Aucune formule d'attribution dans les pièces transmises."
+    "modalite_calcul_prix": "Marché à prix unitaires appliqués aux quantités réellement exécutées. Prix révisables annuellement selon formule paramétrique (CCAP art 4.2 et 4.3)."
   },
   "montant_marche": {
     "valeur_estimee_euros": null,
     "fourchette_min_euros": null,
     "fourchette_max_euros": null,
     "type": "non_communique",
-    "duree_couverte": "Lot 1 : 25 mois ; Lot 2 : 11 mois",
+    "duree_couverte": null,
     "source_extraction": null,
-    "commentaire": "Aucun montant estimé, plafond ou fourchette n'est mentionné dans les pièces transmises (CCAP, CCTP, plans). Le BPU n'est pas joint au DCE fourni. Le volume financier reste inconnu à ce stade."
+    "commentaire": "Aucun montant explicite publié dans les pièces fournies (CCAP, plans, CCTP). Le BOAMP indique un montant estimé à 0 pour le lot 1 et null pour le lot 2. Estimation bottom-up réalisée en Voie 2."
+  },
+  "montant_3_voies": {
+    "voie_1_eur": null,
+    "voie_1_source": null,
+    "voie_2_disponible": true,
+    "voie_2_min_eur": 8500000,
+    "voie_2_max_eur": 12000000,
+    "voie_2_hypotheses": [
+      {
+        "hypothese": "Lot 1 VRD — viabilisation primaire d'une ZAC avec plusieurs voiries (Av. Gutemberg Sud, Rue du Gué, Av. du Prieuré, Av. Christian Doppler) sur une surface estimée à partir des plans (lots fonciers identifiés ~93 000 m² de réserve, surfaces de voiries représentant ~15 000-25 000 m² de chaussée) ; ratio marché VRD primaire ZAC 300-450 €/m² de voirie (terrassements + réseaux + chaussée)",
+        "valeur": "15 000 à 25 000 m² de voirie"
+      },
+      {
+        "hypothese": "Durée 23 mois de travaux pour le lot 1 — chantier structurant de ZAC (extension phase IV) ; ratio confirmé par la présence de réseaux HTA, génie civil important (chambres EP120, L1T/L2T/L3T), assainissement grands diamètres (DN800 à remplacer par DN1000), traitement de sol sur toute l'emprise",
+        "valeur": "Ratio central 380 €/m² × 20 000 m² = 7 600 000 € pour lot 1"
+      },
+      {
+        "hypothese": "Lot 2 AEP — canalisations fonte intégrale + PEHD, ventouses, chambre GC, durée 10 mois de travaux ; ratio réseau AEP primaire en ZAC 800-1 200 €/ml, linéaire estimé 1 000-1 500 ml sur l'emprise du projet",
+        "valeur": "1 000 à 1 500 ml à 1 000 €/ml = 1 000 000 à 1 500 000 € pour lot 2"
+      },
+      {
+        "hypothese": "Dimension variable retenue : ratio €/m² de voirie pour lot 1 (300-450 €/m²), quantité fixée à 20 000 m² ; ratio €/ml AEP pour lot 2 (800-1 200 €/ml), linéaire fixé à 1 200 ml",
+        "valeur": "Fourchette globale : 6 000 000 + 960 000 = 6 960 000 (arrondi 7 M€) à 9 000 000 + 1 440 000 ≈ 10,4 M€ ; majoration 15% aléas et sujétions ZAC → 8,5 M€ à 12 M€"
+      }
+    ],
+    "voie_2_raison_indisponible": null
+  },
+  "cout_realisation": {
+    "cout_total_eur": 7650000,
+    "cout_min_eur": 6800000,
+    "cout_max_eur": 9700000,
+    "postes": [
+      {
+        "poste": "Lot 1 VRD — terrassements, génie civil, assainissement, voirie (main d'œuvre + matériaux + engins)",
+        "detail": "Ratio coût de production ~75-80% du prix marché VRD (marge brute 20-25%) : 7 600 000 € × 0,775 = 5 890 000 €",
+        "montant_eur": 5890000
+      },
+      {
+        "poste": "Lot 1 — éclairage public provisoire et signalisation",
+        "detail": "Forfait estimatif : 150 000 € à 250 000 € ; valeur centrale 200 000 €",
+        "montant_eur": 200000
+      },
+      {
+        "poste": "Lot 1 — encadrement et frais de chantier (25 mois)",
+        "detail": "Chef de chantier + conducteur de travaux + installation/repli : 25 mois × 18 000 €/mois = 450 000 €",
+        "montant_eur": 450000
+      },
+      {
+        "poste": "Lot 2 AEP — fournitures et pose canalisations fonte/PEHD + accessoires",
+        "detail": "Ratio coût production ~78% du prix marché AEP : 1 200 000 € × 0,78 = 936 000 €",
+        "montant_eur": 936000
+      },
+      {
+        "poste": "Récolements géomètre (agréé EPAFRANCE) — sous-traitance obligatoire",
+        "detail": "Forfait géomètre pour 2 lots : 50 000 à 80 000 € ; valeur centrale 65 000 €",
+        "montant_eur": 65000
+      },
+      {
+        "poste": "Clause d'insertion sociale (frais de coordination facilitateur, heures dédiées)",
+        "detail": "1 497 h d'insertion (1 337 + 160) à ~25 €/h surcoût net : 37 000 €",
+        "montant_eur": 37000
+      },
+      {
+        "poste": "Essais et contrôles laboratoire (compactage, portance, enrobés, canalisations)",
+        "detail": "Forfait laboratoire agréé pour 2 lots sur 25 mois : 100 000 €",
+        "montant_eur": 100000
+      }
+    ],
+    "taux_journaliers_retenus": "Conducteur de travaux BTP 700-900 €/j ; chef de chantier VRD 550-700 €/j ; main d'œuvre chantier 45-55 €/h chargé ; engins terrassement 80-120 €/h. Taux marché indicatifs — structure de coût réelle du candidat inconnue.",
+    "commentaire": "Estimation construite par lot puis agrégée. La marge brute VRD primaire ZAC est typiquement 18-25% sur les travaux et 10-20% sur les fournitures. Le lot 2 AEP présente une marge similaire (matériaux fonte représentent une part élevée du coût). Hors coût financier de l'avance de 5%."
   },
   "revision_prix": {
     "type": "indexation",
@@ -110,120 +201,196 @@
       "TP08",
       "TP10e"
     ],
-    "ponderation": "Lot 1 (VRD) : Cn = 0,15 + 0,85 × (0,2 × In/I0 + 0,8 × Jn/J0) avec I = TP03a (Grands terrassements) et J = TP08 (Travaux d'aménagements et entretien de voirie) ; Lot 2 (AEP) : Cn = 0,15 + 0,85 × (In/I0) avec I = TP10e (Canalisation, assainissement et adduction d'eau avec fourniture de tuyaux en fonte majoritaire).",
+    "ponderation": "Lot 1 VRD : 15% partie fixe + 85% × (20% TP03a + 80% TP08). Lot 2 AEP : 15% partie fixe + 85% × TP10e",
     "periodicite": "annuelle",
-    "formule_revision": "Lot 1 : Cn = 0,15 + 0,85 × (0,2 × In/I0 + 0,8 × Jn/J0) | Lot 2 : Cn = 0,15 + 0,85 × (In/I0)",
-    "source_extraction": "CCAP article 4 (§5.2 et §5.3)",
-    "commentaire": "Révision annuelle avec 15% de partie fixe et 85% indexée ; le titulaire doit transmettre le BPU révisé dans les 15 jours suivant la date anniversaire, faute de quoi la révision n'est pas appliquée. Risque si le délai administratif est oublié."
+    "formule_revision": "Lot 1 : Cn = 0,15 + 0,85 × (0,2 × In/I0 + 0,8 × Jn/J0) avec I=TP03a et J=TP08. Lot 2 : Cn = 0,15 + 0,85 × (In/I0) avec I=TP10e",
+    "source_extraction": "CCAP articles 4.2 et 4.3",
+    "commentaire": "Prix révisés annuellement à partir de la date anniversaire de notification. Le titulaire doit transmettre le BPU révisé dans les 15 jours ; à défaut les prix de l'année précédente restent en vigueur. Formule favorable en période de hausse des matériaux (enrobés, canalisations fonte). Partie fixe à 15% limite la pleine indexation."
   },
   "alertes_prix": [
-    "La révision de prix est annuelle mais le titulaire doit la demander activement dans les 15 jours suivant l'anniversaire de notification — tout retard entraîne la perte de la révision pour l'année concernée (CCAP §5.2 et §5.3).",
-    "Le marché est à prix unitaires avec quantités réellement exécutées : risque de dérive si les quantités estimatives s'avèrent éloignées des quantités réelles (notamment terrassements et remblais selon nature du sol).",
-    "Présence d'un prix spécifique 'arrêt de travaux' dans le BPU (CCTP §5.14.2.2) : le candidat doit renseigner ces prix à l'offre ; une sous-évaluation peut pénaliser en cas d'arrêt réel.",
-    "Dépassement du montant contractuel interdit sans avenant ou décision de poursuivre : risque de blocage de chantier si les quantités réelles dépassent les prévisions (CCAP §5.4)."
+    "Prix à prix unitaires sur DQE : le risque est double — erreur dans le DQE de l'acheteur sur les quantités estimées, et risque de plus-values non prévues si quantités réelles dépassent le DQE",
+    "Révision annuelle conditionnée à la transmission du BPU révisé dans les 15 jours suivant l'anniversaire — risque de perte de la révision si délai non respecté (CCAP art 4.2/4.3)",
+    "Pénalités journalières de 1/1000 du montant HT total du marché en cas de retard, plafonnées à 25% du montant HT — risque financier majeur sur un chantier de 25 mois avec phasage contraint",
+    "Retenue de garantie de 5% sur acomptes — impact trésorerie significatif sur la durée du chantier ; possibilité de substitution par garantie bancaire à première demande",
+    "Délai de paiement à 60 jours (dérogatoire au droit commun de 30 jours) — coût de portage à intégrer dans le chiffrage"
   ],
   "references_exigees": {
     "experience_minimale_annees": null,
     "experience_source": null,
     "volume_min_references_similaires": null,
     "volume_min_references_unite": null,
-    "secteur_experience": "Travaux de VRD en ZAC ou opérations d'aménagement d'espaces publics (voiries, réseaux divers, assainissement)",
-    "secteur_source": "CCTP §1",
-    "certifications_obligatoires": [],
+    "secteur_experience": "Travaux VRD en ZAC / viabilisation primaire de voiries et réseaux ; travaux AEP pour le lot 2",
+    "secteur_source": null,
+    "certifications_obligatoires": [
+      {
+        "libelle": "Habilitation électrique UTE C18-510 pour interventions sur réseaux d'éclairage public et basse tension",
+        "codes": [],
+        "bloquante": true,
+        "source": "CCTP §5.5.11"
+      }
+    ],
     "autres_exigences": [
       {
-        "libelle": "Recours obligatoire à un géomètre agréé EPAFRANCE pour les prestations de récolement (liste limitative en annexe 1 du CCAP)",
+        "libelle": "Sous-traitance obligatoire des récolements à un géomètre de la liste agréée EPAFRANCE avec déclaration DC4",
         "source": "CCAP Annexe 1"
       },
       {
-        "libelle": "Récolement en classe de précision A, réalisé en fouille ou tranchée ouverte",
-        "source": "CCAP Annexe 1"
+        "libelle": "Projet d'insertion sociale à remettre avant la fin de la période de préparation, avec désignation d'un référent insertion",
+        "source": "CCAP art 1.6"
       },
       {
-        "libelle": "Plan d'Assurance Qualité de degré 2 (PAQ) à remettre dans les 15 jours suivant la notification",
-        "source": "CCTP §6"
+        "libelle": "Plan d'Assurance Qualité (PAQ) de degré 2 à remettre dans les 15 jours suivant l'ordre de service de démarrage",
+        "source": "CCTP §6.1"
       },
       {
-        "libelle": "Personnel formé et qualifié pour intervenir à proximité des réseaux (DT/DICT réglementaires)",
-        "source": "CCTP §5.14.1"
+        "libelle": "Plan Particulier de Sécurité et de Protection de la Santé (PPSPS) à établir selon instructions du coordonnateur SPS, dans le délai d'un mois après notification",
+        "source": "CCTP §5.6.4"
       }
     ]
+  },
+  "dossier_candidature": {
+    "pieces_a_fournir": [
+      {
+        "libelle": "Acte d'engagement (AE) propre à chacun des lots, complété et signé",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "CCAP art 2"
+      },
+      {
+        "libelle": "Bordereau des Prix Unitaires (BPU) propre à chacun des lots",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "CCAP art 2"
+      },
+      {
+        "libelle": "Cahier des clauses environnementales (CCE) complété — offre environnementale du titulaire",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "CCAP art 2"
+      },
+      {
+        "libelle": "Offre technique",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "CCAP art 2"
+      },
+      {
+        "libelle": "Fiche récapitulative SOE (Schéma d'Organisation et de gestion des déchets)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "CCAP art 2"
+      },
+      {
+        "libelle": "Mémoire technique incluant schéma de circulation des camions et signalisation chantier",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "CCTP §9.2"
+      },
+      {
+        "libelle": "Attestations d'assurance responsabilité civile et décennale en cours de validité",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "CCAP art 13"
+      }
+    ],
+    "mode_remise": null,
+    "plateforme_depot": null,
+    "signature_electronique_exigee": null,
+    "format_signature": null,
+    "nombre_exemplaires": null,
+    "langue": "français",
+    "duree_validite_offres_jours": null,
+    "modalites_source": null
   },
   "lots": [
     {
       "numero": 1,
-      "intitule": "Terrassement, Réseaux divers, Assainissement, voiries (VRD)",
-      "zone_geographique": "Bailly-Romainvilliers (77) — ZAC du Prieuré Est",
+      "intitule": "Lot 1 : Terrassement, Réseaux divers, Assainissement, voiries (VRD)",
+      "domaine": "btp_voirie_reseaux",
+      "zone_geographique": "Bailly-Romainvilliers (77), Île-de-France",
       "volume_estime": null,
       "volume_estime_unite": null,
-      "particularites": "Délai global 25 mois (2 mois préparation + 23 mois travaux). Clause d'insertion sociale : 1 337 heures. Phasage avec livraison d'accès aux lots privés à confirmer en phase exécution. Révision annuelle par indices TP03a et TP08. Éclairage public provisoire à la charge du lot."
+      "cout_estime_min_eur": 6000000,
+      "cout_estime_max_eur": 8500000,
+      "ca_estime_min_eur": 7500000,
+      "ca_estime_max_eur": 10500000,
+      "marge_brute_pct": 20,
+      "particularites": "Délai global 25 mois (2 mois préparation + 23 mois travaux). 1 337 heures d'insertion sociale obligatoires. Révision annuelle indices TP03a et TP08. Récolements en classe A obligatoires par géomètre agréé EPAFRANCE. Phasage avec livraisons par lots fonciers (AC4A4-5 début 2027, AC4A18 fin 2027)."
     },
     {
       "numero": 2,
-      "intitule": "Adduction en Eau Potable (AEP)",
-      "zone_geographique": "Bailly-Romainvilliers (77) — ZAC du Prieuré Est",
+      "intitule": "Lot 2 : Adduction en Eau Potable (AEP)",
+      "domaine": "btp_reseaux_divers",
+      "zone_geographique": "Bailly-Romainvilliers (77), Île-de-France",
       "volume_estime": null,
       "volume_estime_unite": null,
-      "particularites": "Délai global 11 mois (1 mois préparation + 10 mois travaux). Clause d'insertion sociale : 160 heures. Révision annuelle par indice TP10e. Canalisation fonte INTEGRAL imposée pour les réseaux EU."
+      "cout_estime_min_eur": 800000,
+      "cout_estime_max_eur": 1200000,
+      "ca_estime_min_eur": 1000000,
+      "ca_estime_max_eur": 1500000,
+      "marge_brute_pct": 19,
+      "particularites": "Délai global 11 mois (1 mois préparation + 10 mois travaux). 160 heures d'insertion sociale obligatoires. Révision annuelle indice TP10e (canalisation AEP avec tuyaux fonte majoritaire). Canalisations fonte intégrale Ø150 et Ø200 mm pour EU, PEHD pour AEP."
     }
   ],
+  "tranches": [],
   "calendrier": {
     "date_limite_offres": "2026-07-10",
     "date_demarrage_prevue": null,
-    "duree_marche": "Lot 1 : 25 mois globaux (2 préparation + 23 travaux) ; Lot 2 : 11 mois globaux (1 préparation + 10 travaux)"
+    "duree_marche": "Lot 1 : 25 mois (2 mois préparation + 23 mois travaux) ; Lot 2 : 11 mois (1 mois préparation + 10 mois travaux)"
   },
   "alertes_candidat": [
-    "Obligation de faire réaliser les récolements par un géomètre de la liste agréée EPAFRANCE (5 cabinets listés en annexe 1 du CCAP) — à sous-traiter dès la réunion de démarrage avec déclaration DC4 obligatoire.",
-    "Clause d'insertion sociale contractuelle et contrôlée mensuellement : 1 337 h pour le lot 1 et 160 h pour le lot 2 — le non-respect déclenche des pénalités (150 €/jour de retard sur les justificatifs) ; un projet d'insertion doit être remis avant la fin de la période de préparation.",
-    "Coactivité forte avec les chantiers de bâtiment sur la ZAC : le candidat doit intégrer dans son offre les contraintes de coordination, de phasage différé et les arrêts/reprises potentiels — aucune plus-value ne sera accordée a posteriori.",
-    "Le titulaire ne peut dépasser le montant contractuel sans avenant ou décision de poursuivre préalable (CCAP §5.4) — risque de blocage chantier si les quantités réelles s'envolent.",
-    "Plans d'exécution à établir par l'entrepreneur avec mission VISA du maître d'œuvre (CCAP §8) — délai à intégrer dans le planning ; toute erreur d'exécution sans visa reste à la charge du titulaire.",
-    "Pénalités nombreuses et sans mise en demeure préalable (sauf travail dissimulé) : retard (1/1000e du montant HT/jour), absence réunion (250 €), réserves non levées (700 €/réserve/jour), sécurité (500 €/infraction/jour), végétaux endommagés (3 800 €/unité) — CCAP §6."
+    "Clause d'insertion sociale obligatoire avec volume horaire contractuel (1 337 h lot 1, 160 h lot 2) — le non-respect est sanctionné par des pénalités pour retard dans la remise des justificatifs (150 €/jour) ; le candidat doit impérativement contacter le facilitateur Initiatives77 dès le démarrage",
+    "Récolements obligatoires sous-traités à un géomètre de la liste agréée EPAFRANCE uniquement — à anticiper dans le chiffrage (sous-traitance DC4 obligatoire dès la réunion de démarrage) ; tout autre géomètre est exclu",
+    "Pénalités journalières de 1/1000 du montant HT total (pas du lot) sans plafond inférieur à 25% du marché — sur un grand marché VRD de ZAC, cela peut représenter des dizaines de milliers d'euros par jour de retard",
+    "Coactivité obligatoire avec chantiers de bâtiment voisins et concessionnaires — le planning doit intégrer les livraisons de lots fonciers (AC4A4-5 début 2027, AC4A18 fin 2027) sous peine de pénalité ; le candidat doit démontrer sa capacité de coordination inter-chantiers",
+    "Délai de garantie de parfait achèvement 1 an à compter de la réception, avec responsabilité décennale exigée dès notification — attestation d'assurance décennale en cours de validité requise"
   ],
   "points_differenciants_attendus": [
     {
-      "libelle": "Gestion de la coactivité et phasage en ZAC active",
-      "exemple": "Présenter un schéma de circulation des camions, une organisation de chantier intégrant les interfaces avec les lots privés (AC4A4-5, AC4A18) et les mesures de coordination avec les chantiers de bâtiment adjacents, démontrant une expérience en ZAC multi-intervenants.",
-      "source": "CCTP §9.2"
+      "libelle": "Gestion du phasage complexe et coordination inter-chantiers",
+      "exemple": "Le candidat présente un planning détaillé avec jalons de livraison des lots fonciers (AC4A4-5 début 2027, AC4A18 fin 2027), un schéma d'organisation de coactivité avec les chantiers de bâtiment et un plan de circulation des engins incluant les déviations provisoires.",
+      "source": "CCTP §9.2 et §7.1.1"
     },
     {
-      "libelle": "Maîtrise des réseaux enterrés et procédures DT/DICT",
-      "exemple": "Décrire précisément l'organisation de la détection des réseaux (géodétection, sondages, marquage-piquetage), les procédures d'arrêt de travaux et les moyens humains dédiés — démontrant une expérience sur chantiers à forte densité de réseaux existants.",
-      "source": "CCTP §5.14 et §5.15"
+      "libelle": "Maîtrise de la clause d'insertion sociale et organisation dédiée",
+      "exemple": "Le candidat désigne un référent insertion nommément dans son offre, présente un projet d'insertion préliminaire avec les modalités concrètes (CDI, ETT, GEIQ) et démontre une expérience de collaboration avec des structures IAE en Seine-et-Marne.",
+      "source": "CCAP art 1.6 et Annexe 2"
     },
     {
-      "libelle": "Expérience avérée en traitement de sol et structures de chaussée lourde",
-      "exemple": "Références de chantiers VRD ZAC avec traitement chaux/ciment en place, mise en œuvre d'EME classe 2, contrôles de portance PF2, avec résultats d'essais à l'appui.",
-      "source": "CCTP §9.3, §9.8, §11.4.3"
+      "libelle": "Organisation des récolements en classe A et maîtrise du DOE",
+      "exemple": "Le candidat identifie dès l'offre un géomètre de la liste agréée EPAFRANCE, décrit sa procédure de récolement en fouille ouverte et fournit un exemple de plan de récolement RGF93 CC49 au 1/200ème.",
+      "source": "CCAP Annexe 1 et CCTP §13"
     },
     {
-      "libelle": "Organisation de la clause d'insertion sociale",
-      "exemple": "Présenter un projet d'insertion détaillé avec identification des postes éligibles (conducteur d'engins, manœuvre), modalités de partenariat avec les structures IAE du territoire de Seine-et-Marne, et planning d'atteinte des 1 337 heures sur la durée du chantier.",
-      "source": "CCAP §2.3 et Annexes 2 et 3"
+      "libelle": "Démarche environnementale chantier et gestion des déchets",
+      "exemple": "Le candidat produit un SOGED détaillé avec filières de valorisation des matériaux (terres, enrobés, béton), un classeur environnement de chantier opérationnel et les FDES des matériaux principaux (enrobés EME, granulats, canalisations).",
+      "source": "CCAP art 3.2 (période préparation) et CCTP §8"
     },
     {
-      "libelle": "Qualité et réactivité du Plan d'Assurance Qualité (PAQ)",
-      "exemple": "Soumettre dès l'offre une ébauche de PAQ de degré 2 avec les points d'arrêt prédéfinis (compactage fonds de forme, essais canalisations, mandrinage fourreaux), les référentiels laboratoire envisagés et les procédures de non-conformité, démontrant une maturité organisationnelle.",
-      "source": "CCTP §6"
+      "libelle": "Expérience en viabilisation primaire de ZAC en Île-de-France",
+      "exemple": "Le candidat présente des références de chantiers VRD de ZAC comparables (>5 M€, réseaux + voirie + assainissement sur emprise non bâtie) réalisés en Île-de-France, idéalement avec des contraintes de phasage similaires et une maîtrise d'ouvrage publique ou d'établissement public.",
+      "source": null
     }
   ],
   "_meta": {
     "id_marche": "BOAMP-26-56364",
     "type": "complet",
-    "date_generation": "2026-06-14T20:45:24.619441+00:00",
-    "extraction_le": "2026-06-14T20:45:24.619441+00:00",
+    "date_generation": "2026-06-20T23:23:54.872568+00:00",
+    "extraction_le": "2026-06-20T23:23:54.872568+00:00",
     "modele": "claude-sonnet-4-6",
     "preset_utilise": "btp",
     "presets_matches": [
-      "btp"
+      "btp",
+      "ingenierie"
     ],
     "prompts_versions": {
-      "btp/_preset.json": "sha256:d1717e0d87f6c265"
+      "btp/_preset.json": "sha256:055bf6f8b2c1f771",
+      "ingenierie/_preset.json": "sha256:b924b32a088673d6"
     },
-    "tokens_input": 160077,
-    "tokens_output": 4919,
-    "cout_eur": 0.5263,
-    "duree_sec": 92.3,
+    "tokens_input": 170613,
+    "tokens_output": 7781,
+    "cout_eur": 0.5971,
+    "duree_sec": 139.5,
     "pdfs_traites": [
       {
         "nom": "CCAP_trvx_viabilisation_ZAC_PRIEURE.pdf",

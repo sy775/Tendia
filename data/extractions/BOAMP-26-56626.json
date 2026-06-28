@@ -1,106 +1,94 @@
 {
-  "synthese_marche": "Marché public de travaux en procédure adaptée pour l'aménagement d'une maison d'assistants maternels à Taluyers (69), porté par la Communauté de Communes du Pays Mornantais. Le marché est divisé en 7 lots couvrant le second œuvre complet (menuiserie, plâtrerie, carrelage, sols souples, électricité, CVC-plomberie, aménagements extérieurs). Le délai d'exécution des travaux est de 6 mois, précédé d'un mois de préparation.",
+  "synthese_marche": "Marché public de travaux portant sur l'aménagement intérieur d'une Maison d'Assistants Maternels (MAM) d'une capacité de 18 enfants, localisée route du Bâtard à Taluyers (69). L'opération concerne l'aménagement intérieur d'un local ERP de 270 m² livré brut par ALLIADE HABITAT, ainsi que l'aménagement de l'espace extérieur de 125,3 m². Le marché est divisé en 7 lots couvrant les corps d'état second œuvre et techniques.",
   "domaines_metier": [
     {
-      "code": "btp_second_oeuvre",
-      "poids": 0.85,
-      "lots_concernes": [
-        "Lot 1",
-        "Lot 2",
-        "Lot 3",
-        "Lot 4",
-        "Lot 5",
-        "Lot 6"
-      ]
-    },
-    {
-      "code": "amenagement_paysager_creation",
-      "poids": 0.15,
-      "lots_concernes": [
-        "Lot 7"
-      ]
+      "code": "btp_second_oeuvre"
     }
   ],
-  "raison_classification": "Le marché porte essentiellement sur des travaux de second œuvre (menuiserie intérieure, plâtrerie, carrelage, sols souples, électricité, CVC-plomberie) pour 6 lots sur 7, avec un CPV principal 45400000-1 'Travaux de parachèvement de bâtiment'. Le lot 7 'Aménagements extérieurs - espaces verts' (CPV 45112710-5) relève de l'aménagement paysager en création, justifiant un second domaine minoritaire.",
+  "raison_classification": "Le marché porte exclusivement sur des travaux d'aménagement intérieur second œuvre (plâtrerie, menuiseries, sols, peintures, CVC, électricité, espaces verts) d'un bâtiment existant livré en coque. Aucun gros œuvre, aucune mission d'études ou de maîtrise d'œuvre n'est commandée ici — la MOE est externalisée (ATELIER 419) et les lots sont tous des corps d'état second œuvre ou techniques.",
   "caracteristiques_techniques_chantier": {
-    "description": "Aménagement intérieur et extérieur d'une maison d'assistants maternels existante, comprenant menuiseries intérieures et mobilier, plâtrerie et plafonds suspendus, chape-carrelage-faïence, sols souples, électricité courant fort et faible, CVC-plomberie, et aménagements extérieurs avec espaces verts.",
-    "typologie_ouvrage": "Maison d'assistants maternels (MAM) — équipement petite enfance",
-    "surface_volume": null,
-    "site_occupe": "Non précisé dans le RC",
+    "description": "Aménagement intérieur complet d'un local ERP de 270 m² (rez-de-chaussée) livré brut par le bailleur ALLIADE HABITAT, transformé en Maison d'Assistants Maternels pour 18 enfants. Les travaux comprennent : cloisons, doublages, plafonds suspendus en laine de bois, sols souples (linoléum) et carrelages, menuiseries intérieures bois et mobilier fixe, électricité courants forts/faibles (alarme incendie, intrusion, PPMS, VDI, vidéophonie), CVC (PAC, plancher chauffant, VMC ERP) et plomberie, aménagements extérieurs (espace 125,3 m², clôture, revêtement drainant, sol souple liège).",
+    "typologie_ouvrage": "ERP (Établissement Recevant du Public) — local petite enfance / crèche (type R, 4e catégorie)",
+    "surface_volume": "270 m² ERP intérieur + 125,3 m² espace extérieur",
+    "site_occupe": "false — le bâtiment est livré brut avant aménagement ; les travaux se déroulent en concomitance avec le projet de logements d'ALLIADE mais la MAM n'est pas occupée",
     "corps_etat": [
-      "Menuiserie intérieure bois / mobilier",
-      "Plâtrerie - Plafond suspendu - Peinture",
-      "Chape - Carrelage - Faïence",
-      "Sol souple",
-      "Électricité courant fort - courant faible",
-      "CVC - Plomberie",
-      "Aménagements extérieurs - Espaces verts"
+      "Menuiseries intérieures bois et mobilier (Lot 1)",
+      "Plâtrerie, plafond suspendu, peinture (Lot 2)",
+      "Chape, carrelage, faïence (Lot 3)",
+      "Sol souple (Lot 4)",
+      "Électricité courants forts et courants faibles (Lot 5)",
+      "CVC, plomberie (Lot 6)",
+      "Aménagements extérieurs, espaces verts (Lot 7)"
     ],
     "contraintes_specifiques": [
-      "Visite de site obligatoire préalablement à la remise de l'offre (attestation à joindre)",
-      "Coordination entre 7 lots distincts sur un même chantier",
-      "Délai d'exécution global des travaux limité à 6 mois",
-      "Planning imposé par le maître d'œuvre à respecter",
-      "Lieu-dit la Ronze, Route du Bâtard, Taluyers (69440) — site rural"
+      "Coordination avec les travaux ALLIADE HABITAT en cours sur le même bâtiment (logements + enveloppe)",
+      "Respect RE 2020 — test d'étanchéité à l'air obligatoire (Q4Pa-surf ≤ 0,8 m³/h.m²)",
+      "ERP type R 4e catégorie — réglementation incendie, accessibilité PMR, sécurité enfants (poignées à 1,30 m, protections anti-pince-doigts)",
+      "Plancher chauffant hydraulique intégré à la chape anhydrite 60 mm",
+      "Plafonds suspendus en laine de bois 120×60 cm avec flocage existant en sous-face dalle haute à dégarnir localement",
+      "Peintures biosourcées obligatoires (labelliséés Ecolabel Européen/Natureplus/NF Environnement/Ange Bleu)",
+      "Gestion des déchets de chantier avec schéma d'organisation obligatoire",
+      "Chantier faibles nuisances exigé",
+      "Matériaux bois éco-certifiés FSC ou PEFC"
     ]
   },
   "allotissement": {
-    "description": "Marché divisé en 7 lots, chacun constituant un marché distinct. Un candidat peut soumissionner pour un ou plusieurs lots sans limitation.",
+    "description": "Marché divisé en 7 lots distincts, chacun constituant un marché séparé à prix forfaitaire global et définitif, d'une durée prévisionnelle de 7 mois (1 mois préparation + 6 mois exécution).",
     "nb_lots": 7,
     "lots_detailles": [
       {
         "numero": 1,
         "intitule": "Menuiserie intérieure bois/mobilier",
-        "corps_etat": "Menuiserie intérieure / Mobilier",
+        "corps_etat": "menuiseries intérieures bois, mobilier fixe",
         "montant_estime": null,
-        "description": "Fourniture et pose de menuiseries intérieures bois et mobilier (CPV 45421000-4)"
+        "description": "Blocs-portes stratifiés (toute hauteur 2,92 m), châssis bois vitrés intérieurs CF30, mobilier fixe de toutes les pièces (accueil, salles d'activités, dortoirs, change, bureau, lingerie, kitchenette), extincteurs, plans d'évacuation, organigramme de clés."
       },
       {
         "numero": 2,
-        "intitule": "Plâtrerie-Plafond suspendu - peinture",
-        "corps_etat": "Plâtrerie / Plafonds suspendus / Peinture",
+        "intitule": "Plâtrerie - Plafond suspendu - peinture",
+        "corps_etat": "plâtrerie, plafonds suspendus, peinture",
         "montant_estime": null,
-        "description": "Travaux de plâtrerie, pose de plafonds suspendus et peinture intérieure (CPV 45410000-4)"
+        "description": "Cloisons sèches de distribution et de doublage (acoustiques jusqu'à 60 dB), habillages isolants sous dalle, plafonds suspendus laine de bois 120×60 (non démontable) et dalles acoustiques 60×60 (démontable), peintures biosourcées, nettoyage final de chantier, installation commune de chantier, gestion compte prorata."
       },
       {
         "numero": 3,
-        "intitule": "Chappe-carrelage-Faïence",
-        "corps_etat": "Chape / Carrelage / Faïence",
+        "intitule": "Chappe - carrelage - Faïence",
+        "corps_etat": "chape, carrelage, faïence",
         "montant_estime": null,
-        "description": "Réalisation de chapes, pose de carrelage et faïence (CPV 45431000-7)"
+        "description": "Chape anhydrite 60 mm pour plancher chauffant, carrelage grès cérame 60×60 (locaux humides), faïences grès émaillé 20×20, système d'étanchéité sous faïence, isolant phonique au bruit d'impact, miroirs, tapis d'entrée encadrés."
       },
       {
         "numero": 4,
         "intitule": "Sol souple",
-        "corps_etat": "Revêtements de sols souples",
+        "corps_etat": "revêtements de sol souples",
         "montant_estime": null,
-        "description": "Fourniture et pose de revêtements de sols souples (CPV 45432111-5)"
+        "description": "Ragréage et revêtement linoléum collé (DLW Marmorette ou équivalent) U4P3E1/2C2 avec remontée de plinthe, dans l'ensemble des locaux de vie (accueil, circulations, activités, dortoirs, change, bureau, équipe, repas, motricité)."
       },
       {
         "numero": 5,
         "intitule": "Electricité courant fort - courant faible",
-        "corps_etat": "Électricité courant fort / courant faible",
+        "corps_etat": "électricité courants forts et courants faibles",
         "montant_estime": null,
-        "description": "Travaux d'électricité courant fort et courant faible, avec PSE optionnelle sur modulation des débits de ventilation (CPV 45310000-3)"
+        "description": "Armoire électrique MAM, dérivation depuis colonne ALLIADE, distribution CF et CFA, éclairage LED (downlights, linéaires encastrés rail REGGIANI, plafonniers), détection de présence, BAES, alarme incendie type 4, PPMS (système BODET), vidéophonie IP, alarme intrusion, réseau VDI catégorie 6a, sèche-mains."
       },
       {
         "numero": 6,
-        "intitule": "CVC-Plomberie",
-        "corps_etat": "CVC / Plomberie",
+        "intitule": "CVC - Plomberie",
+        "corps_etat": "chauffage, ventilation, climatisation, plomberie",
         "montant_estime": null,
-        "description": "Travaux de chauffage, ventilation, climatisation et plomberie, avec PSE sur modulation des débits de ventilation et traitement physique de l'eau (CPV 45330000-9)"
+        "description": "PAC eau/eau (local technique), plancher chauffant hydraulique, VMC double-flux ERP, ballons ECS, production et distribution eau froide/chaude sanitaire, appareils sanitaires (WC suspendu, lavabos, douche PMR, meuble-change double LOXOS), siphons, réseaux EU/EV/EP."
       },
       {
         "numero": 7,
         "intitule": "Aménagements extérieurs - espaces verts",
-        "corps_etat": "Aménagements extérieurs / Espaces verts",
+        "corps_etat": "aménagements extérieurs, espaces verts",
         "montant_estime": null,
-        "description": "Travaux d'aménagements extérieurs et création d'espaces verts (CPV 45112710-5)"
+        "description": "Espace extérieur ERP 125,3 m² : revêtement minéral drainant URBALITH (70%) et sol souple liège CORKEEN (30%), clôture grillage plastifié H=1,60 m avec portillon, espace engazonné 40 m², bordures P3, lierre grimpant sur clôture. Indice de révision TP08."
       }
     ]
   },
   "qualifications_requises": {
-    "description": "Aucune qualification Qualibat ou certification spécifique n'est explicitement exigée dans le RC. L'acheteur demande des références de travaux similaires et des déclarations de capacités.",
+    "description": "Le CCAP et le CCTC ne mentionnent pas de qualifications Qualibat spécifiques à titre de condition d'admission ; les pièces du DCE analysées ne précisent pas de qualifications exigées à peine d'irrecevabilité.",
     "qualibat": [],
     "rge": false,
     "rge_specialites": [],
@@ -109,7 +97,11 @@
     "iso_14001": false,
     "iso_45001": false,
     "opqibi": null,
-    "autres_certifications": []
+    "autres_certifications": [
+      "Bois éco-certifiés FSC ou PEFC (Lot 1)",
+      "Peintures labellisées Ecolabel Européen, Natureplus, NF Environnement ou Ange Bleu (Lot 2)",
+      "Matériaux classe réaction au feu conformes (M1 à M3 selon usage)"
+    ]
   },
   "caracteristiques_mission_moe": {
     "typologie": null,
@@ -131,116 +123,20 @@
     "autres": []
   },
   "bareme_notation": {
-    "valeur_technique_pct": 45,
-    "valeur_prix_pct": 35,
-    "sous_criteres_techniques": [
-      {
-        "libelle": "Valeur technique",
-        "ponderation_pct": 45,
-        "description": "Jugée à partir de trois sous-critères : moyens humains/matériels/techniques, organisation de chantier/exécution des ouvrages, nettoyage/sécurité/gestion des nuisances.",
-        "elements_attendus": [],
-        "exemple_reponse_forte": "—",
-        "source": "RC article 6",
-        "sous_criteres": [
-          {
-            "libelle": "Moyens humains / matériels et technique",
-            "ponderation_pct": 20,
-            "description": "Évalue les moyens humains, matériels et techniques affectés au chantier, tels que décrits dans le mémoire technique.",
-            "elements_attendus": [
-              "Présentation nominative des intervenants affectés au chantier avec qualifications",
-              "Description du matériel et outillage spécifique disponible pour ce type de travaux",
-              "Effectifs dédiés au chantier (encadrement + compagnons)",
-              "Adéquation des moyens au volume et délai du chantier"
-            ],
-            "exemple_reponse_forte": "Le chef de chantier désigné dispose de 12 ans d'expérience en second œuvre bâtiment. L'entreprise mobilisera 3 compagnons qualifiés et dispose d'un matériel adapté (naceau, outillage électroportatif récent). Un planning de charge prévisionnel par semaine sera fourni.",
-            "source": "RC article 6"
-          },
-          {
-            "libelle": "Organisation de chantier / exécution des ouvrages",
-            "ponderation_pct": 15,
-            "description": "Évalue la méthodologie d'organisation du chantier et la description de l'exécution des ouvrages telles que présentées dans le mémoire technique.",
-            "elements_attendus": [
-              "Phasage des travaux en cohérence avec le planning maître d'œuvre",
-              "Mode opératoire par corps d'état avec séquençage clair",
-              "Coordination inter-entreprises prévue",
-              "Gestion des interfaces avec les autres lots",
-              "Synthèse des points critiques identifiés"
-            ],
-            "exemple_reponse_forte": "Le mémoire présente un planning détaillé en 6 phases hebdomadaires, identifiant les interfaces critiques avec le lot CVC et le lot électricité. Un réunion de coordination bi-hebdomadaire avec les autres lots est prévue pour anticiper les réservations.",
-            "source": "RC article 6"
-          },
-          {
-            "libelle": "Nettoyage / sécurité et gestion des nuisances",
-            "ponderation_pct": 10,
-            "description": "Évalue les dispositions prises pour le nettoyage du chantier, la sécurité des intervenants et la gestion des nuisances (bruit, poussière, circulation) telles que décrites dans le mémoire technique.",
-            "elements_attendus": [
-              "Plan de gestion des nuisances (bruit, poussières, salissures)",
-              "Fréquence et modalités de nettoyage en cours et fin de chantier",
-              "Mesures de sécurité spécifiques au chantier",
-              "Dispositifs de protection des zones non concernées par les travaux"
-            ],
-            "exemple_reponse_forte": "Un nettoyage quotidien des zones de travail est planifié, avec mise en place de cloisons anti-poussière entre les secteurs d'intervention. Le responsable sécurité vérifiera le port des EPI et la signalisation chantier quotidiennement.",
-            "source": "RC article 6"
-          }
-        ]
-      },
-      {
-        "libelle": "Délai d'exécution",
-        "ponderation_pct": 5,
-        "description": "Jugé à partir des moyens mis en œuvre pour respecter le planning du maître d'œuvre, tel que décrit dans le mémoire technique.",
-        "elements_attendus": [
-          "Description des leviers mobilisés pour tenir le délai de 6 mois",
-          "Anticipation des risques de retard et mesures correctrices",
-          "Organisation en cas d'aléas (météo, approvisionnement)"
-        ],
-        "exemple_reponse_forte": "L'entreprise s'engage sur un planning Gantt remis à la notification, avec identification de jalons critiques. En cas de retard imprévu, une équipe de renfort est mobilisable sous 5 jours ouvrés grâce au réseau de compagnons intérimaires qualifiés.",
-        "source": "RC article 6"
-      },
-      {
-        "libelle": "Développement durable",
-        "ponderation_pct": 15,
-        "description": "Jugé à partir du réemploi et recyclage des surplus et déchets (10 points) et des démarches écologiques au sein de l'entreprise (5 points).",
-        "elements_attendus": [],
-        "exemple_reponse_forte": "—",
-        "source": "RC article 6",
-        "sous_criteres": [
-          {
-            "libelle": "Réemploi et recyclage des surplus et déchets",
-            "ponderation_pct": 10,
-            "description": "Évalue les modalités de réemploi et recyclage des surplus de matériaux et des déchets de chantier telles que décrites dans le mémoire technique.",
-            "elements_attendus": [
-              "Identification des flux de déchets par type (inertes, non dangereux, dangereux)",
-              "Filières de valorisation/recyclage identifiées avec prestataires nommés",
-              "Taux de valorisation visé",
-              "Gestion des surplus de matériaux (réemploi sur site ou réorientation)"
-            ],
-            "exemple_reponse_forte": "L'entreprise trie sur chantier les déchets en 4 bennes distinctes (bois, plâtre, métal, tout-venant) et contractualise avec un éco-organisme local. Un registre des déchets sera tenu à jour et transmis à l'acheteur à la réception. L'objectif est d'atteindre 70% de valorisation.",
-            "source": "RC article 6"
-          },
-          {
-            "libelle": "Démarches écologiques au sein de l'entreprise",
-            "ponderation_pct": 5,
-            "description": "Évalue les engagements et démarches environnementales internes de l'entreprise soumissionnaire.",
-            "elements_attendus": [
-              "Certifications ou labels environnementaux obtenus (ISO 14001, label vert, etc.)",
-              "Politique interne de réduction des émissions carbones",
-              "Utilisation de véhicules à faibles émissions ou engins moins polluants",
-              "Actions concrètes de sensibilisation interne"
-            ],
-            "exemple_reponse_forte": "L'entreprise est certifiée ISO 14001 depuis 2021 et a réduit ses émissions de CO2 de 15% en 3 ans grâce au renouvellement de sa flotte en véhicules électriques. Une charte environnementale signée par tous les salariés est remise à chaque nouveau chantier.",
-            "source": "RC article 6"
-          }
-        ]
-      }
-    ],
+    "valeur_technique_pct": null,
+    "valeur_prix_pct": null,
+    "sous_criteres_techniques": [],
     "prix": {
-      "type_formule": "moins_disant",
-      "formule_explicite": "Note offre = (prix de l'offre la plus basse / prix de l'offre) × pondération du critère prix",
+      "type_formule": "autre",
+      "formule_explicite": "Les pièces du DCE analysées (CCAP, CCTC, CCTP lots 1 à 6) ne précisent pas la formule de notation du prix — le Règlement de Consultation (RC) n'est pas fourni dans le DCE remis.",
+      "source": null,
       "elements_a_chiffrer": [
-        "DPGF (Décomposition du Prix Global et Forfaitaire) par lot, à remettre en format Excel/Calc sans modification de structure"
+        "Décomposition du Prix Global et Forfaitaire (DPGF) par lot",
+        "Forfait global et forfaitaire pour chaque lot (prix unique par lot)",
+        "Sous-détail de prix à remettre en fin de période de préparation"
       ]
     },
-    "modalite_calcul_prix": "Note offre = (prix de l'offre la plus basse / prix de l'offre) × 35"
+    "modalite_calcul_prix": "Non précisé dans les pièces du DCE fournies — le RC n'a pas été transmis."
   },
   "montant_marche": {
     "valeur_estimee_euros": null,
@@ -249,152 +145,329 @@
     "type": "non_communique",
     "duree_couverte": null,
     "source_extraction": null,
-    "commentaire": "Aucun montant estimé ou plafond budgétaire n'est mentionné dans les pièces du DCE fournies (RC uniquement). Les DPGF par lot permettront de préciser les montants à la remise des offres."
+    "commentaire": "Aucun montant estimatif global n'est mentionné dans les pièces du DCE transmises (CCAP, CCTC, CCTP lots 1 à 7, plans). Le RC n'a pas été fourni. La DPGF (décomposition du prix global et forfaitaire) est mentionnée dans le CCAP mais n'est pas jointe au DCE analysé."
+  },
+  "montant_3_voies": {
+    "voie_1_eur": null,
+    "voie_1_source": null,
+    "voie_2_disponible": true,
+    "voie_2_min_eur": 550000,
+    "voie_2_max_eur": 780000,
+    "voie_2_hypotheses": [
+      {
+        "hypothese": "Surface ERP intérieure à aménager : 270 m² (CCTP Lot 5 §1.1 : 'local ERP hors aménagement intérieur de 270 m²')",
+        "valeur": "270 m²"
+      },
+      {
+        "hypothese": "Surface espace extérieur : 125,3 m² (plans RDC, CCTP Lot 7)",
+        "valeur": "125,3 m²"
+      },
+      {
+        "hypothese": "Ratio de coût TCE pour aménagement ERP petite enfance (crèche/MAM) en second œuvre complet avec fluides : entre 2 000 et 2 800 €/m² HT (source : ratios marché BATIPRIX/Untec pour ERP type crèche second œuvre + fluides, sans gros œuvre). Dimension variée = ratio unitaire ; surface fixée à 270 m².",
+        "valeur": "2 000 à 2 800 €/m²"
+      },
+      {
+        "hypothese": "Espace extérieur : ratio entre 150 et 250 €/m² HT (revêtement drainant, clôture, engazonnement). Surface fixée 125,3 m².",
+        "valeur": "150 à 250 €/m²"
+      },
+      {
+        "hypothese": "Total estimé : (270 m² × 2 000 €) + (125,3 m² × 150 €) = 540 000 + 18 795 ≈ 559 000 € pour borne basse ; (270 × 2 800) + (125,3 × 250) = 756 000 + 31 325 ≈ 787 000 € pour borne haute.",
+        "valeur": "559 000 – 787 000 €"
+      }
+    ],
+    "voie_2_raison_indisponible": null
+  },
+  "cout_realisation": {
+    "cout_total_eur": 480000,
+    "cout_min_eur": 395000,
+    "cout_max_eur": 560000,
+    "postes": [
+      {
+        "poste": "Lot 1 — Menuiseries intérieures bois / mobilier fixe",
+        "detail": "Volume important : ~20 blocs-portes toute hauteur + châssis + mobilier fixe 10 pièces. Ratio marché : ~55 000 – 75 000 €",
+        "montant_eur": 65000
+      },
+      {
+        "poste": "Lot 2 — Plâtrerie, plafond suspendu, peinture + installation commune de chantier",
+        "detail": "~270 m² surface à traiter, plafonds laine de bois non démontables + démontables, cloisons acoustiques 53/60 dB, peintures biosourcées, nettoyage. Ratio : ~80 000 – 115 000 €",
+        "montant_eur": 97000
+      },
+      {
+        "poste": "Lot 3 — Chape, carrelage, faïence",
+        "detail": "Chape anhydrite 60 mm plancher chauffant (~180 m²), carrelage 60×60 (~80 m²), faïences (~60 m²). Ratio : ~55 000 – 80 000 €",
+        "montant_eur": 67000
+      },
+      {
+        "poste": "Lot 4 — Sol souple linoléum",
+        "detail": "~190 m² de linoléum posé collé avec ragréage et remontée plinthe. Ratio : ~22 000 – 32 000 €",
+        "montant_eur": 27000
+      },
+      {
+        "poste": "Lot 5 — Électricité courants forts et courants faibles",
+        "detail": "Armoire électrique, distribution CF, éclairage LED rail encastré + downlights, BAES, alarme incendie, PPMS, vidéophonie IP, intrusion, VDI Cat6a. Ratio ERP 270 m² : ~65 000 – 95 000 €",
+        "montant_eur": 80000
+      },
+      {
+        "poste": "Lot 6 — CVC, plomberie",
+        "detail": "PAC + plancher chauffant hydraulique + VMC double-flux ERP + ECS + appareils sanitaires + réseaux EU/EV/EF. Ratio ERP 270 m² : ~80 000 – 115 000 €",
+        "montant_eur": 97000
+      },
+      {
+        "poste": "Lot 7 — Aménagements extérieurs / espaces verts",
+        "detail": "125,3 m² : revêtement drainant + liège + clôture H=1,60 m + portillon + gazon. Ratio : ~22 000 – 35 000 €",
+        "montant_eur": 29000
+      }
+    ],
+    "taux_journaliers_retenus": "Ratios BATIPRIX/Untec indicatifs second œuvre ERP : Menuiseries intérieures 220-280 €/m² ; Plâtrerie + plafonds + peintures 290-380 €/m² ; Carrelage-faïence 350-480 €/m² ; Sol souple 110-160 €/m² ; Électricité ERP 240-340 €/m² ; CVC+Plomberie ERP 290-420 €/m² ; Extérieurs 170-270 €/m². Ces taux incluent MO, fournitures, matériaux, frais généraux — ils représentent le COÛT de production du candidat (prix de revient), pas le prix de vente.",
+    "commentaire": "Estimation bottom-up par lot à partir de la surface ERP (270 m²) et des quantités des CCTP. La dimension variée est le ratio unitaire (MO+fournitures), la surface est fixée. Le coût total estimé (395 000 – 560 000 €) est inférieur au revenu estimé en Voie 2 (550 000 – 780 000 €), cohérent avec une marge brute de l'ordre de 25-35% pour ce type de travaux second œuvre (taux marché)."
   },
   "revision_prix": {
-    "type": "non_communique",
-    "indices_utilises": [],
-    "ponderation": null,
-    "periodicite": null,
-    "formule_revision": null,
-    "source_extraction": null,
-    "commentaire": "Le CCAP n'est pas fourni dans les pièces analysées. Aucune information sur la révision des prix n'est disponible dans le RC."
+    "type": "indexation",
+    "indices_utilises": [
+      "BT18a",
+      "BT08",
+      "BT09",
+      "BT10",
+      "BT47",
+      "BT01",
+      "TP08"
+    ],
+    "ponderation": "Part fixe : 15% ; Part variable : 85% indexée sur l'indice propre à chaque lot (BT18a Lot1, BT08 Lot2, BT09 Lot3, BT10 Lot4, BT47 Lot5, BT01 Lot6, TP08 Lot7)",
+    "periodicite": "annuelle",
+    "formule_revision": "CR = 0,85 × c1/C1 + 0,15 — Prix révisé = Prix initial du marché × CR. c1 = valeur du dernier indice définitif connu au jour de la révision ; C1 = valeur de l'indice définitif à la date de remise de l'offre finale. Coefficient arrondi au millième supérieur.",
+    "source_extraction": "CCAP article 7.3",
+    "commentaire": "Formule classique BTP avec 85% de part variable — favorable en période d'inflation sur les matériaux de construction. La multiplicité d'indices (un par lot) oblige chaque titulaire à surveiller son indice propre. Pas de révision provisoire : application uniquement sur indices définitifs."
   },
   "alertes_prix": [
-    "Pondération du prix à 35% seulement : la valeur technique (45%) et le développement durable (15%) représentent 60% du score — une offre trop agressive sur le prix sans mémoire technique solide sera perdante.",
-    "Les PSE (lots 5 et 6) ne sont pas incluses dans l'analyse des offres : ne pas les chiffrer dans la DPGF de base, les chiffrer séparément uniquement si demandé.",
-    "Montant du marché non communiqué : risque de mauvais calibrage de l'offre sans visite obligatoire et analyse fine du site.",
-    "La DPGF doit être transmise en Excel/Calc sans modification de structure — toute altération du fichier peut entraîner le rejet de l'offre."
+    "Aucune avance accordée aux lots 3 (Chape-carrelage), 4 (Sol souple) et 7 (Aménagements extérieurs) — impact trésorerie à anticiper pour ces lots",
+    "Avance de 5% accordée aux lots 1, 2, 5 et 6 uniquement, conditionnée à une garantie à première demande (coût financier à intégrer)",
+    "Remboursement de l'avance dès 65% d'avancement : flux de trésorerie à anticiper en milieu de chantier",
+    "Retenue de garantie de 5% du montant TTC prélevée sur chaque acompte — représente un besoin de fonds de roulement significatif pendant 12 mois après réception"
   ],
   "references_exigees": {
     "experience_minimale_annees": null,
     "experience_source": null,
     "volume_min_references_similaires": null,
     "volume_min_references_unite": null,
-    "secteur_experience": "Travaux de second œuvre bâtiment (liste des travaux exécutés au cours des 5 dernières années avec attestations de bonne exécution pour les travaux les plus importants)",
-    "secteur_source": "RC article 4.1",
-    "certifications_obligatoires": [],
+    "secteur_experience": null,
+    "secteur_source": null,
+    "certifications_obligatoires": [
+      {
+        "libelle": "Assurance responsabilité civile professionnelle en cours de validité",
+        "codes": [],
+        "bloquante": true,
+        "source": "CCAP article 5"
+      },
+      {
+        "libelle": "Assurance responsabilité civile décennale (applicable selon l'article L.243-11 du code des assurances)",
+        "codes": [],
+        "bloquante": true,
+        "source": "CCAP article 5"
+      },
+      {
+        "libelle": "Assurance responsabilité en matière d'accidents de travail",
+        "codes": [],
+        "bloquante": true,
+        "source": "CCAP article 5"
+      },
+      {
+        "libelle": "Bois éco-certifiés FSC ou PEFC (Lot 1 — essences de bois)",
+        "codes": [],
+        "bloquante": false,
+        "source": "CCTP Lot 1 §36-00-00.00"
+      },
+      {
+        "libelle": "Peintures labellisées Ecolabel Européen, Natureplus, NF Environnement ou Ange Bleu — classe COV A+ obligatoire (Lot 2)",
+        "codes": [],
+        "bloquante": false,
+        "source": "CCTP Lot 2 §16-00-00.00"
+      }
+    ],
     "autres_exigences": [
       {
-        "libelle": "Déclaration du chiffre d'affaires global (et le cas échéant du domaine d'activité) sur les 3 derniers exercices disponibles",
-        "source": "RC article 4.1"
+        "libelle": "Plan Particulier de Sécurité et de Protection de la Santé (PPSPS) à produire pour toutes les entreprises",
+        "source": "CCTC §14"
       },
       {
-        "libelle": "Déclaration des effectifs moyens annuels et du personnel d'encadrement sur les 3 dernières années",
-        "source": "RC article 4.1"
+        "libelle": "Schéma d'organisation et de gestion des déchets à remettre dans un délai de 2 mois à compter de la notification",
+        "source": "CCAP article 12.3"
       },
       {
-        "libelle": "Description de l'outillage, du matériel et de l'équipement technique disponible pour la réalisation du marché",
-        "source": "RC article 4.1"
+        "libelle": "Sous-détail de prix à fournir à la fin de la période de préparation (1 mois)",
+        "source": "CCAP article 21"
       },
       {
-        "libelle": "Liste des travaux exécutés au cours des 5 dernières années avec attestations de bonne exécution pour les travaux les plus importants (montant, date, lieu d'exécution)",
-        "source": "RC article 4.1"
+        "libelle": "Facturation obligatoire via Chorus Pro (format électronique exclusif)",
+        "source": "CCAP article 10.3"
       }
     ]
+  },
+  "dossier_candidature": {
+    "pieces_a_fournir": [
+      {
+        "libelle": "Acte d'engagement (un par lot)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "CCAP article 4 (ordre des documents contractuels)"
+      },
+      {
+        "libelle": "Décomposition du Prix Global et Forfaitaire — DPGF (une par lot)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "CCAP article 4 — CCTC §9"
+      },
+      {
+        "libelle": "Attestation d'assurance responsabilité civile professionnelle en cours de validité",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "CCAP article 5"
+      },
+      {
+        "libelle": "Attestation d'assurance responsabilité civile décennale en cours de validité",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "CCAP article 5"
+      },
+      {
+        "libelle": "Attestations de régularité fiscale et sociale (en cours de validité)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "CCAP (dispositions légales)"
+      }
+    ],
+    "mode_remise": "dématérialisé",
+    "plateforme_depot": null,
+    "signature_electronique_exigee": null,
+    "format_signature": null,
+    "nombre_exemplaires": null,
+    "langue": "français",
+    "duree_validite_offres_jours": null,
+    "modalites_source": null
   },
   "lots": [
     {
       "numero": 1,
       "intitule": "Menuiserie intérieure bois/mobilier",
+      "domaine": "btp_second_oeuvre",
       "zone_geographique": "Taluyers (69440)",
       "volume_estime": null,
       "volume_estime_unite": null,
-      "particularites": "CPV 45421000-4. Comprend fourniture et pose de menuiseries intérieures bois et mobilier."
+      "cout_estime_min_eur": 55000,
+      "cout_estime_max_eur": 75000,
+      "particularites": "Portes toute hauteur (H=2,92 m) stratifiées avec performances acoustiques (36 dB) et coupe-feu (PF30/EI30) ; mobilier fixe très spécifique petite enfance (meuble-change double LOXOS, casiers, kitchenette, lingerie, mobilier rangements salles d'activités) ; organigramme de clés à coordonner avec tous les lots ; bois FSC/PEFC obligatoires."
     },
     {
       "numero": 2,
-      "intitule": "Plâtrerie-Plafond suspendu - peinture",
+      "intitule": "Plâtrerie - Plafond suspendu - peinture",
+      "domaine": "btp_second_oeuvre",
       "zone_geographique": "Taluyers (69440)",
       "volume_estime": null,
       "volume_estime_unite": null,
-      "particularites": "CPV 45410000-4. Travaux de plâtrerie, plafonds suspendus et peinture intérieure."
+      "cout_estime_min_eur": 82000,
+      "cout_estime_max_eur": 115000,
+      "particularites": "Lot pilote : gestion du compte prorata, panneau de chantier, nettoyage final, traçage des niveaux de référence. Dégarnissage du flocage existant en plafond pour fixation des cloisons. Cloisons acoustiques haute performance (SAA 140/70 = 60 dB entre dortoirs et pièces de vie). Plafonds laine de bois KNAUF Organic Twin Pure 120×60 non démontables. Peintures biosourcées obligatoirement labelliséées COV classe A+."
     },
     {
       "numero": 3,
-      "intitule": "Chappe-carrelage-Faïence",
+      "intitule": "Chappe - carrelage - Faïence",
+      "domaine": "btp_second_oeuvre",
       "zone_geographique": "Taluyers (69440)",
       "volume_estime": null,
       "volume_estime_unite": null,
-      "particularites": "CPV 45431000-7. Réalisation de chapes, carrelage et faïence."
+      "cout_estime_min_eur": 55000,
+      "cout_estime_max_eur": 80000,
+      "particularites": "Chape anhydrite 60 mm sur plancher chauffant : coordination indispensable avec lot CVC (chauffagiste). Réalisation impérativement APRÈS les cloisons. Aucune avance accordée à ce lot."
     },
     {
       "numero": 4,
       "intitule": "Sol souple",
+      "domaine": "btp_second_oeuvre",
       "zone_geographique": "Taluyers (69440)",
       "volume_estime": null,
       "volume_estime_unite": null,
-      "particularites": "CPV 45432111-5. Fourniture et pose de revêtements de sols souples."
+      "cout_estime_min_eur": 22000,
+      "cout_estime_max_eur": 32000,
+      "particularites": "Linoléum naturel (matériaux exclusivement naturels) avec remontée de plinthe intégrée. COV totaux < 100 µg/m³ à 28 jours. Colles à phase aqueuse certification EC1. Aucune avance accordée à ce lot."
     },
     {
       "numero": 5,
       "intitule": "Electricité courant fort - courant faible",
+      "domaine": "btp_second_oeuvre",
       "zone_geographique": "Taluyers (69440)",
       "volume_estime": null,
       "volume_estime_unite": null,
-      "particularites": "CPV 45310000-3. PSE 1 : Modulation des débits de ventilation (facultative, non prise en compte dans l'analyse des offres)."
+      "cout_estime_min_eur": 65000,
+      "cout_estime_max_eur": 95000,
+      "particularites": "ERP type R 4e catégorie : alarme incendie type 4 avec BAES, PPMS BODET, vidéophonie IP, alarme intrusion (transmetteur GSM), VDI Cat6a. Câbles FR-N1 X6G3 Euroclasse Cca-s2,d2,a2 obligatoires (arrêté 17/05/2024). Appareillage électrique à 1,30 m minimum du sol dans toutes les zones accessibles aux enfants. Avance 5% accordée."
     },
     {
       "numero": 6,
-      "intitule": "CVC-Plomberie",
+      "intitule": "CVC - Plomberie",
+      "domaine": "btp_second_oeuvre",
       "zone_geographique": "Taluyers (69440)",
       "volume_estime": null,
       "volume_estime_unite": null,
-      "particularites": "CPV 45330000-9. PSE 1 : Modulation des débits de ventilation ; PSE 2 : Traitement physique de l'eau (facultatives, non prises en compte dans l'analyse des offres)."
+      "cout_estime_min_eur": 82000,
+      "cout_estime_max_eur": 115000,
+      "particularites": "PAC eau/eau + plancher chauffant hydraulique + VMC double-flux ERP + ballon ECS 1000 L + meuble-change avec vanne thermostatique anti-brûlure réglée à 38°C. Coordination avec lot chape pour planning plancher chauffant. Avance 5% accordée. Prestation facultative : modulation des débits VMC par registres motorisés (dortoirs, motricité, repas)."
     },
     {
       "numero": 7,
       "intitule": "Aménagements extérieurs - espaces verts",
+      "domaine": "amenagement_paysager_creation",
       "zone_geographique": "Taluyers (69440)",
-      "volume_estime": null,
-      "volume_estime_unite": null,
-      "particularites": "CPV 45112710-5. Aménagements extérieurs et création d'espaces verts."
+      "volume_estime": 125.3,
+      "volume_estime_unite": "m²",
+      "cout_estime_min_eur": 22000,
+      "cout_estime_max_eur": 35000,
+      "particularites": "Espace circulable enfants 83 m² (revêtement drainant URBALITH 70% + liège CORKEEN SBR 30%), espace engazonné 40 m², clôture grillage plastifié H=1,60 m, portillon acier laqué à béquille double non manipulable par enfants. Mobilier et jeux extérieurs HORS MARCHÉ. Aucune avance accordée. Indice révision TP08."
     }
   ],
+  "tranches": [],
   "calendrier": {
     "date_limite_offres": "2026-06-30",
     "date_demarrage_prevue": null,
-    "duree_marche": "7 mois (dont 1 mois de préparation + 6 mois d'exécution des travaux) + année de parfait achèvement"
+    "duree_marche": "7 mois prévisionnels par lot (1 mois préparation + 6 mois exécution) + 12 mois délai de garantie"
   },
   "alertes_candidat": [
-    "Visite de site OBLIGATOIRE : l'attestation de visite (Annexe 1) doit impérativement être jointe à l'offre — l'absence de ce document peut entraîner l'irrecevabilité de l'offre. Prendre contact avec Philippe BOUTRY au 06 73 86 89 63 pour planifier la visite.",
-    "La DPGF doit être transmise en format Excel/Calc SANS modification de la structure (aucun ajout, suppression, fusion de colonne ou ligne) — toute modification structurelle est un motif de rejet.",
-    "Le mémoire technique est déterminant (45% valeur technique + 15% développement durable = 60% du score total) : une offre price-only sans mémoire argumenté ne peut pas gagner.",
-    "Demandes de renseignements complémentaires à formuler impérativement au plus tard 7 jours calendaires avant la date limite (soit avant le 23 juin 2026), via la plateforme achatpublic.com uniquement.",
-    "L'acheteur se réserve le droit de négocier avec les 3 meilleurs candidats après analyse des offres initiales : il faut soigner la première offre tout en laissant une marge de négociation."
+    "Facturation EXCLUSIVEMENT via Chorus Pro — toute facture transmise hors de ce portail pourra être rejetée sans obligation de rectification par l'acheteur (CCAP art. 10.3)",
+    "Aucune avance accordée aux lots 3, 4 et 7 : trésorerie à financer intégralement sur fonds propres pendant toute la durée du chantier (6 mois minimum)",
+    "Les travaux se déroulent en concomitance avec le chantier de logements ALLIADE HABITAT — coordination obligatoire et contraintes de phasage avec un autre maître d'ouvrage sur le même site",
+    "Test d'étanchéité à l'air obligatoire (RE 2020) en deux phases (hors d'eau/air + final) : chaque entreprise doit être présente et reprendre ses ouvrages défaillants SANS surcoût — intégrer ce risque dans le forfait",
+    "Délai de remise des offres très court (21 jours calendaires entre publication BOAMP le 09/06/2026 et date limite le 30/06/2026) — marché publié en procédure adaptée sans délai minimum réglementaire obligatoire mais laissant peu de temps pour chiffrer des DPGF multi-lots"
   ],
   "points_differenciants_attendus": [
     {
-      "libelle": "Qualité du mémoire technique sur les moyens humains et matériels (20 pts sur 45)",
-      "exemple": "Présenter un organigramme nominatif avec CV synthétiques du chef de chantier et des compagnons, accompagné d'une liste détaillée du matériel disponible adapté à chaque corps d'état du lot soumissionné.",
-      "source": "RC article 6"
+      "libelle": "Expérience spécifique en aménagement d'ERP petite enfance (crèche, MAM, EAJE)",
+      "exemple": "Présenter des références de chantiers similaires (MAM, micro-crèche, EAJE) avec descriptif des contraintes réglementaires traitées (accessibilité PMR, résistance au feu des portes PF30/EI30, acoustique 36-60 dB, sécurité enfants) renforce la crédibilité technique.",
+      "source": "CCTP Lot 1 §36-45-15.05 (conformité EAJE/PMI) ; CCTP Lot 2 §16-05-05.05 (60 dB dortoirs)"
     },
     {
-      "libelle": "Organisation de chantier et coordination inter-lots (15 pts sur 45)",
-      "exemple": "Fournir un planning Gantt prévisionnel intégrant les interfaces avec les autres lots (notamment CVC/électricité pour les réservations), démontrant la maîtrise du délai de 6 mois.",
-      "source": "RC article 6"
+      "libelle": "Démarche chantier faibles nuisances et gestion exemplaire des déchets",
+      "exemple": "Fournir un schéma d'organisation des déchets détaillant les filières de valorisation par type (plâtre, bois, emballages, matériaux inertes), les taux de recyclage visés et la désignation d'un responsable déchets nommément identifié. Le contexte BOAMP signale des critères environnementaux dans l'attribution.",
+      "source": "CCTC §29 ; CCTC §31 ; CCAP article 13"
     },
     {
-      "libelle": "Démarche de gestion des déchets et réemploi (10 pts sur 15 développement durable)",
-      "exemple": "Présenter un SOGED (Schéma d'Organisation et de Gestion des Déchets) avec les filières de valorisation identifiées, les bennes prévues, le taux de valorisation cible et les borderaux de suivi déchets fournis.",
-      "source": "RC article 6"
+      "libelle": "Maîtrise des exigences d'étanchéité à l'air (RE 2020) propres au lot",
+      "exemple": "Pour le lot électricité : présenter une méthode de calfeutrement des sorties de câbles en façade (manchettes PROCLIMA ou équivalent, scotch adaptés) et expliquer la procédure de présence aux tests et de reprise sans surcoût — c'est un risque qui peut coûter cher si mal anticipé.",
+      "source": "CCTC §32 ; CCTP Lot 5 §2.2"
     },
     {
-      "libelle": "Engagements environnementaux de l'entreprise (5 pts sur 15 développement durable)",
-      "exemple": "Mettre en avant une certification ISO 14001, une politique carbone documentée ou des véhicules de chantier à faibles émissions, avec justificatifs à l'appui.",
-      "source": "RC article 6"
+      "libelle": "Références de matériaux à faible impact COV et biosourcés",
+      "exemple": "Pour le lot peinture (Lot 2), indiquer la marque et la référence des peintures biosourcées retenues (ex : PHYLOPUR La Seigneurie ou BIOALKYD Zolpan) avec la copie de l'ecolabel en vigueur, et préciser le taux d'émission COV mesuré en µg/m³ — bien en dessous du seuil classe A+.",
+      "source": "CCTP Lot 2 §16-00-00.00"
     },
     {
-      "libelle": "Maîtrise du délai d'exécution et réactivité (5 pts)",
-      "exemple": "Démontrer la capacité à mobiliser des ressources supplémentaires en cas de retard (liste de sous-traitants habituels, intérimaires qualifiés mobilisables) et décrire le processus de reporting hebdomadaire au maître d'œuvre.",
-      "source": "RC article 6"
+      "libelle": "Planning détaillé et coordination inter-lots maîtrisée",
+      "exemple": "Présenter un planning de phasage respectant l'ordre impératif : cloisons AVANT chapes, chapes APRÈS plancher chauffant, sols souples en dernier. Identifier les interfaces critiques avec le lot CVC (plancher chauffant) et le lot plâtrerie (niveaux de référence). Cela rassure le maître d'œuvre sur la capacité à travailler dans un chantier multi-lots concurrent ALLIADE.",
+      "source": "CCTC §21 ; CCTC §34 ; CCTP Lot 3 §26-00-00.00 (chapes après cloisons)"
     }
   ],
   "_meta": {
     "id_marche": "BOAMP-26-56626",
     "type": "complet",
-    "date_generation": "2026-06-14T22:54:11.630565+00:00",
-    "extraction_le": "2026-06-14T22:54:11.630565+00:00",
+    "date_generation": "2026-06-19T21:13:32.153040+00:00",
+    "extraction_le": "2026-06-19T21:13:32.153040+00:00",
     "modele": "claude-sonnet-4-6",
     "preset_utilise": "btp",
     "presets_matches": [
@@ -402,18 +475,163 @@
       "ingenierie"
     ],
     "prompts_versions": {
-      "btp/_preset.json": "sha256:d1717e0d87f6c265",
-      "ingenierie/_preset.json": "sha256:56f813f829343e24"
+      "btp/_preset.json": "sha256:055bf6f8b2c1f771",
+      "ingenierie/_preset.json": "sha256:b924b32a088673d6"
     },
-    "tokens_input": 22567,
-    "tokens_output": 6915,
-    "cout_eur": 0.1629,
-    "duree_sec": 112.8,
+    "tokens_input": 168507,
+    "tokens_output": 9936,
+    "cout_eur": 0.6218,
+    "duree_sec": 183.9,
     "pdfs_traites": [
+      {
+        "nom": "001-DCE-MAM TALUYERS-PLAN RDC-26-06-08.pdf",
+        "hash": "02740cab7d447d534b673686c109d732",
+        "taille_chars": 11417
+      },
+      {
+        "nom": "002-DCE-MAM TALUYERS-PLAN FX PLAFONDS-26-06-08.pdf",
+        "hash": "7c905bd4478d2f432370ee4dd9213220",
+        "taille_chars": 12057
+      },
+      {
+        "nom": "003-DCE-MAM TALUYERS-CARNET PRESENTATION & DETAILS-26-06-08.pdf",
+        "hash": "2a3b472e1e1207359e46414e2e2612a4",
+        "taille_chars": 9561
+      },
+      {
+        "nom": "1947-PRO-PLAN-SY-01-01-A-R-1.pdf",
+        "hash": "f5c149c11bb818c1c8b25bd11e96de92",
+        "taille_chars": 4973
+      },
+      {
+        "nom": "1947-PRO-PLAN-SY-02-01-A-RDC.pdf",
+        "hash": "eaf07c0e4127ebe67fe5df7d9c4a6856",
+        "taille_chars": 13212
+      },
+      {
+        "nom": "2026_07-Bilan de puissance électrique_MAM.pdf",
+        "hash": "771e07de01176648483d6c9e4beb79ff",
+        "taille_chars": 1109
+      },
+      {
+        "nom": "2026_07_ CCAP_MAM.pdf",
+        "hash": "fb9af64e62e33481ed957efae008e6d1",
+        "taille_chars": 60089
+      },
+      {
+        "nom": "2026_07_Attestation_visite _MAM.pdf",
+        "hash": "2386c9140bcf898bb2f9419213d41a63",
+        "taille_chars": 1265
+      },
+      {
+        "nom": "2026_07_CCTC_MAM.pdf",
+        "hash": "6c00bd2f992d2a5574434b27fc7e3834",
+        "taille_chars": 51987
+      },
+      {
+        "nom": "2026_07_CCTP_Lot_1_MAM.pdf",
+        "hash": "0e221f81d48b9953999efcc62ea925da",
+        "taille_chars": 63939
+      },
+      {
+        "nom": "2026_07_CCTP_Lot_2_MAM.pdf",
+        "hash": "91f3ac466bb57a3c8548f863d54b50d9",
+        "taille_chars": 41171
+      },
+      {
+        "nom": "2026_07_CCTP_Lot_3_MAM.pdf",
+        "hash": "91fcb848d75a6457ddd20514a7296370",
+        "taille_chars": 21356
+      },
+      {
+        "nom": "2026_07_CCTP_Lot_4_MAM.pdf",
+        "hash": "ba4c52a4cdd27db86e24a81c00e336cb",
+        "taille_chars": 8909
+      },
+      {
+        "nom": "2026_07_CCTP_Lot_5_MAM..pdf",
+        "hash": "edec68b75badf5ef7b8e7cafd8f44a21",
+        "taille_chars": 109613
+      },
+      {
+        "nom": "2026_07_CCTP_Lot_6_MAM.pdf",
+        "hash": "ead53de25a3e8571a0bf6d6b52f07a3f",
+        "taille_chars": 118321
+      },
+      {
+        "nom": "2026_07_CCTP_Lot_7_MAM.pdf",
+        "hash": "2e2700b4ea112f0022247dd862d07a7a",
+        "taille_chars": 11920
+      },
+      {
+        "nom": "2026_07_DPGF_Lot_1_MAM.xlsx",
+        "hash": "43961fc7202a0ac5363813ef5dbd6bda",
+        "taille_chars": 8099
+      },
+      {
+        "nom": "2026_07_DPGF_Lot_2_MAM.xlsx",
+        "hash": "79d60308ead46d6c8e33603f0caa4829",
+        "taille_chars": 4582
+      },
+      {
+        "nom": "2026_07_DPGF_Lot_3_MAM.xlsx",
+        "hash": "b53b1f81f7da4dba626ee977a4480f58",
+        "taille_chars": 2477
+      },
+      {
+        "nom": "2026_07_DPGF_Lot_4_MAM.xlsx",
+        "hash": "5dd83b85b2c51d045e6a3577521ee82f",
+        "taille_chars": 1445
+      },
+      {
+        "nom": "2026_07_DPGF_Lot_5_MAM.xlsx",
+        "hash": "f757897f79d3a4128b400350a3fb87e2",
+        "taille_chars": 8818
+      },
+      {
+        "nom": "2026_07_DPGF_Lot_6_MAM.xlsx",
+        "hash": "f41a1e437c15f16c5a99ffa7a1d1464e",
+        "taille_chars": 9291
+      },
+      {
+        "nom": "2026_07_DPGF_Lot_7_MAM.xlsx",
+        "hash": "41014ca0af0c4faf13013c898bf1b984",
+        "taille_chars": 1998
+      },
+      {
+        "nom": "2026_07_Fiche_Synthèse_MAM.pdf",
+        "hash": "06eaa0fccea2e2a92d7335a81f29139b",
+        "taille_chars": 2954
+      },
+      {
+        "nom": "2026_07_PGSC_MAM.pdf",
+        "hash": "0628a54df82b42fd9b4bd5746c0eaf3e",
+        "taille_chars": 28467
+      },
+      {
+        "nom": "2026_07_PLANNING_MAM.pdf",
+        "hash": "5366651ff821a97fa988f75d823774f4",
+        "taille_chars": 2212
+      },
       {
         "nom": "2026_07_RC_MAM.pdf",
         "hash": "b905830e73159f2b8cc1bc99e4fb2431",
         "taille_chars": 30347
+      },
+      {
+        "nom": "2026_07_RICT_MAM.pdf",
+        "hash": "35bb4ff6da30298e09336eafbfe5cd5b",
+        "taille_chars": 16318
+      },
+      {
+        "nom": "2026_07_RICT_MAM_v2.pdf",
+        "hash": "41b28ef43672b148e724b4af8d057f91",
+        "taille_chars": 13850
+      },
+      {
+        "nom": "Questionnaire pour les entreprises ne répondant pas à la consultation.docx",
+        "hash": "108e619d306a58d41d57d0f682f5499c",
+        "taille_chars": 1064
       }
     ]
   }

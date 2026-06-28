@@ -1,6 +1,6 @@
 # Brief — RÉFECTION ETANCHEITE TOITURE D DE LA CHAMBRE DE MÉTIERS ET DE L'ARTISANAT DU GARD
 
-_Généré le 2026-06-14 22:16 par Claude claude-sonnet-4-6_
+_Généré le 2026-06-19 21:43 par Claude claude-sonnet-4-6_
 
 ## Identifiants
 - **ID Tendia** : `BOAMP-26-56525`
@@ -10,41 +10,42 @@ _Généré le 2026-06-14 22:16 par Claude claude-sonnet-4-6_
 - **DCE PLACE** : <https://cmar-occitanie.e-marchespublics.com/pack/annonce_marche_public_30256_1165641.html>
 
 ## Synthèse
-Marché de travaux de réfection de l'étanchéité de la toiture D du siège social de la Chambre de Métiers et de l'Artisanat du Gard à Nîmes (904 Av. Maréchal Juin, 30900 Nîmes), pour une surface d'environ 559 m². Il s'agit d'un lot unique comprenant la dépose de l'étanchéité existante, la mise en œuvre d'un nouveau complexe bicouche élastomère avec isolation thermique, relevés, couvertines et remplacement de lanterneaux. Les travaux sont prévus sur 4 semaines à compter du 05 octobre 2026.
+Marché de travaux de réfection d'étanchéité de la toiture terrasse D du siège social de la Chambre de Métiers et de l'Artisanat du Gard à Nîmes (30900), sur une surface d'environ 559 m². Le marché est un lot unique comprenant la dépose de l'étanchéité existante, la mise en œuvre d'un complexe pare-vapeur + isolation thermique (R≥4,5 m²K/W) + étanchéité bicouche élastomère, le remplacement de lantereaux et châssis zénithaux, ainsi que les ouvrages annexes (couvertines, moignons EEP, dalles béton). Les travaux débutent le 05 octobre 2026 pour une durée de 4 semaines.
 
 ## 🏗 Chantier — caractéristiques BTP
-- **Description** : Réfection complète de l'étanchéité de la toiture terrasse D : dépose de l'étanchéité existante (gravier, étanchéité bicouche, relevés, couvertines, isolation, naissances EP), mise en œuvre d'un nouveau complexe complet (pare-vapeur ELASTOVAP, isolation rigide R≥4,5 m²K/W, étanchéité bicouche élastomère F5I5T4 type SOPROLENE FLAM 180 + ELASTOPHENE FLAM 25 AR), relevés avec solin aluminium, couvertines acier prélaqué, remplacement de deux lanterneaux/châssis zénitaux, moignons plomb DN160, dalles béton sous CTA, dépose/repose panneaux métalliques.
-- **Type d'ouvrage** : Bâtiment de bureaux (siège social de la CMA du Gard) — immeuble tertiaire urbain, toiture-terrasse accessible avec gravillons
+- **Description** : Réfection complète de l'étanchéité de la toiture terrasse D : dépose de l'étanchéité existante (gravier, bicouche, relevés, couvertines, isolation, naissances EEP), dépose de dalles béton sous petite CTA, puis mise en œuvre d'un nouveau complexe pare-vapeur (AQUADERE + ELASTOVAP), isolation rigide collée R≥4,5 m²K/W, étanchéité bicouche élastomère (SOPROLENE FLAM 180 + ELASTOPHENE FLAM 25 AR classement F5I5T4), relevés avec solin aluminium, protection lourde gravillon, remplacement de 2 lantereaux/châssis zénithaux (3,20×3,20m et 1,00×1,00m), pose de couvertines acier prélaqué, moignons EEP Ø160mm, dalles béton gravillonnées sous CTA.
+- **Type d'ouvrage** : Bâtiment de bureaux (siège social CMA du Gard) — toiture terrasse accessible avec protection lourde gravillon
 - **Surface / volume** : Environ 559 m² (toiture terrasse D)
-- **Site occupé pendant travaux** : false — le RC précise 'L'ensemble des travaux s'effectuera en milieu inoccupé' (RC art. 1), bien que le CCTP mentionne des précautions pour les occupants (contradiction apparente) ; le RC prévaut : milieu inoccupé
-- **Corps d'état mobilisés** : Étanchéité (lot unique)
+- **Site occupé pendant travaux** : Indiqué comme 'milieu inoccupé' dans le RC (article 1) ; toutefois le CCTP précise que l'immeuble est occupé et qu'il faut protéger les personnes et leurs biens — vigilance sur cette contradiction. La visite de site est obligatoire pour clarifier.
+- **Corps d'état mobilisés** : Étanchéité, Couverture / couvertines, Isolation thermique de toiture, Désamiantage éventuel (non mentionné mais à vérifier sur existant)
 - **Contraintes spécifiques** :
-  - Visite du site obligatoire sous peine d'offre irrégulière (RC art. 2.9)
-  - Démarrage imposé au 05 octobre 2026 par ordre de service écrit
-  - Équipements de climatisation/ventilation déposés et reposés hors marché par entreprises spécialisées (coordination nécessaire)
-  - Engin de levage requis pour manutention des matériaux en toiture (sapine d'accès)
-  - Mise en place dispositif de sécurité périphérique obligatoire
-  - Accès urbain : protections passants, biens et végétaux à prévoir
-  - Chantier sur existant : état des lieux préalable obligatoire, signalement des dégradations au MOE
-  - Immeuble occupé mentionné dans le CCTP (art. 1) malgré l'indication 'milieu inoccupé' du RC — à éclaircir en visite
+  - Visite du site obligatoire (24 juin 2026 à 9h) — attestation à fournir avec l'offre sous peine d'irrecevabilité
+  - Immeuble occupé selon CCTP, nécessitant protection des occupants, sols, bâches, stores, menuiseries
+  - Accès et levage des matériaux en toiture à prévoir (sapine, engin de levage) — à chiffrer dans l'offre
+  - Équipements de climatisation/ventilation déposés et reposés hors marché par entreprises spécialisées
+  - Démarrage imposé au 05 octobre 2026 — engagement contractuel requis dans l'offre
+  - Prix global et forfaitaire : toute erreur de métré est à la charge de l'entrepreneur
+  - Dispositif de sécurité périphérique obligatoire en toiture
 
 ### Allotissement
-Marché global non alloti — lot unique étanchéité
+Marché à lot unique — pas d'allotissement
 - **Nombre de lots** : 1
 - **Lot 1** — Lot unique : Étanchéité
   - Corps d'état : étanchéité
-  - Dépose de l'étanchéité existante, travaux neufs (pare-vapeur, isolation thermique R≥4,5, bicouche élastomère F5I5T4, relevés, protection gravillon), ouvrages annexes (moignons plomb, couvertines acier prélaqué, remplacement lanterneaux et châssis zénital, dalles béton sous CTA, dépose/repose panneaux métalliques)
+  - Réfection complète de l'étanchéité de la toiture terrasse D : dépose, pare-vapeur, isolation thermique, bicouche élastomère, relevés, couvertines, lantereaux, moignons EEP, dalles béton, divers
 
 ### Qualifications BTP exigées
-Le RC demande des certificats de qualification professionnelle sans préciser d'indice Qualibat exact. L'assurance RC et décennale couvrant les travaux d'étanchéité est exigée.
+Le RC exige des certificats de qualification professionnelle sans en préciser les codes exactement. La nature des travaux correspond à la qualification Qualibat 5413 (étanchéité de toiture bitumineuse). Des attestations d'assurance RC et décennale sont obligatoires.
 - **MASE** : non
 - **Autres exigences** :
-  - Certificats de qualification professionnelle (nature non précisée dans le RC)
+  - Certificats de qualification professionnelle (domaine étanchéité — codes non précisés dans le RC)
+  - Attestation d'assurance responsabilité civile en cours de validité
+  - Attestation d'assurance décennale couvrant les travaux d'étanchéité
 
 ## 💶 Montant du marché
 - _Montant non communiqué dans le DCE._
   - Typique des accords-cadres à bons de commande : le volume dépend des commandes effectivement passées par l'acheteur sur la durée du marché.
-- _Note_ : Aucun montant estimé, plafond ou valeur prévisionnelle n'est mentionné dans les pièces du DCE (RC, CCAP, CCTP). La DPGF n'est pas jointe dans les pièces analysées. A titre d'ordre de grandeur indicatif (non contractuel) : réfection étanchéité bicouche sur 559 m² en site tertiaire avec accessoires, les prix de marché se situent généralement entre 150 et 250 €/m² HT, soit une fourchette indicative de 84 000 à 140 000 € HT — mais il s'agit d'une estimation de marché non extraite du DCE.
+- _Note_ : Aucun montant estimé ni plafond n'est publié dans les pièces du DCE. Voir montant_3_voies pour l'estimation bottom-up.
 
 ## Barème de notation
 - **Valeur technique** : 50 %
@@ -56,26 +57,22 @@ Le RC demande des certificats de qualification professionnelle sans préciser d'
 
 ## Références et qualifications exigées
 - **Expérience minimale** : —
-- **Secteur d'expérience** : Étanchéité de toiture-terrasse (travaux d'étanchéification et isolation de toiture)
-- **Certifications obligatoires** : Certificats de qualification professionnelle (étanchéité — nature d'indice non précisée) (source=RC Article 4.1), Assurance responsabilité civile valide (source=RC Article 4.1 et CCAP Article 8.3), Assurance garantie décennale couvrant les travaux d'étanchéité de toiture (source=CCAP Article 8.3)
+- **Secteur d'expérience** : Étanchéité de toiture terrasse (bicouche élastomère, bâtiment tertiaire/bureaux)
+- **Certifications obligatoires** : Certificats de qualification professionnelle (domaine étanchéité — codes non précisés explicitement dans le RC) (bloquante=True, source=RC article 4.1), Attestation d'assurance responsabilité civile valide (bloquante=True, source=RC article 4.1), Attestation d'assurance décennale couvrant les travaux d'étanchéité décrits au CCTP (articles 1792 et 2270 du Code Civil) (bloquante=True, source=CCAP article 8.3)
 - **Autres exigences** :
-  - Attestation de visite du site obligatoire — visite unique le mercredi 24 juin 2026 à 9h00 sur RDV ; offre sans attestation considérée irrégulière (source=RC Article 2.9)
-  - Déclaration concernant le chiffre d'affaires global et le CA sur les prestations objet du contrat sur les 3 derniers exercices disponibles (source=RC Article 4.1)
-  - Déclaration des effectifs moyens annuels et du personnel d'encadrement sur les 3 dernières années (source=RC Article 4.1)
-  - Habilitation de la personne à engager la société (extrait Kbis ou délégation de pouvoir) (source=RC Article 4.1)
-  - Engagement sur la date de démarrage des travaux au 05 octobre 2026 maximum (source=RC Article 4.2)
+  - Déclaration chiffre d'affaires global et CA concernant l'étanchéité sur les 3 derniers exercices (source=RC article 4.1)
+  - Déclaration des effectifs moyens annuels et personnel d'encadrement sur les 3 dernières années (source=RC article 4.1)
+  - Attestation de visite du site obligatoire — visite unique le mercredi 24 juin 2026 à 9h (RDV auprès de Mme HERVAGAULT). Offre sans attestation = offre irrégulière. (source=RC article 2.9)
 
 ## ⚠ Alertes candidat
-- VISITE OBLIGATOIRE : l'attestation de visite (visite unique 24/06/2026 à 9h sur RDV) doit impérativement être jointe à l'offre — toute offre sans attestation est irrégulière (RC art. 2.9).
-- DPGF OBLIGATOIRE sur cadre fourni : l'offre doit impérativement être présentée sur le cadre de décomposition joint au DCE — tout cadre libre rend l'offre irrégulière (RC art. 4.2).
-- DÉPÔT UNIQUEMENT ÉLECTRONIQUE : toute offre papier est jugée irrégulière (RC art. 3.5) — s'inscrire sur https://cmar-occitanie.e-marchespublics.com et vérifier la validité du certificat de signature électronique (RGS, formats XAdES/PAdES/CAdES).
-- Certificats de qualification professionnelle requis : bien que l'indice Qualibat ne soit pas précisément cité, l'absence de qualification dans ce domaine pourrait fragiliser la candidature — vérifier que la qualification étanchéité est à jour (Qualibat 5113 ou équivalent recommandé).
-- Fiches produits/matériels OBLIGATOIRES à remettre avec l'offre (RC art. 4.2 mémoire technique) — leur absence impacte directement la note technique (sous-critère 2 à 15 points).
-- Engagement sur la date de démarrage au 05/10/2026 exigé dans le mémoire technique — vérifier la disponibilité effective des équipes à cette date (période automnale, risque intempéries limité à 2 jours ouvrables prévus au CCAP).
+- VISITE OBLIGATOIRE — attestation à fournir impérativement avec l'offre (visite unique le 24/06/2026 à 9h, RDV auprès de Mme HERVAGAULT). Une offre sans attestation est irrecevable.
+- Engagement contractuel sur la date de démarrage au 05/10/2026 maximum — à confirmer explicitement dans l'offre ; pénalité de 300 €/jour calendaire de retard.
+- Fiches techniques des matériaux obligatoires dans l'offre (critère noté sur 15 pts) — leur absence ou insuffisance pénalise directement le score valeur technique.
+- Qualification professionnelle en étanchéité exigée (certificats à fournir à la candidature) — vérifier que la qualif couvre bien l'étanchéité bitumineuse toiture terrasse (type Qualibat 5413).
+- Prix global et forfaitaire strict — toute sous-estimation des métrés (relevés, couvertines, ouvrages annexes) est définitivement à la charge de l'entreprise. La visite est le seul moyen de fiabiliser les quantités.
 
 ## 💡 Points différenciants attendus
-- Fiches produits exhaustives et compatibilité du complexe d'étanchéité (sous-critère valorisé à 15 pts) (exemple=Joindre systématiquement les AT CSTB du pare-vapeur, de l'isolant et des deux membranes d'étanchéité en démontrant explicitement leur compatibilité (même fabricant ou compatibilité croisée attestée par le fabricant). Mettre en avant le classement F5I5T4 de la bicouche proposée., source=RC Article 5.2)
-- Méthodologie et planning précis en 4 semaines avec coordination intervenants (sous-critère valorisé à 30 pts) (exemple=Présenter un planning Gantt hebdomadaire intégrant la fenêtre de coordination avec l'entreprise de dépose/repose CTA, les phases de dépose, d'application et de réception partielle, ainsi que les créneaux de contrôle d'étanchéité. Indiquer précisément la méthode d'accrochage de la sapine et le dispositif anti-chute périphérique., source=RC Article 5.2)
-- Qualifications et expérience de l'équipe chantier documentées (sous-critère valorisé à 15 pts) (exemple=Joindre les attestations Qualibat ou équivalentes des opérateurs, les habilitations travail en hauteur et, si engin de levage motorisé, le CACES correspondant. Mentionner des références de chantiers similaires (étanchéité bicouche ≥300 m² sur bâtiment tertiaire) réalisés dans les 5 dernières années., source=RC Article 5.2)
-- Gestion des déchets traçable et filières identifiées (critère DD, 5 pts) (exemple=Préciser le centre de traitement agréé retenu pour les déchets bitumineux, s'engager sur la fourniture de BSD et chiffrer le volume estimé de déchets (membranes + gravois). Mentionner la réutilisation du gravier existant conforme au CCTP (poste PM)., source=RC Article 5.2)
-- Prix compétitif sur DPGF : pondération prix à 50% — le moins-disant technique est décisif (exemple=Analyser finement le poste 'imprévus de chantier' (forfait) et les sujétions d'accès (sapine + engin de levage) pour ne pas surstocker sur ces postes. Tout euro économisé sur l'installation de chantier peut faire basculer le classement sur un critère à 50%., source=RC Article 5.2)
+- Méthodologie chantier détaillée et gestion de l'interface CVC (30 pts sur 45 technique) (exemple=Présenter un phasage semaine par semaine (dépose S1, complexe S2-S3, finitions S4) avec mention explicite de la coordination avec les entreprises CVC pour les dépose/repose d'équipements, et les dispositions de protection des occupants lors de l'ouverture de la toiture., source=RC article 5.2)
+- Qualité et précision des fiches matériaux + cohérence du complexe d'étanchéité (exemple=Produire les fiches techniques SOPREMA (ou équivalent) avec avis techniques CSTB pour chaque couche du complexe, démontrer la compatibilité des produits entre eux et la conformité au classement F5I5T4, et indiquer la résistance thermique effective de l'isolant retenu (≥4,5 m²K/W)., source=RC article 5.2)
+- Positionnement prix compétitif dans une logique moins-disante pure (50% du score) (exemple=Optimiser le sourcing des membranes et de l'isolant (appel d'offres fournisseurs avant remise) pour positionner l'offre au plus bas sans sous-estimer les postes à risque (relevés, ouvrages annexes, imprévus). Challenger notamment le coût de location des engins de levage., source=RC article 5.2)
+- Engagement RSE concret sur la gestion des déchets de dépose (exemple=Indiquer les filières de valorisation retenues pour les déchets de dépose (membranes bitumineuses → recycleur agréé, gravillon → réemploi ou plateforme de recyclage, isolant → centre de tri), avec les coordonnées des prestataires et les tonnages estimés., source=RC article 5.2)

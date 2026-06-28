@@ -1,153 +1,221 @@
 {
-  "synthese_marche": "Marché public de maîtrise d'œuvre pour le Lycée de Brocéliande à Guer (56), portant sur le réaménagement partiel et la mise en accessibilité du bâtiment A, le réseau informatique, la réfection de toiture et le déploiement de panneaux photovoltaïques. Le marché est passé en appel d'offres ouvert par Sembreizh pour le compte de la Région Bretagne, pour un montant prévisionnel de travaux de 4 705 250 € HT. Le groupement doit obligatoirement être mandaté par un architecte inscrit à l'ordre, avec des compétences pluridisciplinaires incluant BET fluides, électricité, photovoltaïque, structure, VRD, acoustique, économiste et OPC.",
+  "synthese_marche": "Marché public de maîtrise d'œuvre portant sur la restructuration partielle du bâtiment A de la Cité scolaire Brocéliande à Guer (56) : réaménagement du rez-de-chaussée, mise en accessibilité (ascenseur), réseau informatique, réfection de toiture avec isolation thermique et déploiement d'une centrale photovoltaïque (≥175 kWc). Le montant prévisionnel total des travaux est de 4 705 250 € HT. La mission couvre l'ensemble des phases de MOE (DIA/ESQ à AOR) incluant des missions complémentaires DQE et SYN, avec une PSE OPC, pour une durée prévisionnelle de 64 mois.",
   "domaines_metier": [
     {
-      "code": "moe_architecte_urbanisme"
+      "code": "moe_architecte_urbanisme",
+      "poids": 0.7,
+      "lots_concernes": [
+        "mission principale MOE bâtiment"
+      ]
+    },
+    {
+      "code": "energie_pv_solaire",
+      "poids": 0.3,
+      "lots_concernes": [
+        "déploiement centrale photovoltaïque toiture"
+      ]
     }
   ],
-  "raison_classification": "Il s'agit explicitement d'un 'marché public de maîtrise d'œuvre' (intitulé du RC) avec obligation d'un architecte mandataire inscrit à l'ordre et missions complètes (ESQ à AOR). Le CPV principal 71000000 confirme les services d'architecture et d'ingénierie. Le domaine moe_architecte_urbanisme est donc le seul pertinent.",
+  "raison_classification": "Il s'agit d'une mission de maîtrise d'œuvre complète (DIA/ESQ à AOR) pour la réhabilitation d'un bâtiment scolaire existant, ce qui relève principalement de `moe_architecte_urbanisme`. Cependant, l'opération intègre explicitement la conception et le dimensionnement d'une centrale photovoltaïque (≥175 kWc) avec étude de productible, autoconsommation et raccordement ENEDIS, ce qui constitue une composante significative relevant de `energie_pv_solaire`. Le CPV principal (71000000) confirme la dominante ingénierie/architecture.",
   "caracteristiques_techniques_chantier": {
-    "description": "Réaménagement partiel et mise en accessibilité du bâtiment A (RDC et accessibilité), installation d'un réseau informatique dans le bâtiment A, réfection de la toiture du bâtiment A (externat) et déploiement de panneaux photovoltaïques. Trois opérations regroupées en deux projets distincts (OP24XRS6 et OP24LX7O).",
-    "typologie_ouvrage": "Lycée (établissement d'enseignement secondaire) — bâtiment existant en site occupé",
-    "surface_volume": null,
-    "site_occupe": true,
+    "description": "Restructuration du rez-de-chaussée du bâtiment A (externat, R+3, 1966) d'une cité scolaire, incluant : réaménagement fonctionnel (CDI ~400 m², espaces enseignants, vie scolaire lycée et collège), création d'une extension cage d'ascenseur avec sanitaires PMR à chaque étage, mise en accessibilité PMR, restructuration des sanitaires, réfection complète de la toiture-terrasse avec isolation (R≥6,5 m².K/W), installation d'une centrale photovoltaïque en toiture (≥175 kWc), refonte du réseau informatique du bâtiment A, désamiantage et déplombage ponctuels, travaux préalables dans les bâtiments B, C et J.",
+    "typologie_ouvrage": "Établissement scolaire public (ERP type R, 3ème catégorie) — bâtiment de 1966, R+3, toiture-terrasse béton",
+    "surface_volume": "Périmètre fonctionnel : rez-de-chaussée ~1 000 m² + extensions préaux (~375 m²) + cage ascenseur ; toiture terrasse du bâtiment A (R+3) estimée à environ 1 200 m²",
+    "site_occupe": "true — les cours se maintiennent dans les étages du bâtiment A pendant le chantier ; déplacement préalable des fonctions du RDC vers les bâtiments B, C et J ; travaux bruyants suspendus pendant les périodes d'examen",
     "corps_etat": [
-      "Maçonnerie / gros œuvre (réaménagement partiel)",
-      "Accessibilité (mise aux normes PMR)",
-      "Réseaux informatiques (CFA/cuivre et fibres optiques)",
-      "Toiture (réfection)",
-      "Photovoltaïque (déploiement panneaux)",
-      "Fluides / CVC / plomberie",
-      "Électricité CFO/CFA/SSI",
-      "Structure / charpente",
-      "VRD",
-      "Acoustique"
+      "Gros œuvre / structure (renforts poutrelles, fondations extensions)",
+      "Étanchéité / toiture-terrasse (dépose et repose complexe bitumineux avec isolant)",
+      "Photovoltaïque (centrale en toiture, raccordement ENEDIS)",
+      "Second œuvre intérieur (cloisons, revêtements sols/murs/plafonds, menuiseries intérieures)",
+      "Menuiseries extérieures aluminium (extensions, nouvelles créations)",
+      "Plomberie sanitaire (sanitaires PMR, locaux enseignants, élèves)",
+      "Chauffage / ventilation (CTA, VMC, GTC)",
+      "Électricité courants forts (TGBT, éclairage, prises)",
+      "Courants faibles / informatique (câblage VDI catégorie 6a, fibres optiques, LTB, PPMS, sonnerie)",
+      "Ascenseur (cabine type 2 minimum, accès PMR)",
+      "Désamiantage / déplombage (sous-section 4)",
+      "Aménagements extérieurs (préaux, cours, cheminements piétons, éclairage extérieur LED)"
     ],
     "contraintes_specifiques": [
-      "Site occupé : lycée en activité, continuité de service à maintenir",
-      "Phasage obligatoire des travaux (phase 1 RDC et accessibilité, phase 2 réseau informatique)",
-      "Intervention en bâtiment existant avec contraintes de réaménagement partiel",
-      "Coordination avec les usagers du lycée",
-      "Recettes informatiques (cuivre et fibres optiques) incluses dans la mission contrôle technique",
-      "Mission spécifique PV (photovoltaïque) intégrée au contrôle technique",
-      "Coordination SSI assurée par le maître d'œuvre"
+      "Site occupé — enseignements maintenus aux étages pendant les travaux",
+      "Présence d'amiante confirmée (toiture, façades, sanitaires lycéens) et de plomb (mains courantes escaliers) — désamiantage/déplombage préalables obligatoires",
+      "Radon élevé (catégorie 3) — vigilance sur l'étanchéité des dalles et la VMC",
+      "Risque incendie ERP : mise à jour du SSI, déplacement centrale incendie, respect article CO24",
+      "Contraintes structurelles : renforcement des poutrelles du plancher bas RDC pour le CDI (charge 400 daN/m²) par collage tissus fibres de carbone",
+      "Toiture terrasse : surcharge limite 300 kg/m² avec panneaux PV (30 kg/m² additionnels maximum)",
+      "Déclivité du site (25,7 m de dénivelé) — gestion des flux de chantier complexe",
+      "Travaux en avance de phase d'un préau (construction définitive pendant la période de travaux)",
+      "Phasage imposé : libération totale du RDC avant travaux, fonctions déplacées dans B, C, J",
+      "Échanges obligatoires avec la Direction du numérique Région Bretagne pour le réseau informatique",
+      "CEE : la Région fait valoir ses droits ; attestations à fournir par les entreprises",
+      "Assurance spécifique pour installation PV à obtenir auprès de l'assureur de la Région"
     ]
   },
   "allotissement": {
-    "description": "Marché en lot unique — pas de décomposition en lots. La nature de l'opération justifie le lot unique.",
+    "description": "Marché non alloti — mission de maîtrise d'œuvre unique couvrant l'ensemble des opérations (restructuration bâtiment A, réseau informatique, réfection toiture et photovoltaïque)",
     "nb_lots": 1,
     "lots_detailles": [
       {
         "numero": 1,
-        "intitule": "Lot unique — Mission de maîtrise d'œuvre complète",
-        "corps_etat": "Toutes disciplines (architecture, fluides, électricité, photovoltaïque, structure, VRD, acoustique, économie de la construction, OPC)",
+        "intitule": "OP24XRS6 / OP24LX7O — Mission de maîtrise d'œuvre complète (DIA/ESQ à AOR)",
+        "corps_etat": "Maîtrise d'œuvre toutes spécialités (architecture, structure, fluides, électricité, courants faibles, photovoltaïque)",
         "montant_estime": null,
-        "description": "Mission de MOE portant sur le réaménagement partiel et mise en accessibilité du bâtiment A (3 485 250 € HT de travaux), réseau informatique (290 000 € HT), réfection de toiture (580 000 € HT) et déploiement de panneaux photovoltaïques (350 000 € HT), soit 4 705 250 € HT de travaux au total."
+        "description": "Mission MOE unique incluant réaménagement RDC bâtiment A, mise en accessibilité, réseau informatique, réfection toiture avec PV. Montant prévisionnel travaux : 4 705 250 € HT."
       }
     ]
   },
   "qualifications_requises": {
-    "description": "Qualifications professionnelles requises pour les membres du groupement",
-    "qualibat": null,
+    "description": "Aucune qualification Qualibat ou RGE explicitement citée dans les pièces fournies pour ce marché de maîtrise d'œuvre. Les qualifications OPQIBI ou équivalentes relèvent de `qualifications_moe`.",
+    "qualibat": [],
     "rge": false,
+    "rge_specialites": [],
+    "mase": false,
+    "iso_9001": false,
+    "iso_14001": false,
+    "iso_45001": false,
     "opqibi": null,
-    "autres_certifications": [
-      "Inscription à l'ordre des architectes (obligatoire pour le mandataire)"
-    ]
+    "autres_certifications": []
   },
   "caracteristiques_mission_moe": {
-    "typologie": "MOE complète",
+    "typologie": "MOE complète — toutes phases DIA/ESQ à AOR, missions complémentaires DQE et SYN incluses, PSE OPC optionnelle",
     "phases_couvertes": [
+      "DIA",
       "ESQ",
       "APS",
       "APD",
       "PRO",
-      "DCE",
       "ACT",
-      "EXE",
-      "OPC",
-      "AOR"
+      "VISA",
+      "DET",
+      "AOR",
+      "DQE",
+      "SYN"
     ],
-    "typologie_ouvrage": "Bâtiment d'enseignement secondaire public (lycée) — réhabilitation et extension technique",
+    "typologie_ouvrage": "Réhabilitation lourde bâtiment scolaire public (ERP type R, 3ème catégorie, R+3, 1966) avec extension et installation photovoltaïque",
     "montant_travaux_estime": 4705250,
     "complexite_technique": "complexe",
     "livrables_par_phase": [
       {
-        "phase": "Programme",
+        "phase": "DIA/ESQ",
         "livrables": [
-          "Analyse du programme fourni par le maître d'ouvrage",
-          "Note de compréhension de la complexité de l'opération"
+          "Relevés des ouvrages et équipements existants avec plans PDF et DWG mis à jour",
+          "Relevés des dysfonctionnements (causes, conséquences)",
+          "Solutions pour répondre aux objectifs du programme (avec alternatives éventuelles)",
+          "Limites des solutions proposées",
+          "Confirmation faisabilité technico-financière : estimation des coûts avec note technique",
+          "Relevés locaux intérieurs et extérieurs et équipements techniques (CFO/CFA, incendie, informatique, éclairages, sondes, chauffage, ventilation, plomberie, réseaux EU/EP/EV/AEP/ECS) en formats DWG et PDF",
+          "Cahier des charges avec plans de repérage pour diagnostics amiante et plomb avant travaux",
+          "Cahier des charges avec plans de repérage pour étude de structure et étude géotechnique"
         ]
       },
       {
-        "phase": "ESQ/APS/APD/PRO/DCE/ACT/EXE/AOR",
+        "phase": "APS",
         "livrables": [
-          "DPGF Airfact complétée",
-          "Mémoire justificatif des dispositions adoptées pour l'exécution du contrat",
-          "Plans et relevés inclus dans la mission (aucun honoraire complémentaire pour relevés et plans)"
+          "Dossier APS complet",
+          "Approbation maîtrise d'ouvrage"
         ]
       },
       {
-        "phase": "OPC (PSE01)",
+        "phase": "APD",
         "livrables": [
-          "Ressource dédiée distincte de la DET",
-          "Planning d'exécution",
-          "Coordination des entreprises"
+          "Dossier APD complet avec projet de permis de construire et permis de démolir",
+          "Dossier d'urbanisme définitif",
+          "Calculs dimensionnement et productible photovoltaïque (plusieurs scénarios)",
+          "Étude autoconsommation avec courbes journalières/hebdomadaires/annuelles croisées"
+        ]
+      },
+      {
+        "phase": "PRO",
+        "livrables": [
+          "Dossier PRO complet"
+        ]
+      },
+      {
+        "phase": "ACT",
+        "livrables": [
+          "DCE complet (pièces techniques et administratives)",
+          "Mise au point des marchés de travaux"
+        ]
+      },
+      {
+        "phase": "VISA",
+        "livrables": [
+          "Liste des VISA définis",
+          "Tableau des VISA complété à l'avancement"
+        ]
+      },
+      {
+        "phase": "DET",
+        "livrables": [
+          "Acomptes mensuels DET proportionnellement à la durée des travaux",
+          "Formulaire DAACT suite OPR",
+          "Traitement des réclamations entreprises et dernier projet de décompte final"
+        ]
+      },
+      {
+        "phase": "AOR",
+        "livrables": [
+          "Propositions OPR signées par le MOE",
+          "Levée des réserves et DAACT",
+          "DOE MOE + DOE entreprises visés par le MOE",
+          "Clôture GPA"
+        ]
+      },
+      {
+        "phase": "DQE",
+        "livrables": [
+          "Dossier Quantitatif Estimatif complet joint au DCE"
+        ]
+      },
+      {
+        "phase": "SYN",
+        "livrables": [
+          "Règlement de synthèse et planning",
+          "Plans de synthèse et coupes/détails coordonnés (réseaux, réservations)",
+          "Plans de synthèse terminaux et organes de maintenance",
+          "Plans de synthèse architecturale"
         ]
       }
     ],
     "taux_remuneration_moe_pct": null,
-    "indices_revision": [],
+    "indices_revision": [
+      "ING"
+    ],
     "coordinations_associees": [
-      "SSI inclus (coordination des systèmes de sécurité incendie assurée par le maître d'œuvre)",
-      "OPC : PSE obligatoire (ressource dédiée distincte de la DET)",
-      "SPS hors marché (coordonnateur désigné ultérieurement)",
-      "Contrôle technique hors marché (désigné ultérieurement)"
+      "SSI inclus — coordination SSI assurée par le MOE (CCAP art 4.1)",
+      "SPS hors marché — coordonnateur SPS désigné séparément",
+      "Bureau de contrôle hors marché — désigné séparément (missions L + Le + P1 + Av + PHa + S + PS + Hand + VIE + PV + recettes informatiques)",
+      "OPC en PSE (prestation supplémentaire éventuelle)"
     ],
     "organigramme_attendu": [
       {
-        "profil": "Architecte (mandataire obligatoire, inscrit à l'ordre des architectes)",
-        "nombre": 1,
-        "anciennete_min_annees": null
-      },
-      {
-        "profil": "BET Thermique / Chauffage / Plomberie / Ventilation / Fluides",
+        "profil": "Architecte mandataire (chef de projet MOE)",
         "nombre": null,
         "anciennete_min_annees": null
       },
       {
-        "profil": "BET Électricité CFO / CFA / SSI",
+        "profil": "Bureau d'études structures (renfort poutrelles fibres de carbone, fondations extensions)",
         "nombre": null,
         "anciennete_min_annees": null
       },
       {
-        "profil": "BET Photovoltaïque",
+        "profil": "Bureau d'études fluides / CVC / plomberie / VMC / GTC",
         "nombre": null,
         "anciennete_min_annees": null
       },
       {
-        "profil": "BET Structure / Charpente",
+        "profil": "Bureau d'études électricité / courants faibles / VDI / photovoltaïque",
         "nombre": null,
         "anciennete_min_annees": null
       },
       {
-        "profil": "BET VRD",
+        "profil": "Économiste de la construction (missions DQE)",
         "nombre": null,
         "anciennete_min_annees": null
       },
       {
-        "profil": "BET Acoustique",
+        "profil": "Spécialiste synthèse technique (mission SYN)",
         "nombre": null,
-        "anciennete_min_annees": null
-      },
-      {
-        "profil": "Économiste de la construction",
-        "nombre": null,
-        "anciennete_min_annees": null
-      },
-      {
-        "profil": "OPC (ressource dédiée, distincte de la DET)",
-        "nombre": 1,
         "anciennete_min_annees": null
       }
     ],
@@ -155,196 +223,329 @@
   },
   "qualifications_moe": {
     "opqibi": [],
-    "opqcm": null,
+    "opqcm": [],
     "bim": null,
-    "autres": [
-      "Inscription à l'ordre des architectes obligatoire pour le mandataire"
-    ]
+    "autres": []
   },
   "bareme_notation": {
-    "valeur_technique_pct": 60,
-    "valeur_prix_pct": 40,
-    "sous_criteres_techniques": [
-      {
-        "libelle": "Qualité de la méthodologie et des moyens dédiés aux missions, au vu des objectifs du programme",
-        "ponderation_pct": 30,
-        "description": "L'acheteur évalue la démarche d'élaboration du projet au regard du programme, du budget et du planning, incluant la prise en compte de l'intervention en site occupé, du réaménagement partiel et des impacts, du phasage pour maintenir la continuité de service, la répartition des compétences par missions, la méthodologie et l'organisation, ainsi que le management du groupement et le suivi des avis de la maîtrise d'ouvrage.",
-        "elements_attendus": [
-          "Démarche d'élaboration du projet au regard du programme, budget et planning",
-          "Prise en compte explicite de l'intervention en site occupé (lycée en activité)",
-          "Description du phasage pour maintenir la continuité de service",
-          "Répartition claire des compétences par missions au sein du groupement",
-          "Méthodologie et organisation détaillées",
-          "Moyens de contrôle et suivi de prise en compte des avis et observations de la maîtrise d'ouvrage"
-        ],
-        "exemple_reponse_forte": "Le candidat présente un planning phasé en 3 étapes tenant compte de l'occupation du lycée (travaux de nuit ou pendant les vacances scolaires pour les phases sensibles), détaille la répartition des rôles entre l'architecte mandataire et chaque BET, et propose un tableau de bord hebdomadaire partagé avec la MOA pour le suivi des observations. La gestion des interfaces entre la phase réaménagement (OP24XRS6) et la phase toiture/PV (OP24LX7O) est explicitée avec un macro-planning coordonné.",
-        "source": "RC §9.2",
-        "sous_criteres": []
-      },
-      {
-        "libelle": "Compréhension de la complexité de l'opération",
-        "ponderation_pct": 20,
-        "description": "L'acheteur évalue la capacité du candidat à identifier et analyser les enjeux spécifiques de cette opération multi-projets portant sur un bâtiment existant en site occupé, combinant réaménagement partiel, mise en accessibilité, réseau informatique, réfection de toiture et photovoltaïque.",
-        "elements_attendus": [
-          "Identification des enjeux propres à chaque opération (réaménagement, accessibilité, réseau informatique, toiture, PV)",
-          "Analyse des interactions et dépendances entre les deux projets (OP24XRS6 et OP24LX7O)",
-          "Prise en compte des risques liés à l'intervention en site occupé (lycée)",
-          "Compréhension des contraintes réglementaires (accessibilité, ERP, SSI, photovoltaïque)"
-        ],
-        "exemple_reponse_forte": "Le candidat démontre sa compréhension en identifiant les risques de concomitance entre la réfection de toiture et le déploiement PV, ainsi que les contraintes d'accessibilité PMR à coordonner avec le réaménagement des locaux d'enseignement. Il souligne les enjeux SSI liés aux modifications de cloisons et propose des solutions pour sécuriser les zones de chantier sans perturber les cours.",
-        "source": "RC §9.2",
-        "sous_criteres": []
-      },
-      {
-        "libelle": "Cohérence de la proposition de rémunération de chaque compétence au regard de chaque élément de mission",
-        "ponderation_pct": 10,
-        "description": "L'acheteur évalue la cohérence entre la rémunération proposée par compétence (chaque BET, architecte, économiste, OPC) et les missions correspondantes, en prenant en compte le programme et son degré de complexité. Le candidat doit détailler dans son mémoire technique sa rémunération en fonction des différentes opérations.",
-        "elements_attendus": [
-          "Décomposition des honoraires par compétence (architecte, chaque BET, économiste, OPC)",
-          "Décomposition des honoraires par opération (OP24XRS6 phases 1 et 2, OP24LX7O réfection toiture, OP24LX7O PV)",
-          "Justification de la cohérence entre les taux proposés et la complexité de chaque mission",
-          "Détail de la rémunération PSE01 OPC avec ressource dédiée distincte de la DET"
-        ],
-        "exemple_reponse_forte": "Le candidat présente un tableau croisant les compétences et les opérations, montrant par exemple que le BET photovoltaïque représente X% des honoraires totaux pour l'opération OP24LX7O, cohérent avec la complexité technique d'une installation de 350 k€ de travaux. La rémunération de l'OPC est chiffrée séparément avec une ressource dédiée, distincte du DET.",
-        "source": "RC §9.2",
-        "sous_criteres": []
-      }
-    ],
+    "valeur_technique_pct": null,
+    "valeur_prix_pct": null,
+    "sous_criteres_techniques": [],
     "prix": {
       "type_formule": "autre",
-      "formule_explicite": "Le RC ne précise pas la formule de calcul de la note prix. Le critère Prix représente 40% de la note globale. La proposition d'honoraires est à détailler via la DPGF Airfact et le mémoire technique.",
+      "formule_explicite": "Le règlement de consultation n'est pas fourni dans les pièces analysées. La DPGF (modèle Airfact) est fournie pour la décomposition des honoraires par mission (DIA/ESQ, APS, APD, PRO, ACT, VISA, DET, AOR, DQE, SYN et PSE OPC). Le prix est un forfait global avec taux de rémunération à proposer par le candidat.",
+      "source": null,
       "elements_a_chiffrer": [
-        "Décomposition du prix global forfaitaire par compétence (DPGF Airfact)",
-        "Honoraires par opération (OP24XRS6 phase 1, OP24XRS6 phase 2 réseau informatique, OP24LX7O réfection toiture, OP24LX7O déploiement PV)",
-        "Honoraires PSE01 OPC (prestation supplémentaire éventuelle obligatoire)",
-        "Coûts des moyens d'accès aux ouvrages (nacelle, EPI, protections usagers)"
+        "Forfait global mission DIA/ESQ",
+        "Forfait mission APS",
+        "Forfait mission APD",
+        "Forfait mission PRO",
+        "Forfait mission ACT",
+        "Forfait mission VISA",
+        "Forfait mission DET",
+        "Forfait mission AOR",
+        "Forfait mission DQE",
+        "Forfait mission SYN",
+        "PSE01 : Forfait mission OPC (prestation supplémentaire éventuelle)"
       ]
     },
-    "modalite_calcul_prix": "Non précisée dans le RC. Le critère Prix pèse 40% de la note globale. Proposition à chiffrer via la DPGF Airfact."
+    "modalite_calcul_prix": "Prix global forfaitaire décomposé par phase selon le modèle DPGF Airfact fourni. Taux de rémunération MOE à proposer par rapport à l'enveloppe prévisionnelle travaux de 4 705 250 € HT."
   },
   "montant_marche": {
     "valeur_estimee_euros": null,
-    "fourchette_min_euros": null,
-    "fourchette_max_euros": null,
-    "type": "non_communique",
-    "duree_couverte": "64 mois",
-    "source_extraction": "RC page de garde et §2.1",
-    "commentaire": "Le montant des honoraires MOE n'est pas communiqué. Seul le montant prévisionnel des travaux est indiqué : 4 705 250 € HT. En appliquant un taux MOE typique de 8 à 12% pour ce type d'opération en réhabilitation complexe, les honoraires pourraient être estimés entre 376 000 € et 565 000 € HT, mais cette estimation est indicative et non confirmée par le DCE."
+    "fourchette_min_euros": 376420,
+    "fourchette_max_euros": 611683,
+    "type": "calcule_volumes",
+    "duree_couverte": "64 mois (24 mois études + 28 mois travaux + 12 mois GPA)",
+    "source_extraction": "Acte d'Engagement — montant prévisionnel travaux 4 705 250 € HT (06/2026) ; taux MOE estimé 8-13% pour ce type de marché complexe",
+    "commentaire": "Montant honoraires non publié dans les pièces fournies. Estimation : 4 705 250 € HT × taux MOE. Pour une MOE complète avec DQE, SYN sur réhabilitation complexe scolaire (site occupé, amiante, PV, multi-corps d'état), taux généralement compris entre 8% et 13% HT. Fourchette : 4 705 250 × 8% = 376 420 € à 4 705 250 × 13% = 611 683 €."
   },
-  "revision_prix": {
-    "type": "non_communique",
-    "indices_utilises": [],
-    "ponderation": null,
-    "periodicite": null,
-    "formule_revision": null,
-    "source_extraction": null,
-    "commentaire": "Le CCAP n'est pas fourni dans les pièces analysées. Aucune information sur la révision des prix n'est disponible dans le RC ou le DUME."
-  },
-  "alertes_prix": [
-    "Le montant des honoraires MOE n'est pas communiqué dans le DCE — risque de sous-estimation si le taux n'est pas bien calibré par rapport aux 4,7 M€ de travaux.",
-    "La PSE01 OPC est OBLIGATOIRE dans l'offre — son absence rend l'offre irrégulière. Elle doit être chiffrée avec une ressource dédiée distincte de la DET.",
-    "Pondération prix à 40% — relativement élevée pour un marché de MOE — la compétitivité tarifaire est déterminante.",
-    "La DPGF est au format Airfact spécifique — vérifier la compatibilité avant le dépôt et ne pas réaliser d'erreurs de calcul (multiplication, addition, report) sous peine d'invitation à confirmer l'offre rectifiée ou élimination."
-  ],
-  "references_exigees": {
-    "experience_minimale_annees": 7,
-    "experience_source": "RC §7.1",
-    "volume_min_references_similaires": null,
-    "volume_min_references_unite": "marchés similaires",
-    "secteur_experience": "Prestations de maîtrise d'œuvre réalisées au cours des 7 dernières années, avec indications du montant, de la date et du destinataire, prouvées par attestations du destinataire ou déclaration du candidat",
-    "secteur_source": "RC §7.1",
-    "certifications_obligatoires": [
+  "montant_3_voies": {
+    "voie_1_eur": null,
+    "voie_1_source": null,
+    "voie_2_disponible": true,
+    "voie_2_min_eur": 376420,
+    "voie_2_max_eur": 611683,
+    "voie_2_hypotheses": [
       {
-        "libelle": "Inscription à l'ordre des architectes (obligatoire pour le mandataire du groupement)",
-        "source": "RC §7.1 et §3.2"
+        "hypothese": "Montant prévisionnel travaux publié dans l'Acte d'Engagement",
+        "valeur": "4 705 250 € HT (06/2026)"
+      },
+      {
+        "hypothese": "Taux de rémunération MOE — dimension incertaine variée : taux marché pour MOE complète réhabilitation scolaire complexe avec DQE+SYN+PV, site occupé, amiante",
+        "valeur": "8% (borne basse) à 13% (borne haute) — montant travaux fixé à 4 705 250 € HT"
+      },
+      {
+        "hypothese": "Durée missions confirmée dans l'Acte d'Engagement",
+        "valeur": "64 mois total (24 études + 28 travaux + 12 GPA)"
       }
     ],
-    "autres_exigences": [
+    "voie_2_raison_indisponible": null
+  },
+  "cout_realisation": {
+    "cout_total_eur": 245000,
+    "cout_min_eur": 195000,
+    "cout_max_eur": 310000,
+    "postes": [
       {
-        "libelle": "Déclaration de chiffre d'affaires global et concernant les prestations objet du contrat sur les 3 derniers exercices disponibles",
-        "source": "RC §7.1"
+        "poste": "Architecte mandataire / chef de projet (coordination, réunions, phases conception et suivi travaux)",
+        "detail": "Estimation 160 j-h × 750 €/j (taux marché architecte MOE complexe)",
+        "montant_eur": 120000
       },
       {
-        "libelle": "Attestation d'assurance pour les risques professionnels",
-        "source": "RC §7.1"
+        "poste": "BET Structures (relevés structure, notes de calcul renfort poutrelles, fondations extensions)",
+        "detail": "Estimation 40 j-h × 650 €/j",
+        "montant_eur": 26000
       },
       {
-        "libelle": "Attestation d'assurance de responsabilité décennale (à fournir par l'attributaire pressenti dans un délai de 10 jours)",
-        "source": "RC §9.3"
+        "poste": "BET Fluides / CVC / VMC / GTC / plomberie",
+        "detail": "Estimation 30 j-h × 650 €/j",
+        "montant_eur": 19500
       },
       {
-        "libelle": "Déclaration des effectifs moyens annuels et importance du personnel d'encadrement sur les 3 dernières années",
-        "source": "RC §7.1"
+        "poste": "BET Électricité CFO/CFA / VDI / photovoltaïque (dimensionnement, étude productible, synoptique ENEDIS)",
+        "detail": "Estimation 35 j-h × 650 €/j",
+        "montant_eur": 22750
       },
       {
-        "libelle": "Le groupement doit présenter l'ensemble des compétences requises (Architecte, BET Thermique/fluides, BET Électricité CFO/CFA/SSI, BET PV, BET Structure/Charpente, BET VRD, BET Acoustique, Économiste, OPC) — toute équipe incomplète sera rejetée",
-        "source": "RC §3.2"
+        "poste": "Économiste (DQE, estimatifs, mise au point marchés)",
+        "detail": "Estimation 40 j-h × 600 €/j",
+        "montant_eur": 24000
+      },
+      {
+        "poste": "Synthèse technique (SYN — plans de synthèse coordonnés multi-corps d'état)",
+        "detail": "Estimation 20 j-h × 650 €/j",
+        "montant_eur": 13000
+      },
+      {
+        "poste": "Frais généraux (déplacements, reprographies, maquettes, logiciels, assurances RC Pro/décennale quote-part)",
+        "detail": "Estimation forfaitaire 8% du total honoraires",
+        "montant_eur": 19750
       }
-    ]
+    ],
+    "taux_journaliers_retenus": "Taux marché indicatifs 2025 : architecte/chef de projet MOE 700-800 €/j ; ingénieur BET structure/fluides/électricité 600-700 €/j ; économiste construction 550-650 €/j. Ces taux sont des références marché, non la structure réelle du candidat.",
+    "commentaire": "Estimation du coût de production de la mission MOE pour le candidat (distinct du prix facturé). Taux journaliers marché indicatifs. La fourchette varie sur le nombre de jours-homme (dimension la plus incertaine) : borne basse = charges minimales (bonne maîtrise des projets similaires, réutilisation d'éléments), borne haute = charges plus importantes (complexité amiante, PV, multi-phases sur 64 mois). Marge brute estimée : (revenu 376-612 k€) - (coût 195-310 k€) = marge brute théorique positive, cohérente avec le marché."
+  },
+  "revision_prix": {
+    "type": "indexation",
+    "indices_utilises": [
+      "ING"
+    ],
+    "ponderation": "15% partie fixe + 85% ING (Index divers dans la construction — Ingénierie — Base 2010)",
+    "periodicite": "mensuelle",
+    "formule_revision": "Cn = 15.0% + 85.0% (ING(n) / ING(o)) — mois zéro : 07/2026",
+    "source_extraction": "CCAP article 9.3",
+    "commentaire": "Formule standard MOE ingénierie avec 85% d'indexation sur ING — favorable en période inflationniste, mais la révision est définitive uniquement après publication de la valeur finale de l'index (pas de variation provisoire). Mois zéro fixé à 07/2026."
+  },
+  "alertes_prix": [
+    "Le montant des honoraires MOE n'est pas publié dans le DCE : le taux de rémunération est à proposer librement par le candidat, ce qui implique un risque de sous-estimation ou de positionnement hors marché.",
+    "Prix global forfaitaire provisoire : la rémunération définitive est arrêtée par avenant au plus tard au moment de l'engagement sur le coût des travaux (CCAP art 9.2) — risque de négociation a posteriori.",
+    "Montant prévisionnel travaux de 4 705 250 € HT (06/2026) fixé par l'acheteur : si les travaux dépassent cette enveloppe, la rémunération MOE devra faire l'objet d'un avenant — à anticiper dans l'offre.",
+    "Durée totale de 64 mois (5,3 ans) : la partie fixe de 15% dans la formule de révision ING protège partiellement mais expose le candidat sur 85% des honoraires à une révision qui ne démarre qu'après publication des indices définitifs."
+  ],
+  "references_exigees": {
+    "experience_minimale_annees": null,
+    "experience_source": null,
+    "volume_min_references_similaires": null,
+    "volume_min_references_unite": null,
+    "secteur_experience": "Maîtrise d'œuvre de réhabilitation d'établissements scolaires ou ERP, incluant idéalement des opérations avec installation photovoltaïque et courants faibles/VDI",
+    "secteur_source": null,
+    "certifications_obligatoires": [],
+    "autres_exigences": []
+  },
+  "dossier_candidature": {
+    "pieces_a_fournir": [
+      {
+        "libelle": "Acte d'Engagement (AE) complété et signé avec Annexe N°1 (répartition des honoraires) et Annexe N°2 (désignation des co-traitants)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "Acte d'Engagement"
+      },
+      {
+        "libelle": "DPGF (Décomposition du Prix Global Forfaitaire) — modèle Airfact fourni — complétée avec montants par mission et par co-traitant",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "DPGF modèle fourni (24XRS6_Airfact MOE modèle DPGF.xlsx)"
+      },
+      {
+        "libelle": "DC4 (Déclaration de sous-traitance) si recours à la sous-traitance",
+        "phase": "offre",
+        "obligatoire": false,
+        "source": "DC4 fourni dans le DCE (24XRS6_AE DC4.pdf)"
+      },
+      {
+        "libelle": "Mémoire technique du candidat",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "CCAP — pièces contractuelles"
+      }
+    ],
+    "mode_remise": "dématérialisé",
+    "plateforme_depot": "Megalis Bretagne — https://www.megalis.bretagne.bzh",
+    "signature_electronique_exigee": null,
+    "format_signature": null,
+    "nombre_exemplaires": null,
+    "langue": "français",
+    "duree_validite_offres_jours": 180,
+    "modalites_source": "Acte d'Engagement (mention explicite 180 jours validité offre) ; DC4 (identification acheteur Sembreizh / plateforme Megalis)"
   },
   "lots": [
     {
       "numero": 1,
-      "intitule": "Lot unique — Maîtrise d'œuvre complète Lycée de Brocéliande Guer (56)",
-      "zone_geographique": "Guer (56) — Cité Scolaire Brocéliande, 4 avenue de Brocéliande, Bellevue-Coëtquidan",
+      "intitule": "OP24XRS6 / OP24LX7O — Lycée de Brocéliande à GUER (56) — Mission de maîtrise d'œuvre complète",
+      "domaine": "moe_architecte_urbanisme",
+      "zone_geographique": "Guer (56) — Morbihan — Bretagne (FRH03)",
       "volume_estime": 4705250,
-      "volume_estime_unite": "€ HT de travaux à maîtriser d'œuvre",
-      "particularites": "Trois opérations regroupées : réaménagement/accessibilité (3 485 250 € HT), réseau informatique (290 000 € HT), réfection toiture (580 000 € HT) et PV (350 000 € HT). Durée marché 64 mois. PSE01 OPC obligatoire."
+      "volume_estime_unite": "€ HT travaux",
+      "cout_estime_min_eur": 195000,
+      "cout_estime_max_eur": 310000,
+      "particularites": "Mission unique non allotie couvrant 3 opérations sur 2 projets distincts (OP24XRS6 et OP24LX7O). Durée 64 mois. PSE OPC disponible. Site occupé, amiante confirmé, PV ≥175 kWc."
     }
   ],
+  "tranches": [],
   "calendrier": {
     "date_limite_offres": "2026-07-10",
     "date_demarrage_prevue": null,
-    "duree_marche": "64 mois"
+    "duree_marche": "64 mois (24 mois études + 28 mois travaux + 12 mois GPA)"
   },
   "alertes_candidat": [
-    "VISITE OBLIGATOIRE : créneaux les 17 juin 2026 (10h-12h ou 14h-16h) et 24 juin 2026 (14h-16h) — inscription auprès d'Antonin Fournier à antonin.fournier@sembreizh.fr. L'absence de visite rend l'offre irrégulière.",
-    "PSE01 OPC OBLIGATOIRE : le candidat doit impérativement chiffrer la PSE01 avec une ressource dédiée et distincte de la DET — l'absence de cette PSE dans l'offre entraîne le rejet.",
-    "COMPLÉTUDE DU GROUPEMENT : toutes les compétences listées (Architecte, BET fluides, BET élec, BET PV, BET structure, BET VRD, BET acoustique, économiste, OPC) doivent être couvertes — tout groupement incomplet est éliminé.",
-    "MANDATAIRE ARCHITECTE OBLIGATOIRE : le mandataire doit être un architecte inscrit à l'ordre des architectes — une attestation d'inscription est exigée.",
-    "DPGF FORMAT AIRFACT SPÉCIFIQUE : la décomposition du prix doit être remise au format Airfact fourni dans le DCE — ne pas utiliser un format libre."
+    "Marché de MOE complexe multi-spécialités : l'équipe candidate doit obligatoirement intégrer des compétences en photovoltaïque (dimensionnement, étude productible, raccordement ENEDIS) souvent absentes d'une agence d'architecture seule — un co-traitant spécialisé BET énergie/PV est probablement nécessaire.",
+    "Présence d'amiante confirmée dans plusieurs zones du bâtiment A (toiture, façades, sanitaires, joints) et de plomb (mains courantes) : la mission DIA/ESQ inclut l'établissement des cahiers des charges pour les diagnostics complémentaires — compétence en gestion de pathologies des bâtiments anciens requise.",
+    "Échanges obligatoires avec la Direction du numérique de la Région Bretagne pour le réseau informatique (VDI catégorie 6a, fibres optiques, LTB) : l'équipe doit avoir un BET courants faibles maîtrisant les doctrines techniques de la Région Bretagne (fiches RECU-01, REOP-01, POST-01, etc.) qui sont nombreuses et spécifiques.",
+    "Le contrôleur technique et le coordonnateur SPS sont désignés séparément — le MOE doit collaborer avec eux dès le démarrage ; les missions PV et recettes informatiques sont incluses dans le contrôle technique (mission spécifique) : coordination renforcée nécessaire.",
+    "Durée prévisionnelle de 64 mois et prix provisoire fixé par avenant au stade APD : le candidat doit impérativement proposer des honoraires tenant compte de la durée réelle et de la complexité (risques amiante, PV, site occupé, multi-opérations) pour éviter d'être en difficulté lors de la négociation de la rémunération définitive."
   ],
   "points_differenciants_attendus": [
     {
-      "libelle": "Démonstration de l'expérience en site occupé avec phasage complexe",
-      "exemple": "Le candidat présente une référence récente de réhabilitation de lycée ou d'établissement scolaire en activité, avec description du phasage mis en œuvre et des solutions adoptées pour maintenir la continuité de service (travaux en vacances scolaires, zones tampons, signalétique de chantier adaptée).",
-      "source": "RC §9.2 (sous-critère 1.1)"
+      "libelle": "Expérience MOE sur réhabilitation de bâtiments scolaires en site occupé avec présence d'amiante",
+      "exemple": "Présenter 2-3 références de restructurations d'ERP scolaires avec désamiantage en site occupé, en détaillant les protocoles mis en place pour maintenir la continuité pédagogique et les délais obtenus malgré les contraintes sanitaires.",
+      "source": "Programme — §2.6.5 Amiante et §5.4 Chantier à faibles nuisances"
     },
     {
-      "libelle": "Compétence BET photovoltaïque intégrée à l'équipe et non sous-traitée",
-      "exemple": "L'équipe inclut un BET PV avec références récentes sur des installations toiture tertiaire ou scolaire, ce qui rassure sur la capacité à intégrer la contrainte PV dès l'ESQ et à coordonner avec la réfection de toiture.",
-      "source": "RC §3.2"
+      "libelle": "Maîtrise des doctrines techniques de la Région Bretagne (courants faibles, photovoltaïque, énergie)",
+      "exemple": "Démontrer une connaissance des fiches doctrines Région (RECU-01, REOP-01, Tomes PV 1 et 2, fiches ENER, ELEC, etc.) en expliquant comment l'équipe les intègre dès les phases APD/PRO pour éviter des reprises au VISA. Mentionner un précédent marché avec Sembreizh ou la Région Bretagne.",
+      "source": "Programme — §11 Fiches de prescriptions techniques et §4.3.4 Installation PV"
     },
     {
-      "libelle": "Cohérence et détail de la répartition des honoraires par opération et par compétence",
-      "exemple": "Le mémoire technique présente un tableau croisant chaque compétence × chaque opération (OP24XRS6 ph1, ph2, OP24LX7O toiture, PV) avec justification des taux retenus au regard de la complexité de chaque mission, ce qui permet à l'acheteur de vérifier la cohérence sans ambiguïté.",
-      "source": "RC §9.2 (sous-critère 1.3)"
+      "libelle": "Capacité à mener une étude photovoltaïque complète (productible, autoconsommation, scénarios ENEDIS)",
+      "exemple": "Proposer une méthodologie d'étude PV incluant l'analyse des courbes de charge 2024 fournies, plusieurs scénarios de puissance (écrêtement, taux autoconsommation), et une expérience de raccordement HTA avec la référence d'acheminement spécifiée (HTA5 à Pointe Fixe Courte Utilisation).",
+      "source": "Programme — §4.3.4 Installation d'une centrale photovoltaïque"
     },
     {
-      "libelle": "Management du groupement structuré avec outil de suivi des avis MOA",
-      "exemple": "Le candidat propose un dispositif formalisé de suivi des observations de la maîtrise d'ouvrage (tableau partagé type extranet chantier, comptes-rendus horodatés, délais de réponse contractualisés) démontrant la maîtrise des processus de validation.",
-      "source": "RC §9.2 (sous-critère 1.1)"
+      "libelle": "Organisation et phasage de chantier en milieu scolaire occupé sur 28 mois",
+      "exemple": "Proposer un planning de phasage détaillé montrant comment les fonctions du RDC sont libérées et redistribuées dans les bâtiments B, C, J, avec une attention particulière aux périodes d'examen et à la construction anticipée d'un préau en avance de phase.",
+      "source": "Programme — §7 Proposition d'un scénario et §7.2 Travaux préalables"
     },
     {
-      "libelle": "Ressource OPC dédiée et distincte — profil senior justifié",
-      "exemple": "Le candidat identifie nommément le professionnel dédié à la mission OPC (distinct du DET), avec un CV montrant une expérience de coordination de chantiers multi-lots en site occupé, renforçant la crédibilité de la PSE01.",
-      "source": "RC §3.4 et §9.2"
+      "libelle": "Compétence en renforcement structurel par collage de composites (fibres de carbone)",
+      "exemple": "Valoriser une expérience de dimensionnement et supervision de renforcements de planchers poutrelles-hourdis par tissus fibres de carbone en collage, technique préconisée par le diagnostic structure Cideco pour permettre l'implantation du CDI avec charge 400 daN/m².",
+      "source": "Programme — §4.3.2 Renforts de structure"
     }
   ],
   "_meta": {
     "id_marche": "BOAMP-26-56588",
     "type": "complet",
-    "extraction_le": "2026-06-12T13:41:29.354147+00:00",
+    "date_generation": "2026-06-19T20:32:09.837494+00:00",
+    "extraction_le": "2026-06-19T20:32:09.837494+00:00",
     "modele": "claude-sonnet-4-6",
-    "tokens_input": 30735,
-    "tokens_output": 6505,
-    "cout_eur": 0.1803,
-    "duree_sec": 114.5,
+    "preset_utilise": "btp",
+    "presets_matches": [
+      "btp",
+      "ingenierie"
+    ],
+    "prompts_versions": {
+      "btp/_preset.json": "sha256:055bf6f8b2c1f771",
+      "ingenierie/_preset.json": "sha256:b924b32a088673d6"
+    },
+    "tokens_input": 162636,
+    "tokens_output": 8617,
+    "cout_eur": 0.5863,
+    "duree_sec": 170.4,
     "pdfs_traites": [
+      {
+        "nom": "2025_GUER_Cite_scolaire_Restructuration_BatA_Fiches_Espaces.pdf",
+        "hash": "74c1a36f63b1eba3f3e9f03d84ed4d20",
+        "taille_chars": 108902
+      },
+      {
+        "nom": "2025_GUER_Cite_scolaire_Restructuration_BatA_Programme V_2_2025_06_30.pdf",
+        "hash": "9a509b8640e2fecac95bfd198befd2fa",
+        "taille_chars": 216957
+      },
+      {
+        "nom": "24XRS6_AE DC4.pdf",
+        "hash": "dc431cd622134ff50d8be3b78b1a8c6f",
+        "taille_chars": 18277
+      },
+      {
+        "nom": "24XRS6_AE.pdf",
+        "hash": "8a0911b05bd31cac4add229219c6339b",
+        "taille_chars": 17039
+      },
+      {
+        "nom": "24XRS6_Airfact MOE modèle DPGF.xlsx",
+        "hash": "4fe9705e3b6b524b5ba10ceb46c31e3b",
+        "taille_chars": 15199
+      },
+      {
+        "nom": "24XRS6_CCAP.pdf",
+        "hash": "8325d5629062d8ba9bf473f45868a670",
+        "taille_chars": 56904
+      },
+      {
+        "nom": "24XRS6_CCAP_Annexe_1_Missions MOE.pdf",
+        "hash": "8c663b4d6ef4b7fdddd200bba9a3caf9",
+        "taille_chars": 79522
+      },
+      {
+        "nom": "24XRS6_CCAP_Annexe_2_MOE_règlements et livrables_12-2025.pdf",
+        "hash": "a7da0a38d49c16c3def2eb8cd469f01b",
+        "taille_chars": 10561
+      },
+      {
+        "nom": "24XRS6_CCAP_Annexe_3_Décaissement.xlsx",
+        "hash": "305043c32d43b8bcbb7af9030ceeffb3",
+        "taille_chars": 1828
+      },
+      {
+        "nom": "24XRS6_CCAP_Annexe_4_Guide de recommandation de conduite de chantier.pdf",
+        "hash": "d634d4291fec73ae9725c7f1cdad866f",
+        "taille_chars": 29592
+      },
+      {
+        "nom": "24XRS6_CCAP_Annexe_5_Convention AIRFACT.pdf",
+        "hash": "9f38905e58fc1b33230bd7296a5e8bf7",
+        "taille_chars": 13189
+      },
+      {
+        "nom": "24XRS6_CCAP_Annexe_6_Guide d'interventions des AMP.pdf",
+        "hash": "58b7d47ff1a5e770db26c68c74b29c58",
+        "taille_chars": 94807
+      },
+      {
+        "nom": "24XRS6_Certificat de visite Site obligatoire.pdf",
+        "hash": "1d6dc3849488bebff7c2e8391c05dc58",
+        "taille_chars": 1193
+      },
+      {
+        "nom": "24XRS6_Modèle  DECLARATION SUR L'HONNEUR.pdf",
+        "hash": "1f7da8eab32cd6210313ccb0dda53dbf",
+        "taille_chars": 3089
+      },
+      {
+        "nom": "24XRS6_Questionnaire egalite F-H.xlsx",
+        "hash": "c08b15ebe39ac14fcf53b63ed82bcd55",
+        "taille_chars": 2332
+      },
       {
         "nom": "24XRS6_RC.pdf",
         "hash": "3089797d6263f4ceee6b62f9f129275f",
         "taille_chars": 39564
+      },
+      {
+        "nom": "Programme RGE Lycée Brocéliande- Guer  10 -2025.pdf",
+        "hash": "a734c6f80a3ba1821b7c530097960546",
+        "taille_chars": 12222
       },
       {
         "nom": "teoikfas.pdf",

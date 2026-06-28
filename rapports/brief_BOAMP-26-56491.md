@@ -1,6 +1,6 @@
 # Brief — Accord-cadre de fourniture, livraison et distribution de collation froides Collège KAWENI 2
 
-_Généré le 2026-06-12 15:49 par Claude claude-sonnet-4-6_
+_Généré le 2026-06-19 21:23 par Claude claude-sonnet-4-6_
 
 ## Identifiants
 - **ID Tendia** : `BOAMP-26-56491`
@@ -11,44 +11,13 @@ _Généré le 2026-06-12 15:49 par Claude claude-sonnet-4-6_
 - **DCE PLACE** : <https://www.marches-publics.gouv.fr/?page=Entreprise.EntrepriseAdvancedSearch&AllCons&id=3014629&orgAcronyme=f0g>
 
 ## Synthèse
-Accord-cadre à bons de commande pour la fourniture, livraison et distribution quotidienne de collations froides équilibrées au Collège Kawéni 2 à Mamoudzou (Mayotte), dans le cadre de la prestation d'aide à la restauration scolaire (PARS) financée avec l'aide de la CSSM. Le marché concerne environ 1 300 élèves rationnaires et est passé en procédure adaptée pour une durée initiale de 12 mois reconductible 3 fois. Le prix est fixe et correspond à la dotation PARS (1,49 €) + 0,20 € de participation familiale, soit 1,69 € par collation.
-
-## 🏗 Chantier — caractéristiques BTP
-### Allotissement
-L'accord-cadre n'est pas alloti — marché unique mono-attributaire.
-- **Nombre de lots** : 1
-- **Lot 1** — Fourniture, livraison et distribution de collations froides — Collège Kawéni 2
-  - Montant estimé : 768 950 €
-  - Prestation quotidienne de collations froides équilibrées pour environ 1 300 élèves rationnaires, avec possibilité de montée en puissance. Prix fixé par la dotation PARS + participation familiale.
-
-### Qualifications BTP exigées
-Agrément obligatoire de la DAAF de Mayotte pour produire et distribuer des collations aux établissements scolaires.
-- **Autres exigences** :
-  - Agrément de la DAAF de Mayotte à produire et distribuer des collations aux établissements scolaires — obligatoire à peine d'élimination (source=RC art 5.2)
-
-## 🎯 Mission conseil
-- **Durée de mission** : 12 mois reconductibles 3 fois (durée totale max 4 ans)
-
-## 🎓 Formation / accompagnement
-### Publics cibles
-Élèves du Collège Kawéni 2 à Mamoudzou (Mayotte), estimés à environ 1 300 rationnaires, bénéficiant de la prestation d'aide à la restauration scolaire (PARS) avec l'aide de la Caisse de Sécurité Sociale de Mayotte.
-- **Critères d'éligibilité** :
-  - Élèves du Collège Kawéni 2 bénéficiaires de la PARS (Prestation d'Aide à la Restauration Scolaire — Arrêté du 16 décembre 2021) (source=RC art 2)
-
-### Volumes
-- **Bénéficiaires (total)** : 1300
-- **Durée marché (mois)** : 48
-- **Note** : 1 300 élèves rationnaires estimés avec possibilité de montée en puissance. Durée ferme 12 mois, reconductible 3 fois (max 4 ans). Estimation dépenses : 768 950 € ; montant maximum accord-cadre toutes périodes : 3 075 800 €.
-
-### Modalités
-- **Présentiel/distanciel** : présentiel obligatoire — livraison quotidienne sur site
-- **Sites d'exécution** : Mamoudzou, Mayotte (97646)
+Accord-cadre à bons de commande pour la fourniture, la livraison et la distribution quotidienne de collations froides au Collège Kawéni 2 à Mamoudzou (Mayotte), financé par la Caisse de Sécurité Sociale de Mayotte dans le cadre de la prestation d'aide à la restauration scolaire (PARS). Le marché est mono-attributaire, non alloti, d'une durée initiale de 12 mois reconductible 3 fois, pour un maximum de 4 ans. Le prix est fixé à 1,69 € par collation et n'est pas un critère de jugement.
 
 ## 💶 Montant du marché
 - **Valeur estimée** : **768 950 €**
-  - sur Estimation sur période ferme 12 mois ; maximum sur 4 ans (3 reconductions incluses)
-  - _source : RC art 3.3_
-- _Note_ : L'estimation des dépenses est d'environ 768 950 € (probablement calculée sur la période ferme de 12 mois : 1 300 élèves × environ 180 jours scolaires × 1,69 € ≈ 394 200 €/an — l'écart suggère une montée en puissance ou une base plus large). Le montant maximum de l'accord-cadre toutes périodes confondues est fixé à 3 075 800 € (4 ans × estimation annuelle).
+  - sur Estimation sur la durée annuelle initiale (12 mois) ; plafond sur 4 ans (durée totale maximale de l'accord-cadre)
+  - _source : RC art 3.3 ; CCP art 2.2_
+- _Note_ : L'estimation annuelle est de 768 950 € (RC art 3.3). Le montant maximum de l'accord-cadre est de 3 075 800 € pour 4 ans (CCP art 2.2). À titre de vérification : 1 300 élèves × 1,69 €/collation × 210 jours scolaires ≈ 461 370 €/an, ce qui est inférieur à l'estimation officielle de 768 950 €, suggérant une montée en puissance anticipée ou un nombre de jours supérieur.
 
 ## Barème de notation
 - **Valeur technique** : 100 %
@@ -58,29 +27,33 @@ Agrément obligatoire de la DAAF de Mayotte pour produire et distribuer des coll
   - Qualité diététique des repas proposés : 20 %
   - Qualité organoleptique des repas proposés : 15 %
   - Diversité des repas proposés : 15 %
-- **Calcul du prix** : Le prix n'est pas un critère d'attribution. Il est fixe et imposé par la dotation PARS + participation familiale (total 1,69 € par collation en 2025).
+- **Calcul du prix** : Prix fixe à 1,69 € par collation, non négociable. Le prix n'est pas un critère de jugement (RC art 6.2).
 
 ## Références et qualifications exigées
 - **Expérience minimale** : —
-- **Secteur d'expérience** : Production et distribution de collations/repas en milieu scolaire à Mayotte
-- **Certifications obligatoires** : Agrément de la DAAF (Direction de l'Alimentation, de l'Agriculture et de la Forêt) de Mayotte à produire et distribuer des collations aux établissements scolaires — éliminatoire à défaut (source=RC art 5.2)
+- **Secteur d'expérience** : Production, emballage et livraison de collations ou repas froids à des établissements scolaires ou collectivités
+- **Certifications obligatoires** : Agrément de la DAAF (Direction de l'Alimentation, de l'Agriculture et de la Forêt) de Mayotte pour produire et distribuer des collations aux établissements scolaires (bloquante=True, source=RC art 5.2), Déclaration ou agrément de la Direction des services vétérinaires pour les locaux de production et chaque site de distribution (bloquante=True, source=CCP art 5.1), Assurance responsabilité civile incluant le risque d'intoxication alimentaire auprès d'une compagnie notoirement solvable (bloquante=True, source=CCP art 8.2)
 - **Autres exigences** :
   - Justificatifs de qualification et compétences professionnelles du candidat (source=RC art 5.1)
-  - Formulaire DC1 (lettre de candidature) ou équivalent (source=RC art 5.1)
-  - Formulaire DC2 (déclaration du candidat individuel / membre de groupement) (source=RC art 5.1)
-  - Attestations fiscales et sociales à fournir par l'attributaire pressenti dans le délai fixé par courrier (source=RC art 8)
-  - Justificatifs lutte contre le travail dissimulé, emploi d'étrangers sans titre et recours à salariés détachés (L.1262-2-1 code du travail) (source=RC art 8)
+  - Attestations et certificats prouvant le respect des obligations fiscales et sociales (fournis après notification) (source=RC art 8)
+  - Justificatifs lutte contre le travail dissimulé et emploi d'étrangers sans titre (L.1262-2-1 code du travail) (source=RC art 8)
+
+## Lots
+- **Lot 1** — Accord-cadre de fourniture, livraison et distribution de collations froides Collège KAWENI 2
+  - Zone : Mamoudzou, Mayotte (97646)
+  - Volume estimé : 1300 élèves rationnaires (avec possibilité de montée en puissance)
+  - Marché non alloti. Prix unitaire fixe à 1,69 €/collation. Livraison quotidienne avant 7h. Le titulaire fournit la chambre froide et les équipements de distribution. Agrément DAAF Mayotte obligatoire.
 
 ## ⚠ Alertes candidat
 - ÉLIMINATOIRE : l'absence d'agrément de la DAAF de Mayotte pour produire et distribuer des collations aux établissements scolaires entraîne l'élimination automatique de la candidature (RC art 5.2).
-- Prix fixe non négociable imposé par la dotation PARS : seule la qualité technique est évaluée, toute la compétition se joue sur les critères qualitatifs (RC art 6.2).
-- Le critère 'Respect des normes d'hygiène' représente 50% de la note — la note méthodologique sur la chaîne production–transport–stockage–distribution est déterminante pour l'attribution.
-- Marché localisé à Mayotte : les contraintes logistiques insulaires (approvisionnement, coût du fret, circuits courts) doivent impérativement être prises en compte dans l'offre.
-- Questions à poser avant le 15 juin 2026 (8 jours calendaires avant la date limite) via la plateforme PLACE pour obtenir des réponses officielles dans les délais.
+- ÉLIMINATOIRE : la déclaration ou l'agrément de la Direction des services vétérinaires pour les locaux de production est exigée avant notification — une fermeture administrative suspend, puis peut entraîner la résiliation de l'accord-cadre (CCP art 5.1 et 8.3).
+- Le candidat doit fournir et installer à ses frais une chambre froide adaptée au collège (avec contrat d'entretien), un chariot inox et tous les consommables de distribution — coûts d'investissement non négligeables à intégrer dans le business plan.
+- Le prix étant fixe (1,69 €/collation), la compétition se fait uniquement sur les critères qualitatifs ; la note méthodologique hygiène (50% de la note) est déterminante : une réponse sans plan HACCP documenté sera très pénalisée.
+- Aucun montant minimum garanti : le volume peut être nul en vacances scolaires ou réduit lors de sorties/stages, le candidat doit s'assurer de la viabilité économique même avec des commandes irrégulières.
 
 ## 💡 Points différenciants attendus
-- Validation diététique formelle des menus par un(e) diététicien(ne) qualifié(e) (exemple=Joindre l'attestation de validation signée par une diététicienne diplômée (DESS ou Master Nutrition), avec analyse nutritionnelle détaillée (apports en kcal, macronutriments, vitamines) pour chacune des 14 collations proposées, adaptée aux besoins des collégiens de 11-15 ans., source=RC art 6.2)
-- Note méthodologique hygiène détaillée couvrant toute la chaîne alimentaire (exemple=Présenter un plan de maîtrise sanitaire complet (HACCP, procédures de contrôle des températures, plan de nettoyage-désinfection, gestion des allergènes, procédure en cas de non-conformité) avec organigramme des responsabilités et références des habilitations du personnel. Mettre en avant des résultats d'audits ou contrôles sanitaires récents., source=RC art 6.2)
-- Promotion des circuits courts et produits locaux mahorais (exemple=Identifier des fournisseurs locaux à Mayotte (maraîchers, producteurs de fruits) et quantifier la part des approvisionnements locaux (ex: 40% des fruits issus de producteurs mahorais identifiés). Démontrer la cohérence avec l'exigence de développement durable du RC., source=RC art 3.10)
-- Emballages recyclables et démarche environnementale concrète (exemple=Décrire les emballages utilisés (matière, recyclabilité, label), le partenariat avec des filières de recyclage à Mayotte, et le plan de réduction des déchets plastiques sur le site de distribution. Proposer si possible des portions en vaisselle réutilisable., source=RC art 3.10)
-- Photos de qualité et présentation visuelle appétente des collations sur 15 jours (exemple=Inclure 15 fiches-menu illustrées de photos en couleur haute définition, prises lors de productions réelles (pas de visuels génériques), avec indication du grammage, de la température de service et de la mention des allergènes sur chaque fiche., source=RC art 6.2)
+- Robustesse et exhaustivité du plan hygiène (50% de la note) (exemple=Présenter un plan HACCP complet validé par un consultant agréé, avec check-lists de contrôle température à chaque étape, procédures de livraison d'urgence en cas de non-conformité et attestation vétérinaire à jour. Ce critère représente à lui seul la moitié de la note finale., source=RC art 6.2)
+- Validation diététique formelle par un professionnel diplômé (exemple=Joindre les menus sur 2 semaines avec le tampon et la signature d'une diététicienne-nutritionniste diplômée d'État, attestant la conformité aux recommandations du Plan National Nutrition Santé et aux habitudes alimentaires mahoraises., source=RC art 6.2)
+- Ancrage local et circuits courts (exemple=Mettre en avant les fournisseurs locaux mahorais (maraîchers, producteurs de fruits locaux) pour démontrer à la fois la fraîcheur des produits, la réduction de l'empreinte carbone et le soutien à l'économie locale., source=RC art 3.10 ; CCP art 4.5.1)
+- Richesse et documentation du catalogue de collations (diversité + organoleptique = 30%) (exemple=Fournir un catalogue-photo professionnel de 15 collations distinctes, avec fiches techniques indiquant l'origine des produits, les valeurs nutritionnelles et la description des textures/saveurs. Démontrer une rotation sur 15 jours sans répétition., source=RC art 6.2)
+- Capacité de montée en puissance documentée (exemple=Indiquer la capacité de production maximale quotidienne du laboratoire et le délai de montée en puissance pour dépasser les 1 300 collations/jour, l'accord-cadre mentionnant explicitement une 'possibilité de montée en puissance'., source=CCP art 2.2)

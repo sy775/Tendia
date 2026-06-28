@@ -1,59 +1,86 @@
 {
-  "synthese_marche": "La commune d'Ouzouer-sur-Loire (Loiret, 45) lance une procédure de concession en deux lots pour déléguer la gestion de ses services publics d'eau potable (Lot 1 : 1 517 abonnés, 126 422 m³, 2 captages, réseau 50 564 ml) et d'assainissement collectif (Lot 2 : 1 325 abonnés, 109 086 m³, STEP 4 100 EH, réseau 45 172 ml). Chaque concession est conclue pour 10 ans à compter du 1er avril 2027, avec une période de tuilage préalable de 1 à 2 mois. Le chiffre d'affaires annuel estimé est de 128 000 € HT pour le Lot 1 et 136 000 € HT pour le Lot 2.",
+  "synthese_marche": "La commune d'Ouzouer-sur-Loire (Loiret, 45) lance une procédure de concession en deux lots pour déléguer la gestion de ses services publics d'eau potable (Lot 1 : 1 517 abonnés, 126 422 m³/an, 50 564 ml de réseau) et d'assainissement collectif (Lot 2 : 1 325 abonnés, 109 086 m³/an, STEP 4 100 EH). La durée de chaque concession est de 10 ans, à compter du 1er avril 2027 jusqu'au 31 mars 2037, avec une période de tuilage de 1 à 2 mois. Le chiffre d'affaires annuel estimé est de 128 000 € HT pour le Lot 1 et 136 000 € HT pour le Lot 2, soit un CA total estimé sur 10 ans de 2 640 000 € HT.",
   "domaines_metier": [
     {
-      "code": "btp_voirie_reseaux",
-      "poids": 1.0,
+      "code": "ingenierie_eau_milieux",
+      "poids": 0.6,
       "lots_concernes": [
-        "Lot 1",
-        "Lot 2"
+        1,
+        2
+      ]
+    },
+    {
+      "code": "services_dechets_proprete",
+      "poids": 0.4,
+      "lots_concernes": [
+        2
       ]
     }
   ],
-  "raison_classification": "Le marché porte sur la concession de l'exploitation des réseaux d'eau potable et d'assainissement collectif (captages, stations de production, STEP, postes de relèvement, réseaux de canalisations), ce qui relève du domaine VRD / réseaux humides. Les CPV principaux (65100000, 65111000, 90400000) et les obligations d'exploitation, d'entretien et de renouvellement des infrastructures de réseau confirment ce classement.",
+  "raison_classification": "Ce marché est une concession de services publics d'eau potable et d'assainissement collectif, couvrant la production, distribution d'eau et la collecte/traitement des eaux usées. Il s'agit de l'exploitation déléguée d'infrastructures d'eau et d'assainissement (STEP, réseaux, captages), ce qui relève principalement de `ingenierie_eau_milieux` pour les deux lots. Le Lot 2 (assainissement collectif, STEP, postes de relèvement) comporte une composante traitement des eaux usées qui rapproche partiellement de `services_dechets_proprete` (eaux usées/traitement). Les codes CPV 65100000, 65111000 et 90400000 confirment la double nature eau potable et eaux usées. Il n'existe pas de code unique parfait pour la concession de service délégué eau/assainissement dans la taxonomie, d'où le split à 2 domaines.",
+  "caracteristiques_mission_moe": {
+    "typologie": null,
+    "phases_couvertes": [],
+    "typologie_ouvrage": null,
+    "montant_travaux_estime": null,
+    "complexite_technique": null,
+    "livrables_par_phase": [],
+    "taux_remuneration_moe_pct": null,
+    "indices_revision": [],
+    "coordinations_associees": [],
+    "organigramme_attendu": [],
+    "bim_niveau": null
+  },
+  "qualifications_moe": {
+    "opqibi": [],
+    "opqcm": [],
+    "bim": null,
+    "autres": []
+  },
   "caracteristiques_techniques_chantier": {
-    "description": "Exploitation en concession de service public : production et distribution d'eau potable (Lot 1) et collecte/traitement des eaux usées (Lot 2). Inclut l'exploitation des ouvrages, l'entretien, la maintenance, le renouvellement des équipements, la relation abonnés et la facturation.",
-    "typologie_ouvrage": "Réseaux d'eau potable et d'assainissement collectif en milieu communal rural/semi-rural (Ouzouer-sur-Loire, 45)",
-    "surface_volume": "Lot 1 : 50 564 ml de réseau de distribution AEP hors branchements ; Lot 2 : 45 172 ml de réseau (23 786 ml EU + 13 147 ml EP + 6 037 ml unitaire)",
-    "site_occupe": "Non applicable (exploitation de réseaux en milieu habité, pas de chantier de construction classique)",
+    "description": "Exploitation déléguée (concession) des services publics d'eau potable et d'assainissement collectif de la commune d'Ouzouer-sur-Loire. Lot 1 : exploitation de 2 captages et stations de production (désinfection chlore), 1 bâche de reprise 600 m³, 1 château d'eau 350 m³, 50 564 ml de réseau de distribution. Lot 2 : exploitation d'une STEP 4 100 EH (boues activées aération prolongée, mise en service 2021), 10 postes de relèvement, 1 déversoir d'orage, 45 172 ml de réseaux (EU, EP, unitaire).",
+    "typologie_ouvrage": "Infrastructure eau potable et assainissement collectif (captages, stations de production, STEP, réseaux)",
+    "surface_volume": "Lot 1 : 50 564 ml réseau AEP ; Lot 2 : 45 172 ml réseau assainissement (23 786 ml EU, 13 147 ml EP, 6 037 ml unitaire)",
+    "site_occupe": "Non applicable — exploitation en service continu sur le territoire communal d'Ouzouer-sur-Loire",
     "corps_etat": [
-      "Exploitation et maintenance de réseaux AEP",
-      "Exploitation et maintenance de réseaux d'assainissement collectif",
-      "Électromécanique (pompes, automates, équipements STEP)",
-      "Relation abonnés et facturation",
-      "Travaux de renouvellement (branchements, accessoires hydrauliques, matériels tournants)"
+      "Exploitation et maintenance de réseaux d'eau potable",
+      "Exploitation de stations de production d'eau potable",
+      "Exploitation de STEP (boues activées)",
+      "Exploitation de postes de relèvement",
+      "Renouvellement équipements électromécaniques",
+      "Relation usagers / facturation"
     ],
     "contraintes_specifiques": [
-      "Continuité du service public à garantir en permanence",
-      "Période de tuilage de 1 à 2 mois avant prise d'effet de la concession (dès notification du contrat)",
-      "Respect des réglementations eau potable et assainissement en vigueur",
-      "Politique sociale décidée par la Collectivité à appliquer",
-      "Tenue à jour des plans et inventaires techniques des immobilisations",
-      "Reporting et remontée d'information vers la Collectivité"
+      "Continuité du service public obligatoire 24h/24",
+      "Période de tuilage de 1 à 2 mois pour assurer la transition avec le concessionnaire sortant",
+      "Obligation de renouvellement des matériels tournants, accessoires hydrauliques et équipements électromécaniques",
+      "Obligation de tenir à jour les plans et inventaire technique des immobilisations",
+      "Perception des redevances et taxes pour le compte de la collectivité et d'organismes publics",
+      "Respect des réglementations en vigueur (eau potable, assainissement, RGPD)"
     ]
   },
   "allotissement": {
-    "description": "Marché divisé en 2 lots distincts correspondant aux deux services publics délégués. Les candidats peuvent soumettre des offres pour un ou plusieurs lots. Maximum 2 lots attribuables à un même soumissionnaire.",
+    "description": "Marché divisé en 2 lots correspondant aux deux services publics délégués. Les candidats peuvent soumissionner pour un ou plusieurs lots. Le nombre maximum de lots attribuables à un même candidat est 2.",
     "nb_lots": 2,
     "lots_detailles": [
       {
         "numero": 1,
-        "intitule": "Concession du service public de l'eau potable",
-        "corps_etat": "Exploitation réseaux AEP, maintenance électromécanique, relation abonnés",
-        "montant_estime": 1280000,
-        "description": "1 517 abonnés, 126 422 m³ facturés (2025). Patrimoine : 2 captages et stations de production (Les Brosses et Plaisance), 1 bâche de reprise 600 m³, 1 château d'eau 350 m³, 50 564 ml de réseau. CA annuel estimé 128 000 € HT hors investissements."
+        "intitule": "Concession du service public d'eau potable",
+        "corps_etat": "Exploitation et gestion déléguée eau potable (captages, production, distribution, relation usagers)",
+        "montant_estime": 1280000.0,
+        "description": "1 517 abonnés, 126 422 m³ facturés (2025). Patrimoine : 2 captages et stations de production, 1 bâche de reprise 600 m³, 1 château d'eau 350 m³, 50 564 ml de réseau de distribution. CA annuel estimé : 128 000 € HT."
       },
       {
         "numero": 2,
-        "intitule": "Concession du service public de l'assainissement collectif",
-        "corps_etat": "Exploitation STEP et réseaux EU/EP/unitaire, maintenance postes de relèvement, relation abonnés",
-        "montant_estime": 1360000,
-        "description": "1 325 abonnés, 109 086 m³ assujettis (2025). Patrimoine : 1 STEP 4 100 EH (boues activées, mise en service 2021), 10 postes de relèvement, 1 déversoir d'orage, 45 172 ml de réseaux. CA annuel estimé 136 000 € HT hors investissements."
+        "intitule": "Concession du service public d'assainissement collectif",
+        "corps_etat": "Exploitation et gestion déléguée assainissement collectif (réseaux EU/EP/unitaire, STEP, postes de relèvement, relation usagers)",
+        "montant_estime": 1360000.0,
+        "description": "1 325 abonnés, 109 086 m³ assujettis (2025). Patrimoine : STEP 4 100 EH (boues activées aération prolongée, 2021), 10 postes de relèvement, 1 déversoir d'orage, 45 172 ml de réseaux. CA annuel estimé : 136 000 € HT."
       }
     ]
   },
   "qualifications_requises": {
-    "description": "Le RC exige des garanties professionnelles et financières ainsi que des références de gestion concédée de services publics équivalents. Aucune qualification Qualibat, RGE, MASE ou ISO spécifique n'est mentionnée explicitement dans les pièces fournies.",
+    "description": "Le RC exige des garanties professionnelles et financières ainsi qu'une aptitude à assurer la continuité du service public et l'égalité des usagers. Aucune qualification normalisée (Qualibat, RGE, etc.) n'est explicitement mentionnée. Des références de gestion concédée de services publics de caractéristiques équivalentes sont demandées.",
     "qualibat": [],
     "rge": false,
     "rge_specialites": [],
@@ -69,204 +96,309 @@
     "valeur_prix_pct": 40,
     "sous_criteres_techniques": [
       {
-        "libelle": "Critère financier",
-        "ponderation_pct": 40,
-        "description": "Évalue la performance financière de l'offre : coût du service pour l'usager (facture 120 m³), pertinence du compte d'exploitation prévisionnel sur la durée du contrat, et cohérence du bordereau des prix.",
-        "elements_attendus": [
-          "Facture 120 m³ compétitive (critère calculé automatiquement par formule)",
-          "Compte d'exploitation prévisionnel détaillé sur 10 ans avec hypothèses chiffrées",
-          "Explication des charges réparties et charges calculées",
-          "Bordereau des prix cohérent et justifié"
-        ],
-        "exemple_reponse_forte": "Le candidat présente une facture 120 m³ inférieure à la moyenne du marché, accompagnée d'un compte d'exploitation prévisionnel sur 10 ans détaillant les charges d'exploitation, les renouvellements programmés, les amortissements et la marge du concessionnaire. Le bordereau de prix est cohérent avec le CEP.",
-        "source": "RC article 12.4",
-        "sous_criteres": [
-          {
-            "libelle": "Coût du service",
-            "ponderation_pct": 25,
-            "description": "Calculé selon la formule : Note = 25 × (Facture 120 m³ du candidat le moins disant / Facture 120 m³ du candidat). Plus la facture du candidat est basse, plus la note est élevée.",
-            "elements_attendus": [
-              "Tarification compétitive conduisant à une facture 120 m³ la plus basse possible",
-              "Structure tarifaire clairement présentée (part fixe abonnement + part variable m³)",
-              "Justification des hypothèses de volume et de tarif"
-            ],
-            "exemple_reponse_forte": "En proposant un tarif unitaire de X €/m³ et un abonnement de Y €/an, la facture annuelle pour 120 m³ s'établit à Z €, positionnant l'offre parmi les moins-disantes sur ce critère.",
-            "source": "RC article 12.4"
-          },
-          {
-            "libelle": "Pertinence du compte d'exploitation prévisionnel sur la durée du contrat",
-            "ponderation_pct": 10,
-            "description": "Évalue la cohérence et la crédibilité du compte d'exploitation prévisionnel sur les 10 ans de la concession, incluant les charges d'exploitation, de renouvellement et les produits prévisionnels.",
-            "elements_attendus": [
-              "CEP sur 10 ans avec détail annuel des charges et produits",
-              "Modalités de calcul des charges réparties et charges calculées explicitement détaillées",
-              "Hypothèses d'évolution des volumes et des tarifs justifiées",
-              "Plan de renouvellement chiffré et cohérent avec le patrimoine"
-            ],
-            "exemple_reponse_forte": "Le CEP présenté sur 10 ans distingue les charges d'exploitation courante (personnel, énergie, produits de traitement), les charges de renouvellement programmé (compteurs, pompes, canalisations) et les charges calculées (amortissements, provisions). Les hypothèses d'indexation sont référencées sur des indices INSEE publiés.",
-            "source": "RC article 12.4"
-          },
-          {
-            "libelle": "Bordereau des prix",
-            "ponderation_pct": 5,
-            "description": "Évalue la cohérence et la complétude du bordereau des prix fourni par le candidat (prestations annexes, travaux sur demande, etc.).",
-            "elements_attendus": [
-              "Bordereau renseigné pour toutes les lignes du cadre fourni",
-              "Prix cohérents avec le niveau de prestation proposé",
-              "Justification des prix inhabituels si nécessaire"
-            ],
-            "exemple_reponse_forte": "Le BPU est intégralement renseigné avec des prix unitaires cohérents avec les pratiques du marché de l'eau en milieu rural. Les prestations exceptionnelles (réparations urgentes, extensions de branchement) sont tarifées de manière transparente.",
-            "source": "RC article 12.4"
-          }
-        ]
-      },
-      {
         "libelle": "Critère technique",
         "ponderation_pct": 30,
-        "description": "Évalue les capacités techniques du candidat à assurer l'exploitation et la maintenance des ouvrages, à garantir la continuité du service public et à optimiser les moyens humains et matériels déployés.",
+        "description": "Évaluation de la politique d'exploitation, d'entretien et de renouvellement des équipements, des garanties de continuité du service public, de l'optimisation des moyens mis en œuvre, et des compétences et réactivité de l'équipe dédiée.",
         "elements_attendus": [
-          "Programme d'exploitation détaillé et plan de renouvellement des équipements",
-          "Dispositifs de continuité du service (astreintes, moyens d'urgence)",
-          "Optimisation des moyens matériels et humains",
-          "Présentation de l'équipe dédiée et de ses compétences"
+          "Programme détaillé d'exploitation, d'entretien préventif et curatif des ouvrages et réseaux",
+          "Plan de renouvellement des équipements électromécaniques et des matériels tournants sur 10 ans",
+          "Dispositifs de surveillance et d'astreinte garantissant la continuité du service 24h/24",
+          "Optimisation des moyens humains et matériels déployés sur le périmètre",
+          "Organisation et qualification de l'équipe dédiée au service (effectifs, compétences, réactivité)"
         ],
-        "exemple_reponse_forte": "Le candidat présente un programme de maintenance préventive et curative détaillé, un plan de renouvellement pluriannuel des équipements électromécaniques, une organisation d'astreinte 24h/24 et une équipe dédiée avec les qualifications requises pour l'exploitation d'installations de production d'eau potable et de traitement des eaux usées.",
+        "exemple_reponse_forte": "—",
         "source": "RC article 12.4",
+        "unite_evaluation": "points",
         "sous_criteres": [
           {
             "libelle": "Politique d'exploitation, d'entretien et de renouvellement des équipements d'exploitation et des locaux",
             "ponderation_pct": 15,
-            "description": "Évalue la qualité du programme de maintenance préventive/curative et du plan de renouvellement des équipements et des locaux sur la durée de la concession.",
+            "description": "Évalue la stratégie d'exploitation et de maintenance préventive/curative, ainsi que le programme de renouvellement des équipements sur la durée de la concession.",
             "elements_attendus": [
-              "Programme de maintenance préventive et curative détaillé par type d'équipement",
-              "Plan de renouvellement pluriannuel chiffré et planifié",
-              "Politique de renouvellement des branchements et accessoires hydrauliques",
-              "Entretien et maintien en état des locaux mis à disposition",
-              "Méthodologie de suivi et de mise à jour de l'inventaire technique"
+              "Plan d'exploitation détaillé (fréquences de tournées, autocontrôles, télésurveillance)",
+              "Programme pluriannuel de renouvellement des équipements (matériels tournants, accessoires hydrauliques, équipements électromécaniques, branchements)",
+              "Politique de maintenance préventive avec planning et indicateurs de suivi",
+              "Engagement sur les délais d'intervention et les modalités de traitement des pannes"
             ],
-            "exemple_reponse_forte": "Le candidat propose un plan de renouvellement sur 10 ans distinguant les matériels tournants (pompes, agitateurs), les équipements électromécaniques (automates, armoires) et les branchements, avec un budget annuel provisionné et un planning d'intervention. La maintenance préventive est organisée selon un protocole certifié, avec des fréquences adaptées à chaque type d'équipement.",
-            "source": "RC article 12.4"
+            "exemple_reponse_forte": "Présentation d'un plan de renouvellement sur 10 ans (2027-2037) avec priorisation des équipements les plus critiques (pompes de relèvement, armoires électriques) et budget prévisionnel associé ; programme d'entretien préventif mensuel des captages et STEP avec indicateurs de performance.",
+            "source": "RC article 12.4",
+            "unite_evaluation": "points",
+            "grille_actions": [
+              {
+                "action": "Présenter un plan pluriannuel de renouvellement chiffré des équipements électromécaniques, matériels tournants et branchements sur 10 ans avec calendrier et budget par type d'équipement",
+                "type": "livrable",
+                "poids_pct": 40,
+                "source": "RC article 12.4"
+              },
+              {
+                "action": "Décrire la politique de maintenance préventive (fréquences, protocoles, outils de GMAO/supervision) avec indicateurs de suivi mesurables",
+                "type": "livrable",
+                "poids_pct": 30,
+                "source": "RC article 12.4"
+              },
+              {
+                "action": "Démontrer une organisation d'astreinte 24h/24 7j/7 avec délais d'intervention garantis et moyens mobilisables pour répondre aux incidents",
+                "type": "levier",
+                "poids_pct": 30,
+                "source": "estimé"
+              }
+            ]
           },
           {
             "libelle": "Garanties offertes en matière de continuité du service public",
             "ponderation_pct": 5,
-            "description": "Évalue les dispositifs organisationnels et techniques mis en place pour assurer la continuité du service en toutes circonstances (astreintes, procédures de crise, redondances).",
+            "description": "Évalue les dispositifs mis en place par le candidat pour garantir la continuité du service public de l'eau potable ou de l'assainissement collectif en toutes circonstances.",
             "elements_attendus": [
-              "Organisation d'astreinte 24h/24 et 7j/7",
-              "Temps de réponse garantis en cas d'incident",
-              "Procédures de gestion de crise (pollution, rupture d'alimentation)",
-              "Moyens de redondance et solutions de secours"
+              "Organisation d'astreinte 24h/24 7j/7 avec effectifs et délais d'intervention",
+              "Plans de secours et d'urgence en cas de crise (rupture d'eau, pollution, panne STEP)",
+              "Moyens de substitution en cas de défaillance d'un ouvrage majeur",
+              "Dispositifs de télésurveillance et de détection des anomalies"
             ],
-            "exemple_reponse_forte": "Le candidat garantit une astreinte opérationnelle 24h/24-7j/7 avec intervention sur site en moins de X heures, des procédures écrites de gestion de crise pour les incidents majeurs (rupture d'alimentation AEP, défaillance STEP) et des conventions avec des prestataires spécialisés pour les situations exceptionnelles.",
-            "source": "RC article 12.4"
+            "exemple_reponse_forte": "Description d'un dispositif d'astreinte 7j/7 avec un technicien d'astreinte joignable en moins de 30 minutes et sur site en moins d'1 heure, complété par un plan de gestion de crise détaillant les actions à entreprendre en cas de rupture d'alimentation ou de défaillance de la STEP.",
+            "source": "RC article 12.4",
+            "unite_evaluation": "points",
+            "grille_actions": [
+              {
+                "action": "Décrire précisément l'organisation d'astreinte (effectifs, délais d'intervention garantis, protocole d'escalade) avec engagement contractualisable",
+                "type": "livrable",
+                "poids_pct": 50,
+                "source": "RC article 12.4"
+              },
+              {
+                "action": "Présenter les plans de secours pour les scénarios de crise majeure (défaillance captage, panne STEP, pollution accidentelle) avec ressources de substitution identifiées",
+                "type": "levier",
+                "poids_pct": 50,
+                "source": "estimé"
+              }
+            ]
           },
           {
             "libelle": "Optimisation des moyens mis en œuvre",
             "ponderation_pct": 5,
-            "description": "Évalue la rationalisation des moyens humains, matériels et techniques pour assurer le service au meilleur coût tout en maintenant la qualité des prestations.",
+            "description": "Évalue la pertinence et l'efficience des moyens humains et matériels proposés pour exploiter les services dans de bonnes conditions économiques et techniques.",
             "elements_attendus": [
-              "Mutualisation des moyens avec d'autres services gérés à proximité",
-              "Utilisation d'outils de télésurveillance et de télérelève",
-              "Optimisation des tournées et interventions",
-              "Recours à des équipements performants réduisant les coûts d'exploitation"
+              "Dimensionnement justifié des effectifs affectés au service",
+              "Mutualisation éventuelle de moyens avec d'autres services gérés par le candidat",
+              "Optimisation des coûts d'exploitation reflétée dans le compte d'exploitation prévisionnel",
+              "Recours aux technologies permettant de réduire les coûts (télégestion, smart metering)"
             ],
-            "exemple_reponse_forte": "Le candidat propose le déploiement de la télérelève sur l'ensemble des compteurs et d'un système de télésurveillance des ouvrages, permettant de réduire les déplacements inutiles et d'optimiser les interventions. La mutualisation avec d'autres concessions gérées dans le Loiret permet de réduire les coûts de structure.",
-            "source": "RC article 12.4"
+            "exemple_reponse_forte": "Proposition d'un dispositif de télégestion des équipements permettant de réduire les tournées de contrôle tout en améliorant la réactivité ; mutualisation du matériel de chantier et des équipes d'intervention avec d'autres services délégués du secteur pour optimiser les coûts.",
+            "source": "RC article 12.4",
+            "unite_evaluation": "points",
+            "grille_actions": [
+              {
+                "action": "Justifier le dimensionnement des équipes par un ratio abonnés/technicien et des temps de présence estimés sur les ouvrages",
+                "type": "livrable",
+                "poids_pct": 40,
+                "source": "RC article 12.4"
+              },
+              {
+                "action": "Proposer des solutions d'optimisation technologique (télégestion, compteurs communicants, supervision à distance) réduisant les coûts d'exploitation",
+                "type": "levier",
+                "poids_pct": 60,
+                "source": "estimé"
+              }
+            ]
           },
           {
-            "libelle": "Compétences et la réactivité de l'équipe dédiée au service",
+            "libelle": "Compétences et réactivité de l'équipe dédiée au service",
             "ponderation_pct": 5,
-            "description": "Évalue les qualifications de l'équipe affectée au service et sa capacité à répondre rapidement aux demandes et incidents.",
+            "description": "Évalue les qualifications, l'expérience et l'organisation de l'équipe dédiée au service concédé, ainsi que sa capacité à répondre rapidement aux sollicitations de la collectivité et des usagers.",
             "elements_attendus": [
-              "CV ou présentation de l'équipe dédiée (technicien(s) d'exploitation, responsable de secteur)",
-              "Qualifications et habilitations des personnels (habilitations électriques, etc.)",
-              "Temps de réponse engagés pour les différents types d'interventions",
-              "Formation continue et montée en compétences prévues"
+              "Organigramme nominatif ou fonctionnel de l'équipe dédiée avec qualifications",
+              "CV ou fiches de poste des responsables et techniciens principaux",
+              "Expérience avérée sur des services de caractéristiques similaires",
+              "Engagement sur les délais de réponse et d'intervention"
             ],
-            "exemple_reponse_forte": "L'équipe dédiée comprend un technicien d'exploitation à temps plein basé à moins de 30 km du site, qualifié pour l'exploitation AEP et assainissement, renforcée par un responsable de secteur expérimenté. Les délais d'intervention garantis sont de 2h pour les urgences et 48h pour les demandes courantes.",
-            "source": "RC article 12.4"
+            "exemple_reponse_forte": "Présentation d'un responsable d'exploitation dédié justifiant de 10 ans d'expérience sur des services eau et assainissement similaires, complété par une équipe de techniciens qualifiés (habilitations électriques, CATEC pour espaces confinés) avec engagement d'intervention sous 2h en cas d'urgence.",
+            "source": "RC article 12.4",
+            "unite_evaluation": "points",
+            "grille_actions": [
+              {
+                "action": "Fournir un organigramme nominatif avec fiches de poste et qualifications des personnels affectés au service (responsable d'exploitation, techniciens réseau, agents STEP)",
+                "type": "livrable",
+                "poids_pct": 50,
+                "source": "RC article 12.4"
+              },
+              {
+                "action": "Mettre en avant des références de services similaires gérés par l'équipe proposée, avec résultats mesurables (rendement réseau, conformité STEP, satisfaction usagers)",
+                "type": "levier",
+                "poids_pct": 50,
+                "source": "estimé"
+              }
+            ]
           }
         ]
       },
       {
         "libelle": "Critère de qualité du service rendu",
         "ponderation_pct": 30,
-        "description": "Évalue la qualité des relations avec la Collectivité et les usagers, ainsi que l'engagement en faveur du développement durable dans la gestion du service.",
+        "description": "Évalue la qualité du service rendu vis-à-vis de la collectivité (reporting, communication, accès aux outils), vis-à-vis des usagers (délais d'intervention, réclamations, information) et dans le cadre du développement durable.",
         "elements_attendus": [
-          "Outils et fréquences de reporting vers la Collectivité",
-          "Délais d'intervention et de réponse aux usagers",
-          "Démarche développement durable intégrée à l'exploitation"
+          "Dispositifs de reporting et de communication envers la collectivité",
+          "Délais de réponse aux demandes de la collectivité et des usagers",
+          "Mesures de développement durable intégrées à l'exploitation"
         ],
-        "exemple_reponse_forte": "Le candidat propose un portail en ligne partagé avec la Collectivité pour le suivi en temps réel des indicateurs d'exploitation, des délais de réponse aux usagers engagés contractuellement et une démarche de réduction des pertes en réseau et des consommations énergétiques.",
+        "exemple_reponse_forte": "—",
         "source": "RC article 12.4",
+        "unite_evaluation": "points",
         "sous_criteres": [
           {
-            "libelle": "Vis à vis de la Collectivité : délais de réponses aux demandes de la Collectivité, moyens de communication et d'information mis en œuvre, assistance apportée, reporting et remontée d'information, conditions d'accès aux ouvrages et outils informatiques du gestionnaire",
+            "libelle": "Vis-à-vis de la Collectivité : délais de réponses aux demandes de la Collectivité, moyens de communication et d'information mis en œuvre, assistance apportée, reporting et remontée d'information, conditions d'accès aux ouvrages et outils informatiques du gestionnaire",
             "ponderation_pct": 10,
-            "description": "Évalue la qualité de la relation concessionnaire/Collectivité : outils de communication, fréquence et contenu des rapports, accès aux données et outils informatiques, réactivité aux sollicitations de la Collectivité.",
+            "description": "Évalue la qualité du reporting, des outils d'information mis à disposition de la collectivité (extranet, accès aux données d'exploitation) et la réactivité aux sollicitations de la mairie.",
             "elements_attendus": [
-              "Rapport annuel d'exploitation (contenu, délai de remise)",
-              "Reporting intermédiaire (fréquence, indicateurs)",
-              "Accès de la Collectivité aux outils informatiques du gestionnaire (SIG, télérelève, etc.)",
-              "Délais de réponse aux demandes de la Collectivité engagés",
-              "Modalités d'assistance et de conseil à la Collectivité pour ses projets"
+              "Engagement sur les délais de réponse aux demandes de la collectivité (ex. sous 48h pour les demandes courantes)",
+              "Description du rapport annuel du délégataire (RAD) et des indicateurs de performance fournis",
+              "Outils numériques mis à disposition de la collectivité (extranet, portail de supervision)",
+              "Conditions d'accès à distance aux équipements et données d'exploitation (télégestion)",
+              "Modalités d'assistance à la collectivité pour ses projets de renforcement et d'extension"
             ],
-            "exemple_reponse_forte": "Le candidat s'engage à remettre un rapport annuel d'exploitation dans les 3 mois suivant la clôture de l'exercice, à transmettre des tableaux de bord mensuels en ligne, et à donner à la Collectivité un accès en lecture à son logiciel de gestion patrimoniale. Un interlocuteur dédié répond aux demandes de la Collectivité sous 48h.",
-            "source": "RC article 12.4"
+            "exemple_reponse_forte": "Proposition d'un accès en temps réel aux données d'exploitation via un portail web dédié à la collectivité, avec tableaux de bord sur les volumes produits, la qualité de l'eau et les incidents, complété par des réunions semestrielles de suivi et un rapport annuel exhaustif conforme au CGCT.",
+            "source": "RC article 12.4",
+            "unite_evaluation": "points",
+            "grille_actions": [
+              {
+                "action": "Décrire le contenu et la fréquence du reporting remis à la collectivité (RAD, tableaux de bord mensuels, alertes incidents) avec engagement sur les délais de transmission",
+                "type": "livrable",
+                "poids_pct": 35,
+                "source": "RC article 12.4"
+              },
+              {
+                "action": "Proposer un accès numérique en temps réel (extranet, portail web) aux données d'exploitation et de qualité d'eau pour la collectivité, avec démonstration des fonctionnalités",
+                "type": "levier",
+                "poids_pct": 40,
+                "source": "estimé"
+              },
+              {
+                "action": "S'engager formellement sur des délais de réponse aux demandes de la collectivité avec niveaux de service (SLA) différenciés selon l'urgence",
+                "type": "livrable",
+                "poids_pct": 25,
+                "source": "RC article 12.4"
+              }
+            ]
           },
           {
-            "libelle": "Vis à vis des usagers : délai d'intervention, délai de réponse aux réclamations, mesures de communication et d'information, registres de doléances, suivi des impayés",
+            "libelle": "Vis-à-vis des usagers : délai d'intervention, délai de réponse aux réclamations, mesures de communication et d'information, registres de doléances, suivi des impayés",
             "ponderation_pct": 10,
-            "description": "Évalue la qualité de service rendu aux abonnés : accessibilité, réactivité, gestion des réclamations, communication et accompagnement des usagers en difficulté.",
+            "description": "Évalue la qualité de la relation avec les abonnés : accueil, traitement des réclamations, communication proactive et gestion des impayés.",
             "elements_attendus": [
-              "Délais d'intervention garantis selon la nature des demandes",
-              "Délais de réponse aux réclamations engagés",
-              "Dispositifs d'information et de communication avec les abonnés",
-              "Organisation du registre de doléances",
-              "Politique de suivi des impayés et accompagnement social",
-              "Accueil physique et/ou téléphonique des usagers"
+              "Engagement sur les délais d'intervention en cas de problème (fuite, coupure) et de réponse aux réclamations",
+              "Organisation de l'accueil des usagers (guichet, téléphone, en ligne)",
+              "Dispositifs de communication et d'information des abonnés (newsletters, alertes, site web)",
+              "Modalités de tenue du registre de doléances",
+              "Politique de gestion des impayés et d'accompagnement des usagers en difficulté"
             ],
-            "exemple_reponse_forte": "Le candidat garantit une réponse aux réclamations écrites sous 5 jours ouvrés, un accueil téléphonique dédié, la mise en place d'un registre de doléances accessible en ligne et un accompagnement personnalisé des abonnés en situation de fragilité sociale conformément à la politique sociale de la Collectivité.",
-            "source": "RC article 12.4"
+            "exemple_reponse_forte": "Engagement de réponse aux réclamations sous 5 jours ouvrés avec traçabilité dans un registre dématérialisé accessible à la collectivité ; dispositif d'alerte SMS/email en cas d'interruption programmée du service ; politique sociale d'accompagnement des abonnés en difficultés de paiement conforme à la loi Brottes.",
+            "source": "RC article 12.4",
+            "unite_evaluation": "points",
+            "grille_actions": [
+              {
+                "action": "Présenter la charte d'engagement envers les usagers avec des délais garantis de réponse aux réclamations et d'intervention (urgences, demandes courantes)",
+                "type": "livrable",
+                "poids_pct": 35,
+                "source": "RC article 12.4"
+              },
+              {
+                "action": "Décrire les outils et canaux de communication usagers (espace abonné en ligne, application mobile, courrier, téléphone) et les fréquences de communication",
+                "type": "livrable",
+                "poids_pct": 30,
+                "source": "RC article 12.4"
+              },
+              {
+                "action": "Proposer une politique sociale proactive de gestion des impayés (accompagnement personnalisé, plan de règlement, coordination avec services sociaux) au-delà du minimum réglementaire",
+                "type": "levier",
+                "poids_pct": 35,
+                "source": "estimé"
+              }
+            ]
           },
           {
             "libelle": "Dans le cadre du développement durable",
             "ponderation_pct": 10,
-            "description": "Évalue l'engagement du candidat en faveur du développement durable dans la gestion du service : réduction des pertes, économies d'énergie, gestion des déchets, bilan carbone.",
+            "description": "Évalue les engagements du candidat en matière de développement durable dans l'exploitation du service (réduction des pertes, économies d'énergie, gestion des boues, empreinte carbone).",
             "elements_attendus": [
-              "Programme de réduction des pertes en réseau (Indice Linéaire de Perte)",
-              "Actions de réduction de la consommation énergétique des ouvrages",
-              "Gestion et valorisation des sous-produits (boues de STEP pour Lot 2)",
-              "Bilan carbone ou démarche RSE du candidat",
-              "Utilisation d'énergies renouvelables sur les ouvrages"
+              "Objectifs chiffrés de réduction des pertes en réseau (rendement de réseau)",
+              "Plan d'actions pour la réduction de la consommation énergétique des ouvrages",
+              "Gestion durable des sous-produits (boues de STEP, chlore, réactifs)",
+              "Bilan carbone de l'exploitation et plan de réduction des émissions",
+              "Politique d'achats responsables et de recours à des entreprises locales"
             ],
-            "exemple_reponse_forte": "Le candidat propose un programme de recherche active de fuites visant à ramener l'ILP sous le seuil réglementaire, un audit énergétique des ouvrages en début de concession avec programme de travaux d'économies d'énergie, et un plan de gestion des boues de la STEP conforme aux réglementations et valorisant l'épandage agricole local.",
-            "source": "RC article 12.4"
+            "exemple_reponse_forte": "Engagement d'amélioration du rendement de réseau AEP à 80% minimum avec programme de détection active des fuites, couplé à un plan de réduction de 15% de la consommation électrique de la STEP d'ici 2030 (optimisation aération, récupération de chaleur sur les boues) et valorisation des boues en épandage agricole certifié.",
+            "source": "RC article 12.4",
+            "unite_evaluation": "points",
+            "grille_actions": [
+              {
+                "action": "Proposer des objectifs chiffrés d'amélioration du rendement de réseau AEP avec un programme de recherche de fuites (ILC, corrélation acoustique) et calendrier sur 10 ans",
+                "type": "livrable",
+                "poids_pct": 30,
+                "source": "RC article 12.4"
+              },
+              {
+                "action": "Présenter un plan de réduction de la consommation énergétique des installations (STEP, pompes de relèvement, stations de production) avec objectifs mesurables et délais",
+                "type": "levier",
+                "poids_pct": 40,
+                "source": "estimé"
+              },
+              {
+                "action": "Décrire la filière de valorisation des boues de STEP et des sous-produits d'exploitation (réactifs, chlore) dans une logique d'économie circulaire",
+                "type": "livrable",
+                "poids_pct": 30,
+                "source": "RC article 12.4"
+              }
+            ]
           }
         ]
       }
     ],
     "prix": {
       "type_formule": "moins_disant",
-      "formule_explicite": "Note = 25 × (Facture 120 m³ du candidat le moins disant / Facture 120 m³ du candidat)",
+      "formule_explicite": "Note coût du service = 25 × (Facture 120 m³ du candidat le moins disant / Facture 120 m³ du candidat). Le sous-critère 'coût du service' est calculé par comparaison de la facture type 120 m³ entre candidats.",
+      "source": "RC article 12.4",
       "elements_a_chiffrer": [
-        "Facture annuelle pour une consommation de 120 m³ (abonnement + part variable)",
-        "Bordereau des prix unitaires (BPU) — cadre fourni dans le DCE",
-        "Compte d'exploitation prévisionnel (CEP) sur 10 ans",
-        "Part du concessionnaire dans le tarif (part fixe et part variable)",
-        "Tarification des prestations annexes et travaux sur demande"
+        "Facture type 120 m³ abonné (eau potable ou assainissement selon lot)",
+        "Compte d'exploitation prévisionnel sur la durée du contrat (10 ans)",
+        "Bordereau des prix unitaires (BPU) et devis type (CEP)"
       ]
     },
-    "modalite_calcul_prix": "Note coût du service = 25 × (Facture 120 m³ du candidat le moins disant / Facture 120 m³ du candidat). La note maximale de 25 points est attribuée au candidat dont la facture 120 m³ est la plus basse."
+    "modalite_calcul_prix": "Note = 25 × (Facture 120 m³ du candidat le moins disant / Facture 120 m³ du candidat). Formule moins-disante sur la facture type 120 m³."
   },
   "montant_marche": {
-    "valeur_estimee_euros": 2640000,
+    "valeur_estimee_euros": 2640000.0,
     "fourchette_min_euros": null,
     "fourchette_max_euros": null,
     "type": "estime_explicite",
-    "duree_couverte": "10 ans (du 01/04/2027 au 31/03/2037) — valeur totale sur la durée de la concession",
-    "source_extraction": "Avis BOAMP rubrique 'Quantité ou étendue' — Valeur estimée hors TVA : 2 640 000,00 €. Détail : Lot 1 = 1 280 000 € HT, Lot 2 = 1 360 000 € HT (confirmé RC article 4 : CA annuel HT Lot 1 = 128 000 €, Lot 2 = 136 000 €, soit 10 ans × 264 000 €/an = 2 640 000 €).",
-    "commentaire": "Valeur totale sur 10 ans = somme des chiffres d'affaires annuels estimés : (128 000 € + 136 000 €) × 10 = 2 640 000 €. Ces montants correspondent au CA du concessionnaire hors investissements. Les montants réels dépendront des tarifs négociés et de l'évolution des volumes."
+    "duree_couverte": "10 ans (01/04/2027 au 31/03/2037)",
+    "source_extraction": "RC article 4 et avis AAPC (valeur estimée HT 2 640 000 €)",
+    "commentaire": "CA annuel estimé : 128 000 € (Lot 1) + 136 000 € (Lot 2) = 264 000 €/an × 10 ans = 2 640 000 € HT sur la durée de la concession. Montant hors investissements du concessionnaire."
+  },
+  "montant_3_voies": {
+    "voie_1_eur": 2640000.0,
+    "voie_1_source": "RC article 4 : CA annuel HT estimé 128 000 € (Lot 1) + 136 000 € (Lot 2) = 264 000 €/an × 10 ans. Confirmé par l'avis AAPC : valeur estimée HT 2 640 000 €.",
+    "voie_2_disponible": false,
+    "voie_2_min_eur": null,
+    "voie_2_max_eur": null,
+    "voie_2_hypotheses": [],
+    "voie_2_raison_indisponible": "Voie 1 disponible : montant publié explicitement dans le RC et l'avis AAPC. Estimation bottom-up non nécessaire."
+  },
+  "cout_realisation": {
+    "cout_total_eur": 2244000,
+    "cout_min_eur": 2112000,
+    "cout_max_eur": 2376000,
+    "postes": [
+      {
+        "poste": "Lot 1 — Exploitation eau potable (personnel, énergie, réactifs, maintenance, renouvellement)",
+        "detail": "CA lot 1 = 1 280 000 € sur 10 ans. Marge brute estimée 15-18% sur concession eau potable petite collectivité. Coût central = 1 280 000 × 0,835 ≈ 1 069 000 €",
+        "montant_eur": 1069000
+      },
+      {
+        "poste": "Lot 2 — Exploitation assainissement collectif (personnel, énergie, boues, maintenance STEP, postes relèvement, renouvellement)",
+        "detail": "CA lot 2 = 1 360 000 € sur 10 ans. Marge brute estimée 15-18% sur concession assainissement. Coût central = 1 360 000 × 0,835 ≈ 1 135 500 €",
+        "montant_eur": 1136000
+      }
+    ],
+    "taux_journaliers_retenus": "Taux marché indicatifs : marge brute typique concession eau/assainissement petite collectivité 15-20% (part concessionnaire sur tarif + renouvellements imposés). Coût = CA - marge. Estimation à titre indicatif, la structure de coût réelle dépend de l'organisation interne du candidat (personnel propre vs sous-traitance, mutualisation d'équipes).",
+    "commentaire": "Coûts estimés à partir du CA publié (hors investissements concessionnaire) avec une marge brute cible de 15-18% pour une concession eau/assainissement de petite taille. Le coût de production comprend : main d'œuvre d'exploitation (techniciens, responsable), énergie, réactifs de traitement, maintenance préventive/curative, renouvellements contractuels, frais de gestion abonnés et facturation. Les investissements de renouvellement sont en sus et à négocier dans le cahier des charges."
   },
   "revision_prix": {
     "type": "non_communique",
@@ -275,25 +407,29 @@
     "periodicite": null,
     "formule_revision": null,
     "source_extraction": null,
-    "commentaire": "Les modalités de révision des tarifs et des prix ne sont pas décrites dans les pièces du DCE fournies (RC et avis BOAMP uniquement). Les contrats de concession eau/assainissement prévoient généralement une formule d'indexation tarifaire, mais celle-ci sera définie dans le projet de contrat (pièce A1 du DCE, non fournie)."
+    "commentaire": "Le RC ne précise pas les modalités de révision des tarifs de la concession. Les conditions de révision tarifaire sont typiquement définies dans le projet de contrat (pièce A1) et le CEP (pièce A2), non fournis dans les pièces analysées."
   },
   "alertes_prix": [
-    "Le critère financier représente 40 points sur 100 (25 pts coût service + 10 pts CEP + 5 pts BPU) : pondération prix élevée pour une concession de service public, rendant la compétitivité tarifaire déterminante.",
-    "La facture 120 m³ est calculée par une formule de type moins-disant pur (note proportionnelle au moins-disant) : un écart tarifaire même modeste peut générer un écart de note significatif.",
-    "Le CA annuel estimé est faible (128 000 € à 136 000 € HT/an par lot) : marché de petite taille où la mutualisation avec d'autres concessions géographiquement proches est un levier de compétitivité majeur.",
-    "Les montants estimés sont hors investissements : les charges de renouvellement à planifier (plan de renouvellement pluriannuel) impactent directement l'équilibre du CEP et donc le tarif proposé."
+    "Le critère financier représente 40 points sur 100 (40%), avec un sous-critère 'coût du service' noté sur 25 pts via une formule moins-disante sur la facture 120 m³ : la compétitivité tarifaire est déterminante.",
+    "Le compte d'exploitation prévisionnel sur 10 ans est noté séparément (10 pts) : une projection trop optimiste ou incohérente avec la facture proposée sera pénalisante.",
+    "Le CA annuel estimé est très faible (128 000 € et 136 000 € HT/an) pour des concessions eau/assainissement : marché de petite taille avec marges sous pression, à évaluer soigneusement avant de candidater.",
+    "Le BPU et devis type (CEP) sont notés séparément sur 5 pts : la cohérence entre le bordereau des prix, la facture 120 m³ et le compte d'exploitation prévisionnel sera scrutée."
   ],
   "references_exigees": {
     "experience_minimale_annees": null,
-    "experience_source": null,
+    "experience_source": "RC article 8.1",
     "volume_min_references_similaires": null,
-    "volume_min_references_unite": "concessions similaires gérées",
+    "volume_min_references_unite": "marchés similaires",
     "secteur_experience": "Gestion concédée de services publics d'eau potable et/ou d'assainissement collectif de caractéristiques équivalentes",
     "secteur_source": "RC article 8.1",
     "certifications_obligatoires": [],
     "autres_exigences": [
       {
-        "libelle": "Chiffre d'affaires global et chiffre d'affaires relatif à des prestations similaires sur les 3 derniers exercices (bilans et comptes de résultats des 3 dernières années à fournir)",
+        "libelle": "Chiffres d'affaires global et chiffre d'affaires relatif à des prestations similaires à l'objet de la concession sur les trois derniers exercices",
+        "source": "RC article 8.1"
+      },
+      {
+        "libelle": "Bilans et comptes de résultats des trois dernières années",
         "source": "RC article 8.1"
       },
       {
@@ -301,8 +437,8 @@
         "source": "RC article 8.1"
       },
       {
-        "libelle": "Déclaration sur l'honneur attestant l'absence d'exclusion de la participation aux procédures de passation des contrats de concession (articles L.3123-1 à L.3123-5 du CCP)",
-        "source": "RC article 8.1"
+        "libelle": "Aptitude à assurer la continuité du service public et l'égalité des usagers devant le service public",
+        "source": "RC article 8.1 et article 7.4"
       },
       {
         "libelle": "Respect de l'obligation d'emploi des travailleurs handicapés (articles L.5212-1 à L.5212-4 du code du travail)",
@@ -310,81 +446,209 @@
       }
     ]
   },
+  "dossier_candidature": {
+    "pieces_a_fournir": [
+      {
+        "libelle": "Lettre de candidature indiquant l'identité du candidat ou du mandataire du groupement (précisant l'identité de chaque membre)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC article 8.1"
+      },
+      {
+        "libelle": "En cas de groupement : habilitation du mandataire par ses cotraitants",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC article 8.1"
+      },
+      {
+        "libelle": "Pouvoir de la personne habilitée à engager le candidat",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC article 8.1"
+      },
+      {
+        "libelle": "Déclaration sur l'honneur attestant : 1) absence d'exclusion (art. L.3123-1 à L.3123-5 CCP) ; 2) exactitude des renseignements relatifs aux capacités et aptitudes",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC article 8.1"
+      },
+      {
+        "libelle": "Certificat délivré par les administrations et organismes compétents justifiant du respect des obligations fiscales et sociales (art. L.3123-2 CCP)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC article 8.1"
+      },
+      {
+        "libelle": "Description de l'entreprise",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC article 8.1"
+      },
+      {
+        "libelle": "Chiffres d'affaires global et chiffre d'affaires relatif à des prestations similaires sur les trois derniers exercices",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC article 8.1"
+      },
+      {
+        "libelle": "Bilans et comptes de résultats des trois dernières années",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC article 8.1"
+      },
+      {
+        "libelle": "Références de gestion concédée de services publics de caractéristiques équivalentes",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC article 8.1"
+      },
+      {
+        "libelle": "Pièce 1 : Projet de contrat (annexes comprises), complété, daté et signé",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC article 10"
+      },
+      {
+        "libelle": "Pièce 2 : Cadres comptables (compte d'exploitation prévisionnel) avec note explicative sur les modalités de calcul des charges",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC article 10"
+      },
+      {
+        "libelle": "Pièce 3 : Bordereau des prix (BPU et devis type / CEP)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC article 10"
+      },
+      {
+        "libelle": "Pièce 4 : Règlement de service",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC article 10"
+      },
+      {
+        "libelle": "Pièce 5 : Mémoire technique présentant les modalités détaillées d'exécution de la concession",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC article 10"
+      },
+      {
+        "libelle": "Pièce 6 : Note RGPD (données traitées, finalités, durées, catégories de personnes, organisation de conformité)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC article 10"
+      },
+      {
+        "libelle": "Pièce 7 : Liste des éventuelles modifications ou demandes de dérogation au programme de la consultation",
+        "phase": "offre",
+        "obligatoire": false,
+        "source": "RC article 10"
+      },
+      {
+        "libelle": "Pièce A4 : Propositions d'aménagement du cahier des charges (si variante ou aménagement contractuel)",
+        "phase": "offre",
+        "obligatoire": false,
+        "source": "RC article 6 et 9.2"
+      }
+    ],
+    "mode_remise": "dématérialisé",
+    "plateforme_depot": "marches-publics.info — https://www.marches-publics.info/",
+    "signature_electronique_exigee": true,
+    "format_signature": "Certificat électronique délivré par une autorité de certifications (standard plateforme marches-publics.info)",
+    "nombre_exemplaires": null,
+    "langue": "français",
+    "duree_validite_offres_jours": 180,
+    "modalites_source": "RC articles 7.2, 11.1, 11.2"
+  },
   "lots": [
     {
       "numero": 1,
-      "intitule": "Concession du service public de l'eau potable",
-      "zone_geographique": "Ouzouer-sur-Loire (45570) — département du Loiret",
-      "volume_estime": 1280000,
-      "volume_estime_unite": "€ HT sur 10 ans",
-      "particularites": "1 517 abonnés, 126 422 m³ facturés en 2025. Patrimoine : captage et station de production Les Brosses (chloration), captage et station de production de Plaisance (chloration), bâche de reprise 600 m³, château d'eau 350 m³, 50 564 ml de réseau hors branchements. CA annuel estimé 128 000 € HT hors investissements."
+      "intitule": "Concession du service public d'eau potable",
+      "domaine": "ingenierie_eau_milieux",
+      "zone_geographique": "45570 Ouzouer-sur-Loire (Loiret)",
+      "volume_estime": 126422,
+      "volume_estime_unite": "m³ facturés/an",
+      "cout_estime_min_eur": 1049600,
+      "cout_estime_max_eur": 1100800,
+      "ca_estime_min_eur": 1216000,
+      "ca_estime_max_eur": 1344000,
+      "marge_brute_pct": 16,
+      "particularites": "1 517 abonnés. Patrimoine : 2 captages et stations de production (désinfection chlore), 1 bâche de reprise 600 m³, 1 château d'eau 350 m³, 50 564 ml de réseau. CA annuel estimé 128 000 € HT hors investissements."
     },
     {
       "numero": 2,
-      "intitule": "Concession du service public de l'assainissement collectif",
-      "zone_geographique": "Ouzouer-sur-Loire (45570) — département du Loiret",
-      "volume_estime": 1360000,
-      "volume_estime_unite": "€ HT sur 10 ans",
-      "particularites": "1 325 abonnés, 109 086 m³ assujettis en 2025. Patrimoine : STEP 4 100 EH boues activées aération prolongée (mise en service 2021), 10 postes de relèvement, 1 déversoir d'orage, 45 172 ml de réseaux (23 786 ml EU + 13 147 ml EP + 6 037 ml unitaire). CA annuel estimé 136 000 € HT hors investissements."
+      "intitule": "Concession du service public d'assainissement collectif",
+      "domaine": "ingenierie_eau_milieux",
+      "zone_geographique": "45570 Ouzouer-sur-Loire (Loiret)",
+      "volume_estime": 109086,
+      "volume_estime_unite": "m³ assujettis/an",
+      "cout_estime_min_eur": 1117200,
+      "cout_estime_max_eur": 1172000,
+      "ca_estime_min_eur": 1292000,
+      "ca_estime_max_eur": 1428000,
+      "marge_brute_pct": 16,
+      "particularites": "1 325 abonnés. Patrimoine : STEP 4 100 EH (boues activées aération prolongée, 2021), 10 postes de relèvement, 1 déversoir d'orage, 45 172 ml de réseaux (EU, EP, unitaire). CA annuel estimé 136 000 € HT hors investissements."
     }
   ],
+  "tranches": [],
   "calendrier": {
     "date_limite_offres": "2026-09-18",
     "date_demarrage_prevue": "2027-04-01",
-    "duree_marche": "10 ans du 01/04/2027 au 31/03/2037, avec période de tuilage de 1 à 2 mois dès notification du contrat"
+    "duree_marche": "10 ans (01/04/2027 au 31/03/2037) + période de tuilage de 1 à 2 mois"
   },
   "alertes_candidat": [
-    "L'offre de base complète est obligatoire sous peine d'irrecevabilité de l'ensemble du dossier (jurisprudence CE 'Corsica Ferries' 15/12/2006 explicitement citée — RC article 12.3).",
-    "La Commission Concession (L.1411-5 CGCT) filtre d'abord les candidatures sur les garanties professionnelles et financières, l'obligation d'emploi des travailleurs handicapés et l'aptitude à assurer la continuité du service — un dossier de candidature incomplet ou insuffisant peut bloquer l'accès à la phase offre.",
-    "Visite des installations organisée le 24 juin 2026 (Lot 1 à 9h, Lot 2 à 10h) — présence réputée valoir connaissance des lieux : toute réclamation ultérieure fondée sur méconnaissance des installations est irrecevable (RC article 16).",
-    "Les questions doivent être posées en 2 envois maximum avant le 6 juillet 2026 à 12h00 — passé ce délai, aucune question ne sera acceptée (RC article 14).",
-    "Le projet de contrat doit être complété, daté et signé par le représentant légal — une signature électronique certifiée (autorité de certification) est requise pour le dépôt dématérialisé (RC article 11.2).",
-    "Dossier complet en langue française obligatoire — tout document en langue étrangère sans traduction certifiée est écarté (RC article 15)."
+    "L'offre de base conforme (sur 10 ans à compter du 01/04/2027) est obligatoire : toute offre sans offre de base est irrecevable (jurisprudence 'Corsica Ferries'). Vérifier la conformité avant dépôt.",
+    "Les questions doivent être adressées en 2 envois maximum avant le 6 juillet 2026 à 12h00 : délai très court compte tenu de la date de publication (09/06/2026). S'organiser rapidement pour poser les questions techniques.",
+    "Le CA annuel très faible (128 000 €/an pour Lot 1 et 136 000 €/an pour Lot 2) peut ne pas couvrir les coûts d'un opérateur qui ne réalise pas d'économies d'échelle sur le secteur : analyse de rentabilité indispensable avant candidature.",
+    "La visite des installations est organisée le 24 juin 2026 (9h Lot 1, 10h Lot 2) avec inscription avant le 18 juin 2026 à 17h : délai très court, contacter la collectivité immédiatement.",
+    "Le projet de contrat (pièce A1) et le CEP (pièce A2) font partie du DCE mais ne sont pas fournis dans les pièces analysées : il est impératif de les télécharger sur la plateforme pour prendre connaissance des obligations contractuelles précises du concessionnaire (programme de renouvellements, garanties, conditions tarifaires)."
   ],
   "points_differenciants_attendus": [
     {
-      "libelle": "Tarification compétitive de la facture 120 m³ — levier principal du critère prix",
-      "exemple": "Un candidat qui mutualise les coûts avec d'autres concessions gérées dans le Loiret peut proposer une facture 120 m³ inférieure à la moyenne en optimisant les charges de structure, ce qui lui donnera une note maximale sur le sous-critère coût du service (25 pts).",
+      "libelle": "Compétitivité tarifaire sur la facture 120 m³ (note maximum 25/100 sur ce seul sous-critère)",
+      "exemple": "Proposer une facture 120 m³ inférieure aux concurrents tout en maintenant un compte d'exploitation prévisionnel équilibré sur 10 ans. Un candidat optimisant ses coûts par la mutualisation d'équipes sur plusieurs services du secteur (Loiret/Centre-Val de Loire) pourrait offrir un tarif significativement plus bas.",
       "source": "RC article 12.4"
     },
     {
-      "libelle": "Qualité et transparence du compte d'exploitation prévisionnel sur 10 ans",
-      "exemple": "Un CEP distinguant clairement les charges d'exploitation courante, les renouvellements programmés par ouvrage, les hypothèses d'indexation et la marge du concessionnaire démontre la maîtrise de l'économie du contrat et rassure la Collectivité sur la viabilité de l'offre.",
-      "source": "RC article 12.4 et RC article 10 (Pièce 2)"
-    },
-    {
-      "libelle": "Outils numériques de reporting et d'accès aux données pour la Collectivité",
-      "exemple": "Un candidat proposant un accès en ligne pour la Collectivité à un tableau de bord temps réel (débits, qualité, incidents, compteurs télérelevés), avec des alertes automatiques et un rapport mensuel structuré, se différencie fortement sur le sous-critère 'qualité vis-à-vis de la Collectivité' (10 pts).",
+      "libelle": "Qualité et exhaustivité du compte d'exploitation prévisionnel sur 10 ans (10 pts)",
+      "exemple": "Présenter un CEP sur 10 ans avec modélisation de l'évolution des coûts (indexation des salaires, énergie, réactifs), des renouvellements annuels prévus par type d'équipement et une analyse de sensibilité. Un CEP rigoureux et transparent rassurera la collectivité sur la solidité de l'offre.",
       "source": "RC article 12.4"
     },
     {
-      "libelle": "Démarche développement durable structurée et chiffrée",
-      "exemple": "Un programme de réduction des pertes en réseau avec objectif d'ILP annuel, un audit énergétique en début de concession avec plan d'actions, et un plan de valorisation des boues de STEP constituent des engagements concrets valorisés sur les 10 pts développement durable.",
+      "libelle": "Outils numériques et transparence vis-à-vis de la collectivité (10 pts qualité de service — collectivité)",
+      "exemple": "Proposer un portail web en temps réel donnant à la collectivité accès aux données d'exploitation (débits, niveaux, alarmes, qualité de l'eau) et aux indicateurs de performance SISPEA, au-delà du simple rapport annuel réglementaire.",
       "source": "RC article 12.4"
     },
     {
-      "libelle": "Présence locale ou proximité géographique de l'équipe d'exploitation",
-      "exemple": "Un candidat avec une agence ou un technicien basé dans le Loiret (Orléans, Gien, Sully-sur-Loire) peut garantir des délais d'intervention courts et démontrer une connaissance du contexte local (nappes phréatiques, réseau existant, partenaires institutionnels), différenciant son offre sur le sous-critère 'compétences et réactivité de l'équipe dédiée'.",
+      "libelle": "Engagements chiffrés en matière de développement durable (10 pts)",
+      "exemple": "S'engager sur un objectif de rendement de réseau AEP (ex. 80% minimum à terme) avec programme de recherche de fuites, et sur une réduction de 15% de la consommation électrique de la STEP via optimisation de l'aération — objectifs mesurables intégrés au contrat.",
       "source": "RC article 12.4"
+    },
+    {
+      "libelle": "Références d'exploitation de services similaires en termes de taille et de complexité",
+      "exemple": "Mettre en avant des références de concessions eau/assainissement sur des communes de 1 000 à 2 000 abonnés avec STEP de 3 000 à 6 000 EH, avec résultats de performance (rendement réseau, conformité STEP, satisfaction usagers) documentés.",
+      "source": "RC article 8.1"
     }
   ],
   "_meta": {
     "id_marche": "BOAMP-26-56090",
     "type": "complet",
-    "date_generation": "2026-06-14T22:04:46.748263+00:00",
-    "extraction_le": "2026-06-14T22:04:46.748263+00:00",
+    "date_generation": "2026-06-21T02:04:35.030947+00:00",
+    "extraction_le": "2026-06-21T02:04:35.030947+00:00",
     "modele": "claude-sonnet-4-6",
-    "preset_utilise": "btp",
+    "preset_utilise": "ingenierie",
     "presets_matches": [
+      "ingenierie",
       "btp"
     ],
     "prompts_versions": {
-      "btp/_preset.json": "sha256:d1717e0d87f6c265"
+      "ingenierie/_preset.json": "sha256:b924b32a088673d6",
+      "btp/_preset.json": "sha256:055bf6f8b2c1f771"
     },
-    "tokens_input": 26484,
-    "tokens_output": 8968,
-    "cout_eur": 0.2033,
-    "duree_sec": 159.4,
+    "tokens_input": 37901,
+    "tokens_output": 12251,
+    "cout_eur": 0.2826,
+    "duree_sec": 199.9,
     "pdfs_traites": [
       {
         "nom": "AWS-MPI-1832251-RC.pdf",

@@ -1,378 +1,589 @@
 {
-  "synthese_marche": "L'ASNR lance une consultation pour l'étude et la réalisation de l'installation expérimentale KoKoChannel (Condensation in a Containment Channel), destinée à étudier la condensation en paroi dans le cadre du projet PASTIS sur le site de Cadarache. La prestation comprend un Avant-Projet Détaillé, la fabrication/contrôle/recette en usine, la livraison et la remise du dossier constructeur (partie marché ordinaire), ainsi qu'une partie accord-cadre à bons de commande pour des prestations complémentaires de maintien en condition opérationnelle. Le marché est estimé à 265 000 € HT avec une part accord-cadre plafonnée à 25 000 € HT.",
+  "synthese_marche": "L'ASNR (Autorité de Sûreté Nucléaire et de Radioprotection) lance un marché composite (partie marché ordinaire + accord-cadre à bons de commande) pour l'étude et la réalisation de l'installation expérimentale KoKoChannel, destinée à l'étude de la condensation en paroi dans le cadre du projet PASTIS. Le titulaire devra réaliser un Avant-Projet Détaillé, la fabrication/contrôle/montage, puis la livraison avec dossier constructeur sur le site de Cadarache. Le montant estimatif est de 265 000 € HT pour la partie forfaitaire, avec un accord-cadre plafonné à 25 000 € HT.",
   "domaines_metier": [
     {
       "code": "autre"
     }
   ],
-  "raison_classification": "Ce marché porte sur la fabrication et l'intégration mécanique d'une installation expérimentale scientifique (tuyauteries, sections d'essai, réservoirs, calorifuge, supports) pour un laboratoire de recherche en thermohydraulique nucléaire. Il ne relève d'aucun des codes disponibles dans la taxonomie : ce n'est pas de l'IT, du BTP classique, de l'énergie, de la formation ni du conseil. Le CPV 73100000 (R&D expérimental) et la nomenclature LAB_030 (équipement de laboratoire) confirment un domaine de fabrication d'équipements scientifiques spécialisés hors taxonomie.",
-  "caracteristiques_mission_it": {
-    "typologie_mission": null,
-    "typologie_systeme": null,
-    "cloud_ou_on_premise": null,
-    "niveau_securite": null,
-    "technologies_attendues": [],
-    "modele_prestation": "forfait + accord-cadre à bons de commande",
-    "volumetrie": null,
-    "jours_homme_estimes": null,
-    "sla_attendus": null,
-    "livrables_par_phase": [
-      {
-        "phase": "Poste 1 – Avant-Projet Détaillé (APD)",
-        "livrables": [
-          "Planning détaillé et définitif",
-          "Relevés de cotes réalisés lors de la visite site",
-          "Définition des couples de serrage",
-          "Plans de supportage",
-          "Plans de détail (CAO 2D et 3D, SolidWorks 2024)",
-          "Nomenclature",
-          "Plan qualité de réalisation (LOFC)",
-          "Liste des sous-traitants",
-          "Compte-rendu de la revue de conception de fin d'APD"
-        ]
-      },
-      {
-        "phase": "Poste 2 – Fabrication, contrôle et montage",
-        "livrables": [
-          "Certificats matière 3.1 selon NF EN 10204",
-          "Certificats de conformité pièces du commerce",
-          "Cahiers de soudage",
-          "PV de traitement de surface (sablage et anodisation)",
-          "PV de contrôles dimensionnels (pièces unitaires et ensemble)",
-          "PV de contrôle visuel",
-          "PV de test d'étanchéité (critère 1.10⁻⁴ Pa.m³.s⁻¹)",
-          "PV de recette usine"
-        ]
-      },
-      {
-        "phase": "Poste 3 – Livraison et dossier constructeur",
-        "livrables": [
-          "Dossier constructeur complet (plans DWG+PDF, PV de contrôle, fiches techniques, certificats matières)",
-          "Bordereau de livraison",
-          "PV de réception contradictoire sur site"
-        ]
-      },
-      {
-        "phase": "Poste 4 – Accord-cadre à bons de commande (MCO)",
-        "livrables": [
-          "Études complémentaires ou supplémentaires (plans)",
-          "Approvisionnement et fabrication d'équipements mécaniques",
-          "Contrôles supplémentaires avec PV"
-        ]
-      }
-    ],
-    "profils_attendus": [
-      {
-        "profil": "Chef de projet",
-        "nombre": null,
-        "anciennete_min_annees": null,
-        "certifs_requises": []
-      },
-      {
-        "profil": "Ingénieur étude / méthodes (Bureau d'études mécanique)",
-        "nombre": null,
-        "anciennete_min_annees": null,
-        "certifs_requises": []
-      },
-      {
-        "profil": "Technicien spécialisé (fabrication/atelier)",
-        "nombre": null,
-        "anciennete_min_annees": null,
-        "certifs_requises": []
-      },
-      {
-        "profil": "Dessinateur / projeteur CAO (SolidWorks)",
-        "nombre": null,
-        "anciennete_min_annees": null,
-        "certifs_requises": []
-      },
-      {
-        "profil": "Soudeur qualifié",
-        "nombre": null,
-        "anciennete_min_annees": null,
-        "certifs_requises": [
-          "Qualification soudeur selon normes applicables"
-        ]
-      }
-    ],
-    "exigences_securite": [],
-    "reversibilite": null
-  },
-  "qualifications_it": {
-    "iso_27001": false,
-    "hds": false,
-    "secnumcloud": false,
-    "rgs": false,
-    "referencement_anssi": false,
-    "certifications_securite": [],
-    "certifications_technologiques": [],
-    "autres": [
-      "Certification qualité ISO 9001 v2015 exigée pour l'exécution des prestations",
-      "Qualification des soudeurs selon normes applicables",
-      "Soupape de sécurité marquée CE selon Directive 2014/68/UE"
+  "raison_classification": "Ce marché porte sur la conception et la fabrication d'une installation expérimentale scientifique (tuyauteries, sections d'essai, veine de condensation) pour un laboratoire de recherche en sûreté nucléaire. Il ne relève d'aucune des catégories de la taxonomie (ni formation, ni BTP standard, ni énergie, ni IT, ni conseil, ni ingénierie au sens études seules) : il s'agit d'un marché industriel de fabrication sur mesure d'équipement scientifique/laboratoire (CPV 73100000, nomenclature LAB_030). Le code 'autre' est donc le seul applicable.",
+  "caracteristiques_metier": {
+    "description": "Réalisation en lot unique d'une installation expérimentale de thermohydraulique (KoKoChannel) pour l'étude de la condensation en paroi : APD mécanique (tuyauteries DN15 à DN200, sections carrées 100×100 mm, section d'essai vitrée, réservoirs condensats, calorifuge et traçage), fabrication et assemblage en atelier avec contrôles dimensionnels/étanchéité/soudage, recette usine et livraison sur site ASNR Cadarache. La prestation inclut la gestion documentaire (plans SolidWorks, PV de contrôle, dossier constructeur). Un accord-cadre à bons de commande plafonné à 25 000 € HT couvre les prestations modificatives/supplémentaires post-livraison.",
+    "criteres_eligibilite": [
+      "Capacités financières : progression ou stabilité du résultat net et du CA sur 3 derniers exercices ; taux de dépendance acceptabl (sous-critères pondérés 60%/40%)",
+      "Capacités techniques : projets similaires réalisés dans le secteur de l'énergie ou domaine proche (nombre, montant, niveau de personnalisation) – 60% du critère technique",
+      "Compétences humaines et techniques : expérience des intervenants, dimensionnement, moyens techniques spécifiques (atelier de montage) – 40% du critère technique",
+      "Certification qualité ISO 9001 v2015 ou équivalent exigée (mention explicite au cahier des charges §3)",
+      "Qualification professionnelle des soudeurs (cahiers de soudage, soudeurs qualifiés)",
+      "Visite de site obligatoire préalable à la remise d'offre (certificat de visite à joindre à peine de rejet)"
     ]
   },
   "bareme_notation": {
-    "valeur_technique_pct": 55,
+    "valeur_technique_pct": 60,
     "valeur_prix_pct": 40,
     "sous_criteres_techniques": [
       {
-        "libelle": "Pertinence et Adéquation de la solution technique proposée",
-        "ponderation_pct": 15,
-        "description": "Évaluation de la pertinence de la solution APD proposée (plan d'ensemble, plan de détails, solution de calorifuge et traçage) et des capacités démontrées de fabrication, contrôle dimensionnel et tests d'étanchéité.",
-        "elements_attendus": [
-          "Plan d'ensemble démontrant la compatibilité avec les contraintes d'installation (surface 2,5×4 m, hauteur 3,2 m, portique 500 kg) et l'environnement existant",
-          "Solution d'étanchéité et de facilité de nettoyage des sections carrées",
-          "Solution de calorifuge et traçage compatible avec l'alimentation électrique disponible (gradateurs 230V/16A)",
-          "Démonstration de la capacité d'usinage de pièces complexes avec plan qualité de réalisation",
-          "Démonstration de la capacité de contrôle dimensionnel à 100%",
-          "Démonstration de la capacité à réaliser des tests d'étanchéité (critère 1.10⁻⁴ Pa.m³.s⁻¹)"
-        ],
-        "exemple_reponse_forte": "Le candidat présente un plan d'ensemble en SolidWorks 2024 intégrant les contraintes d'encombrement du local Dofin (bâtiment 327), avec une solution de bridage permettant le démontage du coude sans outillage spécifique. Il détaille sa méthode de contrôle d'étanchéité par test à l'azote et fournit des exemples de PV de contrôle dimensionnel issus de projets similaires.",
-        "source": "RC Article 5 §2.B",
+        "libelle": "Technique",
+        "ponderation_pct": 55,
+        "description": "Évaluation de la solution technique proposée (APD, fabrication, plan qualité) et de l'organisation/pilotage du projet. Se décompose en sous-critères distincts selon le RC.",
+        "elements_attendus": [],
+        "exemple_reponse_forte": "—",
+        "source": "RC article 5 §2",
+        "unite_evaluation": "points",
         "sous_criteres": [
           {
-            "libelle": "Avant-projet détaillé (APD)",
-            "ponderation_pct": null,
-            "description": "Évaluation du plan d'ensemble (encombrement, facilité d'installation/démontage, interfaces) et du plan de détails (étanchéité, nettoyage, instrumentation) et de la solution calorifuge/traçage.",
+            "libelle": "Pertinence et Adéquation de la solution technique proposée",
+            "ponderation_pct": 15,
+            "description": "L'acheteur évalue la pertinence de l'APD (plan d'ensemble, plan de détails, solution calorifuge/traçage) et la capacité de fabrication (usinage pièces complexes, contrôle dimensionnel, tests d'étanchéité).",
             "elements_attendus": [
-              "Plan d'ensemble compatible avec les contraintes d'installation (portique, surface au sol, hauteur)",
-              "Solution d'étanchéité et facilité de nettoyage des sections",
-              "Compatibilité avec les interfaces existantes (paroi refroidie, PIV, balances)",
-              "Solution calorifuge/traçage compatible avec l'alimentation électrique"
+              "Plan d'ensemble respectant les contraintes d'installation (local Dofin 2,5×4 m, H 3,2 m, portique 500 kg sous crochet 2,8 m)",
+              "Solution d'étanchéité des verres et de la veine (joints intérieurs/extérieurs, dilatations thermiques différentielles)",
+              "Solution de calorifuge et traçage compatible avec les gradateurs existants (5 × 230V/16A) et la température de consigne 100-140°C",
+              "Démonstration de capacité d'usinage de pièces complexes avec Plan de Qualité de Réalisation préliminaire",
+              "Démonstration de capacité de contrôle dimensionnel (100% des cotes, PV par pièce)",
+              "Démonstration de capacité de réalisation de tests d'étanchéité (critère 1×10⁻⁴ Pa.m³.s⁻¹ à froid par partie)"
             ],
-            "exemple_reponse_forte": "Le titulaire propose une configuration modulaire permettant le démontage individuel de chaque section carrée de 100×100 mm, avec joints en matériaux compatibles vapeur ≥150°C, et intègre le traçage électrique sur les 5 entrées gradateurs disponibles.",
-            "source": "RC Article 5 §2.B – Chapitre 1"
+            "exemple_reponse_forte": "Le candidat présente un plan d'ensemble 3D SolidWorks 2024 montrant l'implantation dans le local Dofin, avec accès dégagé à la sortie de secours et manutention par le portique existant. La solution de vitrage retient des joints PTFE pour les joints intérieurs et une gorge compressive pour les joints extérieurs. Le plan qualité préliminaire intègre les points d'arrêt sablage-anodisation et les étapes de contrôle d'étanchéité à l'azote.",
+            "source": "RC article 5 §2 – Chapitre 1",
+            "unite_evaluation": "points",
+            "sous_criteres": [],
+            "grille_actions": [
+              {
+                "action": "Produire un plan d'ensemble 3D SolidWorks (ou format compatible) montrant l'implantation dans le local Dofin avec cotes d'encombrement et respect des interfaces paroi refroidie/PIV",
+                "type": "livrable",
+                "poids_pct": 25,
+                "source": "RC §5 Chapitre 1 / Cahier des charges §4.3"
+              },
+              {
+                "action": "Détailler la solution d'étanchéité des verres (joints intérieurs/extérieurs, matériaux compatibles vapeur ≥150°C) avec référence à des réalisations antérieures similaires",
+                "type": "livrable",
+                "poids_pct": 20,
+                "source": "Cahier des charges §4.1"
+              },
+              {
+                "action": "Présenter la solution de calorifuge et traçage (matériaux souples, découpe en 2 parties, compatibilité alimentation électrique existante) avec calcul thermique simplifié justifiant la température de surface ≤50°C",
+                "type": "livrable",
+                "poids_pct": 20,
+                "source": "Cahier des charges §4.2 / RC §5 Chapitre 1"
+              },
+              {
+                "action": "Fournir un Plan de Qualité de Réalisation préliminaire avec points d'arrêt ASNR (sablage, anodisation, contrôle dimensionnel, test étanchéité) et procédure de test d'étanchéité à l'azote ou à l'air",
+                "type": "livrable",
+                "poids_pct": 25,
+                "source": "RC §5 Chapitre 1 / Cahier des charges §5.1"
+              },
+              {
+                "action": "Citer des références d'usinage de pièces complexes en inox 316L (sections carrées, veine optique, soudures étanches) avec photos ou PV de contrôle à l'appui",
+                "type": "levier",
+                "poids_pct": 10,
+                "source": "RC §5 Chapitre 1"
+              }
+            ]
           },
           {
-            "libelle": "Fabrication et montage",
-            "ponderation_pct": null,
-            "description": "Démonstration des capacités d'usinage de pièces complexes (plan qualité de réalisation), de contrôle dimensionnel et de réalisation de tests d'étanchéité.",
+            "libelle": "Respect du planning maximal",
+            "ponderation_pct": 5,
+            "description": "L'acheteur évalue la capacité du candidat à respecter le délai maximal de 10,5 mois (T0+15j réunion lancement, T1+3 mois APD, T1+6 mois fabrication, T3+1 mois dossier constructeur). Un délai inférieur est valorisé.",
             "elements_attendus": [
-              "Plan Qualité de Réalisation (LOFC) préliminaire démontrant la maîtrise des étapes de fabrication",
-              "Exemples de contrôles dimensionnels 100% sur des pièces similaires",
-              "Procédure de test d'étanchéité (air ou azote) avec critères de conformité",
-              "Capacité d'anodisation noire et sablage corindon blanc F120"
+              "Planning détaillé respectant les jalons contractuels (T1 à T4)",
+              "Indication d'un délai global inférieur à 10,5 mois si possible",
+              "Identification des chevauchements possibles entre APD et approvisionnements",
+              "Prise en compte des délais de validation ASNR (revue de conception, PV)"
             ],
-            "exemple_reponse_forte": "Le candidat fournit un LOFC préliminaire couvrant les étapes décapage-passivation, sablage, anodisation et montage, avec les points d'arrêt et de notification. Il joint un exemple de PV de contrôle dimensionnel d'une pièce usinée en inox 316L issu d'un projet antérieur.",
-            "source": "RC Article 5 §2.B – Chapitre 1"
+            "exemple_reponse_forte": "Le candidat propose un planning en 9 mois (T0+15j lancement, T2=T1+2,5 mois APD, T3=T1+5,5 mois fabrication, T4=T3+1 mois dossier). Il identifie les approvisionnements longues délais (verres épaulés, soupape CE) et les intègre dès la phase APD pour ne pas retarder la fabrication.",
+            "source": "RC article 5 §2 – Chapitre 1 / Cahier des charges §1.3",
+            "unite_evaluation": "delai_jours",
+            "sous_criteres": [],
+            "grille_actions": [
+              {
+                "action": "Produire un planning détaillé (Gantt) avec les 4 jalons contractuels (T1-T4) et les délais de validation ASNR intégrés",
+                "type": "livrable",
+                "poids_pct": 50,
+                "source": "Cahier des charges §1.3"
+              },
+              {
+                "action": "Proposer un délai global inférieur à 10,5 mois en justifiant les gains (chevauchement APD/appros, délais approvisionnements identifiés)",
+                "type": "levier",
+                "poids_pct": 50,
+                "source": "RC §2 §4 / CCAP §6.1"
+              }
+            ]
+          },
+          {
+            "libelle": "Maîtrise de la réalisation des fournitures, dont complétude du plan qualité de réalisation préliminaire",
+            "ponderation_pct": 38,
+            "description": "Sous-critère principal (70% du critère technique) : l'acheteur évalue la démonstration concrète de la maîtrise de la fabrication (usinage complexe, soudage, traitement de surface, contrôle) à travers la complétude du plan qualité préliminaire joint à l'offre.",
+            "elements_attendus": [
+              "Plan qualité préliminaire (LOFC) complet avec étapes de décapage-passivation, sablage, anodisation, contrôles dimensionnels, test d'étanchéité",
+              "Liste des sous-traitants avec allotissement et coordonnées",
+              "Procédures de soudage (qualification des soudeurs, DMOS)",
+              "Certification ISO 9001 v2015 ou équivalent démontrant le système qualité en place",
+              "Références de réalisations similaires (tuyauteries inox, sections d'essai, équipements de laboratoire)",
+              "Moyens techniques disponibles (atelier propre de montage, équipements de métrologie, banc d'étanchéité)"
+            ],
+            "exemple_reponse_forte": "Le candidat joint un plan qualité préliminaire de 15 pages avec 23 opérations de contrôle identifiées, incluant 4 points d'arrêt ASNR (fin APD, sablage-anodisation, recette étanchéité, recette usine). Il présente son certification ISO 9001, ses DMOS de soudage inox 316L, et 3 références d'installations expérimentales similaires réalisées pour des laboratoires CEA ou universitaires dans les 3 dernières années.",
+            "source": "RC article 5 §2 – Chapitre 1 (70% du critère technique) / Cahier des charges §3 et §5.2",
+            "unite_evaluation": "points",
+            "sous_criteres": [],
+            "grille_actions": [
+              {
+                "action": "Fournir un Plan Qualité de Réalisation préliminaire (LOFC) complet couvrant toutes les étapes imposées par le cahier des charges (décapage, passivation, sablage F120, anodisation noire, contrôles dimensionnels 100%, test étanchéité)",
+                "type": "livrable",
+                "poids_pct": 30,
+                "source": "Cahier des charges §3 et §5.2 / RC §5 Chapitre 1"
+              },
+              {
+                "action": "Joindre la certification ISO 9001 v2015 (ou équivalent) du candidat et/ou de ses sous-traitants clés",
+                "type": "livrable",
+                "poids_pct": 15,
+                "source": "Cahier des charges §3"
+              },
+              {
+                "action": "Présenter les DMOS et qualifications soudeurs inox 316L (soudures étanches et résistantes, contrôle visuel NF EN ISO 3452-1)",
+                "type": "livrable",
+                "poids_pct": 20,
+                "source": "Cahier des charges §5.2"
+              },
+              {
+                "action": "Détailler les moyens d'atelier : aire propre de montage, équipements de métrologie calibrés, banc de test d'étanchéité (azote ou air comprimé)",
+                "type": "livrable",
+                "poids_pct": 20,
+                "source": "RC §4 candidature – description outillage"
+              },
+              {
+                "action": "Fournir 2-3 fiches de références similaires (installations expérimentales tuyauteries inox, équipements laboratoire) avec PV de contrôle ou attestations clients",
+                "type": "levier",
+                "poids_pct": 15,
+                "source": "RC §4 candidature"
+              }
+            ]
+          },
+          {
+            "libelle": "Qualité de l'organisation et du pilotage du projet",
+            "ponderation_pct": 10,
+            "description": "L'acheteur évalue les modalités de pilotage (maîtrise de la sous-traitance, interfaces humaines et techniques, gestion des risques, coordination) et l'identification des lieux d'exécution.",
+            "elements_attendus": [
+              "Organigramme projet avec rôles et qualifications des intervenants clés (chef de projet, ingénieur études, soudeurs, contrôleur qualité)",
+              "Modalités de pilotage de la sous-traitance (liste, allotissement, suivi)",
+              "Gestion des risques projet (délais, interfaces ASNR, fournitures ASNR, accès site Cadarache)",
+              "Lieu(x) d'exécution principal(aux) (ateliers du titulaire)",
+              "Modalités de compte rendu à l'ASNR (réunions de suivi, CR)"
+            ],
+            "exemple_reponse_forte": "Le candidat présente un organigramme avec un chef de projet dédié (10 ans d'expérience en équipements expérimentaux), un ingénieur études mécaniques, deux soudeurs qualifiés inox, et un responsable qualité. La sous-traitance est limitée au calorifuge/traçage (sous-traitant identifié, DC4 joint). Le plan de gestion des risques identifie l'accès au site Cadarache (délai d'habilitation) et la disponibilité de la paroi refroidie ASNR pour la recette usine.",
+            "source": "RC article 5 §2 – Chapitre 2",
+            "unite_evaluation": "points",
+            "sous_criteres": [],
+            "grille_actions": [
+              {
+                "action": "Présenter un organigramme projet nominatif avec CV synthétiques des intervenants clés et temps alloués au projet",
+                "type": "livrable",
+                "poids_pct": 35,
+                "source": "RC §5 Chapitre 2"
+              },
+              {
+                "action": "Identifier toutes les prestations sous-traitées avec coordonnées des sous-traitants et allotissement technique précis",
+                "type": "livrable",
+                "poids_pct": 25,
+                "source": "RC §5 Chapitre 2 / Cahier des charges §5.1"
+              },
+              {
+                "action": "Fournir un plan de gestion des risques projet (délais approvisionnements, coordination ASNR pour cession paroi refroidie, habilitation accès Cadarache)",
+                "type": "levier",
+                "poids_pct": 25,
+                "source": "RC §5 Chapitre 2"
+              },
+              {
+                "action": "Préciser les lieux d'exécution (ateliers propres, sous-traitants) et les modalités de compte rendu périodiques à l'ASNR",
+                "type": "livrable",
+                "poids_pct": 15,
+                "source": "RC §5 Chapitre 2 / CCAP §9.3"
+              }
+            ]
           }
         ]
       },
       {
-        "libelle": "Respect du planning maximal",
-        "ponderation_pct": 5,
-        "description": "Évaluation de la capacité du candidat à respecter le planning maximal de 10,5 mois et des jalons intermédiaires (APD T1+3 mois, fabrication T1+6 mois, dossier constructeur T1+7 mois).",
-        "elements_attendus": [
-          "Planning détaillé respectant les jalons : revue APD à T1+3 mois, fabrication/montage à T1+6 mois, dossier constructeur à T1+7 mois",
-          "Planning inférieur au délai maximal de 10,5 mois (devient contractuel)",
-          "Identification des risques de délais et mesures de mitigation"
-        ],
-        "exemple_reponse_forte": "Le candidat propose un planning en 9,5 mois avec jalons détaillés, identifiant les points critiques (approvisionnement matériaux inox 316L, qualification des soudeurs) et les marges associées. Ce délai réduit devient contractuel.",
-        "source": "RC Article 5 §2.B"
-      },
-      {
-        "libelle": "Maîtrise de la réalisation des fournitures, dont complétude du plan qualité de réalisation préliminaire",
-        "ponderation_pct": 70,
-        "description": "Critère majoritaire (70% de la note technique) évaluant la maîtrise complète de la réalisation des fournitures et la complétude du Plan de Qualité de Réalisation préliminaire soumis avec l'offre.",
-        "elements_attendus": [
-          "Plan Qualité de Réalisation (LOFC) préliminaire complet couvrant toutes les étapes de fabrication et contrôle",
-          "Points d'arrêt et points de notification identifiés pour l'ASNR",
-          "Procédures de soudage, contrôles CND, traitement de surface",
-          "Méthode de fabrication de la pièce métallique supportant les hublots (section d'essai à verres épaulés)",
-          "Gestion de la sous-traitance avec liste des sous-traitants envisagés",
-          "Démonstration de l'expérience en fabrication d'installations expérimentales complexes pour le secteur nucléaire ou de l'énergie"
-        ],
-        "exemple_reponse_forte": "Le candidat soumet un LOFC préliminaire sur 15 pages couvrant l'ensemble des phases (approvisionnement avec certificats 3.1, usinage, décapage-passivation, sablage F120, anodisation noire, montage, contrôles dimensionnels 100%, test d'étanchéité, recette usine) avec les points d'arrêt clairement identifiés. Il détaille sa méthode de fabrication de la section d'essai avec verres épaulés pour garantir la coplanarité des surfaces intérieures à ±0,5 mm.",
-        "source": "RC Article 5 §2.B"
-      },
-      {
-        "libelle": "Qualité de l'organisation et du pilotage du projet",
-        "ponderation_pct": 10,
-        "description": "Évaluation des modalités de pilotage du marché : maîtrise de la sous-traitance, interfaces humaines et techniques, gestion des risques, planning, lieux d'exécution.",
-        "elements_attendus": [
-          "Présentation des modalités de pilotage et de maîtrise de la sous-traitance",
-          "Moyens humains et techniques affectés (qualification, expérience des intervenants)",
-          "Gestion des risques projet et coordination avec l'ASNR",
-          "Planning détaillé du marché",
-          "Identification des prestations sous-traitées",
-          "Localisation du ou des lieux d'exécution (atelier de fabrication)"
-        ],
-        "exemple_reponse_forte": "Le candidat désigne un chef de projet unique interlocuteur de l'ASNR, présente son atelier de fabrication équipé pour l'usinage de précision et le traitement de surface (anodisation), détaille la gestion des interfaces avec ses sous-traitants (calorifuge, robinetterie) et fournit une matrice des risques projet.",
-        "source": "RC Article 5 §2.B – Chapitre 2"
-      },
-      {
         "libelle": "Développement durable",
         "ponderation_pct": 5,
-        "description": "Évaluation du mémoire environnemental sur les mesures de réduction des impacts liés au transport/emballages et la démarche de conception et fabrication éco-responsable.",
+        "description": "Apprécié au regard du mémoire environnemental : mesures de réduction des impacts liés au transport et à l'utilisation des emballages, démarche de conception et de fabrication éco-responsable.",
         "elements_attendus": [
-          "Mesures de réduction des impacts liés au transport (groupage, véhicules faibles émissions)",
-          "Politique de réduction et gestion des emballages",
-          "Démarche de conception éco-responsable (choix matériaux, réduction déchets dangereux)",
-          "Gestion des déchets de fabrication avec filières identifiées"
+          "Mesures concrètes de réduction des impacts transport (regroupement des livraisons, véhicules à faibles émissions)",
+          "Politique de gestion des emballages (réutilisation, matériaux recyclés)",
+          "Démarche éco-responsable en fabrication (gestion déchets industriels, traçabilité filières de traitement)"
         ],
-        "exemple_reponse_forte": "Le candidat s'engage à livrer l'installation en un seul transport groupé depuis son atelier, utilise des emballages réutilisables, et décrit sa filière de traitement des déchets issus du sablage et de l'anodisation (déchets dangereux confiés à un prestataire agréé).",
-        "source": "RC Article 5 §2.B"
+        "exemple_reponse_forte": "Le candidat regroupe toutes les livraisons en 1 à 2 transports maximum vers Cadarache, privilégie les emballages en bois/carton recyclables, et détaille sa filière de traitement des déchets issus du décapage-passivation et de l'anodisation (déchets dangereux, prestataire agréé identifié).",
+        "source": "RC article 5 §2 – Mémoire environnemental",
+        "unite_evaluation": "points",
+        "sous_criteres": [],
+        "grille_actions": [
+          {
+            "action": "Produire un mémoire environnemental (2-3 pages) détaillant les mesures transport (regroupement livraisons, véhicules faibles émissions) et la politique emballages",
+            "type": "livrable",
+            "poids_pct": 50,
+            "source": "RC §5 – Mémoire environnemental"
+          },
+          {
+            "action": "Documenter la gestion des déchets de fabrication (décapage, anodisation, visserie) avec filières de traitement identifiées et traçabilité",
+            "type": "livrable",
+            "poids_pct": 30,
+            "source": "CCAP §12.1"
+          },
+          {
+            "action": "Présenter une démarche de conception éco-responsable (choix de matériaux durables, réduction des chutes de matière, pièces interchangeables facilitant la maintenance)",
+            "type": "levier",
+            "poids_pct": 20,
+            "source": "RC §5 – Mémoire environnemental"
+          }
+        ]
       }
     ],
     "prix": {
       "type_formule": "moins_disant",
       "formule_explicite": "Note prix = Pondération × (offre la moins élevée / offre analysée), appréciée au regard du montant total de la DPGF et du montant du DQE.",
+      "source": "RC article 5 §2 – Critères d'attribution",
       "elements_a_chiffrer": [
-        "DPGF – Poste 1 : Avant-Projet Détaillé (APD) – forfaits 1.1 à 1.4",
-        "DPGF – Poste 2 : Fabrication, contrôle et recette en usine – forfaits 2.1 à 2.3",
-        "DPGF – Poste 3 : Livraison et dossier constructeur – forfaits 3.1 à 3.2",
-        "BPU – Taux de main-d'œuvre (A1 à A8) : technicien, ingénieur, chef de projet, dessinateur CAO",
-        "BPU – Frais de déplacement et hébergement (B1 à B6)",
-        "BPU – Fournitures et consommables courants (C1 à C3)",
-        "BPU – Prestations ponctuelles forfaitisées (D1 à D3)",
-        "BPU – Études et ingénierie complémentaires (E1)",
-        "DQE – Quantités estimatives accord-cadre sur 12 mois (total estimatif)"
+        "DPGF – Poste 1 : Avant-Projet Détaillé (management, études techniques mécaniques, gestion documentaire)",
+        "DPGF – Poste 2 : Fabrication, contrôle et recette en usine (approvisionnements, fabrication/assemblage, contrôles)",
+        "DPGF – Poste 3 : Livraison et dossier constructeur (transport, DOE)",
+        "DQE – Accord-cadre : taux de main-d'œuvre (A1 à A8), frais de déplacement (B1 à B6), fournitures consommables (C1 à C3), prestations forfaitisées (D1 à D3), études complémentaires (E1)"
       ]
     },
-    "modalite_calcul_prix": "Note prix = Pondération × (offre la moins élevée / offre analysée), appréciée au regard du montant total de la DPGF et du montant du DQE."
+    "modalite_calcul_prix": "Note prix = Pondération × (offre la moins élevée / offre analysée), base = montant total DPGF + montant DQE."
   },
   "montant_marche": {
     "valeur_estimee_euros": 265000,
     "fourchette_min_euros": null,
     "fourchette_max_euros": null,
     "type": "estime_explicite",
-    "duree_couverte": "Durée totale du marché : notification jusqu'à expiration de la garantie 12 mois après réception sur site (soit environ 22-23 mois au total). Partie ordinaire : 10,5 mois. Accord-cadre : 12 mois après réception, plafond 25 000 € HT.",
-    "source_extraction": "RC Article 2 §6 page 4",
-    "commentaire": "Montant estimatif global de 265 000 € HT donné à titre indicatif sans valeur contractuelle. La partie accord-cadre est plafonnée à 25 000 € HT sur la durée totale. La partie marché ordinaire (DPGF postes 1+2+3) représente donc environ 240 000 € HT."
+    "duree_couverte": "Durée totale du marché (partie ordinaire ~10,5 mois + garantie 12 mois), dont accord-cadre plafonné à 25 000 € HT",
+    "source_extraction": "RC article 2 §6 page 4 : 'Le montant estimatif du marché est de 265 000 € HT'",
+    "commentaire": "Montant estimatif explicite de 265 000 € HT pour la partie marché ordinaire (DPGF postes 1-3). L'accord-cadre à bons de commande est plafonné séparément à 25 000 € HT. Montant total toutes parties : ~290 000 € HT."
+  },
+  "montant_3_voies": {
+    "voie_1_eur": 265000,
+    "voie_1_source": "RC article 2 §6 : 'Le montant estimatif du marché est de 265 000 € HT' (hors accord-cadre plafonné à 25 000 € HT séparément)",
+    "voie_2_disponible": false,
+    "voie_2_min_eur": null,
+    "voie_2_max_eur": null,
+    "voie_2_hypotheses": [],
+    "voie_2_raison_indisponible": "Voie 1 disponible (montant explicite dans le RC). Estimation bottom-up non nécessaire."
+  },
+  "cout_realisation": {
+    "cout_total_eur": 198000,
+    "cout_min_eur": 175000,
+    "cout_max_eur": 220000,
+    "postes": [
+      {
+        "poste": "Études APD (ingénierie mécanique, CAO SolidWorks, plan qualité, revue de conception)",
+        "detail": "Estimation 60-80 j-h ingénieur études/chef de projet × 700 €/j taux marché indicatif",
+        "montant_eur": 49000
+      },
+      {
+        "poste": "Approvisionnements matières et équipements (tuyauteries inox, verres, raccords, soupape CE, calorifuge, traçage, bidons, supports)",
+        "detail": "Fournitures matérielles estimées sur la base du détail DPGF §2.1 : ~30% du coût total fabrication",
+        "montant_eur": 65000
+      },
+      {
+        "poste": "Fabrication et assemblage en atelier (usinage, soudage, traitement surface, contrôles)",
+        "detail": "Estimation 200-250 heures technicien/soudeur × 65 €/h taux marché indicatif + sous-traitance traitement de surface",
+        "montant_eur": 55000
+      },
+      {
+        "poste": "Contrôles, essais et recette usine (test étanchéité, contrôles dimensionnels, PV, animation recette)",
+        "detail": "Estimation 30-40 j-h technicien contrôle + ingénieur × 600 €/j moyen",
+        "montant_eur": 20000
+      },
+      {
+        "poste": "Livraison, emballage, transport, dossier constructeur",
+        "detail": "Transport franco Cadarache + rédaction DOE (plans DWG/PDF, PV, fiches techniques)",
+        "montant_eur": 9000
+      }
+    ],
+    "taux_journaliers_retenus": "Taux marché indicatifs utilisés : ingénieur études/chef de projet 650-750 €/j ; technicien atelier 60-70 €/h ; ingénieur senior 750-850 €/j. Ces taux sont des références de marché indicatives, non les coûts réels du candidat.",
+    "commentaire": "Estimation du coût de production à taux marché. La variation min/max fait varier uniquement le taux horaire atelier (±8%) et la charge études (±15 j-h). Marge brute estimée : (265 000 - 198 000) / 265 000 ≈ 25%, cohérente avec un marché de fabrication sur mesure d'équipement scientifique. L'accord-cadre à 25 000 € HT est exclu du chiffrage (volume trop incertain)."
   },
   "revision_prix": {
     "type": "indexation",
     "indices_utilises": [
       "001565183 – ICHTrev-TS Industries mécaniques et électriques (NAF 25-30 32-33)",
-      "010763882 – Indice prix production industrie française CPF 24.20 (tubes, tuyaux, profilés creux en acier)"
+      "010763882 – Indice prix production industrie française CPF 24.20 (tubes, tuyaux, profilés creux acier)"
     ],
-    "ponderation": "60% indice coût main-d'œuvre (001565183) + 40% indice prix tubes/tuyaux acier (010763882)",
+    "ponderation": "60% ICHTrev-TS (main-d'œuvre industries mécaniques) + 40% indice prix production acier CPF 24.20",
     "periodicite": "annuelle",
-    "formule_revision": "P1 = P0 × (0,60 × S1/S0 + 0,40 × V1/V0) — S = indice 001565183 (main-d'œuvre industries mécaniques), V = indice 010763882 (prix tubes acier), indices du mois de dépôt des offres en S0/V0",
-    "source_extraction": "CCAP article 5.4 (Réglementation des prix)",
-    "commentaire": "Révision applicable uniquement à la partie accord-cadre à bons de commande (prix unitaires BPU), à la date anniversaire de la notification. La partie marché ordinaire (DPGF) est à prix définitif ferme. La formule mixte main-d'œuvre mécanique + matière acier est cohérente avec la nature des prestations ; le plafond de sauvegarde à 3,50% d'augmentation annuelle expose à une résiliation sans indemnité en cas de forte inflation."
+    "formule_revision": "P1 = P0 × (0,60 × S1/S0 + 0,40 × V1/V0)",
+    "source_extraction": "CCAP §5 – Réglementation des prix, Type de prix",
+    "commentaire": "Révision annuelle applicable uniquement à la partie accord-cadre à bons de commande (pas à la partie marché ordinaire à prix forfaitaires fermes). Formule mixte main-d'œuvre/matière acier : favorable en cas de hausse des coûts de l'acier mais la partie forfaitaire principale (265 k€) reste à prix ferme, ce qui constitue le risque principal pour le titulaire en cas de hausse des matières."
   },
   "alertes_prix": [
-    "Montant estimatif indicatif de 265 000 € HT : la DPGF (partie forfaitaire) représente environ 240 000 € HT et constitue l'essentiel de l'enjeu financier.",
-    "Partie accord-cadre plafonnée à 25 000 € HT sur la durée totale : volume très limité pour les bons de commande MCO — ne pas surinvestir dans le chiffrage BPU.",
-    "Clause de sauvegarde : si la révision annuelle des prix dépasse 3,50%, l'ASNR peut résilier le marché sans indemnité (CCAP §résiliation), ce qui impose une vigilance sur la maîtrise des coûts matières acier.",
-    "Prix forfaitaires fixes pour la partie ordinaire (DPGF) : risque d'aléas techniques non couverts (ex: difficulté de fabrication de la section d'essai avec verres épaulés, interfaces complexes avec la paroi refroidie existante) — bien analyser les tolérances et les interfaces avant chiffrage."
+    "La partie marché ordinaire (DPGF ~265 000 € HT) est à PRIX FORFAITAIRE FERME : tout dépassement de coût est à la charge du titulaire — risque inflation matières (acier inox, verres) sur 10,5 mois non couvert par la révision.",
+    "L'accord-cadre est plafonné à 25 000 € HT sans montant minimum : le volume réel peut être nul — ne pas intégrer ce montant dans le chiffrage de base.",
+    "Critère prix pondéré à 40% : pondération significative, la compétitivité du prix DPGF est déterminante pour le classement final.",
+    "Le DQE de l'accord-cadre est purement indicatif et n'engage pas l'ASNR : les taux BPU doivent rester compétitifs mais leur poids dans la note prix reste accessoire vs la DPGF."
   ],
   "references_exigees": {
-    "experience_minimale_annees": 3,
-    "experience_source": "RC Article 4 §C",
+    "experience_minimale_annees": null,
+    "experience_source": null,
     "volume_min_references_similaires": null,
     "volume_min_references_unite": "marchés similaires",
-    "secteur_experience": "Fabrication et réalisation d'installations expérimentales ou d'équipements mécaniques complexes, notamment dans le secteur de l'énergie. Projets similaires réalisés ces 3 dernières années, avec montants comparables et niveau de personnalisation (délais courts).",
-    "secteur_source": "RC Article 4 §C et Article 4 §5",
+    "secteur_experience": "Projets réalisés dans le secteur de l'énergie ou domaine proche (fabrication d'installations expérimentales, équipements de laboratoire, tuyauteries inox sur mesure, équipements scientifiques), appréciés sur les 3 dernières années.",
+    "secteur_source": "RC article 4 §5 – Critères de sélection des candidatures (60% du critère technique candidature)",
     "certifications_obligatoires": [
       {
-        "libelle": "Certification ISO 9001 v2015 (ou système de management qualité équivalent)",
-        "source": "CDC §3 (Exigences Qualité) et RC Article 4 §C"
+        "libelle": "Certification ISO 9001 v2015 ou système de management qualité équivalent – exigée par le cahier des charges pour la réalisation des prestations",
+        "codes": [],
+        "bloquante": true,
+        "source": "Cahier des charges §3 / RC article 4 §4.C"
       },
       {
-        "libelle": "Qualification des soudeurs selon normes applicables (cahiers de soudage)",
-        "source": "CDC §5.2"
-      },
-      {
-        "libelle": "Soupape de sécurité marquée CE selon Directive 2014/68/UE (équipements sous pression)",
-        "source": "CDC §2.1.3"
+        "libelle": "Certificats de qualification professionnelle des soudeurs (qualification soudage inox selon normes applicables, cahiers de soudage)",
+        "codes": [],
+        "bloquante": true,
+        "source": "Cahier des charges §5.2 / RC article 4 §4.C"
       }
     ],
     "autres_exigences": [
       {
-        "libelle": "Déclaration du chiffre d'affaires global et du CA dans le domaine d'activité sur les 3 derniers exercices",
-        "source": "RC Article 4 §B"
+        "libelle": "Déclaration de chiffre d'affaires global et du domaine sur les 3 derniers exercices disponibles",
+        "source": "RC article 4 §4.B"
+      },
+      {
+        "libelle": "Bilans ou extraits de bilan des 2 dernières années (pour les entreprises soumises à obligation légale)",
+        "source": "RC article 4 §4.B"
+      },
+      {
+        "libelle": "Preuve d'assurance couvrant les risques pertinents",
+        "source": "RC article 4 §4.B"
+      },
+      {
+        "libelle": "Liste des principales livraisons/services fournis au cours des 3 dernières années",
+        "source": "RC article 4 §4.C"
+      },
+      {
+        "libelle": "Déclaration des effectifs moyens annuels et importance du personnel d'encadrement sur 3 ans",
+        "source": "RC article 4 §4.C"
+      },
+      {
+        "libelle": "Indication des techniciens/organismes responsables du contrôle qualité",
+        "source": "RC article 4 §4.C"
+      },
+      {
+        "libelle": "Description de l'outillage, matériel et équipement technique disponible pour le marché",
+        "source": "RC article 4 §4.C"
+      },
+      {
+        "libelle": "Description de l'équipement technique et mesures qualité / moyens d'étude et de recherche",
+        "source": "RC article 4 §4.C"
+      },
+      {
+        "libelle": "Indication des systèmes de gestion et de suivi de la chaîne d'approvisionnement",
+        "source": "RC article 4 §4.C"
+      },
+      {
+        "libelle": "Certificat(s) de qualification professionnelle établis par organismes indépendants",
+        "source": "RC article 4 §4.C"
+      }
+    ]
+  },
+  "dossier_candidature": {
+    "pieces_a_fournir": [
+      {
+        "libelle": "DC1 – Lettre de candidature / Déclaration sur l'honneur pour candidat individuel ou membre du groupement (attestant notamment l'absence d'exclusion et, le cas échéant, production du BEGES pour entreprises >500 salariés)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC article 4 §4.A"
+      },
+      {
+        "libelle": "DC2 – Déclaration du candidat",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC article 4 §4.A"
+      },
+      {
+        "libelle": "Numéro SIREN",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC article 4 §4.A"
+      },
+      {
+        "libelle": "Copie du ou des jugements prononcés en cas de redressement judiciaire",
+        "phase": "candidature",
+        "obligatoire": false,
+        "source": "RC article 4 §4.A"
+      },
+      {
+        "libelle": "Déclaration chiffre d'affaires global et du domaine sur les 3 derniers exercices",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC article 4 §4.B"
+      },
+      {
+        "libelle": "Preuve d'assurance couvrant les risques pertinents",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC article 4 §4.B"
       },
       {
         "libelle": "Bilans ou extraits de bilan des 2 dernières années",
-        "source": "RC Article 4 §B"
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC article 4 §4.B"
       },
       {
-        "libelle": "Preuve d'une assurance couvrant les risques pertinents",
-        "source": "RC Article 4 §B"
+        "libelle": "Liste des principales livraisons/services fournis au cours des 3 dernières années",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC article 4 §4.C"
       },
       {
-        "libelle": "Description de l'outillage, matériel et équipement technique disponible pour la réalisation (atelier de montage)",
-        "source": "RC Article 4 §C"
+        "libelle": "Déclaration des effectifs moyens annuels et importance du personnel d'encadrement sur 3 ans",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC article 4 §4.C"
       },
       {
-        "libelle": "Certificat de visite obligatoire du site de Cadarache dûment signé, à joindre à l'offre sous peine de rejet",
-        "source": "RC Article 3 §6"
+        "libelle": "Indication des techniciens/organismes responsables du contrôle de qualité (intégrés ou non)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC article 4 §4.C"
       },
       {
-        "libelle": "Indication des techniciens et organismes techniques responsables du contrôle qualité",
-        "source": "RC Article 4 §C"
+        "libelle": "Description de l'outillage, matériel et équipement technique dont le candidat disposera pour la réalisation du marché",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC article 4 §4.C"
+      },
+      {
+        "libelle": "Description de l'équipement technique et des mesures employées pour assurer la qualité / moyens d'étude et de recherche",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC article 4 §4.C"
+      },
+      {
+        "libelle": "Indication des systèmes de gestion et de suivi de la chaîne d'approvisionnement",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC article 4 §4.C"
+      },
+      {
+        "libelle": "Certificats de qualification professionnelle établis par organismes indépendants (dont ISO 9001 v2015 ou équivalent)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC article 4 §4.C"
+      },
+      {
+        "libelle": "Acte d'engagement (AE) complété, accompagné de l'Annexe financière (DPGF + BPU + DQE) renseignée",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC article 5 §1"
+      },
+      {
+        "libelle": "Mémoire technique – Chapitre 1 : solution technique proposée (APD, fabrication, plan qualité préliminaire)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC article 5 §1"
+      },
+      {
+        "libelle": "Mémoire technique – Chapitre 2 : organisation et pilotage du projet (pilotage, interfaces, gestion risques, planning, sous-traitance, lieu d'exécution)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC article 5 §1"
+      },
+      {
+        "libelle": "Mémoire environnemental (mesures réduction impacts transport/emballages, démarche éco-responsable fabrication)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC article 5 §1"
+      },
+      {
+        "libelle": "Certificat de visite de site obligatoire (dûment rempli, daté et signé par les deux parties)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC article 3 §6"
+      },
+      {
+        "libelle": "DC4 – Déclaration de sous-traitance (si sous-traitance envisagée)",
+        "phase": "offre",
+        "obligatoire": false,
+        "source": "RC article 4 §3"
       }
-    ]
+    ],
+    "mode_remise": "dématérialisé + copie de sauvegarde",
+    "plateforme_depot": "PLACE — marches-publics.gouv.fr",
+    "signature_electronique_exigee": true,
+    "format_signature": "PAdES (format eIDAS, certificat qualifié RGS)",
+    "nombre_exemplaires": null,
+    "langue": "français",
+    "duree_validite_offres_jours": 240,
+    "modalites_source": "RC article 3 §2 / RC Annexe N°2 / RC article 8"
   },
   "lots": [
     {
       "numero": 1,
-      "intitule": "Lot unique – Étude et réalisation de l'installation KoKoChannel",
-      "zone_geographique": "Site ASNR de Cadarache (13115 Saint-Paul-Lez-Durance) – Bâtiment 327, local Dofin",
-      "volume_estime": 265000,
-      "volume_estime_unite": "euros HT (estimation indicative)",
-      "particularites": "Lot unique non alloti : la responsabilité de conception unifiée est justifiée par la complexité des interfaces techniques entre sous-systèmes. Fabrication principalement en atelier du titulaire, avec 2 visites site + livraison finale à Cadarache. Procédure restreinte : seuls les 5 meilleurs candidats de la phase candidature sont invités à remettre une offre."
+      "intitule": "Étude et réalisation de l'installation KoKoChannel (lot unique)",
+      "domaine": "autre",
+      "zone_geographique": "Cadarache (13115 Saint-Paul-Lez-Durance) – livraison sur site ASNR",
+      "volume_estime": null,
+      "volume_estime_unite": null,
+      "cout_estime_min_eur": 175000,
+      "cout_estime_max_eur": 220000,
+      "ca_estime_min_eur": 250000,
+      "ca_estime_max_eur": 280000,
+      "marge_brute_pct": 24,
+      "particularites": "Marché composite : partie forfaitaire (DPGF postes 1-3, ~265 k€ HT estimés) + accord-cadre à bons de commande plafonné à 25 000 € HT. Visite de site obligatoire (site ASNR Cadarache, accès réglementé). Installation expérimentale complexe nécessitant des verres de précision, inox 316L, traitement d'anodisation noire et qualification des soudeurs. Fabrication principalement en atelier du titulaire, 2 visites site + livraison finale."
     }
   ],
+  "tranches": [],
   "calendrier": {
     "date_limite_offres": "2026-07-10",
     "date_demarrage_prevue": "2026-10-26",
-    "duree_marche": "Environ 22-23 mois (10,5 mois partie ordinaire + 12 mois accord-cadre après réception), non reconductible"
+    "duree_marche": "~22-24 mois (10,5 mois exécution partie ordinaire + 12 mois garantie + période accord-cadre simultanée)"
   },
   "alertes_candidat": [
-    "VISITE DE SITE OBLIGATOIRE à Cadarache : le certificat de visite doit être joint à l'offre sous peine de rejet. Prise de contact obligatoire avec Claire HENRIROUX (04 42 19 94 92) au moins 2 jours ouvrés avant la visite.",
-    "Procédure restreinte en 2 phases : seules les 5 meilleures candidatures sont admises en phase offres. Soigner particulièrement le dossier de candidature (capacités techniques sur projets similaires dans le secteur de l'énergie, moyens techniques atelier).",
-    "ISO 9001 v2015 exigée pour l'exécution des prestations : absence de certification ou équivalent insuffisant peut pénaliser fortement la candidature.",
-    "Qualification des soudeurs obligatoire avec cahiers de soudage : preuve à fournir dès la phase candidature via les références de projets similaires.",
-    "Prix forfaitaires fermes sur la DPGF (~240 000 € HT) avec interfaces complexes (paroi refroidie existante, verres épaulés avec coplanarité ±0,5 mm) : risque de dépassement important si le chiffrage n'intègre pas les tolérances dimensionnelles contraignantes et les allers-retours de validation ASNR."
+    "Visite de site OBLIGATOIRE préalable à la remise d'offre : le certificat de visite doit être joint à l'offre à peine de REJET. Contact : Claire HENRIROUX (04 42 19 94 92), demande d'accès 2 jours ouvrés minimum avant la visite, maximum 2 personnes par candidat.",
+    "Seules les 5 MEILLEURES CANDIDATURES (phase candidature) sont admises à la phase offres : la sélection sur dossier de candidature est éliminatoire — soigner particulièrement les références projets similaires et les moyens techniques (critère technique 60% de la sélection candidature).",
+    "Certification ISO 9001 v2015 (ou équivalent) et qualifications soudeurs inox EXIGÉES par le cahier des charges pour l'exécution : leur absence constitue une non-conformité rédhibitoire à l'exécution.",
+    "La partie marché ordinaire est à PRIX FORFAITAIRE FERME (pas de révision) : tout dépassement de coût matières/main-d'œuvre sur la durée des 10,5 mois d'exécution est à la charge du titulaire.",
+    "Accès au site de Cadarache (INB/ASNR) : le personnel devra être agréé ASNR et un Plan de Prévention établi au plus tard 1 semaine avant la première intervention sur site — anticiper les délais d'habilitation."
   ],
   "points_differenciants_attendus": [
     {
-      "libelle": "Complétude et qualité du Plan Qualité de Réalisation (LOFC) préliminaire",
-      "exemple": "Un candidat qui soumet dès l'offre un LOFC préliminaire détaillé avec points d'arrêt clairement identifiés (sablage, anodisation, test d'étanchéité, recette usine) et des exemples de PV issus de projets antérieurs obtiendra 70% de la note technique sur ce seul critère.",
-      "source": "RC Article 5 §2.B – pondération 70% du critère technique"
+      "libelle": "Complétude et qualité du Plan de Qualité de Réalisation préliminaire joint à l'offre",
+      "exemple": "Un candidat qui fournit dès l'offre un LOFC (Liste des Opérations de Fabrication et de Contrôle) structuré avec 20+ opérations identifiées, points d'arrêt ASNR explicitement placés (fin APD, sablage, anodisation, test étanchéité, recette usine) et procédures de contrôle référencées au cahier des charges, se distingue fortement sur le sous-critère dominant (70% du critère technique).",
+      "source": "RC article 5 §2 Chapitre 1 / Cahier des charges §3 et §5.2"
     },
     {
-      "libelle": "Expérience démontrable en fabrication d'équipements expérimentaux pour le secteur de l'énergie / nucléaire",
-      "exemple": "Présenter 2-3 références de projets similaires (installations expérimentales avec tuyauteries inox, sections de test, recettes usine) réalisés pour des laboratoires de recherche en énergie ou des industriels du nucléaire, avec montants comparables (200-400 k€) et délais courts.",
-      "source": "RC Article 4 §5 (critères de sélection des candidatures, 60% capacités techniques)"
+      "libelle": "Expérience démontrée dans la fabrication d'installations expérimentales pour laboratoires (nucléaire, CEA, universités) dans le secteur de l'énergie",
+      "exemple": "Références de 2-3 installations thermohydrauliques ou équipements de laboratoire livrés à des organismes de recherche (CEA, universités, CNRS) dans les 3 dernières années, avec montants comparables (100-300 k€), documentées par attestations clients et PV de recette.",
+      "source": "RC article 4 §5 – sous-critère technique candidature 60%"
     },
     {
-      "libelle": "Capacité d'usinage de pièces complexes à haute précision dimensionnelle",
-      "exemple": "Démontrer la maîtrise de la fabrication de la section d'essai avec verres épaulés (coplanarité surfaces intérieures ±0,5-1 mm) et du collecteur aval (section carrée 100×100 mm avec gouttières de séparation) en proposant la méthode de fabrication et les moyens de contrôle associés.",
-      "source": "CDC §4.3 et §5.1"
+      "libelle": "Proposition d'un délai d'exécution inférieur à 10,5 mois avec planning crédible et gestion des risques",
+      "exemple": "Un planning à 9 mois qui anticipe les approvisionnements longues délais (verres épaulés sur mesure, soupape CE certifiée) dès le début de l'APD, et qui intègre explicitement les délais de validation ASNR et la disponibilité de la paroi refroidie pour la recette usine, sera valorisé sur le critère 'Respect du planning maximal'.",
+      "source": "RC article 5 §2 – sous-critère 5% / CCAP §6.1 (délai contractuel si offre < maximum)"
     },
     {
-      "libelle": "Maîtrise du traitement de surface : sablage corindon blanc F120 + anodisation noire",
-      "exemple": "Un candidat disposant en propre ou via un sous-traitant qualifié de la capacité d'anodisation noire et de sablage au corindon blanc F120 sur des sections intérieures de section carrée différencie son offre par la fiabilité du planning et la maîtrise des interfaces qualité.",
-      "source": "CDC §4.3 et §5.2"
+      "libelle": "Démonstration de capacités d'usinage de précision (pièces métalliques complexes, section 100×100 mm, tolérances géométriques, anodisation noire)",
+      "exemple": "Photos d'ateliers, fiches techniques de pièces usinées similaires (sections carrées en alliage d'aluminium ou inox, pièces avec hublots de précision), et certificats de traitement de surface (sablage + anodisation) avec PV de contrôle visuel et mesure de rugosité.",
+      "source": "RC article 5 §2 Chapitre 1 / Cahier des charges §4.3 et §5.2"
     },
     {
-      "libelle": "Proposition d'un délai d'exécution inférieur à 10,5 mois (devient contractuel)",
-      "exemple": "Un planning à 9 mois bien justifié (avec jalons APD à T+3, fabrication à T+5, livraison à T+7) valorise le sous-critère 'Respect du planning' (5% de la note technique) et envoie un signal fort sur la maîtrise industrielle.",
-      "source": "CCAP §6.3 et RC Article 5 §2.B"
+      "libelle": "Maîtrise de la gestion documentaire selon les référentiels ASNR/SIPR (SolidWorks, LOMC, guide PSN-SIPR-GUI-036)",
+      "exemple": "Un candidat ayant déjà travaillé selon des référentiels qualité de laboratoire nucléaire (CEA, IRSN/ASNR) ou présentant une maîtrise explicite de SolidWorks 2024 et des formats de dossiers constructeurs exigés (PDF + DWG, PV, certificats 3.1) démontre une capacité à livrer sans non-conformités documentaires.",
+      "source": "Cahier des charges §7.3 et annexe 1 / RC article 5 §1"
     }
   ],
   "_meta": {
     "id_marche": "BOAMP-26-56053",
     "type": "complet",
-    "date_generation": "2026-06-14T21:19:13.116262+00:00",
-    "extraction_le": "2026-06-14T21:19:13.116262+00:00",
+    "date_generation": "2026-06-22T13:53:00.039447+00:00",
+    "extraction_le": "2026-06-22T13:53:00.039447+00:00",
     "modele": "claude-sonnet-4-6",
-    "preset_utilise": "it",
-    "presets_matches": [
-      "it"
-    ],
-    "prompts_versions": {
-      "it/_preset.json": "sha256:0113727ecb269e98"
-    },
-    "tokens_input": 73770,
-    "tokens_output": 7851,
-    "cout_eur": 0.3221,
-    "duree_sec": 144.2,
+    "preset_utilise": null,
+    "presets_matches": [],
+    "prompts_versions": {},
+    "tokens_input": 82517,
+    "tokens_output": 12064,
+    "cout_eur": 0.4071,
+    "duree_sec": 213.7,
     "pdfs_traites": [
       {
         "nom": "1_ASNR-2026-033-KOKOCHANNEL-C-Acte d'engagement (AE).docx",

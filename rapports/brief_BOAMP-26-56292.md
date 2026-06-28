@@ -1,6 +1,6 @@
 # Brief — SERVICES D'ASSURANCES POUR LA COMMUNAUTE DE COMMUNES MEDULLIENNE
 
-_Généré le 2026-06-12 15:49 par Claude claude-sonnet-4-6_
+_Généré le 2026-06-21 00:16 par Claude claude-sonnet-4-6_
 
 ## Identifiants
 - **ID Tendia** : `BOAMP-26-56292`
@@ -11,95 +11,62 @@ _Généré le 2026-06-12 15:49 par Claude claude-sonnet-4-6_
 - **DCE PLACE** : <https://demat-ampa.fr/entreprise/consultation/608700?orgAcronyme=e3b>
 
 ## Synthèse
-La Communauté de Communes Médullienne lance un appel d'offres ouvert pour la souscription de contrats d'assurance couvrant 5 domaines distincts : dommages aux biens, responsabilités civiles, protection juridique, prestations statutaires et dommages aux biens des déchetteries. Le marché est alloti en 5 lots distincts, chacun pouvant être attribué séparément, pour une durée de 48 mois à compter du 1er janvier 2027. Les réponses peuvent être formulées par des assureurs directs ou par des intermédiaires (courtiers, agents).
-
-## 🏗 Chantier — caractéristiques BTP
-### Allotissement
-Marché alloti en 5 lots distincts couvrant différentes branches d'assurance pour la Communauté de Communes Médullienne.
-- **Nombre de lots** : 5
-- **Lot 1** — Assurance des dommages aux biens et des risques annexes
-  - Couverture des dommages aux biens de la collectivité et risques annexes. CPV 66515000-3.
-- **Lot 2** — Assurance des responsabilités et des risques annexes
-  - Couverture des responsabilités civiles et risques annexes. CPV 66516000-0.
-- **Lot 3** — Assurance de la protection juridique de la collectivité et des agents et des élus
-  - Protection juridique de la collectivité, des agents et des élus. CPV 66513000-9.
-- **Lot 4** — Assurance des prestations statutaires
-  - Couverture des prestations statutaires des agents. Comprend des PSE (Congé Maladie Ordinaire, Maternité/Paternité/Adoption). CPV 66512000-2.
-- **Lot 5** — Assurance des dommages aux biens et des risques annexes - déchetteries
-  - Couverture des dommages aux biens spécifiquement pour les déchetteries. CPV 66515000-3.
-
-### Qualifications BTP exigées
-Agrément ACPR (Autorité de Contrôle Prudentiel et de Résolution) pour les compagnies d'assurance. Inscription ORIAS pour les intermédiaires d'assurance.
-- **Autres exigences** :
-  - Habilitation ACPR (ou équivalent étranger) pour les compagnies d'assurance — RC Article 5
-  - Inscription ORIAS pour les intermédiaires d'assurance — RC Article 5
-  - Attestation de responsabilité civile et de garantie financière en cours de validité — RC Article 5
-  - Copie du mandat pour agir pour les courtiers — RC Article 5
-
-## ⚡ Parc EnR — caractéristiques techniques
-### Volumes techniques
-- **Durée du marché (mois)** : 48
-- **Note** : Marché d'assurance sur 48 mois (1er janvier 2027 au 31 décembre 2030). Résiliation annuelle possible avec préavis de 6 mois.
-
-### Modalités d'exécution
-- **Sites d'exécution** : Castelneau de Médoc (33480), Gironde
-
-## 🎯 Mission conseil
-- **Domaine d'expertise** : assurance collectivités territoriales
-- **Durée de mission** : 48 mois
-- **Livrables attendus** :
-  - Contrats d'assurance souscrits pour chaque lot retenu
-  - Acte d'engagement complété et signé
-  - Gestion des sinistres (lot 4)
-  - Statistiques (lot 4)
-
-### Profils intervenants
-Compagnies d'assurance agréées ACPR ou intermédiaires d'assurance inscrits à l'ORIAS
-
-## 🎓 Formation / accompagnement
-### Publics cibles
-Collectivité territoriale (Communauté de Communes Médullienne) et ses agents, élus, biens et responsabilités.
-
-### Volumes
-- **Durée marché (mois)** : 48
-
-### Modalités
-- **Sites d'exécution** : Castelneau de Médoc (33480), Gironde
+Marché public de services d'assurances pour la Communauté de Communes Médullienne (EPCI de 22 484 habitants, 10 communes, département Gironde), passé en appel d'offres ouvert pour une durée de 48 mois (1er janvier 2027 – 31 décembre 2030). Le marché est alloti en 5 lots couvrant : dommages aux biens (lot 1), responsabilités civiles (lot 2), protection juridique agents/élus (lot 3), prestations statutaires CNRACL (lot 4) et dommages aux biens des déchetteries (lot 5). L'assureur actuel est la SMACL pour tous les lots, pour une prime totale annuelle de 48 244,82 € TTC.
 
 ## 💶 Montant du marché
-- _Montant non communiqué dans le DCE._
-  - Typique des accords-cadres à bons de commande : le volume dépend des commandes effectivement passées par l'acheteur sur la durée du marché.
-- _Note_ : Aucun montant estimé, plafond ou fourchette n'est communiqué dans les pièces du DCE fournies. Aucun bordereau de prix unitaires ni estimation budgétaire disponible.
+- **Fourchette** : entre 185 000 € et 210 000 €
+  - sur 48 mois (2027-2030) — estimation annualisée × 4
+  - _source : Inventaire des risques (page 2 du PDF 08) : prime totale annuelle actuelle SMACL = 48 244,82 € TTC toutes branches confondues_
 
 ## Barème de notation
-- **Valeur technique** : 50 %
-- **Valeur prix** : 45 %
+- **Valeur technique** : 75 %
+- **Valeur prix** : 25 %
 - **Sous-critères techniques** :
   - Valeur technique de l'offre : 50 %
-  - Responsabilité Sociétale des Entreprises (RSE) : 5 %
-  - Assistance technique (lot 4 uniquement) : 25 %
-- **Calcul du prix** : Note = (tarif moins disant / tarif candidat) × 25, puis pondérée à 45% (lots 1,2,3,5) ou 40% (lot 4)
+  - Critères RSE : 25 %
+- **Calcul du prix** : Le prix est fixé sous forme d'une prime annuelle HT/TTC. Pour les lots 1 et 3, le prix est indexé sur l'indice FFB. Pour les lots 2 et 4, le prix est déterminé par un taux fixe sur la masse salariale, avec régularisation annuelle.
 
 ## Références et qualifications exigées
 - **Expérience minimale** : —
-- **Secteur d'expérience** : Assurance de collectivités territoriales
-- **Certifications obligatoires** : Agrément ACPR (ou équivalent étranger) pour les compagnies d'assurance (source=RC Article 5, point 7), Inscription à l'ORIAS pour les intermédiaires d'assurance (source=RC Article 5, point 9), Attestation de responsabilité civile et de garantie financière en cours de validité (source=RC Article 5, point 8)
+- **Secteur d'expérience** : Assurances de collectivités territoriales (dommages aux biens, responsabilité civile générale, protection juridique, prestations statutaires agents territoriaux)
+- **Certifications obligatoires** : Agrément de la compagnie d'assurances pour les branches couvertes (dommages, RC, protection juridique, prévoyance collective) — conformément au Code des Assurances (bloquante=True, source=Acte d'engagement de chaque lot (mention 'La Compagnie d'assurances')), Immatriculation ORIAS (ou équivalent) pour les intermédiaires (courtiers/agents) mandatés (bloquante=True, source=Acte d'engagement de chaque lot (champ 'N° d'Inscription au registre du commerce'))
 - **Autres exigences** :
-  - Fourniture d'une copie du mandat pour agir au nom des compagnies saisies (pour les courtiers) (source=RC Article 5, point 6)
-  - En cas de coassurance : groupement formé dès la remise des offres, l'offre doit couvrir 100% du risque (source=RC Article 3 — Mode de dévolution)
-  - Chiffre d'affaires des 3 dernières années à fournir (source=RC Article 5)
+  - Fourniture des documents des articles R.2143-3 à R.2143-16 du Code de la Commande Publique (attestations fiscales, sociales, déclaration sur l'honneur, etc.) (source=Acte d'engagement Article 1 de chaque lot)
+  - Capacité à émettre des factures via le portail Chorus Pro (SIRET, code service, identifiants renseignés) (source=CCAP Article 6 de chaque lot)
+  - Pour le lot 4 (prestations statutaires) : capacité à gérer un contrat en capitalisation (maintien des prestations après résiliation) (source=CCTP Lot 4 Article 5)
+
+## Lots
+- **Lot 1** — Lot 1 - Assurance des dommages aux biens et des risques annexes
+  - Zone : Castelnau-de-Médoc et communes membres de la CDC Médullienne (33)
+  - Volume estimé : 4064 m² de superficie assurée
+  - Prime actuelle SMACL : 11 979,65 € TTC/an. Patrimoine : 12 bâtiments (4 064 m²) dont sièges administratifs, crèches, centres de loisirs, aire d'accueil des gens du voyage. Sinistre déclaré : incendie criminel 43 395 € (juillet 2023). LCI 19,9 M€. Franchise incendie actuelle 10 000 €. Tarification au m². Programme de construction : ALSH-APS 1 726 000 € TTC.
+- **Lot 2** — Lot 2 - Assurance des responsabilités et des risques annexes
+  - Zone : Territoire de la CDC Médullienne (10 communes, 33)
+  - Volume estimé : 797660 euros de masse salariale (assiette de prime)
+  - Prime actuelle SMACL : 4 112,83 € TTC/an (RC) + 230,01 € (protection fonctionnelle) = ~4 343 €/an. LCI 15 M€/sinistre. Inclut RC générale, RC environnementale (ICPE déchetteries, GEMAPI, SPANC), assurance individuelle accidents, protection fonctionnelle agents et élus. Franchise RC environnementale : 10 000 €.
+- **Lot 3** — Lot 3 - Assurance de la protection juridique de la collectivité et des agents et des élus
+  - Zone : CDC Médullienne (33)
+  - Volume estimé : 36 agents + élus bénéficiaires (36 agents + 32 délégués)
+  - Prime actuelle SMACL : 618,96 € (PJ) + 230,01 € (protection fonctionnelle) = ~849 €/an. Plafond par affaire : 80 000 €. Seuil PJ collectivité : 500 €. Seuil PJ agents/élus : néant. Inclut assistance psychologique et conseil juridique à frais réels.
+- **Lot 4** — Lot 4 - Assurance des prestations statutaires
+  - Zone : CDC Médullienne (33)
+  - Volume estimé : 797660 euros de masse salariale CNRACL (22-26 agents)
+  - Prime actuelle SMACL : 31 303,37 € TTC/an — lot le plus important (65% de la prime totale). 22 agents CNRACL au 31/12/2025 (26 au 1er mai 2026). Solution de base : décès + AT/maladies imputables + CLM/CLD. PSE n°1 : CMO (franchise 30 jours fermes). PSE n°3 : maternité/adoption/paternité. Gestion en capitalisation. Pyramide des âges : majorité femmes 35-54 ans.
+- **Lot 5** — Lot 5 - Assurances des dommages aux biens - Déchetteries
+  - Zone : Castelnau-de-Médoc et Le Porge (33)
+  - Volume estimé : 2 sites ICPE (déchetteries)
+  - 2 déchetteries ICPE soumises à autorisation (Castelnau-de-Médoc — exploitation démarrée 2009 par Véolia sur marché public de services ; Le Porge). Séparées du lot 1 en raison de leur classification ICPE. Télésurveillance + alarme sur les deux sites. Risque environnemental (ICPE autorisation). Tonnage de transfert 6 000 t/an (Castelnau).
 
 ## ⚠ Alertes candidat
-- Lot 4 : obligation ABSOLUE de chiffrer les 2 PSE (Congé Maladie Ordinaire + Maternité/Paternité/Adoption) — une offre sans PSE est irrecevable même avec une offre de base valide
-- En cas de coassurance : le groupement doit être constitué DÈS le dépôt de l'offre et couvrir 100% du risque — une offre partielle (< 100%) est irrecevable
-- Agrément ACPR obligatoire pour les assureurs (ou équivalent étranger) et inscription ORIAS obligatoire pour les intermédiaires — pièces justificatives à fournir impérativement
-- Un assureur ne peut présenter simultanément une offre seule ET via un ou plusieurs intermédiaires — risque d'élimination pour double présentation
-- Délai de validité des offres de 240 jours à compter du 8 juillet 2026 — les offres restent engageantes jusqu'au 3 mars 2027 environ
-- Documents de candidature à produire dans les 5 jours suivant la demande de l'acheteur après attribution — anticiper la collecte des justificatifs administratifs (URSSAF, fiscaux)
+- Lot 4 (prestations statutaires) : contrat en capitalisation obligatoire — le candidat doit maintenir les prestations en cours après une éventuelle résiliation ; capacité de gestion actuarielle et financière à démontrer.
+- Sinistralité lot 1 : incendie criminel déclaré à 43 395 € en 2023 ; les assureurs doivent intégrer cette sinistralité dans leur tarification — un taux insuffisant peut conduire à un OAB.
+- Lots 2 et 5 : présence de 2 ICPE soumises à autorisation (déchetteries) ; la garantie RC environnementale est obligatoire (lot 2) et les déchetteries sont en lot séparé (lot 5) — les candidats doivent disposer d'une capacité de souscription sur ce type de risque industriel.
+- Délai de validité des offres : 240 jours à compter de la date limite de dépôt (8 juillet 2026) — soit jusqu'en mars 2027 ; les candidats doivent anticiper les évolutions tarifaires sur cette longue période.
+- L'annexe RSE à l'acte d'engagement est qualifiée de 'seul élément contractuel' et 'seul élément d'appréciation du critère RSE' : toute réponse vague ou un simple renvoi à un mémoire technique entraîne une notation zéro sur 25 points (25% du critère technique).
 
 ## 💡 Points différenciants attendus
-- Couverture exacte et sans réserve des garanties demandées (exemple=Proposer une couverture intégrale de tous les biens et risques listés dans le CCTP, sans exclusion ni observation, en cochant 'Correspond exactement à la demande' (note 5/5) sur chaque sous-critère technique. Toute réserve ou exclusion est quantifiée et pénalisée dans la grille de notation., source=RC Article 8 — grille de notation valeur technique)
-- Franchises minimales sur tous les lots (exemple=Proposer les franchises les plus basses du marché, idéalement inférieures aux niveaux habituels, voire nulles sur certains risques courants (dégâts des eaux, bris de glace). Ce sous-critère représente jusqu'à 20% de la note technique (lot 1)., source=RC Article 8 — sous-critère Franchise)
-- Qualité de la gestion des sinistres et du reporting (lot 4) (exemple=Pour le lot 4, l'assistance technique pèse 25% de la note finale. Un candidat fort désignera un gestionnaire nommément identifié, proposera des délais de traitement inférieurs à 10 jours ouvrés et des statistiques trimestrielles avec analyse prédictive., source=RC Article 8 — critère Assistance technique lot 4)
-- Politique RSE documentée et substantielle (exemple=Bien que pondérée à seulement 5%, la RSE peut faire la différence en cas d'égalité. Un rapport RSE certifié, des engagements chiffrés sur le climat et une politique sociale formalisée permettront de scorer 5/5 sur ce critère., source=RC Article 8 — critère RSE)
-- Compétitivité tarifaire sur la solution de base ET les PSE du lot 4 (exemple=Le prix représente 40-45% de la note selon les lots. Pour le lot 4, un chiffrage précis et compétitif des deux PSE (Congé Maladie Ordinaire + Maternité) est indispensable, car l'absence de PSE rend l'offre irrecevable., source=RC Article 3 et Article 8)
+- Richesse et précision de la réponse RSE (critère à pondération élevée : 25/75 du technique) (exemple=Un assureur certifié EcoVadis ou B Corp, publiant un rapport CSRD, affichant son index égalité H/F et documentant des actions concrètes d'économie circulaire (ex : dématérialisation totale des échanges, offset carbone) se démarquera nettement sur les 25 points RSE de chaque lot., source=Annexe à l'Acte d'Engagement - Notation critère RSE (tous lots))
+- Garanties supérieures aux minima du CCTP (plafonds, sous-plafonds, extensions) (exemple=Proposer une LCI DAB à 25 M€ au lieu des 19,9 M€ minimum, ou inclure sans surprime la garantie 'événements naturels à caractère exceptionnel hors Cat Nat' avec un plafond de 2 M€, valorise fortement la valeur technique (50% du critère technique)., source=CCTP Lot 1 Article 1 et tableau des garanties)
+- Franchises inférieures à celles du contrat en cours (incendie 10 000 €, événements naturels 10 000 €) (exemple=Une franchise incendie à 7 500 € et une franchise événements naturels à 8 000 € constituent un avantage concret par rapport au contrat SMACL actuel et seront valorisés dans l'évaluation technique., source=CCTP Lot 1 Article 27 ; Contrats en cours Lot 1)
+- Qualité du service de gestion des sinistres et des prestations (lot 4 : gestionnaire dédié, tiers payant, contrôle médical) (exemple=Un assureur proposant un gestionnaire dédié nommément désigné, un accès extranet pour le suivi des dossiers, le tiers payant médical pour le lot 4 et une garantie de règlement sous 15 jours démontre une qualité de service supérieure., source=CCTP Lot 4 Article 6 ; CCAP de chaque lot Article 8)
+- Expérience démontrée sur les risques spécifiques de l'EPCI (ICPE, GEMAPI, SPANC, DSP) (exemple=Citer des références sur des EPCI similaires (intercommunalité 15 000-30 000 habitants avec compétences déchets, GEMAPI et petite enfance en DSP) renforce la crédibilité sur les garanties RC environnementale et risques spécifiques., source=Inventaire des risques Lot 2 (compétences GEMAPI, SPANC, déchetteries ICPE))

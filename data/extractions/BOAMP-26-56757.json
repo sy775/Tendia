@@ -1,153 +1,103 @@
 {
-  "synthese_marche": "Marché de services d'ingénierie portant sur la production d'études de diagnostics structurels sur huit bâtiments situés à Dzaoudzi (Mayotte), endommagés par le cyclone CHIDO. La mission vise à évaluer l'état structural, la capacité et la sécurité des ouvrages, et à recommander les travaux de réparation avec estimations de coûts. Le marché est structuré en une tranche ferme (3 bâtiments) et une tranche optionnelle (5 bâtiments).",
+  "synthese_marche": "Marché de prestations intellectuelles passé par la Direction d'Infrastructure de la Défense de Saint-Denis (Ministère des Armées) pour la production d'études de diagnostics structurels sur huit bâtiments militaires situés à Dzaoudzi (Mayotte), suite au passage du cyclone CHIDO. La mission comprend états des lieux, analyses structurelles, sondages destructifs et non-destructifs, et recommandations de travaux avec estimations de coûts. Le marché est décomposé en tranche ferme (3 bâtiments) et tranche optionnelle (5 bâtiments), sur un site militaire à accès restreint nécessitant une visite obligatoire.",
   "domaines_metier": [
     {
       "code": "ingenierie_structure_genie_civil"
     }
   ],
-  "raison_classification": "Le marché porte explicitement sur des diagnostics structurels de bâtiments (évaluation de l'état, capacité et sécurité des ouvrages, recommandations de travaux), ce qui relève de l'ingénierie structure et génie civil. Le CPV 71311300 'Services de conseil en matière d'infrastructure' et la nomenclature GM 36.04.01 AMOA sont cohérents avec ce classement.",
-  "caracteristiques_techniques_chantier": {
-    "description": "Production d'études de diagnostics structurels sur huit bâtiments militaires dans le quartier Cabaribère à Dzaoudzi (Mayotte), suite aux dommages causés par le cyclone CHIDO. La mission comprend l'état actuel des structures et systèmes d'exploitation, l'évaluation de la capacité et sécurité des ouvrages, et la formulation de recommandations de réparation/renforcement avec estimations de coûts.",
-    "typologie_ouvrage": "Bâtiments militaires (ex-hôpital, maison des médecins, bâtiments numérotés 010, 011, 015, 019, 020, 073) sur site militaire à Dzaoudzi, Mayotte",
-    "surface_volume": null,
-    "site_occupe": "true — site militaire avec contraintes d'accès spécifiques",
-    "corps_etat": [
-      "Diagnostic structurel",
-      "Étude d'état des structures",
-      "Estimation des coûts de réparation"
-    ],
-    "contraintes_specifiques": [
-      "Site militaire avec contraintes d'accès et de sécurité",
-      "Localisation à Mayotte (DOM-COM, contraintes logistiques et de déplacement)",
-      "Dommages post-cyclone CHIDO — structures potentiellement instables",
-      "Visite obligatoire les 27 (après-midi) ou 28 juillet 2026",
-      "Décomposition en tranches ferme et optionnelle"
-    ],
-    "technologies_concernees": [],
-    "type_de_sites": "Bâtiments militaires endommagés par cyclone, site défense à Mayotte",
-    "criteres_eligibilite": [
+  "raison_classification": "Le marché porte exclusivement sur des études de diagnostics structurels (analyse de structure béton, carottages, essais résistance, calculs de structure, évaluation portance des planchers) menées par un bureau d'études spécialisé en structure. Il s'agit d'une mission d'ingénierie technique pure sans exécution de travaux, relevant du BET structure/génie civil, conforme au code ingenierie_structure_genie_civil.",
+  "caracteristiques_mission_moe": {
+    "typologie": "BET structure — diagnostic structurel post-cyclone, état des lieux, sondages destructifs et non-destructifs, recommandations travaux avec estimations de coûts",
+    "phases_couvertes": [],
+    "typologie_ouvrage": "Bâtiments militaires existants (logements, bureaux, hébergement, foyer, ex-hôpital) à Mayotte",
+    "montant_travaux_estime": null,
+    "complexite_technique": "complexe",
+    "livrables_par_phase": [
       {
-        "libelle": "Fournir deux références de prestations similaires à l'objet du marché, menées dans les trois dernières années",
-        "source": "RC article 4.2.b"
-      },
-      {
-        "libelle": "Visite des lieux obligatoire — attestation de visite à joindre impérativement à l'offre",
-        "source": "RC article 1.2"
+        "phase": "DIAG",
+        "livrables": [
+          "Un rapport de diagnostic structurel par bâtiment (8 bâtiments au total)",
+          "Mise à jour des plans de niveaux et de façades avec repérage équipements",
+          "Plans de repérage des sondages numérotés",
+          "Identification des matériaux",
+          "Résultats des essais en laboratoire (résistance béton, corrosion ferraillage)",
+          "Calculs détaillés de structure",
+          "Album photos par bâtiment",
+          "Préconisations techniques : travaux de réparation/renforcement avec estimation des coûts, démolition/reconstruction avec estimation, limitation des charges",
+          "Cahier des charges techniques des zones nécessitant un renforcement",
+          "Cahier des charges techniques des mesures conservatoires (couverture provisoire bât. 073)"
+        ]
       }
     ],
-    "contraintes_site_signalees": [
-      "Site militaire",
-      "Accès limité",
-      "Bâtiments endommagés post-cyclone",
-      "Localisation Mayotte (contraintes logistiques)"
+    "taux_remuneration_moe_pct": null,
+    "indices_revision": [
+      "ING"
+    ],
+    "coordinations_associees": [],
+    "organigramme_attendu": [
+      {
+        "profil": "Ingénieur structure / BET structure avec expérience en diagnostic de bâtiment béton armé",
+        "nombre": null,
+        "anciennete_min_annees": null
+      },
+      {
+        "profil": "Technicien de sondage (carottage, essais radar, essais de résistance)",
+        "nombre": null,
+        "anciennete_min_annees": null
+      }
+    ],
+    "bim_niveau": null
+  },
+  "qualifications_moe": {
+    "opqibi": [],
+    "opqcm": [],
+    "bim": null,
+    "autres": []
+  },
+  "caracteristiques_techniques_chantier": {
+    "description": "Diagnostic structurel post-cyclone CHIDO sur 8 bâtiments militaires au quartier Cabaribére à Dzaoudzi (Mayotte). Mission comprenant étude préliminaire (plans, historique, normes), sondages non destructifs (observation générale, détection armatures radar, essais portance planchers), sondages destructifs (carottages béton par plancher et éléments porteurs, essais laboratoire résistance compression, corrosion ferraillage). Périmètre structurel : fondations, fosses septiques, planchers/balcons, murs/menuiseries, escaliers, toiture. Périmètre intérieur : plafonds, menuiseries, sols.",
+    "typologie_ouvrage": "Bâtiments militaires R+0 à R+2 : logement cadres, bureaux, bâtiments techniques, hébergement, foyer/armurerie, ex-hôpital, maison des médecins",
+    "surface_volume": "Surface totale des 8 bâtiments : environ 4 751 m² (010: 303 m², 011: 615 m², 015: 88 m², 019: 807 m², 020: 763 m², 073: 1 455 m², ex-hôpital: 600 m², maison des médecins: 120 m²)",
+    "site_occupe": "true — site militaire à accès contrôlé, enquêtes administratives sur le personnel, laissez-passer requis, contraintes opérationnelles en cours d'exécution",
+    "corps_etat": [
+      "Investigations structurelles",
+      "Sondages et carottages béton",
+      "Essais laboratoire",
+      "Détection radar armatures"
+    ],
+    "contraintes_specifiques": [
+      "Site militaire : contrôle nominatif de tout le personnel, enquêtes administratives préalables, refus d'accès possible",
+      "Localisation à Mayotte (déplacements aérien + maritime inclus dans le prix)",
+      "Contexte post-cyclone CHIDO : état de dégradation avancé de certains bâtiments",
+      "Bâtiment 'maison des médecins' sans diagnostic amiante/plomb : diagnostic visuel préalable requis avant accès pour essais destructifs",
+      "Diagnostics amiante et plomb exclus du périmètre de la mission",
+      "Visite obligatoire des lieux les 27 (après-midi) ou 28 juillet 2026"
     ]
   },
   "allotissement": {
-    "description": "Marché sans allotissement en lots distincts mais décomposé en une tranche ferme et une tranche optionnelle",
+    "description": "Marché à lot unique, décomposé en tranche ferme et tranche optionnelle",
     "nb_lots": 1,
     "lots_detailles": [
       {
         "numero": 1,
-        "intitule": "Marché unique — Tranche ferme + Tranche optionnelle",
-        "corps_etat": "Diagnostics structurels",
+        "intitule": "Production d'études de diagnostics structurels sur huit bâtiments — Dzaoudzi (Mayotte)",
+        "corps_etat": "Ingénierie structure — diagnostic bâtiment",
         "montant_estime": null,
-        "description": "Tranche ferme : bâtiments ex-hôpital, maison des médecins et 073 (délai 4 mois). Tranche optionnelle : bâtiments 010, 011, 015, 019 et 020 (délai 5 mois, affermissable dans l'année suivant la notification)."
+        "description": "Mission de diagnostic structurel complète sur 8 bâtiments militaires post-cyclone CHIDO : états des lieux, sondages, essais, calculs de structure, recommandations de travaux avec estimations de coûts"
       }
     ]
   },
   "qualifications_requises": {
-    "description": "Deux références de prestations similaires dans les 3 dernières années. Aucune qualification Qualibat, RGE ou OPQIBI explicitement mentionnée.",
-    "qualibat": null,
-    "rge": null,
+    "description": "Aucune certification formelle exigée à peine d'irrecevabilité. Capacité technique attestée par 2 références de prestations similaires sur 3 dernières années.",
+    "qualibat": [],
+    "rge": false,
+    "rge_specialites": [],
+    "mase": false,
+    "iso_9001": false,
+    "iso_14001": false,
+    "iso_45001": false,
     "opqibi": null,
     "autres_certifications": []
-  },
-  "caracteristiques_mission": {
-    "typologie_mission": "expertise, diagnostic technique",
-    "domaine_expertise": "ingénierie structure, génie civil, bâtiment post-sinistre",
-    "livrables_attendus": [
-      "Rapport de diagnostic structurel par bâtiment",
-      "État actuel précis de la structure et des systèmes d'exploitation",
-      "Recommandations de travaux de réparation/renforcement",
-      "Estimations des coûts de réparation",
-      "Évaluation de la capacité et sécurité des ouvrages"
-    ],
-    "duree_mission": "4 mois (TF) / 5 mois (TO) — concomitantes possibles",
-    "jours_consultant_estimes": null
-  },
-  "profils_intervenants": {
-    "description": "Équipe dédiée à la mission avec qualifications en ingénierie structure et diagnostics bâtimentaires",
-    "chef_de_mission": "Ingénieur structure / expert diagnostics bâtimentaires avec expérience en évaluation post-sinistre",
-    "consultants": "Équipe à définir par le candidat avec CV, rôles, qualifications et expériences pertinentes à fournir dans le mémoire technique"
-  },
-  "volumes_techniques": {
-    "puissance_totale_kwc": null,
-    "puissance_par_site_kwc": null,
-    "nb_sites": 8,
-    "surface_panneaux_m2": null,
-    "productible_annuel_estime_mwh": null,
-    "duree_marche_mois": 5,
-    "duree_maintenance_om_annees": null,
-    "commentaire_volumes": "8 bâtiments au total : 3 en tranche ferme (ex-hôpital, maison des médecins, bâtiment 073) et 5 en tranche optionnelle (010, 011, 015, 019, 020). Tranche ferme : 4 mois ; tranche optionnelle : 5 mois."
-  },
-  "modalites_execution_chantier": {
-    "raccordement_reseau_inclus": null,
-    "etudes_techniques_incluses": true,
-    "calendrier_chantier_contraint": "Visite obligatoire les 27 (après-midi) ou 28 juillet 2026. Début prévu 4ème trimestre 2026.",
-    "sites_execution": [
-      "Dzaoudzi",
-      "Mayotte (976)"
-    ],
-    "engagement_productible": null,
-    "engagement_disponibilite_om": null
-  },
-  "publics_cibles": {
-    "description": null,
-    "criteres_eligibilite": [],
-    "publics_specifiques_signales": []
-  },
-  "volumes": {
-    "nb_beneficiaires_total": null,
-    "nb_beneficiaires_par_lot": null,
-    "duree_par_parcours_heures": null,
-    "duree_par_parcours_semaines": null,
-    "duree_marche_mois": 5,
-    "commentaire_volumes": null
-  },
-  "modalites": {
-    "presentiel_obligatoire": true,
-    "distanciel_possible": null,
-    "synchrone_asynchrone": null,
-    "sites_execution": [
-      "Dzaoudzi (Mayotte 976)"
-    ],
-    "amplitude_horaire": null
-  },
-  "caracteristiques_mission_moe": {
-    "typologie": "Diagnostic structurel / expertise technique post-sinistre",
-    "phases_couvertes": [],
-    "typologie_ouvrage": "Bâtiments militaires endommagés post-cyclone",
-    "montant_travaux_estime": null,
-    "complexite_technique": "complexe"
-  },
-  "qualifications_moe": {
-    "opqibi": [],
-    "opqcm": null,
-    "bim": null,
-    "autres": []
-  },
-  "caracteristiques_si": {
-    "description": null,
-    "typologie_projet": null,
-    "technologies_mentionnees": [],
-    "volumetrie": null,
-    "hebergement": null
-  },
-  "qualifications_si": {
-    "iso_27001": null,
-    "anssi": null,
-    "hds": null,
-    "autres": []
   },
   "bareme_notation": {
     "valeur_technique_pct": 45,
@@ -156,251 +106,558 @@
       {
         "libelle": "Valeur technique",
         "ponderation_pct": 40,
-        "description": "Le critère valeur technique est jugé sur 40 points au vu du mémoire technique et des livrables. Il comprend trois sous-critères : moyens humains, organisation des prestations et qualité des livrables.",
+        "description": "Évaluation sur mémoire technique et livrables fournis, décomposée en 3 sous-critères : moyens humains, organisation et qualité des livrables.",
         "elements_attendus": [],
         "exemple_reponse_forte": "—",
-        "source": "RC article 5.3",
+        "source": "RC art 5.3",
+        "unite_evaluation": "points",
         "sous_criteres": [
           {
             "libelle": "Moyens humains dédiés à la mission",
             "ponderation_pct": 10,
-            "description": "Le candidat décrit les moyens humains alloués : liste des collaborateurs avec rôles, qualifications, diplômes, certifications et expériences professionnelles pertinentes pour la mission. Les CV complets et actualisés de l'ensemble du personnel sont joints.",
+            "description": "Le candidat décrit les collaborateurs alloués avec rôles, qualifications/diplômes/certifications et expérience professionnelle pertinente par rapport aux exigences du marché.",
             "elements_attendus": [
-              "Liste nominative des collaborateurs avec rôles et responsabilités spécifiques",
-              "Qualifications, diplômes et certifications pertinents pour le diagnostic structurel",
-              "Expérience professionnelle en lien avec les exigences techniques du marché",
-              "CV complets et actualisés de tout le personnel en charge de la mission",
-              "Mise en avant de l'expertise en lien avec les diagnostics post-cyclone ou post-sinistre"
+              "Liste des collaborateurs avec rôles et responsabilités spécifiques",
+              "Qualifications, diplômes et certifications pertinents pour la mission de diagnostic structurel",
+              "Expérience professionnelle des membres de l'équipe en lien avec les exigences techniques du marché",
+              "CV complets et actualisés de l'ensemble du personnel en charge de la mission"
             ],
-            "exemple_reponse_forte": "L'équipe dédiée est composée d'un ingénieur structure senior (15 ans d'expérience, spécialité pathologie des structures béton armé, certifié COFREND) et de deux ingénieurs juniors (5 ans d'expérience). Le chef de mission a conduit 3 diagnostics post-cyclone en zone ultramarine. CV joints en annexe.",
-            "source": "RC article 5.3 sous-critère n°1"
+            "exemple_reponse_forte": "L'équipe est composée d'un ingénieur structure certifié OPQIBI avec 15 ans d'expérience en diagnostic post-sinistre de bâtiments béton armé en milieu tropical, d'un technicien spécialisé en carottage et essais radar, et d'un économiste de la construction pour les estimations de coûts. Les CV joints détaillent leurs missions en Outre-mer similaires (Réunion, Antilles).",
+            "source": "RC art 5.3 — Sous-critère n°1",
+            "unite_evaluation": "points",
+            "sous_criteres": []
           },
           {
             "libelle": "Organisation pour réaliser les prestations",
             "ponderation_pct": 25,
-            "description": "Le candidat présente son organisation opérationnelle à travers un planning Gantt par tranche, la répartition des ressources humaines et matérielles, la nature et qualité des diagnostics envisagés par bâtiment, les mesures sécurité/hygiène, et la gestion spécifique des sites militaires.",
+            "description": "Évaluation de la méthodologie complète : planning Gantt par tranche, organisation RH et matérielle, nature/qualité/nombre des diagnostics, mesures de sécurité/hygiène et gestion des contraintes de site militaire.",
             "elements_attendus": [],
             "exemple_reponse_forte": "—",
-            "source": "RC article 5.3 sous-critère n°2",
+            "source": "RC art 5.3 — Sous-critère n°2",
+            "unite_evaluation": "points",
             "sous_criteres": [
               {
                 "libelle": "Planning prévisionnel par tranche",
                 "ponderation_pct": 6,
-                "description": "Diagramme de Gantt détaillé par tranche précisant l'ordonnancement des tâches pour chaque bâtiment, réaliste et cohérent avec les délais impartis (4 mois TF, 5 mois TO).",
+                "description": "Diagramme de Gantt par tranche précisant l'ordonnancement des tâches pour chaque bâtiment, réaliste et cohérent avec les délais (TF: 4 mois, TO: 5 mois).",
                 "elements_attendus": [
-                  "Diagramme Gantt distinct pour la tranche ferme et la tranche optionnelle",
-                  "Ordonnancement des tâches par bâtiment",
-                  "Respect des délais contractuels (4 mois TF, 5 mois TO)",
-                  "Cohérence entre les ressources et le planning"
+                  "Planning Gantt détaillé par tranche (TF et TO)",
+                  "Ordonnancement des tâches bâtiment par bâtiment",
+                  "Cohérence avec les délais contractuels (4 mois TF, 5 mois TO)",
+                  "Prise en compte des contraintes d'accès site militaire et de logistique Mayotte"
                 ],
-                "exemple_reponse_forte": "Le planning TF sur 4 mois prévoit : semaines 1-2 mobilisation et visite approfondie des 3 bâtiments, semaines 3-8 investigations et sondages, semaines 9-14 rédaction des rapports, semaines 15-16 restitution et validation. Le TO démarrera à J+1 mois de la notification d'affermissement selon le même schéma.",
-                "source": "RC article 5.3 sous-critère n°2.a"
+                "exemple_reponse_forte": "Le planning Gantt joint présente la tranche ferme sur 16 semaines (semaines 1-3 : mobilisation et étude préliminaire ex-hôpital/073/maison médecins ; semaines 4-10 : investigations terrain en 2 rotations ; semaines 11-16 : essais labo + rédaction rapports), et la tranche optionnelle concomitante sur 20 semaines, avec buffers intégrant les délais de contrôle d'accès militaire.",
+                "source": "RC art 5.3 — Sous-critère n°2a",
+                "unite_evaluation": "points"
               },
               {
                 "libelle": "Organisation des ressources humaines et matérielles",
                 "ponderation_pct": 5,
-                "description": "Description de la répartition des équipes et des moyens matériels (équipements, outils) nécessaires à chaque tâche.",
+                "description": "Description de la répartition des équipes et des moyens matériels nécessaires (équipements, outils) pour chaque tâche.",
                 "elements_attendus": [
-                  "Répartition des équipes par bâtiment et par tâche",
-                  "Liste des moyens matériels (équipements de mesure, d'investigation, EPI)",
-                  "Logistique de déploiement à Mayotte"
+                  "Répartition des équipes par tâche et par bâtiment",
+                  "Liste des moyens matériels (carottier, radar armatures, appareils d'essai de charge, laboratoire partenaire)",
+                  "Organisation logistique spécifique Mayotte (transport aérien/maritime du matériel)"
                 ],
-                "exemple_reponse_forte": "Deux équipes de 2 ingénieurs/techniciens opèrent en parallèle sur les bâtiments de la TF. Les équipements incluent endoscope, scléromètre, pachymètre, appareils de mesure des déformations et drones pour inspection des toitures. La logistique prévoit un hébergement sur place pour 3 semaines de campagne d'investigations.",
-                "source": "RC article 5.3 sous-critère n°2.b"
+                "exemple_reponse_forte": "Deux binômes terrain (ingénieur + technicien) interviendront en parallèle sur les bâtiments de la tranche ferme. Le matériel de carottage et le radar GPR seront acheminés par fret aérien depuis La Réunion. Les essais en laboratoire seront sous-traités à un laboratoire agréé local ou réunionnais identifié.",
+                "source": "RC art 5.3 — Sous-critère n°2b",
+                "unite_evaluation": "points"
               },
               {
                 "libelle": "Nature, qualité et nombre des diagnostics",
                 "ponderation_pct": 10,
-                "description": "Le candidat détaille les différents diagnostics envisagés pour chaque bâtiment (sondages, essais, examens, etc.), en justifiant leur pertinence et adéquation avec les objectifs de la mission.",
+                "description": "Détail des diagnostics envisagés pour chaque bâtiment (sondages, essais, examens) avec justification de leur pertinence et adéquation aux objectifs de la mission.",
                 "elements_attendus": [
-                  "Description des types de diagnostics par bâtiment (visuel, destructif, non destructif)",
-                  "Justification de la pertinence de chaque type de diagnostic",
-                  "Adéquation avec les objectifs d'évaluation de la capacité et sécurité",
-                  "Nombre et nature des sondages/essais prévus",
-                  "Prise en compte des spécificités de chaque bâtiment"
+                  "Description des sondages non destructifs prévus par bâtiment (radar, relevés géométriques, observation)",
+                  "Description des sondages destructifs (carottages par plancher et éléments porteurs, nombre et localisation)",
+                  "Essais laboratoire prévus (résistance compression, corrosion ferraillage)",
+                  "Essais de résistance et vérification des charges d'exploitation des planchers",
+                  "Justification de l'adéquation des diagnostics aux spécificités de chaque bâtiment (ex: ex-hôpital abandonné, bâtiment 073 avec problème de couverture)"
                 ],
-                "exemple_reponse_forte": "Pour l'ex-hôpital, le diagnostic comprend une inspection visuelle exhaustive (classement AUSCULT), 8 carottages béton pour essais de compression, mesure de carbonatation, détection ferraillage par pachymètre et inspection endoscopique des fissures structurelles. Pour les bâtiments 010/011, moins dégradés, le protocole est allégé à inspection visuelle et 4 carottages.",
-                "source": "RC article 5.3 sous-critère n°2.c"
+                "exemple_reponse_forte": "Pour l'ex-hôpital (R+2, 600 m²), la méthodologie prévoit 3 carottages par niveau sur poteaux/poutres/planchers + essais radar sur 100% des éléments porteurs, compte tenu de l'abandon prolongé et de l'humidité tropicale accélératrice de corrosion. Pour la maison des médecins, un diagnostic visuel préalable sera réalisé avant tout essai destructif conformément à l'art. 12.2.3 du CCP.",
+                "source": "RC art 5.3 — Sous-critère n°2c",
+                "unite_evaluation": "points"
               },
               {
                 "libelle": "Mesures de sécurité, hygiène et conditions de travail",
                 "ponderation_pct": 2,
-                "description": "Description des mesures garantissant le respect des règles de sécurité, des normes d'hygiène et des conditions de travail optimales pour les équipes intervenant sur des bâtiments endommagés.",
+                "description": "Description des mesures mises en place pour garantir le respect des règles de sécurité, des normes d'hygiène et des conditions de travail optimales pour les équipes.",
                 "elements_attendus": [
-                  "Plan de prévention des risques liés aux bâtiments endommagés",
-                  "EPI adaptés aux structures potentiellement instables",
-                  "Procédures d'intervention en sécurité sur structures fragilisées"
+                  "Plan de prévention adapté aux interventions sur bâtiments potentiellement dégradés post-cyclone",
+                  "Mesures EPI et protocoles pour risque amiante/plomb (bien qu'exclus du diagnostic, présence possible lors des sondages destructifs)",
+                  "Mesures de sécurité spécifiques aux travaux en hauteur (balcons, toitures)"
                 ],
-                "exemple_reponse_forte": "Un plan de prévention spécifique post-cyclone sera établi avant chaque intervention : port obligatoire du casque, gilet, chaussures de sécurité, évaluation préalable des risques d'effondrement partiel par un ingénieur qualifié avant accès aux équipes terrain.",
-                "source": "RC article 5.3 sous-critère n°2.d"
+                "exemple_reponse_forte": "Un plan de prévention spécifique sera établi préalablement à chaque intervention, intégrant les risques de chute sur structures dégradées, la présence potentielle d'amiante lors des carottages (EPI niveau 3), et les conditions climatiques tropicales (hydratation, travail en heures fraîches).",
+                "source": "RC art 5.3 — Sous-critère n°2d",
+                "unite_evaluation": "points"
               },
               {
                 "libelle": "Gestion des sites militaires",
                 "ponderation_pct": 2,
-                "description": "Le candidat démontre sa capacité à gérer la mission sur des sites militaires en prenant en compte les contraintes spécifiques de sécurité et d'accès.",
+                "description": "Démonstration de la capacité à gérer la mission sur des sites militaires en prenant en compte les contraintes spécifiques (sécurité, accès, contrôle nominatif).",
                 "elements_attendus": [
-                  "Expérience ou références sur des sites militaires ou à accès restreint",
-                  "Connaissance des procédures d'habilitation et d'accès aux emprises défense",
-                  "Mesures d'organisation adaptées aux contraintes sécurité militaire"
+                  "Expérience avérée sur sites militaires (références)",
+                  "Processus de gestion des habilitations et contrôles nominatifs du personnel",
+                  "Anticipation des délais d'obtention des laissez-passer dans le planning"
                 ],
-                "exemple_reponse_forte": "Notre cabinet a conduit 4 diagnostics structurels sur emprises militaires (DID Antilles, DID Guyane). Notre personnel est formé aux procédures de demande d'habilitation et nous disposons d'un référent sécurité défense désigné pour coordonner les accès avec le représentant de la maîtrise d'ouvrage.",
-                "source": "RC article 5.3 sous-critère n°2.e"
+                "exemple_reponse_forte": "Notre bureau d'études a conduit 3 diagnostics sur des emprisesa de la Défense (DGA Toulon, base aérienne Évreux). Nous intégrons systématiquement 15 jours ouvrés de délai pour l'obtention des autorisations d'accès dans notre planning, et notre équipe dispose de badges militaires actifs pour certains membres.",
+                "source": "RC art 5.3 — Sous-critère n°2e",
+                "unite_evaluation": "points"
               }
             ]
           },
           {
             "libelle": "Qualité des livrables",
             "ponderation_pct": 5,
-            "description": "Le candidat fournit deux exemplaires de livrables pour des prestations techniques similaires. Est jugée la pertinence, la clarté, l'organisation et la complétude des documents vis-à-vis de la mission demandée.",
+            "description": "Le candidat fournit deux exemplaires de livrables pour des prestations techniques similaires (2,5 points par livrable). Est jugée la pertinence, la clarté, l'organisation et la complétude des documents vis-à-vis de la mission demandée.",
             "elements_attendus": [
-              "Deux exemples de livrables de diagnostics structurels similaires",
-              "Documents clairs, bien structurés et complets",
-              "Pertinence par rapport aux objectifs de diagnostic structurel",
-              "Présentation des recommandations et estimations de coûts"
+              "2 exemples de livrables de diagnostics structurels similaires (rapports de diagnostic structurel)",
+              "Documents pertinents vis-à-vis de la mission (structure béton, bâtiments existants)",
+              "Clarté de la présentation (plans de repérage, album photos, calculs structurels)",
+              "Complétude : présence des préconisations techniques avec estimations de coûts"
             ],
-            "exemple_reponse_forte": "Livrable n°1 : rapport de diagnostic structurel post-sinistre d'un ERP (école, 2023) incluant fiches par élément structurel, photos annotées, synthèse des investigations et estimatif détaillé. Livrable n°2 : diagnostic structurel post-inondation de bâtiments administratifs (2024) avec classement AUSCULT et scénarios de réparation chiffrés.",
-            "source": "RC article 5.3 sous-critère n°3"
+            "exemple_reponse_forte": "Les deux livrables joints correspondent à des diagnostics structurels post-sinistre réalisés sur des bâtiments R+2 béton armé en milieu tropical (Réunion 2023, Guadeloupe 2022). Chaque rapport comprend plans de sondages annotés, résultats d'essais, calculs de portance, album photos et estimation des travaux de réhabilitation.",
+            "source": "RC art 5.3 — Sous-critère n°3",
+            "unite_evaluation": "points",
+            "sous_criteres": []
           }
         ]
       },
       {
         "libelle": "Achat responsable",
         "ponderation_pct": 5,
-        "description": "Le candidat démontre sa capacité à minimiser l'impact environnemental de ses déplacements professionnels, notamment l'utilisation de véhicules à faibles émissions et une stratégie de planification des déplacements.",
+        "description": "Évaluation de la capacité du candidat à minimiser l'impact environnemental de ses déplacements professionnels, en privilégiant véhicules électriques/hybrides/alternatifs et en mettant en place une stratégie de planification des déplacements.",
         "elements_attendus": [
-          "Utilisation prioritaire de véhicules électriques, hybrides rechargeables ou à carburants alternatifs",
-          "Stratégie de planification des déplacements visant à réduire l'empreinte environnementale",
-          "Mesures concrètes pour limiter l'impact des déplacements professionnels"
+          "Utilisation de véhicules électriques, hybrides rechargeables ou à carburants alternatifs pour les déplacements",
+          "Stratégie de planification des déplacements visant à réduire l'impact environnemental",
+          "Regroupement des interventions pour limiter les rotations aériennes Réunion-Mayotte"
         ],
-        "exemple_reponse_forte": "Notre politique de déplacements professionnels prévoit l'utilisation exclusive de véhicules électriques pour les trajets locaux à Mayotte (flotte louée sur place) et la mutualisation des voyages aériens en regroupant les campagnes d'investigation. Un bilan carbone estimatif des déplacements est présenté pour cette mission.",
-        "source": "RC article 5.3 critère achat responsable"
+        "exemple_reponse_forte": "Notre stratégie de déplacement prévoit le regroupement des phases terrain en 2 rotations aériennes maximum par tranche, l'utilisation d'un véhicule hybride rechargeable pour les déplacements sur site à Mayotte, et la conduite des réunions d'avancement en visioconférence pour éviter les déplacements supplémentaires.",
+        "source": "RC art 5.3 — Critère achat responsable",
+        "unite_evaluation": "points",
+        "sous_criteres": []
       }
     ],
     "prix": {
       "type_formule": "moins_disant",
-      "formule_explicite": "V = 55 × (Pm / P) où Pm est le prix le plus bas et P le prix du candidat. L'offre au prix le plus bas obtient 55 points.",
+      "formule_explicite": "Note prix = 55 × (Pm / P), où Pm est le prix le plus bas et P est le prix du candidat. L'offre financière comprend la tranche ferme et la tranche optionnelle.",
+      "source": "RC art 5.3",
       "elements_a_chiffrer": [
-        "Prix global et forfaitaire tranche ferme (bâtiments ex-hôpital, maison des médecins, 073)",
-        "Prix global et forfaitaire tranche optionnelle (bâtiments 010, 011, 015, 019, 020)",
-        "Décomposition du Prix Global et Forfaitaire (DPGF) selon le cadre joint au DCE"
+        "Diagnostic structurel ex-hôpital (ENS) — tranche ferme",
+        "Diagnostic structurel maison des médecins — diagnostic visuel préalable (ENS) — tranche ferme",
+        "Diagnostic structurel maison des médecins — suite de la mission (ENS) — tranche ferme",
+        "Diagnostic structurel bâtiment 073 (ENS) — tranche ferme",
+        "Diagnostic structurel bâtiment 010 (ENS) — tranche optionnelle",
+        "Diagnostic structurel bâtiment 011 (ENS) — tranche optionnelle",
+        "Diagnostic structurel bâtiment 015 (ENS) — tranche optionnelle",
+        "Diagnostic structurel bâtiment 019 (ENS) — tranche optionnelle",
+        "Diagnostic structurel bâtiment 020 (ENS) — tranche optionnelle"
       ]
     },
-    "modalite_calcul_prix": "V = 55 × (Pm/P) — l'offre la moins chère obtient 55/55 points, les autres sont calculées proportionnellement."
+    "modalite_calcul_prix": "Note prix = 55 × (Pm / P), où Pm est le prix le plus bas et P est le prix du candidat. L'offre financière comprend la tranche ferme et la tranche optionnelle."
   },
   "montant_marche": {
     "valeur_estimee_euros": null,
     "fourchette_min_euros": null,
     "fourchette_max_euros": null,
     "type": "non_communique",
-    "duree_couverte": "Tranche ferme 4 mois + tranche optionnelle 5 mois (concomitantes possibles)",
+    "duree_couverte": null,
     "source_extraction": null,
-    "commentaire": "Aucun montant estimé ni plafond budgétaire n'est mentionné dans les pièces du DCE fournies. La DPGF est fournie comme cadre à remplir mais sans prix de référence communiqués."
+    "commentaire": "Aucun montant estimé ni plafond n'est mentionné dans le DCE. La DPGF ne contient que des lignes vides (totaux à 0). Estimation possible par bottom-up (voir montant_3_voies)."
+  },
+  "montant_3_voies": {
+    "voie_1_eur": null,
+    "voie_1_source": null,
+    "voie_2_disponible": true,
+    "voie_2_min_eur": 130000,
+    "voie_2_max_eur": 185000,
+    "voie_2_hypotheses": [
+      {
+        "hypothese": "Surface totale des 8 bâtiments",
+        "valeur": "4 751 m² (CCP art 12.1)"
+      },
+      {
+        "hypothese": "Tranche ferme : 3 bâtiments, surface ~2 175 m² (ex-hôpital 600 m² + 073 1455 m² + maison médecins 120 m²)",
+        "valeur": "2 175 m²"
+      },
+      {
+        "hypothese": "Tranche optionnelle : 5 bâtiments, surface ~2 576 m² (010+011+015+019+020)",
+        "valeur": "2 576 m²"
+      },
+      {
+        "hypothese": "Ratio de référence diagnostic structurel béton armé en milieu tropical avec sondages destructifs : 25 à 35 €/m² pour les bâtiments courants, majoré pour la logistique Mayotte (x1,4 environ)",
+        "valeur": "35 à 50 €/m²"
+      },
+      {
+        "hypothese": "Dimension variée : ratio unitaire (35 à 50 €/m²) ; surface fixée à 4 751 m²",
+        "valeur": "ratio 35-50 €/m² × 4 751 m²"
+      },
+      {
+        "hypothese": "Forfait minimum incompressible pour déplacements Réunion-Mayotte (2 rotations × 2 personnes × vol + hébergement + fret matériel) estimé à ~15 000 €",
+        "valeur": "~15 000 €"
+      }
+    ],
+    "voie_2_raison_indisponible": null
+  },
+  "cout_realisation": {
+    "cout_total_eur": 98000,
+    "cout_min_eur": 80000,
+    "cout_max_eur": 120000,
+    "postes": [
+      {
+        "poste": "Ingénierie — études préliminaires et analyse de plans (8 bâtiments)",
+        "detail": "2 ingénieurs × 5 j/bâtiment × 8 bâtiments = 80 j-h à 650 €/j",
+        "montant_eur": 52000
+      },
+      {
+        "poste": "Investigations terrain — sondages non destructifs (radar, relevés géométriques, observation)",
+        "detail": "2 techniciens × 3 j/bâtiment × 8 bâtiments = 48 j-h à 500 €/j",
+        "montant_eur": 24000
+      },
+      {
+        "poste": "Sondages destructifs — carottages, rebouchage, préparation échantillons",
+        "detail": "Sous-traité à équipe spécialisée : forfait ~1 500 €/bâtiment × 8",
+        "montant_eur": 12000
+      },
+      {
+        "poste": "Essais laboratoire (résistance compression béton, corrosion ferraillage)",
+        "detail": "~600 €/bâtiment × 8 bâtiments",
+        "montant_eur": 4800
+      },
+      {
+        "poste": "Déplacements logistiques Mayotte (vols, hébergement, fret matériel)",
+        "detail": "2 rotations × 2 personnes × (vols ~1200 € + hébergement 5 nuits × 150 €) + fret matériel ~3 000 €",
+        "montant_eur": 11400
+      },
+      {
+        "poste": "Rédaction rapports et livrables (8 rapports)",
+        "detail": "1 ingénieur × 5 j/rapport × 8 = 40 j-h à 650 €/j",
+        "montant_eur": 26000
+      },
+      {
+        "poste": "Coordination de projet et réunions d'avancement",
+        "detail": "Chef de projet 15 j à 750 €/j",
+        "montant_eur": 11250
+      }
+    ],
+    "taux_journaliers_retenus": "Ingénieur structure senior 650 €/j, chef de projet 750 €/j, technicien spécialisé 500 €/j — taux marché indicatifs pour une mission d'ingénierie en Outre-mer (majorés ~10% vs métropole). La dimension variée est le taux journalier (±15%), la charge en j-h étant estimée à partir des surfaces et du descriptif de la mission.",
+    "commentaire": "Le coût de réalisation varie principalement selon le taux journalier appliqué (dimension variée). La surface totale de 4 751 m² et la décomposition en 8 rapports avec sondages destructifs constituent la base de chiffrage. Coût min (taux bas) : ~80 000 € ; coût max (taux haut +~15%) : ~120 000 €. La marge brute estimée sur le revenu central (~157 500 €) serait d'environ 38-60%, ce qui est cohérent avec une mission d'ingénierie en Outre-mer à forte composante déplacements inclus dans le prix."
   },
   "revision_prix": {
-    "type": "non_communique",
-    "indices_utilises": [],
-    "ponderation": null,
+    "type": "indexation",
+    "indices_utilises": [
+      "ING"
+    ],
+    "ponderation": "Index ING (Ingénierie) — index unique sans mention de partie fixe dans le CCP",
     "periodicite": null,
     "formule_revision": null,
-    "source_extraction": null,
-    "commentaire": "Le CCP n'est pas fourni dans les pièces analysées. Aucune indication sur la révision des prix dans le RC."
+    "source_extraction": "CCP art 4.3",
+    "commentaire": "Révision sur index ING (Ingénierie) uniquement. Le CCP précise que les prix sont fermes et révisables selon cet index. La formule de pondération détaillée n'est pas explicitée dans le CCP fourni."
   },
   "alertes_prix": [
-    "Pondération prix de 55% élevée pour un marché d'ingénierie/expertise — le prix sera déterminant dans le classement final",
-    "Prix global et forfaitaire (non à bordereau de prix unitaires) : l'erreur de cadrage initial est sans recours possible",
-    "Prestation à Mayotte : les surcoûts logistiques (déplacements aériens, hébergement, location matériel) doivent impérativement être intégrés dans le forfait",
-    "L'offre intègre tranche ferme ET tranche optionnelle pour le calcul du prix : ne pas sous-estimer la TO qui représente 5 bâtiments sur 8"
+    "Pondération prix de 55% particulièrement élevée pour une mission d'ingénierie intellectuelle : la compétition prix sera forte, au risque de pression sur les marges.",
+    "Formule moins-disant pure (Note = 55 × Pm/P) : un écart de 20% sur le prix d'un concurrent réduit la note prix de ~9 points sur 55, très difficile à rattraper sur la technique (40 pts).",
+    "L'offre financière inclut tranche ferme + tranche optionnelle : ne pas sous-évaluer la tranche optionnelle (5 bâtiments, ~2 576 m²) qui est incluse dans la formule de notation prix.",
+    "Déplacements Réunion-Mayotte inclus dans les prix (vols, transport maritime, hébergement) : risque de sous-évaluation par des candidats locaux sans expérience de la logistique insulaire."
   ],
   "references_exigees": {
-    "experience_minimale_annees": 3,
-    "experience_source": "RC article 4.2.b",
+    "experience_minimale_annees": null,
+    "experience_source": null,
     "volume_min_references_similaires": 2,
-    "volume_min_references_unite": "références de prestations similaires",
-    "secteur_experience": "Diagnostics structurels de bâtiments",
-    "secteur_source": "RC article 4.2.b",
+    "volume_min_references_unite": "marchés similaires",
+    "secteur_experience": "Prestations similaires à l'objet du marché (diagnostics structurels de bâtiments), menées dans les 3 dernières années",
+    "secteur_source": "RC art 4.2b",
     "certifications_obligatoires": [],
     "autres_exigences": [
       {
-        "libelle": "Visite des lieux obligatoire les 27 (après-midi) ou 28 juillet 2026 — attestation à joindre impérativement à l'offre sous peine d'irrégularité",
-        "source": "RC article 1.2 et article 5.1"
-      },
-      {
-        "libelle": "Dépôt électronique exclusif sur PLACE — tout autre support rend l'offre irrégulière",
-        "source": "RC rappel initial et article 6.1"
+        "libelle": "Visite obligatoire des lieux — attestation de visite signée par le représentant MOA à joindre à l'offre (visites les 27 après-midi ou 28 juillet 2026)",
+        "source": "RC art 1.2"
       }
     ]
+  },
+  "dossier_candidature": {
+    "pieces_a_fournir": [
+      {
+        "libelle": "Acte d'Engagement (AE) complété",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC art 5.1"
+      },
+      {
+        "libelle": "Décomposition du Prix Global et Forfaitaire (DPGF) — cadre joint au DCE, non modifiable",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC art 5.1"
+      },
+      {
+        "libelle": "Mémoire technique (limité à 30 pages hors exemples de livrables, respectant la trame imposée)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC art 5.1 et 5.4"
+      },
+      {
+        "libelle": "Certificat de visite des lieux (signé par le représentant MOA lors des visites des 27 ou 28 juillet 2026)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC art 1.2 et 5.1"
+      },
+      {
+        "libelle": "Deux exemples de livrables pour des prestations techniques similaires (numérotés et nommés selon la trame imposée)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC art 5.3 (sous-critère n°3) et art 5.4b"
+      },
+      {
+        "libelle": "DUME électronique OU formulaires DC1 + DC2 complétés",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC art 4.3"
+      },
+      {
+        "libelle": "Deux références de prestations similaires menées dans les 3 dernières années",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC art 4.2b"
+      },
+      {
+        "libelle": "CV complets et actualisés de l'ensemble du personnel en charge de la mission",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC art 5.3 — sous-critère n°1"
+      },
+      {
+        "libelle": "Attestation d'assurance en responsabilité décennale (sur demande de l'acheteur pendant l'exécution, dans les 3 jours ouvrés)",
+        "phase": "offre",
+        "obligatoire": false,
+        "source": "CCP art 10.2"
+      },
+      {
+        "libelle": "Engagement de sous-traitance signé des deux parties (si le candidat s'appuie sur les capacités d'un sous-traitant pressenti)",
+        "phase": "candidature",
+        "obligatoire": false,
+        "source": "RC art 4.3"
+      }
+    ],
+    "mode_remise": "dématérialisé",
+    "plateforme_depot": "PLACE — marches-publics.gouv.fr",
+    "signature_electronique_exigee": true,
+    "format_signature": "XAdES, CAdES ou PAdES — certificat conforme RGS ou liste de confiance eIDAS",
+    "nombre_exemplaires": null,
+    "langue": "français",
+    "duree_validite_offres_jours": 120,
+    "modalites_source": "RC art 6 et art 5.2"
   },
   "lots": [
     {
       "numero": 1,
-      "intitule": "Tranche ferme — ex-hôpital, maison des médecins, bâtiment 073",
-      "zone_geographique": "Dzaoudzi, Mayotte (976)",
-      "volume_estime": null,
-      "volume_estime_unite": null,
-      "particularites": "3 bâtiments — délai d'exécution 4 mois à compter de la notification"
+      "intitule": "MAYOTTE (976) – DZAOUDZI - Quartier Cabaribére – Production d'études de diagnostics structurels sur huit bâtiments",
+      "domaine": "ingenierie_structure_genie_civil",
+      "zone_geographique": "Dzaoudzi, Mayotte (976) — FRY40",
+      "volume_estime": 4751,
+      "volume_estime_unite": "m² (surface cumulée des 8 bâtiments)",
+      "cout_estime_min_eur": 80000,
+      "cout_estime_max_eur": 120000,
+      "particularites": "Site militaire à accès contrôlé, contexte post-cyclone CHIDO, bâtiments partiellement abandonnés, logistique Outre-mer (Mayotte), diagnostics amiante/plomb exclus du périmètre"
+    }
+  ],
+  "tranches": [
+    {
+      "type": "ferme",
+      "numero": "TF",
+      "intitule": "Tranche ferme",
+      "objet": "Diagnostics structurels des bâtiments ex-hôpital, maison des médecins et bâtiment 073 (3 bâtiments, ~2 175 m²).",
+      "montant_estime_eur": null,
+      "condition_affermissement": null,
+      "source": "RC art 2.1e et CCP art 1.2"
     },
     {
-      "numero": 2,
-      "intitule": "Tranche optionnelle — bâtiments 010, 011, 015, 019, 020",
-      "zone_geographique": "Dzaoudzi, Mayotte (976)",
-      "volume_estime": null,
-      "volume_estime_unite": null,
-      "particularites": "5 bâtiments — délai 5 mois, affermissable au plus tard 1 an après notification de la TF. Peut être concomitante avec la TF."
+      "type": "optionnelle",
+      "numero": "TO",
+      "intitule": "Tranche optionnelle",
+      "objet": "Diagnostics structurels des bâtiments 010, 011, 015, 019 et 020 (5 bâtiments, ~2 576 m²).",
+      "montant_estime_eur": null,
+      "condition_affermissement": "Sur décision du maître d'ouvrage par ordre de service, affermie au plus tard un an après la notification du marché.",
+      "source": "RC art 2.1e et 2.2 ; CCP art 1.2"
     }
   ],
   "calendrier": {
     "date_limite_offres": "2026-08-18",
     "date_demarrage_prevue": "2026-10-01",
-    "duree_marche": "4 mois (TF) + 5 mois (TO) — concomitantes possibles, affermissement TO au plus tard 1 an après notification"
+    "duree_marche": "Tranche ferme : 4 mois ; tranche optionnelle : 5 mois (concomitantes possibles)"
   },
   "alertes_candidat": [
-    "VISITE OBLIGATOIRE les 27 après-midi ou 28 juillet 2026 uniquement — absence de l'attestation de visite entraîne l'irrecevabilité de l'offre (RC art. 1.2 et 5.1)",
-    "Deux références de prestations similaires dans les 3 dernières années sont exigées — absence = candidature rejetée (RC art. 4.2.b)",
-    "Prestation à Mayotte sur site militaire — nécessité d'anticiper les habilitations d'accès défense et les contraintes logistiques insulaires (RC art. 2.1.d)",
-    "Dépôt électronique exclusif sur PLACE (www.marches-publics.gouv.fr) — tout autre mode de transmission invalide l'offre (RC rappel + art. 6.1)",
-    "Le mémoire technique est limité à 30 pages hors exemples de livrables — deux exemples de livrables similaires obligatoires (RC art. 5.3 et 5.4)"
+    "VISITE OBLIGATOIRE : une attestation de visite signée par le représentant MOA est obligatoirement jointe à l'offre — sans elle, l'offre est irrecevable. Visites UNIQUEMENT les 27 juillet (après-midi) ou 28 juillet 2026. Délai très court pour s'organiser depuis la métropole ou La Réunion.",
+    "SITE MILITAIRE : tout le personnel intervenant fait l'objet d'une enquête administrative préalable. Les étrangers (y compris ressortissants UE) peuvent subir des délais supplémentaires. Un avis défavorable entraîne refus d'accès sans indemnité ni prolongation de délai.",
+    "DEUX RÉFÉRENCES SIMILAIRES EXIGÉES dans les 3 dernières années : elles doivent être de nature similaire (diagnostics structurels de bâtiments). Absence = dossier de candidature incomplet.",
+    "BÂTIMENT 'MAISON DES MÉDECINS' : procédure en 2 étapes (diagnostic visuel préalable obligatoire avant essais destructifs, sur ordre de service). Bien chiffrer séparément les lignes 2.1 et 2.2 de la DPGF avec possibilité de réfaction de la ligne 2.2.",
+    "LIVRABLES À FOURNIR À L'OFFRE : 2 exemples de diagnostics structurels similaires (notés 5 pts) doivent être joints au dossier d'offre selon une numérotation imposée — leur absence ou mauvaise présentation pénalise directement la note technique."
   ],
   "points_differenciants_attendus": [
     {
-      "libelle": "Expérience en diagnostics structurels post-sinistre en zone ultramarine",
-      "exemple": "Présenter des références de diagnostics post-cyclone ou post-inondation en Outre-mer (Antilles, Réunion, Mayotte) avec résultats et suites données, démontrant la maîtrise des spécificités techniques et logistiques.",
-      "source": "RC article 5.3 sous-critère n°2.c"
+      "libelle": "Expérience avérée sur bâtiments dégradés en milieu tropical et/ou post-sinistre",
+      "exemple": "Mentionner des diagnostics structurels réalisés après cyclone ou séisme sur des bâtiments béton armé en Outre-mer (Réunion, Antilles, Nouvelle-Calédonie) démontre une compréhension concrète des pathologies spécifiques (chlorures, corrosion accélérée, déformations cycloniques).",
+      "source": null
     },
     {
-      "libelle": "Expérience avérée sur sites militaires / emprises défense",
-      "exemple": "Citer des références de missions conduites sur emprises SID ou Défense, avec mention des procédures d'habilitation maîtrisées et d'un référent sécurité défense dédié.",
-      "source": "RC article 5.3 sous-critère n°2.e"
+      "libelle": "Nature, qualité et nombre des diagnostics — sous-critère le plus fortement pondéré (10 pts)",
+      "exemple": "Proposer un protocole d'investigation détaillé bâtiment par bâtiment (nombre de carottages, localisation radar, essais de charge spécifiques) avec justification technique de chaque sondage par rapport aux pathologies attendues post-cyclone maximise ce sous-critère.",
+      "source": "RC art 5.3 — sous-critère n°2c"
     },
     {
-      "libelle": "Qualité et pertinence des exemples de livrables fournis",
-      "exemple": "Fournir deux rapports de diagnostics structurels complets (fiches par bâtiment, photos annotées, tableaux de synthèse, estimatifs de travaux détaillés), de préférence sur des bâtiments endommagés post-sinistre ou en zone tropicale.",
-      "source": "RC article 5.3 sous-critère n°3"
+      "libelle": "Références de livrables de qualité (clarté, plans annotés, préconisations chiffrées)",
+      "exemple": "Fournir un rapport de diagnostic précédent comprenant des plans de repérage sondages, album photos annoté, tableau récapitulatif des désordres classés par criticité et estimations de coûts par poste illustre directement la qualité attendue des livrables.",
+      "source": "RC art 5.3 — sous-critère n°3"
     },
     {
-      "libelle": "Méthode de diagnostic structurel détaillée et adaptée à chaque bâtiment",
-      "exemple": "Proposer un protocole d'investigation différencié par bâtiment (ex: niveau de dégradation, type de structure, accessibilité) avec justification du choix des essais (scléromètre, carottages, pachymètre, inspection drone), démontrant une analyse préalable des données fournies en annexes du DCE.",
-      "source": "RC article 5.3 sous-critère n°2.c"
+      "libelle": "Maîtrise des contraintes logistiques Outre-mer et gestion de sites militaires",
+      "exemple": "Détailler un planning intégrant les délais de contrôle d'accès (15 j pour habilitations), les rotations aériennes Réunion-Mayotte optimisées et le partenariat avec un laboratoire local agréé pour les essais béton démontre une anticipation opérationnelle qui rassure le MOA défense.",
+      "source": "RC art 5.3 — sous-critère n°2e"
     },
     {
-      "libelle": "Logistique et organisation opérationnelle adaptée à Mayotte",
-      "exemple": "Présenter un plan de mobilisation détaillé intégrant les contraintes d'accès à Mayotte (transport aérien, hébergement, location de matériel sur place ou acheminement), démontrant la réalisme du planning et la maîtrise des délais contractuels.",
-      "source": "RC article 5.3 sous-critère n°2.a et 2.b"
+      "libelle": "Stratégie RSE crédible adaptée aux déplacements inter-îles",
+      "exemple": "Proposer un plan de regroupement des missions terrain (1-2 rotations Réunion-Mayotte max par tranche), le recours à la visioconférence pour les réunions d'avancement, et l'utilisation de véhicules hybrides/électriques sur site montrent une réponse sérieuse au critère achat responsable (5 pts).",
+      "source": "RC art 5.3 — critère achat responsable"
     }
   ],
   "_meta": {
     "id_marche": "BOAMP-26-56757",
     "type": "complet",
-    "extraction_le": "2026-06-12T00:20:41.568689+00:00",
+    "date_generation": "2026-06-19T23:03:41.134649+00:00",
+    "extraction_le": "2026-06-19T23:03:41.134649+00:00",
     "modele": "claude-sonnet-4-6",
-    "tokens_input": 29375,
-    "tokens_output": 7692,
-    "cout_eur": 0.1933,
-    "duree_sec": 132.6,
+    "preset_utilise": "ingenierie",
+    "presets_matches": [
+      "ingenierie",
+      "btp"
+    ],
+    "prompts_versions": {
+      "ingenierie/_preset.json": "sha256:b924b32a088673d6",
+      "btp/_preset.json": "sha256:055bf6f8b2c1f771"
+    },
+    "tokens_input": 70658,
+    "tokens_output": 10666,
+    "cout_eur": 0.3534,
+    "duree_sec": 189.9,
     "pdfs_traites": [
+      {
+        "nom": "10RN26 - Acte d'engagement - AE.pdf",
+        "hash": "b3cbdb40c1abc4cf731e81136b67b7d4",
+        "taille_chars": 9444
+      },
+      {
+        "nom": "10RN26 - Attestation de visite des lieux.pdf",
+        "hash": "eaa5b8687d1975cd6610efda32c80d3a",
+        "taille_chars": 1005
+      },
+      {
+        "nom": "10RN26 - Cahier des clauses particulieres - CCP.pdf",
+        "hash": "ef736c508468badc3556410675fba27c",
+        "taille_chars": 50442
+      },
+      {
+        "nom": "10RN26 - Decomposition du prix global et forfaitaire - DPGF.xlsx",
+        "hash": "cc3e2a688374f305aedf04bbdf17568c",
+        "taille_chars": 1245
+      },
+      {
+        "nom": "10RN26 - Reglement de la consultation - RC - signe DID.pdf",
+        "hash": "eaa16f825f39c04542600cb8be149b8b",
+        "taille_chars": 50780
+      },
       {
         "nom": "10RN26 - RÃ¨glement de la consultation - RC - signÃ© DID.pdf",
         "hash": "eaa16f825f39c04542600cb8be149b8b",
         "taille_chars": 50780
+      },
+      {
+        "nom": "B_0073_00_ACT.pdf",
+        "hash": "5d19a7fd7890699f84a4aea8d52aeb3a",
+        "taille_chars": 230
+      },
+      {
+        "nom": "B_0073_01_ACT.pdf",
+        "hash": "70493b6db255d6a041056789d5e53773",
+        "taille_chars": 234
+      },
+      {
+        "nom": "DZA masse assainissement-fA3.pdf",
+        "hash": "cacb3ed5f5d92de899322d4747410a35",
+        "taille_chars": 1859
+      },
+      {
+        "nom": "DZA plan bat mater-fA3.pdf",
+        "hash": "b0ab8b17c54882cc02276078d443e5ec",
+        "taille_chars": 1362
+      },
+      {
+        "nom": "N_-1_ACT-BAT019.pdf",
+        "hash": "38d4cfa2c63ae083d333bb7e28db7e5a",
+        "taille_chars": 26
+      },
+      {
+        "nom": "N_-1_ACT-BAT020.pdf",
+        "hash": "7d4f5642b17a7ea9e846409451e2a7cd",
+        "taille_chars": 15
+      },
+      {
+        "nom": "N_00_ACT-A4.pdf",
+        "hash": "649c74cd34b74dca7e661d326e6894ee",
+        "taille_chars": 352
+      },
+      {
+        "nom": "N_00_ACT-BAT010.pdf",
+        "hash": "50ffcf20acc6b528e0c92a0cdd1c7a55",
+        "taille_chars": 24
+      },
+      {
+        "nom": "N_00_ACT-BAT011.pdf",
+        "hash": "0477008be39b44a930d8bfa2a067fe55",
+        "taille_chars": 56
+      },
+      {
+        "nom": "N_00_ACT-BAT015.pdf",
+        "hash": "c2ee19b508ce86cf73d562713c2282af",
+        "taille_chars": 33
+      },
+      {
+        "nom": "N_00_ACT-BAT019.pdf",
+        "hash": "0ace2c6d42333c5e25ba7762daf24f3e",
+        "taille_chars": 36
+      },
+      {
+        "nom": "N_00_ACT-BAT020.pdf",
+        "hash": "30a5af3755888569d2b4131ab787b7d5",
+        "taille_chars": 49
+      },
+      {
+        "nom": "N_01_ACT-A4.pdf",
+        "hash": "0ab6e23309d691d89266e96ef3849f82",
+        "taille_chars": 352
+      },
+      {
+        "nom": "N_01_ACT-BAT-011.pdf",
+        "hash": "a38565aa3504a99db570e7fd1f2f9c70",
+        "taille_chars": 275
+      },
+      {
+        "nom": "N_01_ACT-BAT019.pdf",
+        "hash": "642b8f91e62a3f9e4660f9411f7d1553",
+        "taille_chars": 37
+      },
+      {
+        "nom": "N_01_ACT-BAT020.pdf",
+        "hash": "01f055671db382af830337663b044ec8",
+        "taille_chars": 38
+      },
+      {
+        "nom": "Plan R+1 Medecine Hopital Dzaoudzi.pdf",
+        "hash": "1dc1ff7e1090460eef8d73ac3f1306f6",
+        "taille_chars": 0
+      },
+      {
+        "nom": "Plan RDC Medecine Hopital Dzaoudzi.pdf",
+        "hash": "64b631a11bbeaef9b76d97e760786823",
+        "taille_chars": 0
       }
     ]
   }

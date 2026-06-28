@@ -1,125 +1,131 @@
 {
-  "synthese_marche": "Accord-cadre à bons de commande pour des travaux d'entretien, de réparation, d'aménagement et de rénovation des bâtiments communautaires de Saint-Quentin-en-Yvelines (environ 230 000 m² de surfaces à entretenir). Le marché est découpé en 9 lots correspondant à différents corps d'état (gros œuvre, menuiseries, métallerie, cloisons, électricité, plomberie, peinture, charpente, étanchéité). Chaque lot est conclu avec un seul opérateur pour une durée initiale de 1 an, reconductible tacitement 3 fois.",
+  "synthese_marche": "Accord-cadre à bons de commande de la Communauté d'Agglomération Saint-Quentin-en-Yvelines portant sur les travaux d'entretien, de réparation, d'aménagement et de rénovation de ses bâtiments communautaires (environ 230 000 m² de surfaces). Le marché est structuré en 9 lots par corps d'état (gros œuvre, menuiserie, métallerie, cloisons/faux-plafonds, électricité, plomberie/chauffage, peinture/sols, charpente/couverture, étanchéité/bardage), chacun sans minimum annuel et avec un maximum annuel compris entre 200 000 € HT et 500 000 € HT. La durée est de 1 an reconductible 3 fois (4 ans max), avec des interventions prévisibles, urgentes et d'astreinte.",
   "domaines_metier": [
     {
       "code": "btp_second_oeuvre",
       "poids": 0.6,
       "lots_concernes": [
-        "Lot 2 Menuiseries",
-        "Lot 3 Métallerie",
-        "Lot 4 Cloisons/faux-plafonds",
-        "Lot 5 Electricité",
-        "Lot 6 Plomberie",
-        "Lot 7 Peinture",
-        "Lot 8 Charpente-couverture",
-        "Lot 9 Etanchéité"
+        "LOT-0002",
+        "LOT-0003",
+        "LOT-0004",
+        "LOT-0005",
+        "LOT-0006",
+        "LOT-0007",
+        "LOT-0009"
       ]
     },
     {
       "code": "btp_gros_oeuvre",
-      "poids": 0.4,
+      "poids": 0.2,
       "lots_concernes": [
-        "Lot 1 Gros œuvre/Maçonnerie/Carrelage"
+        "LOT-0001"
+      ]
+    },
+    {
+      "code": "btp_renovation_rehabilitation",
+      "poids": 0.2,
+      "lots_concernes": [
+        "LOT-0008"
       ]
     }
   ],
-  "raison_classification": "Le marché couvre 9 lots de travaux tous corps d'état sur bâtiments existants (entretien, réparation, aménagement, rénovation). Le lot 1 (gros œuvre, maçonnerie, carrelage) relève du domaine btp_gros_oeuvre, tandis que les 8 autres lots (menuiseries, métallerie, cloisons/faux-plafonds, électricité, plomberie/chauffage, peinture/revêtements, charpente/couverture, étanchéité/bardage) relèvent du btp_second_oeuvre. Multi-lots avec métiers distincts justifiant deux domaines pondérés.",
+  "raison_classification": "Le marché couvre l'ensemble des corps d'état d'entretien et de réhabilitation de bâtiments existants : lot 1 en gros œuvre/maçonnerie, lots 2-4-5-6-7-9 en second œuvre (menuiserie, cloisons, électricité, plomberie, peinture, étanchéité), lot 8 en charpente/couverture. La dominante est clairement 'btp_second_oeuvre' (7 lots sur 9), avec une part gros œuvre et une part réhabilitation couverture. Trois domaines sont justifiés par la nature distincte des lots.",
   "caracteristiques_techniques_chantier": {
-    "description": "Travaux d'entretien courant, de réparation, d'aménagement et de rénovation dans les bâtiments dont la Communauté d'Agglomération de Saint-Quentin-en-Yvelines est gestionnaire ou propriétaire (230 000 m² environ). Les interventions se déclinent en trois catégories : travaux d'astreinte, travaux d'urgence, travaux prévisibles.",
-    "typologie_ouvrage": "Bâtiments communautaires multi-usages (patrimoine diversifié de la Communauté d'Agglomération)",
-    "surface_volume": "Environ 230 000 m² de surfaces à entretenir (indicatif)",
-    "site_occupe": "true — les bâtiments sont en exploitation (bâtiments communautaires en activité), des interventions urgentes et d'astreinte sont prévues",
+    "description": "Travaux d'entretien courant, de réparation, d'aménagement et de rénovation sur le patrimoine bâti communautaire d'environ 230 000 m². Les interventions se répartissent en travaux prévisibles (programmés), travaux urgents et travaux d'astreinte, exécutés par bons de commande sur l'ensemble des bâtiments gérés ou détenus par SQY sur le territoire de Saint-Quentin-en-Yvelines.",
+    "typologie_ouvrage": "Patrimoine bâti communautaire (équipements collectifs, administratifs, sportifs, culturels, etc.) — bâtiments en exploitation occupée",
+    "surface_volume": "Environ 230 000 m² de surfaces à entretenir (indicatif, mentionné au RC art. 1)",
+    "site_occupe": "true — les bâtiments communautaires sont en exploitation pendant les interventions; les travaux d'astreinte et d'urgence impliquent des interventions en dehors des horaires normaux",
     "corps_etat": [
       "Gros œuvre / Maçonnerie / Carrelage",
-      "Menuiseries Alu et PVC - Vitrerie",
-      "Métallerie – Clôtures",
-      "Cloisons / Aménagement intérieur / Faux-plafonds / Menuiseries intérieures",
-      "Electricité courants faibles et forts",
-      "Plomberie – Sanitaires – Chauffage",
-      "Peinture – Revêtements de sols souples",
-      "Charpente – Couverture",
-      "Etanchéité – Bardage"
+      "Menuiseries aluminium et PVC / Vitrerie",
+      "Métallerie / Clôtures / Serrurerie",
+      "Cloisons / Aménagements intérieurs / Faux plafonds / Menuiseries intérieures",
+      "Électricité courants faibles et forts",
+      "Plomberie / Sanitaires / Chauffage",
+      "Peinture / Revêtements de sols souples",
+      "Charpente / Couverture",
+      "Étanchéité / Bardage"
     ],
     "contraintes_specifiques": [
-      "Travaux d'astreinte : interventions en dehors des horaires normaux avec délais spécifiques",
-      "Travaux d'urgence avec délais d'exécution contraints définis au CCTP",
-      "Site occupé : bâtiments en exploitation pendant les travaux",
-      "Territoire SQY : interventions sur l'ensemble du territoire de la communauté d'agglomération",
-      "Remise à disposition dans les délais inscrits aux bons de commande",
-      "Gestion des déchets et respect de l'environnement exigés dans le mémoire technique"
+      "Travaux d'astreinte : délais de prise en charge très stricts (cf. CCTP art. 6)",
+      "Travaux d'urgence : délais d'intervention spécifiques définis au CCTP",
+      "Site occupé : interventions en milieu en activité, protections préalables obligatoires",
+      "Périmètre géographique : territoire de Saint-Quentin-en-Yvelines (78)",
+      "Délai de validité des bons de commande limité à 3 mois après terme de l'accord-cadre",
+      "Reconduction tacite possible 3 fois : l'entreprise reste engagée jusqu'à la fin de la période en cours"
     ]
   },
   "allotissement": {
-    "description": "Consultation décomposée en 9 lots, chacun traité en marché séparé et conclu avec un seul opérateur ou groupement. Un candidat peut répondre à un ou plusieurs lots.",
+    "description": "Le marché est alloti en 9 lots par corps d'état, chacun traité en accord-cadre séparé avec un seul opérateur. Un candidat peut répondre à un ou plusieurs lots.",
     "nb_lots": 9,
     "lots_detailles": [
       {
         "numero": 1,
-        "intitule": "Maçonnerie/Gros-œuvre/Carrelage",
-        "corps_etat": "Gros œuvre, maçonnerie, béton, carrelage",
+        "intitule": "Maçonnerie / Gros-œuvre / Carrelage",
+        "corps_etat": "gros oeuvre, maçonnerie, carrelage",
         "montant_estime": 300000,
-        "description": "Terrassement, béton/coffrage/acier, maçonnerie, enduits, chapes, démolition, cloisons légères, carrelage, travaux de voirie"
+        "description": "Terrassement, béton/coffrage/acier, éléments préfabriqués, enduits/chapes, démolition/modification de structure, cloisons légères plâtre, carrelage et faïence"
       },
       {
         "numero": 2,
         "intitule": "Menuiseries Alu et PVC - Vitrerie",
-        "corps_etat": "Menuiseries extérieures aluminium et PVC, vitrerie",
+        "corps_etat": "menuiserie aluminium, PVC, vitrerie",
         "montant_estime": 300000,
-        "description": "Dépose/révision menuiseries existantes, menuiseries aluminium et PVC neuves, vitrages simples et doubles, volets roulants et stores, portails, portes de garage"
+        "description": "Dépose/révision/remplacement menuiseries extérieures aluminium et PVC, portes, châssis, volets roulants, stores, portails, vitrages simples et isolants"
       },
       {
         "numero": 3,
-        "intitule": "Métallerie – Clôtures",
-        "corps_etat": "Métallerie, serrurerie, clôtures, garde-corps",
+        "intitule": "Métallerie - Clôtures",
+        "corps_etat": "métallerie, serrurerie, clôtures",
         "montant_estime": 200000,
-        "description": "Dépose/révision menuiseries acier, portes métalliques, grilles de défense, garde-corps, blindage de portes, rideaux métalliques, serrurerie, portails et portes de garage métal/alu"
+        "description": "Travaux sur menuiseries acier, portes métalliques coupe-feu, garde-corps, blindage de portes, rideaux métalliques, serrurerie, portails et portillons, barrières levantes"
       },
       {
         "numero": 4,
-        "intitule": "Cloisons/aménagement intérieur - Faux-plafonds – menuiseries intérieures",
-        "corps_etat": "Cloisons sèches, faux-plafonds, isolation, menuiseries intérieures",
+        "intitule": "Cloisons / Faux plafonds",
+        "corps_etat": "cloisons, faux plafonds, isolation, menuiseries intérieures",
         "montant_estime": 200000,
-        "description": "Dépose/repose faux-plafonds et cloisons, faux-plafonds neufs (métal, fibres, plâtre), isolation verticale et horizontale, cloisons démontables composites et vitrées"
+        "description": "Dépose/repose faux plafonds et cloisons, faux plafonds neufs (métal, fibres de roche, plâtre, acoustique, coupe-feu), isolation thermique et acoustique verticale et horizontale, cloisons démontables et vitrées, blocs portes bois"
       },
       {
         "numero": 5,
         "intitule": "Electricité courants faibles et forts",
-        "corps_etat": "Electricité courants forts et courants faibles",
+        "corps_etat": "électricité courants faibles et forts",
         "montant_estime": 500000,
-        "description": "Travaux d'installation et câblage électriques, courants forts et courants faibles dans les bâtiments communautaires"
+        "description": "Travaux d'installation, câblage et maintenance électrique courants forts et faibles (installations électriques générales, IRVE)"
       },
       {
         "numero": 6,
-        "intitule": "Plomberie – sanitaires – chauffage",
-        "corps_etat": "Plomberie, sanitaires, chauffage, VMC",
+        "intitule": "Plomberie sanitaire chauffage",
+        "corps_etat": "plomberie, sanitaires, chauffage",
         "montant_estime": 300000,
-        "description": "Dépose et remplacement de canalisations (fonte, cuivre, galva, PVC, multicouche), appareils sanitaires (baignoires, douches, lavabos, WC), robinetterie, production eau chaude, distribution chauffage (radiateurs, PAC, chaudières), VMC"
+        "description": "Dépose et remplacement canalisations (fonte, cuivre, PVC, acier galvanisé, multicouche), appareils sanitaires, robinetterie, équipements PMR, production eau chaude sanitaire, distribution chauffage (radiateurs, PAC, chaudières), VMC"
       },
       {
         "numero": 7,
-        "intitule": "Peinture-Revêtements de sols souples",
-        "corps_etat": "Peinture, revêtements de sols souples",
+        "intitule": "Peinture / revêtement de sols souples",
+        "corps_etat": "peinture, revêtements de sols souples",
         "montant_estime": 300000,
-        "description": "Travaux de peinture intérieure/extérieure et pose de revêtements de sols souples dans les bâtiments communautaires"
+        "description": "Travaux de peinture intérieure et extérieure et pose de revêtements de sols souples"
       },
       {
         "numero": 8,
-        "intitule": "Charpente – Couverture",
-        "corps_etat": "Charpente, couverture",
+        "intitule": "Charpente - couverture",
+        "corps_etat": "charpente, couverture",
         "montant_estime": 300000,
-        "description": "Travaux de charpente et de couverture sur les bâtiments communautaires"
+        "description": "Travaux de charpente bois ou métal et de couverture (tuiles, ardoises, bac acier, etc.) sur bâtiments communautaires"
       },
       {
         "numero": 9,
-        "intitule": "Etanchéité – Bardage",
-        "corps_etat": "Etanchéité, bardage",
+        "intitule": "Etanchéité - bardage",
+        "corps_etat": "étanchéité, bardage",
         "montant_estime": 300000,
-        "description": "Travaux d'étanchéité et de bardage sur les bâtiments communautaires"
+        "description": "Travaux d'étanchéité de toitures terrasses et bardage de façades sur bâtiments communautaires"
       }
     ]
   },
   "qualifications_requises": {
-    "description": "Qualifications Qualibat et Qualifelec requises par lot, de l'année en cours de la consultation",
+    "description": "Qualifications professionnelles Qualibat exigées par lot, listées dans le RC section 4.1.1. Des certifications équivalentes ou d'organismes européens sont acceptées.",
     "qualibat": [
       "1311",
       "1411",
@@ -134,6 +140,7 @@
       "4511",
       "4522",
       "4711",
+      "4411",
       "4441",
       "4112",
       "4211",
@@ -161,28 +168,9 @@
     "iso_45001": false,
     "opqibi": null,
     "autres_certifications": [
-      "Qualifelec E2-C2 et IRVE (Lot 5 Electricité)",
-      "Label PG (Lot 6 Plomberie)"
+      "Qualifelec E2-C2 et IRVE (Lot 5 — électricité courants faibles et forts)",
+      "Label PG (Lot 6 — plomberie/chauffage)"
     ]
-  },
-  "caracteristiques_mission_moe": {
-    "typologie": null,
-    "phases_couvertes": [],
-    "typologie_ouvrage": null,
-    "montant_travaux_estime": null,
-    "complexite_technique": null,
-    "livrables_par_phase": [],
-    "taux_remuneration_moe_pct": null,
-    "indices_revision": [],
-    "coordinations_associees": [],
-    "organigramme_attendu": [],
-    "bim_niveau": null
-  },
-  "qualifications_moe": {
-    "opqibi": [],
-    "opqcm": [],
-    "bim": null,
-    "autres": []
   },
   "bareme_notation": {
     "valeur_technique_pct": 55,
@@ -191,407 +179,778 @@
       {
         "libelle": "Modes opératoires de l'entreprise",
         "ponderation_pct": 35,
-        "description": "Évaluation des modes opératoires permettant de vérifier la qualité et le respect des engagements pris : respect des délais de prise en charge des demandes, prise de rendez-vous sur site, transmission des devis, exécution des chantiers, prise en compte des temps de trajet. Pour les lots comportant des travaux urgents/d'astreinte, un chapitre spécifique est exigé compte tenu des délais particuliers.",
+        "description": "Évaluation des modes opératoires permettant de vérifier la qualité et le respect des engagements pris : respect des délais de prise en charge des demandes, de prise de rendez-vous sur site, de transmission des devis et d'exécution des chantiers, prise en compte des temps de trajet. Un chapitre spécifique porte sur les lots comportant des travaux urgents et d'astreinte (délais de prise en charge et d'exécution spécifiques).",
         "elements_attendus": [
-          "Délais de prise en charge des demandes d'intervention",
-          "Procédure de prise de rendez-vous sur site",
-          "Délais de transmission des devis",
-          "Organisation et suivi de l'exécution des chantiers",
-          "Prise en compte des temps de trajet",
-          "Pour les lots avec urgence/astreinte : organisation dédiée avec délais spécifiques d'intervention"
+          "Délais de prise en charge des demandes (en heures/jours) selon le type d'intervention (prévisible, urgente, astreinte)",
+          "Processus de prise de rendez-vous sur site et transmission des devis",
+          "Organisation de l'exécution des chantiers et respect des délais",
+          "Gestion des temps de trajet et localisation des équipes",
+          "Pour les lots avec urgence/astreinte : procédure dédiée avec délais contractuels"
         ],
-        "exemple_reponse_forte": "Notre organisation prévoit une astreinte 24h/24 7j/7 avec un délai d'intervention de 2 heures pour les urgences. Pour les travaux prévisibles, nous nous engageons à répondre sous 48h à toute demande, à remettre un devis sous 5 jours ouvrés après visite sur site, et à démarrer les travaux dans les délais convenus avec un chef de chantier dédié au patrimoine SQY.",
+        "exemple_reponse_forte": "L'entreprise s'engage à prendre en charge toute demande prévisible sous 48h (rendez-vous + devis sous 5 jours ouvrés) et toute urgence sous 4h, grâce à une astreinte 24h/24-7j/7 assurée par une équipe dédiée basée à Trappes. Un système de ticketing permet la traçabilité complète du délai de traitement de chaque bon de commande.",
         "source": "RC §5.2.2",
+        "unite_evaluation": "points",
         "sous_criteres": []
       },
       {
-        "libelle": "Moyens humains d'encadrement et d'exécution",
+        "libelle": "Moyens humains",
         "ponderation_pct": 30,
-        "description": "Évaluation des moyens humains en encadrement et exécution, de leur ancienneté dans l'entreprise, et des dispositions pour maintenir cette organisation sur la durée du marché (remplacement des départs, formation).",
+        "description": "Évaluation des moyens humains (encadrement et exécution) et de leur ancienneté dans l'entreprise. Le candidat doit préciser les dispositions pour le maintien de l'organisation sur la durée du marché (remplacement des départs, formation).",
         "elements_attendus": [
-          "Organigramme nominatif de l'équipe dédiée (encadrement + exécutants)",
-          "Ancienneté de chaque membre dans l'entreprise",
-          "Qualifications et habilitations du personnel",
-          "Plan de continuité : politique de remplacement en cas de départ",
-          "Politique de formation interne"
+          "Organigramme de l'équipe dédiée au marché (chef de chantier, compagnons, chargé d'affaires)",
+          "Ancienneté moyenne des personnels dans l'entreprise",
+          "Plan de continuité : remplacement des départs, recrutements prévus",
+          "Politique de formation continue des équipes",
+          "Effectifs disponibles pour répondre à plusieurs bons de commande simultanés"
         ],
-        "exemple_reponse_forte": "Notre équipe dédiée à SQY comprend un conducteur de travaux senior (12 ans d'ancienneté), deux chefs de chantier (7 et 5 ans) et 8 compagnons qualifiés. En cas de départ, un processus de tutorat et de formation interne garantit la continuité de service sans rupture de compétences.",
+        "exemple_reponse_forte": "Une équipe de 4 compagnons et un chef de chantier, tous présents depuis plus de 3 ans dans l'entreprise, est dédiée à ce marché. Un plan de succession formalisé (binômage, formation interne) garantit la continuité en cas de départ. L'entreprise s'engage à maintenir un ratio d'encadrement de 1 chef pour 4 compagnons sur toute la durée de l'accord-cadre.",
         "source": "RC §5.2.2",
+        "unite_evaluation": "points",
         "sous_criteres": []
       },
       {
         "libelle": "Éléments mis en œuvre pour réaliser des travaux en sécurité",
         "ponderation_pct": 20,
-        "description": "Évaluation des dispositions mises en place par l'entreprise pour garantir la sécurité des chantiers.",
+        "description": "Évaluation des dispositions prises par le candidat pour réaliser les travaux en sécurité sur site occupé.",
         "elements_attendus": [
-          "Plan de prévention et procédures sécurité adaptées aux interventions en site occupé",
-          "Habilitations et formations sécurité du personnel",
-          "EPI et équipements de protection collective",
-          "Procédures spécifiques pour les travaux en hauteur ou les interventions urgentes",
-          "Gestion des situations d'urgence sur chantier"
+          "Plan de prévention et démarche PPSPS adaptée aux interventions en milieu occupé",
+          "Équipements de protection individuelle (EPI) et collective",
+          "Procédures de sécurité spécifiques aux interventions d'urgence et d'astreinte",
+          "Formation sécurité des compagnons (habilitations, CACES, travail en hauteur)",
+          "Bilan des taux de fréquence et gravité accidents sur les 3 dernières années"
         ],
-        "exemple_reponse_forte": "Tous nos compagnons sont formés SST et habilités électriquement. Avant chaque chantier, un plan de prévention est systématiquement établi avec SQY. Pour les interventions en milieu occupé, nous appliquons un protocole de balisage renforcé et informons les occupants au moins 24h à l'avance.",
+        "exemple_reponse_forte": "L'entreprise présente un taux de fréquence accidents de 2,1 (contre 8,5 pour la profession), garantit que tous ses compagnons sont titulaires de la formation travail en hauteur et des habilitations électriques requises, et a formalisé une procédure spécifique d'intervention sur site occupé incluant la délimitation de zones et la signalisation adaptée.",
         "source": "RC §5.2.2",
+        "unite_evaluation": "points",
         "sous_criteres": []
       },
       {
         "libelle": "Démarche de préservation de l'environnement",
         "ponderation_pct": 15,
-        "description": "Évaluation de la démarche spécifique adoptée en matière de préservation de l'environnement pour l'exécution du marché : filières d'approvisionnement en matériaux et pièces détachées, modalités de gestion et de traitement des déchets.",
+        "description": "Évaluation de la démarche spécifique proposée en matière de préservation de l'environnement pour l'exécution du marché : filières d'approvisionnement en matériaux et pièces détachées, modalités de gestion et de traitement des déchets.",
         "elements_attendus": [
-          "Filières de valorisation et de traitement des déchets de chantier",
-          "Traçabilité des déchets (BSDA pour matériaux dangereux le cas échéant)",
-          "Politique d'approvisionnement en matériaux (circuits courts, produits labellisés)",
-          "Mesures de réduction des nuisances (bruit, poussière, émissions) en site occupé"
+          "Plan de gestion et de tri des déchets de chantier (bordereau de suivi des déchets)",
+          "Filières de valorisation ou d'élimination des déchets par nature (inertes, DIB, dangereux)",
+          "Approvisionnement en matériaux à faible impact environnemental ou locaux",
+          "Réduction des nuisances (bruit, poussières) pour les usagers des bâtiments occupés",
+          "Engagement de reporting environnemental sur les indicateurs déchets"
         ],
-        "exemple_reponse_forte": "Nous travaillons avec un prestataire agréé pour le tri et la valorisation des déchets de chantier (taux de valorisation > 70%). Un registre de suivi des déchets est tenu pour chaque chantier. Nos approvisionnements privilégient les fournisseurs locaux et les produits à faible impact environnemental.",
+        "exemple_reponse_forte": "L'entreprise s'engage à trier 100% de ses déchets de chantier en 4 flux (inertes, bois, métaux, déchets dangereux) via un partenariat avec un éco-organisme local, et à fournir un bordereau de suivi pour chaque bon de commande. Les matériaux sont sourcés auprès de fournisseurs implantés en Île-de-France pour réduire l'empreinte transport.",
         "source": "RC §5.2.2",
+        "unite_evaluation": "points",
         "sous_criteres": []
       }
     ],
     "prix": {
       "type_formule": "moins_disant",
-      "formule_explicite": "Pour les lots 1, 2, 3, 5, 6, 8 et 9 : note Prix = note DQE masqué (40 pts) + note BPU hors DQE masqué (30 pts) + note coefficients (30 pts dont 10 pts astreinte + 10 pts urgents + 10 pts pièces détachées). Pour les lots 4 et 7 : note Prix = note DQE masqué (50 pts) + note BPU hors DQE masqué (30 pts) + note coefficient pièces détachées (20 pts). Formule de notation pour chaque sous-critère prix : Note X = MaxPoints – [((offre X / offre la plus basse) × MaxPoints) – MaxPoints]. Offre supérieure de plus de 100% à la moins-disante = 0 point. De plus, des remises en % sont appliquées par tranche de montant du bon de commande (5 à 15k€, 15 à 25k€, supérieur à 25k€).",
+      "formule_explicite": "Pour lots 1,2,3,5,6,8,9 : Prix noté sur 100 = DQE masqué (40 pts, formule Note X = 40 – [((offre X / offre la plus basse) × 40) – 40]) + BPU global hors DQE (30 pts, même formule) + coefficients BPU (30 pts : astreinte 10 pts + urgence 10 pts + fournitures hors BPU 10 pts). Pour lots 4 et 7 : DQE masqué (50 pts) + BPU global hors DQE (30 pts) + coefficient fournitures hors BPU (20 pts). Note globale = (Note technique × 0,55) + (Note prix × 0,45).",
+      "source": "RC §5.2.2",
       "elements_a_chiffrer": [
-        "BPU complet (tous articles de prix unitaires)",
-        "DQE masqué tiré au sort parmi deux DQE établis par l'acheteur (appliqué aux prix du BPU)",
-        "Coefficient de majoration pour travaux urgents",
-        "Coefficient de majoration pour intervention en horaire d'astreinte",
-        "Coefficient de charges applicable aux pièces détachées (prix nouveaux hors BPU)",
-        "Remises par tranche de bon de commande (5-15k€ HT, 15-25k€ HT, >25k€ HT)"
+        "Bordereau des Prix Unitaires (BPU) — tous les prix unitaires par ligne (fourniture + pose)",
+        "Coefficient de majoration pour travaux urgents (H1)",
+        "Coefficient de majoration pour intervention en horaire d'astreinte (H2)",
+        "Coefficient de majoration pour fourniture non prévue au BPU / pièces détachées (H3)",
+        "Taux horaire main d'œuvre hors bordereau (H41 lundi-vendredi, H42 nuit semaine, H43 week-end/fériés)",
+        "Remise sur montant total du bon de commande (3 tranches : 5 000-15 000 € HT, 15 001-25 000 € HT, > 25 001 € HT)"
       ]
     },
-    "modalite_calcul_prix": "Lots 1,2,3,5,6,8,9 : note/100 = 40% DQE masqué + 30% total BPU hors DQE + 30% coefficients (astreinte 10 + urgents 10 + pièces détachées 10). Lots 4 et 7 : note/100 = 50% DQE masqué + 30% total BPU hors DQE + 20% coefficient pièces détachées. Moins-disant = note max ; formule proportionnelle à l'écart. Note finale = (VT × 0,55) + (Prix × 0,45)."
+    "modalite_calcul_prix": "DQE masqué (2 DQE par lot, 1 tiré au sort) appliqué aux prix BPU du candidat + évaluation globale du BPU hors DQE + coefficients. Note prix X = note max – [((prix X / prix le plus bas) × note max) – note max]. Offre > 100% de l'offre la plus basse = 0 point."
   },
   "montant_marche": {
     "valeur_estimee_euros": null,
-    "fourchette_min_euros": 0,
-    "fourchette_max_euros": 2700000,
-    "type": "plafond",
-    "duree_couverte": "Par an (maximums annuels par lot, accord-cadre jusqu'à 4 ans soit max 10 800 000 € sur 4 ans tous lots confondus)",
-    "source_extraction": "AE Lots 1 à 9 — tableau 13 (montants minimum et maximum annuels par lot)",
-    "commentaire": "Pas de minimum annuel (sans) pour tous les lots. Maximums annuels : Lot 1 = 300 000 €, Lot 2 = 300 000 €, Lot 3 = 200 000 €, Lot 4 = 200 000 €, Lot 5 = 500 000 €, Lot 6 = 300 000 €, Lot 7 = 300 000 €, Lot 8 = 300 000 €, Lot 9 = 300 000 €. Total maximum annuel tous lots = 2 700 000 € HT. Sur 4 ans (durée maximale) = 10 800 000 € HT."
+    "fourchette_min_euros": 2700000,
+    "fourchette_max_euros": 10800000,
+    "type": "calcule_volumes",
+    "duree_couverte": "4 ans (1 an + 3 reconductions tacites)",
+    "source_extraction": "RC §2.3.3 — montants maximum annuels par lot",
+    "commentaire": "Montant global estimé sur 4 ans : somme des maxima annuels par lot × 4 ans = (300+300+200+200+500+300+300+300+300) k€ × 4 = 10 800 000 € HT maximum. Pas de minimum (sans minimum annuel). Sur la période ferme d'1 an : maximum = 2 700 000 € HT. En pratique, le taux de consommation d'un accord-cadre travaux est rarement à 100% du maximum ; une hypothèse raisonnable de 40-60% donne un CA effectif de l'ordre de 1 080 000 à 1 620 000 € HT/an pour l'ensemble des 9 lots."
+  },
+  "montant_3_voies": {
+    "voie_1_eur": null,
+    "voie_1_source": null,
+    "voie_2_disponible": true,
+    "voie_2_min_eur": 1080000,
+    "voie_2_max_eur": 2700000,
+    "voie_2_hypotheses": [
+      {
+        "hypothese": "Maximum annuel par lot fixé au RC §2.3.3 (tableau lots 1-9)",
+        "valeur": "2 700 000 € HT/an (somme des 9 maxima annuels)"
+      },
+      {
+        "hypothese": "Taux de consommation de l'accord-cadre (dimension variée : 40% à 100% du max annuel)",
+        "valeur": "40% → 1 080 000 € HT/an ; 100% → 2 700 000 € HT/an"
+      },
+      {
+        "hypothese": "Surface patrimoniale communautaire (RC art. 1) utilisée comme proxy de besoins",
+        "valeur": "230 000 m²"
+      },
+      {
+        "hypothese": "Durée de référence pour l'estimation : 1 an (période ferme)",
+        "valeur": "1 an"
+      }
+    ],
+    "voie_2_raison_indisponible": null
+  },
+  "cout_realisation": {
+    "cout_total_eur": 875000,
+    "cout_min_eur": 756000,
+    "cout_max_eur": 1080000,
+    "postes": [
+      {
+        "poste": "Lot 1 — Gros œuvre/Maçonnerie/Carrelage (main d'œuvre + matériaux + outillage)",
+        "detail": "CA central ~180 000 € HT/an ; coût ~80% du CA (marge 20%)",
+        "montant_eur": 144000
+      },
+      {
+        "poste": "Lot 2 — Menuiseries Alu/PVC/Vitrerie (fourniture + pose)",
+        "detail": "CA central ~180 000 € HT/an ; coût ~78% (marge 22%)",
+        "montant_eur": 140000
+      },
+      {
+        "poste": "Lot 3 — Métallerie/Clôtures/Serrurerie (fourniture + pose)",
+        "detail": "CA central ~120 000 € HT/an ; coût ~80%",
+        "montant_eur": 96000
+      },
+      {
+        "poste": "Lot 4 — Cloisons/Faux plafonds (fourniture + pose)",
+        "detail": "CA central ~120 000 € HT/an ; coût ~80%",
+        "montant_eur": 96000
+      },
+      {
+        "poste": "Lot 5 — Électricité courants faibles et forts (fourniture + pose)",
+        "detail": "CA central ~300 000 € HT/an ; coût ~82% (marge 18%, matériel électrique important)",
+        "montant_eur": 246000
+      },
+      {
+        "poste": "Lot 6 — Plomberie/Sanitaires/Chauffage (fourniture + pose)",
+        "detail": "CA central ~180 000 € HT/an ; coût ~80%",
+        "montant_eur": 144000
+      },
+      {
+        "poste": "Lot 7 — Peinture/Revêtements sols (main d'œuvre + matériaux)",
+        "detail": "CA central ~180 000 € HT/an ; coût ~78%",
+        "montant_eur": 140000
+      },
+      {
+        "poste": "Lot 8 — Charpente/Couverture (fourniture + pose)",
+        "detail": "CA central ~180 000 € HT/an ; coût ~82%",
+        "montant_eur": 148000
+      },
+      {
+        "poste": "Lot 9 — Étanchéité/Bardage (fourniture + pose)",
+        "detail": "CA central ~180 000 € HT/an ; coût ~82%",
+        "montant_eur": 148000
+      }
+    ],
+    "taux_journaliers_retenus": "Taux marché indicatifs IDF 2024 : compagnon BTP chargé ~350-420 €/j ; chef de chantier ~480-550 €/j. Ratio coût global (MO+matériaux+encadrement) / CA typique second œuvre entretien : 78-82%. Ces taux sont estimatifs et ne reflètent pas la structure de coût réelle du candidat.",
+    "commentaire": "Estimation basée sur un taux de consommation annuel central de ~60% du maximum pour chaque lot. La fourchette (756 k€ à 1 080 k€/an) correspond à des taux de consommation de 40% à 100% du maximum annuel, en faisant varier uniquement le volume commandé (dimension la plus incertaine), le ratio coût/CA étant maintenu à ~80%. Ces chiffres concernent UN candidat répondant à tous les lots."
   },
   "revision_prix": {
-    "type": "non_communique",
+    "type": "indexation",
     "indices_utilises": [],
-    "ponderation": null,
+    "ponderation": "Non précisé dans les pièces fournies (RC et AE). Le RC mentionne que les prix sont révisables dans les conditions fixées au CCAP, mais le CCAP n'a pas été fourni dans le DCE analysé.",
     "periodicite": null,
     "formule_revision": null,
-    "source_extraction": null,
-    "commentaire": "Le RC mentionne que 'les prix sont révisables dans les conditions fixées au Cahier des Clauses Administratives Particulières' (AE de chaque lot, article 2.1) mais le CCAP n'est pas fourni dans les pièces analysées. Les indices et la formule de révision ne peuvent pas être extraits."
+    "source_extraction": "AE lots 1 à 9, article 2.1 — 'Les prix sont révisables dans les conditions fixées au Cahier des Clauses Administratives Particulières'",
+    "commentaire": "La révision des prix est prévue contractuellement (mention dans chaque AE) mais sa formule et ses indices ne figurent pas dans les pièces analysées (CCAP n° 33 du 28/04/2026 non fourni). Le candidat doit impérativement consulter le CCAP pour connaître la formule de révision avant de bâtir son prix."
   },
   "alertes_prix": [
-    "Absence de minimum annuel pour tous les lots : le titulaire n'a aucune garantie de volume de commandes, risque de sous-activité à anticiper dans le chiffrage.",
-    "DQE masqué tiré au sort parmi 2 DQE au moment de l'ouverture des plis : impossible de connaître à l'avance le DQE qui sera utilisé, le candidat doit donc optimiser l'ensemble de son BPU.",
-    "Remises obligatoires par tranche de bon de commande (5-15k€, 15-25k€, >25k€) : ces remises s'appliquent en sus des prix unitaires du BPU et sont fermes pour toute la durée du marché — à chiffrer avec prudence.",
-    "Coefficients urgence et astreinte évalués sur 20 pts (30 pts pour lots 1,2,3,5,6,8,9) : sous-évaluer ces coefficients peut faire gagner des points mais expose à une sous-rémunération réelle pour les interventions hors horaires."
+    "Utilisation de DQE masqués (Quantitatifs Estimatifs tiré au sort parmi 2 DQE par lot) : le candidat ne connaît pas à l'avance quel DQE sera utilisé pour noter le prix — il doit donc soigner l'ensemble de ses prix unitaires BPU, pas seulement les articles les plus courants.",
+    "Les remises sur bons de commande (3 tranches de 5 000 à >25 001 € HT) sont également notées et fermes pour toute la durée : sous-estimer leur impact ou proposer 0% peut pénaliser le classement.",
+    "Les coefficients d'astreinte et d'urgence (H1, H2) représentent 20 points sur 100 pour les lots 1,2,3,5,6,8,9 — proposer des coefficients élevés sur ces lots pénalise fortement le critère prix.",
+    "Aucun minimum annuel : le titulaire assume le risque de volume nul en année basse, ce qui expose à une sous-couverture des frais fixes et d'astreinte.",
+    "Le lot 5 (électricité) présente le maximum annuel le plus élevé (500 000 € HT) — c'est le lot le plus enjeu financier mais aussi le plus concurrentiel et technique (Qualifelec E2-C2 + IRVE exigé)."
   ],
   "references_exigees": {
     "experience_minimale_annees": null,
     "experience_source": null,
     "volume_min_references_similaires": null,
     "volume_min_references_unite": "marchés similaires",
-    "secteur_experience": "Travaux d'entretien, réparation, aménagement et rénovation de bâtiments, dans le corps d'état correspondant au lot visé",
+    "secteur_experience": "Travaux d'entretien, de réparation, d'aménagement et de rénovation de bâtiments pour des donneurs d'ordres publics ou privés, dans le corps d'état du lot concerné",
     "secteur_source": "RC §4.1.1",
     "certifications_obligatoires": [
       {
-        "libelle": "Qualibat 1311 (Lot 1 et Lot 6)",
+        "libelle": "Qualibat 1311 — Maçonnerie et béton armé courant (Lots 1, 5, 6)",
+        "codes": [
+          "1311"
+        ],
+        "bloquante": false,
         "source": "RC §4.1.1"
       },
       {
-        "libelle": "Qualibat 1411 (Lots 1, 2, 3, 4, 6, 7, 8, 9)",
+        "libelle": "Qualibat 1411 — Maçonnerie courante (Lots 1, 2, 3, 4, 5, 7, 8, 9)",
+        "codes": [
+          "1411"
+        ],
+        "bloquante": false,
         "source": "RC §4.1.1"
       },
       {
-        "libelle": "Qualibat 2112 (Lot 1)",
+        "libelle": "Qualibat 2112 — Béton armé courant (Lot 1)",
+        "codes": [
+          "2112"
+        ],
+        "bloquante": false,
         "source": "RC §4.1.1"
       },
       {
-        "libelle": "Qualibat 2151 (Lot 1)",
+        "libelle": "Qualibat 2151 — Carrelage (Lot 1)",
+        "codes": [
+          "2151"
+        ],
+        "bloquante": false,
         "source": "RC §4.1.1"
       },
       {
-        "libelle": "Qualibat 6312 (Lot 1)",
+        "libelle": "Qualibat 6312 — Revêtements de sol céramique (Lot 1)",
+        "codes": [
+          "6312"
+        ],
+        "bloquante": false,
         "source": "RC §4.1.1"
       },
       {
-        "libelle": "Qualibat 3512 (Lot 2)",
+        "libelle": "Qualibat 3512 — Menuiseries extérieures aluminium (Lot 2)",
+        "codes": [
+          "3512"
+        ],
+        "bloquante": false,
         "source": "RC §4.1.1"
       },
       {
-        "libelle": "Qualibat 3521 (Lot 2)",
+        "libelle": "Qualibat 3521 — Menuiseries extérieures PVC (Lot 2)",
+        "codes": [
+          "3521"
+        ],
+        "bloquante": false,
         "source": "RC §4.1.1"
       },
       {
-        "libelle": "Qualibat 3541 (Lots 2 et 3)",
+        "libelle": "Qualibat 3541 — Serrurerie (Lots 2, 3)",
+        "codes": [
+          "3541"
+        ],
+        "bloquante": false,
         "source": "RC §4.1.1"
       },
       {
-        "libelle": "Qualibat 3551 (Lot 2)",
+        "libelle": "Qualibat 3551 — Vitrerie (Lot 2)",
+        "codes": [
+          "3551"
+        ],
+        "bloquante": false,
         "source": "RC §4.1.1"
       },
       {
-        "libelle": "Qualibat 4312 (Lots 2 et 4)",
+        "libelle": "Qualibat 4312 — Cloisons et contre-cloisons en plâtre (Lots 2, 4)",
+        "codes": [
+          "4312"
+        ],
+        "bloquante": false,
         "source": "RC §4.1.1"
       },
       {
-        "libelle": "Qualibat 4511 (Lots 2 et 3)",
+        "libelle": "Qualibat 4511 — Menuiseries intérieures bois (Lots 2, 3)",
+        "codes": [
+          "4511"
+        ],
+        "bloquante": false,
         "source": "RC §4.1.1"
       },
       {
-        "libelle": "Qualibat 4522 (Lot 2)",
+        "libelle": "Qualibat 4522 — Stores et fermetures (Lot 2)",
+        "codes": [
+          "4522"
+        ],
+        "bloquante": false,
         "source": "RC §4.1.1"
       },
       {
-        "libelle": "Qualibat 4711 (Lot 2)",
+        "libelle": "Qualibat 4711 — Revêtements muraux (Lot 2)",
+        "codes": [
+          "4711"
+        ],
+        "bloquante": false,
         "source": "RC §4.1.1"
       },
       {
-        "libelle": "Qualibat 4411 (Lot 3)",
+        "libelle": "Qualibat 4411 — Clôtures (Lot 3)",
+        "codes": [
+          "4411"
+        ],
+        "bloquante": false,
         "source": "RC §4.1.1"
       },
       {
-        "libelle": "Qualibat 4441 (Lot 3)",
+        "libelle": "Qualibat 4441 — Métallerie (Lot 3)",
+        "codes": [
+          "4441"
+        ],
+        "bloquante": false,
         "source": "RC §4.1.1"
       },
       {
-        "libelle": "Qualibat 4112 (Lot 4)",
+        "libelle": "Qualibat 4112 — Faux plafonds (Lot 4)",
+        "codes": [
+          "4112"
+        ],
+        "bloquante": false,
         "source": "RC §4.1.1"
       },
       {
-        "libelle": "Qualibat 4211 (Lot 4)",
+        "libelle": "Qualibat 4211 — Isolation thermique par l'intérieur (Lot 4)",
+        "codes": [
+          "4211"
+        ],
+        "bloquante": false,
         "source": "RC §4.1.1"
       },
       {
-        "libelle": "Qualibat 6612 (Lot 4)",
+        "libelle": "Qualibat 6612 — Revêtements de sol souple (Lot 4)",
+        "codes": [
+          "6612"
+        ],
+        "bloquante": false,
         "source": "RC §4.1.1"
       },
       {
-        "libelle": "Qualifelec E2-C2 et IRVE (Lot 5)",
+        "libelle": "Qualifelec E2-C2 — Électricité courants forts et faibles (Lot 5)",
+        "codes": [],
+        "bloquante": false,
         "source": "RC §4.1.1"
       },
       {
-        "libelle": "Label PG (Lot 6)",
+        "libelle": "Qualifelec IRVE — Infrastructure de recharge véhicules électriques (Lot 5)",
+        "codes": [],
+        "bloquante": false,
         "source": "RC §4.1.1"
       },
       {
-        "libelle": "Qualibat 1321 (Lot 6)",
+        "libelle": "Label PG — Plomberie/Génie climatique (Lot 6)",
+        "codes": [],
+        "bloquante": false,
         "source": "RC §4.1.1"
       },
       {
-        "libelle": "Qualibat 5111 (Lot 6)",
+        "libelle": "Qualibat 1321 — Gros œuvre (Lot 6)",
+        "codes": [
+          "1321"
+        ],
+        "bloquante": false,
         "source": "RC §4.1.1"
       },
       {
-        "libelle": "Qualibat 5211 (Lot 6)",
+        "libelle": "Qualibat 5111 — Plomberie (Lot 6)",
+        "codes": [
+          "5111"
+        ],
+        "bloquante": false,
         "source": "RC §4.1.1"
       },
       {
-        "libelle": "Qualibat 5231 (Lot 6)",
+        "libelle": "Qualibat 5211 — Chauffage central (Lot 6)",
+        "codes": [
+          "5211"
+        ],
+        "bloquante": false,
         "source": "RC §4.1.1"
       },
       {
-        "libelle": "Qualibat 6111 (Lot 7)",
+        "libelle": "Qualibat 5231 — Ventilation et climatisation (Lot 6)",
+        "codes": [
+          "5231"
+        ],
+        "bloquante": false,
         "source": "RC §4.1.1"
       },
       {
-        "libelle": "Qualibat 6222 (Lot 7)",
+        "libelle": "Qualibat 6111 — Peinture intérieure (Lot 7)",
+        "codes": [
+          "6111"
+        ],
+        "bloquante": false,
         "source": "RC §4.1.1"
       },
       {
-        "libelle": "Qualibat 2312 (Lot 8)",
+        "libelle": "Qualibat 6222 — Revêtements de sol (Lot 7)",
+        "codes": [
+          "6222"
+        ],
+        "bloquante": false,
         "source": "RC §4.1.1"
       },
       {
-        "libelle": "Qualibat 2391 (Lot 8)",
+        "libelle": "Qualibat 2312 — Charpente bois (Lot 8)",
+        "codes": [
+          "2312"
+        ],
+        "bloquante": false,
         "source": "RC §4.1.1"
       },
       {
-        "libelle": "Qualibat 3101 (Lot 8)",
+        "libelle": "Qualibat 2391 — Couverture (Lot 8)",
+        "codes": [
+          "2391"
+        ],
+        "bloquante": false,
         "source": "RC §4.1.1"
       },
       {
-        "libelle": "Qualibat 3141 (Lot 8)",
+        "libelle": "Qualibat 3101 — Charpente métallique (Lot 8)",
+        "codes": [
+          "3101"
+        ],
+        "bloquante": false,
         "source": "RC §4.1.1"
       },
       {
-        "libelle": "Qualibat 3152 (Lot 8)",
+        "libelle": "Qualibat 3141 — Bardage métallique (Lot 8)",
+        "codes": [
+          "3141"
+        ],
+        "bloquante": false,
         "source": "RC §4.1.1"
       },
       {
-        "libelle": "Qualibat 3211 (Lot 9)",
+        "libelle": "Qualibat 3152 — Couverture métallique (Lot 8)",
+        "codes": [
+          "3152"
+        ],
+        "bloquante": false,
         "source": "RC §4.1.1"
       },
       {
-        "libelle": "Qualibat 3271 (Lot 9)",
+        "libelle": "Qualibat 3211 — Étanchéité bitumineuse (Lot 9)",
+        "codes": [
+          "3211"
+        ],
+        "bloquante": false,
         "source": "RC §4.1.1"
       },
       {
-        "libelle": "Qualibat 3811 (Lot 9)",
+        "libelle": "Qualibat 3271 — Étanchéité liquide (Lot 9)",
+        "codes": [
+          "3271"
+        ],
+        "bloquante": false,
+        "source": "RC §4.1.1"
+      },
+      {
+        "libelle": "Qualibat 3811 — Bardage (Lot 9)",
+        "codes": [
+          "3811"
+        ],
+        "bloquante": false,
         "source": "RC §4.1.1"
       }
     ],
     "autres_exigences": [
       {
-        "libelle": "Déclaration chiffre d'affaires global et chiffre d'affaires spécifique aux prestations objet du marché sur les 3 derniers exercices (DC2 rubrique E)",
-        "source": "RC §4.1.1"
+        "libelle": "Déclaration du chiffre d'affaires global et du chiffre d'affaires concernant les prestations objet du marché, réalisés au cours des 3 derniers exercices",
+        "source": "RC §4.1.1 — rubrique E du DC2"
       },
       {
-        "libelle": "Déclaration des effectifs moyens annuels et de l'importance du personnel d'encadrement sur les 3 dernières années (DC2 rubrique F)",
-        "source": "RC §4.1.1"
+        "libelle": "Déclaration des effectifs moyens annuels et de l'importance du personnel d'encadrement pour chacune des 3 dernières années",
+        "source": "RC §4.1.1 — rubrique F du DC2"
       },
       {
-        "libelle": "Description de l'outillage, du matériel et de l'équipement technique disponible pour l'exécution du marché",
-        "source": "RC §4.1.1"
+        "libelle": "Description de l'outillage, du matériel et de l'équipement technique disponible pour la réalisation du marché",
+        "source": "RC §4.1.1 — rubrique F du DC2"
       },
       {
         "libelle": "Liste des principales prestations effectuées au cours des 3 dernières années (montant, période, destinataire public ou privé)",
+        "source": "RC §4.1.1 — rubrique F du DC2"
+      }
+    ]
+  },
+  "dossier_candidature": {
+    "pieces_a_fournir": [
+      {
+        "libelle": "Lettre de candidature (imprimé DC1) ou document équivalent avec déclarations sur l'honneur concernant les interdictions de soumissionner",
+        "phase": "candidature",
+        "obligatoire": true,
         "source": "RC §4.1.1"
       },
       {
-        "libelle": "Attestations et certificats fiscaux et sociaux (obligations fiscales et sociales) pour le candidat pressentis attributaire",
+        "libelle": "Pouvoirs des personnes habilitées à engager le candidat (si documents signés)",
+        "phase": "candidature",
+        "obligatoire": false,
+        "source": "RC §4.1.1"
+      },
+      {
+        "libelle": "Copie du ou des jugements prononcés (en cas de redressement judiciaire)",
+        "phase": "candidature",
+        "obligatoire": false,
+        "source": "RC §4.1.1"
+      },
+      {
+        "libelle": "Déclaration du candidat (imprimé DC2) ou document équivalent avec justificatifs capacité financière (rubrique E) et technique/professionnelle (rubrique F)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §4.1.1"
+      },
+      {
+        "libelle": "Déclaration du chiffre d'affaires global et sectoriel sur les 3 derniers exercices",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §4.1.1"
+      },
+      {
+        "libelle": "Déclaration des effectifs moyens annuels et du personnel d'encadrement sur les 3 dernières années",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §4.1.1"
+      },
+      {
+        "libelle": "Description de l'outillage, matériel et équipement technique disponible",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §4.1.1"
+      },
+      {
+        "libelle": "Liste des principales prestations des 3 dernières années (montant, période, destinataire)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §4.1.1"
+      },
+      {
+        "libelle": "Certificats de qualification professionnelle (Qualibat, Qualifelec, Label PG selon lot) ou équivalents",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §4.1.1"
+      },
+      {
+        "libelle": "Acte d'Engagement (AE) — cadre joint à compléter et signer (1 AE par lot soumissionné)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §4.2"
+      },
+      {
+        "libelle": "Bordereau des Prix Unitaires (BPU) — cadre joint à compléter, toutes lignes renseignées, document non modifié (1 BPU par lot soumissionné)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §4.2"
+      },
+      {
+        "libelle": "Mémoire technique décrivant : moyens humains d'encadrement et ancienneté, modes opératoires qualité/délais, démarche environnementale (gestion déchets), éléments sécurité travaux",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §4.2"
+      },
+      {
+        "libelle": "Pièces prévues aux articles D.8222-5 ou D.8222-7 et D.8222-8 du code du travail (attestation emploi régulier)",
+        "phase": "offre",
+        "obligatoire": true,
         "source": "RC §4.1.2"
       },
       {
-        "libelle": "Attestation d'assurance RC et responsabilité professionnelle en cours de validité",
+        "libelle": "Attestations fiscales et sociales (impôts + URSSAF, datant de moins de 6 mois)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §4.1.2"
+      },
+      {
+        "libelle": "Attestation d'assurance responsabilité civile et professionnelle en cours de validité",
+        "phase": "offre",
+        "obligatoire": true,
         "source": "RC §4.1.2"
       }
-    ]
+    ],
+    "mode_remise": "dématérialisé + copie de sauvegarde",
+    "plateforme_depot": "AWS — https://agglo-sqy.marches-publics.info/accueil.htm",
+    "signature_electronique_exigee": false,
+    "format_signature": "CAdES, PAdES ou XAdES ; certificat conforme eIDAS niveau Qualifié (ou RGS*** pendant sa validité)",
+    "nombre_exemplaires": null,
+    "langue": "français",
+    "duree_validite_offres_jours": 150,
+    "modalites_source": "RC §2.8 et §6"
   },
   "lots": [
     {
       "numero": 1,
       "intitule": "Maçonnerie/Gros-œuvre/Carrelage",
-      "zone_geographique": "Territoire de Saint-Quentin-en-Yvelines (78)",
-      "volume_estime": 300000,
-      "volume_estime_unite": "€ HT/an (maximum)",
-      "particularites": "Qualibat 1311, 1411, 2112, 2151, 6312 exigés. Comprend terrassement, béton armé, maçonnerie, enduits, chapes, démolition, cloisons légères, carrelage, VRD. Travaux d'astreinte et d'urgence inclus."
+      "domaine": "btp_gros_oeuvre",
+      "zone_geographique": "Saint-Quentin-en-Yvelines (78)",
+      "volume_estime": null,
+      "volume_estime_unite": null,
+      "cout_estime_min_eur": 96000,
+      "cout_estime_max_eur": 240000,
+      "ca_estime_min_eur": 120000,
+      "ca_estime_max_eur": 300000,
+      "marge_brute_pct": 20,
+      "particularites": "Qualibat 1311, 1411, 2112, 2151, 6312 exigés. Inclut terrassement, béton armé, cloisons légères plâtre, carrelage/faïence. Travaux d'astreinte et d'urgence inclus (coefficients H1 et H2 notés). Maximum annuel 300 000 € HT."
     },
     {
       "numero": 2,
       "intitule": "Menuiseries Alu et PVC - Vitrerie",
-      "zone_geographique": "Territoire de Saint-Quentin-en-Yvelines (78)",
-      "volume_estime": 300000,
-      "volume_estime_unite": "€ HT/an (maximum)",
-      "particularites": "Qualibat 1411, 3512, 3521, 3541, 3551, 4312, 4511, 4522, 4711 exigés. Comprend menuiseries alu et PVC, vitrages simples et doubles, volets roulants, stores, portails et portes de garage. Travaux d'astreinte et d'urgence inclus."
+      "domaine": "btp_second_oeuvre",
+      "zone_geographique": "Saint-Quentin-en-Yvelines (78)",
+      "volume_estime": null,
+      "volume_estime_unite": null,
+      "cout_estime_min_eur": 96000,
+      "cout_estime_max_eur": 240000,
+      "ca_estime_min_eur": 120000,
+      "ca_estime_max_eur": 300000,
+      "marge_brute_pct": 20,
+      "particularites": "Qualibat 1411, 3512, 3521, 3541, 3551, 4312, 4511, 4522, 4711 exigés. BPU très détaillé (châssis Alu RPT, PVC, vitrages simples/isolants/feuilletés, stores, portails, cylindres). Vitrages spécifiques pour la Gare de SQY et l'Hôtel d'Agglomération. Travaux d'astreinte notés. Max 300 000 € HT/an."
     },
     {
       "numero": 3,
-      "intitule": "Métallerie – Clôtures",
-      "zone_geographique": "Territoire de Saint-Quentin-en-Yvelines (78)",
-      "volume_estime": 200000,
-      "volume_estime_unite": "€ HT/an (maximum)",
-      "particularites": "Qualibat 1411, 3541, 4411, 4441, 4511 exigés. Comprend portes métalliques, grilles, garde-corps, serrurerie, rideaux métalliques, portails et portes de garage. Travaux d'astreinte et d'urgence inclus."
+      "intitule": "Métallerie - Clôtures",
+      "domaine": "btp_second_oeuvre",
+      "zone_geographique": "Saint-Quentin-en-Yvelines (78)",
+      "volume_estime": null,
+      "volume_estime_unite": null,
+      "cout_estime_min_eur": 64000,
+      "cout_estime_max_eur": 160000,
+      "ca_estime_min_eur": 80000,
+      "ca_estime_max_eur": 200000,
+      "marge_brute_pct": 20,
+      "particularites": "Qualibat 1411, 3541, 4411, 4441, 4511 exigés. Inclut serrurerie électronique TESA STX, portes CF, garde-corps, portails automatisés, barrières levantes. Travaux d'astreinte et urgence notés. Max 200 000 € HT/an."
     },
     {
       "numero": 4,
-      "intitule": "Cloisons/aménagement intérieur - Faux-plafonds – menuiseries intérieures",
-      "zone_geographique": "Territoire de Saint-Quentin-en-Yvelines (78)",
-      "volume_estime": 200000,
-      "volume_estime_unite": "€ HT/an (maximum)",
-      "particularites": "Qualibat 1411, 4112, 4211, 4312, 6612 exigés. Pas de coefficient d'astreinte ni d'urgence dans la notation prix (uniquement coefficient pièces détachées). DQE masqué valorisé à 50 pts au lieu de 40 pts."
+      "intitule": "Cloisons/Faux plafonds",
+      "domaine": "btp_second_oeuvre",
+      "zone_geographique": "Saint-Quentin-en-Yvelines (78)",
+      "volume_estime": null,
+      "volume_estime_unite": null,
+      "cout_estime_min_eur": 64000,
+      "cout_estime_max_eur": 160000,
+      "ca_estime_min_eur": 80000,
+      "ca_estime_max_eur": 200000,
+      "marge_brute_pct": 20,
+      "particularites": "Qualibat 1411, 4112, 4211, 4312, 6612 exigés. Pas de travaux d'astreinte/urgence pour ce lot (pas de coefficients H1/H2 dans le BPU). Formule prix DQE masqué pondérée à 50 pts (au lieu de 40 pour les autres lots). Max 200 000 € HT/an."
     },
     {
       "numero": 5,
       "intitule": "Electricité courants faibles et forts",
-      "zone_geographique": "Territoire de Saint-Quentin-en-Yvelines (78)",
-      "volume_estime": 500000,
-      "volume_estime_unite": "€ HT/an (maximum)",
-      "particularites": "Qualifelec E2-C2 et IRVE, Qualibat 1311 et 1411 exigés. Lot le plus important financièrement (500k€/an). Travaux d'astreinte et d'urgence inclus."
+      "domaine": "btp_second_oeuvre",
+      "zone_geographique": "Saint-Quentin-en-Yvelines (78)",
+      "volume_estime": null,
+      "volume_estime_unite": null,
+      "cout_estime_min_eur": 164000,
+      "cout_estime_max_eur": 410000,
+      "ca_estime_min_eur": 200000,
+      "ca_estime_max_eur": 500000,
+      "marge_brute_pct": 18,
+      "particularites": "Qualibat 1311, 1411 + Qualifelec E2-C2 et IRVE exigés. Lot avec le maximum annuel le plus élevé (500 000 € HT). Travaux d'astreinte et d'urgence inclus (coefficients notés). Inclut courants forts, courants faibles et IRVE."
     },
     {
       "numero": 6,
-      "intitule": "Plomberie – sanitaires – chauffage",
-      "zone_geographique": "Territoire de Saint-Quentin-en-Yvelines (78)",
-      "volume_estime": 300000,
-      "volume_estime_unite": "€ HT/an (maximum)",
-      "particularites": "Label PG, Qualibat 1311, 1321, 1411, 5111, 5211, 5231 exigés. Comprend plomberie, sanitaires complets, production et distribution de chauffage (PAC, chaudières à condensation), VMC. Travaux d'astreinte et d'urgence inclus."
+      "intitule": "Plomberie sanitaire chauffage",
+      "domaine": "btp_second_oeuvre",
+      "zone_geographique": "Saint-Quentin-en-Yvelines (78)",
+      "volume_estime": null,
+      "volume_estime_unite": null,
+      "cout_estime_min_eur": 96000,
+      "cout_estime_max_eur": 240000,
+      "ca_estime_min_eur": 120000,
+      "ca_estime_max_eur": 300000,
+      "marge_brute_pct": 20,
+      "particularites": "Qualibat 1311, 1321, 1411 + Label PG + Qualibat 5111, 5211, 5231 exigés. BPU très complet (plomberie, sanitaires PMR, chauffage PAC/chaudières condensation, VMC). Nécessite Qualigaz pour raccordement GRDF. Travaux d'astreinte et d'urgence notés. Max 300 000 € HT/an."
     },
     {
       "numero": 7,
-      "intitule": "Peinture-Revêtements de sols souples",
-      "zone_geographique": "Territoire de Saint-Quentin-en-Yvelines (78)",
-      "volume_estime": 300000,
-      "volume_estime_unite": "€ HT/an (maximum)",
-      "particularites": "Qualibat 1411, 6111, 6222 exigés. Pas de coefficient d'astreinte ni d'urgence dans la notation prix (uniquement coefficient pièces détachées). DQE masqué valorisé à 50 pts."
+      "intitule": "Peinture/revêtement de sols souples",
+      "domaine": "btp_second_oeuvre",
+      "zone_geographique": "Saint-Quentin-en-Yvelines (78)",
+      "volume_estime": null,
+      "volume_estime_unite": null,
+      "cout_estime_min_eur": 96000,
+      "cout_estime_max_eur": 240000,
+      "ca_estime_min_eur": 120000,
+      "ca_estime_max_eur": 300000,
+      "marge_brute_pct": 20,
+      "particularites": "Qualibat 1411, 6111, 6222 exigés. Pas de travaux d'astreinte/urgence (pas de coefficients H1/H2 dans le BPU). Formule prix DQE masqué pondérée à 50 pts. Max 300 000 € HT/an."
     },
     {
       "numero": 8,
-      "intitule": "Charpente – Couverture",
-      "zone_geographique": "Territoire de Saint-Quentin-en-Yvelines (78)",
-      "volume_estime": 300000,
-      "volume_estime_unite": "€ HT/an (maximum)",
-      "particularites": "Qualibat 1411, 2312, 2391, 3101, 3141, 3152 exigés. Travaux d'astreinte et d'urgence inclus."
+      "intitule": "Charpente - couverture",
+      "domaine": "btp_renovation_rehabilitation",
+      "zone_geographique": "Saint-Quentin-en-Yvelines (78)",
+      "volume_estime": null,
+      "volume_estime_unite": null,
+      "cout_estime_min_eur": 96000,
+      "cout_estime_max_eur": 240000,
+      "ca_estime_min_eur": 120000,
+      "ca_estime_max_eur": 300000,
+      "marge_brute_pct": 20,
+      "particularites": "Qualibat 1411, 2312, 2391, 3101, 3141, 3152 exigés. Travaux en hauteur fréquents (nacelles/échafaudages dans BPU). Travaux d'astreinte et urgence notés. Max 300 000 € HT/an."
     },
     {
       "numero": 9,
-      "intitule": "Etanchéité – Bardage",
-      "zone_geographique": "Territoire de Saint-Quentin-en-Yvelines (78)",
-      "volume_estime": 300000,
-      "volume_estime_unite": "€ HT/an (maximum)",
-      "particularites": "Qualibat 1411, 3211, 3271, 3811 exigés. Travaux d'astreinte et d'urgence inclus."
+      "intitule": "Etanchéité - bardage",
+      "domaine": "btp_second_oeuvre",
+      "zone_geographique": "Saint-Quentin-en-Yvelines (78)",
+      "volume_estime": null,
+      "volume_estime_unite": null,
+      "cout_estime_min_eur": 96000,
+      "cout_estime_max_eur": 240000,
+      "ca_estime_min_eur": 120000,
+      "ca_estime_max_eur": 300000,
+      "marge_brute_pct": 20,
+      "particularites": "Qualibat 1411, 3211, 3271, 3811 exigés. Travaux en hauteur fréquents. Travaux d'astreinte et urgence notés. Max 300 000 € HT/an."
     }
   ],
+  "tranches": [],
   "calendrier": {
     "date_limite_offres": "2026-07-13",
     "date_demarrage_prevue": "2026-11-23",
-    "duree_marche": "1 an reconductible tacitement 3 fois (4 ans maximum)"
+    "duree_marche": "1 an reconductible tacitement 3 fois, durée totale maximale 4 ans"
   },
   "alertes_candidat": [
-    "Qualifications Qualibat/Qualifelec/Label PG exigées et vérifiées : toute qualification manquante au stade de la candidature peut conduire à l'élimination. Les qualifications doivent être de l'année en cours de la consultation.",
-    "DQE masqué tiré au sort entre 2 DQE au moment de l'ouverture : le candidat ne connaît pas à l'avance le DQE utilisé pour le jugement — il est impératif de remplir l'intégralité du BPU avec des prix cohérents et compétitifs sur tous les articles.",
-    "Absence de minimum annuel : aucune garantie de volume. Le titulaire peut ne recevoir aucun bon de commande. Le chiffrage doit intégrer ce risque sans couvrir des charges fixes disproportionnées.",
-    "Remises par tranches de bon de commande obligatoires et fermes pour toute la durée du marché (périodes de reconduction incluses) : bien évaluer l'impact sur les marges avant de s'engager.",
-    "Offre à déposer exclusivement par voie dématérialisée sur la plateforme AWS (tout autre mode de dépôt rend le pli irrégulier). Prévoir un test technique 48h avant la date limite.",
-    "Mémoire technique obligatoire : son absence rend l'offre irrégulière. Il doit traiter : moyens humains, modes opératoires, sécurité ET environnement."
+    "Qualifications Qualibat/Qualifelec/Label PG par lot exigées comme condition de capacité professionnelle : l'absence des qualifications du lot soumissionné peut entraîner l'irrecevabilité de la candidature (RC §5.1 — candidatures insuffisantes non admises).",
+    "Pour le lot 5, la double qualification Qualifelec E2-C2 ET IRVE est requise — les entreprises uniquement courants forts sans qualification IRVE sont potentiellement écartées.",
+    "Le BPU doit être entièrement complété sans modification du document : toute ligne non renseignée ou modification de structure entraîne l'irrégularité de l'offre (RC §4.2).",
+    "Le mémoire technique est obligatoire et noté à 55% — une réponse insuffisante ou générique sur les 4 sous-critères peut être éliminatoire sur le classement même si le prix est compétitif.",
+    "Les remises sur bons de commande (3 tranches) sont fermes pour toute la durée y compris reconductions : une remise trop généreuse peut dégrader la rentabilité sur 4 ans — à calibrer soigneusement.",
+    "Pas de minimum annuel : en cas d'activité faible (notamment en début de marché), les coûts fixes et d'astreinte ne sont pas couverts — analyser l'historique de consommation de l'accord-cadre précédent si disponible."
   ],
   "points_differenciants_attendus": [
     {
-      "libelle": "Organisation spécifique pour les travaux d'astreinte et d'urgence",
-      "exemple": "Présenter une astreinte téléphonique 24h/24 7j/7 avec un délai d'intervention garanti (ex: 2h pour les urgences), des véhicules équipés et un stock de pièces courantes permettant d'intervenir immédiatement sans délai d'approvisionnement.",
-      "source": "RC §5.2.2"
+      "libelle": "Procédure d'intervention d'urgence et d'astreinte formalisée et réactive",
+      "exemple": "Présenter une procédure documentée avec engagement de délai de prise en charge (ex : 2h pour toute urgence, astreinte 7j/7-24h/24 avec N° d'appel dédié), illustrée par un retour d'expérience concret sur un marché similaire en milieu communautaire.",
+      "source": "RC §5.2.2 — sous-critère modes opératoires, 35 pts"
     },
     {
-      "libelle": "Ancienneté et stabilité des équipes proposées",
-      "exemple": "Valoriser une équipe avec une forte ancienneté dans l'entreprise (conducteur de travaux > 10 ans, chefs de chantier > 5 ans) et présenter un plan concret de remplacement et de formation pour garantir la continuité sur 4 ans.",
-      "source": "RC §5.2.2"
+      "libelle": "Équipe dédiée avec ancienneté et plan de continuité formalisé",
+      "exemple": "Nommer les personnels dédiés (chef de chantier + compagnons), indiquer leur ancienneté dans l'entreprise, et présenter un plan de remplacement/formation (binômage, apprentissage) qui démontre la stabilité de l'équipe sur 4 ans.",
+      "source": "RC §5.2.2 — sous-critère moyens humains, 30 pts"
     },
     {
-      "libelle": "Proposer des remises attractives par tranche de bon de commande",
-      "exemple": "Des remises progressives et significatives par tranche (ex: 2% pour 5-15k€, 4% pour 15-25k€, 6% au-delà de 25k€) enverront un signal fort sur le critère prix tout en étant soutenables financièrement sur 4 ans.",
-      "source": "AE Lots — Tableau 14"
+      "libelle": "Implantation géographique proche du territoire SQY",
+      "exemple": "Souligner l'existence d'un dépôt ou d'une équipe basée dans les Yvelines (78) ou en IDF proche, réduisant les temps de trajet et permettant une réponse d'urgence rapide — point explicitement mentionné comme critère d'évaluation.",
+      "source": "RC §5.2.2 — modes opératoires (temps de trajet)"
     },
     {
-      "libelle": "Démarche environnementale concrète et traçable",
-      "exemple": "Présenter des conventions en place avec des déchèteries agréées, un bordereau de suivi des déchets systématique, et des engagements chiffrés sur le taux de valorisation des déchets de chantier (ex: > 70% valorisés).",
-      "source": "RC §5.2.2"
+      "libelle": "Traçabilité et gestion des déchets documentée avec filières identifiées",
+      "exemple": "Fournir le nom des prestataires de déchetterie/valorisation utilisés, les types de déchets triés par nature (inertes, DIB, déchets dangereux), et un modèle de bordereau de suivi des déchets que l'entreprise remettra systématiquement à SQY.",
+      "source": "RC §5.2.2 — démarche environnementale, 15 pts"
     },
     {
-      "libelle": "Connaissance du territoire SQY et du patrimoine bâti",
-      "exemple": "Si l'entreprise a déjà travaillé pour SQY ou des collectivités similaires en IDF, valoriser cette connaissance du parc bâti et les références sur des prestations comparables (entretien multi-bâtiments pour compte d'une collectivité).",
-      "source": null
+      "libelle": "Performance sécurité démontrée par des indicateurs chiffrés récents",
+      "exemple": "Communiquer le taux de fréquence (TF) et le taux de gravité (TG) des 3 dernières années, les certifications sécurité (formation PPSPS, habilitations électriques, travail en hauteur) et décrire la procédure spécifique d'intervention en milieu occupé avec protections des usagers.",
+      "source": "RC §5.2.2 — sécurité, 20 pts"
     }
   ],
   "_meta": {
     "id_marche": "BOAMP-26-56464",
     "type": "complet",
-    "date_generation": "2026-06-14T22:28:45.208910+00:00",
-    "extraction_le": "2026-06-14T22:28:45.208910+00:00",
+    "date_generation": "2026-06-21T01:02:43.686500+00:00",
+    "extraction_le": "2026-06-21T01:02:43.686500+00:00",
     "modele": "claude-sonnet-4-6",
     "preset_utilise": "btp",
     "presets_matches": [
-      "btp",
-      "ingenierie"
+      "btp"
     ],
     "prompts_versions": {
-      "btp/_preset.json": "sha256:d1717e0d87f6c265",
-      "ingenierie/_preset.json": "sha256:56f813f829343e24"
+      "btp/_preset.json": "sha256:055bf6f8b2c1f771"
     },
-    "tokens_input": 168757,
-    "tokens_output": 10158,
-    "cout_eur": 0.6257,
-    "duree_sec": 162.9,
+    "tokens_input": 177268,
+    "tokens_output": 15287,
+    "cout_eur": 0.7231,
+    "duree_sec": 242.8,
     "pdfs_traites": [
       {
         "nom": "AE Lot 1.docx",

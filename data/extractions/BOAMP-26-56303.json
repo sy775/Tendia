@@ -1,255 +1,357 @@
 {
-  "synthese_marche": "Marché public de services d'assurances pour la Communauté de Communes du Val d'Essonne (CCVE), organisé en 4 lots : dommages aux biens (Lot 1), responsabilité civile (Lot 2), véhicules à moteur (Lot 3), protection juridique agents et élus (Lot 4). Le marché prend effet le 1er janvier 2027 pour une durée de 48 mois (jusqu'au 31 décembre 2030), en appel d'offres ouvert. Le consultant mandataire est ARIMA Consultants Associés.",
+  "synthese_marche": "Marché public de services d'assurances pour la Communauté de Communes du Val d'Essonne, composé de 4 lots : dommages aux biens (lot 1), responsabilités civiles (lot 2), véhicules à moteur (lot 3) et protection juridique des agents et élus (lot 4). Les contrats prendront effet au 1er janvier 2027 pour une durée de 48 mois (jusqu'au 31 décembre 2030), passés en appel d'offres ouvert. Le prestataire doit être une compagnie d'assurances agréée ou un intermédiaire mandaté.",
   "domaines_metier": [
     {
       "code": "assurance"
     }
   ],
-  "raison_classification": "Le marché porte exclusivement sur des prestations d'assurances (dommages aux biens, responsabilité civile, véhicules à moteur, protection juridique) pour une collectivité territoriale. CPV principal 66510000 (services d'assurance), ce qui correspond sans ambiguïté au code 'assurance' de la taxonomie.",
+  "raison_classification": "Le marché porte intégralement sur des prestations d'assurances (dommages aux biens, responsabilité civile, véhicules à moteur, protection juridique) pour une collectivité territoriale. Le CPV principal est 66510000 (services d'assurance) et tous les lots relèvent sans ambiguïté du code `assurance` de la taxonomie.",
   "caracteristiques_metier": {
-    "description": "Services d'assurances pour la Communauté de Communes du Val d'Essonne, structurés en 4 lots : Lot 1 - Assurance dommages aux biens et risques annexes (patrimoine bâti 17 447 m², matériel informatique, instruments de musique, expositions, bris de machine) ; Lot 2 - Assurance des responsabilités et risques annexes (RC générale, individuelle accidents, assurance pour compte) ; Lot 3 - Assurance véhicules à moteur et risques annexes (parc de 21 véhicules, auto-collaborateurs, marchandises transportées) ; Lot 4 - Protection juridique des agents et des élus (112 agents, 46 élus).",
+    "description": "Marché de services d'assurances en 4 lots pour la CCVE : lot 1 (dommages aux biens, 17 447 m², instruments de musique, informatique, bris de machine, exposition), lot 2 (responsabilité civile générale et spécifique, individuelle accident), lot 3 (parc de 21 véhicules, auto-collaborateurs, marchandises transportées), lot 4 (protection juridique agents et élus, conseil juridique, assistance psychologique).",
     "criteres_eligibilite": [
-      "Être une compagnie d'assurances agréée ou un courtier mandaté par une compagnie agréée",
-      "Fournir les documents des articles R.2143-3 à R.2143-16 du Code de la Commande Publique (documents de candidature réglementaires)",
-      "Accepter sans modification les conditions générales de garanties et le cahier des charges",
-      "Disposer des agréments nécessaires pour les branches d'assurances concernées par chaque lot"
+      "Être une compagnie d'assurances agréée ou un intermédiaire (courtier ou agent) mandaté par une compagnie agréée",
+      "Disposer des agréments réglementaires permettant l'exercice des branches d'assurance concernées (dommages aux biens, RC générale, automobile, protection juridique)",
+      "Fournir les documents de l'article R.2143-3 à R.2143-16 du Code de la Commande Publique"
     ]
   },
   "bareme_notation": {
-    "valeur_technique_pct": null,
-    "valeur_prix_pct": null,
+    "valeur_technique_pct": 65,
+    "valeur_prix_pct": 25,
     "sous_criteres_techniques": [
       {
-        "libelle": "Critère RSE - Responsabilité Sociétale des Entreprises",
-        "ponderation_pct": null,
-        "description": "Critère évalué via l'annexe RSE à l'acte d'engagement, portant sur la stratégie globale RSE, l'environnement/climat, le social/conditions de travail, l'engagement sociétal et la mise en œuvre opérationnelle responsable du marché. 5 points attribués à chaque thématique.",
+        "libelle": "Valeur technique de l'offre",
+        "ponderation_pct": 65,
+        "description": "Appréciation de la qualité technique des garanties proposées : étendue des garanties, plafonds, exclusions, services annexes (gestion sinistres, prévention).",
+        "elements_attendus": [
+          "Étendue des garanties couvrant l'ensemble des risques du cahier des charges",
+          "Montants de garanties égaux ou supérieurs aux plafonds demandés",
+          "Franchises conformes ou inférieures aux montants demandés au CCTP",
+          "Qualité du service de gestion des sinistres (délais, interlocuteurs dédiés)",
+          "Absence d'exclusions non prévues au cahier des charges",
+          "Services de prévention et d'accompagnement proposés en plus"
+        ],
+        "exemple_reponse_forte": "L'offre reprend intégralement les conditions générales de garanties du DCE sans restriction ni exclusion additionnelle, propose des plafonds supérieurs à ceux demandés (ex: 25 M€ au lieu de 19,9 M€ pour le lot 1), et met à disposition un gestionnaire dédié collectivités avec engagement de délai de réponse sinistre sous 48h.",
+        "source": "Contexte BOAMP lots — critères spécifiques",
+        "unite_evaluation": "points",
+        "sous_criteres": null
+      },
+      {
+        "libelle": "Responsabilité Sociétale des Entreprises (RSE)",
+        "ponderation_pct": 10,
+        "description": "Évaluation de la politique RSE du candidat sur la base de l'annexe RSE obligatoire : stratégie, environnement/climat, social, engagement sociétal, mise en œuvre opérationnelle.",
         "elements_attendus": [
           "Publication d'un rapport RSE annuel ou rapport de durabilité CSRD",
-          "Certification ou labellisation RSE (ISO 26000, B Corp, EcoVadis, etc.)",
-          "Réalisation d'un bilan carbone mesurant les émissions GES",
-          "Index d'égalité hommes-femmes de la société",
-          "Politique de diversité, égalité des chances et insertion professionnelle",
-          "Politique de conformité RGPD pour les données des assurés",
+          "Certification ou labellisation RSE (ISO 26000, EcoVadis, B Corp, etc.)",
+          "Bilan carbone mesurant les émissions GES avec vérification des parties prenantes",
+          "Index égalité hommes-femmes et enquêtes bien-être au travail",
+          "Investissements socialement responsables et politique développement local",
           "Engagement à limiter l'impact énergétique dans l'exécution du marché (télétravail, dématérialisation, véhicules électriques)"
         ],
-        "exemple_reponse_forte": "Notre société publie annuellement un rapport de durabilité conforme à la directive CSRD avec indicateurs ESG vérifiés par un tiers. Certifiée EcoVadis (médaille Or 2024), nous mesurons notre bilan carbone scopes 1, 2 et 3 et avons réduit nos émissions de 18% en 3 ans. Notre index égalité H/F est de 87/100 et nous menons des enquêtes bien-être annuelles auprès de l'ensemble de nos collaborateurs.",
-        "source": "Annexe à l'Acte d'Engagement - NOTATION RSE",
-        "sous_criteres": [
-          {
-            "libelle": "Stratégie globale, Gouvernance et Reporting RSE",
-            "ponderation_pct": 5,
-            "description": "Évalue la publication d'un rapport RSE annuel (CSRD ou autre format) et l'obtention de certifications/labellisations RSE.",
-            "elements_attendus": [
-              "Rapport RSE annuel publié",
-              "Certification ou label RSE obtenu (ISO 26000, B Corp, EcoVadis, charte interne)"
-            ],
-            "exemple_reponse_forte": "Publication d'un rapport de durabilité CSRD annuel avec certification EcoVadis médaille Or.",
-            "source": "Annexe RSE à l'Acte d'Engagement"
-          },
-          {
-            "libelle": "Environnement et Climat",
-            "ponderation_pct": 5,
-            "description": "Évalue la réalisation d'un bilan carbone, la vérification du bilan carbone des parties prenantes et l'intégration des investissements (émissions indirectes).",
-            "elements_attendus": [
-              "Bilan carbone mesurant les émissions GES",
-              "Vérification du bilan carbone des parties prenantes",
-              "Intégration des émissions indirectes (scope 3)"
-            ],
-            "exemple_reponse_forte": "Bilan carbone scopes 1, 2 et 3 réalisé annuellement, incluant les émissions de nos prestataires et investissements.",
-            "source": "Annexe RSE à l'Acte d'Engagement"
-          },
-          {
-            "libelle": "Social et Conditions de travail",
-            "ponderation_pct": 5,
-            "description": "Évalue l'index égalité H/F, les enquêtes de bien-être au travail et les pratiques en matière de diversité et insertion professionnelle.",
-            "elements_attendus": [
-              "Index égalité H/F précisé",
-              "Enquêtes de bien-être au travail menées",
-              "Engagement diversité et insertion professionnelle formalisé"
-            ],
-            "exemple_reponse_forte": "Index égalité H/F de 87/100, enquêtes bien-être annuelles avec taux de participation de 92%, plan d'action diversité incluant des partenariats avec des ESAT.",
-            "source": "Annexe RSE à l'Acte d'Engagement"
-          },
-          {
-            "libelle": "Engagement Sociétal et Développement local",
-            "ponderation_pct": 5,
-            "description": "Évalue les investissements socialement responsables et les politiques en faveur des communautés et du développement local (économie circulaire).",
-            "elements_attendus": [
-              "Investissements socialement responsables avec exemples concrets",
-              "Politique développement local avec exemple d'action économie circulaire"
-            ],
-            "exemple_reponse_forte": "Programme de mécénat auprès d'associations locales de réinsertion ; politique zéro papier avec recyclage de 100% des équipements informatiques en fin de vie.",
-            "source": "Annexe RSE à l'Acte d'Engagement"
-          },
-          {
-            "libelle": "Mise en œuvre opérationnelle et responsable du marché",
-            "ponderation_pct": 5,
-            "description": "Évalue l'engagement à limiter l'impact énergétique dans l'exécution du marché, la mesure de satisfaction clients et la politique de sécurisation des données personnelles (RGPD).",
-            "elements_attendus": [
-              "Engagement à limiter l'impact énergétique (télétravail, dématérialisation, véhicules électriques)",
-              "Mesure régulière de satisfaction clients avec résultat de la dernière enquête",
-              "Politique formelle de sécurisation des données personnelles conforme au RGPD"
-            ],
-            "exemple_reponse_forte": "Gestion entièrement dématérialisée des sinistres, parc de véhicules 100% électriques pour les déplacements clients, taux de satisfaction clients de 94% (enquête 2024), DPO dédié et conformité RGPD certifiée.",
-            "source": "Annexe RSE à l'Acte d'Engagement"
-          }
-        ]
+        "exemple_reponse_forte": "La compagnie publie un rapport de durabilité conforme CSRD depuis 2023, dispose de la certification EcoVadis niveau Gold, réalise un bilan carbone Scope 1+2+3 annuel vérifié par un tiers, affiche un index égalité H/F de 91/100, et s'engage à traiter 100 % des sinistres de façon dématérialisée avec des équipes en télétravail partiel.",
+        "source": "05 - ANNEXE A L'ACTE D'ENGAGEMENT - NOTATION RSE.docx",
+        "unite_evaluation": "points",
+        "sous_criteres": null
       }
     ],
     "prix": {
-      "type_formule": "autre",
-      "formule_explicite": "Lot 1 : coût HT et TTC exprimé en €/m² de surface déclarée (17 447 m²), prime annuelle HT et TTC. Lot 2 : taux % HT et TTC appliqué à la masse salariale brute (3 595 123 €), prime annuelle HT et TTC. Lot 3 : prime annuelle HT et TTC par catégorie de véhicule (cyclos/NVEI, véhicules légers, véhicules lourds, bris de glace, marchandises transportées, auto-collaborateurs). Lot 4 : prime annuelle HT et TTC (masse salariale 3 595 123 € et effectif 112 agents + 46 élus). La formule de notation du prix n'est pas précisée dans les pièces transmises.",
+      "type_formule": "moins_disant",
+      "formule_explicite": "Prime annuelle HT et TTC exprimée par lot ; les offres sont comparées par leur montant de prime — le moins-disant bénéficiant de la note maximale sur le critère prix.",
+      "source": "CCAP article 5 (lots 1, 2, 3, 4)",
       "elements_a_chiffrer": [
-        "Lot 1 : coût/m² HT et TTC pour la solution de base (17 447 m²)",
-        "Lot 2 : taux % HT et TTC appliqué à la masse salariale brute de 3 595 123 €",
-        "Lot 3 : prime annuelle HT et TTC par catégorie (cyclos/NVEI, VL ≤3,5T, VL >3,5T, bris de glace, marchandises transportées, auto-collaborateurs)",
-        "Lot 4 : prime annuelle HT et TTC pour la protection juridique agents et élus"
+        "Prime annuelle HT et TTC par lot (lot 1 : coût/m² × superficie 17 447 m²)",
+        "Prime annuelle HT et TTC lot 2 : taux % × masse salariale 3 595 123 €",
+        "Prime annuelle HT et TTC lot 3 : prime par catégorie de véhicule × nombre de véhicules",
+        "Prime annuelle HT et TTC lot 4 : forfait ou taux × effectif/masse salariale",
+        "Franchises applicables (fixes sur la durée du marché)"
       ]
     },
-    "modalite_calcul_prix": "Lot 1 : Prime HT annuelle N = (coût/m² × indice FFB N / indice FFB N-1) × nouvelle superficie déclarée. Lot 2 : régularisation annuelle sur la base du taux × nouvelle masse salariale. Lot 3 : Prime HT N = (indice SRA ou PRVP N / indice N-1) × somme des primes par véhicule, adjonctions/retraits au prorata temporis. Lot 4 : non précisé dans les pièces transmises."
+    "modalite_calcul_prix": "Lot 1 : coût HT/m² × 17 447 m² ; Lot 2 : taux % × 3 595 123 € masse salariale ; Lot 3 : prime par catégorie de véhicule ; Lot 4 : forfait protection juridique. Révision annuelle par indice FFB (lot 1), SRA/PRVP (lot 3), masse salariale réelle (lot 2)."
   },
   "montant_marche": {
     "valeur_estimee_euros": null,
-    "fourchette_min_euros": null,
-    "fourchette_max_euros": null,
-    "type": "non_communique",
-    "duree_couverte": "48 mois (1er janvier 2027 - 31 décembre 2030)",
-    "source_extraction": "CCAP de chaque lot - Article 4",
-    "commentaire": "Aucun montant estimatif global ni par lot n'est communiqué dans le DCE. Les éléments disponibles pour estimation sont : Lot 1 = surface 17 447 m² × coût/m² à proposer ; Lot 2 = masse salariale 3 595 123 € × taux % à proposer ; Lot 3 = parc de 21 véhicules (majoritairement VL récents) à tarifier par catégorie ; Lot 4 = 112 agents + 46 élus à couvrir en protection juridique. Le contrat SMACL sortant (dommages biens et véhicules) et le contrat PNAS/AREAS sortant (RC) sont mentionnés mais sans prime actuelle chiffrée."
+    "fourchette_min_euros": 160000,
+    "fourchette_max_euros": 280000,
+    "type": "calcule_volumes",
+    "duree_couverte": "48 mois (1er janvier 2027 — 31 décembre 2030)",
+    "source_extraction": "CCAP article 4 lots 1-4 ; inventaire patrimoine (17 447 m²) ; masse salariale 3 595 123 € ; parc auto 21 véhicules",
+    "commentaire": "Estimation bottom-up annuelle : Lot 1 (dommages biens) : 17 447 m² × 1,5–2,5 €/m² HT ≈ 26 000–44 000 €/an. Lot 2 (RC) : 3 595 123 € masse salariale × 0,7–1,1 % ≈ 25 000–40 000 €/an. Lot 3 (véhicules) : 21 véhicules × 800–1 200 €/véhicule ≈ 17 000–25 000 €/an. Lot 4 (protection juridique) : 112 agents + 46 élus × 100–200 €/bénéficiaire ≈ 16 000–32 000 €/an. Total annuel ≈ 84 000–141 000 €. Sur 4 ans ≈ 336 000–564 000 €. La fourchette affichée correspond à la prime annuelle."
+  },
+  "montant_3_voies": {
+    "voie_1_eur": null,
+    "voie_1_source": null,
+    "voie_2_disponible": true,
+    "voie_2_min_eur": 336000,
+    "voie_2_max_eur": 564000,
+    "voie_2_hypotheses": [
+      {
+        "hypothese": "Lot 1 — superficie 17 447 m² (inventaire patrimoine, feuille BÂTIMENTS)",
+        "valeur": "17 447 m²"
+      },
+      {
+        "hypothese": "Lot 1 — taux marché assurance dommages collectivités : 1,50–2,50 €/m²/an (ratio marché, patrimoine sportif/administratif, sinistralité modérée)",
+        "valeur": "1,50–2,50 €/m²/an"
+      },
+      {
+        "hypothese": "Lot 2 — masse salariale brute 3 595 123 € (inventaire RC, art. 4 de l'AE lot 2)",
+        "valeur": "3 595 123 €"
+      },
+      {
+        "hypothese": "Lot 2 — taux RC collectivité : 0,70–1,10 % de la masse salariale (ratio marché SMACL/AREAS pour intercommunalité ~65 000 hab)",
+        "valeur": "0,70–1,10 %"
+      },
+      {
+        "hypothese": "Lot 3 — 21 véhicules (inventaire VAM, feuille PARC AUTO), tous < 3,5T sauf 1 Boxer",
+        "valeur": "21 véhicules"
+      },
+      {
+        "hypothese": "Lot 3 — prime tous risques véhicule léger : 800–1 200 €/an/véhicule (ratio marché collectivités)",
+        "valeur": "800–1 200 €/véhicule/an"
+      },
+      {
+        "hypothese": "Lot 4 — 158 bénéficiaires (112 agents + 46 élus)",
+        "valeur": "158 bénéficiaires"
+      },
+      {
+        "hypothese": "Lot 4 — tarif protection juridique collectivité : 100–200 €/bénéficiaire/an (ratio marché)",
+        "valeur": "100–200 €/bénéficiaire/an"
+      },
+      {
+        "hypothese": "Durée : 4 ans fermes (48 mois, 1er janvier 2027 — 31 décembre 2030)",
+        "valeur": "4 ans"
+      }
+    ],
+    "voie_2_raison_indisponible": null
+  },
+  "cout_realisation": {
+    "cout_total_eur": null,
+    "cout_min_eur": null,
+    "cout_max_eur": null,
+    "postes": [
+      {
+        "poste": "Ce marché est un marché d'assurance : le 'coût de réalisation' pour le titulaire correspond à la charge sinistres attendue (coût technique) + frais de gestion. Pour un assureur, le ratio combiné (sinistres + frais / primes) est l'équivalent du coût.",
+        "detail": "Ratio sinistres/primes estimé 55–70 % pour assurance collectivités (dommages biens, RC, auto) : sur 84 000–141 000 €/an de primes, charge sinistres + frais ≈ 46 000–99 000 €/an.",
+        "montant_eur": null
+      }
+    ],
+    "taux_journaliers_retenus": "Pour un assureur : ratio combiné 55–70 % (sinistres nets + frais de gestion / primes émises) — ratio marché assurance collectivités territoriales en France. La 'marge brute' correspond au ratio combiné inversé.",
+    "commentaire": "Le coût de réalisation pour une compagnie d'assurance n'est pas structuré en jours-homme mais en ratio combiné. Estimation non chiffrable précisément sans données sinistralité prospective. Les données de sinistralité passée sont mentionnées en annexe mais non fournies dans le DCE analysé."
   },
   "revision_prix": {
     "type": "indexation",
     "indices_utilises": [
-      "FFB (Fédération Française du Bâtiment)",
-      "SRA ou PRVP"
+      "FFB",
+      "SRA",
+      "PRVP"
     ],
-    "ponderation": "Lot 1 : indexation 100% indice FFB. Lot 3 : indexation 100% indice SRA ou PRVP. Lots 2 et 4 : régularisation sur masse salariale réelle (taux fixe sur la durée du marché).",
+    "ponderation": "Lot 1 : indexation 100 % indice FFB (Fédération Française du Bâtiment). Lot 2 : régularisation sur la masse salariale réelle, taux fixe. Lot 3 : indexation 100 % indice SRA ou PRVP. Lot 4 : non précisé.",
     "periodicite": "annuelle",
-    "formule_revision": "Lot 1 : Prime HT année N = (coût/m² × indice FFB N / indice FFB N-1) × nouvelle superficie déclarée. Lot 3 : Prime HT année N = (indice SRA ou PRVP N / indice N-1) × somme des primes par véhicule. Lot 2 : régularisation annuelle taux fixe × nouvelle masse salariale (à compter de 2028 au plus tôt).",
-    "source_extraction": "CCAP Lot 1 Article 5 ; CCAP Lot 2 Article 5 ; CCAP Lot 3 Article 5",
-    "commentaire": "Indexation sur indices publics argus des assurances (FFB pour bâtiment, SRA/PRVP pour auto) : mécanisme standard marché d'assurances collectivités, prévisible pour le candidat. Lot 2 : taux fixe avec régularisation sur masse salariale réelle, favorable si l'effectif augmente."
+    "formule_revision": "Lot 1 : Prime HT année N = (coût/m² × indice N / indice N-1) × nouvelle superficie déclarée. Lot 3 : Prime HT année N = (indice N / indice N-1) × somme des primes par véhicule.",
+    "source_extraction": "CCAP article 5 des lots 1, 2 et 3",
+    "commentaire": "Révision annuelle à date anniversaire (1er janvier) : favorable pour le souscripteur car lie les primes à l'évolution du coût de la construction (lot 1) et des réparations automobiles (lot 3). Le taux lot 2 reste fixe mais la base (masse salariale) est régularisée annuellement — risque de régularisation à la hausse."
   },
   "alertes_prix": [
-    "Lot 1 : franchise solution de base passant de 1 000 € (contrat actuel SMACL) à 5 000 € demandés dans le nouveau DCE — impact significatif sur la tarification à anticiper",
-    "Lot 3 : franchise VL passant de 150 € (contrat actuel) à 500 € demandés — hausse importante à intégrer dans le calcul de prime",
-    "Lot 1 : limitation contractuelle d'indemnité tous dommages confondus fixée à 19 900 000 € — montant élevé (bâtiment le plus cher Aquastade ~21 M€) à analyser pour la capacité de souscription",
-    "Lot 2 : limitation contractuelle d'indemnité à 12 000 000 € par sinistre — plafond à sécuriser notamment pour les activités piscine (244 510 fréquentations/an) et aires d'accueil gens du voyage",
-    "Durée ferme de 48 mois avec révision annuelle uniquement sur indice : le candidat doit anticiper l'évolution de la sinistralité sur 4 ans sans possibilité de résiliation après sinistre côté assureur"
+    "Pondération prix de 25 % seulement (65 % valeur technique + 10 % RSE) : la compétition se joue essentiellement sur la qualité des garanties proposées, pas sur le prix — éviter de sur-brader les primes au risque de présenter des garanties insuffisantes.",
+    "Franchises fixes sur toute la durée du marché (48 mois) : le candidat doit anticiper une inflation des franchises réelles sur 4 ans sans possibilité d'ajustement.",
+    "Clause de réexamen prévue en cas de dégradation de la sinistralité : le prix peut être renégocié à la hausse mais pas à la baisse, asymétrie favorable à l'acheteur.",
+    "Durée de validité des offres de 240 jours (mentionnée dans les actes d'engagement) : très longue, implique un risque de dérive des conditions de marché pendant la période d'attente."
   ],
   "references_exigees": {
     "experience_minimale_annees": null,
     "experience_source": null,
     "volume_min_references_similaires": null,
     "volume_min_references_unite": null,
-    "secteur_experience": "Services d'assurances pour collectivités territoriales (intercommunalités, communes)",
-    "secteur_source": null,
+    "secteur_experience": "Assurance de collectivités territoriales (dommages aux biens, responsabilité civile, flotte automobile, protection juridique agents/élus)",
+    "secteur_source": "Conditions générales de garanties des 4 lots",
     "certifications_obligatoires": [
       {
-        "libelle": "Agrément compagnie d'assurances délivré par l'ACPR pour les branches concernées (dommages aux biens, responsabilité civile, automobiles, protection juridique)",
-        "source": "CCAP chaque lot - Article 1 (objet de la consultation)"
+        "libelle": "Agrément d'exercice en tant que compagnie d'assurances ou mandat d'une compagnie agréée pour les branches concernées (Code des Assurances)",
+        "codes": [],
+        "bloquante": true,
+        "source": "Acte d'engagement article 1 — lots 1, 2, 3, 4"
       }
     ],
     "autres_exigences": [
       {
-        "libelle": "Documents des articles R.2143-3 à R.2143-16 du Code de la Commande Publique (DC1, DC2, attestations fiscales et sociales, etc.)",
-        "source": "Acte d'Engagement de chaque lot - Article 1"
+        "libelle": "Fourniture des documents R.2143-3 à R.2143-16 du Code de la Commande Publique (attestations fiscales et sociales, Kbis, etc.)",
+        "source": "Acte d'engagement article 1 — lots 1, 2, 3, 4"
       },
       {
-        "libelle": "Capacité à gérer les sinistres automobiles selon adhésion à l'IRSA ou avance des frais par le courtier (Lot 3)",
-        "source": "Acte d'Engagement Lot 3 - Article 4"
-      },
-      {
-        "libelle": "Délai de validité de l'offre : 240 jours à compter de la date limite de remise des offres",
-        "source": "Acte d'Engagement de chaque lot - Article 1"
+        "libelle": "Complétion obligatoire de l'annexe RSE à l'acte d'engagement (seul élément d'appréciation du critère RSE)",
+        "source": "05 - ANNEXE A L'ACTE D'ENGAGEMENT - NOTATION RSE.docx"
       }
     ]
+  },
+  "dossier_candidature": {
+    "pieces_a_fournir": [
+      {
+        "libelle": "Acte d'engagement complété et signé (un par lot soumissionné)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "Acte d'engagement — lots 1, 2, 3, 4"
+      },
+      {
+        "libelle": "Annexe RSE à l'acte d'engagement complétée et détaillée de façon circonstanciée",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "05 - ANNEXE A L'ACTE D'ENGAGEMENT - NOTATION RSE.docx"
+      },
+      {
+        "libelle": "Conditions générales de garanties de la compagnie (avec tableau comparatif CG vs CCG du DCE)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "Acte d'engagement article 4 (observations par rapport au DCE) — lots 1, 2, 3, 4"
+      },
+      {
+        "libelle": "Documents DC1 (lettre de candidature) ou équivalent",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "Acte d'engagement article 1 — R.2143-3 à R.2143-16 CCP"
+      },
+      {
+        "libelle": "Documents DC2 (déclaration du candidat) ou équivalent",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "Acte d'engagement article 1 — R.2143-3 à R.2143-16 CCP"
+      },
+      {
+        "libelle": "Attestations fiscales et sociales (moins de 6 mois)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "Acte d'engagement article 1 — R.2143-3 à R.2143-16 CCP"
+      },
+      {
+        "libelle": "Tarification complète HT et TTC (prime annuelle par lot, détail par poste selon les actes d'engagement)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "Acte d'engagement article 3 — lots 1, 2, 3, 4"
+      },
+      {
+        "libelle": "Relevé d'identité bancaire (RIB/IBAN/BIC)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "Acte d'engagement article 5 — lots 1, 2, 3, 4"
+      }
+    ],
+    "mode_remise": "dématérialisé",
+    "plateforme_depot": null,
+    "signature_electronique_exigee": null,
+    "format_signature": null,
+    "nombre_exemplaires": null,
+    "langue": "français",
+    "duree_validite_offres_jours": 240,
+    "modalites_source": "Acte d'engagement article 1 — lots 1, 2, 3, 4"
   },
   "lots": [
     {
       "numero": 1,
-      "intitule": "Assurance des Dommages aux Biens et des Risques Annexes",
-      "zone_geographique": "Communauté de Communes du Val d'Essonne (91) - communes de Ballancourt-sur-Essonne, Champcueil, Mennecy, La Ferté-Alais, Itteville",
+      "intitule": "Assurance des dommages aux biens et des risques annexes",
+      "domaine": "assurance",
+      "zone_geographique": "Essonne (91) — communes du Val d'Essonne",
       "volume_estime": 17447,
-      "volume_estime_unite": "m²",
-      "particularites": "14 bâtiments pour 17 447 m² dont Aquastade (6 282 m², valeur ~21 M€), 3 aires d'accueil gens du voyage, conservatoire (instruments de musique ~155 k€), parc informatique 400 k€, matériel bris de machine 254 k€, 8 expositions/an (60 k€ max/exposition). Tarification au m². Compagnie sortante : SMACL. Garanties étendues dont GEMAPI, structures légères, pertes financières 500 k€ sur 24 mois."
+      "volume_estime_unite": "m² de superficie assurée",
+      "cout_estime_min_eur": 14000,
+      "cout_estime_max_eur": 25000,
+      "ca_estime_min_eur": 26000,
+      "ca_estime_max_eur": 44000,
+      "marge_brute_pct": 41,
+      "particularites": "Patrimoine de 14 bâtiments (17 447 m²) dont centre aquatique Aquastade (~21 M€, bâtiment le plus cher), 3 aires d'accueil gens du voyage, conservatoire avec instruments de musique (inventaire ~155 000 €), 21 véhicules non couverts ici. Inclut TRI, informatique (400 000 €), bris de machine (254 000 €), expositions temporaires (8/an, 60 000 €/expo max), instruments de musique, structures légères. Prise d'effet 1er janvier 2027, 48 mois. Compagnie sortante : SMACL."
     },
     {
       "numero": 2,
-      "intitule": "Assurance des Responsabilités et Risques Annexes",
-      "zone_geographique": "Communauté de Communes du Val d'Essonne (91)",
+      "intitule": "Assurance des responsabilités et risques annexes",
+      "domaine": "assurance",
+      "zone_geographique": "Essonne (91) — territoire CCVE",
       "volume_estime": 3595123,
       "volume_estime_unite": "€ de masse salariale brute",
-      "particularites": "112 agents, 46 élus, population desservie 65 322 habitants. Activités spécifiques : piscine Aquastade en DSP (244 510 fréquentations/an), transport scolaire 1 253 élèves, service maintien à domicile 120 bénéficiaires, 3 aires d'accueil gens du voyage, GEMAPI déléguée à SIARCE/SIARJA. Tarification en taux % de la masse salariale. Compagnie sortante : PNAS/AREAS. Plafond RC 12 M€/sinistre."
+      "cout_estime_min_eur": 17500,
+      "cout_estime_max_eur": 30000,
+      "ca_estime_min_eur": 25000,
+      "ca_estime_max_eur": 40000,
+      "marge_brute_pct": 32,
+      "particularites": "RC générale tous risques sauf, plafond 12 M€/sinistre. Couvre 112 agents, 46 élus, auxiliaires de vie, aides à domicile. Activités spécifiques : piscine Aquastade (DSP, 244 510 entrées/an), 3 aires gens du voyage, transport scolaire (1 253 élèves, sous-traitance Cars Bleus), GEMAPI transférée au SIARCE/SIARJA, service maintien à domicile (120 bénéficiaires). Inclut assurance individuelle accident et protection fonctionnelle. Compagnie sortante : PNAS/AREAS."
     },
     {
       "numero": 3,
-      "intitule": "Assurance des Véhicules à Moteur et Risques Annexes",
-      "zone_geographique": "Communauté de Communes du Val d'Essonne (91)",
+      "intitule": "Assurance des véhicules à moteur et risques annexes",
+      "domaine": "assurance",
+      "zone_geographique": "Essonne (91)",
       "volume_estime": 21,
-      "volume_estime_unite": "véhicules",
-      "particularites": "21 véhicules : 6 Renault Clio V, 7 Kia Picanto, 3 Peugeot E-208, 1 Renault ZOE, 1 Renault Kangoo, 1 Renault Pick-up, 1 Peugeot Partner, 1 Peugeot Boxer. Parc très récent (âge moyen ~0,38 an). Auto-collaborateurs : 112 agents (5 000 km/an), 9 auxiliaires de vie (165 000 km/an), 46 élus. Compagnie sortante : SMACL. Garantie tous risques véhicules légers <7 ans, garanties minimales au-delà."
+      "volume_estime_unite": "véhicules assurés",
+      "cout_estime_min_eur": 9000,
+      "cout_estime_max_eur": 15000,
+      "ca_estime_min_eur": 17000,
+      "ca_estime_max_eur": 25000,
+      "marge_brute_pct": 36,
+      "particularites": "Parc de 21 véhicules légers (6 Renault Clio V, 7 Kia Picanto, 3 Peugeot E-208, 1 Renault ZOE, 2 Renault Kangoo/Pick-up, 1 Peugeot Partner, 1 Peugeot Boxer). Tous < 3,5T sauf Boxer. Majorité de véhicules très récents (2025-2026), 3 de 2017. Formule tous risques pour < 7 ans. Auto-collaborateurs : ~112 agents (10 000 km) + 9 auxiliaires de vie (165 000 km) + 46 élus. Marchandises transportées 15 000 €/voyage. Compagnie sortante : SMACL."
     },
     {
       "numero": 4,
-      "intitule": "Assurance de la Protection Juridique des Agents et des Élus",
-      "zone_geographique": "Communauté de Communes du Val d'Essonne (91)",
+      "intitule": "Assurance de la protection juridique des agents et des élus",
+      "domaine": "assurance",
+      "zone_geographique": "Essonne (91)",
       "volume_estime": 158,
-      "volume_estime_unite": "bénéficiaires (agents + élus)",
-      "particularites": "112 agents (dont 9 auxiliaires de vie) et 46 élus. Protection juridique 50 000 €/dossier incluant frais de médiation administrative (décret 2022-433). Conseil juridique frais réels. Assistance psychologique incluse. Extension aux conjoints, ascendants et descendants. Compagnie sortante : SMACL (seuil d'intervention néant)."
+      "volume_estime_unite": "bénéficiaires (112 agents + 46 élus)",
+      "cout_estime_min_eur": 9000,
+      "cout_estime_max_eur": 15000,
+      "ca_estime_min_eur": 16000,
+      "ca_estime_max_eur": 32000,
+      "marge_brute_pct": 35,
+      "particularites": "Protection juridique avec plafond 50 000 € par dossier. Couvre défense pénale, conseil juridique (frais réels), assistance psychologique. Bénéficiaires : agents (en activité ou non/mutés), élus, conjoints/enfants/ascendants, collaborateurs occasionnels. Libre choix de l'avocat (art. L127-5-1). Délai subséquent 3 ans post-résiliation. Compagnie sortante : SMACL."
     }
   ],
+  "tranches": [],
   "calendrier": {
     "date_limite_offres": "2026-07-23",
     "date_demarrage_prevue": "2027-01-01",
-    "duree_marche": "48 mois (1er janvier 2027 - 31 décembre 2030), résiliation annuelle possible avec préavis de 6 mois"
+    "duree_marche": "48 mois (1er janvier 2027 — 31 décembre 2030), résiliable annuellement avec préavis 6 mois"
   },
   "alertes_candidat": [
-    "L'assureur NE PEUT PAS résilier le contrat après sinistre (dérogation explicite à l'article R.113-10 du Code des Assurances dans les 4 lots) : risque porté intégralement sur 48 mois à bien intégrer dans la tarification",
-    "Lot 1 : bâtiment le plus cher déclaré à ~21 M€ (Aquastade) pour une limitation contractuelle d'indemnité de 19,9 M€ — risque de sous-assurance en cas de sinistre total à analyser avec soin",
-    "Lot 2 : activité piscine en DSP (Aquastade) avec 244 510 fréquentations/an et 8 maîtres-nageurs salariés — risque RC noyade/accidents sportifs significatif à tarifer spécifiquement",
-    "Lot 3 : parc quasi-neuf (âge moyen 0,38 an) mais obligation de garantie tous risques pour VL <7 ans — prime élevée inévitable compensée par l'absence de sinistralité historique sur les nouveaux véhicules",
-    "Questionnaire GEMAPI renseigné : compétences transférées à SIARCE et SIARJA, travaux à venir sur bassin versant Essonne — le risque GEMAPI est à évaluer même si délégué aux syndicats"
+    "AGRÉMENT OBLIGATOIRE : le candidat doit être une compagnie d'assurances agréée pour les branches concernées ou un intermédiaire mandaté — l'absence de mandat ou d'agrément rend le pli irrecevable (Acte d'engagement article 1, tous lots).",
+    "ANNEXE RSE OBLIGATOIRE : l'annexe RSE doit être 'remplie et détaillée de façon circonstanciée' sans renvoi à un autre document — son absence ou son caractère générique disqualifie la candidature sur le critère RSE (10% du total).",
+    "CONDITIONS GÉNÉRALES DE GARANTIES : tout écart entre les CG proposées et le cahier des charges doit être déclaré dans le tableau 'observations' — les exclusions non prévues se rajoutent, risque d'écart technique éliminatoire sur la valeur technique.",
+    "DURÉE DE VALIDITÉ DES OFFRES : 240 jours (8 mois) — très longue pour une offre d'assurance où les taux de marché peuvent évoluer significativement ; prévoir une marge de sécurité dans la tarification.",
+    "SINISTRALITÉ PASSÉE EN ANNEXE : les données sinistralité (non fournies dans le DCE analysé mais référencées 'VOIR FICHIER JOINT EN ANNEXE') conditionnent l'évaluation du risque — la non-prise en compte du profil sinistre réel peut conduire à une prime sous-évaluée et une perte sur le lot."
   ],
   "points_differenciants_attendus": [
     {
-      "libelle": "Score RSE élevé sur l'ensemble des 5 thématiques de l'annexe RSE",
-      "exemple": "Un candidat ayant la certification EcoVadis (médaille Or/Platinum), publiant un rapport CSRD, avec un index H/F ≥ 85/100 et une politique RGPD formalisée maximisera les 25 points RSE disponibles — avantage décisif si le critère RSE est fortement pondéré.",
-      "source": "Annexe à l'Acte d'Engagement - NOTATION RSE"
+      "libelle": "Étendue des garanties sans restriction par rapport au DCE — zéro écart technique",
+      "exemple": "Une offre présentant les CG du DCE comme conditions générales contractuelles sans modification, avec un tableau comparatif explicite 'CG proposées = CG DCE sur tous les articles', bénéficie d'une note technique maximale sur cet axe, tandis qu'une offre avec des exclusions additionnelles sera pénalisée.",
+      "source": "Acte d'engagement article 4 (conditions générales) — lots 1, 2, 3, 4"
     },
     {
-      "libelle": "Solidité financière et capacité de souscription pour le Lot 1 (plafond 19,9 M€)",
-      "exemple": "Un assureur ou groupement pouvant démontrer sa capacité à assumer seul ou en co-assurance la garantie tous dommages à 19,9 M€ pour l'Aquastade (~21 M€ de valeur déclarée) aura un avantage en termes de sécurité pour la collectivité.",
-      "source": "Lot 1 CCTP Article 1"
+      "libelle": "Niveau de certification RSE formalisée (EcoVadis, CSRD, B Corp) — différenciant fort sur 10% du barème",
+      "exemple": "Un assureur disposant d'une notation EcoVadis Gold publiée et d'un rapport CSRD vérifiable peut documenter point par point les 5 rubriques de l'annexe RSE avec des preuves tierces, là où la concurrence se contente de déclarations internes.",
+      "source": "05 - ANNEXE A L'ACTE D'ENGAGEMENT - NOTATION RSE.docx"
     },
     {
-      "libelle": "Expérience spécifique en assurance d'intercommunalités avec piscine en DSP et aires d'accueil gens du voyage",
-      "exemple": "Citer des références de marchés similaires couvrant des EPCI avec centre aquatique en délégation de service public et/ou aires d'accueil gens du voyage, avec sinistralité maîtrisée, renforce la crédibilité de la proposition technique.",
+      "libelle": "Plafonds de garanties supérieurs aux minimums demandés — signal de solidité financière",
+      "exemple": "Proposer 25 M€ au lieu de 19,9 M€ pour le lot 1 ou 15 M€ au lieu de 12 M€ pour le lot 2 démontre la capacité de portage du risque et valorise la valeur technique sans surcoût premium significatif pour la collectivité.",
+      "source": "CCTP article 1 — lots 1 et 2"
+    },
+    {
+      "libelle": "Qualité du service sinistres : gestionnaire dédié collectivités, délais engagés contractuellement",
+      "exemple": "Proposer un gestionnaire sinistres dédié aux collectivités territoriales, joignable en dehors des heures ouvrées pour les sinistres graves (incendie, accident corporel), avec engagement contractuel de délai d'accusé de réception sous 24h et de versement de provision sous 30 jours.",
+      "source": "CCAP article 8 — lots 1, 2, 3"
+    },
+    {
+      "libelle": "Expérience démontrée sur des collectivités comparables (intercommunalité 60 000-80 000 hab., activités sportives et culturelles)",
+      "exemple": "Citer 2-3 références d'EPCI de taille similaire avec des risques analogues (centre aquatique en DSP, conservatoire, aires gens du voyage) avec les montants de sinistres réglés, pour rassurer l'acheteur sur la maîtrise du profil de risque spécifique.",
       "source": null
-    },
-    {
-      "libelle": "Gestion directe des sinistres sans intermédiaire (réactivité et proximité)",
-      "exemple": "Pour le Lot 3, l'adhésion à l'IRSA ou la capacité du courtier à avancer les frais de réparation au réparateur agréé directement est un critère de gestion évalué dans l'acte d'engagement — un engagement de traitement en 15 jours maximum sera valorisé.",
-      "source": "Acte d'Engagement Lot 3 - Article 4"
-    },
-    {
-      "libelle": "Franchise compétitive par rapport au contrat sortant tout en maintenant une prime maîtrisée",
-      "exemple": "Le DCE demande des franchises plus élevées que le contrat SMACL sortant (5 000 € vs 1 000 € pour le Lot 1 DAB) — proposer une franchise inférieure au barème demandé avec impact prix limité peut constituer un avantage concurrentiel si le critère prix est pondéré.",
-      "source": "Lot 1 CCTP Article 25 ; Lot 3 CCTP Article 21"
     }
   ],
   "_meta": {
     "id_marche": "BOAMP-26-56303",
     "type": "complet",
-    "date_generation": "2026-06-14T20:26:54.077462+00:00",
-    "extraction_le": "2026-06-14T20:26:54.077462+00:00",
+    "date_generation": "2026-06-20T22:19:51.594334+00:00",
+    "extraction_le": "2026-06-20T22:19:51.594334+00:00",
     "modele": "claude-sonnet-4-6",
     "preset_utilise": null,
     "presets_matches": [],
     "prompts_versions": {},
-    "tokens_input": 163370,
-    "tokens_output": 6651,
-    "cout_eur": 0.5604,
-    "duree_sec": 119.8,
+    "tokens_input": 173054,
+    "tokens_output": 7024,
+    "cout_eur": 0.5933,
+    "duree_sec": 165.1,
     "pdfs_traites": [
       {
         "nom": "01 - Annexe - Inventaire patrimoine.xlsx",

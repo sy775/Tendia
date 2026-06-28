@@ -1,82 +1,113 @@
 {
-  "synthese_marche": "La Communauté de Communes des Grands Lacs (40) lance un marché public de travaux en procédure adaptée ouverte pour la transformation d'une maison à usage d'habitation en Maison de l'Eau et de l'Environnement à Biscarrosse, destinée à accueillir le public et des scolaires. Le marché est décomposé en 13 lots couvrant l'ensemble des corps d'état du bâtiment (gros œuvre, charpente bois, couverture, façades, menuiseries, second œuvre, CVC, électricité, VRD). Chaque candidat peut soumissionner sur 2 lots au maximum et se voir attribuer 2 lots au maximum.",
+  "synthese_marche": "Marché public de travaux en 13 lots pour la transformation d'une maison à usage d'habitation en Maison de l'Eau et de l'Environnement à Biscarrosse (40600), au profit du public et de scolaires. Le marché est passé en procédure adaptée ouverte par la Communauté de Communes des Grands Lacs, avec une durée d'exécution de 10 mois. Les travaux couvrent l'ensemble des corps d'état du bâtiment, du gros œuvre à la plomberie, en passant par la charpente bois, les menuiseries, l'électricité et les VRD.",
   "domaines_metier": [
     {
-      "code": "btp_renovation_rehabilitation"
+      "code": "btp_renovation_rehabilitation",
+      "poids": 0.7,
+      "lots_concernes": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ]
+    },
+    {
+      "code": "btp_second_oeuvre",
+      "poids": 0.2,
+      "lots_concernes": [
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ]
+    },
+    {
+      "code": "btp_voirie_reseaux",
+      "poids": 0.1,
+      "lots_concernes": [
+        13
+      ]
     }
   ],
-  "raison_classification": "Le marché porte explicitement sur la transformation/réhabilitation d'un logement existant en équipement public (Maison de l'Eau et de l'Environnement), avec 13 lots couvrant tous les corps d'état d'une réhabilitation lourde (démolition, gros œuvre, charpente bois, couverture, façades, menuiseries, second œuvre, CVC, VRD). Le CPV principal 45262700 confirme 'travaux de transformation de bâtiments'. Il n'y a pas de dominante énergétique suffisante pour classer en renovation_thermique.",
+  "raison_classification": "Il s'agit d'un marché de travaux de réhabilitation d'un bâtiment existant (logement transformé en équipement public), sans dominante thermique/énergétique explicite, ce qui oriente vers btp_renovation_rehabilitation pour les lots structurels et enveloppe (lots 1-10), btp_second_oeuvre pour les corps d'état intérieurs et techniques (lots 7-12), et btp_voirie_reseaux pour le lot 13 VRD. Le CPV principal 45262700 (travaux de transformation de bâtiments) confirme la nature réhabilitation.",
   "caracteristiques_techniques_chantier": {
-    "description": "Transformation d'une maison à usage d'habitation en Maison de l'Eau et de l'Environnement destinée à l'accueil du public et de scolaires, à Biscarrosse (40600). Les travaux couvrent la démolition partielle, le gros œuvre, la création de murs à ossature bois, la couverture-étanchéité, le bardage, les enduits de façade, les menuiseries extérieures et intérieures, la plâtrerie-isolation-peinture, la serrurerie, les sols, l'électricité, le CVC-plomberie et les aménagements extérieurs.",
-    "typologie_ouvrage": "Maison individuelle transformée en équipement public recevant du public (Maison de l'Eau et de l'Environnement)",
+    "description": "Transformation complète d'une maison à usage d'habitation en Maison de l'Eau et de l'Environnement, équipement public à vocation pédagogique destiné au public et aux scolaires. Les travaux comprennent la démolition/gros œuvre, la mise en œuvre de murs à ossature bois, la couverture-étanchéité, le bardage, les enduits de façade, les menuiseries extérieures et intérieures, le plâtrerie-isolation, la serrurerie, les revêtements de sol, l'électricité, le CVC-plomberie et les aménagements extérieurs VRD.",
+    "typologie_ouvrage": "Bâtiment existant (logement) transformé en équipement public à vocation culturelle/pédagogique (Maison de l'Eau et de l'Environnement)",
     "surface_volume": null,
-    "site_occupe": "false — il s'agit d'une transformation d'un logement, aucune mention d'occupation pendant les travaux",
+    "site_occupe": "Non précisé dans le DCE fourni",
     "corps_etat": [
-      "Démolition",
-      "Gros œuvre",
-      "Charpente bois / Murs à ossature bois",
-      "Couverture et étanchéité",
+      "Démolition - Gros œuvre",
+      "Murs à ossature bois - Charpente",
+      "Couverture - Étanchéité",
       "Bardage",
       "Enduits de façade",
       "Menuiseries extérieures",
-      "Menuiseries intérieures et agencement",
-      "Plâtrerie, faux plafonds, isolation, peinture",
+      "Menuiseries intérieures - Agencement",
+      "Plâtrerie - Faux plafonds - Isolation - Peinture",
       "Serrurerie",
-      "Chape, isolation sol, finition résine, sol souple",
+      "Chape - Isolation sol - Finition résine - Sol souple",
       "Électricité",
       "CVC - Plomberie",
-      "VRD et aménagements extérieurs"
+      "VRD - Aménagements extérieurs"
     ],
     "contraintes_specifiques": [
-      "Clauses environnementales obligatoires dont le non-respect entraîne l'irrégularité de l'offre (RC §2.4)",
-      "Fourniture d'un Schéma d'Organisation et de Gestion des Déchets (SOGED)",
-      "Étanchéité à l'air évaluée spécifiquement pour les lots fondations, couverture-étanchéité, menuiseries extérieures, isolation-plâtrerie, CVC, électricité (RC §8.2)",
-      "Permis de construire obtenu (pièce du DCE)",
-      "Diagnostics amiante, plomb, parasitaire, structure disponibles dans le DCE",
-      "Étude géotechnique G2AVP disponible",
-      "Maîtrise d'œuvre assurée par PRATIQUE ARCHITECTURE (Bordeaux)",
-      "Durée du chantier : 10 mois",
-      "Maximum 2 lots soumissionnables et attribuables par candidat"
+      "Conditions d'exécution à caractère environnemental (clauses HQE, SOGED déchets)",
+      "Diagnostics amiante, plomb, parasitaire réalisés (fournis au DCE)",
+      "Étude géotechnique G2AVP fournie",
+      "Étude thermique fournie",
+      "Permis de construire obtenu",
+      "Limitation à 2 lots par candidat (offre et attribution)",
+      "Variantes autorisées pour les lots 3, 7, 8, 10 et 11",
+      "Durée d'exécution de 10 mois",
+      "Exigences de démarche HQE sur conduite de chantier et gestion des déchets"
     ]
   },
   "allotissement": {
-    "description": "Marché divisé en 13 lots, chaque lot faisant l'objet d'un marché séparé. Un candidat peut soumissionner sur 2 lots maximum et se voir attribuer 2 lots maximum.",
+    "description": "Marché divisé en 13 lots, chaque lot faisant l'objet d'un marché séparé. Un candidat peut soumettre des offres pour un maximum de 2 lots et se voir attribuer au maximum 2 lots.",
     "nb_lots": 13,
     "lots_detailles": [
       {
         "numero": 1,
         "intitule": "Démolition - Gros œuvre",
-        "corps_etat": "Démolition, gros œuvre",
+        "corps_etat": "Démolition, gros œuvre, maçonnerie",
         "montant_estime": null,
-        "description": "Travaux de démolition et de gros œuvre"
+        "description": "Travaux de démolition et gros œuvre du bâtiment existant"
       },
       {
         "numero": 2,
         "intitule": "Murs à ossature bois - Charpente",
-        "corps_etat": "Charpente bois, murs à ossature bois",
+        "corps_etat": "Charpente, ossature bois",
         "montant_estime": null,
-        "description": "Réalisation de murs à ossature bois et charpente"
+        "description": "Mise en œuvre de murs à ossature bois et charpente"
       },
       {
         "numero": 3,
         "intitule": "Couverture – Étanchéité",
         "corps_etat": "Couverture, étanchéité",
         "montant_estime": null,
-        "description": "Travaux de couverture et d'étanchéité — variantes autorisées"
+        "description": "Travaux de couverture et étanchéité — variantes autorisées"
       },
       {
         "numero": 4,
         "intitule": "Bardage",
-        "corps_etat": "Bardage",
+        "corps_etat": "Bardage façade",
         "montant_estime": null,
-        "description": "Réalisation du bardage de façade"
+        "description": "Pose de bardage en façade"
       },
       {
         "numero": 5,
         "intitule": "Enduits de façade",
         "corps_etat": "Enduits de façade",
         "montant_estime": null,
-        "description": "Application des enduits extérieurs de façade"
+        "description": "Application d'enduits de façade"
       },
       {
         "numero": 6,
@@ -90,7 +121,7 @@
         "intitule": "Menuiseries intérieures - Agencement",
         "corps_etat": "Menuiseries intérieures, agencement",
         "montant_estime": null,
-        "description": "Menuiseries intérieures et travaux d'agencement — variantes autorisées"
+        "description": "Menuiseries intérieures et agencement — variantes autorisées"
       },
       {
         "numero": 8,
@@ -102,7 +133,7 @@
       {
         "numero": 9,
         "intitule": "Serrurerie",
-        "corps_etat": "Serrurerie",
+        "corps_etat": "Serrurerie, métallerie",
         "montant_estime": null,
         "description": "Travaux de serrurerie"
       },
@@ -111,19 +142,19 @@
         "intitule": "Chape – Isolation sol – Finition résine – Sol souple",
         "corps_etat": "Chape, isolation sol, revêtements de sol",
         "montant_estime": null,
-        "description": "Réalisation des chapes, isolation sol, finitions résine et sols souples — variantes autorisées"
+        "description": "Chape, isolation sol, finition résine et sol souple — variantes autorisées"
       },
       {
         "numero": 11,
         "intitule": "Électricité",
-        "corps_etat": "Électricité",
+        "corps_etat": "Électricité courants forts/faibles",
         "montant_estime": null,
-        "description": "Travaux d'installation électrique — variantes autorisées"
+        "description": "Travaux d'électricité — variantes autorisées"
       },
       {
         "numero": 12,
         "intitule": "CVC - Plomberie",
-        "corps_etat": "CVC, plomberie",
+        "corps_etat": "CVC, plomberie sanitaire",
         "montant_estime": null,
         "description": "Travaux de chauffage, ventilation, climatisation et plomberie"
       },
@@ -132,12 +163,12 @@
         "intitule": "VRD – Aménagements extérieurs",
         "corps_etat": "VRD, aménagements extérieurs",
         "montant_estime": null,
-        "description": "Voirie, réseaux divers et aménagements extérieurs"
+        "description": "Travaux de voirie, réseaux divers et aménagements extérieurs"
       }
     ]
   },
   "qualifications_requises": {
-    "description": "Le RC exige des capacités professionnelles adaptées aux prestations de chaque lot. Le candidat peut produire des certificats de qualification professionnelle Qualibat ou équivalent, ou tout moyen de preuve démontrant ses compétences, références et moyens techniques et humains.",
+    "description": "Le RC exige des capacités professionnelles adaptées aux prestations de chaque lot. Les candidats peuvent produire des certificats de qualification professionnelle (QUALIBAT ou équivalent) ou tout moyen de preuve démontrant leurs compétences, références et moyens techniques et humains. Aucun code Qualibat spécifique n'est listé explicitement dans le RC.",
     "qualibat": [],
     "rge": false,
     "rge_specialites": [],
@@ -174,164 +205,270 @@
       {
         "libelle": "Valeur technique et évaluation des capacités professionnelles",
         "ponderation_pct": 40,
-        "description": "Ce critère évalue la méthodologie d'intervention sur le chantier, les moyens techniques et humains mobilisés et les références de chantiers similaires.",
+        "description": "Évaluation de la méthodologie d'intervention sur le chantier, des moyens techniques et humains déployés ainsi que des références de chantiers similaires.",
         "elements_attendus": [],
         "exemple_reponse_forte": "—",
         "source": "RC §8.2",
+        "unite_evaluation": "points",
         "sous_criteres": [
           {
             "libelle": "Note méthodologique spécifique au chantier",
             "ponderation_pct": 18,
-            "description": "Évaluation de la méthode d'intervention proposée par le candidat pour ce chantier de transformation d'un logement en équipement public, incluant la gestion des phases et des contraintes spécifiques du site.",
+            "description": "Évaluation de la méthodologie proposée par le candidat pour la conduite du chantier, spécifique aux contraintes du projet de transformation du bâtiment.",
             "elements_attendus": [
-              "Description précise de la méthode d'intervention par corps d'état",
-              "Prise en compte des contraintes spécifiques du site (diagnostics amiante, plomb, parasitaire)",
-              "Gestion des interfaces entre lots",
-              "Planning d'intervention prévisionnel cohérent avec les 10 mois de chantier",
-              "Dispositifs de protection du voisinage et de gestion des nuisances"
+              "Description du planning prévisionnel d'intervention par phases",
+              "Prise en compte des contraintes de coactivité entre lots",
+              "Méthodologie de traitement des interfaces entre corps d'état",
+              "Gestion des aléas et mesures correctives",
+              "Organisation du chantier (installation, accès, zones de stockage)"
             ],
-            "exemple_reponse_forte": "La note méthodologique décrit une approche phasée en 3 phases (démolition/gros œuvre, second œuvre, finitions/équipements) avec traitement des matériaux amiantés dès la phase 1 selon le diagnostic fourni au DCE, et gestion coordonnée des interfaces avec les lots VOB et menuiseries. Le planning intègre les délais de séchage des enduits et les délais d'approvisionnement des menuiseries extérieures.",
+            "exemple_reponse_forte": "Notre méthodologie s'articule en trois phases de 3-4 mois chacune : phase 1 démolition/gros œuvre/charpente ; phase 2 enveloppe (couverture, bardage, menuiseries) en parallèle de la plâtrerie ; phase 3 finitions et équipements techniques. Nous détaillerons les interfaces critiques lot 2/lot 3 (étanchéité à l'air ossature bois/couverture) et lot 6/lot 8 (menuiseries extérieures/isolation) avec des points de validation intermédiaires pour éviter les reprises.",
             "source": "RC §8.2",
-            "sous_criteres": []
+            "unite_evaluation": "points"
           },
           {
             "libelle": "Note spécifique sur les moyens techniques et humains en adéquation avec les temps d'intervention",
             "ponderation_pct": 18,
-            "description": "Évaluation de l'adéquation entre les moyens (personnel, matériel, encadrement) proposés par le candidat et les exigences du chantier en termes de délais.",
+            "description": "Évaluation de l'adéquation entre les moyens (personnel, matériel, outillage) déployés par le candidat et les délais d'exécution requis pour chaque lot.",
             "elements_attendus": [
-              "Organigramme de l'équipe dédiée avec niveaux de qualification",
-              "Nombre de compagnons affectés au chantier et leur qualification",
-              "Matériel et équipements spécifiques mobilisables",
-              "Chef de chantier ou conducteur de travaux identifié nominativement",
-              "Capacité à respecter le délai de 10 mois"
+              "Présentation de l'équipe dédiée avec qualifications et disponibilité",
+              "Matériel et outillage spécifiques au lot concerné",
+              "Justification de la capacité à tenir le délai de 10 mois",
+              "Nombre de compagnons et cadres affectés",
+              "Ressources sous-traitées le cas échéant"
             ],
-            "exemple_reponse_forte": "Le candidat présente une équipe de 3 compagnons charpentiers (N3P2 minimum) encadrés par un conducteur de travaux expérimenté, avec accès à une grue mobile et à une scie à panneau pour la réalisation des murs à ossature bois, garantissant la tenue du planning sur 10 semaines pour ce lot.",
+            "exemple_reponse_forte": "Pour ce lot CVC-plomberie, nous mobilisons un chef de chantier expérimenté (15 ans), 2 plombiers-chauffagistes et un apprenti. L'intégralité du matériel (centrale de traitement d'air, groupes, tuyauterie PER) est approvisionnable en 4 semaines depuis nos fournisseurs habituels. Nous prévoyons 6 semaines d'intervention sur les 10 mois du chantier, compatibles avec notre carnet de commandes.",
             "source": "RC §8.2",
-            "sous_criteres": []
+            "unite_evaluation": "points"
           },
           {
             "libelle": "Liste des références de chantiers",
             "ponderation_pct": 4,
-            "description": "Évaluation des références de chantiers similaires réalisés au cours des cinq dernières années, appuyées d'attestations de bonne exécution.",
+            "description": "Présentation des références de chantiers similaires exécutés au cours des cinq dernières années.",
             "elements_attendus": [
-              "Références de chantiers de nature similaire (transformation, réhabilitation bâtiment)",
-              "Montant, localisation et date des travaux",
-              "Attestations de bonne exécution jointes",
-              "Travaux effectués selon les règles de l'art et menés à bonne fin"
+              "Références de travaux de même nature (réhabilitation de bâtiment)",
+              "Montants, dates et lieux d'exécution",
+              "Attestations de bonne exécution jointes"
             ],
-            "exemple_reponse_forte": "Le candidat joint 3 attestations de bonne exécution pour des chantiers de réhabilitation de bâtiments similaires réalisés entre 2020 et 2025, mentionnant les montants (entre 50 000 et 200 000 € HT), les maîtres d'ouvrage et la confirmation de bonne fin.",
+            "exemple_reponse_forte": "Présentation de 3 à 5 références de chantiers de réhabilitation de bâtiments publics ou ERP réalisés entre 2019 et 2024, avec montants, maîtres d'ouvrage et attestations de bonne fin.",
             "source": "RC §8.2",
-            "sous_criteres": []
+            "unite_evaluation": "points"
           }
         ]
       },
       {
         "libelle": "Qualité des fournitures et matériaux mis en œuvre",
         "ponderation_pct": 14,
-        "description": "Ce critère évalue la qualité des matériaux et fournitures proposés, leur adéquation avec les prescriptions techniques du CCTP et les exigences environnementales.",
+        "description": "Évaluation de la qualité des matériaux et fournitures proposés, en intégrant les prescriptions environnementales et les exigences d'étanchéité à l'air pour les lots concernés.",
         "elements_attendus": [],
         "exemple_reponse_forte": "—",
         "source": "RC §8.2",
+        "unite_evaluation": "points",
         "sous_criteres": [
           {
             "libelle": "Dossier technique ouvrages / matériaux",
             "ponderation_pct": 8,
-            "description": "Évaluation de la qualité technique des matériaux et produits proposés par le candidat au regard des prescriptions du CCTP.",
+            "description": "Présentation des fiches techniques et caractéristiques des produits et matériaux proposés pour réaliser les travaux du lot.",
             "elements_attendus": [
-              "Fiches techniques des produits et matériaux proposés",
-              "Conformité aux prescriptions du CCTP",
-              "Performances techniques (thermiques, acoustiques, mécaniques selon le lot)",
-              "Provenance et traçabilité des matériaux"
+              "Fiches techniques produits avec performances certifiées",
+              "Conformité aux normes et DTU applicables",
+              "Durabilité et garanties fabricants",
+              "Cohérence avec les prescriptions du CCTP"
             ],
-            "exemple_reponse_forte": "Le candidat joint les fiches techniques des panneaux à ossature bois (classe C24, certifiés PEFC) et des isolants biosourcés (laine de bois Rd ≥ 6 m²K/W), accompagnées des déclarations environnementales de produit (FDES) démontrant leur conformité aux prescriptions du CCTP.",
+            "exemple_reponse_forte": "Fourniture des fiches techniques complètes de tous les matériaux proposés (bardage, isolant, menuiseries, etc.) avec certification ACERMI pour les isolants, certifications Keymark pour les menuiseries, et références DTU associées. Chaque produit est accompagné de sa fiche de données environnementales (FDES).",
             "source": "RC §8.2",
-            "sous_criteres": []
+            "unite_evaluation": "points"
           },
           {
             "libelle": "Dossier technique ouvrages / matériaux - prescriptions environnementales",
             "ponderation_pct": 3,
-            "description": "Évaluation de la performance environnementale des matériaux proposés (émissions COV, recyclabilité, origine biosourcée, etc.).",
+            "description": "Évaluation de la conformité des matériaux aux prescriptions environnementales définies au CCAP (matériaux biosourcés, faible impact carbone, écolabels, etc.).",
             "elements_attendus": [
-              "Matériaux à faible impact environnemental (étiquetage A+ COV, FDES)",
-              "Matériaux biosourcés ou recyclés si applicable",
-              "Certification environnementale des produits (NF Environnement, Écolabel EU, etc.)"
+              "Utilisation de matériaux écolabellisés ou à faible impact environnemental",
+              "FDES ou déclarations environnementales produit",
+              "Matériaux biosourcés ou recyclés le cas échéant",
+              "Conformité aux exigences HQE du chantier"
             ],
-            "exemple_reponse_forte": "Le candidat propose des peintures certifiées NF Environnement (émissions COV classe A+) et des isolants en laine de bois disposant d'une FDES vérifiée par tierce partie, en cohérence avec les clauses environnementales du CCAP.",
+            "exemple_reponse_forte": "Nous proposons un isolant en laine de bois (ACERMI, FDES disponible) pour les murs à ossature bois et un bardage bois certifié PEFC, en cohérence avec la vocation environnementale de la Maison de l'Eau. Les fiches FDES de chaque produit sont jointes au dossier technique.",
             "source": "RC §8.2",
-            "sous_criteres": []
+            "unite_evaluation": "points"
           },
           {
             "libelle": "Dossier technique étanchéité à l'air pour les lots fondations, structure, couverture - étanchéité, menuiserie extérieure, isolation - plâtrerie, CVC, électricité",
             "ponderation_pct": 3,
-            "description": "Sous-critère spécifique aux lots concernés par l'étanchéité à l'air : évaluation de la méthodologie proposée pour garantir la continuité de l'enveloppe étanche.",
+            "description": "Évaluation spécifique de la maîtrise de l'étanchéité à l'air pour les lots concernés (lots 1, 2, 3, 6, 8, 11, 12), en lien avec les objectifs de performance thermique du bâtiment.",
             "elements_attendus": [
-              "Description des solutions techniques garantissant l'étanchéité à l'air",
-              "Traitement des points singuliers (jonctions, passages de réseaux, calfeutrements)",
-              "Référence à une valeur cible de perméabilité à l'air (n50 ou Q4Pa-surf)",
-              "Coordination prévue entre les différents corps d'état pour maintenir la continuité de l'enveloppe"
+              "Description des solutions techniques d'étanchéité à l'air proposées",
+              "Détails de traitement des jonctions et points singuliers",
+              "Référence à l'étude thermique fournie au DCE",
+              "Coordination prévue entre les lots concernés"
             ],
-            "exemple_reponse_forte": "Le candidat décrit la mise en œuvre d'un pare-vapeur continu sur l'ensemble de l'enveloppe avec traitement des points singuliers par bandes adhésives Siga, et propose une valeur cible de n50 ≤ 1,0 vol/h vérifiable par test de perméabilité à l'air en cours de chantier, en coordination formalisée avec les lots CVC et électricité.",
+            "exemple_reponse_forte": "Pour le lot 8 (plâtrerie-isolation), nous proposons une membrane frein-vapeur continue en enduit d'argile projeté avec traitement systématique des points singuliers (jonctions mur/plancher, passages de réseaux). Nous avons identifié les interfaces critiques avec les lots 2, 6 et 12 et prévoyons des réunions de coordination dédiées avant chaque phase.",
             "source": "RC §8.2",
-            "sous_criteres": []
+            "unite_evaluation": "points"
           }
         ]
       },
       {
         "libelle": "Démarche HQE",
         "ponderation_pct": 6,
-        "description": "Ce critère évalue la démarche environnementale du candidat pour la conduite du chantier et sa gestion des déchets.",
+        "description": "Évaluation de l'engagement environnemental du candidat dans la conduite du chantier, incluant la méthodologie environnementale et la gestion prévisionnelle des déchets.",
         "elements_attendus": [],
         "exemple_reponse_forte": "—",
         "source": "RC §8.2",
+        "unite_evaluation": "points",
         "sous_criteres": [
           {
             "libelle": "Note méthodologique environnementale concernant la conduite du chantier",
             "ponderation_pct": 4,
-            "description": "Évaluation de la démarche environnementale mise en place par le candidat pour la conduite du chantier (chantier propre, réduction des nuisances, choix des matériaux, etc.).",
+            "description": "Présentation de la méthodologie mise en œuvre pour réduire les impacts environnementaux du chantier (nuisances, émissions, consommations, gestion des ressources).",
             "elements_attendus": [
-              "Engagement chantier propre : réduction des poussières, bruit, déchets",
-              "Gestion des eaux de chantier et des produits polluants",
-              "Plan de circulation et de stockage respectueux de l'environnement",
-              "Utilisation d'engins moins polluants ou à faibles émissions si pertinent"
+              "Mesures de réduction des nuisances (bruit, poussière, vibrations)",
+              "Gestion des eaux de chantier et protection des milieux",
+              "Réduction des consommations énergétiques sur chantier",
+              "Protection de la biodiversité et du milieu naturel environnant",
+              "Suivi environnemental du chantier et indicateurs"
             ],
-            "exemple_reponse_forte": "La note méthodologique environnementale décrit un plan de protection du site prévoyant des bâches de protection pendant les travaux de démolition, une gestion des eaux de lavage des engins sur bac de rétention, et l'utilisation d'engins récents conformes à la norme Euro 5 pour réduire les émissions lors des travaux de VRD.",
+            "exemple_reponse_forte": "Nous mettons en œuvre un plan environnemental de chantier incluant : arrosage des zones de travail pour la poussière, kits anti-pollution sur engins, tri à la source des eaux de lavage. En lien avec la vocation de Maison de l'Eau, nous prévoyons un indicateur de consommation d'eau du chantier avec objectif de réduction de 20% par rapport à nos chantiers habituels.",
             "source": "RC §8.2",
-            "sous_criteres": []
+            "unite_evaluation": "points"
           },
           {
             "libelle": "Prévisionnel de déchets",
             "ponderation_pct": 2,
-            "description": "Évaluation du Schéma d'Organisation et de Gestion des Déchets (SOGED) détaillant la méthodologie de tri, de collecte et de valorisation des déchets de chantier.",
+            "description": "Présentation du schéma d'organisation et de gestion des déchets (SOGED) avec estimation prévisionnelle des volumes et filières de valorisation.",
             "elements_attendus": [
-              "Estimation quantitative des déchets par type (inertes, non dangereux, dangereux)",
-              "Filières de valorisation identifiées avec nom des prestataires ou installations",
-              "Plan de tri sur chantier (bennes séparées par flux)",
-              "Traçabilité (BSD, bons de dépôt)"
+              "Estimation des volumes de déchets par catégorie (DI, DND, DD)",
+              "Filières de valorisation et recyclage identifiées",
+              "Organisation du tri sur chantier (bennes, zones)",
+              "Traçabilité des déchets (BSD, bons de pesée)"
             ],
-            "exemple_reponse_forte": "Le SOGED joint au dossier estime 15 tonnes de déchets pour le lot gros œuvre, répartis en 80% d'inertes (valorisés en plateforme de recyclage à Biscarrosse), 15% de bois (filière valorisation énergétique) et 5% de déchets dangereux (amiante — évacuation par prestataire agréé). Un tableau de bord de suivi des déchets sera remis mensuellement au maître d'œuvre.",
+            "exemple_reponse_forte": "Notre SOGED prévoit 3 bennes de tri (bois, plâtre, DIB) avec un objectif de valorisation matière de 70% des déchets. Les déchets dangereux (colles, solvants) sont orientés vers la filière agréée locale. Nous remettons un tableau de suivi hebdomadaire des tonnages par filière.",
             "source": "RC §8.2",
-            "sous_criteres": []
+            "unite_evaluation": "points"
           }
         ]
       }
     ],
     "prix": {
       "type_formule": "moins_disant",
-      "formule_explicite": "Note de l'offre = (Montant de l'offre moins-disante / Montant de l'offre à noter) × Base de notation (40)",
+      "formule_explicite": "Note de l'offre = (Montant de l'offre moins-disante / Montant de l'offre à noter) × Base de notation (40 points)",
+      "source": "RC §8.2",
       "elements_a_chiffrer": [
-        "Décomposition du Prix Global Forfaitaire (DPGF) par lot soumissionné"
+        "Décomposition du Prix Global Forfaitaire (DPGF) par lot",
+        "Prix global et forfaitaire du lot concerné"
       ]
     },
-    "modalite_calcul_prix": "Note de l'offre = (Montant de l'offre moins-disante / Montant de l'offre à noter) × Base de notation. Montant de l'offre moins-disante = prix de l'offre la moins chère (offres anormalement basses exclues)."
+    "modalite_calcul_prix": "Note de l'offre = (Montant de l'offre moins-disante / Montant de l'offre à noter) × 40"
   },
   "montant_marche": {
     "valeur_estimee_euros": null,
     "fourchette_min_euros": null,
     "fourchette_max_euros": null,
     "type": "non_communique",
-    "duree_couverte": "10 mois (durée du chantier)",
+    "duree_couverte": "10 mois",
     "source_extraction": null,
-    "commentaire": "Aucun montant estimé n'est communiqué dans les pièces du DCE fournies (RC et AAPC). L'avis BOAMP ne mentionne pas de valeur estimée par lot ni de valeur totale."
+    "commentaire": "Aucun montant estimé n'est publié dans le RC ni dans l'AAPC BOAMP. Les montants estimés par lot ne sont pas renseignés dans l'avis. Une estimation bottom-up est proposée en Voie 2."
+  },
+  "montant_3_voies": {
+    "voie_1_eur": null,
+    "voie_1_source": null,
+    "voie_2_disponible": true,
+    "voie_2_min_eur": 650000,
+    "voie_2_max_eur": 1100000,
+    "voie_2_hypotheses": [
+      {
+        "hypothese": "Type d'opération : transformation complète d'une maison en ERP (logement → équipement public pédagogique), incluant 13 corps d'état, étude thermique, permis de construire obtenu — cohérent avec une réhabilitation lourde à fort niveau de finition",
+        "valeur": "Réhabilitation lourde ERP"
+      },
+      {
+        "hypothese": "Surface estimée : une maison individuelle à Biscarrosse, opération impliquant diagnostics amiante/plomb/parasitaire, étude géotechnique et relevés géomètre — surface probable 150-300 m² SDP. Hypothèse centrale : 220 m² (dimension fixée)",
+        "valeur": "220 m² SDP"
+      },
+      {
+        "hypothese": "Coût de réhabilitation lourde en ERP avec performance thermique (étude thermique fournie, prescriptions étanchéité à l'air, HQE) en Nouvelle-Aquitaine — ratio varié entre 2 950 €/m² (bas) et 5 000 €/m² (haut), central 3 600 €/m². C'est la dimension incertaine.",
+        "valeur": "2 950 à 5 000 €/m² HT"
+      },
+      {
+        "hypothese": "13 lots tous corps d'état, procédure BOAMP européenne — cohérent avec un montant global >90 000 € HT (seuil CCP). Le CPV principal 45262700 et le CPV complémentaire 45300000 confirment la nature travaux multi-corps.",
+        "valeur": "Plancher BOAMP > 90 000 € HT"
+      }
+    ],
+    "voie_2_raison_indisponible": null
+  },
+  "cout_realisation": {
+    "cout_total_eur": 520000,
+    "cout_min_eur": 420000,
+    "cout_max_eur": 680000,
+    "postes": [
+      {
+        "poste": "Lot 1 — Démolition - Gros œuvre",
+        "detail": "Démolition sélective + maçonnerie réhabilitation, surface ~220 m²",
+        "montant_eur": 55000
+      },
+      {
+        "poste": "Lot 2 — Murs à ossature bois - Charpente",
+        "detail": "Extension ossature bois ou reconfiguration + charpente, ratio ~200 €/m²",
+        "montant_eur": 40000
+      },
+      {
+        "poste": "Lot 3 — Couverture - Étanchéité",
+        "detail": "Couverture complète ~180 m² de surface toiture, ratio ~80-100 €/m²",
+        "montant_eur": 18000
+      },
+      {
+        "poste": "Lot 4 — Bardage",
+        "detail": "Bardage façade ~150 m², ratio ~80 €/m²",
+        "montant_eur": 12000
+      },
+      {
+        "poste": "Lot 5 — Enduits de façade",
+        "detail": "Enduits façade ~80 m², ratio ~40 €/m²",
+        "montant_eur": 8000
+      },
+      {
+        "poste": "Lot 6 — Menuiseries extérieures",
+        "detail": "Menuiseries extérieures (fenêtres, portes) ~20 unités, ratio ~1 200 €/u",
+        "montant_eur": 24000
+      },
+      {
+        "poste": "Lot 7 — Menuiseries intérieures - Agencement",
+        "detail": "Menuiseries intérieures + agencement sur mesure (vocation ERP/pédagogique)",
+        "montant_eur": 35000
+      },
+      {
+        "poste": "Lot 8 — Plâtrerie - Faux plafonds - Isolation - Peinture",
+        "detail": "Plâtrerie/isolation ~220 m² + peinture ~500 m² murs/plafonds",
+        "montant_eur": 55000
+      },
+      {
+        "poste": "Lot 9 — Serrurerie",
+        "detail": "Serrurerie (gardes-corps, rampes, ferrures spécifiques ERP)",
+        "montant_eur": 15000
+      },
+      {
+        "poste": "Lot 10 — Chape - Isolation sol - Finition résine - Sol souple",
+        "detail": "Chape + isolation + résine/sol souple ~220 m², ratio ~90 €/m²",
+        "montant_eur": 20000
+      },
+      {
+        "poste": "Lot 11 — Électricité",
+        "detail": "Installation électrique complète ERP ~220 m², ratio ~120 €/m² (courants forts + faibles, accessibilité)",
+        "montant_eur": 26000
+      },
+      {
+        "poste": "Lot 12 — CVC - Plomberie",
+        "detail": "CVC (chauffage + VMC + clim éventuelle) + plomberie sanitaire ERP",
+        "montant_eur": 60000
+      },
+      {
+        "poste": "Lot 13 — VRD - Aménagements extérieurs",
+        "detail": "Aménagements extérieurs (parking, cheminements, réseaux EP/EU) ~300 m²",
+        "montant_eur": 52000
+      }
+    ],
+    "taux_journaliers_retenus": "Ratios marché indicatifs utilisés (taux moyens Nouvelle-Aquitaine réhabilitation ERP 2024-2025) : gros œuvre réhabilitation ~250 €/m² ; plâtrerie/isolation ~100 €/m² ; électricité ERP ~120 €/m² ; CVC ~150 €/m² ; menuiseries extérieures alu/PVC ~1 200 €/u. Ces taux sont indicatifs — la structure de coût réelle dépend du DPGF.",
+    "commentaire": "Estimation bottom-up par lot basée sur une surface SDP estimée à 220 m² (logement transformé, hypothèse centrale). La dimension incertaine est le ratio €/m² selon le niveau de finition et les exigences HQE. Le coût total inclut les 13 lots mais exclut les frais de coordination, OPC et contrôle technique qui sont à la charge du MOA. Cohérence : le coût total estimé (520 k€) est inférieur au revenu estimé en Voie 2 (fourchette 650-1 100 k€), la marge brute chantier (ratio coût/prix) serait d'environ 20-40%, cohérente avec le secteur réhabilitation ERP."
   },
   "revision_prix": {
     "type": "non_communique",
@@ -340,30 +477,33 @@
     "periodicite": null,
     "formule_revision": null,
     "source_extraction": null,
-    "commentaire": "Le CCAP n'est pas fourni dans les pièces analysées. Aucune information sur la révision des prix n'est disponible dans le RC ou l'AAPC."
+    "commentaire": "Le CCAP n'a pas été fourni dans les pièces du DCE analysé. Aucune information sur la révision des prix n'est disponible. Le candidat devra consulter le CCAP pour identifier les indices de révision (probablement BT01 ou indices sectoriels BTP)."
   },
   "alertes_prix": [
-    "Pondération prix à 40% : valeur classique pour un marché de travaux mais équilibrée avec 60% de critères techniques — ne pas sous-estimer l'offre technique.",
-    "Formule moins-disante pure : toute sous-évaluation des quantités en DPGF peut conduire à une offre anormalement basse exclue d'office.",
-    "Offres anormalement basses (OAB) explicitement exclues du calcul du prix de référence — le seuil n'est pas précisé mais le risque d'élimination existe.",
-    "Possibilité de négociation avec les 3 meilleurs candidats : prévoir une marge de manœuvre dans la DPGF initiale."
+    "Pondération prix à 40% identique à la valeur technique (40%) : marché très sensible au prix, un écart de 5% sur le prix peut valoir autant qu'une bonne note technique.",
+    "Formule moins-disante pure (pas de note plancher) : un concurrent très bas prix peut emporter le lot même avec une technique moyenne — risque de dumping à surveiller.",
+    "Limitation à 2 lots maximum par candidat : un candidat visant plusieurs lots doit optimiser ses prix sur les 2 lots les plus stratégiques, pas sur l'ensemble.",
+    "Aucun montant estimé publié (ni global ni par lot) : impossible de se situer a priori — le candidat doit construire sa propre estimation de marché à partir du DPGF et des diagnostics fournis.",
+    "Marchés de type DPGF (prix global forfaitaire par lot) : tout oubli dans le chiffrage est à la charge du titulaire — les diagnostics amiante/plomb/parasitaire sont fournis, à intégrer impérativement dans la décomposition."
   ],
   "references_exigees": {
     "experience_minimale_annees": null,
     "experience_source": null,
     "volume_min_references_similaires": null,
     "volume_min_references_unite": "chantiers réalisés",
-    "secteur_experience": "Travaux de transformation ou réhabilitation de bâtiments (corps d'état correspondant au lot soumissionné)",
+    "secteur_experience": "Travaux de réhabilitation ou transformation de bâtiments, dans le corps d'état du lot concerné",
     "secteur_source": "RC §6.1",
     "certifications_obligatoires": [
       {
-        "libelle": "Qualibat ou qualification professionnelle équivalente adaptée aux prestations du lot soumissionné",
+        "libelle": "Qualification professionnelle adaptée aux prestations du lot (QUALIBAT ou équivalent, ou tout moyen de preuve équivalent)",
+        "codes": [],
+        "bloquante": false,
         "source": "RC §6.1"
       }
     ],
     "autres_exigences": [
       {
-        "libelle": "Déclaration du chiffre d'affaires global et du CA concernant les prestations objet du contrat sur les 3 derniers exercices",
+        "libelle": "Déclaration concernant le chiffre d'affaires global et le CA concernant les prestations objet du contrat, réalisées au cours des 3 derniers exercices disponibles",
         "source": "RC §6.1"
       },
       {
@@ -371,162 +511,326 @@
         "source": "RC §6.1"
       },
       {
-        "libelle": "Attestation d'assurance décennale à produire dans les 10 jours suivant la notification provisoire d'attribution",
+        "libelle": "Attestation d'assurance décennale à produire dans les 10 jours suivant la notification d'attribution provisoire",
         "source": "RC §8.3"
+      },
+      {
+        "libelle": "Liste des travaux exécutés au cours des cinq dernières années, appuyée d'attestations de bonne exécution pour les plus importants",
+        "source": "RC §6.1"
       }
     ]
+  },
+  "dossier_candidature": {
+    "pieces_a_fournir": [
+      {
+        "libelle": "Déclaration sur l'honneur pour justifier que le candidat n'entre dans aucun des cas d'interdiction de soumissionner",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §6.1"
+      },
+      {
+        "libelle": "Renseignements sur le respect de l'obligation d'emploi (articles L. 5212-1 à L. 5212-11 du Code du travail)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §6.1"
+      },
+      {
+        "libelle": "Déclaration concernant le chiffre d'affaires global et le CA concernant les prestations objet du contrat (3 derniers exercices)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §6.1"
+      },
+      {
+        "libelle": "Déclaration appropriée de banques ou preuve d'une assurance pour les risques professionnels",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §6.1"
+      },
+      {
+        "libelle": "Déclaration indiquant les effectifs moyens annuels du candidat et l'importance du personnel d'encadrement (3 dernières années)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §6.1"
+      },
+      {
+        "libelle": "Liste des travaux exécutés au cours des cinq dernières années, appuyée d'attestations de bonne exécution pour les plus importants",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §6.1"
+      },
+      {
+        "libelle": "Indication des titres d'études et professionnels de l'opérateur économique et/ou des cadres de l'entreprise (responsables de prestation de même nature)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §6.1"
+      },
+      {
+        "libelle": "Déclaration indiquant l'outillage, le matériel et l'équipement technique dont le candidat dispose",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §6.1"
+      },
+      {
+        "libelle": "Description de l'équipement technique, des mesures employées pour s'assurer de la qualité et des moyens d'étude et de recherche",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §6.1"
+      },
+      {
+        "libelle": "Indication des mesures de gestion environnementale que le candidat pourra appliquer lors de l'exécution du contrat",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §6.1"
+      },
+      {
+        "libelle": "Certificats de qualifications professionnelles (QUALIBAT ou équivalent) ou tout moyen de preuve démontrant les compétences",
+        "phase": "candidature",
+        "obligatoire": false,
+        "source": "RC §6.1"
+      },
+      {
+        "libelle": "Formulaires DC1 (lettre de candidature) et DC2 (déclaration du candidat) ou Document Unique de Marché Européen (DUME)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §6.1"
+      },
+      {
+        "libelle": "Acte d'engagement (AE) et ses annexes — signé",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §6.1"
+      },
+      {
+        "libelle": "Décomposition du prix global forfaitaire (DPGF) — signée",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §6.1"
+      },
+      {
+        "libelle": "Mémoire justificatif des dispositions que l'entreprise se propose d'adopter pour l'exécution du contrat",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §6.1"
+      },
+      {
+        "libelle": "Fiches techniques correspondant aux produits et prestations proposés",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §6.1"
+      },
+      {
+        "libelle": "Présentation de l'équipe dédiée au projet",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §6.1"
+      },
+      {
+        "libelle": "Schéma d'organisation et de gestion des déchets (SOGED) — méthodologie de tri et suivi des déchets",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §6.1"
+      }
+    ],
+    "mode_remise": "dématérialisé",
+    "plateforme_depot": "https://marches-publics.info/",
+    "signature_electronique_exigee": false,
+    "format_signature": null,
+    "nombre_exemplaires": null,
+    "langue": "français",
+    "duree_validite_offres_jours": 90,
+    "modalites_source": "RC §7.1"
   },
   "lots": [
     {
       "numero": 1,
       "intitule": "Démolition - Gros œuvre",
+      "domaine": "btp_gros_oeuvre",
       "zone_geographique": "Biscarrosse (40600)",
       "volume_estime": null,
       "volume_estime_unite": null,
-      "particularites": "CPV 45223220. Lot soumis à l'évaluation de l'étanchéité à l'air pour la partie fondations/structure."
+      "cout_estime_min_eur": 45000,
+      "cout_estime_max_eur": 70000,
+      "particularites": "Diagnostics amiante, plomb et parasitaire fournis au DCE — à intégrer dans le chiffrage. Démolition sélective."
     },
     {
       "numero": 2,
       "intitule": "Murs à ossature bois - Charpente",
+      "domaine": "btp_second_oeuvre",
       "zone_geographique": "Biscarrosse (40600)",
       "volume_estime": null,
       "volume_estime_unite": null,
-      "particularites": "CPV 44142000. Construction bois — compétence charpente bois et murs à ossature bois requise."
+      "cout_estime_min_eur": 30000,
+      "cout_estime_max_eur": 55000,
+      "particularites": "Mise en œuvre d'ossature bois — interface critique avec étanchéité à l'air (critère noté). CPV 44142000."
     },
     {
       "numero": 3,
       "intitule": "Couverture – Étanchéité",
+      "domaine": "btp_second_oeuvre",
       "zone_geographique": "Biscarrosse (40600)",
       "volume_estime": null,
       "volume_estime_unite": null,
-      "particularites": "CPV 45260000. Variantes autorisées (voir CCTP). Lot soumis à l'évaluation de l'étanchéité à l'air."
+      "cout_estime_min_eur": 14000,
+      "cout_estime_max_eur": 25000,
+      "particularites": "Variantes autorisées (voir CCTP). Lot intégré dans l'exigence étanchéité à l'air."
     },
     {
       "numero": 4,
       "intitule": "Bardage",
+      "domaine": "btp_second_oeuvre",
       "zone_geographique": "Biscarrosse (40600)",
       "volume_estime": null,
       "volume_estime_unite": null,
-      "particularites": "CPV 45262650."
+      "cout_estime_min_eur": 9000,
+      "cout_estime_max_eur": 16000,
+      "particularites": "CPV 45262650. Prescriptions environnementales sur matériaux (FDES, écolabels valorisés)."
     },
     {
       "numero": 5,
       "intitule": "Enduits de façade",
+      "domaine": "btp_second_oeuvre",
       "zone_geographique": "Biscarrosse (40600)",
       "volume_estime": null,
       "volume_estime_unite": null,
+      "cout_estime_min_eur": 6000,
+      "cout_estime_max_eur": 12000,
       "particularites": "CPV 45443000."
     },
     {
       "numero": 6,
       "intitule": "Menuiseries extérieures",
+      "domaine": "btp_second_oeuvre",
       "zone_geographique": "Biscarrosse (40600)",
       "volume_estime": null,
       "volume_estime_unite": null,
-      "particularites": "CPV 45421000. Lot soumis à l'évaluation de l'étanchéité à l'air."
+      "cout_estime_min_eur": 18000,
+      "cout_estime_max_eur": 32000,
+      "particularites": "Lot intégré dans l'exigence étanchéité à l'air. CPV 45421000."
     },
     {
       "numero": 7,
       "intitule": "Menuiseries intérieures - Agencement",
+      "domaine": "btp_second_oeuvre",
       "zone_geographique": "Biscarrosse (40600)",
       "volume_estime": null,
       "volume_estime_unite": null,
-      "particularites": "CPV 45421000. Variantes autorisées (voir CCTP)."
+      "cout_estime_min_eur": 26000,
+      "cout_estime_max_eur": 45000,
+      "particularites": "Variantes autorisées (voir CCTP). Vocation ERP/pédagogique implique des exigences d'accessibilité PMR et de robustesse de l'agencement."
     },
     {
       "numero": 8,
       "intitule": "Plâtrerie - Faux plafonds - Isolation - Peinture",
+      "domaine": "btp_second_oeuvre",
       "zone_geographique": "Biscarrosse (40600)",
       "volume_estime": null,
       "volume_estime_unite": null,
-      "particularites": "CPV 45410000. Variantes autorisées (voir CCTP). Lot soumis à l'évaluation de l'étanchéité à l'air pour la partie isolation."
+      "cout_estime_min_eur": 40000,
+      "cout_estime_max_eur": 70000,
+      "particularites": "Variantes autorisées (voir CCTP). Lot central pour étanchéité à l'air et prescriptions HQE."
     },
     {
       "numero": 9,
       "intitule": "Serrurerie",
+      "domaine": "btp_second_oeuvre",
       "zone_geographique": "Biscarrosse (40600)",
       "volume_estime": null,
       "volume_estime_unite": null,
-      "particularites": "CPV 44316500."
+      "cout_estime_min_eur": 10000,
+      "cout_estime_max_eur": 20000,
+      "particularites": "CPV 44316500. Exigences ERP probables (gardes-corps réglementaires, accessibilité)."
     },
     {
       "numero": 10,
       "intitule": "Chape – Isolation sol – Finition résine – Sol souple",
+      "domaine": "btp_second_oeuvre",
       "zone_geographique": "Biscarrosse (40600)",
       "volume_estime": null,
       "volume_estime_unite": null,
-      "particularites": "CPV 45432130. Variantes autorisées (voir CCTP)."
+      "cout_estime_min_eur": 15000,
+      "cout_estime_max_eur": 28000,
+      "particularites": "Variantes autorisées (voir CCTP). CPV 45432130. Finition résine — technique spécifique à justifier."
     },
     {
       "numero": 11,
       "intitule": "Électricité",
+      "domaine": "btp_second_oeuvre",
       "zone_geographique": "Biscarrosse (40600)",
       "volume_estime": null,
       "volume_estime_unite": null,
-      "particularites": "CPV 09310000. Variantes autorisées (voir CCTP). Lot soumis à l'évaluation de l'étanchéité à l'air (passages de câbles)."
+      "cout_estime_min_eur": 20000,
+      "cout_estime_max_eur": 35000,
+      "particularites": "Variantes autorisées (voir CCTP). CPV 09310000. Lot intégré dans l'exigence étanchéité à l'air. Exigences ERP (sécurité incendie, SSI coordonné par MOE)."
     },
     {
       "numero": 12,
       "intitule": "CVC - Plomberie",
+      "domaine": "btp_second_oeuvre",
       "zone_geographique": "Biscarrosse (40600)",
       "volume_estime": null,
       "volume_estime_unite": null,
-      "particularites": "CPV 45330000. Lot soumis à l'évaluation de l'étanchéité à l'air (passages de réseaux)."
+      "cout_estime_min_eur": 45000,
+      "cout_estime_max_eur": 80000,
+      "particularites": "CPV 45330000. Lot intégré dans l'exigence étanchéité à l'air. Étude thermique fournie au DCE — à exploiter pour le dimensionnement."
     },
     {
       "numero": 13,
       "intitule": "VRD – Aménagements extérieurs",
+      "domaine": "btp_voirie_reseaux",
       "zone_geographique": "Biscarrosse (40600)",
       "volume_estime": null,
       "volume_estime_unite": null,
-      "particularites": "CPV 39290000."
+      "cout_estime_min_eur": 35000,
+      "cout_estime_max_eur": 70000,
+      "particularites": "Étude géotechnique G2AVP et relevés géomètre fournis au DCE. Relevés topographiques disponibles. CPV 39290000 (atypique pour VRD — probablement code par défaut dans l'avis)."
     }
   ],
+  "tranches": [],
   "calendrier": {
     "date_limite_offres": "2026-07-02",
     "date_demarrage_prevue": null,
     "duree_marche": "10 mois"
   },
   "alertes_candidat": [
-    "Limitation à 2 lots maximum par candidat : impossible de soumissionner sur l'ensemble des lots — stratégie de sélection des lots obligatoire avant réponse (RC §1.4).",
-    "Clauses environnementales obligatoires : toute offre ne respectant pas les conditions d'exécution à caractère environnemental sera déclarée irrégulière sans possibilité de régularisation (RC §2.4).",
-    "SOGED (Schéma d'Organisation et de Gestion des Déchets) à fournir obligatoirement dans l'offre — son absence ou son insuffisance impacte le critère 'Démarche HQE' (RC §6.1).",
-    "Sous-critère étanchéité à l'air spécifique pour les lots 1, 3, 6, 8, 11 et 12 : les entreprises de ces corps d'état doivent démontrer leur maîtrise de l'étanchéité à l'air dans leur dossier technique (RC §8.2).",
-    "Visite sur site facultative mais fortement conseillée (lundi 15 juin ou lundi 22 juin 2026) — la non-visite peut se traduire par des insuffisances méthodologiques pénalisantes sur le critère 'Note méthodologique spécifique au chantier' (18 pts sur 100).",
-    "Attestation d'assurance décennale exigée dans les 10 jours suivant la notification provisoire — vérifier sa disponibilité avant de soumissionner (RC §8.3)."
+    "LIMITATION À 2 LOTS MAXIMUM : un candidat ne peut soumettre des offres que pour 2 lots au maximum et se voir attribuer au maximum 2 lots. Toute offre pour un 3e lot serait irrecevable — à vérifier impérativement avant dépôt.",
+    "DOSSIER DE CANDIDATURE COMPLET OBLIGATOIRE : le RC liste de nombreuses pièces de candidature (DC1/DC2, déclarations, références sur 5 ans, attestations, mesures environnementales) ; l'absence de pièce peut conduire à une demande de régularisation dans un délai de 10 jours — anticiper.",
+    "SOGED OBLIGATOIRE : le schéma d'organisation et de gestion des déchets est exigé dans l'offre et noté (2 points HQE). Son absence serait un motif d'irrégularité partielle.",
+    "ASSURANCE DÉCENNALE EXIGÉE : l'attributaire provisoire doit produire son attestation d'assurance décennale dans les 10 jours suivant la notification — vérifier la couverture pour le corps d'état concerné avant de répondre.",
+    "CLAUSES ENVIRONNEMENTALES OBLIGATOIRES (CCAP) : le non-respect des conditions d'exécution environnementales rend l'offre irrégulière. Bien lire le CCAP (non fourni dans ce DCE analysé) avant de finaliser l'offre.",
+    "DPGF TYPE PRIX FORFAITAIRE : toute omission dans la décomposition du prix est à la charge du titulaire — les diagnostics amiante/plomb/parasitaire et l'étude géotechnique sont fournis et doivent être intégrés dans le chiffrage."
   ],
   "points_differenciants_attendus": [
     {
-      "libelle": "Maîtrise de l'étanchéité à l'air et des interfaces entre lots",
-      "exemple": "Pour les lots 3, 6, 8, 11 et 12, un candidat qui propose une valeur cible de perméabilité (n50 ou Q4Pa-surf), décrit le traitement des points singuliers et formule un protocole de coordination inter-lots se distinguera nettement sur le sous-critère 'étanchéité à l'air' (3 pts) et sur la méthodologie chantier (18 pts).",
-      "source": "RC §8.2"
+      "libelle": "Maîtrise de l'étanchéité à l'air en réhabilitation ossature bois",
+      "exemple": "Un candidat sur le lot 8 (plâtrerie-isolation) ou le lot 2 (ossature bois) qui présente une solution détaillée de traitement de l'étanchéité à l'air avec références de chantiers passant un test à la porte soufflante (valeur n50 mesurée) se distinguera significativement sur les 3 points dédiés du sous-critère 2.3.",
+      "source": "RC §8.2 — sous-critère 2.3"
     },
     {
-      "libelle": "Qualité et origine environnementale des matériaux",
-      "exemple": "Proposer des matériaux biosourcés ou à faible impact environnemental avec FDES vérifiée (laine de bois, bois certifié PEFC, enduits naturels) permet de scorer sur les 3 pts de prescriptions environnementales des matériaux, en cohérence avec la vocation environnementale du bâtiment (Maison de l'Eau et de l'Environnement).",
-      "source": "RC §8.2"
+      "libelle": "Utilisation de matériaux biosourcés ou à faible impact environnemental en cohérence avec la vocation de l'équipement",
+      "exemple": "Pour un bâtiment qui va s'appeler 'Maison de l'Eau et de l'Environnement', proposer des matériaux biosourcés (laine de bois, bardage bois PEFC, peintures sans COV) avec leurs FDES constitue un axe fortement valorisé sur le critère 2.2 (prescriptions environnementales) et renforce la cohérence globale de l'offre.",
+      "source": "RC §8.2 — sous-critère 2.2"
     },
     {
-      "libelle": "Démarche chantier propre et gestion des déchets de qualité",
-      "exemple": "Un SOGED détaillé avec quantification précise par flux, filières de valorisation nommées et traçabilité BSD démontre une réelle démarche HQE sur les 6 pts du critère 3 — particulièrement valorisant pour un équipement dédié à l'environnement.",
-      "source": "RC §8.2"
+      "libelle": "SOGED détaillé avec objectif chiffré de valorisation des déchets",
+      "exemple": "Présenter un SOGED avec un taux de valorisation ciblé (ex. ≥ 70% matière) par catégorie de déchets (bois, plâtre, DIB, DD), les filières locales identifiées et un tableau de suivi hebdomadaire, permet de scorer au maximum les 2 points HQE 'prévisionnel de déchets'.",
+      "source": "RC §8.2 — sous-critère 3.2"
     },
     {
-      "libelle": "Références de chantiers de transformation/réhabilitation similaires récentes",
-      "exemple": "Présenter des références de transformation de bâtiments existants en équipements publics recevant du public (ERP), avec attestations de bonne exécution détaillées (montant, maître d'ouvrage, date), maximalise les 4 pts de références tout en renforçant la crédibilité de la note méthodologique.",
-      "source": "RC §8.2"
+      "libelle": "Note méthodologique spécifique au chantier avec gestion des interfaces entre lots",
+      "exemple": "Sur 18 points, la méthodologie doit aller au-delà d'un planning générique : identifier les interfaces critiques entre lots (ex. lot 2 ossature bois / lot 3 couverture / lot 8 isolation — chaîne de l'étanchéité à l'air), proposer des réunions de coordination inter-lots spécifiques, et détailler la gestion des contraintes de site (Biscarrosse : milieu naturel lacustre, sensibilité environnementale).",
+      "source": "RC §8.2 — sous-critère 1.1"
     },
     {
-      "libelle": "Variantes proposées pour les lots autorisés",
-      "exemple": "Pour les lots 3, 7, 8, 10 et 11, proposer une variante techniquement justifiée (ex : couverture végétalisée en lot 3, plancher chauffant basse température en lot 12) peut apporter une valeur ajoutée technique et se différencier sur le critère qualité des matériaux, tout en restant obligatoirement accompagnée de la solution de base.",
-      "source": "RC §2.3"
+      "libelle": "Cohérence avec la vocation pédagogique et environnementale du projet dans la note méthodologique",
+      "exemple": "La Maison de l'Eau et de l'Environnement est destinée au public et aux scolaires — un candidat qui intègre cette vocation dans sa méthodologie (protection du milieu naturel pendant le chantier, chantier exemplaire visible des scolaires) peut se démarquer sur le critère HQE (note environnementale chantier, 4 points).",
+      "source": null
     }
   ],
   "_meta": {
     "id_marche": "BOAMP-26-56608",
     "type": "complet",
-    "date_generation": "2026-06-14T22:48:44.620032+00:00",
-    "extraction_le": "2026-06-14T22:48:44.620032+00:00",
+    "date_generation": "2026-06-19T21:02:26.362167+00:00",
+    "extraction_le": "2026-06-19T21:02:26.362167+00:00",
     "modele": "claude-sonnet-4-6",
     "preset_utilise": "btp",
     "presets_matches": [
@@ -534,13 +838,13 @@
       "ingenierie"
     ],
     "prompts_versions": {
-      "btp/_preset.json": "sha256:d1717e0d87f6c265",
-      "ingenierie/_preset.json": "sha256:56f813f829343e24"
+      "btp/_preset.json": "sha256:055bf6f8b2c1f771",
+      "ingenierie/_preset.json": "sha256:b924b32a088673d6"
     },
-    "tokens_input": 24102,
-    "tokens_output": 9444,
-    "cout_eur": 0.2033,
-    "duree_sec": 150.6,
+    "tokens_input": 32145,
+    "tokens_output": 14123,
+    "cout_eur": 0.2929,
+    "duree_sec": 225.5,
     "pdfs_traites": [
       {
         "nom": "AWS-MPI-1832911-COMPLEMENT-1-V2.pdf",

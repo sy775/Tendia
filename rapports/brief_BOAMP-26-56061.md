@@ -1,6 +1,6 @@
 # Brief — Entretien des grilles et avaloirs, réseau d'eaux pluviales, déshuileurs, bacs dégraisseurs et puits perdus
 
-_Généré le 2026-06-14 23:58 par Claude claude-sonnet-4-6_
+_Généré le 2026-06-22 12:47 par Claude claude-sonnet-4-6_
 
 ## Identifiants
 - **ID Tendia** : `BOAMP-26-56061`
@@ -11,78 +11,53 @@ _Généré le 2026-06-14 23:58 par Claude claude-sonnet-4-6_
 - **DCE PLACE** : <https://www.marches-publics.gouv.fr/?page=Entreprise.EntrepriseDetailsConsultation&id=2987153&orgAcronyme=g6l>
 
 ## Synthèse
-Accord-cadre mono-attributaire portant sur des prestations de nettoyage courant des locaux et des surfaces vitrées des services de police de la Charente (16), alloti en 2 lots géographiques (secteur Angoulême et secteur Cognac). Les prestations comprennent le nettoyage forfaitaire quotidien/hebdomadaire, la fourniture de consommables sanitaires, et des prestations ponctuelles sur bons de commande. Le lot 1 est classifié 'marché sensible' impliquant des enquêtes administratives sur le personnel intervenant.
-
-## 🏗 Chantier — caractéristiques BTP
-- **Description** : Nettoyage courant des locaux (sols, sanitaires, bureaux, geôles de garde à vue, stand de tir, dojo, vestiaires, dégagements) et des surfaces vitrées intérieures/extérieures dans des commissariats et postes de police. Comprend la fourniture et installation des consommables sanitaires, le vidage des corbeilles, et le nettoyage du stand de tir avec aspirateur anti-déflagrant.
-- **Type d'ouvrage** : Commissariats de police, hôtel de police, postes de police de quartier
-- **Surface / volume** : Lot 1 : environ 2 843 m² (Angoulême 2 643,53 m² + Basseau 60,03 m² + La Couronne 50,89 m² + Soyaux 88 m²) ; Lot 2 : environ 504 m² (Cognac)
-- **Site occupé pendant travaux** : true — les locaux sont occupés par les fonctionnaires de police pendant les interventions ; des horaires stricts s'appliquent (avant 8h00 ou avant 10h00 selon les sites)
-- **Corps d'état mobilisés** : Nettoyage/propreté de locaux, Fourniture et pose de consommables sanitaires (distributeurs savon, papier), Nettoyage spécialisé stand de tir (aspirateur anti-déflagrant, EPI spécifiques)
-- **Contraintes spécifiques** :
-  - Lot 1 classifié 'marché sensible' : enquête administrative sur tout le personnel intervenant, remise des CNI 72h avant toute intervention
-  - Nettoyage des cellules de garde à vue avec désinfection quotidienne et gestion des déjections inhabituelles (sang, vomissures)
-  - Horaires stricts : nettoyage terminé avant 8h00 ou 10h00 selon les locaux
-  - Prestations urgentes GAV déclenchables 7j/7 (week-ends et jours fériés inclus), intervention sous 24h
-  - Stand de tir : obligation de combinaison et masque de protection, aspirateur anti-déflagrant fourni par le titulaire
-  - Visite obligatoire de tous les sites sous peine d'irrégularité de l'offre
-  - Interdiction de sous-traiter les prestations courantes forfaitaires
-  - Clause d'insertion sociale obligatoire (116h/an lot 1, 25h/an lot 2)
-  - Reprise du personnel en place (convention collective nettoyage, Annexe 7)
-
-### Allotissement
-Marché alloti en 2 lots géographiques distincts, chacun donnant lieu à un marché public distinct.
-- **Nombre de lots** : 2
-- **Lot 1** — Lot 1 – Secteur Angoulême
-  - Corps d'état : Nettoyage courant locaux et surfaces vitrées
-  - Sites : Hôtel de Police d'Angoulême (~2 643 m²), Poste de Police Basseau (~60 m²), Poste de Police La Couronne (~51 m²), Poste de Police Soyaux (~88 m²), immeuble 183 av. Jules Ferry (BPU uniquement). Lot sensible — enquêtes administratives sur le personnel.
-- **Lot 2** — Lot 2 – Secteur Cognac
-  - Corps d'état : Nettoyage courant locaux et surfaces vitrées
-  - Site unique : Commissariat de Police de Cognac (~504 m²), bâtiment principal et bâtiment annexe.
-
-### Qualifications BTP exigées
-Aucune qualification Qualibat exigée. Des certifications environnementales sont souhaitées. Qualifications professionnelles secteur nettoyage attendues.
-- **MASE** : non
-- **Autres exigences** :
-  - Certification ISO 14000 ou démarche HQE ou équivalent souhaitée (développement durable)
-  - Certifications de qualification professionnelle secteur nettoyage appréciées
+Accord-cadre mono-attributaire en 2 lots pour le nettoyage courant des locaux et des surfaces vitrées des services de police de la Charente (16) : Lot 1 secteur Angoulême (Hôtel de police + 3 postes de quartier, ~843 m²) et Lot 2 secteur Cognac (commissariat, ~504 m²). Marché sensible pour le lot 1 (accès à un lieu abritant des éléments couverts par le secret défense), avec clausesd'insertion sociale, obligation de résultat et visite obligatoire des sites. Durée ferme 24 mois (01/01/2027–31/12/2028), reconductible 2 × 12 mois.
 
 ## 💶 Montant du marché
-- _Montant non communiqué dans le DCE._
-  - Typique des accords-cadres à bons de commande : le volume dépend des commandes effectivement passées par l'acheteur sur la durée du marché.
-- _Note_ : Le RC précise uniquement que le montant maximum annuel = montant minimum (forfait annuel) + bons de commande ≤ 30% du montant minimum. Aucun montant estimatif ni plafond chiffré n'est communiqué dans les pièces fournies. La DPGF et le BPU à remplir par les candidats détermineront les montants.
+- **Fourchette** : entre 200 000 € et 320 000 €
+  - sur Durée totale accord-cadre : 24 mois ferme + 2 × 12 mois reconductibles = 4 ans maximum
+  - _source : CCP art 1.7 (surfaces) + ratios marché nettoyage police/bâtiment sécurisé_
 
 ## Barème de notation
 - **Valeur technique** : 55 %
 - **Valeur prix** : 45 %
 - **Sous-critères techniques** :
-  - Critère technique : 35 %
-  - Critère développement durable : 20 %
-- **Calcul du prix** : 35 × (montant de l'offre la plus basse / montant de l'offre analysée) pour le forfaitaire + 10 × (moyenne des prix de l'offre la plus basse / moyenne des prix de l'offre analysée) pour le BPU.
+  - Critère technique — Organisation : 20 %
+  - Critère technique — Moyens humains : 10 %
+  - Critère technique — Moyens matériels et gestion des consommables : 5 %
+  - Critère développement durable — Considérations sociales : 10 %
+  - Critère développement durable — Considérations environnementales : 10 %
+- **Calcul du prix** : Prix forfaitaire : 35 × (offre la plus basse / offre analysée). BPU : 10 × (moyenne prix la plus basse / moyenne prix analysée). Total prix sur 45 points.
 
 ## Références et qualifications exigées
-- **Expérience minimale** : 3 ans
-- **Secteur d'expérience** : Nettoyage courant de locaux (marchés de prestations de nettoyage similaires au cours des 3 dernières années, avec montant, date et destinataire)
+- **Expérience minimale** : —
+- **Secteur d'expérience** : Nettoyage courant de locaux et surfaces vitrées (secteur public ou privé, de préférence bâtiments sensibles ou sécurisés)
+- **Certifications obligatoires** : Certificats de qualification professionnelle ou preuve de capacité à réaliser des prestations de nettoyage (ex: Qualipropre ou équivalent) (source=RC §4.1.3), Attestations de certification développement durable/environnement (ISO 14000, démarche HQE ou équivalent) (source=RC §4.1.3), Enquête administrative individuelle sur le personnel intervenant (lot 1 — marché sensible) : résultat sans réserve requis pour que la candidature soit recevable (bloquante=True, source=RC §1.5)
 - **Autres exigences** :
-  - Déclaration des effectifs moyens annuels et importance du personnel d'encadrement sur les 3 dernières années (source=RC article 4.1.3)
-  - Liste des principales prestations réalisées au cours des 3 dernières années avec montant, date et coordonnées du destinataire (attestations ou déclaration de l'opérateur) (source=RC article 4.1.3)
-  - Certificats ou preuves de mesures équivalentes de garantie de la qualité des services (source=RC article 4.1.3)
-  - Certificats de qualification professionnelle dans le secteur du nettoyage ou preuve équivalente (source=RC article 4.1.3)
-  - Attestations de certification dans le domaine du développement durable environnemental (ISO 14000, démarche HQE ou équivalent) souhaitées (source=RC article 4.1.3)
-  - Déclaration appropriée de banques ou preuve d'une assurance pour les risques professionnels (source=RC article 4.1.3)
-  - Pour le lot 1 : organigramme de tout le personnel intervenant + copies des cartes nationales d'identité (CNI) de l'ensemble du personnel (y compris co-traitants et sous-traitants) — requis pour l'enquête administrative marché sensible (source=RC article 1.5)
+  - Liste des principales prestations réalisées dans le domaine au cours des 3 dernières années (montant, date, destinataire) avec attestations du destinataire ou déclaration de l'opérateur (source=RC §4.1.3)
+  - Déclaration des effectifs moyens annuels et importance du personnel d'encadrement sur les 3 dernières années (source=RC §4.1.3)
+  - Déclaration appropriée de banques ou preuve d'une assurance pour risques professionnels (source=RC §4.1.3)
+
+## Lots
+- **Lot 1** — Lot 1 — Secteur Angoulême
+  - Zone : Angoulême (16000), La Couronne (16400), Soyaux (16800)
+  - Volume estimé : 843 m²
+  - Marché sensible (secret défense) : enquête administrative individuelle sur chaque intervenant, CNI transmises 72h avant première intervention. 4 sites (Hôtel de police Angoulême 643,53 m² + Basseau 60,03 m² + La Couronne 50,89 m² + Soyaux 88 m²). Cellules de GAV avec interventions possibles week-end/jours fériés (urgence 24h). Stand de tir (aspirateur anti-déflagrant obligatoire). Sous-traitance des prestations courantes INTERDITE. 6 agents à reprendre en vertu de l'annexe 7 CCN propreté (~262 h/mois, masse salariale brute ~2 313 €/mois). 116h d'insertion sociale/an minimum.
+- **Lot 2** — Lot 2 — Secteur Cognac
+  - Zone : Cognac (16100)
+  - Volume estimé : 504 m²
+  - 1 site (commissariat 14 rue Richard Cognac, 504 m² en bâtiment principal + annexe). Cellules de GAV avec désinfection quotidienne obligatoire. Interventions urgentes possibles week-end. 25h d'insertion sociale/an minimum. Pas de contrainte marché sensible.
 
 ## ⚠ Alertes candidat
-- VISITE OBLIGATOIRE de tous les sites sous peine d'offre irrégulière — prendre contact au moins 7 jours avant la date envisagée ; prévoir CNI pour accès ; attester de chaque visite par le document joint.
-- LOT 1 SENSIBLE — enquête administrative obligatoire sur TOUT le personnel intervenant (agents, remplaçants, encadrement, co-traitants) : fournir organigramme complet + CNI recto/verso dès le dépôt de candidature, faute de quoi la recevabilité de la candidature peut être refusée.
-- INTERDICTION ABSOLUE de sous-traiter les prestations courantes forfaitaires (uniquement les prestations à BPU sont sous-traitables) — tout montage reposant sur une sous-traitance du nettoyage courant est irrecevable.
-- CLAUSE D'INSERTION obligatoire : engagement chiffré à fournir dès l'offre (Annexe 3 AE). Non-respect en cours d'exécution = pénalité de 50€/heure non réalisée.
-- DÉLAI DE VALIDITÉ DES OFFRES de 180 jours : engagement financier long, à anticiper dans la stratégie de prix.
-- Le mémoire technique est strictement encadré (cadre imposé, 16 pages max hors page de garde) — tout contenu hors cadre est ignoré lors de l'analyse.
+- LOT 1 — MARCHÉ SENSIBLE : recevabilité de la candidature subordonnée au résultat d'une enquête administrative individuelle sur CHAQUE intervenant (y compris remplaçants et co-traitants) — CNI à transmettre dès le dépôt de l'offre ; un seul résultat défavorable bloque l'attribution
+- VISITE OBLIGATOIRE : l'absence d'attestation de visite signée rend l'offre irrégulière — prévoir contact 7 jours avant visite, CNI à fournir 3-4 jours avant le RDV
+- REPRISE DU PERSONNEL EN PLACE (annexe 7 CCN propreté) : 6 agents lot 1 (262 h/mois, ~2 313 €/mois brut) à intégrer dès J+1 ; masse salariale contrainte à budgéter impérativement
+- SOUS-TRAITANCE INTERDITE pour les prestations courantes forfaitaires (lot 1 et lot 2) — exécution exclusivement par le titulaire
+- INTERVENTIONS GAV URGENCES WEEK-END : délai de réponse 12h, intervention 24h, 7j/7 y compris jours fériés — nécessite une organisation et une tarification BPU spécifiques aux heures non ouvrées
 
 ## 💡 Points différenciants attendus
-- Surengagement sur les heures d'insertion au-delà du minimum contractuel (exemple=Proposer 150h/an pour le lot 1 (vs 116h minimum) via un partenariat formalisé avec une ETTI ou un GEIQ de Charente, avec présentation du contact facilitateur Sylvie THOMAS déjà établi., source=RC article 5.1 — critère développement durable, considérations sociales)
-- Organisation spécifique pour les interventions d'urgence GAV 7j/7 (exemple=Décrire un dispositif d'astreinte nominatif avec agent dédié joignable 24h/24, protocole d'intervention en 2h maximum incluant kit spécifique (EPI, produits désinfectants EN 1276) pour les déjections inhabituelles., source=CCP article 2.3 et RC article 1.5)
-- Maîtrise des contraintes du marché sensible et expérience en milieu sécurisé (exemple=Valoriser des références de nettoyage en milieux à accès contrôlé (bases militaires, palais de justice, centres de rétention) avec personnel ayant déjà fait l'objet d'enquêtes administratives similaires., source=CCP article 6 et RC article 1.5)
-- Utilisation de produits 100% écocertifiés avec traçabilité documentée (exemple=Présenter une liste de produits portant l'Ecolabel européen avec fiches techniques et FDS, en précisant les économies d'eau réalisées (microfibres, doseurs auto) et le plan de réduction des emballages (concentrés rechargeables)., source=RC article 5.1 — considérations environnementales ; CCP article 4)
-- Reprise du personnel existant avec plan d'intégration détaillé (exemple=S'appuyer sur les fiches de reprise de personnel (Annexe 3 RC) pour présenter un plan d'intégration nominatif des 6 agents à reprendre, avec maintien de leurs conditions (CDI, ancienneté), rassurance vis-à-vis du service bénéficiaire sur la continuité de service., source=RC Annexe 3 et CCP article 2.4.6)
+- Dépassement significatif des heures d'insertion sociale (au-delà du minimum contractuel) (exemple=Proposer 150h/an au lieu de 116h pour le lot 1 via un partenariat formalisé avec le GEIQ de la Charente, avec un plan d'intégration de la personne en insertion sur les créneaux matin de l'Hôtel de police., source=RC §5.1 / CCP art 5)
+- Organisation robuste et rapide pour les interventions d'urgence GAV week-end (exemple=Présenter un protocole d'astreinte nominatif (agent + remplaçant pré-habilité) joignable 24h/24 avec exemple de scénario d'intervention en moins de 24h sur les cellules de l'Hôtel de police., source=CCP art 2.3 (prestations urgentes))
+- Gestion des habilitations secret défense (lot 1) avec anticipation et redondance (exemple=Constituer un vivier de 8-10 agents pré-habilités (CNI transmises dès l'offre) pour garantir les remplacements sans rupture d'accès, en particulier pour les zones GAV à confidentialité particulière., source=RC §1.5 / CCP art 6)
+- Qualité et pertinence des produits écolabellisés avec traçabilité démontrable (exemple=Fournir un tableau synthétique des produits retenus (nom commercial, écolabel, FDS, ratio dosage) et décrire le registre de traçabilité par site, renforçant à la fois la conformité CCP et la notation environnementale., source=RC §5.1 / CCP art 4)
+- Répartition de la charge travail cohérente avec les contraintes horaires multi-sites (exemple=Présenter un planning hebdomadaire type montrant comment 3 agents couvrent les 5 sites du lot 1 dans les plages horaires imposées (6h-8h RDC, avant 10h étages, 9h-10h30 postes quartier) sans chevauchement ni dépassement de la durée légale., source=RC §5.1)

@@ -1,155 +1,181 @@
 {
-  "synthese_marche": "La Commune de Le Pellerin lance un marché de travaux pour la construction neuve de vestiaires de football et d'une salle de convivialité, situés Boulevard Jean Monnet à Le Pellerin (44640). Le projet est structuré en 14 lots séparés couvrant l'ensemble des corps d'état du bâtiment, depuis le terrassement/VRD jusqu'au photovoltaïque, en passant par le gros œuvre, les charpentes, les menuiseries et les fluides. Le DCE est au stade DCE de mai 2026, avec une date limite de dépôt des offres au 30 juin 2026.",
+  "synthese_marche": "Construction neuve d'un bâtiment de vestiaires de football et d'une salle de convivialité à Le Pellerin (44640), boulevard Jean Monnet. Le marché est alloti en 14 lots tous corps d'état, de la VRD au photovoltaïque, avec une durée de travaux de 4 mois par lot. L'opération est menée en procédure ouverte européenne par la Commune de Le Pellerin.",
   "domaines_metier": [
     {
-      "code": "btp_gros_oeuvre"
+      "code": "btp_gros_oeuvre",
+      "poids": 0.55,
+      "lots_concernes": [
+        "LOT-0002",
+        "LOT-0003",
+        "LOT-0004",
+        "LOT-0005",
+        "LOT-0006",
+        "LOT-0007",
+        "LOT-0008",
+        "LOT-0009",
+        "LOT-0010",
+        "LOT-0011"
+      ]
+    },
+    {
+      "code": "btp_voirie_reseaux",
+      "poids": 0.25,
+      "lots_concernes": [
+        "LOT-0001"
+      ]
+    },
+    {
+      "code": "energie_pv_solaire",
+      "poids": 0.2,
+      "lots_concernes": [
+        "LOT-0012",
+        "LOT-0013",
+        "LOT-0014"
+      ]
     }
   ],
-  "raison_classification": "Il s'agit d'une construction neuve d'un équipement sportif (vestiaires + salle de convivialité) avec fondations, structure maçonnée, charpentes bois et métalliques, couverture, second œuvre complet. Le lot 02 Gros Œuvre est le lot pilote (chef de file du compte prorata). La dominante est clairement la construction neuve multi-lots BTP, donc 'btp_gros_oeuvre' comme domaine principal, avec une forte composante second œuvre traitée dans les lots 7 à 13.",
+  "raison_classification": "Le marché est majoritairement un projet de construction neuve tous corps d'état (gros œuvre, charpente, couverture, menuiseries, second œuvre) ce qui justifie le domaine BTP comme principal. Le lot 1 (Terrassements VRD) et le lot 14 (Photovoltaïque) représentent deux domaines secondaires distincts et significatifs. Le lot 14 photovoltaïque est explicitement décrit avec des plots support PV et une toiture compatible ATEX SOPRASOLAR.",
   "caracteristiques_techniques_chantier": {
-    "description": "Construction neuve d'un bâtiment de vestiaires de football (4 vestiaires joueurs + 2 vestiaires arbitres) et d'une salle de convivialité/buvette avec réserve bar, sanitaires publics, bureau, rangements associatifs et locaux BECS. Structure maçonnée en parpaings BA, charpentes bois lamellé-collé et métalliques, bardage métallique, étanchéité PVC sur bac acier, avec préau et casquette couverts. Installation photovoltaïque en toiture. Zone sismique 3, sol gneiss, fondations sur puits tarière ancrés dans le gneiss altéré.",
-    "typologie_ouvrage": "Équipement sportif municipal — vestiaires de football et salle de convivialité, bâtiment de plain-pied (rez-de-jardin)",
-    "surface_volume": null,
-    "site_occupe": "false — construction neuve sur terrain vierge (terrain de football existant en périphérie)",
+    "description": "Construction neuve d'un bâtiment de vestiaires de football (4 vestiaires joueurs + 2 vestiaires arbitres, sanitaires, bureau, local BECS) et d'une salle de convivialité / buvette avec réserve bar, préau, casquette, rangements associatifs et rangement collège. Le bâtiment est de plain-pied avec dalle portée, charpente mixte bois et métallique, bardage métallique, couverture étanchéité PVC sur bac acier, et installation photovoltaïque en toiture.",
+    "typologie_ouvrage": "Bâtiment sportif municipal neuf (vestiaires de football + salle de convivialité)",
+    "surface_volume": "Non communiquée explicitement dans les pièces fournies",
+    "site_occupe": "false — construction neuve sur terrain existant, pas d'occupation signalée",
     "corps_etat": [
-      "Terrassement - VRD",
-      "Gros œuvre - maçonnerie - béton armé",
+      "Terrassements VRD",
+      "Gros œuvre (fondations, dalle portée, maçonnerie)",
       "Charpente bois (lamellé-collé et bois massif)",
-      "Charpente et bardages métalliques",
-      "Couverture bac acier - étanchéité PVC",
-      "Menuiseries extérieures aluminium - métallerie",
+      "Charpente et bardages métalliques (préau, casquette)",
+      "Couverture bac acier + étanchéité PVC",
+      "Menuiseries extérieures aluminium + métallerie",
       "Menuiseries intérieures bois",
-      "Cloisons sèches - plafonds en plaques de plâtre",
+      "Cloisons sèches / plafonds en plaques de plâtre",
       "Plafonds suspendus",
-      "Revêtements de sols carrelage - faïence",
+      "Revêtements de sols carrelage et faïence",
       "Peinture",
-      "Plomberie - ventilation",
-      "Électricité - chauffage électrique",
+      "Plomberie / ventilation",
+      "Électricité / chauffage électrique",
       "Photovoltaïque"
     ],
     "contraintes_specifiques": [
-      "Zone de sismicité 3 (activité modérée) — catégorie d'importance II ou III à confirmer par le maître d'ouvrage",
-      "Sol de type gneiss ± altéré — fondations sur puits tarière avec ancrage minimum 20 cm dans le gneiss et encastrement minimum 80 cm / ± 0,00",
-      "Traitement anti-termite obligatoire (zone à risque termites)",
-      "Film anti-radon sous dalle portée (ERADON 300 microns ou équivalent)",
-      "Étude géotechnique FLI CADEGEAU GEO250-250319C du 28/05/2025 — contrainte max 2 bars ELS",
-      "Étude acoustique DB ACOUSTIC — contraintes de produits et techniques pour plusieurs lots",
-      "Étude hydraulique BET CADEGEAU DI2503-250320P du 6/05/2025 pour dimensionnement noues drainantes",
-      "Présence de réseaux existants à dévoyer (EDF, AEP, TELECOM, réseaux commandes éclairage terrain)",
-      "Dévoiement de fourreaux et réseaux passant dans l'emprise de la construction",
-      "Noues drainantes paysagères en limite NORD-EST — végétation bocage vendéen adaptée aux variations hydriques",
+      "Zone sismicité 3 modérée — catégorie d'importance II ou III à confirmer",
+      "Zone de vent 3, zone de neige A1 z<200m",
+      "Étude géotechnique FLI CADEGEAU disponible — fondations sur gneiss altéré, contrainte max 2 bars",
+      "Traitement anti-termites obligatoire (zone concernée)",
+      "Film anti-radon sous dalle obligatoire",
+      "Accessibilité PMR sur l'ensemble du projet",
+      "Étude acoustique réalisée par DB ACOUSTIC — prescriptions à respecter par tous les lots",
+      "Coordination SPS avec PGCSPS obligatoire",
+      "Compte prorata géré par le lot Gros Œuvre",
       "Charpente dimensionnée pour reprendre les charges des panneaux photovoltaïques",
-      "Accessibilité PMR à prévoir sur l'ensemble du projet (seuils PMR, places de stationnement PMR, bandes podotactiles, caniveaux caillebotis inox)",
-      "Coordonnateur SPS avec PGC SPS joint au dossier",
-      "Bureau de contrôle choisi par le maître d'ouvrage"
+      "Complexe d'étanchéité compatible ATEX 3200_V1 SOPRASOLAR FIX EVO"
     ]
   },
   "allotissement": {
-    "description": "Marché décomposé en 14 lots séparés — marchés séparés avec compte prorata géré par le lot Gros Œuvre (entrepreneur principal)",
+    "description": "Marché alloti en 14 lots distincts couvrant l'intégralité des corps d'état de la construction neuve",
     "nb_lots": 14,
     "lots_detailles": [
       {
         "numero": 1,
-        "intitule": "TERRASSEMENT - VRD",
-        "corps_etat": "Terrassement - VRD",
+        "intitule": "LOT 01 - TERRASSEMENTS VRD",
+        "corps_etat": "terrassements, VRD, assainissement, voirie, espaces verts",
         "montant_estime": null,
-        "description": "Décapage, terrassements généraux, remblais, assainissement EU/EP extérieurs, réseaux, voiries (enrobé et bicouche), bordures, espaces verts, noues drainantes, fourreaux et chambres de tirage extérieurs"
+        "description": "Terrassements généraux, constitution des plateformes, réseaux EU/EV/EP extérieurs, noues drainantes, voiries enrobé et bicouche, signalisation, espaces verts et engazonnement"
       },
       {
         "numero": 2,
-        "intitule": "GROS ŒUVRE",
-        "corps_etat": "Gros œuvre - maçonnerie - béton armé",
+        "intitule": "LOT 02 - GROS-OEUVRE",
+        "corps_etat": "gros œuvre, fondations, dalle portée, maçonnerie",
         "montant_estime": null,
-        "description": "Fondations (puits tarière, semelles isolées BA, longrines), dalle portée BA avec isolation sous dalle, maçonnerie d'agglomérés 20 creux, structure BA en élévation, réseaux enterrés intérieurs EU/EP, drainage périphérique, seuils, emmarchements extérieurs, enduit intérieur traditionnel zones humides"
+        "description": "Installations de chantier, fondations (semelles BA, longrines, puits tarière), dalle portée BA, maçonnerie agglos, réseaux enterrés intérieurs, enduits intérieurs douches et locaux humides, ouvrages extérieurs (emmarchements)"
       },
       {
         "numero": 3,
-        "intitule": "CHARPENTES BOIS",
-        "corps_etat": "Charpente bois",
+        "intitule": "LOT 03 - CHARPENTE BOIS",
+        "corps_etat": "charpente bois (lamellé-collé et bois massif)",
         "montant_estime": null,
-        "description": "Charpente en lamellé-collé et bois massif pour blocs-toitures des surfaces closes et couvertes — muraillères, pannes, contreventements, chevêtres pour sorties de toiture. Dimensionnée pour reprendre les charges PV."
+        "description": "Muraillères, pannes et contreventements en bois massif et lamellé-collé pour les blocs-toitures des surfaces closes et couvertes, dimensionnée pour reprendre les charges PV"
       },
       {
         "numero": 4,
-        "intitule": "CHARPENTE ET BARDAGES METALLIQUES",
-        "corps_etat": "Charpente métallique - bardage métallique",
+        "intitule": "LOT 04 - CHARPENTE ET BARDAGES METALLIQUES",
+        "corps_etat": "charpente métallique, bardage métallique",
         "montant_estime": null,
-        "description": "Charpente métallique galvanisée du Préau (façades NORD et OUEST) et de la Casquette (façade SUD) — poteaux, arbalétriers, pannes, contreventements, ossatures secondaires d'acrotères. Bardage métallique plan et nervuré sur ossature avec isolation laine de verre 160 mm sur les 4 façades."
+        "description": "Charpente métallique du préau et de la casquette (poteaux, arbalétriers, pannes galvanisés), bardage métallique simple peau avec isolation laine de verre sur l'ensemble des façades (lames lisses et nervurées)"
       },
       {
         "numero": 5,
-        "intitule": "COUVERTURE BAC ACIER – ETANCHEITE PVC",
-        "corps_etat": "Couverture - étanchéité",
+        "intitule": "LOT 05 - COUVERTURE BAC ACIER -- ETANCHEITE PVC",
+        "corps_etat": "couverture bac acier, étanchéité PVC",
         "montant_estime": null,
-        "description": "Bac acier galvanisé support d'étanchéité, complexe d'étanchéité PVC avec isolation laine de roche (260 mm zones chauffées, 40 mm Préau/Casquette), relevés isolés, soudure de plots PV, naissances EP, descentes EP, trop-pleins, coiffes aluminium laqué, traversées de toiture."
+        "description": "Bac acier support d'étanchéité, étanchéité par membrane PVC avec isolation (260mm zones chauffées, 40mm préau/casquette), plots support PV soudés sur membrane, descentes EP, coiffes aluminium"
       },
       {
         "numero": 6,
-        "intitule": "MENUISERIES EXTERIEURES ALUMINIUM - METALLERIE",
-        "corps_etat": "Menuiseries extérieures aluminium - métallerie",
+        "intitule": "LOT 06 - MENUISERIES EXTERIEURES ALUMINIUM - METALLERIE",
+        "corps_etat": "menuiseries extérieures aluminium, métallerie",
         "montant_estime": null,
-        "description": "Châssis à soufflet aluminium RPT, portes vitrées et pleines aluminium RPT, ensembles mixtes châssis/portes, porte vitrée intérieure aluminium, portes métalliques extérieures, main courante sur poteaux, organigramme, entrées d'air."
+        "description": "Châssis à soufflets, portes vitrées et pleines aluminium RPT, ensembles mixtes façades, portes métalliques extérieures, garde-corps et main courante, organigramme de clés"
       },
       {
         "numero": 7,
-        "intitule": "MENUISERIE INTERIEURES BOIS",
-        "corps_etat": "Menuiseries intérieures bois - agencement",
+        "intitule": "LOT 07 - MENUISERIES INTERIEURES BOIS",
+        "corps_etat": "menuiseries intérieures bois, agencement",
         "montant_estime": null,
-        "description": "Blocs-portes isoplanes stratifiés, blocs-portes insensibles à l'humidité (vestiaires), blocs-portes coupe-feu 1/2h, quincailleries, cloisonnement sanitaires en stratifié massif, combinés muraux, meuble bar, placards, pictogrammes, miroirs."
+        "description": "Blocs-portes (isoplane, insensibles humidité, coupe-feu 1/2h), cloisonnements sanitaires stratifiés massifs, combinés muraux, meuble bar, patères, miroirs, pictogrammes"
       },
       {
         "numero": 8,
-        "intitule": "CLOISONS SECHES - PLAFONDS EN PLAQUES DE PLATRE",
-        "corps_etat": "Cloisons sèches - plâtrerie - isolation",
+        "intitule": "LOT 08 - CLOISONS SECHES - PLAFONDS EN PLAQUES DE PLATRE",
+        "corps_etat": "cloisons sèches, plâtrerie",
         "montant_estime": null,
-        "description": "Cloisons sèches et plafonds en plaques de plâtre"
+        "description": "Cloisons en plaques de plâtre sur ossature métallique, plafonds en plaques de plâtre"
       },
       {
         "numero": 9,
-        "intitule": "PLAFONDS SUSPENDUS",
-        "corps_etat": "Plafonds suspendus",
+        "intitule": "LOT 09 - PLAFONDS SUSPENDUS",
+        "corps_etat": "plafonds suspendus",
         "montant_estime": null,
-        "description": "Plafonds suspendus"
+        "description": "Plafonds suspendus dans les locaux concernés"
       },
       {
         "numero": 10,
-        "intitule": "REVETEMENTS DE SOLS CARRELAGE - FAIENCE",
-        "corps_etat": "Carrelage - faïence",
+        "intitule": "LOT 10 - REVETEMENTS DE SOLS CARRELAGE - FAIENCE",
+        "corps_etat": "carrelage, faïence, revêtements de sols",
         "montant_estime": null,
-        "description": "Revêtements de sols en carrelage et faïence murale"
+        "description": "Revêtements de sols en carrelage et pose de faïence murale dans les locaux humides"
       },
       {
         "numero": 11,
-        "intitule": "PEINTURE",
-        "corps_etat": "Peinture",
+        "intitule": "LOT 11 - PEINTURE",
+        "corps_etat": "peinture",
         "montant_estime": null,
-        "description": "Peinture intérieure sur supports maçonnerie et plaques de plâtre"
+        "description": "Peinture intérieure et extérieure, finition sur parois béton apparentes, dauphins fonte"
       },
       {
         "numero": 12,
-        "intitule": "PLOMBERIE – VENTILATION",
-        "corps_etat": "Plomberie sanitaire - ventilation",
+        "intitule": "LOT 12 - PLOMBERIE - VENTILATION",
+        "corps_etat": "plomberie sanitaire, ventilation VMC",
         "montant_estime": null,
-        "description": "Plomberie sanitaire (appareils sanitaires, alimentation AEP, réseaux EU/EV aériens), VMC simple flux, ventilation haute, ventilation de décompression sanitaires"
+        "description": "Alimentation AEP, appareils sanitaires (douches, WC suspendus, lavabos), VMC simple flux, ventilation de décompression sanitaires"
       },
       {
         "numero": 13,
-        "intitule": "ELECTRICITE – CHAUFFAGE ELECTRIQUE",
-        "corps_etat": "Électricité - chauffage électrique",
+        "intitule": "LOT 13 - ELECTRICITE - CHAUFFAGE ELECTRIQUE",
+        "corps_etat": "électricité, chauffage électrique",
         "montant_estime": null,
-        "description": "Alimentation TGBT, distribution électrique, éclairage, chauffage électrique, mises à la terre, armoires secondaires, câblage ventouses électriques"
+        "description": "TGBT, alimentation électrique générale, éclairage intérieur et extérieur, chauffage électrique, ventouses électriques, armoires chantier"
       },
       {
         "numero": 14,
-        "intitule": "PHOTOVOLTAIQUE",
-        "corps_etat": "Photovoltaïque",
+        "intitule": "LOT 14 - PHOTOVOLTAIQUE",
+        "corps_etat": "installation photovoltaïque",
         "montant_estime": null,
-        "description": "Installation photovoltaïque en toiture de la Salle de convivialité / Réserve BAR — sur plots SOPRASOLAR FIX EVO soudés sur l'étanchéité PVC"
+        "description": "Fourniture et pose de panneaux photovoltaïques en toiture de la salle de convivialité / réserve bar, sur plots soudés sur membrane PVC (ATEX SOPRASOLAR FIX EVO)"
       }
     ]
   },
   "qualifications_requises": {
-    "description": "Le DCE fourni (CCTP uniquement) ne comporte pas de Règlement de Consultation ni de CCAP précisant les qualifications exigées. Aucune qualification Qualibat, RGE ou autre certification n'est explicitement mentionnée dans les pièces analysées.",
+    "description": "Le DCE transmis ne contient pas de RC (Règlement de Consultation) — les pièces fournies sont exclusivement les CCTP lots 00 à 07. Les qualifications exigées ne sont donc pas identifiables depuis ces pièces.",
     "qualibat": [],
     "rge": false,
     "rge_specialites": [],
@@ -158,15 +184,63 @@
     "iso_14001": false,
     "iso_45001": false,
     "opqibi": null,
-    "autres_certifications": [
-      "Certification ACERBOIS-GLULAM ou plan qualité validé par organisme compétent pour la fabrication du lamellé-collé (lot 03 — DTU 31.1)",
-      "Traitement anti-termite par entreprise spécialisée agréée CSTB avec label CTB P+ (lot 02)",
-      "Film anti-radon mis en œuvre par entreprise spécialisée agréée CSTB (lot 02)",
-      "Label QUALICOAT exigé pour la thermolaquage aluminium (lot 06)",
-      "Label NF Q exigé pour la quincaillerie (lots 06 et 07)",
-      "Label CEKAL ou équivalent pour les vitrages (lot 06)",
-      "DTA et certification NF CSTB exigés pour les menuiseries (lot 06)"
+    "autres_certifications": []
+  },
+  "caracteristiques_techniques_enr": {
+    "description": "Installation photovoltaïque en toiture terrasse sur la zone Salle de convivialité / Réserve Bar. Système en pose sur plots soudés sur membrane PVC étanche (ATEX 3200_V1 SOPRASOLAR FIX EVO). L'isolation sous PV est de 260mm de laine de roche (R=6.80 m².°C/W). Des crosses étanches traversent la toiture pour l'alimentation électrique des panneaux.",
+    "technologies_concernees": [
+      "photovoltaïque toiture"
+    ],
+    "type_de_sites": "Toiture terrasse de bâtiment sportif municipal neuf (salle de convivialité), accès par échelle sécurisée",
+    "criteres_eligibilite": [
+      {
+        "libelle": "Complexe d'étanchéité compatible avec l'ATEX 3200_V1 : SOPRASOLAR FIX EVO – PVC/TPO",
+        "source": "CCTP Lot 05 §05.2.3.1.1"
+      },
+      {
+        "libelle": "Soudure de plots support de panneaux photovoltaïques réalisée dans les 6 mois après mise en place de la membrane",
+        "source": "CCTP Lot 05 §05.2.3.1.3"
+      },
+      {
+        "libelle": "Charpente dimensionnée pour reprendre les charges des panneaux photovoltaïques",
+        "source": "CCTP Lot 03 §03.2.1.3"
+      }
+    ],
+    "contraintes_site_signalees": [
+      "travail en hauteur (toiture terrasse)",
+      "accès par échelle avec points d'ancrage fournis par lot couverture",
+      "coordination obligatoire avec lot 05 couverture pour soudure des plots dans le délai de 6 mois",
+      "coordination avec lot 13 électricité pour passage câbles via crosses étanches",
+      "bâtiment neuf — contraintes de chantier multi-lots"
     ]
+  },
+  "volumes_techniques": {
+    "puissance_totale_kwc": null,
+    "puissance_par_site_kwc": null,
+    "nb_sites": 1,
+    "surface_panneaux_m2": null,
+    "productible_annuel_estime_mwh": null,
+    "duree_marche_mois": 4,
+    "duree_maintenance_om_annees": null,
+    "commentaire_volumes": "La puissance de l'installation PV n'est pas précisée dans les CCTP fournis. Le lot 14 est distinct du lot 5 (étanchéité/plots) et du lot 13 (électricité/raccordement). La surface de la toiture zone salle de convivialité/réserve bar n'est pas communiquée dans les pièces fournies."
+  },
+  "modalites_execution_chantier": {
+    "raccordement_reseau_inclus": null,
+    "etudes_techniques_incluses": true,
+    "calendrier_chantier_contraint": null,
+    "sites_execution": [
+      "Le Pellerin (44640)",
+      "Loire-Atlantique"
+    ],
+    "engagement_productible": null,
+    "engagement_disponibilite_om": null
+  },
+  "qualifications_enr": {
+    "qualipv": null,
+    "qualisol": false,
+    "qualipac": false,
+    "qualibois": false,
+    "autres_certifications": []
   },
   "bareme_notation": {
     "valeur_technique_pct": null,
@@ -174,29 +248,125 @@
     "sous_criteres_techniques": [],
     "prix": {
       "type_formule": "autre",
-      "formule_explicite": "Le RC n'est pas fourni dans les pièces analysées. Le marché utilise un cadre de bordereau (DPGF par lot) pour la comparaison des offres. Le caractère forfaitaire est confirmé par le CCTP : l'adjudicataire reprend à son compte le bordereau à la signature du marché.",
+      "formule_explicite": "Non disponible — le RC n'est pas fourni dans les pièces analysées",
+      "source": null,
       "elements_a_chiffrer": [
-        "Bordereau de prix unitaires (cadre de bordereau) par lot, fourni par le concepteur",
-        "Lot 01 : terrassements (m²), remblais (m³), réseaux EP/EU (ml), voirie enrobé (m²), voirie bicouche (m²), noues drainantes (m²), fourreaux (ml), chambres de tirage (u)",
-        "Lot 02 : puits tarière (u), semelles isolées (m³), longrines (ml), dalle portée BA (m²), maçonnerie agglomérés (m²), enduit intérieur (m²), emmarchements (u)",
-        "Lot 03 : muraillères (ml), pannes bois massif (ml), pannes lamellé-collé (ml), contreventements (ml)",
-        "Lot 04 : poteaux métalliques (u), arbalétriers (kg ou u), pannes métalliques (ml), bardage plan (m²), bardage nervuré (m²)",
-        "Lot 05 : bac acier (m²), étanchéité PVC 260 mm (m²), étanchéité PVC 40 mm (m²), relevés (ml), plots PV (u), descentes EP (ml)",
-        "Lot 06 : châssis soufflet par type (u), portes vitrées par type (u), ensembles mixtes (u), portes métalliques (u), main courante (ml)",
-        "Lot 07 : blocs-portes par type (u), cloisonnement sanitaires (m²), combinés muraux (u), meuble bar (u)",
-        "Lots 08 à 14 : non détaillés dans les pièces fournies — à vérifier au cadre de bordereau joint"
+        "Décomposition du Prix Global Forfaitaire (DPGF) par lot",
+        "Prix unitaires du Bordereau de Prix Unitaires (BPU) pour les prestations quantifiées",
+        "Prestation supplémentaire éventuelle (PSE) — Lot 02 : ravalement intérieur Circulation et Salle convivialité",
+        "Prestation supplémentaire éventuelle (PSE) — Lot 04 : plafond métallique sous-faces Préau et Casquette"
       ]
     },
-    "modalite_calcul_prix": "Le RC n'est pas fourni. Le marché est à prix forfaitaire par lot. La comparaison s'effectue via le cadre de bordereau fourni par le concepteur que chaque candidat doit obligatoirement renseigner."
+    "modalite_calcul_prix": "Non disponible — le RC n'est pas fourni"
   },
   "montant_marche": {
     "valeur_estimee_euros": null,
-    "fourchette_min_euros": null,
-    "fourchette_max_euros": null,
-    "type": "non_communique",
-    "duree_couverte": null,
-    "source_extraction": null,
-    "commentaire": "Le DCE fourni se limite aux pièces CCTP (lots 00 à 07). Ni le RC, ni le CCAP, ni le BPU/DPGF ne sont disponibles dans les pièces analysées. Aucun montant estimatif ou plafond budgétaire n'est mentionné dans les pièces CCTP. L'estimation financière est à consulter dans l'avis BOAMP (référence 26-56456) ou dans le RC qui n'a pas été fourni."
+    "fourchette_min_euros": 1500000,
+    "fourchette_max_euros": 2500000,
+    "type": "calcule_volumes",
+    "duree_couverte": "Travaux d'une durée de 4 mois par lot — construction neuve tous corps d'état",
+    "source_extraction": "Estimation bottom-up depuis les CCTP des 14 lots",
+    "commentaire": "Aucun montant explicite n'est communiqué dans les pièces fournies. Estimation basée sur les ratios marché pour un bâtiment sportif neuf de cette nature (vestiaires foot + salle convivialité) : en Loire-Atlantique, ce type de bâtiment se situe entre 1 500 et 2 500 €/m² tout corps d'état. Sans surface communiquée, la fourchette est large. Le lot photovoltaïque en sus représente typiquement 50 000 à 150 000 € selon la puissance installée (non précisée)."
+  },
+  "montant_3_voies": {
+    "voie_1_eur": null,
+    "voie_1_source": null,
+    "voie_2_disponible": true,
+    "voie_2_min_eur": 1500000,
+    "voie_2_max_eur": 2500000,
+    "voie_2_hypotheses": [
+      {
+        "hypothese": "Surface de plancher estimée pour un équipement sportif de ce type (vestiaires + salle convivialité + rangements + préau) basée sur les locaux décrits dans le CCTP",
+        "valeur": "600 à 900 m² de surface plancher estimée"
+      },
+      {
+        "hypothese": "Ratio prix de construction neuf bâtiment sportif en Loire-Atlantique — dimension variable retenue (ratio €/m²)",
+        "valeur": "1 800 à 2 500 €/m² TTC tous lots confondus selon complexité (zone sismique 3, traitement acoustique, PV)"
+      },
+      {
+        "hypothese": "Nombre de lots (14) avec des corps d'état spécialisés incluant charpente bois lamellé-collé, métallerie, étanchéité PVC, PV — surcoût estimé vs bâtiment standard",
+        "valeur": "+15% vs ratio standard"
+      },
+      {
+        "hypothese": "PSE Lot 02 et PSE Lot 04 non incluses dans la base",
+        "valeur": "Options non comptabilisées"
+      }
+    ],
+    "voie_2_raison_indisponible": null
+  },
+  "cout_realisation": {
+    "cout_total_eur": 1200000,
+    "cout_min_eur": 1050000,
+    "cout_max_eur": 1400000,
+    "postes": [
+      {
+        "poste": "Lot 01 — Terrassements VRD",
+        "detail": "Terrassements, réseaux EU/EP/AEP extérieurs, voiries, espaces verts — ratio marché VRD bâtiment neuf",
+        "montant_eur": 120000
+      },
+      {
+        "poste": "Lot 02 — Gros Œuvre",
+        "detail": "Fondations puits tarière, dalle portée BA, maçonnerie agglos, installation chantier — lot principal le plus lourd",
+        "montant_eur": 280000
+      },
+      {
+        "poste": "Lot 03 — Charpente Bois",
+        "detail": "Charpente lamellé-collé et bois massif, étude structure incluse",
+        "montant_eur": 80000
+      },
+      {
+        "poste": "Lot 04 — Charpente et Bardages Métalliques",
+        "detail": "Charpente galvanisée préau + casquette, bardage métallique isolation 160mm toutes façades",
+        "montant_eur": 130000
+      },
+      {
+        "poste": "Lot 05 — Couverture Bac Acier + Étanchéité PVC",
+        "detail": "Bac acier, étanchéité PVC multi-zones, plots PV, coiffes aluminium",
+        "montant_eur": 90000
+      },
+      {
+        "poste": "Lot 06 — Menuiseries Extérieures Aluminium + Métallerie",
+        "detail": "Menuiseries RPT, vitrages feuilletés, portes métalliques, garde-corps",
+        "montant_eur": 85000
+      },
+      {
+        "poste": "Lot 07 — Menuiseries Intérieures Bois",
+        "detail": "Blocs-portes, cloisons sanitaires stratifiés, agencement bar, combinés vestiaires",
+        "montant_eur": 55000
+      },
+      {
+        "poste": "Lots 08+09 — Cloisons sèches + Plafonds suspendus",
+        "detail": "Cloisons BA13, plafonds suspendus et en plaques de plâtre",
+        "montant_eur": 60000
+      },
+      {
+        "poste": "Lot 10 — Carrelage + Faïence",
+        "detail": "Revêtements sols carrelage et faïence murale locaux humides",
+        "montant_eur": 55000
+      },
+      {
+        "poste": "Lot 11 — Peinture",
+        "detail": "Peinture intérieure et extérieure",
+        "montant_eur": 30000
+      },
+      {
+        "poste": "Lot 12 — Plomberie + Ventilation",
+        "detail": "AEP, sanitaires complets vestiaires, VMC simple flux",
+        "montant_eur": 80000
+      },
+      {
+        "poste": "Lot 13 — Électricité + Chauffage électrique",
+        "detail": "TGBT, distribution électrique, éclairage, chauffage électrique",
+        "montant_eur": 90000
+      },
+      {
+        "poste": "Lot 14 — Photovoltaïque",
+        "detail": "Fourniture et pose panneaux PV, câblage, onduleurs — puissance non précisée, estimation 30-50 kWc",
+        "montant_eur": 45000
+      }
+    ],
+    "taux_journaliers_retenus": "Taux indicatifs marché BTP Loire-Atlantique 2025-2026 : maçon qualifié 42-48 €/h chargé ; charpentier bois 45-52 €/h chargé ; étancheur 48-55 €/h chargé ; électricien 42-50 €/h chargé ; plombier 42-50 €/h chargé. Marges brutes travaux neufs typiques 10-22% selon corps d'état.",
+    "commentaire": "Estimation bottom-up basée sur les corps d'état décrits dans les CCTP lots 00 à 07. Les surfaces ne sont pas communiquées dans les pièces disponibles — l'estimation est fondée sur des ratios marché pour ce type de bâtiment sportif en Loire-Atlantique. La puissance PV du lot 14 n'étant pas précisée, une hypothèse de 30-50 kWc a été retenue (à 900-1100 €/kWc installé). Le coût représente le coût de production pour le candidat (main d'œuvre + matériaux + sous-traitance), sans inclure les frais généraux et marge commerciale."
   },
   "revision_prix": {
     "type": "non_communique",
@@ -205,244 +375,292 @@
     "periodicite": null,
     "formule_revision": null,
     "source_extraction": null,
-    "commentaire": "Le CCAP n'est pas inclus dans les pièces fournies. La révision des prix ne peut pas être déterminée à partir des seuls CCTP analysés."
+    "commentaire": "Le CCAP n'est pas fourni dans les pièces analysées. La révision des prix ne peut pas être déterminée."
   },
   "alertes_prix": [
-    "Le marché est à prix forfaitaire par lot : toute erreur ou omission dans le bordereau est définitivement à la charge de l'entrepreneur après signature (article 00.5 et articles équivalents dans chaque lot CCTP).",
-    "Plusieurs lots exigent des études techniques à la charge de l'entreprise (BET structure pour lot 02, études charpente pour lots 03 et 04) — ces frais d'études doivent être intégrés dans les prix unitaires.",
-    "Le RC et le CCAP ne sont pas fournis : impossibilité de vérifier les seuils d'offre anormalement basse ou les plafonds budgétaires.",
-    "Lots 08 à 14 non détaillés dans les pièces fournies — le cadre de bordereau de ces lots est absent, rendant impossible le chiffrage complet à ce stade."
+    "Les prix sont forfaitaires par lot — toute erreur ou omission dans le bordereau après signature du marché est à la charge exclusive de l'entreprise (clause CCTP §00.5)",
+    "Le lot Gros Œuvre doit inclure les études de structure BA (bureau d'études au choix de l'entreprise) et les études géotechniques complémentaires à l'ouverture des fouilles — coût d'étude à intégrer dans l'offre",
+    "Deux PSE (Prestations Supplémentaires Éventuelles) à chiffrer obligatoirement : PSE Lot 02 (ravalement intérieur Circulation + Salle convivialité) et PSE Lot 04 (plafond métallique sous-faces Préau et Casquette) — ne pas oublier de les inclure",
+    "La puissance PV du lot 14 n'est pas précisée dans les pièces disponibles — risque de chiffrage sans donnée dimensionnante. Une visite de chantier et consultation des plans architecte sont indispensables avant offre"
   ],
   "references_exigees": {
     "experience_minimale_annees": null,
     "experience_source": null,
     "volume_min_references_similaires": null,
     "volume_min_references_unite": null,
-    "secteur_experience": null,
+    "secteur_experience": "Non précisé — RC non fourni",
     "secteur_source": null,
-    "certifications_obligatoires": [
-      {
-        "libelle": "Certification ACERBOIS-GLULAM ou plan qualité validé par organisme compétent (CTBA, CETO, Bureau de contrôle) pour fabrication lamellé-collé — norme NF EN 386",
-        "source": "CCTP lot 03 §03.2.2.1.1"
-      },
-      {
-        "libelle": "Traitement anti-termite par entreprise spécialisée agréée CSTB — label CTB P+ et Avis Technique CSTB zones sismiques incluses",
-        "source": "CCTP lot 02 §02.2.4.3"
-      },
-      {
-        "libelle": "Film anti-radon mis en œuvre par entreprise spécialisée agréée CSTB — produit certifié CSTB sous avis technique",
-        "source": "CCTP lot 02 §02.2.4.5"
-      },
-      {
-        "libelle": "Label QUALICOAT exigé pour thermolaquage aluminium des menuiseries extérieures",
-        "source": "CCTP lot 06 §06.1.10"
-      },
-      {
-        "libelle": "Label NF Q exigé pour la quincaillerie des menuiseries extérieures",
-        "source": "CCTP lot 06 §06.1.10"
-      },
-      {
-        "libelle": "Label CEKAL ou équivalent pour les vitrages isolants",
-        "source": "CCTP lot 06 §06.2.1.2"
-      },
-      {
-        "libelle": "DTA (Document Technique d'Application) et certification NF CSTB pour les menuiseries extérieures aluminium",
-        "source": "CCTP lot 06 §06.2.1.2"
-      }
-    ],
-    "autres_exigences": [
-      {
-        "libelle": "Fourniture d'un P.P.S.P.S. en 2 exemplaires avant intervention sur site — exigé de tous les lots",
-        "source": "CCTP lot 00 §00.6"
-      },
-      {
-        "libelle": "Remise du DOE au plus tard 15 jours avant la réception des travaux — exigé de tous les lots",
-        "source": "CCTP lots 01 à 07 §x.1.3"
-      },
-      {
-        "libelle": "Étude béton (BET structure au choix de l'entreprise) à la charge du lot Gros Œuvre — frais à intégrer dans l'offre",
-        "source": "CCTP lot 02 §02.2.1.4"
-      },
-      {
-        "libelle": "Validation de l'implantation par géomètre expert agréé par le maître d'ouvrage — à la charge du lot Gros Œuvre",
-        "source": "CCTP lot 02 §02.2.1.5"
-      },
-      {
-        "libelle": "Études techniques charpente (notes de calculs, plans d'exécution, plans d'atelier) à la charge des lots 03 et 04",
-        "source": "CCTP lots 03 §03.1.10 et 04 §04.2.1.3"
-      }
-    ]
+    "certifications_obligatoires": [],
+    "autres_exigences": []
+  },
+  "dossier_candidature": {
+    "pieces_a_fournir": [],
+    "mode_remise": null,
+    "plateforme_depot": null,
+    "signature_electronique_exigee": null,
+    "format_signature": null,
+    "nombre_exemplaires": null,
+    "langue": "français",
+    "duree_validite_offres_jours": null,
+    "modalites_source": null
   },
   "lots": [
     {
       "numero": 1,
-      "intitule": "TERRASSEMENT - VRD",
-      "zone_geographique": "Le Pellerin (44640), Boulevard Jean Monnet",
+      "intitule": "LOT 01 - TERRASSEMENTS VRD",
+      "domaine": "btp_voirie_reseaux",
+      "zone_geographique": "Le Pellerin (44640)",
       "volume_estime": null,
       "volume_estime_unite": null,
-      "particularites": "Comprend la réalisation des noues drainantes paysagères (dimensionnement selon étude hydraulique BET CADEGEAU), le dévoiement des réseaux existants (EDF, AEP, TELECOM, éclairage terrain) passant dans l'emprise de la construction, et la création de 2 places de stationnement dont 1 PMR avec marquage et signalisation."
+      "cout_estime_min_eur": 100000,
+      "cout_estime_max_eur": 145000,
+      "ca_estime_min_eur": 120000,
+      "ca_estime_max_eur": 175000,
+      "marge_brute_pct": 16,
+      "particularites": "Inclut noues drainantes dimensionnées par étude hydraulique CADEGEAU, dévoiement réseaux existants EDF/AEP/Télécom, tranchées fourreaux pour l'ensemble des fluides. Lot gérant la signalisation extérieure et les voiries enrobé + bicouche."
     },
     {
       "numero": 2,
-      "intitule": "GROS ŒUVRE",
-      "zone_geographique": "Le Pellerin (44640), Boulevard Jean Monnet",
+      "intitule": "LOT 02 - GROS-OEUVRE",
+      "domaine": "btp_gros_oeuvre",
+      "zone_geographique": "Le Pellerin (44640)",
       "volume_estime": null,
       "volume_estime_unite": null,
-      "particularites": "Entrepreneur principal — gestionnaire du compte prorata. Responsable de l'installation et clôture de chantier, du panneau de chantier, des branchements provisoires eau et électricité, des cantonnements. Fondations sur puits tarière ancrés dans le gneiss ± altéré (BET structure à la charge de l'entreprise). Traitement anti-termite et film anti-radon obligatoires. PSE n°01 : ravalement intérieur Circulation et Salle de convivialité à chiffrer en option."
+      "cout_estime_min_eur": 230000,
+      "cout_estime_max_eur": 330000,
+      "ca_estime_min_eur": 270000,
+      "ca_estime_max_eur": 400000,
+      "marge_brute_pct": 16,
+      "particularites": "Lot principal / entrepreneur principal — gestion du compte prorata, installation et clôture de chantier, panneau chantier. Inclut traitement anti-termites, film anti-radon, isolation sous dalle, fondations puits tarière sur gneiss altéré. PSE n°01 à chiffrer (ravalement Circulation + Salle convivialité)."
     },
     {
       "numero": 3,
-      "intitule": "CHARPENTES BOIS",
-      "zone_geographique": "Le Pellerin (44640), Boulevard Jean Monnet",
+      "intitule": "LOT 03 - CHARPENTE BOIS",
+      "domaine": "btp_gros_oeuvre",
+      "zone_geographique": "Le Pellerin (44640)",
       "volume_estime": null,
       "volume_estime_unite": null,
-      "particularites": "Bois labellisés PEFC ou FSC obligatoires. Fabricant lamellé-collé certifié ACERBOIS-GLULAM ou plan qualité équivalent exigé. Charpente dimensionnée pour reprendre les charges des panneaux photovoltaïques. Sections conformes DTU 43.3 (appuis largeur 60 mm × hauteur 80 mm minimum)."
+      "cout_estime_min_eur": 65000,
+      "cout_estime_max_eur": 100000,
+      "ca_estime_min_eur": 78000,
+      "ca_estime_max_eur": 120000,
+      "marge_brute_pct": 17,
+      "particularites": "Bois labellisés PEFC/FSC exigés. Charpente à dimensionner pour charges PV. Fabricant lamellé-collé doit être certifié ACERBOIS-GLULAM ou plan qualité équivalent. Études de structure à la charge de l'entreprise."
     },
     {
       "numero": 4,
-      "intitule": "CHARPENTE ET BARDAGES METALLIQUES",
-      "zone_geographique": "Le Pellerin (44640), Boulevard Jean Monnet",
+      "intitule": "LOT 04 - CHARPENTE ET BARDAGES METALLIQUES",
+      "domaine": "btp_second_oeuvre",
+      "zone_geographique": "Le Pellerin (44640)",
       "volume_estime": null,
       "volume_estime_unite": null,
-      "particularites": "Tous ouvrages métalliques galvanisés. Isolation de façade 160 mm laine de verre (R = 5,00 m².°C/W). Bardage plan lames lisses ST C300 et bardage nervuré FREQUENCE 13.76.18 ou équivalents. PSE n°02 : plafond métallique sous-faces Préau et Casquette à chiffrer en option. Sismicité région 3, bâtiment cat. II."
+      "cout_estime_min_eur": 105000,
+      "cout_estime_max_eur": 155000,
+      "ca_estime_min_eur": 130000,
+      "ca_estime_max_eur": 190000,
+      "marge_brute_pct": 18,
+      "particularites": "Charpente galvanisée préau (façades N et O) et casquette (façade S). Bardage métallique toutes façades (lames lisses + nervurées) avec isolation laine de verre 160mm R=5.00. PSE n°02 à chiffrer (plafond métallique sous-faces préau et casquette). Réservations façades pour fluides à inclure."
     },
     {
       "numero": 5,
-      "intitule": "COUVERTURE BAC ACIER – ETANCHEITE PVC",
-      "zone_geographique": "Le Pellerin (44640), Boulevard Jean Monnet",
+      "intitule": "LOT 05 - COUVERTURE BAC ACIER -- ETANCHEITE PVC",
+      "domaine": "btp_second_oeuvre",
+      "zone_geographique": "Le Pellerin (44640)",
       "volume_estime": null,
       "volume_estime_unite": null,
-      "particularites": "Complexe d'étanchéité compatible avec l'ATEX 3200_V1 SOPRASOLAR FIX EVO (zone PV). Soudure des plots PV à réaliser dans les 6 mois après pose de la membrane. Traitement spécifique toiture à très forte hygrométrie (vestiaires) avec pare-vapeur Sopravap Stick Alu S16. Descentes EP dans les poteaux métalliques du lot 04."
+      "cout_estime_min_eur": 72000,
+      "cout_estime_max_eur": 110000,
+      "ca_estime_min_eur": 88000,
+      "ca_estime_max_eur": 135000,
+      "marge_brute_pct": 18,
+      "particularites": "3 zones d'étanchéité distinctes (zone PV salle convivialité, zone locaux très forte hygrométrie, zones préau/casquette). Soudure de plots support PV obligatoirement dans les 6 mois après pose membrane. Compatibilité ATEX SOPRASOLAR FIX EVO impérative. Traversées toiture VMC et ventilations."
     },
     {
       "numero": 6,
-      "intitule": "MENUISERIES EXTERIEURES ALUMINIUM - METALLERIE",
-      "zone_geographique": "Le Pellerin (44640), Boulevard Jean Monnet",
+      "intitule": "LOT 06 - MENUISERIES EXTERIEURES ALUMINIUM - METALLERIE",
+      "domaine": "btp_second_oeuvre",
+      "zone_geographique": "Le Pellerin (44640)",
       "volume_estime": null,
       "volume_estime_unite": null,
-      "particularites": "Label QUALICOAT obligatoire pour thermolaquage. Classement AEV A*3-E*5-V*A3 exigé. Uw ≤ 1,50 W/m².°C avec double vitrage argon. Effort d'ouverture des portes < 50 N. Ventouses électriques sur plusieurs portes (coordination lot 13 Électricité). Gestion de l'organigramme de clés (passes généraux et passes partiels) commune aux lots 06 et 07."
+      "cout_estime_min_eur": 68000,
+      "cout_estime_max_eur": 103000,
+      "ca_estime_min_eur": 82000,
+      "ca_estime_max_eur": 125000,
+      "marge_brute_pct": 19,
+      "particularites": "Classement AEV A*3-E*5-V*A3 exigé. Uw ≤ 1.50 W/m².°C. Label QUALICOAT exigé. DTA et certification NF CSTB. Seuils PMR encastrés. Ventouses électriques en coordination lot électricité. Gestion organigramme de clés (passe général + partiels)."
     },
     {
       "numero": 7,
-      "intitule": "MENUISERIE INTERIEURES BOIS",
-      "zone_geographique": "Le Pellerin (44640), Boulevard Jean Monnet",
+      "intitule": "LOT 07 - MENUISERIES INTERIEURES BOIS",
+      "domaine": "btp_second_oeuvre",
+      "zone_geographique": "Le Pellerin (44640)",
       "volume_estime": null,
       "volume_estime_unite": null,
-      "particularites": "Blocs-portes insensibles à l'humidité type THALASSO ou équivalent avec huisserie PVC pour les vestiaires. Coupe-feu 1/2h sur local TGBT et placards techniques. Cloisonnement sanitaires en stratifié massif Trespa Athlon épaisseur 10 mm. Meuble bar L = 4,35 ml. Protection bas de portes inox hauteur 1,10 m sur les vestiaires et bureau."
+      "cout_estime_min_eur": 43000,
+      "cout_estime_max_eur": 68000,
+      "ca_estime_min_eur": 53000,
+      "ca_estime_max_eur": 83000,
+      "marge_brute_pct": 21,
+      "particularites": "Blocs-portes insensibles humidité pour vestiaires (type Thalasso), coupe-feu 1/2h pour locaux TGBT/télécom. Meuble bar en agencement sur mesure (longueur 4,35 ml). Cloisonnements sanitaires stratifiés massifs type Trespa. Ventouses électriques 24V DC en coordination lot électricité."
     },
     {
       "numero": 8,
-      "intitule": "CLOISONS SECHES - PLAFONDS EN PLAQUES DE PLATRE",
-      "zone_geographique": "Le Pellerin (44640), Boulevard Jean Monnet",
+      "intitule": "LOT 08 - CLOISONS SECHES - PLAFONDS EN PLAQUES DE PLATRE",
+      "domaine": "btp_second_oeuvre",
+      "zone_geographique": "Le Pellerin (44640)",
       "volume_estime": null,
       "volume_estime_unite": null,
-      "particularites": "CCTP lot 08 non fourni dans les pièces analysées."
+      "cout_estime_min_eur": 28000,
+      "cout_estime_max_eur": 45000,
+      "ca_estime_min_eur": 35000,
+      "ca_estime_max_eur": 55000,
+      "marge_brute_pct": 21,
+      "particularites": "Coordination acoustique avec BET DB ACOUSTIC. Cloisons en zones sèches uniquement (zones humides traitées en enduit lot GO)."
     },
     {
       "numero": 9,
-      "intitule": "PLAFONDS SUSPENDUS",
-      "zone_geographique": "Le Pellerin (44640), Boulevard Jean Monnet",
+      "intitule": "LOT 09 - PLAFONDS SUSPENDUS",
+      "domaine": "btp_second_oeuvre",
+      "zone_geographique": "Le Pellerin (44640)",
       "volume_estime": null,
       "volume_estime_unite": null,
-      "particularites": "CCTP lot 09 non fourni dans les pièces analysées."
+      "cout_estime_min_eur": 18000,
+      "cout_estime_max_eur": 30000,
+      "ca_estime_min_eur": 22000,
+      "ca_estime_max_eur": 37000,
+      "marge_brute_pct": 20,
+      "particularites": null
     },
     {
       "numero": 10,
-      "intitule": "REVETEMENTS DE SOLS CARRELAGE - FAIENCE",
-      "zone_geographique": "Le Pellerin (44640), Boulevard Jean Monnet",
+      "intitule": "LOT 10 - REVETEMENTS DE SOLS CARRELAGE - FAIENCE",
+      "domaine": "btp_second_oeuvre",
+      "zone_geographique": "Le Pellerin (44640)",
       "volume_estime": null,
       "volume_estime_unite": null,
-      "particularites": "CCTP lot 10 non fourni dans les pièces analysées."
+      "cout_estime_min_eur": 42000,
+      "cout_estime_max_eur": 68000,
+      "ca_estime_min_eur": 52000,
+      "ca_estime_max_eur": 83000,
+      "marge_brute_pct": 20,
+      "particularites": "Zones humides importantes (5 vestiaires + 2 arbitres + sanitaires). Coordination avec lot GO pour profilés d'arrêt enduit/faïence."
     },
     {
       "numero": 11,
-      "intitule": "PEINTURE",
-      "zone_geographique": "Le Pellerin (44640), Boulevard Jean Monnet",
+      "intitule": "LOT 11 - PEINTURE",
+      "domaine": "btp_second_oeuvre",
+      "zone_geographique": "Le Pellerin (44640)",
       "volume_estime": null,
       "volume_estime_unite": null,
-      "particularites": "CCTP lot 11 non fourni dans les pièces analysées. Finition peinture sur maçonnerie parpaings apparents (collaboration avec lot 02 pour réception du support). Nettoyage intérieur de tous les locaux à la fin de chaque phase à la charge du peintre."
+      "cout_estime_min_eur": 22000,
+      "cout_estime_max_eur": 38000,
+      "ca_estime_min_eur": 27000,
+      "ca_estime_max_eur": 46000,
+      "marge_brute_pct": 20,
+      "particularites": "Peinture sur maçonnerie parpaings apparents (support à réceptionner avec GO), finition dauphins fonte, nettoyage intérieur avant réception de chaque phase à la charge de ce lot."
     },
     {
       "numero": 12,
-      "intitule": "PLOMBERIE – VENTILATION",
-      "zone_geographique": "Le Pellerin (44640), Boulevard Jean Monnet",
+      "intitule": "LOT 12 - PLOMBERIE - VENTILATION",
+      "domaine": "btp_second_oeuvre",
+      "zone_geographique": "Le Pellerin (44640)",
       "volume_estime": null,
       "volume_estime_unite": null,
-      "particularites": "CCTP lot 12 non fourni dans les pièces analysées. Réseaux EU/EV aériens à la charge de ce lot. Fourniture et pose des entrées d'air sur les menuiseries en coordination avec lot 06."
+      "cout_estime_min_eur": 63000,
+      "cout_estime_max_eur": 98000,
+      "ca_estime_min_eur": 78000,
+      "ca_estime_max_eur": 120000,
+      "marge_brute_pct": 20,
+      "particularites": "VMC simple flux Ø250 et Ø350mm en toiture, ventilation de décompression sanitaires Ø120mm, ventilation haute bâtiment Ø200mm. Réseau provisoire intérieur EP à la charge de ce lot (compte prorata). Bâti-supports WC suspendus chasses directes."
     },
     {
       "numero": 13,
-      "intitule": "ELECTRICITE – CHAUFFAGE ELECTRIQUE",
-      "zone_geographique": "Le Pellerin (44640), Boulevard Jean Monnet",
+      "intitule": "LOT 13 - ELECTRICITE - CHAUFFAGE ELECTRIQUE",
+      "domaine": "btp_second_oeuvre",
+      "zone_geographique": "Le Pellerin (44640)",
       "volume_estime": null,
       "volume_estime_unite": null,
-      "particularites": "CCTP lot 13 non fourni dans les pièces analysées. Armoires secondaires électriques de chantier à la charge de ce lot. Éclairage de chantier (interne et externe) à la charge de ce lot. Mise à la terre lors de l'exécution des fondations (coordination lot 02)."
+      "cout_estime_min_eur": 70000,
+      "cout_estime_max_eur": 110000,
+      "ca_estime_min_eur": 85000,
+      "ca_estime_max_eur": 135000,
+      "marge_brute_pct": 20,
+      "particularites": "TGBT en façade SUD, armoires secondaires chantier (à la charge de ce lot), éclairage chantier intérieur et extérieur, mise à la terre en coordination lot GO, raccordement ventouses électriques en coordination lots menuiseries. Alimentations futurs containers et éclairage terrain de foot depuis lot VRD."
     },
     {
       "numero": 14,
-      "intitule": "PHOTOVOLTAIQUE",
-      "zone_geographique": "Le Pellerin (44640), Boulevard Jean Monnet",
+      "intitule": "LOT 14 - PHOTOVOLTAIQUE",
+      "domaine": "energie_pv_solaire",
+      "zone_geographique": "Le Pellerin (44640)",
       "volume_estime": null,
-      "volume_estime_unite": null,
-      "particularites": "CCTP lot 14 non fourni dans les pièces analysées. Installation sur plots SOPRASOLAR FIX EVO soudés par le lot 05 Étanchéité sur la toiture de la Salle de convivialité / Réserve BAR. Alimentation depuis le TGBT Circulation façade SUD."
+      "volume_estime_unite": "kWc",
+      "cout_estime_min_eur": 32000,
+      "cout_estime_max_eur": 55000,
+      "ca_estime_min_eur": 40000,
+      "ca_estime_max_eur": 70000,
+      "marge_brute_pct": 22,
+      "particularites": "Pose sur plots SOPRASOLAR FIX EVO soudés sur membrane PVC (lot 5). Traversée toiture par crosses étanches (lot 5). Puissance non précisée dans les pièces fournies. Coordination impérative avec lots 5 (étanchéité/plots) et 13 (raccordement électrique). Accès toiture via points d'ancrage prévus par lot 5."
     }
   ],
+  "tranches": [],
   "calendrier": {
     "date_limite_offres": "2026-06-30",
     "date_demarrage_prevue": null,
-    "duree_marche": null
+    "duree_marche": "4 mois de travaux par lot"
   },
   "alertes_candidat": [
-    "RC et CCAP non fournis dans les pièces analysées : impossibilité de vérifier les conditions de recevabilité, les qualifications exigées, les critères de sélection et les critères d'attribution — le candidat DOIT consulter ces pièces avant de déposer son offre.",
-    "Délai très court entre publication (10/06/2026) et date limite de dépôt (30/06/2026) — seulement 20 jours calendaires pour préparer une offre sur 14 lots techniques avec études à la charge des entreprises.",
-    "Lot 02 Gros Œuvre : l'étude de structure BA (fondations, dalle, élévations) est entièrement à la charge de l'entreprise avec un BET au choix — coût d'études à intégrer dans l'offre ; implantation à valider par géomètre expert agréé par le maître d'ouvrage.",
-    "Zone sismique 3 et fondations sur gneiss ± altéré : les hypothèses géotechniques (contrainte 2 bars ELS) doivent être vérifiées à l'ouverture des fouilles — surprofondeurs éventuelles non prises en charge par le maître d'œuvre.",
-    "Lots 03 et 04 : charpente dimensionnée pour reprendre les charges PV — nécessite une coordination préalable avec le lot 14 pour connaître les surcharges exactes des panneaux photovoltaïques avant mise en fabrication."
+    "Le RC n'est pas fourni dans les pièces disponibles — les conditions d'admission, qualifications exigées, critères d'attribution et modalités de remise des offres ne peuvent pas être vérifiés. Télécharger impérativement le RC complet sur la plateforme de dépôt avant toute candidature.",
+    "Le lot 14 (Photovoltaïque) requiert une coordination stricte avec le lot 05 (plots soudés sur membrane dans les 6 mois) — tout retard de chantier peut invalider la possibilité de poser les supports PV et engager la responsabilité du candidat lot 14.",
+    "Le lot Gros Œuvre (lot 02) est nommé entrepreneur principal — il gère le compte prorata et les installations communes. Ce rôle implique des charges de trésorerie importantes (avances aux autres lots, frais communs à gérer) qui doivent être budgétées dans l'offre.",
+    "Zone sismicité 3 avec ancrage minimal sur gneiss altéré à 80 cm — les hypothèses de fondations doivent être confirmées à l'ouverture des fouilles, avec risque de surprofondeurs. L'entrepreneur lot GO doit intégrer cette incertitude dans son prix.",
+    "Traitement anti-termites et film anti-radon obligatoires — prestations spécialisées nécessitant des sous-traitants agréés CSTB avec procédés sous avis technique. Vérifier la disponibilité de ces sous-traitants avant le dépôt de l'offre."
   ],
   "points_differenciants_attendus": [
     {
-      "libelle": "Maîtrise des exigences acoustiques spécifiques au projet (étude DB ACOUSTIC)",
-      "exemple": "Le candidat peut valoriser sa connaissance des prescriptions de l'étude acoustique DB ACOUSTIC (fournie en annexe au DCE) et proposer des produits équivalents documentés avec leurs performances acoustiques, en citant les références et caractéristiques techniques dans l'offre de prix.",
-      "source": "CCTP lots 01 à 07 §x.2.1 Etude acoustique"
+      "libelle": "Expérience en bâtiments sportifs avec contraintes acoustiques complexes",
+      "exemple": "Mettre en avant des références de vestiaires ou salles polyvalentes ayant fait l'objet d'une étude acoustique spécifique avec BET acoustique, en indiquant les performances atteintes (DnTa, LnTw) et les solutions constructives retenues (parpaings, cloisons, jonctions isolées).",
+      "source": "CCTP §00 — étude acoustique DB ACOUSTIC mentionnée dans tous les lots"
     },
     {
-      "libelle": "Expérience en construction de vestiaires sportifs ou équipements collectifs avec contraintes hygrométriques fortes",
-      "exemple": "Un candidat au lot 05 (Étanchéité) peut référencer des chantiers similaires sur des toitures de vestiaires (locaux à très forte hygrométrie) avec mise en œuvre de pare-vapeur renforcé Sopravap Stick Alu S16, pour démontrer la maîtrise du risque de condensation sous étanchéité.",
-      "source": null
+      "libelle": "Maîtrise des interfaces multi-lots et coordination technique",
+      "exemple": "Démontrer une expérience de coordination inter-lots sur des opérations similaires (charpente bois + métallique + étanchéité + PV), avec une méthodologie de gestion des réservations et des plans de détail fournis en temps utile à chaque corps d'état.",
+      "source": "CCTP §00.8 — coordination et limites de prestations détaillées dans chaque lot"
     },
     {
-      "libelle": "Capacité à gérer la coordination multi-lots et le compte prorata pour le lot Gros Œuvre",
-      "exemple": "Le candidat au lot 02 peut présenter son organisation de gestion du compte prorata (suivi des dépenses communes, clôture périodique) et un planning d'intervention coordonné avec les 13 autres lots, pour rassurer le maître d'ouvrage sur sa capacité à jouer le rôle d'entrepreneur principal.",
-      "source": "CCTP lot 00 §00.20"
+      "libelle": "Compétence en installation photovoltaïque sur système d'étanchéité PVC",
+      "exemple": "Pour le lot 14, présenter des références de chantiers avec pose de PV sur plots soudés sur membrane PVC (système SOPRASOLAR ou similaire), en mentionnant la puissance installée, le type de membrane et le respect du délai de 6 mois entre pose membrane et plots.",
+      "source": "CCTP Lot 05 §05.2.3.1.3"
     },
     {
-      "libelle": "Références de chantiers en zone sismique 3 avec fondations profondes sur gneiss",
-      "exemple": "Pour le lot 02, la présentation de références de chantiers réalisés en zone sismique 3 avec puits tarière ancrés dans le substratum rocheux et coordination avec un BET structure permettrait de se démarquer sur la maîtrise du risque géotechnique.",
-      "source": "CCTP lot 02 §02.2.2.4.4"
+      "libelle": "Expérience en zone sismique 3 avec fondations profondes sur roche altérée",
+      "exemple": "Pour le lot GO, citer des références de chantiers réalisés en zone sismique 3 avec puits à la tarière sur gneiss altéré, en indiquant la profondeur d'ancrage atteinte et la démarche de vérification à l'ouverture des fouilles.",
+      "source": "CCTP Lot 02 §02.2.2.4.4"
     },
     {
-      "libelle": "Compatibilité du complexe d'étanchéité avec l'ATEX PV SOPRASOLAR FIX EVO",
-      "exemple": "Pour le lot 05, le candidat doit impérativement justifier que son complexe d'étanchéité PVC est compatible avec l'ATEX 3200_V1 SOPRASOLAR FIX EVO. Citer l'homologation et proposer un calepinage de plots PV coordonné avec le lot 14 serait un facteur de différenciation technique fort.",
-      "source": "CCTP lot 05 §05.2.3.1.1"
+      "libelle": "Capacité à produire des études techniques spécialisées intégrées",
+      "exemple": "Plusieurs lots imposent à l'entreprise de produire ses propres études (structure BA, charpente, étanchéité). Présenter l'organisation interne ou les partenaires BET structure/charpente permettant de réaliser ces études rapidement pour ne pas bloquer le planning d'ensemble.",
+      "source": "CCTP Lot 02 §02.2.1.4 et Lot 03 §03.1.10"
     }
   ],
   "_meta": {
     "id_marche": "BOAMP-26-56456",
     "type": "complet",
-    "date_generation": "2026-06-14T22:25:55.900526+00:00",
-    "extraction_le": "2026-06-14T22:25:55.900526+00:00",
+    "date_generation": "2026-06-21T00:49:49.367815+00:00",
+    "extraction_le": "2026-06-21T00:49:49.367815+00:00",
     "modele": "claude-sonnet-4-6",
     "preset_utilise": "btp",
     "presets_matches": [
-      "btp"
+      "btp",
+      "energie_renouvelable"
     ],
     "prompts_versions": {
-      "btp/_preset.json": "sha256:d1717e0d87f6c265"
+      "btp/_preset.json": "sha256:055bf6f8b2c1f771",
+      "energie_renouvelable/_preset.json": "sha256:d5db6e4d3d386add"
     },
-    "tokens_input": 142923,
-    "tokens_output": 9438,
-    "cout_eur": 0.5418,
-    "duree_sec": 167.2,
+    "tokens_input": 154809,
+    "tokens_output": 12016,
+    "cout_eur": 0.6124,
+    "duree_sec": 203.2,
     "pdfs_traites": [
       {
         "nom": "00- PRESCRIPTIONS COMMUNES.pdf",

@@ -1,6 +1,6 @@
 # Brief — DSP - ENLÈVEMENT ET MISE EN FOURRIÈRE DE VÉHICULES
 
-_Généré le 2026-06-12 15:49 par Claude claude-sonnet-4-6_
+_Généré le 2026-06-20 01:00 par Claude claude-sonnet-4-6_
 
 ## Identifiants
 - **ID Tendia** : `BOAMP-26-56752`
@@ -11,87 +11,48 @@ _Généré le 2026-06-12 15:49 par Claude claude-sonnet-4-6_
 - **DCE PLACE** : <https://www.marches-publics.gouv.fr/?page=Entreprise.EntrepriseDetailsConsultation&id=2993118&orgAcronyme=x7c>
 
 ## Synthèse
-Le Centre Hospitalier d'Albi lance une DSP (Délégation de Service Public) pour l'exploitation d'une boutique hospitalière incluant une activité de vente au comptoir, des armoires connectées de restauration accessibles 24h/24 et des distributeurs automatiques. Le délégataire exploite le service à ses risques et périls, sa rémunération étant liée aux résultats d'exploitation. Attention : le contenu du DCE fourni (RC N°269099) ne correspond pas au marché référencé en contexte (DSP enlèvement et mise en fourrière de véhicules – Ville de Bormes-les-Mimosas) ; il s'agit en réalité du CH d'Albi.
-
-## 🏗 Chantier — caractéristiques BTP
-- **Description** : Exploitation d'une boutique hospitalière au sein du Centre Hospitalier d'Albi comprenant : vente au comptoir (restauration, boissons non alcoolisées, presse, produits de première nécessité), armoires connectées de restauration accessibles 24h/24 7j/7, distributeurs automatiques complémentaires. Des travaux d'aménagement des zones cafétéria/boutique peuvent être nécessaires.
-- **Type d'ouvrage** : Boutique hospitalière au sein d'un Centre Hospitalier (site occupé, environnement hospitalier)
-- **Site occupé pendant travaux** : Oui – exploitation en milieu hospitalier actif avec contraintes d'accès et de continuité de service
-- **Corps d'état mobilisés** : Aménagement intérieur boutique, Installation d'équipements connectés (armoires), Installation distributeurs automatiques
-- **Contraintes spécifiques** :
-  - Environnement hospitalier avec contraintes spécifiques
-  - Continuité de service 24h/24 7j/7 pour les armoires connectées
-  - Respect des normes HACCP et sécurité alimentaire
-  - Interdiction de vente de boissons alcoolisées et de télévision
-  - Reprise obligatoire du personnel en place
-
-### Allotissement
-Marché à lot unique, aucun allotissement prévu en raison de l'unité fonctionnelle du service délégué
-- **Nombre de lots** : 1
-- **Lot 1** — Lot unique – Exploitation boutique hospitalière (vente comptoir + armoires connectées + distributeurs automatiques)
-  - Corps d'état : Restauration / commerce / équipements automatiques
-  - Exploitation complète de la boutique hospitalière du CH d'Albi incluant vente au comptoir, armoires connectées 24/7 et distributeurs automatiques
-
-### Qualifications BTP exigées
-Aucune qualification Qualibat ou RGE spécifiée. Aptitude commerciale (inscription RCS ou répertoire des métiers), capacités financières et techniques démontrées.
-- **Autres exigences** :
-  - Maîtrise des règles HACCP et sécurité alimentaire (exigée dans le mémoire technique)
-  - Assurance des risques professionnels pertinents
-
-## ⚡ Parc EnR — caractéristiques techniques
-### Volumes techniques
-- **Note** : Aucun volume technique énergétique concerné. Durée de la DSP non précisée dans les pièces fournies. Démarrage exploitation prévu le 1er décembre 2026.
-
-### Modalités d'exécution
-- **Sites d'exécution** : Albi (81)
-
-## 🎓 Formation / accompagnement
-### Publics cibles
-Non applicable – marché de prestation de service (DSP boutique hospitalière), pas un marché de formation ou d'insertion. Les usagers sont les patients, visiteurs et personnels du Centre Hospitalier d'Albi.
-
-### Volumes
-- **Note** : DSP boutique hospitalière – pas de volumes de bénéficiaires de formation. Durée de la DSP non précisée dans les pièces fournies.
-
-### Modalités
-- **Amplitude horaire** : Vente au comptoir : horaires non précisés ; armoires connectées : 24h/24 7j/7
-- **Sites d'exécution** : Albi (81) – Centre Hospitalier d'Albi, Rue de la Berchère
+Le Centre Hospitalier d'Albi lance une Délégation de Service Public (DSP) pour l'exploitation d'une boutique hospitalière comprenant une vente au comptoir (restauration, boissons, presse, produits de première nécessité), des armoires connectées de restauration accessibles 24h/24 7j/7, et des distributeurs automatiques. Le délégataire exploite le service à ses risques et périls sur une durée de 7 ans, sa rémunération étant liée aux résultats de l'exploitation, avec versement d'une redevance fixe annuelle de 14 760 € HT et d'une redevance variable sur le CA. Note : le contexte BOAMP mentionne un marché d'enlèvement et mise en fourrière de véhicules (Ville de Bormes-les-Mimosas) mais les pièces du DCE correspondent exclusivement à la boutique hospitalière du Centre Hospitalier d'Albi — les deux dossiers semblent mélangés ; l'analyse porte sur le DCE réel fourni.
 
 ## 💶 Montant du marché
 - _Montant non communiqué dans le DCE._
   - Typique des accords-cadres à bons de commande : le volume dépend des commandes effectivement passées par l'acheteur sur la durée du marché.
-- _Note_ : Aucun montant estimé ni plafond de redevance n'est communiqué dans les pièces du DCE fournies. Il s'agit d'une DSP où la rémunération du délégataire est substantiellement liée aux résultats d'exploitation – l'autorité concédante perçoit une redevance. La durée de la DSP n'est pas précisée dans les documents disponibles.
+- _Note_ : Il s'agit d'une DSP à risque d'exploitation : le délégataire se rémunère sur les recettes d'exploitation et verse une redevance au CH. Il n'y a pas de 'montant du marché' au sens classique. Le CA annuel observé était de 201 620 € HT en 2025 (toutes activités), mais le DCE précise que ce chiffre est sous-estimatif du potentiel futur (absence de frigos connectés 24/7, horaires restreints). La redevance fixe est de 14 760 € HT/an, soit ~103 320 € sur 7 ans. La redevance variable s'applique au-delà de 201 500 € de CA annuel.
 
 ## Barème de notation
 - **Valeur technique** : 70 %
 - **Valeur prix** : 30 %
 - **Sous-critères techniques** :
-  - Qualité de l'offre et de l'exploitation : 40 %
+  - Critère Technique – Qualité de l'offre et de l'exploitation : 40 %
   - Critère Environnemental et Social : 30 %
-- **Calcul du prix** : Critère Prix/Économique à 30% : redevance fixe et variable + tarifs clientèle. Aucune formule de notation explicite.
+- **Calcul du prix** : Critère économique/prix pondéré à 30% : évalue conjointement le niveau de redevance proposé (fixe + variable au-dessus des minimums contractuels) et les tarifs pratiqués auprès des usagers, sans formule de notation explicite dans le RC.
 
 ## Références et qualifications exigées
-- **Expérience minimale** : —
-- **Secteur d'expérience** : Exploitation de boutiques hospitalières, restauration en armoires connectées, vente en distributeurs automatiques en milieu contraint
-- **Certifications obligatoires** : Maîtrise et organisation HACCP – exigée dans le mémoire technique et évaluée comme critère d'analyse (source=RC article 8.1 et 13.2)
+- **Expérience minimale** : 3 ans
+- **Secteur d'expérience** : Exploitation de boutiques hospitalières, cafétérias ou services de restauration collective/rapide avec distributeurs automatiques, en environnement public ou hospitalier
+- **Certifications obligatoires** : Formation HACCP du personnel (attestations individuelles exigées pour chaque agent, renouvellement tous les 2 ans) (source=Cahier des charges art 17.2 ; Annexe 1 DSP art 4)
 - **Autres exigences** :
-  - Engagement explicite et non équivoque de reprise du personnel en place – absence entraîne l'irrecevabilité de la candidature (source=RC article 7.4)
-  - Attestation de visite des lieux obligatoire (visite le 27 mai 2026 à 9h30) – condition de recevabilité de l'offre (source=RC article 5)
-  - Fourniture d'échantillons alimentaires obligatoire (2 plats, 2 entrées, 2 desserts en double portion) avant le 29 juin 2026 (source=RC article 6)
-  - Inscription au registre du commerce et des sociétés ou au répertoire des métiers (source=RC article 7.2.a)
-  - Preuve d'une assurance des risques professionnels pertinents (source=RC article 7.2.b)
-  - Déclaration de chiffre d'affaires global et du domaine d'activité sur les 3 derniers exercices (source=RC article 7.2.b)
+  - Attestation d'inscription au registre du commerce et des sociétés ou au répertoire des métiers (source=RC art 7.2.a)
+  - Déclaration de chiffre d'affaires global sur les 3 derniers exercices disponibles (source=RC art 7.2.b)
+  - Preuve d'assurance des risques professionnels pertinents (RC exploitation, risques sanitaires/alimentaires, dommages aux biens) (source=RC art 7.2.b ; Convention DSP art 16)
+  - Engagement explicite et non équivoque de reprise du personnel en place (absence = irrecevabilité de la candidature) (source=RC art 7.4)
+  - Attestation de visite des lieux obligatoire (27 mai 2026 à 9h30 — condition de recevabilité de l'offre) (source=RC art 5)
+  - Remise d'échantillons alimentaires (2 plats, 2 entrées, 2 desserts en double portion) avant le 29 juin 2026 (source=RC art 6)
+
+## Lots
+- **Lot 1** — Exploitation d'une boutique hospitalière – Vente au comptoir, armoires connectées et distribution automatique
+  - Zone : Albi (81)
+  - Lot unique, pas d'allotissement. DSP sur 7 ans à risque d'exploitation complet pour le délégataire. CA historique 2025 : 201 620 € HT (sous-estimatif du potentiel futur). Redevance fixe 14 760 € HT/an. Exigence de production locale ≤10 km. Reprise obligatoire du personnel. Visite des lieux et remise d'échantillons physiques obligatoires.
 
 ## ⚠ Alertes candidat
-- VISITE OBLIGATOIRE le 27 mai 2026 à 9h30 : condition de recevabilité de l'offre – toute candidature sans attestation de visite sera rejetée (RC article 5)
-- REPRISE DU PERSONNEL en place obligatoire : l'absence d'engagement explicite entraîne l'irrecevabilité de la candidature (RC article 7.4)
-- ÉCHANTILLONS ALIMENTAIRES obligatoires à remettre avant le 29 juin 2026 (2 plats, 2 entrées, 2 desserts en double portion avec fiches produit, allergènes et traçabilité) – RC article 6
-- RISQUE D'EXPLOITATION à la charge du délégataire : la rémunération est substantiellement liée aux résultats ; les hypothèses financières engagent contractuellement le candidat
-- INTERDICTION ABSOLUE de proposer des boissons alcoolisées ou la télévision – toute offre intégrant ces prestations sera écartée comme irrégulière (RC article 11)
-- ⚠️ ATTENTION : Les pièces DCE fournies (RC N°269099 – CH d'Albi) ne correspondent pas au marché référencé en contexte (DSP véhicules fourrière – Ville de Bormes-les-Mimosas) : vérifier la cohérence des documents avant toute candidature.
+- Visite des lieux OBLIGATOIRE le 27 mai 2026 à 9h30 (inscription préalable requise via la plateforme) : son absence rend l'offre irrecevable. Attention : la date de visite (27 mai) est antérieure à la date de publication dans le contexte BOAMP (10 juin) — vérifier si cette visite est encore accessible.
+- Remise d'échantillons alimentaires physiques OBLIGATOIRE avant le 29 juin 2026 (2 plats + 2 entrées + 2 desserts en double portion, avec fiches traçabilité) : absence = irrecevabilité. Les échantillons servent de base pour les contrôles ultérieurs en cours d'exploitation.
+- Engagement de reprise du personnel en place exigé à peine d'irrecevabilité (absence de cet engagement dans le dossier de candidature = élimination immédiate) — les détails du personnel actuel figurent en Annexe 4 (non fournie dans le DCE analysé).
+- Exigence de production locale STRICTE ≤10 km autour du CH d'Albi pour les produits des frigos connectés : il faut identifier et contractualiser des partenaires locaux AVANT la remise d'offre et fournir leur liste géolocalisée avec preuves.
+- Risque commercial intégral en DSP : aucune garantie de CA, de fréquentation ni d'équilibre économique — la redevance fixe de 14 760 €/an est due quoi qu'il arrive. Seuls les candidats capables d'absorber ce risque sur 7 ans et d'investir dans l'aménagement/équipements sans subvention publique sont éligibles.
 
 ## 💡 Points différenciants attendus
-- Qualité et traçabilité alimentaire des armoires connectées (HACCP numérique) (exemple=Présenter un système de supervision numérique des armoires (relevé automatique des températures, alertes HACCP en temps réel, traçabilité complète des lots) démontrant une organisation de contrôle interne structurée et une réponse rapide aux incidents de sécurité alimentaire., source=RC article 13.2)
-- Engagement circuits courts et production locale chiffré et nominatif (exemple=Proposer un engagement sur 40% minimum de produits en circuits courts avec liste nominative des fournisseurs locaux du Tarn déjà contactés, labels identifiés (bio, agriculture raisonnée) et plan d'approvisionnement saisonnier., source=RC article 13.3)
-- Taux de réduction tarifaire attractif pour le personnel hospitalier (exemple=Proposer une réduction de 10 à 15% sur l'ensemble de la gamme pour tous les agents du CH (identification via badge professionnel), avec extension possible aux offres du midi et aux armoires connectées en dehors des heures ouvrables., source=RC article 13.3)
-- Continuité de service et plan de gestion des pannes des équipements automatiques (exemple=Détailler un contrat de maintenance préventive mensuelle sur les armoires connectées et distributeurs, avec astreinte technique 24h/24 7j/7 et engagement contractuel d'intervention sous 2h maximum en cas de panne affectant la disponibilité du service., source=RC article 13.2)
-- Projet d'aménagement de la zone boutique adapté à l'architecture hospitalière (exemple=Présenter un plan d'aménagement avec visuels 3D, choix de mobilier en cohérence avec l'identité visuelle du CH, planning de travaux précis sur la période août-novembre 2026 avec phasage permettant la continuité des activités hospitalières., source=RC article 8.1)
+- Qualité gustative démontrée par les échantillons remis (40% du critère technique) (exemple=Présenter des plats cuisinés localement (rayon <10 km) avec une présentation soignée, des fiches traçabilité complètes et un discours nutritionnel cohérent. Un candidat qui soumet des préparations artisanales plutôt qu'industrielles, avec valorisation d'un producteur albigeois identifié, prendra un avantage déterminant lors de la commission de dégustation du 1er juillet., source=RC art 6.4 et 13.2)
+- Réseau de partenaires locaux ≤10 km déjà identifiés et contractualisés (exemple=Présenter une liste nominative de 4-6 artisans/producteurs albigeois avec adresses, distances GPS vérifiables, capacités de production et fréquences de livraison garanties. Un candidat qui anticipe la logistique des livraisons quotidiennes (6h-7h30 avant ouverture) sur l'ensemble de l'année se distingue nettement., source=Cahier des charges art 10 ; RC art 13.3)
+- Solution technique d'armoires connectées 24h/24 avec taux de disponibilité élevé et supervision en temps réel (exemple=Proposer a minima 3 frigos connectés (vs 2 exigés) avec supervision cloud, alerte automatique en cas de rupture de chaîne du froid, et engagement contractuel d'un taux de disponibilité de 99% (vs 98% minimum). Décrire la procédure d'astreinte permettant une intervention sous 8h ouvrées., source=Cahier des charges art 8.3 ; RC art 13.2)
+- Taux de redevance variable proposé au-dessus des minimums contractuels avec projection financière crédible (exemple=Proposer un taux cafétéria de 9% (vs 7% minimum) assorti d'une projection de CA sur 7 ans montrant la viabilité économique du modèle. Cela améliore la note prix tout en démontrant la solidité financière de l'exploitation., source=RC art 13.1 ; Cahier des charges art 18)
+- Organisation RH détaillée avec plan de reprise du personnel et continuité de service lors du changement de prestataire (exemple=Décrire précisément le phasage de transition sur 8 jours (distributeurs temporaires en relais, planning de passation RH) et s'engager sur des mesures de maintien des droits du personnel repris supérieures aux obligations légales (maintien de la prime d'ancienneté, plan de formation intégré)., source=Cahier des charges art 15.4 et 16 ; RC art 8.1)

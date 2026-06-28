@@ -1,6 +1,6 @@
 # Brief — Maintenance et extension du parc de logiciel QlikSense et prestations associées pour le groupement de commandes informatiques Nantes Métropole, ville 
 
-_Généré le 2026-06-15 20:42 par Claude claude-sonnet-4-6_
+_Généré le 2026-06-21 02:54 par Claude claude-sonnet-4-6_
 
 ## Identifiants
 - **ID Tendia** : `BOAMP-26-56462`
@@ -11,13 +11,13 @@ _Généré le 2026-06-15 20:42 par Claude claude-sonnet-4-6_
 - **DCE PLACE** : <https://marchespublics.nantesmetropole.fr/entreprise/consultation/532263?orgAcronyme=t5y>
 
 ## Synthèse
-Accord-cadre mono-attributaire portant sur la maintenance, l'extension du parc de licences QlikSense (solution BI/analytique on-premise) et les prestations associées (conseil, développement, formation) pour le groupement de commandes Nantes Métropole, Ville de Nantes et CCAS. Le marché couvre l'acquisition de licences au catalogue Qlik, leur maintenance éditeur, des prestations de développement d'applications QlikSense et des formations pour différents profils d'utilisateurs internes. Le montant maximum est fixé à 500 000 € HT sur 4 ans ferme.
+Accord-cadre mono-attributaire à bons de commande pour la maintenance et l'extension du parc de licences QlikSense (outil BI/décisionnel) de Nantes Métropole, la Ville de Nantes et son CCAS. Le marché couvre l'acquisition de licences, la maintenance corrective et évolutive, des prestations d'accompagnement, de développement, de formation et d'expertise sur la solution QlikSense en mode On Premise. Durée de 4 ans ferme, montant maximum de 500 000 € HT.
 
 ## 💶 Montant du marché
-- **Plafond accord-cadre** : **500 000 €**
+- **Fourchette** : entre ? et 500 000 €
   - sur 4 ans ferme
-  - _source : RC article 1.3 / CCAP article 1.2_
-- _Note_ : Montant maximum de l'accord-cadre mono-attributaire sans minimum garanti : 450 000 € HT pour Nantes Métropole, 25 000 € HT pour la Ville de Nantes, 25 000 € HT pour le CCAS. Il s'agit d'un plafond sur 4 ans, sans montant minimum, donc le risque de volume zéro n'est pas exclu contractuellement.
+  - _source : RC article 1.3 ; CCAP article 1.2_
+- _Note_ : Montant maximum de l'accord-cadre fixé à 500 000 € HT sur 4 ans, réparti entre Nantes Métropole (450 000 € HT), Ville de Nantes (25 000 € HT) et CCAS (25 000 € HT). Aucun montant minimum garanti. Le montant réel dépendra des bons de commande émis.
 
 ## Barème de notation
 - **Valeur technique** : 60 %
@@ -25,27 +25,33 @@ Accord-cadre mono-attributaire portant sur la maintenance, l'extension du parc d
 - **Sous-critères techniques** :
   - Qualité de la maintenance et des prestations analysées au regard du mémoire technique : 55 %
   - Performance environnementale de l'organisation et des modalités d'exécution des prestations : 5 %
-- **Calcul du prix** : Prix des prestations apprécié au regard du montant total du D.Q.E. (Détail Quantitatif Estimatif). Le DQE n'a pas de valeur contractuelle mais sert uniquement au jugement des offres. En cas de discordance, les prix unitaires du BPU prévalent.
+- **Calcul du prix** : Montant total du DQE, noté sur 5 comme les autres critères. Coefficient prix = 40.
 
 ## Références et qualifications exigées
 - **Expérience minimale** : —
-- **Secteur d'expérience** : Prestations de maintenance, conseil, développement et formation sur la solution QlikSense (ou solutions BI/analytique comparables), idéalement pour des collectivités territoriales ou organismes publics.
-- **Certifications obligatoires** : Certifications individuelles QlikSense (System Administrator, Business Analyst, Data Architect) exigées pour les profils techniques intervenants (source=CCTP §6.2.3, §6.2.4, §6.2.5, §6.2.6)
+- **Secteur d'expérience** : Maintenance et prestations de services sur la solution QlikSense, référencées sur les 3 dernières années avec montant, date, nature et identité du client
+- **Certifications obligatoires** : Certifications individuelles QlikSense : QlikSense System Administrator (profil expert architecture), QlikSense Business Analyst et/ou QlikSense Data Architect (profils expert développeur, développeur, formateur) (source=CCTP §6.2)
 - **Autres exigences** :
-  - Chiffre d'affaires global et CA concernant les prestations objet du contrat sur les 3 derniers exercices (montant non précisé dans le RC) (source=RC article 4.1)
-  - Effectifs moyens annuels sur les 3 dernières années (source=RC article 4.1)
-  - Références de prestations similaires (montant, date, nature, identité client) sur les 3 dernières années (source=RC article 4.1)
+  - Chiffre d'affaires global et chiffre d'affaires concernant les prestations objet du contrat sur les 3 derniers exercices disponibles (source=RC article 4.1)
+  - Effectifs moyens annuels du candidat pour chacune des 3 dernières années (source=RC article 4.1)
+  - Références de prestations similaires effectuées au cours des 3 dernières années : montant, date, nature des prestations et identité du client (privé ou public) (source=RC article 4.1)
+
+## Lots
+- **Lot 1** — Maintenance et extension du parc de logiciel QlikSense et prestations associées pour le groupement de commandes informatiques Nantes Métropole, ville de Nantes et son CCAS
+  - Zone : Nantes (44)
+  - Volume estimé : 500000 euros HT (plafond accord-cadre 4 ans)
+  - Marché non alloti — mono-lot, mono-attributaire. Inclut licences (avec remise catalogue), maintenance éditeur et prestations de jours-homme sur QlikSense On Premise. Répartition du plafond : Nantes Métropole 450k€, Ville de Nantes 25k€, CCAS 25k€.
 
 ## ⚠ Alertes candidat
-- Marché mono-attributaire réservé à un prestataire expert QlikSense : seule une société disposant de ressources certifiées QlikSense (System Administrator, Business Analyst, Data Architect) peut concourir sérieusement — les certifications individuelles sont exigées dans les CV joints au mémoire technique.
-- Le cas pratique (annexe n°2 RC) est noté à 15% de la note technique et demande une analyse technique approfondie de l'architecture QlikSense (gestion des droits, streams, connexions) avec scénario, risques et chiffrage par profil — à ne pas sous-estimer en charge de réponse.
-- La convention d'accès au SI DRN et le plan d'assurance sécurité (PAS) doivent être fournis à l'offre — l'absence de ces pièces PSSI peut rendre l'offre irrecevable.
-- Le DQE doit être déposé en format modifiable (tableur) avec vérification des formules et arrondi au centime — toute incohérence entre BPU et DQE est tranchée en faveur du BPU (risque d'erreur de chiffrage engageant le candidat).
-- La collectivité précise que le modèle 'client managed' semble inadapté à ses volumes futurs et souhaite passer à des licences au volume : le candidat doit impérativement proposer un parc de licences cohérent avec les projections (jusqu'à ~400 utilisateurs) sous peine de non-conformité fonctionnelle.
+- Le BPU/DQE doit être déposé OBLIGATOIREMENT en format modifiable (tableur) — le non-respect de cette exigence peut rendre l'offre non conforme. Vérifier impérativement toutes les formules du fichier avant dépôt.
+- Le mémoire technique doit impérativement inclure les éléments du cas pratique d'étude (Annexe 2 au RC) avec documentation, scénario technique, identification des risques et chiffrage par profil — son absence ou son insuffisance impacte directement 15/100 points.
+- Certifications individuelles QlikSense (System Administrator, Business Analyst, Data Architect) requises pour les profils techniques : les CV doivent les mentionner explicitement. Sans ces certifications, la note 'Qualité des intervenants' sera sévèrement pénalisée.
+- Convention d'accès au SI et plan d'assurance sécurité (PAS) doivent être fournis à l'offre : des documents génériques non adaptés aux standards PSSI de Nantes Métropole (STD_Règles_sécurité_progiciels, STD_Politique_tiers_securite_API) seront pénalisés.
+- La mainenance des licences actuelles expire le 19/09/2026 : le candidat doit proposer une transition sans interruption et idéalement proposer un calage sur le 31/12 de l'année en cours pour les nouvelles licences (CCTP §5.3.2).
 
 ## 💡 Points différenciants attendus
-- Qualité et pertinence de la réponse au cas pratique QlikSense (gestion des droits granulaires) (exemple=Un candidat proposant une architecture utilisant les Security Rules QlikSense et les Custom Properties avec un scénario de migration progressif, des risques documentés et un chiffrage détaillé par profil se différenciera fortement des réponses génériques sur les droits utilisateurs., source=RC annexe n°02)
-- Niveau de certification des intervenants QlikSense et expérience on-premise en collectivité (exemple=Présenter des CV avec certifications QlikSense en cours de validité ET des références de déploiements on-premise dans des organisations publiques similaires (agglomérations, métropoles) constitue un avantage décisif sur le critère 'qualité des intervenants'., source=CCTP §6.2 / RC article 5)
-- Proposition d'une architecture de licences au volume adaptée aux projections de croissance (exemple=Démontrer une maîtrise des différents modèles de licences Qlik (Capacity, Full User, etc.) et proposer une roadmap d'évolution cohérente avec le passage de 100 à 400 utilisateurs à horizon 2030, en optimisant le coût total de possession, valorise directement le critère qualité de la maintenance., source=CCTP §4.3)
-- Offre de formation structurée par profil avec formateurs certifiés (exemple=Proposer un catalogue de formations modulaires (administrateur QMC, développeur, utilisateur final) avec fiches détaillées (objectifs, prérequis, durée) et CV de formateurs certifiés Qlik permet de scorer haut sur le sous-critère 'qualité des prestations et de l'offre de formation'., source=RC article 5 / CCTP §6.2.6)
-- Robustesse du dispositif de support et de la comitologie proposée (exemple=Proposer des GTI/GTR compétitifs pour les anomalies non bloquantes (ex : GTI 1h/GTR 4h pour anomalies majeures), un Bug tracker partagé avec la collectivité et une comitologie formalisée (COPIL annuel + suivi trimestriel + réunions ad hoc) renforce la crédibilité sur le critère 'qualité de la maintenance et du support technique'., source=CCTP §5.3.1 / RC article 5)
+- Réponse approfondie et technique au cas pratique sur l'optimisation des droits QlikSense (exemple=Proposer un scénario basé sur les Section Access et Security Rules personnalisées dans la QMC avec une matrice domaine×profil, en évitant la multiplication des streams. Chiffrer précisément par profil (ex: 5j Expert archi + 8j Expert dev) avec identification des risques de scalabilité. Un candidat maîtrisant réellement QlikSense On Premise se distinguera fortement sur ce critère (15/100 points)., source=RC Annexe 2 ; RC article 5)
+- Niveau de remise garanti sur le catalogue licences QlikSense (exemple=La collectivité cherche à optimiser ses coûts de licences (CCTP §2.3). Un candidat revendeur agréé Qlik avec un statut de partenariat élevé (Gold/Elite) peut offrir des remises supérieures à la concurrence, ce qui impacte directement le score prix (40/100) et est perçu positivement dans le mémoire technique., source=CCTP §5.1 et §5.2)
+- Proposition de passage à des licences au volume (Token License / SaaS) cohérente avec les projections de croissance (exemple=La collectivité indique explicitement que le modèle 'client managed' est inadapté à la croissance projetée (x3 développeurs, x4 utilisateurs) et souhaite passer à des licences au volume. Un candidat proposant une trajectoire de migration progressive et chiffrant le gain économique à 2030 démontrera une compréhension stratégique des enjeux (CCTP §4.3)., source=CCTP §4.3)
+- Certifications individuelles QlikSense multiples et expériences en collectivités territoriales (exemple=Mettre en avant des intervenants multi-certifiés (System Administrator + Data Architect + Business Analyst) ayant déjà mené des migrations QlikView → QlikSense ou des déploiements On Premise pour des collectivités françaises. Cela répond directement au critère 'Qualité des intervenants' (15/100)., source=CCTP §6.2 ; RC article 5)
+- Offre de formation structurée par profil avec modules clés en main (exemple=Présenter des fiches de formation prêtes à l'emploi (objectifs, pré-requis, durée) pour les 4 profils cibles (architecte, administrateur QMC, développeur, utilisateur) avec les CV de formateurs certifiés. Un catalogue de formation éditeur enrichi de modules sur mesure collectivité distinguera l'offre., source=RC article 4.2 mémoire technique ; CCTP §6.2.6)

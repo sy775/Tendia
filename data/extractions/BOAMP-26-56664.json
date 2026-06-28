@@ -1,134 +1,22 @@
 {
-  "synthese_marche": "L'ENAC (École Nationale de l'Aviation Civile) lance un accord-cadre à bon de commande pour des prestations de transport, d'acheminement et de livraison de colis et de palettes en France métropolitaine, au sein de l'UE et ponctuellement à l'international. Le marché est un lot unique, mono-attributaire, d'une durée de 1 an reconductible 3 fois (4 ans max), avec un plafond de 350 000 € HT sur la durée totale. Les sites ENAC sont répartis dans 7 départements (11, 31, 34, 38, 40, 71, 77).",
+  "synthese_marche": "Accord-cadre à bons de commande mono-attributaire portant sur les prestations de transport, d'acheminement et de livraison de colis, palettes et pièces détachées pour l'ENAC (École Nationale de l'Aviation Civile), en France métropolitaine principalement, ainsi qu'en UE et à l'international à titre exceptionnel. Le marché couvre 9 sites ENAC répartis sur 7 départements français, avec un flux central au départ du centre de Castelnaudary (maintenance flotte aéronautique). Le montant maximum de l'accord-cadre est fixé à 350 000 € HT sur 4 ans (1 an renouvelable 3 fois tacitement).",
   "domaines_metier": [
     {
       "code": "transport_logistique_vehicules"
     }
   ],
-  "raison_classification": "Le marché porte exclusivement sur des prestations de transport de colis, pièces détachées et matériel (CPV 60161000-4 'Services de transport de colis'). Il s'agit d'un marché de transport/logistique classique, sans dimension formation ni autre domaine secondaire.",
-  "caracteristiques_techniques_chantier": {
-    "description": "Prestations de transport, d'acheminement et de livraison de colis et de palettes pour le compte de l'ENAC, couvrant la France métropolitaine, l'Union Européenne et exceptionnellement l'international. Les sites ENAC sont répartis sur 7 départements.",
-    "typologie_ouvrage": null,
-    "surface_volume": null,
-    "site_occupe": false,
-    "corps_etat": [],
-    "contraintes_specifiques": [
-      "Transport vers 7 départements distincts (11, 31, 34, 38, 40, 71, 77)",
-      "Couverture UE et internationale à titre exceptionnel",
-      "Matériel pouvant inclure des pièces détachées et matériel technique aéronautique"
+  "raison_classification": "Le marché porte exclusivement sur des prestations de transport de colis, palettes et matériels (pièces détachées aéronautiques), couvrant l'enlèvement, l'acheminement et la livraison en express, messagerie ou affrètement. Le CPV principal est 60161000-4 (services de transport de colis), ce qui correspond sans ambiguïté au code `transport_logistique_vehicules`.",
+  "caracteristiques_metier": {
+    "description": "Prestations de transport routier et international de colis, palettes et pièces détachées aéronautiques pour le compte de l'ENAC sur 9 sites en France. Trois typologies de service : express (J+1 avant 12h), messagerie (3-5 jours, jusqu'à 300 kg), affrètement (8-15 jours, au-delà de 100 kg, jusqu'à 3 000 kg et 10 m de long). Prestations exceptionnelles : transport de caisses sécurisées en UE (Lituanie), transport international (USA, ~10 envois/an), transport de pièces hors-gabarit (fuselages, hélices). Collecte quotidienne obligatoire à Castelnaudary (15h30-16h30), suivi en temps réel des envois, gestion des assurances valeur déclarée/non déclarée, clause d'insertion sociale obligatoire, écoconduite exigée.",
+    "criteres_eligibilite": [
+      "Capacités professionnelles et financières (chiffre d'affaires annuel général des 3 dernières années)",
+      "Capacités techniques : références de prestations similaires des 3 dernières années",
+      "Effectifs moyens annuels et personnel d'encadrement",
+      "Outillage, matériel et équipement technique disponible pour la prestation",
+      "Attestations de régularité sociale et fiscale",
+      "Assurances responsabilité civile couvrant les dommages sur les colis transportés",
+      "Respect des obligations d'insertion sociale (clause d'exécution obligatoire)"
     ]
-  },
-  "allotissement": {
-    "description": "Marché en lot unique en raison du caractère indivisible des prestations (art. L.2113-11 2° du CCP)",
-    "nb_lots": 1,
-    "lots_detailles": [
-      {
-        "numero": 1,
-        "intitule": "Transport de colis, pièces détachées et matériel - Lot unique",
-        "corps_etat": null,
-        "montant_estime": 350000,
-        "description": "Prestations de transport, d'acheminement et de livraison de colis et palettes en France métropolitaine, UE et international ponctuel, sur 4 ans maximum"
-      }
-    ]
-  },
-  "qualifications_requises": {
-    "description": "Aucune qualification spécifique (type Qualibat, RGE) n'est exigée. Les candidats doivent justifier de références similaires, moyens humains et matériels adaptés.",
-    "qualibat": null,
-    "rge": null,
-    "opqibi": null,
-    "autres_certifications": []
-  },
-  "caracteristiques_mission": {
-    "typologie_mission": null,
-    "domaine_expertise": null,
-    "livrables_attendus": [],
-    "duree_mission": "12 mois renouvelables, 48 mois maximum",
-    "jours_consultant_estimes": null
-  },
-  "profils_intervenants": {
-    "description": null,
-    "chef_de_mission": null,
-    "consultants": null
-  },
-  "volumes_techniques": {
-    "puissance_totale_kwc": null,
-    "puissance_par_site_kwc": null,
-    "nb_sites": 7,
-    "surface_panneaux_m2": null,
-    "productible_annuel_estime_mwh": null,
-    "duree_marche_mois": 48,
-    "duree_maintenance_om_annees": null,
-    "commentaire_volumes": "7 départements couverts. Plafond accordé-cadre 350 000 € HT sur 4 ans. Aucun minimum de commande."
-  },
-  "modalites_execution_chantier": {
-    "raccordement_reseau_inclus": null,
-    "etudes_techniques_incluses": null,
-    "calendrier_chantier_contraint": null,
-    "sites_execution": [
-      "Aude (11)",
-      "Haute-Garonne (31)",
-      "Hérault (34)",
-      "Isère (38)",
-      "Landes (40)",
-      "Saône-et-Loire (71)",
-      "Seine-et-Marne (77)"
-    ],
-    "engagement_productible": null,
-    "engagement_disponibilite_om": null
-  },
-  "publics_cibles": {
-    "description": null,
-    "criteres_eligibilite": [],
-    "publics_specifiques_signales": []
-  },
-  "volumes": {
-    "nb_beneficiaires_total": null,
-    "nb_beneficiaires_par_lot": null,
-    "duree_par_parcours_heures": null,
-    "duree_par_parcours_semaines": null,
-    "duree_marche_mois": 48,
-    "commentaire_volumes": "Accord-cadre sans montant minimum, plafond 350 000 € HT toutes reconductions confondues. Délais d'exécution précisés par bon de commande."
-  },
-  "modalites": {
-    "presentiel_obligatoire": null,
-    "distanciel_possible": null,
-    "synchrone_asynchrone": null,
-    "sites_execution": [
-      "Aude (11)",
-      "Haute-Garonne (31)",
-      "Hérault (34)",
-      "Isère (38)",
-      "Landes (40)",
-      "Saône-et-Loire (71)",
-      "Seine-et-Marne (77)"
-    ],
-    "amplitude_horaire": null
-  },
-  "caracteristiques_mission_moe": {
-    "typologie": null,
-    "phases_couvertes": [],
-    "typologie_ouvrage": null,
-    "montant_travaux_estime": null,
-    "complexite_technique": null
-  },
-  "qualifications_moe": {
-    "opqibi": [],
-    "opqcm": null,
-    "bim": null,
-    "autres": []
-  },
-  "caracteristiques_si": {
-    "description": null,
-    "typologie_projet": null,
-    "technologies_mentionnees": [],
-    "volumetrie": null,
-    "hebergement": null
-  },
-  "qualifications_si": {
-    "iso_27001": null,
-    "anssi": null,
-    "hds": null,
-    "autres": []
   },
   "bareme_notation": {
     "valeur_technique_pct": 50,
@@ -137,145 +25,196 @@
       {
         "libelle": "Valeur technique de l'offre",
         "ponderation_pct": 40,
-        "description": "Évaluation de la capacité du candidat à organiser et exécuter les prestations de transport selon sa méthodologie, ses moyens humains et matériels.",
+        "description": "Évaluation de l'organisation des prestations, de la méthodologie proposée, des moyens humains et des moyens matériels du candidat pour assurer les livraisons.",
         "elements_attendus": [
-          "Description de l'organisation des prestations et de la méthodologie de traitement des commandes",
-          "Présentation des moyens humains affectés (effectifs, qualification, encadrement)",
-          "Description des moyens matériels (véhicules, équipements logistiques, systèmes de suivi)",
-          "Capacité à gérer les livraisons multi-sites sur 7 départements"
+          "Description précise de l'organisation des tournées et des enlèvements, notamment la collecte quotidienne à Castelnaudary",
+          "Méthodologie de gestion des incidents et des alertes sous 24h",
+          "Présentation des moyens humains dédiés (responsable-coordinateur, interlocuteurs par site)",
+          "Flotte de véhicules adaptés aux colis hors-gabarit (jusqu'à 3 000 kg, 10 m)",
+          "Outils de suivi en temps réel des expéditions",
+          "Capacité à former les personnels ENAC aux outils d'affranchissement"
         ],
-        "exemple_reponse_forte": "Le candidat détaille son processus complet de prise en charge des colis depuis l'enlèvement jusqu'à la livraison, avec des délais garantis par type de prestation. Il présente son parc de véhicules, ses entrepôts intermédiaires et son outil de traçabilité temps réel, ainsi que les effectifs dédiés au compte ENAC.",
+        "exemple_reponse_forte": "Le candidat présente un réseau de collecte avec passage quotidien garanti à Castelnaudary entre 15h30 et 16h30, des véhicules adaptés aux colis aéronautiques hors-gabarit, un responsable-coordinateur dédié à l'ENAC joignable en heures ouvrées, et un portail client permettant le suivi en temps réel de chaque expédition avec alertes automatiques en cas d'incident.",
         "source": "RC art 6.3",
+        "unite_evaluation": "points",
         "sous_criteres": [
           {
             "libelle": "Organisation des prestations, méthodologie",
             "ponderation_pct": 20,
-            "description": "Évaluation de la méthodologie d'exécution des prestations de transport et d'acheminement, du processus de traitement des bons de commande et des procédures de livraison.",
+            "description": "Appréciation de la capacité du candidat à organiser les collectes, les livraisons et la gestion des incidents selon les contraintes du CCTP (fréquences, créneaux horaires, délais contractuels).",
             "elements_attendus": [
-              "Description du processus de prise en charge depuis le bon de commande jusqu'à la livraison",
-              "Procédures de gestion des urgences et des envois exceptionnels",
-              "Outils de suivi et traçabilité des colis",
-              "Gestion des livraisons UE et internationale"
+              "Organisation de la collecte quotidienne à Castelnaudary dans le créneau 15h30-16h30",
+              "Procédure de gestion des incidents et notification sous 24h",
+              "Gestion des demandes exceptionnelles (caisses sécurisées UE, transport international, pièces hors-gabarit)",
+              "Processus de traçabilité et suivi des envois"
             ],
-            "exemple_reponse_forte": "Le candidat présente un process détaillé : réception du bon de commande via interface dédiée ENAC, enlèvement sous 24h ouvrées, traçabilité par numéro de suivi communiqué automatiquement, livraison avec preuve de dépôt électronique. Pour les envois UE, partenariat avec réseau express certifié, délais garantis J+2 à J+3.",
-            "source": "RC art 6.3"
+            "exemple_reponse_forte": "La méthodologie décrit un planning de collecte quotidien à Castelnaudary avec un chauffeur dédié, une procédure d'escalade en cas d'incident activée sous 2h, et un système de track & trace permettant à chaque site ENAC de consulter l'état de ses envois en temps réel.",
+            "source": "RC art 6.3 ; CCTP art 4.1 et 4.2",
+            "unite_evaluation": "points"
           },
           {
             "libelle": "Moyens humains",
             "ponderation_pct": 5,
-            "description": "Évaluation des effectifs et de l'encadrement dédiés à l'exécution du marché.",
+            "description": "Évaluation des effectifs mobilisés et de la qualification du responsable-coordinateur unique désigné pour l'ensemble de l'ENAC.",
             "elements_attendus": [
-              "Nombre de personnes affectées au compte ENAC",
-              "Qualification et expérience des intervenants",
-              "Interlocuteur dédié ENAC identifié"
+              "CV ou présentation du responsable-coordinateur ENAC",
+              "Organisation des remplaçants en cas d'absence",
+              "Effectifs dédiés à la prestation"
             ],
-            "exemple_reponse_forte": "Un chargé de compte dédié ENAC est identifié avec ses coordonnées directes, secondé par une équipe de chauffeurs-livreurs qualifiés. L'organigramme présente la chaîne hiérarchique et les remplacements en cas d'absence.",
-            "source": "RC art 6.3"
+            "exemple_reponse_forte": "Le candidat désigne un responsable-coordinateur senior avec 5 ans d'expérience en gestion de contrats multi-sites, doublé d'un remplaçant identifié, garantissant la continuité de service pendant les congés ou absences.",
+            "source": "RC art 6.3 ; CCTP art 5.2",
+            "unite_evaluation": "points"
           },
           {
             "libelle": "Moyens matériels",
             "ponderation_pct": 15,
-            "description": "Évaluation du parc de véhicules, des équipements de transport et des infrastructures logistiques disponibles pour exécuter les prestations.",
+            "description": "Évaluation de la flotte de véhicules, des équipements de manutention et des outils logistiques permettant de couvrir tous les types de colis (du petit colis aux pièces hors-gabarit jusqu'à 3 000 kg et 10 m).",
             "elements_attendus": [
-              "Description du parc de véhicules (type, capacité, âge, normes environnementales)",
-              "Couverture géographique des 7 départements ENAC",
-              "Équipements de manutention pour palettes",
-              "Systèmes d'information logistiques"
+              "Description de la flotte de véhicules adaptés aux différentes typologies de colis",
+              "Équipements spécifiques pour les colis hors-gabarit (fuselages, hélices, cockpits)",
+              "Outils informatiques mis à disposition des sites ENAC (logiciels d'affranchissement, portail client)",
+              "Réseau de partenaires pour les livraisons UE et internationales"
             ],
-            "exemple_reponse_forte": "Le candidat présente un parc de 45 véhicules de livraison (dont 12 utilitaires légers ≤3,5t et 8 porteurs pour palettes), couvrant nativement les 7 départements ENAC via agences régionales à Toulouse, Montpellier, Grenoble et Paris. Tous les véhicules sont équipés de systèmes GPS et de lecteurs de codes-barres.",
-            "source": "RC art 6.3"
+            "exemple_reponse_forte": "La flotte comprend des véhicules légers pour l'express, des semi-remorques pour l'affrètement de pièces aéronautiques jusqu'à 3 000 kg, et un portail client accessible depuis tous les sites ENAC avec impression d'étiquettes et suivi automatisé.",
+            "source": "RC art 6.3 ; CCTP art 4.2",
+            "unite_evaluation": "points"
           }
         ]
       },
       {
         "libelle": "Critère social et environnemental",
         "ponderation_pct": 10,
-        "description": "Évaluation des engagements sociaux (promotion de l'insertion et de l'emploi) et environnementaux (réduction de l'empreinte carbone des transports) du candidat.",
+        "description": "Évaluation des engagements sociaux (clause d'insertion) et environnementaux (écoconduite, réduction des émissions CO2) du candidat.",
         "elements_attendus": [
-          "Engagement sur la clause d'insertion : heures de travail d'insertion réservées",
-          "Actions concrètes pour l'emploi de personnes en difficulté",
-          "Mesures environnementales : véhicules propres, optimisation des tournées, bilan carbone",
-          "Objectifs chiffrés de réduction d'émissions CO2"
+          "Plan d'action précis pour la clause d'insertion (type d'action choisie parmi les 5 options du CCAP)",
+          "Engagement écoconduite : formation annuelle des conducteurs, justificatifs prévus",
+          "Politique de réduction des émissions CO2 (optimisation des tournées, véhicules propres)",
+          "Indicateurs de suivi CO2 proposés"
         ],
-        "exemple_reponse_forte": "Le candidat s'engage à consacrer 5% des heures travaillées à des contrats d'insertion (CDDI, IAE) en partenariat avec la cellule Nova Emploi Occitanie. Sur le plan environnemental, 30% du parc utilise des motorisations électriques ou GNV sur les liaisons intra-urbaines, avec un plan de réduction CO2 de 15% sur 4 ans.",
-        "source": "RC art 6.3",
+        "exemple_reponse_forte": "Le candidat s'engage à accueillir chaque année un stagiaire en insertion d'au moins 35 heures sur le marché ENAC, avec un correspondant dédié et un facilitateur Nova Emploi. Sur le plan environnemental, 100% des conducteurs sont formés à l'écoconduite chaque année et le candidat fournit un bilan CO2 trimestriel par prestation.",
+        "source": "RC art 6.3 ; CCAP art 7 et CCTP art 6",
+        "unite_evaluation": "points",
         "sous_criteres": [
           {
             "libelle": "Critère social",
             "ponderation_pct": 5,
-            "description": "Engagement en faveur de l'insertion professionnelle des personnes en difficulté, conformément aux dispositions sociales de l'accord-cadre (CCAP art. 7).",
+            "description": "Appréciation de la qualité et du réalisme du plan d'insertion professionnelle proposé par le candidat.",
             "elements_attendus": [
-              "Volume d'heures d'insertion proposé",
-              "Types de contrats envisagés (CDDI, contrat de professionnalisation, etc.)",
-              "Partenariats avec structures d'insertion locales"
+              "Choix d'une action parmi les 5 options CCAP (forum emploi, stage 35h, parrainage, sensibilisation discrimination, autre)",
+              "Public visé éligible (demandeurs longue durée, RSA, handicap, seniors, jeunes…)",
+              "Désignation d'un correspondant opérationnel insertion"
             ],
-            "exemple_reponse_forte": "Engagement de 200 heures annuelles d'insertion via partenariat avec une SIAE en Haute-Garonne, avec plan de suivi trimestriel transmis à l'ENAC.",
-            "source": "RC art 6.3"
+            "exemple_reponse_forte": "Le candidat s'engage à accueillir chaque année un stagiaire en insertion (DELD ou bénéficiaire RSA) pour 35h minimum sur un site de livraison ENAC, en lien avec Nova Emploi Haute-Garonne.",
+            "source": "RC art 6.3 ; CCAP art 7",
+            "unite_evaluation": "points"
           },
           {
             "libelle": "Critère environnemental",
             "ponderation_pct": 5,
-            "description": "Actions et engagements concrets pour réduire l'impact environnemental des prestations de transport (émissions GES, véhicules propres, optimisation des tournées).",
+            "description": "Appréciation des mesures concrètes de réduction de l'impact environnemental des transports (écoconduite, optimisation logistique, émissions CO2).",
             "elements_attendus": [
-              "Part de véhicules électriques/hybrides/GNV dans le parc dédié",
-              "Objectifs chiffrés de réduction des émissions CO2",
-              "Outils d'optimisation des tournées",
-              "Bilan carbone des prestations"
+              "Engagement formation écoconduite annuelle des conducteurs avec justificatifs",
+              "Politique d'optimisation des tournées (mutualisation, réduction des km à vide)",
+              "Capacité à fournir un indicateur CO2 par prestation",
+              "Part de flotte à énergie alternative ou faibles émissions"
             ],
-            "exemple_reponse_forte": "Le candidat s'engage à utiliser exclusivement des véhicules Euro 6 ou électriques pour les livraisons ENAC, et à fournir un bilan carbone annuel des prestations. Un outil d'optimisation des tournées permet de réduire le kilométrage à vide de 20%.",
-            "source": "RC art 6.3"
+            "exemple_reponse_forte": "100% des conducteurs affectés à l'ENAC sont formés à l'écoconduite chaque année (relevé de sessions fourni avant le 15 janvier). Le candidat propose un rapport CO2 mensuel par expédition et vise 15% de km à vide en moins grâce à la mutualisation des tournées inter-sites ENAC.",
+            "source": "RC art 6.3 ; CCTP art 6",
+            "unite_evaluation": "points"
           }
         ]
       }
     ],
     "prix": {
       "type_formule": "moins_disant",
-      "formule_explicite": "Note de l'offre = (Montant de l'offre moins-disante / Montant de l'offre à noter) × Base de notation",
+      "formule_explicite": "Note de l'offre = (Montant de l'offre la moins-disante / Montant de l'offre à noter) × base de notation. Décomposition : DQE 45% + Assurance valeur non déclarée 3% + Assurance valeur déclarée 2% = 50% total prix.",
+      "source": "RC art 6.3",
       "elements_a_chiffrer": [
-        "Bordereau des Prix Unitaires (BPU) - tarifs par type de prestation",
-        "Montant total du DQE (Détail Quantitatif Estimatif)",
-        "Assurance valeur non déclarée",
-        "Assurance valeur déclarée",
-        "Délais de livraison par type de prestation"
+        "Bordereau des Prix Unitaires (BPU) : tarifs par tranche de poids en express, messagerie et affrètement (zones 1 à 4)",
+        "DQE (Détail Quantitatif Estimatif) : transport de caisses sécurisées Toulouse-Vilnius A/R + exemples mensuels de transports depuis Castelnaudary",
+        "Assurance valeur non déclarée : indemnité par kg et plafond par colis",
+        "Assurance valeur déclarée : pourcentage de remboursement supplémentaire en % de la valeur déclarée",
+        "Délais d'acheminement par zone et par type de service"
       ]
     },
-    "modalite_calcul_prix": "Note prix = (Prix offre la moins chère / Prix offre à noter) × Note maximale. Composantes : DQE total (45%), assurance valeur non déclarée (3%), assurance valeur déclarée (2%). Pondération totale prix : 50%."
+    "modalite_calcul_prix": "Note de l'offre = (Montant de l'offre moins-disante / Montant de l'offre à noter) × base de notation. Le critère prix représente 50% de la note finale, décomposé en : montant total DQE (45%), assurance valeur non déclarée (3%), assurance valeur déclarée (2%)."
   },
   "montant_marche": {
     "valeur_estimee_euros": 350000,
-    "fourchette_min_euros": 0,
+    "fourchette_min_euros": null,
     "fourchette_max_euros": 350000,
     "type": "plafond",
-    "duree_couverte": "Durée totale potentielle de l'accord-cadre (4 ans)",
-    "source_extraction": "RC article 3.3",
-    "commentaire": "Plafond de 350 000 € HT explicitement mentionné pour la durée totale de l'accord-cadre (1 an + 3 reconductions). Aucun montant minimum n'est fixé."
+    "duree_couverte": "4 ans (1 an renouvelable 3 fois tacitement)",
+    "source_extraction": "RC art 3.3 ; CCAP art 3-2",
+    "commentaire": "Le CCAP et le RC mentionnent un montant maximum de 350 000 € HT sans minimum, sur la durée totale potentielle de 4 ans de l'accord-cadre. Soit environ 87 500 € HT/an en volume moyen théorique."
+  },
+  "montant_3_voies": {
+    "voie_1_eur": 350000,
+    "voie_1_source": "RC art 3.3 et CCAP art 3-2 : 'montant maximum de 350 000,00 € HT sur la durée totale potentielle de l'accord-cadre'",
+    "voie_2_disponible": false,
+    "voie_2_min_eur": null,
+    "voie_2_max_eur": null,
+    "voie_2_hypotheses": [],
+    "voie_2_raison_indisponible": "Montant maximum publié explicitement dans le RC (Voie 1 disponible) : estimation bottom-up non nécessaire."
+  },
+  "cout_realisation": {
+    "cout_total_eur": null,
+    "cout_min_eur": null,
+    "cout_max_eur": null,
+    "postes": [
+      {
+        "poste": "Coûts opérationnels transport (carburant, péages, conducteurs, sous-traitants réseau)",
+        "detail": "~723 envois express/an + 40 messagerie + 8 affrètement depuis Castelnaudary seul ; estimation ratio coût/prix pour un transporteur national : 60-70% du CA sur ce type de contrat",
+        "montant_eur": null
+      },
+      {
+        "poste": "Responsable-coordinateur dédié et administration",
+        "detail": "Temps partiel d'un account manager + gestion administrative des bons de commande et factures",
+        "montant_eur": null
+      },
+      {
+        "poste": "Assurances marchandises spécifiques",
+        "detail": "Couverture valeur déclarée (caisses Vilnius 14 000 € x 2) et valeur non déclarée sur ensemble des flux",
+        "montant_eur": null
+      },
+      {
+        "poste": "Formation écoconduite et clause insertion",
+        "detail": "Formation annuelle conducteurs + action insertion 1x/an (coût facilement absorbé dans les frais généraux)",
+        "montant_eur": null
+      }
+    ],
+    "taux_journaliers_retenus": "Marché de transport routier : taux de marge nette habituel en messagerie/express BtoB ~5-15% ; coût de revient d'un envoi express national ~60-75% du tarif public ; coût d'un affrètement ~55-65% du tarif. Ces ratios sont indicatifs pour un transporteur national.",
+    "commentaire": "Le coût de réalisation ne peut être chiffré précisément sans les prix unitaires renseignés par le candidat dans le BPU. Sur un accord-cadre transport à 350 000 € HT sur 4 ans (~87 500 €/an), le coût de production pour un transporteur national se situe généralement entre 55 et 70% du revenu, soit ~48 000-61 000 €/an, mais dépend fortement de la structure tarifaire proposée."
   },
   "revision_prix": {
-    "type": "non_communique",
-    "indices_utilises": [],
-    "ponderation": null,
-    "periodicite": null,
-    "formule_revision": null,
-    "source_extraction": null,
-    "commentaire": "Le CCAP n'est pas fourni dans les pièces analysées. Aucune information sur la révision des prix n'est disponible dans le RC."
+    "type": "indexation",
+    "indices_utilises": [
+      "IPP — Indice des prix de production des services français aux entreprises françaises (BtoB) - CPF 49.4 - Transport routier de fret et services de déménagement - Base 2021 (identifiant INSEE n° 010766514)"
+    ],
+    "ponderation": "P = P0 × [0,125 + 0,875 × (IPPn / IPP0)] — partie fixe 12,5% + partie variable 87,5% indexée sur IPP transport routier de fret",
+    "periodicite": "annuelle",
+    "formule_revision": "P = P0 [0,125 + 0,875 × (IPPn / IPP0)] — où IPPn est la dernière valeur connue à la date de révision et IPP0 le dernier indice définitif publié à la date limite de réception des offres. Coefficient arrondi au millième supérieur. Calcul tous les 12 mois à la date anniversaire de notification.",
+    "source_extraction": "CCAP art 10-2.2",
+    "commentaire": "Formule très favorable pour le titulaire en contexte inflationniste (87,5% de part variable sur l'indice transport routier de fret) ; clause butoir à +5%/an par rapport aux prix initiaux avec possibilité de résiliation si désaccord. Attention : prix fermes la 1ère année."
   },
   "alertes_prix": [
-    "Plafond global de 350 000 € HT sur 4 ans sans montant minimum garanti : risque de sous-consommation, le candidat ne peut pas refuser la reconduction (RC art. 3.4) mais l'ENAC n'est pas obligée de commander",
-    "Pondération prix de 50% couplée à une formule moins-disante : écart de prix même modeste pénalise fortement — vigilance sur le chiffrage du DQE",
-    "Annexe financière en format Excel obligatoire avec BPU + DQE + délais + assurances : risque d'erreur de calcul ou de cellules mal renseignées pouvant rendre l'offre irrégulière",
-    "Assurances valeur déclarée et non déclarée à chiffrer séparément : postes à bien identifier dans le BPU pour ne pas se retrouver avec une offre sous-évaluée"
+    "Le critère prix représente 50% de la note finale, dont 45% sur le DQE : une erreur de chiffrage dans le DQE (notamment le colis de 445 kg ou les caisses Vilnius) peut fortement dégrader la note.",
+    "Clause butoir à +5% d'augmentation annuelle par rapport aux prix initiaux : au-delà, l'ENAC peut résilier sans indemnité — risque commercial à anticiper sur 4 ans en cas d'inflation forte des coûts transport.",
+    "Le BPU comporte plus de 120 lignes de prix à renseigner (zones 1 à 4, express/messagerie/affrètement, tranches de poids de 0,5 kg à 3 000 kg) : risque d'erreur ou d'omission élevé, à vérifier cellule par cellule.",
+    "Les pénalités de retard non plafonnées (dès le 1er euro, sans mise en demeure) représentent un risque financier significatif : 500 €/jour pour l'express, 300 € messagerie, 100 € affrètement — à intégrer dans le coût de risque lors du chiffrage.",
+    "Accord-cadre sans minimum garanti : le revenu réel pourrait être inférieur à 87 500 €/an si l'ENAC émet peu de bons de commande."
   ],
   "references_exigees": {
     "experience_minimale_annees": 3,
-    "experience_source": "RC art 5.3",
+    "experience_source": "RC art 5.3 et 5.7",
     "volume_min_references_similaires": null,
-    "volume_min_references_unite": null,
-    "secteur_experience": "Transport et acheminement de colis / prestations similaires",
-    "secteur_source": "RC art 5.3",
+    "volume_min_references_unite": "marchés similaires",
+    "secteur_experience": "Transport et acheminement de colis, pièces détachées ou matériels pour des clients multi-sites (secteur industriel, aéronautique ou administrations publiques)",
+    "secteur_source": "RC art 5.3 et 5.7",
     "certifications_obligatoires": [],
     "autres_exigences": [
       {
-        "libelle": "Déclaration du chiffre d'affaires annuel général des 3 dernières années (via DC2)",
+        "libelle": "Déclaration du chiffre d'affaires annuel général des 3 dernières années (formulaire DC2)",
         "source": "RC art 5.3"
       },
       {
@@ -283,78 +222,191 @@
         "source": "RC art 5.3"
       },
       {
-        "libelle": "Déclaration de l'outillage, du matériel et de l'équipement technique disponibles",
+        "libelle": "Déclaration de l'outillage, matériel et équipement technique disponible",
         "source": "RC art 5.3"
       },
       {
-        "libelle": "Références détaillées de prestations similaires réalisées dans les 3 dernières années (montant, date, destinataire)",
+        "libelle": "Références détaillées de prestations similaires réalisées dans les 3 dernières années",
         "source": "RC art 5.3"
       },
       {
-        "libelle": "Bilan des émissions de gaz à effet de serre (BEGES) conforme à l'art. L.229-25 du code de l'environnement, à fournir à la demande de l'acheteur",
+        "libelle": "Attestations de régularité sociale et fiscale (moins de 6 mois)",
+        "source": "CCAP art 4-2"
+      },
+      {
+        "libelle": "Attestation d'assurance responsabilité civile couvrant les marchandises transportées",
+        "source": "CCAP art 4-5 et art 12"
+      },
+      {
+        "libelle": "Bilan des émissions de gaz à effet de serre (BEGES) conforme à l'article L.229-25 du code de l'environnement, sur demande de l'acheteur",
         "source": "RC art 7.1"
       }
     ]
   },
+  "dossier_candidature": {
+    "pieces_a_fournir": [
+      {
+        "libelle": "Lettre de candidature (DC1 ou équivalent)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC art 5.3"
+      },
+      {
+        "libelle": "Déclaration du candidat (DC2) présentant le chiffre d'affaires annuel général des 3 dernières années",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC art 5.3"
+      },
+      {
+        "libelle": "Déclaration des effectifs moyens annuels et du personnel d'encadrement",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC art 5.3"
+      },
+      {
+        "libelle": "Déclaration de l'outillage, matériel et équipement technique disponible",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC art 5.3"
+      },
+      {
+        "libelle": "Références détaillées de prestations similaires réalisées dans les 3 dernières années",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC art 5.3"
+      },
+      {
+        "libelle": "Acte d'engagement (AE) complété et signé",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC art 6.1"
+      },
+      {
+        "libelle": "Annexe financière dûment complétée (BPU, délais et assurances, DQE) au format Excel",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC art 6.1"
+      },
+      {
+        "libelle": "Cadre de mémoire technique (CMT) complété selon le cadre imposé",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC art 6.1"
+      },
+      {
+        "libelle": "RIB (Relevé d'Identité Bancaire)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC art 6.1"
+      },
+      {
+        "libelle": "Pour chaque sous-traitant : DC4 (Déclaration de sous-traitance), capacités professionnelles et financières, déclaration sur l'honneur d'absence d'interdiction de soumissionner",
+        "phase": "offre",
+        "obligatoire": false,
+        "source": "RC art 5.1 et 6.1"
+      }
+    ],
+    "mode_remise": "dématérialisé",
+    "plateforme_depot": "PLACE — marches-publics.gouv.fr",
+    "signature_electronique_exigee": true,
+    "format_signature": "Signature électronique avancée avec certificat qualifié (eIDAS niveau 3) ou signature électronique qualifiée (niveau 4) ; formats XAdES, CAdES ou PAdES",
+    "nombre_exemplaires": null,
+    "langue": "français",
+    "duree_validite_offres_jours": 180,
+    "modalites_source": "RC art 4.2 et art 7.4"
+  },
   "lots": [
     {
       "numero": 1,
-      "intitule": "Lot unique - Transport de colis, pièces détachées et matériel",
-      "zone_geographique": "Aude (11), Haute-Garonne (31), Hérault (34), Isère (38), Landes (40), Saône-et-Loire (71), Seine-et-Marne (77) + UE + international ponctuel",
+      "intitule": "Transport de colis, de pièces détachées et de matériel pour le compte de l'ENAC",
+      "domaine": "transport_logistique_vehicules",
+      "zone_geographique": "France métropolitaine (départements 11, 31, 34, 38, 40, 71, 77), Union Européenne, international (USA à titre exceptionnel)",
       "volume_estime": 350000,
-      "volume_estime_unite": "€ HT plafond total 4 ans",
-      "particularites": "Lot unique indivisible. Accord-cadre sans montant minimum. Mono-attributaire."
+      "volume_estime_unite": "euros HT (plafond accord-cadre 4 ans)",
+      "cout_estime_min_eur": 192500,
+      "cout_estime_max_eur": 245000,
+      "particularites": "Lot unique indivisible. Collecte quotidienne obligatoire à Castelnaudary (centre de maintenance ENAC). Flux majoritairement express. Gestion de colis hors-gabarit jusqu'à 3 000 kg et 10 m. Transport exceptionnel de caisses sécurisées vers Vilnius (Lituanie) et USA. Formalités douanières à la charge du titulaire pour l'international."
     }
   ],
+  "tranches": [],
   "calendrier": {
     "date_limite_offres": "2026-07-09",
     "date_demarrage_prevue": null,
-    "duree_marche": "1 an reconductible 3 fois (4 ans maximum)"
+    "duree_marche": "12 mois reconductibles 3 fois tacitement, soit 4 ans maximum"
   },
   "alertes_candidat": [
-    "Clause d'insertion sociale OBLIGATOIRE (art. L.2112-2 CCP) : le non-respect est rédhibitoire — prévoir volume d'heures d'insertion et partenariat avec une structure IAE dès la réponse",
-    "Aucun montant minimum garanti : l'opérateur doit calibrer son offre en tenant compte du risque de faible consommation",
-    "Annexe financière Excel (BPU + DQE + délais + assurances) obligatoire et soumise à critère prix 50% : une erreur de remplissage peut entraîner l'irrégularité de l'offre",
-    "Le candidat ne peut pas refuser la reconduction (art. R.2112-4 CCP) : s'engager sur 4 ans avec des prix unitaires éventuellement fixes",
-    "Bilan GES (BEGES) potentiellement exigé avant attribution : prévoir sa disponibilité ou justifier de l'exemption si effectifs < seuil légal"
+    "L'accord-cadre est mono-attributaire sur lot unique : une seule entreprise sera retenue, sans possibilité de mutualiser avec d'autres lots.",
+    "La clause sociale d'insertion est une condition d'exécution OBLIGATOIRE (non une option) : une action d'insertion par an doit être réalisée sous peine de pénalités (500 €/action non réalisée, 50 €/heure non réalisée) — à intégrer dans l'organisation dès la candidature.",
+    "Les pénalités de retard sont non plafonnées et applicables sans mise en demeure préalable dès le 1er euro : 500 €/jour ouvré pour l'express — risque financier majeur pour le titulaire, à évaluer soigneusement.",
+    "La collecte à Castelnaudary est quotidienne (15h30-16h30, du lundi au vendredi) et constitue une obligation de résultat : tout décalage peut perturber la maintenance de la flotte ENAC. Le candidat doit justifier d'une organisation locale ou régionale capable de garantir ce créneau quotidien.",
+    "Le BPU comporte plus de 120 lignes de tarification à renseigner (4 zones géographiques × plusieurs typologies × tranches de poids allant de 0,5 kg à 3 000 kg) : une erreur ou une omission peut rendre l'offre irrégulière ou la pénaliser fortement sur le critère prix (45% du total)."
   ],
   "points_differenciants_attendus": [
     {
-      "libelle": "Couverture géographique native des 7 départements ENAC",
-      "exemple": "Le candidat démontre la présence d'agences ou de relais propres (non sous-traités) dans chacun des 7 départements, avec délais de livraison garantis et interlocuteur local identifié pour chaque site ENAC.",
-      "source": "RC art 3.5"
+      "libelle": "Garantie d'un créneau de collecte quotidien à Castelnaudary",
+      "exemple": "Un candidat disposant d'un hub régional à Carcassonne ou Toulouse peut proposer un chauffeur dédié ou un sous-traitant local pour assurer la collecte quotidienne 15h30-16h30 à Castelnaudary, avec procédure de remplacement en cas d'absence, ce qui rassurera fortement l'ENAC sur la continuité du MCO de sa flotte.",
+      "source": "CCTP art 4.2"
     },
     {
-      "libelle": "Outil de suivi/traçabilité en temps réel des expéditions",
-      "exemple": "Mise à disposition d'une interface dédiée ENAC permettant le suivi en temps réel de tous les colis, avec alertes automatiques en cas d'anomalie de livraison et historique consultable par les services ENAC.",
-      "source": "RC art 6.3"
+      "libelle": "Capacité à gérer les pièces aéronautiques hors-gabarit",
+      "exemple": "Le candidat cite des références de transport de pièces industrielles volumineuses (fuselages, hélices, pales d'éolienne…) et présente la flotte de véhicules spéciaux (plateaux extensibles, transports exceptionnels) disponible pour les colis jusqu'à 3 000 kg et 10 m, avec les agréments réglementaires correspondants.",
+      "source": "CCTP art 3.2"
     },
     {
-      "libelle": "Engagements environnementaux concrets et chiffrés (véhicules propres, CO2)",
-      "exemple": "Le candidat propose un plan de verdissement du parc sur la durée du marché (ex: 20% de véhicules électriques dès l'an 1, 40% en an 3) et s'engage à fournir un reporting carbone semestriel des prestations ENAC.",
-      "source": "RC art 6.3"
+      "libelle": "Offre de suivi numérique en temps réel accessible à tous les sites ENAC",
+      "exemple": "Un portail client multi-utilisateurs permettant à chacun des 9 sites ENAC de créer une demande d'enlèvement, suivre ses colis et télécharger les preuves de livraison sans appel téléphonique, avec hotline dédiée pendant les heures ouvrées.",
+      "source": "CCTP art 4.3 et 4.4"
     },
     {
-      "libelle": "Dispositif d'insertion structuré et partenariat local identifié",
-      "exemple": "Présentation d'une convention cadre signée avec une SIAE en Haute-Garonne (département siège ENAC), avec volume d'heures garanti et procédure de recrutement clairement décrite pour démontrer la faisabilité de la clause d'insertion.",
-      "source": "RC art 3.8"
+      "libelle": "Couverture d'assurance valeur déclarée compétitive pour les matériels onéreux",
+      "exemple": "Pour les caisses informatiques Toulouse-Vilnius (valeur déclarée 7 000 € par caisse), un candidat proposant un faible taux de supplément valeur déclarée (ex: 0,3% au lieu de 1%) se différenciera sur le critère prix (2% de la note finale) tout en rassurant l'ENAC sur la couverture des sinistres.",
+      "source": "CCTP art 4.5 ; RC art 6.3 (sous-critère assurance valeur déclarée 2%)"
     },
     {
-      "libelle": "Capacité à traiter des envois sensibles/techniques (pièces détachées aéronautiques)",
-      "exemple": "Procédures spécifiques de conditionnement, manutention et traçabilité pour les pièces détachées aéronautiques (matériel fragile, valeur élevée), avec assurance valeur déclarée compétitive et formation des équipes aux spécificités du matériel ENAC.",
-      "source": null
+      "libelle": "Politique environnementale chiffrée et vérifiable",
+      "exemple": "Le candidat s'engage à fournir mensuellement un bilan CO2 par expédition (calculé selon la méthodologie ADEME), détaille son taux de formation écoconduite (100% des conducteurs formés en N-1) et présente une feuille de route vers une flotte partiellement électrique sur les livraisons urbaines inter-sites ENAC.",
+      "source": "CCTP art 6 ; RC art 6.3 (critère environnemental 5%)"
     }
   ],
   "_meta": {
     "id_marche": "BOAMP-26-56664",
     "type": "complet",
-    "extraction_le": "2026-06-12T03:14:59.895632+00:00",
+    "date_generation": "2026-06-19T21:43:46.545932+00:00",
+    "extraction_le": "2026-06-19T21:43:46.545932+00:00",
     "modele": "claude-sonnet-4-6",
-    "tokens_input": 28139,
-    "tokens_output": 6169,
-    "cout_eur": 0.1681,
-    "duree_sec": 107.4,
+    "preset_utilise": null,
+    "presets_matches": [],
+    "prompts_versions": {},
+    "tokens_input": 67508,
+    "tokens_output": 8341,
+    "cout_eur": 0.3113,
+    "duree_sec": 151.3,
     "pdfs_traites": [
+      {
+        "nom": "202600FCS029_AE.docx",
+        "hash": "fef3e972f51a2e32f7cd2b325ce4722f",
+        "taille_chars": 9470
+      },
+      {
+        "nom": "202600FCS029_BPU.xlsx",
+        "hash": "c16dae18c42de08fc38d5df5fb2adeaf",
+        "taille_chars": 10083
+      },
+      {
+        "nom": "202600FCS029_CCAP.pdf",
+        "hash": "e113650e781c528930a3699a3b799c70",
+        "taille_chars": 72907
+      },
+      {
+        "nom": "202600FCS029_CCTP.pdf",
+        "hash": "5748dc01a280f0123c0de2e1f3ee9d07",
+        "taille_chars": 18610
+      },
+      {
+        "nom": "202600FCS029_CMT.docx",
+        "hash": "82c486fc9e61c54170a9d4e1e7285bc5",
+        "taille_chars": 4072
+      },
       {
         "nom": "202600FCS029_RC.pdf",
         "hash": "d5987f7f80eeb34f40e43219561aad8c",

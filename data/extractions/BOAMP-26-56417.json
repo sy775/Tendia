@@ -1,25 +1,26 @@
 {
-  "synthese_marche": "VNF Strasbourg lance un appel d'offres ouvert en 3 lots pour réaliser des diagnostics phytosanitaires et définir des plans de gestion du patrimoine arboré sur les canaux de sa Direction Territoriale (Canal de la Marne au Rhin, Canal de la Sarre, Canal de Colmar et canaux secondaires). Il s'agit d'un marché de prestations intellectuelles à caractère environnemental, allotis par canal, avec des tranches fermes et conditionnelles. Le marché inclut une dimension géomatique importante (production de données SIG) et aboutit à des plans de gestion opérationnels pour chaque secteur.",
+  "synthese_marche": "Marché public de prestations intellectuelles passé par Voies Navigables de France (VNF) – Direction Territoriale de Strasbourg, portant sur des diagnostics phytosanitaires et la définition de plans de gestion du patrimoine arboré sur trois canaux alsaciens-mosellans (Canal de la Marne au Rhin, Canal de la Sarre, Canal de Colmar et canaux secondaires). Le marché est alloti en 3 lots géographiques, chacun structuré en une tranche ferme et plusieurs tranches optionnelles, avec une durée de 4 mois par lot. Le prestataire devra réaliser des inventaires terrain arbre par arbre, renseigner un SIG conforme aux standards VNF (QGIS/QField, ArcGIS) et produire des plans de gestion pluriannuels.",
   "domaines_metier": [
     {
-      "code": "ingenierie_environnementale"
+      "code": "ingenierie_ecologie_biodiversite"
     }
   ],
-  "raison_classification": "Le marché porte explicitement sur des diagnostics phytosanitaires d'arbres et la définition de plans de gestion du patrimoine arboré sur des canaux navigables, relevant de l'ingénierie environnementale. La dimension géomatique (production de données SIG) et l'approche écologique du patrimoine arboré confirment ce classement, distinct d'un simple conseil stratégique ou d'une étude de structure.",
+  "raison_classification": "Le marché porte exclusivement sur des diagnostics phytosanitaires d'arbres et la définition de plans de gestion du patrimoine arboré en bord de canaux, avec expertise faune notable, identification d'espèces remarquables et contraintes calendaires liées à la faune (chiroptères, castor). Il s'agit d'une mission d'ingénierie spécialisée en écologie/arboriculture appliquée aux milieux fluviaux, relevant du code ingenierie_ecologie_biodiversite.",
   "caracteristiques_mission_moe": {
-    "typologie": "étude diagnostic / étude environnementale",
+    "typologie": "BET spécialisé – diagnostic phytosanitaire et plan de gestion arboré",
     "phases_couvertes": [],
-    "typologie_ouvrage": "Patrimoine arboré de canaux navigables (Canal de la Marne au Rhin, Canal de la Sarre, Canal de Colmar et canaux secondaires)",
+    "typologie_ouvrage": "Patrimoine arboré en bord de canaux navigables (Domaine Public Fluvial)",
     "montant_travaux_estime": null,
     "complexite_technique": "complexe",
     "livrables_par_phase": [
       {
         "phase": "DIAG",
         "livrables": [
-          "Rapport de diagnostic phytosanitaire par lot (canal)",
-          "Plan de gestion du patrimoine arboré",
-          "Données géomatiques / SIG associées",
-          "Restitution des résultats (format à définir)"
+          "Inventaire arbre par arbre (47 champs SIG par arbre : essence, état sanitaire A-E, état mécanique A-E, implantation racinaire, faune notable, photos, etc.)",
+          "Base de données SIG conforme aux standards VNF (format Shapefile UTF-8 + géodatabase ArcGIS, système RGF93/Lambert-93 EPSG:2154)",
+          "Plan de gestion pluriannuel avec prescription par arbre (travaux N à N+4, urgence des travaux)",
+          "Rapport de diagnostic avec méthodologie topographique (procédés GNSS/RTK, précision X,Y ≤ 1m tolérance 3m)",
+          "Guide de saisie terrain complété"
         ]
       }
     ],
@@ -28,12 +29,12 @@
     "coordinations_associees": [],
     "organigramme_attendu": [
       {
-        "profil": "Chef de projet / expert phytosanitaire arboré",
+        "profil": "Arboriste-conseil / expert phytosanitaire (qualification arboricole reconnue)",
         "nombre": null,
         "anciennete_min_annees": null
       },
       {
-        "profil": "Géomaticien / expert SIG",
+        "profil": "Opérateur SIG (compétences QGIS/QField, ArcGIS, formats Shapefile/géodatabase)",
         "nombre": null,
         "anciennete_min_annees": null
       }
@@ -42,159 +43,94 @@
   },
   "qualifications_moe": {
     "opqibi": [],
-    "opqcm": null,
+    "opqcm": [],
     "bim": null,
     "autres": []
   },
-  "caracteristiques_techniques_chantier": {
-    "description": "Diagnostic phytosanitaire et définition de plans de gestion du patrimoine arboré sur les berges et abords des canaux navigables gérés par VNF Direction Territoriale de Strasbourg. Les lots couvrent respectivement le Canal de la Marne au Rhin (CMR), le Canal de la Sarre (Cs) et le Canal de Colmar et canaux secondaires (CCO). Chaque lot comprend une tranche ferme et plusieurs tranches conditionnelles (optionnelles).",
-    "technologies_concernees": [],
-    "type_de_sites": "Berges et abords de canaux navigables (voies d'eau intérieures), milieux naturels linéaires semi-urbains et ruraux, Alsace-Moselle",
-    "criteres_eligibilite": [
-      {
-        "libelle": "Déclaration sur l'honneur justifiant l'absence de cas d'interdiction de soumissionner",
-        "source": "RC §5.1"
-      },
-      {
-        "libelle": "Déclaration des effectifs moyens annuels et du personnel d'encadrement sur les 3 dernières années",
-        "source": "RC §5.1"
-      },
-      {
-        "libelle": "Fourniture des CV de l'équipe projet",
-        "source": "RC §5.1"
-      }
-    ],
-    "contraintes_site_signalees": [
-      "Travaux en milieu naturel (berges de canaux)",
-      "Accès aux berges potentiellement contraint (zones humides, végétation dense)",
-      "Conditions d'exécution à caractère environnemental obligatoires (CCAP)"
-    ]
-  },
-  "volumes_techniques": {
-    "puissance_totale_kwc": null,
-    "puissance_par_site_kwc": null,
-    "nb_sites": 3,
-    "surface_panneaux_m2": null,
-    "productible_annuel_estime_mwh": null,
-    "duree_marche_mois": null,
-    "duree_maintenance_om_annees": null,
-    "commentaire_volumes": "3 lots géographiques correspondant à 3 canaux : Lot 1 Canal de la Marne au Rhin (1 tranche ferme + 1 tranche conditionnelle TO), Lot 2 Canal de la Sarre (1 tranche ferme + 3 tranches conditionnelles T01/T02/T03), Lot 3 Canal de Colmar et canaux secondaires (1 tranche ferme + 3 tranches conditionnelles T01/T02/T03). La longueur des canaux et le nombre d'arbres à diagnostiquer ne sont pas précisés dans les pièces fournies."
-  },
-  "modalites_execution_chantier": {
-    "raccordement_reseau_inclus": null,
-    "etudes_techniques_incluses": null,
-    "calendrier_chantier_contraint": null,
-    "sites_execution": [
-      "Alsace",
-      "Moselle",
-      "Bas-Rhin",
-      "Haut-Rhin"
-    ],
-    "engagement_productible": null,
-    "engagement_disponibilite_om": null
-  },
   "bareme_notation": {
-    "valeur_technique_pct": 60,
+    "valeur_technique_pct": 70,
     "valeur_prix_pct": 30,
     "sous_criteres_techniques": [
       {
         "libelle": "Valeur technique",
         "ponderation_pct": 60,
-        "description": "La valeur technique est évaluée sur 4 sous-critères portant sur l'organisation de l'équipe projet, la compréhension des enjeux, les compétences géomatiques et la pertinence de l'approche plan de gestion.",
+        "description": "Évaluation de la qualité méthodologique et des moyens mis en œuvre pour réaliser le diagnostic phytosanitaire et le plan de gestion arboré.",
         "elements_attendus": [],
         "exemple_reponse_forte": "—",
-        "source": "RC §7.2",
-        "sous_criteres": [
-          {
-            "libelle": "Organisation et compétences de l'équipe projet",
-            "ponderation_pct": 40,
-            "description": "Évaluation de la composition, des qualifications et de l'organisation de l'équipe mobilisée pour l'exécution des prestations. Les CV fournis servent de base à cette notation.",
-            "elements_attendus": [
-              "Présentation nominative et qualifiée de chaque membre de l'équipe (arboriste-conseil, phytopathologiste, géomaticien)",
-              "Diplômes et certifications professionnelles liés au diagnostic arboré (ex: ETF, arboriste grimpeur certifié, titre professionnel d'arboriste)",
-              "Expériences antérieures similaires des profils présentés",
-              "Organisation du travail en équipe et répartition des rôles",
-              "Référencement du chef de projet et de sa disponibilité"
-            ],
-            "exemple_reponse_forte": "L'équipe sera composée d'un chef de projet arboriste-conseil (ETF / Arboriste Européen certifié, 10 ans d'expérience en diagnostic sur linéaires de canaux), secondé par un géomaticien SIG spécialisé en inventaires arborés et un technicien terrain. L'organigramme détaillé avec pourcentages d'affectation par tranche sera joint en annexe du mémoire technique.",
-            "source": "RC §7.2"
-          },
-          {
-            "libelle": "Compréhension du contexte et des enjeux, et méthodologie proposée",
-            "ponderation_pct": 20,
-            "description": "Évaluation de la capacité du candidat à appréhender le contexte spécifique de VNF (gestion d'un patrimoine arboré linéaire en milieu fluvial) et de la pertinence de sa méthodologie de diagnostic phytosanitaire.",
-            "elements_attendus": [
-              "Analyse du contexte VNF et des enjeux propres au patrimoine arboré de canaux (stabilité des berges, sécurité des usagers, continuité écologique)",
-              "Description précise des méthodes de diagnostic phytosanitaire (inspection visuelle, tests de résistance, tomographie, etc.)",
-              "Planning détaillé des interventions par tranche et par canal",
-              "Prise en compte des contraintes d'accès en bord de canal"
-            ],
-            "exemple_reponse_forte": "Le candidat démontre sa compréhension des enjeux VNF en explicitant la double contrainte sécuritaire (chute d'arbres sur voies navigables) et écologique (continuité boisée des berges). La méthodologie proposée distingue une inspection visuelle niveau 1 sur l'ensemble du linéaire, complétée d'examens approfondis (tomographie acoustique, sondages à la jauge) sur les sujets identifiés à risque.",
-            "source": "RC §7.2"
-          },
-          {
-            "libelle": "Compétences géomatiques et qualité de production des données",
-            "ponderation_pct": 20,
-            "description": "Évaluation de la maîtrise des outils géomatiques et de la capacité du candidat à produire des données SIG exploitables et structurées pour alimenter la gestion patrimoniale de VNF.",
-            "elements_attendus": [
-              "Description des outils SIG utilisés (logiciel, format de données, système de coordonnées)",
-              "Présentation des attributs de la base de données arborée (espèce, hauteur, diamètre, état sanitaire, niveau de risque, etc.)",
-              "Exemples de livrables géomatiques issus de missions similaires",
-              "Compatibilité des formats avec les outils de VNF (shapefile, GeoJSON, QGIS, etc.)",
-              "Procédure de contrôle qualité des données géoréférencées"
-            ],
-            "exemple_reponse_forte": "Le candidat propose une base de données SIG structurée sous QGIS (format shapefile / GeoPackage), avec saisie terrain via tablette et application mobile dédiée, garantissant un géoréférencement précis (GPS RTK) de chaque arbre inventorié. La table attributaire reprendra a minima 25 champs standardisés incluant le diagnostic phytosanitaire et le niveau de risque, et sera livrée accompagnée d'un rapport cartographique imprimable.",
-            "source": "RC §7.2"
-          },
-          {
-            "libelle": "Pertinence de l'approche pour le plan de gestion et la restitution des résultats",
-            "ponderation_pct": 20,
-            "description": "Évaluation de la pertinence du plan de gestion proposé (priorisation des interventions, programmation pluriannuelle) et de la qualité de la restitution des résultats (format, lisibilité, opérationnalité pour VNF).",
-            "elements_attendus": [
-              "Description du contenu et de la structure du plan de gestion (interventions urgentes, préventives, programme pluriannuel)",
-              "Méthode de priorisation des arbres à abattre, tailler ou surveiller",
-              "Format de restitution (rapport, cartographie, tableau de bord, présentation à VNF)",
-              "Prise en compte des contraintes budgétaires et opérationnelles de VNF",
-              "Exemples de plans de gestion arborée réalisés sur des linéaires similaires"
-            ],
-            "exemple_reponse_forte": "Le plan de gestion sera structuré en 3 niveaux de priorité (urgence sécurité < 3 mois / moyen terme 1-3 ans / entretien courant) et déclinera pour chaque tranche un programme d'intervention chiffré. La restitution comprendra un rapport exécutif, des cartographies par tronçon de canal et un tableau de bord Excel permettant à VNF de piloter les interventions en régie ou par commande à des entreprises d'élagage.",
-            "source": "RC §7.2"
-          }
-        ]
+        "source": "contexte_boamp lots criteres_specifiques",
+        "unite_evaluation": "points",
+        "sous_criteres": []
       },
       {
         "libelle": "Qualité des dispositions en matière environnementale",
         "ponderation_pct": 10,
-        "description": "Évaluation des mesures prises par le candidat pour respecter les conditions d'exécution à caractère environnemental définies dans le CCAP, dont le respect est une condition de conformité de l'offre.",
+        "description": "Évaluation des dispositions prises par le prestataire pour limiter l'impact environnemental de ses interventions terrain (déplacements, respect des espèces, gestion des déchets).",
         "elements_attendus": [
-          "Description des mesures environnementales mises en œuvre lors des déplacements et interventions terrain (véhicules propres, covoiturage, optimisation des tournées)",
-          "Gestion des déchets produits lors des inspections",
-          "Sensibilisation de l'équipe aux enjeux de biodiversité (zones Natura 2000, espèces protégées)",
-          "Engagement sur des indicateurs de suivi environnemental"
+          "Mesures concrètes de réduction des déplacements et de l'empreinte carbone de la mission",
+          "Prise en compte des contraintes faunistiques (chiroptères, castor) dans le calendrier d'intervention",
+          "Engagement sur la non-perturbation des habitats lors des relevés terrain"
         ],
-        "exemple_reponse_forte": "L'équipe s'engage à limiter les déplacements individuels en regroupant les sessions de terrain par tronçon et à utiliser des véhicules hybrides. Un registre de suivi des émissions liées aux déplacements sera tenu et communiqué à VNF en fin de mission. Lors des interventions à proximité de zones humides, un protocole de non-perturbation de la faune sera respecté (période de nidification, etc.).",
-        "source": "RC §2.4 et §7.2"
+        "exemple_reponse_forte": "Le prestataire propose un regroupement des tournées terrain par secteur géographique pour limiter les kilomètres parcourus, une adaptation du calendrier d'intervention hors périodes de nidification et de mise-bas (chiroptères), et l'utilisation exclusive de matériaux biodégradables pour le marquage des arbres.",
+        "source": "contexte_boamp lots criteres_specifiques",
+        "unite_evaluation": "points",
+        "sous_criteres": []
       }
     ],
     "prix": {
       "type_formule": "moins_disant",
-      "formule_explicite": "Le prix est noté sur 30% de la note globale. La formule exacte n'est pas précisée dans les pièces fournies ; vraisemblablement note proportionnelle au prix le plus bas (offre la moins-disante = note maximale).",
+      "formule_explicite": "Le critère Prix représente 30% de la note globale ; la note est calculée sur la base du prix global forfaitaire proposé par le candidat pour chaque lot (tranche ferme + tranches optionnelles).",
+      "source": "contexte_boamp lots criteres_specifiques",
       "elements_a_chiffrer": [
-        "Forfait global par lot (tranche ferme)",
-        "Forfait par tranche conditionnelle (T01, T02, T03 selon lot)",
-        "DPGF décomposée par lot et par tranche"
+        "Montant forfaitaire Tranche Ferme par lot",
+        "Montant forfaitaire Tranche Optionnelle T01 par lot",
+        "Montant forfaitaire Tranche Optionnelle T02 (lots 2 et 3)",
+        "Montant forfaitaire Tranche Optionnelle T03 (lot 2)",
+        "Montant total lot (TF + TO)"
       ]
     },
-    "modalite_calcul_prix": "Prix noté à 30% de la note globale. Formule exacte non précisée dans les pièces transmises ; mécanisme moins-disant présumé."
+    "modalite_calcul_prix": "Note prix calculée proportionnellement au prix le plus bas : Note = (prix_min / prix_candidat) × 30"
   },
   "montant_marche": {
-    "valeur_estimee_euros": null,
-    "fourchette_min_euros": null,
-    "fourchette_max_euros": null,
-    "type": "non_communique",
-    "duree_couverte": null,
-    "source_extraction": null,
-    "commentaire": "Aucun montant estimé, enveloppe budgétaire ou prix unitaire n'est mentionné dans les pièces du DCE fournies (RC uniquement). Le CCTP et la DPGF, non fournis, contiendraient probablement ces informations."
+    "valeur_estimee_euros": 276712,
+    "fourchette_min_euros": 51968,
+    "fourchette_max_euros": 276712,
+    "type": "estime_explicite",
+    "duree_couverte": "4 mois par lot (tous lots confondus)",
+    "source_extraction": "contexte_boamp lots montant_estime : Lot 1 = 51 968 €, Lot 2 = 137 984 €, Lot 3 = 86 760 €",
+    "commentaire": "Montants estimés fournis par VNF dans l'avis BOAMP : Lot 1 (CMR) 51 968 €, Lot 2 (CdS) 137 984 €, Lot 3 (CCO) 86 760 €. Montant total cumulé si les 3 lots sont attribués = 276 712 €. Les montants incluent tranches fermes et optionnelles."
+  },
+  "montant_3_voies": {
+    "voie_1_eur": 276712,
+    "voie_1_source": "Avis BOAMP – montants estimés par lot : Lot 1 = 51 968 €, Lot 2 = 137 984 €, Lot 3 = 86 760 €",
+    "voie_2_disponible": false,
+    "voie_2_min_eur": null,
+    "voie_2_max_eur": null,
+    "voie_2_hypotheses": [],
+    "voie_2_raison_indisponible": "Voie 1 disponible (montants estimés publiés pour chaque lot dans l'avis BOAMP) – Voie 2 non nécessaire."
+  },
+  "cout_realisation": {
+    "cout_total_eur": 178000,
+    "cout_min_eur": 155000,
+    "cout_max_eur": 200000,
+    "postes": [
+      {
+        "poste": "Lot 1 – Canal de la Marne au Rhin (CMR) : relevés terrain + SIG + rapport",
+        "detail": "Estimation ~25-30 j-h experts arboristes à 500 €/j + 8 j-h géomaticien à 450 €/j",
+        "montant_eur": 32000
+      },
+      {
+        "poste": "Lot 2 – Canal de la Sarre (CdS) : relevés terrain + SIG + rapport",
+        "detail": "Estimation ~65-80 j-h experts arboristes à 500 €/j + 20 j-h géomaticien à 450 €/j",
+        "montant_eur": 90000
+      },
+      {
+        "poste": "Lot 3 – Canal de Colmar et canaux secondaires (CCO) : relevés terrain + SIG + rapport",
+        "detail": "Estimation ~40-50 j-h experts arboristes à 500 €/j + 14 j-h géomaticien à 450 €/j",
+        "montant_eur": 56000
+      }
+    ],
+    "taux_journaliers_retenus": "Arboriste-conseil expert : 480-550 €/j chargé ; Opérateur SIG/géomaticien : 420-480 €/j chargé. Taux marché indicatifs pour bureau d'études spécialisé en ingénierie écologique.",
+    "commentaire": "Estimation basée sur la proportionnalité des montants BOAMP entre lots (Lot 2 ≈ 2,65× Lot 1 ; Lot 3 ≈ 1,67× Lot 1) et sur une charge terrain/bureau typique pour ce type de diagnostic arboré linéaire en milieu fluvial. La fourchette fait varier le taux journalier (dimension la plus incertaine) à charge constante. Marge brute estimée 30-42% selon lot."
   },
   "revision_prix": {
     "type": "non_communique",
@@ -203,107 +139,334 @@
     "periodicite": null,
     "formule_revision": null,
     "source_extraction": null,
-    "commentaire": "Le CCAP n'a pas été fourni dans les pièces analysées. La révision des prix n'est donc pas renseignée."
+    "commentaire": "Le CCAP n'est pas fourni dans les pièces analysées (seuls l'AE et les annexes SIG sont disponibles). Aucune clause de révision des prix n'a pu être identifiée. À vérifier dans le CCAP complet disponible sur la plateforme de dépôt."
   },
   "alertes_prix": [
-    "Pondération prix de 30% seulement : la valeur technique (60%) et les dispositions environnementales (10%) dominent le jugement — le moins-disant ne gagne pas automatiquement, mais une offre trop chère sera pénalisée.",
-    "La DPGF doit obligatoirement être jointe à l'offre (pièce contractuelle) — une erreur ou omission dans sa structure peut rendre l'offre irrégulière.",
-    "Les marchés avec tranches conditionnelles impliquent un chiffrage précis de chaque tranche : une erreur de report entre tranche ferme et conditionnelle peut invalider l'offre ou générer une OAB.",
-    "Aucun montant estimatif publié : impossible de se positionner par rapport à une enveloppe cible sans le CCTP — risque de sous-estimer ou surévaluer le volume de travail."
+    "Les montants estimés par lot (Lot 1 : 51 968 €, Lot 2 : 137 984 €, Lot 3 : 86 760 €) sont des estimations VNF – le prix forfaitaire proposé doit couvrir l'intégralité des arbres sur les tronçons concernés, y compris les tranches optionnelles dont l'affermissement n'est pas garanti.",
+    "Structure en tranches fermes + tranches optionnelles (T01 à T03 selon lot) : le volume garanti (tranche ferme seule) peut représenter une fraction seulement du montant total estimé. Vérifier la part de la TF dans l'AE.",
+    "Prix global forfaitaire : tout dépassement de charge terrain (densité d'arbres supérieure aux estimations, accès difficile, faune notable nécessitant investigations complémentaires) reste à la charge du prestataire.",
+    "Pondération prix à 30% : significative pour ce type de prestation intellectuelle spécialisée, incite à une offre compétitive sans dégrader la qualité méthodologique qui pèse 60%."
   ],
   "references_exigees": {
     "experience_minimale_annees": null,
     "experience_source": null,
     "volume_min_references_similaires": null,
     "volume_min_references_unite": null,
-    "secteur_experience": "Diagnostic phytosanitaire et gestion de patrimoine arboré (non précisé dans le RC au-delà des CV et effectifs)",
-    "secteur_source": "RC §5.1",
+    "secteur_experience": "Diagnostic phytosanitaire d'arbres en alignement ou en milieu naturel, plan de gestion arboré, idéalement en contexte de domaine public fluvial ou linéaire infrastructure",
+    "secteur_source": null,
     "certifications_obligatoires": [],
-    "autres_exigences": [
+    "autres_exigences": []
+  },
+  "dossier_candidature": {
+    "pieces_a_fournir": [
       {
-        "libelle": "Déclaration des effectifs moyens annuels et du personnel d'encadrement sur les 3 dernières années",
-        "source": "RC §5.1"
+        "libelle": "Acte d'Engagement (AE) complété et signé, avec désignation du(des) lot(s) et montants HT/TTC par tranche",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "AE_diagphyto_VNF-DTS_2026_VF.pdf"
       },
       {
-        "libelle": "CV de l'équipe projet à fournir obligatoirement",
-        "source": "RC §5.1"
+        "libelle": "Annexe n°1 de l'AE : Désignation des co-traitants et répartition des prestations (si groupement)",
+        "phase": "offre",
+        "obligatoire": false,
+        "source": "AE_diagphyto_VNF-DTS_2026_VF.pdf – Annexe 1"
+      },
+      {
+        "libelle": "Mémoire technique (valeur technique et dispositions environnementales)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": null
+      },
+      {
+        "libelle": "Pièces relatives aux capacités de la candidature (DC1/DC2 ou DUME, attestations, références)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": null
+      },
+      {
+        "libelle": "RIB / coordonnées bancaires pour paiement",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "AE_diagphyto_VNF-DTS_2026_VF.pdf §7"
       }
-    ]
+    ],
+    "mode_remise": "dématérialisé",
+    "plateforme_depot": null,
+    "signature_electronique_exigee": true,
+    "format_signature": "Signature électronique (mention explicite dans l'AE : 'Merci de ne pas verrouiller l'acte d'engagement après signature électronique')",
+    "nombre_exemplaires": null,
+    "langue": "français",
+    "duree_validite_offres_jours": 120,
+    "modalites_source": "AE_diagphyto_VNF-DTS_2026_VF.pdf §10 et §6"
   },
   "lots": [
     {
       "numero": 1,
-      "intitule": "LOT 1 - Canal de la Marne au Rhin (CMR)",
-      "zone_geographique": "Canal de la Marne au Rhin — Alsace / Moselle",
+      "intitule": "LOT 1 – Canal de la Marne au Rhin (CMR)",
+      "domaine": "ingenierie_ecologie_biodiversite",
+      "zone_geographique": "Alsace-Moselle / Bas-Rhin – Canal de la Marne au Rhin, branche est (DTS Strasbourg secteur nord-ouest)",
       "volume_estime": null,
-      "volume_estime_unite": null,
-      "particularites": "1 tranche ferme + 1 tranche conditionnelle (TO). Canal à grand gabarit, linéaire important traversant Alsace et Moselle."
+      "volume_estime_unite": "arbres inventoriés",
+      "cout_estime_min_eur": 28000,
+      "cout_estime_max_eur": 36000,
+      "ca_estime_min_eur": 46000,
+      "ca_estime_max_eur": 55000,
+      "marge_brute_pct": 36,
+      "particularites": "Tranche Ferme + 1 Tranche Optionnelle (TO). Lot le plus petit en montant (51 968 € estimés). Canal de la Marne au Rhin branche est."
     },
     {
       "numero": 2,
-      "intitule": "LOT 2 - Canal de la Sarre (Cs)",
-      "zone_geographique": "Canal de la Sarre — Moselle",
+      "intitule": "LOT 2 – Canal de la Sarre (CdS)",
+      "domaine": "ingenierie_ecologie_biodiversite",
+      "zone_geographique": "Alsace-Moselle / Moselle – Canal de la Sarre (DTS Strasbourg secteur nord-ouest)",
       "volume_estime": null,
-      "volume_estime_unite": null,
-      "particularites": "1 tranche ferme + 3 tranches conditionnelles (T01, T02, T03). Canal plus modeste reliant la Moselle à la frontière allemande."
+      "volume_estime_unite": "arbres inventoriés",
+      "cout_estime_min_eur": 82000,
+      "cout_estime_max_eur": 100000,
+      "ca_estime_min_eur": 122000,
+      "ca_estime_max_eur": 148000,
+      "marge_brute_pct": 35,
+      "particularites": "Tranche Ferme + 3 Tranches Optionnelles (T01, T02, T03). Lot le plus important en montant (137 984 € estimés). Canal de la Sarre, linéaire étendu."
     },
     {
       "numero": 3,
-      "intitule": "LOT 3 - Canal de Colmar et Canaux secondaires (CCO)",
-      "zone_geographique": "Canal de Colmar et canaux secondaires — Haut-Rhin",
+      "intitule": "LOT 3 – Canal de Colmar et Canaux secondaires (CCO)",
+      "domaine": "ingenierie_ecologie_biodiversite",
+      "zone_geographique": "Alsace / Haut-Rhin – Canal de Colmar et canaux secondaires (DTS Strasbourg secteur centre)",
       "volume_estime": null,
-      "volume_estime_unite": null,
-      "particularites": "1 tranche ferme + 3 tranches conditionnelles (T01, T02, T03). Inclut des canaux secondaires ce qui peut impliquer une diversité de contextes terrain."
+      "volume_estime_unite": "arbres inventoriés",
+      "cout_estime_min_eur": 50000,
+      "cout_estime_max_eur": 65000,
+      "ca_estime_min_eur": 77000,
+      "ca_estime_max_eur": 92000,
+      "marge_brute_pct": 33,
+      "particularites": "Tranche Ferme + 2 Tranches Optionnelles (T01, T02). Montant estimé 86 760 €. Couvre le Canal de Colmar (CCO), la Lauch canalisée, le Logelbach et canaux secondaires."
+    }
+  ],
+  "tranches": [
+    {
+      "type": "ferme",
+      "numero": "TF",
+      "intitule": "Tranche Ferme – Lot 1 (CMR)",
+      "objet": "Diagnostic phytosanitaire et plan de gestion sur la portion principale du Canal de la Marne au Rhin, exécutée d'office.",
+      "montant_estime_eur": null,
+      "condition_affermissement": null,
+      "source": "AE_diagphyto_VNF-DTS_2026_VF.pdf §5"
+    },
+    {
+      "type": "optionnelle",
+      "numero": "TO",
+      "intitule": "Tranche Optionnelle T01 – Lot 1 (CMR)",
+      "objet": "Extension du diagnostic phytosanitaire à un tronçon complémentaire du Canal de la Marne au Rhin.",
+      "montant_estime_eur": null,
+      "condition_affermissement": "Sur décision du maître d'ouvrage (VNF DTS) dans les délais contractuels.",
+      "source": "AE_diagphyto_VNF-DTS_2026_VF.pdf §5"
+    },
+    {
+      "type": "ferme",
+      "numero": "TF",
+      "intitule": "Tranche Ferme – Lot 2 (CdS)",
+      "objet": "Diagnostic phytosanitaire et plan de gestion sur la portion principale du Canal de la Sarre, exécutée d'office.",
+      "montant_estime_eur": null,
+      "condition_affermissement": null,
+      "source": "AE_diagphyto_VNF-DTS_2026_VF.pdf §5"
+    },
+    {
+      "type": "optionnelle",
+      "numero": "T01",
+      "intitule": "Tranche Optionnelle T01 – Lot 2 (CdS)",
+      "objet": "Extension du diagnostic à un premier tronçon complémentaire du Canal de la Sarre.",
+      "montant_estime_eur": null,
+      "condition_affermissement": "Sur décision du maître d'ouvrage.",
+      "source": "AE_diagphyto_VNF-DTS_2026_VF.pdf §5"
+    },
+    {
+      "type": "optionnelle",
+      "numero": "T02",
+      "intitule": "Tranche Optionnelle T02 – Lot 2 (CdS)",
+      "objet": "Extension du diagnostic à un deuxième tronçon complémentaire du Canal de la Sarre.",
+      "montant_estime_eur": null,
+      "condition_affermissement": "Sur décision du maître d'ouvrage.",
+      "source": "AE_diagphyto_VNF-DTS_2026_VF.pdf §5"
+    },
+    {
+      "type": "optionnelle",
+      "numero": "T03",
+      "intitule": "Tranche Optionnelle T03 – Lot 2 (CdS)",
+      "objet": "Extension du diagnostic à un troisième tronçon complémentaire du Canal de la Sarre.",
+      "montant_estime_eur": null,
+      "condition_affermissement": "Sur décision du maître d'ouvrage.",
+      "source": "AE_diagphyto_VNF-DTS_2026_VF.pdf §5"
+    },
+    {
+      "type": "ferme",
+      "numero": "TF",
+      "intitule": "Tranche Ferme – Lot 3 (CCO)",
+      "objet": "Diagnostic phytosanitaire et plan de gestion sur la portion principale du Canal de Colmar et canaux secondaires, exécutée d'office.",
+      "montant_estime_eur": null,
+      "condition_affermissement": null,
+      "source": "AE_diagphyto_VNF-DTS_2026_VF.pdf §5"
+    },
+    {
+      "type": "optionnelle",
+      "numero": "T01",
+      "intitule": "Tranche Optionnelle T01 – Lot 3 (CCO)",
+      "objet": "Extension du diagnostic à un premier tronçon complémentaire (Canal de Colmar et canaux secondaires).",
+      "montant_estime_eur": null,
+      "condition_affermissement": "Sur décision du maître d'ouvrage.",
+      "source": "AE_diagphyto_VNF-DTS_2026_VF.pdf §5"
+    },
+    {
+      "type": "optionnelle",
+      "numero": "T02",
+      "intitule": "Tranche Optionnelle T02 – Lot 3 (CCO)",
+      "objet": "Extension du diagnostic à un deuxième tronçon complémentaire (Canal de Colmar et canaux secondaires).",
+      "montant_estime_eur": null,
+      "condition_affermissement": "Sur décision du maître d'ouvrage.",
+      "source": "AE_diagphyto_VNF-DTS_2026_VF.pdf §5"
     }
   ],
   "calendrier": {
-    "date_limite_offres": "2026-07-13",
+    "date_limite_offres": "2026-07-10",
     "date_demarrage_prevue": null,
-    "duree_marche": "Définie par lot dans le CCAP (non fourni)"
+    "duree_marche": "4 mois par lot"
   },
   "alertes_candidat": [
-    "La date limite de dépôt est le lundi 13 juillet 2026 à 12h00 (page de garde RC) — attention à ne pas confondre avec le 10 juillet mentionné dans l'avis BOAMP source.",
-    "Le respect des conditions d'exécution à caractère environnemental (CCAP) est une condition de conformité de l'offre : une offre ne les respectant pas sera déclarée irrégulière.",
-    "Les CV de l'équipe projet sont exigés à la candidature — l'absence de profils qualifiés (arboriste-conseil, géomaticien) identifiés nominativement peut affaiblir significativement la note (sous-critère à 40% de la valeur technique).",
-    "Transmission uniquement par voie électronique (https://www.marches-publics.gouv.fr) — aucune transmission papier autorisée, prévoir l'anticipation du dépôt.",
-    "Le candidat peut soumissionner sur les 3 lots simultanément mais doit remettre une DPGF distincte par lot — vérifier la cohérence de chaque DPGF avant dépôt."
+    "Maîtrise du SIG VNF indispensable : le prestataire doit restituer les données dans les formats EXACTEMENT définis par VNF (Shapefile UTF-8, géodatabase ArcGIS, système de coordonnées RGF93/Lambert-93 EPSG:2154, IGN/NGF69 pour le Z) – tout écart est considéré non conforme selon l'annexe T3.",
+    "Utilisation exclusive des données VNF : aucune donnée externe (fournisseur tiers, base publique) ne peut être intégrée aux livrables sans validation du chef de projet VNF – risque de rejet des livrables si cette règle n'est pas respectée.",
+    "Structure en tranches optionnelles : la tranche ferme seule peut représenter une portion limitée du montant estimé global ; le volume garanti n'est pas précisé dans les pièces disponibles. Vérifier la répartition TF/TO dans le CCAP.",
+    "Connaissance du réseau VNF requise : les acronymes de voies d'eau (CMR, CHS, CCO…) et la structure SIG (biefs hydrauliques, points kilométriques) sont spécifiques à VNF. Une expérience préalable sur le réseau ou une phase de prise en main doit être intégrée dans le planning.",
+    "Contraintes faunistiques et calendaires : la présence de faune notable (chiroptères, castor) conditionne les dates d'intervention (champ 'faune notable' du SIG génère des contraintes calendaires) – le candidat doit démontrer sa capacité à adapter son calendrier terrain en conséquence."
   ],
   "points_differenciants_attendus": [
     {
-      "libelle": "Expertise arboricole et phytosanitaire spécialisée sur milieux fluviaux / linéaires de canaux",
-      "exemple": "Valoriser des références de diagnostics phytosanitaires sur des linéaires de cours d'eau, canaux ou routes arborées en zone humide, en détaillant les espèces traitées et les méthodes de diagnostic utilisées (tomographie, inspection visuelle niveaux 1/2/3).",
-      "source": "RC §7.2"
+      "libelle": "Maîtrise native des outils SIG VNF (QGIS/QField + ArcGIS)",
+      "exemple": "Décrire une expérience précédente de collecte terrain avec QField et restitution en géodatabase ArcGIS conforme à un cahier de charges SIG strict (structure shapefile imposée, règles topologiques, contrôle qualité intégré). Mentionner la capacité à utiliser le projet QField fourni par VNF sans retraitement.",
+      "source": "ANX-T3_Specification_SIG_diagphyto_2026.docx"
     },
     {
-      "libelle": "Maîtrise géomatique et production de données SIG structurées et exploitables",
-      "exemple": "Présenter un exemple de base de données SIG arborée livrée à un gestionnaire public (collectivité, établissement public), avec sa structure attributaire et un extrait cartographique, pour démontrer la qualité et l'interopérabilité des livrables numériques.",
-      "source": "RC §7.2"
+      "libelle": "Méthodologie de diagnostic phytosanitaire structurée (grilles A-E sanitaire et mécanique)",
+      "exemple": "Présenter la grille de notation A-E (état sanitaire / état mécanique) utilisée par les arboristes de l'équipe, en la mettant en correspondance exacte avec les définitions du CCTP (ramification terminale, mortalité de branches, cavités, déchaussement…). Citer des missions comparables sur des linéaires de plusieurs dizaines de kilomètres.",
+      "source": "ANX-T7_Structure_saisie_terrain_diagphyto_2026.xlsx – feuille Schema (champs etasan, etamec)"
     },
     {
-      "libelle": "Plan de gestion opérationnel et priorisé, adapté aux contraintes d'un gestionnaire de voies navigables",
-      "exemple": "Décrire dans le mémoire technique la structure du plan de gestion : niveaux de priorité d'intervention, chiffrage indicatif des travaux à programmer, format de tableau de bord utilisable par les agents VNF sur le terrain.",
-      "source": "RC §7.2"
+      "libelle": "Capacité à gérer des missions multi-tronçons avec tranches optionnelles",
+      "exemple": "Proposer un planning de mission flexible intégrant l'incertitude sur l'affermissement des tranches optionnelles, avec une organisation logistique optimisée pour les déplacements sur les canaux (Lot 2 Canal de la Sarre : 3 tranches optionnelles supplémentaires potentielles).",
+      "source": "AE_diagphyto_VNF-DTS_2026_VF.pdf §5"
     },
     {
-      "libelle": "Démarche environnementale concrète et mesurable lors des interventions terrain",
-      "exemple": "Proposer des indicateurs chiffrés (km parcourus, taux de covoiturage, bilan carbone estimé de la mission) et des engagements précis sur la non-perturbation des espèces protégées pendant les périodes sensibles (nidification, hibernation).",
-      "source": "RC §2.4"
+      "libelle": "Prise en compte des enjeux faune/flore dans le plan de gestion (dispositions environnementales – critère à 10%)",
+      "exemple": "Intégrer dans le mémoire technique une procédure d'intervention respectueuse des espèces protégées : calendriers d'intervention adaptés aux cycles biologiques des chiroptères et du castor, protocole de signalement des cavités occupées (champ 'faunot' du SIG), et limitation des déplacements motorisés en bord de canal.",
+      "source": "contexte_boamp lots criteres_specifiques + ANX-T7_Structure_saisie_terrain_diagphyto_2026.xlsx champ faunot"
     }
   ],
   "_meta": {
     "id_marche": "BOAMP-26-56417",
     "type": "complet",
-    "extraction_le": "2026-06-12T13:01:41.294330+00:00",
+    "date_generation": "2026-06-20T23:53:08.337705+00:00",
+    "extraction_le": "2026-06-20T23:53:08.337705+00:00",
     "modele": "claude-sonnet-4-6",
-    "tokens_input": 20060,
-    "tokens_output": 6036,
-    "cout_eur": 0.1432,
-    "duree_sec": 107.2,
+    "preset_utilise": "ingenierie",
+    "presets_matches": [
+      "ingenierie"
+    ],
+    "prompts_versions": {
+      "ingenierie/_preset.json": "sha256:b924b32a088673d6"
+    },
+    "tokens_input": 217621,
+    "tokens_output": 7432,
+    "cout_eur": 0.7261,
+    "duree_sec": 123.8,
     "pdfs_traites": [
+      {
+        "nom": "AE_diagphyto_VNF-DTS_2026_VF.pdf",
+        "hash": "0f812a5826ef501c6b6915f9d7d04e46",
+        "taille_chars": 14518
+      },
+      {
+        "nom": "ANX-D1_Donnees_indicatives_cimes_2026.xlsx",
+        "hash": "cb9d8317281cfef81782530d1369b862",
+        "taille_chars": 7880
+      },
+      {
+        "nom": "ANX-T1_Referentiel_operations_diagphyto_2026.xlsx",
+        "hash": "c199bedf2564ccc2e84550ccb889bc9b",
+        "taille_chars": 4019
+      },
+      {
+        "nom": "ANX-T2_Modele_synthese_diagphyto_2026.xlsx",
+        "hash": "8b003c91c76202b480e372fa72d3ab2b",
+        "taille_chars": 4079
+      },
+      {
+        "nom": "ANX-T3_Specification_SIG_diagphyto_2026.docx",
+        "hash": "23a236eff06e906b34f3d2c78321685b",
+        "taille_chars": 15793
+      },
+      {
+        "nom": "ANX-T4_Guide_QField_diagphyto_2026.pdf",
+        "hash": "252e6be769fe2a932982cbd6300dade3",
+        "taille_chars": 7734
+      },
+      {
+        "nom": "ANX-T5_Liste_abreviations_voies_eau_2026.xlsx",
+        "hash": "502e3958739bc106bb2fec6210d35fb2",
+        "taille_chars": 3605
+      },
+      {
+        "nom": "ANX-T7_Structure_saisie_terrain_diagphyto_2026.xlsx",
+        "hash": "bf3a9eed0c43794aa0acd4e54c3ee370",
+        "taille_chars": 381405
+      },
+      {
+        "nom": "CCAP_diagphyto_VNF-DTS_2026_VF.pdf",
+        "hash": "77fea582273269ebf061d5e93c3a914e",
+        "taille_chars": 25856
+      },
+      {
+        "nom": "CCTP_diagphyto_VNF-DTS_2026_VF.pdf",
+        "hash": "3ca239b51fe36a9e26140d762b4302ec",
+        "taille_chars": 91522
+      },
+      {
+        "nom": "DPGF_diagphyto_VNF-LOT_1-DTS_2026_VF.xlsx",
+        "hash": "74c350e061db76d02c67af27c06d9f80",
+        "taille_chars": 1539
+      },
+      {
+        "nom": "DPGF_diagphyto_VNF-LOT_2-DTS_2026_VF.xlsx",
+        "hash": "5f3a7ffa4acd895e312eaacdbef4129e",
+        "taille_chars": 2409
+      },
+      {
+        "nom": "DPGF_diagphyto_VNF-LOT_3-DTS_2026_VF.xlsx",
+        "hash": "5a55abd77125beff568f7d0f680473a4",
+        "taille_chars": 2451
+      },
       {
         "nom": "RC_diagphyto_VNF-DTS_2026_VF.pdf",
         "hash": "6f56eb15ee62d5b5ef6b228c8266f5d3",
         "taille_chars": 21593
+      },
+      {
+        "nom": "REF-1_Agence_eau_Rhin-Meuse_cours_eau_2000.pdf",
+        "hash": "8f8a291c53275573c94e1d02ca771f80",
+        "taille_chars": 374132
+      },
+      {
+        "nom": "REF-2_Alignements_arbres.pdf",
+        "hash": "811290c426527fcb2c70eee936ce98b6",
+        "taille_chars": 205432
+      },
+      {
+        "nom": "REF-3_Cle_ligneux_bourgeons_hiver.pdf",
+        "hash": "4385e2da94b3a0cc5e9cb7a1bdae3538",
+        "taille_chars": 61251
+      },
+      {
+        "nom": "REF-4_Guide_dendromicrohabitats.pdf",
+        "hash": "9be1dea382a01ed727d815a65651c557",
+        "taille_chars": 47448
       }
     ]
   }

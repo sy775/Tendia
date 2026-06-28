@@ -1,0 +1,375 @@
+{
+  "synthese_marche": "Concession de services pour l'installation, l'exploitation et la maintenance d'équipements de télévision et services multimédias destinés aux patients du Centre Hospitalier de Bourg-en-Bresse (site Fleyriat) et du Centre Hospitalier Public d'Hauteville. Le concessionnaire exploite le service à ses risques et périls, se rémunère principalement auprès des patients (services payants) et verse une redevance au concédant calculée sur le chiffre d'affaires. La concession est d'une durée de 5 ans à compter du 01/01/2027, renouvelable tacitement deux fois 2 ans (durée maximale 9 ans).",
+  "domaines_metier": [
+    {
+      "code": "autre"
+    }
+  ],
+  "raison_classification": "Ce marché porte sur une concession de services audiovisuels hospitaliers (installation, exploitation et maintenance de téléviseurs en milieu hospitalier avec gestion des abonnements patients). Cette activité ne correspond à aucun code de la taxonomie : il ne s'agit ni de formation, ni d'insertion, ni de BTP, ni d'IT au sens propre, ni d'énergie. Le code 'autre' s'impose.",
+  "caracteristiques_metier": {
+    "description": "Concession de services pour la fourniture, l'installation, la maintenance et l'exploitation d'une solution globale de diffusion de services audiovisuels et multimédias (TNT, chaînes thématiques, VOD, radio, Wi-Fi, chaîne interne) dans les chambres de patients et espaces communs de deux établissements hospitaliers publics. Le concessionnaire gère les abonnements, la facturation aux patients et verse une redevance au concédant sur le CA réalisé. Parc total estimé à environ 1046 téléviseurs (910 CH Bourg-en-Bresse + 136 CH Hauteville CHPH payants et gratuits).",
+    "criteres_eligibilite": [
+      "Expérience dans l'installation et l'exploitation de services TV en milieu hospitalier",
+      "Capacités techniques : outillage, matériel et équipement pour marchés de même nature",
+      "Capacités financières : attestation bancaire ou assurance risques professionnels",
+      "Effectifs déclarés",
+      "Certificats de qualifications professionnelles",
+      "Régularité fiscale et sociale",
+      "Conformité aux exigences cybersécurité, RGPD et normes électriques (NFC 15-100)"
+    ]
+  },
+  "bareme_notation": {
+    "valeur_technique_pct": 60,
+    "valeur_prix_pct": 40,
+    "sous_criteres_techniques": [
+      {
+        "libelle": "TECHNIQUE",
+        "ponderation_pct": 50,
+        "description": "Évaluation de la qualité technique de la solution proposée : infrastructure, services aux patients, maintenance, déploiement et conformité aux exigences du CCTP.",
+        "elements_attendus": [
+          "Description détaillée de la solution technique (terminaux, tête de réseau, infrastructure coaxiale/IP)",
+          "Plan de déploiement avec phasage, plan de tests et gestion des risques",
+          "Dispositifs de maintenance (GTI/GTR, hotline, niveaux M0 à M3)",
+          "Services aux patients : bouquet TV, VOD, Wi-Fi, chaîne interne, accessibilité 24h/24",
+          "Conformité aux normes NFC 15-100, cybersécurité, RGPD",
+          "Classe énergétique des appareils et filières de recyclage"
+        ],
+        "exemple_reponse_forte": "Le candidat présente une solution IPTV avec téléviseurs Samsung 32' basse consommation classe B, une tête de réseau redondante garantissant 99,5% de disponibilité, un portail de souscription 24h/24 via TV, internet et numéro vert, et un plan de déploiement en 4 phases avec maintien du service existant. La maintenance est assurée par une hotline 7j/7 de 8h à 20h avec GTI de 1h et GTR de 4h pour les pannes TV individuelles.",
+        "source": "RC Article 6",
+        "unite_evaluation": "points",
+        "sous_criteres": []
+      },
+      {
+        "libelle": "DEVELOPPEMENT DURABLE",
+        "ponderation_pct": 10,
+        "description": "Évaluation des engagements environnementaux et sociaux du candidat dans l'exécution de la concession.",
+        "elements_attendus": [
+          "Classe énergétique des téléviseurs proposés",
+          "Filières de recyclage des appareils en fin de vie",
+          "Politique RSE de l'entreprise",
+          "Mesures pour réduire l'empreinte carbone de l'installation et de l'exploitation"
+        ],
+        "exemple_reponse_forte": "Les téléviseurs proposés sont tous classés énergétiquement A ou A+, recyclés via un partenaire agréé DEEE. La société s'inscrit dans une démarche ISO 14001 et prévoit un rapport annuel d'impact environnemental remis au concédant.",
+        "source": "RC Article 6 / CCTP Article 6",
+        "unite_evaluation": "points",
+        "sous_criteres": []
+      }
+    ],
+    "prix": {
+      "type_formule": "autre",
+      "formule_explicite": "Le critère Prix est pondéré à 40%. Il porte sur l'offre financière du candidat : tarification proposée aux patients, redevance reversée au concédant sur le CA, et conditions financières globales de la concession.",
+      "source": "RC Article 6",
+      "elements_a_chiffrer": [
+        "Tarifs de location TV proposés aux patients (journée, semaine, quinzaine, mois)",
+        "Pourcentage de redevance reversée au concédant sur le CA HT",
+        "Prix des casques audio à usage unique",
+        "Tarifs optionnels (bouquet enfant, Canal+, VOD, Wi-Fi)",
+        "Tarifs pour les chambres particulières (facturation mensuelle au CHPH)"
+      ]
+    },
+    "modalite_calcul_prix": "40% sur l'offre financière globale (tarification patients + redevance concédant). Aucune formule explicite de notation prix n'est précisée dans le RC."
+  },
+  "montant_marche": {
+    "valeur_estimee_euros": null,
+    "fourchette_min_euros": 700000,
+    "fourchette_max_euros": 1200000,
+    "type": "calcule_volumes",
+    "duree_couverte": "5 ans (période ferme), possibilité jusqu'à 9 ans avec reconductions",
+    "source_extraction": "CCTP Article 13 (inventaire TV) + Convention Article 23 (redevance sur CA)",
+    "commentaire": "Estimation du CA du concessionnaire sur la durée ferme : ~910 TV payantes CHBB + ~205 TV payantes CHPH = 1115 TV payantes. Hypothèse : taux d'occupation moyen 70%, tarif moyen 5€/jour, 365 jours → CA annuel brut ≈ 1115 × 0.70 × 5 × 365 ≈ 1,43 M€/an. Avec un taux d'abonnement réel plus conservateur (60% des lits réellement facturés, durée séjour variable) → CA annuel estimé entre 800k€ et 1,2 M€ (fourchette 5 ans : 4 à 6 M€). La valeur exprimée ici est le CA annuel estimé du concessionnaire, pas le flux vers le concédant (redevance %). Aucun montant publié explicite dans le DCE."
+  },
+  "montant_3_voies": {
+    "voie_1_eur": null,
+    "voie_1_source": null,
+    "voie_2_disponible": true,
+    "voie_2_min_eur": 700000,
+    "voie_2_max_eur": 1150000,
+    "voie_2_hypotheses": [
+      {
+        "hypothese": "Nombre de TV payantes : 910 (CHBB) + 205 (CHPH) = 1115 TV payantes (CCTP Article 13)",
+        "valeur": "1115 TV payantes"
+      },
+      {
+        "hypothese": "Taux d'occupation moyen des lits fixé à 70% (hypothèse marché hospitalier standard)",
+        "valeur": "70%"
+      },
+      {
+        "hypothese": "Durée moyenne de séjour patient variable ; tarif journalier moyen estimé 4,5 à 6€/jour TTC (tarif non communiqué dans le DCE, hypothèse marché)",
+        "valeur": "4,5 à 6 €/jour"
+      },
+      {
+        "hypothese": "Taux de souscription effectif des patients : 60 à 70% des journées d'hospitalisation (dimension la plus incertaine)",
+        "valeur": "60 à 70% de souscription"
+      },
+      {
+        "hypothese": "Durée ferme de 5 ans ; estimation sur base annuelle × 5",
+        "valeur": "5 ans"
+      }
+    ],
+    "voie_2_raison_indisponible": null
+  },
+  "cout_realisation": {
+    "cout_total_eur": 950000,
+    "cout_min_eur": 800000,
+    "cout_max_eur": 1100000,
+    "postes": [
+      {
+        "poste": "Achat et installation des téléviseurs (1115 TV payantes + ~89 gratuites CHPH + ~90 gratuites CHBB ≈ 1294 TV au total)",
+        "detail": "1294 TV × ~350 € matériel moyen + installation/supports ~150€ = ~500 € par TV × 1294 = ~647 000 €",
+        "montant_eur": 647000
+      },
+      {
+        "poste": "Infrastructure réseau (switchs, têtes de réseau, câblage, fibres, serveurs)",
+        "detail": "Estimation forfaitaire pour deux sites sur base CCTP (switch core, tiroirs optiques, architecture hybride coax/IP)",
+        "montant_eur": 120000
+      },
+      {
+        "poste": "Personnel exploitation et maintenance (gestionnaire site, technicien SAV) sur 5 ans",
+        "detail": "1 ETP gestionnaire × 35 000 €/an × 5 ans + interventions SAV externalisées ~15 000 €/an × 5 = 250 000 €",
+        "montant_eur": 250000
+      },
+      {
+        "poste": "Logiciels, licences, middleware, plateforme de gestion",
+        "detail": "Licences LISIS, ECT, portail de gestion : ~20 000 € initial + ~5 000 €/an × 5 = 45 000 €",
+        "montant_eur": 45000
+      },
+      {
+        "poste": "Droits de diffusion audiovisuelle (SACEM, SCPP, SPPF) sur 5 ans",
+        "detail": "~10 000 €/an × 5 ans = 50 000 €",
+        "montant_eur": 50000
+      },
+      {
+        "poste": "Renouvellement partiel des équipements et maintenance corrective sur 5 ans",
+        "detail": "~5% du parc/an × 350 € × 1294 × 5 = ~113 000 €",
+        "montant_eur": 113000
+      }
+    ],
+    "taux_journaliers_retenus": "Taux marché indicatifs utilisés : technicien de maintenance 45-65 €/h ; gestionnaire de site 30-35 k€/an brut employeur ; TV hospitalière 300-400 € pièce ; installation/support 100-200 € par point. Ces taux sont des ordres de grandeur de marché, non contractuels.",
+    "commentaire": "Le coût d'investissement initial (TV + réseau) est amorti sur la durée de la concession. Le modèle économique repose sur le CA patient : la marge brute du concessionnaire dépend du taux de souscription réel et du taux de redevance reversé au concédant (non communiqué dans le DCE). Le coût total estimé de 800 k€ à 1,1 M€ sur 5 ans doit être mis en regard du CA attendu (700 k€ à 1,15 M€) : la viabilité économique est sensible au taux de souscription et au niveau de redevance concédée."
+  },
+  "revision_prix": {
+    "type": "non_communique",
+    "indices_utilises": [],
+    "ponderation": null,
+    "periodicite": "annuelle",
+    "formule_revision": null,
+    "source_extraction": "Convention Article 9 et CCTP Article 8.2.4",
+    "commentaire": "Les tarifs sont révisables annuellement à la demande du concessionnaire (2 mois avant l'anniversaire), sur justification. Le concédant se réserve le droit de refuser la révision. Aucune formule d'indexation sur indices publiés n'est précisée dans les pièces fournies : risque d'asymétrie défavorable au concessionnaire si l'inflation est forte."
+  },
+  "alertes_prix": [
+    "Modèle économique de concession pur : le concessionnaire supporte l'intégralité du risque d'exploitation (aucune garantie de CA de la part du concédant) — la rentabilité dépend entièrement du taux de souscription patient.",
+    "Le taux de redevance reversée au concédant (% du CA HT) est à proposer par le candidat : un taux trop élevé érode la rentabilité, un taux trop bas nuit à la compétitivité de l'offre sur le critère Prix (40%).",
+    "Les tarifs proposés aux patients (critère Prix 40%) sont également évalués : sous-tarifer pour attirer les patients réduit la redevance et le CA ; sur-tarifer nuit à l'attractivité.",
+    "Investissement initial estimé à ~600-800 k€ à la charge du seul concessionnaire, amorti sur 5 ans maximum (si pas de reconduction) — risque financier significatif en cas de résiliation anticipée pour intérêt général (indemnisation des investissements non amortis prévue mais incertaine)."
+  ],
+  "references_exigees": {
+    "experience_minimale_annees": null,
+    "experience_source": null,
+    "volume_min_references_similaires": null,
+    "volume_min_references_unite": "sites équipés",
+    "secteur_experience": "Installation et exploitation de services de télévision et multimédias destinés aux patients en milieu hospitalier",
+    "secteur_source": "RC Article 5",
+    "certifications_obligatoires": [
+      {
+        "libelle": "Certificats de qualification professionnelle établis par des organismes indépendants (nature non précisée dans le RC)",
+        "codes": [],
+        "bloquante": false,
+        "source": "RC Article 5"
+      }
+    ],
+    "autres_exigences": [
+      {
+        "libelle": "Attestation d'assurance : déclaration de banques ou preuve d'assurance pour les risques professionnels",
+        "source": "RC Article 5"
+      },
+      {
+        "libelle": "Déclaration des effectifs moyens annuels",
+        "source": "RC Article 5"
+      },
+      {
+        "libelle": "Déclaration de l'outillage, matériel et équipement technique disponible pour marchés de même nature",
+        "source": "RC Article 5"
+      },
+      {
+        "libelle": "Régularité fiscale (attestation de régularité fiscale)",
+        "source": "RC Article 5"
+      },
+      {
+        "libelle": "Attestation de régularité concernant l'emploi des travailleurs handicapés (articles L.5212-1 et suivants)",
+        "source": "RC Article 5"
+      },
+      {
+        "libelle": "Visite obligatoire des sites pour les candidats n'ayant jamais été titulaire du marché (Bourg-en-Bresse le 26 juin 2026 à 10h, Hauteville sur rendez-vous)",
+        "source": "RC Article 8"
+      }
+    ]
+  },
+  "dossier_candidature": {
+    "pieces_a_fournir": [
+      {
+        "libelle": "Formulaire DC1 ou équivalent : Lettre de candidature - Habilitation du mandataire par ses cotraitants",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC Article 5"
+      },
+      {
+        "libelle": "Formulaire DC2 ou équivalent : Déclaration du candidat individuel ou du membre du groupement",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC Article 5"
+      },
+      {
+        "libelle": "Extrait K-BiS datant de moins de 6 mois",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC Article 5"
+      },
+      {
+        "libelle": "Attestation de régularité du candidat vis-à-vis de ses salariés (déclaration sur l'honneur articles L.1221-10, L.3243-2, R.3243-1 du Code du travail)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC Article 5"
+      },
+      {
+        "libelle": "Attestation de régularité concernant l'emploi des travailleurs handicapés (déclaration sur l'honneur articles L.5212-1, L.5212-2, L.5212-5, L.5212-9 du Code du travail)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC Article 5"
+      },
+      {
+        "libelle": "Attestation de régularité fiscale du candidat",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC Article 5"
+      },
+      {
+        "libelle": "RIB du compte sur lequel les paiements seront effectués",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC Article 5"
+      },
+      {
+        "libelle": "Le pouvoir habilitant le signataire à signer le contrat de concession",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC Article 5"
+      },
+      {
+        "libelle": "Attestation d'assurance (déclaration appropriée de banques ou preuve d'une assurance pour les risques professionnels)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC Article 5"
+      },
+      {
+        "libelle": "Déclaration d'effectifs : déclaration indiquant les effectifs moyens annuels",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC Article 5"
+      },
+      {
+        "libelle": "Certificats de qualifications professionnelles établis par des organismes indépendants",
+        "phase": "candidature",
+        "obligatoire": false,
+        "source": "RC Article 5"
+      },
+      {
+        "libelle": "Liste des moyens techniques : déclaration indiquant l'outillage, le matériel et l'équipement technique",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC Article 5"
+      },
+      {
+        "libelle": "Le contrat de concession (projet signé)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC Article 5"
+      },
+      {
+        "libelle": "L'offre technique et financière du candidat",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC Article 5"
+      }
+    ],
+    "mode_remise": "dématérialisé + copie de sauvegarde",
+    "plateforme_depot": "achatpublic.com — http://www.achatpublic.com",
+    "signature_electronique_exigee": true,
+    "format_signature": "XAdES, CAdES ou PAdES conformes eIDAS",
+    "nombre_exemplaires": null,
+    "langue": "français",
+    "duree_validite_offres_jours": 180,
+    "modalites_source": "RC Articles 4, 7 et Annexe"
+  },
+  "lots": [],
+  "tranches": [],
+  "calendrier": {
+    "date_limite_offres": "2026-09-04",
+    "date_demarrage_prevue": "2027-01-01",
+    "duree_marche": "5 ans fermes à compter du 01/01/2027, renouvelables tacitement deux fois 2 ans (durée maximale 9 ans)"
+  },
+  "alertes_candidat": [
+    "Visite obligatoire des sites pour les candidats n'ayant jamais été titulaires du marché : site de Bourg-en-Bresse le 26 juin 2026 à 10h (bâtiment administratif) et site d'Hauteville sur rendez-vous — l'absence de visite peut entraîner le rejet.",
+    "Investissement initial entièrement à la charge du concessionnaire (TV, réseau, infrastructure) sans garantie de CA de la part du concédant : risque financier élevé si le taux de souscription patient est inférieur aux prévisions.",
+    "Conformité aux exigences cybersécurité, RGPD, journalisation et isolation logique/physique du SI hospitalier obligatoire : l'architecture proposée doit être indépendante du SI du concédant sauf interconnexions validées.",
+    "Norme électrique NFC 15-100 et règlements ER obligatoires pour l'installation des équipements — toute non-conformité est éliminatoire lors de la réception contradictoire.",
+    "En cas de changement de concessionnaire, tous les frais de dépose, d'évacuation et de remplacement des supports sont à la charge du nouveau concessionnaire : anticiper ce coût dans l'offre."
+  ],
+  "points_differenciants_attendus": [
+    {
+      "libelle": "Niveau de redevance reversée au concédant : l'un des arbitrages clés du critère Prix",
+      "exemple": "Proposer un taux de redevance différencié par type de service (TV de base vs chaînes premium, VOD) avec un minimum garanti annuel, démontrant un partage de valeur équilibré et transparent via le 'livre ouvert' trimestriel.",
+      "source": "CCTP Article 7"
+    },
+    {
+      "libelle": "Solution de souscription autonome 24h/24 sans surcoût patient (hors heures boutique)",
+      "exemple": "Présenter un portail de souscription directement accessible depuis le téléviseur (QR code à l'allumage), avec paiement par CB et gestion du transfert de chambre automatique, accessible même sans numéro vert.",
+      "source": "CCTP Article 5.1"
+    },
+    {
+      "libelle": "Qualité et rapidité de la maintenance avec SLA documentés et pénalités acceptées",
+      "exemple": "Engagement contractuel sur des GTI/GTR inférieurs aux minima du CCTP (ex: remplacement TV défaillante en H+4 au lieu de J+1), avec système de ticketing en temps réel accessible au concédant.",
+      "source": "CCTP Article 9 / Convention Annexe 9"
+    },
+    {
+      "libelle": "Capacité à proposer une chaîne interne éditable par les services hospitaliers (diététique, communication, cuisine)",
+      "exemple": "Interface de mise à jour de la chaîne interne accessible via tablet ou navigateur sans formation technique, avec gestion des droits par service et des modèles préconfigurés (menu du jour, livret d'accueil).",
+      "source": "CCTP Article 5.2"
+    },
+    {
+      "libelle": "Engagements environnementaux : classe énergétique et filières de recyclage DEEE",
+      "exemple": "Fournir les fiches techniques des téléviseurs avec classe énergétique A+ et le contrat avec un éco-organisme agréé DEEE pour le recyclage en fin de concession.",
+      "source": "CCTP Article 6"
+    }
+  ],
+  "_meta": {
+    "id_marche": "BOAMP-26-56638",
+    "type": "complet",
+    "date_generation": "2026-06-19T21:24:34.819411+00:00",
+    "extraction_le": "2026-06-19T21:24:34.819411+00:00",
+    "modele": "claude-sonnet-4-6",
+    "preset_utilise": null,
+    "presets_matches": [],
+    "prompts_versions": {},
+    "tokens_input": 52732,
+    "tokens_output": 6634,
+    "cout_eur": 0.2448,
+    "duree_sec": 122.1,
+    "pdfs_traites": [
+      {
+        "nom": "CCTP concession TV 2026.pdf",
+        "hash": "008bc90439fda65667c4eefbff83ab7c",
+        "taille_chars": 37767
+      },
+      {
+        "nom": "RC 260123 CONCESSION.pdf",
+        "hash": "6d414247d1ef28d495065c740957693d",
+        "taille_chars": 22528
+      },
+      {
+        "nom": "concession TV Projet de Convention -  V4.docx",
+        "hash": "f1ec36b6172917d75c1ce3b3bff46891",
+        "taille_chars": 44538
+      }
+    ]
+  }
+}

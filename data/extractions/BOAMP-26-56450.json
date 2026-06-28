@@ -1,52 +1,48 @@
 {
-  "synthese_marche": "La Ville de Montigny-lès-Metz lance un marché de services pour l'exploitation et la maintenance des installations thermiques de ses 23 bâtiments communaux (chauffage, ECS, traitement d'air, climatisation, VMC). Le marché couvre la conduite, l'entretien courant, les dépannages et la gestion qualité de l'eau, avec obligation de résultat. Il s'agit d'un lot unique à prix global et forfaitaire annuel (P2), reconductible 3 fois, prenant effet au 1er octobre 2026.",
+  "synthese_marche": "Marché de services pour l'exploitation et la maintenance des installations thermiques (chauffage, ECS, traitement d'eau, climatisation, VMC) de 23 bâtiments communaux de la Ville de Montigny-lès-Metz (57). Le titulaire assure la conduite, l'entretien courant, les dépannages et la gestion de la qualité de l'eau dans le cadre d'un contrat forfaitaire annuel (P2). Le marché est conclu pour 1 an reconductible 3 fois, à effet du 1er octobre 2026.",
   "domaines_metier": [
     {
       "code": "btp_second_oeuvre"
     }
   ],
-  "raison_classification": "Le marché porte sur l'exploitation et la maintenance d'installations thermiques (chauffage, ECS, climatisation, VMC, traitement d'eau) dans des bâtiments communaux, relevant du second œuvre technique (CVC, plomberie sanitaire, chauffage). Le CPV principal 50531100 (entretien chaudières) et le CPV complémentaire 50721000 (mise en état d'exploitation chauffage) confirment ce positionnement. Il ne s'agit pas de rénovation énergétique au sens strict (pas de travaux d'isolation ou de remplacement d'équipements en dominante EnR), mais bien de maintenance/exploitation courante.",
+  "raison_classification": "Le marché porte exclusivement sur des prestations d'exploitation et de maintenance d'installations de chauffage, CVC, climatisation, ECS et VMC dans des bâtiments existants — c'est le cœur du second œuvre génie climatique/fluides. Les CPV 50531100 (entretien chaudières) et 50721000 (mise en état chauffage) confirment ce positionnement. Il ne s'agit ni de travaux neufs (btp_gros_oeuvre) ni d'études (ingenierie_fluides_climatique) mais bien de maintenance opérationnelle d'installations en bâtiment.",
   "caracteristiques_techniques_chantier": {
-    "description": "Exploitation et maintenance des installations thermiques (chaudières gaz/fuel, brûleurs, pompes à chaleur, CTA, VMC, climatisations, adoucisseurs, ballons ECS) de 23 bâtiments communaux. Prestations P2 : conduite, entretien courant, dépannage, gestion de l'eau, ramonage, contrôles réglementaires, GMAO, livrets de chaufferie et carnets sanitaires.",
-    "typologie_ouvrage": "Bâtiments communaux divers : hôtel de ville, groupes scolaires, gymnases, restaurants scolaires, complexes sportifs, médiathèque, services techniques, stades, centre culturel",
+    "description": "Exploitation et maintenance des installations thermiques de 23 bâtiments communaux : production de chauffage (chaudières gaz/PAC), production d'ECS, traitement d'eau (adoucisseurs, pompes doseuses), traitement d'air (CTA, VMC, aérothermes), climatisation (groupes froids, splits). Prestations de conduite P2 : surveillance, entretien courant, dépannage, astreinte 24h/7j, GMAO, carnets sanitaires, rapports périodiques.",
+    "typologie_ouvrage": "Bâtiments communaux variés : hôtel de ville, écoles maternelles et primaires, gymnases, stades, centre culturel, médiathèque, restaurant scolaire, services techniques municipaux (23 sites au total)",
     "surface_volume": null,
-    "site_occupe": "true — les bâtiments sont en exploitation (écoles, gymnases, équipements publics) pendant l'exécution du contrat",
+    "site_occupe": "true — bâtiments en exploitation (écoles, gymnases, équipements publics) occupés en cours de marché",
     "corps_etat": [
-      "Chauffage/CVC (conduite et entretien chaudières, brûleurs, pompes, vases d'expansion)",
-      "Climatisation (unités intérieures/extérieures, groupes frigorifiques)",
-      "Ventilation/CTA (centrales de traitement d'air, VMC, caissons)",
-      "Traitement d'eau (adoucisseurs, pompes doseuses, analyses eau chauffage et ECS)",
-      "Eau chaude sanitaire (ballons, échangeurs, prévention légionellose)",
-      "Électricité courants faibles (armoires électriques, télégestion, GMAO)"
+      "Génie climatique / chauffage",
+      "Traitement d'eau",
+      "Ventilation / traitement d'air (CVC)",
+      "Climatisation / froid",
+      "Électricité courants forts (armoires électriques installations)"
     ],
     "contraintes_specifiques": [
-      "Visite obligatoire des installations les 17 et 24 juin 2026 (certificat de visite requis)",
-      "Astreinte 24h/24 - 7j/7 avec délai d'intervention de 3h en période d'ouverture et 6h hors ouverture",
-      "Déploiement en cours d'un réseau de chaleur urbain : certains bâtiments (hôtel de ville, groupe scolaire Pougin, salle Pougin, groupe scolaire Cressot) susceptibles d'être déconnectés du gaz en 2026 sans indemnisation",
-      "Fourniture et mise en place d'équipements de secours dans les 6h en cas de rupture",
-      "GMAO obligatoire opérationnelle dans les 2 mois suivant notification (4 postes informatiques)",
-      "Schémas hydrauliques à réaliser/afficher dans les 6 premiers mois de contrat",
-      "Mise en place de disconnecteurs et compteurs d'appoint sur tous les sites non équipés dans la 1ère année",
-      "Présence de matériaux amiantés potentiels dans les bâtiments (obligation réglementaire amiante)",
-      "Nettoyage semestriel de 114 douches dans gymnases et stades",
-      "Recherche légionellose annuelle dans tous les ERP"
+      "Astreinte 24h/24 et 7j/7 avec délai d'intervention de 3h en période d'ouverture des établissements",
+      "Visite obligatoire des installations (17 et 24 juin 2026) — certificat de visite requis",
+      "Présence d'amiante possible — obligations réglementaires spécifiques (CCAP art. 12)",
+      "Certains bâtiments susceptibles d'être déconnectés en cours de marché suite raccordement au réseau de chaleur urbain (ex: hôtel de ville, groupes scolaires Pougin, Cressot)",
+      "Mise à jour des schémas hydrauliques et électriques dans les 6 premiers mois",
+      "GMAO à déployer dans un délai de 2 mois sur 4 postes informatiques",
+      "Fourniture de 3 thermomètres enregistreurs numériques et 1 thermomètre digital à sonde (devenus propriété du MO en fin de contrat)"
     ]
   },
   "allotissement": {
-    "description": "Marché en lot unique portant sur l'ensemble des bâtiments communaux de Montigny-lès-Metz",
+    "description": "Marché en lot unique — pas de décomposition en lots",
     "nb_lots": 1,
     "lots_detailles": [
       {
         "numero": 1,
-        "intitule": "Exploitation et maintenance des installations thermiques des bâtiments communaux",
-        "corps_etat": "Chauffage/CVC, climatisation, ventilation/CTA, traitement d'eau, ECS",
+        "intitule": "Exploitation des installations thermiques des bâtiments communaux",
+        "corps_etat": "Génie climatique, chauffage, CVC, traitement d'eau, climatisation",
         "montant_estime": null,
-        "description": "Conduite, entretien courant, dépannage et gestion de 23 bâtiments communaux incluant chaudières, brûleurs, pompes à chaleur, CTA, VMC, climatisations, adoucisseurs, ballons ECS et installations de télégestion"
+        "description": "Exploitation et maintenance P2 de l'ensemble des installations thermiques, ECS, traitement d'eau, CVC et climatisation de 23 bâtiments communaux de Montigny-lès-Metz"
       }
     ]
   },
   "qualifications_requises": {
-    "description": "Le RC ne liste pas de qualifications Qualibat ou certifications spécifiques obligatoires. Les candidats doivent justifier de références similaires et de capacités techniques et professionnelles appropriées.",
+    "description": "Le RC ne prescrit pas de qualifications Qualibat ou RGE nominativement. Il exige des capacités professionnelles et techniques démontrées par références et moyens humains.",
     "qualibat": [],
     "rge": false,
     "rge_specialites": [],
@@ -54,7 +50,7 @@
     "iso_9001": false,
     "iso_14001": false,
     "iso_45001": false,
-    "opqibi": false,
+    "opqibi": null,
     "autres_certifications": []
   },
   "bareme_notation": {
@@ -62,178 +58,281 @@
     "valeur_prix_pct": 50,
     "sous_criteres_techniques": [
       {
-        "libelle": "Moyens humains (Qualification, expérience…)",
-        "ponderation_pct": 8,
-        "description": "L'acheteur évalue la qualification et l'expérience de l'encadrement et des effectifs terrain affectés au contrat, incluant les prestataires extérieurs pour contrôles réglementaires.",
+        "libelle": "Valeur technique de l'offre au regard des moyens humains et matériel mis à disposition",
+        "ponderation_pct": 50,
+        "description": "Évaluation globale de la valeur technique sur 50 points, décomposée en sous-critères portant sur les moyens humains, l'organisation de la maintenance, l'astreinte, la GMAO, la qualité de l'eau, les carnets sanitaires, la visite et le respect du cadre de réponse.",
         "elements_attendus": [
-          "CV ou fiche du responsable de contrat avec expérience en exploitation thermique",
-          "Fiche du chargé de marché terrain avec qualifications (chauffagiste, froid)",
-          "Liste des effectifs terrain avec qualifications (habilitations, certifications)",
-          "Présentation des prestataires extérieurs prévus (contrôles réglementaires, adoucisseur, etc.)"
+          "Présenter l'encadrement et les effectifs terrain avec qualifications",
+          "Décrire l'organisation de prise en charge des installations et le PV de prise en charge",
+          "Détailler les prestations de conduite et petit entretien avec mode opératoire",
+          "Présenter l'organisation de l'astreinte 24h/7j et les moyens de secours",
+          "Décrire la GMAO proposée et le calendrier de déploiement",
+          "Fournir les trames de carnets sanitaires et livrets de chaufferie"
         ],
-        "exemple_reponse_forte": "Notre équipe dédiée comprend un responsable contrat ingénieur CVC avec 15 ans d'expérience en exploitation multi-sites collectivités, un technicien chauffagiste certifié avec habilitations gaz et électriques, et un technicien froid/clim. Pour les contrôles réglementaires, nous mobilisons nos partenaires agréés (Véritas, SOCOTEC) en sous-traitance déclarée.",
+        "exemple_reponse_forte": "Le candidat présente un organigramme nominatif avec un responsable de contrat expérimenté et 2 techniciens chauffagistes dédiés au secteur Moselle, détaille sa plateforme GMAO (ex: Ultimo ou Altair) déployable en J+45, et joint des trames de carnet sanitaire validées sur des marchés similaires de collectivités.",
         "source": "RC §5",
+        "unite_evaluation": "points",
         "sous_criteres": [
           {
-            "libelle": "Encadrement pour le suivi du contrat (responsable du contrat, chargé du marché sur le terrain)",
-            "ponderation_pct": 2,
-            "description": "Évaluation du binôme responsable de contrat / chargé de marché terrain : organisation du pilotage et de la supervision.",
+            "libelle": "Moyens humains (Qualification, expérience…)",
+            "ponderation_pct": 8,
+            "description": "Évaluation de l'encadrement affecté au suivi du contrat et des effectifs terrain (chauffagiste, froid, prestataires contrôles réglementaires, entretien adoucisseur).",
             "elements_attendus": [
-              "Identité et expérience du responsable de contrat",
-              "Identité et rôle du chargé de marché sur le terrain",
-              "Organisation de la chaîne de reporting entre terrain et maîtrise d'ouvrage"
+              "Présenter le responsable de contrat avec CV et expérience",
+              "Présenter le chargé de marché terrain avec qualifications",
+              "Lister les techniciens terrain : chauffagiste, technicien froid, prestataires externes pour contrôles réglementaires"
             ],
-            "exemple_reponse_forte": "M. X, ingénieur thermicien (15 ans), assurera le pilotage contractuel et présentera les bilans mensuels. Il sera secondé par M. Y, technicien senior basé à Metz, interlocuteur terrain unique de la Ville.",
-            "source": "RC §5"
+            "exemple_reponse_forte": "Responsable de contrat : 15 ans d'expérience en exploitation thermique collectivités, habilitations électriques BR/BC, CACES nacelle. Chargé terrain : technicien chauffagiste-froid confirmé. Sous-traitants listés pour contrôles réglementaires gaz et électricité.",
+            "source": "RC §5.1",
+            "unite_evaluation": "points",
+            "sous_criteres": [
+              {
+                "libelle": "Encadrement pour le suivi du contrat (responsable du contrat, chargé du marché sur le terrain)",
+                "ponderation_pct": 2,
+                "description": "Qualité et expérience de l'encadrement dédié au pilotage du marché.",
+                "elements_attendus": [
+                  "CV du responsable de contrat",
+                  "CV du chargé de marché terrain",
+                  "Expérience en marchés similaires de collectivités"
+                ],
+                "exemple_reponse_forte": "Le responsable de contrat, ingénieur CVC, suit 8 contrats municipaux similaires en Moselle avec un portefeuille de 30 bâtiments.",
+                "source": "RC §5.1",
+                "unite_evaluation": "points"
+              },
+              {
+                "libelle": "Effectif sur le terrain (chauffagiste, froid, ensemble des prestataires extérieurs pour contrôles réglementaires, entretiens, adoucisseur, etc.)",
+                "ponderation_pct": 6,
+                "description": "Nombre, qualifications et organisation des techniciens terrain et prestataires spécialisés mobilisés pour l'exécution des prestations.",
+                "elements_attendus": [
+                  "Nombre de techniciens chauffagiste/froid dédiés",
+                  "Habilitations et certifications (CATEC, fluides frigorigènes article L)",
+                  "Liste des prestataires sous-traitants pour contrôles réglementaires",
+                  "Organisation géographique et disponibilité"
+                ],
+                "exemple_reponse_forte": "2 techniciens chauffagiste-frigoriste habilitée article L, 1 électricien sous-traitant pour contrôles CONSUEL/ATEx, adoucisseuriste certifié. Base à Metz, délai intervention 3h garanti.",
+                "source": "RC §5.1",
+                "unite_evaluation": "points"
+              }
+            ]
           },
           {
-            "libelle": "Effectif sur le terrain (chauffagiste, froid, ensemble des prestataires extérieurs pour contrôle réglementaires, entretiens, adoucisseur, etc)",
+            "libelle": "L'organisation spécifique et les moyens mis en place pour la maintenance",
+            "ponderation_pct": 23,
+            "description": "Évaluation de l'organisation globale de la maintenance : prise en charge des installations et réalisation des prestations de conduite et petit entretien.",
+            "elements_attendus": [
+              "Organisation de prise en charge avec inventaire in situ et analyse d'eau",
+              "Mise à jour ou création des schémas hydrauliques et électriques",
+              "PV de prise en charge complet transmis dans le délai contractuel",
+              "Détail des opérations de conduite et petit entretien par type d'installation",
+              "Procédure d'optimisation énergétique avec chiffrage"
+            ],
+            "exemple_reponse_forte": "Prise en charge en J+30 avec PV contradictoire couvrant tous les équipements, analyse d'eau initiale et première mise à jour des schémas hydrauliques au format A2 sous verre dormant dans les 6 mois. Mode opératoire d'optimisation incluant télégestion et courbes de chauffe optimisées.",
+            "source": "RC §5",
+            "unite_evaluation": "points",
+            "sous_criteres": [
+              {
+                "libelle": "La prise en charge des installations",
+                "ponderation_pct": 5,
+                "description": "Organisation de la prise en charge initiale : inventaire, analyse d'eau, schémas, PV.",
+                "elements_attendus": [
+                  "Méthodologie d'inventaire in situ des installations techniques",
+                  "Analyse d'eau réalisée lors de la prise en charge",
+                  "Mise à jour des schémas hydrauliques et électriques",
+                  "Trame du PV de prise en charge présenté"
+                ],
+                "exemple_reponse_forte": "Protocole de prise en charge en 2 phases : visite exhaustive J+30, PV contradictoire incluant essais fonctionnels, analyse eau réseaux et ECS, schémas photographiés et mise à jour CAO.",
+                "source": "RC §5",
+                "unite_evaluation": "points"
+              },
+              {
+                "libelle": "La réalisation des prestations de conduite et de petit entretien",
+                "ponderation_pct": 18,
+                "description": "Détail de l'organisation et des méthodes pour la conduite, l'entretien courant, la climatisation, les contrôles réglementaires, la sécurité et l'optimisation énergétique.",
+                "elements_attendus": [
+                  "Planning de visites de surveillance et de conduite par site",
+                  "Procédures d'entretien par type d'équipement (chaudières, CTA, VMC, PAC, clim)",
+                  "Gestion des consommables (sel, filtres, produits de traitement)",
+                  "Organisation des contrôles réglementaires (ramonage, combustion, disconnecteurs)",
+                  "Proposition d'optimisation énergétique chiffrée",
+                  "Modalités de nettoyage des locaux techniques"
+                ],
+                "exemple_reponse_forte": "Planning mensuel de visites par site avec gammes de maintenance détaillées par famille d'équipement. Proposition d'optimisation : réglage des courbes de chauffe + télégestion permettant une économie estimée à 8% sur les consommations gaz, chiffrée à environ 15 000 €/an.",
+                "source": "RC §5",
+                "unite_evaluation": "points"
+              }
+            ]
+          },
+          {
+            "libelle": "L'organisation de l'astreinte, des demandes d'intervention en cas de panne et les moyens de secours",
             "ponderation_pct": 6,
-            "description": "Évaluation de la composition et qualification des équipes terrain (techniciens propres + sous-traitants spécialisés) assurant la maintenance des 23 bâtiments.",
+            "description": "Évaluation de l'organisation de l'astreinte 24h/7j, des délais d'intervention et des moyens de secours mis à disposition du maître d'ouvrage.",
             "elements_attendus": [
-              "Nombre et qualifications des techniciens chauffagiste et froid affectés",
-              "Habilitations et certifications des techniciens (gaz, électrique, fluides frigorigènes)",
-              "Présentation des prestataires extérieurs pour contrôles réglementaires (gaz, électricité)",
-              "Organisation géographique / planning de présence sur les sites",
-              "Capacité à intervenir sur astreinte"
+              "Numéro d'astreinte 24h/7j et organisation de la prise en charge des appels",
+              "Délais d'intervention garantis (3h en période d'ouverture, 6h hors période)",
+              "Organisation décisionnelle en cas de panne grave",
+              "Présentation des équipements de secours disponibles (radiateurs d'appoint, soufflants)"
             ],
-            "exemple_reponse_forte": "Deux techniciens polyvalents chauffage-froid basés en Moselle (habilitations PGN, électriques B1/BR, attestation fluides frigorigènes Catégorie I) couvriront les 23 sites. Les contrôles réglementaires électricité et gaz seront assurés par nos partenaires certifiés COFRAC, intégrés dans notre GMAO.",
-            "source": "RC §5"
-          }
-        ]
-      },
-      {
-        "libelle": "L'organisation spécifique et les moyens mis en place pour la maintenance",
-        "ponderation_pct": 23,
-        "description": "L'acheteur évalue l'organisation globale de la prise en charge des installations et la réalisation des prestations de conduite et petit entretien (surveillance, pilotage, entretien CVC, climatisation, sécurité, optimisation énergie).",
-        "elements_attendus": [],
-        "exemple_reponse_forte": "—",
-        "source": "RC §5",
-        "sous_criteres": [
-          {
-            "libelle": "La prise en charge des installations",
-            "ponderation_pct": 5,
-            "description": "L'acheteur évalue l'organisation de la prise en charge initiale des installations : inventaire in situ, analyse d'eau, mise à jour des schémas hydrauliques et électriques, et formalisation du PV de prise en charge.",
-            "elements_attendus": [
-              "Méthodologie d'organisation de la prise en charge (planning, intervenants)",
-              "Processus de relevé in situ et d'inventaire des installations techniques",
-              "Protocole d'analyse d'eau dès la prise en charge",
-              "Méthode de mise à jour/création des schémas hydrauliques et électriques (format, délais)",
-              "Trame complète du procès-verbal de prise en charge proposé"
-            ],
-            "exemple_reponse_forte": "Dès notification, nous programmons des visites sur les 23 sites dans le mois suivant. Un technicien senior réalise l'inventaire contradictoire (état matériels, relevés compteurs, analyse eau). Le PV de prise en charge au format imposé est transmis sous 1 mois. Les schémas hydrauliques A2 sous verre dormant sont réalisés dans les 6 premiers mois.",
-            "source": "RC §5, CCTP §4.5.3"
+            "exemple_reponse_forte": "Centre d'appel 24h/7j avec technicien d'astreinte dédié Moselle, délai 3h garanti en période scolaire, stock de 10 radiateurs électriques 2000W et 5 soufflants 3000W disponibles immédiatement sur demande du MO.",
+            "source": "RC §5",
+            "unite_evaluation": "points"
           },
           {
-            "libelle": "La réalisation des prestations de conduite et de petit entretien",
-            "ponderation_pct": 18,
-            "description": "L'acheteur évalue l'organisation opérationnelle de la conduite et du petit entretien : surveillance/pilotage des installations de chauffe, ventilation, CTA, aérothermes, climatisation, disconnecteurs, relevés compteurs, nettoyage locaux, éclairage de sécurité, fourniture consommables, sécurité, accessibilité en hauteur, reporting et optimisation énergétique.",
+            "libelle": "L'organisation de la traçabilité des opérations de maintenance avec gestion de maintenance assistée par ordinateur",
+            "ponderation_pct": 3,
+            "description": "Présentation de la GMAO proposée : fonctionnement pour la maintenance préventive et curative, trames de rapports, délai de mise en œuvre et formation du MO.",
             "elements_attendus": [
-              "Organisation de la surveillance et pilotage (fréquence visites, télégestion éventuelle)",
-              "Programme d'entretien des équipements CVC, climatisation, disconnecteurs",
-              "Modalités de relevé de compteurs et reporting mensuel/trimestriel/annuel",
-              "Prise en compte de la sécurité des locaux techniques (détection gaz, éclairage sécurité)",
-              "Moyens d'accessibilité en hauteur (nacelle, échafaudage) inclus dans le P2",
-              "Proposition de mode opératoire d'optimisation énergétique avec chiffrage"
+              "Présentation de l'outil GMAO et ses fonctionnalités (suivi demandes, planning, rapports)",
+              "Trames de rapports suite intervention préventive et curative",
+              "Délai de déploiement (max 2 mois contractuels) et nombre de postes (4)",
+              "Formation des agents du MO à l'outil"
             ],
-            "exemple_reponse_forte": "Nos techniciens effectuent une visite mensuelle minimum par site avec relevés de températures à tous les niveaux, contrôle combustion, vérification sécurité (détection gaz, éclairage sécurité). La télégestion via nos automates SOFREL permet une surveillance quotidienne à distance. Notre rapport mensuel intègre le bilan énergétique par poste et des propositions d'optimisation chiffrées (ex : réduction réduits nocturnes, équilibrage réseau).",
-            "source": "RC §5, CCTP §3.2, §4.1"
+            "exemple_reponse_forte": "GMAO accessible en ligne avec portail MO, déployée en J+45 sur 4 postes, formation d'une demi-journée incluse. Les rapports d'intervention sont déposés automatiquement dans les 10 jours et une alerte mail est envoyée au MO à chaque modification.",
+            "source": "RC §5",
+            "unite_evaluation": "points"
+          },
+          {
+            "libelle": "La gestion de la qualité de l'eau",
+            "ponderation_pct": 3,
+            "description": "Évaluation de la gestion de la qualité de l'eau ECS (légionnelles, températures, désinfection), de l'eau du réseau public et de l'eau du réseau de chauffage.",
+            "elements_attendus": [
+              "Protocole de contrôle légionnelles : fréquence, points de mesure, seuils d'alerte",
+              "Procédures de chasse, désinfection des ballons, nettoyage pommeaux",
+              "Analyses annuelles eau réseau chauffage et eau ECS",
+              "Traitement et suivi des adoucisseurs et pompes doseuses",
+              "Procédure de désembouage et rotation des pots à boue"
+            ],
+            "exemple_reponse_forte": "Campagne annuelle légionnelles sur tous les ERP avec 2 points de mesure par circuit, protocole de désinfection thermique en cas de dépassement 1000 ufc/L. Analyses eau chauffage annuelles avec rapport pH/TH/TAC transmis au MO. Nettoyage semestriel des 114 pommeaux de douches gymnases/stades.",
+            "source": "RC §5",
+            "unite_evaluation": "points"
+          },
+          {
+            "libelle": "La mise en place et le suivi des carnets sanitaires et des livrets de chaufferies",
+            "ponderation_pct": 3,
+            "description": "Présentation des modalités de mise en œuvre des livrets de chaufferie et carnets sanitaires, avec transmission des trames.",
+            "elements_attendus": [
+              "Trame de livret de chaufferie avec tous les champs requis",
+              "Trame de carnet sanitaire ECS avec suivi légionnelles et températures",
+              "Modalité de mise à jour et accès pour le MO",
+              "Délai de mise en place (max 2 mois contractuels)"
+            ],
+            "exemple_reponse_forte": "Carnets en version papier en chaufferie + version numérique sur GMAO. Trame de carnet sanitaire couvrant les analyses légionnelles, courbes de température, nettoyages pommeaux et désinfections. Livrets disponibles dès J+60.",
+            "source": "RC §5",
+            "unite_evaluation": "points"
+          },
+          {
+            "libelle": "L'attestation de visite",
+            "ponderation_pct": 2,
+            "description": "Présence du certificat de visite obligatoire des installations dûment complété et signé.",
+            "elements_attendus": [
+              "Certificat de visite signé (visite organisée les 17 et 24 juin 2026)"
+            ],
+            "exemple_reponse_forte": "Certificat de visite délivré par la Ville de Montigny-lès-Metz lors de la visite obligatoire, joint à l'offre.",
+            "source": "RC §7.1",
+            "unite_evaluation": "points"
+          },
+          {
+            "libelle": "Le respect du cadre de réponse",
+            "ponderation_pct": 2,
+            "description": "Vérification que le candidat a complété intégralement le cadre de réponse fourni dans le DCE.",
+            "elements_attendus": [
+              "Cadre de réponse complété dans son intégralité",
+              "Tous les champs renseignés sans omission"
+            ],
+            "exemple_reponse_forte": "Cadre de réponse complété point par point dans l'ordre du document, avec renvois aux sections du mémoire technique pour les développements détaillés.",
+            "source": "RC §5",
+            "unite_evaluation": "points"
           }
         ]
-      },
-      {
-        "libelle": "L'organisation de l'astreinte, des demandes d'intervention en cas de panne et les moyens de secours",
-        "ponderation_pct": 6,
-        "description": "L'acheteur évalue l'organisation de l'astreinte 24h/24 - 7j/7, les délais d'intervention garantis (3h en période d'ouverture, 6h hors ouverture), la gestion des demandes hors astreinte, et les moyens de secours mis à disposition (équipements relais dans les 6h).",
-        "elements_attendus": [
-          "Description précise du centre d'appel ou numéro d'astreinte 24h/24 - 7j/7",
-          "Organigramme décisionnel en cas de panne (prise de contact, délai d'intervention, escalade)",
-          "Délais d'intervention garantis en période d'ouverture (3h) et hors ouverture (6h)",
-          "Stock de moyens de secours disponibles (radiateurs d'appoint électriques 2000-3000W, soufflants)",
-          "Organisation des demandes d'intervention hors astreinte",
-          "Délai de mise en place des équipements de secours (6h maximum)"
-        ],
-        "exemple_reponse_forte": "Notre centre d'appel régional (Metz) est joignable 24h/24 - 7j/7 au 0800 XXX XXX. En période d'ouverture, un technicien intervient sur site sous 3h. En dehors, le délai est porté à 6h sauf risque gel ou relance chauffe. Nous maintenons un stock permanent de 10 radiateurs électriques 2000W et 5 soufflants 3000W dédiés à ce contrat, déployables immédiatement sur simple demande de la Maîtrise d'Ouvrage.",
-        "source": "RC §5, CCTP §4.5.5"
-      },
-      {
-        "libelle": "L'organisation de la traçabilité des opérations de maintenance avec gestion de maintenance assistée par ordinateur",
-        "ponderation_pct": 3,
-        "description": "L'acheteur évalue la plateforme GMAO proposée (fonctionnement intégral, suivi préventif/curatif, trames de rapports, délai de mise en œuvre sous 2 mois, formation de la Maîtrise d'Ouvrage).",
-        "elements_attendus": [
-          "Présentation complète de la GMAO (outil, fonctionnalités : demande en ligne, suivi par établissement, planning, rapports)",
-          "Trames de rapport d'intervention préventive et curative",
-          "Délai de mise en œuvre (2 mois maximum, 4 postes informatiques)",
-          "Programme et modalités de formation de la Maîtrise d'Ouvrage à l'outil"
-        ],
-        "exemple_reponse_forte": "Notre plateforme GMAO dédiée (outil propriétaire web) sera opérationnelle sous 4 semaines après notification sur 4 postes. Elle permet : demandes d'intervention en ligne avec accusé de réception, suivi établissement par établissement, historique complet des interventions, alertes mail automatiques à la MO à chaque modification. Une demi-journée de formation est organisée dans les 2 premiers mois.",
-        "source": "RC §5, CCTP §4.5.6"
-      },
-      {
-        "libelle": "La gestion de la qualité de l'eau",
-        "ponderation_pct": 3,
-        "description": "L'acheteur évalue le protocole de contrôle qualité de l'eau chaude sanitaire (légionellose, chasse, désinfection), le traitement de l'eau du réseau public et du réseau de chauffage (analyses, désembouage, équilibrage).",
-        "elements_attendus": [
-          "Protocole de contrôle ECS : températures production, chasse périodique, désinfection ballons, recherche légionelles (fréquences et méthodes)",
-          "Programme d'analyse et traitement eau réseau public",
-          "Protocole eau réseau chauffage : analyse, traitement, désembouage, rotation pots à boue",
-          "Gestion des cas de contamination légionellose (procédures de traitement selon seuils réglementaires)"
-        ],
-        "exemple_reponse_forte": "Nous réalisons annuellement une recherche légionelles dans tous les ERP (2 points minimum par circuit + point de puisage le plus défavorisé). Les ballons sont vidangés, détartrés et désinfectés une fois par an. En cas de détection entre 1000 et 10000 ufc/L, renforcement des purges et nouvelle analyse sous 1 mois. Au-delà de 10000 ufc/L, traitement thermique ou chloration immédiat et analyse COFRAC.",
-        "source": "RC §5, CCTP §4.2, §4.3"
-      },
-      {
-        "libelle": "La mise en place et le suivi des carnets sanitaires et des livrets de chaufferies",
-        "ponderation_pct": 3,
-        "description": "L'acheteur évalue les modalités de mise en œuvre et les trames des livrets de chaufferie et carnets sanitaires ECS proposés par le candidat.",
-        "elements_attendus": [
-          "Trame complète du livret de chaufferie (date, horaires, noms techniciens, nature interventions, relevés combustion, contrôles réglementaires, températures)",
-          "Trame complète du carnet sanitaire ECS (désinfections, purges, nettoyage pommeaux, contrôles températures, analyses légionelles)",
-          "Modalités de mise en œuvre (délai 2 mois, approbation MO)",
-          "Organisation de la tenue systématique des documents en chaufferie"
-        ],
-        "exemple_reponse_forte": "Nos trames de livret de chaufferie et de carnet sanitaire, jointes en annexe, sont soumises à validation de la Maîtrise d'Ouvrage à la signature. Chaque passage en chaufferie est consigné en temps réel (date, heure arrivée/départ, nature intervention, relevés). Les carnets sanitaires intègrent toutes les prescriptions légionellose réglementaires et sont mis en place dans les 2 mois suivant notification.",
-        "source": "RC §5, CCTP §4.5.7"
-      },
-      {
-        "libelle": "L'attestation de visite",
-        "ponderation_pct": 2,
-        "description": "L'acheteur attribue 2 points pour la présentation du certificat de visite obligatoire des installations (visites organisées les 17 et 24 juin 2026).",
-        "elements_attendus": [
-          "Certificat de visite dûment complété et signé, remis lors de la visite obligatoire"
-        ],
-        "exemple_reponse_forte": "Le certificat de visite délivré par la Ville lors de la visite du 17 ou 24 juin 2026 est joint à l'offre, dûment complété et signé.",
-        "source": "RC §5, §7.1"
-      },
-      {
-        "libelle": "Le respect du cadre de réponse",
-        "ponderation_pct": 2,
-        "description": "L'acheteur évalue le respect de la structure et la complétude du cadre de réponse fourni dans le DCE.",
-        "elements_attendus": [
-          "Cadre de réponse complété intégralement dans l'ordre demandé",
-          "Toutes les rubriques du cadre de réponse renseignées (moyens humains, organisation maintenance, astreinte, GMAO, qualité eau, carnets)"
-        ],
-        "exemple_reponse_forte": "Le cadre de réponse joint est complété dans son intégralité, rubrique par rubrique, dans l'ordre du document fourni par la Maîtrise d'Ouvrage, sans omission.",
-        "source": "RC §5"
       }
     ],
     "prix": {
       "type_formule": "moins_disant",
-      "formule_explicite": "Note = 50 x (offre du moins disant / offre du candidat)",
+      "formule_explicite": "Note prix = 50 × (offre du moins disant / offre du candidat)",
+      "source": "RC §5.2",
       "elements_a_chiffrer": [
-        "P2 : Prix global et forfaitaire annuel des prestations de conduite, entretien courant et dépannages des installations thermiques, ECS, traitement d'eau, traitement d'air et climatisation (ensemble des 23 bâtiments)"
+        "P2 : Prix global et forfaitaire annuel des prestations de conduite, entretien courant et dépannages (chauffage, ECS, traitement d'eau, traitement d'air, climatisation) — montant unique en € HT et € TTC"
       ]
     },
-    "modalite_calcul_prix": "Note = 50 x (offre du moins disant / offre du candidat)"
+    "modalite_calcul_prix": "Note prix = 50 × (offre du moins disant / offre du candidat)"
   },
   "montant_marche": {
     "valeur_estimee_euros": null,
-    "fourchette_min_euros": null,
-    "fourchette_max_euros": null,
-    "type": "non_communique",
-    "duree_couverte": "1 an reconductible 3 fois (durée maximale 4 ans)",
-    "source_extraction": null,
-    "commentaire": "Aucun montant estimé ni plafond n'est mentionné dans les pièces du DCE. Le marché est à prix global et forfaitaire annuel (P2) mais aucune valeur de référence n'est communiquée. L'avance est applicable si le montant dépasse 50 000 € HT (CCAP art. 11), ce qui constitue un plancher implicite."
+    "fourchette_min_euros": 180000,
+    "fourchette_max_euros": 260000,
+    "type": "calcule_volumes",
+    "duree_couverte": "1 an (période ferme) — reconductible 3 fois soit 4 ans maximum",
+    "source_extraction": "CCTP Annexe 1 (23 sites, inventaire équipements) + ratios marché exploitation thermique collectivités",
+    "commentaire": "Aucun montant publié. Estimation bottom-up : 23 bâtiments communaux avec parc complet (chaudières, CTA, PAC, clim, ECS, traitement eau). Prix P2 annuel typique pour ce type de parc en collectivité : 8 000 à 11 000 €/site/an en moyenne pondérée (sites petits à complexes). Fourchette : 23 × 8 000 = 184 000 € à 23 × 11 300 = 260 000 €. Marché BOAMP européen → montant total au-dessus du seuil de 215 000 € HT (seuil UE services collectivités 2024), compatible avec la fourchette haute."
+  },
+  "montant_3_voies": {
+    "voie_1_eur": null,
+    "voie_1_source": null,
+    "voie_2_disponible": true,
+    "voie_2_min_eur": 180000,
+    "voie_2_max_eur": 260000,
+    "voie_2_hypotheses": [
+      {
+        "hypothese": "Nombre de sites : 23 bâtiments (CCTP Annexe 1)",
+        "valeur": "23 sites"
+      },
+      {
+        "hypothese": "Quantité fixée à 23 sites ; ratio P2 annuel varié entre 8 000 et 11 300 €/site selon complexité (sites simples type école primaire ~6 000 €, sites complexes type Europa/Services Techniques ~20 000 €, moyenne pondérée entre 7 800 et 11 300 €/site)",
+        "valeur": "8 000 à 11 300 €/site/an"
+      },
+      {
+        "hypothese": "Présence d'astreinte 24h/7j obligatoire, GMAO, carnets sanitaires — majoration par rapport à marché simple",
+        "valeur": "inclus dans le ratio"
+      },
+      {
+        "hypothese": "Marché publié au BOAMP seuil européen (> 215 000 € HT pour services collectivités 2024) — borne basse ajustée à 180 000 € (1 an ; reconductions portent le total sur 4 ans à 720 000 - 1 040 000 €)",
+        "valeur": "seuil UE 215 000 € / an compatible"
+      }
+    ],
+    "voie_2_raison_indisponible": null
+  },
+  "cout_realisation": {
+    "cout_total_eur": 148000,
+    "cout_min_eur": 130000,
+    "cout_max_eur": 190000,
+    "postes": [
+      {
+        "poste": "Main d'œuvre technique terrain (techniciens chauffagiste-froid, astreinte incluse)",
+        "detail": "~1,5 ETP technicien chauffagiste × 45 000 € chargé/an = 67 500 € (base 1 an). Astreinte 24h/7j incluse via rotation.",
+        "montant_eur": 67500
+      },
+      {
+        "poste": "Encadrement / responsable de contrat (quote-part)",
+        "detail": "0,3 ETP ingénieur/technicien senior × 55 000 € chargé = 16 500 €",
+        "montant_eur": 16500
+      },
+      {
+        "poste": "Sous-traitance spécialisée (contrôles réglementaires : ramonage, combustion, fluides frigorigènes article L, analyses légionnelles, adoucisseurs)",
+        "detail": "Forfait annuel estimé 23 sites, ~800-1200 €/site = 25 000 €",
+        "montant_eur": 25000
+      },
+      {
+        "poste": "Consommables (sel, filtres, produits traitement eau, petites fournitures < 250 €HT)",
+        "detail": "Estimation 23 sites × 600 €/an = 13 800 €",
+        "montant_eur": 13800
+      },
+      {
+        "poste": "GMAO / outils de traçabilité (licence, déploiement, formation)",
+        "detail": "Licence SaaS GMAO + déploiement 4 postes : ~8 000 €/an",
+        "montant_eur": 8000
+      },
+      {
+        "poste": "Thermomètres enregistreurs et équipements fournis au MO",
+        "detail": "3 thermomètres numériques + 1 sonde digitale : ~3 000 €",
+        "montant_eur": 3000
+      },
+      {
+        "poste": "Frais généraux, déplacements, véhicule, assurances",
+        "detail": "Estimation 10% du coût direct = ~13 500 €",
+        "montant_eur": 13500
+      }
+    ],
+    "taux_journaliers_retenus": "Technicien chauffagiste-froid : 45 000-50 000 €/an chargé (taux marché indicatif). Ingénieur/technicien senior encadrement : 55 000-65 000 €/an chargé. Sous-traitance contrôles réglementaires : 800-1 200 €/site/an. Ces taux sont des références marché 2024-2025 pour la région Lorraine/Grand Est.",
+    "commentaire": "Estimation du coût de production sur 1 an. La fourchette basse (130 000 €) correspond à un opérateur optimisé (mutualisation véhicule/technicien sur secteur dense Metz). La fourchette haute (190 000 €) intègre plus d'astreinte externalisée et sous-traitance. Marge brute implicite sur la valeur centrale : environ 20-25% sur un CA estimé à 180-260 k€, ce qui est typique de ce type de contrat P2."
   },
   "revision_prix": {
     "type": "indexation",
@@ -241,107 +340,216 @@
       "ICHT-IME",
       "FSD2"
     ],
-    "ponderation": "15% partie fixe + 70% ICHT-IME + 15% FSD2",
+    "ponderation": "15% partie fixe + 70% ICHT-IME (Indice du Coût Horaire de Travail Tous Salariés, charges comprises Industries Mécaniques et Électriques) + 15% FSD2 (Frais et Services Divers n°2, Moniteur TP)",
     "periodicite": "annuelle",
-    "formule_revision": "P'2 = P2 x (0,15 + 0,70 (ICHT-IME/ICHT-IMEo) + 0,15 (FSD2/FSD2o))",
-    "source_extraction": "CCAP article 9.3.1",
-    "commentaire": "Formule classique exploitation thermique (main d'œuvre industrielle + frais/services divers) : favorable en période de hausse salariale, mais part fixe de 15% limite la couverture complète de l'inflation. Révision annuelle à chaque date anniversaire."
+    "formule_revision": "P'2 = P2 × (0,15 + 0,70 × (ICHT-IME/ICHT-IMEo) + 0,15 × (FSD2/FSD2o))",
+    "source_extraction": "CCAP §9.3.1",
+    "commentaire": "Formule dominée à 70% par l'indice de coût horaire de travail industrie mécanique — très favorable en période de hausse salariale. La partie fixe de 15% constitue un risque limité. Indices publiés régulièrement, formule standard pour l'exploitation de chauffage."
   },
   "alertes_prix": [
-    "Marché sans montant estimé publié : le candidat ne dispose d'aucune référence pour calibrer son offre — risque de positionnement hors marché",
-    "Prix global et forfaitaire annuel unique (P2) couvrant l'ensemble des 23 bâtiments : toute sous-estimation du volume de travail ou de l'état des équipements est à risque pour le titulaire",
-    "Fournitures consommables (sel, filtres, produits chimiques, gaz frigorigène, pièces < 250 € HT) incluses dans le P2 : les quantités à provisionner sont élevées (114 douches, nombreuses CTA, adoucisseurs multi-sites)",
-    "Réseau de chaleur urbain en déploiement : des bâtiments peuvent être retirés du périmètre sans indemnisation, réduisant le chiffre d'affaires du titulaire en cours de marché"
+    "Pondération prix à 50% = poids très élevé pour un marché de service technique : la compétitivité tarifaire est aussi déterminante que la valeur technique — risque de prix tirés vers le bas.",
+    "Formule moins-disant pure (Note = 50 × offre_moins_disant / offre_candidat) : un écart de 10% sur le prix se traduit par une perte de 5 points sur 50 — impact fort sur le classement.",
+    "Aucun montant estimé publié : difficulté à calibrer le prix sans référence publique officielle. La visite obligatoire est cruciale pour évaluer l'état réel des équipements et le risque de dépannages.",
+    "Certains bâtiments (hôtel de ville, écoles Pougin/Cressot) peuvent être déconnectés et rattachés au réseau de chaleur en cours de marché — suppression d'équipements sans indemnité au titulaire : risque de perte de revenu P2 à anticiper dans le chiffrage."
   ],
   "references_exigees": {
     "experience_minimale_annees": null,
     "experience_source": null,
     "volume_min_references_similaires": null,
     "volume_min_references_unite": "marchés similaires",
-    "secteur_experience": "Exploitation et maintenance d'installations thermiques (chauffage, ECS, CVC, climatisation) sur bâtiments publics ou tertiaires de même ampleur",
+    "secteur_experience": "Exploitation et maintenance d'installations thermiques de bâtiments publics ou privés, de même ampleur, réalisées de moins de 3 ans avec identification du maître d'ouvrage.",
     "secteur_source": "RC §4.1",
     "certifications_obligatoires": [],
     "autres_exigences": [
       {
-        "libelle": "Déclaration du chiffre d'affaires global et du chiffre d'affaires concernant les prestations objet du contrat, réalisés au cours des trois derniers exercices disponibles",
+        "libelle": "Déclaration du chiffre d'affaires global et du CA concernant les prestations objet du contrat, réalisés au cours des trois derniers exercices disponibles",
         "source": "RC §4.1"
       },
       {
-        "libelle": "Références pour des prestations similaires et de même ampleur datant de moins de trois ans, avec identification du maître d'ouvrage",
-        "source": "RC §4.1"
+        "libelle": "Attestations d'assurance en cours de validité (RC, assurance couvrant la responsabilité résultant des articles 1792 à 1792-3 et 2270 du Code Civil)",
+        "source": "RC §4.1 et CCAP §4"
       },
       {
-        "libelle": "Attestations d'assurance en cours de validité (RC, dommages corporels/matériels/immatériels consécutifs)",
-        "source": "RC §4.1, CCAP art. 4"
+        "libelle": "Références pour des prestations similaires de moins de 3 ans avec identification du maître d'ouvrage",
+        "source": "RC §4.1"
       }
     ]
+  },
+  "dossier_candidature": {
+    "pieces_a_fournir": [
+      {
+        "libelle": "DC1 ou DUME — Lettre de candidature et habilitation du mandataire du groupement",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §4.1"
+      },
+      {
+        "libelle": "DC2 — Déclaration du candidat (ou DUME)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §4.1"
+      },
+      {
+        "libelle": "Déclaration sur l'honneur attestant de l'absence de cas d'exclusion (articles L2141-1 à L2141-5 et L2141-7 à L2141-10 CCP)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §4.1"
+      },
+      {
+        "libelle": "Copie du ou des jugements prononcés si le candidat est en redressement judiciaire",
+        "phase": "candidature",
+        "obligatoire": false,
+        "source": "RC §4.1"
+      },
+      {
+        "libelle": "Attestations fiscales et sociales",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §4.1"
+      },
+      {
+        "libelle": "Déclaration concernant le CA global et le CA des prestations objet du contrat sur les 3 derniers exercices",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §4.1"
+      },
+      {
+        "libelle": "Attestations d'assurance en cours de validité",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §4.1"
+      },
+      {
+        "libelle": "Références pour des prestations similaires de moins de 3 ans avec identification du maître d'ouvrage",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §4.1"
+      },
+      {
+        "libelle": "Renseignements permettant d'évaluer les capacités professionnelles et techniques et documents relatifs aux pouvoirs de la personne habilitée à engager le candidat",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §4.1"
+      },
+      {
+        "libelle": "Acte d'Engagement (AE) complété et signé, avec montant P2 HT et TTC",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §4.2"
+      },
+      {
+        "libelle": "CCAP signé (lu et approuvé)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §4.2"
+      },
+      {
+        "libelle": "CCTP et ses annexes signés (lu et approuvé)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §4.2"
+      },
+      {
+        "libelle": "Attestation de visite dûment complétée et signée",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §4.2 et §7.1"
+      },
+      {
+        "libelle": "Cadre de réponse complété en intégralité (moyens humains, organisation maintenance, astreinte, GMAO, qualité eau, carnets sanitaires/livrets)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §4.2"
+      },
+      {
+        "libelle": "Cadre de Décomposition du Prix Global et Forfaitaire (CDPGF) complété",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §3 et AE Annexe 1"
+      }
+    ],
+    "mode_remise": "dématérialisé + copie de sauvegarde",
+    "plateforme_depot": "marches-publics.info — http://www.marches-publics.info/avis/index.cfm?IDS=3799",
+    "signature_electronique_exigee": false,
+    "format_signature": "Si signature électronique : certificats qualifiés conformes à l'arrêté du 12 avril 2018 (eIDAS qualifié)",
+    "nombre_exemplaires": null,
+    "langue": "français",
+    "duree_validite_offres_jours": 120,
+    "modalites_source": "RC §6 et §2.3"
   },
   "lots": [
     {
       "numero": 1,
       "intitule": "Exploitation des installations thermiques des bâtiments communaux",
-      "zone_geographique": "Montigny-lès-Metz (57950)",
-      "volume_estime": null,
-      "volume_estime_unite": null,
-      "particularites": "23 bâtiments communaux (écoles, gymnases, restaurants scolaires, équipements culturels et sportifs, hôtel de ville, services techniques). Présence de pompes à chaleur géothermiques (services techniques bâtiment A), de multiples CTA (Complexe Europa, médiathèques, stades), d'installations fuel (stade du canal), et d'équipements récents 2025-2026 (médiathèque 507, stade Kintzig). Périmètre évolutif lié au raccordement au réseau de chaleur urbain."
+      "domaine": "btp_second_oeuvre",
+      "zone_geographique": "Montigny-lès-Metz (57950) — Moselle, Grand Est",
+      "volume_estime": 23,
+      "volume_estime_unite": "sites / bâtiments",
+      "cout_estime_min_eur": 130000,
+      "cout_estime_max_eur": 190000,
+      "ca_estime_min_eur": 180000,
+      "ca_estime_max_eur": 260000,
+      "marge_brute_pct": 25,
+      "particularites": "Lot unique couvrant 23 bâtiments communaux hétérogènes. Astreinte 24h/7j obligatoire. Visite préalable obligatoire. Certains sites susceptibles d'être raccordés au réseau de chaleur en cours de contrat sans indemnité. Fourniture de thermomètres enregistreurs et déploiement GMAO inclus dans le forfait P2."
     }
   ],
+  "tranches": [],
   "calendrier": {
     "date_limite_offres": "2026-07-15",
     "date_demarrage_prevue": "2026-10-01",
     "duree_marche": "1 an reconductible 3 fois (durée maximale 4 ans)"
   },
   "alertes_candidat": [
-    "VISITE OBLIGATOIRE : la visite des installations les 17 ou 24 juin 2026 est obligatoire — le certificat de visite vaut 2 points et son absence peut disqualifier ou pénaliser lourdement l'offre",
-    "GMAO obligatoire opérationnelle dans les 2 mois suivant notification sur 4 postes : le candidat doit disposer d'un outil existant et éprouvé, pas d'un développement à venir",
-    "ASTREINTE 24h/24 - 7j/7 avec délai d'intervention de 3h en période d'ouverture : exige une organisation locale (techniciens basés à proximité de Metz), ce qui peut exclure les entreprises sans agence en Moselle",
-    "STOCK DE SECOURS obligatoire (radiateurs d'appoint électriques 2000-3000W) à maintenir en permanence pour déploiement immédiat : coût fixe à intégrer dans le P2",
-    "PÉRIMÈTRE ÉVOLUTIF : des bâtiments peuvent être retirés du contrat sans indemnisation dès raccordement au réseau de chaleur urbain — le candidat doit anticiper une réduction possible du CA en cours de marché dans sa politique de prix"
+    "VISITE OBLIGATOIRE : les 17 et/ou 24 juin 2026 — sans certificat de visite joint à l'offre, le candidat perd 2 points sur 50 en valeur technique (et risque l'irrecevabilité si la visite est jugée condition préalable). Confirmation obligatoire par mail avant la visite.",
+    "CADRE DE RÉPONSE OBLIGATOIRE : le non-respect ou le remplissage partiel du cadre est éliminatoire sur 2 points et signale un manque de sérieux — tous les items doivent être traités sans exception.",
+    "RISQUE DE PERTE DE REVENU EN COURS DE MARCHÉ : plusieurs bâtiments (hôtel de ville, groupes scolaires Pougin, Cressot, etc.) peuvent être déconnectés suite au développement du réseau de chaleur urbain — le titulaire ne peut réclamer aucune indemnisation. À intégrer dans la stratégie de prix.",
+    "ASTREINTE 24H/7J OBLIGATOIRE avec délai 3h garanti en période d'ouverture : capacité d'intervention rapide à prouver concrètement (base géographique, personnel d'astreinte nommé, stock équipements de secours). L'absence d'organisation crédible pénalise le critère technique (6 points).",
+    "OBLIGATION DE RÉSULTAT : le contrat combine obligation de résultat (températures, continuité chauffage/ECS) et obligation de moyens — les pénalités sont lourdes (jusqu'à 300% de la redevance P2 journalière). Anticiper un chiffrage prudent intégrant le risque opérationnel."
   ],
   "points_differenciants_attendus": [
     {
-      "libelle": "Qualité et exhaustivité du protocole légionellose et de la gestion qualité de l'eau",
-      "exemple": "Un candidat proposant un protocole détaillé avec fréquences de chasse par site, trames de carnet sanitaire préremplies adaptées aux ERP de Montigny-lès-Metz, et protocoles de gestion de crise légionellose clés-en-main se différenciera nettement, ce critère étant valorisé à 3 points sur 50 de la valeur technique.",
-      "source": "RC §5, CCTP §4.2"
+      "libelle": "Qualité et exhaustivité du cadre de réponse technique",
+      "exemple": "Un candidat qui joint des trames pré-remplies de livret de chaufferie et carnet sanitaire adaptées aux types d'installations présentes (PAC, CTA double flux, ballons ECS avec risque légionnelles) démontre sa maîtrise et facilite l'évaluation. Cela pèse directement sur les 3 points 'carnets sanitaires' et crédibilise l'ensemble de l'offre.",
+      "source": "RC §5"
     },
     {
-      "libelle": "Proposition d'un mode opératoire d'optimisation énergétique avec chiffrage",
-      "exemple": "Un candidat fournissant, dès l'offre, une analyse préliminaire des pistes d'optimisation identifiées lors de la visite obligatoire (ex : réglage des courbes de chauffe, équilibrage hydraulique, remplacement de pompes énergivores) avec un chiffrage estimatif des économies potentielles démontrera une valeur ajoutée conseil au-delà de la simple maintenance.",
-      "source": "RC §5, CCTP §3.2.2"
+      "libelle": "Organisation d'astreinte crédible et géographiquement ancrée",
+      "exemple": "Un prestataire implanté en Moselle (Metz ou agglomération) avec un technicien d'astreinte dédié documenté et un stock de radiateurs d'appoint physiquement localisé prouve la faisabilité du délai 3h — contrairement à une organisation centralisée à Paris ou Lyon.",
+      "source": "RC §5 et CCTP §4.5.5"
     },
     {
-      "libelle": "Richesse et fonctionnalités de la plateforme GMAO proposée",
-      "exemple": "Un candidat présentant une GMAO avec portail web accessible à la Maîtrise d'Ouvrage, alertes mail automatiques, tableau de bord par établissement, et trames de rapports mensuels/trimestriels/annuels préremplies adaptées au présent marché se démarquera sur le critère GMAO (3 points), très axé sur la transparence et le suivi en temps réel.",
-      "source": "RC §5, CCTP §4.5.6"
+      "libelle": "Proposition d'optimisation énergétique chiffrée",
+      "exemple": "La demande explicite d'un 'mode opératoire d'optimisation de l'énergie avec proposition technique + chiffrage' dans le cadre de réponse est un différenciateur clé : un candidat qui quantifie le potentiel d'économie (ex: réglage courbes de chauffe, télégestion, équilibrage hydraulique = 8-12% économies gaz = 20-40 k€/an) scorera mieux qu'une réponse générique.",
+      "source": "RC §5 (conduite et petit entretien)"
     },
     {
-      "libelle": "Connaissance des équipements lors de la visite obligatoire et qualité du PV de prise en charge proposé",
-      "exemple": "Un candidat qui, lors de la visite obligatoire des 17/24 juin, identifie des anomalies (pompes HS, disconnecteurs non contrôlables, équipements vétustes comme la chaudière De Dietrich 1989 du groupe scolaire Pougin) et les intègre dans son PV de prise en charge type démontrera une connaissance terrain qui rassure la Maîtrise d'Ouvrage.",
-      "source": "RC §5, CCTP §4.5.3"
+      "libelle": "GMAO fonctionnelle et démonstrable dès la remise de l'offre",
+      "exemple": "Présenter des captures d'écran ou un accès démo d'une GMAO existante déjà déployée sur des marchés similaires de collectivités, plutôt qu'une description théorique, renforce la crédibilité sur les 3 points GMAO et rassure le MO sur le délai de 2 mois.",
+      "source": "RC §5 et CCTP §4.5.6"
     },
     {
-      "libelle": "Réactivité et organisation locale de l'astreinte avec moyens de secours dimensionnés",
-      "exemple": "Un candidat démontrant une implantation en Moselle (agence à moins de 30 minutes de Montigny-lès-Metz), avec un stock dédié de moyens de secours chiffrés (nombre de radiateurs d'appoint, soufflants) et un organigramme d'astreinte nominatif (technicien d'astreinte, responsable de contrat joignable) se positionnera très favorablement sur les 6 points du critère astreinte.",
-      "source": "RC §5, CCTP §4.5.5"
+      "libelle": "Expérience sur des marchés d'exploitation thermique multi-sites de collectivités",
+      "exemple": "Citer 2-3 références de marchés similaires (>15 bâtiments, collectivité, astreinte incluse) de moins de 3 ans avec coordonnées du MO contact, en précisant les équipements maintenus (PAC, CTA, ECS) et les résultats obtenus, positionne le candidat comme expert du secteur.",
+      "source": "RC §4.1"
     }
   ],
   "_meta": {
     "id_marche": "BOAMP-26-56450",
     "type": "complet",
-    "date_generation": "2026-06-14T22:21:50.232573+00:00",
-    "extraction_le": "2026-06-14T22:21:50.232573+00:00",
+    "date_generation": "2026-06-21T00:20:30.179862+00:00",
+    "extraction_le": "2026-06-21T00:20:30.179862+00:00",
     "modele": "claude-sonnet-4-6",
     "preset_utilise": "btp",
     "presets_matches": [
       "btp"
     ],
     "prompts_versions": {
-      "btp/_preset.json": "sha256:d1717e0d87f6c265"
+      "btp/_preset.json": "sha256:055bf6f8b2c1f771"
     },
-    "tokens_input": 81559,
-    "tokens_output": 8455,
-    "cout_eur": 0.3529,
-    "duree_sec": 161.3,
+    "tokens_input": 90662,
+    "tokens_output": 10966,
+    "cout_eur": 0.4147,
+    "duree_sec": 402.4,
     "pdfs_traites": [
       {
         "nom": "00-Maintenance installations thermiques-RC.pdf",

@@ -1,6 +1,6 @@
 # Brief — Maquettage
 
-_Généré le 2026-06-14 23:42 par Claude claude-sonnet-4-6_
+_Généré le 2026-06-20 16:18 par Claude claude-sonnet-4-6_
 
 ## Identifiants
 - **ID Tendia** : `BOAMP-26-56116`
@@ -11,95 +11,104 @@ _Généré le 2026-06-14 23:42 par Claude claude-sonnet-4-6_
 - **DCE PLACE** : <https://www.marches-publics.gouv.fr/?page=Entreprise.EntrepriseDetailsConsultation&id=2984788&orgAcronyme=g6l>
 
 ## Synthèse
-Accord-cadre du Ministère de l'Intérieur (SSMSI) portant sur des prestations de maquettage éditorial, création graphique, secrétariat de rédaction et coordination de projet pour la diffusion de l'information statistique dans le domaine de la sécurité intérieure. Les prestations couvrent l'exécution graphique, la direction artistique, l'illustration, la mise en accessibilité et le suivi de projets éditoriaux pour les publications du Service statistique ministériel. Le marché est soumis à des exigences SSI strictes en raison de la sensibilité des données statistiques traitées avant publication.
+Le Service statistique ministériel de la sécurité intérieure (SSMSI) du Ministère de l'Intérieur lance un accord-cadre à bons de commande pour des prestations de maquettage éditorial (exécution graphique, création graphique, secrétariat de rédaction, mise en accessibilité, coordination). Ces prestations visent la diffusion de l'information statistique dans le domaine de la sécurité intérieure (publications Interstats Analyse, Interstats Info-rapide, bilans statistiques, rapports d'enquête). Le marché est estimé à 670 000 € HT sur une durée de 6 mois (à vérifier : probablement durée initiale reconductible).
 
 ## 🎯 Mission conseil
-- **Typologie de mission** : Prestation de service récurrente (maquettage éditorial)
-- **Domaine d'expertise** : Graphisme, direction artistique, infographie, secrétariat de rédaction, accessibilité numérique
-- **Méthodologie attendue** : Exécution graphique sur demande + cycles de validation BAT + gestion des versions documentaires + réunions de lancement/suivi/clôture
+- **Typologie de mission** : accompagnement
+- **Domaine d'expertise** : maquettage éditorial, création graphique, secrétariat de rédaction, accessibilité numérique
+- **Durée de mission** : 6 mois (durée initiale selon contexte BOAMP, probablement reconductible)
+- **Jours-consultant estimés** : 764
+- **Méthodologie attendue** : Réunion de lancement + exécution des bons de commande par prestation (exécution graphique, création graphique, secrétariat de rédaction, mise en accessibilité) + réunions de suivi + réunion de clôture. Gestion documentaire rigoureuse avec versionnement et nomenclature (BAT), respect des exigences SSI (confidentialité, hébergement UE, Plan d'Assurance Sécurité).
 - **Livrables attendus** :
-  - Maquettes graphiques (Interstats Analyse, Interstats Info-rapide, Rapport d'enquête, Bilan statistique)
-  - Créations graphiques originales
-  - Documents corrigés et secrétariat de rédaction
-  - Atlas mis en accessibilité au format HTML
-  - Comptes rendus de réunions (lancement, suivi, clôture)
-  - Plan d'Assurance Sécurité (PAS) et livrables SSI
+  - Maquettes de publications statistiques (Interstats Analyse, Interstats Info-rapide, Rapport d'enquête, Bilan statistique)
+  - Créations graphiques originales (illustrations, infographies)
+  - Secrétariat de rédaction (corrections d'auteur, préparation de copie, réécriture)
+  - Mise en accessibilité d'Atlas sous format HTML
+  - Comptes rendus de réunions de lancement, suivi et clôture
+  - Inventaire des documents SSMSI détenus (exigence SSI)
+  - Plan d'Assurance Sécurité (PAS)
+  - Procès-verbaux de restitution et de destruction des données
 - **Livrables par phase** :
   - **Démarrage** :
+    - Engagement de confidentialité et liste des intervenants autorisés
     - Plan d'Assurance Sécurité (PAS)
-    - Engagement de confidentialité signé
     - Déclaration des outils utilisés
     - Fiche d'hébergement et localisation des données
+    - Note de gestion des versions et nomenclature documentaire
     - Matrice des comptes et habilitations
-    - Note de gestion des versions
-    - Note de continuité d'activité
+    - Attestation de conformité des postes
+    - Notes de sauvegarde et de continuité
+    - Fiches réflexes incident
     - Désignation du responsable sécurité SI
-  - **Exécution courante** :
-    - Exécutions graphiques (graphiste)
-    - Créations graphiques (direction artistique, illustration)
-    - Secrétariat de rédaction (corrections, réécriture)
-    - Mise en accessibilité Atlas HTML
-    - Comptes rendus de réunions de suivi
-  - **Fin de marché** :
+  - **Exécution (sur bons de commande)** :
+    - Fichiers maquettés (Prestation 1 : exécution graphique)
+    - Créations graphiques originales (Prestation 2 : direction artistique, illustrations)
+    - Documents corrigés et réécrits (Prestation 3 : secrétariat de rédaction)
+    - Atlas mis en accessibilité HTML (Prestation 4)
+    - Comptes rendus de réunions de suivi (Prestation 5)
+  - **Clôture** :
+    - Réunion de clôture et compte rendu
     - Procès-verbal de restitution des éléments SSMSI
     - Procès-verbal de destruction des données
-    - Compte rendu de clôture
 - **Jours-consultant par profil** :
-  - Graphiste (exécution graphique)
-  - Direction artistique
-  - Illustrateur/infographiste
-  - Secrétaire de rédaction
-  - Chef de projet (coordination)
+  - Graphiste (exécution graphique) : 110–185 j
+  - Directeur artistique / Illustrateur-infographiste : 110–186 j
+  - Secrétaire de rédaction : 30–31 j
+  - Chef de projet (coordination) : 52–55 j
 
 ### Profils intervenants
-Profils créatifs et éditoriaux requis : graphiste, directeur artistique, illustrateur/infographiste, secrétaire de rédaction, chef de projet. Un responsable sécurité SI dédié est également exigé.
+Équipe pluridisciplinaire composée de graphistes, directeurs artistiques, illustrateurs/infographistes, secrétaires de rédaction et un chef de projet/coordinateur. Des exigences SSI spécifiques s'appliquent à tous les intervenants (sensibilisation SSI, habilitations, engagement de confidentialité).
 - **Chef de mission** :
-  - secteur : Maquettage éditorial, publications statistiques ou institutionnelles
+  - secteur : maquettage éditorial, publications statistiques ou institutionnelles
 - **Consultants** :
   - Graphiste (exécution graphique)
   - Directeur artistique
-  - Illustrateur/infographiste
+  - Illustrateur / Infographiste
   - Secrétaire de rédaction
-  - Chef de projet (coordination)
-  - Responsable sécurité SI ×1
+  - Responsable sécurité SI (SSI) ×1
 
 ## 💶 Montant du marché
-- _Montant non communiqué dans le DCE._
-  - Typique des accords-cadres à bons de commande : le volume dépend des commandes effectivement passées par l'acheteur sur la durée du marché.
-- _Note_ : Aucun montant prévisionnel, plafond ou enveloppe budgétaire n'est mentionné dans les pièces du DCE analysées. Le DQE annuel permet une estimation par le candidat à partir de ses propres prix unitaires, mais aucune valeur de référence n'est fournie par l'acheteur. Volumes indicatifs DQE : 110 demi-journées + 74 journées de graphisme/an, 110 demi-journées + 74 journées de direction artistique/an, 30 demi-journées + 22 journées de chef de projet/an, 250 pages de secrétariat/an, 2 documents Atlas/an.
+- **Valeur estimée** : **670 000 €**
+  - sur 6 mois (durée initiale selon contexte BOAMP lot unique)
+  - _source : Contexte BOAMP — lot LOT-0001 montant estimé_
+- _Note_ : Le montant de 670 000 € HT est explicitement indiqué dans le contexte BOAMP pour le lot unique. La durée indiquée est de 6 mois, ce qui peut correspondre à une période initiale reconductible — dans ce cas le montant total sur la durée maximale serait supérieur.
 
 ## Barème de notation
-- **Valeur technique** : —
-- **Valeur prix** : —
+- **Valeur technique** : 60 %
+- **Valeur prix** : 40 %
 - **Sous-critères techniques** :
-  - Sous-critère environnemental 1 : La quantité d'émission de CO2 : —
-  - Sous-critère environnemental 2 : La quantité d'ordinateurs recyclés ou reconditionnés : —
-- **Calcul du prix** : DQE annuel calculé automatiquement à partir des prix unitaires HT saisis par le candidat dans le BPU, multiplié par les quantités annuelles fixées par l'acheteur. Toutes les rubriques doivent être renseignées y compris si le prix est nul (renseigner 0).
+  - Valeur technique : 40 %
+  - Critères environnementaux : 10 %
+  - Critères sociaux : 10 %
+- **Calcul du prix** : Montant total TTC calculé automatiquement dans l'onglet DQE_maquettage à partir des prix unitaires HT saisis dans le BPU et des quantités annuelles préétablies par l'acheteur.
 
 ## Références et qualifications exigées
 - **Expérience minimale** : —
-- **Secteur d'expérience** : Maquettage éditorial et graphisme pour publications statistiques, institutionnelles ou scientifiques
-- **Certifications obligatoires** : SecNumCloud (ou niveau équivalent validé par le SSMSI) pour tout service cloud utilisé dans le cadre du marché (source=CCP annexe SSI — fichier 04a_A1a_CCP_SSI_Maquettage.pdf, domaine C)
+- **Secteur d'expérience** : Maquettage éditorial de publications statistiques ou institutionnelles, création graphique, secrétariat de rédaction
 - **Autres exigences** :
-  - Plan d'Assurance Sécurité (PAS) conforme à la structure ISO 27002:2013 et à la PGSN du Ministère de l'Intérieur, à remettre au démarrage (source=CCP annexe SSI — fichier 04b_A1b_CCP_politique_securite.pdf, section 4.1)
-  - Engagement formel de confidentialité et de respect de l'embargo signé par le représentant du titulaire avant tout accès aux documents (source=CCP annexe SSI — fichier 04a_A1a_CCP_SSI_Maquettage.pdf, domaine A)
-  - Déclaration des outils utilisés et note de séparation des données à fournir dès la réponse à l'offre (source=CCP annexe SSI — fichier 04a_A1a_CCP_SSI_Maquettage.pdf, domaine C)
-  - Désignation d'un responsable sécurité SI dédié, interlocuteur privilégié du SSMSI (source=CCP annexe SSI — fichier 04a_A1a_CCP_SSI_Maquettage.pdf, domaine I)
-  - Hébergement des données au sein de l'Union européenne obligatoire (source=CCP annexe SSI — fichier 04a_A1a_CCP_SSI_Maquettage.pdf, domaine C)
-  - Interdiction absolue d'utiliser des outils d'IA générative non validés pour traiter des contenus SSMSI non publiés (source=CCP annexe SSI — fichier 04a_A1a_CCP_SSI_Maquettage.pdf, domaine C)
-  - Déclaration sur l'honneur relative aux motifs d'exclusion et déclaration de non-ressortissance russe (titulaire, co-traitants et sous-traitants) (source=02d_A4_RC_attestation_motifs_exclusion.docx)
+  - Engagement de confidentialité signé couvrant l'ensemble des intervenants, à remettre avant tout accès aux documents du marché (source=CCP Annexe SSI (04a_A1a_CCP_SSI_Maquettage.pdf) §A)
+  - Plan d'Assurance Sécurité (PAS) conforme à la structure ISO 27002:2013 et à la PGSN du Ministère de l'Intérieur, à remettre au démarrage (source=CCP Annexe politique sécurité (04b_A1b_CCP_politique_securite.pdf) §4.1)
+  - Hébergement des données du marché au sein de l'Union européenne (service cloud avec qualification SecNumCloud ou niveau équivalent) (source=CCP Annexe SSI §C)
+  - Interdiction d'utiliser des outils d'IA générative non validés par le SSMSI pour traiter des contenus non publiés (source=CCP Annexe SSI §C)
+  - Désignation d'un responsable sécurité SI dédié, interlocuteur privilégié du SSMSI (source=CCP Annexe SSI §I)
+  - Déclaration de conformité sur les motifs d'exclusion (infractions pénales, obligations sociales, travail dissimulé, ressortissants russes) (source=RC — attestation sur l'honneur (04_A2_RC_attestation_motifs_exclusion.docx))
+
+## Lots
+- **Lot 1** — Maquettage pour la diffusion de l'information statistique dans le domaine de la sécurité intérieure
+  - Zone : FR101 (Île-de-France / Paris — siège SSMSI)
+  - Volume estimé : 764 jours-homme (annualisés selon DQE)
+  - Exigences SSI très élevées (confidentialité statistiques avant publication, PAS ISO 27002, hébergement UE/SecNumCloud, interdiction IA générative). Lot unique. Publications institutionnelles sensibles (statistiques de délinquance) avec obligation d'embargo strict avant publication officielle. Mise en accessibilité RGAA obligatoire pour les Atlas HTML.
 
 ## ⚠ Alertes candidat
-- Le cadre de réponse environnemental (Annexe 2 au RC, fichier XLSX) doit être renseigné dans son formalisme exact sous peine d'irrecevabilité — seules les cellules jaunes peuvent être modifiées et la preuve de consommation des équipements est obligatoire pour ne pas obtenir 0 au sous-critère.
-- Le BPU doit être remis au format tableur avec TOUTES les rubriques renseignées (y compris '0' si prix nul) — toute rubrique vide entraîne l'irrecevabilité.
-- Des éléments SSI (déclaration des outils, note de séparation des données, matrice des comptes et habilitations, note de gestion des versions) doivent être fournis DÈS LA RÉPONSE à l'offre — pas seulement au démarrage.
-- L'utilisation de tout outil d'IA générative pour traiter des contenus SSMSI non publiés est formellement interdite — les candidats devront s'engager par écrit à ne pas y recourir.
-- Les ressortissants russes et entités détenues à plus de 50% par des intérêts russes sont exclus — une déclaration sur l'honneur est exigée pour le titulaire, tous les co-traitants et sous-traitants.
-- Le marché porte sur des statistiques confidentielles sous embargo — des obligations de sécurité SSI très étendues (PAS, audit droit, fiches réflexes, traçabilité) pèsent sur l'ensemble de la chaîne de sous-traitance.
+- Exigences SSI très contraignantes : le candidat doit impérativement remettre dès son offre les éléments de conformité des blocs C (hébergement), D (gestion des versions) et E (habilitations) de l'annexe SSI — leur absence peut entraîner la non-conformité de l'offre.
+- Interdiction formelle d'utiliser des outils d'IA générative non validés par le SSMSI pour traiter des contenus non publiés — cela exclut l'usage courant de Midjourney, DALL-E, ChatGPT, etc. pour ce marché.
+- Hébergement des données obligatoirement dans l'Union européenne avec qualification SecNumCloud ou niveau équivalent — vérifier que l'infrastructure de stockage et les outils collaboratifs utilisés sont conformes avant de candidater.
+- Le formalisme du BPU et du cadre de réponse environnemental est déclaré irrecevable si non respecté — toutes les cellules jaunes doivent être renseignées, y compris les cases à 0, et les sommes des pourcentages d'utilisation (colonne F) doivent impérativement être égales à 100%.
+- Déclaration de conflit d'intérêt individuelle requise pour chaque membre de l'équipe mobilisée : prévoir ce document pour tous les intervenants nommés dans l'offre.
 
 ## 💡 Points différenciants attendus
-- Maîtrise des exigences SSI et capacité à produire le dispositif documentaire dès l'offre (exemple=Un candidat qui soumet avec son offre une déclaration des outils préremplie, une note de séparation des données et une ébauche de matrice des habilitations démontrera une compréhension avancée des contraintes de confidentialité du SSMSI et réduira le risque de non-conformité à la remise de l'offre., source=CCP annexe SSI — fichier 04a_A1a_CCP_SSI_Maquettage.pdf, domaines C, D et E)
-- Utilisation d'équipements à très faible empreinte carbone (ordinateurs reconditionnés, écrans basse consommation) (exemple=Un candidat utilisant exclusivement des ordinateurs reconditionnés avec des consommations certifiées inférieures à 15 Wh en activité obtiendra une note maximale sur les deux sous-critères environnementaux, constituant un avantage compétitif significatif si la pondération environnementale est élevée., source=Annexe 2 au RC — fichier 02b_A2_RC_CDR_env.xlsx)
-- Expérience en maquettage de publications statistiques institutionnelles complexes (graphiques, cartographies, tableaux de données) (exemple=La mise en avant de références sur des publications statistiques similaires aux Interstats (rapport annuel de délinquance, atlas géographiques, infographies de données) permettrait de démontrer la capacité à traiter des données sensibles dans des délais contraints avec un haut niveau de qualité graphique.)
-- Hébergement des données et outils sur infrastructure qualifiée SecNumCloud ou solution souveraine équivalente (exemple=Un candidat proposant un espace de travail collaboratif hébergé chez un prestataire certifié SecNumCloud (ex. Oodrive, LockSelf) évite toute dérogation à demander au SSMSI et rassure l'acheteur sur la conformité immédiate., source=CCP annexe SSI — fichier 04a_A1a_CCP_SSI_Maquettage.pdf, domaine C)
-- Processus de gestion des versions et de BAT (Bon À Tirer) documenté et opérationnel (exemple=Un candidat présentant une nomenclature documentaire claire, un cycle de versionnement formalisé (brouillon → V1 → V2 → BAT validé) et un exemple de workflow de validation évitant les erreurs de diffusion anticipation de la publication sera perçu comme plus fiable pour gérer la contrainte d'embargo., source=CCP annexe SSI — fichier 04a_A1a_CCP_SSI_Maquettage.pdf, domaine D)
+- Expérience en publications statistiques institutionnelles ou gouvernementales (exemple=Un candidat qui peut présenter 3 à 5 références de maquettage pour des publications statistiques (INSEE, DREES, SDES, SSMSI, Eurostat) avec des exemples de mise en page de tableaux de données, graphiques statistiques et cartes thématiques sera fortement valorisé., source=CCP (objet du marché — publications Interstats))
+- Maturité SSI et expérience de travail sur des données sensibles avant publication (exemple=Un candidat disposant d'une infrastructure déjà conforme SecNumCloud, d'un responsable sécurité SI identifié, et d'une procédure d'embargo éprouvée (gestion des versions BAT, accès nominatifs) présentera un PAS structuré et crédible dès l'offre, réduisant le risque perçu par l'acheteur., source=CCP Annexe SSI (04a_A1a_CCP_SSI_Maquettage.pdf) §1-4)
+- Performance environnementale de l'équipement informatique (critère CO2 et reconditionnement) (exemple=Un candidat équipé d'ordinateurs reconditionnés à faible consommation énergétique (ex : MacBook Air M2 reconditionné, 8 Wh en activité) et pouvant justifier d'un parc 100% reconditionné obtiendra la note maximale sur le sous-critère 2 environnemental, représentant un gain différenciant sur 20% du critère technique., source=RC Annexe 2 (02b_A2_RC_CDR_env.xlsx))
+- Maîtrise de la mise en accessibilité numérique RGAA/HTML pour publications statistiques (exemple=La Prestation 4 (mise en accessibilité Atlas HTML) est spécifique et nécessite une expertise RGAA. Un candidat capable de démontrer une expérience sur des Atlas statistiques interactifs rendus accessibles (navigation clavier, alternatives textuelles aux graphiques, contrastes conformes WCAG) se démarquera nettement., source=BPU Prestation 4 (03a_A1_BPU_AE_Maquettage.xlsx))
+- Tarification compétitive sur les profils à fort volume (graphiste et direction artistique) (exemple=Les graphistes (exécution) et directeurs artistiques représentent plus de 80% du volume annuel du DQE. Optimiser le TJM sur ces deux profils (en conservant des tarifs cohérents heure/demi-journée/journée) aura un impact décisif sur la note prix qui pèse 40% de la note globale., source=BPU DQE (03a_A1_BPU_AE_Maquettage.xlsx onglet DQE_maquettage))

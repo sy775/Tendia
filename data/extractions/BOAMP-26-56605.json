@@ -1,115 +1,121 @@
 {
-  "synthese_marche": "La Commune de Bussières (Loire, 42510) lance un marché public de travaux en procédure adaptée pour la construction d'un vestiaire de football au lieu-dit « Le Rampeau ». Le projet comprend la réalisation d'un bâtiment neuf d'environ 198 m² (surface totale 207 m² de plancher) comprenant 4 vestiaires joueurs avec douches, 2 vestiaires arbitres, sanitaires PMR, local technique et auvent, avec couverture bac acier et 110 panneaux photovoltaïques. Le marché est décomposé en 9 lots couvrant l'ensemble des corps d'état, du terrassement aux panneaux photovoltaïques.",
+  "synthese_marche": "La commune de Bussières (42510) lance un marché de travaux en procédure ouverte pour la construction d'un vestiaire de foot (207 m² de surface de plancher) situé au lieu-dit « Le Rampeau ». Le marché est décomposé en 9 lots couvrant l'ensemble des corps d'état : terrassement-VRD, gros œuvre, charpente-couverture, menuiserie, isolation-plâtrerie-peinture, carrelage-faïence, plomberie sanitaire, électricité-chauffage-ventilation et panneaux photovoltaïques (110 panneaux en toiture). Les travaux sont prévus pour démarrer le 2 novembre 2026, avec une période de préparation de 4 semaines.",
   "domaines_metier": [
     {
       "code": "btp_gros_oeuvre",
-      "poids": 0.65,
+      "poids": 0.45,
       "lots_concernes": [
-        "Lot 1 - Terrassement VRD",
-        "Lot 2 - Maçonnerie Gros-œuvre",
-        "Lot 3 - Charpente-couverture-zinguerie",
-        "Lot 4 - Menuiseries",
-        "Lot 5 - Isolation-plâtrerie-peinture",
-        "Lot 6 - Carrelage-faïence",
-        "Lot 7 - Plomberie Sanitaire",
-        "Lot 8 - Electricité-chauffage-ventilation"
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "code": "btp_second_oeuvre",
+      "poids": 0.4,
+      "lots_concernes": [
+        4,
+        5,
+        6,
+        7,
+        8
       ]
     },
     {
       "code": "energie_pv_solaire",
-      "poids": 0.35,
+      "poids": 0.15,
       "lots_concernes": [
-        "Lot 9 - Panneaux photovoltaïques"
+        9
       ]
     }
   ],
-  "raison_classification": "Le marché porte principalement sur la construction neuve d'un bâtiment sportif (vestiaires de football), avec tous les corps d'état classiques du bâtiment neuf (gros œuvre, second œuvre, fluides). Le lot 9 panneaux photovoltaïques (110 panneaux sur toiture) constitue une part significative et distincte relevant explicitement du photovoltaïque (CPV 45261215), justifiant un second domaine avec poids.",
+  "raison_classification": "Le marché est un chantier de construction neuve multi-corps d'état (9 lots) incluant gros œuvre, second œuvre et un lot photovoltaïque (110 panneaux). La dominante est le BTP construction neuve (lots 1-8), avec un lot ENR photovoltaïque distinct (lot 9) représentant une fraction du marché.",
   "caracteristiques_techniques_chantier": {
-    "description": "Construction neuve d'un bâtiment de vestiaires de football sur un terrain plat (stade Jean Giraud) : dalle béton armé, élévation en brique enduit pierre V10 Parexlanko, charpente traditionnelle 2 pans (pentes 35% et 50%) couverte en bac acier rouge, 110 panneaux photovoltaïques sur pan sud, menuiseries aluminium RAL 7016, faïences murales, carrelage 30×30, installations sanitaires/plomberie/électricité/chauffage/ventilation. Mur de soutènement enduit en limite de propriété. Raccordements réseaux (EU, EP, AEP, EDF, FT).",
-    "typologie_ouvrage": "Bâtiment sportif neuf — vestiaires de football avec douches, sanitaires PMR, local technique, auvent",
-    "surface_volume": "Surface de plancher : 207,29 m² / Surface totale intérieure : 198,83 m² / Hauteur sous plafond : 3,00 m / Faîtage max : 6,66 m TN",
-    "site_occupe": "false — terrain de stade existant, bâtiment à construire sur terrain non bâti",
+    "description": "Construction d'un bâtiment vestiaires de football de plain-pied (~207 m² de surface de plancher) comprenant 4 vestiaires joueurs avec douches, 2 vestiaires arbitres dont 1 PMR, sanitaires, WC PMR extérieur, local technique, auvent. Structure en brique enduit, charpente traditionnelle 2 pans (pente 35% et 50%), couverture bac acier rouge, 110 panneaux photovoltaïques en toiture sud, menuiseries aluminium RAL 7016, faïences murales, carrelage, mur de soutènement à l'arrière.",
+    "typologie_ouvrage": "Bâtiment sportif neuf (vestiaires de football)",
+    "surface_volume": "Surface de plancher : 207,29 m² (tableau des surfaces intérieures : 198,83 m²)",
+    "site_occupe": "false — terrain de football existant, bâtiment neuf sur terrain non bâti (stade Jean Giraud, commune de Bussières)",
     "corps_etat": [
       "Terrassement - VRD",
-      "Maçonnerie - Gros-œuvre",
-      "Charpente - couverture - zinguerie",
+      "Maçonnerie - Gros œuvre",
+      "Charpente - Couverture - Zinguerie",
       "Menuiseries intérieures et extérieures",
-      "Isolation - plâtrerie - peinture",
-      "Carrelage - faïence",
-      "Plomberie sanitaire",
-      "Electricité - chauffage - ventilation",
+      "Isolation - Plâtrerie - Peinture",
+      "Carrelage - Faïence",
+      "Plomberie Sanitaire",
+      "Électricité - Chauffage - Ventilation",
       "Panneaux photovoltaïques"
     ],
     "contraintes_specifiques": [
-      "Raccordement à l'ensemble des réseaux publics à ajuster avec les concessionnaires (EU, EP, AEP, EDF, FT)",
-      "Cheminement PMR à créer depuis le parking",
-      "Mur de soutènement enduit en limite de propriété arrière",
-      "Fondations à définir selon étude bureau d'études structure",
-      "Soubassement béton banché + étanchéité lourde pour face enterrée",
-      "Cloison coupe-feu 2h dans le bâtiment",
-      "Période de préparation de 4 semaines avant démarrage des travaux",
-      "Attestation AIPR encadrant et opérateurs obligatoire pour tous les intervenants (réglementation depuis le 1er janvier 2018)"
+      "Mur de soutènement béton banché en limite de propriété arrière avec étanchéité lourde",
+      "Accessibilité PMR : vestiaire arbitre PMR, WC PMR extérieur, cheminement PMR",
+      "Cloison coupe-feu 2h (local technique TGBT)",
+      "Raccordement aux réseaux publics en limite de propriété (EU, EP, AEP, EDF)",
+      "Cuve de rétention EP existante à préserver",
+      "Soubassement béton banché pour faces enterrées avec étanchéité lourde",
+      "Fondations à définir selon étude de sol (BE)",
+      "Démarrage travaux prévu 02/11/2026 après 4 semaines de préparation"
     ]
   },
   "allotissement": {
-    "description": "Marché décomposé en 9 lots — une tranche ferme — possibilité de soumissionner à tous les lots, nombre maximum 9 lots attribuables à un même soumissionnaire",
+    "description": "Marché décomposé en 9 lots, tranche ferme unique, tous corps d'état du bâtiment neuf",
     "nb_lots": 9,
     "lots_detailles": [
       {
         "numero": 1,
         "intitule": "Terrassement - VRD",
-        "corps_etat": "Terrassement, voirie et réseaux divers",
+        "corps_etat": "Terrassement, VRD",
         "montant_estime": null,
-        "description": "Travaux de fouille, terrassement, raccordements aux réseaux publics (EU, EP, AEP), cheminement PMR, parkings"
+        "description": "Travaux de terrassement général, voirie et réseaux divers (EU, EP, AEP), raccordements concessionnaires"
       },
       {
         "numero": 2,
         "intitule": "Maçonnerie - Gros-œuvre",
-        "corps_etat": "Gros œuvre, maçonnerie",
+        "corps_etat": "Maçonnerie, gros œuvre",
         "montant_estime": null,
-        "description": "Dallage béton armé, élévation en brique avec enduit pierre V10 Parexlanko, soubassement béton banché, étanchéité lourde, mur de soutènement enduit, fondations selon étude BE"
+        "description": "Fondations, dallage béton armé, élévation murs en brique, soubassement béton banché, mur de soutènement, étanchéité lourde"
       },
       {
         "numero": 3,
         "intitule": "Charpente-couverture-zinguerie",
         "corps_etat": "Charpente, couverture, zinguerie",
         "montant_estime": null,
-        "description": "Charpente traditionnelle 2 pans (pentes 35% et 50%), couverture bac acier rouge, zinguerie, évacuation des eaux pluviales"
+        "description": "Charpente traditionnelle 2 pans (pentes 35% et 50%), couverture bac acier rouge, zinguerie, évacuations EP"
       },
       {
         "numero": 4,
         "intitule": "Menuiseries intérieures et extérieures",
-        "corps_etat": "Menuiseries",
+        "corps_etat": "Menuiseries intérieures et extérieures",
         "montant_estime": null,
-        "description": "Menuiseries aluminium gris anthracite RAL 7016 (extérieures), menuiseries intérieures, portes, cloisons CF 2h"
+        "description": "Menuiseries aluminium RAL 7016, portes intérieures, cloison CF 2h (TGBT)"
       },
       {
         "numero": 5,
         "intitule": "Isolation - plâtrerie-peinture",
         "corps_etat": "Isolation, plâtrerie, peinture",
         "montant_estime": null,
-        "description": "Isolation thermique et phonique, plâtrerie, peinture des surfaces non carrelées"
+        "description": "Isolation thermique, enduit extérieur pierre V10 Parexlanko, plâtrerie intérieure, peinture"
       },
       {
         "numero": 6,
         "intitule": "Carrelage - faïence",
         "corps_etat": "Carrelage, faïence",
         "montant_estime": null,
-        "description": "Carrelage sols 30×30 dans l'ensemble des locaux, faïences murales (hauteur totale ou 2,00 m selon les pièces), formes de pente pour caniveaux de douche"
+        "description": "Carrelage sol 30x30 avec formes de pente pour caniveaux de douche, faïence murale (2 m de hauteur en vestiaires, toute hauteur en douches/WC)"
       },
       {
         "numero": 7,
         "intitule": "Plomberie Sanitaire",
         "corps_etat": "Plomberie sanitaire",
         "montant_estime": null,
-        "description": "Installation plomberie sanitaire : arrivées EC/EF pour douches (6 par vestiaire joueur, 1 par arbitre), éviers, WC, WC PMR, raccordements EU"
+        "description": "Alimentation EC/EF (6 douches × 4 vestiaires + douches arbitres), éviers, WC, raccordements EU/AEP"
       },
       {
         "numero": 8,
         "intitule": "Electricité - chauffage - ventilation",
-        "corps_etat": "Electricité, chauffage, ventilation, climatisation",
+        "corps_etat": "Électricité, chauffage, ventilation",
         "montant_estime": null,
-        "description": "Équipements électriques (TGBT), chauffage, ventilation des locaux sanitaires et vestiaires, CVC"
+        "description": "TGBT, équipements électriques, système de chauffage, ventilation mécanique contrôlée"
       },
       {
         "numero": 9,
@@ -121,7 +127,7 @@
     ]
   },
   "qualifications_requises": {
-    "description": "Les certificats de qualifications professionnelles de la branche BTP-Bâtiment (FFB) sont demandés. Attestation AIPR (encadrant et opérateurs) obligatoire pour tous les intervenants. Aucun indice Qualibat ou qualification RGE spécifique n'est explicitement listé dans le RC fourni.",
+    "description": "Le RC exige des certificats de qualifications professionnelles de la branche BTP-Bâtiment (FFB) et l'attestation AIPR (encadrant et opérateurs). Aucun indice Qualibat à 4 chiffres n'est listé explicitement dans les pièces disponibles.",
     "qualibat": [],
     "rge": false,
     "rge_specialites": [],
@@ -132,8 +138,52 @@
     "opqibi": null,
     "autres_certifications": [
       "Certificats de qualifications professionnelles de la branche BTP-Bâtiment (FFB)",
-      "Attestation AIPR Encadrant et Opérateurs obligatoire (depuis le 1er janvier 2018)"
+      "Attestation AIPR Encadrant et Opérateurs pour l'ensemble des intervenants sur le chantier (obligatoire depuis le 1er janvier 2018)"
     ]
+  },
+  "caracteristiques_techniques_enr": {
+    "description": "Lot 9 : installation de 110 panneaux photovoltaïques sur le pan sud de la toiture bac acier (pente 35%), bâtiment vestiaires neuf, commune de Bussières (42510, Loire).",
+    "technologies_concernees": [
+      "photovoltaïque toiture"
+    ],
+    "type_de_sites": "Toiture neuve bac acier, bâtiment sportif (vestiaires de football), terrain plat, zone peu bâtie",
+    "criteres_eligibilite": [
+      {
+        "libelle": "Lot 9 constitue une Prestation Supplémentaire Éventuelle (PSE) à laquelle le candidat doit répondre obligatoirement",
+        "source": "RC §2.7"
+      }
+    ],
+    "contraintes_site_signalees": [
+      "travail en hauteur (toiture pente 35%, faîtage à +5,48 m TN)",
+      "coordination avec le lot 3 (charpente-couverture) pour intégration des panneaux sur bac acier"
+    ]
+  },
+  "volumes_techniques": {
+    "puissance_totale_kwc": null,
+    "puissance_par_site_kwc": null,
+    "nb_sites": 1,
+    "surface_panneaux_m2": null,
+    "productible_annuel_estime_mwh": null,
+    "duree_marche_mois": 9,
+    "duree_maintenance_om_annees": null,
+    "commentaire_volumes": "110 panneaux photovoltaïques sur pan sud (pente 35%). La puissance unitaire des panneaux n'est pas précisée dans les pièces disponibles. En standard marché (panneaux 400-450 Wc), la puissance totale serait d'environ 44-50 kWc. Durée du marché : 9 mois à compter du 01/10/2026 (démarrage travaux prévu 02/11/2026 après 4 semaines de préparation)."
+  },
+  "modalites_execution_chantier": {
+    "raccordement_reseau_inclus": null,
+    "etudes_techniques_incluses": null,
+    "calendrier_chantier_contraint": "Démarrage travaux prévu le lundi 2 novembre 2026 (hors période de préparation de 4 semaines). Ordre de service déclenchant la période de préparation puis l'exécution.",
+    "sites_execution": [
+      "Bussières (42510, Loire)"
+    ],
+    "engagement_productible": null,
+    "engagement_disponibilite_om": null
+  },
+  "qualifications_enr": {
+    "qualipv": false,
+    "qualisol": false,
+    "qualipac": false,
+    "qualibois": false,
+    "autres_certifications": []
   },
   "bareme_notation": {
     "valeur_technique_pct": 60,
@@ -142,96 +192,185 @@
       {
         "libelle": "Moyens généraux de l'entreprise",
         "ponderation_pct": 5,
-        "description": "L'acheteur évalue les moyens généraux (humains, matériels, financiers) dont dispose l'entreprise pour assurer la réalisation du marché.",
+        "description": "Évaluation des moyens humains et matériels généraux de l'entreprise candidate.",
         "elements_attendus": [
-          "Présentation de l'entreprise (effectifs, organisation, implantation)",
-          "Moyens matériels disponibles (outillage, engins, logistique)",
-          "Capacités financières et références globales",
-          "Qualification(s) et certification(s) détenues"
+          "Présentation de l'entreprise (effectifs, organisation, parc matériel)",
+          "Références de travaux similaires exécutés au cours des 5 dernières années avec attestations de bonne exécution",
+          "Certificats de qualifications professionnelles FFB"
         ],
-        "exemple_reponse_forte": "Entreprise de maçonnerie de 12 compagnons basée à Roanne, disposant d'un parc propre (pelleteuse, bétonnière, échafaudages), qualifiée Qualibat 2112 et 2131, avec un CA moyen de 1,2 M€ sur 3 ans. Capacité d'intervention dans le département de la Loire démontrée par 5 chantiers similaires en cours.",
+        "exemple_reponse_forte": "L'entreprise dispose de 12 compagnons qualifiés et de l'ensemble du matériel nécessaire. Elle présente 3 références de construction de vestiaires sportifs des 5 dernières années avec attestations de bonne exécution, et ses qualifications FFB correspondantes.",
         "source": "RC §4.4",
+        "unite_evaluation": "points",
         "sous_criteres": []
       },
       {
         "libelle": "Moyens de l'entreprise affectés à l'opération",
         "ponderation_pct": 20,
-        "description": "L'acheteur évalue les moyens humains et matériels affectés spécifiquement à ce chantier, les qualifications du personnel prévu et la liste des éventuels sous-traitants.",
+        "description": "Identification précise des moyens humains et matériels affectés à ce chantier, noms et qualifications des personnes physiques chargées de l'exécution, éventuelle sous-traitance envisagée.",
         "elements_attendus": [
-          "Identification nominative des personnes affectées (chef de chantier, compagnons) avec leurs qualifications",
-          "Matériels et engins dédiés à cette opération",
-          "Organigramme ou fiche de mission du personnel clé",
-          "Liste des sous-traitants envisagés et leurs domaines d'intervention",
-          "Capacité à mobiliser les ressources dès le démarrage fixé au 2 novembre 2026"
+          "Noms et qualifications du chef de chantier et des compagnons affectés",
+          "Liste et disponibilité du matériel dédié au chantier",
+          "Identification et qualification des sous-traitants éventuels",
+          "Attestations AIPR Encadrant et Opérateurs des intervenants",
+          "Cohérence entre les moyens et le planning proposé"
         ],
-        "exemple_reponse_forte": "Pour ce chantier, l'entreprise mobilisera un chef de chantier expérimenté (15 ans de gros œuvre, AIPR encadrant à jour) et 3 maçons qualifiés. Un sous-traitant spécialisé en étanchéité lourde est identifié et présenté. L'ensemble du personnel dispose des AIPR opérateurs valides.",
-        "source": "RC §4.4 et §3.1-B",
+        "exemple_reponse_forte": "Le chantier sera dirigé par M. X (chef de chantier, 15 ans d'expérience en gros œuvre, titulaire AIPR encadrant) assisté de 3 compagnons (AIPR opérateurs). L'entreprise dispose de sa propre grue à tour et ne prévoit aucune sous-traitance sur ce lot.",
+        "source": "RC §4.4",
+        "unite_evaluation": "points",
         "sous_criteres": []
       },
       {
         "libelle": "Provenance des fournitures",
         "ponderation_pct": 5,
-        "description": "L'acheteur évalue la nature, les caractéristiques, la qualité et la provenance des principaux matériaux, équipements et fournitures proposés.",
+        "description": "Indications sur la nature, les caractéristiques, la qualité et la provenance des principaux équipements, matériaux et fournitures proposés.",
         "elements_attendus": [
-          "Identification des marques/fournisseurs principaux (brique, enduit Parexlanko V10, bac acier, menuiseries alu)",
-          "Fiches techniques des matériaux proposés",
-          "Provenance géographique des matériaux (circuit court, local, etc.)",
-          "Conformité aux prescriptions du CCTP"
+          "Références des matériaux principaux (brique, enduit, bac acier, panneaux PV, etc.)",
+          "Fiches techniques des équipements proposés",
+          "Justification de la conformité aux spécifications du CCTP"
         ],
-        "exemple_reponse_forte": "Les briques seront fournies par Wienerberger (production française), l'enduit sera le V10 Parexlanko comme prescrit, le bac acier de couverture sera un produit ArcelorMittal de coloris rouge RAL 3009, les menuiseries aluminium seront de marque Technal en coloris RAL 7016. Fiches techniques jointes.",
-        "source": "RC §4.4 et §3.1-C",
+        "exemple_reponse_forte": "Les murs seront montés en brique Wienerberger, enduit pierre V10 Parexlanko comme prescrit. La couverture sera en bac acier Acieroïd couleur rouge RAL 3009. Les panneaux photovoltaïques sont des modules 400 Wc certifiés IEC 61215 de fabrication européenne.",
+        "source": "RC §4.4",
+        "unite_evaluation": "points",
         "sous_criteres": []
       },
       {
         "libelle": "Procédés d'exécution envisagés et méthodologie",
         "ponderation_pct": 15,
-        "description": "L'acheteur évalue l'organisation et les principes techniques retenus, la méthode de réalisation du chantier, les dispositions pour la sécurité et les plans ou descriptifs techniques explicatifs.",
+        "description": "Organisation, principes et dispositions techniques retenus, méthode et planning de réalisation du chantier, présentations, descriptifs et plans d'ensemble et de détail explicitant l'offre.",
         "elements_attendus": [
-          "Description détaillée du mode opératoire pour chaque phase (terrassement, fondations, maçonnerie, couverture, etc.)",
-          "Dispositions retenues pour les points techniques sensibles (étanchéité lourde soubassement, mur de soutènement, cloison CF 2h)",
-          "Mesures de sécurité et protection des travailleurs (SPS catégorie 3)",
-          "Plans et schémas explicatifs de l'organisation du chantier",
-          "Gestion des déchets et des nuisances de chantier"
+          "Description détaillée de la méthodologie d'exécution propre au lot",
+          "Gestion des interfaces avec les autres lots",
+          "Dispositions spécifiques pour les contraintes du site (mur de soutènement, PMR, CF 2h)",
+          "Plan d'installation de chantier",
+          "Mesures de sécurité et protection de la santé (SPS catégorie 3)"
         ],
-        "exemple_reponse_forte": "La phase terrassement débutera par le piquetage contradictoire et le repérage des réseaux existants avec AIPR valides. L'étanchéité lourde du soubassement sera réalisée en 2 couches selon le DTU 20.1. La cloison CF 2h sera réalisée en carreaux de plâtre armé selon le classement PV du fabricant. Un plan d'installation de chantier est joint, avec zone de stockage dédiée et signalétique sécurité.",
-        "source": "RC §4.4 et §3.1-D",
+        "exemple_reponse_forte": "L'entreprise propose une exécution en 3 phases : préparation/terrassement (S1-S4), élévation maçonnerie (S5-S10), finitions (S11-S16). Le mur de soutènement sera réalisé en béton banché avec étanchéité lourde avant remblaiement. Un plan d'installation de chantier avec zones de stockage sécurisées est joint.",
+        "source": "RC §4.4",
+        "unite_evaluation": "points",
         "sous_criteres": []
       },
       {
         "libelle": "Planning en concordance avec les moyens affectés",
         "ponderation_pct": 15,
-        "description": "L'acheteur évalue la cohérence entre le planning prévisionnel de réalisation des travaux et les moyens humains/matériels présentés.",
+        "description": "Planning de réalisation du chantier cohérent avec les moyens humains et matériels affectés, respect du délai d'exécution contractuel.",
         "elements_attendus": [
-          "Planning détaillé des travaux par corps d'état (diagramme de Gantt ou similaire)",
-          "Respect du démarrage fixé au 2 novembre 2026 après période de préparation de 4 semaines",
-          "Cohérence entre les effectifs annoncés et les délais proposés",
-          "Identification des chemins critiques et jalons d'avancement",
-          "Durée totale proposée respectant les 9 mois maximum"
+          "Planning détaillé (diagramme de Gantt ou similaire) par tâche",
+          "Cohérence entre les ressources affectées et les durées de tâches",
+          "Respect du démarrage prévu (02/11/2026) et du délai contractuel",
+          "Identification des tâches critiques et marges",
+          "Gestion des interfaces avec les autres lots du chantier"
         ],
-        "exemple_reponse_forte": "Le planning Gantt joint prévoit : 4 semaines de préparation (PPSPS, plans d'exécution, commandes), démarrage gros œuvre le 2 novembre 2026, couverture en semaine 8, second œuvre à partir de la semaine 12, avec réception prévisionnelle en juin 2027 (28 semaines de travaux). La montée en charge de 4 compagnons est calée sur le planning avec identification des phases de sous-traitance.",
-        "source": "RC §4.4 et §3.1-E",
+        "exemple_reponse_forte": "Le planning joint sur 16 semaines (hors préparation) détaille semaine par semaine les tâches avec les ressources affectées. Le chemin critique identifie les fondations et la charpente comme jalons. Les interfaces avec le lot électricité (TGBT) et le lot plomberie sont matérialisées par des rendez-vous de coordination hebdomadaires.",
+        "source": "RC §4.4",
+        "unite_evaluation": "points",
         "sous_criteres": []
       }
     ],
     "prix": {
       "type_formule": "moins_disant",
-      "formule_explicite": "NOTE = (Prix le plus bas)² × (Nombre de points attribués au critère) / (Prix du candidat)²",
+      "formule_explicite": "NOTE = (Prix le plus bas)² × (Nombre de points attribué au critère) / (Prix du candidat)²",
+      "source": "RC §4.4",
       "elements_a_chiffrer": [
-        "DPGF (Décomposition du Prix Global et Forfaitaire) par lot",
-        "Montant global et forfaitaire par lot",
-        "Prix unitaires par poste dans la DPGF (vérifiables par le maître d'ouvrage)"
+        "Décomposition du Prix Global et Forfaitaire (DPGF) par lot",
+        "Forfait global et forfaitaire pour chaque lot soumissionné",
+        "PSE Lot 9 Panneaux photovoltaïques (réponse obligatoire)"
       ]
     },
     "modalite_calcul_prix": "NOTE = (Prix le plus bas)² × 40 / (Prix du candidat)²"
   },
   "montant_marche": {
     "valeur_estimee_euros": null,
-    "fourchette_min_euros": null,
-    "fourchette_max_euros": null,
-    "type": "non_communique",
-    "duree_couverte": "9 mois (tranche ferme unique, démarrage octobre 2026)",
-    "source_extraction": null,
-    "commentaire": "Aucun montant estimatif par lot ni enveloppe globale n'est mentionné dans les pièces fournies (RC, AAPC, plans). Le DPGF (Décomposition du Prix Global et Forfaitaire) est référencé comme pièce du DCE mais n'a pas été transmis dans les documents analysés. L'AAPC ne renseigne pas les colonnes 'Estimé €HT' pour les 9 lots."
+    "fourchette_min_euros": 380000,
+    "fourchette_max_euros": 520000,
+    "type": "calcule_volumes",
+    "duree_couverte": "Tranche ferme unique, durée 9 mois",
+    "source_extraction": "Plans DCE (surface 207 m²) + ratios marché BTP vestiaires sportifs neufs",
+    "commentaire": "Aucun montant explicite publié dans les pièces disponibles. Estimation bottom-up : bâtiment neuf vestiaires sportifs ~207 m² SP, tous corps d'état (9 lots), Loire (42510). Ratio marché pour vestiaires sportifs neufs TCE : 1 800 à 2 500 €/m² SP. Estimation centrale : 207 m² × 2 100 €/m² ≈ 435 000 € HT. La présence de 110 panneaux PV (~44-50 kWc, ~45 000 à 60 000 € HT supplémentaires) est incluse dans la fourchette haute."
+  },
+  "montant_3_voies": {
+    "voie_1_eur": null,
+    "voie_1_source": null,
+    "voie_2_disponible": true,
+    "voie_2_min_eur": 380000,
+    "voie_2_max_eur": 520000,
+    "voie_2_hypotheses": [
+      {
+        "hypothese": "Surface de plancher bâtiment vestiaires (plans DCE feuille 6/8)",
+        "valeur": "207 m² SP (198,83 m² surfaces intérieures)"
+      },
+      {
+        "hypothese": "Ratio TCE construction neuve vestiaires sportifs Loire (ratios marché BTP 2025)",
+        "valeur": "1 850 à 2 500 €/m² SP HT — dimension variée"
+      },
+      {
+        "hypothese": "Lot 9 panneaux PV : 110 panneaux × 400 Wc = ~44 kWc, prix PV toiture ~1 000 à 1 300 €/kWc fourni posé",
+        "valeur": "44 000 à 57 000 € HT (inclus dans la fourchette globale)"
+      },
+      {
+        "hypothese": "Lot 1 VRD/terrassement : terrain plat, raccordements concessionnaires en limite de propriété, parking",
+        "valeur": "20 000 à 35 000 € HT estimé (inclus dans la fourchette globale)"
+      }
+    ],
+    "voie_2_raison_indisponible": null
+  },
+  "cout_realisation": {
+    "cout_total_eur": 295000,
+    "cout_min_eur": 245000,
+    "cout_max_eur": 360000,
+    "postes": [
+      {
+        "poste": "Lot 1 — Terrassement VRD (main d'œuvre + engins + matériaux)",
+        "detail": "Fouilles, terrassements, réseaux, parking : ~15 à 25 j-engin + MO",
+        "montant_eur": 25000
+      },
+      {
+        "poste": "Lot 2 — Maçonnerie Gros œuvre (MO + matériaux béton, brique, étanchéité)",
+        "detail": "Fondations, dalle, murs brique, soubassement, mur soutènement : ratio ~350 €/m²",
+        "montant_eur": 72000
+      },
+      {
+        "poste": "Lot 3 — Charpente couverture zinguerie (MO + fournitures)",
+        "detail": "Charpente traditionnelle 2 pans + bac acier ~14,5 × 18,6 m ≈ 270 m² toiture",
+        "montant_eur": 38000
+      },
+      {
+        "poste": "Lot 4 — Menuiseries intérieures et extérieures (fournitures + pose)",
+        "detail": "Menuiseries alu RAL 7016, portes intérieures, cloison CF 2h",
+        "montant_eur": 28000
+      },
+      {
+        "poste": "Lot 5 — Isolation plâtrerie peinture (MO + matériaux)",
+        "detail": "Isolation, enduit extérieur, plâtrerie intérieure, peinture sur ~200 m²",
+        "montant_eur": 22000
+      },
+      {
+        "poste": "Lot 6 — Carrelage faïence (MO + fournitures)",
+        "detail": "Carrelage sol 30x30 formes de pente + faïences murales (2 m / toute hauteur selon pièces)",
+        "montant_eur": 30000
+      },
+      {
+        "poste": "Lot 7 — Plomberie sanitaire (MO + fournitures)",
+        "detail": "28 arrivées EC/EF (douches, éviers), WC, TGBT raccordement",
+        "montant_eur": 32000
+      },
+      {
+        "poste": "Lot 8 — Électricité chauffage ventilation (MO + matériel)",
+        "detail": "TGBT, électricité courante, chauffage, VMC",
+        "montant_eur": 30000
+      },
+      {
+        "poste": "Lot 9 — Panneaux photovoltaïques (fourniture + pose)",
+        "detail": "110 panneaux ~44 kWc toiture bac acier sud, onduleurs, câblage",
+        "montant_eur": 38000
+      },
+      {
+        "poste": "Encadrement chantier et coordination OPC",
+        "detail": "Chef de chantier partagé 9 mois, coordinateur SPS cat. 3",
+        "montant_eur": 20000
+      }
+    ],
+    "taux_journaliers_retenus": "Maçon/charpentier : 320-380 €/j chargé ; électricien/plombier : 340-400 €/j chargé ; chef de chantier : 450-550 €/j chargé. Ratios matériaux BTP 2025 indicatifs. Ces taux sont des références marché indicatifs, la structure de coût réelle du candidat peut varier.",
+    "commentaire": "Estimation bottom-up basée sur 9 lots TCE d'un bâtiment neuf de 207 m² SP. Dimension variée : taux unitaires MO (±15%). La marge brute attendue est d'environ 25-35% sur ce type de marché (différence revenu estimé 380-520 k€ vs coût 245-360 k€). Cohérence vérifiée avec les lots individuels détaillés ci-dessous."
   },
   "revision_prix": {
     "type": "non_communique",
@@ -240,185 +379,301 @@
     "periodicite": null,
     "formule_revision": null,
     "source_extraction": null,
-    "commentaire": "Le CCAP n'a pas été fourni dans les pièces analysées. Aucune information sur la révision des prix n'est disponible dans le RC ou l'AAPC transmis."
+    "commentaire": "Le CCAP n'est pas fourni dans les pièces analysées. Aucune clause de révision des prix n'a pu être identifiée dans le RC et les plans disponibles."
   },
   "alertes_prix": [
-    "Méthode OAB à double seuil (plafond P1 = moyenne × 1,15 ; plancher P2 = moyenne plafonnée × 0,9) : les offres sous le plancher sont suspectées anormalement basses et font l'objet d'une procédure contradictoire avant possible rejet.",
-    "Formule de notation prix en carré (prix_le_plus_bas² / prix_candidat²) : les écarts de prix sont doublement amplifiés, pénalisant fortement les candidats se positionnant au-dessus du moins-disant.",
-    "Pondération prix à 40% — équilibre avec valeur technique à 60% : le prix reste déterminant mais la valeur technique prime ; un candidat légèrement plus cher peut l'emporter sur une meilleure offre technique.",
-    "Aucun montant estimatif communiqué par lot : le candidat ne peut pas calibrer son offre par rapport à une enveloppe budgétaire de référence, ce qui accroît le risque d'être hors marché."
+    "Détection OAB par double seuil : plafond P1 = moyenne × 1,15 (offres > P1 notées 0 pour le prix) et plancher P2 = moyenne corrigée × 0,9 (offres < P2 suspectées anormalement basses et interrogées) — mécanisme précis décrit au RC §4.3.",
+    "Formule prix quadratique (carré du ratio) : elle pénalise fortement les offres élevées et récompense amplement les offres basses — un écart de 10% de prix génère ~19% d'écart de note prix.",
+    "Prix pondéré à 40% : pondération significative qui peut faire basculer le classement final entre candidats proches techniquement.",
+    "PSE Lot 9 (panneaux PV) obligatoire : le candidat au lot 9 DOIT chiffrer la PSE sous peine d'irrecevabilité de son offre sur ce lot (RC §2.7).",
+    "Aucun montant estimatif publié : risque de dispersion des offres et de déclenchement fréquent de la procédure OAB si les candidats ont des interprétations très différentes du projet."
   ],
   "references_exigees": {
     "experience_minimale_annees": 5,
-    "experience_source": "RC §3.1 — liste des travaux exécutés au cours des cinq dernières années",
+    "experience_source": "RC §3.1",
     "volume_min_references_similaires": null,
     "volume_min_references_unite": "marchés similaires",
-    "secteur_experience": "Travaux de construction de bâtiments (BTP-Bâtiment), avec attestations de bonne exécution pour les travaux les plus importants réalisés au cours des 5 dernières années",
+    "secteur_experience": "Travaux de bâtiment (corps d'état correspondant au lot soumissionné)",
     "secteur_source": "RC §3.1",
     "certifications_obligatoires": [
       {
         "libelle": "Certificats de qualifications professionnelles de la branche BTP-Bâtiment (FFB)",
+        "codes": [],
+        "bloquante": null,
         "source": "RC §3.1"
       },
       {
-        "libelle": "Attestation AIPR Encadrant pour l'ensemble des intervenants sur le chantier (obligatoire depuis le 1er janvier 2018)",
-        "source": "RC §3.1"
-      },
-      {
-        "libelle": "Attestation AIPR Opérateurs pour l'ensemble des intervenants sur le chantier (obligatoire depuis le 1er janvier 2018)",
+        "libelle": "Attestation AIPR Encadrant et Opérateurs de l'ensemble des intervenants sur le chantier (obligatoire depuis le 1er janvier 2018)",
+        "codes": [],
+        "bloquante": true,
         "source": "RC §3.1"
       }
     ],
     "autres_exigences": [
       {
-        "libelle": "DC1 (lettre de candidature) ou modèle équivalent à fournir",
+        "libelle": "Présentation d'une liste des travaux exécutés au cours des cinq dernières années, appuyée d'attestations de bonne exécution pour les travaux les plus importants",
         "source": "RC §3.1"
       },
       {
-        "libelle": "DC2 (déclaration du candidat) ou DUME à fournir",
+        "libelle": "Si redressement judiciaire : copie du ou des jugements prononcés à cet effet",
         "source": "RC §3.1"
-      },
-      {
-        "libelle": "Si redressement judiciaire : copie du ou des jugements prononcés",
-        "source": "RC §3.1"
-      },
-      {
-        "libelle": "Délai de validité des offres : 120 jours à compter de la date limite de réception des offres",
-        "source": "RC §2.11"
       }
     ]
+  },
+  "dossier_candidature": {
+    "pieces_a_fournir": [
+      {
+        "libelle": "Lettre de candidature modèle DC1 (formulaire mars 2016) ou modèle équivalent",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §3.1"
+      },
+      {
+        "libelle": "Déclaration du candidat modèle DC2 (formulaire mars 2016) ou modèle équivalent ; ou DUME",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §3.1"
+      },
+      {
+        "libelle": "Liste des travaux exécutés au cours des cinq dernières années avec attestations de bonne exécution pour les travaux les plus importants",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §3.1"
+      },
+      {
+        "libelle": "Certificats de qualifications professionnelles de la branche BTP-Bâtiment (FFB)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §3.1"
+      },
+      {
+        "libelle": "Attestation AIPR Encadrant et Opérateurs de l'ensemble des intervenants sur le chantier",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §3.1"
+      },
+      {
+        "libelle": "Copie du ou des jugements prononcés (si redressement judiciaire)",
+        "phase": "candidature",
+        "obligatoire": false,
+        "source": "RC §3.1"
+      },
+      {
+        "libelle": "Déclaration de sous-traitant (si sous-traitants désignés) indiquant qu'il ne tombe pas sous le coup d'une interdiction d'accès aux marchés publics",
+        "phase": "candidature",
+        "obligatoire": false,
+        "source": "RC §3.1"
+      },
+      {
+        "libelle": "Acte d'Engagement (AE) relatif à chaque lot soumissionné, complété et accepté sans modification",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §3.1"
+      },
+      {
+        "libelle": "Cahier des Clauses Administratives Particulières (CCAP) accepté sans modification",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §3.1"
+      },
+      {
+        "libelle": "Cahier des Clauses Techniques Particulières (CCTP) accepté sans modification",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §3.1"
+      },
+      {
+        "libelle": "Décomposition du Prix Global et Forfaitaire (DPGF) complétée et acceptée sans modification",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §3.1"
+      },
+      {
+        "libelle": "Mémoire technique descriptif et justificatif des dispositions techniques et de l'organisation (cadre joint au DCE à remplir)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §3.1"
+      }
+    ],
+    "mode_remise": "dématérialisé",
+    "plateforme_depot": "www.marches-publics.info",
+    "signature_electronique_exigee": true,
+    "format_signature": "Niveau II (équivalent classe 3) de la PRIS V1 — certificat référencé sur la liste disponible à http://www.entreprises.minefi.gouv.fr/certificats/",
+    "nombre_exemplaires": null,
+    "langue": "français",
+    "duree_validite_offres_jours": 120,
+    "modalites_source": "RC §5"
   },
   "lots": [
     {
       "numero": 1,
       "intitule": "Terrassement - VRD",
-      "zone_geographique": "Bussières, 42510, Loire",
+      "domaine": "btp_voirie_reseaux",
+      "zone_geographique": "Bussières (42510, Loire)",
       "volume_estime": null,
       "volume_estime_unite": null,
-      "particularites": "Inclut les raccordements aux réseaux publics (EU, EP, AEP), création du cheminement PMR, aménagement des parkings. AIPR obligatoire pour tous les intervenants."
+      "cout_estime_min_eur": 18000,
+      "cout_estime_max_eur": 30000,
+      "particularites": "Raccordement aux réseaux concessionnaires (EU, EP, AEP, EDF) en limite de propriété. Parking et cheminement PMR. Cuve de rétention EP existante à respecter."
     },
     {
       "numero": 2,
       "intitule": "Maçonnerie - Gros-œuvre",
-      "zone_geographique": "Bussières, 42510, Loire",
-      "volume_estime": null,
-      "volume_estime_unite": null,
-      "particularites": "Construction neuve sur terrain plat. Fondations à définir selon étude BE (non incluse dans le lot). Soubassement béton banché avec étanchéité lourde. Mur de soutènement en limite de propriété. Élévation en brique enduit V10 Parexlanko."
+      "domaine": "btp_gros_oeuvre",
+      "zone_geographique": "Bussières (42510, Loire)",
+      "volume_estime": 207,
+      "volume_estime_unite": "m² SP",
+      "cout_estime_min_eur": 60000,
+      "cout_estime_max_eur": 85000,
+      "particularites": "Fondations à définir selon étude BE. Soubassement béton banché avec étanchéité lourde. Mur de soutènement enduit en limite de propriété arrière. Élévation brique enduit Parexlanko V10."
     },
     {
       "numero": 3,
       "intitule": "Charpente-couverture-zinguerie",
-      "zone_geographique": "Bussières, 42510, Loire",
-      "volume_estime": null,
-      "volume_estime_unite": null,
-      "particularites": "Charpente traditionnelle 2 pans (35% et 50%). Couverture bac acier rouge. Support pour 110 panneaux photovoltaïques sur pan sud (lot 9). Surface toiture approximative : ~250 m² (18,60 × 14,50 m selon plan)."
+      "domaine": "btp_second_oeuvre",
+      "zone_geographique": "Bussières (42510, Loire)",
+      "volume_estime": 270,
+      "volume_estime_unite": "m² toiture",
+      "cout_estime_min_eur": 30000,
+      "cout_estime_max_eur": 48000,
+      "particularites": "Charpente traditionnelle 2 pans pentes 35% et 50%. Couverture bac acier rouge. Interface avec lot 9 (supports panneaux PV sur pan sud). Faîtage max à +6,66 m TN."
     },
     {
       "numero": 4,
       "intitule": "Menuiseries intérieures et extérieures",
-      "zone_geographique": "Bussières, 42510, Loire",
+      "domaine": "btp_second_oeuvre",
+      "zone_geographique": "Bussières (42510, Loire)",
       "volume_estime": null,
       "volume_estime_unite": null,
-      "particularites": "Menuiseries extérieures aluminium RAL 7016 gris anthracite. Cloison coupe-feu 2h (zone non accessible au public / local technique). Accessibilité PMR à prévoir sur certaines entrées."
+      "cout_estime_min_eur": 20000,
+      "cout_estime_max_eur": 35000,
+      "particularites": "Menuiseries aluminium RAL 7016. Cloison coupe-feu 2h local TGBT. PMR : porte vestiaire arbitre PMR et WC PMR extérieur."
     },
     {
       "numero": 5,
       "intitule": "Isolation - plâtrerie-peinture",
-      "zone_geographique": "Bussières, 42510, Loire",
+      "domaine": "btp_second_oeuvre",
+      "zone_geographique": "Bussières (42510, Loire)",
       "volume_estime": null,
       "volume_estime_unite": null,
-      "particularites": "Isolation thermique du bâtiment neuf. Plâtrerie et peinture sur surfaces non carrelées. Le CCTP précisera les exigences RT/RE2020."
+      "cout_estime_min_eur": 15000,
+      "cout_estime_max_eur": 28000,
+      "particularites": "Enduit extérieur pierre V10 Parexlanko. Isolation thermique intérieure. Peinture."
     },
     {
       "numero": 6,
       "intitule": "Carrelage - faïence",
-      "zone_geographique": "Bussières, 42510, Loire",
+      "domaine": "btp_second_oeuvre",
+      "zone_geographique": "Bussières (42510, Loire)",
       "volume_estime": null,
       "volume_estime_unite": null,
-      "particularites": "Carrelage 30×30 dans l'ensemble des locaux. Faïences murales toute hauteur dans douches et vestiaires arbitres ; faïences à 2,00 m dans vestiaires joueurs et sanitaires. Forme de pente pour caniveaux de douche (4 locaux douches joueurs)."
+      "cout_estime_min_eur": 22000,
+      "cout_estime_max_eur": 38000,
+      "particularites": "Carrelage sol 30x30 avec formes de pente pour caniveaux de douche. Faïence murale 2 m de hauteur en vestiaires/hall, toute hauteur en douches/WC (exigences plans DCE feuille 6/8)."
     },
     {
       "numero": 7,
       "intitule": "Plomberie Sanitaire",
-      "zone_geographique": "Bussières, 42510, Loire",
+      "domaine": "btp_second_oeuvre",
+      "zone_geographique": "Bussières (42510, Loire)",
       "volume_estime": null,
       "volume_estime_unite": null,
-      "particularites": "Nombreux points d'eau : 6 douches × 4 vestiaires joueurs + 1 douche arbitre PMR + 1 douche arbitre + multiples éviers + WC × 2 + WC PMR. Production ECS à raccorder au lot 8 (chauffage)."
+      "cout_estime_min_eur": 25000,
+      "cout_estime_max_eur": 40000,
+      "particularites": "28 arrivées EC/EF identifiées sur plans (6 douches × 4 vestiaires, 2 douches arbitres, multiples éviers, WC). Alimentation depuis réseau AEP en limite de propriété."
     },
     {
       "numero": 8,
       "intitule": "Electricité - chauffage - ventilation",
-      "zone_geographique": "Bussières, 42510, Loire",
+      "domaine": "btp_second_oeuvre",
+      "zone_geographique": "Bussières (42510, Loire)",
       "volume_estime": null,
       "volume_estime_unite": null,
-      "particularites": "TGBT à installer. Ventilation obligatoire des locaux sanitaires et vestiaires (ERP). Production de chaleur et ECS à coordonner avec le lot 7. Raccordement potentiel de l'installation PV (lot 9)."
+      "cout_estime_min_eur": 22000,
+      "cout_estime_max_eur": 38000,
+      "particularites": "TGBT en local technique (zone non accessible au public, CF 2h). Interface avec lot 9 (raccordement onduleurs PV). Chauffage et VMC pour bâtiment sportif humide."
     },
     {
       "numero": 9,
       "intitule": "Panneaux photovoltaïques",
-      "zone_geographique": "Bussières, 42510, Loire",
+      "domaine": "energie_pv_solaire",
+      "zone_geographique": "Bussières (42510, Loire)",
       "volume_estime": 110,
-      "volume_estime_unite": "panneaux",
-      "particularites": "Prestation supplémentaire éventuelle (PSE) obligatoire à chiffrer. 110 panneaux sur pan sud de la toiture bac acier. Coordination avec lot 3 (couverture) et lot 8 (électricité) nécessaire."
+      "volume_estime_unite": "panneaux (≈44-50 kWc)",
+      "cout_estime_min_eur": 33000,
+      "cout_estime_max_eur": 55000,
+      "particularites": "PSE obligatoire (réponse impérative). 110 panneaux sur pan sud toiture bac acier, pente 35%, faîtage à +5,48 m TN. Travail en hauteur. Interface avec lots 3 et 8."
+    }
+  ],
+  "tranches": [
+    {
+      "type": "ferme",
+      "numero": "TF",
+      "intitule": "Tranche ferme unique",
+      "objet": "Construction complète du vestiaire de football en 9 lots, tous corps d'état, tranche ferme unique sans tranches optionnelles.",
+      "montant_estime_eur": null,
+      "condition_affermissement": null,
+      "source": "RC §2.4"
     }
   ],
   "calendrier": {
     "date_limite_offres": "2026-07-08",
     "date_demarrage_prevue": "2026-11-02",
-    "duree_marche": "9 mois (tranche ferme unique, démarrage octobre/novembre 2026) + 4 semaines de préparation préalable"
+    "duree_marche": "9 mois à compter du 01/10/2026 (démarrage travaux 02/11/2026 après 4 semaines de préparation)"
   },
   "alertes_candidat": [
-    "Attestation AIPR Encadrant ET Opérateurs obligatoire pour TOUS les intervenants sur le chantier (y compris sous-traitants) — défaut = irrecevabilité potentielle de la candidature (RC §3.1).",
-    "Lot 9 (Panneaux photovoltaïques) est une PSE OBLIGATOIRE : le candidat au lot 9 DOIT impérativement chiffrer cette prestation supplémentaire dans son offre, faute de quoi son offre sera incomplète (RC §2.7).",
-    "Certificats de qualifications professionnelles FFB/BTP demandés : sans ces certificats, la candidature peut être jugée insuffisante au stade de la sélection des candidatures (RC §3.1 et §4.2).",
-    "Dépôt EXCLUSIVEMENT dématérialisé via www.marches-publics.info — aucune remise papier ni support physique (CD, clé USB) acceptée. Tout fichier infecté est réputé non reçu (RC §5).",
-    "Le marché peut être attribué sans négociation (art. R.2123-5 CCP) : les offres initiales doivent donc être optimisées d'emblée sans compter sur une phase de négociation systématique (RC §4.6).",
-    "Délai de validité des offres de 120 jours : anticiper la couverture des prix jusqu'à novembre 2026 en cas d'évolution des cours des matériaux (RC §2.11)."
+    "Attestation AIPR Encadrant ET Opérateurs obligatoire pour TOUS les intervenants sur le chantier (exigée au stade de la candidature, RC §3.1) — son absence peut entraîner l'irrecevabilité.",
+    "PSE Lot 9 Panneaux photovoltaïques : réponse OBLIGATOIRE pour tout candidat soumissionnant le lot 9 (RC §2.7) — ne pas chiffrer la PSE = offre incomplète.",
+    "Délai de validité des offres de 120 jours : engagement long, à anticiper dans les prix compte tenu de la volatilité des coûts matériaux BTP.",
+    "Fondations à définir selon étude de sol (BE) : absence de données géotechniques dans le DCE disponible, risque de sous-estimation des fondations — prévoir une marge ou poser une question via la plateforme avant le 30/06/2026 (8 jours francs avant la date limite).",
+    "Formule OAB double seuil : toute offre < 90% de la moyenne corrigée sera interrogée ; la formule quadratique du critère prix (carré du ratio) récompense fortement les offres basses mais expose davantage au risque OAB."
   ],
   "points_differenciants_attendus": [
     {
-      "libelle": "Qualité et détail du planning Gantt en cohérence avec les moyens affectés",
-      "exemple": "Présenter un planning détaillé semaine par semaine avec jalons (fin terrassement, clos couvert, second œuvre, réception) et démontrer que les effectifs annoncés sont dimensionnés pour tenir les délais proposés, notamment le respect du démarrage travaux au 2 novembre 2026.",
-      "source": "RC §4.4-E"
+      "libelle": "Planning détaillé et cohérent avec les ressources affectées (15 points sur 60)",
+      "exemple": "Produire un diagramme de Gantt semaine par semaine pour le lot soumissionné, faisant apparaître les interfaces avec les autres lots (ex: lot 3 charpente avant lot 9 PV, lot 8 électricité avant raccordement PV), les jalons clés et les ressources humaines dédiées par tâche.",
+      "source": "RC §4.4"
     },
     {
-      "libelle": "Identification nominative et qualifications du personnel affecté (chef de chantier, compagnons, AIPR à jour)",
-      "exemple": "Fournir les CV du chef de chantier et des compagnons principaux avec leurs qualifications (Qualibat, AIPR, habilitations spécifiques), et démontrer la disponibilité effective de l'équipe dès novembre 2026.",
-      "source": "RC §4.4-B et §3.1-B"
+      "libelle": "Moyens humains affectés nommés avec qualifications vérifiables (20 points sur 60)",
+      "exemple": "Citer nominativement le chef de chantier avec son expérience en bâtiments sportifs, joindre ses attestations AIPR, ses qualifications FFB, et lister les compagnons avec leur spécialité — plutôt qu'une présentation générique de l'entreprise.",
+      "source": "RC §4.4"
     },
     {
-      "libelle": "Maîtrise des points techniques sensibles : étanchéité lourde soubassement et cloison CF 2h",
-      "exemple": "Décrire précisément le procédé d'étanchéité lourde retenu pour le soubassement béton banché (système certifié, avis technique) et le mode d'exécution de la cloison coupe-feu 2h avec référence au PV de classement du fabricant.",
-      "source": "Plans DCE - coupe AA / plan intérieur"
+      "libelle": "Méthodologie spécifique aux contraintes du lot (15 points sur 60)",
+      "exemple": "Pour le lot 2 (gros œuvre), détailler la méthodologie d'exécution du mur de soutènement béton banché (blindage, coulage, étanchéité lourde, remblaiement) et les dispositions PMR. Pour le lot 6 (carrelage), décrire la réalisation des formes de pente sous caniveaux de douche et le calepinage faïence.",
+      "source": "RC §4.4"
     },
     {
-      "libelle": "Cohérence et précision des fiches techniques des fournitures principales",
-      "exemple": "Joindre les fiches techniques de l'enduit pierre V10 Parexlanko, du bac acier rouge (avec référence colorimétrique), des menuiseries aluminium RAL 7016, en démontrant la conformité aux prescriptions du CCTP et la disponibilité des approvisionnements.",
-      "source": "RC §4.4-C et plans DCE"
-    },
-    {
-      "libelle": "Expérience sur des chantiers de bâtiments sportifs (vestiaires, équipements sportifs) avec attestations de bonne exécution",
-      "exemple": "Présenter 2 à 3 références récentes (5 dernières années) de construction ou rénovation de vestiaires sportifs ou bâtiments ERP similaires avec attestations de bonne exécution signées par le maître d'ouvrage, en précisant les montants et délais.",
+      "libelle": "Références de travaux similaires (vestiaires sportifs, bâtiments sportifs) avec attestations",
+      "exemple": "Joindre 2-3 attestations de bonne exécution de vestiaires ou gymnases construits dans les 5 dernières années, avec surfaces, montants et noms des maîtres d'ouvrage — valorise la crédibilité technique à faible coût de préparation.",
       "source": "RC §3.1"
+    },
+    {
+      "libelle": "Conformité des matériaux au CCTP avec fiches techniques jointes",
+      "exemple": "Pour le lot 5, joindre la fiche technique de l'enduit Parexlanko V10 prescrit au DCE. Pour le lot 9, fournir la fiche technique des panneaux PV avec leur certification IEC et leur rendement, démontrant la conformité aux prescriptions.",
+      "source": "RC §4.4"
     }
   ],
   "_meta": {
     "id_marche": "BOAMP-26-56605",
     "type": "complet",
-    "date_generation": "2026-06-14T22:44:38.762652+00:00",
-    "extraction_le": "2026-06-14T22:44:38.762652+00:00",
+    "date_generation": "2026-06-19T20:56:30.156433+00:00",
+    "extraction_le": "2026-06-19T20:56:30.156433+00:00",
     "modele": "claude-sonnet-4-6",
     "preset_utilise": "btp",
     "presets_matches": [
-      "btp"
+      "btp",
+      "energie_renouvelable"
     ],
     "prompts_versions": {
-      "btp/_preset.json": "sha256:d1717e0d87f6c265"
+      "btp/_preset.json": "sha256:055bf6f8b2c1f771",
+      "energie_renouvelable/_preset.json": "sha256:d5db6e4d3d386add"
     },
-    "tokens_input": 35630,
-    "tokens_output": 8411,
-    "cout_eur": 0.2214,
-    "duree_sec": 146.6,
+    "tokens_input": 46031,
+    "tokens_output": 11676,
+    "cout_eur": 0.2976,
+    "duree_sec": 199.1,
     "pdfs_traites": [
       {
         "nom": "AWS-MPI-1832409-PLANS.pdf",

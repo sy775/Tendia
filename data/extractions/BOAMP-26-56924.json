@@ -1,70 +1,71 @@
 {
-  "synthese_marche": "Marché de travaux de requalification de la rue Flandres-Dunkerque à Olivet (45), décomposé en 2 lots : Lot 1 Travaux de voirie (terrassements, chaussées, assainissement pluvial, tranchées techniques, mobilier urbain, signalisation) et Lot 2 Travaux d'aménagement paysager. Maître d'ouvrage : Orléans Métropole. Maître d'œuvre : SUEZ Consulting / SAFEGE. Procédure adaptée, démarrage prévu août 2026, délai d'exécution 7 semaines pour le lot 1 et 1 semaine pour le lot 2.",
+  "synthese_marche": "Marché de travaux de requalification de la rue Flandres-Dunkerque à Olivet (45), porté par Orléans Métropole, décomposé en 2 lots : Lot 1 Travaux de voirie (terrassements, chaussée, assainissement EP, tranchées techniques) et Lot 2 Travaux d'aménagement paysager (espaces verts, plantations). Démarrage prévu en août 2026, délai d'exécution de 7 semaines pour le Lot 1 et 1 semaine pour le Lot 2, avec une période d'entretien de 2 ans sur les plantations.",
   "domaines_metier": [
     {
       "code": "btp_voirie_reseaux",
-      "poids": 0.8,
+      "poids": 0.75,
       "lots_concernes": [
-        "Lot 1 - Travaux de voirie"
+        "1"
       ]
     },
     {
       "code": "amenagement_paysager_creation",
-      "poids": 0.2,
+      "poids": 0.25,
       "lots_concernes": [
-        "Lot 2 - Travaux d'aménagement paysager"
+        "2"
       ]
     }
   ],
-  "raison_classification": "Le marché est dominé par des travaux VRD classiques (terrassements, voirie en enrobés, assainissement pluvial, tranchées techniques, bordures, signalisation) représentant l'essentiel du périmètre (Lot 1). Le Lot 2, plus secondaire, porte sur des espaces verts et plantations, relevant de l'aménagement paysager — création. La dénomination explicite 'Lot 2 : Travaux d'aménagements paysagers' et les références au fascicule 35 CCTG Espaces Verts confirment cette classification.",
+  "raison_classification": "Le Lot 1 (dominant) porte sur des travaux de voirie, terrassements, assainissement eaux pluviales et tranchées techniques, caractéristiques du code btp_voirie_reseaux. Le Lot 2 porte sur des travaux d'espaces verts et plantations avec garantie de reprise sur 2 ans, relevant du code amenagement_paysager_creation.",
   "caracteristiques_techniques_chantier": {
-    "description": "Requalification complète de la rue Flandres-Dunkerque à Olivet : démolition des revêtements existants, terrassements, réalisation d'une nouvelle structure de chaussée (GB3 + BBSG), assainissement eaux pluviales (tranchée drainante, noues, caniveaux), tranchées techniques pour éclairage public, mobilier urbain (potelets, poubelles, plots), signalisation verticale et horizontale, espaces verts et plantations. Présence avérée de réseaux existants (eau potable, gaz, électricité, télécom) nécessitant des sondages et précautions.",
-    "typologie_ouvrage": "Voirie urbaine — requalification d'espace public (rue de quartier résidentiel/commercial à Olivet)",
-    "surface_volume": null,
-    "site_occupe": "true — maintien de la circulation en demi-chaussée avec alternat obligatoire, accès commerces (Leclerc Drive, Humanis, PFG) et riverains à assurer en permanence ; accès piétons et secours à maintenir tout au long du chantier",
+    "description": "Requalification complète d'une rue urbaine : démolition des revêtements existants, terrassements, mise en œuvre de nouvelles structures de chaussée (GB3 + BBSG), création de trottoirs en calcaire sablé et enrobés, noues d'assainissement, tranchées techniques pour éclairage public, déplacement de poteau incendie, signalisation verticale et horizontale, mobilier urbain, espaces verts et plantations d'arbres à haute tige.",
+    "typologie_ouvrage": "Voirie urbaine communale — rue résidentielle/commerciale",
+    "surface_volume": "Non précisé explicitement ; linéaire et emprise non chiffrés dans les pièces fournies",
+    "site_occupe": "true — travaux en milieu urbain occupé avec maintien des accès aux riverains, commerces (Leclerc Drive, Humanis, Piscines Desjoyaux) et secours en permanence ; travaux en demi-chaussée avec alternat",
     "corps_etat": [
-      "Terrassements généraux",
-      "Voirie — chaussées et trottoirs en enrobés",
+      "Terrassements / VRD",
+      "Voirie et chaussée (enrobés, bordures, pavés granit)",
       "Assainissement eaux pluviales",
-      "Tranchées techniques — fourreaux éclairage public",
+      "Tranchées techniques et fourreaux (éclairage public)",
       "Signalisation verticale et horizontale",
       "Mobilier urbain",
-      "Espaces verts — plantations et arrosage"
+      "Espaces verts et plantations"
     ],
     "contraintes_specifiques": [
-      "Maintien de la circulation en demi-chaussée avec alternat ou mise en sens unique alterné pendant toute la durée du chantier",
-      "Accès permanent aux riverains, commerces (Leclerc Drive, Humanis) et secours",
-      "Présence de réseaux sensibles : ENEDIS, GRDF, Orange, AQUALIGE (eau potable), PRIZZ (EL/TL), éclairage public Orléans Métropole",
-      "Sondages complémentaires obligatoires pour réseaux de classe B et C (assainissement EU, AEP, téléphone)",
-      "Risque amiante/HAP dans les enrobés existants — plan de retrait obligatoire si présence avérée ; enquête HAP auprès des gestionnaires de voirie",
-      "Réception des travaux cible : fin septembre 2026 hors plantation",
-      "Travaux simultanés avec extension du Leclerc Drive (hors marché)",
-      "Remplacement canalisation AEP préalable par Orléans Métropole (pas de coactivité prévue)",
-      "Clause sociale d'insertion obligatoire — lot 1 uniquement (volume horaire à préciser dans l'AE)"
+      "Maintien des accès piétons et secours en permanence",
+      "Travaux en demi-chaussée avec circulation alternée",
+      "Sondages complémentaires obligatoires sur réseaux classe B et C (assainissement EU, AEP, téléphonique)",
+      "Présence potentielle d'amiante dans les enrobés (obligations réglementaires sous-section 3 et 4 du décret 2012-639)",
+      "Risque silice lors des découpages et rabotages",
+      "Coordination avec travaux d'extension Leclerc Drive (co-activité simultanée)",
+      "Réception exigée pour fin septembre 2026 hors plantations",
+      "Clause sociale d'insertion (heures d'insertion à réaliser sur le Lot 1)",
+      "Chantier vert : charte environnementale, gestion différenciée des déchets",
+      "Présence de réseaux souterrains multiples (ENEDIS, GRDF, AEP Aqualige, Orange, Axione, RTE, PRIZZ Infrastructure)"
     ]
   },
   "allotissement": {
-    "description": "Marché décomposé en 2 lots distincts, chacun faisant l'objet d'un acte d'engagement séparé.",
+    "description": "Marché décomposé en 2 lots distincts, séparés par corps d'état",
     "nb_lots": 2,
     "lots_detailles": [
       {
         "numero": 1,
-        "intitule": "Lot 1 : Travaux de voirie",
-        "corps_etat": "VRD — terrassements, chaussées en enrobés, assainissement pluvial, tranchées techniques, mobilier urbain, signalisation",
+        "intitule": "Travaux de voirie",
+        "corps_etat": "VRD — Voirie, terrassements, assainissement EP, tranchées techniques, signalisation, mobilier urbain",
         "montant_estime": null,
-        "description": "Terrassements généraux, déconstruction des revêtements existants, réalisation structure de chaussée (GB3 + BBSG), trottoirs calcaire sablé, assainissement eaux pluviales (réseau béton Ø300, tranchée drainante, noues), tranchées techniques éclairage public (fourreaux TPC 90mm), mobilier urbain (potelets, poubelles, plots), signalisation verticale et horizontale, déplacement poteau incendie, constat d'huissier, installation de chantier commune."
+        "description": "Terrassements généraux, démolitions, structure de chaussée GB3+BBSG, trottoirs, noues, assainissement eaux pluviales, tranchées d'éclairage public, signalisation verticale et horizontale, mobilier urbain, déplacement poteau incendie"
       },
       {
         "numero": 2,
-        "intitule": "Lot 2 : Travaux d'aménagement paysager",
-        "corps_etat": "Espaces verts — plantations, substrats végétaux, entretien garantie 2 ans",
+        "intitule": "Travaux d'aménagement paysager",
+        "corps_etat": "Espaces verts — plantations arbres à haute tige, arbustes, entretien 2 ans",
         "montant_estime": null,
-        "description": "Création espaces verts, plantations d'arbres à haute tige (fosses 15 m³) et d'arbustes (fosses 2 m³), substrats végétaux, remplissage dalles alvéolaires ECOVEGETAL, travaux de finalisation (entretien) sur 2 ans à compter de la réception des travaux de création. Délai d'exécution 1 semaine (création), puis 2 ans d'entretien."
+        "description": "Plantation d'arbres à haute tige (fosses 15 m³) et d'arbustes (fosses 2 m³), remplissage substrat végétal des dalles alvéolées, période de garantie d'entretien 2 ans à compter de la réception des travaux de création"
       }
     ]
   },
   "qualifications_requises": {
-    "description": "Aucune qualification Qualibat ou certification spécifique n'est explicitement exigée dans les pièces du DCE fournies (RC non transmis). Les obligations réglementaires CCTG, Code du Travail et normes AFNOR s'appliquent.",
+    "description": "Aucune qualification Qualibat ou certification spécifique n'est explicitement listée comme condition d'admission dans les pièces fournies (RC non fourni). Le CCTP mentionne des obligations réglementaires amiante (certification organisme accrédité).",
     "qualibat": [],
     "rge": false,
     "rge_specialites": [],
@@ -74,7 +75,7 @@
     "iso_45001": false,
     "opqibi": null,
     "autres_certifications": [
-      "Certification organisme de formation amiante (sous-section 3 ou 4 du décret 2012-639) si présence d'amiante avérée dans les enrobés (CCTP §3.4)"
+      "Certification organisme accrédité pour travaux de rabotage d'enrobés amiantés (sous-section 3 décret 2012-639) — obligatoire si amiante avéré"
     ]
   },
   "bareme_notation": {
@@ -83,35 +84,131 @@
     "sous_criteres_techniques": [],
     "prix": {
       "type_formule": "autre",
-      "formule_explicite": "Le RC n'est pas fourni dans le DCE analysé. Le marché est à prix unitaires sur la base d'un BPU (bordereau des prix unitaires) selon CCAP article 5-1.",
+      "formule_explicite": "Critères de jugement des offres non précisés dans les pièces fournies (RC non intégré au DCE analysé). Le CCAP précise que les prix sont à bordereau de prix unitaires.",
+      "source": null,
       "elements_a_chiffrer": [
-        "Forfait amenée et repli installations de chantier",
+        "Forfait amenée/repli installations de chantier",
         "Forfait signalisation de chantier",
-        "Terrassements en déblais/remblais (m³)",
-        "Démolition revêtements existants (m²)",
-        "Structure chaussée — GB3 0/14 (m²) et BBSG 0/10 (m²)",
-        "Trottoirs calcaire sablé (m²)",
-        "Bordures (ml)",
-        "Réseau EP — canalisations béton Ø300 (ml), regards (u), avaloirs (u)",
-        "Tranchée drainante (ml)",
-        "Tranchées techniques éclairage public — fourreaux TPC 90mm (ml)",
-        "Mobilier urbain (u)",
-        "Signalisation verticale et horizontale (u/m²)",
-        "Espaces verts — arbres haute tige (u), arbustes (u), substrats végétaux (m³)",
-        "Sondages manuels réseaux (u)",
-        "Constat d'huissier (forfait)"
+        "Constat d'huissier",
+        "Sondages manuels de recherche de réseaux",
+        "Démolitions (revêtements, bordures, maçonneries)",
+        "Terrassements déblais/remblais en m³",
+        "Fond de forme / GNT 0/31,5 en m²",
+        "Grave bitume GB3 0/14 (12 cm) en m²",
+        "BBSG 0/10 couche de roulement (6 cm) en m²",
+        "Trottoir calcaire sablé en m²",
+        "Accotement noue calcaire sablé en m²",
+        "Dalles alvéolées béton engazonnées en m²",
+        "Bordures et bordurettes en ml",
+        "Réseau EP béton Ø300 en ml",
+        "Regards de visite Ø800 à l'unité",
+        "Avaloirs et grilles à l'unité",
+        "Caniveaux à grilles en ml",
+        "Tranchée drainante GNT 20/40 en ml",
+        "Fourreaux TPC 90 éclairage public en ml",
+        "Signalisation verticale (panneaux, mâts)",
+        "Signalisation horizontale en m²",
+        "Mobilier urbain (poubelles, potelets, plots)",
+        "Fossés de plantation arbres (fosses 15 m³) à l'unité",
+        "Fosses arbustes (2 m³) à l'unité",
+        "Arbres à haute tige à l'unité",
+        "Arbustes à l'unité",
+        "Substrat végétal en m³",
+        "Entretien plantations sur 2 ans (forfait ou par visite)"
       ]
     },
-    "modalite_calcul_prix": "Prix unitaires — BPU non transmis dans le DCE analysé. CCAP article 5-1 : prix unitaires, acomptes mensuels, actualisation par index TP08 (lot 1) ou EV3 (lot 2) si délai > 3 mois entre mois zéro et démarrage. Formule : P(n) = P(o) × (index(n-3)/index(o))."
+    "modalite_calcul_prix": "Non précisé dans les pièces fournies — RC non intégré au DCE analysé"
   },
   "montant_marche": {
     "valeur_estimee_euros": null,
-    "fourchette_min_euros": null,
-    "fourchette_max_euros": null,
-    "type": "non_communique",
-    "duree_couverte": "Durée du marché : de la notification à la réception des travaux (environ 9 semaines dont 2 de préparation pour le lot 1 ; 3 semaines pour le lot 2 + 2 ans entretien)",
-    "source_extraction": null,
-    "commentaire": "Aucun montant estimé ni BPU quantitatif n'est fourni dans les pièces transmises. Le CCAP précise que l'avance s'applique si le montant est supérieur à 50 000 € HT (article 5-5), ce qui constitue un plancher implicite. Les BPU/DQE ne sont pas joints au DCE analysé."
+    "fourchette_min_euros": 400000,
+    "fourchette_max_euros": 700000,
+    "type": "calcule_volumes",
+    "duree_couverte": "Travaux + période de garantie plantations 2 ans",
+    "source_extraction": "Estimation bottom-up à partir du CCTP (structure de chaussée, réseaux EP, tranchées, espaces verts) — aucun montant publié dans les pièces fournies",
+    "commentaire": "Estimation basée sur une rue urbaine type de 200-400 m de long avec emprise de 8-12 m : surface voirie ~2 000 à 4 500 m², coûts de VRD urbain complets (démolitions + structure neuve + réseaux + mobilier + espaces verts) entre 150 et 200 €/m². Lot 1 : 350 000-600 000 €, Lot 2 : 50 000-100 000 €. Fourchette globale indicative : 400 000 à 700 000 € HT. Marché supérieur au seuil européen de travaux (5 382 000 €) non confirmé — procédure ouverte européenne indiquée dans le contexte BOAMP suggère un montant au-dessus du seuil européen. Revoir à la hausse si le linéaire est supérieur à 400 m."
+  },
+  "montant_3_voies": {
+    "voie_1_eur": null,
+    "voie_1_source": null,
+    "voie_2_disponible": true,
+    "voie_2_min_eur": 400000,
+    "voie_2_max_eur": 700000,
+    "voie_2_hypotheses": [
+      {
+        "hypothese": "Linéaire de rue estimé entre 200 et 400 ml (non précisé au CCTP)",
+        "valeur": "200-400 ml"
+      },
+      {
+        "hypothese": "Emprise moyenne de 10 m (chaussée + trottoirs + noues)",
+        "valeur": "10 m"
+      },
+      {
+        "hypothese": "Surface voirie estimée entre 2 000 et 4 000 m²",
+        "valeur": "2 000-4 000 m²"
+      },
+      {
+        "hypothese": "Coût complet VRD urbain (démolitions, structure GB3+BBSG, réseaux EP, tranchées, signalisation, mobilier) : ratio varié entre 160 et 180 €/m² (dimension la plus incertaine)",
+        "valeur": "160-180 €/m²"
+      },
+      {
+        "hypothese": "Quantité fixée à 3 000 m² (valeur centrale) ; ratio varié de 160 à 200 €/m²",
+        "valeur": "3 000 m²"
+      },
+      {
+        "hypothese": "Lot 2 espaces verts : 50 000 à 100 000 € forfaitaire (plantations + entretien 2 ans)",
+        "valeur": "50 000-100 000 €"
+      },
+      {
+        "hypothese": "Marché publié au BOAMP en procédure ouverte européenne — montant total probablement supérieur au seuil travaux (5 382 000 €) ou la procédure est préventive ; estimation conservatrice retenue",
+        "valeur": "> 90 000 €"
+      }
+    ],
+    "voie_2_raison_indisponible": null
+  },
+  "cout_realisation": {
+    "cout_total_eur": 360000,
+    "cout_min_eur": 290000,
+    "cout_max_eur": 540000,
+    "postes": [
+      {
+        "poste": "Lot 1 — Main d'œuvre directe chantier VRD (terrassements, pose, finitions)",
+        "detail": "Équipe de 6 compagnons × 7 semaines × 5 jours × 350 €/j chargé = ~74 000 €",
+        "montant_eur": 74000
+      },
+      {
+        "poste": "Lot 1 — Matériaux (GNT, GB3, BBSG, béton, fourreaux, tuyaux EP, bordures, mobilier)",
+        "detail": "Estimé à ~100-120 €/m² × 3 000 m² surface centrale",
+        "montant_eur": 330000
+      },
+      {
+        "poste": "Lot 1 — Matériel et engins (pelleteuse, compacteur, finisseur, camions)",
+        "detail": "Location/amortissement sur 7 semaines ≈ 30 000-40 000 €",
+        "montant_eur": 35000
+      },
+      {
+        "poste": "Lot 1 — Sous-traitance signalisation et marquage horizontal",
+        "detail": "Forfait signalisation chantier + marquage ≈ 15 000-25 000 €",
+        "montant_eur": 20000
+      },
+      {
+        "poste": "Lot 1 — Encadrement (conducteur de travaux + chef de chantier)",
+        "detail": "2 pers × 9 sem × 5 j × 500 €/j ≈ 45 000 € (incluant préparation)",
+        "montant_eur": 45000
+      },
+      {
+        "poste": "Lot 2 — Travaux espaces verts (fournitures végétales, plantation, substrate, entretien 2 ans)",
+        "detail": "Arbres HTige, arbustes, substrate, main d'œuvre plantation + 2 ans d'entretien ≈ 40 000-75 000 €",
+        "montant_eur": 55000
+      },
+      {
+        "poste": "Frais généraux de chantier communs (installation, bureau, clôtures, nettoyage)",
+        "detail": "Forfait ≈ 20 000-30 000 €",
+        "montant_eur": 25000
+      }
+    ],
+    "taux_journaliers_retenus": "Compagnon VRD : 320-380 €/j chargé ; Chef de chantier : 450-550 €/j ; Conducteur de travaux : 500-600 €/j. Matériaux VRD : ratio global 100-130 €/m² (fournitures). Taux marché indicatifs, la structure réelle de coût dépend des accords d'entreprise.",
+    "commentaire": "Coût de production estimé pour un candidat entreprise générale VRD prenant les 2 lots. La dimension la plus incertaine est la surface réelle de voirie (non chiffrée au CCTP). Coût min basé sur 2 000 m² de surface ; coût max sur 4 000 m². Hors aléas amiante (surcoût possible si rabotage nécessaire)."
   },
   "revision_prix": {
     "type": "actualisation",
@@ -119,122 +216,171 @@
       "TP08",
       "EV3"
     ],
-    "ponderation": "Lot 1 : index TP08 (travaux de voirie) — 100% / Lot 2 : index EV3 (travaux création espaces verts) — 100%",
+    "ponderation": "Lot 1 : index TP08 (travaux de voirie) ; Lot 2 : index EV3 (travaux création Espaces Verts)",
     "periodicite": null,
-    "formule_revision": "P(n) = P(o) × (index(n-3) / index(o)) — au numérateur : index du mois de lancement des prestations moins 3 mois ; au dénominateur : index du mois zéro (mois limite de remise des offres). Coefficient arrondi au millième supérieur.",
-    "source_extraction": "CCAP article 5-2",
-    "commentaire": "Actualisation unique (non révision périodique) applicable uniquement si plus de 3 mois s'écoulent entre le mois zéro et le démarrage effectif ; les prix sont fermes dans le cas contraire. Faible durée d'exécution (7-9 semaines), risque de variation limitée."
+    "formule_revision": "P(n) = P(o) × (index(n-3) / index(o)) — applicable si délai supérieur à 3 mois entre la date de fixation des prix (mois zéro) et le début d'exécution",
+    "source_extraction": "CCAP article 5.2",
+    "commentaire": "Prix actualisables (non révisables en cours d'exécution, délai < 3 mois) : un seul ajustement à la date de démarrage si le délai entre offre et début d'exécution dépasse 3 mois. Indices TP08 et EV3 publiés au Moniteur/INSEE. Favorable si hausse des matériaux entre remise d'offre et démarrage."
   },
   "alertes_prix": [
-    "Avance de 10% prévue au lot 1 uniquement si montant > 50 000 € HT et délai > 2 mois — garantie à première demande obligatoire (caution personnelle non acceptée) selon CCAP article 5-5.",
-    "Retenue de garantie de 5% (ou 3% pour PME) sur chaque paiement — impact trésorerie à anticiper.",
-    "Pénalité de retard de 500 €/jour calendaire sans mise en demeure préalable et sans plafond ni exonération (dérogation aux articles 19.2.1 à 19.2.4 du CCAG) — risque financier élevé en cas de dépassement.",
-    "BPU non transmis dans le DCE analysé — impossible de vérifier les prix unitaires de référence ; risque d'erreur de quantitatif à la charge du candidat (CCAP article 5-1 : 'les entreprises sont tenues de vérifier la justesse du quantitatif avant remise de leur offre').",
-    "Délai très court (7 semaines hors préparation pour le lot 1) avec réception cible fin septembre 2026 — forte pression calendaire à intégrer dans le prix."
+    "Prix à bordereau de prix unitaires (BPU) : risque d'erreur sur les quantités si les métrés ne sont pas vérifiés — le CCAP précise que 'les entreprises sont tenues de vérifier la justesse du quantitatif avant la remise de leur offre' et qu'aucune réclamation ne sera acceptée après signature (CCAP art. 5.1)",
+    "Avance de 10% prévue pour le Lot 1 uniquement (au-dessus de 50 000 € HT et délai > 2 mois) mais soumise à garantie à première demande obligatoire — coût de la garantie bancaire à intégrer dans le prix",
+    "Retenue de garantie de 5% (3% pour PME) — impact trésorerie à anticiper",
+    "Pénalités de retard sans franchise : 500 €/jour calendaire dès le premier jour de dépassement, sans mise en demeure préalable (CCAP art. 6.10.1) — risque financier élevé en cas d'aléa chantier (réseaux, amiante)"
   ],
   "references_exigees": {
     "experience_minimale_annees": null,
     "experience_source": null,
     "volume_min_references_similaires": null,
     "volume_min_references_unite": null,
-    "secteur_experience": "Travaux de voirie urbaine (chaussées enrobées, assainissement pluvial, tranchées techniques) et/ou aménagements paysagers d'espaces publics",
+    "secteur_experience": "Non précisé dans les pièces fournies (RC absent)",
     "secteur_source": null,
     "certifications_obligatoires": [
       {
-        "libelle": "Certification amiante sous-section 3 ou 4 (décret 2012-639) si présence d'amiante avérée dans les enrobés",
-        "source": "CCTP §3.4.1.3"
+        "libelle": "Certification organisme accrédité pour travaux sous-section 3 (rabotage enrobés amiantés) — décret 2012-639 — si amiante avéré dans les enrobés",
+        "codes": [],
+        "bloquante": null,
+        "source": "CCTP section 3.4.1.3"
       }
     ],
     "autres_exigences": [
       {
-        "libelle": "Attestations sociales URSSAF et fiscales datant de moins de 6 mois à fournir avant notification du marché",
-        "source": "CCAP article 3-2"
+        "libelle": "Déclaration sur l'honneur relative à l'emploi de salariés étrangers et détachés",
+        "source": "CCAP art. 3.2"
       },
       {
-        "libelle": "Attestation de vigilance (déclarations sociales et paiement cotisations) à fournir avant notification puis tous les 6 mois",
-        "source": "CCAP article 3-2"
+        "libelle": "Attestation URSSAF et attestation fiscale de moins de 6 mois à fournir à l'attribution",
+        "source": "CCAP art. 3.2"
       },
       {
-        "libelle": "Déclaration sur l'honneur intention emploi salariés détachés/étrangers à fournir lors de la conclusion du marché",
-        "source": "CCAP article 3-2"
+        "libelle": "Attestation de vigilance (lutte contre travail dissimulé) à fournir avant notification puis tous les 6 mois",
+        "source": "CCAP art. 3.2"
       }
     ]
+  },
+  "dossier_candidature": {
+    "pieces_a_fournir": [
+      {
+        "libelle": "Acte d'Engagement (AE) lot concerné — complété, avec montant global TTC, délai optimisé proposé, choix avance (Lot 1), statut PME",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "AE Lot 1 / AE Lot 2"
+      },
+      {
+        "libelle": "Bordereau de Prix Unitaires (BPU) du lot concerné",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "CCAP art. 5.1"
+      },
+      {
+        "libelle": "Annexe n°1 à l'AE — Déclaration d'engagement à la clause d'insertion (Lot 1)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "AE Lot 1 — Annexe n°1"
+      },
+      {
+        "libelle": "Attestation sur l'honneur relative à l'emploi de salariés détachés et étrangers",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "CCAP art. 3.2"
+      },
+      {
+        "libelle": "Offre technique (mémoire technique) — proposition sur les moyens, méthodologie, planning, chantier vert",
+        "phase": "offre",
+        "obligatoire": null,
+        "source": "CCAP art. 3.1 (offre technique du titulaire mentionnée dans les pièces contractuelles)"
+      }
+    ],
+    "mode_remise": "dématérialisé",
+    "plateforme_depot": "AWS — http://marches-publics.orleans.fr",
+    "signature_electronique_exigee": null,
+    "format_signature": "eIDAS (certificat de signature eIDAS mentionné dans la procédure AWS)",
+    "nombre_exemplaires": null,
+    "langue": "français",
+    "duree_validite_offres_jours": 120,
+    "modalites_source": "AE Lot 1 art. 3 — ANNEXE AWS DEPOT SANS SIGNATURE.pdf"
   },
   "lots": [
     {
       "numero": 1,
-      "intitule": "Lot 1 : Travaux de voirie",
-      "zone_geographique": "Olivet (45160) — rue Flandres-Dunkerque",
+      "intitule": "Travaux de voirie",
+      "domaine": "btp_voirie_reseaux",
+      "zone_geographique": "Olivet (45160) — Loiret",
       "volume_estime": null,
-      "volume_estime_unite": null,
-      "particularites": "Inclut installations de chantier communes, constat d'huissier riverains, sondages réseaux, signalisation de chantier, clause sociale d'insertion obligatoire (volume d'heures à préciser dans l'AE — annexe 1 AE lot 1). Avance de 10% prévue. Délai max 7 semaines hors préparation. Réception cible fin septembre 2026 hors plantations."
+      "volume_estime_unite": "m²",
+      "cout_estime_min_eur": 250000,
+      "cout_estime_max_eur": 480000,
+      "particularites": "Lot principal. Délai maximal 7 semaines hors préparation. Clause d'insertion obligatoire. Avance 10% disponible. Installation de chantier commune à la charge du Lot 1. Coordination avec travaux Leclerc Drive. Sondages réseaux obligatoires. Risque amiante dans les enrobés existants."
     },
     {
       "numero": 2,
-      "intitule": "Lot 2 : Travaux d'aménagement paysager",
-      "zone_geographique": "Olivet (45160) — rue Flandres-Dunkerque",
+      "intitule": "Travaux d'aménagement paysager",
+      "domaine": "amenagement_paysager_creation",
+      "zone_geographique": "Olivet (45160) — Loiret",
       "volume_estime": null,
       "volume_estime_unite": null,
-      "particularites": "Délai création : 1 semaine. Puis 2 ans de travaux de finalisation (entretien) à compter de la réception des travaux de création. Garantie de reprise des végétaux pendant toute la période d'entretien. Constat annuel de reprise en septembre. Remplissage alvéoles béton ECOVEGETAL à la charge de ce lot. Pas d'avance mentionnée pour ce lot."
+      "cout_estime_min_eur": 40000,
+      "cout_estime_max_eur": 75000,
+      "particularites": "Délai de création : 1 semaine. Période d'entretien garantie 2 ans après réception. Constat de reprise annuel en septembre. Pénalité 150 €/j HT pour défaut d'entretien. Pas d'avance prévue. Fossés de plantation arbres à haute tige : 15 m³ chacun."
     }
   ],
+  "tranches": [],
   "calendrier": {
     "date_limite_offres": "2026-07-06",
     "date_demarrage_prevue": "2026-08-01",
-    "duree_marche": "Lot 1 : environ 9 semaines (2 sem préparation + 7 sem travaux) — réception cible fin septembre 2026. Lot 2 : 3 semaines (2 sem préparation + 1 sem création) + 2 ans entretien."
+    "duree_marche": "Durée variable : notification à réception travaux (Lot 1 ~9 sem) + 2 ans entretien plantations (Lot 2)"
   },
   "alertes_candidat": [
-    "Délai d'exécution très contraint pour le lot 1 : 7 semaines maximum hors préparation, avec réception cible fin septembre 2026 — vérifier la disponibilité des équipes et matériels pour un démarrage août 2026.",
-    "Sondages complémentaires obligatoires pour réseaux de classe B et C à la charge du titulaire du lot 1 — sous-estimer ce poste peut engendrer des surcoûts significatifs.",
-    "Clause sociale d'insertion obligatoire au lot 1 — volume d'heures à s'engager sur dans l'AE (annexe 1 AE lot 1) ; pénalité de 50 €/heure non réalisée sans mise en demeure préalable.",
-    "Risque amiante/HAP dans les enrobés existants — plan de retrait obligatoire si présence avérée (certification sous-section 3 obligatoire à partir du 01/07/2014 pour les chantiers de rabotage) ; enquête HAP à conduire auprès des gestionnaires de voirie avant travaux.",
-    "Pénalités de retard sans plafond ni mise en demeure : 500 €/jour calendaire par élément non livré (dérogation CCAG) — risque financier élevé en cas d'aléas de chantier.",
-    "Lot 2 : garantie de reprise des végétaux pendant 2 ans d'entretien — contrainte financière à provisionner (constat annuel en septembre, interventions de reprise aux frais du titulaire)."
+    "Travaux en milieu urbain occupé : maintien obligatoire des accès aux riverains, commerces et secours en permanence, y compris nuits et week-ends — contrainte opérationnelle et logistique lourde à anticiper dans l'offre technique",
+    "Risque amiante réglementaire : si les enrobés existants contiennent de l'amiante (HAP), des obligations lourdes s'appliquent (certification sous-section 3, plan de retrait, mesures empoussièrement) avec possible arrêt de chantier — coût à provisionner ou à chiffrer en aléa",
+    "Sondages complémentaires obligatoires sur tous les réseaux de classe B et C : coût à intégrer dans le forfait installation de chantier ou en poste dédié du BPU",
+    "Clause sociale d'insertion au Lot 1 : nombre d'heures d'insertion à réaliser obligatoirement — pénalité 50 €/h non réalisée ; preuve mensuelle requise via le facilitateur Orléans Métropole (Mme DESSAINT / Mme RAMOND)",
+    "Pénalités sévères sans franchise ni mise en demeure préalable : 500 €/jour de retard dès le 1er jour, absences réunions 400 €, défaut signalisation 200 €/jour — anticiper un planning réaliste avec marge"
   ],
   "points_differenciants_attendus": [
     {
-      "libelle": "Méthodologie de gestion du trafic et de maintien d'accès aux riverains/commerces",
-      "exemple": "Proposer un phasage détaillé de la circulation en demi-chaussée avec plans de signalisation temporaire, préciser les créneaux d'approvisionnement en enrobés (livraisons chaudes), et présenter les dispositions pour maintenir l'accès au Leclerc Drive et à Humanis sans interruption.",
-      "source": "CCTP §1.1 et §6.4.2"
+      "libelle": "Proposition d'un délai d'exécution inférieur au délai plafond (7 semaines Lot 1, 1 semaine Lot 2)",
+      "exemple": "Un candidat proposant 5 semaines au lieu de 7 pour le Lot 1, avec un planning détaillé montrant la séquence démolition → terrassements → réseaux EP → chaussée → finitions, se différenciera des offres au délai plafond. La proposition du délai optimisé devient contractuelle.",
+      "source": "AE Lot 1 art. 5.2.2 — CCAP art. 4.2.2"
     },
     {
-      "libelle": "Expérience de chantiers VRD en milieu urbain occupé avec contraintes de réseaux multiples",
-      "exemple": "Mettre en avant des références récentes de requalification de voirie urbaine avec présence de réseaux sensibles (ENEDIS, GRDF, eau potable) et maintien de circulation alternée, en précisant les linéaires réalisés et les délais tenus.",
-      "source": null
+      "libelle": "Qualité de la démarche environnementale et gestion des déchets de chantier (chantier vert)",
+      "exemple": "Présenter un plan de gestion différenciée des déchets avec identification des filières (classe 1/2/3), un schéma d'organisation signé, et une note sur la réduction des nuisances acoustiques (horaires, engins homologués) répondra aux exigences du CCTP et de la Charte Chantier Vert annexée.",
+      "source": "CCTP art. 8.1 / CCTP section 8.7 / CCAP art. 3.5"
     },
     {
-      "libelle": "Proposition d'un délai d'exécution optimisé inférieur aux 7 semaines plafond",
-      "exemple": "L'AE lot 1 prévoit explicitement la possibilité pour le candidat de proposer un délai plus court — un candidat proposant 5-6 semaines avec un planning crédible (effectifs, matériels, phasage) se distinguera favorablement.",
-      "source": "AE LOT 1 article 5-2-2 et CCAP article 4-2-2"
+      "libelle": "Expérience en gestion d'amiante sur voirie et protocole d'intervention documenté",
+      "exemple": "Un candidat présentant des références de chantiers de requalification de voirie avec gestion d'enrobés amiantés (plan de retrait, mesures empoussièrement, BSDA) valorise une compétence rare et rassurante pour le maître d'ouvrage face à un aléa potentiellement bloquant.",
+      "source": "CCTP section 3.4"
     },
     {
-      "libelle": "Démarche environnementale chantier à faibles nuisances (gestion déchets, réduction bruit, qualité de l'air)",
-      "exemple": "Présenter un schéma d'organisation et de gestion des déchets détaillé (tri 7 niveaux, filières pour enrobés amiantés si applicable, bordereau de suivi), un plan d'arrosage des zones poussiéreuses, et des certificats d'homologation des engins sur le bruit.",
-      "source": "CCTP §5 et §8.1 à §8.7"
+      "libelle": "Dispositif opérationnel de communication avec riverains et commerçants",
+      "exemple": "Proposer une réunion d'information préalable avec les commerçants (Leclerc Drive, Humanis), un affichage de planning hebdomadaire et un numéro de contact dédié répond explicitement à l'obligation du CCTP d'informer les riverains sur le déroulement des travaux et peut inclure des visites pédagogiques pour établissements scolaires si sollicitées.",
+      "source": "CCTP art. 6.4.2"
     },
     {
-      "libelle": "Anticipation du risque amiante/HAP — plan de retrait et protocole opérationnel présenté à l'offre",
-      "exemple": "Joindre une note méthodologique sur la stratégie d'intervention selon résultat du diagnostic amiante (sous-section 3 ou 4), les EPI prévus, et les filières d'évacuation des fraisats amiantés (ISDD classe 1), démontrant la maîtrise réglementaire du sujet.",
-      "source": "CCTP §3.4"
+      "libelle": "Mobilisation d'un réseau de partenaires pour la clause d'insertion (Lot 1)",
+      "exemple": "Un candidat déjà en lien avec des ETTI, AI ou EI du bassin d'emploi d'Orléans, ou ayant déjà collaboré avec le facilitateur INTERIVES, démontrera sa capacité à atteindre les objectifs d'heures d'insertion sans risque de pénalité.",
+      "source": "CCAP art. 3.6"
     }
   ],
   "_meta": {
     "id_marche": "BOAMP-26-56924",
     "type": "complet",
-    "date_generation": "2026-06-14T23:27:41.866284+00:00",
-    "extraction_le": "2026-06-14T23:27:41.866284+00:00",
+    "date_generation": "2026-06-20T00:04:39.150230+00:00",
+    "extraction_le": "2026-06-20T00:04:39.150230+00:00",
     "modele": "claude-sonnet-4-6",
     "preset_utilise": "btp",
     "presets_matches": [
       "btp"
     ],
     "prompts_versions": {
-      "btp/_preset.json": "sha256:d1717e0d87f6c265"
+      "btp/_preset.json": "sha256:055bf6f8b2c1f771"
     },
-    "tokens_input": 144643,
-    "tokens_output": 5537,
-    "cout_eur": 0.4911,
-    "duree_sec": 104.6,
+    "tokens_input": 152668,
+    "tokens_output": 7546,
+    "cout_eur": 0.5426,
+    "duree_sec": 141.2,
     "pdfs_traites": [
       {
         "nom": "26OCL005_DCE_Flandres Dunkerque_Envoi V2-01_Exi250.pdf",

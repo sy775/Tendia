@@ -1,50 +1,54 @@
 {
-  "synthese_marche": "Accord-cadre mono-attributaire à bons de commande pour des missions de maîtrise d'œuvre (études de faisabilité, PRO, ACT, DET, OPC, permis de démolir, référé préventif, AOR, etc.) relatives aux travaux de désamiantage et de déconstruction de bâtiments appartenant à l'EPF PACA dans les départements 13, 84 et 04. Le marché est hors champ de la loi MOP car il ne porte pas sur des constructions neuves ou des réhabilitations. Maximum annuel de 300 000 € HT, reconductible jusqu'à 4 ans.",
+  "synthese_marche": "Accord-cadre mono-attributaire à bons de commande (maximum 300 000 € HT/an, 4 ans) pour des missions de maîtrise d'œuvre (EF, PRO, ACT, DET, OPC, AOR, permis démolir, référé préventif, étude structure, déconnexions réseaux, tableau indicateurs déconstruction) liées aux opérations de désamiantage et de déconstruction de bâtiments variés (habitation, industriel, commercial, agricole) dans les départements 13, 84 et 04, au profit de l'EPF PACA. Le marché ne relève pas des dispositions de l'ex-loi MOP (pas de construction neuve ni de réhabilitation). La valeur estimée totale est de 1 200 000 € HT sur 4 ans (procédure ouverte, BOAMP/JOUE).",
   "domaines_metier": [
     {
       "code": "ingenierie_structure_genie_civil"
     }
   ],
-  "raison_classification": "Le marché porte exclusivement sur des prestations intellectuelles de maîtrise d'œuvre (EF, PRO, ACT, DET, OPC, AOR, permis de démolir, référé préventif, étude de structure) pour des opérations de désamiantage et déconstruction. Il s'agit d'ingénierie technique appliquée au bâtiment (études, direction des travaux, coordination) sans exécution de travaux physiques, ce qui correspond au code ingenierie_structure_genie_civil. Les qualifications OPQIBI exigées (0902, 1907, 1208) confirment ce positionnement ingénierie.",
+  "raison_classification": "Le marché porte exclusivement sur des MISSIONS D'ÉTUDES ET DE MAÎTRISE D'ŒUVRE (EF, PRO, ACT, DET, OPC, AOR, études de structure, permis démolir) pour des opérations de désamiantage/déconstruction de bâtiments : il s'agit d'une prestation intellectuelle d'ingénierie (bureau d'études/MOE spécialisé déconstruction-désamiantage), sans exécution directe de travaux. Le code `ingenierie_structure_genie_civil` couvre les missions de BET/MOE techniques hors ex-loi MOP. Le code `btp_demolition` est réservé à l'exécution des travaux de démolition, ce qui n'est pas l'objet ici.",
   "caracteristiques_techniques_chantier": {
-    "description": "Missions de maîtrise d'œuvre pour le désamiantage et la déconstruction de divers biens immobiliers de l'EPF PACA (maisons individuelles, immeubles d'habitation, sites industriels, hangars, locaux commerciaux, etc.) pouvant être amiantés ou non, pollués ou non, avec ou sans avoisinants. Les missions couvrent l'ensemble du cycle : étude de faisabilité, études de projet, constitution du DCE, analyse des offres, direction des travaux (DET), OPC, permis de démolir, référé préventif, réception (AOR), déconnexions réseaux, études de structure.",
-    "typologie_ouvrage": "Bâtiments très variés : maisons individuelles, immeubles d'habitation, sites industriels, hangars agricoles, locaux commerciaux, caves coopératives, garages automobiles, hôtels particuliers, etc.",
-    "surface_volume": "Très variable, de quelques dizaines de m² à plusieurs milliers de m² de planchers (ex: 18 800 m² pour un site industriel à Arles en 2025)",
-    "site_occupe": "Non précisé de manière systématique, mais certains sites peuvent présenter des contraintes d'accès complexes ou de mitoyenneté",
+    "description": "Missions de maîtrise d'œuvre pour le désamiantage et la déconstruction de biens immobiliers très variés (maisons individuelles, immeubles d'habitation, sites industriels, hangars, garages, locaux commerciaux, caves coopératives, hôtels particuliers, camping, maison de retraite, terrains avec déchets pollués) appartenant à l'EPF PACA dans les départements 13, 84 et 04. Les opérations visées comprennent la réalisation d'études de faisabilité, d'études de projet, l'assistance à la passation et au suivi des marchés de travaux, ainsi que la direction et la réception des travaux jusqu'à 5 M€ HT par opération.",
+    "typologie_ouvrage": "Multi-typologies : maisons individuelles, immeubles d'habitation, sites industriels, hangars, garages, locaux commerciaux, caves coopératives, terrains avec déchets pollués — toutes tailles (de quelques dizaines à plusieurs milliers de m² de plancher)",
+    "surface_volume": "Variable par opération : de quelques dizaines de m² à plusieurs milliers de m² (ex : 18 800 m² pour un site industriel à Arles en 2025). Pas de surface globale annuelle précisée.",
+    "site_occupe": "Non précisé de façon systématique. Certains biens peuvent présenter des risques de squat (délai d'urgence prévu) ; sites sécurisables difficiles selon le CCTP.",
     "corps_etat": [
-      "Maîtrise d'œuvre désamiantage",
-      "Maîtrise d'œuvre déconstruction/démolition",
-      "Études de structure",
-      "Coordination réseaux (déconnexions)",
-      "OPC"
+      "Désamiantage (coordination et direction des travaux)",
+      "Démolition / déconstruction",
+      "Confortement de mitoyens / structures",
+      "Déconnexion de réseaux fluides (eau, gaz, électricité, téléphone, transformateur)",
+      "Gestion des déchets (PEMD, tri 8 flux, réemploi, filières valorisation)"
     ],
     "contraintes_specifiques": [
-      "Présence possible d'amiante (plans de retrait amiante, suivi inspection du travail)",
-      "Pollution chimique éventuelle des structures",
-      "Bâtiments mitoyens avec contraintes de confortement",
-      "Périmètre ABF possible",
-      "Arrêtés de péril éventuels",
-      "Sites avec désordres structurels nécessitant mises en sécurité préalables",
-      "Obligation de tri 8 flux et gestion PEMD (diagnostic produits, équipements, matériaux et déchets)",
-      "Délais d'urgence possibles (48h à 15 jours selon cas)",
-      "Interventions simultanées sur plusieurs opérations"
+      "Biens pouvant contenir de l'amiante, du plomb, des termites, des enrobés amiantés",
+      "Pollution chimique possible des structures (béton, charpente)",
+      "Présence possible de mitoyens sensibles nécessitant confortement ou référé préventif",
+      "Périmètre ABF possible (Architectes des Bâtiments de France)",
+      "Arrêté de péril potentiel (délai d'urgence 48h devis, 15j pièces techniques)",
+      "Squat ou enjeu foncier (délai d'urgence)",
+      "Réservoirs enterrés ou semi-enterrés (hydrocarbures ou autre)",
+      "Diagnostic PEMD obligatoire (loi anti-gaspillage 2020, décret 2021-822)",
+      "Tri 8 flux obligatoire, REP bâtiment, principe de proximité déchets",
+      "Présence possible d'espèces animales protégées (dérogation CNPN possible)",
+      "Accès complexes à intégrer dans la méthodologie",
+      "Réunions hebdomadaires de chantier obligatoires, présence site minimum 1 fois/semaine",
+      "Marché hors champ ex-loi MOP (pas de dispositions CCP relatives à la MOA publique)"
     ]
   },
   "allotissement": {
-    "description": "Marché non alloti — 1 seul lot. Les besoins sont jugés indissociables par l'acheteur.",
+    "description": "Marché unique sans allotissement. L'acheteur justifie l'absence de décomposition par le caractère indissociable des besoins et les faibles montants unitaires.",
     "nb_lots": 1,
     "lots_detailles": [
       {
         "numero": 1,
-        "intitule": "Missions de maîtrise d'œuvre pour les travaux de désamiantage et de déconstruction de bâtiments",
-        "corps_etat": "Maîtrise d'œuvre désamiantage et déconstruction",
+        "intitule": "Missions de maîtrise d'œuvre pour les travaux de désamiantage et de déconstruction de bâtiments dans les départements des Bouches-du-Rhône (13), Vaucluse (84) et Alpes-de-Haute-Provence (04)",
+        "corps_etat": "Maîtrise d'œuvre désamiantage/déconstruction (EF, PRO, ACT, DET, OPC, AOR, PdD, référé préventif, étude structure, déconnexion réseaux, tableau indicateurs)",
         "montant_estime": 300000,
-        "description": "Toutes missions MOE (EF, PRO, ACT, DET, OPC, PdD, référé préventif, AOR, étude de structure, déconnexions réseaux, REP, tableau annuel indicateurs) pour opérations de désamiantage/déconstruction dans les départements 13, 84 et 04, pour des travaux jusqu'à 5 000 000 € HT par opération."
+        "description": "Accord-cadre mono-attributaire à bons de commande, maximum 300 000 € HT/an, renouvelable jusqu'à 4 ans. Couvre toutes les missions de MOE pour désamiantage et déconstruction de biens variés dans les 3 départements concernés."
       }
     ]
   },
   "qualifications_requises": {
-    "description": "Trois qualifications OPQIBI exigées pour la candidature, relatives à la maîtrise d'œuvre en désamiantage, au diagnostic déchets de déconstruction et aux études de déconstruction/démolition.",
+    "description": "Qualifications OPQIBI ou équivalents exigées à la candidature dans les domaines de la maîtrise d'œuvre en désamiantage, du diagnostic de gestion des déchets issus de la déconstruction, et des études de déconstruction/démolition.",
     "qualibat": [],
     "rge": false,
     "rge_specialites": [],
@@ -52,8 +56,133 @@
     "iso_9001": false,
     "iso_14001": false,
     "iso_45001": false,
-    "opqibi": "OPQIBI n°0902 (Maîtrise d'œuvre en désamiantage), OPQIBI n°1907 (Diagnostic portant sur la gestion des déchets issus de la déconstruction de bâtiment), OPQIBI n°1208 (Étude de déconstruction et/ou démolition d'ouvrages), ou qualifications équivalentes.",
+    "opqibi": "OPQIBI 0902 (Maîtrise d'œuvre en désamiantage), OPQIBI 1907 (Diagnostic gestion déchets déconstruction), OPQIBI 1208 (Étude de déconstruction et/ou démolition d'ouvrages) ou équivalents exigés",
     "autres_certifications": []
+  },
+  "caracteristiques_mission_moe": {
+    "typologie": "MOE complète (EF à AOR) hors ex-loi MOP, pour déconstruction/désamiantage",
+    "phases_couvertes": [
+      "EF (Étude de faisabilité)",
+      "PRO (Études de projet)",
+      "ACT-DCE (Dossier de consultation entreprises)",
+      "ACT-RAO (Rapport d'analyse des offres)",
+      "DET (Direction exécution travaux)",
+      "OPC (Ordonnancement pilotage coordination)",
+      "PdD (Permis de démolir et recours des tiers)",
+      "Référé préventif",
+      "AOR (Assistance opérations réception)",
+      "Étude de structure",
+      "REP (Reprise études précédent titulaire)",
+      "Déconnexions réseaux",
+      "Représentation MOA",
+      "Tableau annuel indicateurs déconstruction"
+    ],
+    "typologie_ouvrage": "Bâtiments existants de toutes typologies (habitation, industriel, commercial, agricole) — désamiantage et déconstruction, sans construction neuve ni réhabilitation",
+    "montant_travaux_estime": 5000000,
+    "complexite_technique": "complexe",
+    "livrables_par_phase": [
+      {
+        "phase": "EF",
+        "livrables": [
+          "Rapport de faisabilité présentant les solutions techniques envisagées",
+          "Estimation des durées prévisionnelles de travaux",
+          "Estimation du coût prévisionnel par solution",
+          "Chiffrage des économies potentielles par solution",
+          "État des lieux des réseaux existants (DT)",
+          "Fiche synthétique d'opération (immeuble, accès, fluides, procédures)"
+        ]
+      },
+      {
+        "phase": "PRO",
+        "livrables": [
+          "Cahier des charges techniques complet (désamiantage, démolition, confortement)",
+          "Plans de repérage au 1/100 avec détails 1/50",
+          "Estimation définitive du coût des travaux décomposés",
+          "Calendrier de réalisation",
+          "Dossiers et consultations pour autorisations administratives (CNPN, loi eau, ICPE, etc.)",
+          "Analyse PEMD et recommandations réemploi"
+        ]
+      },
+      {
+        "phase": "ACT",
+        "livrables": [
+          "Dossier de consultation des entreprises (DCE) complet (pièces techniques et administratives)",
+          "Rapport d'analyse comparative des offres (RAO)",
+          "Note de négociation si nécessaire",
+          "Mise au point du marché de travaux"
+        ]
+      },
+      {
+        "phase": "DET",
+        "livrables": [
+          "Ordres de service aux entreprises",
+          "Comptes-rendus de réunion hebdomadaire de chantier",
+          "Vérification des situations de travaux mensuelles",
+          "Décomptes mensuels et décompte général",
+          "Bilan environnemental de fin d'opération (déchets, CO2, revalorisation)"
+        ]
+      },
+      {
+        "phase": "AOR",
+        "livrables": [
+          "Procès-verbal de réception des travaux",
+          "Suivi des réserves jusqu'à leur levée",
+          "Dossier des ouvrages exécutés (DOE)"
+        ]
+      },
+      {
+        "phase": "PdD",
+        "livrables": [
+          "Dossier de permis de démolir déposé en 5 exemplaires + ABF",
+          "Affichage du permis sur site (panneau fourni et posé sous 3 jours calendaires)",
+          "Suivi recours des tiers (2 mois) + constat huissier",
+          "PV de purge du recours des tiers"
+        ]
+      }
+    ],
+    "taux_remuneration_moe_pct": null,
+    "indices_revision": [
+      "CPF 71.12 – Services d'ingénierie et services de conseil techniques connexes – Identifiant 010 766586"
+    ],
+    "coordinations_associees": [
+      "OPC inclus (commandable selon opération)",
+      "SPS hors marché (confié à prestataire extérieur par le MOA)",
+      "Contrôle technique hors marché (confié à organisme agréé selon opération)",
+      "Conduite d'opération assurée par le service interne EPF PACA ou prestataire tiers"
+    ],
+    "organigramme_attendu": [
+      {
+        "profil": "Chef de projet / Interlocuteur dédié EPF PACA (expérience opérations similaires)",
+        "nombre": 1,
+        "anciennete_min_annees": null
+      },
+      {
+        "profil": "Expert désamiantage / déconstruction (qualification OPQIBI 0902 ou équivalent)",
+        "nombre": null,
+        "anciennete_min_annees": null
+      },
+      {
+        "profil": "Expert gestion déchets construction / déconstruction (qualification OPQIBI 1907 ou équivalent)",
+        "nombre": null,
+        "anciennete_min_annees": null
+      },
+      {
+        "profil": "Ingénieur études déconstruction/démolition (qualification OPQIBI 1208 ou équivalent)",
+        "nombre": null,
+        "anciennete_min_annees": null
+      }
+    ],
+    "bim_niveau": null
+  },
+  "qualifications_moe": {
+    "opqibi": [
+      "0902",
+      "1907",
+      "1208"
+    ],
+    "opqcm": [],
+    "bim": null,
+    "autres": []
   },
   "bareme_notation": {
     "valeur_technique_pct": 60,
@@ -62,292 +191,455 @@
       {
         "libelle": "Cadre de réponse technique",
         "ponderation_pct": 65,
-        "description": "Évaluation de la réponse technique du candidat au travers du cadre de réponse technique (CRT) sur trois sous-critères : organisation de l'équipe-projet, moyens matériels et techniques, démarche environnementale et gestion des déchets.",
-        "elements_attendus": [],
-        "exemple_reponse_forte": "—",
-        "source": "RC §4",
+        "description": "Évaluation de la qualité du cadre de réponse technique portant sur l'organisation de l'équipe projet, les moyens matériels et techniques, et la démarche environnementale/gestion des déchets.",
+        "elements_attendus": [
+          "Description détaillée de l'organisation et composition de l'équipe-projet dédiée",
+          "CV détaillés avec expériences avérées sur opérations similaires pour chaque membre",
+          "Présentation de l'interlocuteur dédié EPF avec références analogues",
+          "Scénarios organisationnels pour opérations simultanées et délais d'urgence",
+          "Présentation des moyens matériels et techniques déployés",
+          "Démarche RSE de l'entreprise et méthodologie gestion déchets (analyse diagnostics amiante/PEMD, intégration clauses CCTP, réemploi, suivi déchets en phase travaux)"
+        ],
+        "exemple_reponse_forte": "Un candidat fort présentera un organigramme projet nominatif avec CVs détaillés indiquant des références d'opérations de désamiantage/déconstruction récentes (natures similaires, montants travaux comparables), un plan d'organisation pour la gestion simultanée de 3-4 chantiers et une procédure d'intervention sous délai d'urgence 48h. La démarche RSE décrira la méthodologie d'analyse PEMD, les partenariats avec filières de valorisation locales et les outils de traçabilité des déchets.",
+        "source": "RC §4 Critères de jugement des offres / SC1, SC2, SC3",
+        "unite_evaluation": "points",
         "sous_criteres": [
           {
             "libelle": "Description de l'organisation et de la composition de l'équipe-projet dédiée à l'exécution des missions définies dans le CCTP",
             "ponderation_pct": 35,
-            "description": "L'acheteur évalue la structuration de l'équipe-projet, le rôle de chacun, les qualifications et expériences des membres, l'interlocuteur dédié à l'EPF, et l'organisation en cas d'opérations simultanées ou de délai d'urgence.",
+            "description": "Évaluation de la qualité de l'organisation de l'équipe projet : rôles, qualifications, expériences de chaque membre, interlocuteur dédié à l'EPF, gestion des opérations simultanées et des délais d'urgence.",
             "elements_attendus": [
-              "Présentation nominative de chaque membre de l'équipe avec son rôle précis dans les missions CCTP",
-              "CV détaillés avec références avérées en désamiantage et déconstruction",
+              "Rôle détaillé de chaque membre de l'équipe dans les prestations attendues",
+              "CVs détaillés avec expériences avérées dans la réalisation de prestations similaires",
               "Identification de l'interlocuteur dédié EPF avec CV et références opérations similaires",
-              "Organisation en cas de simultanéité d'opérations (ressources disponibles, répartition des tâches)",
-              "Organisation en cas de délai d'urgence (disponibilité, circuit de validation interne rapide)"
+              "Organisation pour opérations simultanées",
+              "Organisation spécifique en délai d'urgence"
             ],
-            "exemple_reponse_forte": "L'équipe comprend un chef de projet MOE (OPQIBI 0902) référent EPF unique, secondé par un ingénieur structure et un technicien chantier. En cas d'opérations simultanées, un second chef de projet peut être mobilisé sous 48h. Trois CV détaillant des opérations similaires (désamiantage + déconstruction > 500 k€) sont joints, avec attestations des maîtres d'ouvrage.",
-            "source": "RC §4 — Critère 2.1 SC1",
-            "sous_criteres": []
+            "exemple_reponse_forte": "L'équipe sera composée d'un chef de projet senior (10 ans d'expérience désamiantage/déconstruction, 15 opérations similaires dans les 5 dernières années) et de 2 chargés d'opérations. L'interlocuteur EPF sera joignable sous 24h et un tableau de bord de suivi des opérations simultanées sera présenté.",
+            "source": "RC §4 SC1 (Critère 2.1)"
           },
           {
             "libelle": "Moyens matériels et techniques déployés dans l'exécution des prestations attendues",
             "ponderation_pct": 10,
-            "description": "L'acheteur évalue la présentation des moyens matériels et techniques (logiciels, équipements, outils de suivi) que le candidat déploiera pour exécuter les prestations de maîtrise d'œuvre.",
+            "description": "Présentation des moyens matériels et techniques (logiciels, équipements, outils de suivi chantier) qui seront effectivement mobilisés pour exécuter les missions.",
             "elements_attendus": [
-              "Liste des logiciels de CAO/DAO et d'estimation utilisés",
-              "Outils de suivi de chantier et de gestion documentaire",
-              "Moyens de communication et de déplacement pour interventions sur les trois départements"
+              "Liste des logiciels et outils utilisés (DAO, suivi chantier, gestion déchets)",
+              "Équipements disponibles pour visites de site et mesurages",
+              "Outils de communication et reporting avec le MOA"
             ],
-            "exemple_reponse_forte": "Le cabinet utilise AutoCAD pour les plans de repérage, BatiChiffrage pour les estimations, et une plateforme collaborative de gestion documentaire accessible au MOA. Des véhicules dédiés permettent des interventions rapides sur les départements 13, 84 et 04, avec capacité à mobiliser un technicien sous 24h.",
-            "source": "RC §4 — Critère 2.1 SC2",
-            "sous_criteres": []
+            "exemple_reponse_forte": "Le candidat dispose de logiciels de DAO (Autocad), d'un outil de suivi de chantier dématérialisé permettant la diffusion instantanée des comptes-rendus et d'un logiciel de traçabilité des déchets (BSDA, BSD) pour le suivi réglementaire des déchets dangereux amiantés.",
+            "source": "RC §4 SC2 (Critère 2.1)"
           },
           {
             "libelle": "Démarche environnementale et méthodologie dédiée à la gestion des déchets",
             "ponderation_pct": 20,
-            "description": "L'acheteur évalue la démarche RSE propre à l'entreprise, la méthodologie d'analyse des diagnostics amiante et PEMD, l'intégration des clauses dans les CCTP (y compris réemploi) et le suivi des déchets en phase travaux.",
+            "description": "Évaluation de la démarche RSE propre à l'entreprise, de la méthodologie d'analyse des diagnostics amiante et PEMD, de l'intégration des clauses dans le CCTP (réemploi inclus) et du suivi des déchets en phase travaux.",
             "elements_attendus": [
-              "Présentation de la démarche RSE interne de la structure",
-              "Méthodologie d'analyse des diagnostics amiante et PEMD (lecture, identification des compléments, échanges avec diagnostiqueurs)",
-              "Approche pour intégrer les prescriptions PEMD et tri 8 flux dans les pièces de DCE",
-              "Méthodologie de suivi et traçabilité des déchets en phase travaux (bilan environnemental en fin d'opération)",
-              "Expérience en matière de réemploi et de valorisation des matériaux issus de déconstruction"
+              "Démarche RSE de l'entreprise (engagements, certifications environnementales éventuelles)",
+              "Méthodologie d'analyse des diagnostics amiante (HAP, fibres céramiques réfractaires, amiante non friable) et PEMD",
+              "Mode d'intégration des prescriptions PEMD dans les pièces DCE (CCTP travaux)",
+              "Modalités de gestion du réemploi et des filières de valorisation",
+              "Outils de suivi et traçabilité des déchets en phase travaux (BSD/BSDA, registre)"
             ],
-            "exemple_reponse_forte": "Notre cabinet a formalisé une procédure interne de lecture et critique des diagnostics PEMD : revue des quantités estimées, identification des flux prioritaires pour réemploi, et rédaction de clauses CCTP spécifiques par flux. Nous produisons systématiquement un bilan environnemental en fin de chantier incluant tonnages par type de déchet, filières utilisées et émissions CO² transport.",
-            "source": "RC §4 — Critère 2.1 SC3",
-            "sous_criteres": []
+            "exemple_reponse_forte": "Le candidat présente une charte déchets de chantier propre à l'entreprise, des conventions avec des plateformes de réemploi locales (Ressourceries, Batirecup) et une méthodologie d'analyse PEMD permettant d'identifier les gisements de réemploi dès la phase EF. En phase DET, un tableau de bord déchets hebdomadaire (quantités, filières, distances transport) sera annexé aux comptes-rendus de chantier.",
+            "source": "RC §4 SC3 (Critère 2.1)"
           }
         ]
       },
       {
         "libelle": "Cas pratique",
         "ponderation_pct": 20,
-        "description": "Évaluation de la réponse au cas pratique remis par l'acheteur, portant sur la méthodologie phase étude, la méthodologie phase travaux et le planning global d'intervention.",
-        "elements_attendus": [],
-        "exemple_reponse_forte": "—",
-        "source": "RC §4 — Critère 2.2",
+        "description": "Évaluation de la méthodologie du candidat à travers un cas pratique portant sur la phase étude, la phase travaux et le planning global d'intervention.",
+        "elements_attendus": [
+          "Méthodologie structurée pour la phase étude (analyse site, faisabilité, PRO, DCE)",
+          "Méthodologie pour la phase travaux (DET, suivi PRA, OPC, AOR)",
+          "Planning global d'intervention cohérent et réaliste"
+        ],
+        "exemple_reponse_forte": "Le cas pratique démontre une approche structurée en phases avec des délais réalistes (EF sous 15 jours, PRO sous 30 jours, ACT-DCE sous 20 jours ouvrés), une identification claire des risques (amiante, mitoyens, réseaux) et une gestion du planning intégrant les délais administratifs (permis démolir 2 mois, recours tiers 2 mois, instruction PRA 1 mois).",
+        "source": "RC §4 SC4, SC5, SC6 (Critère 2.2)",
+        "unite_evaluation": "points",
         "sous_criteres": [
           {
             "libelle": "Méthodologie pour la phase étude",
             "ponderation_pct": 10,
-            "description": "L'acheteur évalue la pertinence et la rigueur de la méthodologie proposée pour mener la phase étude (EF, PRO, ACT) dans le cadre du cas pratique soumis.",
+            "description": "Qualité et pertinence de la méthodologie proposée pour conduire la phase étude (EF, PRO, ACT) sur le cas pratique soumis.",
             "elements_attendus": [
-              "Démarche structurée de visite de site et collecte d'informations préalables",
-              "Articulation claire entre EF, PRO et constitution du DCE",
-              "Prise en compte des contraintes spécifiques du cas pratique (amiante, mitoyenneté, pollution, etc.)"
+              "Approche d'analyse du site et des diagnostics existants",
+              "Méthode de définition du coût prévisionnel travaux",
+              "Organisation du DCE (rédaction CCTP, critères de jugement, planning consultation)"
             ],
-            "exemple_reponse_forte": "Pour le cas pratique, la phase étude débute par une visite approfondie avec relevé des réseaux (DT/DICT), analyse des diagnostics amiante et PEMD disponibles, puis rédaction d'une fiche de synthèse d'opération. L'EF propose deux variantes techniques avec chiffrage comparatif, permettant au MOA d'arrêter le programme avant l'engagement des études PRO.",
-            "source": "RC §4 — Critère 2.2 SC4",
-            "sous_criteres": []
+            "exemple_reponse_forte": "Le candidat décrit une visite systématique avec le diagnostiqueur amiante et le diagnostiqueur PEMD avant rédaction du PRO, une analyse des DT/DICT pour cartographier les réseaux, et une méthode de définition du DCE tenant compte des spécificités des entreprises de désamiantage de la région.",
+            "source": "RC §4 SC4 (Critère 2.2)"
           },
           {
             "libelle": "Méthodologie pour la phase travaux",
             "ponderation_pct": 5,
-            "description": "L'acheteur évalue la méthodologie proposée pour la direction et le suivi des travaux (DET), notamment le suivi du plan de retrait amiante, les visites de chantier, la gestion des décomptes et le bilan environnemental.",
+            "description": "Qualité et pertinence de la méthodologie proposée pour conduire la phase travaux (DET, OPC, AOR) sur le cas pratique.",
             "elements_attendus": [
-              "Fréquence et organisation des visites de chantier (minimum hebdomadaire selon CCTP)",
-              "Suivi du plan de retrait amiante et interface avec l'inspection du travail",
-              "Processus de vérification des situations de travaux et d'établissement des décomptes"
+              "Fréquence et organisation des visites de chantier",
+              "Procédure de suivi du Plan de Retrait Amiante (PRA) avec l'Inspection du Travail",
+              "Procédure de réception et suivi des réserves"
             ],
-            "exemple_reponse_forte": "En phase travaux, le MOE organise une réunion hebdomadaire de chantier avec compte-rendu diffusé sous 48h, assure le suivi contradictoire du PRA avec l'inspection du travail et produit un bilan environnemental à l'issue de chaque opération incluant les tonnages de déchets par flux et les émissions CO² générées.",
-            "source": "RC §4 — Critère 2.2 SC5",
-            "sous_criteres": []
+            "exemple_reponse_forte": "Le candidat décrit une présence hebdomadaire minimum sur site avec visite inopinée possible, un protocole de suivi des observations de l'Inspection du Travail sur le PRA et une procédure de réception avec liste de contrôle adaptée aux chantiers de déconstruction (PEMD récolement, DOE).",
+            "source": "RC §4 SC5 (Critère 2.2)"
           },
           {
             "libelle": "Planning global d'intervention",
             "ponderation_pct": 5,
-            "description": "L'acheteur évalue la qualité et le réalisme du planning global proposé dans le cadre du cas pratique, couvrant l'ensemble des phases de la mission de maîtrise d'œuvre.",
+            "description": "Pertinence et cohérence du planning global d'intervention proposé dans le cadre du cas pratique.",
             "elements_attendus": [
-              "Planning détaillé couvrant EF, PRO, ACT, DET/chantier, AOR",
-              "Prise en compte des délais réglementaires (instruction permis de démolir, purge recours des tiers, délai référé préventif)",
-              "Identification du chemin critique et des jalons clés"
+              "Planning intégrant toutes les phases (EF, PRO, ACT, DET, AOR) avec jalons clés",
+              "Prise en compte des délais administratifs (permis démolir, recours tiers, PRA)",
+              "Chemin critique identifié"
             ],
-            "exemple_reponse_forte": "Le planning proposé intègre les délais incompressibles : 2 mois d'instruction du permis de démolir, 2 mois de purge du recours des tiers, et un mois de délai pour l'obtention de l'ordonnance de référé préventif. Le chemin critique identifié est l'obtention du permis de démolir, conditionnant le démarrage des travaux.",
-            "source": "RC §4 — Critère 2.2 SC6",
-            "sous_criteres": []
+            "exemple_reponse_forte": "Le planning proposé intègre clairement les délais incompressibles (1 mois instruction PRA, 2 mois recours tiers permis démolir, délais ABF si applicable) et identifie la levée des réseaux comme chemin critique pouvant bloquer le démarrage des travaux.",
+            "source": "RC §4 SC6 (Critère 2.2)"
           }
         ]
       },
       {
         "libelle": "Livrables",
         "ponderation_pct": 15,
-        "description": "Évaluation de la qualité des livrables joints à l'offre : un exemple de CCTP de désamiantage et déconstruction d'un immeuble d'habitation, et un exemple de compte rendu de réunion de chantier.",
-        "elements_attendus": [],
-        "exemple_reponse_forte": "—",
-        "source": "RC §4 — Critère 2.3",
+        "description": "Évaluation de la qualité des livrables fournis : un exemple de CCTP de désamiantage/déconstruction d'un immeuble d'habitation et un exemple de compte-rendu de réunion de chantier.",
+        "elements_attendus": [
+          "CCTP de désamiantage/déconstruction d'un immeuble d'habitation complet et opérationnel",
+          "Compte-rendu de réunion de chantier structuré, comprenant suivi planning, situations travaux, actions correctives"
+        ],
+        "exemple_reponse_forte": "Le CCTP exemple intègre les prescriptions amiante (niveaux d'empoussièrement, procédures de décontamination), les clauses PEMD (tri 8 flux, BSD, réemploi), et les prescriptions de sécurité riverains. Le compte-rendu exemple présente un tableau de suivi des DI/OS, un état d'avancement planningaé et un tableau de suivi modificatifs travaux chiffrés.",
+        "source": "RC §4 SC7, SC8 (Critère 2.3)",
+        "unite_evaluation": "points",
         "sous_criteres": [
           {
             "libelle": "1 exemple de CCTP de travaux de désamiantage et de déconstruction",
             "ponderation_pct": 10,
-            "description": "L'acheteur évalue la qualité technique du CCTP exemple fourni par le candidat pour un immeuble d'habitation, appréciant sa complétude, sa rigueur réglementaire et la prise en compte des exigences environnementales.",
+            "description": "Qualité de l'exemple de CCTP de désamiantage et déconstruction d'un immeuble d'habitation fourni par le candidat.",
             "elements_attendus": [
-              "Structure complète du CCTP couvrant le désamiantage et la démolition",
-              "Intégration des prescriptions amiante (plan de retrait, PPSPS, etc.)",
-              "Clauses relatives à la gestion des déchets et au tri 8 flux",
-              "Clauses de réemploi et de valorisation des matériaux",
-              "Exigences environnementales (bilan environnemental, traçabilité)"
+              "Complétude des prescriptions techniques (désamiantage, démolition, confortement mitoyens)",
+              "Intégration des exigences réglementaires amiante (PRA, niveaux empoussièrement)",
+              "Clauses environnementales PEMD et gestion déchets",
+              "Prescriptions sécurité chantier et riverains",
+              "Clarté rédactionnelle et exploitabilité par les entreprises candidates"
             ],
-            "exemple_reponse_forte": "Le CCTP exemple joint couvre : description du bâtiment et périmètre des travaux, prescriptions de désamiantage conformes au Code du Travail, phasage désamiantage puis démolition, clauses de tri obligatoire des déchets (8 flux) avec tonnages estimés par nature, modalités de dépose et conditionnement des éléments réemployables, et exigences de traçabilité via BSD et BSDA.",
-            "source": "RC §4 — Critère 2.3 SC7",
-            "sous_criteres": []
+            "exemple_reponse_forte": "Le CCTP exemple fourni couvre toutes les phases du chantier (curage, désamiantage SS3/SS4, démolition, évacuation déchets) avec des prescriptions quantitatives et qualitatives précises, des clauses de réemploi, et des obligations de traçabilité BSD/BSDA. La rédaction est claire, structurée et immédiatement utilisable pour une consultation d'entreprises.",
+            "source": "RC §4 SC7 (Critère 2.3)"
           },
           {
             "libelle": "1 exemple de compte rendu de réunion de chantier",
             "ponderation_pct": 5,
-            "description": "L'acheteur évalue la qualité formelle et la complétude du compte rendu de réunion de chantier exemple fourni par le candidat.",
+            "description": "Qualité de l'exemple de compte-rendu de réunion de chantier de travaux de désamiantage et déconstruction fourni par le candidat.",
             "elements_attendus": [
-              "Identification claire des participants et de leurs rôles",
-              "Suivi de l'avancement par rapport au planning contractuel",
-              "Tableau de suivi des modifications (travaux en plus/moins avec coûts)",
-              "Mention des conditions climatiques exceptionnelles et effectifs/matériels",
-              "Diffusion avec accusé de réception"
+              "Structure claire (présents, ordre du jour, points avancement, actions)",
+              "Tableau de suivi des modificatifs de prestations avec coûts (travaux + et -)",
+              "Suivi du planning contractuel et des effectifs/matériels",
+              "Mention des conditions climatiques exceptionnelles le cas échéant",
+              "Diffusion formalisée (mail avec AR)"
             ],
-            "exemple_reponse_forte": "Le compte rendu exemple présente : liste des présents, points d'avancement chantier par rapport au planning contractuel (jour J/J+X), tableau des modificatifs en cours avec estimation financière, observations sur le PRA, conditions météo et effectifs entreprise, et action à mener avant la prochaine réunion avec responsable et délai.",
-            "source": "RC §4 — Critère 2.3 SC8",
-            "sous_criteres": []
+            "exemple_reponse_forte": "Le compte-rendu exemple présente un format structuré avec tableau de suivi des ordres de service et modificatifs chiffrés, un état d'avancement par rapport au planning contractuel, et les effectifs/matériels de chantier relevés. Le document est signé avec liste de diffusion et délai de contestation de 7 jours ouvrables rappelé.",
+            "source": "RC §4 SC8 (Critère 2.3)"
           }
         ]
       }
     ],
     "prix": {
       "type_formule": "moins_disant",
-      "formule_explicite": "N(P) = N(SC1) × 70% + N(SC2) × 30% ; avec N(SC1) = (offre la moins disante DQE / offre examinée DQE) × 5 et N(SC2) = (offre la moins disante BPU / offre examinée BPU) × 5",
+      "formule_explicite": "N(P) = N(SC1) × 70% + N(SC2) × 30% ; où N(SC1) = (offre la moins disante DQE / offre examinée DQE) × 5 et N(SC2) = (offre la moins disante BPU / offre examinée BPU) × 5. Note max = 5 pour le moins disant, coefficients inversement proportionnels à l'écart.",
+      "source": "RC §4 Système de notation — Critère prix (1)",
       "elements_a_chiffrer": [
-        "Détail Quantitatif Estimatif (DQE) — montant total (quantités fixes imposées par l'acheteur × prix unitaires du candidat)",
-        "Bordereau des Prix Unitaires (BPU) — somme des prix unitaires de toutes les missions pour toutes les tranches de montant de travaux",
-        "Prix unitaires par mission (EF, PRO, ACT DCE, ACT analyse offres 1-5/6-10/>10, DET, OPC, PdD, référé préventif, AOR, étude de structure demi-journée/journée, REP, déconnexions réseaux 1-5 compteurs/+5 compteurs, représentation MOA, tableau annuel indicateurs)",
-        "Coefficient de majoration pour délai d'urgence (missions II, III et IV à VI) — valeur entre 1 et 1,2"
+        "Bordereau des Prix Unitaires (BPU) — prix unitaires par mission et par tranche de montant de travaux (I à XVII, 17 postes déclinés sur 7 tranches de montant de travaux de démolition de 1 K€ à 5 000 K€ HT, avec distinction travaux avec/sans amiante pour les tranches > 150 K€)",
+        "Détail Quantitatif Estimatif (DQE) — quantités estimatives appliquées aux prix du BPU pour calculer un montant total prévisionnel"
       ]
     },
-    "modalite_calcul_prix": "N(P) = N(SC1) x 70% + N(SC2) x 30% ; Note SC1 (DQE) = (offre la moins disante / offre examinée) × 5 ; Note SC2 (BPU) = (offre la moins disante / offre examinée) × 5. Note finale N(F) = N(P) × 40% + N(VT) × 60%."
+    "modalite_calcul_prix": "N(P) = N(SC1 DQE) × 70% + N(SC2 BPU total) × 30% ; chaque sous-critère noté sur 5 selon formule moins-disante inversement proportionnelle. Note finale N(F) = N(P) × 40% + N(VT) × 60%."
   },
   "montant_marche": {
     "valeur_estimee_euros": 1200000,
     "fourchette_min_euros": null,
-    "fourchette_max_euros": 1200000,
+    "fourchette_max_euros": null,
     "type": "estime_explicite",
-    "duree_couverte": "Valeur estimée globale sur 4 ans (durée maximale de l'accord-cadre) ; maximum annuel de 300 000 € HT",
-    "source_extraction": "Avis BOAMP (valeur estimée HT : 1 200 000 €) ; RC et CCAP (maximum annuel 300 000 € HT)",
-    "commentaire": "L'avis BOAMP indique une valeur estimée de 1 200 000 € HT correspondant à 4 × 300 000 € HT annuels maximum. Il s'agit d'un accord-cadre sans minimum, donc le montant réel peut être inférieur. Le plafond annuel de 300 000 € HT est le seul engagement financier de l'acheteur."
+    "duree_couverte": "4 ans (1 an + 3 reconductions tacites d'1 an), soit 300 000 € HT/an maximum",
+    "source_extraction": "Avis BOAMP (rubrique Quantité ou étendue) : 'Valeur estimée hors TVA : 1 200 000,00 €' ; RC et CCAP : 'maximum en valeur porté à 300 000 € HT annuel'",
+    "commentaire": "La valeur estimée de 1 200 000 € HT correspond à 4 ans × 300 000 € HT/an (plafond annuel de l'accord-cadre). Il s'agit d'un accord-cadre sans minimum : le MOA n'est pas engagé sur le plafond."
+  },
+  "montant_3_voies": {
+    "voie_1_eur": 1200000,
+    "voie_1_source": "Avis BOAMP rubrique 'Quantité ou étendue' : 'Valeur estimée hors TVA : 1 200 000,00 €' — confirmé par RC/CCAP : plafond 300 000 € HT/an sur 4 ans",
+    "voie_2_disponible": false,
+    "voie_2_min_eur": null,
+    "voie_2_max_eur": null,
+    "voie_2_hypotheses": [],
+    "voie_2_raison_indisponible": "Voie 1 disponible et complète (montant publié explicite dans l'avis BOAMP). Voie 2 non nécessaire."
+  },
+  "cout_realisation": {
+    "cout_total_eur": 780000,
+    "cout_min_eur": 650000,
+    "cout_max_eur": 910000,
+    "postes": [
+      {
+        "poste": "Études de faisabilité (EF) — visites site, rapport synthétique",
+        "detail": "Estimation environ 15-20 opérations/an × 1,5 jours/opération × 650 €/j = ~14 600 €/an sur 4 ans = ~58 000 €",
+        "montant_eur": 58000
+      },
+      {
+        "poste": "Études de Projet (PRO) — rédaction CCTP, plans, estimation",
+        "detail": "15-20 opérations/an × 4 jours/opération × 650 €/j = ~39 000 €/an sur 4 ans = ~156 000 €",
+        "montant_eur": 156000
+      },
+      {
+        "poste": "Assistance aux contrats de travaux (ACT-DCE + RAO)",
+        "detail": "15-20 opérations/an × 3 jours/opération × 650 €/j = ~29 000 €/an sur 4 ans = ~117 000 €",
+        "montant_eur": 117000
+      },
+      {
+        "poste": "Direction exécution travaux (DET) — suivi chantier hebdomadaire",
+        "detail": "15-20 opérations/an, durée chantier 4-8 semaines en moyenne × 1 j/semaine × 650 €/j = ~39 000-78 000 €/an, moyenne 58 000 €/an sur 4 ans = ~234 000 €",
+        "montant_eur": 234000
+      },
+      {
+        "poste": "Missions complémentaires (OPC, PdD, référé préventif, étude structure, déconnexions réseaux, tableau indicateurs)",
+        "detail": "Missions commandées au cas par cas, estimation 40 % du volume études/DET = ~55 000 €/an sur 4 ans = ~215 000 €",
+        "montant_eur": 215000
+      }
+    ],
+    "taux_journaliers_retenus": "Taux journalier marché indicatif : chargé de mission senior MOE déconstruction 650-750 €/j HT (taux marché PACA 2025-2026) ; ces taux sont indicatifs et non issus du DCE.",
+    "commentaire": "Estimation bottom-up du coût de production côté candidat, basée sur les volumes d'opérations historiques EPF PACA (23 opérations sur 3 ans = ~7-8/an sur 13, 84, 04 soit ~15-20/an en projection plafond) et les taux journaliers marché. Fourchette obtenue en faisant varier uniquement le taux journalier (650 €/j → 780 k€ ; 750 €/j → 910 k€) sur une charge fixée à 4 ans. Le revenu (plafond 1,2 M€) laisse une marge brute estimée de 25-35%, cohérente avec une prestation intellectuelle en accord-cadre. À noter : accord-cadre SANS MINIMUM, la charge réelle peut être très inférieure si peu de bons de commande émis."
   },
   "revision_prix": {
     "type": "indexation",
     "indices_utilises": [
-      "CPF 71.12 — Services d'ingénierie et services de conseil techniques connexes — Identifiant 010 766586"
+      "CPF 71.12 – Services d'ingénierie et services de conseil techniques connexes – Identifiant 010 766586"
     ],
-    "ponderation": "P = P0 × (0,15 + 0,85 × (In/I0)) — 15% partie fixe + 85% indexée sur l'indice CPF 71.12",
+    "ponderation": "P = P0 × (0,15 + 0,85 × (In/I0)) — parte fixe 15%, partie variable 85% indexée sur CPF 71.12",
     "periodicite": "annuelle",
-    "formule_revision": "P = P0 × (0,15 + 0,85 × (In/I0))",
+    "formule_revision": "P = P0 × (0.15 + 0.85 × (In/I0)) — In = dernier indice CPF 71.12 publié à la date anniversaire ; I0 = indice définitif du mois M0 (date limite remise offres). Première année non révisable.",
     "source_extraction": "CCAP article 5.1 — Variation des prix",
-    "commentaire": "Révision annuelle à date anniversaire, première année non révisable. L'indice CPF 71.12 est adapté aux prestations intellectuelles d'ingénierie ; formule avec 85% de partie variable favorable en contexte inflationniste mais la première année de marché est à prix ferme."
+    "commentaire": "Formule indexée sur l'indice des services d'ingénierie CPF 71.12 (85% variable + 15% fixe) : favorable en période inflationniste pour les coûts de personnel. La première année n'est pas révisable, ce qui crée un risque si les charges augmentent rapidement après notification."
   },
   "alertes_prix": [
-    "Le BPU est très complexe : 17 types de missions × 7 tranches de montant de travaux = plus de 100 prix unitaires à renseigner, avec des colonnes distinctes pour travaux avec/sans amiante. Risque élevé d'erreurs ou d'omissions.",
-    "Le DQE a des quantités imposées par l'acheteur limitées aux tranches 1 à 4 (jusqu'à 1 000 k€ HT) — le candidat ne peut pas optimiser sur les tranches supérieures absentes du DQE.",
-    "Le critère prix ne porte que sur 40% de la note finale, mais il se décompose en DQE (70% du prix) et BPU total (30% du prix) : deux calculs distincts, chacun noté de 0 à 5 puis pondérés.",
-    "Accord-cadre sans minimum : aucun engagement de l'acheteur sur un volume minimal de commandes ; le titulaire assume le risque de faible activité.",
-    "Un coefficient de majoration pour délai d'urgence (entre 1 et 1,2) est à chiffrer au BPU (prix 17) — ce coefficient est évalué mais non pondéré séparément dans le barème."
+    "Accord-cadre SANS MINIMUM de commande : le candidat ne dispose d'aucune garantie de volume. La valeur estimée de 1,2 M€ HT (plafond) n'est pas un engagement d'achat.",
+    "Le BPU est complexe (17 postes × 7 tranches de montant travaux × jusqu'à 2 colonnes amiante/sans amiante = ~150 prix unitaires à renseigner) : risque d'erreurs de multiplication ou d'omission. Le RC prévoit la rectification en cas d'erreur ou l'élimination en cas de refus.",
+    "Pondération prix 40% / technique 60% : la concurrence sur le prix est modérée mais réelle. Le sous-critère DQE pèse 70% du critère prix (28% de la note finale), le BPU 30% du critère prix (12% de la note finale).",
+    "Délai d'urgence prévu (48h pour devis, 15j pour pièces techniques) : risque de sous-évaluation si le candidat ne provisionne pas la surcharge correspondante — majoré d'un coefficient 1 < coeff < 1,2 (prix 17 du BPU)."
   ],
   "references_exigees": {
     "experience_minimale_annees": null,
     "experience_source": null,
     "volume_min_references_similaires": null,
     "volume_min_references_unite": "marchés similaires",
-    "secteur_experience": "Maîtrise d'œuvre en désamiantage et déconstruction/démolition de bâtiments",
-    "secteur_source": "RC §3 — Contenu des plis / Candidature",
+    "secteur_experience": "Maîtrise d'œuvre en désamiantage et déconstruction de bâtiments (mission EF à AOR), incluant gestion des déchets issus de la déconstruction",
+    "secteur_source": "RC §3 — Contenu des plis, Candidature",
     "certifications_obligatoires": [
       {
         "libelle": "Qualification OPQIBI n°0902 « Maîtrise d'œuvre en désamiantage » ou qualification équivalente",
-        "source": "RC §3 — tableau des qualifications"
+        "codes": [
+          "0902"
+        ],
+        "bloquante": true,
+        "source": "RC §3 — Contenu des plis, tableau Qualifications"
       },
       {
         "libelle": "Qualification OPQIBI n°1907 « Diagnostic portant sur la gestion des déchets issus de la déconstruction de bâtiment » ou qualification équivalente",
-        "source": "RC §3 — tableau des qualifications"
+        "codes": [
+          "1907"
+        ],
+        "bloquante": true,
+        "source": "RC §3 — Contenu des plis, tableau Qualifications"
       },
       {
         "libelle": "Qualification OPQIBI n°1208 « Étude de déconstruction et/ou démolition d'ouvrages » ou qualification équivalente",
-        "source": "RC §3 — tableau des qualifications"
+        "codes": [
+          "1208"
+        ],
+        "bloquante": true,
+        "source": "RC §3 — Contenu des plis, tableau Qualifications"
       }
     ],
     "autres_exigences": [
       {
-        "libelle": "Chiffre d'affaires global des trois derniers exercices disponibles (formulaire DC2)",
-        "source": "RC §3 — tableau DC2"
+        "libelle": "Mention du chiffre d'affaires global au cours des 3 derniers exercices disponibles (DC2)",
+        "source": "RC §3 — Contenu des plis, tableau DC2"
       },
       {
-        "libelle": "Déclaration des effectifs moyens annuels pour chacune des trois dernières années",
-        "source": "RC §3 — tableau Effectifs moyens annuels"
+        "libelle": "Déclaration des effectifs moyens annuels pour les 3 dernières années",
+        "source": "RC §3 — Contenu des plis, tableau Effectifs moyens annuels"
       },
       {
-        "libelle": "Liste des principaux services fournis ces trois dernières années avec date, destinataire et montant (attestations ou déclaration opérateur économique)",
-        "source": "RC §3 — tableau Liste des principaux services"
+        "libelle": "Liste des principaux services fournis ces 3 dernières années (date, destinataire, montant) avec attestations du destinataire ou déclaration de l'opérateur",
+        "source": "RC §3 — Contenu des plis, tableau Liste des principaux services"
       },
       {
-        "libelle": "Déclaration sur l'outillage, le matériel et l'équipement technique disponibles pour des marchés de même nature",
-        "source": "RC §3 — tableau Moyens techniques"
+        "libelle": "Déclaration indiquant l'outillage, le matériel et l'équipement technique disponibles pour marchés de même nature",
+        "source": "RC §3 — Contenu des plis, tableau Moyens techniques"
       }
     ]
+  },
+  "dossier_candidature": {
+    "pieces_a_fournir": [
+      {
+        "libelle": "DUME (Document Unique de Marché Européen) en format XML complété — ou, à défaut, DC1 (lettre de candidature) + déclaration sur l'honneur articles L2141-1 à L2141-10 CCP",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §3 — Contenu des plis, Cas n°1/Cas n°2"
+      },
+      {
+        "libelle": "DC2 — Déclaration du candidat mentionnant le chiffre d'affaires global sur les 3 derniers exercices",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §3 — Contenu des plis, Cas n°2"
+      },
+      {
+        "libelle": "Effectifs moyens annuels pour chacune des 3 dernières années",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §3 — Contenu des plis, Cas n°2"
+      },
+      {
+        "libelle": "Liste des principaux services fournis ces 3 dernières années (date, destinataire public ou privé, montant) avec attestations ou déclaration",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §3 — Contenu des plis, Cas n°2"
+      },
+      {
+        "libelle": "Déclaration indiquant l'outillage, le matériel et l'équipement technique disponibles",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §3 — Contenu des plis, Cas n°2"
+      },
+      {
+        "libelle": "Justificatif des qualifications OPQIBI n°0902, n°1907, n°1208 ou équivalents",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §3 — Contenu des plis, tableau Qualifications"
+      },
+      {
+        "libelle": "Acte d'engagement (AE) dûment complété, revêtu d'une signature électronique (XAdES, CAdES ou PAdES, niveau avancé reposant sur certificat qualifié eIDAS niveau 3 minimum)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §3 — Contenu des plis, Offre + §3 Signature électronique"
+      },
+      {
+        "libelle": "Bordereau des Prix Unitaires (BPU) dûment complété — format Excel ET format PDF revêtu de la signature électronique",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §3 — Contenu des plis, Offre"
+      },
+      {
+        "libelle": "Détail Quantitatif Estimatif (DQE) — format Excel",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §3 — Contenu des plis, Offre"
+      },
+      {
+        "libelle": "Cadre de Réponse Technique (CRT) dûment complété (mémoire technique) — organisation équipe-projet, moyens matériels, démarche environnementale",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §3 — Contenu des plis, Offre"
+      },
+      {
+        "libelle": "Cas pratique dûment complété",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §3 — Contenu des plis, Offre"
+      },
+      {
+        "libelle": "Livrable 1 — Exemple de CCTP de désamiantage et déconstruction d'un immeuble d'habitation",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §3 — Contenu des plis, Offre — Livrables"
+      },
+      {
+        "libelle": "Livrable 2 — Exemple de compte rendu de réunion de chantier de travaux de désamiantage et déconstruction",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §3 — Contenu des plis, Offre — Livrables"
+      },
+      {
+        "libelle": "DC4 (formulaire de déclaration de sous-traitance) — si sous-traitance dès le dépôt de l'offre",
+        "phase": "offre",
+        "obligatoire": false,
+        "source": "RC §3 — Contenu des plis, Offre"
+      }
+    ],
+    "mode_remise": "dématérialisé",
+    "plateforme_depot": "http://www.marches-publics.info/avis/index.cfm?IDS=3605",
+    "signature_electronique_exigee": true,
+    "format_signature": "XAdES, CAdES ou PAdES — niveau avancé reposant sur certificat qualifié eIDAS (niveau 3 minimum, délivré par organisme agréé ANSSI)",
+    "nombre_exemplaires": null,
+    "langue": "français",
+    "duree_validite_offres_jours": 180,
+    "modalites_source": "RC §3 — Modalités de remise des offres + Signature électronique des offres"
   },
   "lots": [
     {
       "numero": 1,
       "intitule": "Missions de maîtrise d'œuvre pour les travaux de désamiantage et de déconstruction de bâtiments dans les départements des Bouches-du-Rhône (13), Vaucluse (84) et Alpes-de-Haute-Provence (04)",
-      "zone_geographique": "Bouches-du-Rhône (13), Vaucluse (84), Alpes-de-Haute-Provence (04)",
-      "volume_estime": 300000,
-      "volume_estime_unite": "€ HT annuels maximum",
-      "particularites": "Accord-cadre sans minimum garanti. Opérations de travaux jusqu'à 5 000 000 € HT par opération. Coefficient de majoration pour délai d'urgence prévu au BPU (entre 1 et 1,2)."
+      "domaine": "ingenierie_structure_genie_civil",
+      "zone_geographique": "Départements 13 (Bouches-du-Rhône), 84 (Vaucluse), 04 (Alpes-de-Haute-Provence)",
+      "volume_estime": 1200000,
+      "volume_estime_unite": "€ HT (plafond total 4 ans)",
+      "cout_estime_min_eur": 650000,
+      "cout_estime_max_eur": 910000,
+      "particularites": "Accord-cadre sans minimum de commande. Plafond annuel 300 000 € HT. Missions à bons de commande distincts par opération. Délai d'urgence possible (48h devis, 15j pièces techniques). Majorant coeff urgence 1 < coeff ≤ 1,2 (prix 17 du BPU). Présentation orale des offres (audition 40 min par candidat)."
     }
   ],
+  "tranches": [],
   "calendrier": {
     "date_limite_offres": "2026-09-18",
     "date_demarrage_prevue": "2026-12-09",
-    "duree_marche": "1 an reconductible tacitement par période d'1 an, sans excéder 4 ans au total"
+    "duree_marche": "1 an renouvelable 3 fois par tacite reconduction, durée totale maximale 4 ans"
   },
   "alertes_candidat": [
-    "Trois qualifications OPQIBI sont exigées (0902, 1907, 1208) ou équivalentes — leur absence rend la candidature irrecevable. Prévoir les justificatifs à jour.",
-    "L'acte d'engagement ET le BPU doivent obligatoirement être revêtus d'une signature électronique qualifiée (niveau eIDAS 3 minimum, format XAdES/CAdES/PAdES) — anticiper la commande du certificat (8 à 15 jours de délai).",
-    "Le candidat doit fournir des livrables réels (exemple de CCTP et exemple de compte-rendu de chantier) : leur qualité pèse 15% de la note technique — un dossier sans livrables représentatifs est fortement pénalisé.",
-    "Le cas pratique est noté sur 20% de la note technique et doit être dûment complété — son absence ou insuffisance est éliminatoire en pratique sur ce critère.",
-    "Une présentation orale (audition) est prévue après dépôt des offres (40 minutes par candidat, 20 min présentation + 20 min Q/R) — prévoir la disponibilité de l'équipe-projet pour cette étape.",
-    "Accord-cadre sans minimum de commandes : le titulaire n'est pas assuré d'un volume d'activité minimum sur les 4 ans — à intégrer dans le business plan."
+    "IRRECEVABILITÉ — Trois qualifications OPQIBI (0902, 1907, 1208) ou équivalentes sont exigées à la candidature : leur absence peut entraîner l'élimination. Pour un groupement, ces qualifications doivent être couvertes par l'un au moins des membres (ou sous-traitant avec engagement écrit).",
+    "SIGNATURE ÉLECTRONIQUE OBLIGATOIRE — L'acte d'engagement et le BPU (format PDF) doivent impérativement être signés électroniquement (certificat qualifié eIDAS niveau 3). Le délai de commande d'un certificat est de 8 à 15 jours. À anticiper bien avant la date limite.",
+    "PRÉSENTATION ORALE PRÉVUE — Toutes les offres conformes feront l'objet d'une audition de 40 minutes (20 min présentation + 20 min Q/R). La préparation de la soutenance fait partie intégrante de la candidature.",
+    "BPU COMPLEXE À COMPLÉTER — Le BPU contient environ 150 prix unitaires (17 postes × 7 tranches de montant × distinction amiante/sans amiante). Des erreurs de multiplication ou d'addition peuvent entraîner une invitation à rectifier, puis l'élimination en cas de refus.",
+    "ACCORD-CADRE SANS MINIMUM — Aucune garantie de volume de commandes : le chiffre d'affaires réel peut être très inférieur au plafond de 300 000 € HT/an. Le candidat doit évaluer sa structure de coûts fixes en conséquence."
   ],
   "points_differenciants_attendus": [
     {
-      "libelle": "Expérience avérée et spécifique en MOE désamiantage sur des opérations multitypologies",
-      "exemple": "Présenter des références couvrant plusieurs types de biens (sites industriels, immeubles d'habitation, locaux commerciaux) avec des montants de travaux variés (de 150 k€ à plusieurs millions €), en valorisant la capacité à gérer des opérations simultanées.",
-      "source": "RC §4 — Critère 2.1 SC1"
+      "libelle": "Démarche environnementale et gestion des déchets avancée (PEMD, réemploi, filières locales)",
+      "exemple": "Un candidat présentant des conventions avec des plateformes de réemploi locales (Ressourceries, acteurs PEMD en région PACA), des outils numériques de traçabilité des déchets (BSD/BSDA dématérialisés) et une méthodologie documentée d'intégration des prescriptions PEMD dans les CCTP travaux scoring très haut sur SC3 (20% de la note technique).",
+      "source": "RC §4 SC3 (Critère 2.1) + CCTP §3.4"
     },
     {
-      "libelle": "Maîtrise réglementaire de la gestion des déchets de déconstruction (PEMD, tri 8 flux, REP)",
-      "exemple": "Démontrer une méthodologie structurée d'analyse des diagnostics PEMD, avec processus d'identification des compléments nécessaires, de rédaction des clauses CCTP correspondantes et de suivi de la traçabilité des déchets (BSD/BSDA) — y compris sur des flux polluants.",
-      "source": "RC §4 — Critère 2.1 SC3 ; CCTP §3.4"
+      "libelle": "Expérience avérée sur des opérations similaires complexes (amiante, mitoyens, sites industriels)",
+      "exemple": "Présenter des références récentes de MOE désamiantage/déconstruction de sites industriels ou d'immeubles avec mitoyens sensibles (similaires aux 18 800 m² Arles 2025 ou aux 8 773 m² site industriel Marseille 2025 de l'EPF PACA) renforce significativement le SC1 (35% de la note technique).",
+      "source": "RC §4 SC1 (Critère 2.1) + RC §1 tableau opérations 2023-2025"
     },
     {
-      "libelle": "Capacité à répondre aux délais d'urgence sur les trois départements",
-      "exemple": "Présenter une organisation permettant de remettre un devis sous 48h et des pièces techniques (PRO + ACT) sous 15 jours, avec une équipe répartie géographiquement ou disposant de moyens de déplacement rapide sur les départements 13, 84 et 04.",
-      "source": "CCTP §6 ; CCAP §3"
+      "libelle": "Organisation dédiée aux délais d'urgence et aux opérations simultanées",
+      "exemple": "Décrire une organisation garantissant la remise d'un devis sous 48h et des pièces techniques complètes sous 15 jours calendaires (délai d'urgence CCTP), avec un planning de charge permettant de gérer 3 à 5 opérations en simultané, différencie nettement les candidats sur le SC1.",
+      "source": "RC §4 SC1 + CCTP §6 Délai d'urgence + CCAP art 3"
     },
     {
-      "libelle": "Qualité et exhaustivité du CCTP exemple joint à l'offre",
-      "exemple": "Soumettre un CCTP exemple pour un immeuble d'habitation amianté intégrant : phasage désamiantage/démolition, clauses amiante réglementaires, tri 8 flux avec tonnages estimés, clauses de réemploi, exigences environnementales et de traçabilité — démontrant ainsi la capacité réelle du cabinet à produire des pièces de qualité.",
-      "source": "RC §4 — Critère 2.3 SC7"
+      "libelle": "Qualité et opérationnalité des livrables fournis (CCTP exemple et compte-rendu chantier)",
+      "exemple": "Un CCTP exemple couvrant l'intégralité des phases (curage, SS3/SS4, démolition, gestion déchets PEMD, BSD), adapté à un immeuble d'habitation avec mitoyens, et un compte-rendu de chantier structuré avec tableau de suivi modificatifs chiffré et état d'avancement planning illustrent immédiatement le niveau opérationnel du candidat (SC7+SC8 = 15% de la note technique).",
+      "source": "RC §4 SC7, SC8 (Critère 2.3)"
     },
     {
-      "libelle": "Structuration claire de l'équipe avec interlocuteur dédié EPF expérimenté",
-      "exemple": "Désigner un chef de projet unique référent pour l'EPF PACA, dont le CV détaille des opérations de désamiantage et déconstruction similaires avec attestations de maîtres d'ouvrage, et présenter la procédure de backup en cas d'indisponibilité.",
-      "source": "RC §4 — Critère 2.1 SC1"
+      "libelle": "Connaissance du territoire PACA et des acteurs locaux (concessionnaires, services urbanisme, Inspection du Travail)",
+      "exemple": "Mentionner des partenariats établis avec les concessionnaires régionaux (GRDF, Enedis, Veolia, SDIS) pour accélérer les déconnexions de réseaux, et une connaissance des délais d'instruction des mairies des 3 départements pour les permis démolir, valorise la crédibilité opérationnelle.",
+      "source": null
     }
   ],
   "_meta": {
     "id_marche": "BOAMP-26-56680",
     "type": "complet",
-    "date_generation": "2026-06-14T23:06:20.666429+00:00",
-    "extraction_le": "2026-06-14T23:06:20.666429+00:00",
+    "date_generation": "2026-06-19T22:07:51.010500+00:00",
+    "extraction_le": "2026-06-19T22:07:51.010500+00:00",
     "modele": "claude-sonnet-4-6",
     "preset_utilise": "btp",
     "presets_matches": [
-      "btp"
+      "btp",
+      "ingenierie"
     ],
     "prompts_versions": {
-      "btp/_preset.json": "sha256:d1717e0d87f6c265"
+      "btp/_preset.json": "sha256:055bf6f8b2c1f771",
+      "ingenierie/_preset.json": "sha256:b924b32a088673d6"
     },
-    "tokens_input": 76768,
-    "tokens_output": 8374,
-    "cout_eur": 0.3381,
-    "duree_sec": 152.5,
+    "tokens_input": 86315,
+    "tokens_output": 13840,
+    "cout_eur": 0.4432,
+    "duree_sec": 247.3,
     "pdfs_traites": [
       {
         "nom": "1 - RC.pdf",

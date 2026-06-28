@@ -1,0 +1,410 @@
+{
+  "synthese_marche": "Accord-cadre à bons de commande (max 2 500 000 € HT/an, mono-attributaire) pour la fourniture de prestations d'agence de voyages d'affaires au profit de Grand Poitiers Achats et de ses adhérents (Ville de Poitiers, Grand Poitiers Communauté urbaine, CCAS et communes membres). Le titulaire doit proposer un outil de réservation en ligne (online 24h/24), un service offline par téléphone/email, ainsi qu'un reporting carbone et des prestations environnementales. La durée initiale est d'un an (1er janvier au 31 décembre 2027), reconductible 3 fois 1 an.",
+  "domaines_metier": [
+    {
+      "code": "voyage_hebergement_pro"
+    }
+  ],
+  "raison_classification": "Le marché porte exclusivement sur des prestations d'agence de voyages d'affaires (réservation de billets de train, avion, hôtel, location de voiture, visa) pour les déplacements professionnels d'agents et d'élus de collectivités territoriales. Le CPV 63510000 'Services d'agences de voyages et services similaires' confirme sans ambiguïté le code 'voyage_hebergement_pro'.",
+  "caracteristiques_metier": {
+    "description": "Prestations d'agence de voyages pour déplacements professionnels : réservation online (portail SaaS 24h/24) et offline (téléphone/email) de billets ferroviaires, aériens (France, UE, international), maritimes, autocar, hébergements hôteliers en France et à l'étranger, locations de voiture et traitement de visas. Inclut le paramétrage de profils voyageurs, le suivi statistique trimestriel et un reporting annuel des émissions GES.",
+    "criteres_eligibilite": [
+      "Être une agence de voyages habilitée (licence d'agence de voyages ou équivalent réglementaire)",
+      "Disposer d'un outil de réservation online en mode SaaS accessible depuis le navigateur Microsoft Edge",
+      "Capacité à délivrer des e-billets (dématérialisation obligatoire)",
+      "Conformité RGPD pour l'hébergement des données personnelles",
+      "Références de prestations similaires (agence de voyages d'affaires collectivités ou entreprises) de moins de 3 ans"
+    ]
+  },
+  "bareme_notation": {
+    "valeur_technique_pct": 70,
+    "valeur_prix_pct": 30,
+    "sous_criteres_techniques": [
+      {
+        "libelle": "Étendue de la gamme proposée, qualité des offres de transports et d'hébergements",
+        "ponderation_pct": 20,
+        "description": "L'acheteur évalue la richesse de la gamme commerciale proposée (train, avion, hôtel, location, maritime…) et la qualité des offres accessibles via le portail ou les agents, sur la base du CRT rubrique 3 - périmètre de l'offre commerciale.",
+        "elements_attendus": [
+          "Présentation exhaustive des types de prestations disponibles (train, avion toutes classes de vol, hôtel France et international, location de voiture, maritime, autocar, visa)",
+          "Accès à des tarifs professionnels négociés et à des compagnies premium et low-cost",
+          "Gestion des profils voyageurs (agents, élus, intervenants extérieurs) avec forfaits nuitées intégrés",
+          "Capacité à proposer des offres de groupe (places côte à côte, mêmes hôtels)",
+          "Garantie d'absence de surbooking et d'accompagnement en cas de perturbation (grèves, intempéries)"
+        ],
+        "exemple_reponse_forte": "Notre catalogue couvre l'intégralité des modes de transport (SNCF, compagnies aériennes dont low-cost, maritimes, autocars) et plus de 500 000 hôtels mondiaux via nos GDS. Nous proposons des tarifs professionnels négociés SNCF et Air France, intégrons les forfaits nuitées applicables aux agents territoriaux (arrêté 2006, délibérations GP 2019), et disposons d'une cellule dédiée groupes joignable 24h/24.",
+        "source": "RC §4 critères de jugement",
+        "unite_evaluation": "points",
+        "sous_criteres": []
+      },
+      {
+        "libelle": "Modalités et fonctionnalités de la réservation online",
+        "ponderation_pct": 25,
+        "description": "L'acheteur évalue les fonctionnalités de l'outil de réservation en ligne (ergonomie, éco-comparateur rail/air, gestion des profils, sécurité informatique, disponibilité 24h/24, application mobile) sur la base du CRT rubrique 4 et du guide d'utilisation fourni.",
+        "elements_attendus": [
+          "Outil SaaS accessible via navigateur Edge, sans installation réseau, disponible 24h/24 7j/7",
+          "Éco-comparateur rail/air intégré (exemple Poitiers/Lyon)",
+          "Gestion multi-profils (agents, élus, intervenants) avec forfaits nuitées paramétrables par donneur d'ordre",
+          "Application mobile (smartphone/tablette) pour e-billets et espace voyageur",
+          "Authentification sécurisée conforme CNIL (mot de passe complexe, déconnexion automatique, traces d'accès nominatives)",
+          "Filtre écolabels (Écolabel Européen, Clef Verte) dans les résultats hôteliers"
+        ],
+        "exemple_reponse_forte": "Notre plateforme SaaS (accessible via Edge sans prérequis réseau) propose un éco-comparateur rail/air automatique sur tous les trajets > 300 km, un filtrage écolabels sur l'hébergement, et une application iOS/Android pour la gestion des e-billets. Le paramétrage multi-profils intègre nativement les plafonds nuitées de la FPT. L'authentification est conforme aux recommandations CNIL 2017-012 avec tentatives limitées à 5 et déconnexion automatique après 10 min d'inactivité.",
+        "source": "RC §4 critères de jugement ; CCTP §5.1",
+        "unite_evaluation": "points",
+        "sous_criteres": []
+      },
+      {
+        "libelle": "Modalités d'exécution et de suivi des prestations",
+        "ponderation_pct": 15,
+        "description": "L'acheteur évalue la qualité du suivi (statistiques temps réel, reporting trimestriel et annuel, enquêtes de satisfaction, suivi carbone GES) et les modalités d'exécution offline (réactivité, équipe dédiée, gestion modifications/annulations), sur la base du CRT rubrique 5.",
+        "elements_attendus": [
+          "Statistiques en temps réel sur le portail + reporting trimestriel et bilan annuel sous format Excel",
+          "Outil de calcul GES pour tous les modes de transport (ferroviaire, aérien, routier, maritime) et reporting annuel transmis au plus tard le 31 janvier",
+          "Enquêtes de satisfaction en ligne auprès des voyageurs",
+          "Équipe dédiée joignable par téléphone/email pour les réservations offline et en cas de panne du portail",
+          "Gestion sans surcoût des modifications et annulations (changements de voyageurs, avoirs, aucun remboursement direct à l'agent)"
+        ],
+        "exemple_reponse_forte": "Nous mettons à disposition un tableau de bord temps réel par compte client (6 comptes au démarrage) et produisons un reporting trimestriel sous Excel avec consommation par type de prestation et listing des profils. Le bilan carbone annuel (calcul GES ferroviaire/aérien/routier/maritime) est transmis avant le 31 janvier, accompagné de pistes de réduction. Notre équipe dédiée Grand Comptes assure les réservations offline et la gestion des incidents 7j/7.",
+        "source": "RC §4 critères de jugement ; CCTP §7",
+        "unite_evaluation": "points",
+        "sous_criteres": []
+      },
+      {
+        "libelle": "Performance en matière environnementale",
+        "ponderation_pct": 5,
+        "description": "L'acheteur évalue les engagements environnementaux du titulaire (dématérialisation e-billets, comparatif écologique systématique, communication du bilan CO2 par trajet, filtres écolabels) sur la base du CRT rubrique 6.",
+        "elements_attendus": [
+          "Obligation de délivrance de billets et vouchers électroniques (e-billets) par défaut",
+          "Comparatif écologique systématique dans les devis (ex : Poitiers–Lyon train vs avion)",
+          "Communication du bilan CO2 spécifique à chaque trajet",
+          "Filtre écolabels (Écolabel Européen, Clef Verte) opérationnel dans les résultats de recherche hôtelière",
+          "Plan d'amélioration environnemental et réunion de bilan annuel"
+        ],
+        "exemple_reponse_forte": "100 % des billets sont délivrés en format électronique. Chaque devis inclut automatiquement une alternative train/avion avec indication du bilan CO2 par trajet calculé selon le référentiel ADEME. Le moteur de recherche hôtelier intègre un filtre Clef Verte/Écolabel Européen activé par défaut, avec mise en avant de ces établissements dans les résultats.",
+        "source": "RC §4 critères de jugement ; CCTP §4",
+        "unite_evaluation": "points",
+        "sous_criteres": []
+      },
+      {
+        "libelle": "Performance en matière d'action sociale",
+        "ponderation_pct": 5,
+        "description": "L'acheteur évalue les dispositions sociales du titulaire (égalité professionnelle, accessibilité PMR, alertes de sécurité adaptées au profil voyageur) sur la base du CRT rubrique 6.",
+        "elements_attendus": [
+          "Garantie d'accessibilité pour les personnes à mobilité réduite sur tous les modes de transport et l'hébergement",
+          "Alertes et conseils de sécurité adaptés au profil voyageur (ex : conseils spécifiques aux femmes voyageant seules dans certaines zones)",
+          "Respect des obligations en matière d'égalité professionnelle femmes-hommes",
+          "Absence de surbooking et accompagnement en cas de perturbation pour tous les profils"
+        ],
+        "exemple_reponse_forte": "Notre plateforme intègre un module d'alertes sécurité personnalisées par profil voyageur (FCDO/Quai d'Orsay) et propose systématiquement des options accessibilité PMR (places réservées, chambres adaptées) sans surcoût. Nous respectons l'index égalité femmes-hommes et formons nos agents aux conseils de sécurité différenciés selon le profil et la destination.",
+        "source": "RC §4 critères de jugement ; CCTP §4.2",
+        "unite_evaluation": "points",
+        "sous_criteres": []
+      }
+    ],
+    "prix": {
+      "type_formule": "moins_disant",
+      "formule_explicite": "Note de l'offre = note maximale × (valeur de la meilleure offre / valeur de l'offre), la note obtenue est ensuite pondérée à 30%.",
+      "source": "RC §4 mode de calcul",
+      "elements_a_chiffrer": [
+        "Frais d'agence online par billet ferroviaire (émission, modification, annulation)",
+        "Frais d'agence online par réservation hôtelière France et étranger (émission, modification, annulation)",
+        "Frais d'agence online par billet aérien (France court courrier, UE moyen courrier, long courrier, low-cost) + assurances",
+        "Frais d'agence online par billet autocar et maritime",
+        "Frais d'agence online par réservation voiture de location",
+        "Frais d'agence offline (groupe) pour les mêmes prestations",
+        "Frais d'agence offline individuel pour les mêmes prestations",
+        "Traitement des visas",
+        "Coût d'une session de formation visio à l'outil online (mise en place et en cours de marché)"
+      ]
+    },
+    "modalite_calcul_prix": "Note de l'offre = note maximale × (valeur de la meilleure offre / valeur de l'offre), pondérée à 30%."
+  },
+  "montant_marche": {
+    "valeur_estimee_euros": 1000000,
+    "fourchette_min_euros": null,
+    "fourchette_max_euros": 2500000,
+    "type": "estime_explicite",
+    "duree_couverte": "Période ferme 12 mois (2027) ; plafond annuel 2 500 000 € HT, montant estimatif annuel 1 000 000 € HT ; accord-cadre reconductible 3 fois 1 an, soit 4 ans maximum",
+    "source_extraction": "RC §1 tableau 'Montant estimatif annuel' : 1 000 000 € HT ; CCAP §4 : 'montant maximum annuel de 2 500 000 € HT'",
+    "commentaire": "Le RC indique un montant estimatif annuel de 1 000 000 € HT (valeur de consommation prévue). Le CCAP fixe un maximum annuel à 2 500 000 € HT (plafond accord-cadre). Sur 4 ans, le plafond total est donc de 10 000 000 € HT."
+  },
+  "montant_3_voies": {
+    "voie_1_eur": 1000000,
+    "voie_1_source": "RC §1 : 'Montant estimatif annuel : Agence de voyage pour les frais de déplacements professionnels — 1 000 000 €'",
+    "voie_2_disponible": false,
+    "voie_2_min_eur": null,
+    "voie_2_max_eur": null,
+    "voie_2_hypotheses": [],
+    "voie_2_raison_indisponible": "Voie 1 disponible : montant annuel estimé publié explicitement dans le RC à 1 000 000 € HT. Voie 2 non calculée."
+  },
+  "cout_realisation": {
+    "cout_total_eur": 120000,
+    "cout_min_eur": 90000,
+    "cout_max_eur": 150000,
+    "postes": [
+      {
+        "poste": "Équipe dédiée (agents de réservation offline + chef de compte) — coût salarial chargé",
+        "detail": "Estimation : 1,5 ETP × 45 000 €/an chargé = 67 500 €/an. Varie selon niveau de service attendu.",
+        "montant_eur": 67500
+      },
+      {
+        "poste": "Outil de réservation online (licence SaaS, paramétrage, maintenance)",
+        "detail": "Coût SaaS plateforme voyages d'affaires : estimé 15 000–25 000 €/an pour une centrale d'achats multi-entités.",
+        "montant_eur": 20000
+      },
+      {
+        "poste": "Formation à l'outil (sessions visio initiales + en cours de marché)",
+        "detail": "~5 sessions × 800 €/session = 4 000 €",
+        "montant_eur": 4000
+      },
+      {
+        "poste": "Reporting carbone, statistiques et outils de suivi",
+        "detail": "Outil GES + développement reporting personnalisé : 5 000–10 000 €/an",
+        "montant_eur": 7500
+      },
+      {
+        "poste": "Encadrement, coordination et conformité RGPD",
+        "detail": "Chef de projet / DPO interne : ~20 j/an × 600 €/j = 12 000 €",
+        "montant_eur": 12000
+      },
+      {
+        "poste": "Frais divers (assurances RC professionnelle, frais administratifs)",
+        "detail": "Estimation forfaitaire : 9 000 €/an",
+        "montant_eur": 9000
+      }
+    ],
+    "taux_journaliers_retenus": "Taux marché indicatifs : agent de réservation voyages d'affaires 45 000 €/an chargé (~180 €/j) ; chef de compte 55 000 €/an chargé ; chef de projet/DPO 600 €/j. Ces taux sont des références marché ; la structure de coût réelle dépend de l'organisation du candidat.",
+    "commentaire": "Le revenu du candidat est constitué des frais d'agence facturés sur chaque transaction (BPU). Sur un volume de 1 M€ de transactions, les frais d'agence online (typiquement 5–15 € par billet ferroviaire, 10–25 € par billet aérien) représentent le chiffre d'affaires réel de l'agence, distinct du montant des billets répercuté à l'acheteur. Le coût de réalisation estimé (90 000–150 000 €) doit être comparé au chiffre d'affaires frais d'agence, non au volume total de 1 M€. La marge dépend fortement du volume de transactions effectif."
+  },
+  "revision_prix": {
+    "type": "indexation",
+    "indices_utilises": [],
+    "ponderation": "Révision annuelle au 1er janvier à chaque renouvellement (première révision le 1er janvier 2028) sur la base du bordereau des prix unitaires du titulaire, alignée sur les tarifs pratiqués par le titulaire pour l'ensemble de sa clientèle. L'acheteur peut résilier sans indemnité si la hausse dépasse 3% par rapport au tarif précédent.",
+    "periodicite": "annuelle",
+    "formule_revision": "Les prix ne varient pas jusqu'à l'entrée en vigueur des nouveaux prix pratiqués par le titulaire pour l'ensemble de sa clientèle. Préavis d'1 mois minimum par LRAR ou mail avec AR avant entrée en vigueur. Clause de sauvegarde : résiliation sans indemnité si augmentation > 3%.",
+    "source_extraction": "CCAP §6.1 'Variation des prix'",
+    "commentaire": "Mécanisme de révision atypique : pas d'indice économique (SYNTEC, ILC…) mais alignement sur les tarifs publics du titulaire. La clause de sauvegarde à 3% limite fortement la capacité de hausse ; candidat doit calibrer ses prix initiaux avec prudence."
+  },
+  "alertes_prix": [
+    "Montant maximum annuel de 2 500 000 € HT mais montant estimatif de seulement 1 000 000 € HT : l'accord-cadre est sans minimum garanti, ce qui crée un risque de volume faible pour le titulaire.",
+    "Clause de sauvegarde : l'acheteur peut résilier sans indemnité si la révision tarifaire annuelle dépasse +3% ; à intégrer dès le chiffrage initial pour ne pas être contraint sur les années suivantes.",
+    "Pondération prix à 30% relativement modérée (dominante valeur technique à 70%) : ne pas sacrifier la qualité sur le prix, mais une offre trop élevée sera pénalisée sur un marché où les frais d'agence sont facilement comparables.",
+    "BPU à remplir avec prix HT pour 30 lignes de prestations (online, offline individuel, offline groupe, assurances) : risque d'erreur de saisie ou de discordance avec le DQE — vérifier la cohérence BPU/DQE avant dépôt.",
+    "Pas de montant minimum de commande : l'acheteur n'est pas tenu de passer un seul bon de commande ; l'investissement initial (paramétrage, formation, outil SaaS) n'est pas garanti de retour."
+  ],
+  "references_exigees": {
+    "experience_minimale_annees": 3,
+    "experience_source": "RC §3 'Capacités techniques et professionnelles' : références de prestations similaires de moins de 3 ans",
+    "volume_min_references_similaires": null,
+    "volume_min_references_unite": "marchés similaires",
+    "secteur_experience": "Prestations d'agence de voyages d'affaires (réservation billets, hébergements, outil online) pour des entreprises ou collectivités publiques.",
+    "secteur_source": "RC §3 'Capacités techniques et professionnelles'",
+    "certifications_obligatoires": [
+      {
+        "libelle": "Licence d'agence de voyages ou immatriculation au registre Atout France (ou équivalent réglementaire pour opérateur de voyages)",
+        "codes": [],
+        "bloquante": true,
+        "source": "CCTP §3.3 Réglementation (obligation réglementaire implicite du secteur) ; RC §3 conditions d'exercice"
+      }
+    ],
+    "autres_exigences": [
+      {
+        "libelle": "Chiffre d'affaires des trois dernières années (annuel général et annuel spécifique dans le domaine d'activité couvert par le marché) à déclarer dans le DUME ou DC2",
+        "source": "RC §3 'Capacité économique et financière'"
+      },
+      {
+        "libelle": "Note sur l'organisation de l'entreprise et les moyens humains et matériels",
+        "source": "RC §3 'Capacité technique et professionnelle'"
+      },
+      {
+        "libelle": "Questionnaire de dématérialisation complété et signé électroniquement si le candidat dispose d'un certificat",
+        "source": "RC §3 'Autres justificatifs'"
+      }
+    ]
+  },
+  "dossier_candidature": {
+    "pieces_a_fournir": [
+      {
+        "libelle": "Formulaire DUME en format XML et PDF (généré automatiquement sur marches-publics.info) remplaçant DC1 et DC2, ou DC1/DC2 si la société ne candidate pas en DUME",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §3 'Situation juridique'"
+      },
+      {
+        "libelle": "Chiffre d'affaires des trois dernières années complété dans le DUME ou DC2 (annuel général et annuel spécifique agence de voyages)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §3 'Capacité économique et financière'"
+      },
+      {
+        "libelle": "Note sur l'organisation de l'entreprise et les moyens humains et matériels",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §3 'Capacité technique et professionnelle'"
+      },
+      {
+        "libelle": "Références de prestations similaires de moins de 3 ans",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §3 'Capacité technique et professionnelle'"
+      },
+      {
+        "libelle": "Questionnaire de dématérialisation complété (et signé électroniquement si le candidat dispose d'un certificat)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §3 'Autres justificatifs'"
+      },
+      {
+        "libelle": "Bordereau des prix unitaires (BPU) complété au format XLS",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §3 'L'offre des candidats est composée des documents suivants'"
+      },
+      {
+        "libelle": "Cadre de réponse technique (CRT) complété — tout autre document déposé ne sera pas analysé",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §3 'L'offre des candidats est composée des documents suivants'"
+      },
+      {
+        "libelle": "Détail quantitatif estimatif (DQE) complété au format XLS",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §3 'L'offre des candidats est composée des documents suivants'"
+      },
+      {
+        "libelle": "Guide d'utilisation type du site de réservation online (avec captures d'écran, procédures administrateur, éléments techniques et juridiques)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §3 'L'offre des candidats est composée des documents suivants'"
+      }
+    ],
+    "mode_remise": "dématérialisé + copie de sauvegarde",
+    "plateforme_depot": "marches-publics.info",
+    "signature_electronique_exigee": false,
+    "format_signature": "Certificat norme EIDAS (ou RGS jusqu'à fin de validité) requis UNIQUEMENT de l'attributaire final pour la signature de l'acte d'engagement",
+    "nombre_exemplaires": null,
+    "langue": "français",
+    "duree_validite_offres_jours": 180,
+    "modalites_source": "RC §3 'Modalités de remise des offres' et page de garde"
+  },
+  "lots": [
+    {
+      "numero": 1,
+      "intitule": "Agence de voyage pour les frais de déplacements professionnels",
+      "domaine": "voyage_hebergement_pro",
+      "zone_geographique": "Territoire des adhérents de Grand Poitiers Achats (Vienne, région Nouvelle-Aquitaine)",
+      "volume_estime": null,
+      "volume_estime_unite": null,
+      "cout_estime_min_eur": 90000,
+      "cout_estime_max_eur": 150000,
+      "particularites": "Lot unique, accord-cadre à bons de commande sans minimum et avec maximum annuel de 2 500 000 € HT. Montant estimatif annuel : 1 000 000 € HT. Inclut la mise à disposition et le paramétrage d'un outil online SaaS, la formation des agents (environ 57 agents au démarrage), la gestion de 6 comptes voyageurs distincts et un reporting GES annuel."
+    }
+  ],
+  "tranches": [],
+  "calendrier": {
+    "date_limite_offres": "2026-07-16",
+    "date_demarrage_prevue": "2027-01-01",
+    "duree_marche": "1 an (période ferme 2027), reconductible 3 fois 1 an, soit 4 ans maximum"
+  },
+  "alertes_candidat": [
+    "Outil de réservation online SaaS exigé : doit être accessible depuis le navigateur Microsoft Edge, sans installation réseau côté acheteur, disponible 24h/24 7j/7 — absence de cette fonctionnalité est rédhibitoire au regard des exigences CCTP §5.1.",
+    "Conformité RGPD stricte et rédhibitoire : le titulaire doit retourner la clause de confidentialité (annexe 1 AE), la clause de protection des données personnelles hébergement externe (annexe 2 AE) et la grille de réponse aux exigences de sécurité (annexe 3) dûment complétées — sans ces documents, la notification ne peut intervenir.",
+    "Le CRT est la SEULE pièce technique analysée : tout autre document déposé en dehors du CRT ne sera pas pris en compte — ne pas joger une brochure commerciale en remplacement.",
+    "Guide d'utilisation du portail online avec captures d'écran obligatoire dès le dépôt des offres — son absence peut conduire à une offre mal notée sur le sous-critère fonctionnalités online (25% du barème).",
+    "Pénalité de 30 €/manquement en cas d'absence de proposition comparative écologique dans les devis et pénalité de 30 €/jour en cas de dysfonctionnement du filtre écolabels : ces obligations doivent être opérationnelles dès le démarrage du marché."
+  ],
+  "points_differenciants_attendus": [
+    {
+      "libelle": "Qualité et ergonomie de l'outil de réservation online (25% du barème)",
+      "exemple": "Présenter des captures d'écran du portail montrant l'éco-comparateur rail/air, le filtre écolabels, la gestion multi-profils et l'application mobile ; démontrer la conformité CNIL (authentification, déconnexion automatique, journalisation nominative) dans le guide d'utilisation.",
+      "source": "RC §4 ; CCTP §5.1"
+    },
+    {
+      "libelle": "Reporting GES et engagement environnemental concret",
+      "exemple": "Fournir un exemple de bilan CO2 annuel déjà produit pour un client similaire, avec décomposition par mode de transport et pistes de réduction concrètes ; montrer que le calcul est automatisé et transmis avant le 31 janvier sans relance.",
+      "source": "CCTP §7.2 ; RC §4 critère environnemental 5%"
+    },
+    {
+      "libelle": "Références d'agence de voyages d'affaires pour des collectivités territoriales ou structures publiques",
+      "exemple": "Mettre en avant des références spécifiques en FPT (régions, communautés urbaines, villes) avec volumes de transactions et satisfaction mesurée, pour rassurer l'acheteur sur la maîtrise des forfaits nuitées réglementaires et des procédures de commande publique.",
+      "source": "RC §3 critères de sélection des candidats"
+    },
+    {
+      "libelle": "Paramétrage des forfaits nuitées FPT et gestion des profils voyageurs",
+      "exemple": "Démontrer que l'outil paramètre nativement les plafonds nuitées (140 € Paris intramuros, 90 € autres communes) par profil (agent, élu) conformément à l'arrêté du 3 juillet 2006 et aux délibérations Grand Poitiers 2019, avec blocage automatique des réservations hors forfait.",
+      "source": "CCTP §3.2.4"
+    },
+    {
+      "libelle": "Niveau de service offline et continuité en cas de panne",
+      "exemple": "Préciser les horaires et le délai de réponse de l'équipe dédiée (ex : disponible 7j/7 de 7h à 21h, avec astreinte 24h/24 pour les urgences) et confirmer que la bascule offline en cas de panne du portail est sans surcoût tarifaire.",
+      "source": "CCTP §5.1.2 ; CCTP §5.1.3"
+    }
+  ],
+  "_meta": {
+    "id_marche": "BOAMP-26-56610",
+    "type": "complet",
+    "date_generation": "2026-06-19T21:05:03.051703+00:00",
+    "extraction_le": "2026-06-19T21:05:03.051703+00:00",
+    "modele": "claude-sonnet-4-6",
+    "preset_utilise": null,
+    "presets_matches": [],
+    "prompts_versions": {},
+    "tokens_input": 67328,
+    "tokens_output": 8443,
+    "cout_eur": 0.3122,
+    "duree_sec": 155.5,
+    "pdfs_traites": [
+      {
+        "nom": "BPU_agence_voyages_vd.xlsx",
+        "hash": "dfc8acb34a4791ee03c65c87bd682d69",
+        "taille_chars": 4194
+      },
+      {
+        "nom": "CCAP_Agences_voyages_vd.pdf",
+        "hash": "1a94e00578c47aa75fd6a7cb8c961b4a",
+        "taille_chars": 44797
+      },
+      {
+        "nom": "CCTP_Agences_voyages_vd.pdf",
+        "hash": "2117a2e73001ce5e46a9f01f49a07060",
+        "taille_chars": 34311
+      },
+      {
+        "nom": "CRT_Agences_voyages_vd.docx",
+        "hash": "dbb003634de1c166a562772bc7c4e6f5",
+        "taille_chars": 7958
+      },
+      {
+        "nom": "DQE_agence_voyages_vd.xlsx",
+        "hash": "bca861a2363d2f9f8c2363de995b98d0",
+        "taille_chars": 1949
+      },
+      {
+        "nom": "MPI1832931_AAPC.pdf",
+        "hash": "66577d98f146827c2849e3ae0595c9ca",
+        "taille_chars": 3074
+      },
+      {
+        "nom": "RC_Agences_voyages_vd.pdf",
+        "hash": "a2e8429b77415f166c41699b5e1d37c9",
+        "taille_chars": 33812
+      },
+      {
+        "nom": "annexe_2_clauses_contractuelles_protection_exigences_sécurité_ données_personnelles-hébergement externe_agence_voyages.docx",
+        "hash": "c03d0cd4e8f9b4741efb84f2ea5fd90d",
+        "taille_chars": 14686
+      },
+      {
+        "nom": "annexe_3_grille_de_reponses_aux_exigences_de_securite-hebergement_externe_centrale_achat_gpcu_VOF.xlsx",
+        "hash": "99202875681f55b222ce4620c852e2df",
+        "taille_chars": 13998
+      },
+      {
+        "nom": "questionnaire_demat_exe_a_completer_obligatoirement_V28 01.docx",
+        "hash": "b1be522fa1869e5ec9ac74d79097aff4",
+        "taille_chars": 2469
+      }
+    ]
+  }
+}

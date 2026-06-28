@@ -1,6 +1,6 @@
 # Brief — Transformation d'un logement en Maison de l'Eau et de l'Environnement
 
-_Généré le 2026-06-15 00:48 par Claude claude-sonnet-4-6_
+_Généré le 2026-06-19 23:02 par Claude claude-sonnet-4-6_
 
 ## Identifiants
 - **ID Tendia** : `BOAMP-26-56608`
@@ -10,75 +10,75 @@ _Généré le 2026-06-15 00:48 par Claude claude-sonnet-4-6_
 - **DCE PLACE** : <https://www.marches-publics.info/mpiaws/index.cfm?fuseaction=dematent.login&type=Dce&Idm=1832911>
 
 ## Synthèse
-La Communauté de Communes des Grands Lacs (40) lance un marché public de travaux en procédure adaptée ouverte pour la transformation d'une maison à usage d'habitation en Maison de l'Eau et de l'Environnement à Biscarrosse, destinée à accueillir le public et des scolaires. Le marché est décomposé en 13 lots couvrant l'ensemble des corps d'état du bâtiment (gros œuvre, charpente bois, couverture, façades, menuiseries, second œuvre, CVC, électricité, VRD). Chaque candidat peut soumissionner sur 2 lots au maximum et se voir attribuer 2 lots au maximum.
+Marché public de travaux en 13 lots pour la transformation d'une maison à usage d'habitation en Maison de l'Eau et de l'Environnement à Biscarrosse (40600), au profit du public et de scolaires. Le marché est passé en procédure adaptée ouverte par la Communauté de Communes des Grands Lacs, avec une durée d'exécution de 10 mois. Les travaux couvrent l'ensemble des corps d'état du bâtiment, du gros œuvre à la plomberie, en passant par la charpente bois, les menuiseries, l'électricité et les VRD.
 
 ## 🏗 Chantier — caractéristiques BTP
-- **Description** : Transformation d'une maison à usage d'habitation en Maison de l'Eau et de l'Environnement destinée à l'accueil du public et de scolaires, à Biscarrosse (40600). Les travaux couvrent la démolition partielle, le gros œuvre, la création de murs à ossature bois, la couverture-étanchéité, le bardage, les enduits de façade, les menuiseries extérieures et intérieures, la plâtrerie-isolation-peinture, la serrurerie, les sols, l'électricité, le CVC-plomberie et les aménagements extérieurs.
-- **Type d'ouvrage** : Maison individuelle transformée en équipement public recevant du public (Maison de l'Eau et de l'Environnement)
-- **Site occupé pendant travaux** : false — il s'agit d'une transformation d'un logement, aucune mention d'occupation pendant les travaux
-- **Corps d'état mobilisés** : Démolition, Gros œuvre, Charpente bois / Murs à ossature bois, Couverture et étanchéité, Bardage, Enduits de façade, Menuiseries extérieures, Menuiseries intérieures et agencement, Plâtrerie, faux plafonds, isolation, peinture, Serrurerie, Chape, isolation sol, finition résine, sol souple, Électricité, CVC - Plomberie, VRD et aménagements extérieurs
+- **Description** : Transformation complète d'une maison à usage d'habitation en Maison de l'Eau et de l'Environnement, équipement public à vocation pédagogique destiné au public et aux scolaires. Les travaux comprennent la démolition/gros œuvre, la mise en œuvre de murs à ossature bois, la couverture-étanchéité, le bardage, les enduits de façade, les menuiseries extérieures et intérieures, le plâtrerie-isolation, la serrurerie, les revêtements de sol, l'électricité, le CVC-plomberie et les aménagements extérieurs VRD.
+- **Type d'ouvrage** : Bâtiment existant (logement) transformé en équipement public à vocation culturelle/pédagogique (Maison de l'Eau et de l'Environnement)
+- **Site occupé pendant travaux** : Non précisé dans le DCE fourni
+- **Corps d'état mobilisés** : Démolition - Gros œuvre, Murs à ossature bois - Charpente, Couverture - Étanchéité, Bardage, Enduits de façade, Menuiseries extérieures, Menuiseries intérieures - Agencement, Plâtrerie - Faux plafonds - Isolation - Peinture, Serrurerie, Chape - Isolation sol - Finition résine - Sol souple, Électricité, CVC - Plomberie, VRD - Aménagements extérieurs
 - **Contraintes spécifiques** :
-  - Clauses environnementales obligatoires dont le non-respect entraîne l'irrégularité de l'offre (RC §2.4)
-  - Fourniture d'un Schéma d'Organisation et de Gestion des Déchets (SOGED)
-  - Étanchéité à l'air évaluée spécifiquement pour les lots fondations, couverture-étanchéité, menuiseries extérieures, isolation-plâtrerie, CVC, électricité (RC §8.2)
-  - Permis de construire obtenu (pièce du DCE)
-  - Diagnostics amiante, plomb, parasitaire, structure disponibles dans le DCE
-  - Étude géotechnique G2AVP disponible
-  - Maîtrise d'œuvre assurée par PRATIQUE ARCHITECTURE (Bordeaux)
-  - Durée du chantier : 10 mois
-  - Maximum 2 lots soumissionnables et attribuables par candidat
+  - Conditions d'exécution à caractère environnemental (clauses HQE, SOGED déchets)
+  - Diagnostics amiante, plomb, parasitaire réalisés (fournis au DCE)
+  - Étude géotechnique G2AVP fournie
+  - Étude thermique fournie
+  - Permis de construire obtenu
+  - Limitation à 2 lots par candidat (offre et attribution)
+  - Variantes autorisées pour les lots 3, 7, 8, 10 et 11
+  - Durée d'exécution de 10 mois
+  - Exigences de démarche HQE sur conduite de chantier et gestion des déchets
 
 ### Allotissement
-Marché divisé en 13 lots, chaque lot faisant l'objet d'un marché séparé. Un candidat peut soumissionner sur 2 lots maximum et se voir attribuer 2 lots maximum.
+Marché divisé en 13 lots, chaque lot faisant l'objet d'un marché séparé. Un candidat peut soumettre des offres pour un maximum de 2 lots et se voir attribuer au maximum 2 lots.
 - **Nombre de lots** : 13
 - **Lot 1** — Démolition - Gros œuvre
-  - Corps d'état : Démolition, gros œuvre
-  - Travaux de démolition et de gros œuvre
+  - Corps d'état : Démolition, gros œuvre, maçonnerie
+  - Travaux de démolition et gros œuvre du bâtiment existant
 - **Lot 2** — Murs à ossature bois - Charpente
-  - Corps d'état : Charpente bois, murs à ossature bois
-  - Réalisation de murs à ossature bois et charpente
+  - Corps d'état : Charpente, ossature bois
+  - Mise en œuvre de murs à ossature bois et charpente
 - **Lot 3** — Couverture – Étanchéité
   - Corps d'état : Couverture, étanchéité
-  - Travaux de couverture et d'étanchéité — variantes autorisées
+  - Travaux de couverture et étanchéité — variantes autorisées
 - **Lot 4** — Bardage
-  - Corps d'état : Bardage
-  - Réalisation du bardage de façade
+  - Corps d'état : Bardage façade
+  - Pose de bardage en façade
 - **Lot 5** — Enduits de façade
   - Corps d'état : Enduits de façade
-  - Application des enduits extérieurs de façade
+  - Application d'enduits de façade
 - **Lot 6** — Menuiseries extérieures
   - Corps d'état : Menuiseries extérieures
   - Fourniture et pose des menuiseries extérieures
 - **Lot 7** — Menuiseries intérieures - Agencement
   - Corps d'état : Menuiseries intérieures, agencement
-  - Menuiseries intérieures et travaux d'agencement — variantes autorisées
+  - Menuiseries intérieures et agencement — variantes autorisées
 - **Lot 8** — Plâtrerie - Faux plafonds - Isolation - Peinture
   - Corps d'état : Plâtrerie, faux plafonds, isolation, peinture
   - Travaux de plâtrerie, pose de faux plafonds, isolation et peinture — variantes autorisées
 - **Lot 9** — Serrurerie
-  - Corps d'état : Serrurerie
+  - Corps d'état : Serrurerie, métallerie
   - Travaux de serrurerie
 - **Lot 10** — Chape – Isolation sol – Finition résine – Sol souple
   - Corps d'état : Chape, isolation sol, revêtements de sol
-  - Réalisation des chapes, isolation sol, finitions résine et sols souples — variantes autorisées
+  - Chape, isolation sol, finition résine et sol souple — variantes autorisées
 - **Lot 11** — Électricité
-  - Corps d'état : Électricité
-  - Travaux d'installation électrique — variantes autorisées
+  - Corps d'état : Électricité courants forts/faibles
+  - Travaux d'électricité — variantes autorisées
 - **Lot 12** — CVC - Plomberie
-  - Corps d'état : CVC, plomberie
+  - Corps d'état : CVC, plomberie sanitaire
   - Travaux de chauffage, ventilation, climatisation et plomberie
 - **Lot 13** — VRD – Aménagements extérieurs
   - Corps d'état : VRD, aménagements extérieurs
-  - Voirie, réseaux divers et aménagements extérieurs
+  - Travaux de voirie, réseaux divers et aménagements extérieurs
 
 ### Qualifications BTP exigées
-Le RC exige des capacités professionnelles adaptées aux prestations de chaque lot. Le candidat peut produire des certificats de qualification professionnelle Qualibat ou équivalent, ou tout moyen de preuve démontrant ses compétences, références et moyens techniques et humains.
+Le RC exige des capacités professionnelles adaptées aux prestations de chaque lot. Les candidats peuvent produire des certificats de qualification professionnelle (QUALIBAT ou équivalent) ou tout moyen de preuve démontrant leurs compétences, références et moyens techniques et humains. Aucun code Qualibat spécifique n'est listé explicitement dans le RC.
 - **MASE** : non
 
 ## 💶 Montant du marché
 - _Montant non communiqué dans le DCE._
   - Typique des accords-cadres à bons de commande : le volume dépend des commandes effectivement passées par l'acheteur sur la durée du marché.
-- _Note_ : Aucun montant estimé n'est communiqué dans les pièces du DCE fournies (RC et AAPC). L'avis BOAMP ne mentionne pas de valeur estimée par lot ni de valeur totale.
+- _Note_ : Aucun montant estimé n'est publié dans le RC ni dans l'AAPC BOAMP. Les montants estimés par lot ne sont pas renseignés dans l'avis. Une estimation bottom-up est proposée en Voie 2.
 
 ## Barème de notation
 - **Valeur technique** : 60 %
@@ -87,28 +87,29 @@ Le RC exige des capacités professionnelles adaptées aux prestations de chaque 
   - Valeur technique et évaluation des capacités professionnelles : 40 %
   - Qualité des fournitures et matériaux mis en œuvre : 14 %
   - Démarche HQE : 6 %
-- **Calcul du prix** : Note de l'offre = (Montant de l'offre moins-disante / Montant de l'offre à noter) × Base de notation. Montant de l'offre moins-disante = prix de l'offre la moins chère (offres anormalement basses exclues).
+- **Calcul du prix** : Note de l'offre = (Montant de l'offre moins-disante / Montant de l'offre à noter) × 40
 
 ## Références et qualifications exigées
 - **Expérience minimale** : —
-- **Secteur d'expérience** : Travaux de transformation ou réhabilitation de bâtiments (corps d'état correspondant au lot soumissionné)
-- **Certifications obligatoires** : Qualibat ou qualification professionnelle équivalente adaptée aux prestations du lot soumissionné (source=RC §6.1)
+- **Secteur d'expérience** : Travaux de réhabilitation ou transformation de bâtiments, dans le corps d'état du lot concerné
+- **Certifications obligatoires** : Qualification professionnelle adaptée aux prestations du lot (QUALIBAT ou équivalent, ou tout moyen de preuve équivalent) (source=RC §6.1)
 - **Autres exigences** :
-  - Déclaration du chiffre d'affaires global et du CA concernant les prestations objet du contrat sur les 3 derniers exercices (source=RC §6.1)
+  - Déclaration concernant le chiffre d'affaires global et le CA concernant les prestations objet du contrat, réalisées au cours des 3 derniers exercices disponibles (source=RC §6.1)
   - Déclaration appropriée de banques ou preuve d'une assurance pour les risques professionnels (source=RC §6.1)
-  - Attestation d'assurance décennale à produire dans les 10 jours suivant la notification provisoire d'attribution (source=RC §8.3)
+  - Attestation d'assurance décennale à produire dans les 10 jours suivant la notification d'attribution provisoire (source=RC §8.3)
+  - Liste des travaux exécutés au cours des cinq dernières années, appuyée d'attestations de bonne exécution pour les plus importants (source=RC §6.1)
 
 ## ⚠ Alertes candidat
-- Limitation à 2 lots maximum par candidat : impossible de soumissionner sur l'ensemble des lots — stratégie de sélection des lots obligatoire avant réponse (RC §1.4).
-- Clauses environnementales obligatoires : toute offre ne respectant pas les conditions d'exécution à caractère environnemental sera déclarée irrégulière sans possibilité de régularisation (RC §2.4).
-- SOGED (Schéma d'Organisation et de Gestion des Déchets) à fournir obligatoirement dans l'offre — son absence ou son insuffisance impacte le critère 'Démarche HQE' (RC §6.1).
-- Sous-critère étanchéité à l'air spécifique pour les lots 1, 3, 6, 8, 11 et 12 : les entreprises de ces corps d'état doivent démontrer leur maîtrise de l'étanchéité à l'air dans leur dossier technique (RC §8.2).
-- Visite sur site facultative mais fortement conseillée (lundi 15 juin ou lundi 22 juin 2026) — la non-visite peut se traduire par des insuffisances méthodologiques pénalisantes sur le critère 'Note méthodologique spécifique au chantier' (18 pts sur 100).
-- Attestation d'assurance décennale exigée dans les 10 jours suivant la notification provisoire — vérifier sa disponibilité avant de soumissionner (RC §8.3).
+- LIMITATION À 2 LOTS MAXIMUM : un candidat ne peut soumettre des offres que pour 2 lots au maximum et se voir attribuer au maximum 2 lots. Toute offre pour un 3e lot serait irrecevable — à vérifier impérativement avant dépôt.
+- DOSSIER DE CANDIDATURE COMPLET OBLIGATOIRE : le RC liste de nombreuses pièces de candidature (DC1/DC2, déclarations, références sur 5 ans, attestations, mesures environnementales) ; l'absence de pièce peut conduire à une demande de régularisation dans un délai de 10 jours — anticiper.
+- SOGED OBLIGATOIRE : le schéma d'organisation et de gestion des déchets est exigé dans l'offre et noté (2 points HQE). Son absence serait un motif d'irrégularité partielle.
+- ASSURANCE DÉCENNALE EXIGÉE : l'attributaire provisoire doit produire son attestation d'assurance décennale dans les 10 jours suivant la notification — vérifier la couverture pour le corps d'état concerné avant de répondre.
+- CLAUSES ENVIRONNEMENTALES OBLIGATOIRES (CCAP) : le non-respect des conditions d'exécution environnementales rend l'offre irrégulière. Bien lire le CCAP (non fourni dans ce DCE analysé) avant de finaliser l'offre.
+- DPGF TYPE PRIX FORFAITAIRE : toute omission dans la décomposition du prix est à la charge du titulaire — les diagnostics amiante/plomb/parasitaire et l'étude géotechnique sont fournis et doivent être intégrés dans le chiffrage.
 
 ## 💡 Points différenciants attendus
-- Maîtrise de l'étanchéité à l'air et des interfaces entre lots (exemple=Pour les lots 3, 6, 8, 11 et 12, un candidat qui propose une valeur cible de perméabilité (n50 ou Q4Pa-surf), décrit le traitement des points singuliers et formule un protocole de coordination inter-lots se distinguera nettement sur le sous-critère 'étanchéité à l'air' (3 pts) et sur la méthodologie chantier (18 pts)., source=RC §8.2)
-- Qualité et origine environnementale des matériaux (exemple=Proposer des matériaux biosourcés ou à faible impact environnemental avec FDES vérifiée (laine de bois, bois certifié PEFC, enduits naturels) permet de scorer sur les 3 pts de prescriptions environnementales des matériaux, en cohérence avec la vocation environnementale du bâtiment (Maison de l'Eau et de l'Environnement)., source=RC §8.2)
-- Démarche chantier propre et gestion des déchets de qualité (exemple=Un SOGED détaillé avec quantification précise par flux, filières de valorisation nommées et traçabilité BSD démontre une réelle démarche HQE sur les 6 pts du critère 3 — particulièrement valorisant pour un équipement dédié à l'environnement., source=RC §8.2)
-- Références de chantiers de transformation/réhabilitation similaires récentes (exemple=Présenter des références de transformation de bâtiments existants en équipements publics recevant du public (ERP), avec attestations de bonne exécution détaillées (montant, maître d'ouvrage, date), maximalise les 4 pts de références tout en renforçant la crédibilité de la note méthodologique., source=RC §8.2)
-- Variantes proposées pour les lots autorisés (exemple=Pour les lots 3, 7, 8, 10 et 11, proposer une variante techniquement justifiée (ex : couverture végétalisée en lot 3, plancher chauffant basse température en lot 12) peut apporter une valeur ajoutée technique et se différencier sur le critère qualité des matériaux, tout en restant obligatoirement accompagnée de la solution de base., source=RC §2.3)
+- Maîtrise de l'étanchéité à l'air en réhabilitation ossature bois (exemple=Un candidat sur le lot 8 (plâtrerie-isolation) ou le lot 2 (ossature bois) qui présente une solution détaillée de traitement de l'étanchéité à l'air avec références de chantiers passant un test à la porte soufflante (valeur n50 mesurée) se distinguera significativement sur les 3 points dédiés du sous-critère 2.3., source=RC §8.2 — sous-critère 2.3)
+- Utilisation de matériaux biosourcés ou à faible impact environnemental en cohérence avec la vocation de l'équipement (exemple=Pour un bâtiment qui va s'appeler 'Maison de l'Eau et de l'Environnement', proposer des matériaux biosourcés (laine de bois, bardage bois PEFC, peintures sans COV) avec leurs FDES constitue un axe fortement valorisé sur le critère 2.2 (prescriptions environnementales) et renforce la cohérence globale de l'offre., source=RC §8.2 — sous-critère 2.2)
+- SOGED détaillé avec objectif chiffré de valorisation des déchets (exemple=Présenter un SOGED avec un taux de valorisation ciblé (ex. ≥ 70% matière) par catégorie de déchets (bois, plâtre, DIB, DD), les filières locales identifiées et un tableau de suivi hebdomadaire, permet de scorer au maximum les 2 points HQE 'prévisionnel de déchets'., source=RC §8.2 — sous-critère 3.2)
+- Note méthodologique spécifique au chantier avec gestion des interfaces entre lots (exemple=Sur 18 points, la méthodologie doit aller au-delà d'un planning générique : identifier les interfaces critiques entre lots (ex. lot 2 ossature bois / lot 3 couverture / lot 8 isolation — chaîne de l'étanchéité à l'air), proposer des réunions de coordination inter-lots spécifiques, et détailler la gestion des contraintes de site (Biscarrosse : milieu naturel lacustre, sensibilité environnementale)., source=RC §8.2 — sous-critère 1.1)
+- Cohérence avec la vocation pédagogique et environnementale du projet dans la note méthodologique (exemple=La Maison de l'Eau et de l'Environnement est destinée au public et aux scolaires — un candidat qui intègre cette vocation dans sa méthodologie (protection du milieu naturel pendant le chantier, chantier exemplaire visible des scolaires) peut se démarquer sur le critère HQE (note environnementale chantier, 4 points).)

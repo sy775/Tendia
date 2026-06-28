@@ -1,0 +1,576 @@
+{
+  "synthese_marche": "Marché public de fournitures de la Ville de Maisons-Laffitte portant sur trois lots : fournitures scolaires (lot 1, plafond 45 000 € HT/an), matériel pédagogique et éducatif (lot 2, plafond 50 000 € HT/an) et livres scolaires (lot 3, plafond 20 000 € HT/an), destinés aux écoles maternelles, élémentaires et accueils de loisirs. Accord-cadre mono-attributaire à bons de commande, d'une durée initiale de 12 mois reconductible 3 fois (4 ans maximum), passé en appel d'offres ouvert. La notation est identique pour les trois lots : 60% prix et 40% valeur technique.",
+  "domaines_metier": [
+    {
+      "code": "fourniture_consommables"
+    }
+  ],
+  "raison_classification": "Le marché porte exclusivement sur la fourniture de consommables scolaires (cahiers, stylos, colles, peintures, papiers créatifs) et de livres, destinés à un usage quotidien dans des établissements scolaires. Il s'agit d'un marché de fournitures récurrentes, sans dimension de formation ni de services intellectuels, correspondant exactement au code 'fourniture_consommables' (papeterie, fournitures de bureau, consommables récurrents). Le code CPV principal 39162000-5 (matériel pédagogique) et secondaire 22111000-1 (livres scolaires) confirment cette classification.",
+  "caracteristiques_metier": {
+    "description": "Fourniture et livraison de fournitures scolaires courantes (cahiers, stylos, classeurs, colles, ciseaux), de matériel pour activités manuelles et pédagogiques (peintures, papiers créatifs, matériaux de modelage, perles, gommettes) et de livres scolaires (manuels, fichiers pédagogiques, ouvrages de littérature scolaire, parascolaires, dictionnaires) destinés aux écoles maternelles et élémentaires ainsi qu'aux accueils de loisirs de la Ville de Maisons-Laffitte. Les articles doivent être adaptés à un usage intensif par des enfants, non toxiques, conformes aux normes EN 71 et REACH. Les commandes sont passées via une plateforme en ligne dédiée, livrées directement dans chaque établissement.",
+    "criteres_eligibilite": [
+      "Aptitude professionnelle à exercer l'activité (distribution/fourniture de matériel scolaire)",
+      "Capacités économiques et financières (chiffre d'affaires global des 3 derniers exercices)",
+      "Capacités techniques et professionnelles (références similaires des 5 dernières années, effectifs, moyens matériels)",
+      "Respect de la législation sociale et lutte contre le travail dissimulé",
+      "Fourniture d'échantillons physiques pour les lots 1 et 2 avant la date limite de dépôt des offres"
+    ]
+  },
+  "bareme_notation": {
+    "valeur_technique_pct": 40,
+    "valeur_prix_pct": 60,
+    "sous_criteres_techniques": [
+      {
+        "libelle": "Organisation des commandes et logistique",
+        "ponderation_pct": 15,
+        "description": "L'acheteur évalue la facilité et la fiabilité du processus de commande via plateforme en ligne, les outils de suivi et de traçabilité des commandes, ainsi que l'organisation logistique (préparation, gestion des volumes, transport). Un test de la plateforme est exigé (fourniture d'un code d'accès).",
+        "elements_attendus": [
+          "Description du processus de commande en ligne (ergonomie, simplicité d'utilisation)",
+          "Outils et modalités de suivi des commandes et de traçabilité",
+          "Organisation logistique : préparation des commandes, gestion des volumes et des pics de rentrée",
+          "Fourniture d'un code d'accès à la plateforme pour test par l'acheteur",
+          "Délais de traitement et capacité à livrer directement dans chaque établissement scolaire"
+        ],
+        "exemple_reponse_forte": "Notre plateforme B2B permet à chaque directeur d'école de créer sa commande en moins de 5 minutes, avec validation automatique par le service scolaire avant transmission. Le suivi est assuré par un tableau de bord temps réel affichant le statut de chaque bon de commande, avec alerte SMS à la livraison. Pour la rentrée de septembre, une campagne de commandes groupées est activée dès juin, avec préparation à J-15 pour garantir une livraison la semaine précédant la rentrée sur les 20 sites.",
+        "source": "RC §6.1.2",
+        "unite_evaluation": "points",
+        "sous_criteres": [
+          {
+            "libelle": "Processus de commande (ergonomie et simplicité)",
+            "ponderation_pct": 3,
+            "description": "Évalue l'ergonomie et la facilité de prise en main de la plateforme de commande.",
+            "elements_attendus": [
+              "Interface intuitive pour les enseignants et directeurs d'accueil de loisirs",
+              "Processus de validation par le service scolaire intégré",
+              "Code d'accès pour test de la plateforme fourni"
+            ],
+            "exemple_reponse_forte": "La plateforme propose un tunnel de commande en 3 étapes (sélection, panier, validation) avec interface adaptée aux non-professionnels, accessible sur mobile et desktop.",
+            "source": "RC §6.1.2",
+            "unite_evaluation": "points"
+          },
+          {
+            "libelle": "Modalités de suivi des commandes (outils, traçabilité)",
+            "ponderation_pct": 3,
+            "description": "Évalue les outils de traçabilité et le suivi post-commande.",
+            "elements_attendus": [
+              "Tableau de bord de suivi des commandes en temps réel",
+              "Notifications automatiques à chaque étape (validation, expédition, livraison)",
+              "Historique des commandes accessible par le service scolaire"
+            ],
+            "exemple_reponse_forte": "Chaque bon de commande est tracé de la validation à la livraison avec notification par e-mail au service scolaire. Un historique complet est consultable sur la plateforme.",
+            "source": "RC §6.1.2",
+            "unite_evaluation": "points"
+          },
+          {
+            "libelle": "Organisation logistique (préparation, gestion des volumes, transport)",
+            "ponderation_pct": 4,
+            "description": "Évalue la capacité à préparer et livrer les commandes dans les délais, notamment lors des pics de rentrée.",
+            "elements_attendus": [
+              "Organisation de la préparation des commandes (entrepôt, picking, conditionnement)",
+              "Capacité à gérer les pics de volume (rentrée scolaire)",
+              "Respect des délais de livraison sous 8 jours ouvrés et livraison avant la rentrée",
+              "Identification et répartition des fournitures par classe conformément au bon de commande"
+            ],
+            "exemple_reponse_forte": "Notre entrepôt de 3 000 m² dispose d'une équipe dédiée aux marchés publics scolaires. Pour la rentrée 2025, nous avons préparé et livré 12 000 colis en J-7 pour 45 collectivités, avec zéro retard constaté.",
+            "source": "RC §6.1.2",
+            "unite_evaluation": "points"
+          }
+        ]
+      },
+      {
+        "libelle": "Qualité et adéquation des fournitures (au regard des échantillons fournis)",
+        "ponderation_pct": 10,
+        "description": "Évaluée sur la base des échantillons physiques fournis par le candidat (listés dans le BPU/DQE pour les lots 1 et 2 uniquement). La notation porte sur la qualité des produits au regard des spécifications du BPU, la conformité aux exigences techniques et l'ergonomie en milieu scolaire.",
+        "elements_attendus": [
+          "Échantillons remis avant la date limite, clairement identifiés (nom candidat, lot, référence, ligne BPU)",
+          "Conformité des produits aux spécifications du BPU (grammage, dimensions, réglure, etc.)",
+          "Qualité adaptée à un usage scolaire intensif (résistance, non-toxicité, sécurité)",
+          "Ergonomie pour les enfants (corps triangulaire, embouts, tailles adaptées)",
+          "Conformité aux normes EN 71 et REACH"
+        ],
+        "exemple_reponse_forte": "Les cahiers polypropylène proposés (ligne 22 du BPU, lot 1) présentent une couverture 21/100ème résistant aux 300 ouvertures/fermetures annuelles, un papier 90g certifié FSC, et un séyès d'apprentissage conforme aux prescriptions du Ministère de l'Éducation nationale. Les crayons graphite triangulaires (ligne 130) sont certifiés EN 71-3 pour usage enfant dès 3 ans.",
+        "source": "RC §7",
+        "unite_evaluation": "points",
+        "sous_criteres": []
+      },
+      {
+        "libelle": "Qualité de service",
+        "ponderation_pct": 10,
+        "description": "L'acheteur évalue l'organisation du service après-vente, les modalités de gestion des retours et échanges, ainsi que la réactivité et l'accompagnement personnalisé.",
+        "elements_attendus": [
+          "Organisation du SAV : interlocuteur dédié, délais de traitement",
+          "Modalités de gestion des retours et échanges (remplacement sous 5 jours ouvrés selon CCTP)",
+          "Réactivité et accompagnement personnalisé (délai de réponse, disponibilité)",
+          "Procédure en cas de livraison non conforme ou incomplète",
+          "Présence de catalogues papier en nombre suffisant dans les établissements"
+        ],
+        "exemple_reponse_forte": "Un chef de compte dédié est assigné à la Ville de Maisons-Laffitte, joignable par téléphone et e-mail, avec engagement de réponse sous 4 heures ouvrées. Tout article non conforme est repris et remplacé à nos frais sous 3 jours ouvrés, avec bon de retour prépayé transmis par e-mail.",
+        "source": "RC §6.1.2",
+        "unite_evaluation": "points",
+        "sous_criteres": [
+          {
+            "libelle": "Organisation du SAV",
+            "ponderation_pct": 4,
+            "description": "Évalue la structure et l'efficacité du service après-vente.",
+            "elements_attendus": [
+              "Interlocuteur dédié identifié dans le mémoire technique",
+              "Délais de traitement des réclamations",
+              "Canaux de contact disponibles (téléphone, e-mail, plateforme)"
+            ],
+            "exemple_reponse_forte": "Notre SAV scolaire est dimensionné avec 2 techniciens dédiés au secteur public, assurant une prise en charge des réclamations sous 24h ouvrées.",
+            "source": "RC §6.1.2",
+            "unite_evaluation": "points"
+          },
+          {
+            "libelle": "Modalités de gestion des retours et échanges",
+            "ponderation_pct": 3,
+            "description": "Évalue les procédures de retour et de remplacement des fournitures défectueuses ou non conformes.",
+            "elements_attendus": [
+              "Délai de remplacement (CCTP prévoit 5 jours ouvrés)",
+              "Prise en charge des frais de retour",
+              "Procédure simplifiée via la plateforme"
+            ],
+            "exemple_reponse_forte": "Les retours sont initiés directement sur la plateforme avec génération d'un bon de retour prépayé. Le remplacement est expédié sous 48h à réception du produit retourné.",
+            "source": "RC §6.1.2",
+            "unite_evaluation": "points"
+          },
+          {
+            "libelle": "Réactivité et accompagnement personnalisé",
+            "ponderation_pct": 3,
+            "description": "Évalue la disponibilité et la qualité de l'accompagnement proposé à la collectivité.",
+            "elements_attendus": [
+              "Engagement de délai de réponse aux demandes",
+              "Formation ou accompagnement des utilisateurs à la prise en main de la plateforme",
+              "Visite de démarrage ou réunion de lancement proposée"
+            ],
+            "exemple_reponse_forte": "Une session de formation à la plateforme de commande est proposée gratuitement au service scolaire en début de marché, avec guide utilisateur personnalisé aux établissements de la Ville.",
+            "source": "RC §6.1.2",
+            "unite_evaluation": "points"
+          }
+        ]
+      },
+      {
+        "libelle": "Démarche environnementale",
+        "ponderation_pct": 5,
+        "description": "L'acheteur évalue les caractéristiques environnementales des produits proposés, la gestion des emballages et l'organisation logistique écoresponsable.",
+        "elements_attendus": [
+          "Produits certifiés (écolabel européen, NF Environnement, FSC, PEFC, Ange Bleu)",
+          "Proportion de produits recyclés ou éco-conçus dans l'offre",
+          "Optimisation des emballages (réduction, recyclabilité, vrac)",
+          "Regroupement des commandes et optimisation des tournées de livraison",
+          "Actions de sensibilisation du personnel à l'écoresponsabilité"
+        ],
+        "exemple_reponse_forte": "65% des références de notre BPU sont certifiées écolabel européen ou NF Environnement. Les livraisons sont regroupées par établissement pour limiter les déplacements, avec un bilan carbone annuel transmis à la collectivité. Les emballages sont 100% recyclables et réduits au minimum.",
+        "source": "RC §6.1.2",
+        "unite_evaluation": "points",
+        "sous_criteres": [
+          {
+            "libelle": "Caractéristiques environnementales des produits",
+            "ponderation_pct": 2,
+            "description": "Évalue les labels, certifications et caractéristiques environnementales des fournitures proposées.",
+            "elements_attendus": [
+              "Labels et certifications environnementales des produits (écolabel, NF Env, FSC…)",
+              "Part de produits recyclés ou éco-conçus"
+            ],
+            "exemple_reponse_forte": "Nos cahiers sont fabriqués avec du papier certifié FSC et portent la marque NF Environnement, garantissant une fabrication à faible impact environnemental.",
+            "source": "RC §6.1.2",
+            "unite_evaluation": "points"
+          },
+          {
+            "libelle": "Gestion des emballages",
+            "ponderation_pct": 1.5,
+            "description": "Évalue la politique de réduction et de recyclage des emballages.",
+            "elements_attendus": [
+              "Réduction des emballages superflus",
+              "Matériaux d'emballage recyclables ou réutilisables"
+            ],
+            "exemple_reponse_forte": "Nos cartons de livraison sont composés à 80% de matières recyclées et nos protections intérieures sont en papier kraft, sans plastique à usage unique.",
+            "source": "RC §6.1.2",
+            "unite_evaluation": "points"
+          },
+          {
+            "libelle": "Organisation logistique écoresponsable",
+            "ponderation_pct": 1.5,
+            "description": "Évalue les actions pour réduire l'empreinte carbone des livraisons.",
+            "elements_attendus": [
+              "Optimisation des tournées et regroupement des commandes",
+              "Utilisation de véhicules à faibles émissions ou électriques"
+            ],
+            "exemple_reponse_forte": "Les livraisons sur la commune de Maisons-Laffitte sont effectuées par un véhicule électrique depuis notre entrepôt francilien, avec regroupement systématique des commandes par établissement pour minimiser les allers-retours.",
+            "source": "RC §6.1.2",
+            "unite_evaluation": "points"
+          }
+        ]
+      }
+    ],
+    "prix": {
+      "type_formule": "moins_disant",
+      "formule_explicite": "Lots 1 et 2 : Note prix = 60 × (montant DQE le plus bas / montant DQE de l'offre analysée). Lot 3 : Note catégorie = (taux de remise du candidat / taux de remise le plus élevé) × pondération de la catégorie ; note globale = somme des notes par catégorie (sur 60 points).",
+      "source": "RC §6.1.2",
+      "elements_a_chiffrer": [
+        "BPU lot 1 : prix unitaires de 220 articles (cahiers, fournitures d'écriture, papeterie, classement) complétés avec les quantités du DQE",
+        "BPU lot 2 : prix unitaires de 196 articles (papiers, peintures, modelage, perles, matériaux créatifs) complétés avec les quantités du DQE",
+        "BPU lot 3 : taux de remise en % sur 7 catégories d'ouvrages (manuels, fichiers consommables/non consommables, ouvrages enseignants, littérature BCD, parascolaire, dictionnaires)",
+        "Taux de remise sur catalogue pour les articles hors BPU (lots 1 et 2)"
+      ]
+    },
+    "modalite_calcul_prix": "Lots 1 et 2 : Note prix = 60 × (montant DQE le plus bas / montant DQE de l'offre analysée). Lot 3 : note pondérée par catégorie selon les taux de remise proposés."
+  },
+  "montant_marche": {
+    "valeur_estimee_euros": 460000,
+    "fourchette_min_euros": 345000,
+    "fourchette_max_euros": 460000,
+    "type": "plafond",
+    "duree_couverte": "4 ans (durée maximale accord-cadre, reconduction 3 fois 12 mois)",
+    "source_extraction": "RC §2.3 et CCAP 'Forme du marché' — plafonds annuels : lot 1 = 45 000 €, lot 2 = 50 000 €, lot 3 = 20 000 € HT",
+    "commentaire": "Les plafonds annuels sont : lot 1 = 45 000 €, lot 2 = 50 000 €, lot 3 = 20 000 € HT, soit 115 000 €/an. Sur 4 ans maximum : 460 000 € HT. Aucun minimum garanti. La fourchette basse correspond à 3 ans d'exécution effective (cas de non-reconduction à mi-parcours)."
+  },
+  "montant_3_voies": {
+    "voie_1_eur": 460000,
+    "voie_1_source": "RC §2.3 et CCAP — plafonds annuels publiés : lot 1 = 45 000 €, lot 2 = 50 000 €, lot 3 = 20 000 € HT × 4 ans maximum",
+    "voie_2_disponible": false,
+    "voie_2_min_eur": null,
+    "voie_2_max_eur": null,
+    "voie_2_hypotheses": [],
+    "voie_2_raison_indisponible": "Voie 1 disponible : les plafonds annuels par lot sont explicitement publiés dans le RC et le CCAP, permettant de calculer le montant maximum total de l'accord-cadre sur 4 ans."
+  },
+  "cout_realisation": {
+    "cout_total_eur": 99175,
+    "cout_min_eur": 87400,
+    "cout_max_eur": 110950,
+    "postes": [
+      {
+        "poste": "Coût d'achat fournitures lot 1 (cahiers, stylos, papeterie) — à un taux de marge distributeur de 30% sur CA",
+        "detail": "CA lot 1 max annuel 45 000 € × 70% coût d'achat × 4 ans fictifs ramenés à usage annuel",
+        "montant_eur": 31500
+      },
+      {
+        "poste": "Coût d'achat fournitures lot 2 (peintures, matériaux créatifs) — à un taux de marge distributeur de 28%",
+        "detail": "CA lot 2 max annuel 50 000 € × 72% coût d'achat",
+        "montant_eur": 36000
+      },
+      {
+        "poste": "Coût d'achat livres scolaires lot 3 — marges éditeurs/distributeurs réduites (~5-8%)",
+        "detail": "CA lot 3 max annuel 20 000 € × 92% coût d'achat (remise retransmise à l'acheteur)",
+        "montant_eur": 18400
+      },
+      {
+        "poste": "Logistique et livraisons (transport, préparation commandes, conditionnement)",
+        "detail": "~6% du CA global annuel 115 000 €",
+        "montant_eur": 6900
+      },
+      {
+        "poste": "Frais commerciaux et administratifs (SAV, suivi de compte, gestion plateforme)",
+        "detail": "~3% du CA global annuel",
+        "montant_eur": 3450
+      },
+      {
+        "poste": "Échantillons pour lots 1 et 2 (coût one-shot à la soumission)",
+        "detail": "Fourniture gratuite selon RC, mais coût interne estimé",
+        "montant_eur": 925
+      }
+    ],
+    "taux_journaliers_retenus": "Taux marché indicatifs pour négoce/distribution scolaire : marge brute distributeur fournitures scolaires courantes 25-35% ; marge brute livres scolaires 5-10% (prix règlementé loi Lang). Coûts logistiques estimés à 5-7% du CA pour livraisons multi-sites.",
+    "commentaire": "Estimation côté candidat (distributeur de fournitures scolaires). Les coûts sont exprimés sur la base des plafonds annuels. Pour les livres (lot 3), la marge est structurellement faible (loi Lang + remises compétitives). La rentabilité globale dépend fortement du taux de commandes effectif (aucun minimum garanti). Estimation construite par lot, puis agrégée."
+  },
+  "revision_prix": {
+    "type": "indexation",
+    "indices_utilises": [
+      "INSEE IPC — Indice des prix à la consommation — Ensemble des ménages — France entière"
+    ],
+    "ponderation": "25% partie fixe + 75% indexée sur l'IPC INSEE",
+    "periodicite": "annuelle",
+    "formule_revision": "P(n) = P(o) [0,25 + 0,75 × IND(n)/IND(o)] — IND(o) = indice du mois précédant la date limite de remise des offres ; IND(n) = dernier indice connu 120 jours avant la date anniversaire du marché.",
+    "source_extraction": "CCAP §'Variation des prix' — lots 1 et 2 uniquement",
+    "commentaire": "Formule applicable aux articles du BPU des lots 1 et 2 uniquement. Les prix du catalogue évoluent selon les conditions commerciales du titulaire (remises fixes). Pour le lot 3, les prix suivent les prix publics éditeurs à la date de commande, avec taux de remise fixes. Révision à l'initiative du titulaire, 3 mois avant la date anniversaire."
+  },
+  "alertes_prix": [
+    "Aucun montant minimum garanti : l'acheteur ne s'engage sur aucun volume, le titulaire ne peut prétendre à aucune indemnité si peu ou pas de bons de commande sont émis.",
+    "Lot 3 (livres scolaires) : rentabilité structurellement limitée par la loi Lang sur le prix unique du livre — les taux de remise proposés doivent absorber tous les frais (livraison incluse selon CCAP).",
+    "Critère prix pondéré à 60% : fort appel à la compétitivité sur les prix unitaires du BPU et les taux de remise catalogue — risque d'offre anormalement basse (OAB) à surveiller.",
+    "Formule prix lots 1 et 2 basée sur le DQE (document non contractuel) : le total DQE pilote la notation mais ne reflète pas les volumes réels commandés — optimiser les prix sur les articles à forte quantité DQE.",
+    "Plafonds annuels fermes (45k€, 50k€, 20k€) : au-delà, aucune commande supplémentaire possible sans avenant."
+  ],
+  "references_exigees": {
+    "experience_minimale_annees": null,
+    "experience_source": null,
+    "volume_min_references_similaires": null,
+    "volume_min_references_unite": "marchés similaires",
+    "secteur_experience": "Fourniture de fournitures scolaires, matériel pédagogique et/ou livres scolaires destinés à des établissements d'enseignement ou collectivités territoriales",
+    "secteur_source": "RC §5.1.1",
+    "certifications_obligatoires": [],
+    "autres_exigences": [
+      {
+        "libelle": "Chiffre d'affaires global réalisé au cours des trois derniers exercices disponibles (montant non précisé dans le RC)",
+        "source": "RC §5.1.1"
+      },
+      {
+        "libelle": "Liste des principales fournitures exécutées au cours des cinq dernières années, appuyée d'attestations de bonne exécution",
+        "source": "RC §5.1.1"
+      },
+      {
+        "libelle": "Effectifs moyens annuels pour chacune des trois dernières années",
+        "source": "RC §5.1.1"
+      },
+      {
+        "libelle": "Moyens matériels et équipements techniques disponibles pour l'exécution du marché (entrepôt, flotte de livraison, plateforme de commande)",
+        "source": "RC §5.1.1"
+      },
+      {
+        "libelle": "Fourniture d'échantillons physiques avant la date limite de remise des offres (lots 1 et 2) — absence partielle ou totale peut entraîner irrégularité de l'offre ou dégradation de la note",
+        "source": "RC §7"
+      }
+    ]
+  },
+  "dossier_candidature": {
+    "pieces_a_fournir": [
+      {
+        "libelle": "Lettre de candidature DC1 (ou document équivalent) — déclaration sur l'honneur attestant de l'absence d'interdiction de soumissionner et du respect des obligations relatives à l'emploi des travailleurs handicapés",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §5.1.1"
+      },
+      {
+        "libelle": "Déclaration du candidat DC2 (ou document équivalent) — capacités juridiques, économiques, financières, techniques et professionnelles",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §5.1.1"
+      },
+      {
+        "libelle": "Chiffre d'affaires global des trois derniers exercices disponibles",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §5.1.1"
+      },
+      {
+        "libelle": "Liste des principales fournitures exécutées au cours des cinq dernières années avec attestations de bonne exécution",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §5.1.1"
+      },
+      {
+        "libelle": "Effectifs moyens annuels des trois dernières années",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §5.1.1"
+      },
+      {
+        "libelle": "Moyens matériels et équipements techniques disponibles",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §5.1.1"
+      },
+      {
+        "libelle": "Acte d'engagement (AE) par lot dûment complété, incluant les taux de remise catalogue (lots 1 et 2) et les taux de remise sur prix public éditeur (lot 3)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §5.1.2"
+      },
+      {
+        "libelle": "Bordereau des Prix Unitaires (BPU) par lot entièrement complété",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §5.1.2"
+      },
+      {
+        "libelle": "Détail Quantitatif Estimatif (DQE) par lot entièrement complété (lots 1 et 2 uniquement — document non contractuel)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §5.1.2"
+      },
+      {
+        "libelle": "Mémoire technique par lot dûment complété, respectant l'architecture du cadre de mémoire technique figurant au DCE",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §5.1.2"
+      },
+      {
+        "libelle": "Catalogue du candidat (ou lien internet) permettant d'identifier les fournitures proposées en complément du BPU",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §5.1.2"
+      },
+      {
+        "libelle": "Échantillons physiques (listés dans le BPU/DQE) pour les lots 1 et 2 — à remettre en main propre au Service scolaire, 13 rue du Fossé, 78600 Maisons-Laffitte, avant la date et heure limite",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §7"
+      },
+      {
+        "libelle": "Code d'accès à la plateforme de commande pour test (sous-critère organisation logistique)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §6.1.2"
+      },
+      {
+        "libelle": "Déclaration de sous-traitance DC4 (le cas échéant)",
+        "phase": "offre",
+        "obligatoire": false,
+        "source": "RC §5.1.2"
+      }
+    ],
+    "mode_remise": "dématérialisé + copie de sauvegarde",
+    "plateforme_depot": "Maximilien — https://marches.maximilien.fr",
+    "signature_electronique_exigee": false,
+    "format_signature": null,
+    "nombre_exemplaires": null,
+    "langue": "français",
+    "duree_validite_offres_jours": 180,
+    "modalites_source": "RC §5.4 et §3.5"
+  },
+  "lots": [
+    {
+      "numero": 1,
+      "intitule": "Fournitures scolaires",
+      "domaine": "fourniture_consommables",
+      "zone_geographique": "Maisons-Laffitte (78)",
+      "volume_estime": 220,
+      "volume_estime_unite": "références BPU",
+      "cout_estime_min_eur": 28000,
+      "cout_estime_max_eur": 34000,
+      "ca_estime_min_eur": 38000,
+      "ca_estime_max_eur": 45000,
+      "marge_brute_pct": 18,
+      "particularites": "220 références au BPU couvrant cahiers, fournitures d'écriture, classement et papeterie. Échantillons physiques obligatoires (16 articles marqués * dans le BPU). Livraison dans 20 établissements scolaires et accueils de loisirs. Plafond annuel 45 000 € HT. Commandes possibles tout au long de l'année, avec pic à la rentrée de septembre."
+    },
+    {
+      "numero": 2,
+      "intitule": "Fourniture de matériel pédagogique et éducatif",
+      "domaine": "fourniture_consommables",
+      "zone_geographique": "Maisons-Laffitte (78)",
+      "volume_estime": 196,
+      "volume_estime_unite": "références BPU",
+      "cout_estime_min_eur": 31000,
+      "cout_estime_max_eur": 38000,
+      "ca_estime_min_eur": 42000,
+      "ca_estime_max_eur": 50000,
+      "marge_brute_pct": 18,
+      "particularites": "196 références au BPU couvrant papiers et cartons créatifs, peintures et dessin, modelage, perles, matériaux créatifs et gommettes. Échantillons physiques obligatoires (17 articles marqués *). Plafond annuel 50 000 € HT. Usage en milieu scolaire maternelle/élémentaire et centres de loisirs."
+    },
+    {
+      "numero": 3,
+      "intitule": "Fourniture de livres scolaires",
+      "domaine": "fourniture_consommables",
+      "zone_geographique": "Maisons-Laffitte (78)",
+      "volume_estime": 7,
+      "volume_estime_unite": "catégories d'ouvrages",
+      "cout_estime_min_eur": 17000,
+      "cout_estime_max_eur": 19500,
+      "ca_estime_min_eur": 18000,
+      "ca_estime_max_eur": 20000,
+      "marge_brute_pct": 6,
+      "particularites": "Fourniture de livres scolaires neufs conformes aux programmes de l'Éducation nationale pour les niveaux maternelle et élémentaire (manuels, fichiers pédagogiques, ouvrages enseignants, littérature BCD, parascolaire, dictionnaires). Prix basé sur les taux de remise appliqués aux prix publics éditeurs. Aucun échantillon requis. Plafond annuel 20 000 € HT. Contrainte loi Lang sur le prix du livre — marge structurellement faible. Base de données des ouvrages disponibles à fournir à la collectivité."
+    }
+  ],
+  "tranches": [],
+  "calendrier": {
+    "date_limite_offres": "2026-07-09",
+    "date_demarrage_prevue": null,
+    "duree_marche": "12 mois renouvelables 3 fois, durée totale maximale 4 ans"
+  },
+  "alertes_candidat": [
+    "ÉCHANTILLONS PHYSIQUES OBLIGATOIRES (lots 1 et 2) : les articles marqués * dans le BPU doivent être remis EN MAIN PROPRE au Service scolaire (13 rue du Fossé, Maisons-Laffitte) AVANT le 9 juillet 2026 à 12h00 — tout échantillon reçu hors délai ne sera pas pris en compte ; l'absence totale ou partielle peut entraîner l'irrégularité de l'offre.",
+    "PLATEFORME EN LIGNE OBLIGATOIRE avec code d'accès à fournir : le candidat doit disposer d'une plateforme de commande B2B opérationnelle et transmettre un code d'accès pour test — l'absence de plateforme opérationnelle est éliminatoire en pratique.",
+    "BPU intégralement complété requis pour les 3 lots : tout bordereau incomplet peut être déclaré irrégulier — les 220 lignes lot 1, 196 lignes lot 2 et 7 lignes lot 3 doivent être chiffrées.",
+    "Mémoire technique structuré selon l'architecture du cadre fourni au DCE : le non-respect de la structure peut dégrader la note technique sans constituer un motif d'irrecevabilité.",
+    "Aucun minimum garanti : sans engagement de volume de la part de la Ville, la rentabilité dépend entièrement des bons de commande émis — risque commercial élevé sur le lot 3 (livres) dont la marge brute structurelle est faible."
+  ],
+  "points_differenciants_attendus": [
+    {
+      "libelle": "Plateforme de commande ergonomique avec test en direct",
+      "exemple": "Fournir un code d'accès à une plateforme B2B avec compte de démonstration pré-paramétré sur les établissements de Maisons-Laffitte, avec validation hiérarchique (enseignant → service scolaire → bon de commande fournisseur) démontrable lors de l'évaluation.",
+      "source": "RC §6.1.2"
+    },
+    {
+      "libelle": "Qualité supérieure des échantillons et conformité stricte au BPU",
+      "exemple": "Proposer des cahiers polypropylène dont la couverture résiste à plus de 300 cycles d'ouverture/fermeture, des crayons graphite triangulaires certifiés EN 71, et des colles en bâton sans solvant avec composition détaillée — en concordance exacte avec les lignes du BPU concernées.",
+      "source": "RC §7 et CCTP §4"
+    },
+    {
+      "libelle": "Taux de remise compétitifs sur les catégories prioritaires du lot 3",
+      "exemple": "Proposer un taux de remise élevé sur les manuels scolaires (catégorie pondérée à 40% dans le critère prix) plutôt que d'homogénéiser les remises sur toutes les catégories — une remise de 10% sur les manuels vs 5% sur le parascolaire sera plus différenciante qu'une remise uniforme de 7%.",
+      "source": "RC §6.1.2"
+    },
+    {
+      "libelle": "Démarche environnementale documentée avec labels vérifiables",
+      "exemple": "Lister dans le mémoire technique les références BPU portant un écolabel (NF Environnement, écolabel européen, FSC) avec les numéros de certificats, et décrire l'organisation des tournées de livraison mutualisées pour les établissements de Maisons-Laffitte (commune de petite taille, 20 sites concentrés).",
+      "source": "RC §6.1.2 et CCAP §'Protection de l'environnement'"
+    },
+    {
+      "libelle": "Interlocuteur dédié avec engagement de délai de remplacement inférieur au délai contractuel (5 jours)",
+      "exemple": "S'engager sur un délai de remplacement de 3 jours ouvrés (contre 5 jours au CCTP) et proposer un référent nominativement identifié dans le mémoire technique avec ses coordonnées directes, pour démontrer une réactivité supérieure aux exigences contractuelles.",
+      "source": "CCTP §3.3"
+    }
+  ],
+  "_meta": {
+    "id_marche": "BOAMP-26-56411",
+    "type": "complet",
+    "date_generation": "2026-06-20T23:44:22.049327+00:00",
+    "extraction_le": "2026-06-20T23:44:22.049327+00:00",
+    "modele": "claude-sonnet-4-6",
+    "preset_utilise": null,
+    "presets_matches": [],
+    "prompts_versions": {},
+    "tokens_input": 89575,
+    "tokens_output": 10824,
+    "cout_eur": 0.4095,
+    "duree_sec": 186.7,
+    "pdfs_traites": [
+      {
+        "nom": "Acte d'engagement - Lot 1.docx",
+        "hash": "567499fc79b0728591244c39773f1a86",
+        "taille_chars": 8913
+      },
+      {
+        "nom": "Acte d'engagement - Lot 2.docx",
+        "hash": "7d98557f3f997d03926f5b7b85d2c355",
+        "taille_chars": 8963
+      },
+      {
+        "nom": "Acte d'engagement - Lot 3.docx",
+        "hash": "8a0563a983b603901a8621e546054132",
+        "taille_chars": 8966
+      },
+      {
+        "nom": "BPU Lot n° 2 Fournitures pour activités manuelles et pédagogiques.xlsx",
+        "hash": "fe550175e242e822d031fd8d5678d725",
+        "taille_chars": 22165
+      },
+      {
+        "nom": "BPU Lot n° 3 Livres scolaires.xlsx",
+        "hash": "af58baaf374fe95157eaa06a9352196d",
+        "taille_chars": 2646
+      },
+      {
+        "nom": "BPU Lot n°1 Fournitures scolaires.xlsx",
+        "hash": "c4f6684b89d8c8944283333559d81b63",
+        "taille_chars": 27625
+      },
+      {
+        "nom": "CCAP.pdf",
+        "hash": "723fd42e28313bf75270f8ad931e42fb",
+        "taille_chars": 44601
+      },
+      {
+        "nom": "CCTP.pdf",
+        "hash": "e438d1e5c28beeb10e45b41ef2290601",
+        "taille_chars": 15752
+      },
+      {
+        "nom": "DC4.docx",
+        "hash": "a86879c134893722860bf1dad21ccd34",
+        "taille_chars": 15958
+      },
+      {
+        "nom": "Questions.pdf",
+        "hash": "9fd7ac327f7346a8a1e71261decaa1f5",
+        "taille_chars": 929
+      },
+      {
+        "nom": "Règlement de la consultation.pdf",
+        "hash": "9e9b0cd3b502460036508486813661ac",
+        "taille_chars": 34123
+      }
+    ]
+  }
+}

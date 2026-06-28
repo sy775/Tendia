@@ -1,6 +1,6 @@
 # Brief — Marché public relatif à des travaux de prolongation de la boucle haute tension (HTA) 20 KV du site ASNR du Vésinet
 
-_Généré le 2026-06-15 02:01 par Claude claude-sonnet-4-6_
+_Généré le 2026-06-20 05:45 par Claude claude-sonnet-4-6_
 
 ## Identifiants
 - **ID Tendia** : `BOAMP-26-57238`
@@ -10,42 +10,40 @@ _Généré le 2026-06-15 02:01 par Claude claude-sonnet-4-6_
 - **DCE PLACE** : <https://www.marches-publics.gouv.fr/entreprise/consultation/3015894?orgAcronyme=d4t>
 
 ## Synthèse
-Marché de travaux d'installations électriques haute tension (HTA 20 kV) sur le site ASNR du Vésinet (78), comprenant la création d'un nouveau poste HTA, la réalisation de liaisons HTA, la fourniture et installation d'un transformateur 24 kV/400 V, d'une AGBT et d'un TGBT CVC, ainsi que les études d'exécution, essais et mise en service. Marché à procédure adaptée (MAPA), lot unique, prix forfaitaire ferme, délai d'exécution estimé à 3 semaines hors approvisionnement.
+Marché ordinaire à procédure adaptée (MAPA) portant sur des travaux de prolongation de la boucle haute tension (HTA) 20 kV du site ASNR du Vésinet (78), comprenant la fourniture et l'installation d'un poste HTA béton/métallique, de cellules HTA, d'un transformateur 24 kV/400 V – 400 kVA, d'une AGBT, d'un TGBT CVC, la réalisation des liaisons HTA et les études d'exécution, essais et mise en service. Le marché est à lot unique, à prix forfaitaire ferme, avec un délai d'exécution estimé à 3 semaines hors approvisionnement. Une variante portant sur un transformateur d'occasion est prévue.
 
 ## 🏗 Chantier — caractéristiques BTP
-- **Description** : Prolongation de la boucle HTA 20 kV du site ASNR du Vésinet : création d'un poste HTA (béton ou métallique), installation de cellules HTA type IM et QM, fourniture/pose d'un transformateur 24 kV/400 V – 400 kVA, réalisation d'une liaison HTA en câble torsadé 3x1x95 Al avec fourreaux DN200, création d'une armoire AGBT et d'un TGBT CVC destiné à une future plateforme technique CVC (laboratoires LERCA et LEI). Études d'exécution, essais réglementaires et DOE inclus.
-- **Type d'ouvrage** : Site scientifique / laboratoires de radioprotection — installation HTA/BT en site occupé en exploitation
-- **Site occupé pendant travaux** : true — chantier réalisé en site en exploitation, accès soumis à enquête administrative préalable (délai minimum 72h), horaires 8h-18h jours ouvrés, accès HNO sur demande
-- **Corps d'état mobilisés** : Électricité courants forts HTA/BT, Génie civil associé (fond de forme poste HTA), Essais et mise en service électrique
+- **Description** : Prolongation de la boucle HTA 20 kV du site ASNR du Vésinet : création d'un nouveau poste HTA (béton ou métallique) avec fond de forme et génie civil, fourniture et installation de cellules HTA (type IM et QM), d'un transformateur 24 kV/400 V – 400 kVA, réalisation d'une liaison HTA par câble torsadé 3x1x95 mm² aluminium entre le bâtiment C3 et le nouveau poste, création d'une AGBT avec disjoncteur débrochable et comptage général, création d'un TGBT CVC pour alimenter une future plateforme technique CVC (puissance totale non foisonnée ~247 kW), études d'exécution, essais réglementaires, mise en service et DOE complet.
+- **Type d'ouvrage** : Site industriel/laboratoire de l'ASNR (autorité de sûreté nucléaire et de radioprotection) — bâtiments C3 et C4 dédiés à la radioprotection et à la surveillance de la radioactivité environnementale
+- **Site occupé pendant travaux** : true — le chantier se déroule en site occupé (bâtiments abritant laboratoires actifs : LEI, LERCA, LMN) ; accès soumis à enquête administrative 72h à l'avance ; horaires normaux 8h-18h jours ouvrés
+- **Corps d'état mobilisés** : Génie électrique HTA (cellules HTA, câbles HTA, poste HTA), Génie électrique BT (AGBT, TGBT), Génie civil léger (fond de forme poste HTA, fourreaux DN200), Mise en service et essais réglementaires
 - **Contraintes spécifiques** :
-  - Site classé ASNR (Autorité de Sûreté Nucléaire et de Radioprotection) — enquête administrative obligatoire pour chaque intervenant
-  - Accès au site soumis à autorisation préalable 72h minimum, enquête administrative pouvant durer plusieurs semaines
+  - Site sensible ASNR : enquête administrative obligatoire pour chaque intervenant (délai 1 semaine à plusieurs semaines)
+  - Site occupé : laboratoires en exploitation pendant les travaux
+  - Conformité aux normes NF C13-100, NF C13-200, NF C15-100 et prescriptions ENEDIS
   - Habilitations électriques adaptées obligatoires (NFC 18-510)
-  - Conformité normes NF C13-100, NF C13-200, C15-100 et prescriptions ENEDIS
-  - Attestation de conformité Consuel requise avant mise sous tension
   - Vérification réglementaire initiale par bureau de contrôle désigné par l'ASNR
-  - Visite de site obligatoire (22-24 juin 2026) — certificat de visite à joindre à l'offre sous peine de rejet
-  - Travaux en site occupé avec laboratoires actifs (LERCA, LEI, LMN)
-  - Présence possible d'amiante (DTA joint en annexe CCTP)
-  - Délai d'approvisionnement à intégrer au planning (poste HTA, transformateur)
+  - Dossier Consuel requis avant mise sous tension
+  - Rapport d'analyse amiante à prendre en compte (annexe CCTP)
+  - Travaux en site nucléaire : obligations confidentialité renforcées
 
 ### Allotissement
-Marché en lot unique — la dévolution en lots séparés est jugée techniquement difficile par l'acheteur.
+Marché à lot unique — la dévolution en lots séparés rendrait techniquement difficile l'exécution des prestations
 - **Nombre de lots** : 1
 - **Lot 1** — Travaux de prolongation de la boucle HTA 20 kV du site ASNR du Vésinet
-  - Corps d'état : Électricité courants forts HTA/BT
-  - Poste HTA, cellules HTA, transformateur 24kV/400V-400kVA, liaison HTA, AGBT, TGBT CVC, études d'exécution, essais et mise en service
+  - Corps d'état : Génie électrique HTA/BT — courants forts
+  - Fourniture et installation d'un poste HTA, de cellules HTA, d'un transformateur 24 kV/400 V, d'une AGBT, d'un TGBT CVC, réalisation des liaisons HTA, études d'exécution, essais et mise en service
 
 ### Qualifications BTP exigées
-Le RC exige des capacités techniques et professionnelles (liste de travaux, effectifs, titres d'études, outillage) mais ne mentionne pas de qualification Qualibat spécifique. Des habilitations électriques NFC 18-510 sont exigées par le CCTP.
+Le RC exige des habilitations électriques adaptées conformes à la norme NFC 18-510 ; aucune qualification Qualibat explicitement chiffrée n'est mentionnée dans les pièces du DCE. Le candidat doit démontrer des références de travaux HTA/BT similaires sur 5 ans.
 - **MASE** : non
 - **Autres exigences** :
-  - Habilitations électriques adaptées (NFC 18-510) — exigées par le CCTP pour l'ensemble du personnel intervenant
+  - Habilitations électriques NFC 18-510 (HTA) pour tout le personnel intervenant
 
 ## 💶 Montant du marché
 - _Montant non communiqué dans le DCE._
   - Typique des accords-cadres à bons de commande : le volume dépend des commandes effectivement passées par l'acheteur sur la durée du marché.
-- _Note_ : Aucun montant estimatif ni enveloppe budgétaire n'est communiqué dans les pièces du DCE. La DPGF ne comporte que des lignes à zéro à remplir par le candidat. Le marché porte sur un poste HTA + transformateur 24kV/400V + liaisons HTA + AGBT + TGBT : à titre indicatif, ce type de prestation se situe généralement entre 150 000 € et 400 000 € HT selon les contraintes de site et les délais d'approvisionnement.
+- _Note_ : Aucun montant estimé explicite dans le DCE. La DPGF est vierge (tous les PU à 0). L'estimation est réalisée en Voie 2 (bottom-up).
 
 ## Barème de notation
 - **Valeur technique** : 40 %
@@ -53,29 +51,29 @@ Le RC exige des capacités techniques et professionnelles (liste de travaux, eff
 - **Sous-critères techniques** :
   - Technique : 35 %
   - Développement durable : 5 %
-- **Calcul du prix** : Note prix = Pondération × (offre la moins élevée / offre analysée) — RC article 5 §2.A
+- **Calcul du prix** : Note prix = 60% × (offre la moins élevée / offre analysée) — apprécié au regard du montant global de l'annexe financière / DPGF
 
 ## Références et qualifications exigées
 - **Expérience minimale** : 5 ans
-- **Secteur d'expérience** : Travaux électriques HTA/BT — installations haute tension, cellules HTA, transformateurs, TGBT
-- **Certifications obligatoires** : Habilitations électriques adaptées conformes NFC 18-510 (travaux HTA) (source=CCTP §2.5)
+- **Secteur d'expérience** : Travaux électriques HTA/BT — installations haute tension (postes HTA, cellules, câblage HTA) et basse tension (TGBT, AGBT)
+- **Certifications obligatoires** : Habilitations électriques NFC 18-510 adaptées aux travaux HTA (H2V, B2V, BR, HC ou équivalent) (bloquante=True, source=CCTP §2.5)
 - **Autres exigences** :
-  - Déclaration du chiffre d'affaires global et du CA domaine d'activité (3 derniers exercices) (source=RC article 4 §4.B)
-  - Preuve d'une assurance couvrant les risques pertinents (RC professionnelle, garantie décennale, garantie biennale) (source=RC article 4 §4.B)
-  - Déclaration des effectifs moyens annuels et importance du personnel d'encadrement sur 3 dernières années (source=RC article 4 §4.C)
-  - Description de l'outillage, matériel et équipement technique disponible pour le marché (source=RC article 4 §4.C)
-  - Indication des titres d'études et professionnels des cadres et responsables de prestation (source=RC article 4 §4.C)
+  - Liste des travaux exécutés au cours des 5 dernières années avec attestations de bonne exécution pour les travaux les plus importants (source=RC article 4.4.C)
+  - Déclaration des effectifs moyens annuels et du personnel d'encadrement sur les 3 dernières années (source=RC article 4.4.C)
+  - Titres d'études et professionnels des responsables de prestation (source=RC article 4.4.C)
+  - Description de l'outillage, matériel et équipement technique disponible (source=RC article 4.4.C)
+  - Chiffre d'affaires global et CA du domaine d'activité sur les 3 derniers exercices (source=RC article 4.4.B)
+  - Preuve d'une assurance couvrant les risques pertinents (source=RC article 4.4.B)
 
 ## ⚠ Alertes candidat
-- Visite de site OBLIGATOIRE (22-24 juin 2026) — le certificat de visite signé par les deux parties doit être joint à l'offre sous peine de rejet. Inscription avant le vendredi 19 juin 2026 à 18h00 auprès d'Adrien Herminier.
-- Enquête administrative préalable obligatoire pour tout intervenant sur site ASNR — délai de retour de 1 semaine à plusieurs semaines : prévoir un effectif suffisant pour absorber les éventuels refus d'accès.
-- Habilitations électriques NFC 18-510 adaptées aux travaux HTA exigées pour l'ensemble du personnel — absence d'habilitation adéquate peut bloquer l'exécution.
-- Présence possible d'amiante signalée (DTA en annexe CCTP) — le candidat doit en prendre connaissance et intégrer les contraintes éventuelles dans son offre.
-- DC1, DC2, liste de références avec attestations de bonne exécution (5 dernières années), CV des intervenants et attestation d'assurance à produire — dossier de candidature incomplet = rejet possible.
+- VISITE DE SITE OBLIGATOIRE sous peine de rejet de l'offre : le certificat de visite (signé par les deux parties) doit être joint à l'offre — les visites ont lieu du 22 au 24 juin 2026, inscription avant le 19 juin 2026 à 18h.
+- ENQUÊTE ADMINISTRATIVE ASNR pour tous les intervenants (délai 1 semaine à plusieurs semaines dans 5% des cas) : le nombre de personnels soumis à enquête doit être surdimensionné pour garantir la disponibilité d'un nombre suffisant d'agents autorisés au démarrage du chantier.
+- HABILITATIONS ÉLECTRIQUES HTA obligatoires (NFC 18-510) pour tous les intervenants HTA : la liste nominative avec habilitations en cours de validité doit figurer dans l'offre (CV) et être présentée avant début de chantier.
+- DÉLAI D'APPROVISIONNEMENT des équipements HTA à déclarer impérativement dans l'offre : ce délai est hors délai d'exécution contractuel de 3 semaines mais doit figurer dans le planning — impact fort sur la date réelle de fin de travaux.
+- DOSSIER CONSUEL requis avant mise sous tension : à planifier dans le chiffrage (coût et délai de la démarche réglementaire auprès du bureau de contrôle désigné par l'ASNR).
 
 ## 💡 Points différenciants attendus
-- Performance du délai d'exécution — sous-critère le plus pondéré du technique (40% du technique soit 14 points sur 100) (exemple=Proposer un planning optimisé sous 3 semaines en intégrant un approvisionnement anticipé du transformateur et du poste HTA (commande ferme possible dès notification), avec possibilité de travail le samedi, peut faire la différence face à des concurrents proposant 4-5 semaines., source=RC article 5 §2)
-- Expérience prouvée en milieu sensible / site occupé avec contraintes d'accès (exemple=Citer des références sur des chantiers HTA en site nucléaire, hospitalier ou scientifique sous contrôle d'accès, avec enquêtes administratives gérées, démontre une maîtrise des contraintes propres au site ASNR.)
-- Qualité et fiabilité des matériels proposés avec fiches techniques complètes (exemple=Proposer des équipements de marques reconnues (Schneider, Siemens, ABB) avec fiches techniques détaillées, FDES, et garanties fabricant étendues renforce la crédibilité de l'offre technique., source=RC article 5 §2)
-- Variante transformateur d'occasion — différenciation sur le prix si fiabilité démontrée (exemple=La variante facultative sur transformateur d'occasion (sans offre de base obligatoire) peut permettre de proposer un prix compétitif à condition de fournir un historique de maintenance documenté, des garanties solides et un certificat de conformité récent., source=RC article 1 §4)
-- Maîtrise des contraintes réglementaires HTA spécifiques au site (Consuel, bureau de contrôle, NF C13-100) (exemple=Démontrer dans la méthodologie la connaissance du process Consuel, de la vérification réglementaire initiale par bureau de contrôle et des normes NF C13-100/C13-200 prouve au maître d'œuvre (SESA-VES) la maturité réglementaire de l'entreprise., source=CCAP — Conditions d'exécution §9 / CCTP §2.3)
+- Planning d'exécution optimisé avec délais d'approvisionnement chiffrés (exemple=Proposer un délai global d'exécution inférieur à 3 semaines (ex: 2,5 semaines) en optimisant le chemin critique, et communiquer un délai d'approvisionnement des cellules HTA précis (ex: 4 semaines) pour rassurer l'ASNR sur la date réelle de mise en service., source=RC article 5.2 — sous-critère 'Performance du délai d'exécution' pondéré à 40% du critère technique (14% global))
+- Habilitations électriques HTA précises et équipe démontrée sur des postes HTA similaires (exemple=Joindre les habilitations NFC 18-510 H2V/B2V/HC en cours de validité pour tous les intervenants, et présenter 2-3 références de postes HTA 20 kV réalisés pour des sites sensibles ou industriels avec attestations de bonne exécution., source=RC article 5.2 — sous-critère 'Moyens humains, qualifications, habilitations électriques' ; CCTP §2.5)
+- Anticipation de la gestion administrative du site ASNR (enquêtes, accès, plan de prévention) (exemple=Présenter dans le mémoire technique une procédure détaillée de gestion des accès ASNR (liste nominative transmise 72h à l'avance, surnombre de personnels pour absorber les refus d'enquête) et indiquer l'expérience en site sensible/nucléaire., source=CCAP — Obligations particulières ; CCTP §3.1)
+- Qualité et traçabilité de la gestion des déchets de chantier (BSD) (exemple=Décrire un plan de gestion des déchets avec 4 flux identifiés (câbles Cu/Al, ferrailles, cartons, DIB), prestataire agréé nommé, et engagement de transmission des BSD sous 5 jours ouvrés à M. Herminier — directement valorisé dans le critère développement durable., source=RC article 5.2 — critère 'Développement durable' 5% ; CCTP §1.4)

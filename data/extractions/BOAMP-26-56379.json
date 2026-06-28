@@ -1,423 +1,578 @@
 {
-  "synthese_marche": "Marché de vérification et maintenance des systèmes de sécurité incendie, alarmes et installations assimilées au sein des hôpitaux du GHU AP-HP Université Paris-Saclay (Ambroise Paré, Raymond-Poincaré, Sainte-Périne, Berck). Accord-cadre mono-attributaire à bons de commande, découpé en 2 lots géographiques, d'une durée ferme de 4 ans à compter du 1er octobre 2026. Procédure formalisée (appel d'offres ouvert) avec visite obligatoire des sites avant dépôt de l'offre.",
+  "synthese_marche": "Marché de vérification et maintenance des systèmes de sécurité incendie (SSI), systèmes d'alarmes et installations assimilées pour les hôpitaux du GHU AP-HP Université Paris-Saclay (Ambroise Paré, Raymond Poincaré, Sainte-Périne et Berck). Accord-cadre mono-attributaire à bons de commande, prix mixtes (forfait + BPU), sur 4 ans à compter d'octobre 2026, décomposé en 2 lots géographiques. Le titulaire assure la maintenance préventive, la vérification réglementaire annuelle, la maintenance corrective et l'astreinte 24h/24 7j/7.",
   "domaines_metier": [
     {
       "code": "formation_securite_obligatoire"
     }
   ],
-  "raison_classification": "Le marché porte sur la vérification et la maintenance de systèmes de sécurité incendie (SSI) et d'alarmes dans des établissements hospitaliers, ce qui relève des habilitations et obligations réglementaires liées à la sécurité incendie. Le code CPV principal 50413200 (services de réparation et d'entretien d'équipements de lutte contre l'incendie) et le vocabulaire du RC (SSI, systèmes d'alarmes, habilitations à intervenir) confirment ce classement. Toutefois, ce marché est davantage un marché de maintenance technique spécialisée que de formation ; le code le plus approchant dans la taxonomie est 'formation_securite_obligatoire' mais une classification plus juste serait 'fourniture_materiel' ou 'services_sante_medical' — aucun code ne couvre exactement la maintenance de SSI hospitalier, mais 'formation_securite_obligatoire' reste le plus proche compte tenu des habilitations réglementaires exigées.",
-  "caracteristiques_techniques_chantier": {
-    "description": "Vérification périodique et maintenance préventive/corrective des systèmes de sécurité incendie (SSI), systèmes d'alarmes et installations assimilées dans quatre hôpitaux AP-HP. Les prestations incluent des interventions planifiées (forfaitaires) et des interventions à la demande (unitaires), avec astreinte.",
-    "typologie_ouvrage": "Établissements hospitaliers en activité (hôpitaux publics)",
-    "surface_volume": null,
-    "site_occupe": "true — sites hospitaliers en exploitation continue, activité 24h/24",
-    "corps_etat": [
-      "Systèmes de sécurité incendie (SSI)",
-      "Systèmes d'alarmes incendie",
-      "Installations assimilées (détection, désenfumage, déclencheurs manuels, etc.)"
-    ],
-    "contraintes_specifiques": [
-      "Sites hospitaliers en exploitation continue — interventions à coordonner avec le personnel soignant",
-      "Visite obligatoire des sites avant dépôt de l'offre",
-      "Habilitations réglementaires requises pour intervenir sur toutes les installations",
-      "Astreinte obligatoire",
-      "Deux lots géographiquement distincts (Île-de-France et Hauts-de-France)"
+  "raison_classification": "Ce marché porte exclusivement sur la vérification réglementaire et la maintenance des systèmes de sécurité incendie (SSI/SDI/SMSI) dans des établissements hospitaliers, qui sont des obligations réglementaires strictes (normes NF S61-933, règlement ERP). Il s'agit de prestations de maintenance technique avec habilitations obligatoires (certification APSAD I7-F7, I13 exigée, habilitations SSI requises). Le code `formation_securite_obligatoire` est le plus proche du catalogue mais ce marché est en réalité une prestation de maintenance/vérification technique réglementaire de SSI, qui relève davantage de `btp_second_oeuvre` ou `autre`. Après arbitrage, le code `autre` est plus précis car ce marché de maintenance SSI hospitalière ne correspond exactement à aucun code de la taxonomie.",
+  "caracteristiques_metier": {
+    "description": "Maintenance préventive systématique (vérification annuelle réglementaire, entretien), maintenance corrective (interventions d'urgence 24h/24, dépannage, remplacement) et petits travaux sur les systèmes de sécurité incendie (ECS, CMSI, détecteurs, diffuseurs, DAS, désenfumage mécanique et naturel, compartimentage) de 4 hôpitaux AP-HP. Astreinte technique obligatoire, délai d'intervention maximal de 4 heures, certification APSAD obligatoire.",
+    "criteres_eligibilite": [
+      "Certification APSAD (I7-F7, I13) du titulaire ou sous-traitant",
+      "Techniciens habilités aux niveaux d'accès SSI selon norme NF S61-933 annexe A",
+      "Formation des personnels aux logiciels de paramétrage des constructeurs",
+      "Visite obligatoire des sites avant remise d'offre (certificat de visite à joindre)",
+      "Capacités professionnelles, techniques et financières (CA 3 ans, références similaires, effectifs)",
+      "Attestation URSSAF et attestation fiscale",
+      "Police d'assurance RC en cours de validité"
     ]
-  },
-  "allotissement": {
-    "description": "Marché décomposé en 2 lots géographiques correspondant aux sites hospitaliers",
-    "nb_lots": 2,
-    "lots_detailles": [
-      {
-        "numero": 1,
-        "intitule": "Hôpitaux Ambroise Paré (APR), Raymond-Poincaré (RPC) et Sainte-Périne (SPR)",
-        "corps_etat": "Vérification et maintenance SSI, alarmes et installations assimilées — 3 sites Île-de-France",
-        "montant_estime": null,
-        "description": "Prestations sur les sites Ambroise Paré (Boulogne-Billancourt, 92100), Raymond Poincaré (Garches, 92380) et Sainte-Périne (Paris 16e, 75016)"
-      },
-      {
-        "numero": 2,
-        "intitule": "Hôpital maritime de Berck (BRK)",
-        "corps_etat": "Vérification et maintenance SSI, alarmes et installations assimilées — site Berck-sur-Mer",
-        "montant_estime": null,
-        "description": "Prestations sur le site de l'Hôpital Berck, Rue Dr Victor Ménard (62600)"
-      }
-    ]
-  },
-  "qualifications_requises": {
-    "description": "Certifications de qualification professionnelle exigées à l'appui de la candidature ; habilitations techniques à intervenir sur toutes les installations des sites évaluées dans les critères de jugement",
-    "qualibat": null,
-    "rge": false,
-    "opqibi": null,
-    "autres_certifications": [
-      "Certificats de qualification professionnelle établis par des organismes indépendants (RC art. 3.2 §8°)",
-      "Certificat d'assurance qualité (RC art. 3.2 §9°)",
-      "Habilitations à intervenir sur toutes les installations des sites — valorisé comme sous-critère technique (RC art. 5.2, sous-critère 7)"
-    ]
-  },
-  "caracteristiques_mission": {
-    "typologie_mission": "maintenance et vérification réglementaire de systèmes de sécurité incendie",
-    "domaine_expertise": "Sécurité incendie, systèmes d'alarmes, maintenance technique en milieu hospitalier",
-    "livrables_attendus": [
-      "Rapports de vérification périodique des SSI",
-      "Documents de maintenance (carnets de bord, registres)",
-      "Documents de suivi des interventions",
-      "Comptes-rendus d'astreinte"
-    ],
-    "duree_mission": "48 mois (4 ans ferme)",
-    "jours_consultant_estimes": null
-  },
-  "profils_intervenants": {
-    "description": "Équipe dédiée aux prestations de vérification et maintenance SSI en milieu hospitalier",
-    "chef_de_mission": "Responsable technique avec expérience en maintenance SSI et encadrement d'équipe — qualifications et titres professionnels à justifier (RC art. 3.2 §7°)",
-    "consultants": "Techniciens habilités à intervenir sur toutes les installations des sites concernés ; effectifs et encadrement à déclarer (RC art. 3.2 §5°)"
-  },
-  "volumes_techniques": {
-    "puissance_totale_kwc": null,
-    "puissance_par_site_kwc": null,
-    "nb_sites": 4,
-    "surface_panneaux_m2": null,
-    "productible_annuel_estime_mwh": null,
-    "duree_marche_mois": 48,
-    "duree_maintenance_om_annees": 4,
-    "commentaire_volumes": "4 sites hospitaliers répartis sur 2 lots : 3 sites en Île-de-France (Lot 1) et 1 site à Berck (Lot 2). Les inventaires détaillés des installations sont fournis en annexes 3 du DCE (RC art. 2.1 §6° à 9°)."
-  },
-  "modalites_execution_chantier": {
-    "raccordement_reseau_inclus": null,
-    "etudes_techniques_incluses": null,
-    "calendrier_chantier_contraint": "Sites hospitaliers en exploitation continue — interventions à coordonner impérativement avec les équipes des hôpitaux",
-    "sites_execution": [
-      "Boulogne-Billancourt (92100) — Hôpital Ambroise Paré",
-      "Garches (92380) — Hôpital Raymond Poincaré",
-      "Paris 16e (75016) — Hôpital Sainte-Périne",
-      "Berck (62600) — Hôpital maritime de Berck"
-    ],
-    "engagement_productible": null,
-    "engagement_disponibilite_om": null
-  },
-  "publics_cibles": {
-    "description": "Non applicable — marché de maintenance technique, pas de formation ou d'accompagnement de bénéficiaires",
-    "criteres_eligibilite": [],
-    "publics_specifiques_signales": []
-  },
-  "volumes": {
-    "nb_beneficiaires_total": null,
-    "nb_beneficiaires_par_lot": null,
-    "duree_par_parcours_heures": null,
-    "duree_par_parcours_semaines": null,
-    "duree_marche_mois": 48,
-    "commentaire_volumes": "Accord-cadre à bons de commande : volumes d'interventions correctives non déterminés à l'avance, interventions forfaitaires planifiées + interventions unitaires sur BPU."
-  },
-  "modalites": {
-    "presentiel_obligatoire": true,
-    "distanciel_possible": false,
-    "synchrone_asynchrone": "présentiel obligatoire — interventions physiques sur site",
-    "sites_execution": [
-      "Boulogne-Billancourt (92)",
-      "Garches (92)",
-      "Paris 16e (75)",
-      "Berck (62)"
-    ],
-    "amplitude_horaire": null
-  },
-  "caracteristiques_mission_moe": {
-    "typologie": null,
-    "phases_couvertes": [],
-    "typologie_ouvrage": null,
-    "montant_travaux_estime": null,
-    "complexite_technique": null
-  },
-  "qualifications_moe": {
-    "opqibi": [],
-    "opqcm": null,
-    "bim": null,
-    "autres": []
-  },
-  "caracteristiques_si": {
-    "description": null,
-    "typologie_projet": null,
-    "technologies_mentionnees": [],
-    "volumetrie": null,
-    "hebergement": null
-  },
-  "qualifications_si": {
-    "iso_27001": null,
-    "anssi": null,
-    "hds": null,
-    "autres": []
   },
   "bareme_notation": {
     "valeur_technique_pct": 60,
     "valeur_prix_pct": 40,
     "sous_criteres_techniques": [
       {
-        "libelle": "Pertinence et qualité de l'équipe prévue pour assurer la prestation (organisation, qualification, expérience, nombre...)",
-        "ponderation_pct": 10,
-        "description": "L'acheteur évalue la composition, les qualifications, l'expérience et le dimensionnement de l'équipe dédiée aux prestations de vérification et maintenance SSI sur les sites concernés.",
-        "elements_attendus": [
-          "Présentation nominative des membres de l'équipe avec CV",
-          "Titres professionnels et habilitations techniques de chaque intervenant",
-          "Expérience en maintenance SSI en milieu hospitalier ou établissements similaires",
-          "Organisation de l'équipe (rôles, répartition par site)",
-          "Dimensionnement adapté au volume et à la criticité des sites"
-        ],
-        "exemple_reponse_forte": "L'équipe proposée pour le Lot 1 comprend un responsable technique senior (10 ans d'expérience SSI en milieu hospitalier, habilitations SSI cat. A et B, habilitation électrique BR/BC) et 2 techniciens dédiés (5 ans d'expérience minimum, habilitations complètes), avec un référent disponible 24h/24 pour l'astreinte. CV détaillés joints.",
+        "libelle": "Valeur technique",
+        "ponderation_pct": 60,
+        "description": "Évaluation de la qualité globale de la proposition technique du candidat sur 55 points, décomposée en 7 sous-critères portant sur l'organisation, la méthodologie, les documents et les compétences techniques.",
+        "elements_attendus": [],
+        "exemple_reponse_forte": "—",
         "source": "RC §5.2",
-        "sous_criteres": []
-      },
-      {
-        "libelle": "Pertinence et qualité de la méthodologie de planification",
-        "ponderation_pct": 15,
-        "description": "L'acheteur évalue la méthode proposée pour planifier les vérifications périodiques et les interventions de maintenance préventive sur l'ensemble des installations des 4 sites.",
-        "elements_attendus": [
-          "Planning annuel détaillé des vérifications réglementaires",
-          "Méthode de coordination avec les équipes hospitalières pour limiter les perturbations",
-          "Gestion des priorités entre sites et entre types d'installations",
-          "Outils de planification utilisés (GMAO, logiciels dédiés)",
-          "Anticipation des contraintes spécifiques aux sites occupés",
-          "Procédure de reprogrammation en cas d'aléa"
-        ],
-        "exemple_reponse_forte": "Notre planification repose sur un planning annuel glissant établi dès la notification, coordonné avec le responsable technique de chaque hôpital via une réunion de lancement. Les interventions sur SSI critiques (blocs opératoires, urgences) sont systématiquement programmées en dehors des plages d'activité maximale, avec notification préalable de 15 jours. Un outil GMAO partagé permet au donneur d'ordre un accès en temps réel au statut des interventions.",
-        "source": "RC §5.2",
-        "sous_criteres": []
-      },
-      {
-        "libelle": "Qualité des documents de maintenance",
-        "ponderation_pct": 5,
-        "description": "L'acheteur évalue la qualité et l'exhaustivité des documents de maintenance proposés (carnets d'entretien, fiches d'intervention, registres réglementaires).",
-        "elements_attendus": [
-          "Modèles de fiches d'intervention (préventive et corrective)",
-          "Format du carnet de bord et du registre de sécurité",
-          "Traçabilité des interventions et archivage des documents",
-          "Conformité aux exigences réglementaires (registre SSI)"
-        ],
-        "exemple_reponse_forte": "Nous proposons un jeu documentaire conforme à la norme NF S61-970 : fiche d'intervention détaillant l'équipement contrôlé, le résultat du test, les observations et les actions correctives préconisées, avec signature contradictoire. Tous les documents sont archivés dans notre GMAO et accessibles au donneur d'ordre via un portail client sécurisé.",
-        "source": "RC §5.2",
-        "sous_criteres": []
-      },
-      {
-        "libelle": "Pertinence et qualité de la méthodologie d'intervention",
-        "ponderation_pct": 5,
-        "description": "L'acheteur évalue la méthode opératoire proposée pour les interventions de vérification et de maintenance sur les installations SSI et alarmes.",
-        "elements_attendus": [
-          "Description des procédures d'intervention par type d'installation (SSI, détection, désenfumage)",
-          "Protocoles de sécurité adaptés au milieu hospitalier",
-          "Gestion des risques liés aux interventions sur site occupé",
-          "Procédures en cas de défaillance critique détectée"
-        ],
-        "exemple_reponse_forte": "Notre méthodologie d'intervention respecte les prescriptions des normes NF S61-970 et NF S61-961. Avant toute intervention sur le SSI, notre technicien informe le responsable sécurité de l'établissement, identifie les zones concernées et met en place une procédure de neutralisation partielle limitée. En cas de défaillance critique, une procédure dégradée est activée immédiatement avec information de l'astreinte et mise en place de rondes compensatoires.",
-        "source": "RC §5.2",
-        "sous_criteres": []
-      },
-      {
-        "libelle": "Qualité et pertinence des modalités de l'astreinte",
-        "ponderation_pct": 5,
-        "description": "L'acheteur évalue l'organisation de l'astreinte proposée (délais d'intervention, disponibilité, couverture géographique, niveaux d'escalade).",
-        "elements_attendus": [
-          "Délai garanti d'intervention sur appel d'astreinte",
-          "Organisation de la permanence téléphonique (numéro dédié, plages horaires)",
-          "Qualification des techniciens d'astreinte",
-          "Couverture géographique adaptée aux sites (lot 1 IDF, lot 2 Berck)",
-          "Procédure d'escalade en cas de sinistre majeur"
-        ],
-        "exemple_reponse_forte": "L'astreinte est assurée 24h/24 - 7j/7 par un technicien habilité SSI, avec un délai d'intervention garanti de 2h sur site pour les urgences. Pour le Lot 2 (Berck), un technicien local est mobilisé avec un stock de pièces de première urgence sur site, garantissant l'autonomie d'intervention sans délai logistique.",
-        "source": "RC §5.2",
-        "sous_criteres": []
-      },
-      {
-        "libelle": "Qualité et pertinence de l'organisation du suivi de la prestation, notamment des documents de suivi",
-        "ponderation_pct": 10,
-        "description": "L'acheteur évalue l'organisation du reporting, le suivi contractuel et les outils mis en place pour assurer la traçabilité et la communication avec le donneur d'ordre.",
-        "elements_attendus": [
-          "Fréquence et format des réunions de suivi avec le donneur d'ordre",
-          "Tableaux de bord et indicateurs de performance proposés",
-          "Système de reporting des interventions préventives et correctives",
-          "Gestion des non-conformités et actions correctives",
-          "Accès du donneur d'ordre aux données de suivi (portail, GMAO partagée)",
-          "Organisation de la communication en cas d'incident"
-        ],
-        "exemple_reponse_forte": "Nous proposons des réunions trimestrielles de suivi avec présentation d'un tableau de bord mensuel transmis automatiquement par notre GMAO : taux de réalisation des vérifications planifiées, délais d'intervention corrective, anomalies détectées et état de leur résolution. Un compte-rendu contradictoire est établi dans les 48h suivant chaque intervention.",
-        "source": "RC §5.2",
-        "sous_criteres": []
-      },
-      {
-        "libelle": "Compétences techniques d'intervention : Habilitations à intervenir sur toutes les installations du site",
-        "ponderation_pct": 5,
-        "description": "L'acheteur évalue la capacité de l'équipe à couvrir l'ensemble des installations présentes sur les sites (diversité des habilitations réglementaires et qualifications techniques).",
-        "elements_attendus": [
-          "Liste exhaustive des habilitations détenues par les intervenants (SSI cat. A/B, électrique, etc.)",
-          "Couverture de toutes les technologies d'installations présentes sur les sites (inventaires fournis en annexe)",
-          "Justification par certificats ou attestations de qualification",
-          "Politique de maintien et de renouvellement des habilitations"
-        ],
-        "exemple_reponse_forte": "L'ensemble des techniciens affectés aux sites dispose des habilitations SSI (exploitant et mainteneur), habilitations électriques H0B-BR-BC, et des qualifications spécifiques aux marques d'équipements recensées dans les inventaires fournis (Siemens, Noxmat, Napco). Les attestations sont jointes au dossier de candidature et un plan de maintien des habilitations sur 4 ans est présenté.",
-        "source": "RC §5.2",
-        "sous_criteres": []
+        "unite_evaluation": "points",
+        "sous_criteres": [
+          {
+            "libelle": "Pertinence et qualité de l'équipe prévue pour assurer la prestation (organisation, qualification, expérience, nombre...)",
+            "ponderation_pct": 10,
+            "description": "L'acheteur évalue la composition de l'équipe dédiée : qualifications SSI, habilitations, expérience et nombre de techniciens proposés pour chaque site.",
+            "elements_attendus": [
+              "Organigramme de l'équipe dédiée avec noms et fonctions",
+              "CV des techniciens avec habilitations SSI (niveaux d'accès norme NF S61-933)",
+              "Nombre de techniciens affectés à chaque hôpital",
+              "Expérience en maintenance SSI multi-marques en milieu hospitalier",
+              "Formation aux logiciels de paramétrage des constructeurs (DEF, AVISS, TYCO, ESSER…)"
+            ],
+            "exemple_reponse_forte": "L'équipe comprend 4 techniciens certifiés SSI niveau 2 (habilités ECS, CMSI, UCMC), dont 2 formés par DEF et AVISS, avec un responsable technique ayant 8 ans d'expérience en maintenance SSI hospitalière AP-HP. Un technicien d'astreinte est disponible 24h/24 avec un délai d'intervention garanti de 2h.",
+            "source": "RC §5.2"
+          },
+          {
+            "libelle": "Pertinence et qualité de la méthodologie de planification",
+            "ponderation_pct": 15,
+            "description": "L'acheteur évalue la méthode de planification des visites préventives et de vérification réglementaire, le respect des périodicités normatives et l'organisation des interventions en milieu hospitalier occupé.",
+            "elements_attendus": [
+              "Planning prévisionnel annuel détaillé par site et par système",
+              "Respect des périodicités normatives (2 visites SSI espacées ≥4 mois, 1 visite désenfumage/an)",
+              "Prise en compte des contraintes hospitalières (blocs opératoires, services sensibles)",
+              "Méthode de coordination avec les chefs de service sécurité incendie",
+              "Procédure d'information préalable 15 jours avant intervention",
+              "Gestion des interventions simultanées sur plusieurs sites"
+            ],
+            "exemple_reponse_forte": "Le candidat propose un planning biannuel détaillé site par site, avec fenêtres horaires adaptées aux services sensibles (blocs le samedi), protocole d'information J-15 automatisé vers les CSSI, et possibilité de visites simultanées sur APR et RPC avec deux équipes indépendantes.",
+            "source": "RC §5.2"
+          },
+          {
+            "libelle": "Qualité des documents de maintenance",
+            "ponderation_pct": 5,
+            "description": "L'acheteur évalue la qualité et l'exhaustivité des documents produits : bulletins d'intervention, rapports de vérification réglementaire, attestations de levée d'observations, registres.",
+            "elements_attendus": [
+              "Modèles de bulletins d'intervention conformes à l'article 7.11 NF S61-933",
+              "Modèle de rapport de vérification réglementaire élément par élément",
+              "Format numérique exploitable (Word, Excel) prévu",
+              "Procédure de remise sous 15 jours après visite"
+            ],
+            "exemple_reponse_forte": "Le candidat présente ses modèles de bulletins d'intervention et rapports de vérification conformes à la norme NF S61-933, remis en 2 exemplaires papier et 1 exemplaire numérique (Excel/Word) dans les 15 jours, avec suivi des anomalies par bâtiment.",
+            "source": "RC §5.2"
+          },
+          {
+            "libelle": "Pertinence et qualité de la méthodologie d'intervention",
+            "ponderation_pct": 5,
+            "description": "L'acheteur évalue la méthode d'intervention sur les systèmes SSI en milieu hospitalier occupé, notamment la protection anti-nosocomiale et la continuité de service.",
+            "elements_attendus": [
+              "Protocole de protection contre les infections nosocomiales (aspiration avant désenfumage)",
+              "Procédure de mise en place de mesures compensatoires pendant l'indisponibilité",
+              "Méthode de remise en état de veille normale en fin d'intervention",
+              "Protocole de gestion des anomalies graves",
+              "Procédure d'état initial contradictoire avant intervention"
+            ],
+            "exemple_reponse_forte": "Le candidat décrit sa méthode de nettoyage préalable des gaines par aspiration avant toute mise en route du désenfumage, avec pose de caissons filtres pour les services de réanimation, et rédaction d'un protocole soumis au CLCIN dès J+30.",
+            "source": "RC §5.2"
+          },
+          {
+            "libelle": "Qualité et pertinence des modalités de l'astreinte",
+            "ponderation_pct": 5,
+            "description": "L'acheteur évalue l'organisation de l'astreinte technique 24h/24 7j/7 permettant d'envoyer un technicien compétent sur site dans un délai maximal de 4 heures.",
+            "elements_attendus": [
+              "Organisation du centre d'appel (numéro dédié, pas de messagerie automatique)",
+              "Procédure de déclenchement d'intervention avec délai garanti ≤4h",
+              "Localisation des techniciens d'astreinte par rapport aux sites",
+              "Procédure de secours en cas de défaillance du centre d'appel",
+              "Stock de pièces courantes disponible pour intervention d'urgence"
+            ],
+            "exemple_reponse_forte": "Le candidat propose une astreinte avec ligne directe non-automatisée, technicien d'astreinte domicilié à moins de 30 km de chaque site, délai garanti de 2h30, et stock local de pièces courantes sur chaque site hospitalier.",
+            "source": "RC §5.2"
+          },
+          {
+            "libelle": "Qualité et pertinence de l'organisation du suivi de la prestation, notamment des documents de suivi",
+            "ponderation_pct": 10,
+            "description": "L'acheteur évalue la qualité de l'organisation du reporting et du suivi : documents de synthèse, réunions périodiques, suivi des levées d'observations des bureaux de contrôle.",
+            "elements_attendus": [
+              "Structure des documents de synthèse (préventif, curatif élémentaire, astreinte, correctif hors forfait, travaux)",
+              "Organisation des réunions de suivi (prise de marché + 2 par an minimum)",
+              "Suivi des levées d'observations des bureaux de contrôle",
+              "Tableau de bord de suivi de facturation forfait/hors forfait",
+              "Procédure de mise à jour des dossiers d'identité SSI"
+            ],
+            "exemple_reponse_forte": "Le candidat présente ses 6 tableaux de synthèse standardisés (préventif, curatif, astreinte, correctif, travaux, facturation), remis en réunion trimestrielle, avec portail web de consultation pour le CSSI et alertes automatiques sur les anomalies en cours.",
+            "source": "RC §5.2"
+          },
+          {
+            "libelle": "Compétences techniques d'intervention : Habilitations à intervenir sur toutes les installations du site",
+            "ponderation_pct": 5,
+            "description": "L'acheteur évalue la capacité du candidat à intervenir sur la diversité des marques et systèmes présents sur les sites (DEF, AVISS, TYCO, ESSER, ALTAIR, NEUTRONIC…).",
+            "elements_attendus": [
+              "Liste des marques/systèmes maîtrisés (DEF Cassiopée/Antarès, AVISS, TYCO ZXA, ESSER 8000, ALTAIR…)",
+              "Attestations de formation constructeurs",
+              "Disponibilité des outils de paramétrage et logiciels de chaque constructeur",
+              "Expérience sur systèmes multi-marques en ERP type U"
+            ],
+            "exemple_reponse_forte": "Le candidat justifie de formations constructeurs pour DEF (Cassiopée, Antarès 5, FORTE S), AVISS (ADRESS IV, AGORA BUS), TYCO (ZXA), ESSER (8000, 2000) et ALTAIR, avec les licences logicielles de paramétrage correspondantes, couvrant ainsi 100% des ECS et CMSI présents sur les 4 sites.",
+            "source": "RC §5.2"
+          }
+        ]
       },
       {
         "libelle": "Dispositions prévues par le candidat en matière de démarche d'insertion sociale pour l'exécution du marché",
         "ponderation_pct": 5,
-        "description": "L'acheteur évalue la démarche d'insertion sociale proposée par le candidat pour l'exécution du marché (type de contrat, nombre d'heures d'insertion, partenariats).",
+        "description": "L'acheteur valorise les actions d'insertion professionnelle en faveur de publics prioritaires (DE longue durée, RSA, ASS, +50 ans, -26 ans sans qualification, RQTH, QPV, IAE, pénitentiaires) dans le cadre de l'exécution du marché.",
         "elements_attendus": [
-          "Type de contrat d'insertion envisagé (CDDI, CIE, apprentissage, IAE, etc.)",
-          "Nombre d'heures d'insertion proposées",
-          "Profils ciblés pour l'insertion",
-          "Partenariats avec des structures d'insertion (SIAE, mission locale, etc.)"
+          "Type de contrat envisagé (contrat aidé, alternance, intérim d'insertion…)",
+          "Nombre d'heures d'insertion prévues",
+          "Public cible parmi les catégories listées au CCAP art 1.9",
+          "Partenariats avec structures IAE ou prescripteurs locaux"
         ],
-        "exemple_reponse_forte": "Nous nous engageons à réaliser 200 heures d'insertion sociale par an sur la durée du marché, via le recrutement d'un apprenti en BTS Électrotechnique en partenariat avec la Mission Locale de Boulogne-Billancourt, et par la mobilisation d'un CDDI au sein d'une SIAE partenaire agréée pour les tâches d'appui logistique.",
-        "source": "RC §1.13 et §5.2"
+        "exemple_reponse_forte": "Le candidat s'engage à mobiliser 200 heures d'insertion via un contrat PEC pour un DE-RQTH pris en charge par l'agence France Travail de Boulogne-Billancourt, en appui logistique aux techniciens SSI, avec accompagnement d'une SIAE partenaire.",
+        "source": "RC §1.13 et CCAP art 1.9",
+        "unite_evaluation": "points"
       }
     ],
     "prix": {
       "type_formule": "moins_disant",
-      "formule_explicite": "Partie forfaitaire : Note = (montant le plus bas / montant de l'offre examinée) × 30. Partie unitaire : Note = (montant le plus bas / montant de l'offre examinée) × 10. Note totale prix = somme des deux notes (sur 40 points).",
+      "formule_explicite": "Partie forfaitaire : Note = (montant le plus bas / montant de l'offre examinée) × 30. Partie unitaire (simulation BPU) : Note = (montant le plus bas / montant de l'offre examinée) × 10. Note totale prix = somme des deux notes.",
+      "source": "RC §5.2",
       "elements_a_chiffrer": [
-        "Montant forfaitaire global (DPGF) — partie planifiée des prestations de vérification et maintenance préventive",
-        "Prix unitaires du BPU — interventions correctives et prestations à la demande",
-        "Simulation de prix sur la partie unitaire selon quantités indicatives du marché"
+        "Montant forfaitaire annuel par site (vérification réglementaire + maintenance préventive + astreinte) — DPGF",
+        "Prix unitaires BPU (main d'œuvre, pièces détachées par type d'équipement, élimination DFCI…)",
+        "Simulation BPU sur quantités imposées par l'acheteur"
       ]
     },
-    "modalite_calcul_prix": "Note forfaitaire = (montant le plus bas / montant offre examinée) × 30 ; Note unitaire = (montant le plus bas / montant offre examinée) × 10 ; Note prix totale = note forfaitaire + note unitaire (sur 40 points). Source : RC §5.2."
+    "modalite_calcul_prix": "Partie forfaitaire : Note = (prix_le_plus_bas / prix_candidat) × 30. Partie unitaire : Note = (montant simulation le plus bas / montant simulation candidat) × 10. Total prix sur 40 points."
   },
   "montant_marche": {
     "valeur_estimee_euros": null,
-    "fourchette_min_euros": null,
-    "fourchette_max_euros": null,
-    "type": "non_communique",
-    "duree_couverte": "4 ans ferme (accord-cadre à bons de commande)",
-    "source_extraction": null,
-    "commentaire": "Aucun montant estimatif, plafond ou fourchette n'est mentionné dans le RC fourni. Le marché est un accord-cadre à bons de commande sans montant minimum ni maximum explicite dans les pièces analysées. Les inventaires d'installations (annexes 3 non fournies au DCE) permettraient de calculer une estimation."
+    "fourchette_min_euros": 1100000,
+    "fourchette_max_euros": 1400000,
+    "type": "calcule_volumes",
+    "duree_couverte": "4 ans (durée ferme de l'accord-cadre)",
+    "source_extraction": "CCAP art 1.4 (maxima bons de commande) + inventaires sites (18 561 équipements lot 1 + 1 850 lot 2) + durée 4 ans RC §1.5",
+    "commentaire": "Aucun montant explicite publié. Estimation à partir des maxima bons de commande hors forfait : Lot 1 = 965 000 € HT max, Lot 2 = 135 000 € HT max sur 4 ans (total BPU = 1 100 000 €). Ces maxima concernent uniquement la part à bons de commande. La part forfaitaire (maintenance préventive + vérification + astreinte) vient en sus. Avec ~19 000 équipements SSI total (lots 1+2) et un ratio estimé de 15-20 €/équipement/an pour la part forfaitaire, la part forfaitaire représente environ 285 000-380 000 €/an soit 1 140 000-1 520 000 € sur 4 ans. Total estimé (forfait + BPU max) entre 2 240 000 € et 2 620 000 €. Note : les maxima BPU sont des plafonds non garantis ; retenu fourchette conservative forfait seul + partie BPU probablement engagée."
+  },
+  "montant_3_voies": {
+    "voie_1_eur": null,
+    "voie_1_source": null,
+    "voie_2_disponible": true,
+    "voie_2_min_eur": 1100000,
+    "voie_2_max_eur": 1400000,
+    "voie_2_hypotheses": [
+      {
+        "hypothese": "Nombre total d'équipements SSI lot 1 : 6 499 (APR) + 5 289 (RPC) + 6 773 (SPR) = 18 561 équipements — source inventaires annexes",
+        "valeur": "18 561 équipements lot 1"
+      },
+      {
+        "hypothese": "Nombre total d'équipements SSI lot 2 : 1 850 équipements — source inventaire BRK",
+        "valeur": "1 850 équipements lot 2"
+      },
+      {
+        "hypothese": "Ratio forfaitaire maintenance SSI hospitalière : 15 à 20 €/équipement/an (taux marché SSI ERP type U, milieu hospitalier multi-marques)",
+        "valeur": "15-20 €/équipement/an"
+      },
+      {
+        "hypothese": "Part forfaitaire annuelle estimée sur 4 ans : 20 411 équipements × 17,5 €/eq/an × 4 ans = 1 429 000 €",
+        "valeur": "~1 430 000 € sur 4 ans pour le forfait"
+      },
+      {
+        "hypothese": "Part BPU retenue à 50% du maximum CCAP (plafond théorique, taux d'engagement typique) : (965 000 + 135 000) × 50% = 550 000 €",
+        "valeur": "~550 000 € de BPU engagés sur 4 ans"
+      },
+      {
+        "hypothese": "Fourchette centrale retenue (forfait bas + BPU 40% / forfait haut + BPU 60%) : 1 100 000 – 1 400 000 € représente la part forfaitaire seule sur 4 ans ; total avec BPU 1 650 000 – 2 000 000 €",
+        "valeur": "1 100 000 – 1 400 000 € (forfait seul, dimension variée : ratio unitaire 15-20 €/eq/an)"
+      }
+    ],
+    "voie_2_raison_indisponible": null
+  },
+  "cout_realisation": {
+    "cout_total_eur": 900000,
+    "cout_min_eur": 780000,
+    "cout_max_eur": 1020000,
+    "postes": [
+      {
+        "poste": "Lot 1 — Main d'œuvre techniciens SSI (visites préventives + astreinte + interventions urgentes)",
+        "detail": "Estimation 3 techniciens à plein temps équivalent sur 4 ans × 55 000 €/an chargés = 660 000 €",
+        "montant_eur": 660000
+      },
+      {
+        "poste": "Lot 2 — Main d'œuvre techniciens SSI (Berck)",
+        "detail": "Estimation 0,5 ETP technicien SSI × 4 ans × 55 000 €/an + surcoût déplacement = 120 000 €",
+        "montant_eur": 120000
+      },
+      {
+        "poste": "Stocks locaux, consommables et petites pièces (forfait curatif élémentaire < 500 € HT)",
+        "detail": "Estimation 15 000 €/an tous sites × 4 ans",
+        "montant_eur": 60000
+      },
+      {
+        "poste": "Encadrement / responsable technique + frais de structure",
+        "detail": "Estimation 0,3 ETP encadrement × 65 000 €/an × 4 ans",
+        "montant_eur": 78000
+      },
+      {
+        "poste": "Déplacements, véhicules, outillages spécifiques",
+        "detail": "Estimation 8 000 €/an × 4 ans",
+        "montant_eur": 32000
+      }
+    ],
+    "taux_journaliers_retenus": "Technicien SSI qualifié milieu hospitalier : 55 000 €/an chargé (~250 €/j). Encadrement technique : 65 000 €/an chargé. Taux indicatifs marché maintenance SSI ERP.",
+    "commentaire": "Estimation bottom-up à taux marché ; la marge brute attendue sur ce type de prestation (maintenance technique réglementaire) est de l'ordre de 20-30 %. Le lot 2 (Berck) comporte un surcoût de déplacement significatif (site à 200 km de Paris). Les maxima BPU (1 100 000 €) ne sont pas garantis ; seule la part forfaitaire est sécurisée."
   },
   "revision_prix": {
-    "type": "non_communique",
-    "indices_utilises": [],
-    "ponderation": null,
-    "periodicite": null,
-    "formule_revision": null,
-    "source_extraction": null,
-    "commentaire": "Le CCAP n'a pas été fourni dans les pièces analysées. La révision des prix est susceptible d'y figurer mais ne peut être renseignée ici."
+    "type": "indexation",
+    "indices_utilises": [
+      "ICHT-IME",
+      "FSD1"
+    ],
+    "ponderation": "Formule mixte à deux termes : partie main d'œuvre (60% ICHT-IME + 25% FSD1 + 15% fixe) et partie fournitures (50% ICHT-IME + 50% FSD1), combinées selon une formule imbriquée.",
+    "periodicite": "annuelle",
+    "formule_revision": "P = P0 × (0,15 + 0,60 × ICHTTS1/ICHTTS10 + 0,25 × FSD1/FSD1.0) × [0,15 + 0,85 × (0,5 × ICHTIME/ICHT-IME0 + 0,5 × FSD1/FSD1.0)]",
+    "source_extraction": "CCAP art 8.4",
+    "commentaire": "Formule complexe imbriquée à deux niveaux combinant indice du coût horaire du travail (IME) et indice produits/services divers (FSD1). Favorable en période d'inflation main d'œuvre, mais difficile à anticiper pour le chiffrage initial ; prévoir une sensibilité sur ces indices dans l'offre."
   },
   "alertes_prix": [
-    "Accord-cadre à bons de commande sans montant minimum ni maximum communiqué : risque de sous-estimation du chiffre d'affaires potentiel pour le candidat",
-    "Barème prix décomposé en partie forfaitaire (30 pts) + partie unitaire (10 pts) : double calcul nécessaire, attention à la cohérence DPGF/BPU",
-    "Formule prix type 'offre la plus basse' : pression concurrentielle forte sur les prix forfaitaires notamment",
-    "Inventaires d'installations fournis en annexes : le chiffrage doit impérativement s'appuyer sur les inventaires réels des sites (visites obligatoires), tout écart entre devis et inventaire réel peut fragiliser l'offre"
+    "La part à bons de commande (BPU) a un minimum de 0 € HT : aucun volume n'est garanti sur cette partie — seule la part forfaitaire est sécurisée.",
+    "Maximum BPU lot 1 = 965 000 € HT et lot 2 = 135 000 € HT sur 4 ans : plafonds non garantis représentant un potentiel commercial mais sans engagement de l'acheteur.",
+    "Pondération prix à 40% (40 points sur 100) : poids important qui rend la compétitivité tarifaire déterminante — une offre chère sur la DPGF peut difficilement être rattrapée par la technique.",
+    "Formule de révision imbriquée ICHT-IME/FSD1 : risque de sous-estimation du coût si les indices évoluent défavorablement sans que la révision compense rapidement en début de marché.",
+    "Visite obligatoire des sites requise à peine de nullité de l'offre : absence de certificat de visite = offre irrecevable, sans possibilité de régularisation."
   ],
   "references_exigees": {
-    "experience_minimale_annees": 3,
-    "experience_source": "RC art. 3.2 §4°",
+    "experience_minimale_annees": null,
+    "experience_source": null,
     "volume_min_references_similaires": null,
-    "volume_min_references_unite": null,
-    "secteur_experience": "Vérification et maintenance de systèmes de sécurité incendie et alarmes (prestations similaires)",
-    "secteur_source": "RC art. 3.2 §4°",
+    "volume_min_references_unite": "marchés similaires",
+    "secteur_experience": "Maintenance et vérification réglementaire de systèmes de sécurité incendie (SSI) en établissements recevant du public, de préférence en milieu hospitalier.",
+    "secteur_source": "RC §3.2",
     "certifications_obligatoires": [
       {
-        "libelle": "Certificats de qualification professionnelle établis par des organismes indépendants (ou équivalent)",
-        "source": "RC art. 3.2 §8°"
+        "libelle": "Certification APSAD (règles I7-F7, I13) — société installatrice justifiant de cette certification ou sous-traitant certifié",
+        "codes": [],
+        "bloquante": true,
+        "source": "CCTP lot 1 §I.6.3 et CCTP lot 2 §I.6.3"
+      },
+      {
+        "libelle": "Habilitations du personnel aux niveaux d'accès SSI selon l'annexe A de la norme NF S61-933 (techniciens spécifiquement formés, compétents et qualifiés)",
+        "codes": [],
+        "bloquante": true,
+        "source": "CCAP art 6.2 et CCTP §I.6.3"
       },
       {
         "libelle": "Certificat d'assurance qualité",
-        "source": "RC art. 3.2 §9°"
-      },
-      {
-        "libelle": "Attestation de visite de site (certificat de visite obligatoire à joindre à l'offre)",
-        "source": "RC art. 1.8 et art. 3.2 §10°"
+        "codes": [],
+        "bloquante": false,
+        "source": "RC §3.2 point 9°"
       }
     ],
     "autres_exigences": [
       {
-        "libelle": "Déclaration des effectifs moyens annuels et du personnel d'encadrement sur 3 dernières années",
-        "source": "RC art. 3.2 §5°"
+        "libelle": "Liste des principaux services fournis au cours des 3 dernières années avec montant, date et destinataire (attestations du destinataire ou déclaration opérateur)",
+        "source": "RC §3.2 point 4°"
       },
       {
-        "libelle": "Indication du chiffre d'affaires des 3 derniers exercices",
-        "source": "RC art. 3.2 §6°"
+        "libelle": "Déclaration des effectifs moyens annuels et importance du personnel d'encadrement sur les 3 dernières années",
+        "source": "RC §3.2 point 5°"
       },
       {
-        "libelle": "Titres d'études et professionnels du candidat et des responsables de prestation",
-        "source": "RC art. 3.2 §7°"
+        "libelle": "Indication du chiffre d'affaires pour les 3 dernières années",
+        "source": "RC §3.2 point 5° (bis)"
+      },
+      {
+        "libelle": "Titres d'études et professionnels du candidat et des cadres, notamment des responsables de prestation de même nature",
+        "source": "RC §3.2 point 7°"
+      },
+      {
+        "libelle": "Certificats de qualification professionnelle établis par des organismes indépendants",
+        "source": "RC §3.2 point 8°"
+      },
+      {
+        "libelle": "Attestations de visite obligatoire des sites (toutes les visites doivent être réalisées avant la date limite)",
+        "source": "RC §1.8 et §3.2 point 10°"
+      },
+      {
+        "libelle": "Attestation de régularité fiscale délivrée au plus près du jour de la demande",
+        "source": "RC §3.2 point 10°"
+      },
+      {
+        "libelle": "Attestation URSSAF",
+        "source": "RC §3.2 point 10°"
       },
       {
         "libelle": "Copie de la police d'assurance de responsabilité civile",
-        "source": "RC art. 3.2 §10°"
-      },
-      {
-        "libelle": "Attestation de régularité fiscale et attestation URSSAF",
-        "source": "RC art. 3.2 §10°"
+        "source": "RC §3.2 point 10°"
       }
     ]
+  },
+  "dossier_candidature": {
+    "pieces_a_fournir": [
+      {
+        "libelle": "DUME ou DC1 + DC2 (ou équivalent) dûment complétés",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §3.2"
+      },
+      {
+        "libelle": "Déclaration sur l'honneur relatif à l'emploi des travailleurs handicapés (art. L.5212-1 à L.5212-11 du code du travail)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §3.2 point 3°"
+      },
+      {
+        "libelle": "Liste des principaux services fournis au cours des 3 dernières années (montant, date, destinataire) avec attestations ou déclaration",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §3.2 point 4°"
+      },
+      {
+        "libelle": "Déclaration des effectifs moyens annuels et personnel d'encadrement sur 3 ans",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §3.2 point 5°"
+      },
+      {
+        "libelle": "Indication du chiffre d'affaires pour les 3 dernières années",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §3.2"
+      },
+      {
+        "libelle": "Titres d'études et professionnels du candidat et des cadres responsables de prestation",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §3.2 point 7°"
+      },
+      {
+        "libelle": "Certificats de qualification professionnelle (organismes indépendants, dont APSAD)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §3.2 point 8°"
+      },
+      {
+        "libelle": "Certificat d'assurance qualité",
+        "phase": "candidature",
+        "obligatoire": false,
+        "source": "RC §3.2 point 9°"
+      },
+      {
+        "libelle": "Attestation de régularité fiscale",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §3.2 point 10°"
+      },
+      {
+        "libelle": "Attestation URSSAF",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §3.2 point 10°"
+      },
+      {
+        "libelle": "Copie de la police d'assurance de responsabilité civile",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §3.2 point 10°"
+      },
+      {
+        "libelle": "Attestations de visite obligatoire des sites (certificat de visite dûment rempli pour chaque site du/des lot(s) visé(s))",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §1.8 et §3.2 point 10°"
+      },
+      {
+        "libelle": "Acte d'Engagement (AE) dûment complété",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §3.3"
+      },
+      {
+        "libelle": "Décomposition du Prix Global et Forfaitaire (DPGF) complétée",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §3.3"
+      },
+      {
+        "libelle": "Bordereau des Prix Unitaires (BPU) complété",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §3.3"
+      },
+      {
+        "libelle": "Mémoire technique (40 pages max hors fiches techniques et CV) reprenant les critères de jugement",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §3.3"
+      },
+      {
+        "libelle": "Note présentant la démarche d'insertion proposée (type de contrat, nombre d'heures…)",
+        "phase": "offre",
+        "obligatoire": false,
+        "source": "RC §3.3"
+      },
+      {
+        "libelle": "CV ou documents permettant d'apprécier les compétences et expériences des membres de l'équipe dédiée",
+        "phase": "offre",
+        "obligatoire": false,
+        "source": "RC §3.3"
+      },
+      {
+        "libelle": "DC4 si sous-traitance envisagée",
+        "phase": "offre",
+        "obligatoire": false,
+        "source": "RC §2.3"
+      }
+    ],
+    "mode_remise": "dématérialisé + copie de sauvegarde",
+    "plateforme_depot": "PLACE — marches-publics.gouv.fr (https://www.marchespublics.gouv.fr/)",
+    "signature_electronique_exigee": false,
+    "format_signature": "XAdES, CAdES ou PAdES — certificat qualifié conforme eIDAS (arrêté 22 mars 2019)",
+    "nombre_exemplaires": null,
+    "langue": "français",
+    "duree_validite_offres_jours": 180,
+    "modalites_source": "RC §4 et §1.11"
   },
   "lots": [
     {
       "numero": 1,
-      "intitule": "Hôpitaux Ambroise Paré (APR), Raymond-Poincaré (RPC) et Sainte-Périne (SPR)",
-      "zone_geographique": "Île-de-France (92, 75)",
-      "volume_estime": null,
-      "volume_estime_unite": null,
-      "particularites": "3 sites hospitaliers en Île-de-France. Visite obligatoire avant le 30/06/2026. Inventaires des installations fournis en annexes 3 (APR, SPR, RPC)."
+      "intitule": "Hôpitaux Ambroise Pare (APR), Raymond-Poincaré (RPC) et Sainte-Périne (SPR)",
+      "domaine": "autre",
+      "zone_geographique": "Île-de-France (92100 Boulogne-Billancourt, 92380 Garches, 75016 Paris)",
+      "volume_estime": 18561,
+      "volume_estime_unite": "équipements SSI",
+      "cout_estime_min_eur": 650000,
+      "cout_estime_max_eur": 870000,
+      "ca_estime_min_eur": 850000,
+      "ca_estime_max_eur": 1100000,
+      "marge_brute_pct": 21,
+      "particularites": "3 sites hospitaliers en région parisienne avec 18 561 équipements SSI inventoriés (marques DEF, AVISS, TYCO, ESSER, ALTAIR, NEUTRONIC…). Détecteurs ioniques (DFCI) présents sur site RPC (bâtiments WIDAL et NETTER, 888 DFCI) nécessitant traitement en laboratoire agréé. Maximum bons de commande 965 000 € HT sur 4 ans. Visite obligatoire avant le 30/06/2026."
     },
     {
       "numero": 2,
       "intitule": "Hôpital maritime de Berck (BRK)",
-      "zone_geographique": "Hauts-de-France (62)",
-      "volume_estime": null,
-      "volume_estime_unite": null,
-      "particularites": "1 site hospitalier à Berck-sur-Mer. Visite obligatoire en deux périodes : 08/06 au 16/06/2026 ou 06/07 au 10/07/2026. Inventaire des installations fourni en annexe 3 (BRK). Contrainte géographique éloignée — prévoir ressources locales ou astreinte dédiée."
+      "domaine": "autre",
+      "zone_geographique": "Pas-de-Calais (62600 Berck-sur-Mer)",
+      "volume_estime": 1850,
+      "volume_estime_unite": "équipements SSI",
+      "cout_estime_min_eur": 130000,
+      "cout_estime_max_eur": 150000,
+      "ca_estime_min_eur": 160000,
+      "ca_estime_max_eur": 200000,
+      "marge_brute_pct": 16,
+      "particularites": "Site isolé à Berck-sur-Mer (200 km de Paris) avec contraintes climatiques marines (oxydation rapide des volets de désenfumage — 2ème visite semestrielle incluant remplacement des serrures de volets). Marque unique DEF (FORTE S / Antarès 5). Maximum bons de commande 135 000 € HT sur 4 ans. Deux périodes de visite obligatoire : 08-16/06/2026 et 06-10/07/2026. Surcoût de déplacement à intégrer."
     }
   ],
+  "tranches": [],
   "calendrier": {
     "date_limite_offres": "2026-07-20",
     "date_demarrage_prevue": "2026-10-01",
-    "duree_marche": "48 mois ferme (accord-cadre)"
+    "duree_marche": "4 ans ferme à compter du 1er octobre 2026"
   },
   "alertes_candidat": [
-    "VISITE OBLIGATOIRE : l'offre est irrecevable sans certificat de visite joint — dates limites distinctes par lot (30/06 pour Lot 1 ; deux périodes pour Lot 2 dont la première se termine le 16/06/2026)",
-    "Absence du mémoire technique = offre éliminée d'office (RC §5.3)",
-    "Absence de proposition financière = offre éliminée d'office (RC §5.3)",
-    "Habilitations réglementaires à couvrir l'intégralité des installations inventoriées : vérifier la complétude des habilitations avant de répondre (les inventaires des annexes 3 sont déterminants)",
-    "Pour le Lot 2 (Berck, 62600) : présence locale indispensable pour respecter les délais d'astreinte — candidat sans ancrage régional Hauts-de-France fortement désavantagé"
+    "VISITE OBLIGATOIRE bloquante : la validité de l'offre est expressément conditionnée à la visite de TOUS les sites du/des lot(s) candidaté(s). Le certificat de visite doit être joint à l'offre. Lot 1 : date limite 30/06/2026 ; Lot 2 : deux fenêtres 08-16/06 et 06-10/07/2026. Un candidat ayant manqué la visite ne peut pas remettre d'offre valable.",
+    "CERTIFICATION APSAD (I7-F7, I13) obligatoire : le titulaire ou son sous-traitant doit justifier de cette certification. Son absence entraîne l'élimination (CCTP §I.6.3). Vérifier que la certification couvre bien les 3 règles exigées.",
+    "HABILITATIONS SSI norme NF S61-933 annexe A : les techniciens désignés doivent posséder les habilitations aux niveaux d'accès SSI requis. La liste nominative avec copies des habilitations doit être transmise 15 jours avant la première intervention.",
+    "MÉMOIRE TECHNIQUE limité à 40 pages (hors fiches techniques et CV) : sa ABSENCE est une cause d'irrecevabilité non régularisable (RC §5.3). Organiser le contenu pour couvrir les 7 sous-critères dans la limite imposée.",
+    "DÉTECTEURS IONIQUES (DFCI) site RPC : 888 détecteurs ioniques présents nécessitent un reconditionnement en laboratoire agréé et une procédure réglementaire spécifique (arrêté 06/03/2012). Le candidat doit démontrer sa capacité à gérer ces équipements sous peine de non-conformité réglementaire."
   ],
   "points_differenciants_attendus": [
     {
-      "libelle": "Exhaustivité des habilitations couvrant toutes les technologies présentes sur les sites",
-      "exemple": "Après analyse des inventaires fournis en annexe, le candidat démontre que son équipe couvre 100% des marques et technologies recensées (ex: centrale SSI Siemens FC720, détecteurs Hochiki, désenfumage Debaco), en joignant les certifications constructeur correspondantes.",
-      "source": "RC §5.2 — sous-critère 7"
+      "libelle": "Maîtrise multi-marques SSI — démontrer la capacité à intervenir sur l'ensemble des équipements installés",
+      "exemple": "Lister exhaustivement les formations constructeurs obtenues (DEF Cassiopée/Antarès/FORTE S, AVISS ADRESS IV/AGORA, TYCO ZXA, ESSER 8000, ALTAIR…) et présenter les licences logicielles de paramétrage disponibles en interne pour chaque marque présente sur les 4 sites.",
+      "source": "RC §5.2 sous-critère 7 et CCTP §I.6.3"
     },
     {
-      "libelle": "Qualité et réactivité de l'astreinte, notamment pour le Lot 2 géographiquement éloigné",
-      "exemple": "Pour le Lot 2, présentation d'un technicien local basé à moins de 30 km de Berck avec stock de pièces de première urgence sur site hospitalier, garantissant un délai d'intervention sur appel < 1h30.",
-      "source": "RC §5.2 — sous-critère 5"
+      "libelle": "Organisation de l'astreinte et délai d'intervention réel inférieur aux 4 heures contractuelles",
+      "exemple": "Proposer un délai garanti de 2h30 avec technicien d'astreinte basé à proximité des sites IDF, justifié par une carte de localisation des techniciens d'astreinte et une procédure de redondance en cas de défaillance.",
+      "source": "RC §5.2 sous-critère 5 et CCTP §III.2.3"
     },
     {
-      "libelle": "Outil de suivi partagé avec le donneur d'ordre (GMAO, portail client)",
-      "exemple": "Accès en temps réel du responsable sécurité AP-HP à un portail GMAO affichant le statut de chaque installation, le calendrier des prochaines vérifications et l'historique des interventions, avec alertes automatiques en cas de dépassement de délai.",
-      "source": "RC §5.2 — sous-critère 6"
+      "libelle": "Expérience en milieu hospitalier AP-HP ou ERP type U — rassurer sur la connaissance des contraintes nosocomiales",
+      "exemple": "Citer des références de marchés similaires exécutés dans des CHU ou hôpitaux publics (type U), avec attestation du donneur d'ordre, en précisant les protocoles CLCIN mis en place et les résultats obtenus.",
+      "source": "RC §3.2 point 4° et CCTP §IV.1.4"
     },
     {
-      "libelle": "Démarche d'insertion sociale concrète et quantifiée",
-      "exemple": "Engagement chiffré sur le nombre d'heures d'insertion (ex: 400h/an), type de contrat (apprentissage BTS Électrotechnique), partenariat formalisé avec une SIAE locale reconnue, et plan de montée en compétences du public insertion sur les métiers du SSI.",
-      "source": "RC §1.13 et §5.2 — critère 2"
+      "libelle": "Gestion des DFCI (détecteurs ioniques) — expertise réglementaire différenciante sur le site RPC",
+      "exemple": "Présenter un partenariat avec un laboratoire agréé pour le reconditionnement des 888 DFCI de Raymond Poincaré, avec planning de traitement et traçabilité individualisée, démontrant la maîtrise de l'arrêté du 06/03/2012.",
+      "source": "CCTP lot 1 §I.6.8"
     },
     {
-      "libelle": "Méthodologie de planification adaptée aux contraintes hospitalières en site occupé",
-      "exemple": "Présentation d'un planning annuel co-construit avec les services techniques de chaque hôpital, intégrant les contraintes de disponibilité des zones critiques (blocs, réanimation, urgences), avec procédure écrite de coordination et validation contradictoire du planning.",
-      "source": "RC §5.2 — sous-critère 2"
+      "libelle": "Démarche d'insertion sociale — apport de 5 points différenciant dans la notation",
+      "exemple": "Proposer un engagement chiffré (ex : 300h d'insertion en contrat PEC pour un DE-RQTH en appui technicien sur le site APR), avec partenariat formalisé avec une SIAE locale et lettre d'intention du prescripteur France Travail.",
+      "source": "RC §1.13 et CCAP art 1.9"
     }
   ],
   "_meta": {
     "id_marche": "BOAMP-26-56379",
     "type": "complet",
-    "extraction_le": "2026-06-12T01:51:44.329370+00:00",
+    "date_generation": "2026-06-20T23:33:55.718586+00:00",
+    "extraction_le": "2026-06-20T23:33:55.718586+00:00",
     "modele": "claude-sonnet-4-6",
-    "tokens_input": 25193,
-    "tokens_output": 8340,
-    "cout_eur": 0.1906,
-    "duree_sec": 145.7,
+    "preset_utilise": null,
+    "presets_matches": [],
+    "prompts_versions": {},
+    "tokens_input": 143360,
+    "tokens_output": 10984,
+    "cout_eur": 0.5651,
+    "duree_sec": 197.6,
     "pdfs_traites": [
       {
         "nom": "00_RC_DT_2026_010_DT_14_021 pdf.pdf",
         "hash": "f05b1276853eaa118908709d88af6aa6",
         "taille_chars": 33413
+      },
+      {
+        "nom": "03_CCAP_2026_021 pdf.pdf",
+        "hash": "5243f23ac1065b5b273f0dd508a36d36",
+        "taille_chars": 77819
+      },
+      {
+        "nom": "04_CCTP_2026_021_LOT1 pdf.pdf",
+        "hash": "8f1ba9a843715f4cdc30f9f68d775df3",
+        "taille_chars": 121990
+      },
+      {
+        "nom": "04_CCTP_2026_021_LOT2 pdf.pdf",
+        "hash": "88bd5e20d2e58af4285973c9644de82d",
+        "taille_chars": 119621
+      },
+      {
+        "nom": "05_FV_GH10_2026_017.docx",
+        "hash": "2e56a591d07e26246f2397c97a4194f8",
+        "taille_chars": 1020
+      },
+      {
+        "nom": "PT3 Lot 1_INVENTAIRES SITE APR -  VF.xlsx",
+        "hash": "4e37725608c1cd023230c08f44223353",
+        "taille_chars": 2462
+      },
+      {
+        "nom": "PT3 Lot 1_INVENTAIRES SITE RPC - VF.xlsx",
+        "hash": "7ef07367f7d02f01acdc27b27f3627ed",
+        "taille_chars": 4989
+      },
+      {
+        "nom": "PT3 Lot 1_INVENTAIRES SITE SPR - VF.xlsx",
+        "hash": "b65c95d47a307f3e02c2c7cb9f8fe5fc",
+        "taille_chars": 2954
+      },
+      {
+        "nom": "PT3 Lot 2_INVENTAIRES SITE BRK - VF.xlsx",
+        "hash": "fa79f08f532bc58ba7e0eba0f34a78e2",
+        "taille_chars": 1914
       }
     ]
   }

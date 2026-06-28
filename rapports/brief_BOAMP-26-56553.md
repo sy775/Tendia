@@ -1,6 +1,6 @@
 # Brief — Prestations de conseil et d'accompagnement juridique portant sur la construction des bâtiments de la Maison de santé pluriprofessionnelle Pointe de Sa
 
-_Généré le 2026-06-15 02:31 par Claude claude-sonnet-4-6_
+_Généré le 2026-06-19 22:10 par Claude claude-sonnet-4-6_
 
 ## Identifiants
 - **ID Tendia** : `BOAMP-26-56553`
@@ -10,91 +10,88 @@ _Généré le 2026-06-15 02:31 par Claude claude-sonnet-4-6_
 - **DCE PLACE** : <https://www.marches-publics.info/mpiaws/index.cfm?fuseaction=dematent.login&type=Dce&Idm=1830061>
 
 ## Synthèse
-La Communauté d'agglomération du Cotentin recherche un prestataire de conseil et d'accompagnement juridique pour la construction de deux bâtiments de santé : la Maison de Santé Pluriprofessionnelle (MSP) Pointe de Saire (via VEFA publique) et le Pôle de Santé Libéral Ambulatoire (PSLA) Douve et Divette (via maîtrise d'ouvrage déléguée). Une tranche optionnelle concerne la construction du Centre de santé Brès-Croizat en VEFA publique. Le titulaire interviendra depuis le montage des procédures jusqu'à l'expiration de la garantie de parfait achèvement des ouvrages.
+La Communauté d'agglomération du Cotentin (50) lance une consultation pour des prestations de conseil et d'accompagnement juridique liées à la construction de deux bâtiments de santé : la MSP Pointe de Saire (montage VEFA publique) et le PSLA Douve et Divette (maîtrise d'ouvrage déléguée). Une tranche optionnelle porte sur le Centre de santé Brès-Croizat, également en VEFA publique. Le titulaire assurera la rédaction des actes, le suivi des procédures de sélection et l'accompagnement juridique jusqu'à la fin de la GPA des ouvrages.
 
 ## 🎯 Mission conseil
-- **Typologie de mission** : accompagnement, conseil juridique
-- **Domaine d'expertise** : droit public et droit privé, VEFA publique, maîtrise d'ouvrage déléguée, immobilier public
-- **Durée de mission** : De la notification jusqu'à la fin de la garantie de parfait achèvement (GPA) des ouvrages — durée indéterminée mais pluriannuelle
-- **Méthodologie attendue** : Réunion de lancement + réunion de remise des documents avant engagement de la procédure de consultation (AMI, appel d'offres) + réunions techniques à préciser (comité technique et comité de suivi) + éventuelles présentations en bureau ou conseil communautaire + présence en présentiel lors des négociations
-- **Accompagnement post-livraison** : Suivi juridique jusqu'à l'expiration de la garantie de parfait achèvement (GPA) des ouvrages — inclus dans le marché
+- **Typologie de mission** : accompagnement, conseil juridique, rédaction d'actes
+- **Domaine d'expertise** : droit public et droit privé — VEFA publique, maîtrise d'ouvrage déléguée, commande publique, droit de la construction
+- **Durée de mission** : De la notification jusqu'à la fin de la GPA des ouvrages (durée non chiffrée, prévisionnellement plusieurs années)
+- **Méthodologie attendue** : Réunion de lancement + réunions techniques (comité technique et comité de suivi) + relecture et sécurisation d'actes + accompagnement procédure AMI/sélection promoteur/opérateur + présence aux négociations + suivi jusqu'à GPA
+- **Accompagnement post-livraison** : Suivi juridique jusqu'à l'expiration de la Garantie de Parfait Achèvement (GPA) des ouvrages (inclus dans la mission, non distinct d'un suivi post-livraison)
 - **Livrables attendus** :
   - Comptes rendus des réunions de travail, comité technique et comité de suivi
-  - Supports de présentation pour projection et animation des réunions
-  - Dossier d'AMI pour les projets en VEFA publique
-  - Avis et observations écrites sur les documents produits par l'Agglomération (PSLA)
-  - Actes juridiques non contentieux (MSP Pointe de Saire)
+  - Supports de présentation pour les réunions
+  - Dossier d'AMI (Appel à Manifestation d'Intérêt) pour les projets en VEFA publique
+  - Avis et propositions écrites de modification de documents (PSLA)
   - Rapports d'analyse des candidatures et des offres
-  - Relevés des réunions de négociation et documents présentés
+  - Relevés des réunions de négociation
+  - Actes juridiques non contentieux rédigés (contrat VEFA, actes de cession, etc.)
 - **Livrables par phase** :
-  - **MSP Pointe de Saire — Phase 1 : Montage et suivi de la procédure de sélection du promoteur** :
-    - Dossier d'appel à manifestation d'intérêt (AMI)
-    - Documents de procédure de sélection du promoteur
+  - **MSP Pointe de Saire — Phase 1 : Montage et suivi procédure sélection promoteur** :
+    - Dossier d'Appel à Manifestation d'Intérêt (AMI)
     - Comptes rendus de réunions
+    - Rapport d'analyse des candidatures et des offres
+    - Relevé des réunions de négociation
   - **MSP Pointe de Saire — Phase 2 : Rédaction des actes juridiques non contentieux** :
+    - Actes juridiques rédigés (contrat VEFA, actes de cession foncière, documents de division en volume, clauses d'encadrement des prix)
+    - Notes juridiques avec références jurisprudentielles
+  - **MSP Pointe de Saire — Phase 3 : Accompagnement et suivi juridique VEFA jusqu'à GPA** :
+    - Avis et notes juridiques au fil de l'eau
+    - Comptes rendus de réunions de suivi
+    - Support de présentation si réunion en bureau ou conseil communautaire
+  - **PSLA Douve et Divette — Phase 1 : Relecture et sécurisation des actes** :
+    - Avis écrits et propositions de modification des documents produits par l'Agglomération
+    - Notes sur les risques juridiques attachés aux documents
+  - **PSLA Douve et Divette — Phase 2 : Accompagnement et conseil juridique jusqu'à GPA** :
+    - Accompagnement procédure sélection opérateur extérieur
+    - Avis juridiques de suivi d'exécution du marché de MOD
+    - Comptes rendus de réunions
+  - **Tranche optionnelle — Centre de santé Brès-Croizat (mêmes missions que MSP Pointe de Saire)** :
+    - Dossier AMI VEFA publique
     - Actes juridiques non contentieux
-    - Observations et propositions de modification des documents
-    - Éléments du cadre juridique applicable
-  - **MSP Pointe de Saire — Phase 3 : Accompagnement et suivi juridique jusqu'à la GPA** :
-    - Rapports d'analyse des candidatures et offres
-    - Relevés des réunions de négociation
-    - Supports de présentation pour comités
-  - **PSLA Douve et Divette — Phase 1 : Relecture et production d'avis sur les documents** :
-    - Avis écrits et propositions de modification sur les projets de documents de l'Agglomération
-    - Informations sur les risques juridiques attachés aux documents
-  - **PSLA Douve et Divette — Phase 2 : Accompagnement et conseil juridique jusqu'à la GPA** :
-    - Conseil juridique continu sur la sélection de l'opérateur extérieur
-    - Suivi de l'exécution du marché de maîtrise d'ouvrage déléguée
-    - Comptes rendus et supports de présentation
-  - **Tranche optionnelle — Centre de santé Brès-Croizat** :
-    - Mêmes livrables que pour la MSP Pointe de Saire (VEFA publique)
+    - Accompagnement et suivi jusqu'à GPA
 - **Jours-consultant par profil** :
-  - Chef de mission / interlocuteur dédié
+  - Juriste / Avocat spécialisé (chef de mission)
 
 ### Profils intervenants
-Un chef de mission nommément désigné, coordinateur des demandes de l'Agglomération au sein du cabinet. Équipe à présenter dans le mémoire technique avec CV. Expertise exigée en VEFA publique et maîtrise d'ouvrage déléguée (droit public et droit privé).
+Expert juridique habilité (avocat ou structure autorisée loi 71-1130), maîtrisant le droit public et droit privé de la construction, la VEFA publique et la maîtrise d'ouvrage déléguée. Un chef de projet dédié coordonnant les demandes de la Communauté d'agglomération est expressément requis.
 - **Chef de mission** :
-  - secteur : droit public et droit privé, VEFA publique, maîtrise d'ouvrage déléguée, immobilier public
+  - secteur : droit public et droit privé — VEFA publique, maîtrise d'ouvrage déléguée, collectivités territoriales
+  - certifications : Habilitation à exercer la profession d'avocat ou statuts permettant de délivrer des conseils juridiques à titre principal (loi 71-1130 du 31/12/71)
 - **Consultants** :
-  - Membres de l'équipe juridique proposée
+  - Juriste / Expert droit de la construction et droit public
 
 ## 💶 Montant du marché
 - _Montant non communiqué dans le DCE._
   - Typique des accords-cadres à bons de commande : le volume dépend des commandes effectivement passées par l'acheteur sur la durée du marché.
-- _Note_ : Aucun montant estimatif ou prévisionnel n'est communiqué dans les pièces du DCE. Seul le plafond de la partie à prix unitaires est mentionné : 18 000 € HT pour toute la durée du marché. Le montant forfaitaire de la tranche ferme dépend de l'offre du candidat.
+- _Note_ : Aucun montant estimé ni plafond global n'est publié dans le DCE (RC, CCAP, CCTP, AAPC). Seul le plafond de la partie à prix unitaires est indiqué : 18 000 € HT pour toute la durée du marché. Les prix forfaitaires principaux sont à établir par le candidat dans son devis.
 
 ## Barème de notation
 - **Valeur technique** : 70 %
 - **Valeur prix** : 30 %
 - **Sous-critères techniques** :
   - Qualité technique : 70 %
-- **Calcul du prix** : Prix jugé sur la base du total du devis transmis pour l'exécution de la mission, additionné au total du détail quantitatif estimatif (DQE). Pondération 30%.
+- **Calcul du prix** : Note prix jugée sur la base du total du devis pour la mission + total du DQE (BPU quantifié). Formule de calcul exact non précisée dans le RC.
 
 ## Références et qualifications exigées
 - **Expérience minimale** : —
-- **Secteur d'expérience** : Conseil juridique dans les domaines du droit public et droit privé afférents à la construction immobilière publique (VEFA publique, maîtrise d'ouvrage déléguée)
-- **Certifications obligatoires** : Preuve de l'habilitation à exercer la profession d'avocat (inscription au barreau), OU statuts permettant de délivrer des conseils juridiques à titre principal OU toute autre preuve justifiant de l'habilitation à dispenser de telles actions en application de la loi n°71-1130 du 31/12/71 et de la jurisprudence CAA de Bordeaux, 3ème chambre, 09/07/2020, 18BX03424 (source=RC §6.2.1)
+- **Secteur d'expérience** : Conseil juridique en droit public et droit privé afférents à la construction en VEFA publique et/ou maîtrise d'ouvrage déléguée pour des collectivités territoriales
+- **Certifications obligatoires** : Habilitation à exercer la profession d'avocat (preuve d'inscription au barreau) OU statuts permettant de délivrer des conseils juridiques à titre principal, ou toutes preuves justifiant de l'habilitation à dispenser de telles actions conformément à la loi n°71-1130 du 31/12/1971 et à la jurisprudence CAA Bordeaux 3ème ch. 09/07/2020 n°18BX03424 (bloquante=True, source=RC §6.2.1)
 - **Autres exigences** :
   - Liste des principaux services fournis au cours des trois dernières années (attestations du destinataire ou déclaration du candidat) (source=RC §6.2.1)
+  - Déclarations appropriées de banques ou preuve d'assurance des risques professionnels pertinents (source=RC §6.2.1)
   - Déclaration indiquant les effectifs moyens annuels et l'importance du personnel d'encadrement pendant les trois dernières années (source=RC §6.2.1)
-  - Déclarations appropriées de banques ou preuve d'une assurance des risques professionnels pertinents (source=RC §6.2.1)
-  - Deux exemples de consultations anonymisées datant de moins d'un an, liés à l'objet de la consultation, permettant d'évaluer la méthodologie de travail mise en œuvre (source=RC §6.2.2)
-
-## Lots
-- **Lot 1** — Prestations de conseil et d'accompagnement juridique portant sur la construction des bâtiments de la MSP Pointe de Saire et du PSLA Douve et Divette (tranche ferme) + Centre de santé Brès-Croizat (tranche optionnelle n°1)
-  - Zone : Territoire de la Communauté d'agglomération du Cotentin (50)
-  - Marché non alloti. Tranche ferme : MSP Pointe de Saire (VEFA publique) + PSLA Douve et Divette (maîtrise d'ouvrage déléguée). Tranche optionnelle n°1 : Centre de santé Brès-Croizat (VEFA publique). Mix prix forfaitaires (missions) + prix unitaires (interventions supplémentaires, plafond 18 000 € HT). Cette consultation fait suite à une procédure antérieure (avis BOAMP n°26-23485 du 06/03/2026) déclarée sans suite.
 
 ## ⚠ Alertes candidat
-- HABILITATION JURIDIQUE OBLIGATOIRE : le candidat doit justifier d'une habilitation à exercer le conseil juridique (preuve d'inscription au barreau d'avocat, ou statuts permettant le conseil juridique à titre principal conformément à la loi n°71-1130 du 31/12/71) — condition d'irrecevabilité de la candidature
-- ENGAGEMENT DE CONTINUITÉ DES INTERVENANTS : les membres de l'équipe présentés dans le dossier sont considérés comme les interlocuteurs effectifs de l'Agglomération ; tout changement non autorisé peut entraîner résiliation du marché par application de l'art. 3.4.3 du CCAG-PI
-- EXEMPLES RÉCENTS OBLIGATOIRES : deux exemples de consultations anonymisées datant de moins d'un an liés à l'objet sont exigés dans l'offre — l'absence ou l'ancienneté de ces références peut pénaliser la candidature
-- EXPERTISE TRÈS SPÉCIALISÉE REQUISE : l'acheteur exige une expertise démontrée en VEFA publique et maîtrise d'ouvrage déléguée (droit public et droit privé) — un cabinet généraliste sans référence sur ces montages sera défavorisé
-- DEVIS SINCÈRE ET COHÉRENT OBLIGATOIRE : la cohérence du temps passé eu égard aux missions est analysée comme critère de jugement — un devis sous-estimé ou incohérent avec le calendrier sera pénalisé
+- HABILITATION JURIDIQUE BLOQUANTE : le candidat doit impérativement justifier de son habilitation à délivrer des conseils juridiques (avocat inscrit au barreau ou structure habilitée loi 71-1130) ; l'absence de cette justification entraîne l'irrecevabilité de la candidature (RC §6.2.1).
+- INTERLOCUTEUR NOMMÉMENT DÉSIGNÉ OBLIGATOIRE : les intervenants présentés dans le dossier sont contractuellement les seuls interlocuteurs de la Communauté d'agglomération ; tout changement non autorisé peut entraîner la résiliation du marché (CCAG-PI art. 3.4.3 — RC §8.1.b).
+- EXEMPLES DE CONSULTATIONS RÉCENTES EXIGÉS : deux consultations anonymisées datant de moins d'un an liées à l'objet sont obligatoires dans l'offre ; des références plus anciennes ou sans lien avec la VEFA/MOD ne satisferont pas cette exigence.
+- EXPERTISE SPÉCIFIQUE VEFA PUBLIQUE ET MOD IMPÉRATIVE : le sous-critère technique le plus fortement pondéré (35%) porte sur l'adéquation des moyens humains à l'objet très particulier de la mission (VEFA et maîtrise d'ouvrage déléguée) — un cabinet sans référence sur ces montages sera fortement pénalisé.
+- PRIX FERMES SUR TOUTE LA DURÉE JUSQU'À GPA : le titulaire ne peut pas réviser ses prix ; pour une mission pouvant durer 3 à 5 ans, il convient de sécuriser le devis en intégrant une marge pour aléas et inflation.
 
 ## 💡 Points différenciants attendus
-- Expertise démontrée en VEFA publique pour des collectivités territoriales (exemple=Un cabinet présentant 2-3 références récentes de montages VEFA publique pour des intercommunalités ou communes, avec des missions analogues (sélection de promoteur, rédaction des actes, suivi jusqu'à GPA), se distinguera nettement face à des candidats aux références plus génériques en droit de la construction., source=RC §8.1.b et CCTP §2)
-- Maîtrise combinée droit public / droit privé sur des opérations immobilières publiques complexes (exemple=Le marché porte simultanément sur deux montages distincts (VEFA publique et MOD) : un cabinet capable de mobiliser des compétences en droit administratif ET en droit de la construction privée (VEFA, division en volume, copropriété) dans la même équipe démontre une valeur ajoutée directe., source=CCTP §2)
-- Disponibilité et réactivité de l'équipe dédiée, avec interlocuteur unique nommément engagé (exemple=Proposer un SLA de réactivité formalisé (ex : réponse sous 48h aux demandes courantes, présence garantie aux comités de suivi en présentiel) avec un chef de projet senior nommément engagé et non substituable sans accord préalable renforce la crédibilité de l'offre sur le critère 'adéquation des moyens humains'., source=RC §8.1.b et CCTP §3)
-- Exemples de consultations similaires récents et pertinents (VEFA/MOD, secteur santé ou immobilier public) (exemple=Les deux exemples anonymisés exigés dans l'offre constituent un vecteur de différenciation fort : présenter des cas réels de montages VEFA publique avec division en volume ou de MOD pour des équipements de santé, avec les actes rédigés et le suivi jusqu'à livraison, illustre concrètement la méthodologie., source=RC §6.2.2)
-- Dévis forfaitaire sincère avec estimation détaillée par mission et cohérence calendrier/ressources (exemple=Un devis décomposant explicitement le temps passé par phase, par réunion (présentiel/distanciel) et par intervenant — en cohérence avec le calendrier et les effectifs présentés — sera mieux noté qu'une offre forfaitaire globale non justifiée, l'acheteur vérifiant explicitement cette cohérence dans les critères., source=CCTP §8 et RC §6.2.2)
+- Expertise démontrée sur des montages VEFA publique pour des collectivités territoriales (exemple=Présenter dans le mémoire technique deux ou plusieurs références récentes de montages VEFA publique (avec division en volume, cession foncière à un promoteur, règle de la minorité) réalisés pour des EPCI ou communes, avec attestations du destinataire., source=RC §8.1.b / CCTP §2)
+- Capacité à distinguer et maîtriser deux montages juridiques différents en simultané (VEFA et MOD) (exemple=Le mémoire propose une organisation claire distinguant les deux missions (un référent par projet ou un référent global avec expertise bi-montage) et explique comment les équipes gèrent les deux projets en parallèle sans interférence., source=CCTP §2)
+- Réactivité et disponibilité garanties — interlocuteur dédié identifiable et joignable (exemple=Préciser les engagements de délai de réponse (ex: réponse aux demandes sous 48h ouvrées), la disponibilité du chef de projet pour les réunions en présentiel sur le territoire du Cotentin, et les modalités de remplacement en cas d'absence., source=RC §6.2.2 / CCTP §3)
+- Maîtrise des enjeux de la division en volume et de la copropriété mixte santé/logements dans le cadre de la VEFA (exemple=Le mémoire technique démontre une expertise sur les clauses d'encadrement des prix de vente, la gestion des parties communes entre l'Agglomération et les futurs propriétaires de logements, l'individualisation des compteurs et les possibilités d'extension., source=CCTP §3)
+- Cohérence et sincérité de l'estimation du temps passé par phase dans le devis (exemple=Le devis présente un phasage détaillé par projet avec le nombre de jours par étape (AMI, rédaction actes, réunions, suivi GPA) en cohérence avec le calendrier proposé ; la Communauté d'agglomération analysera explicitement cette cohérence dans les critères., source=CCTP §8 / RC §8.2)

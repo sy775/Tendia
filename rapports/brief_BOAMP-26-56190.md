@@ -1,6 +1,6 @@
 # Brief — MARCHE DE MAITRISE D'OEUVRE - Pour l'opération de REHABILITATION DE L'ANCIENNE PHARMACIE POUR ACCUEILLIR LE SERVICE DE CUISINE - Centre Hospitalier de
 
-_Généré le 2026-06-14 23:11 par Claude claude-sonnet-4-6_
+_Généré le 2026-06-20 16:37 par Claude claude-sonnet-4-6_
 
 ## Identifiants
 - **ID Tendia** : `BOAMP-26-56190`
@@ -10,101 +10,109 @@ _Généré le 2026-06-14 23:11 par Claude claude-sonnet-4-6_
 - **DCE PLACE** : <https://www.achatpublic.com/sdm/ent/gen/ent_detail.do?PCSLID=CSL_2026_46cJMy2YEz>
 
 ## Synthèse
-Marché de maîtrise d'œuvre complète pour la réhabilitation de l'ancienne pharmacie du Centre Hospitalier de Villefranche-sur-Saône (HNOV) afin d'accueillir un service de cuisine satellite d'allotissement (1 200 repas/jour). Le projet comprend également le curage de l'ancienne cuisine de production et la démolition d'un local technique pour créer des places de stationnement ambulance. L'enveloppe travaux est estimée à 2 400 000 € HT, en site occupé (hôpital en activité).
+Marché de maîtrise d'œuvre complète (APS à AOR) pour la réhabilitation de l'ancienne pharmacie du Centre Hospitalier de Villefranche-sur-Saône afin d'y créer une cuisine satellite d'allotissement hospitalière (liaison froide, ~1 200 repas/jour). L'opération comprend également le curage de l'ancienne cuisine de production et la démolition d'un local technique. Le marché est passé en procédure négociée avec sélection de 3 candidats maximum, pour une enveloppe travaux estimée à 2 400 000 € HT.
 
 ## 🧮 Mission MOE / ingénierie
 - **Typologie de mission** : MOE complète
-- **Type d'ouvrage** : Réhabilitation de bâtiment hospitalier existant (ancienne pharmacie) pour création d'une cuisine satellite d'allotissement, en site occupé
+- **Type d'ouvrage** : Réhabilitation de bâtiment existant en site hospitalier occupé (cuisine satellite d'allotissement en milieu hospitalier)
 - **Complexité technique** : complexe
 - **Phases couvertes** : APS, APD, PRO, ACT, EXE, VISA, DET, AOR
 - **Montant travaux estimé** : 2,40 M€
 - **Livrables par phase** :
   - **APS** :
-    - Dossier APS complet (format informatique PDF, Autocad)
+    - Étude d'avant-projet sommaire
     - Estimation prévisionnelle des travaux C(apd)
+    - Documents au format informatique (pdf, autocad)
   - **APD** :
-    - Dossier APD complet (format informatique PDF, Autocad)
-    - Coût prévisionnel des travaux C(apd)
-    - Dossier d'autorisation administrative le cas échéant
-  - **PRO** :
-    - Dossier PRO complet (format informatique PDF, Autocad)
-    - Coût de référence des travaux C(ref)
+    - Étude d'avant-projet définitif
+    - Estimation prévisionnelle des travaux C(apd)'
     - Dossier d'autorisation administrative
+    - Documents au format informatique
+  - **PRO** :
+    - Études de projet
+    - Coût de référence des travaux C(ref)
+    - Documents au format informatique
   - **ACT** :
-    - Pièces techniques pour la consultation des entreprises (DCE travaux)
-    - Dossier de Consultation des Entreprises (DCE)
+    - Assistance au maître d'ouvrage pour la passation des marchés de travaux (AMT)
+    - Pièces techniques DCE
+    - Analyse des offres entreprises
   - **EXE** :
-    - Plans d'exécution
     - Devis quantitatif détaillé (DQE)
+    - Plans d'exécution
     - Études de synthèse (SYN)
     - Calendrier détaillé d'exécution
-  - **VISA** :
-    - Visa des plans d'exécution réalisés par les entreprises
+    - Visa des plans d'exécution réalisés par les entreprises (VISA)
   - **DET** :
-    - Comptes-rendus de réunions de chantier
-    - États d'acomptes mensuels entreprises
-    - FTM (fiches de travaux modificatifs)
+    - Direction de l'exécution des marchés publics de travaux
+    - États d'acomptes mensuels
+    - Fiches modificatives de travaux (FTM)
     - Carnet des écarts mensuel
+    - Décompte général
   - **AOR** :
+    - Assistance aux opérations de réception
     - Procès-verbal des opérations préalables à la réception
-    - DOE (Dossier des Ouvrages Exécutés)
+    - Dossier des ouvrages exécutés (DOE)
     - Dossier de maintenance
-    - Levée des réserves
-    - Instruction des mémoires de réclamation
+    - Suivi levée des réserves durant GPA
 - **Indices révision** : ING Ingénierie
 - **Coordinations associées** :
-  - OPC inclus dans la mission de base
-  - SPS hors marché (prestataire distinct)
-  - CSSI hors marché (prestataire distinct)
-  - Contrôle technique hors marché (prestataire distinct)
+  - OPC non mentionné comme inclus ou exclu — non précisé dans les pièces disponibles
+  - SPS hors marché (coordonnateur SPS mentionné comme tiers)
+  - SSI hors marché (coordonnateur SSI mentionné comme tiers)
+  - Contrôle technique hors marché (contrôleur technique agréé mentionné comme tiers)
+  - Mission Désamiantage — mission complémentaire incluse
 - **Organigramme attendu** :
-  - Architecte (mandataire du groupement, obligatoirement inscrit à l'Ordre des Architectes)
-  - OPC - Ordonnancement Pilotage Coordination
-  - Ingénieur restauration collective / cuisine hospitalière
+  - Architecte mandataire (inscrit à l'Ordre des architectes) ×1
+  - Ingénieur restauration collective (spécialiste cuisine collective en établissement de santé)
   - Ingénieur structures
   - Ingénieur fluides, CVC et plomberie
   - Ingénieur courants forts et courants faibles
   - Économiste de la construction
+  - Responsable OPC (Ordonnancement Pilotage Coordination)
 
 ### Qualifications MOE exigées
 - **Autres exigences** :
-  - Inscription à l'Ordre des Architectes obligatoire pour le mandataire architecte
+  - Inscription à l'Ordre des architectes obligatoire pour le membre portant la compétence Architecture
 
 ## 💶 Montant du marché
-- _Montant non communiqué dans le DCE._
-  - Typique des accords-cadres à bons de commande : le volume dépend des commandes effectivement passées par l'acheteur sur la durée du marché.
-- _Note_ : Le montant des honoraires MOE n'est pas communiqué à ce stade (phase candidature). L'enveloppe travaux est de 2 400 000 € HT (RC article 1.1). La DPGF et le BPU seront fournis aux candidats sélectionnés dans le DCE phase offres. À titre d'ordre de grandeur, pour un taux MOE de 10-12% sur réhabilitation hospitalière complexe, les honoraires se situeraient entre 240 000 et 288 000 € HT.
+- **Fourchette** : entre 192 000 € et 288 000 €
+  - sur 24 mois (6 mois études + 6 mois travaux + 12 mois GPA)
+  - _source : RC art. 1.1 (enveloppe travaux 2 400 000 € HT) + taux MOE estimé 8-12% selon complexité_
 
 ## Barème de notation
 - **Valeur technique** : 60 %
 - **Valeur prix** : 40 %
 - **Sous-critères techniques** :
-  - Qualité et pertinence de la méthodologie proposée pour la conduite du projet, dans ses trois composantes de phase d'études, de chantier et de réception : 35 %
-  - Qualité et pertinence des moyens humains personnels et répartition des temps et des rôles affectés : 20 %
-  - Pertinence et qualité de la démarche développement durable et environnementale : 5 %
-- **Calcul du prix** : Prix des prestations pondéré à 40%. La formule exacte de notation n'est pas précisée dans les documents de candidature ; elle sera détaillée dans le DCE phase offres.
+  - Note technique : 60 %
+- **Calcul du prix** : Critère prix pondéré à 40%. Formule exacte non communiquée en phase candidature — sera précisée dans le DCE phase offre. Le marché est à prix global et forfaitaire provisoire transformé en forfait définitif après APD.
 
 ## Références et qualifications exigées
 - **Expérience minimale** : —
 - **Volume minimal de références** : 3 références par compétence
-- **Secteur d'expérience** : Réhabilitation ou restructuration dans le domaine de la cuisine collective, de la cuisine collective hospitalière ou du tertiaire, pour une surface d'au moins 1 000 m², en site occupé (selon la compétence concernée). Pour la compétence 'Ingénierie restauration collective' : cuisine collective en établissement de santé obligatoirement.
-- **Certifications obligatoires** : Inscription à l'Ordre des Architectes (obligatoire pour le mandataire architecte) (source=RC article 4.1 et article 4.2 §7)
+- **Secteur d'expérience** : Réhabilitation ou restructuration dans le domaine de la cuisine collective, de la cuisine collective hospitalière ou du tertiaire, pour une surface d'au moins 1 000 m², en site occupé (critères variables selon la compétence concernée). Pour la compétence ingénierie restauration collective : obligatoirement en établissement de santé.
+- **Certifications obligatoires** : Inscription à l'Ordre des architectes (pour le membre portant la compétence Architecture) (bloquante=True, source=RC art. 4.1 et art. 4.2 §7)
 - **Autres exigences** :
-  - Chiffre d'affaires annuel minimum de l'équipe candidate (somme des membres) sur le dernier exercice disponible : 400 000 € HT (source=RC article 5.1 et Annexe 1 RC)
-  - Les références doivent avoir été exécutées au cours des 3 dernières années (des références plus anciennes peuvent être prises en compte à titre complémentaire) (source=RC article 4.2 §11)
-  - Preuve d'une assurance de responsabilité civile professionnelle en cours de validité pour chaque membre du groupement (source=RC article 4.2 §5)
-  - Couverture des 7 compétences exigées (Architecture, OPC, Ingénierie restauration collective, Ingénierie des structures, Ingénierie des fluides/CVC/plomberie, Courants forts et courants faibles, Économie de la construction) par l'équipe candidate (source=RC article 5.1)
+  - Chiffre d'affaires annuel minimum de l'équipe candidate (somme de tous les membres) sur le dernier exercice disponible : 400 000 € HT (source=RC art. 5.1 et Annexe 1 RC — feuille Niveaux Minimaux)
+  - Couverture de toutes les compétences exigées : Architecture, OPC, Ingénierie restauration collective, Ingénierie des structures, Ingénierie des fluides/CVC/plomberie, Courants forts et faibles, Économie de la construction (source=RC art. 5.1)
+  - Assurance de responsabilité civile professionnelle en cours de validité (source=RC art. 4.2 §5)
+  - Références exécutées au cours des 3 dernières années (3 références par compétence, de nature, taille et complexité similaires) (source=RC art. 4.2 §11)
+
+## Lots
+- **Lot 1** — Marché de Maîtrise d'Œuvre pour l'opération de Réhabilitation de l'Ancienne Pharmacie pour accueillir le Service de Cuisine — Centre Hospitalier de VILLEFRANCHE-SUR-SAÔNE
+  - Zone : Villefranche-sur-Saône (69)
+  - Marché unique non alloti. Procédure négociée avec sélection de 3 candidats maximum. Visite de site obligatoire le 18 juin 2026. Suite à résiliation d'un précédent marché MOE après phase AVP. Mission complémentaire désamiantage incluse. Site hospitalier occupé — contraintes DDPP, CSSI, ERP type U.
 
 ## ⚠ Alertes candidat
-- VISITE OBLIGATOIRE en phase candidature le jeudi 18 juin 2026 de 10h à 12h — inscription préalable requise auprès de dmourenas@hno.fr ou nagauthier@hno.fr. Toute candidature sans attestation de visite sera irrecevable.
-- Architecte OBLIGATOIREMENT mandataire du groupement et inscrit à l'Ordre des Architectes (loi n°77-2 du 3 janvier 1977) — un BET ne peut pas se présenter seul ou en tant que mandataire.
-- Règle d'exclusivité stricte : un candidat ne peut pas figurer dans plusieurs groupements simultanément (sauf dérogation pour compétences 'scénique-audiovisuel' et 'acoustique' qui ne concernent pas ce marché).
-- La compétence 'Ingénierie restauration collective' exige des références en cuisine collective EN ÉTABLISSEMENT DE SANTÉ spécifiquement (critère plus restrictif que pour les autres compétences) — vérifier les références disponibles.
-- Le marché fait suite à une résiliation après APD : le programme a été redéfini, le niveau de détail attendu dès l'APS sera élevé. Le titulaire sera tenu à des engagements contractuels stricts sur les coûts travaux avec possibilité de reprendre les études gratuitement en cas de dépassement.
+- VISITE DE SITE OBLIGATOIRE le jeudi 18 juin 2026 de 10h à 12h — inscription préalable obligatoire auprès de dmourenas@hno.fr ou nagauthier@hno.fr. L'absence à la visite exclut la candidature.
+- L'architecte DOIT être membre du groupement (loi sur l'architecture) et être désigné mandataire — un BET ne peut pas se présenter seul ni être mandataire.
+- Les 7 compétences listées (Architecture, OPC, Ingénierie restauration collective, Structures, Fluides/CVC, CF/CFA, Économie) doivent TOUTES être couvertes — absence d'une seule = irrecevabilité.
+- Chiffre d'affaires annuel de l'équipe candidate ≥ 400 000 € HT sur le dernier exercice — seuil minimal éliminatoire vérifié avant analyse.
+- Références exigées : 3 références par compétence, réalisées dans les 3 dernières années, sur des opérations ≥ 1 000 m² en site occupé — la référence en ingénierie restauration collective doit impérativement être en établissement de santé.
+- Le marché fait suite à la résiliation d'un précédent MOE après AVP : le MOA sera particulièrement attentif à la solidité de l'équipe et à la capacité à tenir les engagements coût (enveloppe 2 400 000 € HT avec mécanisme de pénalité si dépassement).
 
 ## 💡 Points différenciants attendus
-- Expérience spécifique en ingénierie de restauration collective hospitalière (compétence la plus rare et discriminante) (exemple=Un groupement intégrant un bureau d'études spécialisé en cuisine hospitalière (références en cuisine satellite, liaison froide, allotissement en EDS) avec des références récentes en établissement de santé sera très fortement valorisé par rapport à un groupement généraliste en restauration collective tertiaire., source=RC article 4.2 §11 — tableau références types, compétence 'Ingénierie restauration collective')
-- Références communes entre membres du groupement sur des projets similaires (exemple=Un groupement architecte + BET fluides ayant déjà collaboré sur une réhabilitation de cuisine hospitalière pourra le démontrer dans le tableau de synthèse Annexe 1 et valoriser la cohérence de l'équipe., source=RC article 4.2 §11 (dernier paragraphe))
-- Maîtrise des contraintes de chantier en site hospitalier occupé (ERP type U, SSI, CSSI, DDPP) (exemple=Présenter des références de réhabilitation en milieu hospitalier en activité avec détail du phasage adopté, des interfaces SSI gérées et des procédures HACCP validées par la DDPP démontre une compréhension fine des enjeux et rassure le MOA sur la capacité à livrer sans incident., source=CCAP article 1.6.4 ; Note d'intention programmatique §4.1)
-- Méthodologie de conduite de projet intégrant la reprise d'un projet résilié à l'APD (exemple=Proposer une phase de diagnostic initial et de revue critique du dossier AVP précédent (avant de relancer les études APS) permettrait de montrer la capacité à capitaliser sur les travaux existants tout en reprenant le projet sur de nouvelles bases programmatiques., source=RC article 1.1 (mention de la résiliation du précédent marché))
-- Démarche développement durable appliquée à la cuisine hospitalière (bien que pondérée à seulement 5%) (exemple=Présenter des solutions concrètes de récupération d'énergie sur les groupes frigorifiques, de limitation de la consommation d'eau en cuisine et de tri des déchets alimentaires et de chantier démontrera une approche intégrée qui se distinguera des réponses génériques., source=RC article 7 (sous-critère 1.3) ; Note d'intention programmatique §4.1)
+- Expérience spécifique en cuisine collective hospitalière (pas seulement restauration collective générique) (exemple=Un ingénieur restauration collective ayant conçu des cuisines satellites d'allotissement en liaison froide dans des hôpitaux publics, avec validation DDPP et service EPRI, représente un avantage décisif. Citer des références nominatives en établissements de santé (CHU, CH) avec retour client positif., source=RC art. 5.1 et tableau 'Référence type' — compétence Ingénierie restauration collective)
+- Méthodologie de conduite de projet en site hospitalier occupé (35% de la note technique) (exemple=Présenter un plan de phasage détaillé montrant la coexistence des travaux avec l'activité de l'hôpital, les mesures de protection des patients et du personnel, le protocole de maintien du SSI existant pendant les travaux, et l'organisation des réunions de coordination avec le CSSI., source=RC Article 7 sous-critère 1.1)
+- Références communes entre membres du groupement (valorisées explicitement) (exemple=Mettre en avant des projets où l'architecte et l'ingénieur restauration collective ont déjà travaillé ensemble (groupement stable) : signe de coordination éprouvée et de réduction du risque opérationnel pour le MOA., source=RC art. 4.2 — dernier alinéa)
+- Démarche développement durable spécifique au contexte cuisine hospitalière (exemple=Proposer une récupération d'énergie sur les groupes froids pour préchauffer l'ECS, un éclairage LED adapté aux zones de production alimentaire, et un plan de gestion des déchets de chantier incluant le désamiantage — avec des indicateurs chiffrés de réduction de consommation., source=RC Article 7 sous-critère 1.3 et Note d'intention programmatique §4.1)
+- Maîtrise du référentiel réglementaire spécifique : ERP type U, HACCP, normes DDPP, SSI hospitalier (exemple=Démontrer dans le mémoire technique la connaissance des exigences ERP type U (établissement de soins), des circuits HACCP en restauration hospitalière (marche en avant, validation EPRI/DDPP), et de la réglementation SSI — éléments non négociables du projet., source=Note d'intention programmatique §4.1 et CCAP art. 1.6.4)

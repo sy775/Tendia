@@ -1,0 +1,513 @@
+{
+  "synthese_marche": "Accord-cadre à bons de commande attribué à un opérateur unique pour la réalisation de contrôles analytiques des eaux (physico-chimiques et bactériologiques) au bénéfice de Sète agglopôle Méditerranée : autosurveillance réglementaire de 7 stations d'épuration, surveillance des réseaux eaux usées et pluvial, milieux récepteurs (étang de Thau, moules), eaux REUT et autocontrôle eau potable à Mèze. Le titulaire doit être accrédité COFRAC (programme 100) pour tous les paramètres analysés, assurer le transport des échantillons depuis Mèze (ECOSITE) et restituer les résultats dans un délai de 10 jours. Durée initiale 1 an, reconductible 3 fois (4 ans maximum), maximum périodique de 200 000 € HT.",
+  "domaines_metier": [
+    {
+      "code": "services_environnement_analyses"
+    }
+  ],
+  "raison_classification": "Le marché porte exclusivement sur des analyses physico-chimiques et bactériologiques sur matrices eau (eaux usées, eau potable, milieu récepteur, sédiments, boues) réalisées par un laboratoire accrédité COFRAC — activité qui relève précisément du code `services_environnement_analyses` (analyses physico-chimiques, bactériologiques, contrôles qualité sur eau, air, sols, surfaces). Il ne s'agit pas d'ingénierie de l'eau au sens études/conception (`ingenierie_eau_milieux`) mais bien de prestations de laboratoire d'autosurveillance réglementaire.",
+  "caracteristiques_metier": {
+    "description": "Prestations de laboratoire : prélèvement/transport d'échantillons eau (eaux usées entrée/sortie STEU, boues, milieu récepteur étang/moules, eaux pluviales, eaux REUT, eau potable), analyses normalisées AFNOR/CEN/ISO (paramètres physicochimiques — DCO, DBO5, MES, azote, phosphore, PFAS, SASR, bactériophages, métaux lourds — et bactériologiques — E. coli, entérocoques, Salmonelles, Legionella, nématodes, etc.), transmission des résultats via rapport PDF dans un délai ≤ 10 jours ouvrés avec alerte immédiate en cas de dépassement de seuil. Gestion d'urgences 24h/24 7j/7 et restitution des flaconnages neufs.",
+    "criteres_eligibilite": [
+      "Accréditation COFRAC programme 100 pour l'ensemble des paramètres analysés dans le marché, devant perdurer toute la durée du contrat (résiliation en cas de perte)",
+      "Capacité à assurer le transport des échantillons depuis ECOSITE route des Salins, 34140 Mèze (prise en charge avant 15h)",
+      "Disponibilité 24h/24 7j/7 pour la prise en charge d'urgence des échantillons (délai max 6h après demande)",
+      "Utilisation exclusive des normes AFNOR, CEN ou ISO pour les analyses",
+      "Capacité à analyser des eaux sous influence chlorures (application de dilutions en fonction de la conductivité, cas MARSEILLAN)",
+      "Capacité à fournir les flaconnages neufs pour les prélèvements"
+    ]
+  },
+  "bareme_notation": {
+    "valeur_technique_pct": 60,
+    "valeur_prix_pct": 40,
+    "sous_criteres_techniques": [
+      {
+        "libelle": "Valeur technique",
+        "ponderation_pct": 50,
+        "description": "Évaluée au regard du mémoire technique remis par les candidats, sur 3 axes : moyens humains, moyens matériels et organisation/méthodologie.",
+        "elements_attendus": [
+          "CV du personnel intervenant, organigramme, description du système d'astreinte 24h/24",
+          "Descriptif du laboratoire (équipements, accréditations COFRAC liste précise), organisation de la gestion des prélèvements et conditions de transport (traçabilité, température)",
+          "Méthodologie de prise en charge des échantillons, délais de transport, moyens de communication des dépassements de seuils",
+          "Description de la prise en charge en urgence (≤ 6h), procédures week-end et jours fériés",
+          "Présentation des bulletins d'analyses (résultats, LQ, seuils, accréditation, code SANDRE)",
+          "Prise en compte de la salinité (protocole de dilution selon conductivité pour eaux sous influence chlorures)"
+        ],
+        "exemple_reponse_forte": "Le mémoire présenterait les CV et habilitations des analystes accrédités COFRAC, l'organigramme du laboratoire avec responsable d'astreinte nommément désigné joignable 24/7, une procédure détaillée de transport réfrigéré depuis Mèze (relevé de température à chaque enlèvement, délai de prise en charge <3h), le protocole de dilution conductimétrique pour Marseillan avec exemples de bulletins types incluant LQ, codes SANDRE et mention de l'accréditation paramètre par paramètre.",
+        "source": "RC §7.2",
+        "unite_evaluation": "points",
+        "sous_criteres": [
+          {
+            "libelle": "Moyens humains (CV - organigramme - astreinte)",
+            "ponderation_pct": 20,
+            "description": "Évaluation des ressources humaines dédiées : qualification du personnel, organisation hiérarchique et dispositif d'astreinte pour interventions hors heures ouvrées.",
+            "elements_attendus": [
+              "CV des analystes avec mention des habilitations COFRAC",
+              "Organigramme du laboratoire avec rôles clairement identifiés",
+              "Description du système d'astreinte 24h/24 7j/7 avec coordonnées d'urgence"
+            ],
+            "exemple_reponse_forte": "Organigramme nominatif avec responsable technique accrédité COFRAC, 2 analystes spécialisés eaux résiduaires/microbiologie, et un référent astreinte joignable par téléphone et email avec délai garanti de réponse < 1h.",
+            "source": "RC §7.2",
+            "unite_evaluation": "points"
+          },
+          {
+            "libelle": "Moyens matériels (Descriptif du laboratoire - gestion des prélèvements - conditions de transport et sous-traitance)",
+            "ponderation_pct": 40,
+            "description": "Évaluation de l'équipement du laboratoire, de l'organisation logistique des prélèvements et des modalités de transport des échantillons jusqu'au laboratoire.",
+            "elements_attendus": [
+              "Description détaillée des équipements analytiques du laboratoire et de leur couverture COFRAC",
+              "Organisation logistique de la collecte des échantillons à Mèze (fréquence, véhicule réfrigéré, horaires)",
+              "Procédures de traçabilité des enlèvements (heure, température, bordereau de prélèvement)",
+              "Gestion des flaconnages (quantité, type, restitution neufs)",
+              "Politique de sous-traitance analytique éventuelle avec mention des partenaires accrédités"
+            ],
+            "exemple_reponse_forte": "Le candidat décrit un véhicule réfrigéré dédié à la collecte sur le site ECOSITE de Mèze, un registre électronique de traçabilité horodaté, un stock de flaconnages neufs adaptés à chaque matrice (eau douce, saumâtre, boues) fournis par le laboratoire, avec un protocole de restitution hebdomadaire.",
+            "source": "RC §7.2",
+            "unite_evaluation": "points"
+          },
+          {
+            "libelle": "Organisation : Méthodologie de prise en charge - conditions de transport (délai) - moyens de communication des dépassements des seuils - prise en charge en urgence - présentation des bulletins d'analyses avec résultats, LQ, seuils - prise en compte de la salinité",
+            "ponderation_pct": 40,
+            "description": "Évaluation de la méthodologie globale d'organisation des prestations, depuis la prise en charge de l'échantillon jusqu'à la restitution des résultats, y compris les cas particuliers (urgences, salinité).",
+            "elements_attendus": [
+              "Description du flux de prise en charge des échantillons depuis l'enlèvement jusqu'au rapport final",
+              "Délai de transport garanti cohérent avec les délais d'analyse (résultats ≤ 10 j)",
+              "Procédure de communication en cas de dépassement de seuil (appel téléphonique + rapport partiel sous 24h)",
+              "Procédure de prise en charge urgence ≤ 6h avec exemple de cas pollution",
+              "Modèle de bulletin d'analyse avec résultats, LQ, incertitude, code SANDRE, mention accréditation COFRAC",
+              "Protocole de dilution conductimétrique selon les seuils définis (ex: conductivité > 4000 µS/cm → dilution 1/2) pour les points sous influence chlorures"
+            ],
+            "exemple_reponse_forte": "Le mémoire joint un modèle de bulletin d'analyse avec l'ensemble des mentions CCTP (date enlèvement, température transport, LQ, incertitude, code SANDRE, accréditation par paramètre) et un logigramme décisionnel illustrant le déclenchement automatique de l'alerte SAM dans les 24h en cas de dépassement, avec la procédure de dilution conductimétrique appliquée aux points Marseillan.",
+            "source": "RC §7.2",
+            "unite_evaluation": "points"
+          }
+        ]
+      },
+      {
+        "libelle": "Performances en matière de protection de l'environnement",
+        "ponderation_pct": 10,
+        "description": "Évaluation des performances environnementales du candidat au regard de deux axes : distance laboratoire/site de collecte et démarche environnementale certifiée.",
+        "elements_attendus": [
+          "Distance kilométrique entre le laboratoire d'analyses (ou le dépôt logistique) et le site de collecte de Mèze — plus la distance est faible, plus la note est haute",
+          "Certifications environnementales du laboratoire (ISO 14001, EMAS ou équivalent)",
+          "Démarche RSE vérifiable et documentée (bilan carbone, politique déchets laboratoire, consommables biosourcés)"
+        ],
+        "exemple_reponse_forte": "Un laboratoire situé à moins de 50 km de Mèze, certifié ISO 14001 et disposant d'un bilan carbone annuel audité, présenterait une réponse forte sur ce critère, en précisant le kilométrage exact aller-retour par tournée et le nombre de tournées annuelles évitant des déplacements inutiles.",
+        "source": "RC §7.2",
+        "unite_evaluation": "points",
+        "sous_criteres": [
+          {
+            "libelle": "Réduction des émissions liées au transport des échantillons évaluée en fonction de la distance entre le laboratoire d'analyses et le site de collecte de Mèze",
+            "ponderation_pct": 5,
+            "description": "La note est attribuée en fonction de la distance kilométrique entre le laboratoire (ou site de départ du transporteur) et le site de collecte ECOSITE Mèze.",
+            "elements_attendus": [
+              "Distance précise (km) entre laboratoire et ECOSITE Mèze",
+              "Fréquence et organisation des tournées pour minimiser les déplacements"
+            ],
+            "exemple_reponse_forte": "Laboratoire localisé à Montpellier (30 km de Mèze), mutualisant les tournées d'enlèvement pour 5 des 7 stations lors d'un seul passage hebdomadaire.",
+            "source": "RC §7.2",
+            "unite_evaluation": "points"
+          },
+          {
+            "libelle": "Gestion environnementale du laboratoire évaluée au regard des certifications (ISO 14001...) et de la démarche RSE vérifiable",
+            "ponderation_pct": 5,
+            "description": "La note est attribuée selon la possession de certifications environnementales reconnues et la qualité de la démarche RSE documentée et vérifiable.",
+            "elements_attendus": [
+              "Certification ISO 14001 ou EMAS en cours de validité",
+              "Démarche RSE formalisée et vérifiable (rapport RSE, label)"
+            ],
+            "exemple_reponse_forte": "Présentation du certificat ISO 14001 en cours de validité, du dernier rapport RSE annuel publié avec indicateurs environnementaux (bilan carbone, taux de recyclage des déchets de laboratoire).",
+            "source": "RC §7.2",
+            "unite_evaluation": "points"
+          }
+        ]
+      }
+    ],
+    "prix": {
+      "type_formule": "moins_disant",
+      "formule_explicite": "Note prix = 100 × (prix de l'offre la moins disante / prix de l'offre analysée) ; pondération 40% de la note globale. Le prix est jugé à partir du DQE (Devis Quantitatif Estimatif) dont les prix unitaires doivent être strictement identiques au BPU.",
+      "source": "RC §7.2",
+      "elements_a_chiffrer": [
+        "Prix unitaires par paramètre analysé sur eaux usées (pH, MES, DCO, DCOf, DBO, DBOf, E.coli, entérocoques, NTK, NO2, NO3, NH4, NGL, chlorures, PT, PO4, conductivité, résidus sec 550, spores anaérobies, bactériophages ARNf, SEH, PFAS eaux)",
+        "Prix unitaires par paramètre analysé sur boues bassin d'aération (MS, MVS)",
+        "Prix unitaires par paramètre analysé sur boues pâteuses LSPR (siccité, MO, MM, carbone, pH, C/N, NKjeldahl, NH4, N organique, PT, K2O, CaO, MgO, SO3, Na2O, métaux lourds, PCB, HAP, PFAS boues)",
+        "Prix unitaires sédiments (MO, NTK, PT)",
+        "Prix unitaires milieu récepteur étang (chlorophylle a, phéopigments, COT, HAP, PCB, métaux lourds)",
+        "Prix unitaires milieu récepteur moules (Salmonelles, E. coli)",
+        "Prix unitaires eau REUT (ensemble des paramètres spécifiques dont Légionella, nématodes, phages somatiques, Clostridium, turbidité)",
+        "Prix unitaires eau potable (prélèvement ponctuel, mesures in situ, D1/P1 microbiologie complète, physico-chimie réduite, organoléptiques)",
+        "Prix unitaires échantillonnage (ponctuel, bilan 24h avec préleveur autonome)",
+        "Prix unitaires réseau (SEH graisse, indice hydrocarbures)"
+      ]
+    },
+    "modalite_calcul_prix": "Note prix = 100 × (prix_le_plus_bas / prix_candidat) × 0,40. Le prix des prestations est jugé à partir du DQE complété avec les prix unitaires du BPU."
+  },
+  "montant_marche": {
+    "valeur_estimee_euros": 200000,
+    "fourchette_min_euros": null,
+    "fourchette_max_euros": 200000,
+    "type": "plafond",
+    "duree_couverte": "période initiale de 12 mois (montant identique pour chaque période de reconduction)",
+    "source_extraction": "AE tableau 12 'Maximum périodique HT 200 000,00 €'",
+    "commentaire": "L'acte d'engagement mentionne explicitement un maximum périodique HT de 200 000 € par an. Sur 4 ans (1 an ferme + 3 reconductions), le plafond total théorique est de 800 000 € HT. Il s'agit d'un plafond accord-cadre, la consommation réelle dépend des bons de commande émis."
+  },
+  "montant_3_voies": {
+    "voie_1_eur": 200000,
+    "voie_1_source": "AE tableau 12 — 'Maximum périodique HT 200 000,00 €'",
+    "voie_2_disponible": false,
+    "voie_2_min_eur": null,
+    "voie_2_max_eur": null,
+    "voie_2_hypotheses": [],
+    "voie_2_raison_indisponible": "Voie 1 disponible : montant maximum périodique publié explicitement à 200 000 € HT/an dans l'acte d'engagement — estimation bottom-up non nécessaire."
+  },
+  "cout_realisation": {
+    "cout_total_eur": 135000,
+    "cout_min_eur": 115000,
+    "cout_max_eur": 155000,
+    "postes": [
+      {
+        "poste": "Analyses de laboratoire (réactifs, consommables, équipements amortis)",
+        "detail": "Environ 650 analyses annuelles (total DQE hors eaux potables et REUT) × coût analytique moyen ~100 €/analyse (laborieux paramètre par paramètre, la moitié des analyses sont des paramètres simples à ~40-60 €, l'autre inclut des analyses complexes PFAS, métaux, PCB à 200-500 €)",
+        "montant_eur": 90000
+      },
+      {
+        "poste": "Transport et collecte des échantillons",
+        "detail": "Environ 52 tournées/an × 2 trajets Mèze + déplacements ponctuels milieu récepteur, estimation coût véhicule + carburant + temps chauffeur ~700 €/tournée",
+        "montant_eur": 20000
+      },
+      {
+        "poste": "Flaconnages et consommables de prélèvement",
+        "detail": "Flacons neufs fournis par le laboratoire inclus dans les prix unitaires, estimé 5 % du CA analytique",
+        "montant_eur": 8000
+      },
+      {
+        "poste": "Encadrement, gestion de l'accord-cadre, transmission SANDRE",
+        "detail": "Responsable technique (0,15 ETP × 50 k€/an) + gestion administrative",
+        "montant_eur": 10000
+      },
+      {
+        "poste": "Astreintes et urgences (7j/7 24h/24)",
+        "detail": "Coût de la mise en place de l'astreinte (prime astreinte + interventions supplémentaires estimées)",
+        "montant_eur": 7000
+      }
+    ],
+    "taux_journaliers_retenus": "Taux marché indicatifs : analyste laboratoire accrédité ~350-450 €/j chargé ; technicien prélèvement ~280-350 €/j ; responsable technique ~500-650 €/j. Coût analytique unitaire moyen eaux usées paramètre standard ~50 €, paramètre microbiologique ~80 €, PFAS eaux ~350-500 €, métaux lourds boues ~30 € par métal. Ces taux sont des références marché pour un laboratoire indépendant en France.",
+    "commentaire": "Le CA de référence est le maximum périodique publié de 200 000 € HT/an. Les coûts estimés à taux marché donnent une marge brute de l'ordre de 25-35 %, cohérente avec le secteur services d'analyses environnementales (bande 15-35 %). La part PFAS (analyses très coûteuses, ~350-500 €/analyse) représente un risque sur la marge si les commandes PFAS sont nombreuses."
+  },
+  "revision_prix": {
+    "type": "indexation",
+    "indices_utilises": [
+      "ICHT rev-TS-M"
+    ],
+    "ponderation": "15% fixe + 85% ICHT rev-TS-M",
+    "periodicite": "annuelle",
+    "formule_revision": "Cn = 15,0% + 85,0% × (ICHT rev-TS-M(n) / ICHT rev-TS-M(0))",
+    "source_extraction": "CCAP article 5.2",
+    "commentaire": "Formule mono-indice basée sur le coût horaire du travail dans les activités spécialisées/scientifiques/techniques (ICHT rev-TS-M, publié par l'INSEE/Moniteur) — favorable en période d'inflation salariale mais ne couvre pas la hausse des réactifs et consommables de laboratoire. Révision annuelle à la date anniversaire de notification."
+  },
+  "alertes_prix": [
+    "Pondération prix de 40% relativement élevée pour un marché de prestations analytiques réglementaires : la pression tarifaire sera forte, attention aux offres anormalement basses sachant que l'accréditation COFRAC et les contraintes d'urgence représentent des coûts incompressibles.",
+    "Les analyses PFAS (eaux et boues) sont très coûteuses (~350-500 €/analyse) et leur volume exact dépend des arrêtés préfectoraux et des nouvelles réglementations (arrêté 03/09/2025 et circulaire 27/04/2026) — risque de sous-estimation si le candidat ne prise pas correctement ces lignes du BPU.",
+    "Plafond périodique de 200 000 € HT sans minimum garanti : risque de volume faible en cas de bons de commande peu nombreux — le candidat doit vérifier la rentabilité à partir d'un niveau de commandes plancher.",
+    "Les prix unitaires du BPU doivent être strictement identiques à ceux du DQE — toute divergence entraîne une rectification aux frais du candidat (le DQE sert de base à la notation prix)."
+  ],
+  "references_exigees": {
+    "experience_minimale_annees": null,
+    "experience_source": null,
+    "volume_min_references_similaires": null,
+    "volume_min_references_unite": "marchés similaires",
+    "secteur_experience": "Contrôles analytiques des eaux (autosurveillance de stations d'épuration, eaux usées, eau potable, milieux récepteurs) pour collectivités ou gestionnaires de systèmes d'assainissement collectif",
+    "secteur_source": "RC §5.1",
+    "certifications_obligatoires": [
+      {
+        "libelle": "Accréditation COFRAC programme 100 pour les analyses réglementaires assainissement et eau potable — portant sur l'ensemble des paramètres analysés dans le marché, devant perdurer toute la durée du contrat (résiliation en cas de perte)",
+        "codes": [],
+        "bloquante": true,
+        "source": "RC §5.1 et CCTP §1.2.4"
+      }
+    ],
+    "autres_exigences": [
+      {
+        "libelle": "Liste des principales prestations effectuées de préférence au cours des 3 dernières années (montant, date, destinataire), prouvées par attestations ou déclaration",
+        "source": "RC §5.1"
+      },
+      {
+        "libelle": "Déclaration des effectifs moyens annuels et du personnel d'encadrement pour les 3 dernières années",
+        "source": "RC §5.1"
+      },
+      {
+        "libelle": "Chiffre d'affaires global et relatif à l'objet du contrat (formulaire DC2)",
+        "source": "RC §5.1"
+      }
+    ]
+  },
+  "dossier_candidature": {
+    "pieces_a_fournir": [
+      {
+        "libelle": "DC1 — Lettre de candidature attestant sur l'honneur l'absence d'exclusion (articles L.2141-1 à L.2141-5 et L.2141-7 à L.2141-10 CCP), dans sa version la plus récente",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §5.1"
+      },
+      {
+        "libelle": "DC2 — Déclaration du candidat (chiffre d'affaires global et relatif à l'objet du contrat), dans sa version la plus récente",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §5.1"
+      },
+      {
+        "libelle": "Accréditation COFRAC programme 100 pour les analyses réglementaires assainissement et eau potable",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §5.1"
+      },
+      {
+        "libelle": "Liste des principales prestations effectuées de préférence au cours des 3 dernières années (montant, date, destinataire), prouvées par attestations ou déclaration",
+        "phase": "candidature",
+        "obligatoire": false,
+        "source": "RC §5.1"
+      },
+      {
+        "libelle": "Déclaration des effectifs moyens annuels et du personnel d'encadrement pour les 3 dernières années",
+        "phase": "candidature",
+        "obligatoire": false,
+        "source": "RC §5.1"
+      },
+      {
+        "libelle": "Acte d'engagement (AE) dûment complété et ses annexes",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §5.1"
+      },
+      {
+        "libelle": "Bordereau des Prix Unitaires (BPU) complété",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §5.1"
+      },
+      {
+        "libelle": "Détail Quantitatif Estimatif (DQE) complété avec les prix unitaires du BPU",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §5.1"
+      },
+      {
+        "libelle": "Mémoire justificatif des dispositions que l'entreprise se propose d'adopter pour l'exécution du contrat (moyens humains, matériels, organisation, méthodologie, gestion urgences, environnement)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §5.1"
+      },
+      {
+        "libelle": "DC4 — Déclaration de sous-traitance (le cas échéant, avec prestations sous-traitées, montant et identification du sous-traitant)",
+        "phase": "offre",
+        "obligatoire": false,
+        "source": "RC §5.1"
+      }
+    ],
+    "mode_remise": "dématérialisé",
+    "plateforme_depot": "AWS-Achat — http://www.agglopole.fr/ (rubrique marchés publics)",
+    "signature_electronique_exigee": false,
+    "format_signature": "PAdES (préconisé) ; XAdES ou CAdES acceptés — signature électronique qualifiée exigée uniquement à la signature du contrat par l'attributaire",
+    "nombre_exemplaires": null,
+    "langue": "français",
+    "duree_validite_offres_jours": 180,
+    "modalites_source": "RC §6 et §2.1"
+  },
+  "lots": [
+    {
+      "numero": 1,
+      "intitule": "Contrôles analytiques des eaux — Autosurveillance des stations d'épuration, des réseaux d'eaux usées et pluvial, des milieux récepteurs et cours d'eaux, des eaux REUT et autocontrôle d'eau potable",
+      "domaine": "services_environnement_analyses",
+      "zone_geographique": "Territoire de Sète agglopôle Méditerranée (34) — collecte depuis ECOSITE Mèze (34140)",
+      "volume_estime": null,
+      "volume_estime_unite": null,
+      "cout_estime_min_eur": 115000,
+      "cout_estime_max_eur": 155000,
+      "ca_estime_min_eur": 160000,
+      "ca_estime_max_eur": 200000,
+      "marge_brute_pct": 26,
+      "particularites": "Marché unique non alloti. Comprend des analyses complexes et réglementairement exigeantes : PFAS eaux (arrêté 03/09/2025 et 20/04/2026), PFAS boues (circulaire 27/04/2026), protocole conductivité/chlorures spécifique Marseillan, analyses sur moules (E. coli + Salmonelles), Légionella spp et nématodes intestinaux pour eaux REUT."
+    }
+  ],
+  "tranches": [],
+  "calendrier": {
+    "date_limite_offres": "2026-07-16",
+    "date_demarrage_prevue": "2026-10-01",
+    "duree_marche": "1 an reconductible 3 fois (durée maximale 4 ans)"
+  },
+  "alertes_candidat": [
+    "L'accréditation COFRAC programme 100 portant sur l'ensemble des paramètres du marché est une condition d'admission impérative : sa perte pendant le marché entraîne la résiliation de plein droit (CCTP §1.2.4). Vérifier dès maintenant la couverture COFRAC complète, notamment pour les PFAS eaux (arrêté 03/09/2025) et PFAS boues (circulaire 27/04/2026) qui sont des paramètres récents pouvant ne pas être encore couverts.",
+    "La prise en charge des échantillons en cas d'urgence doit être assurée en ≤ 6 heures après demande, 24h/24 7j/7 — une pénalité de 100 €/heure de retard s'applique (CCAP §12.3). Le candidat doit démontrer concrètement sa capacité logistique et son système d'astreinte.",
+    "Le protocole d'analyse des échantillons sous influence chlorures (dilutions en fonction de la conductivité mesurée — cas Marseillan) fait l'objet d'une pénalité forfaitaire de 250 € en cas de non-respect (CCAP §12.3). Ce point technique spécifique doit être maîtrisé et décrit dans le mémoire.",
+    "Les prix unitaires du BPU doivent être strictement identiques à ceux renseignés dans le DQE — toute erreur de report sera rectifiée par l'acheteur (le BPU prévaut) et peut modifier significativement la note prix.",
+    "La distance entre le laboratoire et le site de collecte de Mèze est explicitement notée (50 points sur le critère environnemental) : un laboratoire éloigné sera fortement pénalisé sur ce critère, quelle que soit la qualité technique de son offre."
+  ],
+  "points_differenciants_attendus": [
+    {
+      "libelle": "Proximité géographique du laboratoire par rapport au site ECOSITE de Mèze",
+      "exemple": "Un laboratoire situé dans l'Hérault (Montpellier, Sète) à moins de 50 km de Mèze obtiendra le maximum des 50 points du critère environnemental transport. À l'inverse, un laboratoire parisien ou lyonnais sera fortement pénalisé.",
+      "source": "RC §7.2 — critère environnemental"
+    },
+    {
+      "libelle": "Maîtrise du protocole de dilution conductimétrique pour les analyses sous influence chlorures (site Marseillan)",
+      "exemple": "Décrire précisément le flux analytique spécifique : mesure conductivité à réception → calcul dilution selon tableau (< 4000 µS/cm : pas de dilution, > 16 700 µS/cm : dilution 1/10) → mention sur le bulletin de la dilution pratiquée et de la conductivité — avec exemple de bulletin annoté.",
+      "source": "CCTP §1.2.5"
+    },
+    {
+      "libelle": "Couverture COFRAC complète incluant les paramètres PFAS (eaux et boues) selon les nouveaux textes réglementaires",
+      "exemple": "Joindre l'annexe technique COFRAC actualisée listant les 22+ substances PFAS eaux (selon arrêté 03/09/2025) et les 52 substances boues (selon circulaire 27/04/2026) parmi les paramètres accrédités — très peu de laboratoires ont déjà cette couverture.",
+      "source": "CCTP §1.2.4 et annexes 3.1/3.3"
+    },
+    {
+      "libelle": "Organisation de l'astreinte et démonstration de la capacité 24h/24 7j/7",
+      "exemple": "Présenter un organigramme d'astreinte nominatif avec responsable désigné, numéro de téléphone dédié aux urgences, procédure écrite de déclenchement (police/brigade → laboratoire) et un exemple de cas traité lors d'une pollution avérée avec horodatage de prise en charge.",
+      "source": "RC §7.2 — Moyens humains (organigramme/astreinte) ; CCTP §1.2.3"
+    },
+    {
+      "libelle": "Certification ISO 14001 ou démarche RSE documentée et vérifiable",
+      "exemple": "Joindre le certificat ISO 14001 en cours de validité avec son périmètre couvrant explicitement les activités d'analyses environnementales, plus un extrait du dernier rapport RSE avec indicateurs quantifiés (bilan carbone par analyse réalisée, taux recyclage déchets de laboratoire).",
+      "source": "RC §7.2 — critère environnemental — gestion environnementale du laboratoire"
+    }
+  ],
+  "_meta": {
+    "id_marche": "BOAMP-26-56275",
+    "type": "complet",
+    "date_generation": "2026-06-20T22:11:05.597325+00:00",
+    "extraction_le": "2026-06-20T22:11:05.597325+00:00",
+    "modele": "claude-sonnet-4-6",
+    "preset_utilise": null,
+    "presets_matches": [],
+    "prompts_versions": {},
+    "tokens_input": 131055,
+    "tokens_output": 9261,
+    "cout_eur": 0.5055,
+    "duree_sec": 191.5,
+    "pdfs_traites": [
+      {
+        "nom": "26AS024_AE.docx",
+        "hash": "c2a98f29f6793e0099a3705572853f58",
+        "taille_chars": 16659
+      },
+      {
+        "nom": "26AS024_BPU.xlsx",
+        "hash": "74b4d62d9a842790fd23b8c2621be303",
+        "taille_chars": 5012
+      },
+      {
+        "nom": "26AS024_CCAP.pdf",
+        "hash": "fa8d054b4bd9d6b6aa0582b583de021e",
+        "taille_chars": 33112
+      },
+      {
+        "nom": "26AS024_CCTP.pdf",
+        "hash": "73588099b15f75369dc995ee5ef9de61",
+        "taille_chars": 21208
+      },
+      {
+        "nom": "26AS024_DQE.xlsx",
+        "hash": "941aef5de139883b335668d5535bb9b1",
+        "taille_chars": 17646
+      },
+      {
+        "nom": "26AS024_RC.pdf",
+        "hash": "19d3a334f7e2f5feb1506373648b0359",
+        "taille_chars": 44009
+      },
+      {
+        "nom": "Annexe 1.1.1 AP Marseillan 2021.pdf",
+        "hash": "a91fc5498c10a765e14826ff7c7fb1ce",
+        "taille_chars": 89977
+      },
+      {
+        "nom": "Annexe 1.1.2 AP Marseillan 2025 modifié.pdf",
+        "hash": "26c19bd4bca66e06970eae196bcf4e2d",
+        "taille_chars": 0
+      },
+      {
+        "nom": "Annexe 1.2.1 AP Mèze 2009.pdf",
+        "hash": "50dc17f9d1887ba2cce057b7e691d47f",
+        "taille_chars": 28926
+      },
+      {
+        "nom": "Annexe 1.2.2 AP Mèze 11mars2011 modifié.pdf",
+        "hash": "d20044afb86215dac990eda879670cf3",
+        "taille_chars": 0
+      },
+      {
+        "nom": "Annexe 1.2.3 AP Mireval 2022.pdf",
+        "hash": "693c4e781f0cee796b4b97f3349d87e6",
+        "taille_chars": 0
+      },
+      {
+        "nom": "Annexe 1.2.4 AP Montbazin 2022.pdf",
+        "hash": "ee9143c725b603258639c90240e46661",
+        "taille_chars": 0
+      },
+      {
+        "nom": "Annexe 1.2.5 AP Vic 2022.pdf",
+        "hash": "f5e68f078421838cb1d8b9404d47ff78",
+        "taille_chars": 0
+      },
+      {
+        "nom": "Annexe 1.2.6 AP Villeveyrac 2021.pdf",
+        "hash": "6235c64dfa41ec70503a87024676d7af",
+        "taille_chars": 0
+      },
+      {
+        "nom": "Annexe 2.1 PLN AS 2026 - Marseillan.pdf",
+        "hash": "9466c63d0802afe4eff9dc7f853745b5",
+        "taille_chars": 5928
+      },
+      {
+        "nom": "Annexe 2.2 PLN AS 2026 - Mèze.pdf",
+        "hash": "1236bd1361217680193114fdcf72b95c",
+        "taille_chars": 1984
+      },
+      {
+        "nom": "Annexe 2.3 PLN AS 2026 - Mireval.pdf",
+        "hash": "9aff147246f600e8a09fce91ee371670",
+        "taille_chars": 955
+      },
+      {
+        "nom": "Annexe 2.4 PLN AS 2026 - Montbazin.pdf",
+        "hash": "825b4e420d378de5da262d6a76516974",
+        "taille_chars": 896
+      },
+      {
+        "nom": "Annexe 2.5 PLN AS 2026 - Vic la Gardiole.pdf",
+        "hash": "23cd31450622868c3441de1df2e63aaa",
+        "taille_chars": 777
+      },
+      {
+        "nom": "Annexe 2.6 PLN AS 2026 - Villeveyrac.pdf",
+        "hash": "b85a7b61f8be6552e8a395839a071d3b",
+        "taille_chars": 761
+      },
+      {
+        "nom": "Annexe 3.1 2025_09_03_AM_PFAS_STEU.pdf",
+        "hash": "73aa840a91be68374f7ccc12bf4b7a5b",
+        "taille_chars": 10116
+      },
+      {
+        "nom": "Annexe 3.2 2026_04_20_AM_modif_PFAS_eaux_STEU_ajoutTFA.pdf",
+        "hash": "3efc5675f50f84714d1552ea5037538b",
+        "taille_chars": 498
+      },
+      {
+        "nom": "Annexe 3.3 Circulaire Boues PFAS.pdf",
+        "hash": "afbe0b0951ebb5a1d34f855639a43464",
+        "taille_chars": 23177
+      },
+      {
+        "nom": "MPI1832326_AAPC.pdf",
+        "hash": "d0b42af2eed2846066bd9b48c649d76a",
+        "taille_chars": 6116
+      },
+      {
+        "nom": "TOUT_DEMAT_AWS.pdf",
+        "hash": "f9e333dbb0d83eee2301d7d94b256a77",
+        "taille_chars": 2118
+      }
+    ]
+  }
+}

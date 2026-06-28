@@ -1,6 +1,6 @@
 # Brief — Travaux préparatoires, mise en sécurité et terrassements divers pour les opérations d'archéologie préventive
 
-_Généré le 2026-06-15 02:06 par Claude claude-sonnet-4-6_
+_Généré le 2026-06-20 05:54 par Claude claude-sonnet-4-6_
 
 ## Identifiants
 - **ID Tendia** : `BOAMP-26-57260`
@@ -10,44 +10,44 @@ _Généré le 2026-06-15 02:06 par Claude claude-sonnet-4-6_
 - **DCE PLACE** : <https://www.marches-publics.info/mpiaws/index.cfm?fuseaction=dematent.login&type=Dce&Idm=1833698>
 
 ## Synthèse
-La Ville d'Orléans recherche un prestataire pour réaliser des travaux préparatoires, de mise en sécurité et de terrassements divers au profit de son Service d'Archéologie (SAVO), dans le cadre d'opérations d'archéologie préventive sur le territoire communal et métropolitain. Le marché prend la forme d'un accord-cadre mono-attributaire à bons de commande, sans minimum mais avec un plafond de 100 000 € HT par période de 2 ans, reconductible une fois. Les prestations incluent la mise à disposition d'engins de terrassement avec chauffeurs CACES, la signalisation, le blindage et l'évacuation des déblais.
+Accord-cadre mono-attributaire à bons de commande passé par la Ville d'Orléans pour la fourniture d'engins de terrassement (pelles mécaniques, mini-pelles, camions, bull, compacteurs) avec chauffeurs CACES, en appui aux opérations d'archéologie préventive réalisées par le Service d'Archéologie de la Ville d'Orléans (SAVO). Le marché couvre également les travaux préparatoires (signalisation, blindage, sciage chaussée) et la mise en sécurité des fouilles. Durée initiale de 24 mois reconductible une fois (4 ans max), plafond de 100 000 € HT par période.
 
 ## 🏗 Chantier — caractéristiques BTP
-- **Description** : Travaux préparatoires et de terrassement pour des opérations d'archéologie préventive : décapage de terre végétale et stériles, ouverture de sondages et tranchées archéologiques, rebouchage, compactage, évacuation de déblais, mise en sécurité par boisage/blindage, signalisation temporaire et sciage de chaussée. Les interventions se font sous la direction d'un archéologue, exigeant calme et précision de la part des chauffeurs.
-- **Type d'ouvrage** : Chantiers de terrassement archéologique en milieu urbain contraint et en milieu rural, surfaces variables de quelques dizaines de m² à plusieurs hectares
-- **Surface / volume** : Variable selon les opérations ; DQE basé sur 3 000 m³ d'évacuation de déblais sur 2 ans
-- **Site occupé pendant travaux** : Partiellement — interventions en milieu urbain avec voirie publique en usage, nécessitant signalisation temporaire et autorisations de voirie
-- **Corps d'état mobilisés** : Terrassement / VRD, Signalisation temporaire de chantier, Sciage de chaussée, Blindage et boisage de tranchées, Transport et évacuation de déblais, Compactage, Location de matériel de chantier (bennes, roulottes, conteneurs, groupes électrogènes)
+- **Description** : Fourniture d'engins de terrassement avec chauffeurs CACES (pelles 20T sur chenilles et sur roues, mini-pelles 6/7T et 8/10T, camions 6x4, tombereau 25T, bull, compacteurs monobile et manuels) à la demande du SAVO pour la réalisation de sondages et tranchées archéologiques. Comprend également : signalisation temporaire, barrières de chantier, sciage de chaussée, boisage/blindage de tranchées, remblaiement à la grave non traitée, évacuation de déblais en décharge agréée, location de matériel de chantier (bennes, roulottes, conteneurs, groupes électrogènes). Les interventions ont lieu en milieu urbain contraint et en milieu rural, sur des durées allant d'une demi-journée à plusieurs semaines.
+- **Type d'ouvrage** : Chantiers de terrassement archéologique (diagnostics et fouilles préventives) sur le territoire de la commune d'Orléans et ponctuellement sur la Métropole. Sites urbains contraints et zones rurales.
+- **Surface / volume** : Variable selon les opérations (de quelques dizaines de m² à plusieurs hectares) ; estimatif DQE : 3 000 m³ de déblais évacués sur 2 ans
+- **Site occupé pendant travaux** : true — interventions en milieu urbain avec circulation publique, nécessité de signalisation et déviation éventuelle ; interventions possibles sur voirie publique
+- **Corps d'état mobilisés** : Terrassement VRD (pelles mécaniques, mini-pelles, compacteurs), Transport de déblais (camions 6x4, tombereau 25T), Signalisation temporaire de chantier, Blindage et boisage de tranchées, Sciage de chaussée, Remblaiement et compactage, Location de matériel de chantier (bennes, roulottes, conteneurs, groupes électrogènes)
 - **Contraintes spécifiques** :
-  - Travail sous directives d'un archéologue : terrassement par passes centimétriques à décimétriques, exigeant précision et calme du conducteur d'engin
-  - Pelles mécaniques devant être équipées de godets de curage (2 m mini) et d'un dispositif d'inclinaison latérale du godet
-  - Aucun engin sur chenilles ne peut circuler sur la voie publique
+  - Travail sous la direction d'un archéologue : décapage par passes centimétriques à décimétriques, précision exigée
+  - Chauffeurs d'engins devant posséder CACES en cours de validité et expérience en terrassement archéologique ou réglage de talus
   - Stockage de carburant sur site interdit
-  - Interventions en milieu urbain contraint avec obtention d'arrêtés de circulation à la charge du titulaire
-  - Délai de mobilisation des équipements : 4 jours ouvrés maximum
-  - Délai de remplacement d'un engin en panne : 24h maximum
-  - Clause d'insertion sociale obligatoire (nettoyage des roulottes de chantier)
-  - Piquetage à préserver ; remplacement aux frais de l'entreprise en cas de dommages
+  - Remplacement du chauffeur exigé sous 24h en cas de panne
+  - Aucun engin sur chenilles ne peut circuler sur voie publique
+  - Interventions en milieu urbain contraint avec gestion des riverains, réseaux, signalisation
+  - Tri des terres (stériles / terre végétale) pour rebouchage cohérent et remise en culture éventuelle
+  - Clause sociale d'insertion obligatoire (nettoyage des roulottes de chantier)
+  - Clause environnementale avec reporting annuel
 
 ### Allotissement
 Marché en lot unique — impossibilité d'identifier des prestations distinctes
 - **Nombre de lots** : 1
 - **Lot 1** — Travaux préparatoires, mise en sécurité et terrassements divers pour les opérations d'archéologie préventive
-  - Corps d'état : Terrassement / VRD / Signalisation
+  - Corps d'état : Terrassement VRD, signalisation, blindage, transport de déblais, location matériel
   - Montant estimé : 100 000 €
-  - Ensemble des travaux préparatoires (signalisation, barrières, sciage, boisage, blindage, fourniture de grave), des terrassements mécanisés (pelles 20T et mini-pelles, tombereaux, bulldozers, compacteurs) et de la mise à disposition de matériel de chantier (bennes, roulottes, conteneurs, groupes électrogènes)
+  - Accord-cadre à bons de commande couvrant l'ensemble des prestations de terrassement archéologique : pelles mécaniques, mini-pelles, camions, bull, compacteurs avec chauffeurs CACES, plus travaux préparatoires et matériel de chantier
 
 ### Qualifications BTP exigées
-Pas de qualification Qualibat ou RGE exigée. Seule certification explicitement requise : CACES à jour pour les conducteurs d'engins. Des certificats équivalents d'organismes européens sont acceptés.
+Les chauffeurs d'engins doivent être titulaires du CACES (Certificat d'Aptitude à la Conduite en Sécurité) en cours de validité pour chaque catégorie d'engin concernée. Aucune qualification Qualibat, RGE ou certification ISO n'est explicitement exigée.
 - **MASE** : non
 - **Autres exigences** :
-  - CACES (Certificat d'Aptitude à la Conduite En Sécurité) à jour pour les conducteurs de pelles mécaniques, mini-pelles, tombereaux, compacteurs et camions
+  - CACES en cours de validité pour tous les conducteurs d'engins
 
 ## 💶 Montant du marché
-- **Valeur estimée** : **125 000 €**
-  - sur 4 ans (2 périodes de 24 mois) — plafond 100 000 € HT par période
-  - _source : Avis BOAMP rubrique 'Quantité ou étendue' : 'Valeur estimée hors TVA : 125 000,00 €' / CCAP art. 2-2 : plafond 100 000 € HT par période de 24 mois_
-- _Note_ : La valeur estimée globale sur 4 ans est de 125 000 € HT selon l'avis de publicité. Le plafond contractuel est de 100 000 € HT par période de 2 ans. À titre indicatif, le RC mentionne une estimation de 55 000 € HT pour la période initiale et 70 000 € HT pour la reconduction.
+- **Plafond accord-cadre** : **125 000 €**
+  - sur 4 ans maximum (2 périodes de 24 mois, plafond 100 000 € HT par période)
+  - _source : RC art 2.3 et art 3.2 ; AAPC rubrique 'Quantité ou étendue'_
+- _Note_ : Plafond de 100 000 € HT par période de 24 mois, soit 200 000 € HT sur la durée maximale de 4 ans. L'AAPC indique une valeur estimée de 125 000 € HT (totalité du marché 4 ans). Le RC précise à titre indicatif : période initiale 55 000 € HT, période de reconduction 70 000 € HT.
 
 ## Barème de notation
 - **Valeur technique** : 60 %
@@ -61,23 +61,23 @@ Pas de qualification Qualibat ou RGE exigée. Seule certification explicitement 
 
 ## Références et qualifications exigées
 - **Expérience minimale** : 5 ans
-- **Secteur d'expérience** : Travaux de terrassement mécanique similaires (pelles 20T, mini-pelles, transport de déblais), de préférence en contexte archéologique ou de terrassement de précision (réglage de talus)
-- **Certifications obligatoires** : CACES (Certificat d'Aptitude à la Conduite En Sécurité) à jour pour les conducteurs d'engins de terrassement (pelles mécaniques, mini-pelles, tombereaux, compacteurs) (source=RC art 5.1 / CCTP art 2.3)
+- **Secteur d'expérience** : Travaux de terrassement similaires (fouilles archéologiques, terrassement de précision, travaux VRD avec pelles mécaniques)
+- **Certifications obligatoires** : CACES en cours de validité pour tous les conducteurs d'engins affectés au marché (pelles, mini-pelles, camions, compacteurs) (bloquante=True, source=RC art 5.1 ; CCTP art 2.3)
 - **Autres exigences** :
-  - Chiffre d'affaires global sur les 3 derniers exercices disponibles (montant non précisé dans le RC) (source=RC art 5.1)
-  - Déclaration des effectifs moyens annuels et importance du personnel d'encadrement sur les 3 dernières années (source=RC art 5.1)
-  - Attestations de destinataires ou déclaration de l'opérateur pour les références de travaux similaires des 5 dernières années (source=RC art 5.1)
+  - Chiffre d'affaires global des 3 derniers exercices disponibles à déclarer (DC2 ou déclaration équivalente) (source=RC art 5.1)
+  - Effectifs moyens annuels et importance du personnel d'encadrement sur les 3 dernières années (source=RC art 5.1)
+  - Liste des principaux travaux similaires des 5 dernières années avec montant, date et destinataire (attestations du destinataire ou déclaration de l'opérateur) (source=RC art 5.1)
 
 ## ⚠ Alertes candidat
-- Clause d'insertion sociale OBLIGATOIRE sous peine d'offre déclarée irrégulière : le titulaire doit recourir à au moins une personne en parcours d'insertion pour le nettoyage des roulottes de chantier ; toute réserve dans l'offre entraîne l'élimination
-- CACES à jour obligatoire pour tous les conducteurs d'engins : document à fournir à la candidature (attestations individuelles), certificats équivalents UE acceptés
-- Délai de mobilisation maximal de 4 jours ouvrés contractualisé dans l'acte d'engagement ; proposer un délai plus court est valorisé au critère technique
-- Aucun engin sur chenilles ne peut circuler sur la voie publique (nécessité d'un porte-char pour tous les transferts) : coût et disponibilité du porte-char à intégrer dans les prix de transfert
-- Les pelles 20T doivent obligatoirement être équipées d'un godet de curage 2 m minimum ET d'un dispositif d'inclinaison latérale du godet — vérifier la conformité du parc matériel avant de candidater
+- CACES obligatoire pour tous les conducteurs d'engins affectés au marché : l'absence de justificatifs CACES à jour est éliminatoire — vérifier la validité de chaque certificat avant le dépôt.
+- Clause sociale d'insertion OBLIGATOIRE (non-réserve possible = offre irrégulière) : le titulaire doit recourir à une personne en parcours d'insertion pour le nettoyage des roulottes de chantier à chaque fois qu'il en assure la gestion — prévoir le contact avec les facilitatrices Mme Dessaint / Mme Ramond d'INTERIVES.
+- Le mémoire technique représente 60% de la note : il doit être rigoureusement structuré en 4 parties (matériel, personnel, sécurité/environnement chantier, mesures environnementales) conformément au Cadre de Mémoire Technique fourni — une réponse générique sera lourdement pénalisée.
+- Les fichiers BPU et DQE doivent être remis en format Excel (formules préservées) : une modification de la structure ou la transmission en PDF peut rendre l'offre irrégulière selon l'analyse de l'acheteur.
+- Expérience en terrassement archéologique ou travaux de précision analogues exigée des chauffeurs : un candidat sans référence démontrable dans ce domaine sera pénalisé sur le sous-critère personnel (20% de la note technique).
 
 ## 💡 Points différenciants attendus
-- Expérience avérée en terrassement archéologique ou de précision (exemple=Mentionner des références de chantiers archéologiques réalisés pour l'INRAP, des musées, des collectivités ou des aménageurs, avec nom du responsable archéologique, surface décapée et conditions d'intervention (milieu urbain / rural)., source=CCTP art 2.3 / RC §7.2.1 sous-critère 2)
-- Disponibilité de godets de curage de grande largeur (3 m ou plus) et d'inclinaison latérale (exemple=Indiquer dans le mémoire technique la disponibilité d'un godet de curage 3 m sur la pelle 20T chenilles, et d'un système hydraulique d'inclinaison latérale : cet équipement est explicitement mentionné comme critère d'appréciation de l'offre dans le CCTP., source=CCTP art 2.2)
-- Délai de mobilisation optimisé inférieur à 4 jours ouvrés (exemple=Proposer un délai contractualisé de 2 jours ouvrés dans l'acte d'engagement, démontré par la localisation du parc matériel à proximité d'Orléans et la disponibilité permanente des conducteurs., source=RC art 5.2 Partie 1 / CCAP art 4.2.1)
-- Conducteurs de pelles expérimentés en terrassement de précision (exemple=Présenter les CV des conducteurs avec leur expérience spécifique en archéologie préventive ou en réglage de talus de haute précision, en mentionnant les opérations réalisées et les maîtres d'ouvrage concernés., source=CCTP art 2.3)
-- Démarche environnementale concrète et adaptée au marché (reporting, engins électriques) (exemple=Proposer l'utilisation d'une mini-pelle électrique pour les chantiers urbains contraints et présenter un outil de reporting CO2 par chantier, en réponse directe aux questions du cadre de mémoire technique Partie 4., source=RC art 5.2 Partie 4)
+- Disponibilité de godets de curage de 3m ou plus et dispositif d'inclinaison latérale (exemple=Le CCTP précise explicitement que 'la présence d'équipements complémentaires, notamment la disponibilité de godets de curage d'une dimension supérieure, de 3m ou plus, ainsi que la possibilité de godets inclinables latéralement est un critère d'appréciation de l'offre'. Un candidat qui détaille ces équipements avec photos et fiches techniques obtient un avantage mesurable sur le sous-critère matériel (25%)., source=CCTP art 2.2)
+- Expérience démontrée en terrassement archéologique (exemple=Produire des attestations de chantiers archéologiques réalisés avec INRAP, collectivités ou aménageurs (type liste de chantiers avec archéologue responsable), accompagnées de descriptions de la méthode de décapage centimétrique pratiquée, différencie fortement le dossier sur le sous-critère personnel (20%)., source=RC art 5.1 ; CCTP art 2.3)
+- Délai de mise à disposition optimisé inférieur à 4 jours ouvrés (exemple=L'acte d'engagement intègre un délai plafond contractualisé. Proposer 2 jours ouvrés (au lieu de 4 maximum) avec justification par la localisation du parc matériel à proximité d'Orléans constitue un argument technique fort sur le sous-critère matériel., source=RC art 5.2 partie 1 ; CCAP art 4.2.1)
+- Disponibilité d'un engin électrique ou à faibles émissions pour interventions urbaines (exemple=Une mini-pelle électrique ou hybride disponible pour les opérations en milieu urbain contraint (Orléans centre) est un élément concret et différenciant pour le sous-critère environnemental (5%), sachant que l'acheteur pose explicitement la question dans le cadre de mémoire technique., source=RC art 5.2 partie 4)
+- Organisation de remplacement rapide des chauffeurs (< 24h) (exemple=Le CCTP stipule qu'un engin immobilisé pour panne doit être remplacé sous 24h (sauf accord). Présenter un organigramme de remplacement avec chauffeurs volants disponibles et leur localisation géographique démontre une organisation opérationnelle crédible., source=CCTP art 2.2)

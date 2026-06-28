@@ -1,580 +1,474 @@
 {
-  "synthese_marche": "L'EFS Auvergne-Rhône-Alpes lance un appel d'offres ouvert pour la prestation de nettoyage des locaux, vitrerie et unités mobiles de prélèvement (UMP) de ses sites répartis sur les secteurs Drôme, Loire, Rhône et Auvergne. Le marché est alloti en 4 lots, dont 2 lots spécifiques pour les banques de tissus et de cellules (zones sensibles). Il s'agit d'un accord-cadre mono-attributaire à bons de commande, à prix mixte (forfaitaire périodique + unitaire ponctuel), pour une durée de 12 mois reconductibles 2 fois.",
+  "synthese_marche": "Marché de nettoyage des locaux, vitreries et unités mobiles de prélèvement (UMP) de l'Établissement Français du Sang (EFS) Auvergne-Rhône-Alpes, portant sur 4 lots géographiques et fonctionnels (secteurs Rhône/Grand Lyon, Auvergne, Loire). Le marché est un accord-cadre mono-attributaire à bons de commande, d'une durée initiale de 12 mois reconductible 2 fois, avec prise d'effet au 2 novembre 2026. La particularité majeure réside dans la présence de zones classées (zones à atmosphère contrôlée, banques de tissus/cornées) qui imposent des contraintes de bionettoyage en salles propres et des habilitations spécifiques du personnel.",
   "domaines_metier": [
     {
       "code": "entretien_proprete_locaux"
     }
   ],
-  "raison_classification": "Le marché porte exclusivement sur des prestations de nettoyage et d'entretien des locaux (bureaux, laboratoires, banques de tissus) et de véhicules (UMP) de l'EFS AURA. L'objet est explicitement « nettoyage des locaux et des unités mobiles de prélèvement », ce qui correspond directement au domaine entretien_proprete_locaux.",
-  "caracteristiques_techniques_chantier": {
-    "description": "Prestations de nettoyage périodique (quotidien, hebdomadaire, mensuel, trimestriel, semestriel) et ponctuel des locaux, vitreries et unités mobiles de prélèvement (UMP) de l'EFS AURA, sur des sites de transfusion sanguine incluant des zones sensibles (banques de tissus et de cellules, zones classées I, II et III).",
-    "typologie_ouvrage": "Établissements de transfusion sanguine (sites médicaux), dont banques de tissus et de cellules (zones protégées), cabinets médicaux, lits de collecte, zones de collation, et véhicules aménagés (UMP)",
-    "surface_volume": null,
-    "site_occupe": true,
-    "corps_etat": [
-      "Nettoyage/propreté",
-      "Entretien des sols (microfibres, autolaveuse)",
-      "Vitrerie",
-      "Désinfection (détergent désinfectant)",
-      "Nettoyage de véhicules (UMP)"
-    ],
-    "contraintes_specifiques": [
-      "Zones de nettoyage classifiées I, II et III (niveaux de criticité sanitaire)",
-      "Zones protégées : banques de tissus et de cellules (lots 1.2 et 2.2)",
-      "Utilisation de microfibres testées et certifiées microbiologiquement (rapport laboratoire accrédité Cofrac)",
-      "Traçabilité des prestations exigée (système informatisé éventuel)",
-      "Plan de continuité d'activité requis",
-      "Respect des procédures qualité internes EFS",
-      "Sites médicaux occupés en fonctionnement continu"
+  "raison_classification": "Il s'agit d'un marché de nettoyage et propreté de locaux (CPV 90910000), incluant des prestations spécialisées de bionettoyage en zones classées (salles propres, banques de tissus et de cornées) dans des établissements de transfusion sanguine. Le code `entretien_proprete_locaux` est le seul pertinent : il couvre le nettoyage de bâtiments administratifs, médicaux et techniques. La dimension 'bionettoyage en salle propre' est une spécificité technique du site mais reste dans le périmètre 'propreté de locaux'.",
+  "caracteristiques_metier": {
+    "description": "Prestation de nettoyage des locaux (bureaux, laboratoires, zones médico-techniques, zones à atmosphère contrôlée de classe D et au-delà), vitreries, et nettoyage des unités mobiles de prélèvement (véhicules de collecte). Les lots 1.2 et 2.2 portent sur des zones classées (banques de tissus et de cellules, banque de cornées) imposant un bionettoyage réglementé selon les Bonnes Pratiques de Thérapie Cellulaire et Tissulaire (BPTC) et les Bonnes Pratiques de Fabrication (BPF). Le titulaire fournit l'ensemble des produits, consommables et matériels, reprend le personnel en place (clause de transfert), et assure traçabilité documentaire et continuité de service.",
+    "criteres_eligibilite": [
+      "Expérience dans le nettoyage de locaux professionnels / médicaux / hospitaliers",
+      "Capacité à intervenir en zones à atmosphère contrôlée (salles propres, ZAC) pour les lots 1.2 et 2.2",
+      "Capacité à former et habiliter le personnel selon les procédures internes EFS",
+      "Connaissance des exigences BPTC et BPF pour le bionettoyage (lots 1.2 et 2.2)",
+      "Aptitude à assurer la continuité de service (remplaçants formés, service minimal en cas de grève)",
+      "Vaccination du personnel conforme à la réglementation (établissements de santé)",
+      "Capacité à gérer la reprise du personnel sortant (clause article L.1224-1)"
     ]
-  },
-  "allotissement": {
-    "description": "4 lots géographiques et fonctionnels, dont 2 lots spécifiques pour activités sensibles (banques de tissus et de cellules)",
-    "nb_lots": 4,
-    "lots_detailles": [
-      {
-        "numero": 1,
-        "intitule": "Lot n°1.1 - Sites Rhône (Décines-Charpieu, Confluence, Croix Rousse, GHE, HEH B5 et Pavillon P, Lyon-Sud, Lyon Part-Dieu)",
-        "corps_etat": "Nettoyage locaux et vitrerie",
-        "montant_estime": 1097000,
-        "description": "Nettoyage des sites EFS du secteur Rhône (hors banque de tissus). 8 sites/adresses distinctes."
-      },
-      {
-        "numero": 2,
-        "intitule": "Lot n°1.2 - Banque de tissus et de cellules HEH Pavillon I (Lyon)",
-        "corps_etat": "Nettoyage zones sensibles (banque de tissus et de cellules)",
-        "montant_estime": 211000,
-        "description": "Nettoyage spécifique de la banque de tissus et de cellules du site HEH Pavillon I. Visite obligatoire. Zones protégées (II et III)."
-      },
-      {
-        "numero": 3,
-        "intitule": "Lot n°2.1 - Sites Auvergne, Loire, Drôme (Clermont-Fd, Montluçon, Moulins, Saint-Étienne x3, Saint-Priest-en-Jarez, Roanne, Valence, Aurillac, Le Puy-en-Velay)",
-        "corps_etat": "Nettoyage locaux, vitrerie et UMP (unité de prélèvement Valence)",
-        "montant_estime": 1148000,
-        "description": "Nettoyage des sites EFS des secteurs Auvergne, Loire et Drôme. Inclut le nettoyage de l'UMP de Valence."
-      },
-      {
-        "numero": 4,
-        "intitule": "Lot n°2.2 - Banque de cornées Saint-Étienne Bellevue",
-        "corps_etat": "Nettoyage zones sensibles (banque de cornées)",
-        "montant_estime": 22000,
-        "description": "Nettoyage spécifique de la banque de cornées du site STB. Visite obligatoire. Zones protégées."
-      }
-    ]
-  },
-  "qualifications_requises": {
-    "description": "Capacité professionnelle attestée dans le nettoyage de locaux. Certifications qualité et hygiène valorisées. Pas de qualification Qualibat exigée.",
-    "qualibat": null,
-    "rge": false,
-    "opqibi": null,
-    "autres_certifications": [
-      "Certificats de qualifications professionnelles (identifications ou certificats délivrés par des organismes professionnels)",
-      "Certification qualité (NF-EN-ISO 9001, 9002, 9003 ou équivalent)",
-      "Rapport de performance microbiologique des microfibres établi par laboratoire accrédité Cofrac (avec Log de diminution de charge microbienne)"
-    ]
-  },
-  "caracteristiques_mission": {
-    "typologie_mission": null,
-    "domaine_expertise": null,
-    "livrables_attendus": [],
-    "duree_mission": null,
-    "jours_consultant_estimes": null
-  },
-  "profils_intervenants": {
-    "description": "Personnel de nettoyage + encadrants. Taux d'encadrement évalué dans les critères de jugement.",
-    "chef_de_mission": "Responsable/encadrant dédié aux sites du lot, avec procédures de remplacement en cas d'absence prévue ou imprévue",
-    "consultants": "Agents de nettoyage affectés aux sites, nombre et qualification à préciser dans le mémoire technique"
-  },
-  "volumes_techniques": {
-    "puissance_totale_kwc": null,
-    "puissance_par_site_kwc": null,
-    "nb_sites": 16,
-    "surface_panneaux_m2": null,
-    "productible_annuel_estime_mwh": null,
-    "duree_marche_mois": 36,
-    "duree_maintenance_om_annees": null,
-    "commentaire_volumes": "Lot 1.1 : 8 adresses Rhône. Lot 1.2 : 1 site (HEH Pavillon I). Lot 2.1 : environ 11 sites Auvergne/Loire/Drôme + 1 UMP. Lot 2.2 : 1 site (STB Banque de cornées). Les surfaces détaillées par site sont dans les annexes 3 des CCTP (fichiers Excel, non fournis dans le DCE transmis)."
-  },
-  "modalites_execution_chantier": {
-    "raccordement_reseau_inclus": null,
-    "etudes_techniques_incluses": null,
-    "calendrier_chantier_contraint": "Prestations périodiques (quotidienne, hebdomadaire, mensuelle, trimestrielle, semestrielle) ou ponctuelles selon bon de commande. Date prévisionnelle de démarrage : 1er février 2027.",
-    "sites_execution": [
-      "Décines-Charpieu",
-      "Lyon (Confluence, Croix Rousse, GHE, HEH, Lyon-Sud, Lyon Part-Dieu)",
-      "Clermont-Ferrand",
-      "Montluçon",
-      "Moulins",
-      "Saint-Étienne",
-      "Saint-Priest-en-Jarez",
-      "Roanne",
-      "Valence",
-      "Aurillac",
-      "Le Puy-en-Velay"
-    ],
-    "engagement_productible": null,
-    "engagement_disponibilite_om": null
-  },
-  "publics_cibles": {
-    "description": null,
-    "criteres_eligibilite": [],
-    "publics_specifiques_signales": []
-  },
-  "volumes": {
-    "nb_beneficiaires_total": null,
-    "nb_beneficiaires_par_lot": null,
-    "duree_par_parcours_heures": null,
-    "duree_par_parcours_semaines": null,
-    "duree_marche_mois": 36,
-    "commentaire_volumes": "Accord-cadre 12 mois + 2 reconductions de 12 mois = 36 mois maximum. Montants maximum HT sur 36 mois : Lot 1.1 = 1 097 000 €, Lot 1.2 = 211 000 €, Lot 2.1 = 1 148 000 €, Lot 2.2 = 22 000 €."
-  },
-  "modalites": {
-    "presentiel_obligatoire": true,
-    "distanciel_possible": false,
-    "synchrone_asynchrone": "présentiel obligatoire (prestations sur site)",
-    "sites_execution": [
-      "Rhône (69)",
-      "Puy-de-Dôme (63)",
-      "Allier (03)",
-      "Haute-Loire (43)",
-      "Cantal (15)",
-      "Drôme (26)",
-      "Loire (42)"
-    ],
-    "amplitude_horaire": null
-  },
-  "caracteristiques_mission_moe": {
-    "typologie": null,
-    "phases_couvertes": [],
-    "typologie_ouvrage": null,
-    "montant_travaux_estime": null,
-    "complexite_technique": null
-  },
-  "qualifications_moe": {
-    "opqibi": [],
-    "opqcm": null,
-    "bim": null,
-    "autres": []
-  },
-  "caracteristiques_si": {
-    "description": null,
-    "typologie_projet": null,
-    "technologies_mentionnees": [],
-    "volumetrie": null,
-    "hebergement": null
-  },
-  "qualifications_si": {
-    "iso_27001": null,
-    "anssi": null,
-    "hds": null,
-    "autres": []
   },
   "bareme_notation": {
-    "valeur_technique_pct": 60,
-    "valeur_prix_pct": 40,
-    "sous_criteres_techniques": [
-      {
-        "libelle": "Qualité et pertinence du matériel, produits et consommables proposés (zones I et II)",
-        "ponderation_pct": 30,
-        "description": "Applicable aux lots 1.1 et 2.1. Évalue la qualité des microfibres (avec rapport de performance microbiologique Cofrac), des balais/supports, matériels (autolaveuse), produits détergents-désinfectants et dispositions environnementales.",
-        "elements_attendus": [
-          "Rapport Cofrac de performance microbiologique des microfibres (Log de diminution de charge microbienne)",
-          "Description des lingettes de dépoussiérage et support microfibre (gamme compatible)",
-          "Fiches techniques produits nettoyage hors sols (détergent désinfectant, anticalcaire)",
-          "Description du matériel alloué au site (autolaveuse, chariot adapté)",
-          "Dispositions environnementales liées aux produits et consommables"
-        ],
-        "exemple_reponse_forte": "Nous utilisons des microfibres de la gamme X, testées par le laboratoire accrédité Cofrac Y (certificat joint), avec un Log de réduction microbienne de 4,5 pour Staphylococcus aureus. L'ensemble lingettes/support appartient à la gamme Z, garantissant la compatibilité. L'autolaveuse proposée est un modèle adapté aux couloirs étroits (largeur 45 cm), avec filtration HEPA.",
-        "source": "RC §1.11.2 — Critères lots 1.1 et 2.1",
-        "sous_criteres": [
-          {
-            "libelle": "Microfibre/lingettes de dépoussiérage et leur gestion",
-            "ponderation_pct": 20,
-            "description": "Qualité des microfibres sols et lingettes de dépoussiérage, compatibilité de gamme, rapport Cofrac microbiologique.",
-            "elements_attendus": [
-              "Rapport Cofrac avec Log de diminution de charge microbienne",
-              "Certificat de conformité du laboratoire accrédité",
-              "Description des lingettes et support microfibre appartenant à une même gamme compatible"
-            ],
-            "exemple_reponse_forte": "Les microfibres de sol (gamme A) sont certifiées par un test Cofrac (laboratoire B, cert. n°XXXX) avec un Log de réduction de 4,5 log10 UFC. Les lingettes de dépoussiérage et leur support font partie de la même gamme, garantissant la compatibilité mécanique et chimique.",
-            "source": "RC §1.11.2 — Sous-critère 1, lots 1.1 et 2.1"
-          },
-          {
-            "libelle": "Balai-support de microfibre/chariot adapté, matériels alloués au site (autolaveuse etc.)",
-            "ponderation_pct": 5,
-            "description": "Adéquation du matériel mécanique (balais, chariots, autolaveuse) aux contraintes des sites EFS.",
-            "elements_attendus": [
-              "Description du chariot adapté aux contraintes des sites",
-              "Références de l'autolaveuse proposée",
-              "Justification de l'adéquation du matériel aux zones concernées"
-            ],
-            "exemple_reponse_forte": "Le chariot de nettoyage est un modèle à double seau avec code couleur, adapté aux zones médicales. L'autolaveuse est de type auto-portée avec récupération des eaux usées, dimensionnée pour les surfaces en couloir.",
-            "source": "RC §1.11.2 — Sous-critère 1, lots 1.1 et 2.1"
-          },
-          {
-            "libelle": "Produits pour le nettoyage hors sols (détergent désinfectant, anticalcaire etc.), dispositions environnementales et leur gestion",
-            "ponderation_pct": 5,
-            "description": "Qualité et pertinence des produits de nettoyage hors sols et engagement environnemental (écolabels, biodégradabilité, etc.).",
-            "elements_attendus": [
-              "Fiches techniques des détergents désinfectants et anticalcaires",
-              "Justification des choix environnementaux (écolabels, concentration, emballage)",
-              "Procédure de gestion des produits (stockage, traçabilité, élimination)"
-            ],
-            "exemple_reponse_forte": "Les produits détergents désinfectants proposés sont labelisés Ecocert et homologués EN 14476. La gestion des stocks est assurée par un système de réapprovisionnement automatique avec traçabilité lot par lot.",
-            "source": "RC §1.11.2 — Sous-critère 1, lots 1.1 et 2.1"
-          }
-        ]
-      },
-      {
-        "libelle": "Qualité et pertinence des moyens humains proposés pour l'exécution des prestations, de l'organisation et de la gestion des ressources/remplacements, taux d'encadrement",
-        "ponderation_pct": 10,
-        "description": "Applicable aux lots 1.1 et 2.1. Évalue le fonctionnement, les moyens humains (intervenants et encadrants) alloués, et les procédures de remplacement en cas d'absence prévue ou imprévue.",
-        "elements_attendus": [
-          "Nombre d'intervenants et d'encadrants alloués par site/lot",
-          "Taux d'encadrement et organisation hiérarchique",
-          "Procédure détaillée en cas d'absence prévue (congé, formation)",
-          "Procédure détaillée en cas d'absence imprévue (maladie, incident)",
-          "Taux de turn-over sur la région AURA (dernière année)"
-        ],
-        "exemple_reponse_forte": "Notre organisation prévoit 1 responsable de secteur pour 8 intervenants (ratio 1/8). En cas d'absence imprévue, un pool de remplaçants formés est mobilisable sous 2h. Notre taux de turn-over AURA est de 12% sur la dernière année, inférieur à la moyenne du secteur.",
-        "source": "RC §1.11.2 — Sous-critère 2, lots 1.1 et 2.1",
-        "sous_criteres": [
-          {
-            "libelle": "Fonctionnement et moyens humains alloués (intervenants et encadrant)",
-            "ponderation_pct": 5,
-            "description": "Organisation des équipes, nombre d'agents et d'encadrants dédiés.",
-            "elements_attendus": [
-              "Organigramme dédié au marché",
-              "Nombre d'ETP affectés par site",
-              "Taux d'encadrement"
-            ],
-            "exemple_reponse_forte": "Pour le lot 1.1, nous affectons 12 agents (10,5 ETP) sous la supervision d'un chef d'équipe dédié 0,5 ETP, accompagné d'un responsable de secteur régional.",
-            "source": "RC §1.11.2 — Sous-critère 2, lots 1.1 et 2.1"
-          },
-          {
-            "libelle": "Procédures mises en place en cas d'absence prévue et/ou non prévue du personnel",
-            "ponderation_pct": 5,
-            "description": "Dispositifs de continuité du service en cas d'absence programmée ou fortuite.",
-            "elements_attendus": [
-              "Procédure d'anticipation des absences planifiées",
-              "Procédure de gestion des absences inopinées (délai d'intervention du remplaçant)",
-              "Pool de remplaçants formés disponibles"
-            ],
-            "exemple_reponse_forte": "Un pool de 3 remplaçants formés aux procédures EFS est maintenu en permanence sur la région. En cas d'absence imprévue, le responsable de secteur est alerté automatiquement par notre outil RH, et le remplacement est assuré dans un délai maximum de 3h.",
-            "source": "RC §1.11.2 — Sous-critère 2, lots 1.1 et 2.1"
-          }
-        ]
-      },
-      {
-        "libelle": "Plan de formation du personnel",
-        "ponderation_pct": 10,
-        "description": "Applicable aux lots 1.1 et 2.1. Évalue la qualité et la pertinence du plan de formation des agents affectés au marché (formation initiale, continue, spécifique aux locaux médicaux).",
-        "elements_attendus": [
-          "Plan de formation détaillé pour les agents affectés au marché",
-          "Formations initiales (protocoles nettoyage en milieu médical, hygiène)",
-          "Formations continues et recyclages prévus",
-          "Formations spécifiques aux zones classifiées EFS",
-          "Extrait du DUERP relatif aux activités de nettoyage (risques identifiés + actions de prévention)"
-        ],
-        "exemple_reponse_forte": "Chaque agent affecté suit une formation initiale de 2 jours incluant les protocoles de nettoyage en milieu médical, le classement des zones et les produits biocides. Un recyclage annuel de 4h est planifié. Le DUERP annexé identifie les risques chimiques, biologiques et ergonomiques avec mesures de prévention associées.",
-        "source": "RC §1.11.2 — Sous-critère 3, lots 1.1 et 2.1"
-      },
-      {
-        "libelle": "Qualité et pertinence de la méthodologie de réalisation des prestations, de suivi qualité, de traçabilité et de gestion/suivi des réclamations, Plan de Continuité d'Activité",
-        "ponderation_pct": 10,
-        "description": "Applicable aux lots 1.1 et 2.1. Évalue la méthode d'exécution, les outils de traçabilité (système informatisé), le suivi qualité, la gestion des réclamations et le Plan de Continuité d'Activité (PCA).",
-        "elements_attendus": [
-          "Description de la méthodologie de nettoyage par type de zone",
-          "Système informatisé de traçabilité (si proposé)",
-          "Portail dématérialisé de suivi (si proposé)",
-          "Procédure de gestion et suivi des réclamations",
-          "Plan de Continuité d'Activité (PCA) en cas de crise",
-          "Annexe 1 CCTP 'gestion de crise' complétée"
-        ],
-        "exemple_reponse_forte": "Notre système de traçabilité dématérialisé (plateforme X) permet de générer des rapports de passage en temps réel, consultables par l'EFS via portail sécurisé. Les réclamations sont traitées sous 24h avec boucle de confirmation. Notre PCA prévoit un plan de continuité avec activation d'une cellule de crise en moins de 4h.",
-        "source": "RC §1.11.2 — Sous-critère 4, lots 1.1 et 2.1"
-      },
-      {
-        "libelle": "Qualité et pertinence de la méthodologie de réalisation des prestations, de suivi qualité, de traçabilité et de gestion/suivi des réclamations, Plan de Continuité d'Activité (lots 1.2 et 2.2)",
-        "ponderation_pct": 20,
-        "description": "Applicable aux lots 1.2 et 2.2 uniquement (zones sensibles). Pondération plus élevée (20% vs 10% pour les lots standard) en raison de la criticité des zones protégées (banques de tissus/cornées).",
-        "elements_attendus": [
-          "Méthodologie spécifique pour zones protégées (II et III)",
-          "Système de traçabilité adapté aux exigences des zones sensibles",
-          "Gestion des réclamations en contexte médical critique",
-          "Plan de Continuité d'Activité spécifique banque de tissus/cornées",
-          "Annexe 1 CCTP 'gestion de crise' complétée"
-        ],
-        "exemple_reponse_forte": "Notre protocole en zone III inclut une double validation documentaire à chaque passage, avec enregistrement horodaté et signature électronique. Le PCA prévoit une continuité de service garantie sous 1h en cas d'incident, avec agent formé aux zones protégées disponible en astreinte.",
-        "source": "RC §1.11.2 — Sous-critère 1, lots 1.2 et 2.2"
-      },
-      {
-        "libelle": "Qualité et pertinence des moyens humains proposés — lots 1.2 et 2.2",
-        "ponderation_pct": 15,
-        "description": "Applicable aux lots 1.2 et 2.2. Évalue l'organisation humaine, les procédures de remplacement et le taux d'encadrement pour les zones sensibles.",
-        "elements_attendus": [
-          "Procédures de remplacement en cas d'absence prévue et imprévue (pondération majorée : 10%)",
-          "Moyens humains alloués spécifiques aux zones protégées",
-          "Taux d'encadrement dédié aux zones sensibles"
-        ],
-        "exemple_reponse_forte": "Pour la BTC HEH, 2 agents exclusivement formés aux zones II/III sont affectés, avec un 3ème agent en backup permanent. Toute absence imprévue déclenche un protocole de remplacement assuré sous 2h par un agent ayant suivi la formation spécifique zones protégées EFS.",
-        "source": "RC §1.11.2 — Sous-critère 2, lots 1.2 et 2.2",
-        "sous_criteres": [
-          {
-            "libelle": "Procédures mises en place en cas d'absence prévue et/ou non prévue du personnel",
-            "ponderation_pct": 10,
-            "description": "Procédures de continuité du service en zones sensibles, avec délai et qualification des remplaçants.",
-            "elements_attendus": [
-              "Procédure détaillée de remplacement (prévu et imprévu)",
-              "Délai garanti de mise en œuvre du remplaçant",
-              "Formation préalable des remplaçants aux zones protégées"
-            ],
-            "exemple_reponse_forte": "Un pool de 2 agents formés zones protégées est maintenu en permanence. En cas d'absence imprévue, le responsable de secteur est notifié immédiatement et le remplaçant est positionné sous 2h maximum.",
-            "source": "RC §1.11.2 — Sous-critère 2, lots 1.2 et 2.2"
-          },
-          {
-            "libelle": "Fonctionnement et moyens humains alloués (intervenants et encadrant)",
-            "ponderation_pct": 5,
-            "description": "Organisation et dimensionnement des équipes pour les zones sensibles (banques de tissus/cornées).",
-            "elements_attendus": [
-              "Nombre d'agents dédiés aux zones protégées",
-              "Qualification et expérience en zones médicales sensibles",
-              "Taux d'encadrement dédié"
-            ],
-            "exemple_reponse_forte": "2 agents titulaires formés zones II/III sont exclusivement affectés à la BTC, supervisés par un référent qualité dédié. Le taux d'encadrement est de 1 encadrant pour 2 agents opérationnels.",
-            "source": "RC §1.11.2 — Sous-critère 2, lots 1.2 et 2.2"
-          }
-        ]
-      },
-      {
-        "libelle": "Formation spécifique du personnel en activités protégées et compétences (lots 1.2 et 2.2)",
-        "ponderation_pct": 15,
-        "description": "Applicable aux lots 1.2 et 2.2. Évalue les formations spécifiques des agents affectés aux zones protégées (banques de tissus et de cellules, banque de cornées) et leurs compétences démontrées.",
-        "elements_attendus": [
-          "Programme de formation spécifique aux zones protégées (II et III)",
-          "Contenu de la formation aux procédures qualité EFS",
-          "Attestations ou preuves de formation du personnel en zones sensibles",
-          "Références de missions similaires en zone médicale protégée",
-          "Compétences spécifiques des agents (habilitations, formations certifiantes)"
-        ],
-        "exemple_reponse_forte": "Nos agents affectés à la BTC ont suivi une formation de 3 jours en nettoyage de zones propres (ISO 14644), complétée par une formation aux procédures internes EFS lors de la prise de poste. Les attestations de formation sont jointes au mémoire technique.",
-        "source": "RC §1.11.2 — Sous-critère 3, lots 1.2 et 2.2"
-      },
-      {
-        "libelle": "Qualité et pertinence du matériel, produits et consommables proposés pour les zones II et III (lots 1.2 et 2.2)",
-        "ponderation_pct": 10,
-        "description": "Applicable aux lots 1.2 et 2.2. Évalue les matériels et produits adaptés aux exigences des zones protégées (II et III) : microfibres sols, lingettes, consommables, produits désinfectants, matériel adapté.",
-        "elements_attendus": [
-          "Fiches techniques microfibres et lingettes adaptées aux zones II/III",
-          "Gestion des consommables en zones protégées",
-          "Produits détergents désinfectants conformes aux zones II/III",
-          "Matériel (balai, chariot, autolaveuse) adapté aux contraintes des zones sensibles"
-        ],
-        "exemple_reponse_forte": "Les microfibres utilisées en zone III sont à usage unique pour chaque pièce, conformément aux exigences des salles propres. Les produits désinfectants sont homologués EN 14476 et EN 13727. Le chariot dédié zones protégées est en inox, sans bois ni matériau poreux.",
-        "source": "RC §1.11.2 — Sous-critère 4, lots 1.2 et 2.2",
-        "sous_criteres": [
-          {
-            "libelle": "Microfibre sol et lingettes de dépoussiérage et leur gestion",
-            "ponderation_pct": 3,
-            "description": "Adéquation des microfibres et lingettes aux zones II et III.",
-            "elements_attendus": [
-              "Fiches techniques microfibres zones II/III",
-              "Protocole de gestion (usage unique, lavage, traçabilité)"
-            ],
-            "exemple_reponse_forte": "Microfibres usage unique en zone III, microfibres réutilisables lavées à 95°C en zone II, avec traçabilité par lot de lavage.",
-            "source": "RC §1.11.2 — Sous-critère 4, lots 1.2 et 2.2"
-          },
-          {
-            "libelle": "Gestion des consommables et produits nécessaires pour zone II et III",
-            "ponderation_pct": 3,
-            "description": "Organisation du stockage et de la gestion des consommables spécifiques aux zones protégées.",
-            "elements_attendus": [
-              "Procédure de gestion des stocks de consommables",
-              "Traçabilité des consommables en zones protégées"
-            ],
-            "exemple_reponse_forte": "Un stock tampon de 15 jours est maintenu sur site pour les consommables zones protégées, avec gestion des DLC et traçabilité par lot.",
-            "source": "RC §1.11.2 — Sous-critère 4, lots 1.2 et 2.2"
-          },
-          {
-            "libelle": "Produits pour le nettoyage hors sols (détergent désinfectant, anticalcaire etc.), dispositions environnementales et leur gestion",
-            "ponderation_pct": 2,
-            "description": "Pertinence des produits hors sols pour zones II/III et engagement environnemental.",
-            "elements_attendus": [
-              "Fiches techniques des produits détergents désinfectants zones II/III",
-              "Dispositions environnementales"
-            ],
-            "exemple_reponse_forte": "Détergent désinfectant EN 14476 à rinçage réduit, biodégradable à 98%, utilisé en zone II. Anticalcaire sans chlore ni acides forts.",
-            "source": "RC §1.11.2 — Sous-critère 4, lots 1.2 et 2.2"
-          },
-          {
-            "libelle": "Balai-support de microfibre/chariot adapté, matériels alloués au site (autolaveuse etc.)",
-            "ponderation_pct": 2,
-            "description": "Adéquation du matériel mécanique aux zones protégées.",
-            "elements_attendus": [
-              "Description du chariot adapté zones II/III (matériaux, nettoyabilité)",
-              "Matériel autolaveuse compatible zones protégées"
-            ],
-            "exemple_reponse_forte": "Chariot inox à rouleaux silencieux, nettoyable et désinfectable, spécifiquement sélectionné pour les zones propres.",
-            "source": "RC §1.11.2 — Sous-critère 4, lots 1.2 et 2.2"
-          }
-        ]
-      }
-    ],
+    "valeur_technique_pct": null,
+    "valeur_prix_pct": null,
+    "sous_criteres_techniques": [],
     "prix": {
-      "type_formule": "moins_disant",
-      "formule_explicite": "Les valeurs se répartissent proportionnellement en fonction de l'offre la moins disante, qui a la meilleure note.",
+      "type_formule": "autre",
+      "formule_explicite": "Le DCE fourni ne comprend pas le Règlement de Consultation (RC) ; les critères de jugement des offres et leur pondération ne sont pas précisés dans les pièces disponibles (CCAP, CCTP, AE, BPU). Le bordereau de prix (BPU) liste les forfaits mensuels et semestriels par site, ainsi qu'un coût horaire pour les prestations à la demande.",
+      "source": null,
       "elements_a_chiffrer": [
-        "Coût annuel de l'entretien courant (forfait périodique) — lots 1.1, 1.2, 2.1 et 2.2 (38%)",
-        "Moyenne des coûts horaires des prestations diverses à la demande — lots 1.1, 1.2, 2.1 et 2.2 (2%)",
-        "Coût horaire du nettoyage des unités de prélèvement (UMP) — lot 2.1 uniquement (compris dans les 2%)",
-        "Bordereau des prix (annexe financière à l'acte d'engagement) au format Excel, un onglet par lot"
+        "Forfait mensuel HT d'entretien courant par site (coût horaire × heures allouées)",
+        "Forfait semestriel HT de vitrerie extérieure par site",
+        "Coût horaire HT pour prestations à la demande (monobrosse, autolaveuse, spray méthode, autre technique)",
+        "Forfait d'intervention HT pour nettoyage des unités mobiles de prélèvement (UMP) de Valence (lot 2.1)",
+        "Mise à blanc et mise à blanc simplifiée (lots 1.2 et 2.2, coût horaire)"
       ]
     },
-    "modalite_calcul_prix": "Note prix proportionnelle à l'offre la moins disante. Sous-critère 1 : coût annuel entretien courant (38%). Sous-critère 2 : moyenne coûts horaires prestations ponctuelles et UMP (2%)."
+    "modalite_calcul_prix": "Bordereau de prix unitaires (BPU) par lot avec forfaits mensuels et semestriels. Le critère prix et sa pondération ne sont pas disponibles dans les pièces transmises."
   },
   "montant_marche": {
-    "valeur_estimee_euros": 2478000,
+    "valeur_estimee_euros": 1651905,
     "fourchette_min_euros": null,
-    "fourchette_max_euros": 2478000,
-    "type": "plafond",
-    "duree_couverte": "36 mois (durée maximale accord-cadre toutes reconductions comprises)",
-    "source_extraction": "RC §1.6 — tableau des montants maximum HT par lot",
-    "commentaire": "Plafond accord-cadre toutes prestations confondues sur 36 mois : Lot 1.1 = 1 097 000 € + Lot 1.2 = 211 000 € + Lot 2.1 = 1 148 000 € + Lot 2.2 = 22 000 € = 2 478 000 € HT total. Soit environ 826 000 € HT/an si les 4 lots sont attribués au même titulaire."
+    "fourchette_max_euros": null,
+    "type": "estime_explicite",
+    "duree_couverte": "36 mois (durée initiale 12 mois + 2 reconductions de 12 mois)",
+    "source_extraction": "CCAP §4.5 — tableau des estimations par lot",
+    "commentaire": "Montant estimé total publié : Lot 1.1 : 730 727 € + Lot 1.2 : 140 918 € + Lot 2.1 : 765 623 € + Lot 2.2 : 14 637 € = 1 651 905 € HT pour 36 mois. Le CCAP précise également des montants maximum (plafonds accordcadre) : Lot 1.1 : 1 097 000 €, Lot 1.2 : 211 000 €, Lot 2.1 : 1 148 000 €, Lot 2.2 : 22 000 €, soit un plafond global de 2 478 000 € HT sur 36 mois."
+  },
+  "montant_3_voies": {
+    "voie_1_eur": 1651905,
+    "voie_1_source": "CCAP §4.5 — tableau des estimations par lot pour 36 mois",
+    "voie_2_disponible": false,
+    "voie_2_min_eur": null,
+    "voie_2_max_eur": null,
+    "voie_2_hypotheses": [],
+    "voie_2_raison_indisponible": "Voie 1 disponible et précise : montant explicitement publié dans le CCAP par lot et en total. Pas besoin d'estimation bottom-up."
+  },
+  "cout_realisation": {
+    "cout_total_eur": 1240000,
+    "cout_min_eur": 1130000,
+    "cout_max_eur": 1360000,
+    "postes": [
+      {
+        "poste": "Lot 1.1 — Main d'œuvre (entretien courant sites Rhône/Grand Lyon)",
+        "detail": "~11 928 m² totaux, personnel en place repris (CDI CCNEP), env. 14-16 ETP estimés sur 36 mois. Coût salarial chargé ~12,57-15,27 €/h selon échelon. Base : ~35 000 h/an × 14 €/h chargé × 3 ans",
+        "montant_eur": 560000
+      },
+      {
+        "poste": "Lot 1.2 — Main d'œuvre bionettoyage ZAC (BTC HEH Pavillon i)",
+        "detail": "35 h/semaine estimées (CCTP lot 1.2), personnel hautement qualifié bionettoyage ZAC. Environ 1 820 h/an × 16 €/h chargé × 3 ans",
+        "montant_eur": 87000
+      },
+      {
+        "poste": "Lot 2.1 — Main d'œuvre (sites Auvergne/Loire/Drôme)",
+        "detail": "~10 021 m² + nettoyage UMP Valence. Personnel en place repris, ~12-15 ETP. Base : ~34 000 h/an × 13 €/h chargé × 3 ans",
+        "montant_eur": 550000
+      },
+      {
+        "poste": "Lot 2.2 — Main d'œuvre bionettoyage ZAC (banque de cornées STB)",
+        "detail": "54,64 m² zone classée, prestation légère. Env. 3-4 h/j × 250 j × 3 ans × 14 €/h",
+        "montant_eur": 11000
+      },
+      {
+        "poste": "Produits, consommables et matériels (tous lots)",
+        "detail": "Détergents, désinfectants, lingettes stériles (lots 1.2/2.2), sacs poubelle, microfibres, matériel de nettoyage. Estimation 5-7% du coût total sur 3 ans",
+        "montant_eur": 32000
+      }
+    ],
+    "taux_journaliers_retenus": "Agent de service nettoyage CCNEP : 12,57-13,17 €/h brut, soit env. 20-22 €/h chargé (charges patronales ~50%). Chef d'équipe : 15-15,44 €/h brut, env. 23-24 €/h chargé. Bionettoyage ZAC spécialisé : majoration ~15%. Taux indicatifs marché secteur propreté France 2026.",
+    "commentaire": "Estimation du coût de production pour le candidat titulaire sur 36 mois. La principale donnée disponible est le personnel en place (annexes reprises de personnel CCAP), permettant d'estimer la masse salariale à reprendre. La dimension variable est principalement le taux horaire chargé (évolue avec CCN Propreté). La fourchette fait varier le coût horaire chargé moyen entre 19 €/h (min) et 22 €/h (max), charge fixée. Revenu estimé (montant EFS) = 1 651 905 € ; la marge brute estimée est d'environ 25-30%, cohérente avec le secteur propreté."
   },
   "revision_prix": {
-    "type": "non_communique",
-    "indices_utilises": [],
-    "ponderation": null,
-    "periodicite": null,
-    "formule_revision": null,
-    "source_extraction": null,
-    "commentaire": "Le CCAP n'est pas fourni dans les pièces analysées. La révision des prix n'est pas détaillée dans le RC. À vérifier impérativement dans le CCAP."
+    "type": "indexation",
+    "indices_utilises": [
+      "CPF 81.21 Nettoyage courant marché public INSEE identifiant 010766785"
+    ],
+    "ponderation": "P = Po × (0,10 + 0,90 × Net/Net0) — 10% partie fixe, 90% indexé sur l'indice de prix de production des services BtoB CPF 81.21 Nettoyage courant marché public (base 2021)",
+    "periodicite": "annuelle",
+    "formule_revision": "P = Po × (0,10 + 0,90 × Net/Net0) avec Net0 = valeur de l'indice CPF 81.21 au mois zéro (janvier 2026) et Net = valeur connue au mois de la révision. Les prix ne peuvent augmenter de plus de 2% par an.",
+    "source_extraction": "CCAP §10.2",
+    "commentaire": "Formule favorable au titulaire en période inflationniste (90% indexé) avec un plafond de +2%/an limitant la hausse. La demande de révision doit être formulée par lettre RAR au plus tard 2 mois avant la date anniversaire, sous peine de forclusion. L'indice CPF 81.21 est spécifique au secteur nettoyage marché public, très corrélé au coût main d'œuvre CCNEP."
   },
   "alertes_prix": [
-    "Pondération prix de 40% (sur 100%) : niveau standard mais la pondération technique à 60% signifie que la compétitivité prix seule ne suffit pas à remporter le marché.",
-    "Le sous-critère 'coût annuel entretien courant' pèse 38% sur 40% total prix : c'est quasi-exclusivement le forfait périodique qui fait la note prix — soigner le chiffrage du récurrent.",
-    "Montants maximum HT fixés par lot (plafonds accord-cadre) : Lot 2.2 à seulement 22 000 € sur 36 mois — marché de faible volume, rentabilité à analyser avant candidature.",
-    "Formule moins-disante proportionnelle : tout écart de prix par rapport au mieux-disant est pénalisant de façon linéaire — risque d'offre anormalement basse si candidat sous-estime les contraintes spécifiques des zones protégées."
+    "Plafond de révision à +2%/an : si l'inflation dépasse ce seuil (comme en 2022-2023), le titulaire absorbe la différence — chiffrer avec prudence sur la durée totale de 36 mois.",
+    "Accord-cadre sans minimum garanti (R.2162-4 2°) : l'EFS peut ne passer aucune commande sans indemnité. Le revenu sur 3 ans n'est pas garanti à hauteur des 1,65 M€ estimés.",
+    "Plafond maximum de 2 478 000 € sur 36 mois (tous lots) : 50% de plus que l'estimation — laisse de la marge pour des bons de commande supplémentaires (prestations ponctuelles, mises à blanc).",
+    "Les prestations à la demande (mises à blanc, nettoyages exceptionnels) sont à prix horaire : sous-estimer le coût horaire ou le taux d'activité peut rendre ces postes déficitaires.",
+    "Reprise de personnel obligatoire (clause CCNEP) : la masse salariale à reprendre est documentée en annexe 2 du CCAP — le coût est en grande partie contraint dès l'offre."
   ],
   "references_exigees": {
-    "experience_minimale_annees": 3,
-    "experience_source": "RC §1.10.2 et DC2",
+    "experience_minimale_annees": null,
+    "experience_source": null,
     "volume_min_references_similaires": null,
-    "volume_min_references_unite": "marchés similaires (nettoyage de locaux)",
-    "secteur_experience": "Nettoyage de locaux (idéalement en milieu médical ou milieu sensible pour les lots 1.2 et 2.2)",
-    "secteur_source": "RC §1.10.2",
+    "volume_min_references_unite": null,
+    "secteur_experience": "Nettoyage de locaux professionnels/médicaux, idéalement avec expérience en bionettoyage de zones à atmosphère contrôlée (salles propres, ZAC) pour les lots 1.2 et 2.2",
+    "secteur_source": "CCTP lot 1.2 §7-2-2, CCTP lot 2.2",
     "certifications_obligatoires": [],
     "autres_exigences": [
       {
-        "libelle": "Chiffre d'affaires annuel global (3 derniers exercices ou dernière année selon ancienneté de l'entreprise) à déclarer via DC2",
-        "source": "RC §1.10.2"
+        "libelle": "Personnel formé et habilité au bionettoyage en zones classées (BPF/BPTC) avant démarrage des prestations des lots 1.2 et 2.2",
+        "source": "CCTP lot 1.2 §7-2-3"
       },
       {
-        "libelle": "Liste des principaux services effectués au cours des 3 dernières années (montant, date, destinataire), prouvés par attestations client ou déclaration",
-        "source": "RC §1.10.2"
+        "libelle": "Attestation sur l'honneur relative aux certificats de vaccination du personnel avant démarrage (obligations vaccinales établissements de santé, article L3111-4 CSP)",
+        "source": "CCAP §11"
       },
       {
-        "libelle": "Déclaration de l'effectif moyen annuel et importance du personnel d'encadrement sur 3 dernières années",
-        "source": "RC §1.10.2"
+        "libelle": "Attestation d'assurance responsabilité civile professionnelle en cours de validité",
+        "source": "CCAP §12"
       },
       {
-        "libelle": "Rapport Cofrac de performance microbiologique des microfibres (Log de diminution de charge microbienne) — exigé dans l'offre technique",
-        "source": "RC §1.10.3"
+        "libelle": "Fourniture du DUERP (Document Unique d'Évaluation des Risques Professionnels) relatif aux activités de nettoyage dans l'offre",
+        "source": "CCTP lot 1.2 §7-2-2"
       },
       {
-        "libelle": "Extrait du DUERP relatif aux activités de nettoyage (risques identifiés, actions de prévention, protection et formation)",
-        "source": "RC §1.10.3"
-      },
-      {
-        "libelle": "Attestation de visite obligatoire pour les lots 1.2 (HEH Pavillon I) et 2.2 (STB Banque de cornées)",
-        "source": "RC §1.10.3 et §2.4"
+        "libelle": "Attestation de vigilance URSSAF et attestation fiscale (remises tous les 6 mois en cours d'exécution)",
+        "source": "CCAP §15"
       }
     ]
+  },
+  "dossier_candidature": {
+    "pieces_a_fournir": [
+      {
+        "libelle": "Acte d'engagement (ATTRI1) complété, daté et signé",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "AURA407 AE.docx"
+      },
+      {
+        "libelle": "Annexe financière (Bordereau de Prix Unitaires — BPU) par lot, fichier Excel complété (Annexe BP)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "AURA407 AE Annexe BP.xlsx"
+      },
+      {
+        "libelle": "Proposition technique incluant le cadre de réponse et le mémoire technique",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "CCAP §5"
+      },
+      {
+        "libelle": "DC4 pour chaque sous-traitant (le cas échéant)",
+        "phase": "offre",
+        "obligatoire": false,
+        "source": "AURA407 AE.docx §B2"
+      },
+      {
+        "libelle": "Lettre de candidature et habilitation du mandataire (DC1 ou équivalent) en cas de groupement",
+        "phase": "candidature",
+        "obligatoire": false,
+        "source": "AURA407 AE.docx §C2"
+      },
+      {
+        "libelle": "Relevé d'identité bancaire (RIB/IBAN) du candidat",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "AURA407 AE.docx §B5"
+      },
+      {
+        "libelle": "Extrait du DUERP relatif aux activités de nettoyage et d'entretien des locaux (pour lots 1.2 notamment)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "CCTP lot 1.2 §7-2-2"
+      },
+      {
+        "libelle": "Liste et fiches techniques des matériels et produits proposés pour l'exécution des prestations",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "CCTP lot 1.2 §7-1"
+      },
+      {
+        "libelle": "Rapport de performance des tests microbiologiques des microfibres (laboratoire accrédité COFRAC) pour les zones II",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "CCTP lot 1.2 §6-5-1"
+      }
+    ],
+    "mode_remise": "dématérialisé",
+    "plateforme_depot": null,
+    "signature_electronique_exigee": null,
+    "format_signature": null,
+    "nombre_exemplaires": null,
+    "langue": "français",
+    "duree_validite_offres_jours": null,
+    "modalites_source": "CCAP §4.7.1 (langue)"
   },
   "lots": [
     {
       "numero": 1,
-      "intitule": "Lot 1.1 — Sites Rhône (Décines-Charpieu, Confluence, Croix Rousse, GHE, HEH B5/P, Lyon-Sud, Lyon Part-Dieu)",
-      "zone_geographique": "Rhône (69)",
-      "volume_estime": 1097000,
-      "volume_estime_unite": "€ HT sur 36 mois (plafond accord-cadre)",
-      "particularites": "8 adresses EFS. Visite de site facultative. Zones I et II. Inclut UMP possible (à vérifier CCTP). Critères techniques standard (4 sous-critères dont matériel 30%)."
+      "intitule": "Lot n°1.1 — Nettoyage des locaux et vitres des sites de Décines-Charpieu (DEC), Confluence (SFC), Croix Rousse (XRO), Groupement Hospitalier Est (GHE), Hôpital Edouard-Herriot (HEH bâtiment B5 et pavillon P), Lyon-sud (LYS bâtiment 3B et bâtiment G), Lyon Part-Dieu (LPD)",
+      "domaine": "entretien_proprete_locaux",
+      "zone_geographique": "Métropole de Lyon (69)",
+      "volume_estime": 11928.55,
+      "volume_estime_unite": "m²",
+      "cout_estime_min_eur": 490000,
+      "cout_estime_max_eur": 600000,
+      "particularites": "Lot le plus important (8 sites, 11 928 m²). Inclut des sites en milieu hospitalier (GHE, HEH). Montant estimé EFS : 730 727 € sur 36 mois. Plafond accord-cadre : 1 097 000 €. Reprise de personnel documentée en annexe 2 CCAP (13 agents CDI CCNEP sur les sites DEC, SFC, XRO, GHE, HEH, LYS, LPD). Vitrerie extérieure semestrielle : 705 m²."
     },
     {
       "numero": 2,
-      "intitule": "Lot 1.2 — Banque de tissus et de cellules HEH Pavillon I (Lyon)",
-      "zone_geographique": "Lyon, Rhône (69)",
-      "volume_estime": 211000,
-      "volume_estime_unite": "€ HT sur 36 mois (plafond accord-cadre)",
-      "particularites": "Visite de site OBLIGATOIRE. Zones II et III (salles propres médicales). Critères techniques renforcés : formation spécifique zones protégées (15%), méthodologie (20%). Procédures qualité internes EFS en annexe (6 fichiers). Lot lot spécifique créé dans ce DCE."
+      "intitule": "Lot n°1.2 — Nettoyage des locaux du site de l'Hôpital Edouard-Herriot (HEH pavillon i — Banque de Tissus et de Cellules/BTC)",
+      "domaine": "entretien_proprete_locaux",
+      "zone_geographique": "Lyon (69003)",
+      "volume_estime": 449.83,
+      "volume_estime_unite": "m²",
+      "cout_estime_min_eur": 97000,
+      "cout_estime_max_eur": 120000,
+      "particularites": "Lot spécialisé bionettoyage zones classées (Zone II et Zone III — ZAC classe D et équivalent). Personnel obligatoirement habilité. Procédures BPTC/BPF imposées. Tenue salle blanche fournie par EFS. Produits spécifiques stériles fournis par le titulaire (Surfanios, etc.). Montant estimé EFS : 140 918 € sur 36 mois. Plafond : 211 000 €. 35 h de prestation évaluées. Reprise 2 agents (ATQS et CE) documentée."
     },
     {
       "numero": 3,
-      "intitule": "Lot 2.1 — Sites Auvergne, Loire, Drôme (Clermont-Ferrand, Montluçon, Moulins, Saint-Étienne x3, Saint-Priest-en-Jarez, Roanne, Valence, Aurillac, Le Puy-en-Velay)",
-      "zone_geographique": "Puy-de-Dôme (63), Allier (03), Loire (42), Haute-Loire (43), Cantal (15), Drôme (26)",
-      "volume_estime": 1148000,
-      "volume_estime_unite": "€ HT sur 36 mois (plafond accord-cadre)",
-      "particularites": "Le lot le plus important en valeur. Inclut le nettoyage de l'UMP de Valence. Visite facultative. Zones I et II. Critères techniques standard."
+      "intitule": "Lot n°2.1 — Nettoyage des locaux et vitres des sites de Clermont-Ferrand, Montluçon, Moulins, Saint-Etienne (3 sites), Saint-Priest-en-Jarez, Roanne, Valence, Aurillac, Le Puy-en-Velay — incluant le nettoyage de l'unité mobile de prélèvement de Valence",
+      "domaine": "entretien_proprete_locaux",
+      "zone_geographique": "Auvergne / Loire / Drôme (63, 03, 43, 42, 26)",
+      "volume_estime": 10021.39,
+      "volume_estime_unite": "m²",
+      "cout_estime_min_eur": 530000,
+      "cout_estime_max_eur": 645000,
+      "particularites": "Lot multi-sites (11 villes), géographiquement étendu. Inclut le nettoyage de l'UMP de Valence (29 interventions évaluées en 2025, forfait par intervention à chiffrer). Vitrerie : 2 350 m². Montant estimé EFS : 765 623 € sur 36 mois. Plafond : 1 148 000 €. Reprise de 14 agents documentée."
     },
     {
       "numero": 4,
-      "intitule": "Lot 2.2 — Banque de cornées Saint-Étienne Bellevue",
-      "zone_geographique": "Saint-Étienne, Loire (42)",
-      "volume_estime": 22000,
-      "volume_estime_unite": "€ HT sur 36 mois (plafond accord-cadre)",
-      "particularites": "Très faible volume (22 000 € sur 36 mois ≈ 7 300 €/an). Visite OBLIGATOIRE. Zones protégées. Critères techniques renforcés identiques au lot 1.2. Procédures qualité internes EFS (4 fichiers). Rentabilité à analyser."
+      "intitule": "Lot n°2.2 — Nettoyage des locaux de la Banque de cornées du site de Saint-Etienne Bellevue (STB)",
+      "domaine": "entretien_proprete_locaux",
+      "zone_geographique": "Saint-Etienne (42)",
+      "volume_estime": 54.64,
+      "volume_estime_unite": "m²",
+      "cout_estime_min_eur": 9000,
+      "cout_estime_max_eur": 12000,
+      "particularites": "Très petit lot (54 m²) mais très contraint : zones classées D (SAS + ZAC), habillage salle propre obligatoire, bionettoyage selon BPTC. Personnel : 1 agent CDI repris (AS CSA, 16,25 h/mois). Montant estimé EFS : 14 637 € sur 36 mois. Plafond : 22 000 €. Prestation de mise à blanc spécifique sur demande (procédure RAA/PTC/BTI/PR/020). Possible désinfection H2O2."
     }
   ],
+  "tranches": [],
   "calendrier": {
     "date_limite_offres": "2026-07-17",
     "date_demarrage_prevue": "2027-02-01",
-    "duree_marche": "12 mois fermes + 2 reconductions de 12 mois (36 mois maximum)"
+    "duree_marche": "12 mois reconductibles 2 fois (36 mois maximum), prise d'effet au 2 novembre 2026, démarrage des prestations prévu au 1er février 2027"
   },
   "alertes_candidat": [
-    "VISITE OBLIGATOIRE pour les lots 1.2 (HEH Pavillon I - Banque de tissus) et 2.2 (STB - Banque de cornées) : toute offre sans attestation de visite ou preuve de connaissance suffisante du site sera déclarée IRRÉGULIÈRE.",
-    "Rapport Cofrac obligatoire pour les microfibres (test microbiologique avec Log de diminution de charge microbienne, laboratoire accrédité) : absence = offre incomplète ou non conforme.",
-    "Lot 2.2 à 22 000 € HT sur 36 mois (≈ 7 300 €/an) : marché de très faible volume avec exigences techniques élevées (zones protégées, visite obligatoire, procédures qualité EFS) — analyser la rentabilité avant candidature.",
-    "Extrait DUERP relatif aux activités de nettoyage exigé dans l'offre technique : document interne à préparer spécifiquement (risques chimiques, biologiques, ergonomiques pour agents nettoyage).",
-    "Annexe 2 CCAP (RGPD) à compléter avec le nom du DPO de la société : à vérifier que l'entreprise dispose bien d'un DPO désigné.",
-    "Lots déposés simultanément si candidature multi-lots (règle plateforme PLACE) : anticiper le dépôt électronique pour éviter le hors-délai à 12h00 pile le 17 juillet 2026."
+    "Zones classées (lots 1.2 et 2.2) : le personnel affecté aux ZAC doit être formé et habilité par l'EFS AVANT la prise de poste — prévoir une période de doublonnage et un minimum de 2 remplaçants habilités ; l'habilitation peut être retirée immédiatement en cas de manquement.",
+    "Reprise obligatoire du personnel en place (clause de transfert CCN Propreté) : les annexes 2 du CCAP listent les agents CDI à reprendre avec leurs caractéristiques salariales — sous-estimer la masse salariale à reprendre expose à une OAB ou à une marge négative.",
+    "Accord-cadre sans minimum garanti (article R.2162-4 2° CCP) : aucune indemnité en cas de résiliation pour intérêt général (y compris si l'EFS lance un marché national couvrant le même périmètre).",
+    "Visite obligatoire des locaux pendant la phase de consultation (CCAP §6.1) : le candidat est réputé avoir apprécié les conditions d'exécution — toute erreur de surface ou de contrainte ne peut être invoquée pour refuser la prestation.",
+    "Produits de bionettoyage ZAC (lot 1.2) : les références sont imposées (Surfanios, dosettes Déterganios ou équivalent validé) et ne peuvent être modifiées sans accord EFS — le fournisseur doit confirmer les références avant l'offre.",
+    "Lot 2.2 très petit (14 637 €/36 mois) mais contraintes maximales (bionettoyage ZAC, habilitations, désinfection H2O2 sur demande) : risque de sous-rentabilité si les charges fixes (formation, encadrement) ne sont pas mutualisées avec le lot 2.1."
   ],
   "points_differenciants_attendus": [
     {
-      "libelle": "Rapport Cofrac avec Log de réduction microbienne élevé pour les microfibres",
-      "exemple": "Présenter un rapport Cofrac d'un laboratoire accrédité attestant d'un Log de réduction microbienne ≥ 4 log10 UFC pour les principales bactéries pathogènes (Staphylococcus aureus, E. coli), avec le certificat de conformité joint. Préciser le protocole de gestion (lavage, stockage, traçabilité par lot).",
-      "source": "RC §1.10.3 et §1.11.2 — Sous-critère 1"
+      "libelle": "Expérience documentée en bionettoyage de zones à atmosphère contrôlée (BPF/BPTC)",
+      "exemple": "Un candidat qui présente des références en bionettoyage de salles propres pharmaceutiques ou de banques de tissus (classe D, C ou B) et qui joint les attestations de formation de son personnel aux BPF/BPTC se différencie fortement sur les lots 1.2 et 2.2.",
+      "source": "CCTP lot 1.2 §7-2-2 et §7-2-3"
     },
     {
-      "libelle": "Formation spécifique du personnel aux zones protégées médicales (lots 1.2 et 2.2)",
-      "exemple": "Justifier d'une formation certifiante ou d'une expérience documentée en nettoyage de zones propres (ISO 14644, salle blanche ou contexte équivalent), avec attestations de formation du personnel dédié et références de missions similaires en établissement de santé.",
-      "source": "RC §1.11.2 — Sous-critère 3, lots 1.2 et 2.2"
+      "libelle": "Qualité et performance des microfibres proposées pour les zones II (certification COFRAC)",
+      "exemple": "Fournir le rapport de test microbiologique de la microfibre 'usage court haute performance' réalisé par un laboratoire accrédité COFRAC, avec le log de diminution de la charge microbienne, est exigé dans le mémoire technique — un log élevé sera valorisé.",
+      "source": "CCTP lot 1.2 §6-5-1"
     },
     {
-      "libelle": "Faible taux de turn-over sur la région AURA",
-      "exemple": "Communiquer un taux de turn-over AURA inférieur à 15% sur la dernière année, avec analyse des actions mises en place pour la fidélisation du personnel (primes, formations, évolution de carrière). Cet indicateur est explicitement demandé dans le mémoire technique.",
-      "source": "RC §1.10.3"
+      "libelle": "Organisation de la continuité de service (remplaçants formés, service minimal, gestion des absences)",
+      "exemple": "Décrire précisément le mécanisme de remplacement (délai <48h, pool de remplaçants déjà habilités pour les ZAC, procédure en cas de grève avec maintien du nettoyage des sanitaires et sols laboratoires) rassure l'EFS sur la continuité opérationnelle.",
+      "source": "CCAP §6.4.4 et CCTP lot 1.2 §7-2-2"
     },
     {
-      "libelle": "Système de traçabilité dématérialisé et portail de suivi client",
-      "exemple": "Proposer un portail client accessible 24/7 permettant à l'EFS de consulter les rapports de passage, les non-conformités et les actions correctives en temps réel. Démontrer l'usage sur des marchés comparables (copie d'écran, retour d'expérience client).",
-      "source": "RC §1.10.3 et §1.11.2 — Sous-critère 4"
+      "libelle": "Proposition d'un portail dématérialisé de suivi des prestations",
+      "exemple": "Proposer un outil de gestion numérique permettant la traçabilité des nettoyages, la gestion des réclamations et l'accès aux fiches de contrôle répond à une attente explicite du CCTP lot 1.2 et valorise la démarche qualité du candidat.",
+      "source": "CCTP lot 1.2 §7-4"
     },
     {
-      "libelle": "Plan de continuité d'activité robuste avec délais garantis de remplacement",
-      "exemple": "Présenter un PCA formalisé avec délais d'intervention garantis (ex: remplacement sous 2h pour absence imprévue, activation cellule de crise sous 4h), pool de remplaçants formés, et retour d'expérience sur activation réelle du PCA chez d'autres clients.",
-      "source": "RC §1.11.2 — Sous-critère 4 (lots 1.1/2.1) et Sous-critère 1 (lots 1.2/2.2)"
+      "libelle": "Maîtrise de la reprise du personnel et capacité à présenter une masse salariale réaliste",
+      "exemple": "Un candidat qui présente dans son mémoire une analyse détaillée des coûts de reprise des 14 agents documentés en annexe 2 CCAP, avec le calcul des primes CCNEP et des anciennetés, montre sa maîtrise du risque social et financier du marché.",
+      "source": "CCAP §6.4.1 et Annexe 2 CCAP"
+    },
+    {
+      "libelle": "Offre environnementale : produits sans perturbateurs endocriniens, microfibres réduisant les consommations d'eau et de produits chimiques",
+      "exemple": "Présenter une gamme de produits certifiés (écolabel, sans ED HH1/HH2), détailler le plan de réduction des déchets d'emballage et proposer des microfibres lavables réutilisables pour les zones II répond aux obligations environnementales du CCAP.",
+      "source": "CCAP §6.2.1 et CCTP lot 1.2 §4"
     }
   ],
   "_meta": {
     "id_marche": "BOAMP-26-56532",
     "type": "complet",
-    "extraction_le": "2026-06-12T02:37:27.374174+00:00",
+    "date_generation": "2026-06-19T19:52:19.935475+00:00",
+    "extraction_le": "2026-06-19T19:52:19.935475+00:00",
     "modele": "claude-sonnet-4-6",
-    "tokens_input": 29728,
-    "tokens_output": 12585,
-    "cout_eur": 0.2641,
-    "duree_sec": 209.6,
+    "preset_utilise": null,
+    "presets_matches": [],
+    "prompts_versions": {},
+    "tokens_input": 158049,
+    "tokens_output": 7828,
+    "cout_eur": 0.562,
+    "duree_sec": 147.3,
     "pdfs_traites": [
+      {
+        "nom": "AURA407 AE Annexe BP.xlsx",
+        "hash": "a83b78222bef657bbff05770df33d8b0",
+        "taille_chars": 10094
+      },
+      {
+        "nom": "AURA407 AE.docx",
+        "hash": "957741f8a73272b3a54971c5cef6d37d",
+        "taille_chars": 11416
+      },
+      {
+        "nom": "AURA407 ATTESTATION sanction russe.docx",
+        "hash": "b0ffd777e7725b490cd172b61522c8a7",
+        "taille_chars": 2926
+      },
+      {
+        "nom": "AURA407 Attestation visite.docx",
+        "hash": "571ab2ccc192a18bc1cd93c3adbf36c9",
+        "taille_chars": 425
+      },
+      {
+        "nom": "AURA407 CCAP Annexe 1 protection donnees perso.docx",
+        "hash": "11351eca1543d84c15dc694f2e73c63d",
+        "taille_chars": 13533
+      },
+      {
+        "nom": "AURA407 CCAP Annexe 2 reprise perso lots 1.1 1.2.xlsx",
+        "hash": "b21808dd025f4b6d7c23ee613e1f2463",
+        "taille_chars": 6472
+      },
+      {
+        "nom": "AURA407 CCAP Annexe 2 reprise perso lots 2.1 2.2.xlsx",
+        "hash": "cf315dbbb720834c9babca361425db4f",
+        "taille_chars": 6949
+      },
+      {
+        "nom": "AURA407 CCAP.pdf",
+        "hash": "fa5b15fb833e3c605a4a289497a3839d",
+        "taille_chars": 83969
+      },
+      {
+        "nom": "AURA407 CCTP lot 1.2 annexe 4 ENV_DC_RE_001 Hygiene UPTC et MTI.pdf",
+        "hash": "1ce84e4c2343936b8cf465901478b874",
+        "taille_chars": 63020
+      },
+      {
+        "nom": "AURA407 CCTP lot 1.2 annexe 4 RAA_ENV_HSP_FI_099 Liste des produits d'Hygiene.pdf",
+        "hash": "9da233af7f4ad98a60d5a9f62232ed97",
+        "taille_chars": 3817
+      },
+      {
+        "nom": "AURA407 CCTP lot 1.2 annexe 4 RAA_ENV_HSP_MO_010 Nettoyage des ZAC et de leurs elements.pdf",
+        "hash": "1c36c06c957e769ea5f7121fcf776339",
+        "taille_chars": 10544
+      },
+      {
+        "nom": "AURA407 CCTP lot 1.2 annexe 4 RAA_PTC_FO_035 Enregistrement du nettoyage BTC Lyon.xlsx",
+        "hash": "f17a0e8f6529d7ecde224a0f4e9e981b",
+        "taille_chars": 4081
+      },
+      {
+        "nom": "AURA407 CCTP lot 1.2 annexe 4 RAA_PTC_MO_002 Procedure habillage BTC site de Lyon.pdf",
+        "hash": "09d79902c938da8007be82fb0db6f93d",
+        "taille_chars": 8249
+      },
+      {
+        "nom": "AURA407 CCTP lot 1.2 annexe 4 RAA_PTC_PR_003 Locaux banque de tissus et Cellules EFS AURA.pdf",
+        "hash": "b9cf27e62ce6e6f0da9e9d637e6d9e7f",
+        "taille_chars": 14581
+      },
+      {
+        "nom": "AURA407 CCTP lot 1.2 annexe 4 listes taches equip.docx",
+        "hash": "ac6682adf77bbef6809298fde71e9f00",
+        "taille_chars": 4033
+      },
+      {
+        "nom": "AURA407 CCTP lot 1.2 v2.pdf",
+        "hash": "6fc515fc8e39df14a672ec5e244a7ad9",
+        "taille_chars": 48954
+      },
+      {
+        "nom": "AURA407 CCTP lot 2.2 annexe 3 details locaux BLV BTC.xlsx",
+        "hash": "4ecb95347730309865db394cf6fdd7e9",
+        "taille_chars": 1038
+      },
+      {
+        "nom": "AURA407 CCTP lot 2.2 annexe 4 ENV_DC_RE_001 Hygiene UPTC et MTI.pdf",
+        "hash": "1ce84e4c2343936b8cf465901478b874",
+        "taille_chars": 63020
+      },
+      {
+        "nom": "AURA407 CCTP lot 2.2 annexe 4 ENV_HSP_DF_FO_001 Specifications techs ext bionettoyage zones classees.pdf",
+        "hash": "7cd8abb2703462ac81e62ee6acff862e",
+        "taille_chars": 33128
+      },
+      {
+        "nom": "AURA407 CCTP lot 2.2 annexe 4 RAA_PTC_BTI_FI_025 Consignes habillage zone non classee bq cornees.pdf",
+        "hash": "accf6c6596bff11db6cad233ae8b6f91",
+        "taille_chars": 630
+      },
+      {
+        "nom": "AURA407 CCTP lot 2.2 annexe 4 RAA_PTC_BTI_FI_026 Consignes habillage zone classee bq cornees.pdf",
+        "hash": "cbd2fe70d122a76e262720bbb4957927",
+        "taille_chars": 2955
+      },
+      {
+        "nom": "AURA407 CCTP lot 2.2 annexe 4 RAA_PTC_BTI_PR_020 Definition besoin mise a blanc bq cornees.pdf",
+        "hash": "7c8c8e13508cef4c354ed9b65f661266",
+        "taille_chars": 3765
+      },
+      {
+        "nom": "AURA407 CCTP lot 2.2 annexe 4 RAA_PTC_BTI_PR_021 Def besoin locaux bq cornees STB.pdf",
+        "hash": "3eef60de9b8c5c0afaf19730b2acd0fc",
+        "taille_chars": 15295
+      },
+      {
+        "nom": "AURA407 CCTP lot 2.2 v2.pdf",
+        "hash": "ca699364c021027aaceb8163a04768aa",
+        "taille_chars": 42352
+      },
+      {
+        "nom": "AURA407 CCTP lots 1.1 2.1 annexe 3 details locaux lot 2.1 Auvergne Loire Drome  .xlsx",
+        "hash": "b7b091de2a6e2ff69c211be52c197b03",
+        "taille_chars": 114924
+      },
+      {
+        "nom": "AURA407 CCTP lots 1.1 et 2.1 v2.pdf",
+        "hash": "36445228b98fb3ed01b0ebde9c4a6953",
+        "taille_chars": 48243
+      },
+      {
+        "nom": "AURA407 CCTP tous lots Annexe 2 Details typologies et frequences.xlsx",
+        "hash": "e37b652f841d709640fb63d9ab4531a8",
+        "taille_chars": 20292
+      },
+      {
+        "nom": "AURA407 Cadre reponse lots 1.1 et 2.1.docx",
+        "hash": "4faeb6eb4765f77de4f835c70ced0590",
+        "taille_chars": 5026
+      },
+      {
+        "nom": "AURA407 Cadre reponse lots 1.2 et 2.2.docx",
+        "hash": "08f44cd459df8d60c53218517922717f",
+        "taille_chars": 6300
+      },
+      {
+        "nom": "AURA407 DC1.docx",
+        "hash": "9225f0ee4fcde49f7fa0d7611eb845d3",
+        "taille_chars": 4798
+      },
+      {
+        "nom": "AURA407 DC2.docx",
+        "hash": "b37a71b415482b5c02a37784fc091971",
+        "taille_chars": 7302
+      },
+      {
+        "nom": "AURA407 RC V2.pdf",
+        "hash": "360399f8a1a87999966666a81d64bcd6",
+        "taille_chars": 46320
+      },
       {
         "nom": "AURA407 RC.pdf",
         "hash": "e6fcdcf79007d6dadb4f27c33978fccd",

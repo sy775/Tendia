@@ -1,6 +1,6 @@
 # Brief — Déploiement de la méthode dite des visites simplifiées comparées pour la gestion des ouvrages maritimes et portuaires du Département de la Manche
 
-_Généré le 2026-06-15 02:16 par Claude claude-sonnet-4-6_
+_Généré le 2026-06-20 16:25 par Claude claude-sonnet-4-6_
 
 ## Identifiants
 - **ID Tendia** : `BOAMP-26-56150`
@@ -11,79 +11,85 @@ _Généré le 2026-06-15 02:16 par Claude claude-sonnet-4-6_
 - **DCE PLACE** : <https://www.marches-publics.info/mpiaws/index.cfm?fuseaction=dematEnt.login&amp;type=DCE&amp;IDM=1832330>
 
 ## Synthèse
-Le Département de la Manche confie à un prestataire spécialisé le déploiement de la méthode des Visites Simplifiées Comparées (VSC) sur l'ensemble de ses 14 ports départementaux, représentant plus de 450 ouvrages maritimes et portuaires. La mission comprend le recensement exhaustif et la structuration du patrimoine, les inspections visuelles (émergées et immergées), les mesures non destructives, l'établissement de plans pluriannuels de surveillance et de maintenance, la formation des agents, et l'intégration des données dans le progiciel GECOPE. Le marché est composite : marché ordinaire forfaitaire (phases 1 et 2) et accord-cadre à bons de commande pour les prestations complémentaires, sur une durée de 36 mois.
+Le Département de la Manche lance un marché de services intellectuels pour déployer la méthode des Visites Simplifiées Comparées (VSC) sur ses 14 ports départementaux. La mission comprend le recensement exhaustif et la structuration du patrimoine maritime (>450 ouvrages), la réalisation d'inspections émergées et subaquatiques, l'établissement de plans pluriannuels de surveillance/maintenance et l'intégration des données dans le progiciel GECOPE. Le marché inclut également la formation et le transfert de compétences aux agents de la DMPA, et est structuré en marché ordinaire (à prix forfaitaire) complété d'un accord-cadre à bons de commande.
 
-## 🎯 Mission conseil
-- **Typologie de mission** : expertise, AMO, accompagnement
-- **Domaine d'expertise** : génie civil maritime et portuaire, inspection d'ouvrages, gestion patrimoniale, méthode VSC (Visites Simplifiées Comparées)
-- **Durée de mission** : 36 mois
-- **Méthodologie attendue** : Phase 1 (lancement et formation) : réunion de démarrage + audit organisationnel + plan stratégique mouillages + formation théorique et par compagnonnage. Phase 2 (déploiement) par secteur géographique : recensement/structuration du patrimoine + réunion de cadrage + livrable intermédiaire ; puis évaluation du patrimoine (inspections émergées terrestres/nautiques, subaquatiques, mesures non destructives) + rapports de visite + indices IEm/IEu ; puis établissement des programmes d'actions (plans pluriannuels, notes techniques) + livrable final + présentation. Intégration continue dans GECOPE. 10 réunions institutionnelles en présentiel imposées.
-- **Accompagnement post-livraison** : Transfert de compétences continu tout au long du marché (formation par compagnonnage lors des inspections, formation pratique ciblée en fin de mission). Accompagnement annuel des agents prévu pour suivi post-mission.
-- **Livrables attendus** :
-  - Plan stratégique d'évaluation et de gestion des mouillages
-  - Supports de formation théorique et pratique
-  - Inventaire et cartographie des ouvrages portuaires (14 ports, +450 ouvrages)
-  - Dossiers d'ouvrage (fiche ouvrage + ressources documentaires)
-  - Livrables intermédiaires par secteur géographique (3 secteurs)
-  - Rapports de visite VSC pour chaque ouvrage (parties émergées et immergées)
-  - Résultats des mesures non destructives (épaisseurs et potentiels sur structures métalliques)
-  - Attribution des indices d'état mécanique (IEm) et d'usage (IEu)
-  - Plans pluriannuels de surveillance et de maintenance
-  - Notes techniques d'investigations complémentaires
-  - Évaluations budgétaires des actions préconisées
-  - Livrables finaux par secteur géographique (3 secteurs)
-  - Intégration complète des données dans GECOPE
+## 🏗 Chantier — caractéristiques BTP
+- **Description** : Déploiement de la méthode VSC sur 14 ports départementaux de la Manche, couvrant plus de 450 ouvrages de natures diverses. La mission comprend des inspections visuelles en surface (terrestre, nautique, flottaison) et subaquatiques, des mesures non destructives sur structures métalliques, et la structuration complète du patrimoine portuaire dans un SIG et un progiciel de gestion (GECOPE).
+- **Type d'ouvrage** : Ouvrages maritimes et portuaires : digues maçonnées et en enrochement, quais, jetées, pontons flottants, mouillages, écluses, passerelles, bâtiments, réseaux, signalisation maritime
+- **Surface / volume** : 14 ports, >450 ouvrages, >3 000 postes à flot ; territoire étendu sur tout le département de la Manche (Granville au sud-ouest, Cotentin au nord-ouest et nord-est)
+- **Site occupé pendant travaux** : true — Activités portuaires (plaisance, pêche, transport de passagers, services) maintenues pendant toute la durée de la mission ; contraintes d'exploitation et d'accessibilité à intégrer
+- **Contraintes spécifiques** :
+  - Fort marnage dans la zone d'étude allongeant les délais d'inspection (passages à différents niveaux de marée nécessaires)
+  - Visibilité subaquatique réduite voire nulle selon zones et périodes
+  - Accès à des ouvrages spécifiques à risque : caissons Jarlan (Granville et Diélette), embarcadère à passagers (Granville), quai en encorbellement (Barneville-Carteret), darses
+  - Coactivités portuaires : exploitants prioritaires, consignes capitaineries à respecter
+  - Linéaires importants : digues de Granville impliquant des temps d'observation significatifs
+  - Visite préalable obligatoire des 14 ports (certains non accessibles librement, rendez-vous à demander)
+  - Archives volumineuses partiellement papier à consulter et numériser sur place à Saint-Lô
+  - Intégration obligatoire des données dans le progiciel GECOPE (formats, géoréférencement, bibliothèque VSC)
+
+### Allotissement
+Marché non alloti — un seul lot formant un ensemble unique et cohérent. La dévolution en lots séparés rendrait l'exécution techniquement difficile et financièrement plus coûteuse.
+- **Nombre de lots** : 1
+- **Lot 1** — Déploiement de la méthode dite des visites simplifiées comparées pour la gestion des ouvrages maritimes et portuaires du Département de la Manche
+  - Corps d'état : Inspection, évaluation structurelle, gestion patrimoniale, formation agents
+  - Montant estimé : 370 600 €
+  - Mission complète de déploiement VSC : recensement, structuration, inspection émergée et subaquatique, mesures non destructives, plans pluriannuels, intégration GECOPE, formation des agents DMPA
+
+### Qualifications BTP exigées
+Aucune qualification professionnelle certifiante formellement exigée (type Qualibat, RGE, OPQIBI) n'est mentionnée dans le RC. L'acheteur exige des compétences et une expertise démontrées par des références et les CV du personnel désigné.
+- **MASE** : non
+- **Autres exigences** :
+  - Qualifications en plongée professionnelle conformes à la réglementation en vigueur pour le personnel réalisant les inspections subaquatiques (exigence réglementaire, non certification marché)
+
+## 🧮 Mission MOE / ingénierie
+- **Typologie de mission** : Mission d'ingénierie complète (inspection, évaluation, structuration patrimoniale, plans d'actions)
+- **Type d'ouvrage** : Ouvrages maritimes et portuaires (digues, quais, jetées, pontons, écluses, mouillages, réseaux, bâtiments portuaires)
+- **Complexité technique** : expert
 - **Livrables par phase** :
-  - **Phase 1 — Lancement et formation** :
+  - **Phase 1 - Lancement et formation** :
     - Compte-rendu de réunion de démarrage
-    - Audit organisationnel et propositions d'amélioration
+    - Rapport d'audit organisationnel (analyse de situation)
     - Plan stratégique d'évaluation et de gestion des mouillages
-    - Supports de formation théorique (présentation de la méthode VSC, typologie ouvrages, pathologies)
-    - Supports de formation pratique et modèles libres de droits (fiches ouvrages, rapports de visite)
-  - **Phase 2 — Déploiement : Recensement et structuration du patrimoine (par secteur)** :
-    - Inventaire codifié et géoréférencé des ouvrages
-    - Cartographie numérique exploitable (SIG, logiciel dessin, gestion portuaire)
-    - Tableau et cartographie des indices stratégiques (IS) avec argumentaire
-    - Décomposition mécanique des ouvrages avec identifiants mécaniques
-    - Recensement des éléments d'usage par ouvrage
-    - Système de gestion documentaire et ressources capitalisées
-    - Dossiers d'ouvrage (fiche ouvrage + arborescence documentaire)
-    - Livrable intermédiaire de structuration par secteur
-  - **Phase 2 — Déploiement : Évaluation du patrimoine (par secteur)** :
-    - Rapports de visite VSC pour chaque ouvrage (parties émergées et immergées)
-    - Résultats des mesures de potentiels électrochimiques et d'épaisseurs résiduelles
-    - Procès-verbaux de visite avec indices IEm et IEu argumentés
+    - Supports pédagogiques de formation théorique
+    - Programme de formation pratique par compagnonnage
+  - **Phase 2 - Recensement et structuration du patrimoine** :
+    - Inventaire codifié et géoréférencé des ouvrages (cartographie SIG/DWG)
+    - Dossiers d'ouvrage (fiche ouvrage + ressources documentaires arborescentes)
+    - Tableau et cartographie des indices stratégiques avec argumentaire
+    - Système de gestion documentaire (codification, arborescence numérique)
+    - Livrable intermédiaire par secteur géographique (3 livrables)
+  - **Phase 2 - Évaluation du patrimoine** :
+    - Rapports de visite VSC par ouvrage (format PDF + sources WORD/EXCEL/JPG/DWG)
+    - Dossiers photos référencés par ouvrage (JPG)
+    - Procès-verbaux de visite avec indices IEm (état mécanique) et IEu (état usage)
+    - Résultats de mesures non destructives (épaisseurs, potentiels électrochimiques) interprétés
     - Préconisations d'actions par ouvrage et par objet
-  - **Phase 2 — Déploiement : Établissement des programmes d'actions (par secteur)** :
-    - Plan pluriannuel de surveillance (minimum 3 ans)
-    - Plan pluriannuel de maintenance (minimum 3 ans)
-    - Évaluation budgétaire des actions préconisées
+  - **Phase 2 - Établissement des programmes d'actions** :
+    - Plans pluriannuels de surveillance (≥3 ans) pour les ouvrages et éléments d'usage
+    - Plans pluriannuels de maintenance avec évaluations budgétaires
     - Notes techniques d'investigations complémentaires
-    - Livrable final par secteur (rapport complet PDF + fichiers sources)
-    - Intégration des données dans GECOPE
-- **Jours-consultant par profil** :
-  - Chef de projet
-  - Inspecteur VSC parties émergées (niveau ingénieur)
-  - Plongeur professionnel qualifié inspection VSC (parties immergées)
-  - Expert mesures non destructives structures métalliques
-  - Spécialiste génie civil (analyse documentaire)
+    - Livrable final par secteur géographique (3 livrables) avec diaporama de présentation
+    - Données intégrées dans GECOPE
+- **Indices révision** : ING — Index divers de la construction - ING - Ingénierie - Base 2010 - Identifiant 001711010
+- **Organigramme attendu** :
+  - Chef de projet — expert déploiement méthode VSC sur ouvrages portuaires ×1
+  - Ingénieur génie civil maritime — inspection parties émergées et subaquatiques
+  - Plongeur professionnel qualifié — inspection subaquatique
+  - Expert mesures non destructives (épaisseur, potentiels électrochimiques) sur structures métalliques
+  - Documentaliste / archiviste technique (spécialiste génie civil pour sélection documents)
 
-### Profils intervenants
-Le prestataire doit disposer d'une expertise avérée dans le déploiement de la méthode VSC sur un parc d'ouvrages portuaires et de compétences maritimes spécialisées. L'équipe comprend obligatoirement un chef de projet, des inspecteurs VSC de niveau ingénieur, des plongeurs professionnels qualifiés et un expert en mesures non destructives.
-- **Chef de mission** :
-  - secteur : déploiement de la méthode VSC sur ouvrages portuaires, domaine maritime
-  - certifications : Formation inspection VSC
-- **Consultants** :
-  - Inspecteur VSC parties émergées ×2
-  - Plongeur professionnel qualifié inspection VSC (parties immergées)
-  - Expert mesures non destructives structures métalliques (épaisseurs, potentiels électrochimiques)
-  - Spécialiste génie civil (analyse documentaire, rédaction dossiers d'ouvrage)
+### Qualifications MOE exigées
+- **Autres exigences** :
+  - Expertise dans la mise en œuvre et le déploiement de la méthode VSC sur un parc d'ouvrages portuaires
+  - Compétences en inspection des parties émergées et immergées des ouvrages maritimes et portuaires
+  - Qualifications plongée professionnelle conformes à la règlementation pour le personnel subaquatique
 
 ## 💶 Montant du marché
 - **Valeur estimée** : **370 600 €**
-  - sur 36 mois (durée du marché composite : marché ordinaire + accord-cadre)
-  - _source : Avis AAPC BOAMP — rubrique Quantité ou étendue : 'Valeur estimée hors TVA : 370 600,00 €'_
-- _Note_ : Valeur estimée HT totale du marché composite (marché ordinaire forfaitaire + accord-cadre à bons de commande) publiée dans l'avis d'appel public à la concurrence. Cette valeur inclut l'ensemble des prestations sur 36 mois.
+  - sur 4 ans (dont 36 mois d'exécution estimative + accord-cadre)
+  - _source : AAPC BOAMP — rubrique 'Valeur estimée hors TVA' / contexte BOAMP 'montant_estime'_
+- _Note_ : Montant estimé publié à 370 600 € HT. La durée du marché ordinaire (36 mois selon l'AAPC) + accord-cadre. Ce montant est réputé tout-compris (phases 1 et 2 forfaitaires + plafond accord-cadre toutes prestations sur bons de commande).
 
 ## Barème de notation
 - **Valeur technique** : 60 %
@@ -92,30 +98,28 @@ Le prestataire doit disposer d'une expertise avérée dans le déploiement de la
   - Organisation, qualifications et expérience du personnel assigné à l'exécution du marché : 25 %
   - Méthodologie : 30 %
   - Performances en matière de protection de l'environnement : 5 %
-- **Calcul du prix** : Pm / Pc × 40 — prix le plus bas rapporté au prix de l'offre considérée, multiplié par 40. Le critère prix est analysé au regard du prix forfaitaire et des prix unitaires (sur base d'une simulation de commande non communiquée aux candidats).
+- **Calcul du prix** : Note prix = (Pm / Pc) × 40, prix le plus bas rapporté au prix du candidat considéré, multiplié par 40 points. Analyse combinée du forfait et d'une simulation de bons de commande accord-cadre.
 
 ## Références et qualifications exigées
 - **Expérience minimale** : —
-- **Secteur d'expérience** : déploiement de la méthode VSC sur un parc d'ouvrages portuaires, inspection des parties émergées et immergées d'ouvrages maritimes et portuaires, inventaire et évaluation des ouvrages, archivage et traitement de ressources documentaires
-- **Certifications obligatoires** : Formation inspection VSC (Visites Simplifiées Comparées — méthode Cerema) pour les inspecteurs (source=CCP §5.2.2.2), Qualifications en plongée professionnelle adaptées à la mission et conformes à la réglementation en vigueur pour le personnel chargé des inspections subaquatiques (source=CCP §5.2.2.3)
+- **Secteur d'expérience** : Mise en œuvre et déploiement de la méthode VSC sur un parc d'ouvrages portuaires ; inspection des parties émergées et immergées d'ouvrages maritimes et portuaires ; inventaire, évaluation et archivage de ressources documentaires dans le domaine portuaire.
+- **Certifications obligatoires** : Expertise dans la mise en œuvre et le déploiement de la méthode VSC sur un parc d'ouvrages portuaires (condition de capacité technique exigée) (bloquante=True, source=RC §3.1), Qualifications en plongée professionnelle conformes à la réglementation en vigueur pour le personnel réalisant les inspections subaquatiques (bloquante=True, source=CCP §5.2.2.3)
 - **Autres exigences** :
-  - Déclaration de chiffre d'affaires global et du domaine d'activité faisant l'objet du marché sur les 3 derniers exercices (source=RC §5.1)
+  - Déclaration du chiffre d'affaires global et du chiffre d'affaires du domaine d'activité faisant l'objet du marché sur les 3 derniers exercices (source=RC §5.1)
   - Liste des principaux services fournis au cours des 3 dernières années (montant, date, destinataire public) (source=RC §5.1)
   - Déclaration des effectifs moyens annuels (source=RC §5.1)
-  - Description du matériel et de l'équipement technique disponibles pour la réalisation du marché (moyens nautiques, équipements de plongée, matériel CND, etc.) (source=RC §5.1)
-  - Visite obligatoire des 14 ports départementaux préalable à la remise de l'offre (demande de rendez-vous obligatoire pour Barneville-Carteret, Granville, Diélette, Saint-Vaast-la-Hougue) (source=RC §2.8)
+  - Description du matériel et de l'équipement technique disponible pour la réalisation du marché (matériel nautique, équipement de plongée, matériel NDE, etc.) (source=RC §5.1)
 
 ## ⚠ Alertes candidat
-- Visite obligatoire des 14 ports avant dépôt de l'offre : les candidats sont réputés avoir visité tous les sites et intégré les contraintes dans leur offre — pour Barneville-Carteret, Granville, Diélette et Saint-Vaast-la-Hougue, une demande de rendez-vous préalable est impérative (dmpa-spa@manche.fr) sous peine de ne pas pouvoir accéder aux zones non librement accessibles.
-- Expertise VSC avérée exigée sur ouvrages portuaires : le RC impose explicitement une expertise dans 'le déploiement de la méthode VSC sur un parc d'ouvrages portuaires' — un candidat sans référence VSC portuaire démontrable sera vraisemblablement écarté à l'examen des candidatures.
-- Qualifications en plongée professionnelle réglementaire obligatoires pour les inspections subaquatiques : l'absence de personnel qualifié conforme à la réglementation (décret n°2011-45 relatif à la plongée sous-marine professionnelle) constitue une irrecevabilité opérationnelle.
-- Clause d'insertion sociale obligatoire : le candidat doit s'engager à réaliser au moins une action d'insertion professionnelle — une offre ne satisfaisant pas cette condition est déclarée irrégulière (irrecevable).
-- Personnes nommément désignées dans le mémoire technique : l'équipe proposée est contractuellement engagée (art. 2.5.4 CCP) — tout remplacement en cours de marché doit être validé par l'acheteur avec compétences équivalentes ; ne pas proposer d'intervenants non disponibles sur 36 mois.
+- Visite préalable OBLIGATOIRE des 14 ports départementaux avant remise de l'offre — les candidats doivent prendre rendez-vous pour accéder aux infrastructures non librement accessibles (Barneville-Carteret, Granville, Diélette, Saint-Vaast-la-Hougue) via dmpa-spa@manche.fr avant la date limite (RC §2.8).
+- Expertise VSC sur ouvrages portuaires EXIGÉE comme condition de capacité technique — un candidat sans référence démontrable de déploiement VSC en contexte maritime sera susceptible d'être éliminé (RC §3.1).
+- Le personnel réalisant les inspections subaquatiques doit détenir des qualifications en plongée professionnelle conformes à la réglementation — vérifier que les sous-traitants éventuels sont qualifiés (CCP §5.2.2.3).
+- La clause d'insertion sociale est OBLIGATOIRE et son non-respect entraîne une pénalité de 1 000 € + risque de déclaration irrégulière — toute réserve sur cette clause rend l'offre irrégulière (RC §2.3, CCP §7).
+- La composition de l'équipe désignée dans le mémoire technique est CONTRACTUELLE — tout remplacement ultérieur est soumis à approbation de l'acheteur (CCP §2.5.4) ; désigner des personnes réellement disponibles sur 36 mois.
 
 ## 💡 Points différenciants attendus
-- Références avérées et récentes de déploiements VSC sur ouvrages portuaires (exemple=Présenter 2-3 missions de déploiement VSC sur des parcs portuaires comparables (volume d'ouvrages, diversité typologique, inspections subaquatiques incluses), avec retours d'expérience sur les difficultés rencontrées et les adaptations méthodologiques apportées. Mentionner des collectivités gestionnaires de ports comme references., source=RC §3.1 et CCP §4.6)
-- Maîtrise du progiciel GECOPE et expérience d'intégration de données VSC (exemple=Démontrer une expérience d'utilisation et d'intégration de données dans GECOPE (progiciel Cerema de gestion d'ouvrages maritimes), en précisant les formats de données, les bibliothèques d'identifiants mécaniques maîtrisées, et les contraintes d'interopérabilité avec les outils SIG., source=CCP §5.2.4)
-- Dispositif de transfert de compétences adapté aux agents de terrain (exemple=Proposer un plan de formation structuré avec des objectifs pédagogiques mesurables pour les 2 ingénieurs et 2 techniciens de la DMPA : supports modifiables libres de droits, formation par compagnonnage sur les 3 secteurs, évaluation des acquis, et protocoles permettant aux agents d'effectuer en autonomie les visites périodiques ultérieures., source=CCP §5.1.4 et §4.3)
-- Connaissance des contraintes spécifiques des ouvrages de type caissons Jarlan et des ports à fort marnage (exemple=Présenter une méthodologie spécifique pour l'inspection des caissons Jarlan de Granville et Diélette (accès confinés, sécurité, moyens humains dédiés) et un planning d'inspection intégrant les cycles de marée de la Manche (marnage > 12m en vive-eau) pour optimiser les fenêtres d'intervention des équipes subaquatiques., source=CCP §4.4.5 et §5.2.2.2)
-- Plan stratégique mouillages argumenté par retours d'expérience (exemple=Proposer un plan stratégique de gestion des mouillages (corps-morts, chaînes, bouées) fondé sur des retours d'expérience concrets d'autres ports, avec plusieurs approches méthodologiques comparées (surveillance continue, inspection périodique, gestion déléguée) et des outils pratiques adaptables aux moyens de la DMPA., source=CCP §5.1.3)
-- Organisation logistique optimisée pour 14 ports répartis sur un territoire étendu (exemple=Présenter un planning d'intervention par secteur géographique (sud-ouest / nord-ouest / nord-est) minimisant les déplacements et les interférences avec l'exploitation portuaire, avec une stratégie de mobilisation des moyens nautiques locaux ou régionaux et un protocole de coordination avec les capitaineries et concessionnaires., source=CCP §4.4.3 et §5.3.1)
+- Références directes en déploiement VSC sur ouvrages portuaires (méthode Cerema) (exemple=Un candidat présentant 3 références récentes (< 5 ans) de déploiement complet VSC sur des parcs de ports côtiers français, avec intégration GECOPE, démontrera une maîtrise méthodologique immédiatement opérationnelle et rassurera l'acheteur sur le transfert de compétences aux agents., source=RC §3.1 et RC §6.2.1)
+- Dispositif de formation et transfert de compétences aux agents — originalité et opérationnalité (exemple=Proposer un plan de compagnonnage structuré (planning, critères de progression, évaluation d'autonomie) avec supports pédagogiques dédiés aux pathologies des ouvrages maçonnés et béton en milieu marin, libres de droits pour le Département, valorisera fortement le mémoire technique sur le sous-critère méthodologie., source=CCP §4.3, CCP §5.1.4)
+- Maîtrise des contraintes spécifiques au territoire manchois (marnage, caissons Jarlan, coactivité portuaire) (exemple=Présenter un planning d'inspections tenant compte des coefficients de marée de la zone (marnage > 10m à Granville), avec protocoles spécifiques pour l'accès aux caissons Jarlan et les darses, démontrera une prise en compte réaliste des contraintes terrain et distinguera le candidat des offres génériques., source=CCP §4.4.5, CCP §5.2.2.2)
+- Capacité d'intégration numérique dans GECOPE et maîtrise SIG/géoréférencement (exemple=Démontrer une expérience préalable avec GECOPE (ou un progiciel équivalent de gestion d'ouvrages maritimes), et proposer une méthode de géoréférencement des désordres et des ouvrages compatible avec les formats DWG/SIG attendus par la DMPA, constitue un avantage technique concret., source=CCP §5.2.4)
+- Plan stratégique mouillages documenté par des retours d'expérience (exemple=Un plan de gestion des mouillages (corps-morts, chaînes, bouées) avec méthode de surveillance adaptée et retours d'expérience chiffrés sur des gestions similaires (fréquence de plongée, critères de remplacement) permettra de se distinguer sur un aspect souvent sous-estimé par les candidats., source=CCP §5.1.3)

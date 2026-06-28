@@ -1,62 +1,83 @@
 {
-  "synthese_marche": "Lorient Agglomération recherche un prestataire pour une mission d'Assistance à Maîtrise d'Ouvrage (AMO) portant sur le suivi des travaux de réhabilitation de la coque du sous-marin Flore et de sa structure porteuse, site patrimonial situé à Lorient (56). La mission couvre les phases VISA, DET, AOR et OPC sur une durée prévisionnelle de 36 mois à compter de septembre 2026. Il s'agit d'un marché à prix global et forfaitaire, passé en procédure adaptée.",
+  "synthese_marche": "Lorient Agglomération mandate un AMO pour le suivi des travaux de réhabilitation de la coque du sous-marin Flore (S645) et de sa structure porteuse (chariot transbordeur), site patrimonial classé en base de sous-marins à Lorient. La mission couvre les phases VISA, DET, AOR et OPC sur une durée prévisionnelle de 36 mois, pour un chantier estimé à 2 265 000 € HT de travaux. Il s'agit d'un marché de services à prix forfaitaire, passé en procédure adaptée, sans allotissement.",
   "domaines_metier": [
     {
       "code": "ingenierie_structure_genie_civil"
     }
   ],
-  "raison_classification": "La mission porte sur des phases VISA, DET, AOR et OPC (suivi d'exécution, visa de plans, direction de l'exécution des travaux, ordonnancement) pour des travaux de réhabilitation d'une coque métallique de sous-marin et de sa structure porteuse — ouvrage technique relevant de l'ingénierie structure et génie civil. Le CPV 71356200-0 'Services d'assistance technique' confirme la nature ingénierie. La maîtrise d'œuvre étant réalisée en interne par la DAMSI, la mission est une AMO/suivi technique extérieure.",
+  "raison_classification": "Le marché est une mission d'AMO (Assistance à Maîtrise d'Ouvrage) pour le suivi de travaux de réhabilitation d'un ouvrage métallique patrimonial (sous-marin + chariot transbordeur), incluant VISA, DET, AOR et OPC. Il ne s'agit pas de MOE architecturale ni d'ingénierie fluides, mais d'une assistance technique pour le suivi d'une réhabilitation de structure métallique complexe, ce qui relève de l'ingénierie structure/génie civil. Le code 'ingenierie_structure_genie_civil' couvre explicitement les missions OPC et les bureaux d'études de suivi technique de bâtiment.",
   "caracteristiques_mission_moe": {
-    "typologie": "AMO technique (suivi de travaux, phases VISA/DET/AOR/OPC)",
+    "typologie": "AMO technique partielle (VISA + DET + AOR + OPC)",
     "phases_couvertes": [
       "VISA",
       "DET",
-      "OPC",
-      "AOR"
+      "AOR",
+      "OPC"
     ],
-    "typologie_ouvrage": "Ouvrage patrimonial exceptionnel — coque de sous-marin (Flore) et structure porteuse, patrimoine maritime",
-    "montant_travaux_estime": null,
+    "typologie_ouvrage": "Ouvrage patrimonial métallique — sous-marin à quai (monument historique mobilier) et chariot transbordeur, base de sous-marins de Lorient",
+    "montant_travaux_estime": 2265000,
     "complexite_technique": "expert",
     "livrables_par_phase": [
       {
         "phase": "VISA",
         "livrables": [
-          "Vérification et visa des plans et documents d'exécution émis par les entreprises"
+          "Examen de conformité des plans et documents d'exécution des entrepreneurs",
+          "État récapitulatif d'approbation ou d'observations de tous les documents d'exécution",
+          "Examen des tableaux de gestion des documents d'exécution",
+          "Examen des tableaux de gestion des choix de matériels et matériaux",
+          "Arbitrages techniques et architecturaux sur les variantes proposées"
         ]
       },
       {
         "phase": "DET",
         "livrables": [
-          "Direction de l'exécution des travaux",
-          "Comptes-rendus de chantier",
-          "Suivi de l'avancement des travaux"
-        ]
-      },
-      {
-        "phase": "OPC",
-        "livrables": [
-          "Planning d'exécution",
-          "Coordination des intervenants",
-          "Gestion du phasage travaux"
+          "Comptes-rendus de réunions de chantier",
+          "États d'avancement général des travaux",
+          "Notes d'information au maître d'ouvrage (avancement, dépenses, évolutions notables)",
+          "États d'acompte et vérification des décomptes mensuels et finaux",
+          "Comptes-rendus d'observation sur la conformité des ouvrages",
+          "Synthèse des choix de matériaux/coloris",
+          "Examen des devis de travaux complémentaires",
+          "Examen des mémoires en réclamation"
         ]
       },
       {
         "phase": "AOR",
         "livrables": [
-          "Assistance aux opérations de réception",
-          "Levée des réserves",
-          "Rapport de fin de chantier"
+          "Organisation des opérations préalables à la réception",
+          "Suivi des réserves jusqu'à leur levée",
+          "Examen des désordres signalés pendant la garantie de parfait achèvement",
+          "Assistance à la constitution du Dossier des Ouvrages Exécutés (DOE)"
+        ]
+      },
+      {
+        "phase": "OPC",
+        "livrables": [
+          "Planning général d'exécution",
+          "Planification et coordination des études d'exécution",
+          "Comptes-rendus de réunions de coordination",
+          "Mise à jour de la planification générale",
+          "Planification des opérations de réception",
+          "Suivi de l'avancement des levées de réserves"
         ]
       }
     ],
     "taux_remuneration_moe_pct": null,
-    "indices_revision": [],
+    "indices_revision": [
+      "révision mentionnée dans l'acte d'engagement valant CCAP — indices non précisés dans les pièces fournies"
+    ],
     "coordinations_associees": [
-      "OPC inclus"
+      "OPC inclus",
+      "SPS hors marché (CSPS non mentionné)"
     ],
     "organigramme_attendu": [
       {
-        "profil": "Intervenants dédiés à la mission AMO (profils à préciser dans la note méthodologique)",
+        "profil": "Chef de projet AMO — spécialiste réhabilitation ouvrages métalliques / anticorrosion",
+        "nombre": null,
+        "anciennete_min_annees": null
+      },
+      {
+        "profil": "Ingénieur technique — expertise désamiantage / protection anticorrosion (référentiel ACQPA)",
         "nombre": null,
         "anciennete_min_annees": null
       }
@@ -65,180 +86,208 @@
   },
   "qualifications_moe": {
     "opqibi": [],
-    "opqcm": null,
+    "opqcm": [],
     "bim": null,
     "autres": []
   },
   "caracteristiques_techniques_chantier": {
-    "description": "Travaux de réhabilitation de la coque du sous-marin Flore (sous-marin classé patrimoine maritime, actuellement exposé à Lorient) et de sa structure porteuse. L'AMO doit assurer le suivi technique, administratif et financier des travaux depuis la phase d'exécution jusqu'à la réception.",
-    "typologie_ouvrage": "Patrimoine maritime exceptionnel — sous-marin (ouvrage métallique) et sa structure porteuse",
-    "surface_volume": null,
-    "site_occupe": "Probable (site touristique/musée à Lorient, visite obligatoire requise par le RC — à confirmer lors de la visite)",
-    "corps_etat": [],
+    "description": "Réhabilitation de la coque du sous-marin Flore S645 (57,75 m de long, 869 tonnes) et de sa structure porteuse (chariot transbordeur), incluant désamiantage (rails, crémaillère, support de quille), travaux de métallerie (remplacement de tôles de coque, rénovation du massif, remplacement de goussets du chariot), décapage intégral et remise en peinture anticorrosion système Im2 (catégorie C5), et remise en conformité du site. Tranche optionnelle : chariot tracteur (monument historique, propriété Ville de Lorient).",
+    "typologie_ouvrage": "Ouvrage patrimonial métallique — sous-marin à quai ouvert au public et son chariot transbordeur, au sein de la base de sous-marins de Keroman (Lorient La Base)",
+    "surface_volume": "Coque externe du sous-marin : environ 57,75 m × 6,7 m ; surface anticorrosion estimée à plusieurs centaines de m² ; chariot transbordeur inclus",
+    "site_occupe": "true — le site reste en exploitation touristique partielle pendant les travaux (visites du sous-marin maintenues lors de la 1ère phase de désamiantage) ; coactivités multiples sur la base (port à sec, course au large, Plastimo, Marsaudon Composites)",
+    "corps_etat": [
+      "Désamiantage (sous-section 3 — certification amiante extérieur bâtiment requise)",
+      "Métallerie / chaudronnerie (réfection de tôles, soudures, remplacement de goussets)",
+      "Protection anticorrosion / peinture industrielle (référentiel ACQPA, opérateurs N1-N2, inspecteur FROSIO III)",
+      "Échafaudage et confinement (bâches thermo-rétractables)",
+      "Travaux préparatoires / installation de chantier"
+    ],
     "contraintes_specifiques": [
-      "Ouvrage patrimonial maritime unique en son genre (coque de sous-marin)",
-      "Visite sur site obligatoire préalable à la remise des offres",
-      "Maîtrise d'œuvre réalisée en interne (DAMSI Lorient Agglomération) — l'AMO est distincte de la MOE",
-      "Durée de mission conditionnée par la durée des marchés de travaux (36 mois prévisionnels)"
+      "Présence d'amiante confirmée sur rails, crémaillère et support de quille — chantier sous contrainte amiante sous-section 3",
+      "Présence de plomb au-delà du seuil réglementaire sur chariot tracteur et chariot transbordeur",
+      "Chariot tracteur classé Monument Historique au titre du mobilier (tranche optionnelle)",
+      "Site en exploitation touristique et économique pendant les travaux — coactivités multiples",
+      "Aucun plan coté n'est disponible (confidentialité historique du sous-marin) — scan 3D obligatoire avant travaux de métallerie",
+      "Corrosivité du site classée C5 selon ISO 12944-2 (environnement marin sévère)",
+      "Confinement global thermo-rétractable obligatoire pour le décapage abrasif",
+      "Durée des travaux estimée entre 8 et 14 mois (planning indicatif sept. 2026 – août 2027)",
+      "Certification ACQPA obligatoire pour l'applicateur (système Im2 certifié ACQPA) et inspecteur FROSIO niveau III",
+      "Eaux pluviales du toit du blockhaus K2 transitant sous le sous-marin — contrainte d'inondation du radier"
     ]
   },
   "allotissement": {
-    "description": "Marché non alloti — prestation unique sans lots séparés",
+    "description": "Marché non alloti — mission AMO unique couvrant l'ensemble des phases (VISA, DET, AOR, OPC)",
     "nb_lots": 1,
     "lots_detailles": [
       {
         "numero": 1,
-        "intitule": "Mission AMO suivi travaux réhabilitation coque sous-marin Flore et structure porteuse",
-        "corps_etat": "Ingénierie / AMO technique",
+        "intitule": "AMO suivi travaux réhabilitation coque sous-marin Flore et structure porteuse",
+        "corps_etat": "Assistance à maîtrise d'ouvrage — suivi technique",
         "montant_estime": null,
-        "description": "Mission d'AMO couvrant les phases VISA, DET, AOR et OPC pour le suivi des travaux de réhabilitation"
+        "description": "Mission unique : VISA des études d'exécution, DET (direction de l'exécution des contrats de travaux), AOR (assistance aux opérations de réception) et OPC (ordonnancement, coordination, pilotage du chantier)"
       }
     ]
   },
   "qualifications_requises": {
-    "description": "Aucune qualification obligatoire formellement listée dans le RC — sélection sur références similaires et capacités techniques et financières",
-    "qualibat": null,
-    "rge": null,
+    "description": "Le RC n'exige pas de qualifications Qualibat ou RGE formelles pour ce marché d'AMO. Les exigences portent sur les références similaires et les capacités techniques des intervenants.",
+    "qualibat": [],
+    "rge": false,
+    "rge_specialites": [],
+    "mase": false,
+    "iso_9001": false,
+    "iso_14001": false,
+    "iso_45001": false,
     "opqibi": null,
     "autres_certifications": []
-  },
-  "caracteristiques_mission": {
-    "typologie_mission": "AMO",
-    "domaine_expertise": "Ingénierie structure, génie civil, patrimoine maritime — suivi travaux (VISA, DET, OPC, AOR)",
-    "livrables_attendus": [
-      "Visa des plans et documents d'exécution",
-      "Comptes-rendus de chantier (DET)",
-      "Planning et coordination (OPC)",
-      "Assistance aux opérations de réception (AOR)",
-      "Note méthodologique (offre, 8 pages max)"
-    ],
-    "duree_mission": "36 mois",
-    "jours_consultant_estimes": null,
-    "methodologie_attendue": "Organisation, méthodologie et compréhension du projet à détailler dans une note de 8 pages maximum (annexes comprises), incluant les CVs des intervenants.",
-    "livrables_par_phase": [
-      {
-        "phase": "Phase VISA",
-        "livrables": [
-          "Visa des plans d'exécution des entreprises"
-        ]
-      },
-      {
-        "phase": "Phase DET",
-        "livrables": [
-          "Suivi et direction de l'exécution des travaux",
-          "Comptes-rendus de chantier"
-        ]
-      },
-      {
-        "phase": "Phase OPC",
-        "livrables": [
-          "Planning d'exécution et coordination des entreprises"
-        ]
-      },
-      {
-        "phase": "Phase AOR",
-        "livrables": [
-          "Assistance aux opérations de réception",
-          "Suivi levée des réserves"
-        ]
-      }
-    ],
-    "jours_consultant_par_profil": [],
-    "accompagnement_apres": null
-  },
-  "profils_intervenants": {
-    "description": "Les CVs des intervenants doivent être fournis dans la note méthodologique (8 pages max). Les compétences et expériences des intervenants constituent 50% de la note technique.",
-    "chef_de_mission": {
-      "_commentaire": "Non précisé dans le RC — à définir par le candidat dans la note méthodologique",
-      "anciennete_min_annees": null,
-      "secteur_experience": "Suivi de travaux de réhabilitation d'ouvrages techniques patrimoniaux ou maritimes",
-      "taux_dedie_pct": null,
-      "certifs_requises": []
-    },
-    "consultants": []
   },
   "bareme_notation": {
     "valeur_technique_pct": 60,
     "valeur_prix_pct": 40,
     "sous_criteres_techniques": [
       {
-        "libelle": "Organisation, méthodologie, compréhension du projet",
-        "ponderation_pct": 50,
-        "description": "Ce sous-critère évalue la compréhension que le candidat a du projet de réhabilitation de la coque du sous-marin Flore, la clarté de son organisation de mission et la pertinence de sa méthodologie pour les phases VISA, DET, OPC et AOR.",
-        "elements_attendus": [
-          "Démonstration d'une compréhension fine des spécificités techniques du sous-marin Flore et de sa structure porteuse",
-          "Méthodologie détaillée pour chacune des phases : VISA, DET, OPC, AOR",
-          "Organisation proposée : fréquence et format des réunions de chantier, reporting au maître d'ouvrage",
-          "Articulation avec la MOE interne (DAMSI de Lorient Agglomération)",
-          "Gestion des risques techniques et identification des points critiques de la réhabilitation",
-          "Respect de la contrainte de durée (suivi de la durée des marchés de travaux)"
-        ],
-        "exemple_reponse_forte": "Le candidat présente une approche structurée en 4 phases (VISA, DET, OPC, AOR) avec des livrables hebdomadaires de suivi de chantier, un planning de visites régulières sur site à Lorient, et une méthodologie adaptée aux contraintes d'un ouvrage métallique patrimonial (coque de sous-marin). Il identifie les risques spécifiques liés à la corrosion et aux interfaces entre coque et structure porteuse, et propose une coordination renforcée avec la DAMSI.",
+        "libelle": "Valeur technique appréciée au regard de la note méthodologique",
+        "ponderation_pct": 60,
+        "description": "La valeur technique est appréciée sur la note méthodologique (8 pages max annexes comprises). Elle se décompose à égalité entre la compréhension/méthodologie du projet et les compétences/expériences des intervenants.",
+        "elements_attendus": [],
+        "exemple_reponse_forte": "—",
         "source": "RC article 11.2",
-        "sous_criteres": []
-      },
-      {
-        "libelle": "Compétences et expériences des intervenants",
-        "ponderation_pct": 50,
-        "description": "Ce sous-critère évalue les CVs des intervenants affectés à la mission, notamment leurs expériences sur des missions similaires d'AMO ou de suivi de travaux sur des ouvrages techniques complexes ou patrimoniaux.",
-        "elements_attendus": [
-          "CVs détaillés des intervenants nommément désignés pour la mission",
-          "Références de missions AMO/DET/OPC/AOR sur ouvrages similaires (structures métalliques, ouvrages patrimoniaux, maritime)",
-          "Ancienneté et niveau d'expertise des profils proposés",
-          "Adéquation des profils avec les phases couvertes (VISA, DET, OPC, AOR)",
-          "Disponibilité et taux de mobilisation des intervenants sur la durée de 36 mois"
-        ],
-        "exemple_reponse_forte": "Le chef de projet proposé justifie de 15 ans d'expérience en maîtrise d'œuvre et suivi de travaux sur ouvrages techniques patrimoniaux, dont plusieurs missions DET/OPC sur structures métalliques lourdes. L'équipe comprend un ingénieur structures expérimenté en réhabilitation d'ouvrages métalliques et un coordinateur OPC dédié, dont les CVs détaillent des références comparables réalisées pour des collectivités ou musées maritimes.",
-        "source": "RC article 11.2",
-        "sous_criteres": []
+        "unite_evaluation": "points",
+        "sous_criteres": [
+          {
+            "libelle": "Organisation, méthodologie, compréhension du projet",
+            "ponderation_pct": 30,
+            "description": "L'acheteur évalue la capacité du candidat à démontrer sa compréhension des enjeux techniques spécifiques du projet (réhabilitation d'un ouvrage métallique patrimonial, amiante, plomb, anticorrosion C5, contraintes de coactivité) et la pertinence de son organisation et de sa méthodologie d'AMO pour les missions VISA, DET, AOR et OPC.",
+            "elements_attendus": [
+              "Description précise de la méthodologie pour chacune des 4 missions (VISA, DET, AOR, OPC)",
+              "Démonstration de la compréhension des spécificités du projet : ouvrage patrimonial, contraintes amiante/plomb, corrosivité C5, site occupé",
+              "Organisation proposée (rôles, interfaces avec la DAMSI maîtrise d'œuvre interne, fréquence des réunions)",
+              "Gestion des contraintes de planning et de coactivité sur la base de Lorient La Base",
+              "Modalités de reporting et d'alerte au maître d'ouvrage"
+            ],
+            "exemple_reponse_forte": "Le candidat structure sa note autour des 4 phases de mission avec des fiches opératoires précises pour chaque type de réunion de chantier et chaque livrable. Il démontre sa maîtrise des spécificités anticorrosion (référentiel ACQPA, fascicule 56) et amiante (sous-section 3) en décrivant ses points d'attention lors du VISA des études et du suivi de la DET, et propose un tableau de bord mensuel adapté au maître d'ouvrage non spécialiste.",
+            "source": "RC article 11.2",
+            "unite_evaluation": "points"
+          },
+          {
+            "libelle": "Compétences et expériences des intervenants",
+            "ponderation_pct": 30,
+            "description": "L'acheteur évalue les CV des intervenants nommément désignés sur la mission, leur expérience sur des prestations similaires (AMO ou MOE sur ouvrages métalliques patrimoniaux, anticorrosion, désamiantage) et la crédibilité de l'équipe proposée.",
+            "elements_attendus": [
+              "CV détaillés des intervenants désignés (chef de projet et techniciens)",
+              "Références d'AMO ou de suivi de chantier sur des ouvrages métalliques patrimoniaux ou industriels similaires",
+              "Expérience en anticorrosion (référentiel ACQPA) ou désamiantage sur ouvrages",
+              "Expérience OPC sur des chantiers complexes multi-entreprises",
+              "Qualification/formation spécifique des intervenants (ex. formation FROSIO, expérience anticorrosion, gestion de chantiers sous contrainte amiante)"
+            ],
+            "exemple_reponse_forte": "Le candidat présente un chef de projet avec 10 ans d'expérience en suivi de réhabilitation d'ouvrages métalliques (ponts, navires, structures industrielles), ayant conduit 3 missions DET+OPC sur des chantiers intégrant du désamiantage et de l'anticorrosion en milieu marin. Le technicien associé est titulaire d'une formation FROSIO et a suivi 5 chantiers de peinture anticorrosion de catégorie C5.",
+            "source": "RC article 11.2",
+            "unite_evaluation": "points"
+          }
+        ]
       }
     ],
     "prix": {
       "type_formule": "moins_disant",
-      "formule_explicite": "Prix apprécié au vu du montant global de la DPGF — offre la moins disante obtient la meilleure note, pondérée à 40%.",
+      "formule_explicite": "Note prix appréciée au vu du montant global de la DPGF — formule exacte non précisée dans le RC ; mécanisme classique moins-disant proportionnel.",
+      "source": "RC article 11.2",
       "elements_a_chiffrer": [
-        "Montant global et forfaitaire de la DPGF (Décomposition du Prix Global et Forfaitaire)",
-        "Prix par phase ou prestation selon la décomposition proposée dans la DPGF",
-        "La DPGF doit être remise aux formats Excel ET PDF (obligatoire)"
+        "Montant global et forfaitaire (DPGF) en euros HT — unique poste de prix",
+        "DPGF à remettre aux formats Excel ET PDF (obligatoire)"
       ]
     },
-    "modalite_calcul_prix": "Prix apprécié au vu du montant global de la DPGF — 40% de la note finale."
+    "modalite_calcul_prix": "Note prix appréciée au vu du montant global de la DPGF — formule non précisée dans le RC."
   },
   "montant_marche": {
     "valeur_estimee_euros": null,
-    "fourchette_min_euros": null,
-    "fourchette_max_euros": null,
-    "type": "non_communique",
-    "duree_couverte": "36 mois",
-    "source_extraction": null,
-    "commentaire": "Aucun montant estimé, enveloppe budgétaire ou fourchette n'est communiqué dans les pièces transmises (RC et DUME). La DPGF en annexe à l'acte d'engagement (non fournie) permettrait d'obtenir une décomposition. Visite obligatoire sur site permettra d'affiner le chiffrage."
+    "fourchette_min_euros": 90000,
+    "fourchette_max_euros": 160000,
+    "type": "calcule_volumes",
+    "duree_couverte": "36 mois (durée prévisionnelle du marché — suit la durée des marchés de travaux)",
+    "source_extraction": "RC article 5 + CCTP AMO (missions VISA, DET, AOR, OPC) + programme travaux R1132-P3 (budget travaux 2 265 000 € HT)",
+    "commentaire": "Aucun montant AMO explicite. Estimation par taux AMO appliqué aux travaux : montant travaux 2 265 000 € HT (délibération oct. 2025). Taux AMO pour mission VISA+DET+AOR+OPC sur ouvrage spécialisé : typiquement 4-7% du montant travaux = 90 700 € à 158 550 € HT. Fourchette retenue 90 000 – 160 000 € HT."
+  },
+  "montant_3_voies": {
+    "voie_1_eur": null,
+    "voie_1_source": null,
+    "voie_2_disponible": true,
+    "voie_2_min_eur": 90000,
+    "voie_2_max_eur": 160000,
+    "voie_2_hypotheses": [
+      {
+        "hypothese": "Montant des travaux arrêté par délibération Lorient Agglomération (octobre 2025)",
+        "valeur": "2 265 000 € HT (source : CCTP AMO p.1 et programme R1132-P3)"
+      },
+      {
+        "hypothese": "Taux de rémunération AMO (VISA+DET+AOR+OPC) — dimension variée — pour ouvrage métallique spécialisé, patrimoine, amiante/plomb",
+        "valeur": "4% à 7% du montant travaux (ratio marché AMO missions partielles sur ouvrages complexes)"
+      },
+      {
+        "hypothese": "Durée de la mission",
+        "valeur": "36 mois — fixée par RC article 5"
+      },
+      {
+        "hypothese": "Calcul central : 2 265 000 × 5,5% = 124 575 € HT",
+        "valeur": "~125 000 € HT (valeur centrale)"
+      }
+    ],
+    "voie_2_raison_indisponible": null
+  },
+  "cout_realisation": {
+    "cout_total_eur": 65000,
+    "cout_min_eur": 50000,
+    "cout_max_eur": 85000,
+    "postes": [
+      {
+        "poste": "Chef de projet AMO — direction de mission, réunions, reporting MOA",
+        "detail": "Estimation 60 jours × 700 €/j (taux marché ingénieur senior) — suivi hebdo pendant 12 mois de travaux + phases prépa et réception",
+        "montant_eur": 42000
+      },
+      {
+        "poste": "Technicien AMO — suivi de chantier, VISA, contrôle DET",
+        "detail": "Estimation 25 jours × 550 €/j — visites de chantier ponctuelles et vérifications techniques",
+        "montant_eur": 13750
+      },
+      {
+        "poste": "Frais de déplacement et missions (Lorient — base de sous-marins)",
+        "detail": "Estimation forfaitaire 36 mois de mission avec déplacements récurrents",
+        "montant_eur": 5000
+      },
+      {
+        "poste": "Frais administratifs, assurances, coordination interne",
+        "detail": "Estimation forfaitaire 5% du total honoraires",
+        "montant_eur": 3000
+      }
+    ],
+    "taux_journaliers_retenus": "Chef de projet AMO/ingénieur senior : 650-750 €/j indicatif marché ; technicien suivi : 500-600 €/j indicatif marché. Ces taux sont des références marché indicatives, non la structure de coût réelle du candidat.",
+    "commentaire": "Estimation du coût de production côté candidat (distinct du prix AMO). La charge principale est concentrée sur 12-14 mois de suivi de chantier actif (septembre 2026 – novembre 2027). La marge prévisionnelle serait de l'ordre de 40-60 k€ si le prix est au milieu de la fourchette 90-160 k€. Un candidat mobilisant un expert anticorrosion/amiante en sous-traitance aurait des coûts plus élevés."
   },
   "revision_prix": {
     "type": "indexation",
     "indices_utilises": [],
-    "ponderation": null,
+    "ponderation": "Révision mentionnée dans l'acte d'engagement valant CCAP — formule et indices non précisés dans les pièces fournies au DCE.",
     "periodicite": null,
     "formule_revision": null,
-    "source_extraction": "RC article 6.5 (mention 'Les prix sont révisables dans les conditions fixées à l'acte d'engagement valant CCAP') — modalités dans l'AE/CCAP non fourni",
-    "commentaire": "La révision des prix est prévue mais les modalités exactes (indices, formule, périodicité) figurent dans l'acte d'engagement valant CCAP, non fourni dans les pièces analysées. Le candidat doit consulter ce document sur la plateforme Mégalis."
+    "source_extraction": "RC article 6.5 — 'Les prix sont révisables dans les conditions fixées à l'acte d'engagement valant CCAP' ; CCAP non fourni dans les pièces analysées.",
+    "commentaire": "La révision des prix est prévue mais la formule est dans le CCAP/acte d'engagement non fourni dans les pièces analysées. Le candidat devra se référer à ce document pour connaître les indices applicables avant de chiffrer."
   },
   "alertes_prix": [
-    "Pondération prix de 40% : relativement élevée pour une mission AMO intellectuelle, ce qui accroît la pression concurrentielle sur le prix.",
-    "DPGF à fournir obligatoirement aux formats Excel ET PDF — une erreur de format peut entraîner un rejet ou une pénalisation de 15% sur la note technique si la note méthodologique dépasse 8 pages.",
-    "Aucune enveloppe budgétaire communiquée : le candidat doit calibrer son offre sans référence de prix, risque de sous-évaluation ou sur-évaluation par rapport au marché.",
-    "Possibilité de négociation après analyse initiale : l'offre initiale doit néanmoins être optimisée car la négociation n'est pas garantie."
+    "Pondération prix de 40% — relativement élevée pour un marché d'AMO technique ; la compétition sur le prix sera significative.",
+    "Formule de notation du prix non précisée dans le RC (« appréciée au vu du montant global de la DPGF ») — risque de méthode moins-disante pure, pénalisante pour les offres les plus chères même si techniquement supérieures.",
+    "DPGF à remettre obligatoirement en formats Excel ET PDF — une erreur de format peut entraîner le rejet de l'offre.",
+    "La visite de site est OBLIGATOIRE — le candidat doit contacter M. Christophe BARBINI avant le dépôt ; l'absence de visite peut entraîner le rejet.",
+    "Aucun montant estimatif AMO publié par l'acheteur — risque de sous-estimer le prix plancher nécessaire ou de se positionner trop haut par rapport aux concurrents."
   ],
   "references_exigees": {
     "experience_minimale_annees": 3,
-    "experience_source": "RC article 10",
+    "experience_source": "RC article 10 (références sur les 3 dernières années)",
     "volume_min_references_similaires": null,
     "volume_min_references_unite": "marchés similaires",
-    "secteur_experience": "Prestations similaires pour des collectivités comparables à Lorient Agglomération au cours des 3 dernières années — missions AMO/suivi travaux sur ouvrages techniques",
+    "secteur_experience": "Prestations similaires d'AMO ou assistance technique pour des collectivités comparables à Lorient Agglomération au cours des 3 dernières années, assorties d'attestations de bonne exécution",
     "secteur_source": "RC article 10",
     "certifications_obligatoires": [],
     "autres_exigences": [
       {
-        "libelle": "Chiffre d'affaires global et chiffre d'affaires du domaine d'activité sur les 3 dernières années (montant non précisé)",
+        "libelle": "Chiffre d'affaires global et chiffre d'affaires du domaine d'activité faisant l'objet du marché sur les 3 dernières années",
         "source": "RC article 10"
       },
       {
@@ -246,69 +295,213 @@
         "source": "RC article 10"
       },
       {
-        "libelle": "Références assorties d'attestations de bonne exécution, ou à défaut déclaration du candidat",
+        "libelle": "Références pour des prestations similaires pour des collectivités comparables à Lorient Agglomération au cours des 3 dernières années (montant, date, destinataire) assorties d'attestations de bonne exécution ou, à défaut, déclaration du candidat",
         "source": "RC article 10"
+      },
+      {
+        "libelle": "Visite de site obligatoire — à organiser avec M. Christophe BARBINI (cbarbini@agglo-lorient.fr) avant dépôt de l'offre",
+        "source": "RC article 6.7"
       }
     ]
+  },
+  "dossier_candidature": {
+    "pieces_a_fournir": [
+      {
+        "libelle": "Formulaire DC1 — Lettre de candidature",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC article 10"
+      },
+      {
+        "libelle": "Formulaire DC2 — Déclaration du candidat (avec moyens financiers, humains et références)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC article 10"
+      },
+      {
+        "libelle": "Formulaire DC4 — Déclaration de sous-traitance (le cas échéant, si sous-traitant présenté)",
+        "phase": "candidature",
+        "obligatoire": false,
+        "source": "RC article 10"
+      },
+      {
+        "libelle": "Délégation de pouvoir (le cas échéant)",
+        "phase": "candidature",
+        "obligatoire": false,
+        "source": "RC article 10"
+      },
+      {
+        "libelle": "Copie du ou des jugements prononcés (si candidat en redressement judiciaire)",
+        "phase": "candidature",
+        "obligatoire": false,
+        "source": "RC article 10"
+      },
+      {
+        "libelle": "Acte d'engagement valant CCAP dûment complété et daté",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC article 10"
+      },
+      {
+        "libelle": "Décomposition du Prix Global et Forfaitaire (DPGF) — formats Excel ET PDF obligatoires",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC article 10"
+      },
+      {
+        "libelle": "Note méthodologique et ses annexes (8 pages maximum annexes comprises) : organisation, méthodologie, compréhension du projet + CV des intervenants",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC article 10"
+      },
+      {
+        "libelle": "Indication de la part de marché que le prestataire envisage éventuellement de sous-traiter",
+        "phase": "offre",
+        "obligatoire": false,
+        "source": "RC article 10"
+      }
+    ],
+    "mode_remise": "dématérialisé + copie de sauvegarde",
+    "plateforme_depot": "Mégalis Bretagne — https://marches.megalis.bretagne.bzh/entreprise",
+    "signature_electronique_exigee": false,
+    "format_signature": "PAdES, XAdES ou CAdES (eIDAS qualifié) — requis uniquement au stade de l'attribution",
+    "nombre_exemplaires": null,
+    "langue": "français",
+    "duree_validite_offres_jours": 120,
+    "modalites_source": "RC articles 9 et 12"
   },
   "lots": [
     {
       "numero": 1,
-      "intitule": "Assistance à Maîtrise d'Ouvrage pour le suivi des travaux de réhabilitation de la coque du sous-marin Flore et de sa structure porteuse",
-      "zone_geographique": "Lorient, 56100",
+      "intitule": "AMO suivi des travaux de réhabilitation de la coque du sous-marin Flore et de sa structure porteuse",
+      "domaine": "ingenierie_structure_genie_civil",
+      "zone_geographique": "56100 Lorient (Morbihan, Bretagne)",
       "volume_estime": null,
-      "volume_estime_unite": null,
-      "particularites": "Marché unique non alloti. Durée prévisionnelle 36 mois. Visite obligatoire sur site avant remise des offres. MOE assurée en interne par la DAMSI."
+      "volume_estime_unite": "jours-homme",
+      "cout_estime_min_eur": 50000,
+      "cout_estime_max_eur": 85000,
+      "particularites": "Marché unique non alloti. Mission AMO technique (VISA, DET, AOR, OPC) sur 36 mois. Ouvrage patrimonial exceptionnel avec contraintes amiante, plomb, anticorrosion C5. MOE interne assurée par la DAMSI de Lorient Agglomération."
+    }
+  ],
+  "tranches": [
+    {
+      "type": "ferme",
+      "numero": "TF",
+      "intitule": "Mission AMO (VISA + DET + AOR + OPC) — sous-marin Flore et chariot transbordeur",
+      "objet": "Suivi des travaux de réhabilitation de la coque du sous-marin Flore et de sa structure porteuse sur toute la durée du chantier, incluant les missions VISA, DET, AOR et OPC.",
+      "montant_estime_eur": null,
+      "condition_affermissement": null,
+      "source": "RC article 1 et CCTP AMO"
     }
   ],
   "calendrier": {
     "date_limite_offres": "2026-07-07",
     "date_demarrage_prevue": "2026-09-01",
-    "duree_marche": "36 mois non reconductibles"
+    "duree_marche": "36 mois à compter de la date de notification — suit la durée des marchés de travaux"
   },
   "alertes_candidat": [
-    "VISITE OBLIGATOIRE SUR SITE : sans visite préalable, la candidature est irrecevable. Contact : M. Christophe BARBINI (cbarbini@agglo-lorient.fr, DAMSI).",
-    "Note méthodologique limitée à 8 pages maximum (annexes comprises) : tout dépassement entraîne un abattement de 15% sur la note de valeur technique — risque significatif sur le classement.",
-    "La DPGF doit être remise obligatoirement aux formats Excel ET PDF — l'absence d'un des formats peut constituer une offre incomplète.",
-    "Marché très spécialisé (réhabilitation d'un sous-marin patrimonial) : les candidats sans expérience sur ouvrages métalliques patrimoniaux ou structures maritimes seront pénalisés sur le critère 'compétences et expériences des intervenants' (30% de la note finale).",
-    "Délai de validité des offres de 120 jours : anticiper les impacts sur la disponibilité des équipes et les prix (révision à prévoir si négociation tardive)."
+    "Visite de site OBLIGATOIRE à organiser avant le dépôt — contact M. Christophe BARBINI (cbarbini@agglo-lorient.fr) ; l'absence de visite peut conduire à l'élimination de l'offre.",
+    "Note méthodologique limitée à 8 pages MAXIMUM (annexes comprises) — un dépassement entraîne un abattement de 15% de la note technique (RC article 11.2).",
+    "DPGF à remettre obligatoirement en formats Excel ET PDF — une pièce manquante peut rendre l'offre irrecevable.",
+    "L'ouvrage est un sous-marin patrimonial avec contraintes amiante (sous-section 3), plomb et anticorrosion C5 — les références similaires sur des ouvrages métalliques industriels/navals ou patrimoniaux sont déterminantes pour la sélection des candidatures.",
+    "Le marché nécessite une compréhension fine du référentiel ACQPA (fascicule 56 du CCTG) et de la réglementation amiante sous-section 3 — un candidat généraliste sans expérience spécifique sera pénalisé sur le critère technique (60% du barème)."
   ],
   "points_differenciants_attendus": [
     {
-      "libelle": "Expérience avérée sur des ouvrages patrimoniaux ou maritimes atypiques",
-      "exemple": "Un candidat pouvant citer une mission DET/OPC sur la réhabilitation d'un navire, d'un ouvrage métallique patrimonial ou d'une infrastructure maritime (quai, cale sèche, structure porteuse) se distinguera nettement face aux généralistes du suivi de chantier bâtiment classique.",
-      "source": "RC article 11.2"
+      "libelle": "Expérience spécifique en suivi de réhabilitation d'ouvrages métalliques patrimoniaux ou navals",
+      "exemple": "Un candidat ayant conduit des missions DET+OPC sur des navires, sous-marins, ponts métalliques ou structures patrimoniales similaires (protection anticorrosion C5, désamiantage, plomb) démontrera une compréhension immédiate des enjeux et une méthodologie opérationnelle crédible, ce qui valorisera fortement le sous-critère 'compétences et expériences des intervenants'.",
+      "source": "RC article 11.2 — sous-critère 2"
     },
     {
-      "libelle": "Articulation claire avec la MOE interne (DAMSI Lorient Agglomération)",
-      "exemple": "Le candidat démontre sa capacité à travailler en interface étroite avec une maîtrise d'œuvre interne : il propose un protocole de communication dédié, des réunions de coordination bilatérales AMO/MOE et un circuit de validation des visas adapté à une MOE publique.",
-      "source": "RC article 6.6"
+      "libelle": "Maîtrise du référentiel anticorrosion ACQPA et des procédures de contrôle des chantiers sous contrainte amiante/plomb",
+      "exemple": "Citer dans la note méthodologique les points d'arrêt du PAQ (fascicule 56), les modalités de VISA des systèmes ACQPA Im2, les contrôles d'épaisseur (norme ISO 19840) et les procédures de levée des non-conformités démontrera une connaissance approfondie des enjeux techniques du chantier, absente d'une offre généraliste.",
+      "source": "CCTP travaux §2.6 et §3.2 — exigences ACQPA/fascicule 56 au CCTP travaux"
     },
     {
-      "libelle": "Profils nommément désignés avec CVs ciblés sur des missions similaires",
-      "exemple": "Désigner dès l'offre un chef de projet senior avec références nominatives sur des missions de suivi de travaux d'ouvrages techniques patrimoniaux, accompagné d'un ingénieur structures spécialisé en réhabilitation métallique, renforcera considérablement le critère 'compétences et expériences des intervenants'.",
-      "source": "RC article 11.2"
+      "libelle": "Méthodologie OPC adaptée à un chantier multi-phases complexe en site occupé touristique",
+      "exemple": "Proposer un planning de coordination détaillé intégrant les contraintes d'exploitation touristique (fermeture partielle), les phases de désamiantage (sous-section 3), le confinement thermo-rétractable et les coactivités de la base de Lorient La Base témoignera d'une approche structurée et différenciante.",
+      "source": "CCTP AMO §2.1 (OPC) + CCTP travaux §1.6.11 et §1.6.12"
     },
     {
-      "libelle": "Note méthodologique dense et ciblée sur les spécificités du sous-marin Flore",
-      "exemple": "Mentionner explicitement les enjeux techniques propres à la coque du Flore (acier marin, corrosion, contraintes de la structure porteuse, interfaces avec les réseaux existants, contraintes d'accès et de sécurité en site public) dans les 8 pages imparties démontrera une compréhension supérieure du projet.",
-      "source": "RC article 11.2"
+      "libelle": "Équipe nommément désignée avec CV ciblés sur l'ouvrage",
+      "exemple": "Présenter un chef de projet avec des missions VISA/DET sur des structures métalliques industrielles et un technicien ayant participé à des chantiers anticorrosion avec inspecteur FROSIO, plutôt que des CV génériques de MOE bâtiment, distinguera nettement l'offre sur le sous-critère 'compétences et expériences des intervenants' (30% du total).",
+      "source": "RC article 11.2 + RC article 10"
     }
   ],
   "_meta": {
     "id_marche": "BOAMP-26-56596",
     "type": "complet",
-    "extraction_le": "2026-06-12T13:47:34.055637+00:00",
+    "date_generation": "2026-06-19T20:46:23.964966+00:00",
+    "extraction_le": "2026-06-19T20:46:23.964966+00:00",
     "modele": "claude-sonnet-4-6",
-    "tokens_input": 29915,
-    "tokens_output": 5300,
-    "cout_eur": 0.1608,
-    "duree_sec": 95.4,
+    "preset_utilise": "ingenierie",
+    "presets_matches": [
+      "ingenierie",
+      "btp"
+    ],
+    "prompts_versions": {
+      "ingenierie/_preset.json": "sha256:b924b32a088673d6",
+      "btp/_preset.json": "sha256:055bf6f8b2c1f771"
+    },
+    "tokens_input": 122417,
+    "tokens_output": 8647,
+    "cout_eur": 0.4721,
+    "duree_sec": 160.4,
     "pdfs_traites": [
+      {
+        "nom": "26032_CCTP.pdf",
+        "hash": "ba786e07bbad48362decf90bec029943",
+        "taille_chars": 11398
+      },
+      {
+        "nom": "26032_DC4.docx",
+        "hash": "4cd35166dd82940c95c75b6785ae4d97",
+        "taille_chars": 15957
+      },
       {
         "nom": "26032_RC.pdf",
         "hash": "ba1ef029dcc573e5c42f6bbd8b3d5f4c",
         "taille_chars": 30433
+      },
+      {
+        "nom": "CCTP - le 26-02-26 - V2.docx",
+        "hash": "183feea39819d3aa262f96f5ee03a5d7",
+        "taille_chars": 102108
+      },
+      {
+        "nom": "DIAG du 26-03-2026.pdf",
+        "hash": "fe793f54d02fad1bc66987956ffedbc1",
+        "taille_chars": 18407
+      },
+      {
+        "nom": "Emplacements des déplacements ULTIM sur la Base.pdf",
+        "hash": "1f41720367ddc84cf1abdab307a71b90",
+        "taille_chars": 4544
+      },
+      {
+        "nom": "Planning-Phasage - LA FLORE - le 26-02-26.pdf",
+        "hash": "aa6a60f9075ddf6daa6619694aa9be56",
+        "taille_chars": 691
+      },
+      {
+        "nom": "Plans Géneraux - La FLORE.pdf",
+        "hash": "bdc4baa652006d57df12933f76de8913",
+        "taille_chars": 1613
+      },
+      {
+        "nom": "R1132-PHASE3-AMO LA FLORE-ProgrammeTravaux-V2.pdf",
+        "hash": "1f3fedcbb61dccbf79b0c886faf9db70",
+        "taille_chars": 58932
+      },
+      {
+        "nom": "Rapport ELIBAT 39829.pdf",
+        "hash": "26eb50ace81df54b90b59d404562cc77",
+        "taille_chars": 30404
+      },
+      {
+        "nom": "Vue de Dessus CHARIOT & Coupe - La FLORE.pdf",
+        "hash": "78de1675de12e9fab2299f010b7ea7f1",
+        "taille_chars": 1245
       },
       {
         "nom": "imsi2iii.pdf",

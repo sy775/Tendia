@@ -1,6 +1,6 @@
 # Brief — Acquisition, mise en oeuvre et maintenance d'un système d'information des ressources humaines RH
 
-_Généré le 2026-06-15 20:40 par Claude claude-sonnet-4-6_
+_Généré le 2026-06-21 00:44 par Claude claude-sonnet-4-6_
 
 ## Identifiants
 - **ID Tendia** : `BOAMP-26-56329`
@@ -11,13 +11,13 @@ _Généré le 2026-06-15 20:40 par Claude claude-sonnet-4-6_
 - **DCE PLACE** : <https://www.marches-publics.info/mpiaws/index.cfm?fuseaction=dematEnt.login&amp;type=DCE&amp;IDM=1832389>
 
 ## Synthèse
-OPCO Mobilités lance un marché composite en 2 lots pour l'acquisition, la mise en œuvre et la maintenance d'un SIRH complet en mode SaaS. Le lot 1 couvre l'externalisation du traitement de la paie et l'outil de gestion de la paie, tandis que le lot 2 porte sur les modules ADP, GTA, gestion de carrière, recrutement, formation et pilotage salarial. Le marché est estimé à 840 000 € HT sur 4 ans (2 ans fermes + 2 reconductions d'1 an), avec une procédure avec négociation.
+OPCO Mobilités lance un marché composite en 2 lots pour l'acquisition, la mise en œuvre et la maintenance d'un SIRH complet : Lot 1 portant sur l'outil de gestion de la paie et l'externalisation du traitement de la paie, Lot 2 sur la gestion administrative du personnel (ADP), la GTA, le pilotage salarial et le Human Capital Management (recrutement, formation, GEPP). Le marché est conclu pour 2 ans fermes, reconductible 2 fois 1 an (4 ans max), en mode SaaS avec interconnexion entre les deux lots. Le montant total est estimé à 840 000 € HT sur 4 ans.
 
 ## 💶 Montant du marché
 - **Valeur estimée** : **840 000 €**
-  - sur 4 ans (2 ans fermes + 2 reconductions d'1 an)
-  - _source : CCAP Article 4 page 4-5_
-- _Note_ : Estimation globale indicative non contractuelle : 210 000 € HT/an × 4 ans = 840 000 € HT. Lot 1 : 67 200 € HT/an forfait + 16 800 € HT/an bons de commande = 84 000 €/an → 336 000 € sur 4 ans. Lot 2 : 100 800 € HT/an forfait + 25 200 € HT/an bons de commande = 126 000 €/an → 504 000 € sur 4 ans. Montants maximaux bons de commande : lot 1 plafond 70 000 € HT, lot 2 plafond 105 000 € HT sur toute la durée.
+  - sur 4 ans (durée totale maximale : 2 ans fermes + 2 reconductions d'1 an)
+  - _source : CCAP article 4 page 4-5_
+- _Note_ : Montant total tous lots confondus estimé à 210 000 € HT/an soit 840 000 € HT sur 4 ans. Lot 1 : 84 000 € HT/an (67 200 € forfaitaire + 16 800 € bons de commande), soit 336 000 € sur 4 ans. Lot 2 : 126 000 € HT/an (100 800 € forfaitaire + 25 200 € bons de commande), soit 504 000 € sur 4 ans. Montants max bons de commande : 70 000 € Lot 1 et 105 000 € Lot 2 sur 4 ans.
 
 ## Barème de notation
 - **Valeur technique** : 80 %
@@ -28,41 +28,32 @@ OPCO Mobilités lance un marché composite en 2 lots pour l'acquisition, la mise
   - Fonctionnalités attendues et paramétrage : 15 %
   - Suivi de la prestation (accompagnement experts paie OPCO Mobilités) : 15 %
   - Exploitation et maintenance : 15 %
-  - Processus et méthodologie de déploiement de l'outil SIRH (Lot 2) : 20 %
-  - Fonctionnalités attendues et paramétrage (Lot 2) : 20 %
-  - Suivi de la prestation (accompagnement experts RH OPCO Mobilités) (Lot 2) : 20 %
-  - Exploitation et maintenance (Lot 2) : 10 %
-- **Calcul du prix** : Pondération prix = 20% de la note globale. Chiffrage mixte : part forfaitaire (DPGF annuelle) + part à bons de commande (BPU avec DQE sur 4 ans comme base de comparaison financière non contractuelle). Formule exacte non communiquée dans les pièces disponibles.
+- **Calcul du prix** : Le prix représente 20% de la note globale (CRT Lot 1 : 80 pts technique + 20 pts prix = 100 ; CRT Lot 2 : 70 pts technique + 30 pts prix). Le DQE sur 4 ans sert de base à l'analyse financière mais est non contractuel.
 
 ## Références et qualifications exigées
 - **Expérience minimale** : —
-- **Secteur d'expérience** : Intégration et externalisation de SIRH (outil de paie, ADP, GTA, recrutement, formation, GEPP) pour des structures de 500 salariés ou plus, idéalement dans le secteur paritaire/associatif ou opérateurs de compétences
+- **Secteur d'expérience** : Externalisation de la paie et intégration de SIRH (paie, ADP, GTA, HCM) pour des organisations d'environ 500 salariés
 - **Autres exigences** :
-  - SSO obligatoire via Azure Active Directory (Entra ID) avec SAML 2.0 ou OAuth2/OpenID Connect — aucune dérogation sans validation OPCO Mobilités (source=CCTP Article 4.G.2 et Article 5.J.2)
-  - Hébergement SaaS avec connexion SSL minimum, données de préférence en France, tolérance UE (source=CCTP Article 4.I.10.a et Article 5.L.10.a)
-  - Conformité RGPD attestée avec remplissage du cadre de réponse RGPD (Annexe 2 CCAP) (source=CCAP Article 12.2 et Annexe 2)
-  - Fourniture d'un SOC 2 (niveau de référence attendu) communicable sur demande (source=CCTP Article 4.I.10.f et Article 5.L.10.g)
-  - Attestation relative à l'interdiction d'attribution des marchés publics aux entreprises russes à fournir obligatoirement (source=AE Lot 1 et AE Lot 2)
+  - Capacité à assurer le SSO via Azure Active Directory / Entra ID avec protocoles SAML 2.0 ou OAuth2/OIDC — exigence technique éliminatoire (source=CCTP article 4.G.2 et article 5.J.2)
+  - Hébergement SaaS avec localisation des données en France ou UE (tolérance UE) (source=CCTP article 4.I.10.a et article 5.L.10.a)
+  - Conformité RGPD attestée — cadre de réponse RGPD obligatoire à remettre (Annexe 2 CCAP) (source=CCAP article 12.2)
 
 ## Lots
 - **Lot 1** — SIRH Outil de Paie / Externalisation de la prestation de traitement de la paie
-  - Volume estimé : 336000 euros HT sur 4 ans
-  - Marché composite : forfait annuel estimé 67 200 € HT/an + bons de commande plafonnés à 70 000 € HT sur 4 ans. Inclut l'externalisation du cycle de paie complet (bulletins classiques, STC, DSN, OD Sage), le traitement des absences CPAM, l'outil paie avec coffre-fort numérique et passerelle bancaire, ~500-700 bulletins/mois. Logiciel paie actuel à migrer : Nibelis. Particularité : statut VLU URSSAF (pas de télépaiement possible). CPV lot : 79211110.
+  - Marché composite : part forfaitaire 268 800 € HT sur 4 ans + bons de commande max 70 000 € HT sur 4 ans. Inclut externalisation complète de la paie (~500 salariés, ~24 000 bulletins/an), outil SaaS paie avec coffre-fort numérique, traitement des absences CPAM, DSN, OD comptables vers Sage. Montant indicatif annuel : 67 200 € forfaitaire + 16 800 € bons de commande = 84 000 € HT/an.
 - **Lot 2** — SIRH outil de Gestion de l'ADP, la GTA et la Gestion de carrière (formation, recrutement, campagne d'entretiens)
-  - Volume estimé : 504000 euros HT sur 4 ans
-  - Marché composite : forfait annuel estimé 100 800 € HT/an + bons de commande plafonnés à 105 000 € HT sur 4 ans. Périmètre très large : 10 modules (recrutement avec multidiffusion illimitée, ADP/pré-boarding, GTA, formation/PDC, GEPP avec référentiel 45 emplois/45 compétences, entretiens annuels, pilotage salarial/BDESE). Interconnexion obligatoire avec lot 1. ~550 utilisateurs dont 60 managers. Signature électronique avancée requise. Reprise entretiens depuis 01/01/2024. CPV lot : 48450000.
+  - Marché composite : part forfaitaire 403 200 € HT sur 4 ans + bons de commande max 105 000 € HT sur 4 ans. Périmètre large : ADP (pre-boarding à sortie), GTA (présence/absences/télétravail), GEPP/compétences, campagnes d'entretiens, recrutement avec multidiffusion illimitée, module formation (PDC), pilotage salarial/BDSE. Montant indicatif annuel : 100 800 € forfaitaire + 25 200 € bons de commande = 126 000 € HT/an.
 
 ## ⚠ Alertes candidat
-- SSO via Azure AD (Entra ID) OBLIGATOIRE sans alternative locale : toute solution ne supportant pas SAML 2.0 ou OAuth2/OpenID Connect avec Azure AD est éliminatoire (CCTP art. 4.G.2 et 5.J.2).
-- Interconnexion inter-lots impérative : les deux lots doivent communiquer en temps réel (flux GTA → paie, absences CPAM, formation ↔ GTA). En cas de prestataires distincts, la compatibilité technique doit être démontrée avec des exemples d'interconnexions existantes.
-- Externalisation du traitement des absences CPAM (saisie arrêts, recouvrement IJSS, DSN évènementiels) : compétence métier exigeante et spécifique, souvent sous-traitée — le titulaire lot 1 reste responsable du rendu même en cas de sous-traitance (CCTP art. 4.B.2.e).
-- Délai de validité des offres de 180 jours : engagement financier long sur des prix SaaS potentiellement variables — bien anticiper les révisions possibles et la clause de sauvegarde +4%.
-- Procédure avec négociation : une première offre sera soumise à négociation. Prévoir une marge de manœuvre dans le chiffrage initial pour la phase de négociation sans dégrader la qualité technique.
+- Exigence SSO Azure Active Directory / Entra ID obligatoire (SAML 2.0 ou OAuth2/OIDC) : toute solution avec gestion d'identités locale uniquement sera rejetée — vérifier la compatibilité native avant de candidater
+- Le CRT (mémoire technique) est limité à 60 pages annexes incluses : dépasser ce volume peut pénaliser la présentation ; la structure exacte des sous-critères doit être respectée dans l'ordre du CRT
+- Les deux lots sont fortement interconnectés et doivent communiquer de manière fluide — si le candidat répond aux deux lots, il doit démontrer l'interopérabilité ; si prestataires différents sur lot 1 et lot 2, la compatibilité technique inter-lots est évaluée explicitement
+- La réversibilité est incluse dans le forfait (gratuite) et doit être exécutée en 90 jours max : tout système verrouillant les données ou facturant la portabilité sera pénalisant
+- Procédure avec négociation : OPCO Mobilités peut inviter les candidats à une réunion de négociation — prévoir la disponibilité d'une équipe projet opérationnelle pour présenter et ajuster l'offre
 
 ## 💡 Points différenciants attendus
-- Référence sectorielle OPCO / paritaire ou opérateur de compétences avec externalisation de paie complexe (exemple=Citer 2-3 clients du même secteur (OPCO, OPCA, branche professionnelle) avec périmètre similaire (500+ salariés, statut VLU URSSAF, accord de performance collective) valorise fortement la crédibilité sur la conformité réglementaire et la gestion des spécificités conventionnelles., source=CCTP Article 4.B.2.a)
-- Gestionnaire de paie dédié et nominatif avec back-up identifié dès l'offre (exemple=Présenter le CV du gestionnaire paie attitré (senior, maîtrise DSN, VLU, accords de performance collective) et de son back-up nominatif renforce significativement le sous-critère 1 (20 pts) et rassure sur la continuité de service., source=CCTP Article 4.B.2.b et CRT Lot 1 sous-critère n°1)
-- Solution couvrant les deux lots avec un seul prestataire (SIRH intégré paie + HCM) (exemple=Proposer une solution couvrant lot 1 et lot 2 sur une plateforme unifiée élimine le risque d'incompatibilité inter-lots et simplifie la gouvernance projet — argument fort pour scorer sur les sous-critères d'interfaçage des deux CRT., source=CCTP Article 3 et Articles 4.C.9 / 5.G.1.c)
-- Maîtrise de la gestion des spécificités RH OPCO Mobilités : CET, plan senior, VLU URSSAF, accord de performance collective (exemple=Démontrer une expérience documentée sur le CET (alimentation, indemnisation, transfert PERO), le plan de départ progressif senior et le statut VLU URSSAF (pas de télépaiement, gestion des cotisations) avec des exemples de paramétrages réalisés chez d'autres clients., source=CCTP Articles 4.B.2.d et 5.C.1 à 5.C.5)
-- Architecture SaaS hébergée en France avec SOC 2 Type II disponible et PRA/PCA documenté (exemple=Joindre le résumé exécutif SOC 2 Type II de la solution et une fiche PRA avec RTO H+4 testé annuellement. Préciser la localisation exacte des datacenters (France) et les certifications ISO 27001 de l'hébergeur renforce la crédibilité sécurité face aux exigences RGPD et ANSSI., source=CCTP Articles 4.I.10 et 5.L.10 ; CCAP Article 12.3)
-- Intégration native du référentiel emplois-compétences OPCO Mobilités (4 filières, 45 emplois, 45 compétences, niveaux 1-4) (exemple=Présenter une maquette ou capture d'écran de la saisie du référentiel fourni par OPCO Mobilités dans l'outil, avec les vues radar de compétences par salarié et l'alimentation automatique des campagnes d'entretiens annuels, démontre une compréhension fine du besoin lot 2., source=CCTP Article 5.F.2)
+- Qualité et expérience du gestionnaire de paie dédié avec back-up nommé (exemple=Présenter un CV nominatif du gestionnaire de paie attitré avec références sur des paies externalisées de 400-600 salariés, incluant gestion VLU URSSAF et DSN — problématique spécifique d'OPCO Mobilités mentionnée dans le CCTP., source=CCTP article 4.B.2 et CRT Lot 1 sous-critère n°1)
+- Pertinence et maturité des connecteurs natifs avec l'écosystème existant (Sage, net-entreprises, plateforme bancaire, JIRA) (exemple=Fournir une liste des connecteurs natifs certifiés avec Sage Paie (intégration OD comptable), la plateforme bancaire, net-entreprises et JIRA pour la gestion des tickets — avec exemples de clients existants utilisant ces intégrations., source=CCTP article 4.C.9 et CRT Lot 1 sous-critère n°3)
+- Capacité à gérer la gestion de carrière / GEPP avec le référentiel emplois-compétences d'OPCO Mobilités (45 emplois, 45 compétences, 4 filières) (exemple=Démontrer comment la solution peut ingérer le référentiel emplois-compétences existant (format Excel/JSON), le rattacher aux fiches salariés et l'alimenter automatiquement lors des campagnes d'entretiens — point hautement différenciant sur le lot 2., source=CCTP article 5.F.2)
+- Offre inter-lots cohérente (candidature sur les deux lots) avec architecture SSO unifiée (exemple=Proposer une solution intégrée lot 1 + lot 2 avec un seul point d'entrée SSO, une interconnexion native paie↔GTA en flux biquotidiens, et une gouvernance projet unifiée avec chef de projet commun — évitant les problèmes de compatibilité inter-prestataires explicitement craints par OPCO Mobilités., source=CCTP article 3 et CCTP article 5.G.2.c)
+- Dispositif de formation adapté avec environnement bac-à-sable dédié (exemple=Proposer un espace bac-à-sable permanent (duplication de production) disponible pour 14 collaborateurs formés, avec tutoriels vidéo accessibles en ligne et module e-learning personnalisé au métier d'OPCO Mobilités — critère explicitement valorisé dans le CRT., source=CRT Lot 1 sous-critère n°4 ; CCTP article 4.C.1)

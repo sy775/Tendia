@@ -1,6 +1,6 @@
 # Brief — ASSURANCES CONSTRUCTION - MODERNISATION DU STADE YVES ALLAINMAT
 
-_Généré le 2026-06-12 15:49 par Claude claude-sonnet-4-6_
+_Généré le 2026-06-22 12:34 par Claude claude-sonnet-4-6_
 
 ## Identifiants
 - **ID Tendia** : `BOAMP-26-56076`
@@ -11,70 +11,40 @@ _Généré le 2026-06-12 15:49 par Claude claude-sonnet-4-6_
 - **DCE PLACE** : <https://marches.megalis.bretagne.bzh/?page=Entreprise.EntrepriseDetailsConsultation&id=233088&orgAcronyme=a3g>
 
 ## Synthèse
-La Commune de Lorient lance un appel d'offres pour la souscription de polices d'assurance construction dans le cadre de la modernisation du stade Yves Allainmat. Le marché est alloti en 2 lots : Lot 1 (Tous Risques Chantier) et Lot 2 (Dommages Ouvrage et Contrat Collectif de Responsabilité Décennale). Les travaux couverts comprennent une tranche ferme (tribune Ouest, éclairage, parvis) et deux tranches optionnelles (angle Nord-Ouest, angle Nord-Est).
-
-## ⚡ Parc EnR — caractéristiques techniques
-- **Description** : Modernisation du stade Yves Allainmat à Lorient (56100), Rue du Tour des Portes. Opération comprenant : tranche ferme (déconstruction/construction tribune Ouest, parvis rue Jean le Coutaler, nouvel éclairage aire de jeu, démolition mâts existants, renforts charpente tribune Est, aire régie provisoire) ; tranche optionnelle 1 (angle Nord-Ouest, aire régie définitive, KOP visiteur tribune Nord, parking visiteur, aménagements extérieurs, voirie) ; tranche optionnelle 2 (déconstruction/reconstruction angle Nord-Est).
-- **Type de sites** : Stade municipal (équipement sportif), site en exploitation partielle potentielle
-- **Critères d'éligibilité** :
-  - Intermédiaire : inscription auprès de l'ORIAS en cours de validité (source=RC §5.1.1)
-  - Assureurs : agrément ministériel en cours de validité relatif à la garantie des risques, objet du marché (source=RC §5.1.1)
-
-### Volumes techniques
-- **Nombre de sites** : 1
-- **Note** : Marché d'assurance construction (non EnR). La durée du contrat est définie dans le CCTP aux articles 1.2 (TRC) et 2.2 (DO/CCRD) non fournis. Les tranches optionnelles ont des délais d'affermissement de 30 mois (TO1) et 45 mois (TO2) à compter de la notification des marchés de travaux.
-
-### Modalités d'exécution
-- **Sites d'exécution** : Lorient (56)
-
-## 🎓 Formation / accompagnement
-### Volumes
-- **Note** : Marché d'assurance construction : pas de notion de bénéficiaires ou de parcours. La durée est liée à la période de chantier définie dans le CCTP (non fourni).
-
-### Modalités
-- **Sites d'exécution** : Lorient (56)
+Marché d'assurances construction en deux lots (TRC et DO/CCRD) pour la modernisation du Stade Yves Allainmat à Lorient, opération comportant déconstruction partielle, reconstruction de tribunes et aménagements extérieurs. Le DCE fourni est principalement constitué des pièces techniques de travaux (CCTC, CCTP lot 01 démolition/désamiantage) et non des pièces du marché d'assurance lui-même (RC, CCAP spécifiques à l'assurance). Les informations sur les critères de notation, les pièces à fournir et les modalités de candidature propres aux lots assurance sont absentes du DCE analysé.
 
 ## 💶 Montant du marché
 - _Montant non communiqué dans le DCE._
   - Typique des accords-cadres à bons de commande : le volume dépend des commandes effectivement passées par l'acheteur sur la durée du marché.
-- _Note_ : Aucun montant estimatif ni enveloppe budgétaire n'est communiqué dans le RC fourni. Le CCAP et la fiche technique de l'opération (Annexe 1 CCTP) pourraient contenir les données nécessaires à l'estimation mais ne sont pas disponibles dans le DCE fourni.
+- _Note_ : Le montant du marché d'assurance n'est pas publié dans les pièces DCE disponibles. Le DCE fourni est constitué des pièces techniques de travaux et non du RC/CCAP assurance. La valeur des primes dépend du montant des travaux assurés et des taux de prime, non communiqués.
 
 ## Barème de notation
-- **Valeur technique** : 60 %
-- **Valeur prix** : 40 %
-- **Sous-critères techniques** :
-  - Qualité des prestations en matière de gestion des sinistres : 5 %
-  - Qualité des prestations en matière de gestion du contrat : 5 %
-  - Nature et étendue des clauses contractuelles et qualité et modalités des garanties proposées y compris observations, amendements et commentaires : 50 %
-- **Calcul du prix** : Note prix = (offre de prix la moins disante / offre de prix considérée) × 8 points — décliné par tranche : TF × 5 pts, TO1 × 2 pts, TO2 × 1 pt
+- **Valeur technique** : —
+- **Valeur prix** : —
+- **Calcul du prix** : Non précisé dans les pièces fournies.
 
 ## Références et qualifications exigées
 - **Expérience minimale** : —
-- **Secteur d'expérience** : Assurances construction (TRC/DO/CCRD) pour des opérations de même nature et ampleur
-- **Certifications obligatoires** : Intermédiaire : inscription auprès de l'ORIAS en cours de validité (source=RC §5.1.1), Assureurs : agrément ministériel en cours de validité relatif à la garantie des risques objet du marché (source=RC §5.1.1)
-- **Autres exigences** :
-  - Numéro unique d'identification SIREN et pouvoirs des personnes habilitées à engager l'entreprise (source=RC §5.1.1)
-  - Chiffres d'affaires des trois dernières années en identifiant la part relevant du marché concerné (ou justification de date de création pour entreprises nouvelles) (source=RC §5.1.1)
-  - Liste de références récentes de prestations de même nature et de même ampleur (objet, année, montant, nom du maître d'ouvrage) (source=RC §5.1.1)
-  - Formulaires DC1 (lettre de candidature) et DC2 (déclaration du candidat) complétés, ou DUME (source=RC §5.1.1)
+- **Secteur d'expérience** : Assurance construction (TRC et/ou Dommages Ouvrage) pour des opérations de réhabilitation ou construction de bâtiments ERP de grande envergure
+- **Certifications obligatoires** : Agrément du Comité des Établissements de Crédit et des Entreprises d'Investissement (ACPR) pour exercer l'activité d'assurance en France dans les branches concernées (TRC - branche 8 / DO - branche 13) (bloquante=True)
 
 ## Lots
-- **Lot 1** — Lot 1 (26146) - Assurance Tous Risques Chantier (TRC)
+- **Lot 1** — LOT 1 - Assurance Tous Risques Chantier (TRC)
   - Zone : Lorient (56)
-  - Couvre la phase chantier de la modernisation du stade pour la tranche ferme et les deux tranches optionnelles. CPV 66513200. Inclut une solution de base obligatoire et des variantes de franchise (variantes 1 et 2).
-- **Lot 2** — Lot 2 (26147) - Assurance Dommages Ouvrage (DO) et Contrat Collectif de Responsabilité Décennale (CCRD)
+  - Couverture TRC pour l'opération de modernisation du Stade Yves Allainmat. Durée 6 mois. Opération en site occupé avec maintien des matchs de Ligue 1. Présence d'amiante et plomb. Chantier multi-lots (16 corps d'état). Contrainte forte de phasage et coactivité. CPV 66513200.
+- **Lot 2** — LOT 2 - Assurance Dommages Ouvrage (DO) et Contrat Collectif de Responsabilité Décennales (CCRD)
   - Zone : Lorient (56)
-  - Couvre la responsabilité décennale post-réception pour la tranche ferme et les tranches optionnelles. CPV 66515000. Inclut également les variantes de franchise optionnelles.
+  - Couverture DO et CCRD pour la construction neuve (tribune Ouest E3C1) et réhabilitation du stade. Durée 6 mois (période probable de chantier), garantie décennale de 10 ans. ERP 1ère catégorie existant / ERP 5ème catégorie pour extension billetterie. CPV 66515000.
 
 ## ⚠ Alertes candidat
-- L'inscription ORIAS en cours de validité est obligatoire pour les intermédiaires — vérifier la validité avant dépôt sous peine d'éviction de la candidature.
-- L'agrément ministériel en cours de validité est obligatoire pour les assureurs — son absence entraîne l'irrecevabilité de la candidature.
-- Les DPGF doivent impérativement être fournies en format Excel ou LibreOffice (pas uniquement PDF) — exigence explicite du RC.
-- Le mémoire justificatif doit couvrir la gestion des sinistres ET la gestion du contrat avec les éléments précis listés en §7.2 du RC — une réponse générique sera pénalisée sur 10% des points techniques.
-- La réponse doit obligatoirement couvrir la solution de base (tranche ferme + tranches optionnelles) ; les variantes de franchise sont facultatives mais fortement recommandées pour la complétude de l'offre.
+- Le RC spécifique aux marchés d'assurance (règlement de consultation, CCAP assurance, cahier des charges des garanties) est absent des pièces DCE analysées : le candidat doit impérativement télécharger les pièces complètes du DCE sur la plateforme de dépôt.
+- Opération en site occupé avec maintien des matchs de Ligue 1 pendant les travaux : ce facteur aggrave le risque TRC et doit être analysé attentivement pour ne pas sous-évaluer la prime ou prévoir des exclusions inadaptées.
+- Présence confirmée d'amiante (DAAD joint au DCE) et de plomb sur les bâtiments à démolir : vérifier la couverture TRC pour les risques de pollution et les sinistres liés aux opérations de désamiantage.
+- L'opération comporte 2 tranches optionnelles importantes (construction angle NE, angle NO) non garanties : la prime TRC et la DO doivent prévoir ou exclure clairement ces tranches, avec option d'avenant si affermissement.
+- Le stade est classé ERP 1ère catégorie (existant) avec une extension ERP 5ème catégorie : vérifier la compatibilité de la police DO avec ce double classement et les exigences de la commission de sécurité.
 
 ## 💡 Points différenciants attendus
-- Qualité et étendue des garanties proposées avec amendements motivés sur le CCTP (exemple=Proposer des extensions de garantie au-delà des minima du CCTP (équipements provisoires, vols sur chantier, perte indirecte) en justifiant leur pertinence pour ce type d'opération de réhabilitation de stade, et formuler des observations constructives sur les clauses de subrogation ou de vétusté., source=RC §7.2)
-- Organisation dédiée avec interlocuteur unique nommé et outils de suivi sinistres (exemple=Présenter un organigramme nominatif de l'équipe dédiée avec CV synthétiques des gestionnaires sinistres, un accès à une plateforme numérique de suivi en temps réel, et des engagements de délai de réponse (ex: 48h pour accusé de sinistre, 15 jours pour décision préliminaire)., source=RC §7.2)
-- Références similaires de même ampleur sur des opérations de réhabilitation d'équipements sportifs publics (exemple=Citer des opérations TRC/DO sur des stades ou équipements sportifs de collectivités pour des montants de travaux comparables, avec coordonnées des maîtres d'ouvrage vérifiables., source=RC §5.1.1)
-- Compétitivité tarifaire sur la tranche ferme (pondérée 5 pts sur 8) (exemple=La tranche ferme concentre 62,5% des points prix ; un effort commercial ciblé sur cette tranche, avec des variantes de franchise permettant d'abaisser la prime de base, est décisif pour le classement final., source=RC §7.2)
+- Expérience en assurance construction de grands équipements sportifs en site occupé (exemple=Un assureur ou courtier pouvant présenter des références de polices TRC/DO sur des stades, arénas ou équipements sportifs majeurs en fonctionnement (matchs maintenus) aura un avantage pour démontrer sa maîtrise du risque spécifique à ce type d'opération.)
+- Couverture étendue des risques amiante et pollution dans la police TRC (exemple=Proposer une couverture TRC incluant explicitement les risques de contamination amiante lors des opérations de désamiantage (lot 01), sans exclusion de ce chef, constitue un différenciant fort compte tenu du DAAD joint au DCE., source=CCTP lot 01 §6)
+- Structuration de la DO/CCRD intégrant les spécificités E3C1 du bâtiment accueil/billetterie (exemple=La tribune Ouest doit atteindre le niveau E3C1 (label E+C-) et une démarche HQE est mise en place : un assureur proposant une DO adaptée à ces exigences environnementales et aux éventuelles garanties complémentaires liées à la performance énergétique se différenciera., source=CCTC §1.8 et §2.1)
+- Gestion des interfaces entre lots et couverture de la coactivité (exemple=Avec 16 lots de travaux en corps d'état séparés et une cellule de synthèse BIM imposée, la police TRC doit couvrir sans ambiguïté les dommages imputables à des interactions entre corps d'état : un candidat précisant explicitement la couverture de ces risques de coactivité apportera une plus-value., source=CCTC §7)

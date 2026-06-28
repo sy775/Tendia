@@ -1,0 +1,320 @@
+{
+  "synthese_marche": "La Mairie d'Aix-en-Provence recherche un prestataire pour assurer le gardiennage nocturne des chalets du marché de Noël annuel sur le Cours Mirabeau (environ 52 chalets) et des marchés complémentaires Place Villon (marchés des Villes Jumelles, des vignerons et des 13 desserts), de novembre à début janvier. Le marché est à prix mixtes : une part forfaitaire pour le Cours Mirabeau et une part à bons de commande pour la Place Villon. Le contrat est conclu pour 1 an renouvelable 2 fois (3 ans maximum), avec des prestations débutant le 08/11/2026.",
+  "domaines_metier": [
+    {
+      "code": "securite_gardiennage"
+    }
+  ],
+  "raison_classification": "Le marché porte exclusivement sur des prestations de gardiennage et de surveillance nocturne de chalets de marché de Noël, avec exigence d'autorisation CNAPS. Les codes CPV 79713000 (services de gardiennage) et 79710000 (services de sécurité) confirment sans ambiguïté le domaine `securite_gardiennage`.",
+  "caracteristiques_metier": {
+    "description": "Prestations de gardiennage nocturne des chalets du marché de Noël de la Ville d'Aix-en-Provence sur le Cours Mirabeau (2 à 3 agents ADS par nuit, 55 nuits environ) et surveillance nocturne des marchés complémentaires Place Villon (1 agent cynophile, environ 20 nuits). Les agents doivent effectuer des rondes vérifiées par outil connecté, tenir un cahier de poste, et être joignables en permanence par un personnel d'encadrement dédié.",
+    "criteres_eligibilite": [
+      "Être titulaire d'une autorisation d'exercer une activité de sécurité privée délivrée par le CNAPS (ou justifier d'une demande en cours pour les entreprises nouvellement créées)",
+      "Justifier d'un chiffre d'affaires global et spécifique sur les 3 derniers exercices",
+      "Fournir une liste de références de prestations similaires des 3 dernières années"
+    ]
+  },
+  "bareme_notation": {
+    "valeur_technique_pct": 55,
+    "valeur_prix_pct": 45,
+    "sous_criteres_techniques": [
+      {
+        "libelle": "SC2.1 – Composition et qualifications de l'équipe d'encadrement (gérant et chefs d'équipe) de l'agence dédiée au marché.",
+        "ponderation_pct": 25,
+        "description": "L'acheteur évalue la qualité de l'équipe d'encadrement dédiée (gérant et chefs d'équipe) : identité, fonctions, missions, disponibilité, moyens de communication et désignation d'un remplaçant en cas d'absence. Il s'appuie sur des CV ou fiches nominatives faisant ressortir niveau d'étude, formations, qualifications professionnelles et expériences.",
+        "elements_attendus": [
+          "Nom, fonction, missions et disponibilité de chaque membre de l'encadrement dédié (gérant et chefs d'équipe)",
+          "Désignation d'un remplaçant nominatif pour chaque membre de l'encadrement en cas d'absence (formation, congés, maladie)",
+          "Moyens de communication mis à disposition (téléphone, radio…)",
+          "CV ou fiche nominative de chaque membre : niveau d'étude, formation, qualifications professionnelles (carte professionnelle CNAPS à jour), expériences sur des prestations similaires"
+        ],
+        "exemple_reponse_forte": "L'agence XYZ dédie à ce marché M. Dupont (responsable d'exploitation, 12 ans d'expérience en gardiennage événementiel, carte pro CNAPS valide jusqu'en 2027) et deux chefs d'équipe (M. Martin et Mme Leclerc, tous deux qualifiés ADS). En cas d'absence de M. Dupont, M. Durand assure le remplacement dans les 2h. Tous sont joignables 24h/24 via téléphone portable dédié au marché.",
+        "source": "RC §7.2",
+        "unite_evaluation": "points",
+        "sous_criteres": []
+      },
+      {
+        "libelle": "SC2.2 – Organisation mise en place pour assurer la qualité des prestations et notamment pour garantir une continuité de service.",
+        "ponderation_pct": 30,
+        "description": "L'acheteur évalue l'organisation globale du titulaire pour garantir la qualité et la continuité du service : procédure de contrôle des agents, gestion des absences et imprévus, organisation de l'équipe pour se rendre sur site (réduction CO2), mesures en cas de non-respect des consignes, et toute disposition assurant la qualité des prestations.",
+        "elements_attendus": [
+          "Procédure de contrôle des agents par le personnel d'encadrement (fréquence, méthode, outil connecté de traçabilité des rondes)",
+          "Dispositif de gestion des absences et des événements imprévus (remplacement d'un agent absent dans quel délai, pool de remplacement disponible)",
+          "Organisation de l'équipe pour se rendre sur site avec réduction d'impact CO2 (covoiturage, véhicules verts…)",
+          "Mesures disciplinaires et correctives en cas de non-respect des consignes par les agents",
+          "Tout autre dispositif de qualité : cahier de liaison, main courante, tableau de bord de suivi, plan de prévention"
+        ],
+        "exemple_reponse_forte": "L'agence met en place un système de ronde tracée via badge NFC (outil certifié) permettant au chef d'équipe de vérifier en temps réel le passage des agents sur chaque chalet. En cas d'absence d'un agent, un pool de 5 agents suppléants disponibles sous 1h est mobilisé depuis l'agence locale (5 km du Cours Mirabeau). Le déplacement des agents s'effectue en covoiturage (2 véhicules hybrides), réduisant le CO2 de 40%. Un cahier de liaison numérique est tenu et transmis quotidiennement au service gestionnaire.",
+        "source": "RC §7.2",
+        "unite_evaluation": "points",
+        "sous_criteres": []
+      }
+    ],
+    "prix": {
+      "type_formule": "moins_disant",
+      "formule_explicite": "Note de l'offre = (Montant de l'offre la plus basse / Montant de l'offre à noter) × 45",
+      "source": "RC §7.2",
+      "elements_a_chiffrer": [
+        "Décomposition du prix global et forfaitaire (DPGF) pour les prestations de gardiennage du Cours Mirabeau",
+        "Bordereau des prix unitaires (BPU) pour les prestations à bons de commande (Place Villon)",
+        "Détail quantitatif estimatif (DQE)"
+      ]
+    },
+    "modalite_calcul_prix": "Note de l'offre = (Montant de l'offre la plus basse / Montant de l'offre à noter) × 45. L'analyse est effectuée sur la base des montants totaux en € TTC indiqués à la DPGF et au DQE."
+  },
+  "montant_marche": {
+    "valeur_estimee_euros": 31500,
+    "fourchette_min_euros": null,
+    "fourchette_max_euros": null,
+    "type": "estime_explicite",
+    "duree_couverte": "Durée totale estimée (3 ans, période initiale 1 an + 2 reconductions)",
+    "source_extraction": "AAPC — Quantité ou étendue : 'Valeur estimée hors TVA : 31 500,00 €'",
+    "commentaire": "Montant HT total estimé sur la durée du marché (3 ans). Le montant maximum annuel pour la partie à bons de commande est de 10 500 € HT (AE Tableau 13). La DPGF constitue la part forfaitaire non chiffrée explicitement dans les pièces transmises."
+  },
+  "montant_3_voies": {
+    "voie_1_eur": 31500,
+    "voie_1_source": "AAPC — rubrique 'Quantité ou étendue' : 'Valeur estimée hors TVA : 31 500,00 €'",
+    "voie_2_disponible": false,
+    "voie_2_min_eur": null,
+    "voie_2_max_eur": null,
+    "voie_2_hypotheses": [],
+    "voie_2_raison_indisponible": "Voie 1 disponible : montant publié explicitement dans l'AAPC (31 500 € HT). Voie 2 non nécessaire."
+  },
+  "cout_realisation": {
+    "cout_total_eur": 25000,
+    "cout_min_eur": 21000,
+    "cout_max_eur": 28500,
+    "postes": [
+      {
+        "poste": "Main d'œuvre agents ADS — Cours Mirabeau (part forfaitaire DPGF)",
+        "detail": "4 nuits × 1 agent × 12h + 1 nuit × 2 agents × 12h + 35 nuits × 2 agents × 12h + 15 nuits × 2 agents × 10,5h = environ 1 005 heures agent. Taux chargé estimé : 17-20 €/h (secteur sécurité privée, conventions collectives)",
+        "montant_eur": 17500
+      },
+      {
+        "poste": "Main d'œuvre agent cynophile — Place Villon (part bons de commande)",
+        "detail": "Environ 20 nuits × 1 agent cynophile × 12h = 240h. Taux chargé estimé agent cynophile : 22-26 €/h",
+        "montant_eur": 5500
+      },
+      {
+        "poste": "Encadrement et frais de gestion",
+        "detail": "Chef d'équipe dédié, déplacements, téléphonie, outil connecté de traçabilité des rondes",
+        "montant_eur": 2000
+      }
+    ],
+    "taux_journaliers_retenus": "Agent ADS (taux horaire chargé) : 17-20 €/h ; Agent cynophile (taux horaire chargé) : 22-26 €/h. Ces taux sont des estimations marché indicatifs selon les conventions collectives de la sécurité privée (IDCC 1351), charges patronales incluses.",
+    "commentaire": "Estimation du coût de production annuel (période initiale). La fourchette résulte de la variation du taux horaire chargé (dimension la plus incertaine) avec les volumes fixés par le CCTP. Le volume total estimé est d'environ 1 245 heures sur la période initiale (55 nuits Cours Mirabeau + 20 nuits Place Villon). Avec 31 500 € sur 3 ans, soit ~10 500 €/an de revenu, la marge paraît très serrée : à vérifier impérativement avec le BPU/DPGF pour ne pas déposer une offre déficitaire."
+  },
+  "revision_prix": {
+    "type": "indexation",
+    "indices_utilises": [
+      "010766395 — Indices des prix de production des services français aux entreprises françaises – Services de sécurité (INSEE)"
+    ],
+    "ponderation": "15% partie fixe + 85% indexée sur l'indice Services de sécurité INSEE (code 0107663955)",
+    "periodicite": "annuelle",
+    "formule_revision": "Cn = 15,0% + 85,0% × (010766395(n) / 010766395(o))",
+    "source_extraction": "CCAP article 4.2",
+    "commentaire": "Formule mixte favorable au candidat en période d'inflation des coûts salariaux dans la sécurité privée. La part fixe (15%) limite le risque de déflation. L'indice INSEE Services de sécurité est bien adapté au secteur."
+  },
+  "alertes_prix": [
+    "Le montant total estimé sur 3 ans est de 31 500 € HT (soit ~10 500 €/an), ce qui est très bas pour des prestations de gardiennage nocturne quotidien — risque élevé d'offre anormalement basse si le candidat ne couvre pas ses charges salariales.",
+    "Le montant maximum annuel pour la partie à bons de commande est fixé à 10 500 € HT (AE) : ce plafond ne peut pas être dépassé, ce qui contraint la flexibilité sur les prestations Place Villon.",
+    "La pondération du critère prix est de 45% sur 100 : très élevée pour un marché de gardiennage, ce qui incite à proposer un prix bas au risque d'une OAB.",
+    "L'analyse prix porte sur les montants TTC DPGF + DQE : toute erreur de calcul dans ces documents (notamment les quantités de nuits, de dimanches, de nuits de vendredis/samedis à tarif différent) peut fausser le classement — relire attentivement le tableau du CCTP article 8."
+  ],
+  "references_exigees": {
+    "experience_minimale_annees": 3,
+    "experience_source": "RC §5.1",
+    "volume_min_references_similaires": null,
+    "volume_min_references_unite": "marchés similaires",
+    "secteur_experience": "Prestations de gardiennage et surveillance de site, notamment pour des manifestations ou événements en espace public",
+    "secteur_source": "RC §5.1",
+    "certifications_obligatoires": [
+      {
+        "libelle": "Autorisation d'exercer une activité de sécurité privée délivrée par le Conseil National des Activités Privées de Sécurité (CNAPS), ou preuve de dépôt de la demande d'autorisation pour les entreprises nouvellement créées",
+        "codes": [],
+        "bloquante": true,
+        "source": "RC §5.1"
+      }
+    ],
+    "autres_exigences": [
+      {
+        "libelle": "Déclaration concernant le chiffre d'affaires global et le chiffre d'affaires concernant les prestations objet du contrat, réalisées au cours des trois derniers exercices disponibles",
+        "source": "RC §5.1"
+      },
+      {
+        "libelle": "Liste des principales prestations de gardiennage effectuées au cours des trois dernières années, indiquant le montant, la date et le destinataire, prouvées par des attestations du destinataire ou à défaut par une déclaration du candidat",
+        "source": "RC §5.1"
+      }
+    ]
+  },
+  "dossier_candidature": {
+    "pieces_a_fournir": [
+      {
+        "libelle": "Déclaration sur l'honneur pour justifier que le candidat n'entre dans aucun des cas d'interdiction de soumissionner",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §5.1"
+      },
+      {
+        "libelle": "Déclaration concernant le chiffre d'affaires global et le chiffre d'affaires concernant les prestations objet du contrat, réalisées au cours des trois derniers exercices disponibles",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §5.1"
+      },
+      {
+        "libelle": "Liste des principales prestations effectuées au cours des trois dernières années, indiquant le montant, la date et le destinataire, prouvées par des attestations du destinataire ou à défaut par une déclaration du candidat",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §5.1"
+      },
+      {
+        "libelle": "Copie de l'autorisation d'exercer une activité de sécurité privée délivrée par le CNAPS, ou preuve de dépôt de la demande d'autorisation pour les entreprises nouvellement créées",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §5.1"
+      },
+      {
+        "libelle": "Formulaire DC1 (lettre de candidature) — optionnel si utilisation du DUME",
+        "phase": "candidature",
+        "obligatoire": false,
+        "source": "RC §5.1"
+      },
+      {
+        "libelle": "Formulaire DC2 (déclaration du candidat) — optionnel si utilisation du DUME",
+        "phase": "candidature",
+        "obligatoire": false,
+        "source": "RC §5.1"
+      },
+      {
+        "libelle": "Acte d'engagement (AE) et ses annexes",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §5.1"
+      },
+      {
+        "libelle": "Décomposition du prix global et forfaitaire (DPGF)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §5.1"
+      },
+      {
+        "libelle": "Bordereau des prix unitaires (BPU)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §5.1"
+      },
+      {
+        "libelle": "Détail quantitatif estimatif (DQE)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §5.1"
+      },
+      {
+        "libelle": "Trame de réponse permettant de juger le critère de la valeur technique (cadre de réponse)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §5.1"
+      }
+    ],
+    "mode_remise": "dématérialisé",
+    "plateforme_depot": "AWS — http://www.aixenprovence.fr/Consulter-Repondre-a-une-consultation",
+    "signature_electronique_exigee": false,
+    "format_signature": null,
+    "nombre_exemplaires": null,
+    "langue": "français",
+    "duree_validite_offres_jours": 180,
+    "modalites_source": "RC §6.1"
+  },
+  "lots": [],
+  "tranches": [],
+  "calendrier": {
+    "date_limite_offres": "2026-07-13",
+    "date_demarrage_prevue": "2026-11-08",
+    "duree_marche": "1 an reconductible 2 fois (durée maximale 3 ans)"
+  },
+  "alertes_candidat": [
+    "L'autorisation CNAPS est exigée à peine d'irrecevabilité de la candidature : toute entreprise ne disposant pas de l'autorisation d'exercice (ou d'une preuve de demande en cours) sera éliminée.",
+    "La transmission des offres est obligatoirement dématérialisée sur la plateforme AWS (http://www.aixenprovence.fr/Consulter-Repondre-a-une-consultation) — aucune remise papier n'est autorisée sous peine d'irrégularité.",
+    "Des pénalités sévères sont prévues : 1 000 €/manquement pour absence d'un agent lors d'une vacation, 1 000 € pour non-mise en place du système informatisé de traçabilité des rondes, 200 €/jour pour véhicule stationné sur le Cours Mirabeau — à intégrer dans la gestion opérationnelle.",
+    "Le marché impose la mise en place d'un système connecté permettant de justifier les rondes régulières (CCTP art. 4) : l'absence de cet outil expose à une pénalité de 1 000 € et peut dégrader la note technique.",
+    "Le montant annuel estimé (~10 500 €) est extrêmement bas au regard des charges de main d'œuvre nocturne : vérifier impérativement que la DPGF couvre le coût réel des prestations avant soumission pour éviter une offre déficitaire ou anormalement basse."
+  ],
+  "points_differenciants_attendus": [
+    {
+      "libelle": "Système connecté de traçabilité des rondes (NFC/badge/GPS)",
+      "exemple": "Présenter un outil connecté nommé et opérationnel (ex : solution NFC avec tableau de bord temps réel accessible à la ville), avec preuve d'utilisation sur des marchés comparables, pour répondre directement à l'exigence du CCTP art. 4 et se démarquer sur le SC2.2.",
+      "source": "CCTP art. 4"
+    },
+    {
+      "libelle": "Équipe d'encadrement dédiée avec remplaçant nominatif pour chaque poste",
+      "exemple": "Fournir une fiche nominative pour le gérant ET chaque chef d'équipe avec leur remplaçant désigné nominativement, leurs horaires de disponibilité et leurs coordonnées directes — l'acheteur attend une réponse très précise sur ce point (SC2.1 pondéré à 25 pts).",
+      "source": "RC §7.2 — SC2.1"
+    },
+    {
+      "libelle": "Gestion documentée de la continuité de service (pool de remplacement local)",
+      "exemple": "Démontrer l'existence d'un pool d'agents ADS disponibles sous 1h dans un périmètre proche d'Aix-en-Provence, avec un organigramme de remplacement et un protocole d'activation en cas d'absence — point décisif du SC2.2 pondéré à 30 pts.",
+      "source": "RC §7.2 — SC2.2"
+    },
+    {
+      "libelle": "Démarche éco-responsable pour les déplacements des agents sur site",
+      "exemple": "Préciser l'organisation du transport des agents (covoiturage, véhicule électrique/hybride, calcul de l'empreinte CO2 évitée) : ce sous-critère est explicitement cité dans le RC et peut faire la différence sur le SC2.2.",
+      "source": "RC §7.2 — SC2.2"
+    }
+  ],
+  "_meta": {
+    "id_marche": "BOAMP-26-56857",
+    "type": "complet",
+    "date_generation": "2026-06-19T23:50:45.607294+00:00",
+    "extraction_le": "2026-06-19T23:50:45.607294+00:00",
+    "modele": "claude-sonnet-4-6",
+    "preset_utilise": null,
+    "presets_matches": [],
+    "prompts_versions": {},
+    "tokens_input": 55968,
+    "tokens_output": 6070,
+    "cout_eur": 0.246,
+    "duree_sec": 112.3,
+    "pdfs_traites": [
+      {
+        "nom": "AE.docx",
+        "hash": "1ead949b6562d899f9b14585c8d1ab6b",
+        "taille_chars": 13773
+      },
+      {
+        "nom": "AWS-MPI-1832989-RC.pdf",
+        "hash": "5dcb7843c11eac46e6dfec649849bc61",
+        "taille_chars": 33624
+      },
+      {
+        "nom": "BPU.xlsx",
+        "hash": "accd4e57d31bc3bbd90608097c30e34c",
+        "taille_chars": 799
+      },
+      {
+        "nom": "CCAP.pdf",
+        "hash": "3e6835653587255d883474afe07e3dca",
+        "taille_chars": 45640
+      },
+      {
+        "nom": "CCTP.pdf",
+        "hash": "e28b5098f4881ccd365d05b4b75a3f6b",
+        "taille_chars": 18748
+      },
+      {
+        "nom": "DPGF.xlsx",
+        "hash": "2897ce77cc8cf68b653ce7f2105bfaad",
+        "taille_chars": 823
+      },
+      {
+        "nom": "DQE.xlsx",
+        "hash": "8c7931a359128f4bd9fb7cd83f836797",
+        "taille_chars": 1223
+      },
+      {
+        "nom": "MPI1832989_AAPC.pdf",
+        "hash": "faef1de91e1e0cfb94b16079af4a0fe9",
+        "taille_chars": 4658
+      }
+    ]
+  }
+}

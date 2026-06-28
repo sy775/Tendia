@@ -1,0 +1,65 @@
+{
+  "id": "demo_it",
+  "_description": "PROFIL FICTIF (batch validation Sprint B). NovaServ IT — ESN de proximité spécialisée infogérance et support de proximité, Île-de-France. Sert UNIQUEMENT à tester la génération de mémoire technique. Données représentatives mais non réelles.",
+  "_creation": "2026-06-21T00:00:00.000000+00:00",
+  "_version_schema": "1.0",
+  "_fictif": true,
+  "identite": {
+    "raison_sociale": "NovaServ IT",
+    "forme_juridique": "SAS",
+    "siren": "823456789",
+    "siret_siege": "82345678900017",
+    "naf_principal": "6202A",
+    "effectif_salaries": 120,
+    "annee_creation": 2011,
+    "tva_intracom": "FR55823456789",
+    "adresse_siege": {
+      "rue": "8 avenue de l'Innovation",
+      "code_postal": "92000",
+      "ville": "Nanterre",
+      "departement": "92"
+    },
+    "site_web": "https://exemple-novaserv.fr",
+    "contact_AO": {
+      "nom": "",
+      "fonction": "Directrice des opérations",
+      "email": "marches@exemple-novaserv.fr",
+      "telephone": "01 47 00 00 00"
+    }
+  },
+  "zones_intervention": ["75", "92", "93", "94", "78", "95", "91"],
+  "capacite_globale": {
+    "ca_annuel_n_moins_1": 16800000,
+    "ca_annuel_n_moins_2": 15100000,
+    "ca_annuel_n_moins_3": 13400000,
+    "fonds_propres": 5600000,
+    "effectif_total_etp": 120,
+    "capacite_engagement_simultane": 8000000,
+    "seuil_minimum_marche_eur": 30000
+  },
+  "economie": {
+    "marge_brute_cible_pct": 20,
+    "taux_journalier_moyen_eur": 520,
+    "frais_de_structure_pct": 19,
+    "agressivite_commerciale": "neutre"
+  },
+  "mots_cles_catalogue": [
+    "infogérance", "support de proximité", "service desk", "ITIL", "supervision",
+    "maintenance préventive", "parc informatique", "ticketing", "SLA", "MCO"
+  ],
+  "presets_couverts": ["it"],
+  "profils_sectoriels": {
+    "it": {
+      "certifications": ["ISO 27001 (SI interne)", "ISO 9001", "ITIL v4 (équipe encadrante)"],
+      "domaines": ["infogérance de proximité", "service desk", "MCO poste de travail", "supervision réseau"],
+      "outils": ["outil ITSM conforme ITIL (ticketing, CMDB)", "supervision centralisée", "prise en main à distance sécurisée"],
+      "engagements_sla": "Modèle de SLA paramétrable (GTI/GTR par criticité) — à adapter au CCTP",
+      "ressources_humaines": "Pool de techniciens de proximité + Service Desk N1/N2 mutualisé"
+    }
+  },
+  "references_chantiers": [
+    "Infogérance de proximité d'un établissement public (~1 200 postes, 2021-2024)",
+    "Service desk mutualisé pour une collectivité (~800 utilisateurs, depuis 2022)"
+  ],
+  "_notes_fictif": "CV nominatifs des techniciens dédiés, plan d'assurance qualité projet daté, références contactables : volontairement non renseignés pour exercer les [À COMPLÉTER]."
+}

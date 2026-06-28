@@ -1,5 +1,5 @@
 {
-  "synthese_marche": "La CPAM du Doubs lance un marché de travaux à procédure adaptée pour le remplacement de 155 ventilo-convecteurs amiantés dans le bâtiment D de son site de Besançon (9 niveaux), comprenant le désamiantage (sous-section 4), l'installation de nouveaux équipements avec régulation centralisée BACnet, et les travaux de plâtrerie-peinture annexes. Les travaux se déroulent en site occupé, organisés niveau par niveau, avec une exigence forte de qualification SS4 pour le lot chauffage.",
+  "synthese_marche": "La CPAM du Doubs lance un marché de travaux alloti en 2 lots pour le remplacement de 155 ventilo-convecteurs (dont désamiantage) et les travaux de plâtrerie/peinture annexes dans le bâtiment D (9 niveaux) de son site de Besançon. Les travaux se déroulent en site occupé avec co-activité, délai global de 12 mois, avec présence d'amiante confirmée (isolants thermiques cartonnés des ventilo-convecteurs) nécessitant une intervention SS4. Le lot 1 (Chauffage) comprend le désamiantage, le remplacement des ventilo-convecteurs, les reprises hydrauliques, l'électricité et la régulation ; le lot 2 (Plâtrerie-Peinture) couvre le rhabillage des caissons et les finitions murales.",
   "domaines_metier": [
     {
       "code": "btp_second_oeuvre",
@@ -13,56 +13,57 @@
       "code": "btp_demolition",
       "poids": 0.3,
       "lots_concernes": [
-        "Lot 1 Chauffage - désamiantage"
+        "Lot 1 Chauffage — désamiantage"
       ]
     }
   ],
-  "raison_classification": "Le marché porte principalement sur du second œuvre (remplacement de ventilo-convecteurs, régulation CVC, plâtrerie, peinture) dans un bâtiment tertiaire existant occupé. Une part significative du lot 1 relève du désamiantage (sous-section 4, isolants thermiques cartonnés amiantés sur 155 appareils), ce qui justifie un second domaine 'btp_demolition' pour la composante désamiantage/déconstruction réglementée.",
+  "raison_classification": "Le marché porte essentiellement sur des travaux de second œuvre (remplacement d'équipements CVC, plâtrerie, peinture) dans un bâtiment de bureaux existant. Le lot 1 inclut une prestation de désamiantage (retrait d'isolants amiantés des ventilo-convecteurs) qui relève du domaine btp_demolition avec une pondération significative (~30%) justifiant un second domaine. Les travaux d'ingénierie (BET VIALA) sont la MOE mais le marché consulté est celui des entreprises exécutantes.",
   "caracteristiques_techniques_chantier": {
-    "description": "Remplacement de 155 ventilo-convecteurs (type SABIANA CARISMA CRC-ECM) sur 9 niveaux du bâtiment D de la CPAM du Doubs à Besançon. Les appareils existants contiennent de l'amiante (isolants thermiques cartonnés confirmés par RAAT SOCOTEC du 17/04/2026). Les travaux incluent : désamiantage sous-section 4, dépose/évacuation des anciens équipements, installation des nouveaux VC avec vannes auto-équilibrantes, régulation centralisée BACnet MS/TP raccordable à la future GTB, reprises hydrauliques sur réseaux acier noir et cuivre pré-isolé, nouveaux tableaux électriques par niveau, habillage des caissons en plaque de plâtre haute densité avec isolation laine de roche 120mm, peinture murs complets (toile de verre + peinture satinée) sur 1364 m².",
-    "typologie_ouvrage": "Immeuble de bureaux tertiaire (CPAM), bâtiment D de R+0 à R+9, classement ERP W 5ème catégorie pour le RDC",
-    "surface_volume": "1364 m² de surfaces murales peintes (lot 2), 223 m² d'habillage caissons, 9 niveaux",
-    "site_occupe": "true — travaux en site occupé, le personnel CPAM poursuit son activité dans les étages supérieurs et inférieurs à la zone en travaux ; travaux organisés niveau par niveau avec délocalisation du personnel de l'étage concerné ; horaires 7h-19h ; nuisances acoustiques à limiter, percements bruyants avant 8h30 ou après 17h",
+    "description": "Remplacement de 155 ventilo-convecteurs amiantés dans le bâtiment D (9 niveaux : RDC, R+1, R+3 à R+9) de la CPAM du Doubs. Travaux comprenant : désamiantage (SS4) et évacuation des ventilo-convecteurs contenant de l'amiante (isolants cartonnés), pose de nouveaux ventilo-convecteurs SABIANA CARISMA avec régulation BACnet, reprises hydrauliques (tubes acier et cuivre), vannes d'équilibrage, régulation centralisée GTB-compatible, tableaux électriques, habillage des caissons en plaque de plâtre avec isolation laine de roche 120mm, toile de verre et peinture sur l'ensemble des murs concernés.",
+    "typologie_ouvrage": "Bâtiment de bureaux (ERP rez-de-chaussée, classement W 5e catégorie), immeuble de grande hauteur (9 niveaux)",
+    "surface_volume": "Environ 1364 m² de surfaces murales traitées (toile de verre + peinture), 223 m² d'habillage caissons",
+    "site_occupe": "true — travaux en site occupé avec co-activité : le personnel CPAM continue à travailler dans les étages supérieurs et inférieurs à l'étage en travaux ; travaux organisés par niveau ; nuisances sonores à limiter, opérations bruyantes réservées 7h-8h30 ou après 17h",
     "corps_etat": [
-      "Chauffage / CVC (ventilo-convecteurs, robinetteries, calorifuge, équilibrage hydraulique)",
-      "Électricité / régulation (tableaux de protection, BACnet MS/TP, routeurs, thermostats, câblage)",
-      "Désamiantage sous-section 4 (dépose, conditionnement, évacuation en ISDD classe 1)",
-      "Plâtrerie (habillage caissons en Placoplatre haute densité, ossature acier galvanisé, trappes d'accès)",
-      "Peinture (toile de verre + peinture satinée alkyde sur murs, peinture acrylique sur plinthes)"
+      "Chauffage / CVC",
+      "Désamiantage (SS4)",
+      "Électricité / Régulation GTB",
+      "Plâtrerie",
+      "Peinture"
     ],
     "contraintes_specifiques": [
-      "Présence d'amiante confirmée sur isolants thermiques cartonnés des VC : sous-section 4 obligatoire, qualification Qualibat 1512 et/ou 1513 exigée",
-      "Site occupé : co-activité permanente avec le personnel CPAM sur les étages adjacents",
-      "Phasage niveau par niveau (10 phases dont 2 au R+4), contrainte de flux tendu pour les approvisionnements",
+      "Présence d'amiante confirmée dans les isolants thermiques cartonnés des 155 ventilo-convecteurs — intervention SS4 obligatoire",
+      "Site occupé avec co-activité entre niveaux",
       "Bâtiment sous contrôle d'accès (badge requis)",
-      "Visite obligatoire avant remise d'offre (dates fixées : 12 et 16 juin 2026)",
-      "Raccordement future GTB BACnet IP requis : routeurs et régulateurs préinstallés en usine par SABIANA",
-      "Déchets amiantés à tracer sur trackdéchets, élimination en ISDD classe 1",
-      "Rapport plomb avant travaux (SOCOTEC) : radiateurs et murs béton brut — résultats non renseignés dans les tableaux fournis (à prendre en compte)"
+      "Phasage par niveau (9 zones) avec deux phases au R+4",
+      "Stockage et stationnement limités sur site — approvisionnement en flux tendu",
+      "Monte-charge disponible pour accès aux étages",
+      "Horaires d'ouverture bâtiment 7h-19h",
+      "Présence de plomb constaté à l'analyse (rapport SOCOTEC) sur certains radiateurs — gestion de déchets correspondante",
+      "Travaux préparatoires : classeur de documentation technique à valider avant commandes"
     ]
   },
   "allotissement": {
-    "description": "Marché alloti en 2 lots séparés. Le lot 1 est techniquement spécifique (désamiantage SS4) et peut être soumissionné seul.",
+    "description": "Marché alloti en 2 lots séparés. Le lot 1 est techniquement spécifique (désamiantage SS4) et peut être soumissionné indépendamment.",
     "nb_lots": 2,
     "lots_detailles": [
       {
         "numero": 1,
         "intitule": "Chauffage",
-        "corps_etat": "CVC, électricité/régulation, désamiantage",
+        "corps_etat": "Chauffage / CVC / désamiantage / électricité-régulation",
         "montant_estime": null,
-        "description": "Désamiantage et remplacement des 155 ventilo-convecteurs sur 9 niveaux, comprenant reprises hydrauliques, robinetteries, calorifuge, nouveaux tableaux électriques, système de régulation BACnet MS/TP avec routeurs, liaisons bus, thermostats d'ambiance"
+        "description": "Désamiantage et retrait des 155 ventilo-convecteurs amiantés (SS4), fourniture et pose de nouveaux ventilo-convecteurs SABIANA CARISMA avec régulateurs SAUTER BACnet, reprises hydrauliques (tubes acier noir et cuivre recuit pré-isolé), robinetteries, vannes d'équilibrage et de régulation auto-équilibrantes, calorifuge, nouveaux tableaux électriques (9 niveaux), armoires spécifiques GTB (3 baies), liaisons régulation, bus BACnet MS/TP et IP, routeurs, mise en service."
       },
       {
         "numero": 2,
         "intitule": "Plâtrerie – Peinture",
-        "corps_etat": "Plâtrerie, peinture",
+        "corps_etat": "Plâtrerie / peinture / second œuvre",
         "montant_estime": null,
-        "description": "Habillage des caissons VC en Placoplatre HD avec isolation 120mm et trappes d'accès, dépose toile de verre existante, toile de verre + peinture satinée sur 1364 m² de murs, peinture plinthes 505 ml, protections et nettoyages"
+        "description": "Protections provisoires et du mobilier, habillage des caissons des ventilo-convecteurs en plaque de plâtre haute densité sur ossature acier galvanisé avec isolation laine de roche 120mm, trappes d'accès 40×40cm (155u), toile de verre + peinture satinée sur 1364 m² de murs, peinture plinthes (505 ml), nettoyage fin de chantier et second nettoyage des sols par zone."
       }
     ]
   },
   "qualifications_requises": {
-    "description": "Qualification SS4 obligatoire pour le lot 1 (désamiantage). Qualibat 1512 et/ou 1513 exigés selon nature de l'amiante (non friable et/ou friable).",
+    "description": "Qualifications SS4 obligatoires pour le lot 1. Qualibat 1512 et/ou 1513 exigés selon la nature de l'amiante (non friable et/ou friable). Attestations de compétence SS4 du personnel requises à la remise de l'offre.",
     "qualibat": [
       "1512",
       "1513"
@@ -73,172 +74,337 @@
     "iso_9001": false,
     "iso_14001": false,
     "iso_45001": false,
-    "opqibi": false,
+    "opqibi": null,
     "autres_certifications": [
-      "Formation SS4 (sous-section 4 du Code du travail) obligatoire pour tout le personnel intervenant du lot 1",
-      "Habilitation électrique requise pour les prestations électriques du lot 1"
+      "Habilitation SS4 (sous-section 4 du Code du travail) pour le personnel d'encadrement et d'exécution du lot 1",
+      "Personnel qualifié disposant d'habilitation électrique adaptée pour les prestations électriques du lot 1"
     ]
+  },
+  "caracteristiques_mission_moe": {
+    "typologie": null,
+    "phases_couvertes": [],
+    "typologie_ouvrage": null,
+    "montant_travaux_estime": null,
+    "complexite_technique": null,
+    "livrables_par_phase": [],
+    "taux_remuneration_moe_pct": null,
+    "indices_revision": [],
+    "coordinations_associees": [],
+    "organigramme_attendu": [],
+    "bim_niveau": null
+  },
+  "qualifications_moe": {
+    "opqibi": [],
+    "opqcm": [],
+    "bim": null,
+    "autres": []
+  },
+  "caracteristiques_techniques_enr": {
+    "description": null,
+    "technologies_concernees": [],
+    "type_de_sites": null,
+    "criteres_eligibilite": [],
+    "contraintes_site_signalees": []
+  },
+  "volumes_techniques": {
+    "puissance_totale_kwc": null,
+    "puissance_par_site_kwc": null,
+    "nb_sites": null,
+    "surface_panneaux_m2": null,
+    "productible_annuel_estime_mwh": null,
+    "duree_marche_mois": 12,
+    "duree_maintenance_om_annees": null,
+    "commentaire_volumes": "155 ventilo-convecteurs à remplacer sur 9 niveaux (RDC, R+1, R+3 à R+9), répartis en 136 × CRC-ECM 23MV + 14 × CRC-ECM 24MV + 4 × CRC-ECM 43MV + 1 × CRC-ECM 44MV. Surface murs traitée : 1364 m² (vide pour plein). 223 m² d'habillage caissons. 505 ml de plinthes à peindre."
+  },
+  "modalites_execution_chantier": {
+    "raccordement_reseau_inclus": null,
+    "etudes_techniques_incluses": true,
+    "calendrier_chantier_contraint": "Travaux en site occupé, opérations bruyantes autorisées 7h-8h30 ou après 17h uniquement ; phasage obligatoire par niveau ; objectif achèvement 19 juin 2027 (11 mois de travaux effectifs dans le délai de 12 mois)",
+    "sites_execution": [
+      "Besançon (25000)"
+    ],
+    "engagement_productible": null,
+    "engagement_disponibilite_om": null
+  },
+  "qualifications_enr": {
+    "qualipv": false,
+    "qualisol": false,
+    "qualipac": false,
+    "qualibois": false,
+    "autres_certifications": []
   },
   "bareme_notation": {
     "valeur_technique_pct": 60,
     "valeur_prix_pct": 40,
     "sous_criteres_techniques": [
       {
-        "libelle": "Dispositions arrêtées par l'entreprise pour garantir la qualité des prestations et le respect des délais",
-        "ponderation_pct": 32,
-        "description": "L'acheteur évalue la méthodologie d'organisation des travaux par niveau, le respect du programme d'exécution et les mesures de protection des espaces de bureaux et de réduction des nuisances.",
-        "elements_attendus": [
-          "Description détaillée de la méthodologie de réalisation par niveau avec enchaînement des tâches (désamiantage → CVC → électricité → plâtrerie → peinture)",
-          "Planning d'intervention par niveau avec durées et interfaces entre lots",
-          "Mesures de protection des espaces de bureaux adjacents (cloisons étanches, films polyane, gestion des poussières)",
-          "Mesures de réduction des nuisances sonores (programmation des percements avant 8h30 ou après 17h)",
-          "Organisation logistique flux tendu pour les approvisionnements et évacuations",
-          "Gestion de la co-activité avec le personnel CPAM maintenu en service sur les autres niveaux"
-        ],
-        "exemple_reponse_forte": "Notre équipe interviendra niveau par niveau selon le phasage validé avec l'OPC, avec une semaine de préparation par niveau incluant la mise en place des protections étanches. Les travaux bruyants (carottages, percements) seront planifiés exclusivement entre 7h et 8h30 ou après 17h00 pour limiter les nuisances sur les niveaux adjacents occupés. Un dispositif de cloisonnement étanche par soufflet polyane avec bourrelets sera installé dès J-1 de chaque phase.",
-        "source": "RC article 8 / Critère n°2 sous-critère n°1",
-        "sous_criteres": [
-          {
-            "libelle": "Méthodologie envisagée pour la réalisation des prescriptions décrites au marché au vu des particularités de l'organisation des travaux par niveau",
-            "ponderation_pct": 12,
-            "description": "Évaluation de la pertinence et de la précision de la méthodologie d'organisation des travaux par niveau, en tenant compte des contraintes du site occupé.",
-            "elements_attendus": [
-              "Phasage détaillé niveau par niveau avec enchaînement clair des corps d'état",
-              "Description du processus de désamiantage SS4 intégré dans le phasage",
-              "Mesures de confinement et de protection lors des phases de désamiantage",
-              "Organisation de la base de vie par niveau"
-            ],
-            "exemple_reponse_forte": "Pour chaque niveau, notre méthodologie prévoit : J1-J3 installation des protections et confinement SS4 pour dépose VC ; J4-J7 pose des nouveaux VC et reprises hydrauliques ; J8-J10 travaux électriques et régulation ; J11-J14 plâtrerie caissons et peinture murs. Le confinement SS4 sera installé dès l'accès au niveau, avec sas de décontamination conforme au plan de retrait.",
-            "source": "RC article 8, sous-critère 1.1"
-          },
-          {
-            "libelle": "Indications sur le respect du programme d'exécution pour tenir les délais impartis",
-            "ponderation_pct": 15,
-            "description": "L'acheteur évalue la prévision des temps d'intervention et des interfaces d'exécution démontrant la capacité à tenir les 11 mois de délai global.",
-            "elements_attendus": [
-              "Planning Gantt détaillé par niveau avec durées réalistes et marges",
-              "Identification des interfaces critiques entre lot 1 et lot 2",
-              "Ressources affectées à chaque phase et leur disponibilité",
-              "Gestion des aléas (retard de livraison matériel, découverte amiante non cartographiée)"
-            ],
-            "exemple_reponse_forte": "Notre planning prévoit 5 semaines par tranche de 2 niveaux, avec une équipe CVC de 3 compagnons et 1 chef de chantier. Le lot 2 intervient en décalé J+7 du lot 1 sur chaque niveau. Nous avons prévu une réserve de 2 semaines sur le planning global pour absorber les aléas liés au désamiantage.",
-            "source": "RC article 8, sous-critère 1.2"
-          },
-          {
-            "libelle": "Mesures prévues pour assurer la protection des espaces de bureaux, l'hygiène, la sécurité et la réduction des nuisances de chantier",
-            "ponderation_pct": 5,
-            "description": "L'acheteur évalue les dispositions concrètes de protection du mobilier, des équipements informatiques, et de réduction des nuisances acoustiques et poussières pour le personnel CPAM occupant les niveaux adjacents.",
-            "elements_attendus": [
-              "Description des protections du mobilier (films polyane, cartons alvéolaires)",
-              "Dispositifs étanches aux poussières entre zone chantier et zones en service",
-              "Planification des travaux bruyants en dehors des heures de bureau",
-              "Procédure de nettoyage quotidien"
-            ],
-            "exemple_reponse_forte": "Chaque bureau sera protégé par bâches polyane 200 microns sur l'intégralité du mobilier avant tout démarrage. Une cloison étanche de type Plastipanel sera installée en partie centrale de la circulation. Un nettoyage par aspiration humide sera réalisé chaque soir avant restitution partielle du niveau.",
-            "source": "RC article 8, sous-critère 1.3"
-          }
-        ]
-      },
-      {
-        "libelle": "Qualité du matériel et des matériaux au travers des fiches techniques remises par le candidat",
-        "ponderation_pct": 8,
-        "description": "L'acheteur évalue la qualité des équipements proposés (ventilo-convecteurs, robinetteries, régulation) via les fiches techniques, documentations et notices fournies.",
-        "elements_attendus": [
-          "Fiches techniques complètes des ventilo-convecteurs proposés (SABIANA CARISMA ou équivalent) avec performances acoustiques et thermiques",
-          "Documentation sur les vannes auto-équilibrantes et régulateurs BACnet MS/TP",
-          "Fiches techniques des matériaux de plâtrerie (Placoplatre HD) et isolants (laine de roche 120mm)",
-          "Preuves d'équivalence si matériels alternatifs proposés"
-        ],
-        "exemple_reponse_forte": "Nous proposons les VC SABIANA CARISMA CRC-ECM tels que spécifiés, complétés par les fiches techniques certifiées constructeur démontrant les niveaux sonores 30-42 dB(A) et puissances thermiques conformes au CCTP. Les régulateurs SAUTER EY-RC311 et vannes VFL sont préinstallés en usine par SABIANA, avec PV de contrôle qualité usine joint.",
-        "source": "RC article 8, sous-critère n°2",
-        "sous_criteres": []
-      },
-      {
-        "libelle": "Moyens humains affectés spécifiquement à chaque tâche du chantier",
-        "ponderation_pct": 16,
-        "description": "L'acheteur évalue les moyens humains (nombre, qualifications, expériences) en regard des contraintes de l'opération et du délai imposé, ainsi que les références en site occupé.",
+        "libelle": "Valeur technique",
+        "ponderation_pct": 60,
+        "description": "Critère technique décomposé en 4 sous-critères : méthodologie/organisation/délais, qualité du matériel, moyens humains, et développement durable.",
         "elements_attendus": [],
         "exemple_reponse_forte": "—",
-        "source": "RC article 8, sous-critère n°3",
+        "source": "RC article 8 (§9.1 - Offres)",
+        "unite_evaluation": "points",
         "sous_criteres": [
           {
-            "libelle": "Moyens humains mis en place au regard de l'opération, de ses contraintes et du délai imposé",
-            "ponderation_pct": 9,
-            "description": "Nombre de personnes, liste nominative, qualifications et expériences affectées au chantier.",
+            "libelle": "Dispositions arrêtées par l'entreprise pour garantir la qualité des prestations à réaliser et le respect des délais d'exécution",
+            "ponderation_pct": 32,
+            "description": "Évaluation de la méthodologie pour l'organisation des travaux par niveau (12 pts), le respect du programme d'exécution et interfaces (15 pts), et les mesures de protection des espaces de bureaux, hygiène, sécurité, réduction des nuisances (5 pts).",
             "elements_attendus": [
-              "Liste nominative avec qualifications (habilitation électrique, SS4, etc.)",
-              "Effectif par phase (désamiantage, CVC, électricité, plâtrerie-peinture)",
-              "Adéquation effectif/planning pour tenir les délais de 11 mois",
-              "Attestations SS4 du personnel intervenant jointes à l'offre"
+              "Description détaillée de la méthodologie de réalisation par niveau en site occupé",
+              "Planning prévisionnel d'exécution avec interfaces entre les lots et les niveaux",
+              "Prévision des temps d'intervention niveau par niveau",
+              "Dispositifs de protection des espaces de travail adjacents (cloisons anti-poussière, confinement SS4)",
+              "Mesures de réduction des nuisances sonores (planification des opérations bruyantes en dehors des heures de bureau)",
+              "Protocole de gestion des risques de co-activité"
             ],
-            "exemple_reponse_forte": "L'équipe dédiée comprend : 1 chef de chantier (10 ans d'expérience CVC SS4), 2 plombiers-chauffagistes habilités SS4, 1 électricien habilité B2V, 1 technicien régulation BACnet. Les attestations de formation SS4 valides sont jointes en annexe pour chaque intervenant.",
-            "source": "RC article 8, sous-critère 3.1"
+            "exemple_reponse_forte": "Le candidat présente un planning Gantt par niveau détaillant les interfaces lot 1/lot 2, un protocole de confinement SS4 niveau par niveau avec phases de décontamination, et un tableau des interventions bruyantes planifiées avant 8h30 et après 17h pour chaque étage, avec engagement sur 2 semaines de présence par niveau.",
+            "source": "RC article 8 §9.1 Sous-critère n°1",
+            "unite_evaluation": "points",
+            "sous_criteres": [
+              {
+                "libelle": "Méthodologie envisagée pour la réalisation des prescriptions au vu des particularités de l'organisation des travaux par niveau",
+                "ponderation_pct": 12,
+                "description": "Appréciation de la pertinence et du détail de la méthodologie proposée pour réaliser les travaux niveau par niveau en site occupé.",
+                "elements_attendus": [
+                  "Méthode de travail par niveau (phasage, séquencement lot 1 → lot 2)",
+                  "Gestion du confinement SS4 par zone et par niveau",
+                  "Organisation des accès et du flux de matériaux (monte-charge)",
+                  "Protocole de protection du mobilier et des équipements informatiques en place"
+                ],
+                "exemple_reponse_forte": "Description du phasage niveau par niveau avec schéma d'organisation illustrant les zones de travail, zones de stockage temporaire et zones protégées, avec détail du confinement SS4 et de la procédure de décontamination avant démarrage des travaux de plâtrerie.",
+                "source": "RC §8 (9.1 offres) sous-critère 1.1",
+                "unite_evaluation": "points",
+                "sous_criteres": []
+              },
+              {
+                "libelle": "Indications sur le respect du programme d'exécution (prévision des temps d'intervention et interface d'exécution) pour tenir les délais impartis",
+                "ponderation_pct": 15,
+                "description": "Évaluation de la crédibilité du planning proposé, des interfaces entre corps d'état et du respect du délai global de 12 mois (objectif 19 juin 2027).",
+                "elements_attendus": [
+                  "Planning détaillé avec durée par niveau et par lot",
+                  "Identification des interfaces lot 1 / lot 2 et points de coordination",
+                  "Identification des chemins critiques",
+                  "Marge de sécurité intégrée au planning",
+                  "Engagement sur l'atteinte du délai de 12 mois"
+                ],
+                "exemple_reponse_forte": "Planning au format barres sur 11 mois montrant le phasage niveau par niveau (2 semaines par niveau pour le lot 1, 1 semaine de décalage pour le lot 2), avec identification des interfaces de coordination, périodes de remise en eau et tests de régulation, et buffer de 2 semaines avant réception.",
+                "source": "RC §8 (9.1 offres) sous-critère 1.2",
+                "unite_evaluation": "points",
+                "sous_criteres": []
+              },
+              {
+                "libelle": "Mesures prévues pour assurer la protection des espaces de bureaux, l'hygiène, la sécurité et la réduction des nuisances de chantier",
+                "ponderation_pct": 5,
+                "description": "Dispositions concrètes pour limiter les impacts sur les occupants des étages adjacents (bruit, poussières, circulation).",
+                "elements_attendus": [
+                  "Cloisons étanches à la poussière entre zone chantier et zones occupées",
+                  "Planning des opérations bruyantes en dehors des heures de bureau",
+                  "Protection du mobilier et des équipements informatiques",
+                  "Signalétique et balisage de chantier",
+                  "Procédure de nettoyage quotidien de la zone de travail"
+                ],
+                "exemple_reponse_forte": "Mise en place de cloisons en polyane armé calfeutré avec scotch double face sur les 4 faces de chaque zone de travail, tapis essuie-pieds à chaque accès, nettoyage humide quotidien, et engagement de planifier 100% des percements après 17h.",
+                "source": "RC §8 (9.1 offres) sous-critère 1.3",
+                "unite_evaluation": "points",
+                "sous_criteres": []
+              }
+            ]
           },
           {
-            "libelle": "Qualifications et expériences de l'équipe d'encadrement et organigramme du chantier",
+            "libelle": "La qualité du matériel et des matériaux au travers des fiches techniques remises par le candidat",
+            "ponderation_pct": 8,
+            "description": "Appréciation de la qualité des matériels proposés (ventilo-convecteurs, régulateurs, vannes, matériaux de plâtrerie) via les fiches techniques, documentations techniques, plans de détails, photos, notices et brochures.",
+            "elements_attendus": [
+              "Fiches techniques complètes des ventilo-convecteurs proposés (SABIANA CARISMA ou équivalent)",
+              "Documentation des régulateurs SAUTER EY-RC311 et thermostats EY-RU355 ou équivalents",
+              "Fiches techniques des vannes de régulation auto-équilibrantes",
+              "Documentation des matériaux de plâtrerie (plaque haute densité, isolant laine de roche 120mm)",
+              "Justification d'équivalence si matériel différent de celui préconisé au CCTP"
+            ],
+            "exemple_reponse_forte": "Fourniture des fiches techniques complètes des ventilo-convecteurs SABIANA CARISMA CRC-ECM avec courbes de puissance, acoustique et débit, accompagnées des fiches techniques des régulateurs BACnet MS/TP, des vannes SAUTER VFL et des plaques de plâtre haute densité avec ATec CSTB en cours de validité.",
+            "source": "RC §8 (9.1 offres) sous-critère n°2",
+            "unite_evaluation": "points",
+            "sous_criteres": []
+          },
+          {
+            "libelle": "Moyens humains affectés spécifiquement à chaque tâche du chantier (travaux et études)",
+            "ponderation_pct": 16,
+            "description": "Évaluation des moyens humains (nombre, qualifications, expériences) mis en place au regard des contraintes du chantier, de l'organigramme et des références en site occupé.",
+            "elements_attendus": [],
+            "exemple_reponse_forte": "—",
+            "source": "RC §8 (9.1 offres) sous-critère n°3",
+            "unite_evaluation": "points",
+            "sous_criteres": [
+              {
+                "libelle": "Les moyens humains (nombre, liste nominative, qualifications et expériences) mis en place au regard de l'opération et de ses contraintes, ainsi vis-à-vis du délai imposé",
+                "ponderation_pct": 9,
+                "description": "Liste nominative avec qualifications (habilitation SS4, habilitation électrique, formation amiante) et expériences du personnel dédié au chantier, en regard des 9 niveaux et du délai de 12 mois.",
+                "elements_attendus": [
+                  "Liste nominative du personnel avec qualifications et certifications SS4",
+                  "Attestations de formation SS4 du personnel d'exécution et d'encadrement",
+                  "Nombre d'intervenants par spécialité (désamiantage, CVC, électricité-régulation, plâtrerie, peinture)",
+                  "Adéquation entre les ressources et le phasage par niveau pour tenir le délai"
+                ],
+                "exemple_reponse_forte": "Tableau nominatif de 8 intervenants : 2 désamianteurs SS4 certifiés (attestations jointes), 2 techniciens CVC, 1 électricien habilité BE/HE, 1 technicien régulation BACnet, 2 plâtriers-peintres, avec CV synthétiques et planning de présence par niveau.",
+                "source": "RC §8 (9.1 offres) sous-critère 3.1",
+                "unite_evaluation": "points",
+                "sous_criteres": []
+              },
+              {
+                "libelle": "Les qualifications et expériences de l'équipe d'encadrement et l'organigramme du chantier (avec désignation d'un interlocuteur unique)",
+                "ponderation_pct": 4,
+                "description": "Présentation de l'organigramme du chantier avec désignation d'un conducteur de travaux unique et description de l'expérience de l'encadrement.",
+                "elements_attendus": [
+                  "Organigramme du chantier avec noms et rôles",
+                  "Désignation d'un interlocuteur unique (conducteur de travaux)",
+                  "CV du chef de chantier/conducteur de travaux avec expériences similaires"
+                ],
+                "exemple_reponse_forte": "Organigramme nommant M. X (conducteur de travaux, 10 ans d'expérience CVC en site occupé, certifié SS4 encadrement) comme interlocuteur unique, supervisant les sous-équipes désamiantage, CVC et second œuvre, avec planning de présence hebdomadaire sur site.",
+                "source": "RC §8 (9.1 offres) sous-critère 3.2",
+                "unite_evaluation": "points",
+                "sous_criteres": []
+              },
+              {
+                "libelle": "Les références chantier en site occupé pour des travaux similaires",
+                "ponderation_pct": 3,
+                "description": "Références de chantiers similaires réalisés en site occupé (remplacement de CVC avec désamiantage ou travaux de second œuvre en bâtiment de bureaux occupé).",
+                "elements_attendus": [
+                  "Au moins 2-3 références de travaux CVC/désamiantage en site occupé",
+                  "Indication du maître d'ouvrage, du montant et de la date pour chaque référence",
+                  "Mention des contraintes similaires rencontrées (site occupé, amiante, phasage)"
+                ],
+                "exemple_reponse_forte": "Fiche référence : remplacement de 120 ventilo-convecteurs amiantés en site occupé pour la Caisse d'Allocations Familiales du Bas-Rhin (2023, 350 k€ HT), avec désamiantage SS4, phasage par étage, coordination avec les occupants — contact maître d'ouvrage disponible.",
+                "source": "RC §8 (9.1 offres) sous-critère 3.3",
+                "unite_evaluation": "points",
+                "sous_criteres": []
+              }
+            ]
+          },
+          {
+            "libelle": "Implication en matière de développement durable dans le cadre de l'exécution du marché",
             "ponderation_pct": 4,
-            "description": "CV du chef de chantier et interlocuteur unique désigné, organigramme de direction de chantier.",
+            "description": "Évaluation des dispositions en matière de performance environnementale : organisation de la collecte des déchets, mesures de recyclage/valorisation/élimination des déchets de chantier et qualité environnementale des matériaux proposés.",
             "elements_attendus": [
-              "Organigramme nominatif avec désignation d'un interlocuteur unique",
-              "CV du chef de chantier et du responsable technique",
-              "Expérience de l'encadrement sur opérations similaires (désamiantage CVC, site occupé)"
+              "Procédure de tri sélectif des déchets de chantier (catégories : déchets amiantés, métaux, plâtre, emballages)",
+              "Traçabilité des déchets amiantés (bordereau de suivi, site trackdechets.fr)",
+              "Filières de recyclage/valorisation pour les déchets non amiantés",
+              "Mention de labels environnementaux des matériaux (PEFC, FSC pour bois ; éco-certifications)",
+              "Mesures de réduction de la consommation d'énergie du chantier"
             ],
-            "exemple_reponse_forte": "M. Dupont (chef de chantier désigné interlocuteur unique) dispose de 12 ans d'expérience en CVC tertiaire dont 6 opérations de désamiantage SS4 en site occupé. L'organigramme joint fait apparaître la ligne directe chef de chantier / BET VIALA / CPAM.",
-            "source": "RC article 8, sous-critère 3.2"
-          },
-          {
-            "libelle": "Références chantier en site occupé pour des travaux similaires",
-            "ponderation_pct": 3,
-            "description": "Références de chantiers similaires réalisés en site occupé (remplacement VC, désamiantage CVC tertiaire).",
-            "elements_attendus": [
-              "Au moins 2-3 références de remplacement de ventilo-convecteurs ou travaux CVC en site occupé",
-              "Mention du contexte amiante / désamiantage si applicable",
-              "Coordonnées du maître d'ouvrage pour vérification"
-            ],
-            "exemple_reponse_forte": "Référence 1 : Remplacement de 80 VC amiantés dans les locaux du Conseil Départemental du Jura (2023, 450 k€, site occupé, MOA : CD39). Référence 2 : Désamiantage et remplacement CVC EHPAD de Pontarlier (2022, 280 k€, SS4, site occupé résidents maintenus).",
-            "source": "RC article 8, sous-critère 3.3"
+            "exemple_reponse_forte": "Plan de gestion des déchets distinguant 4 flux : déchets amiantés (ISDD agréé avec bordereaux de suivi sur trackdechets.fr), métaux ferreux (recycleur agréé), plâtre (filière dédiée), emballages (benne tri). Tous les matériaux bois utilisés seront certifiés PEFC. Consommation électrique du chantier limitée par l'utilisation d'outillage basse consommation.",
+            "source": "RC §8 (9.1 offres) sous-critère n°4",
+            "unite_evaluation": "points",
+            "sous_criteres": []
           }
         ]
-      },
-      {
-        "libelle": "Implication en matière de développement durable dans le cadre de l'exécution du marché",
-        "ponderation_pct": 4,
-        "description": "L'acheteur évalue les dispositions environnementales : organisation de la collecte des déchets (dont déchets amiantés), mesures de recyclage/valorisation et qualité environnementale des matériaux proposés.",
-        "elements_attendus": [
-          "Organisation du tri sélectif et filières d'évacuation des déchets non dangereux",
-          "Procédure de traçabilité des déchets amiantés (trackdéchets, bordereau de suivi, ISDD classe 1)",
-          "Labels ou certifications environnementales des matériaux (PEFC, FSC, écolabels)",
-          "Mesures pour réduire les consommations énergétiques du chantier"
-        ],
-        "exemple_reponse_forte": "Les déchets amiantés seront tracés sur trackdéchets avec bordereau de suivi réglementaire vers l'ISDD agréé. Les déchets inertes et métaux seront orientés vers des filières de recyclage certifiées avec fourniture des PV de recyclage. Les plaques de plâtre proviennent d'un fabricant disposant d'une déclaration environnementale de type III.",
-        "source": "RC article 8, sous-critère n°4",
-        "sous_criteres": []
       }
     ],
     "prix": {
       "type_formule": "moins_disant",
       "formule_explicite": "Note du Prix = (Montant € HT de l'offre la plus basse / Montant € HT de l'offre examinée) × 40",
+      "source": "RC article 8 §9.1 (Offres) Critère n°1 Prix",
       "elements_a_chiffrer": [
-        "DPGF Lot 1 : Travaux préparatoires (divers, base de vie, clôture, désamiantage)",
-        "DPGF Lot 1 : Travaux de chauffage (vidange/remplissage, dépose, remplacement 155 VC, liaisons hydrauliques, calorifuge, robinetteries)",
-        "DPGF Lot 1 : Prestations électriques et régulation (thermostats, régulateurs, routeurs, tableaux, armoires spécifiques, liaisons bus)",
-        "DPGF Lot 1 : Mise au point, essais, DOE",
-        "DPGF Lot 2 : Travaux préparatoires (protections provisoires, protection mobilier, signalétique, dépose)",
-        "DPGF Lot 2 : Travaux de plâtrerie (habillage caissons 223 m², trappes d'accès 155 u)",
-        "DPGF Lot 2 : Travaux peinture (toile de verre + peinture 1364 m², peinture plinthes 505 ml)",
-        "DPGF Lot 2 : Nettoyages de mise en service"
+        "DPGF Lot 1 Chauffage — Travaux préparatoires (désamiantage, base de vie, clôture)",
+        "DPGF Lot 1 — Vidange et remplissage des installations de chauffage (10 ensembles)",
+        "DPGF Lot 1 — Déconnexion, dépose et évacuation des équipements non réutilisés",
+        "DPGF Lot 1 — Remplacement des 155 ventilo-convecteurs (136 × CRC-ECM 23MV + 14 × 24MV + 4 × 43MV + 1 × 44MV)",
+        "DPGF Lot 1 — Liaisons et reprises hydrauliques (tubes acier noir DN15 à DN40, tube cuivre recuit Cu14/16)",
+        "DPGF Lot 1 — Calorifuge des réseaux chauffage",
+        "DPGF Lot 1 — Robinetteries et accessoires (vannes, purgeurs, soupapes)",
+        "DPGF Lot 1 — Prestations électriques et régulation (tableaux, armoires, liaisons BACnet)",
+        "DPGF Lot 1 — Mise au point, essais, DOE",
+        "DPGF Lot 2 Plâtrerie-Peinture — Travaux préparatoires et protections (10 zones)",
+        "DPGF Lot 2 — Habillage caissons (223 m² isolation + 223 m² plaque de plâtre + 155 trappes)",
+        "DPGF Lot 2 — Toile de verre + peinture satinée (1364 m²)",
+        "DPGF Lot 2 — Peinture plinthes (505 ml)",
+        "DPGF Lot 2 — Nettoyages (10 zones × 2 passages)"
       ]
     },
     "modalite_calcul_prix": "Note du Prix = (Montant € HT de l'offre la plus basse / Montant € HT de l'offre examinée) × 40"
   },
   "montant_marche": {
     "valeur_estimee_euros": null,
-    "fourchette_min_euros": null,
-    "fourchette_max_euros": null,
-    "type": "non_communique",
-    "duree_couverte": "Délai global d'exécution de 12 mois (objectif achèvement travaux au 19 juin 2027)",
-    "source_extraction": null,
-    "commentaire": "Aucun montant estimatif ni plafond budgétaire n'est communiqué dans les pièces du DCE. Le tableau des pénalités du CCAP indique des tranches jusqu'à 1 500 000 € (pénalité 1/2500) pour le lot 1, suggérant un montant lot 1 supérieur à 450 000 €. Les DPGF ne contiennent pas de prix unitaires renseignés."
+    "fourchette_min_euros": 450000,
+    "fourchette_max_euros": 700000,
+    "type": "calcule_volumes",
+    "duree_couverte": "Travaux 12 mois (objectif achèvement juin 2027)",
+    "source_extraction": "DPGF Lot 1 et Lot 2 (volumes chiffrés) + ratios marché CVC/désamiantage/plâtrerie",
+    "commentaire": "Aucun montant estimé explicite publié. Estimation bottom-up : Lot 1 Chauffage = 155 ventilo-convecteurs à ~1500-1800 €/u pose comprise (≈ 230-280 k€) + désamiantage 155 VC en ISDD (~60-80 k€) + reprises hydrauliques + régulation + électricité (~80-120 k€) = 370-480 k€ HT. Lot 2 Plâtrerie-Peinture = 1364 m² toile de verre + peinture à ~40-50 €/m² (≈ 55-68 k€) + habillage caissons 223 m² à ~90-120 €/m² (≈ 20-27 k€) + nettoyages + protections (~15-25 k€) = 90-120 k€ HT. Total estimé 460-600 k€ HT pour les deux lots. Marché publié au BOAMP procédure européenne (seuil franchi). La clause d'ajustement permet au MOA de retirer un niveau complet."
+  },
+  "montant_3_voies": {
+    "voie_1_eur": null,
+    "voie_1_source": null,
+    "voie_2_disponible": true,
+    "voie_2_min_eur": 450000,
+    "voie_2_max_eur": 700000,
+    "voie_2_hypotheses": [
+      {
+        "hypothese": "155 ventilo-convecteurs fournis et posés (lot 1) : quantité fixée à 155 u ; ratio varié de 1500 à 1900 €/u pour la fourniture+pose hors désamiantage et régulation",
+        "valeur": "155 u × 1500-1900 €/u = 232 500 – 294 500 €"
+      },
+      {
+        "hypothese": "Désamiantage 155 VC en ISDD classe 1 (lot 1) : quantité fixée à 155 VC ; coût unitaire global varié 400-600 €/VC (conditionnement, transport, élimination ISDD)",
+        "valeur": "155 × 400-600 = 62 000 – 93 000 €"
+      },
+      {
+        "hypothese": "Reprises hydrauliques, robinetteries, régulation GTB, tableaux électriques (lot 1) : forfait estimé sur base des métrés DPGF (23-33 ml acier, 465 ml cuivre, 9 tableaux, 3 armoires, 9 routeurs, 155 régulateurs)",
+        "valeur": "Estimé 80 000 – 120 000 € (ratio marché CVC bâtiment tertiaire)"
+      },
+      {
+        "hypothese": "Lot 2 Plâtrerie-Peinture : 1364 m² toile de verre + peinture à 42-52 €/m² + 223 m² habillage caissons à 95-130 €/m² + 155 trappes à 80-120 €/u + nettoyages (10 zones × 2) + protections",
+        "valeur": "57 288-70 928 + 21 185-28 990 + 12 400-18 600 + ~15 000 = 106 000 – 138 000 €"
+      },
+      {
+        "hypothese": "Clause d'ajustement possible (retrait 1 niveau max) : impact ≈ -10% du montant total si appliquée",
+        "valeur": "Borne basse retient le risque de réduction de périmètre"
+      }
+    ],
+    "voie_2_raison_indisponible": null
+  },
+  "cout_realisation": {
+    "cout_total_eur": 390000,
+    "cout_min_eur": 330000,
+    "cout_max_eur": 490000,
+    "postes": [
+      {
+        "poste": "Lot 1 — Désamiantage (main d'œuvre SS4 + conditionnement + transport + élimination ISDD)",
+        "detail": "2 opérateurs SS4 × 40 jours × 350 €/j chargé + big bags/emballages + transport + droits décharge ISDD (estimé forfait ~45 k€ pour les déchets)",
+        "montant_eur": 73000
+      },
+      {
+        "poste": "Lot 1 — Fourniture et pose ventilo-convecteurs (main d'œuvre CVC)",
+        "detail": "155 VC × coût fourniture ~900 €/u (SABIANA CARISMA) = ~140 k€ fourniture + 3 techniciens CVC × 60 j × 400 €/j = 72 k€ pose = ~212 k€",
+        "montant_eur": 212000
+      },
+      {
+        "poste": "Lot 1 — Reprises hydrauliques, robinetteries, calorifuge",
+        "detail": "Fournitures (tubes, vannes, purgeurs, calorifuge) ~40 k€ + 2 plombiers × 30 j × 380 €/j = 22 k€",
+        "montant_eur": 62000
+      },
+      {
+        "poste": "Lot 1 — Électricité, régulation, tableaux, armoires GTB",
+        "detail": "Fournitures (9 tableaux, 3 armoires, 155 régulateurs, 9 routeurs, câblages) ~50 k€ + 2 électriciens-régulateurs × 30 j × 420 €/j = 25 k€",
+        "montant_eur": 75000
+      },
+      {
+        "poste": "Lot 2 — Plâtrerie (habillage caissons, ossature, isolation)",
+        "detail": "Fournitures (plaques, ossature, laine de roche, trappes) ~18 k€ + 2 plâtriers × 20 j × 350 €/j = 14 k€",
+        "montant_eur": 32000
+      },
+      {
+        "poste": "Lot 2 — Peinture (toile de verre + peinture satinée + plinthes)",
+        "detail": "Fournitures (toile de verre, peintures) ~12 k€ + 2 peintres × 25 j × 320 €/j = 16 k€",
+        "montant_eur": 28000
+      },
+      {
+        "poste": "Encadrement / coordination / frais généraux de chantier",
+        "detail": "1 conducteur de travaux × 50 j × 550 €/j + frais de chantier (base de vie, clôture, protections)",
+        "montant_eur": 35000
+      }
+    ],
+    "taux_journaliers_retenus": "Opérateur SS4/désamianteur : 350 €/j chargé ; technicien CVC : 400 €/j ; plombier : 380 €/j ; électricien-régulateur : 420 €/j ; plâtrier : 350 €/j ; peintre : 320 €/j ; conducteur de travaux : 550 €/j. Taux indicatifs marchés BTP Franche-Comté 2026.",
+    "commentaire": "Le coût de réalisation est estimé à partir des volumes du DPGF et des ratios marché BTP. La fourniture des ventilo-convecteurs SABIANA représente environ 36% du coût total. Le désamiantage (SS4 + ISDD) est le poste le plus variable selon le volume réel des déchets et les tarifs des transporteurs agréés. La marge brute attendue sur ce type de marché BTP est de 15-25% du chiffre d'affaires."
   },
   "revision_prix": {
     "type": "indexation",
@@ -247,138 +413,271 @@
       "BT47",
       "BT46"
     ],
-    "ponderation": "Lot 1 Chauffage : Z = 80% BT40 + 20% BT47 Électricité. Lot 2 Plâtrerie-Peinture : Z = 100% BT46. Formule générale : Pn = Po (0,15 + 0,85 × Z)",
+    "ponderation": "Lot 1 Chauffage : 80% BT40 + 20% BT47 Électricité. Lot 2 Plâtrerie-Peinture : 100% BT46. Partie fixe 15% pour tous les lots.",
     "periodicite": "mensuelle",
-    "formule_revision": "Pn = Po × (0,15 + 0,85 × Z) avec Z = a × (I/I0) + b × (I'/I'0). Lot 1 : Z = 0,80 × (BT40n/BT400) + 0,20 × (BT47n/BT470). Lot 2 : Z = 1,00 × (BT46n/BT460). Partie fixe 15%, partie variable 85%.",
-    "source_extraction": "CCAP article 6",
-    "commentaire": "Formule révisable mois par mois sur décomptes mensuels, favorable en période inflationniste pour le titulaire. La partie fixe de 15% limite le risque de hausse non couverte. Le mois zéro est la date limite de remise des offres (25 juin 2026)."
+    "formule_revision": "Pn = Po × (0,15 + 0,85 × Z) où Z = a×(I/Io) + b×(I'/I'o) ; Lot 1 : Z = 0,80×(BT40n/BT40o) + 0,20×(BT47n/BT47o) ; Lot 2 : Z = BT46n/BT46o",
+    "source_extraction": "CCAP article 6.1 et 6.5",
+    "commentaire": "Formule de révision mensuelle avec partie fixe 15% — protège partiellement le candidat contre l'inflation mais les indices BT (bâtiment) reflètent bien les coûts du secteur CVC/plâtrerie ; le coefficient est arrondi au millième."
   },
   "alertes_prix": [
-    "Aucun montant estimatif publié : impossible de se positionner sans visite et chiffrage complet — la visite obligatoire est indispensable pour quantifier les sujétions réelles",
-    "Le tableau des pénalités du CCAP (tranches jusqu'à 1 500 000 €) suggère un lot 1 de taille significative, mais sans confirmation chiffrée explicite",
-    "Le désamiantage (155 VC, 9 niveaux) représente un poste à risque élevé de sous-évaluation : coûts d'élimination ISDD classe 1, logistique flux tendu, bordereau trackdéchets obligatoire",
-    "Clause d'ajustement (CCAP art. 6.2) : le maître d'ouvrage peut réduire le périmètre d'un niveau complet maximum après analyse des offres — anticiper une variante de périmètre dans le chiffrage",
-    "Pondération prix 40% / technique 60% : offre modérément orientée prix, mais la formule moindre-disante pure sur 40 points favorise fortement l'offre la moins chère"
+    "Aucun montant estimé explicitement publié : le candidat ne peut pas calibrer son offre par rapport à un budget annoncé, risque d'offre anormalement basse ou hors enveloppe du MOA",
+    "Clause d'ajustement (CCAP art 6.2) : le MOA se réserve le droit de réduire le périmètre d'un niveau complet selon l'offre retenue — impact potentiel -10% sur le CA final",
+    "Pondération prix 40% élevée dans un marché avec contraintes SS4 et co-activité significatives : risque de pression à la baisse malgré la technicité requise",
+    "Le désamiantage est intégré dans le lot 1 comme prestation forfaitaire : le candidat supporte le risque de volume (les 155 VC sont estimatifs — le CCTP précise 155 appareils environ)"
   ],
   "references_exigees": {
-    "experience_minimale_annees": 5,
-    "experience_source": "RC article 6 (liste des travaux des 5 dernières années)",
+    "experience_minimale_annees": null,
+    "experience_source": null,
     "volume_min_references_similaires": null,
     "volume_min_references_unite": "marchés similaires",
-    "secteur_experience": "Travaux CVC (ventilo-convecteurs, chauffage tertiaire) et/ou désamiantage sous-section 4 en site occupé",
-    "secteur_source": "RC article 8 sous-critère 3.3 et CCTP Lot 1 §3.1.4",
+    "secteur_experience": "Travaux de remplacement de systèmes CVC (ventilo-convecteurs) et/ou désamiantage en bâtiment de bureaux occupé",
+    "secteur_source": "RC article 6 (Documents à produire pour la candidature)",
     "certifications_obligatoires": [
       {
-        "libelle": "Formation SS4 (sous-section 4 du Code du travail) — personnel d'encadrement et d'exécution formé, attestations à fournir à la remise de l'offre",
-        "source": "RC article 2.1 et CCAP article 1.3 et CCTP Lot 1 §3.1.4"
-      },
-      {
-        "libelle": "Qualibat 1512 — Traitement de l'amiante en place concernant les matériaux et produits à risques particuliers (amiante non friable)",
+        "libelle": "Qualification Qualibat 1512 — Traitement de l'amiante en place (matériaux et produits à risques particuliers — non friable)",
+        "codes": [
+          "1512"
+        ],
+        "bloquante": true,
         "source": "CCTP Lot 1 §3.1.4"
       },
       {
-        "libelle": "Qualibat 1513 — Traitement de l'amiante en place concernant les matériaux et produits friables (si amiante friable)",
+        "libelle": "Qualification Qualibat 1513 — Traitement de l'amiante en place (matériaux et produits friables)",
+        "codes": [
+          "1513"
+        ],
+        "bloquante": true,
         "source": "CCTP Lot 1 §3.1.4"
+      },
+      {
+        "libelle": "Attestations de formation amiante SS4 (sous-section 4 du Code du travail) pour le personnel d'encadrement et d'exécution du lot 1",
+        "codes": [],
+        "bloquante": true,
+        "source": "RC article 1.2 et CCAP article 1.3"
+      },
+      {
+        "libelle": "Attestation de visite obligatoire des lieux (délivrée lors des visites du 12 ou 16 juin 2026)",
+        "codes": [],
+        "bloquante": true,
+        "source": "RC article 2.5"
       }
     ],
     "autres_exigences": [
       {
-        "libelle": "Attestation de visite obligatoire des lieux (dates : 12 juin ou 16 juin 2026 à 8h30) — à joindre à l'offre",
-        "source": "RC article 2.5"
+        "libelle": "Présentation d'une liste des principaux travaux effectués au cours des cinq dernières années (montant, date, lieu d'exécution)",
+        "source": "RC article 6 (Documents candidature)"
       },
       {
-        "libelle": "Déclaration CA global et CA sur les prestations objet du marché sur les 3 derniers exercices",
-        "source": "RC article 6"
+        "libelle": "Déclaration concernant le chiffre d'affaires global et le chiffre d'affaires concernant les prestations objet du marché sur les trois derniers exercices disponibles",
+        "source": "RC article 6 (Documents candidature)"
       },
       {
-        "libelle": "Déclaration effectifs moyens annuels sur les 3 dernières années",
-        "source": "RC article 6"
+        "libelle": "Déclaration indiquant les effectifs moyens annuels et l'importance du personnel d'encadrement pour chacune des trois dernières années",
+        "source": "RC article 6 (Documents candidature)"
       },
       {
-        "libelle": "Attestations d'assurance RC professionnelle, RC décennale et dommages aux biens à produire dans les 10 jours suivant demande du MO si attributaire",
-        "source": "CCAP article 26"
+        "libelle": "Attestations d'assurance : RC professionnelle, RC décennale (art L241-1 code assurances), assurance dommages aux biens mobiliers",
+        "source": "CCAP article 26 + RC article 6"
       },
       {
-        "libelle": "Mode opératoire spécifique SS4 à remettre au MO et au CSPS avant démarrage des travaux du lot 1",
-        "source": "CCAP article 1.3 et CCTP Lot 1 §3.1.4"
+        "libelle": "Mode opératoire spécifique à l'intervention amiante SS4 (à remettre avec l'offre et au coordonnateur SPS avant démarrage)",
+        "source": "CCAP article 1.3"
       }
     ]
+  },
+  "dossier_candidature": {
+    "pieces_a_fournir": [
+      {
+        "libelle": "Formulaire DC1 (lettre de candidature) complété",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC article 6"
+      },
+      {
+        "libelle": "Formulaire DC2 (déclaration du candidat) complété",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC article 6"
+      },
+      {
+        "libelle": "Liste des principaux travaux des 5 dernières années (montant, date, lieu)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC article 6"
+      },
+      {
+        "libelle": "Déclaration chiffre d'affaires global et sectoriel sur 3 derniers exercices",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC article 6"
+      },
+      {
+        "libelle": "Déclaration effectifs moyens annuels et personnel d'encadrement (3 dernières années)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC article 6"
+      },
+      {
+        "libelle": "Certificats de qualifications professionnelles ou preuves équivalentes (dont Qualibat 1512/1513 pour le lot 1)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC article 6 + CCTP Lot 1 §3.1.4"
+      },
+      {
+        "libelle": "Attestations d'assurance professionnelle en cours de validité (RC professionnelle, RC décennale, assurance biens)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC article 6 + CCAP article 26"
+      },
+      {
+        "libelle": "Projet d'acte d'engagement / ATTRI1 complété",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC article 6 (Documents pour l'offre)"
+      },
+      {
+        "libelle": "Décomposition du prix global et forfaitaire (DPGF) complétée — une DPGF par lot soumissionné",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC article 6 (Documents pour l'offre)"
+      },
+      {
+        "libelle": "Cadre de réponses techniques dûment complété — un cadre par lot soumissionné",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC article 6 (Documents pour l'offre)"
+      },
+      {
+        "libelle": "Planning prévisionnel d'exécution accepté et signé",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC article 6 (Documents pour l'offre)"
+      },
+      {
+        "libelle": "Attestations de compétences SS4 (formation amiante sous-section 4) du personnel intervenant — lot 1 uniquement",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC article 6 (Documents pour l'offre) + CCAP article 1.3"
+      },
+      {
+        "libelle": "Attestation de visite des lieux obligatoire",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC article 2.5 et article 6"
+      },
+      {
+        "libelle": "Livret de sécurité du prestataire signé",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC article 6 (Documents pour l'offre)"
+      },
+      {
+        "libelle": "Relevé d'Identité Bancaire (RIB)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC article 6 (Documents pour l'offre)"
+      },
+      {
+        "libelle": "Formulaire DC4 (déclaration de sous-traitance) si sous-traitance envisagée",
+        "phase": "offre",
+        "obligatoire": false,
+        "source": "RC article 6 + article 2.1"
+      }
+    ],
+    "mode_remise": "dématérialisé",
+    "plateforme_depot": "PLACE — https://www.marches-publics.gouv.fr/entreprise",
+    "signature_electronique_exigee": false,
+    "format_signature": "Si signature : certificat conforme eIDAS ou RGS** (arrêté du 22 mars 2019). La signature n'est pas obligatoire au dépôt.",
+    "nombre_exemplaires": null,
+    "langue": "français",
+    "duree_validite_offres_jours": 120,
+    "modalites_source": "RC articles 7 et 2.2 + Annexes 1 et 2"
   },
   "lots": [
     {
       "numero": 1,
       "intitule": "Chauffage",
+      "domaine": "btp_second_oeuvre",
       "zone_geographique": "Besançon (25000)",
-      "volume_estime": 155,
-      "volume_estime_unite": "ventilo-convecteurs à remplacer",
-      "particularites": "Lot techniquement spécifique pouvant être soumissionné seul. Inclut le désamiantage SS4 obligatoire (isolants thermiques cartonnés amiantés sur les 155 VC, 9 niveaux RDC à R+9 sauf R+2). Régulation BACnet MS/TP préinstallée en usine par SABIANA. Indices de révision BT40 (80%) + BT47 (20%)."
+      "volume_estime": null,
+      "volume_estime_unite": null,
+      "cout_estime_min_eur": 290000,
+      "cout_estime_max_eur": 390000,
+      "particularites": "Lot techniquement spécifique SS4 : toute l'opération de désamiantage et retrait des 155 VC amiantés est comprise dans ce lot. Inclut également la fourniture et pose des nouveaux ventilo-convecteurs SABIANA CARISMA, les reprises hydrauliques, la régulation BACnet MS/TP compatible GTB future, les nouveaux tableaux électriques et armoires spécifiques. Qualification Qualibat 1512 et/ou 1513 obligatoire. Peut être soumissionné séparément. Indice de révision : BT40 (80%) + BT47 (20%)."
     },
     {
       "numero": 2,
       "intitule": "Plâtrerie – Peinture",
+      "domaine": "btp_second_oeuvre",
       "zone_geographique": "Besançon (25000)",
-      "volume_estime": 1364,
-      "volume_estime_unite": "m² de surfaces murales (toile de verre + peinture)",
-      "particularites": "Lot plâtrerie-peinture chef de file du compte prorata et responsable de l'organisation collective du chantier (CCAP art. 20.2). Habillage caissons 223 m², 155 trappes d'accès, 505 ml de plinthes. Second nettoyage des sols avant mise en service. Indice de révision BT46."
+      "volume_estime": null,
+      "volume_estime_unite": null,
+      "cout_estime_min_eur": 65000,
+      "cout_estime_max_eur": 100000,
+      "particularites": "L'entreprise du lot 2 est chargée de l'organisation collective du chantier (compte prorata, gestion dépenses communes, dispositifs de sécurité communs). Elle assure le second nettoyage des sols avant remise en service des locaux. Indice de révision : BT46. Travaux conditionnés à l'avancement du lot 1 (habillage caissons réalisé après pose des nouveaux VC)."
     }
   ],
+  "tranches": [],
   "calendrier": {
     "date_limite_offres": "2026-06-25",
     "date_demarrage_prevue": null,
-    "duree_marche": "12 mois d'exécution (objectif achèvement travaux 19 juin 2027) + période de garantie de parfait achèvement 1 an"
+    "duree_marche": "12 mois (travaux) — objectif achèvement 19 juin 2027"
   },
   "alertes_candidat": [
-    "VISITE OBLIGATOIRE — sans attestation de visite jointe à l'offre, la candidature sera irrecevable (2 dates imposées : 12 et 16 juin 2026 à 8h30, aucune date supplémentaire prévue)",
-    "ATTESTATIONS SS4 OBLIGATOIRES pour tout le personnel du lot 1 — à joindre à la remise de l'offre (pas uniquement à la notification) ; absence = rejet",
-    "QUALIFICATION QUALIBAT 1512 et/ou 1513 exigée à la remise de l'offre pour le lot 1 — vérifier que le certificat couvre bien la nature de l'amiante (non friable / friable selon RAAT)",
-    "PRÉSENCE AMIANTE CONFIRMÉE sur les 155 VC : le plan de retrait doit être remis avant l'ordre de service de démarrage du lot 1 — condition préalable impérative (CCAP art. 12)",
-    "RAPPORT AMIANTE SOCOTEC à lire impérativement avant chiffrage : isolants cartonnés amiantés sur R+9 à RDC sauf R+2 ; quelques appareils sans amiante identifiés (ZPSO-002*) — distinction à intégrer dans le mode opératoire",
-    "LOT 2 chef de file du compte prorata : charges supplémentaires d'organisation collective et de gestion des dépenses communes à anticiper dans l'offre"
+    "VISITE OBLIGATOIRE : sans l'attestation de visite délivrée lors des visites des 12 ou 16 juin 2026, l'offre sera rejetée (RC article 2.5) — délai très court, les dates sont fixes et non reportées",
+    "QUALIFICATION SS4 BLOQUANTE pour le lot 1 : les attestations de formation amiante sous-section 4 du personnel d'encadrement ET d'exécution doivent être remises avec l'offre — leur absence entraîne le rejet",
+    "QUALIBAT 1512 et/ou 1513 obligatoire pour le lot 1 : sans certificat de qualification Qualibat traitement amiante, la candidature au lot 1 est irrecevable (CCTP lot 1 §3.1.4)",
+    "DÉLAI DE RÉPONSE TRÈS COURT : publication le 9 juin 2026, date limite le 25 juin 2026 = 16 jours seulement pour préparer une offre technique complète avec visite, DPGF, cadre de réponses et planning",
+    "MODE OPÉRATOIRE SS4 à remettre avec l'offre ET préalablement à l'ordre de service de démarrage pour le lot 1 — sa non-fourniture bloque le démarrage des travaux"
   ],
   "points_differenciants_attendus": [
     {
-      "libelle": "Expérience prouvée en désamiantage CVC SS4 en site occupé",
-      "exemple": "Présenter 2-3 références récentes (< 5 ans) de remplacement de ventilo-convecteurs amiantés en bâtiment tertiaire occupé, avec mention du nombre d'appareils déposés, du contexte SS4 et des coordonnées MOA vérifiables. La rareté de cette combinaison (CVC + SS4 + site occupé) peut discriminer fortement.",
-      "source": "RC article 8, sous-critère 3.3"
+      "libelle": "Expérience en désamiantage SS4 de systèmes CVC en bâtiment de bureaux occupé",
+      "exemple": "Un candidat au lot 1 disposant de références de chantiers SS4 similaires (remplacement de ventilo-convecteurs amiantés en site occupé) se différenciera nettement sur les sous-critères 1.1 et 3.3. Joindre 2-3 fiches références avec photos, contacts MOA et description du contexte SS4 est décisif.",
+      "source": "RC §8 (9.1) sous-critères 1.1 et 3.3"
     },
     {
-      "libelle": "Planning détaillé avec interfaces lot 1 / lot 2 par niveau",
-      "exemple": "Proposer un planning Gantt niveau par niveau montrant clairement le décalage entre lot 1 (désamiantage + CVC) et lot 2 (plâtrerie + peinture), avec jalons de libération de chaque niveau. Ce point est noté sur 15 points et constitue le sous-critère le mieux pondéré.",
-      "source": "RC article 8, sous-critère 1.2"
+      "libelle": "Maîtrise technique de la régulation BACnet MS/TP et de la compatibilité GTB",
+      "exemple": "Le CCTP lot 1 exige un système communicant BACnet compatible avec la future GTB du site. Un candidat proposant un plan de communication GTB détaillé (routeurs SAUTER BAC-BMTRTR, architecture IP/MS-TP, paramétrage usine SABIANA) et justifiant d'une mise en service de ce type réalisée démontrera une valeur technique supérieure sur le sous-critère 2.",
+      "source": "CCTP Lot 1 §3.3"
     },
     {
-      "libelle": "Mode opératoire SS4 détaillé et conforme au RAAT SOCOTEC",
-      "exemple": "Produire dès l'offre un mode opératoire SS4 préliminaire référençant explicitement le RAAT SOCOTEC du 17/04/2026 (ZPSO 001 à 009), distinguant les VC amiantés des VC non amiantés (ZPSO-002*), avec procédure de conditionnement (1 VC/sac amiante, 4 VC/big bag) et filière ISDD classe 1 nommée.",
-      "source": "CCAP article 1.3, CCTP Lot 1 §3.1.4"
+      "libelle": "Planning détaillé et réaliste par niveau avec interfaces lot 1/lot 2",
+      "exemple": "Le sous-critère délais est le plus fortement noté (15 pts sur 60 pts techniques). Un candidat présentant un planning Gantt par niveau avec les durées propres à chaque phase (désamiantage, hydraulique, électricité, régulation, test), les interfaces avec le lot 2 et une marge de sécurité documentée marquera la différence face à un planning générique.",
+      "source": "RC §8 (9.1) sous-critère 1.2"
     },
     {
-      "libelle": "Maîtrise de la régulation BACnet MS/TP avec organisation de la préinstallation usine SABIANA",
-      "exemple": "Démontrer la capacité à coordonner la commande anticipée des régulateurs SAUTER EY-RC311 et vannes VFL pour installation en usine par SABIANA avant livraison chantier. Mentionner les délais de commande et le processus de validation avec le BET VIALA.",
-      "source": "CCTP Lot 1 §3.2.3 et §3.2.6.3"
+      "libelle": "Traçabilité des déchets amiantés sur trackdechets.fr et filières ISDD agréées",
+      "exemple": "Le CCTP impose le suivi sur trackdechets.fr. Un candidat mentionnant explicitement son accord-cadre avec un transporteur agréé ISDD classe 1 et sa procédure de remplissage des BSDA (bordereau de suivi des déchets amiantés) démontrera une maîtrise opérationnelle valorisée sur le critère développement durable.",
+      "source": "CCTP Lot 1 §3.1.4 + CCAP art 33.2"
     },
     {
-      "libelle": "Dispositions concrètes de protection du mobilier et de gestion des nuisances",
-      "exemple": "Décrire précisément les produits de protection (type, épaisseur des polyanes, cartons alvéolaires sur équipements informatiques), les horaires planifiés pour les travaux bruyants et le processus de nettoyage quotidien avec aspirateur HEPA — ces éléments sont évalués sur 5 points mais constituent un signal fort de professionnalisme.",
-      "source": "RC article 8, sous-critère 1.3 et CCAP article 20"
+      "libelle": "Encadrement dédié SS4 avec interlocuteur unique identifié",
+      "exemple": "Désigner nominativement un conducteur de travaux certifié SS4 encadrement comme interlocuteur unique, avec son CV et ses attestations jointes, répond précisément aux attentes du sous-critère 3.2 (4 pts) et renforce la crédibilité de l'ensemble de la réponse technique.",
+      "source": "RC §8 (9.1) sous-critère 3.2"
     }
   ],
   "_meta": {
     "id_marche": "BOAMP-26-56970",
     "type": "complet",
-    "date_generation": "2026-06-14T23:39:46.960345+00:00",
-    "extraction_le": "2026-06-14T23:39:46.960345+00:00",
+    "date_generation": "2026-06-20T00:33:02.658084+00:00",
+    "extraction_le": "2026-06-20T00:33:02.658084+00:00",
     "modele": "claude-sonnet-4-6",
     "preset_utilise": "btp",
     "presets_matches": [
-      "btp"
+      "btp",
+      "ingenierie",
+      "energie_renouvelable"
     ],
     "prompts_versions": {
-      "btp/_preset.json": "sha256:d1717e0d87f6c265"
+      "btp/_preset.json": "sha256:055bf6f8b2c1f771",
+      "ingenierie/_preset.json": "sha256:b924b32a088673d6",
+      "energie_renouvelable/_preset.json": "sha256:d5db6e4d3d386add"
     },
-    "tokens_input": 137739,
-    "tokens_output": 9296,
-    "cout_eur": 0.525,
-    "duree_sec": 175.5,
+    "tokens_input": 148674,
+    "tokens_output": 14065,
+    "cout_eur": 0.6241,
+    "duree_sec": 249.0,
     "pdfs_traites": [
       {
         "nom": "2602CGEDI_-_BI11440000002627_CPAM Doubs Remplacement ventilo-convecteurs Bat D_Plomb_Tvx_bati__17_04_2026.pdf",

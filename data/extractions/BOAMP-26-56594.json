@@ -1,66 +1,65 @@
 {
-  "synthese_marche": "Accord-cadre à bons de commande multi-attributaires (2 attributaires par lot) pour gros travaux et travaux d'entretien au Centre Hospitalier de Vichy, portant sur 2 lots : Lot 6 Plomberie–Sanitaire–CVC et Lot 7 Étanchéité–Couverture. Durée de 48 mois avec maximum annuel de 50 000 € HT (Lot 6) et 150 000 € HT (Lot 7). Les travaux s'exécutent en milieu hospitalier occupé avec des contraintes fortes de continuité de service.",
+  "synthese_marche": "Accord-cadre à bons de commande pour gros travaux d'investissement et travaux d'entretien du Centre Hospitalier de Vichy, portant sur deux lots : Lot 6 Plomberie–Sanitaire–CVC (max 50 000 € HT/an) et Lot 7 Étanchéité–Couverture (max 150 000 € HT/an). Chaque lot est attribué en cascade à 2 attributaires, sur une durée de 48 mois (jusqu'au 31/05/2030). Les travaux s'exécutent en milieu hospitalier occupé, impliquant des contraintes spécifiques de sécurité et de continuité de service.",
   "domaines_metier": [
     {
       "code": "btp_second_oeuvre",
       "poids": 0.6,
       "lots_concernes": [
-        "Lot 6 - Plomberie – Sanitaire – CVC"
+        "6"
       ]
     },
     {
       "code": "btp_renovation_rehabilitation",
       "poids": 0.4,
       "lots_concernes": [
-        "Lot 7 - Étanchéité – Couverture"
+        "7"
       ]
     }
   ],
-  "raison_classification": "Le Lot 6 couvre la plomberie, sanitaire et CVC (second œuvre fluides), et le Lot 7 couvre l'étanchéité et couverture (travaux d'enveloppe du bâtiment en milieu hospitalier existant). Les deux lots concernent de la maintenance/réhabilitation en bâtiment existant occupé, ce qui justifie un double classement second œuvre / réhabilitation.",
+  "raison_classification": "Le Lot 6 (Plomberie–Sanitaire–CVC) relève du second œuvre BTP (plomberie, sanitaires, chauffage, ventilation), tandis que le Lot 7 (Étanchéité–Couverture) relève plutôt de la réhabilitation/maintenance du bâti existant (étanchéité, couverture). Les deux lots constituent des travaux de maintenance et d'entretien d'un bâtiment hospitalier existant.",
   "caracteristiques_techniques_chantier": {
-    "description": "Travaux de plomberie sanitaire et CVC (dépose/repose appareils sanitaires, tuyauteries, robinetteries, radiateurs, ventilation, réseaux de gaines) et travaux d'étanchéité-couverture sur le patrimoine du Centre Hospitalier de Vichy. Interventions à la demande via bons de commande en milieu hospitalier en activité.",
-    "typologie_ouvrage": "Établissement hospitalier (Centre Hospitalier de Vichy)",
+    "description": "Travaux d'entretien et de gros œuvre technique sur le patrimoine bâti du Centre Hospitalier de Vichy : interventions de plomberie sanitaire, CVC (chauffage, ventilation, climatisation), étanchéité et couverture. Les interventions sont déclenchées par bons de commande au fil de l'eau sur une durée de 4 ans.",
+    "typologie_ouvrage": "Établissement de santé (hôpital) en activité — bâtiments hospitaliers occupés",
     "surface_volume": null,
-    "site_occupe": "true — bâtiment hospitalier en activité, nécessitant des mesures particulières contre le bruit, les poussières et les perturbations des réseaux énergétiques, ainsi que la continuité de fonctionnement des services hospitaliers",
+    "site_occupe": "true — site hospitalier en activité permanente, continuité du fonctionnement des services hospitaliers requise, lutte contre nuisances (bruit, poussières, perturbations énergies)",
     "corps_etat": [
-      "Plomberie sanitaire",
-      "CVC (chauffage, ventilation, climatisation)",
+      "Plomberie – Sanitaire",
+      "CVC (Chauffage, Ventilation, Climatisation)",
       "Étanchéité",
       "Couverture"
     ],
     "contraintes_specifiques": [
-      "Milieu hospitalier occupé : lutte contre bruit, poussières, perturbations des énergies",
-      "Continuité de fonctionnement des services hospitaliers obligatoire",
-      "Interventions de jour (90%) et de nuit (10%) avec tarification différenciée",
-      "Délai d'urgence : intervention sous 48h après réception du bon de commande",
-      "Présence de canalisations, conduites et câbles de toutes natures",
-      "Plan de prévention obligatoire",
-      "Gestion des déchets de chantier à la charge du titulaire",
-      "Nettoyage quotidien de l'aire de travail obligatoire sous peine de pénalité"
+      "Milieu hospitalier occupé en permanence — continuité de service impérative",
+      "Travaux de nuit possibles (tarification jour/nuit dans le DQE, répartition 90%/10%)",
+      "Délais d'intervention très courts : 48h pour prise de contact, 2 semaines max pour démarrage",
+      "Intervention en urgence possible (dépannage sous 48h)",
+      "Respect plan de prévention hospitalier 2026",
+      "Accès restreint à certaines zones (blocs, services de soins)",
+      "Gestion des déchets de chantier en milieu sensible"
     ]
   },
   "allotissement": {
-    "description": "2 lots relancés suite à une première procédure déclarée sans suite pour motif d'intérêt général. Chaque lot est attribué en cascade à 2 attributaires.",
+    "description": "Marché décomposé en 2 lots, chacun attribué en cascade à 2 attributaires. L'attributaire classé 1er reçoit les bons de commande en priorité jusqu'à son maximum annuel, puis l'attributaire classé 2ème prend le relai.",
     "nb_lots": 2,
     "lots_detailles": [
       {
         "numero": 6,
         "intitule": "Plomberie – Sanitaire – CVC",
-        "corps_etat": "Plomberie, sanitaire, CVC",
-        "montant_estime": 200000,
-        "description": "Travaux de plomberie, sanitaire et climatisation/ventilation/chauffage : dépose et repose d'appareils sanitaires, remplacement de robinetteries et mitigeurs, pose de tuyauteries cuivre/acier/PVC, évacuations, radiateurs, réseaux de gaines de ventilation. Maximum annuel 50 000 € HT (25 000 € par attributaire)."
+        "corps_etat": "Plomberie, sanitaire, chauffage, ventilation, climatisation",
+        "montant_estime": 50000,
+        "description": "Dépose et repose d'appareils sanitaires, remplacement robinetteries et mitigeurs, tuyauteries (cuivre, acier, PVC, PEHD, fonte), évacuations, appareillages, chauffage (radiateurs, robinets thermostatiques), ventilation (réseaux de gaines, registres, cassettes), carottages. Maximum 50 000 € HT/an (25 000 € par attributaire)."
       },
       {
         "numero": 7,
         "intitule": "Étanchéité – Couverture",
         "corps_etat": "Étanchéité, couverture",
-        "montant_estime": 600000,
-        "description": "Travaux d'étanchéité et couverture. Maximum annuel 150 000 € HT (100 000 € pour l'attributaire 1, 50 000 € pour l'attributaire 2)."
+        "montant_estime": 150000,
+        "description": "Travaux d'étanchéité et de couverture sur le patrimoine hospitalier. Maximum 150 000 € HT/an (100 000 € attributaire 1, 50 000 € attributaire 2)."
       }
     ]
   },
   "qualifications_requises": {
-    "description": "Aucune qualification Qualibat spécifique explicitement exigée dans le RC. Attestation d'assurance décennale requise pour l'attributaire provisoire.",
+    "description": "Le RC ne précise pas de qualifications Qualibat obligatoires à l'admission. Les candidats doivent justifier de leurs capacités professionnelles et techniques via références, effectifs et matériel.",
     "qualibat": [],
     "rge": false,
     "rge_specialites": [],
@@ -69,9 +68,7 @@
     "iso_14001": false,
     "iso_45001": false,
     "opqibi": null,
-    "autres_certifications": [
-      "Attestation d'assurance décennale"
-    ]
+    "autres_certifications": []
   },
   "caracteristiques_mission_moe": {
     "typologie": null,
@@ -81,14 +78,8 @@
     "complexite_technique": null,
     "livrables_par_phase": [],
     "taux_remuneration_moe_pct": null,
-    "indices_revision": [
-      "BT38",
-      "BT53"
-    ],
-    "coordinations_associees": [
-      "OPC précisé à chaque bon de commande",
-      "SPS désigné par le maître d'ouvrage — à la charge du PA"
-    ],
+    "indices_revision": [],
+    "coordinations_associees": [],
     "organigramme_attendu": [],
     "bim_niveau": null
   },
@@ -105,67 +96,108 @@
       {
         "libelle": "Qualité des matériels",
         "ponderation_pct": 20,
-        "description": "Évaluation de la qualité des matériels et équipements proposés par le candidat pour l'exécution des prestations.",
+        "description": "Évaluation de la qualité des matériels proposés par le candidat pour l'exécution des prestations.",
         "elements_attendus": [
-          "Fiches techniques des matériels proposés",
-          "Conformité aux normes en vigueur et aux DTU applicables",
-          "Qualité des matériaux (marques, certifications produits)",
-          "Traçabilité des produits et matériaux mise en œuvre"
+          "Fiches techniques des matériaux/équipements proposés",
+          "Conformité aux normes en vigueur (DTU, NF, CE)",
+          "Qualité et durabilité des produits (marques, certifications produits)",
+          "Adéquation des matériels au contexte hospitalier (hygiènes, résistance)"
         ],
-        "exemple_reponse_forte": "Le candidat présente des fiches techniques détaillées pour les principales familles de matériels (robinetteries certifiées NF, tuyauteries cuivre conformes NF EN 1057, appareils sanitaires labellisés), accompagnées d'une procédure de traçabilité des approvisionnements conforme à la demande du CCAP. Les marques proposées sont reconnues dans le milieu hospitalier et correspondent aux standards du CHV.",
-        "source": "RC art 8.2",
+        "exemple_reponse_forte": "Le candidat présente des fiches techniques détaillées pour chaque famille de produit (robinetterie, tuyauteries, appareils sanitaires), en justifiant le choix de marques reconnues (ex: Watts, Grundfos, Geberit) conformes aux DTU applicables et aux exigences d'hygiène hospitalière. Il indique les certifications produits (NF, ACS pour les canalisations eau potable).",
+        "source": "RC §8.2",
+        "unite_evaluation": "points",
         "sous_criteres": []
       },
       {
         "libelle": "Délai moyen entre la passation de la commande et son exécution de l'intervention",
         "ponderation_pct": 20,
-        "description": "Évaluation de la réactivité du candidat entre réception du bon de commande et début d'exécution de l'intervention, en situation normale et en urgence.",
+        "description": "Évaluation du délai moyen proposé par le candidat entre la réception du bon de commande et le démarrage effectif des travaux.",
         "elements_attendus": [
-          "Délai d'intervention en situation normale (≤ 2 semaines selon CCAP)",
-          "Délai d'intervention en cas d'urgence (≤ 48h selon CCAP)",
-          "Organisation logistique permettant de respecter ces délais",
-          "Disponibilité d'une permanence 24h/24 pour les urgences",
-          "Stock de matériaux courants pour réduire les délais d'approvisionnement"
+          "Délai d'intervention en jours calendaires clairement indiqué",
+          "Organisation logistique permettant le respect des délais (stock local, proximité géographique)",
+          "Procédure de gestion des urgences (dépannage sous 48h)",
+          "Planning type de mobilisation des équipes"
         ],
-        "exemple_reponse_forte": "Le candidat s'engage sur un délai d'intervention standard de 5 jours ouvrés après réception du bon de commande grâce à un stock local de matériaux courants et une équipe dédiée au CHV. En situation d'urgence, une astreinte 24h/24 7j/7 est mise en place, permettant une intervention sous 24h. Un planning de disponibilité mensuel est communiqué au CHV.",
-        "source": "RC art 8.2",
+        "exemple_reponse_forte": "Le candidat propose un délai moyen d'intervention de 5 jours calendaires après réception du bon de commande pour les travaux courants, avec une astreinte 24h/24 permettant une mobilisation en 48h pour les urgences. Il justifie cette performance par une implantation locale à Vichy et un stock tampon de consommables courants.",
+        "source": "RC §8.2",
+        "unite_evaluation": "delai_jours",
         "sous_criteres": []
       },
       {
         "libelle": "Qualité du processus du traitement des déchets",
         "ponderation_pct": 5,
-        "description": "Critère de développement durable évaluant le processus de gestion et de traitement des déchets de chantier mis en place par le candidat.",
+        "description": "Évaluation de la démarche environnementale du candidat, notamment le processus de gestion et de traitement des déchets de chantier.",
         "elements_attendus": [
-          "Description du processus de tri et de collecte des déchets sur chantier",
-          "Filières d'élimination/valorisation identifiées pour chaque type de déchet",
-          "Documents de traçabilité des déchets (bordereaux de suivi)",
-          "Objectifs de valorisation en pourcentage"
+          "Description du tri sélectif des déchets sur chantier (gravats, métaux, plastiques, déchets dangereux)",
+          "Identification des filières d'élimination/valorisation agréées",
+          "Traçabilité des déchets (bordereaux de suivi)",
+          "Engagements sur le taux de valorisation"
         ],
-        "exemple_reponse_forte": "Le candidat présente une procédure de gestion des déchets intégrant le tri à la source (déchets inertes, métaux, PVC, déchets dangereux), avec des filières de valorisation identifiées auprès de prestataires agréés locaux. Des bordereaux de suivi de déchets sont systématiquement établis et remis au CHV. Le candidat vise un taux de valorisation ≥ 70% des déchets produits.",
-        "source": "RC art 2.4 et art 8.2",
+        "exemple_reponse_forte": "Le candidat présente un schéma de tri à la source avec identification des catégories de déchets générés (métaux ferreux/non ferreux, PVC, plâtre, DEEE), les filières de valorisation retenues (centres agréés), et un engagement de traçabilité par bordereau de suivi des déchets (BSD). Il précise un taux de valorisation cible de 90%.",
+        "source": "RC §8.2",
+        "unite_evaluation": "points",
         "sous_criteres": []
       }
     ],
     "prix": {
       "type_formule": "moins_disant",
-      "formule_explicite": "Note prix = (MD / PO) × 55, où MD = Prix HT de l'offre la moins disante et PO = Prix HT de l'offre considérée",
+      "formule_explicite": "Note prix = (MD / PO) × 55, où MD = prix HT de l'offre la moins disante, PO = prix HT de l'offre considérée",
+      "source": "RC §8.2",
       "elements_a_chiffrer": [
-        "Prix unitaires du BPU Lot 6 (plomberie, sanitaire, CVC) — avec distinction tarif jour/nuit",
-        "Prix unitaires du BPU Lot 7 (étanchéité, couverture) — avec distinction tarif jour/nuit",
-        "DQE Lot 6 (détail quantitatif estimatif avec quantités fournies)",
-        "DQE Lot 7 (détail quantitatif estimatif avec quantités fournies)"
+        "Prix unitaires du BPU Lot 6 (plomberie, sanitaires, CVC) — prix jour et prix nuit",
+        "Prix unitaires du BPU Lot 7 (étanchéité, couverture) — prix jour et prix nuit",
+        "DQE Lot 6 complété avec les prix unitaires (base 90% jour / 10% nuit)",
+        "Main d'œuvre horaire (article 7-115-01)"
       ]
     },
-    "modalite_calcul_prix": "Note prix = (MD / PO) × 55, MD = prix HT de l'offre la moins disante, PO = prix HT de l'offre considérée"
+    "modalite_calcul_prix": "Note prix = (offre la moins disante / offre considérée) × 55"
   },
   "montant_marche": {
-    "valeur_estimee_euros": 800000,
-    "fourchette_min_euros": null,
+    "valeur_estimee_euros": null,
+    "fourchette_min_euros": 200000,
     "fourchette_max_euros": 800000,
     "type": "plafond",
     "duree_couverte": "48 mois (4 ans)",
-    "source_extraction": "RC art 1.4 et CCAP art 1.3 — maximums annuels par lot et par attributaire",
-    "commentaire": "Calcul : Lot 6 max annuel 50 000 € × 4 ans = 200 000 € + Lot 7 max annuel 150 000 € × 4 ans = 600 000 €. Total plafond toutes durées confondues = 800 000 € HT. Ces maximums concernent le cumul des 2 attributaires par lot."
+    "source_extraction": "AE tableau lot 6 et 7 — RC §1.4",
+    "commentaire": "Maximum annuel Lot 6 : 50 000 € HT, Lot 7 : 150 000 € HT, soit 200 000 € HT/an pour les deux lots. Sur 4 ans, le plafond total cumulé est de 800 000 € HT. Le montant réel dépend des commandes effectivement émises, qui ne sont pas garanties. La valeur minimum n'est pas contractuellement définie (pas de minimum garanti)."
+  },
+  "montant_3_voies": {
+    "voie_1_eur": 800000,
+    "voie_1_source": "AE tableau lots 6 et 7 : maximum annuel Lot 6 = 50 000 €, Lot 7 = 150 000 €, durée 48 mois — RC §1.4",
+    "voie_2_disponible": false,
+    "voie_2_min_eur": null,
+    "voie_2_max_eur": null,
+    "voie_2_hypotheses": [],
+    "voie_2_raison_indisponible": "La Voie 1 (montant publié — plafond total 800 000 € HT sur 4 ans) est disponible, donc la Voie 2 n'est pas calculée."
+  },
+  "cout_realisation": {
+    "cout_total_eur": 150000,
+    "cout_min_eur": 120000,
+    "cout_max_eur": 180000,
+    "postes": [
+      {
+        "poste": "Lot 6 — Main d'œuvre plombier/chauffagiste (coût annuel à taux de charge ~60%)",
+        "detail": "Estimé à 600 h/an × 45 €/h chargé = 27 000 €/an × 4 ans : mais ratio sur CA, coût de réalisation estimé à ~55-60% du CA pour ce type de lot",
+        "montant_eur": 110000
+      },
+      {
+        "poste": "Lot 7 — Main d'œuvre couvreur/étancheur (coût annuel à taux de charge ~60%)",
+        "detail": "Estimé sur la base d'un taux de charges main d'œuvre + fournitures de ~55-60% du CA annuel lot 7 (150 000 €/an × 4 ans)",
+        "montant_eur": 360000
+      },
+      {
+        "poste": "Fournitures et matériaux (lot 6 + lot 7)",
+        "detail": "Part matériaux estimée à ~30% du CA total pour les deux lots",
+        "montant_eur": 240000
+      },
+      {
+        "poste": "Encadrement et frais généraux",
+        "detail": "Estimation frais de structure, déplacements, gestion administrative",
+        "montant_eur": 90000
+      }
+    ],
+    "taux_journaliers_retenus": "Plombier/chauffagiste : 35-50 €/h chargé ; couvreur-étancheur : 40-55 €/h chargé — taux marché indicatifs secteur BTP Auvergne. Part matériaux : ~25-35% du CA selon nature des travaux.",
+    "commentaire": "Estimation très approximative car le volume réel des bons de commande n'est pas contractuellement garanti. Le coût de réalisation total (candidat qui obtient les deux lots sur 4 ans, aux plafonds max) est estimé à 600 000–720 000 € pour un CA plafond de 800 000 €, soit une marge brute indicative de 10-25%. En pratique, la marge réelle dépend du niveau d'utilisation de l'accord-cadre et de la gestion logistique en milieu hospitalier."
   },
   "revision_prix": {
     "type": "indexation",
@@ -173,116 +205,209 @@
       "BT38",
       "BT53"
     ],
-    "ponderation": "Lot 6 : 15% fixe + 85% BT38 ; Lot 7 : 15% fixe + 85% BT53",
+    "ponderation": "Lot 6 : 15% fixe + 85% BT38 (Plomberie sanitaire) ; Lot 7 : 15% fixe + 85% BT53 (Étanchéité)",
     "periodicite": "annuelle",
-    "formule_revision": "Lot 6 : Cn = 15.0% + 85.0% (BT38(n) / BT38(o)) ; Lot 7 : Cn = 15.0% + 85.0% (BT53(n) / BT53(o))",
-    "source_extraction": "CCAP art 6.2",
-    "commentaire": "Révision annuelle à date anniversaire de notification, à l'initiative du titulaire qui doit fournir un nouveau BPU 1 mois avant la date anniversaire — à défaut, il est réputé avoir renoncé à la révision pour l'année à venir."
+    "formule_revision": "Lot 6 : Cn = 15.0% + 85.0% × (BT38(n) / BT38(o)) ; Lot 7 : Cn = 15.0% + 85.0% × (BT53(n) / BT53(o))",
+    "source_extraction": "CCAP §6.2",
+    "commentaire": "Révision annuelle à date anniversaire, à l'initiative du titulaire qui doit fournir un BPU révisé 1 mois avant. Formule favorable en cas de hausse des coûts matériaux/main d'œuvre. Attention : à défaut de demande dans le délai, le titulaire est réputé avoir renoncé à la révision pour l'année à venir."
   },
   "alertes_prix": [
-    "Le BPU intègre une double tarification jour/nuit (90% des quantités estimées en tarif jour, 10% en tarif nuit) : le DQE applique cette pondération automatiquement — risque d'erreur si les prix jour/nuit ne sont pas cohérents.",
-    "Maximum annuel faible pour le Lot 6 (50 000 € HT/an, soit 25 000 € par attributaire) : marges réduites, nécessite une tarification très compétitive mais viable.",
-    "En cas d'erreurs purement matérielles entre BPU et DQE, c'est le BPU qui prévaut et le DQE sera rectifié — vérifier la cohérence des calculs avant dépôt.",
-    "Négociation prévue avec les 3 meilleurs candidats du 30 juin au 3 juillet 2026 : la première offre n'est pas définitive, il faut prévoir une marge de manœuvre pour la négociation."
+    "Plafond annuel faible pour le Lot 6 : 50 000 € HT/an (25 000 € par attributaire), soit environ 2 000 €/mois par entreprise — vérifier la rentabilité compte tenu des frais de déplacement et d'encadrement en milieu hospitalier.",
+    "Structure prix jour/nuit (90%/10%) dans le DQE : les prix de nuit doivent être majorés pour tenir compte des sujétions — ne pas saisir le même prix jour et nuit.",
+    "Formule moins-disante à 55% : le prix est le critère dominant ; toute sous-estimation dans le BPU peut être irréversible (devis sur BPU ferme et définitif une fois accepté, article 1.3 CCAP).",
+    "Aucun minimum garanti de commandes : le titulaire assume le risque volume total ; le chiffrage doit intégrer l'hypothèse de sous-utilisation de l'accord-cadre.",
+    "Révision de prix annuelle à l'initiative du titulaire : risque de ne pas l'appliquer faute de suivi (perte de revenus sur 4 ans en cas d'inflation matériaux)."
   ],
   "references_exigees": {
-    "experience_minimale_annees": null,
-    "experience_source": null,
+    "experience_minimale_annees": 5,
+    "experience_source": "RC §6.1 — liste des travaux exécutés au cours des cinq dernières années",
     "volume_min_references_similaires": null,
-    "volume_min_references_unite": null,
-    "secteur_experience": "Travaux de plomberie sanitaire CVC et/ou étanchéité couverture, de préférence en milieu hospitalier ou établissement en activité",
-    "secteur_source": "RC art 6.1",
+    "volume_min_references_unite": "marchés similaires",
+    "secteur_experience": "Plomberie sanitaire, CVC ou étanchéité/couverture en bâtiment (idéalement milieu hospitalier ou établissement occupé)",
+    "secteur_source": "RC §6.1",
     "certifications_obligatoires": [
       {
         "libelle": "Attestation d'assurance décennale",
-        "source": "RC art 8.3"
+        "codes": [],
+        "bloquante": true,
+        "source": "RC §8.3"
       }
     ],
     "autres_exigences": [
       {
-        "libelle": "Déclaration sur l'honneur attestant l'absence d'interdiction de soumissionner (art L.2141-1 à L.2141-14 CCP)",
-        "source": "RC art 6.1"
+        "libelle": "Déclaration du chiffre d'affaires global et relatif aux prestations objet du contrat sur les 3 derniers exercices",
+        "source": "RC §6.1"
       },
       {
-        "libelle": "Déclaration concernant le chiffre d'affaires global et le CA sur les prestations objet du contrat (3 derniers exercices)",
-        "source": "RC art 6.1"
-      },
-      {
-        "libelle": "Liste des travaux exécutés au cours des 5 dernières années avec attestations de bonne exécution",
-        "source": "RC art 6.1"
-      },
-      {
-        "libelle": "Déclaration des effectifs moyens annuels et personnel d'encadrement (3 dernières années)",
-        "source": "RC art 6.1"
+        "libelle": "Déclaration des effectifs moyens annuels et du personnel d'encadrement sur les 3 dernières années",
+        "source": "RC §6.1"
       },
       {
         "libelle": "Déclaration de l'outillage, matériel et équipement technique disponible",
-        "source": "RC art 6.1"
-      },
-      {
-        "libelle": "Indication des mesures de gestion environnementale applicables lors de l'exécution",
-        "source": "RC art 6.1"
+        "source": "RC §6.1"
       }
     ]
+  },
+  "dossier_candidature": {
+    "pieces_a_fournir": [
+      {
+        "libelle": "Déclaration sur l'honneur justifiant que le candidat n'entre dans aucun cas d'interdiction de soumissionner (articles L.2141-1 à L.2141-14 CCP)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §6.1"
+      },
+      {
+        "libelle": "Déclaration concernant le chiffre d'affaires global et le CA concernant les prestations objet du contrat (3 derniers exercices)",
+        "phase": "candidature",
+        "obligatoire": false,
+        "source": "RC §6.1"
+      },
+      {
+        "libelle": "Déclaration indiquant les effectifs moyens annuels et l'importance du personnel d'encadrement (3 dernières années)",
+        "phase": "candidature",
+        "obligatoire": false,
+        "source": "RC §6.1"
+      },
+      {
+        "libelle": "Déclaration indiquant l'outillage, le matériel et l'équipement technique dont le candidat dispose",
+        "phase": "candidature",
+        "obligatoire": false,
+        "source": "RC §6.1"
+      },
+      {
+        "libelle": "Indication des mesures de gestion environnementale que le candidat pourra appliquer lors de l'exécution du contrat",
+        "phase": "candidature",
+        "obligatoire": false,
+        "source": "RC §6.1"
+      },
+      {
+        "libelle": "Liste des travaux exécutés au cours des cinq dernières années, appuyée d'attestations de bonne exécution pour les plus importants",
+        "phase": "candidature",
+        "obligatoire": false,
+        "source": "RC §6.1"
+      },
+      {
+        "libelle": "RIB",
+        "phase": "offre",
+        "obligatoire": false,
+        "source": "RC §6.1"
+      },
+      {
+        "libelle": "Acte d'engagement (AE) — signé électroniquement",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §6.1"
+      },
+      {
+        "libelle": "Bordereau des prix unitaires (BPU) — signé électroniquement",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §6.1"
+      },
+      {
+        "libelle": "Détail quantitatif estimatif (DQE)",
+        "phase": "offre",
+        "obligatoire": false,
+        "source": "RC §6.1"
+      },
+      {
+        "libelle": "Mémoire justificatif des dispositions que l'entreprise se propose d'adopter pour l'exécution du contrat",
+        "phase": "offre",
+        "obligatoire": false,
+        "source": "RC §6.1"
+      },
+      {
+        "libelle": "Fiches techniques correspondant aux produits et prestations proposés",
+        "phase": "offre",
+        "obligatoire": false,
+        "source": "RC §6.1"
+      },
+      {
+        "libelle": "Attestation d'assurance décennale (à produire dans les 10 jours suivant la notification provisoire d'attribution)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §8.3"
+      }
+    ],
+    "mode_remise": "dématérialisé + copie de sauvegarde",
+    "plateforme_depot": "PLACE — marches-publics.gouv.fr",
+    "signature_electronique_exigee": true,
+    "format_signature": "PAdES, CAdES, XAdES — certificat conforme arrêté du 22 mars 2019",
+    "nombre_exemplaires": null,
+    "langue": "français",
+    "duree_validite_offres_jours": 120,
+    "modalites_source": "RC §7.1"
   },
   "lots": [
     {
       "numero": 6,
       "intitule": "Plomberie – Sanitaire – CVC",
+      "domaine": "btp_second_oeuvre",
       "zone_geographique": "Vichy (03200)",
-      "volume_estime": 200000,
-      "volume_estime_unite": "€ HT sur 4 ans (plafond)",
-      "particularites": "Maximum annuel de 50 000 € HT (25 000 € par attributaire). Attribution en cascade à 2 entreprises. Index de révision BT38. Interventions jour et nuit (90%/10%). Le DQE couvre : dépose/repose sanitaires, tuyauteries cuivre/acier/PVC/fonte, évacuations, robinetteries, chauffage (radiateurs), ventilation (gaines), carottages, vannes, flexibles."
+      "volume_estime": null,
+      "volume_estime_unite": null,
+      "cout_estime_min_eur": 100000,
+      "cout_estime_max_eur": 130000,
+      "particularites": "Maximum annuel de 50 000 € HT (25 000 € par attributaire). Révision prix sur indice BT38. Tarification jour (90%) / nuit (10%). Comprend plomberie, sanitaires, chauffage, ventilation, CVC en milieu hospitalier occupé."
     },
     {
       "numero": 7,
       "intitule": "Étanchéité – Couverture",
+      "domaine": "btp_renovation_rehabilitation",
       "zone_geographique": "Vichy (03200)",
-      "volume_estime": 600000,
-      "volume_estime_unite": "€ HT sur 4 ans (plafond)",
-      "particularites": "Maximum annuel de 150 000 € HT (100 000 € attributaire 1, 50 000 € attributaire 2). Attribution en cascade à 2 entreprises. Index de révision BT53. Une avance est prévue pour ce lot uniquement (bons de commande > 50 000 € HT avec délai > 2 mois)."
+      "volume_estime": null,
+      "volume_estime_unite": null,
+      "cout_estime_min_eur": 340000,
+      "cout_estime_max_eur": 440000,
+      "particularites": "Maximum annuel de 150 000 € HT (100 000 € attributaire 1, 50 000 € attributaire 2). Révision prix sur indice BT53. Avance possible pour bons de commande > 50 000 € HT et délai d'exécution > 2 mois. Lot plus important financièrement."
     }
   ],
+  "tranches": [],
   "calendrier": {
     "date_limite_offres": "2026-06-25",
     "date_demarrage_prevue": "2026-07-09",
-    "duree_marche": "48 mois à compter de notification, jusqu'au 31/05/2030 (avec 3 reconductions possibles de 12 mois selon RC)"
+    "duree_marche": "48 mois reconductibles (début notification jusqu'au 31/05/2030)"
   },
   "alertes_candidat": [
-    "Milieu hospitalier occupé obligatoire à prendre en compte : les prix doivent intégrer les sujétions liées à la continuité des services hospitaliers, la lutte contre les nuisances et les travaux de nuit (10% des prestations) — RC art 1 et CCAP art 6.1.",
-    "Attestation d'assurance décennale obligatoire à fournir dans les 10 jours suivant la notification provisoire de l'attribution — RC art 8.3.",
-    "Permanence 24h/24 exigée pour les urgences : l'entreprise doit être en mesure de répondre et d'intervenir 24h/24 — AE art 6.",
-    "Le BPU prévaut sur le DQE en cas d'erreur : toute incohérence entre les deux documents entraînera la rectification du DQE et une demande de confirmation — si refus, l'offre est éliminée (RC art 8.2).",
-    "Négociation écrite prévue du 30 juin au 3 juillet 2026 avec les 3 meilleurs candidats — prévoir une offre initiale ménageant une marge de manœuvre pour la négociation (RC art 8.3).",
-    "Pénalités sévères sans mise en demeure préalable : 250 €/jour de retard, 150 €/jour pour défaut de nettoyage, 500 € forfaitaire pour non-respect du plan de prévention — CCAP art 13."
+    "Négociation écrite prévue du 30 juin au 03 juillet 2026 avec les 3 meilleurs candidats — prévoir disponibilité et capacité à répondre rapidement dans ce délai très court.",
+    "Signature électronique obligatoire sur l'AE et le BPU (certificat conforme arrêté 22/03/2019, formats PAdES/CAdES/XAdES) — délai d'obtention du certificat pouvant atteindre plusieurs semaines si non détenu.",
+    "Attestation d'assurance décennale exigée dans les 10 jours suivant la notification provisoire d'attribution — à préparer en amont.",
+    "Travaux en milieu hospitalier occupé avec astreinte d'urgence 24h/24 requise — vérifier la capacité organisationnelle avant de candidater (notamment pour les petites structures).",
+    "BPU doit inclure des prix jour et nuit distincts pour chaque article — un BPU incomplet ou incohérent entre BPU et DQE entraîne rectification/élimination (RC §8.2).",
+    "Le devis établi sur base du BPU est ferme et définitif une fois accepté — toute sous-estimation dans les prix unitaires engage le titulaire sans possibilité de régularisation (CCAP §1.3)."
   ],
   "points_differenciants_attendus": [
     {
-      "libelle": "Réactivité et organisation de l'urgence hospitalière (critère délai pondéré à 20%)",
-      "exemple": "Un candidat disposant d'une agence à proximité de Vichy avec stock de matériaux courants et astreinte 24h/24 peut proposer un délai d'intervention d'urgence inférieur à 24h et un délai standard de 5 jours — bien en deçà des maxima réglementaires du CCAP.",
-      "source": "RC art 8.2 — Critère 3"
+      "libelle": "Prix unitaires compétitifs avec prix de nuit distincts et justifiés",
+      "exemple": "Proposer des prix de nuit représentant une majoration réaliste (ex: +25 à +40%) par rapport aux prix de jour, démontrant la maîtrise des sujétions nocturnes en milieu hospitalier sans sur-majoration artificielle qui pénaliserait le score prix.",
+      "source": "RC §8.2 — DQE Lot 6"
     },
     {
-      "libelle": "Qualité des matériels proposés, notamment conformité normes hospitalières (critère pondéré à 20%)",
-      "exemple": "Proposer des robinetteries certifiées NF et conformes aux exigences spécifiques des établissements de santé (prévention Legionella, robinets temporisés, clapets anti-retour type EA) renforce significativement la notation sur ce critère.",
-      "source": "RC art 8.2 — Critère 2"
+      "libelle": "Expérience en milieu hospitalier ou établissement occupé similaire",
+      "exemple": "Citer 2-3 références de travaux de plomberie/CVC ou étanchéité réalisés dans des hôpitaux, cliniques ou EHPAD en activité, avec attestations de bonne exécution mentionnant la continuité de service maintenue.",
+      "source": "RC §6.1"
     },
     {
-      "libelle": "Expérience en milieu hospitalier en activité",
-      "exemple": "Des références de marchés similaires exécutés dans d'autres établissements de santé en activité (CHU, clinique, EHPAD) démontrant la maîtrise des contraintes spécifiques (plan de prévention, continuité de service) seront valorisées dans le mémoire technique.",
-      "source": null
+      "libelle": "Délai d'intervention court avec organisation logistique locale",
+      "exemple": "Présenter une implantation d'agence à proximité de Vichy, un stock de consommables courants plomberie/CVC/étanchéité disponible immédiatement, et une équipe dédiée permettant d'intervenir en moins de 5 jours calendaires (vs 14 jours max réglementaire).",
+      "source": "RC §8.2 — critère délai pondéré 20%"
     },
     {
-      "libelle": "Processus de traitement des déchets documenté et chiffré (critère 4 à 5%)",
-      "exemple": "Un candidat présentant des contrats établis avec des filières de valorisation agréées et un tableau de suivi des déchets par type (DI, DIS, métaux, PVC) avec taux de valorisation cible ≥ 70% se différenciera sur ce critère.",
-      "source": "RC art 2.4 et art 8.2 — Critère 4"
+      "libelle": "Processus traitement des déchets formalisé et traçable",
+      "exemple": "Fournir un schéma de tri des déchets adapté au milieu hospitalier (distinction déchets inertes/non inertes/DEEE/déchets dangereux), avec les noms et agréments des filières de valorisation retenues, et un modèle de bordereau de suivi des déchets.",
+      "source": "RC §8.2 — critère déchets 5% / RC §2.4"
+    },
+    {
+      "libelle": "Fiches techniques de matériels reconnus adaptés au contexte hospitalier",
+      "exemple": "Pour le Lot 6, présenter des fiches de robinetteries avec certification ACS (eau potable), mitigeurs thermostatiques conformes à la réglementation Légionelle en établissements de santé, et tuyauteries cuivre ou PEHD avec marquage NF — justifiant la qualité sans augmenter le prix.",
+      "source": "RC §8.2 — critère qualité matériels 20%"
     }
   ],
   "_meta": {
     "id_marche": "BOAMP-26-56594",
     "type": "complet",
-    "date_generation": "2026-06-14T22:38:50.089793+00:00",
-    "extraction_le": "2026-06-14T22:38:50.089793+00:00",
+    "date_generation": "2026-06-19T20:43:05.674502+00:00",
+    "extraction_le": "2026-06-19T20:43:05.674502+00:00",
     "modele": "claude-sonnet-4-6",
     "preset_utilise": "btp",
     "presets_matches": [
@@ -290,13 +415,13 @@
       "ingenierie"
     ],
     "prompts_versions": {
-      "btp/_preset.json": "sha256:d1717e0d87f6c265",
-      "ingenierie/_preset.json": "sha256:56f813f829343e24"
+      "btp/_preset.json": "sha256:055bf6f8b2c1f771",
+      "ingenierie/_preset.json": "sha256:b924b32a088673d6"
     },
-    "tokens_input": 53865,
-    "tokens_output": 5742,
-    "cout_eur": 0.2353,
-    "duree_sec": 99.4,
+    "tokens_input": 61908,
+    "tokens_output": 7709,
+    "cout_eur": 0.2863,
+    "duree_sec": 136.0,
     "pdfs_traites": [
       {
         "nom": "AE P_26-020_002.docx",

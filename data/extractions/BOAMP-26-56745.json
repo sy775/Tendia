@@ -1,0 +1,457 @@
+{
+  "synthese_marche": "Accord-cadre mono-attributaire à bons de commande de la Mairie de Villeneuve-Saint-Georges portant sur la capture, l'enlèvement, le transport des animaux errants ou dangereux, le ramassage des cadavres d'animaux sur la voie publique et la gestion de la fourrière animale. Le marché est non alloti, à prix forfaitaires par prestation complète, avec astreinte 24h/24 7j/7. Le montant maximum est de 37 500 € HT par an, soit 150 000 € HT sur 4 ans (1 an + 3 reconductions).",
+  "domaines_metier": [
+    {
+      "code": "autre"
+    }
+  ],
+  "raison_classification": "Le marché porte sur des prestations de fourrière animale, capture et enlèvement d'animaux errants ou dangereux et ramassage de cadavres sur la voie publique (CPV 85210000 – Services d'animalerie). Ce type de service opérationnel spécialisé ne correspond à aucun des codes disponibles dans la taxonomie (ni formation, ni insertion, ni BTP, ni IT, ni conseil, ni services de collecte de déchets classiques). Le code `autre` est donc la seule option valide.",
+  "caracteristiques_metier": {
+    "description": "Prestations de service public de fourrière animale pour une commune d'Île-de-France (~Val-de-Marne) : astreinte permanente 24h/24 et 7j/7, capture et enlèvement de chiens, chats, NAC et petits animaux domestiques errants ou dangereux sur l'ensemble du territoire communal, transport vers une structure de fourrière habilitée, gestion de la fourrière (garde, alimentation, identification, recherche des propriétaires, issues réglementaires), ramassage et élimination de cadavres d'animaux sur la voie publique, reporting mensuel et annuel.",
+    "criteres_eligibilite": [
+      "Disposer d'une structure de fourrière légalement habilitée ou d'une convention avec une telle structure (capacité minimale : 5 places chiens + 5 places chats)",
+      "Avoir au moins 2 agents mobilisables titulaires de l'ACACED, du CCAD ou équivalent",
+      "Disposer de véhicules adaptés au transport sécurisé des animaux",
+      "Être en capacité d'assurer une astreinte permanente 24h/24 et 7j/7 avec délai d'intervention max 2h (ordinaire) ou 1h (urgent)",
+      "Justifier d'assurances couvrant la RC professionnelle, le transport, la capture, la garde et les risques liés aux animaux confiés"
+    ]
+  },
+  "bareme_notation": {
+    "valeur_technique_pct": 40,
+    "valeur_prix_pct": 60,
+    "sous_criteres_techniques": [
+      {
+        "libelle": "Organisation de l'astreinte et délais",
+        "ponderation_pct": 10,
+        "description": "L'acheteur évalue la qualité de l'organisation de l'astreinte 24h/24 7j/7 et la crédibilité des délais d'intervention annoncés (ordinaire ≤ 2h, urgent ≤ 1h, urgence absolue immédiate).",
+        "elements_attendus": [
+          "Description précise du dispositif d'astreinte (numéro dédié, protocole de réception des appels, qualification de l'urgence)",
+          "Justification de la capacité à respecter les délais contractuels (localisation des équipes, nombre d'agents d'astreinte)",
+          "Plan de continuité en cas d'indisponibilité d'un agent ou d'une panne véhicule",
+          "Indicateurs de suivi des délais proposés"
+        ],
+        "exemple_reponse_forte": "Notre société dispose d'une ligne d'astreinte dédiée activée 24h/24, gérée par un responsable opérationnel et un suppléant identifiés, tous deux joignables par la Ville. Deux équipages sont mobilisables en moins de 45 minutes depuis notre base logistique de [ville voisine], garantissant des délais d'arrivée de 1h pour les urgences et de moins de 1h30 pour les interventions ordinaires sur la commune de Villeneuve-Saint-Georges.",
+        "source": "RC §7.3",
+        "unite_evaluation": "points",
+        "sous_criteres": []
+      },
+      {
+        "libelle": "Moyens humains et matériels",
+        "ponderation_pct": 10,
+        "description": "L'acheteur évalue les qualifications du personnel affecté (ACACED, CCAD, formation manipulation animaux stressés/blessés) et l'adéquation du parc de véhicules et matériels (cages, EPI, produits de désinfection, contenants cadavres).",
+        "elements_attendus": [
+          "Nombre et qualifications des agents affectés (ACACED, CCAD ou équivalent pour au moins 2 agents)",
+          "Description du parc véhicules (caractéristiques adaptées au transport animalier, nombre, zones de départ)",
+          "Liste des matériels de capture et de contention disponibles",
+          "Protocole de nettoyage/désinfection des véhicules et équipements"
+        ],
+        "exemple_reponse_forte": "L'équipe affectée comprend 4 agents, dont 3 titulaires de l'ACACED et 1 du CCAD, tous formés à la manipulation d'animaux agressifs et à la réglementation de fourrière. Deux véhicules utilitaires équipés de caisses de transport homologuées, séparateurs, perches, gants anti-morsures et trousse de désinfection sont dédiés à ce marché. Un protocole de désinfection après chaque intervention est appliqué conformément aux recommandations sanitaires.",
+        "source": "RC §7.3",
+        "unite_evaluation": "points",
+        "sous_criteres": []
+      },
+      {
+        "libelle": "Fourrière et conventions ; traçabilité/reporting",
+        "ponderation_pct": 10,
+        "description": "L'acheteur évalue la solidité de la convention ou du titre juridique permettant l'accès à une fourrière habilitée, la capacité d'accueil (≥ 5 chiens + 5 chats), et la qualité du système de traçabilité et de reporting (registres, comptes rendus sous 24h, reporting mensuel/annuel en CSV/XLSX).",
+        "elements_attendus": [
+          "Copie ou description de la convention avec la fourrière habilitée (ou titre juridique)",
+          "Preuve de la capacité d'accueil ≥ 5 places chiens et 5 places chats",
+          "Description du système de registre et traçabilité (outil numérique, champs renseignés)",
+          "Modèle de compte rendu d'intervention (transmis sous 24h en PDF)",
+          "Description du reporting mensuel et annuel (indicateurs, format CSV/XLSX)"
+        ],
+        "exemple_reponse_forte": "Notre structure dispose d'une convention en cours avec la fourrière municipale de [ville X], habilitée par arrêté préfectoral, offrant une capacité de 10 places chiens et 8 places chats. Les registres d'admission sont tenus sur notre logiciel métier, exportable en CSV. Chaque intervention génère un compte rendu PDF transmis sous 24h, et un rapport mensuel consolidé est adressé automatiquement à la Ville.",
+        "source": "RC §7.3",
+        "unite_evaluation": "points",
+        "sous_criteres": []
+      },
+      {
+        "libelle": "Sécurité, hygiène, bien-être animal et continuité",
+        "ponderation_pct": 10,
+        "description": "L'acheteur évalue les procédures relatives à la sécurité des agents, l'hygiène des conditions de capture et de transport, le respect du bien-être animal (limitation du stress, absence de brutalité) et la robustesse du plan de continuité opérationnel.",
+        "elements_attendus": [
+          "Procédure spécifique pour animaux blessés, malades ou dangereux (appel vétérinaire, contention renforcée)",
+          "Mesures de bien-être animal (techniques non traumatisantes, limitation du stress)",
+          "Plan de continuité couvrant indisponibilité d'agent, panne véhicule, saturation ponctuelle",
+          "Protocoles hygiène et EPI portés par les agents"
+        ],
+        "exemple_reponse_forte": "Notre procédure d'urgence prévoit un partenariat avec un vétérinaire de garde disponible 24h/24 pour tout animal blessé ou dangereux. Le bien-être animal est garanti par l'utilisation exclusive de techniques de capture douces (filet, cage-trappe), et notre plan de continuité identifie deux véhicules de remplacement et deux agents suppléants contactables en moins d'une heure.",
+        "source": "RC §7.3",
+        "unite_evaluation": "points",
+        "sous_criteres": []
+      },
+      {
+        "libelle": "Développement durable",
+        "ponderation_pct": 10,
+        "description": "L'acheteur évalue les engagements environnementaux du candidat sur 4 sous-critères : véhicules et émissions (2,5 pts), gestion des déchets animaux (2,5 pts), réduction des nuisances (2,5 pts) et partenariats vétérinaires ou associatifs locaux (2,5 pts).",
+        "elements_attendus": [
+          "Nature des véhicules utilisés (électriques, hybrides, normes Euro VI) et niveau d'émissions CO2",
+          "Filière d'élimination des cadavres et déchets animaux (traçabilité, filière autorisée)",
+          "Mesures de réduction des nuisances (sonores, olfactives, impacts sur riverains)",
+          "Partenariats avec vétérinaires locaux ou associations de protection animale de proximité"
+        ],
+        "exemple_reponse_forte": "Nos deux véhicules dédiés sont des utilitaires hybrides (recharge électrique partielle) limitant les émissions CO2. Les cadavres sont acheminés vers un équarisseur agréé avec bordereau de suivi BSDA. Nous partenariat avec la SPA de [ville X] et deux vétérinaires libéraux du Val-de-Marne pour la prise en charge des animaux blessés.",
+        "source": "RC §7.3",
+        "unite_evaluation": "points",
+        "sous_criteres": [
+          {
+            "libelle": "Véhicules et émissions",
+            "ponderation_pct": 2.5,
+            "description": "Évaluation de la nature écologique des véhicules utilisés et de leur niveau d'émissions.",
+            "elements_attendus": [
+              "Type de motorisation des véhicules (électrique, hybride, Euro VI)",
+              "Justificatif ou engagement sur les émissions CO2"
+            ],
+            "exemple_reponse_forte": "Nos véhicules de capture sont des utilitaires électriques à 100%, zéro émission en phase d'utilisation.",
+            "source": "RC §7.3"
+          },
+          {
+            "libelle": "Gestion des déchets animaux",
+            "ponderation_pct": 2.5,
+            "description": "Évaluation de la filière de traitement et d'élimination des cadavres et déchets d'origine animale.",
+            "elements_attendus": [
+              "Identification de la filière autorisée (équarrisseur agréé, crématorium animalier)",
+              "Existence d'un bordereau de suivi (BSDA ou équivalent)"
+            ],
+            "exemple_reponse_forte": "Les cadavres collectés sont systématiquement remis à un équarrisseur agréé avec bordereaux de suivi traçables, conformément à la réglementation en vigueur.",
+            "source": "RC §7.3"
+          },
+          {
+            "libelle": "Réduction des nuisances",
+            "ponderation_pct": 2.5,
+            "description": "Évaluation des mesures prises pour limiter les nuisances générées par les interventions (bruits, odeurs, impact sur riverains).",
+            "elements_attendus": [
+              "Protocoles de limitation des nuisances sonores lors des captures",
+              "Mesures d'hygiène des véhicules limitant les odeurs"
+            ],
+            "exemple_reponse_forte": "Nos interventions nocturnes ou en zone résidentielle dense font l'objet d'un protocole silencieux (pas de sirène, matériels à faible impact sonore) et nos véhicules sont désinfectés après chaque sortie.",
+            "source": "RC §7.3"
+          },
+          {
+            "libelle": "Partenariats vétérinaires ou associatifs locaux",
+            "ponderation_pct": 2.5,
+            "description": "Évaluation de l'existence de partenariats avec des vétérinaires ou associations de protection animale de proximité.",
+            "elements_attendus": [
+              "Nom et localisation des partenaires vétérinaires",
+              "Partenariat avec une association de protection animale locale (SPA, refuge)"
+            ],
+            "exemple_reponse_forte": "Nous avons conventionné avec la clinique vétérinaire de Villeneuve-Saint-Georges et avec le refuge de l'association [X] du Val-de-Marne pour la réorientation et l'adoption des animaux non réclamés.",
+            "source": "RC §7.3"
+          }
+        ]
+      }
+    ],
+    "prix": {
+      "type_formule": "moins_disant",
+      "formule_explicite": "Note du candidat = (montant de l'offre la moins-disante / montant de l'offre du candidat) × 60",
+      "source": "RC §7.3",
+      "elements_a_chiffrer": [
+        "A1 — Forfait annuel astreinte / disponibilité / organisation (unité : année)",
+        "A2 — Forfait annuel maintien capacité fourrière / accueil (unité : année)",
+        "B1 — Forfait capture + enlèvement + transport + admission chien/chat errant (unité : mission complète)",
+        "B2 — Forfait intervention urgente / animal blessé ou dangereux (unité : mission complète)",
+        "B3 — Forfait ramassage + transport + évacuation cadavre animal (unité : mission complète)",
+        "B4 — Forfait prise en charge fourrière jusqu'au délai légal – chien (unité : animal pris en charge)",
+        "B5 — Forfait prise en charge fourrière jusqu'au délai légal – chat (unité : animal pris en charge)",
+        "B6 — Forfait NAC / petit animal domestique compatible (unité : mission complète)",
+        "B7 — Forfait restitution au propriétaire / démarches administratives (unité : dossier complet)",
+        "B8 — Forfait déplacement sans capture pour motif justifié (unité : mission complète)"
+      ]
+    },
+    "modalite_calcul_prix": "Note du candidat = (montant de l'offre la moins-disante / montant de l'offre du candidat) × 60. L'analyse porte sur le montant annuel de référence issu de la DPGF / simulation financière (non contractuelle) selon des quantités estimatives identiques pour tous les candidats."
+  },
+  "montant_marche": {
+    "valeur_estimee_euros": 150000,
+    "fourchette_min_euros": null,
+    "fourchette_max_euros": null,
+    "type": "plafond",
+    "duree_couverte": "4 ans (1 an + 3 reconductions tacites)",
+    "source_extraction": "CCAP §1.3 et AE Tableau 16",
+    "commentaire": "Plafond accord-cadre toutes périodes confondues : 37 500 € HT/an × 4 ans = 150 000 € HT. Ce montant est un plafond et non un engagement de dépense. Le montant annuel réel consommé dépendra des bons de commande émis."
+  },
+  "montant_3_voies": {
+    "voie_1_eur": 150000,
+    "voie_1_source": "CCAP §1.3 et AE Tableau 16 — montant maximum sur 4 ans HT",
+    "voie_2_disponible": false,
+    "voie_2_min_eur": null,
+    "voie_2_max_eur": null,
+    "voie_2_hypotheses": [],
+    "voie_2_raison_indisponible": "Voie 1 disponible (montant maximum publié explicitement dans le DCE) : estimation bottom-up non nécessaire."
+  },
+  "cout_realisation": {
+    "cout_total_eur": 28000,
+    "cout_min_eur": 24000,
+    "cout_max_eur": 34000,
+    "postes": [
+      {
+        "poste": "Astreinte / coordination opérationnelle (coût personnel)",
+        "detail": "Astreinte 24h/24 7j/7 : coût annuel estimé à 0,3 ETP agent qualifié ACACED à ~35 000 € brut chargé/an ≈ 10 500 €/an de masse salariale directe affectée à la permanence. Estimation basse secteur fourrière privée.",
+        "montant_eur": 10500
+      },
+      {
+        "poste": "Interventions ponctuelles (main-d'œuvre terrain)",
+        "detail": "Estimatif simulation DPGF : 15 captures B1 + 6 urgences B2 + 12 cadavres B3 + 8 fourrière chiens B4 + 8 fourrière chats B5 + 3 NAC B6 + 8 restitutions B7 + 5 déplacements B8 = ~65 missions/an. À ~80 €/mission de coût variable (déplacement, agent, désinfection, consommables) ≈ 5 200 €.",
+        "montant_eur": 5200
+      },
+      {
+        "poste": "Véhicules (amortissement, carburant, entretien, assurance)",
+        "detail": "1 véhicule utilitaire équipé dédié : coût annuel estimé 6 000–8 000 €/an (leasing ou amortissement + frais variables).",
+        "montant_eur": 7000
+      },
+      {
+        "poste": "Structure de fourrière / accueil (convention ou exploitation directe)",
+        "detail": "Coût de la convention fourrière ou frais fixes de fonctionnement du lieu d'accueil (gardiennage, alimentation animaux, hygiène) : estimé 3 500–5 000 €/an.",
+        "montant_eur": 4000
+      },
+      {
+        "poste": "Assurances spécifiques et frais administratifs",
+        "detail": "RC professionnelle, transport d'animaux, assurance activité fourrière : ~1 200–1 500 €/an.",
+        "montant_eur": 1300
+      }
+    ],
+    "taux_journaliers_retenus": "Ratios indicatifs secteur fourrière/animalerie privée France : agent qualifié ACACED ~35 000–40 000 € brut chargé/an ; coût variable par mission terrain (hors structure fixe) ~70–100 € ; coût véhicule utilitaire équipé ~5 000–8 000 €/an. Ces taux sont des estimations de marché à titre indicatif, la structure de coût réelle variant selon l'opérateur.",
+    "commentaire": "Estimation du coût de production annuel pour un prestataire spécialisé : fourchette 24 000–34 000 € HT/an, soit une marge brute estimée de ~10% à ~36% sur le plafond de 37 500 €/an. La part fixe (astreinte + fourrière + véhicule + assurances) représente ~80% du coût, ce qui implique un risque de sous-utilisation si les bons de commande sont faibles. La rentabilité est sensible au volume réel d'interventions commandées."
+  },
+  "revision_prix": {
+    "type": "indexation",
+    "indices_utilises": [
+      "SYNTEC"
+    ],
+    "ponderation": "100% SYNTEC (formule mono-indice sans partie fixe mentionnée)",
+    "periodicite": "annuelle",
+    "formule_revision": "Pn = P0 × (In / I0). P0 est le prix initial. I0 est la dernière valeur publiée de l'indice SYNTEC connue au mois zéro (M0 = mois de remise de l'offre). In est la dernière valeur publiée du même indice connue à la date anniversaire de révision.",
+    "source_extraction": "CCAP §4.3",
+    "commentaire": "L'indice SYNTEC est utilisé bien que le marché soit un service opérationnel (et non un service intellectuel) : favorable en période d'inflation salariale mais potentiellement en décalage avec l'évolution réelle des coûts de ce type d'activité (carburant, nourriture animale). Les prix sont fermes la première année, révisables à chaque date anniversaire."
+  },
+  "alertes_prix": [
+    "Pondération prix très élevée à 60/100 : les candidats avec un prix très bas seront fortement favorisés ; risque d'offres anormalement basses difficiles à remettre en cause.",
+    "Montant maximum annuel de 37 500 € HT très contraint : coûts fixes d'astreinte et de fourrière représentent une part importante → peu de marges de manœuvre sur les forfaits ponctuels.",
+    "Simulation financière DPGF (non contractuelle) avec volumes estimatifs faibles (ex. 15 captures B1 / an) : le volume réel peut être significativement différent — risquer un sous-chiffrage si le vrai volume est supérieur.",
+    "Accord-cadre sans minimum garanti : si la Ville commande peu, le titulaire supporte les coûts fixes (astreinte, fourrière) sans recettes suffisantes."
+  ],
+  "references_exigees": {
+    "experience_minimale_annees": null,
+    "experience_source": null,
+    "volume_min_references_similaires": null,
+    "volume_min_references_unite": "marchés similaires",
+    "secteur_experience": "Prestations de capture, enlèvement, transport d'animaux errants ou dangereux et gestion de fourrière animale pour des collectivités territoriales.",
+    "secteur_source": "RC §5 — Documents à produire",
+    "certifications_obligatoires": [
+      {
+        "libelle": "ACACED (Attestation de Connaissances pour les Animaux de Compagnie d'Espèces Domestiques) ou CCAD ou justificatif équivalent pour au moins 2 agents mobilisables",
+        "codes": [],
+        "bloquante": true,
+        "source": "CCTP Article 6"
+      },
+      {
+        "libelle": "Convention ou titre juridique permettant l'utilisation d'une structure de fourrière légalement habilitée avec capacité minimale de 5 places chiens et 5 places chats",
+        "codes": [],
+        "bloquante": true,
+        "source": "CCTP Article 10"
+      },
+      {
+        "libelle": "Assurance RC professionnelle couvrant l'activité de capture, transport, garde d'animaux et risques liés aux animaux confiés",
+        "codes": [],
+        "bloquante": true,
+        "source": "CCAP §12"
+      }
+    ],
+    "autres_exigences": [
+      {
+        "libelle": "Déclaration sur l'honneur justifiant qu'aucun cas d'interdiction de soumissionner ne s'applique (articles L.2141-1 à L.2141-14 CCP)",
+        "source": "RC §5"
+      },
+      {
+        "libelle": "Chiffre d'affaires global et CA concernant les prestations objet du contrat sur les 3 derniers exercices disponibles",
+        "source": "RC §5"
+      },
+      {
+        "libelle": "Liste des principales prestations effectuées au cours des 3 dernières années (montant, date, destinataire), prouvées par attestations ou déclaration candidat",
+        "source": "RC §5"
+      },
+      {
+        "libelle": "Déclaration des effectifs moyens annuels et du personnel d'encadrement sur les 3 dernières années",
+        "source": "RC §5"
+      },
+      {
+        "libelle": "Déclaration de l'outillage, du matériel et de l'équipement technique disponibles pour la réalisation du contrat",
+        "source": "RC §5"
+      },
+      {
+        "libelle": "Indication des mesures de gestion environnementale applicables lors de l'exécution du contrat",
+        "source": "RC §5"
+      },
+      {
+        "libelle": "Renseignements sur le respect de l'obligation d'emploi des travailleurs handicapés (L.5212-1 à L.5212-11 Code du travail)",
+        "source": "RC §5"
+      }
+    ]
+  },
+  "dossier_candidature": {
+    "pieces_a_fournir": [
+      {
+        "libelle": "Déclaration sur l'honneur pour justifier que le candidat n'entre dans aucun cas d'interdiction de soumissionner",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §5"
+      },
+      {
+        "libelle": "Renseignements sur le respect de l'obligation d'emploi mentionnée aux articles L.5212-1 à L.5212-11 du Code du travail",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §5"
+      },
+      {
+        "libelle": "Déclaration concernant le chiffre d'affaires global et le CA concernant les prestations objet du contrat, réalisés au cours des 3 derniers exercices disponibles",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §5"
+      },
+      {
+        "libelle": "Bilans ou extraits de bilans concernant les 3 dernières années (si établissement obligatoire en vertu de la loi)",
+        "phase": "candidature",
+        "obligatoire": false,
+        "source": "RC §5"
+      },
+      {
+        "libelle": "Déclaration indiquant les effectifs moyens annuels du candidat et l'importance du personnel d'encadrement pour chacune des 3 dernières années",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §5"
+      },
+      {
+        "libelle": "Liste des principales prestations effectuées au cours des 3 dernières années, indiquant le montant, la date et le destinataire (prouvées par attestations du destinataire ou déclaration du candidat)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §5"
+      },
+      {
+        "libelle": "Indication des titres d'études et professionnels de l'opérateur économique et/ou des cadres (notamment responsables de prestation de même nature)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §5"
+      },
+      {
+        "libelle": "Indication des techniciens ou organismes techniques responsables du contrôle de qualité",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §5"
+      },
+      {
+        "libelle": "Déclaration indiquant l'outillage, le matériel et l'équipement technique dont le candidat dispose pour la réalisation du contrat",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §5"
+      },
+      {
+        "libelle": "Indication des mesures de gestion environnementale que le candidat pourra appliquer lors de l'exécution du contrat",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §5"
+      },
+      {
+        "libelle": "Acte d'engagement (AE) rempli et signé, annexé du Bordereau des prix (DPGF) en version EXCEL et PDF",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §5"
+      },
+      {
+        "libelle": "Mémoire technique et environnemental",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §5"
+      }
+    ],
+    "mode_remise": "dématérialisé",
+    "plateforme_depot": "AWS — achatpublic.com (https://www.achatpublic.com)",
+    "signature_electronique_exigee": false,
+    "format_signature": null,
+    "nombre_exemplaires": null,
+    "langue": "français",
+    "duree_validite_offres_jours": 180,
+    "modalites_source": "RC §6"
+  },
+  "lots": [],
+  "tranches": [],
+  "calendrier": {
+    "date_limite_offres": "2026-06-24",
+    "date_demarrage_prevue": null,
+    "duree_marche": "1 an reconductible 3 fois (durée totale maximale 4 ans)"
+  },
+  "alertes_candidat": [
+    "Deux agents titulaires de l'ACACED, du CCAD ou équivalent sont OBLIGATOIRES : l'absence de preuve de cette qualification peut entraîner l'élimination au stade de l'évaluation technique.",
+    "Justifier d'un accès à une fourrière légalement habilitée (convention ou titre juridique) avec capacité ≥ 5 places chiens et 5 places chats est une exigence fonctionnelle sine qua non : sans cela, l'offre est considérée comme inappropriée.",
+    "Le délai de dépôt est très court (publication 09/06/2026, date limite 24/06/2026 soit 15 jours) : il faut être prêt à remettre une offre complète très rapidement.",
+    "Le marché est non alloti et forme un ensemble indissociable : les candidats ne disposant pas de toute la chaîne (capture + transport + fourrière + reporting) ne peuvent pas se positionner sur une partie seulement.",
+    "Les assurances spécifiques (RC professionnelle, transport, garde, risques liés aux animaux) doivent être justifiées dans les 15 jours suivant la notification, avant tout commencement d'exécution : prévoir les attestations à jour."
+  ],
+  "points_differenciants_attendus": [
+    {
+      "libelle": "Solidité du dispositif d'astreinte et rapidité des délais d'intervention",
+      "exemple": "Un candidat qui démontre une base opérationnelle dans le Val-de-Marne avec deux équipages mobilisables et des temps de route attestés vers Villeneuve-Saint-Georges inférieurs à 30 minutes se différencie nettement sur ce sous-critère de 10 points.",
+      "source": "RC §7.3 et CCTP Article 5"
+    },
+    {
+      "libelle": "Qualité et robustesse du plan de continuité de service",
+      "exemple": "Présenter un plan de continuité documenté couvrant panne véhicule, absence d'agent et saturation de fourrière, avec des contacts d'escalade nommés et des délais de substitution chiffrés, permet de scorer haut sur le sous-critère sécurité/continuité.",
+      "source": "RC §7.3 et CCTP Article 16"
+    },
+    {
+      "libelle": "Partenariats locaux (vétérinaires, associations) dans le Val-de-Marne",
+      "exemple": "Mentionner un partenariat formalisé avec un vétérinaire ou une association de protection animale du 94 (SPA locale, refuge de l'Île-de-France) valorise le sous-critère développement durable à hauteur de 2,5 points et renforce la crédibilité opérationnelle de l'offre.",
+      "source": "RC §7.3"
+    },
+    {
+      "libelle": "Véhicules à faibles émissions dédiés au marché",
+      "exemple": "L'engagement sur des véhicules électriques ou hybrides rechargeables avec attestation de caractéristiques techniques permet de maximiser les 2,5 points du sous-critère véhicules et émissions, sans surcoût majeur si le parc le permet déjà.",
+      "source": "RC §7.3"
+    },
+    {
+      "libelle": "Système de traçabilité numérique avec export CSV/XLSX et compte rendu automatisé sous 24h",
+      "exemple": "Un candidat disposant d'un logiciel métier fourrière générant automatiquement les comptes rendus PDF et les exports CSV démontre une capacité technique supérieure sur le sous-critère traçabilité/reporting, et rassure l'acheteur sur la conformité aux exigences du CCTP.",
+      "source": "CCTP Article 14 et 15"
+    }
+  ],
+  "_meta": {
+    "id_marche": "BOAMP-26-56745",
+    "type": "complet",
+    "date_generation": "2026-06-19T22:47:07.345925+00:00",
+    "extraction_le": "2026-06-19T22:47:07.345925+00:00",
+    "modele": "claude-sonnet-4-6",
+    "preset_utilise": null,
+    "presets_matches": [],
+    "prompts_versions": {},
+    "tokens_input": 42471,
+    "tokens_output": 9001,
+    "cout_eur": 0.2493,
+    "duree_sec": 160.0,
+    "pdfs_traites": [
+      {
+        "nom": "AE v2.docx",
+        "hash": "d9cd4d2ed813bb2637fcc89020924f74",
+        "taille_chars": 11566
+      },
+      {
+        "nom": "CCAP V2.pdf",
+        "hash": "03206ffa8cb891c101dcef85fab882d0",
+        "taille_chars": 17875
+      },
+      {
+        "nom": "CCTP VF.pdf",
+        "hash": "94cb8c2b1ad7ac0a92f6595879b6c276",
+        "taille_chars": 11970
+      },
+      {
+        "nom": "DPGF.xlsx",
+        "hash": "b95ea87ccf65b81c8a3e1182d65b2daf",
+        "taille_chars": 5610
+      },
+      {
+        "nom": "RC Vf.pdf",
+        "hash": "5a5038b9ba770107a5c760394f2b8932",
+        "taille_chars": 29989
+      }
+    ]
+  }
+}

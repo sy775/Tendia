@@ -1,0 +1,276 @@
+{
+  "synthese_marche": "Accord-cadre mono-attributaire de 6 ans (2027-2030+) portant sur l'assurance d'œuvres d'art prêtées aux musées d'Orsay et de l'Orangerie (EPMO-VGE) dans le cadre d'expositions temporaires, de commissions d'acquisition, de dépôts et de prêts. La police couvre un risque monde entier en formule 'clou à clou' tous risques, avec des capitaux par événement pouvant atteindre 1,2 milliard d'euros. Le marché est régi par un BPU à taux pour-mille par tranche de capital assuré, sans franchise.",
+  "domaines_metier": [
+    {
+      "code": "assurance"
+    }
+  ],
+  "raison_classification": "Le marché porte exclusivement sur une prestation d'assurance (police tous risques 'clou à clou' pour œuvres d'art), CPV 66510000. Il s'agit d'un marché d'assurance spécialisée, classé sans ambiguïté sous le code 'assurance' de la taxonomie.",
+  "caracteristiques_metier": {
+    "description": "Assurance d'œuvres d'art en formule tous risques 'clou à clou' (transport aller-retour et séjour) pour les expositions temporaires, prêts entrants/sortants, commissions d'acquisition et dépôts des musées d'Orsay et de l'Orangerie. Couverture mondiale, capitaux par événement jusqu'à 600 M€ (capacité 1,2 Md€ exigée), sans franchise, avec participation aux bénéfices annuelle.",
+    "criteres_eligibilite": [
+      "Être une compagnie d'assurance ou un courtier mandataire d'assurance agréé pour couvrir des risques d'assurance d'œuvres d'art",
+      "Capacité de placement de capitaux jusqu'à 1 200 000 000 € par lieu de séjour et par événement sous 72 heures",
+      "Aptitude à délivrer des certificats d'assurance bilingues (français/anglais) dans des délais de 24h à 48h",
+      "Continuité de service 24h/24, 7j/7 (nuit, week-end, jours fériés)"
+    ]
+  },
+  "bareme_notation": {
+    "valeur_technique_pct": null,
+    "valeur_prix_pct": null,
+    "sous_criteres_techniques": [],
+    "prix": {
+      "type_formule": "autre",
+      "formule_explicite": "Le RC mentionne des critères d'attribution environnementaux (source BOAMP) mais ne précise pas de barème chiffré dans les pièces fournies (RC non transmis en totalité — seuls CCP et BPU sont disponibles). La notation est probablement basée sur les taux pour-mille du BPU et la participation aux bénéfices.",
+      "source": null,
+      "elements_a_chiffrer": [
+        "Taux °/°° transport par tranche de capital assuré (Paris-IDF, France, UE+Suisse, Autres pays), œuvres fragiles/non fragiles, aller simple/aller-retour",
+        "Taux °/°° séjour EPMO par tranche de capital assuré (exposition, commission d'acquisition), par mois/quinzaine/semaine",
+        "Taux °/°° séjour 'hors les murs' France et Autres Pays par tranche de capital assuré",
+        "Taux °/°° restauration (transport Paris-IDF et séjour) par tranche de capital assuré",
+        "Pourcentage de participation aux bénéfices annuelle"
+      ]
+    },
+    "modalite_calcul_prix": "Prix unitaires exprimés en taux pour-mille (°/°°) appliqués aux capitaux assurés déclarés pour chaque événement, selon tranches de capitaux. Participation aux bénéfices calculée annuellement sur le solde primes encaissées moins sinistres/frais."
+  },
+  "montant_marche": {
+    "valeur_estimee_euros": 4000000,
+    "fourchette_min_euros": null,
+    "fourchette_max_euros": null,
+    "type": "estime_explicite",
+    "duree_couverte": "6 ans (accord-cadre 2027-2032 environ)",
+    "source_extraction": "Contexte BOAMP — lot LOT-0001 montant estimé 4 000 000 €",
+    "commentaire": "Le montant de 4 000 000 € HT est publié dans l'avis BOAMP pour le lot unique sur 6 ans, soit environ 667 000 €/an de primes. Ce chiffre est cohérent avec les volumes de capitaux assurés historiques (2-5 Md€/an en cumulé) et des taux pour-mille typiques du marché de l'assurance d'œuvres d'art de prestige."
+  },
+  "montant_3_voies": {
+    "voie_1_eur": 4000000,
+    "voie_1_source": "BOAMP avis — lot LOT-0001 montant_estime 4 000 000 €",
+    "voie_2_disponible": false,
+    "voie_2_min_eur": null,
+    "voie_2_max_eur": null,
+    "voie_2_hypotheses": [],
+    "voie_2_raison_indisponible": "Voie 1 disponible — pas besoin d'estimation bottom-up."
+  },
+  "cout_realisation": {
+    "cout_total_eur": null,
+    "cout_min_eur": null,
+    "cout_max_eur": null,
+    "postes": [
+      {
+        "poste": "Coût de réassurance / placement du risque sur les marchés de la réassurance",
+        "detail": "Part du risque cédée en réassurance sur des capitaux de plusieurs milliards d'euros; dépend de la structure de la police et de l'appétit marché. Non chiffrable sans accès à la structure réassurance du candidat.",
+        "montant_eur": null
+      },
+      {
+        "poste": "Gestion administrative et technique du contrat (souscripteur/courtier spécialisé)",
+        "detail": "Personnel dédié : gestionnaire sinistres, souscripteur expert œuvres d'art, secrétariat — estimé 0,5 à 1 ETP sur 6 ans",
+        "montant_eur": null
+      },
+      {
+        "poste": "Frais d'experts en cas de sinistres",
+        "detail": "Historique 2023-2025 : 864 542 € de sinistres sur 3 ans, soit ~288 000 €/an. À budgéter en provision technique.",
+        "montant_eur": null
+      }
+    ],
+    "taux_journaliers_retenus": "Marché d'assurance spécialisée : la structure de coût est atypique (prime nette + chargements + réassurance) et non assimilable à des taux journaliers standard. Le coût de réalisation dépend du taux de sinistralité réel et de la structure de réassurance du candidat — non chiffrable depuis le DCE seul.",
+    "commentaire": "Le coût de réalisation d'un marché d'assurance ne se décompose pas en jours-homme standard : il comprend le coût de la réassurance, les provisions pour sinistres et les frais de gestion. La sinistralité historique (864 k€ sur 3 ans, soit ~288 k€/an) donne un ordre de grandeur de la charge sinistres, mais la marge dépend entièrement de la structure de réassurance et des taux proposés. Coût de production non chiffrable de façon crédible sans information interne au candidat-assureur."
+  },
+  "revision_prix": {
+    "type": "ferme",
+    "indices_utilises": [],
+    "ponderation": null,
+    "periodicite": null,
+    "formule_revision": null,
+    "source_extraction": "CCP article 13",
+    "commentaire": "Les prix sont fermes et non actualisables pour la durée totale du marché (6 ans), ce qui représente un risque pour le candidat en cas d'évolution défavorable des marchés de la réassurance ou d'augmentation de la sinistralité sur la durée."
+  },
+  "alertes_prix": [
+    "Prix fermes et non actualisables sur 6 ans (CCP art. 13) : risque de dérive du coût de la réassurance non répercutable sur le client.",
+    "BPU complexe avec 4 tranches de capitaux × plusieurs catégories d'œuvres × plusieurs modes/durées : risque d'erreur de remplissage du bordereau qui peut déséquilibrer l'offre.",
+    "Participation aux bénéfices annuelle à proposer : son niveau influence directement l'attractivité de l'offre financière — à calibrer soigneusement par rapport à la sinistralité historique (864 k€ sur 3 ans).",
+    "Capacité de placement exigée à 1 200 000 000 € par événement sous 72h : condition technique pouvant exclure des acteurs de taille insuffisante, ce qui réduit la concurrence et peut peser sur les taux proposés."
+  ],
+  "references_exigees": {
+    "experience_minimale_annees": null,
+    "experience_source": null,
+    "volume_min_references_similaires": null,
+    "volume_min_references_unite": null,
+    "secteur_experience": "Assurance d'œuvres d'art / assurance de collections muséales",
+    "secteur_source": null,
+    "certifications_obligatoires": [
+      {
+        "libelle": "Agrément pour exercer l'activité d'assurance ou de courtage en assurance (Code des assurances) — capacité à proposer une police d'assurance d'œuvres d'art en France",
+        "codes": [],
+        "bloquante": true,
+        "source": "CCP art. 2 (objet du marché) — exigence implicite réglementaire"
+      }
+    ],
+    "autres_exigences": [
+      {
+        "libelle": "Capacité de placement des capitaux de 1 200 000 000 € par lieu de séjour et par événement sous 72 heures",
+        "source": "CCP art. 2.1.4"
+      },
+      {
+        "libelle": "Continuité de service 24h/24, 7j/7 pour déclarations d'assurance et sinistres",
+        "source": "CCP art. 3.6"
+      },
+      {
+        "libelle": "Délivrance de certificats d'assurance bilingues (français/anglais) dans un délai de 24h (dépôts/acquisitions) ou 48h (expositions)",
+        "source": "CCP art. 3.3"
+      }
+    ]
+  },
+  "dossier_candidature": {
+    "pieces_a_fournir": [
+      {
+        "libelle": "Règlement de la consultation complété (non transmis intégralement dans le DCE analysé — à vérifier sur la plateforme)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": null
+      },
+      {
+        "libelle": "Bordereau des Prix Unitaires (BPU — Annexe financière) complété avec les taux pour-mille par catégorie",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "CCP art. 14.2 / BPU"
+      },
+      {
+        "libelle": "Annexe 'Participation aux bénéfices' complétée avec le pourcentage proposé",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "CCP art. 5"
+      },
+      {
+        "libelle": "Questionnaire Égalité Professionnelle & Diversité (Annexe 1 du RC) — à renseigner en amont de la notification",
+        "phase": "offre",
+        "obligatoire": false,
+        "source": "Annexe 1 RC"
+      },
+      {
+        "libelle": "Documents de capacité financière et professionnelle (DC1/DC2 ou équivalent DUME)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": null
+      },
+      {
+        "libelle": "Attestation d'assurance professionnelle du titulaire",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "CCP art. 19"
+      },
+      {
+        "libelle": "Attestations fiscales et sociales (régularité)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "CCP art. 19"
+      }
+    ],
+    "mode_remise": "dématérialisé",
+    "plateforme_depot": null,
+    "signature_electronique_exigee": null,
+    "format_signature": null,
+    "nombre_exemplaires": null,
+    "langue": "français",
+    "duree_validite_offres_jours": null,
+    "modalites_source": null
+  },
+  "lots": [
+    {
+      "numero": 1,
+      "intitule": "Accord-cadre d'assurance d'œuvres d'art prêtées à l'EPMO-VGE pour des expositions, manifestations et présentations temporaires aux musées d'Orsay et de l'Orangerie, ou transportées en d'autres occasions en provenance ou à destination de l'un de ces musées",
+      "domaine": "assurance",
+      "zone_geographique": "Paris (IDF) — couverture mondiale",
+      "volume_estime": 4000000,
+      "volume_estime_unite": "euros de primes sur 6 ans",
+      "cout_estime_min_eur": null,
+      "cout_estime_max_eur": null,
+      "particularites": "Lot unique. Capitaux assurés historiques de 2 à 5,7 milliards d'euros par an. Garantie mondiale tous risques sans franchise. Participation aux bénéfices annuelle. Prix fermes sur 6 ans."
+    }
+  ],
+  "tranches": [],
+  "calendrier": {
+    "date_limite_offres": "2026-07-10",
+    "date_demarrage_prevue": "2027-01-01",
+    "duree_marche": "6 ans (2027-2030, reconductible selon CCP — durée totale 6 ans selon BOAMP)"
+  },
+  "alertes_candidat": [
+    "Capacité de placement de 1 200 000 000 € par événement sous 72 heures exigée (CCP art. 2.1.4) : condition technique rédhibitoire pour les acteurs de taille insuffisante — vérifier avant tout dépôt.",
+    "Prix fermes et non actualisables sur 6 ans (CCP art. 13) : un candidat doit intégrer dans ses taux le risque de dérive des marchés de réassurance sur la durée, sans possibilité de révision.",
+    "Sinistralité historique significative en 2024 (858 401 € sur 6 sinistres) : à intégrer dans le calcul de la participation aux bénéfices et le calibrage des taux pour-mille du BPU.",
+    "Continuité de service 24h/24, 7j/7 obligatoire avec pénalités de 50 €/jour en cas de retard sur les certificats ou accusés de réception (CCP art. 16) : organisation opérationnelle à prévoir impérativement.",
+    "Le BPU comporte de nombreuses lignes (4 tranches de capital × catégories d'œuvres × destinations × durées) : une erreur de remplissage peut déséquilibrer l'offre ou entraîner son rejet."
+  ],
+  "points_differenciants_attendus": [
+    {
+      "libelle": "Niveau de la participation aux bénéfices proposé",
+      "exemple": "Un candidat proposant une participation aux bénéfices de 30-40% avec un mécanisme de calcul transparent (détail du compte sinistres/primes) se différenciera significativement d'un concurrent à 15-20%. L'EPMO-VGE a historiquement des années très favorables (2023 : 0 € de sinistres).",
+      "source": "CCP art. 5"
+    },
+    {
+      "libelle": "Réactivité et digitalisation de la gestion des déclarations",
+      "exemple": "Un outil de déclaration en ligne ou un tableur automatisé de calcul des primes livré dès la notification, permettant à l'EPMO-VGE de simuler les primes en autonomie, répond directement à l'exigence de l'article 4 du CCP et démontre une organisation supérieure.",
+      "source": "CCP art. 4"
+    },
+    {
+      "libelle": "Expertise démontrée sur les grandes expositions muséales internationales et les garanties de l'État",
+      "exemple": "Un candidat citant des références de polices similaires (Louvre, Pompidou, RMN) avec des capitaux comparables (expositions > 200 M€) et une maîtrise des articulations avec la garantie de l'État (loi du 16 janvier 1993) rassurera l'acheteur sur sa capacité à gérer les cas complexes.",
+      "source": "CCP art. 2.6"
+    },
+    {
+      "libelle": "Couverture géopolitique et clause sanctions rigoureusement encadrée",
+      "exemple": "Face aux exigences strictes du CCP sur les clauses sanctions (art. 2.3.2), un candidat proposant une rédaction de clause sanctions précisément limitée aux seules hypothèses d'impossibilité juridique impérative, avec engagement de notification sans délai et recherche de modalité alternative, se positionnera avantageusement.",
+      "source": "CCP art. 2.1.1 et 2.3.2"
+    },
+    {
+      "libelle": "Démarche RSE/environnementale dans l'exécution du marché",
+      "exemple": "Proposer un plan Green IT concret (gestion des mails, hébergement des données, recyclage matériel) et des indicateurs mesurables de réduction de l'empreinte carbone liés à la gestion du contrat répond aux critères d'attribution environnementaux signalés dans l'avis BOAMP et aux engagements RSO 2025-2030 de l'EPMO-VGE.",
+      "source": "CCP art. 12 / BOAMP criteres_attribution_boamp"
+    }
+  ],
+  "_meta": {
+    "id_marche": "BOAMP-26-56517",
+    "type": "complet",
+    "date_generation": "2026-06-19T19:37:35.033304+00:00",
+    "extraction_le": "2026-06-19T19:37:35.033304+00:00",
+    "modele": "claude-sonnet-4-6",
+    "preset_utilise": null,
+    "presets_matches": [],
+    "prompts_versions": {},
+    "tokens_input": 44182,
+    "tokens_output": 5047,
+    "cout_eur": 0.1978,
+    "duree_sec": 94.4,
+    "pdfs_traites": [
+      {
+        "nom": "01.1. Reglement de la consultation Annexe 1 Questionnaire Egalite et Diversite.docx",
+        "hash": "126e1952bf570e8f2f601337c10bebc6",
+        "taille_chars": 5638
+      },
+      {
+        "nom": "02. Acte d'engagement.docx",
+        "hash": "ee5a7b1a561bae96e9fb90dec126b8e5",
+        "taille_chars": 6639
+      },
+      {
+        "nom": "03. CCP v2 DEF.pdf",
+        "hash": "cc8c77146130165ff295ae09a474baca",
+        "taille_chars": 57818
+      },
+      {
+        "nom": "04. Annexe financiere - BPU v2 DEF.xlsx",
+        "hash": "1341bdac142d14119192161f68619001",
+        "taille_chars": 5484
+      },
+      {
+        "nom": "05. Annexe financiere - Participation aux benefices.xlsx",
+        "hash": "4e5f2e76ea5ffc34aaef2a0947a334d9",
+        "taille_chars": 418
+      },
+      {
+        "nom": "Registre des questions réponses.xlsx",
+        "hash": "c3ce1ba5f6a957483cbfc00c07aaf305",
+        "taille_chars": 1999
+      }
+    ]
+  }
+}

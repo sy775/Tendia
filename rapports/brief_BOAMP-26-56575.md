@@ -1,6 +1,6 @@
 # Brief — Nettoyage du groupe scolaire de Mezzana 2026-2029 - Sarrola-Carcopino
 
-_Généré le 2026-06-12 15:49 par Claude claude-sonnet-4-6_
+_Généré le 2026-06-19 22:23 par Claude claude-sonnet-4-6_
 
 ## Identifiants
 - **ID Tendia** : `BOAMP-26-56575`
@@ -11,128 +11,84 @@ _Généré le 2026-06-12 15:49 par Claude claude-sonnet-4-6_
 - **DCE PLACE** : <https://www.marches-publics.gouv.fr/?page=Entreprise.EntrepriseDetailsConsultation&id=2972813&orgAcronyme=x7c>
 
 ## Synthèse
-Ce DCE concerne un Système d'Acquisition Dynamique (SAD) pour l'achat et la location de véhicules motorisés (véhicules personnels, utilitaires, fourgons, véhicules sanitaires, TPMR, etc.) au profit des établissements du GHT Alliance de Gironde, piloté par le CHU de Bordeaux. Le SAD est divisé en 25 catégories couvrant achats neufs, achats d'occasion et locations, avec des quantités estimatives sur 10 ans. La durée du SAD est de 10 ans à compter du 18 juin 2026.
-
-## 🏗 Chantier — caractéristiques BTP
-### Allotissement
-Le SAD est divisé en 25 catégories (et non des lots au sens classique), chaque candidat pouvant postuler à une ou plusieurs catégories.
-- **Nombre de lots** : 25
-- **Lot 1** — Véhicules personnels – Achat neuf
-  - 174 véhicules personnels neufs estimatifs sur 10 ans
-- **Lot 2** — Véhicules personnels – Achat occasion
-  - 21 véhicules personnels d'occasion estimatifs sur 10 ans
-- **Lot 3** — VUL (Camionnettes – fourgonnette) – Achat neuf
-  - 54 VUL neufs estimatifs sur 10 ans
-- **Lot 4** — VUL (Camionnettes – fourgonnette) – Achat occasion
-  - 6 VUL d'occasion estimatifs sur 10 ans
-- **Lot 5** — Fourgon (utilitaire < 3,5T) – Achat neuf
-  - 8 fourgons neufs estimatifs sur 10 ans
-- **Lot 6** — Fourgon (utilitaire < 3,5T) – Achat occasion
-  - 8 fourgons d'occasion estimatifs sur 10 ans
-- **Lot 7** — Véhicule sanitaire type A – Achat neuf
-  - 9 véhicules sanitaires type A neufs estimatifs sur 10 ans
-- **Lot 8** — Véhicule sanitaire type B et C – Achat neuf
-  - 3 véhicules sanitaires types B/C neufs estimatifs sur 10 ans
-- **Lot 9** — Véhicule sanitaire VLM – Achat neuf
-  - 3 VLM neufs estimatifs sur 10 ans
-- **Lot 10** — Véhicule TPMR – Achat neuf
-  - 5 TPMR neufs estimatifs sur 10 ans
-- **Lot 11** — Véhicule aménagés divers – Achat neuf
-  - 3 véhicules aménagés divers neufs estimatifs sur 10 ans
-- **Lot 12** — Véhicule sanitaire type A – Achat occasion
-  - 2 véhicules sanitaires type A d'occasion estimatifs sur 10 ans
-- **Lot 13** — Véhicule sanitaire type B et C – Achat occasion
-  - 2 véhicules sanitaires types B/C d'occasion estimatifs sur 10 ans
-- **Lot 14** — Véhicule sanitaire VLM – Achat occasion
-  - 2 VLM d'occasion estimatifs sur 10 ans
-- **Lot 15** — Véhicule TPMR – Achat occasion
-  - 2 TPMR d'occasion estimatifs sur 10 ans
-- **Lot 16** — Véhicule aménagés divers – Achat occasion
-  - 2 véhicules aménagés divers d'occasion estimatifs sur 10 ans
-- **Lot 17** — Véhicules motorisés sans permis – Achat neuf
-  - 8 véhicules sans permis neufs estimatifs sur 10 ans
-- **Lot 18** — Véhicules de transport de biens – Achat neuf
-  - 2 véhicules de transport de biens neufs estimatifs sur 10 ans
-- **Lot 19** — Véhicules de transport de biens – Achat occasion
-  - 2 véhicules de transport de biens d'occasion estimatifs sur 10 ans
-- **Lot 20** — Prestation d'aménagement de véhicule
-  - 6 prestations d'aménagement de véhicules estimatives sur 10 ans
-- **Lot 21** — Prestation d'aménagement de véhicule soumis à la norme NF 1798
-  - 3 prestations d'aménagement soumises à norme NF EN 1789 estimatives sur 10 ans
-- **Lot 22** — Véhicules personnels – Location
-  - 503 véhicules personnels en location estimatifs sur 10 ans
-- **Lot 23** — Véhicules de transport de biens – Location
-  - 33 véhicules de transport de biens en location estimatifs sur 10 ans
-- **Lot 24** — VUL (Camionnettes – fourgonnette) – Location
-  - 62 VUL en location estimatifs sur 10 ans
-- **Lot 25** — Fourgon (utilitaire < 3,5T) – Location
-  - 20 fourgons en location estimatifs sur 10 ans
-
-### Qualifications BTP exigées
-Pas de qualification Qualibat ou RGE exigée. Pour les aménageurs de véhicules sanitaires, conformité à la norme NF EN 1789 et à l'arrêté du 12 décembre 2017 exigée, ainsi que capacité à obtenir réception VASP-ambulance.
-- **Autres exigences** :
-  - Conformité norme NF EN 1789 pour aménagements véhicules sanitaires (catégories 7a, 7b, 8a, 8b, 12b, 17b)
-  - Capacité à fournir le dossier technique d'homologation VASP – ambulance
-
-## ⚡ Parc EnR — caractéristiques techniques
-- **Description** : Achat neuf, achat d'occasion et location de véhicules motorisés de toutes catégories (véhicules personnels, VUL, fourgons <3,5T, véhicules sanitaires types A/B/C, VLM, TPMR, véhicules aménagés divers, véhicules sans permis, véhicules de transport de biens) ainsi que des prestations d'aménagement de véhicules, dont certains soumis à la norme NF EN 1789.
-- **Type de sites** : Établissements hospitaliers du GHT Alliance de Gironde (Gironde, région Nouvelle-Aquitaine)
-- **Critères d'éligibilité** :
-  - Déclaration sur l'honneur justifiant que le candidat n'entre dans aucun cas d'interdiction de soumissionner (source=RC §5.1)
-  - Déclaration concernant le chiffre d'affaires global et le chiffre d'affaires relatif aux prestations objet du contrat sur les trois derniers exercices (source=RC §5.1)
-  - Assurance pour les risques professionnels pour l'année en cours (source=RC §5.1)
-  - Pour les aménageurs (catégories 7a, 7b, 8a, 8b, 12b, 17b) : capacité à réaliser des aménagements conformes à la norme NF EN 1789 et à l'arrêté du 12 décembre 2017 relatif aux véhicules de transport sanitaire terrestre (source=RC §5.1)
-  - Pour les aménageurs : capacité à produire des véhicules susceptibles d'obtenir une réception administrative en catégorie VASP – ambulance, incluant la fourniture du dossier technique d'homologation (source=RC §5.1)
-
-### Volumes techniques
-- **Durée du marché (mois)** : 120
-- **Note** : SAD de 10 ans. Quantités estimatives totales sur 10 ans : 174 VP neufs, 21 VP occasion, 54 VUL neufs, 503 VP location, 62 VUL location, 9 VST type A neufs, etc. Les quantités réelles dépendent des commandes effectives des établissements parties.
-
-### Modalités d'exécution
-- **Sites d'exécution** : GHT Alliance de Gironde, Gironde, Nouvelle-Aquitaine
-
-## 🎯 Mission conseil
-- **Durée de mission** : 10 ans (SAD)
-
-## 🎓 Formation / accompagnement
-### Volumes
-- **Durée marché (mois)** : 120
-- **Note** : SAD de 10 ans couvrant l'ensemble des établissements du GHT Alliance de Gironde. Volumes estimatifs par catégorie détaillés dans l'annexe 2 du CCAP.
-
-### Modalités
-- **Sites d'exécution** : GHT Alliance de Gironde, Gironde
+Système d'Acquisition Dynamique (SAD) sur 10 ans (2026-2036) porté par le CHU de Bordeaux pour le compte des établissements du GHT Alliance de Gironde, portant sur l'achat et la location de véhicules motorisés de toutes catégories : véhicules personnels, utilitaires, poids lourds, véhicules sanitaires (ambulances type A et C, VLM), TPMR, et prestations d'aménagement. Le SAD est divisé en 29 catégories couvrant achat neuf, occasion et location courte/moyenne/longue durée. Les marchés spécifiques seront lancés au fil du besoin par les 11 établissements hospitaliers parties.
 
 ## 💶 Montant du marché
 - _Montant non communiqué dans le DCE._
   - Typique des accords-cadres à bons de commande : le volume dépend des commandes effectivement passées par l'acheteur sur la durée du marché.
-- _Note_ : Aucun montant estimatif global n'est mentionné dans le RC fourni. Les quantités estimatives par catégorie sont disponibles (ex: 503 véhicules personnels en location, 174 VP achat neuf, etc.) mais sans prix unitaires, un calcul n'est pas possible. Les montants seront définis marché spécifique par marché spécifique.
+- _Note_ : Aucun montant global du SAD n'est publié dans le DCE. Le RC et le CCAP ne donnent que des quantités estimatives sur 10 ans (ex : 174 VP neuf, 503 VP location, 9 ambulances type A neuf…) sans prix unitaires de référence. Les prix unitaires seront définis dans chaque marché spécifique. Voir estimation bottom-up en montant_3_voies.
 
 ## Barème de notation
-- **Valeur technique** : 45 %
+- **Valeur technique** : 50 %
 - **Valeur prix** : 50 %
 - **Sous-critères techniques** :
   - Critère technique : 45 %
   - Critère développement durable : 5 %
-- **Calcul du prix** : Critère prix pondéré à 50%, pouvant varier entre 45% et 55% selon le marché spécifique. La formule exacte sera précisée dans chaque marché spécifique.
+- **Calcul du prix** : Critère prix à 50% (fourchette 45-55% par marché spécifique) ; comparaison des prix unitaires HT du BPU ou DPGF ; le moins-disant obtient la note maximale.
 
 ## Références et qualifications exigées
 - **Expérience minimale** : 3 ans
-- **Secteur d'expérience** : Fourniture et location de véhicules motorisés, aménagement de véhicules sanitaires pour les catégories concernées
+- **Secteur d'expérience** : Livraison de véhicules motorisés (personnels, utilitaires, sanitaires, TPMR) et/ou aménagement de véhicules spéciaux à des acheteurs publics ou privés
+- **Certifications obligatoires** : Capacité à réaliser des aménagements conformes à la norme NF EN 1789 relative aux véhicules de transport sanitaire (pour catégories 7a, 7b, 8a, 8b, 12b, 17b) (bloquante=True, source=RC §5.1 — section 'Pour les aménageurs'), Capacité à produire des véhicules susceptibles d'obtenir une réception administrative en catégorie VASP – ambulance (homologation UTAC ou équivalent) (bloquante=True, source=RC §5.1 — section 'Pour les aménageurs'), Conformité à l'arrêté du 12 décembre 2017 relatif aux véhicules affectés aux transports sanitaires terrestres (pour aménageurs ambulances) (bloquante=True, source=RC §5.1 — section 'Pour les aménageurs')
 - **Autres exigences** :
-  - Liste des principales prestations effectuées au cours des trois dernières années, indiquant le montant, la date et le destinataire, prouvées par attestations (source=RC §5.1)
-  - Pour les aménageurs : liste de prestations similaires d'aménagement de véhicules sanitaires ou spéciaux réalisées au cours des trois dernières années (source=RC §5.1)
-  - Description des moyens de production et d'aménagement (atelier, équipements, outillage spécifique) et compétences du personnel affecté à l'aménagement (source=RC §5.1)
-  - Indiquer dans l'annexe 2 du CCAP la ou les catégories pour lesquelles le candidat demande son admission — à défaut, candidature rejetée (source=RC §5.2)
+  - Déclaration du chiffre d'affaires global et chiffre d'affaires sur les prestations objet du contrat des 3 derniers exercices disponibles (source=RC §5.1)
+  - Attestation d'assurance adaptée (risques professionnels) pour l'année en cours (source=RC §5.1)
+  - Déclaration des effectifs moyens annuels et importance du personnel d'encadrement pour chacune des 3 dernières années (source=RC §5.1)
+  - Liste des capacités à assurer les prestations associées : nombre de personnels, nombre d'ateliers, horaires d'ouverture (ou liste des sous-traitants avec leurs capacités) (source=RC §5.1)
+  - Indication obligatoire de la ou des catégories pour lesquelles le candidat postule (en complétant l'annexe 2 du CCAP) — à défaut la candidature est rejetée (source=RC §5.2)
+
+## Lots
+- **Lot 1** — Catégorie 1 — Véhicules personnels — Achat neuf
+  - Zone : Gironde (33)
+  - Volume estimé : 174 véhicules
+  - Citadines, berlines, monospaces, SUV, véhicules motorisés sans permis (cat.9 incluse). Quantités estimatives sur 10 ans non garanties.
+- **Lot 2** — Catégories 3/4/15 — Véhicules Utilitaires Légers (VUL) — Achat et location
+  - Zone : Gironde (33)
+  - Volume estimé : 122 véhicules
+  - Camionnettes et fourgonnettes neuf et occasion + location ; minibus 6-9 places possibles ; aménagements spécifiques (rayonnages, frigo, benne). 54 neuf + 6 occasion + 62 location sur 10 ans.
+- **Lot 3** — Catégories 5/6/16 — Fourgons utilitaires ≤ 3,5T — Achat et location
+  - Zone : Gironde (33)
+  - Volume estimé : 36 véhicules
+  - Fourgons L1 à L4 / H1 à H3, PTAC ≤ 3,5T, options hayon élévateur, cloison, aménagements température. 8 neuf + 8 occasion + 20 location sur 10 ans.
+- **Lot 4** — Catégories 7a/7b/8a/8b — Véhicules sanitaires NF EN 1789 (Ambulances type A et C) — Achat et location
+  - Zone : Gironde (33)
+  - Volume estimé : 23 véhicules
+  - Ambulances type A (transport couché non urgent) et type C (ASSU, soins d'urgence). Aménagement conforme NF EN 1789, homologation VASP requise. 9+3 neuf + 2+2 occasion + 5+2 location sur 10 ans. Sous-traitance carrossier possible.
+- **Lot 5** — Catégories 7c/8c/17c — Véhicules Légers Médicalisés (VLM) — Achat et location
+  - Zone : Gironde (33)
+  - Volume estimé : 7 véhicules
+  - VLM avec rangements modulaires matériel médical, gyrophares, balisage SMUR/SAMU. 3 neuf + 2 occasion + 2 location sur 10 ans.
+- **Lot 6** — Catégories 7d/8d/17d — Véhicules TPMR — Achat et location
+  - Zone : Gironde (33)
+  - Volume estimé : 12 véhicules
+  - Transport de Personnes à Mobilité Réduite : 4 places + 1 fauteuil, rampe d'accès manuelle, climatisation 20 renouvellements/h. 5 neuf + 2 occasion + 5 location sur 10 ans.
+- **Lot 7** — Catégories 7e/8e/17e — Véhicules aménagés divers — Achat et location
+  - Zone : Gironde (33)
+  - Volume estimé : 22 véhicules
+  - Médicobus, postes de régulation avancés, véhicules de décontamination, véhicules funéraires. Aménagements multiples et variés. 3 neuf + 2 occasion + 15 location sur 10 ans. Date d'exécution prévisionnelle pour certains : 28/01/2029.
+- **Lot 8** — Catégories 12a/12b — Prestation d'aménagement de véhicule (porteurs déjà acquis)
+  - Zone : Gironde (33)
+  - Volume estimé : 9 aménagements
+  - Aménagement de porteurs fournis par le CHU : ASSU type C (cat.12a), VLM / véhicule 'aller vers' / flocage / installation hayon / rampes d'accès / fauteuils TPMR supplémentaires (cat.12b). Norme NF 1798 pour 12b. 6+3 aménagements sur 10 ans.
+- **Lot 9** — Catégories 10/11/14 — Poids lourds / Véhicules de transport de biens — Achat et location
+  - Zone : Gironde (33)
+  - Volume estimé : 37 véhicules
+  - PTAC > 3,5T, options hayon, température dirigée, caisses variables. 2 neuf + 2 occasion + 33 location sur 10 ans. Location courte/moyenne durée disponible (notamment pour CHU et CH Libourne).
+- **Lot 10** — Catégorie 13 — Location véhicules personnels (longue durée)
+  - Zone : Gironde (33)
+  - Volume estimé : 503 contrats de location
+  - Catégorie la plus volumineuse du SAD. Location longue durée de VP avec gestion de flotte, interface informatisée, suivi sinistralité, réajustement couple durée/km. Date d'exécution prévisionnelle pour certains établissements : 12/04/2027.
 
 ## ⚠ Alertes candidat
-- OBLIGATION d'indiquer les catégories postulées en complétant l'annexe 2 du CCAP — à défaut, candidature rejetée automatiquement (RC §5.2).
-- Pour les catégories 7a, 7b, 8a, 8b, 12b, 17b : conformité NF EN 1789 et capacité d'homologation VASP-ambulance obligatoires — dossier technique à préparer soigneusement.
-- Transmission exclusivement électronique via PLACE (marches-publics.gouv.fr) — aucune transmission papier autorisée.
-- Date limite de première candidature stricte : 18 juin 2026 à 12h00 — anticiper le dépôt d'au moins 48h.
-- Toute candidature déposée au moins 10 jours avant l'envoi d'une invitation à concourir à un marché spécifique sera prise en compte : surveiller les mises à jour du SAD tout au long des 10 ans.
+- L'absence d'indication des catégories postulées (Annexe 2 CCAP) entraîne le rejet automatique de la candidature — pièce absolument obligatoire.
+- Pour les catégories d'aménagement de véhicules sanitaires (7a, 7b, 8a, 8b, 12b, 17b) : justification obligatoire de la capacité à réaliser des aménagements conformes NF EN 1789 et à obtenir une homologation VASP-ambulance — sans ce justificatif, la candidature est irrecevable sur ces catégories.
+- Un candidat admis au SAD qui refuse de répondre sans justification à 5 invitations consécutives peut être exclu définitivement du système — prévoir une organisation interne pour traiter les invitations.
+- Les pénalités de retard de livraison s'appliquent sans mise en demeure préalable, sans plafond et sans possibilité d'exonération — le risque financier est significatif, à anticiper dans la politique tarifaire.
+- Le SAD est ouvert en continu pendant 10 ans : les candidatures peuvent être déposées à tout moment, mais doivent être soumises au moins 10 jours calendaires avant l'invitation à soumissionner à un marché spécifique.
 
 ## 💡 Points différenciants attendus
-- Capacité d'homologation VASP-ambulance et conformité NF EN 1789 (exemple=Un aménageur disposant d'un agrément préfectoral de centre d'aménagement VASP, de références récentes sur ambulances type A homologuées et d'un accord avec un DREETS pour les réceptions se démarquera nettement sur les catégories 7a, 7b, 12b., source=RC §5.1)
-- Réseau de livraison et SAV en Gironde / Nouvelle-Aquitaine (exemple=Disposer d'une concession ou d'un partenaire agréé en Gironde permettant des livraisons sous 30 jours et un SAV à moins de 30 km des établissements du GHT renforcera le critère technique.)
-- Offre de véhicules électriques ou à faibles émissions (exemple=Proposer une gamme comprenant des véhicules électriques pour les catégories VP et VUL, avec bornes de recharge associées, valorise le critère développement durable (5% à 10%)., source=RC §8.1)
-- Couverture multi-catégories pour un partenariat global (exemple=Un candidat capable de couvrir simultanément les catégories VP achat neuf, VP location, VUL neuf et VUL location pourra proposer une offre économique globale cohérente, facilitant la gestion pour les établissements parties.)
+- Interface de gestion de flotte numérique dédiée au GHT (exemple=Un candidat proposant une plateforme web permettant à chaque responsable de parc des 11 établissements de suivre en temps réel les commandes, les loyers, la sinistralité et les entretiens, avec export automatique des bilans semestriels, se différenciera fortement sur le critère technique., source=CCTP §2.3)
+- Réseau d'ateliers de livraison et d'aménagement en Nouvelle-Aquitaine (exemple=Un candidat disposant d'ateliers agréés VASP et carrossiers spécialisés ambulances en Gironde (ou sous-traitants certifiés localement) réduira ses délais de livraison et rassurera l'acheteur sur la capacité à gérer les aménagements spéciaux dans les délais contractuels., source=RC §5.1 ; CCTP §4.3)
+- Offre proactive sur les Certificats d'Économie d'Énergie (CEE) (exemple=Un candidat qui chiffre et déduit systématiquement les CEE de son offre financière (avec simulation du volume de kWhcumac par véhicule éligible), et qui propose un mécanisme de suivi des évolutions réglementaires, se distinguera sur le critère développement durable., source=CCAP §23.5)
+- Barème de dépréciation détaillé et transparent pour les restitutions de véhicules de location (exemple=Un candidat présentant un barème de dépréciation conforme aux normes SNLVLD, avec des taux d'abattement détaillés par type de dommage et ancienneté, et un engagement sur les délais de rapport de bilan 30 jours avant restitution, réduit le risque de litige et renforce la confiance des établissements., source=CCTP §7)
+- Catalogue large incluant des motorisations alternatives (électrique/hybride) sur toutes les catégories (exemple=Un candidat proposant une gamme complète de véhicules électriques pour les catégories VP et VUL, avec des solutions de recharge adaptées aux sites hospitaliers et un engagement sur les performances de batterie (autonomie, cycles de charge), se distinguera sur le critère développement durable (5-10%)., source=CCTP §8)

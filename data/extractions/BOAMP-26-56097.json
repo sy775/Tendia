@@ -1,0 +1,866 @@
+{
+  "synthese_marche": "France Terre d'Asile (FTDA), association loi 1901 gérant 128 établissements et ~1 960 ETP, lance un appel d'offres ouvert pour l'infogérance informatique de son parc (~1 500 PC, serveurs physiques/virtuels, réseau LAN/WAN/Wi-Fi/VPN, Microsoft 365). Le marché est décomposé en 2 lots indépendants : Lot 1 (infogérance de proximité : Service Desk N1/N2, gestion postes, support M365) et Lot 2 (infogérance système et réseau : administration serveurs, réseau, cybersécurité EDR/XDR/SIEM/PAM, conformité NIS2/RGPD/ANSSI). Marché ordinaire à prix mixtes (DPGF + BPU), durée initiale 12 mois reconductible 3 fois (4 ans max), estimé à 1 500 000 € TTC toutes durées et lots confondus.",
+  "domaines_metier": [
+    {
+      "code": "it_infrastructure_cloud",
+      "poids": 0.55,
+      "lots_concernes": [
+        2
+      ]
+    },
+    {
+      "code": "it_maintenance_support",
+      "poids": 0.45,
+      "lots_concernes": [
+        1
+      ]
+    }
+  ],
+  "raison_classification": "Le marché porte explicitement sur l'infogérance informatique (Service Desk N1/N2, administration serveurs/réseau/cloud) et la cybersécurité (EDR/XDR, SIEM, PAM, conformité NIS2/ANSSI). Le Lot 1 relève de `it_maintenance_support` (support utilisateurs, TMA parc PC, helpdesk) et le Lot 2 de `it_infrastructure_cloud` (administration infrastructure hybride Microsoft 365, serveurs, réseau, sécurité), justifiant deux domaines avec poids distincts.",
+  "caracteristiques_mission_it": {
+    "typologie_mission": "infogérance/infrastructure, maintenance/support (TMA/MCO)",
+    "typologie_systeme": "infogerance",
+    "cloud_ou_on_premise": "hybride",
+    "niveau_securite": "données personnelles RGPD (données sensibles personnes vulnérables : demandeurs d'asile, réfugiés, mineurs isolés), conformité NIS2/ANSSI",
+    "technologies_attendues": [
+      "Microsoft 365 (Exchange Online, Teams, SharePoint, OneDrive)",
+      "Microsoft Entra ID / Active Directory",
+      "Windows Server / Hyper-V / VMware",
+      "EDR/XDR (endpoint detection and response)",
+      "SIEM (Security Information and Event Management)",
+      "PAM (Privileged Access Management)",
+      "LAN/WAN/Wi-Fi/VPN",
+      "ITSM (IT Service Management, ex: ServiceNow, Freshservice, GLPI)",
+      "GPO Active Directory",
+      "Solution de sauvegarde et PRA"
+    ],
+    "modele_prestation": "forfait (DPGF mensuel récurrent) + unités d'œuvre (BPU régie et prestations ponctuelles)",
+    "volumetrie": "~1 960 utilisateurs, ~1 500 postes de travail, 128 établissements, ~120 équipements réseau actifs, <10 serveurs virtuels + 80 serveurs physiques en décommissionnement, 30 To sauvegardes",
+    "jours_homme_estimes": null,
+    "sla_attendus": "P1 GTI 30 min / GTR 4h, P2 GTI 2h / GTR 8h ouvrées, P3 GTI 4h ouvrées / GTR 3j ouvrés, P4 GTI 1j / GTR 5j ouvrés ; serveur critique HS P1 GTI 30 min / GTR 4h 24/7 ; réseau siège coupure P1 GTI 30 min / GTR 4h 24/7 ; disponibilité portail ITSM 99,5% mensuel",
+    "livrables_par_phase": [
+      {
+        "phase": "Transition (1 à 3 mois)",
+        "livrables": [
+          "Audit complet de l'existant sous 30 jours (documentation, CMDB, écarts terrain)",
+          "Plan de transition détaillé sous 15 jours après audit",
+          "Tests de reprise en charge validés (tickets, accès serveurs, CMDB, supervision)",
+          "Outil ITSM opérationnel avec SSO Entra ID, app mobile, intégration Teams"
+        ]
+      },
+      {
+        "phase": "MCO mensuel",
+        "livrables": [
+          "Tableau de bord mensuel des SLA (GTI/GTR, taux de disponibilité, dépassements)",
+          "Rapport d'intervention à chaque intervention sur site",
+          "Compte-rendu de comité opérationnel mensuel (sous 5 jours ouvrés)",
+          "Rapport trimestriel (15 pages max) avec bilan financier et roadmap",
+          "Rapport de vulnérabilités mensuel (Lot 2)"
+        ]
+      },
+      {
+        "phase": "Annuel",
+        "livrables": [
+          "Rapport annuel complet (30 pages max)",
+          "Audit annuel de sécurité (configuration, pentest, AD, sauvegardes, logs)",
+          "Test annuel du PRA",
+          "Exercice de simulation de crise cyber",
+          "Enquête de satisfaction annuelle (≥40% de taux de réponse)"
+        ]
+      },
+      {
+        "phase": "Réversibilité (fin de marché)",
+        "livrables": [
+          "Documentation technique complète à J-90 (schémas, CMDB exportée, configurations)",
+          "Export complet des données ITSM sous 5 jours ouvrés"
+        ]
+      }
+    ],
+    "profils_attendus": [
+      {
+        "profil": "Technicien Service Desk N1",
+        "nombre": null,
+        "anciennete_min_annees": null,
+        "certifs_requises": []
+      },
+      {
+        "profil": "Technicien Support N2 / Spécialiste Microsoft 365",
+        "nombre": null,
+        "anciennete_min_annees": null,
+        "certifs_requises": []
+      },
+      {
+        "profil": "Chef de projet / Coordinateur Lot 1",
+        "nombre": null,
+        "anciennete_min_annees": null,
+        "certifs_requises": []
+      },
+      {
+        "profil": "Ingénieur système (Windows Server, virtualisation, M365 tenant)",
+        "nombre": null,
+        "anciennete_min_annees": null,
+        "certifs_requises": []
+      },
+      {
+        "profil": "Ingénieur réseau (LAN, WAN, Wi-Fi, VPN, firewalls)",
+        "nombre": null,
+        "anciennete_min_annees": null,
+        "certifs_requises": []
+      },
+      {
+        "profil": "Expert cybersécurité (EDR/XDR, SIEM, PAM, AD durci ANSSI)",
+        "nombre": null,
+        "anciennete_min_annees": null,
+        "certifs_requises": []
+      },
+      {
+        "profil": "Architecte / Consultant senior (études, conduite de projets)",
+        "nombre": null,
+        "anciennete_min_annees": null,
+        "certifs_requises": []
+      },
+      {
+        "profil": "Responsable de compte (relation contractuelle, escalade)",
+        "nombre": 1,
+        "anciennete_min_annees": null,
+        "certifs_requises": []
+      }
+    ],
+    "exigences_securite": [
+      "Hébergement des données en France ou Union Européenne obligatoire (interdiction Cloud Act américain)",
+      "ISO 27001 (engagement de conformité obligatoire, certification appréciée)",
+      "Conformité RGPD + DPA obligatoire",
+      "Conformité recommandations ANSSI (guides de durcissement, GPO AD)",
+      "NIS2 (préparation à la directive, entité essentielle/importante)",
+      "SecNumCloud apprécié pour hébergeurs de données sensibles",
+      "Vérification d'antécédents de tous les intervenants",
+      "Clause de confidentialité signée par chaque intervenant (valable 3 ans après fin de mission)"
+    ],
+    "reversibilite": "Réversibilité obligatoire conforme CCAG-TIC art. 38.3/38.4 : transmission de la documentation complète à J-90, export CMDB et données ITSM, sessions de formation/passation, astreinte partagée 15 jours post-bascule. Si réversibilité suite à manquement titulaire, frais entièrement à la charge du titulaire."
+  },
+  "qualifications_it": {
+    "iso_27001": true,
+    "hds": false,
+    "secnumcloud": false,
+    "rgs": false,
+    "referencement_anssi": false,
+    "certifications_securite": [
+      "ISO 27001 (certification appréciée, engagement de conformité obligatoire)",
+      "SecNumCloud (apprécié pour hébergeurs de données sensibles)",
+      "Conformité référentiels ANSSI"
+    ],
+    "certifications_technologiques": [
+      "Partenariat Microsoft / compétences Microsoft 365 appréciées",
+      "Compétences EDR/XDR, SIEM, PAM (solutions type CrowdStrike, SentinelOne, Microsoft Defender, CyberArk, Keeper)"
+    ],
+    "autres": [
+      "ITIL v3/v4 (processus de gestion des incidents/problèmes/changements conformes)"
+    ]
+  },
+  "bareme_notation": {
+    "valeur_technique_pct": 60,
+    "valeur_prix_pct": 40,
+    "sous_criteres_techniques": [
+      {
+        "libelle": "Compréhension du contexte FTDA et reformulation des enjeux (Lot 1)",
+        "ponderation_pct": 8,
+        "description": "Le jury évalue la capacité du candidat à reformuler les enjeux spécifiques de FTDA (contexte associatif, 128 établissements, 1 960 ETP, public vulnérable) et à identifier les facteurs clés de succès et axes d'amélioration par rapport au marché sortant, notamment sur la migration SharePoint (45/134 sites au démarrage).",
+        "elements_attendus": [
+          "Reformulation précise du besoin FTDA : contexte associatif, données sensibles, 128 établissements, 1 960 ETP",
+          "Identification des risques et axes d'amélioration vs marché sortant (réactivité Service Desk, CMDB, monitoring proactif)",
+          "Compréhension de l'écosystème Microsoft 365 et de la migration SharePoint en cours (45/134 sites)",
+          "Conscience des enjeux RGPD liés aux données de personnes vulnérables"
+        ],
+        "exemple_reponse_forte": "Réponse démontrant une lecture approfondie du CCTP : mention explicite des 128 établissements répartis en 10 régions avec la complexité logistique associée (équité de traitement siège/régions), identification des axes d'amélioration du marché sortant (réactivité régionale, CMDB, gouvernance), et analyse de la migration SharePoint avec proposition de trajectoire 45→134 sites. Valorisation du contexte associatif et des obligations RGPD sur données sensibles.",
+        "source": "Annexe D §LOT 1 T1.1",
+        "unite_evaluation": "points",
+        "sous_criteres": []
+      },
+      {
+        "libelle": "Plan de transition et reprise de l'existant (Lot 1)",
+        "ponderation_pct": 12,
+        "description": "Le jury évalue la capacité du candidat à reprendre l'existant sans interruption de service : audit complet sous 30 jours, plan de transition sous 15 jours, tests de reprise en charge documentés (tickets, intervention à distance, accès CMDB), stabilisation 1 mois post-bascule.",
+        "elements_attendus": [
+          "Méthodologie d'audit complet de l'existant sous 30 jours post-notification (identification des écarts documentation/terrain)",
+          "Plan de transition détaillé avec jalons et critères de bascule, sous 15 jours après audit",
+          "Description des tests de reprise en charge : ouverture de ticket ITSM, intervention à distance, accès CMDB",
+          "Phase de stabilisation d'1 mois post-bascule avec accompagnement renforcé",
+          "Gestion du risque de continuité de service pendant la transition"
+        ],
+        "exemple_reponse_forte": "Plan de transition détaillé en 4 phases (préparation J-30, audit J+1 à J+30, transition active J+30 à J+90, stabilisation J+90 à J+120) avec jalons binaires de validation FTDA, matrice de risques, et procédure de traitement des écarts documentation/terrain. Présentation des scénarios de tests de reprise (simulation de ticket P1 en direct, accès aux serveurs critiques, etc.).",
+        "source": "Annexe D §LOT 1 T1.2 ; CCTP §5.6",
+        "unite_evaluation": "points",
+        "sous_criteres": []
+      },
+      {
+        "libelle": "Service Desk — organisation et fonctionnement (Lot 1)",
+        "ponderation_pct": 14,
+        "description": "Le jury évalue l'organisation du Service Desk proposée : dimensionnement N1/N2, plages de service (8h-18h + astreinte 18h-20h + permanence foyers mineurs samedi 9h-13h), canaux de contact (numéro unique non surtaxé, portail SSO Entra ID, email, Teams), disponibilité portail 99,5% mensuel.",
+        "elements_attendus": [
+          "Dimensionnement de l'équipe N1/N2 avec profils proposés (CV, certifications), continuité assurée",
+          "Plages de service conformes : 8h-18h L-V, astreinte 18h-20h (P1/P2), samedi 9h-13h foyers mineurs, week-end sur activation",
+          "Numéro unique non surtaxé avec décroché ≤ 2 min en moyenne, message d'accueil personnalisé FTDA",
+          "Portail web SSO Entra ID 24h/24 avec app mobile iOS/Android, responsive",
+          "Intégration Microsoft Teams (bot ou canal dédié)"
+        ],
+        "exemple_reponse_forte": "Description d'une équipe de 3 techniciens N1 et 2 N2 en roulement avec astreinte téléphonique nominative sur 18h-20h, planning de présence formalisé. Portail de ticketing avec SSO Microsoft Entra ID déjà déployé chez d'autres associations similaires, décroché moyen mesuré à 1m45 sur les 6 derniers mois. Bot Teams permettant l'ouverture directe de tickets depuis l'espace de travail FTDA.",
+        "source": "Annexe D §LOT 1 T1.3 ; CCTP §3.2",
+        "unite_evaluation": "points",
+        "sous_criteres": []
+      },
+      {
+        "libelle": "Engagements SLA (GTI/GTR) et qualité du reporting (Lot 1)",
+        "ponderation_pct": 12,
+        "description": "Le jury évalue le respect des SLA contractuels (GTI/GTR par niveau de criticité P1 à P4, disponibilité cible 99%/98%) et la qualité du reporting mensuel (taux de respect, dépassements, plans correctifs), incluant la suspension documentée des délais.",
+        "elements_attendus": [
+          "Engagements SLA conformes : P1 GTI 30 min / GTR 4h, P2 GTI 2h / GTR 8h, P3 GTI 4h / GTR 3j ouvrés, P4 GTI 1j / GTR 5j ouvrés",
+          "Astreinte P1 18h-20h : GTI 1h, GTR 8h",
+          "Disponibilité cible 99% P1/P2, 98% P3/P4",
+          "Tableau de bord mensuel avec taux de respect GTI/GTR, liste des dépassements et plans correctifs",
+          "Procédure de suspension des délais documentée dans chaque ticket"
+        ],
+        "exemple_reponse_forte": "Présentation d'un outil ITSM avec calcul automatique des GTI/GTR selon plages horaires contractuelles, génération automatique du tableau de bord mensuel. Exemples de rapports mensuels d'un client comparable avec taux de conformité SLA historiques. Procédure de suspension des délais formalisée (statut 'En attente utilisateur' documenté, reprise automatique à la réouverture).",
+        "source": "Annexe D §LOT 1 T1.4 ; CCTP §3.3",
+        "unite_evaluation": "points",
+        "sous_criteres": []
+      },
+      {
+        "libelle": "Gestion du parc de postes de travail (~1 500 PC) (Lot 1)",
+        "ponderation_pct": 10,
+        "description": "Le jury évalue la capacité à assurer la maintenance corrective et préventive du parc (~1 500 PC) avec télémaintenance privilégiée, délais d'intervention sur site différenciés par catégorie de site, maintenance préventive trimestrielle, gestion des pièces de rechange et postes de prêt, décommissionnement sécurisé.",
+        "elements_attendus": [
+          "Télémaintenance privilégiée (TeamViewer/AnyDesk ou équivalent sécurisé)",
+          "Délais d'intervention sur site différenciés : Siège/IDF 24h ouvrées, grands établissements 48h ouvrées, sites standards/petits 72h ouvrées",
+          "Maintenance préventive trimestrielle (vérifications matériel, OS, sécurité, optimisation)",
+          "Patchs de sécurité : critiques sous 15 jours, importants sous 30 jours",
+          "Stock de pièces de rechange courant, postes de prêt si immobilisation >48h",
+          "Décommissionnement sécurisé avec effacement certifié et certificat de destruction"
+        ],
+        "exemple_reponse_forte": "Description d'un stock de pièces courantes (50 disques SSD, 30 barrettes RAM, 20 alimentations) permettant une résolution matérielle sous 24h pour les sites IDF. Outil de télémaintenance sécurisé avec enregistrement des sessions pour audit. Campagne préventive trimestrielle planifiée automatiquement via ITSM avec rapport de santé généré.",
+        "source": "Annexe D §LOT 1 T1.5 ; CCTP §3.4",
+        "unite_evaluation": "points",
+        "sous_criteres": []
+      },
+      {
+        "libelle": "Présence physique et proximité régionale (Lot 1)",
+        "ponderation_pct": 8,
+        "description": "Le jury évalue la capacité à assurer la présence physique mensuelle obligatoire sur les 3 sites franciliens majeurs (Siège Paris, Cinetika, Créteil : 1 jour/mois chacun) et la couverture géographique nationale pour l'ensemble des 128 établissements dans les délais SLA.",
+        "elements_attendus": [
+          "Présence mensuelle obligatoire : 1 jour/mois à Paris Siège, Cinetika et Créteil, planning trimestriel formalisé",
+          "Capacité d'intervention sur l'ensemble du territoire métropolitain dans les délais SLA",
+          "Organisation logistique garantissant l'équité de traitement entre siège et établissements régionaux",
+          "Description du réseau d'intervenants régionaux ou de la stratégie pour couvrir les 10 régions"
+        ],
+        "exemple_reponse_forte": "Planning trimestriel nominatif présenté pour les 3 sites franciliens, avec technicien dédié identifié. Réseau de partenaires techniciens régionaux ou équipe mobile nationale avec base à Paris permettant une GTR 72h ouvrées sur tous sites régionaux. Carte de couverture des 10 régions FTDA avec temps d'accès garanti.",
+        "source": "Annexe D §LOT 1 T1.6 ; CCTP §1.5.3",
+        "unite_evaluation": "points",
+        "sous_criteres": []
+      },
+      {
+        "libelle": "Support Microsoft 365 et accompagnement de la migration SharePoint (Lot 1)",
+        "ponderation_pct": 10,
+        "description": "Le jury évalue le niveau d'expertise Microsoft 365 (Outlook, Teams, SharePoint, OneDrive, Entra ID) et la méthodologie d'accompagnement de la migration SharePoint Online de 45 vers 134 sites, incluant formation utilisateurs, reprise des partages, permissions et bibliothèques.",
+        "elements_attendus": [
+          "Support complet Microsoft 365 : Outlook, Teams, SharePoint, OneDrive, Word/Excel/PowerPoint",
+          "Administration fonctionnelle AD/Entra ID : cycle de vie comptes, licences M365, listes de diffusion, calendriers de salles",
+          "Plan d'accompagnement migration SharePoint 45→134 sites : reprise des partages, permissions, bibliothèques",
+          "Formation utilisateurs et référents sur Teams et outils collaboratifs"
+        ],
+        "exemple_reponse_forte": "Méthodologie de migration SharePoint en 3 vagues (sites pilotes, grands établissements, petits sites) avec checklist de reprise par site (inventaire des partages, mapping des permissions, test de synchronisation OneDrive), livret de formation utilisateurs en français et sessions de prise en main à distance. Références de migrations similaires chez des associations de taille comparable.",
+        "source": "Annexe D §LOT 1 T1.7 ; CCTP §1.4.4",
+        "unite_evaluation": "points",
+        "sous_criteres": []
+      },
+      {
+        "libelle": "Outil ITSM, tableau de bord et intégration Teams (Lot 1)",
+        "ponderation_pct": 8,
+        "description": "Le jury évalue la qualité et la conformité de l'outil ITSM proposé : SSO Entra ID, app mobile iOS/Android, intégration Teams (bot/canal), SLA automatisés, base de connaissances, exports CSV/Excel, tableau de bord temps réel avec vue par établissement et drill-down, propriété FTDA des données.",
+        "elements_attendus": [
+          "Outil ITSM moderne avec SSO Microsoft Entra ID, app mobile iOS et Android",
+          "Intégration Teams (bot ou canal) : notifications, ouverture de tickets, mise à jour statuts",
+          "SLA automatisés selon plages horaires contractuelles",
+          "Base de connaissances accessible aux utilisateurs finaux",
+          "Exports CSV/Excel natifs ou API",
+          "Tableau de bord temps réel avec vue par établissement et drill-down sur incidents",
+          "Propriété exclusive FTDA des données, exportables sous 5 jours ouvrés"
+        ],
+        "exemple_reponse_forte": "Présentation d'une instance ITSM (ex. Freshservice, ServiceNow) avec SSO Entra ID déjà configuré, capture d'écran du tableau de bord cartographique des 128 sites, démonstration de l'intégration Teams avec bot de création de ticket. Engagement contractuel explicite sur la portabilité des données (dump CSV/Excel sous 5 jours ouvrés) et hébergement en UE.",
+        "source": "Annexe D §LOT 1 T1.8 ; CCTP §5.1",
+        "unite_evaluation": "points",
+        "sous_criteres": []
+      },
+      {
+        "libelle": "Catalogue de procédures et formations utilisateurs (Lot 1)",
+        "ponderation_pct": 8,
+        "description": "Le jury évalue la capacité à produire et enrichir un catalogue de procédures opérationnelles destinées aux référents des 128 établissements (onboarding, départ, remplacement de poste, ouverture de site, déménagement, signalement incident sécurité, etc.) et à animer des formations en français.",
+        "elements_attendus": [
+          "Catalogue de procédures livré dès le démarrage couvrant a minima : onboarding, départ, remplacement de poste, ouverture de site, déménagement, signalement incident sécurité, demande d'accès, guide portail",
+          "Plan d'enrichissement annuel basé sur le top 20 des motifs récurrents transformés en procédures",
+          "Plan de formation référents informatiques des établissements (calendrier, supports en français)",
+          "Évaluation post-formation"
+        ],
+        "exemple_reponse_forte": "Exemple de catalogue de procédures (format PDF/Word, 1-2 pages par procédure, capture d'écran) issu d'un marché similaire, adapté au contexte FTDA. Programme de formation référents sur 1 journée avec quiz de validation des acquis. Mécanisme d'alimentation du catalogue à partir des tickets récurrents de l'ITSM (top 20 mensuel).",
+        "source": "Annexe D §LOT 1 T1.9 ; CCTP §5.3.5",
+        "unite_evaluation": "points",
+        "sous_criteres": []
+      },
+      {
+        "libelle": "Gouvernance contractuelle (Lot 1)",
+        "ponderation_pct": 5,
+        "description": "Le jury évalue la qualité de l'organisation de gouvernance proposée : COPIL mensuel/trimestriel/annuel avec interlocuteurs nommés (Responsable de compte, Chef de projet), tableau de bord des indicateurs, plans d'action, comptes-rendus sous 5 jours ouvrés, enquête de satisfaction annuelle (taux cible ≥ 40%).",
+        "elements_attendus": [
+          "Interlocuteurs dédiés nommés : Responsable de compte, Chef de projet, Responsable facturation",
+          "Organisation COPIL mensuel et trimestriel avec ordre du jour type et livrables",
+          "Tableau de bord des indicateurs SLA avec plans d'action",
+          "Comptes-rendus sous 5 jours ouvrés",
+          "Enquête de satisfaction annuelle avec taux de réponse visé ≥ 40%"
+        ],
+        "exemple_reponse_forte": "Organigramme de l'équipe dédiée avec noms et fonctions. Modèle de compte-rendu mensuel et de tableau de bord (capture d'écran), exemple d'enquête de satisfaction utilisée sur un contrat actuel avec taux de réponse de 45%.",
+        "source": "Annexe D §LOT 1 T1.10 ; CCTP §5.3",
+        "unite_evaluation": "points",
+        "sous_criteres": []
+      },
+      {
+        "libelle": "Démarche RSE et insertion professionnelle (Lot 1)",
+        "ponderation_pct": 5,
+        "description": "Le jury évalue les engagements RSE du candidat : diversité, inclusion, insertion professionnelle, recours au secteur protégé/ESS, empreinte environnementale du service, certifications (ISO 26000, EcoVadis, B Corp), cohérence avec la mission de FTDA d'accompagnement des publics vulnérables.",
+        "elements_attendus": [
+          "Engagements diversité et inclusion (mixité, handicap, insertion professionnelle)",
+          "Recours à des structures du secteur protégé, ESS ou entreprises adaptées",
+          "Empreinte environnementale du service (datacenters green, écoconception)",
+          "Certifications RSE présentées (ISO 26000, EcoVadis, B Corp ou équivalent)",
+          "Cohérence avec la mission associative de FTDA"
+        ],
+        "exemple_reponse_forte": "Présentation d'un partenariat avec un ESAT pour la gestion du parc informatique en fin de vie, certifications EcoVadis Silver en cours de renouvellement, politique d'insertion de 10% de CDDI sur les postes de techniciens de proximité, bilan carbone du service avec objectif de réduction de 20% sur 4 ans.",
+        "source": "Annexe D §LOT 1 T1.R",
+        "unite_evaluation": "points",
+        "sous_criteres": []
+      },
+      {
+        "libelle": "Compréhension du contexte FTDA et architecture cible (Lot 2)",
+        "ponderation_pct": 6,
+        "description": "Le jury évalue la maîtrise de l'architecture hybride FTDA (serveurs locaux progressivement décommissionnés, Microsoft 365 cloud), de la double topologie (sites historiques avec serveurs locaux vs sites récents tout-cloud) et du double SSID Wi-Fi dans les foyers (salariés / bénéficiaires).",
+        "elements_attendus": [
+          "Compréhension de l'infrastructure hybride (80 serveurs physiques en décommissionnement + <10 serveurs virtuels, Microsoft 365)",
+          "Maîtrise de la double topologie sites historiques/sites récents (Annexe A)",
+          "Compréhension du double SSID Wi-Fi en foyers (802.1X ou PSK fort salariés / bénéficiaires isolé avec filtrage URL renforcé)",
+          "Enjeux cybersécurité liés aux données sensibles et à NIS2"
+        ],
+        "exemple_reponse_forte": "Description des deux modèles de sites FTDA avec leurs contraintes spécifiques (serveur local à migrer vers SharePoint vs site natif cloud), architecture de sécurité Wi-Fi différenciée pour les foyers (802.1X avec Entra ID pour salariés, portail captif filtré pour bénéficiaires). Référence à des déploiements similaires en secteur associatif ou social.",
+        "source": "Annexe D §LOT 2 T2.1 ; CCTP §1.4 ; Annexe A",
+        "unite_evaluation": "points",
+        "sous_criteres": []
+      },
+      {
+        "libelle": "Plan de transition et reprise de l'existant (Lot 2)",
+        "ponderation_pct": 10,
+        "description": "Le jury évalue la méthodologie de reprise de l'infrastructure (serveurs, réseau, sécurité, M365) : audit complet sous 30 jours, plan de transition avec jalons et tests de reprise (connexion serveurs critiques, accès CMDB, supervision, sauvegardes), coordination avec le titulaire sortant (2 réunions/mois, astreinte partagée 15 jours).",
+        "elements_attendus": [
+          "Audit infrastructure complet sous 30 jours post-notification",
+          "Plan de transition avec jalons et critères de bascule",
+          "Tests de reprise en charge : connexion serveurs critiques, accès CMDB, supervision, sauvegardes",
+          "Coordination avec titulaire sortant : 2 réunions/mois minimum, 15 jours d'astreinte partagée à la bascule",
+          "Constitution de l'équipe opérationnelle avant la date de bascule"
+        ],
+        "exemple_reponse_forte": "Plan de reprise en 3 phases avec jalons binaires FTDA, liste de contrôle des accès techniques à obtenir (serveurs critiques, firewall, supervision), scénario de test d'un incident P1 simulé pendant la phase de transition avec les deux équipes. Engagement de disponibilité du chef de projet technique pendant toute la phase de transition.",
+        "source": "Annexe D §LOT 2 T2.2 ; CCTP §5.6",
+        "unite_evaluation": "points",
+        "sous_criteres": []
+      },
+      {
+        "libelle": "Administration des serveurs et virtualisation (Lot 2)",
+        "ponderation_pct": 12,
+        "description": "Le jury évalue la capacité d'administration des serveurs Windows Server, hyperviseurs (Hyper-V/VMware), monitoring continu (CPU/RAM/disque/services avec alertes), patch management selon délais CVSS, gestion du stockage, et respect des SLA serveurs (P1 GTI 30 min / GTR 4h 24/7 pour serveurs critiques).",
+        "elements_attendus": [
+          "Monitoring continu : alertes CPU >80% sur 15 min, espace disque <15%, service critique arrêté",
+          "Patch management : CVSS ≥9 sous 72h, important sous 15j, modéré sous 1 mois ; tests préalables et snapshots",
+          "Gestion du stockage : alertes <20% et <10%, rapport trimestriel de capacité",
+          "SLA serveurs respectés : serveur critique HS P1 GTI 30 min / GTR 4h 24/7",
+          "Gestion de la plateforme de virtualisation (vMotion/Live Migration, snapshots)"
+        ],
+        "exemple_reponse_forte": "Présentation de la plateforme de monitoring proposée (ex. Zabbix, PRTG, Prometheus) avec captures d'écran des tableaux de bord de santé serveurs. Procédure de patch management documentée avec test sur environnement de pré-production, snapshots automatiques avant déploiement sur serveurs critiques. SLA 24/7 garantis par astreinte nominative.",
+        "source": "Annexe D §LOT 2 T2.3 ; CCTP §4.2",
+        "unite_evaluation": "points",
+        "sous_criteres": []
+      },
+      {
+        "libelle": "Administration réseau (LAN, WAN, Wi-Fi, VPN) (Lot 2)",
+        "ponderation_pct": 12,
+        "description": "Le jury évalue la capacité d'administration de l'infrastructure réseau complète (switches, VLAN, ToIP/QoS, Wi-Fi double SSID, VPN avec MFA Entra ID), la mise à jour des firmwares selon le cadencement contractuel, la coordination avec le marché télécom FTDA, et le respect des SLA réseau.",
+        "elements_attendus": [
+          "Administration LAN/WAN/Wi-Fi/VPN : switches, segmentation VLAN, ToIP/QoS, double SSID foyers",
+          "Authentification Wi-Fi 802.1X intégrée AD/Entra ID, MFA obligatoire sur VPN",
+          "Cadencement des mises à jour firmwares : cœur annuel, accès annuel/criticité, Wi-Fi semestriel, contrôleurs trimestriel",
+          "Coordination avec marché télécom FTDA (interface technique, ouverture tickets opérateurs, suivi performance WAN)",
+          "SLA réseau : coupure siège ou >5 sites P1 GTI 30 min / GTR 4h 24/7 ; VPN global P1 GTI 1h / GTR 8h"
+        ],
+        "exemple_reponse_forte": "Description de la console d'administration centralisée des équipements réseau (ex. Cisco Catalyst Center, Meraki Dashboard, Juniper Mist) permettant la gestion en masse des firmwares et des VLAN. Procédure formalisée d'interface avec opérateurs télécoms (portail de tickets dédié, escalade automatisée). Démonstration de la solution MFA Entra ID pour VPN sur un environnement similaire.",
+        "source": "Annexe D §LOT 2 T2.4 ; CCTP §4.3",
+        "unite_evaluation": "points",
+        "sous_criteres": []
+      },
+      {
+        "libelle": "Cybersécurité — EDR/XDR, SIEM, vulnérabilités, PAM (Lot 2)",
+        "ponderation_pct": 14,
+        "description": "Le jury évalue le niveau d'expertise cybersécurité : pare-feux (moindre privilège, HA actif/passif, audit mensuel), EDR/XDR déployé sur 100% du parc avec supervision 24/7, gestion des vulnérabilités (scans mensuels, délais de traitement CVSS), SIEM (logs centralisés, corrélation, rétention 12 mois, revue hebdo), PAM (comptes nominatifs, MFA, coffre-fort), GPO AD durcies ANSSI.",
+        "elements_attendus": [
+          "Pare-feux : règles moindre privilège documentées, audit mensuel logs, HA actif/passif, correctifs critiques sous 15j",
+          "EDR/XDR : déploiement 100% parc, supervision 24/7, réponse aux incidents (investigation, isolement, éradication, restauration), reporting mensuel",
+          "Gestion vulnérabilités : scans mensuels, CVSS critique sous 15j, important 1 mois, modéré 3 mois",
+          "SIEM ou équivalent : centralisation logs, corrélation, alertes temps réel, rétention 12 mois, revue hebdomadaire",
+          "PAM : comptes administrateurs nominatifs, MFA obligatoire, coffre-fort mots de passe (CyberArk, Keeper ou équivalent), revue trimestrielle",
+          "GPO AD durcies conformes recommandations ANSSI, audit annuel"
+        ],
+        "exemple_reponse_forte": "Présentation de la stack de sécurité proposée (ex. Microsoft Defender XDR + Sentinel pour SIEM + CyberArk pour PAM) avec architecture fonctionnelle, tableau de couverture des exigences CCTP. SOC interne ou partagé avec SLA de réponse 24/7. Rapport d'un exercice de réponse à incident récent (anonymisé) démontrant les capacités de détection-confinement-éradication.",
+        "source": "Annexe D §LOT 2 T2.5 ; CCTP §4.4.1",
+        "unite_evaluation": "points",
+        "sous_criteres": []
+      },
+      {
+        "libelle": "Conformité et audit annuel de sécurité (Lot 2)",
+        "ponderation_pct": 8,
+        "description": "Le jury évalue la démarche de conformité (PSSI FTDA, ANSSI, ISO 27001, NIS2) et la capacité à réaliser un audit annuel de sécurité complet (configuration, pentest interne/externe, AD, sauvegardes, logs, vulnérabilités) avec rapport sous 2 mois et plan de remédiation priorisé.",
+        "elements_attendus": [
+          "Alignement ISO 27001 (engagement minimum) et recommandations ANSSI",
+          "Préparation à NIS2 (entité essentielle/importante)",
+          "Audit annuel : configuration, pentest interne/externe, AD, sauvegardes, logs — rapport sous 2 mois",
+          "Plan de remédiation : critique 1 mois, importante 3 mois, modérée 6 mois",
+          "Comité de suivi trimestriel du plan de remédiation"
+        ],
+        "exemple_reponse_forte": "Présentation d'un rapport d'audit de sécurité anonymisé (synthèse exécutive + liste de vulnérabilités classées CVSS + plan de remédiation avec statuts) réalisé pour un client comparable. Certification ISO 27001 en cours de validité fournie, cartographie de conformité NIS2.",
+        "source": "Annexe D §LOT 2 T2.6 ; CCTP §4.4.2",
+        "unite_evaluation": "points",
+        "sous_criteres": []
+      },
+      {
+        "libelle": "Gestion des incidents cyber et protocole d'urgence (Lot 2)",
+        "ponderation_pct": 8,
+        "description": "Le jury évalue le processus de gestion des incidents de sécurité (ITIL/ISO 27035 : détection, confinement, éradication, récupération, post-incident) et le protocole d'urgence cyber défini conjointement avec FTDA (chaîne d'alerte 24/7, cellule de crise, exercice annuel).",
+        "elements_attendus": [
+          "Processus formalisé de gestion des incidents cyber conforme ITIL/ISO 27035",
+          "Protocole d'urgence cyber FTDA : chaîne d'alerte 24/7, mesures de confinement (isolation réseau, désactivation comptes), cellule de crise conjointe",
+          "Exercice de simulation cyber au moins annuel",
+          "Coopération ANSSI / CERT-FR le cas échéant",
+          "Délais contractuels de notification des violations de données (RGPD)"
+        ],
+        "exemple_reponse_forte": "Livret de procédure de gestion de crise cyber présenté (playbook type ransomware avec étapes de confinement, isolation réseau, communication de crise), description d'un exercice de simulation réalisé (ex: simulation d'une compromission AD avec isolation partielle du réseau et test de restauration depuis backup). Hotline dédiée avec astreinte nominative 24/7.",
+        "source": "Annexe D §LOT 2 T2.7 ; CCTP §1.3.4 ; §4.4.3",
+        "unite_evaluation": "points",
+        "sous_criteres": []
+      },
+      {
+        "libelle": "Microsoft 365 (tenant), Active Directory et Entra ID (Lot 2)",
+        "ponderation_pct": 8,
+        "description": "Le jury évalue les compétences d'administration du tenant M365 (Exchange Online, Teams, SharePoint, OneDrive, Defender, politiques de sécurité M365), d'Active Directory on-premise et d'Entra ID (Entra Connect, accès conditionnel avec blocage géographique).",
+        "elements_attendus": [
+          "Administration tenant M365 : Exchange Online, Teams, SharePoint, OneDrive, Defender, politiques de sécurité",
+          "Administration AD on-premise et Entra ID niveau infrastructure : contrôleurs de domaine, Entra Connect, synchronisation",
+          "Mise en place et gestion des politiques d'accès conditionnel (incluant blocage géographique)",
+          "Documentation du tenant et des configurations versionnées"
+        ],
+        "exemple_reponse_forte": "Présentation de la démarche d'administration M365 avec politique de documentation des configurations dans GitLab ou équivalent, exemple de politique d'accès conditionnel (blocage pays hors France/UE, MFA renforcée pour admin, compliant device), certification Microsoft 365 (MS-102) de l'équipe.",
+        "source": "Annexe D §LOT 2 T2.8 ; CCTP §4.1.1",
+        "unite_evaluation": "points",
+        "sous_criteres": []
+      },
+      {
+        "libelle": "Sauvegardes, PRA et continuité d'activité (Lot 2)",
+        "ponderation_pct": 8,
+        "description": "Le jury évalue la politique de sauvegarde proposée (serveurs, bases de données, postes critiques), le respect des objectifs RPO 24h / RTO 4h sur services critiques, la réalisation de tests de restauration réguliers et la mise à jour annuelle du PRA.",
+        "elements_attendus": [
+          "Politique de sauvegarde documentée couvrant serveurs, BD et postes critiques",
+          "RPO cible ≤ 24h, RTO cible ≤ 4h sur services critiques",
+          "Tests de restauration réguliers (au moins annuels) avec résultats documentés",
+          "Mise à jour annuelle du PRA",
+          "Supervision des sauvegardes avec alertes en cas d'échec"
+        ],
+        "exemple_reponse_forte": "Description de la solution de sauvegarde proposée (ex. Veeam Backup, Azure Backup) avec politique 3-2-1 (3 copies, 2 supports, 1 hors site), tableau de bord de supervision des jobs de sauvegarde, résultats d'un test de restauration récent avec métriques RTO/RPO atteints. PRA documenté avec scénarios de sinistres (incendie datacenter, ransomware, perte AD).",
+        "source": "Annexe D §LOT 2 T2.9 ; CCTP §1.4.7",
+        "unite_evaluation": "points",
+        "sous_criteres": []
+      },
+      {
+        "libelle": "Supervision 24/7, monitoring proactif et CMDB (Lot 2)",
+        "ponderation_pct": 6,
+        "description": "Le jury évalue la capacité de supervision 24/7 des infrastructures critiques, le monitoring proactif avec alertes préventives, le tableau de bord cartographique ou par établissement (vue temps réel des 128 sites avec drill-down), et le maintien à jour de la CMDB.",
+        "elements_attendus": [
+          "Supervision 24h/24 des infrastructures critiques avec astreinte nominative",
+          "Monitoring proactif avec alertes préventives avant impact utilisateurs",
+          "Tableau de bord cartographique ou par établissement : vue temps réel des 128 sites avec code couleur et drill-down sur incidents",
+          "Maintien à jour de la CMDB (inventaire complet, fiches techniques, configurations versionnées)",
+          "Documentation technique à jour (schémas réseau, procédures d'exploitation)"
+        ],
+        "exemple_reponse_forte": "Démonstration (capture d'écran) du tableau de bord cartographique avec vue par établissement, code couleur vert/orange/rouge selon état de santé, drill-down sur les incidents actifs. CMDB démontrée avec inventaire exhaustif. Solution de supervision (ex. Zabbix, PRTG, Datadog) avec dashboard accessible en temps réel à la DSI FTDA.",
+        "source": "Annexe D §LOT 2 T2.10 ; CCTP §1.3.5 ; §4.1.1",
+        "unite_evaluation": "points",
+        "sous_criteres": []
+      },
+      {
+        "libelle": "Hébergement, RGPD et confidentialité (Lot 2)",
+        "ponderation_pct": 4,
+        "description": "Le jury vérifie que l'hébergement est obligatoirement en France ou UE (interdiction Cloud Act américain), que le DPA RGPD est signé, que les intervenants font l'objet de vérifications d'antécédents et signent une clause de confidentialité de 3 ans après la mission.",
+        "elements_attendus": [
+          "Hébergement France/UE obligatoire : document de localisation des données (datacenters, cadre juridique)",
+          "Aucune donnée hors UE, pas de service soumis au Cloud Act américain",
+          "DPA RGPD signé à la notification",
+          "Vérification d'antécédents de tous les intervenants, clause de confidentialité 3 ans après mission"
+        ],
+        "exemple_reponse_forte": "Document de localisation des données listant les datacenters utilisés (nom, adresse, pays, certifications ISO 27001/SOC2, cadre juridique), engagement contractuel explicite de non-transfert hors UE, modèle de DPA RGPD présenté. Procédure de vérification d'antécédents formalisée (casier judiciaire, références professionnelles).",
+        "source": "Annexe D §LOT 2 T2.11 ; CCTP §6.2",
+        "unite_evaluation": "points",
+        "sous_criteres": []
+      },
+      {
+        "libelle": "Démarche RSE et empreinte environnementale (Lot 2)",
+        "ponderation_pct": 4,
+        "description": "Le jury évalue les engagements RSE du candidat : diversité, inclusion, insertion professionnelle, empreinte environnementale du service (datacenters verts, écoconception), recours au secteur protégé/ESS, certifications RSE.",
+        "elements_attendus": [
+          "Engagements diversité, inclusion, insertion professionnelle",
+          "Empreinte environnementale du service (datacenters PUE, écoconception, écolabels)",
+          "Recours secteur protégé/ESS",
+          "Certifications RSE (ISO 26000, EcoVadis, B Corp ou équivalent)"
+        ],
+        "exemple_reponse_forte": "Bilan carbone du service IT proposé avec objectif de réduction, datacenters certifiés ISO 50001 ou équivalent avec PUE <1,4, certifications EcoVadis Gold présentées. Politique d'allongement de la durée de vie du matériel informatique (reconditionné, partenariat ESAT pour tri/recyclage).",
+        "source": "Annexe D §LOT 2 T2.R",
+        "unite_evaluation": "points",
+        "sous_criteres": []
+      }
+    ],
+    "prix": {
+      "type_formule": "moins_disant",
+      "formule_explicite": "Note Prix = 100 × (Prix de l'offre la mieux-disante / Prix de l'offre examinée), appliquée à la simulation financière du BPU sur le scénario de consommation type fourni en annexe du RC",
+      "source": "Annexe D §4",
+      "elements_a_chiffrer": [
+        "Forfait mensuel global Lot 1 (12 mois ferme + reconductions, périmètre 128 établissements, ~1 500 PC, ~1 960 utilisateurs)",
+        "Forfait mensuel global Lot 2 (12 mois ferme + reconductions, infrastructure serveurs/réseau/sécurité/M365/sauvegardes/supervision 24/7/CMDB)",
+        "Licences EDR/XDR (poste/mois et serveur/mois), SIEM mensuel, PAM mensuel, scan vulnérabilités mensuel",
+        "Tarifs journaliers en régie par profil : Technicien N1, Technicien N2/M365, Chef de projet Lot 1, Ingénieur système, Ingénieur réseau, Expert cybersécurité, Architecte senior, Chef de projet Lot 2",
+        "Prestations forfaitaires ponctuelles : préparation de poste, onboarding/offboarding utilisateur, formation référent, audit annuel de sécurité, pentest externe/interne, test PRA, exercice crise cyber, ouverture de site, migration serveur vers SharePoint",
+        "Frais de déplacement (forfaits IDF, régionaux par tranche kilométrique)",
+        "Coefficients hors heures ouvrées (soir, nuit, week-end, jours fériés)",
+        "Phase de transition (forfait global Lot 1 et Lot 2)",
+        "Réversibilité (forfait global Lot 1 et Lot 2)"
+      ]
+    },
+    "modalite_calcul_prix": "Note Prix = 100 × (Prix de l'offre la mieux-disante / Prix de l'offre examinée) ; formule proportionnelle moins-disante appliquée à la simulation financière sur scénario de consommation type."
+  },
+  "montant_marche": {
+    "valeur_estimee_euros": 1500000,
+    "fourchette_min_euros": null,
+    "fourchette_max_euros": null,
+    "type": "estime_explicite",
+    "duree_couverte": "Durée totale du marché : 4 ans (12 mois ferme + 3 reconductions de 12 mois), tous lots confondus",
+    "source_extraction": "RC §2.6 ; CCAP §1.5 ; Avis BOAMP",
+    "commentaire": "1 500 000 € TTC pour l'ensemble des 2 lots sur 4 ans, soit environ 375 000 € TTC/an ou 187 500 € TTC/an par lot. Valeur indicative non contractuelle."
+  },
+  "montant_3_voies": {
+    "voie_1_eur": 1500000,
+    "voie_1_source": "RC §2.6 : 'montant estimatif pour toute la durée totale du marché, reconduction incluse qui s'élève à : 1 500 000 euros TTC pour l'ensemble des deux lots' ; confirmé au CCAP §1.5",
+    "voie_2_disponible": false,
+    "voie_2_min_eur": null,
+    "voie_2_max_eur": null,
+    "voie_2_hypotheses": [],
+    "voie_2_raison_indisponible": "Voie 1 disponible (montant explicitement publié dans le RC et le CCAP) ; estimation bottom-up non nécessaire."
+  },
+  "cout_realisation": {
+    "cout_total_eur": 1012500,
+    "cout_min_eur": 900000,
+    "cout_max_eur": 1125000,
+    "postes": [
+      {
+        "poste": "Lot 1 — Infogérance de proximité (coût de production sur 4 ans)",
+        "detail": "Forfait annuel estimé à ~93 750 € HT/an (lot = 375k€ TTC sur 4 ans / 1,2 TVA ≈ 312 500 € HT/4 ans = 78 125 € HT/an) ; coût de production à ~75% du revenu pour ce type de service (helpdesk + techniciens terrain) → ~58 600 € HT/an × 4 = 234 375 €",
+        "montant_eur": 468750
+      },
+      {
+        "poste": "Lot 2 — Infogérance système et réseau (coût de production sur 4 ans)",
+        "detail": "Même estimation de revenu HT/lot que Lot 1 (~78 125 € HT/an) ; coût de production à ~70% pour infogérance infrastructure/cybersécurité → ~54 688 € HT/an × 4 = 218 750 € ; plus licences EDR/XDR (~1 500 postes × 3 €/poste/mois = 54 000 €/an) et SIEM/PAM (~12 000 €/an) = 66 000 €/an × 4 = 264 000 €",
+        "montant_eur": 543750
+      }
+    ],
+    "taux_journaliers_retenus": "Technicien N1 : 300-350 €/j ; Technicien N2/M365 : 400-500 €/j ; Ingénieur système/réseau : 550-700 €/j ; Expert cybersécurité : 700-900 €/j ; Chef de projet : 650-800 €/j. Taux marché indicatifs pour ESN mid-market en infogérance/cybersécurité.",
+    "commentaire": "Estimation basée sur une répartition 50/50 du montant publié (1 500 000 € TTC sur 4 ans = 1 250 000 € HT / 2 lots = 625 000 € HT/lot/4 ans). Coût de production estimé à 72-74% du revenu HT (marge brute cible 26-28%) cohérent avec l'archétype services IT opérationnels. La dimension licences EDR/XDR/SIEM est matérielle dans le Lot 2 et pèse sur le coût. Fourchette de variabilité sur le taux de marge (±5%)."
+  },
+  "revision_prix": {
+    "type": "indexation",
+    "indices_utilises": [
+      "SYNTEC"
+    ],
+    "ponderation": "100% SYNTEC (formule mono-indice, pas de partie fixe explicite dans le CCAP)",
+    "periodicite": "annuelle",
+    "formule_revision": "P = P° × Syntec/Syntec0 ; où P° = prix de base du marché, Syntec0 = indice Syntec révisé et publié à la date limite de remise des offres, Syntec = indice Syntec révisé et publié à la date anniversaire du marché",
+    "source_extraction": "CCAP §4.2",
+    "commentaire": "Formule mono-indice SYNTEC classique pour prestations IT : favorable pour le prestataire en période d'inflation des salaires IT. Prix fermes pendant la première année, révision annuelle à l'anniversaire. Attention : le prestataire doit transmettre ses nouveaux prix 2 mois avant chaque reconduction."
+  },
+  "alertes_prix": [
+    "Montant estimatif total de 1 500 000 € TTC sur 4 ans (toutes reconductions) pour 2 lots, soit ~187 500 € TTC/an/lot : budget modeste pour le périmètre (1 960 utilisateurs, 128 établissements, 1 500 PC + cybersécurité NIS2/ANSSI), risque de sous-estimation de l'enveloppe.",
+    "Pondération prix à 40% est significative dans un marché à dominante critique (données sensibles, cybersécurité) : ne pas sous-estimer le poids du prix dans le classement final malgré les exigences techniques élevées.",
+    "Bordereau de prix (BPU/DPGF) très détaillé (50+ lignes) avec risque d'erreur ou d'oubli entraînant l'irrégularité de l'offre (art. R2152-1 : 'Tout prix NON renseigné entraîne le rejet sans régularisation possible').",
+    "La refacturation matériel et licences M365 au prix coûtant (sans marge) réduit le levier de marge sur ces postes : impacte la rentabilité si les volumes sont importants."
+  ],
+  "references_exigees": {
+    "experience_minimale_annees": null,
+    "experience_source": null,
+    "volume_min_references_similaires": null,
+    "volume_min_references_unite": "marchés similaires",
+    "secteur_experience": "Infogérance informatique (support utilisateurs N1/N2, administration infrastructure système et réseau, cybersécurité) pour des structures multi-sites avec effectifs comparables",
+    "secteur_source": "RC §6.1.1",
+    "certifications_obligatoires": [
+      {
+        "libelle": "ISO/IEC 27001 (engagement de conformité obligatoire, certification appréciée)",
+        "codes": [],
+        "bloquante": false,
+        "source": "CCTP §6.1.2 ; Annexe D §LOT 2 T2.20"
+      }
+    ],
+    "autres_exigences": [
+      {
+        "libelle": "Déclaration du chiffre d'affaires annuel global sur les 3 derniers exercices disponibles",
+        "source": "RC §6.1.1"
+      },
+      {
+        "libelle": "Déclaration appropriée de banque ou preuve d'une assurance en cours de validité pour les risques professionnels",
+        "source": "RC §6.1.1"
+      },
+      {
+        "libelle": "Liasses fiscales concernant les 3 dernières années",
+        "source": "RC §6.1.1"
+      },
+      {
+        "libelle": "Références professionnelles des 3 dernières années relatives à l'objet du marché (montant, date, destinataire, attestation du destinataire)",
+        "source": "RC §6.1.1"
+      },
+      {
+        "libelle": "Déclaration des effectifs moyens annuels et de l'importance du personnel d'encadrement sur les 3 dernières années",
+        "source": "RC §6.1.1"
+      }
+    ]
+  },
+  "dossier_candidature": {
+    "pieces_a_fournir": [
+      {
+        "libelle": "Lettre de candidature (nom, adresse, téléphone, raison sociale, forme juridique, numéro SIREN ou TVA intracommunautaire, justificatif qualité du signataire)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §6.1.1"
+      },
+      {
+        "libelle": "Déclaration sur l'honneur justifiant l'absence de cas d'interdiction de soumissionner",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §6.1.1"
+      },
+      {
+        "libelle": "Déclaration concernant le chiffre d'affaires annuel global sur les 3 derniers exercices disponibles",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §6.1.1"
+      },
+      {
+        "libelle": "Déclaration appropriée de banque ou preuve d'une assurance en cours de validité pour les risques professionnels",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §6.1.1"
+      },
+      {
+        "libelle": "Liasses fiscales concernant les 3 dernières années",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §6.1.1"
+      },
+      {
+        "libelle": "Références professionnelles des 3 dernières années relatives à l'objet du marché (montant, date, destinataire, attestation ou déclaration du candidat)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §6.1.1"
+      },
+      {
+        "libelle": "Déclaration des effectifs moyens annuels et de l'importance du personnel d'encadrement sur les 3 dernières années",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §6.1.1"
+      },
+      {
+        "libelle": "Copie du ou des jugements autorisant à poursuivre l'activité (si redressement judiciaire)",
+        "phase": "candidature",
+        "obligatoire": false,
+        "source": "RC §6.1.1"
+      },
+      {
+        "libelle": "Acte d'engagement (AE ATTRI1) — Lot 1",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §6.2"
+      },
+      {
+        "libelle": "DPGF/BPU Lot 1 (Annexe financière Lot 1 — tous les prix renseignés obligatoirement)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §6.2 ; Annexe F"
+      },
+      {
+        "libelle": "Mémoire technique Lot 1 (détaillant les éléments demandés dans l'Annexe D)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §6.2"
+      },
+      {
+        "libelle": "Acte d'engagement (AE ATTRI1) — Lot 2",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §6.3"
+      },
+      {
+        "libelle": "DPGF/BPU Lot 2 (Annexe financière Lot 2 — tous les prix renseignés obligatoirement)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §6.3 ; Annexe F"
+      },
+      {
+        "libelle": "Mémoire technique Lot 2 (détaillant les éléments demandés dans l'Annexe D)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §6.3"
+      },
+      {
+        "libelle": "Déclaration de sous-traitance DC4 (si sous-traitance envisagée)",
+        "phase": "offre",
+        "obligatoire": false,
+        "source": "RC §3"
+      }
+    ],
+    "mode_remise": "dématérialisé + copie de sauvegarde",
+    "plateforme_depot": "marches-publics.info (https://www.marches-publics.info/accueil.htm)",
+    "signature_electronique_exigee": true,
+    "format_signature": "Certificat qualifié de signature électronique de niveau avancé conforme à l'arrêté du 12 avril 2018 et au règlement eIDAS",
+    "nombre_exemplaires": null,
+    "langue": "français",
+    "duree_validite_offres_jours": 180,
+    "modalites_source": "RC §8"
+  },
+  "lots": [
+    {
+      "numero": 1,
+      "intitule": "Infogérance de proximité",
+      "domaine": "it_maintenance_support",
+      "zone_geographique": null,
+      "volume_estime": 1960,
+      "volume_estime_unite": "utilisateurs",
+      "cout_estime_min_eur": 421875,
+      "cout_estime_max_eur": 515625,
+      "ca_estime_min_eur": 562500,
+      "ca_estime_max_eur": 687500,
+      "marge_brute_pct": 25,
+      "particularites": "Service Desk N1/N2 (~1 800 tickets/an estimés), gestion du parc ~1 500 PC sur 128 établissements nationaux, support Microsoft 365, administration fonctionnelle AD/Entra ID, présence physique mensuelle obligatoire sur 3 sites franciliens (Siège Paris, Cinetika, Créteil). Accompagnement migration SharePoint 45→134 sites. Astreinte 18h-20h L-V + permanence samedi 9h-13h foyers mineurs."
+    },
+    {
+      "numero": 2,
+      "intitule": "Infogérance système et réseaux",
+      "domaine": "it_infrastructure_cloud",
+      "zone_geographique": null,
+      "volume_estime": 128,
+      "volume_estime_unite": "sites",
+      "cout_estime_min_eur": 478125,
+      "cout_estime_max_eur": 609375,
+      "ca_estime_min_eur": 562500,
+      "ca_estime_max_eur": 687500,
+      "marge_brute_pct": 22,
+      "particularites": "Administration serveurs physiques/virtuels, LAN/WAN/Wi-Fi/VPN sur 128 établissements. Cybersécurité complète : EDR/XDR, SIEM, PAM, gestion des vulnérabilités, conformité NIS2/RGPD/ANSSI. Administration tenant Microsoft 365 (niveau infrastructure), sauvegardes 30 To, PRA (RPO 24h/RTO 4h), supervision 24/7, CMDB. Audit annuel de sécurité avec pentest. Coût plus élevé que Lot 1 en raison des licences de sécurité (EDR/XDR ~1 500 postes + serveurs, SIEM, PAM)."
+    }
+  ],
+  "tranches": [],
+  "calendrier": {
+    "date_limite_offres": "2026-06-30",
+    "date_demarrage_prevue": "2026-07-18",
+    "duree_marche": "12 mois fermes reconductibles 3 fois par périodes de 12 mois (4 ans maximum)"
+  },
+  "alertes_candidat": [
+    "Bordereau de prix (DPGF/BPU) avec 50+ lignes : tout prix NON renseigné entraîne l'irrégularité de l'offre et le rejet SANS régularisation possible (Annexe F §1 ; RC §7.2). Vérifier exhaustivement chaque ligne avant dépôt.",
+    "Hébergement des données OBLIGATOIREMENT en France ou Union Européenne : interdiction formelle de tout service soumis au Cloud Act américain (AWS US, Azure US, etc.) — clause éliminatoire en cas de non-conformité (Annexe D §8 ; CCTP §6.2).",
+    "Score technique inférieur à 30/100 = offre écartée sans analyse du prix (Annexe D §8) : le mémoire technique doit être exhaustif sur TOUS les sous-critères de l'Annexe D sous peine d'élimination automatique.",
+    "Présence physique mensuelle obligatoire sur 3 sites franciliens (Siège Paris, Cinetika, Créteil) pour le Lot 1 : engagement ferme à démontrer dans le mémoire technique et le BPU (ligne L1.2.1 à L1.2.3), pénalité en cas d'absence.",
+    "Phase de soutenance devant jury prévue après dépôt des offres (RC §2.5) : prévoir des représentants techniques et commerciaux disponibles, les précisions apportées lors de la soutenance peuvent infléchir la notation sans constituer une négociation."
+  ],
+  "points_differenciants_attendus": [
+    {
+      "libelle": "Tableau de bord cartographique temps réel des 128 sites avec drill-down sur les incidents",
+      "exemple": "Un candidat présentant une capture d'écran de son outil de supervision avec une vue cartographique de la France montrant en temps réel l'état de chaque établissement FTDA (code couleur vert/orange/rouge, drill-down sur les tickets en cours par site) répondrait précisément à l'exigence CCTP §1.3.5 et se démarquerait nettement.",
+      "source": "CCTP §1.3.5 ; Annexe D §LOT 2 T2.10"
+    },
+    {
+      "libelle": "Expertise sectorielle associations/secteur social avec données personnelles sensibles (RGPD, personnes vulnérables)",
+      "exemple": "Présenter 2-3 références d'infogérance pour des associations ou structures sociales gérant des données de personnes vulnérables (CHRS, Croix-Rouge, SAMU Social), en soulignant les dispositifs RGPD mis en place et la gestion de la confidentialité des données — directement en résonance avec la mission de FTDA.",
+      "source": "CCTP §1.3.4 ; RC §6.1.1"
+    },
+    {
+      "libelle": "Stack cybersécurité intégrée et prouvée (EDR/XDR + SIEM + PAM) avec SLA de réponse aux incidents 24/7",
+      "exemple": "Un candidat présentant une architecture cybersécurité cohérente (ex. Microsoft Defender XDR + Microsoft Sentinel + CyberArk) avec un SOC opérationnel 24/7, un playbook de réponse aux incidents ransomware testé et un exercice de simulation cyber récent documenté obtiendrait une note maximale sur le sous-critère T2.5 (pondéré 14%).",
+      "source": "Annexe D §LOT 2 T2.5 ; CCTP §4.4"
+    },
+    {
+      "libelle": "Outil ITSM avec intégration native Microsoft Teams et SSO Entra ID déjà opérationnel",
+      "exemple": "Démontrer une instance ITSM en production (ex. Freshservice ou ServiceNow) avec SSO Entra ID configuré et bot Teams permettant la création/suivi de tickets directement depuis l'espace de travail Microsoft 365 — évitant toute période de paramétrage pendant la transition FTDA.",
+      "source": "Annexe D §LOT 1 T1.8 ; CCTP §5.1"
+    },
+    {
+      "libelle": "Plan de migration SharePoint structuré et références de migrations similaires",
+      "exemple": "Présenter une méthodologie de migration en 3 vagues (pilotes → grands établissements → petits sites) avec un outil d'inventaire automatisé des partages de fichiers existants, des références chiffrées de migrations SharePoint Online pour associations multi-sites, et un plan de formation utilisateurs en français adapté à des équipes non-techniques.",
+      "source": "Annexe D §LOT 1 T1.7 ; CCTP §1.4.4"
+    }
+  ],
+  "_meta": {
+    "id_marche": "BOAMP-26-56097",
+    "type": "complet",
+    "date_generation": "2026-06-20T14:12:43.524921+00:00",
+    "extraction_le": "2026-06-20T14:12:43.524921+00:00",
+    "modele": "claude-sonnet-4-6",
+    "preset_utilise": "it",
+    "presets_matches": [
+      "it"
+    ],
+    "prompts_versions": {
+      "it/_preset.json": "sha256:0113727ecb269e98"
+    },
+    "tokens_input": 108539,
+    "tokens_output": 19425,
+    "cout_eur": 0.5861,
+    "duree_sec": 342.1,
+    "pdfs_traites": [
+      {
+        "nom": "1. RC_SSI.pdf",
+        "hash": "e3899705be1f06b55777dd38237e3903",
+        "taille_chars": 40712
+      },
+      {
+        "nom": "2. CCAP_SSI_PDF.pdf",
+        "hash": "86450871cc635c4bfcc524a9d85b2d70",
+        "taille_chars": 53804
+      },
+      {
+        "nom": "3. CCTP_SSI.pdf",
+        "hash": "97036ac6ba7e8005b56cf63a0e62df3c",
+        "taille_chars": 107358
+      },
+      {
+        "nom": "6. Annexe_D_evaluation_offres.docx",
+        "hash": "d077a8f7e24f1ae7204278fb128f6579",
+        "taille_chars": 17578
+      },
+      {
+        "nom": "7. Annexe_E_Grilles_recette_acceptation.docx",
+        "hash": "c2ba84fccf590661562e47c1a1b9f8eb",
+        "taille_chars": 18943
+      },
+      {
+        "nom": "8. ANNEXES_F_ FINANCIERES.docx",
+        "hash": "46c9155007734cd7165ec65a9d5fdd49",
+        "taille_chars": 14902
+      },
+      {
+        "nom": "MPI1826033_AAPC.pdf",
+        "hash": "129318ad21ec5664a0f107e8336a09cd",
+        "taille_chars": 6109
+      }
+    ]
+  }
+}

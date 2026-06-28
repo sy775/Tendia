@@ -1,6 +1,6 @@
 # Brief — Prestations de traiteurs
 
-_Généré le 2026-06-12 15:49 par Claude claude-sonnet-4-6_
+_Généré le 2026-06-21 01:55 par Claude claude-sonnet-4-6_
 
 ## Identifiants
 - **ID Tendia** : `BOAMP-26-56434`
@@ -11,41 +11,13 @@ _Généré le 2026-06-12 15:49 par Claude claude-sonnet-4-6_
 - **DCE PLACE** : <https://www.marches-publics.gouv.fr/?page=Entreprise.EntrepriseAdvancedSearch&AllCons&id=3000829&orgAcronyme=f2h>
 
 ## Synthèse
-L'ENS Paris-Saclay lance un accord-cadre à bons de commande pour des prestations de traiteurs, décomposé en 4 lots (buffets chauds/froids, lunch box/sandwichs, cocktails, petits-déjeuners/pauses). La procédure est adaptée ouverte avec possibilité de négociation, chaque candidat pouvant soumissionner à un ou plusieurs lots. Les critères d'attribution pondèrent prix (40%), qualité technique (30%) et développement durable (30%).
-
-## 🏗 Chantier — caractéristiques BTP
-### Allotissement
-Marché décomposé en 4 lots de prestations traiteurs distincts, chaque candidat pouvant soumissionner à un ou plusieurs lots sans limitation.
-- **Nombre de lots** : 4
-- **Lot 1** — Buffets – Formule froide / chaude
-  - Prestations de buffets en formule froide et/ou chaude pour l'ENS Paris-Saclay
-- **Lot 2** — Lunch box et formules sandwich
-  - Prestations de lunch box et formules sandwich pour l'ENS Paris-Saclay
-- **Lot 3** — Cocktails
-  - Prestations de cocktails pour l'ENS Paris-Saclay
-- **Lot 4** — Petits-déjeuners et pauses
-  - Prestations de petits-déjeuners et pauses pour l'ENS Paris-Saclay
-
-### Qualifications BTP exigées
-Aucune qualification Qualibat ou RGE requise. Des certificats de qualification professionnelle attestant de la compétence à réaliser les prestations traiteur sont acceptés comme preuve de capacité.
-- **Autres exigences** :
-  - Certificats de qualification professionnelle relatifs aux prestations traiteur (à titre de preuve de capacité — non obligatoires si autre moyen équivalent)
-
-## ⚡ Parc EnR — caractéristiques techniques
-### Modalités d'exécution
-- **Sites d'exécution** : Gif-sur-Yvette (91190)
-
-## 🎓 Formation / accompagnement
-### Volumes
-- **Note** : Aucun volume (nombre de commandes, montants estimatifs, fréquence) n'est précisé dans les pièces du DCE fournies.
-
-### Modalités
-- **Sites d'exécution** : Gif-sur-Yvette (91190) — ENS Paris-Saclay, 4 avenue des Sciences
+Accord-cadre à bons de commande multi-attributaires (jusqu'à 3 par lot) pour des prestations de traiteurs à destination de l'École normale supérieure Paris-Saclay (ENS Paris-Saclay, Gif-sur-Yvette, 91). Le marché est décomposé en 4 lots : buffets froids/chauds, lunch boxes et formules sandwich, cocktails, petits-déjeuners et pauses. Durée maximale de 48 mois (12 mois + 3 reconductions). Fort accent sur la démarche écoresponsable (produits bio, circuits courts, anti-gaspillage, vaisselle lavable). Montants maximaux annuels publiés : lot 1 = 70 000 € HT, lot 2 = 50 000 € HT, lot 3 = 120 000 € HT, lot 4 = 50 000 € HT.
 
 ## 💶 Montant du marché
-- _Montant non communiqué dans le DCE._
-  - Typique des accords-cadres à bons de commande : le volume dépend des commandes effectivement passées par l'acheteur sur la durée du marché.
-- _Note_ : Aucun montant estimatif, plafond ou fourchette n'est mentionné dans les pièces du DCE fournies (RC uniquement). Le BPU et le CCAP, non fournis, pourraient contenir des éléments de volumétrie.
+- **Plafond accord-cadre** : **1,20 M€**
+  - sur 48 mois maximum (12 mois + 3 reconductions)
+  - _source : CCAP §1.4 et actes d'engagement de chaque lot_
+- _Note_ : Montants maximaux annuels publiés : Lot 1 = 70 000 € HT, Lot 2 = 50 000 € HT, Lot 3 = 120 000 € HT, Lot 4 = 50 000 € HT. Total annuel max = 290 000 € HT. Sur 48 mois (4 ans) : 290 000 × 4 = 1 160 000 € HT. Montants estimatifs non contractuels annuels : Lot 1 = 30 000 €, Lot 2 = 20 000 €, Lot 3 = 50 000 €, Lot 4 = 20 000 €, total estimatif annuel = 120 000 € HT, soit 480 000 € sur 4 ans. Les montants maxima annuels sur 4 ans représentent le plafond absolu.
 
 ## Barème de notation
 - **Valeur technique** : 60 %
@@ -53,27 +25,42 @@ Aucune qualification Qualibat ou RGE requise. Des certificats de qualification p
 - **Sous-critères techniques** :
   - Qualité technique de l'offre : 30 %
   - Critère développement durable : 30 %
-- **Calcul du prix** : Jugé sur le montant TTC au DQE. Pondération 40%.
+- **Calcul du prix** : Jugement sur le montant TTC au DQE (Détail Quantitatif Estimatif) renseigné automatiquement à partir du BPU complété par le candidat. Le moins-disant sur le DQE total TTC obtient la meilleure note prix (40% de la note globale).
 
 ## Références et qualifications exigées
 - **Expérience minimale** : 3 ans
-- **Secteur d'expérience** : Prestations traiteurs similaires (buffets, cocktails, lunch box, petits-déjeuners)
+- **Secteur d'expérience** : Prestations de traiteur événementiel (buffets, cocktails, lunch boxes, petits-déjeuners) pour des établissements publics ou privés
 - **Autres exigences** :
-  - Chiffre d'affaires global et chiffre d'affaires concernant les services similaires sur les 3 derniers exercices (source=RC §6.1.1 (DC2))
-  - Note indiquant les effectifs et l'importance du personnel d'encadrement sur les 3 derniers exercices (source=RC §6.1.1 (DC2))
-  - Déclaration du matériel et équipement technique disponible pour l'exécution des prestations (source=RC §6.1.1 (DC2))
-  - Déclarations appropriées de banques ou preuve d'assurance des risques professionnels (source=RC §6.1.1)
-  - Bilan d'émissions de gaz à effet de serre (BEGES) à jour pour les entreprises de plus de 500 salariés (source=RC §6.1.1)
+  - Chiffre d'affaires global et chiffre d'affaires sur les services réalisés au cours des 3 derniers exercices (source=RC §6.1.1 (DC2))
+  - Note indiquant les effectifs du candidat et l'importance du personnel d'encadrement au cours des 3 derniers exercices (source=RC §6.1.1 (DC2))
+  - Déclaration indiquant le matériel et l'équipement technique dont le prestataire dispose pour l'exécution des prestations (dont véhicules réfrigérés avec enregistrement automatique des températures) (source=RC §6.1.1 (DC2), CCTP §6.2)
+  - Attestation d'assurance des risques professionnels (déclaration bancaire ou preuve d'assurance) (source=RC §6.1.2)
+  - Bilan d'émissions de gaz à effet de serre (BEGES) à jour, si le candidat est soumis à l'obligation (entreprises > 500 salariés) (source=RC §6.1.2)
+
+## Lots
+- **Lot 1** — Buffets – Formule froide / chaude
+  - Zone : Gif-sur-Yvette (91)
+  - Minimum 10 personnes par commande. Gamme standard et supérieure (froide/chaude). Engagement minimum 40% de produits bio en coût matière (lots 1 BPU). Inclut vaisselle lavable, service optionnel maître d'hôtel/serveur. Durée initiale 12 mois + 3 reconductions. Plafond annuel 70 000 € HT, estimatif annuel 30 000 € HT.
+- **Lot 2** — Lunch box et formules sandwich
+  - Zone : Gif-sur-Yvette (91)
+  - Prestations livrées sans minimum de personnes (différenciation livraison ≤ 15 ou > 15 personnes). Conditionnement compostable obligatoire (interdit polystyrène et plastique jetable). Durée 48 mois max. Plafond annuel 50 000 € HT, estimatif annuel 20 000 € HT.
+- **Lot 3** — Cocktails
+  - Zone : Gif-sur-Yvette (91)
+  - Lot principal en valeur (plafond 120 000 €/an). Minimum 10 personnes. 5 formules de 4 à 12 pièces par convive (gamme standard et supérieure). Engagement minimum 40% bio. Inclut location de mange-debout. Service maître d'hôtel/serveur optionnel. Durée 48 mois max.
+- **Lot 4** — Petits-déjeuners et pauses
+  - Zone : Gif-sur-Yvette (91)
+  - Minimum 10 personnes par commande. Inclut viennoiseries, gâteaux/mignardises, corbeille de fruits, galettes des rois. Options vaisselle jetable compostable ou lavable. Boissons chaudes par thermos (emportés par le titulaire après prestation). Durée 48 mois max. Plafond annuel 50 000 € HT, estimatif annuel 20 000 € HT.
 
 ## ⚠ Alertes candidat
-- La date limite de remise des offres est le 14/08/2026 à 17h30 (page de garde du RC) — différente de la date de publication indiquée dans les métadonnées (19/06/2026) : vérifier la date exacte sur la plateforme PLACE.
-- Dépôt obligatoirement dématérialisé via la plateforme PLACE (www.marches-publics.gouv.fr) — tout dépôt sur autre plateforme ou par e-mail est nul.
-- Le BPU et le CCAP sont des pièces contractuelles non fournies dans ce DCE partiel — impératif de les télécharger sur la plateforme pour connaître les volumes estimatifs et les conditions tarifaires.
-- L'offre technique doit détailler a minima : moyens humains/techniques, plan de maîtrise sanitaire, menus avec photographies et labels, délais de réponse/commande, reporting et gestion des déchets — tout élément manquant pénalisera le critère qualité technique (30%).
-- Questions/demandes de précisions à adresser au plus tard le vendredi 10 juillet à 12h30 via le profil acheteur — passé ce délai, aucune réponse ne sera apportée.
+- Aucune certification obligatoire bloquante explicitement exigée, mais le plan de maîtrise sanitaire (PMS) et les justificatifs de traçabilité des produits bio sont vérifiables à tout moment pendant l'exécution : un candidat sans PMS structuré risque des pénalités voire une résiliation.
+- Engagement de pourcentage minimum de produits issus de l'agriculture biologique CONTRACTUALISÉ dans le BPU (40% lots 1 et 3 ; engagement libre lots 2 et 4) : tout écart constaté en cours d'exécution entraîne une pénalité forfaitaire de 150 € par constat.
+- Interdiction stricte de la vaisselle jetable plastique à usage unique : tout manquement (assiettes, gobelets, couverts plastique) constitue un non-respect des obligations environnementales sanctionné.
+- Accord-cadre multi-attributaires jusqu'à 3 titulaires par lot : le candidat classé 1er a la priorité sur les demandes de devis, mais n'a aucune garantie de volume. L'acheteur n'a aucun engagement sur le niveau de commandes.
+- La liste nominative du personnel intervenant doit être transmise au référent 24h ouvrées avant chaque prestation : un système de gestion des plannings fiable est indispensable.
 
 ## 💡 Points différenciants attendus
-- Plan de maîtrise sanitaire détaillé et certifications qualité (exemple=Présenter un PMS complet (HACCP, traçabilité, températures, nettoyage/désinfection) accompagné de certifications (ISO 22000, BRC Food, etc.) et d'exemples de contrôles récents. Un candidat présentant des audits tiers indépendants récents se démarquera nettement., source=RC §7.2)
-- Démarche développement durable chiffrée et alignée sur les préférences du CCTP (exemple=Quantifier précisément les engagements : '55% d'approvisionnement en circuits courts (<100 km), 30% de produits certifiés AB, partenariat avec 2 structures d'insertion locales'. Répondre point par point aux préférences exprimées dans le CCTP pour maximiser le score sur ce critère à 30%., source=RC §7.2)
-- Menus diversifiés avec photographies professionnelles et labels valorisés (exemple=Fournir un catalogue de menus par lot avec photographies haute qualité, indication des labels (Label Rouge, AOP, Ecocert, etc.), et un planning de renouvellement mensuel. La présentation visuelle et la qualité des menus est explicitement citée comme élément d'évaluation., source=RC §7.2)
-- Réactivité et souplesse opérationnelle (délais de devis et commande) (exemple=S'engager sur des délais courts et précis : réponse à devis sous 4h ouvrées, commande possible jusqu'à J-2, avec possibilité de commandes urgentes sous conditions. Ces engagements étant explicitement évalués, les formaliser contractuellement renforce la crédibilité., source=RC §6.2 et RC §7.2)
+- Pourcentage de produits bio supérieur au minimum requis avec plan de progrès chiffré (exemple=Proposer 60-65% de produits bio (vs 40% minimum) pour les lots 1 et 3, avec un plan de progrès documenté visant 70% en année 3, accompagné des noms des fournisseurs certifiés AB et de la méthode de calcul (sur coût matière première)., source=CCTP §3.4, BPU lots 1 et 3)
+- Diversité et qualité des menus illustrés par des photos professionnelles (exemple=Fournir un catalogue de 15 à 20 menus différents par lot avec photos haute qualité, description des produits (noms des fromages, labels, origines), tableau de rotation saisonnière trimestrielle et exemples de buffets à thème., source=RC §7.2, CCTP §4.1.1)
+- Bilan carbone des prestations calculable et communicable à l'acheteur (exemple=Disposer d'une méthodologie de calcul d'empreinte carbone par prestation (méthode ADEME ou Bilan Carbone), avec capacité à fournir un bilan annuel chiffré (kgCO2eq par convive et par lot) dans le rapport de reporting., source=CCTP §3.5)
+- Démarche sociale documentée (insertion, égalité professionnelle, commerce équitable) (exemple=Mentionner un partenariat avec un ESAT (Établissement et service d'aide par le travail) pour la mise en place lors d'événements de grande taille, et la proportion de café/thé/chocolat issus du commerce équitable (ex: 100% Fairtrade) dans les prestations., source=CCTP §3.7, RC §7.2)
+- Politique logistique bas-carbone avec véhicules à faibles émissions (exemple=Préciser le pourcentage de la flotte en véhicules électriques/hybrides, la formation eco-conduite des chauffeurs (avec attestation), et l'optimisation des tournées pour éviter les heures de pointe autour du campus de Gif-sur-Yvette., source=CCTP §3.2)

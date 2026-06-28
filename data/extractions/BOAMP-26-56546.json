@@ -1,289 +1,459 @@
 {
-  "synthese_marche": "Le Grand Port Maritime de Guyane (GPM Guyane) recherche un prestataire pour la fourniture en mode SaaS d'une solution de gestion et de suivi budgétaire, incluant le paramétrage, la maintenance, l'assistance technique et l'accompagnement des utilisateurs. Le marché est un accord-cadre mono-attributaire passé en MAPA, d'une durée maximale de 5 ans (reconductible 4 fois 12 mois), avec un plafond de 50 000 € HT sur toute la durée. Le titre du marché contextuel ('assistance sécurité') est trompeur : le contenu réel du DCE porte exclusivement sur un logiciel de gestion budgétaire SaaS.",
+  "synthese_marche": "Le Grand Port Maritime de Guyane (GPM Guyane) recherche un prestataire pour une mission d'assistance à maîtrise d'ouvrage dans le domaine de la sécurité au travail (SSE/HSE) sur ses installations portuaires à Dégrad des Cannes et Pariacabo. La mission couvre la supervision continue de la sécurité, la mise à jour des documents réglementaires (DUERP, plans de prévention, plans d'urgence), l'organisation d'exercices incendie et l'analyse d'accidents. Le marché est un accord-cadre à bons de commande, d'une durée initiale de 12 mois reconductible 3 fois (48 mois max), avec un plafond de 200 000 € HT.",
   "domaines_metier": [
     {
-      "code": "it_progiciels_erp"
+      "code": "conseil_strategie_organisation"
     }
   ],
-  "raison_classification": "L'objet réel du marché, tel que décrit dans le RC, est la fourniture en mode SaaS d'une solution de gestion et de suivi budgétaire (paramétrage, maintenance, assistance, accompagnement utilisateurs), ce qui correspond précisément au domaine 'Intégration progiciels et ERP'. Le titre 'assistance sécurité' visible dans les métadonnées est incohérent avec le contenu du DCE et doit être ignoré.",
-  "caracteristiques_techniques_chantier": {
-    "description": "Fourniture en mode SaaS d'une solution logicielle de gestion et de suivi budgétaire pour le Grand Port Maritime de Guyane, incluant le paramétrage initial, la maintenance corrective et évolutive, l'assistance technique et l'accompagnement des utilisateurs.",
-    "typologie_ouvrage": null,
-    "surface_volume": null,
-    "site_occupe": null,
-    "corps_etat": [],
-    "contraintes_specifiques": []
-  },
-  "allotissement": {
-    "description": "Marché non alloti — ensemble homogène",
-    "nb_lots": 1,
-    "lots_detailles": [
+  "raison_classification": "Il s'agit d'une mission d'AMO/assistance intellectuelle en matière de sécurité au travail (SSE/HSE) pour un établissement portuaire : DUERP, plans de prévention, supervision, analyses d'accidents, bilans sécurité. Ce domaine relève du conseil en organisation/sécurité au travail, le code le plus proche dans la taxonomie disponible étant 'conseil_strategie_organisation' (accompagnement organisationnel, audit, schémas directeurs). Il n'existe pas de code dédié HSE/sécurité au travail dans la liste.",
+  "caracteristiques_mission": {
+    "typologie_mission": "AMO, accompagnement, expertise",
+    "domaine_expertise": "Sécurité au travail (SSE/HSE), prévention des risques professionnels, réglementation MASE, Code du Travail",
+    "livrables_attendus": [
+      "DUERP mis à jour annuellement (UO1)",
+      "Rapports mensuels de supervision (RSD — Relevés de Situation Dangereuse) (UO2)",
+      "Plans permanents mis à jour (POI, plans de secours, plan ETARE) (UO3)",
+      "Plans de prévention pour interventions sur site (UO4)",
+      "Scénarios et comptes rendus d'exercices incendie/évacuation (UO5)",
+      "Bilans trimestriels et annuels de sécurité (UO6)",
+      "Rapports d'analyse d'accidents (5P, 5M) (UO7)",
+      "Notes de conseil/expertise à la demande (UO8)",
+      "Notes de synthèse sur missions complémentaires (UOTP)",
+      "Tableau synthétique mensuel de suivi des services faits (TSSSF)"
+    ],
+    "duree_mission": "12 mois, reconductible 3 fois pour 12 mois, soit 48 mois au total",
+    "jours_consultant_estimes": null,
+    "methodologie_attendue": "Présence physique systématique sur le port avec déplacements ; supervision aléatoire en continu (95% jours ouvrés lundi-vendredi 7h-19h, 5% hors heures) ; établissement de documents réglementaires à chaque demande ; bilans périodiques trimestriels et annuels ; présentation aux instances (CSE, direction) ; suivi via tableau mensuel de service fait (TSSSF).",
+    "livrables_par_phase": [
       {
-        "numero": 1,
-        "intitule": "Fourniture SaaS solution gestion et suivi budgétaire",
-        "corps_etat": null,
-        "montant_estime": 50000,
-        "description": "Fourniture en mode SaaS de la solution, paramétrage, maintenance, assistance technique et accompagnement utilisateurs sur 5 ans maximum"
+        "phase": "Continue — Supervision et opérations courantes (UO2, UO4)",
+        "livrables": [
+          "Comptes rendus de passage et RSD mensuels",
+          "Plans de prévention pour chaque intervention sur site",
+          "Tableau mensuel TSSSF"
+        ]
+      },
+      {
+        "phase": "Périodique annuelle — Documents stratégiques (UO1, UO3)",
+        "livrables": [
+          "DUERP mis à jour en versions successives",
+          "Plans permanents mis à jour (POI, plans de secours)",
+          "Compte rendu des réunions CSE"
+        ]
+      },
+      {
+        "phase": "Périodique trimestrielle/annuelle — Bilans (UO6)",
+        "livrables": [
+          "Bilan trimestriel de sécurité",
+          "Bilan annuel de sécurité",
+          "Support de présentation au CSE"
+        ]
+      },
+      {
+        "phase": "À la demande — Exercices, accidents, conseil (UO5, UO7, UO8, UOTP)",
+        "livrables": [
+          "Scénario et compte rendu d'exercice incendie/évacuation",
+          "Rapport d'analyse d'accident (5P, 5M)",
+          "Notes de conseil/expertise",
+          "Notes de synthèse sur missions complémentaires (temps passé)"
+        ]
+      }
+    ],
+    "jours_consultant_par_profil": [
+      {
+        "profil": "Conseiller/expert sécurité (UOTP — temps passé)",
+        "nb_jours_min": null,
+        "nb_jours_max": null
+      }
+    ],
+    "accompagnement_apres": null
+  },
+  "profils_intervenants": {
+    "description": "Personnel nommément identifié dans l'annexe 2 à l'acte d'engagement — considéré comme caractéristique essentielle du contrat. Expert en sécurité au travail (HSE/SSE), maîtrisant le référentiel MASE, le Code du Travail, les plans de prévention et la réglementation portuaire.",
+    "chef_de_mission": {
+      "anciennete_min_annees": null,
+      "secteur_experience": "Sécurité au travail, prévention des risques, milieu portuaire ou industriel, référentiel MASE",
+      "taux_dedie_pct": null,
+      "certifs_requises": []
+    },
+    "consultants": [
+      {
+        "profil": "Expert sécurité/HSE intervenant sur site",
+        "nombre": null,
+        "anciennete_min_annees": null
       }
     ]
   },
-  "qualifications_requises": {
-    "description": "Aucun niveau minimal de capacité fixé explicitement. Le pouvoir adjudicateur élimine les candidats manifestement insuffisants sur les garanties financières (CC1) et les moyens humains (CC2).",
-    "qualibat": null,
-    "rge": null,
-    "opqibi": null,
-    "autres_certifications": []
-  },
-  "caracteristiques_mission": {
-    "typologie_mission": "fourniture SaaS + paramétrage + maintenance + assistance technique",
-    "domaine_expertise": "SI, gestion budgétaire, progiciel SaaS",
-    "livrables_attendus": [
-      "Solution SaaS opérationnelle et paramétrée",
-      "Prestations de maintenance (corrective et évolutive)",
-      "Assistance technique",
-      "Accompagnement des utilisateurs"
-    ],
-    "duree_mission": "60 mois maximum (5 ans)",
-    "jours_consultant_estimes": null
-  },
-  "profils_intervenants": {
-    "description": "Non précisé dans le RC fourni. Le candidat doit justifier de moyens humains suffisants (critère CC2 éliminatoire).",
-    "chef_de_mission": null,
-    "consultants": null
-  },
-  "volumes_techniques": {
-    "puissance_totale_kwc": null,
-    "puissance_par_site_kwc": null,
-    "nb_sites": null,
-    "surface_panneaux_m2": null,
-    "productible_annuel_estime_mwh": null,
-    "duree_marche_mois": 60,
-    "duree_maintenance_om_annees": null,
-    "commentaire_volumes": "Marché SaaS — pas de volumes énergétiques. Plafond total du marché : 50 000 € HT sur 60 mois maximum."
-  },
-  "modalites_execution_chantier": {
-    "raccordement_reseau_inclus": null,
-    "etudes_techniques_incluses": null,
-    "calendrier_chantier_contraint": null,
-    "sites_execution": [
-      "Remire-Montjoly (97354, Guyane)"
-    ],
-    "engagement_productible": null,
-    "engagement_disponibilite_om": null
-  },
-  "publics_cibles": {
-    "description": "Utilisateurs internes du Grand Port Maritime de Guyane (agents en charge de la gestion et du suivi budgétaire du port).",
-    "criteres_eligibilite": [],
-    "publics_specifiques_signales": []
-  },
-  "volumes": {
-    "nb_beneficiaires_total": null,
-    "nb_beneficiaires_par_lot": null,
-    "duree_par_parcours_heures": null,
-    "duree_par_parcours_semaines": null,
-    "duree_marche_mois": 60,
-    "commentaire_volumes": "Accord-cadre sans montant minimum, plafond 50 000 € HT sur 5 ans."
-  },
-  "modalites": {
-    "presentiel_obligatoire": null,
-    "distanciel_possible": true,
-    "synchrone_asynchrone": null,
-    "sites_execution": [
-      "Remire-Montjoly, Guyane (97354)"
-    ],
-    "amplitude_horaire": null
-  },
-  "caracteristiques_mission_moe": {
-    "typologie": null,
-    "phases_couvertes": [],
-    "typologie_ouvrage": null,
-    "montant_travaux_estime": null,
-    "complexite_technique": null
-  },
-  "qualifications_moe": {
-    "opqibi": [],
-    "opqcm": null,
-    "bim": null,
-    "autres": []
-  },
-  "caracteristiques_si": {
-    "description": "Fourniture en mode SaaS d'une solution de gestion et de suivi budgétaire pour le Grand Port Maritime de Guyane, incluant paramétrage, maintenance, assistance technique et accompagnement des utilisateurs.",
-    "typologie_projet": "intégration",
-    "technologies_mentionnees": [
-      "SaaS"
-    ],
-    "volumetrie": "Non précisé dans le RC fourni",
-    "hebergement": "Cloud (SaaS)"
-  },
-  "qualifications_si": {
-    "iso_27001": null,
-    "anssi": null,
-    "hds": null,
-    "autres": []
+  "qualifications_conseil": {
+    "opqcm": [],
+    "certifications_methodologiques": [],
+    "ordre_profession": null
   },
   "bareme_notation": {
-    "valeur_technique_pct": 35,
+    "valeur_technique_pct": 40,
     "valeur_prix_pct": 60,
     "sous_criteres_techniques": [
       {
-        "libelle": "Valeur technique et performance de la solution",
-        "ponderation_pct": 30,
-        "description": "Ce critère est analysé exclusivement au regard du contenu de l'Annexe Valeur technique. Il évalue la valeur technique et la performance de la solution proposée.",
+        "libelle": "Valeur Technique",
+        "ponderation_pct": 35,
+        "description": "Évalué exclusivement sur le contenu de l'Annexe 2 à l'AE (Bordereau de réponse au critère 'valeur technique de l'offre'). La meilleure offre obtient le maximum de points ; les autres sont notées selon l'écart de valeur apportée.",
         "elements_attendus": [
-          "Description fonctionnelle détaillée de la solution SaaS",
-          "Performance et robustesse de la solution",
-          "Couverture des besoins de gestion et de suivi budgétaire du port",
-          "Modalités de paramétrage et d'accompagnement des utilisateurs",
-          "Qualité de la maintenance proposée (corrective et évolutive)"
+          "Démonstration de la valeur différenciante apportée (pas simplement la conformité)",
+          "Organisation et méthode de supervision continue sur le port",
+          "Expérience dans un environnement multi-intervenants et référentiel MASE",
+          "Capacité à produire les livrables dans les délais contractuels",
+          "Profils proposés et leur expertise sécurité portuaire/industrielle"
         ],
-        "exemple_reponse_forte": "La solution SaaS proposée couvre l'intégralité du cycle budgétaire (élaboration, suivi, reporting) avec des tableaux de bord temps réel et une interopérabilité avec les outils comptables existants. Le paramétrage initial est réalisé en moins de 8 semaines avec des ateliers utilisateurs dédiés, et la maintenance évolutive inclut 2 mises à jour majeures annuelles garanties.",
-        "source": "RC — Critères de sélection des offres",
+        "exemple_reponse_forte": "Le candidat présente un expert HSE certifié MASE ayant supervisé des sites SEVESO ou portuaires multi-employeurs, avec une méthodologie de supervision aléatoire éprouvée et un outil de traçabilité des RSD. Il démontre une valeur ajoutée spécifique (ex : retour d'expérience sur 50+ exercices incendie en zone industrielle, outil numérique de DUERP modulable).",
+        "source": "RC — Critère Valeur Technique 35%",
+        "unite_evaluation": "points",
         "sous_criteres": []
       },
       {
-        "libelle": "Aspects environnementaux du projet",
+        "libelle": "Différence de valeur à la charge du GPM Guyane",
         "ponderation_pct": 5,
-        "description": "Ce critère est analysé exclusivement au regard du contenu de l'Annexe valeur environnementale. Il évalue la prise en compte des aspects environnementaux dans la solution et son déploiement.",
+        "description": "Évalué sur l'Annexe 0 à l'AE (Bordereau de conformité). Ce critère prend en compte les modifications apportées en variante ou en négociation.",
         "elements_attendus": [
-          "Politique environnementale du prestataire",
-          "Impact carbone de la solution SaaS (hébergement, datacenters)",
-          "Actions de réduction des déchets numériques ou d'optimisation énergétique",
-          "Certifications ou labels environnementaux obtenus"
+          "Identification claire des écarts par rapport au cahier des charges",
+          "Valorisation des améliorations proposées par le candidat",
+          "Cohérence des variantes proposées avec les exigences du CCTP"
         ],
-        "exemple_reponse_forte": "Les serveurs hébergeant la solution sont localisés dans des datacenters certifiés ISO 50001, alimentés à plus de 80% par des énergies renouvelables. Le prestataire dispose d'un bilan carbone annuel et s'engage à compenser les émissions résiduelles liées à l'hébergement de la solution.",
-        "source": "RC — Critères de sélection des offres",
-        "sous_criteres": []
-      },
-      {
-        "libelle": "Conformité",
-        "ponderation_pct": 5,
-        "description": "Ce critère est analysé au regard de l'Annexe Conformité (Bordereau des différences de valeur à la charge du GPM-Guyane). Il mesure les écarts entre la solution proposée et les exigences du cahier des charges.",
-        "elements_attendus": [
-          "Identification précise des éventuelles différences fonctionnelles par rapport au CCTP",
-          "Chiffrage des éventuelles différences de valeur restant à la charge du GPM-Guyane",
-          "Minimisation des écarts par rapport aux exigences minimales"
-        ],
-        "exemple_reponse_forte": "Le candidat renseigne le bordereau des différences en indiquant pour chaque fonctionnalité demandée si elle est native, en option ou absente, avec le coût correspondant pour le GPM. Un bordereau vierge (aucune différence de valeur à charge du port) témoigne d'une solution pleinement conforme.",
-        "source": "RC — Critères de sélection des offres",
+        "exemple_reponse_forte": "Le candidat indique explicitement les rubriques du CCTP pour lesquelles il propose une amélioration (ex : réduction du délai de fourniture du RSD à 1 jour au lieu de 2), en chiffrant la valeur différentielle apportée.",
+        "source": "RC — Critère Différence de valeur 5%",
+        "unite_evaluation": "points",
         "sous_criteres": []
       }
     ],
     "prix": {
       "type_formule": "moins_disant",
-      "formule_explicite": "Le critère prix compte pour 60% de la note finale et est analysé au regard du Bordereau des Prix Unitaires (BPU). La formule exacte n'est pas précisée dans le RC fourni.",
+      "formule_explicite": "Points de l'offre notée = 60 × (prix de l'offre la moins chère / prix de l'offre notée)",
+      "source": "RC — Critère Prix 60%, formule explicite",
       "elements_a_chiffrer": [
-        "Prix unitaires par prestation (paramétrage, maintenance, assistance technique, accompagnement utilisateurs) selon le BPU",
-        "Abonnement SaaS annuel ou mensuel",
-        "Prestations complémentaires unitaires si applicables"
+        "Prix unitaire forfaitaire UO1 — Mise à jour annuelle du DUERP",
+        "Prix unitaire UO2 — Supervision en continu (tarif par passage ou par mois commandé)",
+        "Prix unitaire UO3 — Mise à jour des plans permanents (à l'acte)",
+        "Prix unitaire UO4 — Établissement des documents sécurité pour intervention sur site (à l'acte)",
+        "Prix unitaire UO5 — Organisation d'exercices incendie/évacuation (à l'acte)",
+        "Prix unitaire UO6 — Bilan trimestriel et annuel (par bilan)",
+        "Prix unitaire UO7 — Analyse des accidents (à l'acte)",
+        "Prix unitaire UO8 — Conseil/Expertise (mensuel, sur réalisations)",
+        "Taux journalier (TJ) UOTP — Prestation complémentaire sur temps passé (par profil)"
       ]
     },
-    "modalite_calcul_prix": "Critère prix à 60%, analysé au regard du BPU. Formule de notation exacte non précisée dans le RC fourni."
+    "modalite_calcul_prix": "Points de l'offre notée = 60 × prix de l'offre la moins chère / prix de l'offre notée"
   },
   "montant_marche": {
     "valeur_estimee_euros": null,
-    "fourchette_min_euros": 0,
-    "fourchette_max_euros": 50000,
+    "fourchette_min_euros": null,
+    "fourchette_max_euros": 200000,
     "type": "plafond",
-    "duree_couverte": "Durée totale du marché — 5 ans maximum (60 mois)",
-    "source_extraction": "RC — section 'Présentation générale du marché' : 'le montant cumulé des prestations ne pourra pas excéder 50 000 euros HT'",
-    "commentaire": "Accord-cadre sans montant minimum. Le plafond toutes prestations confondues est de 50 000 € HT sur 5 ans, soit environ 10 000 € HT/an en moyenne. Marché de faible envergure financière."
+    "duree_couverte": "Ensemble de la durée du marché (12 à 48 mois selon reconductions)",
+    "source_extraction": "CCAP — 'Sur l'ensemble de la durée du marché, les prestations cumulées ne peuvent excéder 200 000 euros HT'",
+    "commentaire": "Le montant maximum de l'accord-cadre toutes durées confondues est de 200 000 € HT. Aucun minimum n'est fixé. La durée totale peut atteindre 48 mois avec 3 reconductions, soit ~50 000 € HT/an en moyenne si l'enveloppe est consommée sur 4 ans."
+  },
+  "montant_3_voies": {
+    "voie_1_eur": null,
+    "voie_1_source": null,
+    "voie_2_disponible": true,
+    "voie_2_min_eur": 90000,
+    "voie_2_max_eur": 130000,
+    "voie_2_hypotheses": [
+      {
+        "hypothese": "UO2 supervision continue : 2 passages/semaine × 48 semaines = ~96 passages/an. Coût unitaire varié entre 200 et 350 € par passage.",
+        "valeur": "UO2 annuel : 19 200 € à 33 600 €"
+      },
+      {
+        "hypothese": "UO1 DUERP annuel : 1 occurrence/an, forfait entre 2 000 et 3 500 €",
+        "valeur": "UO1 annuel : 2 000 € à 3 500 €"
+      },
+      {
+        "hypothese": "UO4 plans de prévention : 1,5 à 2/semaine × 48 semaines × 80 à 150 €/PP (CCTP : ~1-2 PP/semaine en 2022)",
+        "valeur": "UO4 annuel : 5 760 € à 14 400 €"
+      },
+      {
+        "hypothese": "UO5 exercices incendie : 2/an × 500 à 800 €",
+        "valeur": "UO5 annuel : 1 000 € à 1 600 €"
+      },
+      {
+        "hypothese": "UO3+UO6+UO7+UO8 : bilans, analyses, conseil — estimé 1 000 à 2 000 €/mois",
+        "valeur": "UO3/6/7/8 annuel : 12 000 € à 24 000 €"
+      },
+      {
+        "hypothese": "UOTP temps passé : 2 à 5 j/mois × 650 €/j (taux HSE marché)",
+        "valeur": "UOTP annuel : 15 600 € à 39 000 €"
+      },
+      {
+        "hypothese": "Dimension unique faite varier : le volume de UOTP et de supervisions ; plafond 200 k€ sur 48 mois, soit ~50 k€/an ; estimation sur 2 ans (durée probable de consommation)",
+        "valeur": "Total estimé sur 2 ans : 110 k€ à 170 k€"
+      }
+    ],
+    "voie_2_raison_indisponible": null
+  },
+  "cout_realisation": {
+    "cout_total_eur": 72000,
+    "cout_min_eur": 60000,
+    "cout_max_eur": 90000,
+    "postes": [
+      {
+        "poste": "Supervision continue UO2 — présence physique hebdomadaire sur site",
+        "detail": "96 passages/an × 3h moy × taux 400 €/j (HSE terrain) → ~14 j-h/an → 5 600 €/an ; sur 2 ans = 11 200 €",
+        "montant_eur": 11200
+      },
+      {
+        "poste": "Plans de prévention UO4 — visite préalable + rédaction",
+        "detail": "~80 PP/an × 2h moy → ~20 j-h/an × 450 €/j → 9 000 €/an ; sur 2 ans = 18 000 €",
+        "montant_eur": 18000
+      },
+      {
+        "poste": "DUERP UO1 + Plans permanents UO3",
+        "detail": "5 j-h/an × 550 €/j = 2 750 €/an ; sur 2 ans = 5 500 €",
+        "montant_eur": 5500
+      },
+      {
+        "poste": "Bilans UO6 + Analyses accidents UO7 + Conseil UO8",
+        "detail": "6 j-h/an × 550 €/j = 3 300 €/an ; sur 2 ans = 6 600 €",
+        "montant_eur": 6600
+      },
+      {
+        "poste": "Exercices incendie UO5",
+        "detail": "2 exercices/an × 1 j-h × 500 €/j = 1 000 €/an ; sur 2 ans = 2 000 €",
+        "montant_eur": 2000
+      },
+      {
+        "poste": "UOTP — missions complémentaires sur temps passé",
+        "detail": "3 j/mois × 550 €/j × 24 mois = 39 600 €",
+        "montant_eur": 39600
+      },
+      {
+        "poste": "Frais de déplacement (inclus dans les prix contractuels)",
+        "detail": "Intégrés aux prix selon CCAP — non additifs, estimatif interne 5 000 €/an, 2 ans = 10 000 €",
+        "montant_eur": 10000
+      }
+    ],
+    "taux_journaliers_retenus": "Taux marché indicatifs : expert HSE terrain 400-450 €/j ; consultant HSE senior (analyse, rédaction) 500-600 €/j ; taux UOTP 550 €/j (milieu de fourchette). Ce sont des estimations à taux marché.",
+    "commentaire": "Estimation du coût de production sur 2 ans (durée probable de consommation de l'enveloppe). La fourchette est faite varier sur le volume UOTP (2 à 4 j/mois), qui est la variable la plus incertaine. Coût total estimé 60-90 k€ pour un revenu de 90-130 k€ (Voie 2), dégageant une marge brute de ~25-40%."
   },
   "revision_prix": {
-    "type": "non_communique",
+    "type": "ferme",
     "indices_utilises": [],
     "ponderation": null,
     "periodicite": null,
     "formule_revision": null,
-    "source_extraction": null,
-    "commentaire": "Le CCAP n'est pas fourni dans les pièces analysées. Aucune clause de révision des prix n'est mentionnée dans le RC."
+    "source_extraction": "CCAP — 'Les prix sont réputés fermes pour l'exécution du marché'",
+    "commentaire": "Les prix sont fermes sur toute la durée du marché. Risque commercial pour le candidat en cas d'inflation sur la durée des reconductions (jusqu'à 48 mois)."
   },
   "alertes_prix": [
-    "Plafond très bas : 50 000 € HT toutes prestations sur 5 ans — vérifier la rentabilité avant de candidater",
-    "Accord-cadre sans montant minimum : le GPM n'est pas engagé sur un volume de commande minimum — risque de sous-activation du marché",
-    "Le critère prix représente 60% de la note finale — pondération dominante très élevée qui pénalise les solutions premium",
-    "La formule de calcul de la note prix n'est pas détaillée dans le RC, ce qui peut générer une incertitude sur le positionnement tarifaire optimal"
+    "Plafond maximum d'accord-cadre de 200 000 € HT sans montant minimum : aucune garantie de volume commandé — risque de marché peu consommé.",
+    "Prix fermes sur 12 mois reconductibles jusqu'à 48 mois : absence totale d'indexation pénalise le candidat en cas d'inflation salariale sur la durée.",
+    "Pondération prix à 60% très élevée pour un marché de prestation intellectuelle HSE : pression forte sur le prix dès la soumission.",
+    "Bordereau multi-UO complexe : risque d'erreur de chiffrage sur les UO à l'acte (UO3, UO4, UO5, UO7) dont la fréquence est difficile à estimer — analyser les statistiques 2022 mentionnées au CCTP (1-2 PP/semaine, 3 visites de chantier/semaine).",
+    "TVA à 0% en Guyane : les prix sont nets TTC, ce qui simplifie mais peut induire des erreurs de lecture si le soumissionnaire travaille habituellement en métropole."
   ],
   "references_exigees": {
     "experience_minimale_annees": null,
     "experience_source": null,
     "volume_min_references_similaires": null,
-    "volume_min_references_unite": null,
-    "secteur_experience": "Solutions de gestion budgétaire, idéalement pour ports maritimes ou établissements publics",
-    "secteur_source": "RC — critères de candidature CC1 et CC2",
+    "volume_min_references_unite": "marchés similaires",
+    "secteur_experience": "Missions similaires dans le domaine de la sécurité au travail / HSE / SSE (assistance, conseil, prévention des risques professionnels)",
+    "secteur_source": "RC — Dossier de candidature",
     "certifications_obligatoires": [],
     "autres_exigences": [
       {
-        "libelle": "Liste de références clients sur les 3 dernières années, indiquant la nature des prestations, le nom du contact avec ses coordonnées et le montant approximatif du contrat",
+        "libelle": "Chiffre d'affaires global et CA concernant des missions similaires sur les 3 derniers exercices",
         "source": "RC — Dossier de candidature"
       },
       {
-        "libelle": "Déclaration sur les moyens humains et techniques (effectifs, encadrement) sur les 3 dernières années",
+        "libelle": "Références significatives de prestations similaires sur les 3 derniers exercices, avec désignation du maître d'ouvrage et coordonnées du responsable suivi",
         "source": "RC — Dossier de candidature"
       },
       {
-        "libelle": "Déclaration sur les capacités financières (CA global et CA similaire sur 3 derniers exercices)",
+        "libelle": "Déclaration des effectifs moyens annuels et du personnel d'encadrement sur les 3 dernières années",
         "source": "RC — Dossier de candidature"
-      },
-      {
-        "libelle": "Attestation d'assurance responsabilité civile professionnelle (exigée au stade attribution)",
-        "source": "RC — Documents à fournir par le candidat retenu"
       }
     ]
+  },
+  "dossier_candidature": {
+    "pieces_a_fournir": [
+      {
+        "libelle": "Lettre de candidature DC1",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC — Dossier de candidature"
+      },
+      {
+        "libelle": "Déclaration du candidat DC2",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC — Dossier de candidature"
+      },
+      {
+        "libelle": "Déclaration des effectifs moyens annuels et du personnel d'encadrement (3 dernières années)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC — Dossier de candidature"
+      },
+      {
+        "libelle": "Déclaration du chiffre d'affaires global et du CA sur missions similaires (3 derniers exercices)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC — Dossier de candidature"
+      },
+      {
+        "libelle": "Références significatives de prestations similaires (3 derniers exercices) avec maître d'ouvrage et coordonnées",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC — Dossier de candidature"
+      },
+      {
+        "libelle": "Acte d'engagement (ATTRI1) dûment rempli, daté et signé",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC — Dossier d'offre"
+      },
+      {
+        "libelle": "CCAP signé",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC — Dossier d'offre"
+      },
+      {
+        "libelle": "CCTP signé",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC — Dossier d'offre"
+      },
+      {
+        "libelle": "Annexe 0 à l'AE — Bordereau d'analyse de la conformité des réponses (AAE0)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC — Dossier d'offre"
+      },
+      {
+        "libelle": "Annexe 1 à l'AE — Bordereau de prix / DPGF (AAE1)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC — Dossier d'offre"
+      },
+      {
+        "libelle": "Annexe 2 à l'AE — Bordereau de réponse au critère Valeur technique (AAE2)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC — Dossier d'offre"
+      },
+      {
+        "libelle": "Annexe 3 à l'AE — Trame de mémoire technique (AAE3)",
+        "phase": "offre",
+        "obligatoire": false,
+        "source": "RC — Dossier d'offre (recommandé pour vérification de la conformité)"
+      },
+      {
+        "libelle": "Annexe 2 à l'AE — Bordereau de réponse personnel nommément désigné (AAE2)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "CCAP — Qualité des intervenants, Annexe 2 à l'AE"
+      },
+      {
+        "libelle": "Déclaration de sous-traitance DC4, le cas échéant",
+        "phase": "offre",
+        "obligatoire": false,
+        "source": "RC — Sous-traitance"
+      }
+    ],
+    "mode_remise": "dématérialisé",
+    "plateforme_depot": "PLACE — marches-publics.gouv.fr",
+    "signature_electronique_exigee": false,
+    "format_signature": null,
+    "nombre_exemplaires": null,
+    "langue": "français",
+    "duree_validite_offres_jours": 90,
+    "modalites_source": "RC — Conditions d'envoi des offres et adresses"
   },
   "lots": [
     {
       "numero": 1,
-      "intitule": "Fourniture SaaS solution de gestion et suivi budgétaire",
-      "zone_geographique": "Guyane (97354 Remire-Montjoly)",
-      "volume_estime": 50000,
-      "volume_estime_unite": "€ HT (plafond)",
-      "particularites": "Marché unique non alloti, accord-cadre mono-attributaire, sans montant minimum, plafond 50 000 € HT sur 5 ans"
+      "intitule": "Assistance sécurité du Grand Port Maritime de Guyane",
+      "domaine": "conseil_strategie_organisation",
+      "zone_geographique": "Guyane — Dégrad des Cannes (Rémire-Montjoly) et Pariacabo (Kourou)",
+      "volume_estime": null,
+      "volume_estime_unite": null,
+      "cout_estime_min_eur": 60000,
+      "cout_estime_max_eur": 90000,
+      "particularites": "Marché non alloti, toutes prestations SSE constituant un tout indissociable. Plafond 200 000 € HT sur 48 mois. Présence physique obligatoire sur site. TVA 0% Guyane."
     }
   ],
+  "tranches": [],
   "calendrier": {
-    "date_limite_offres": "2026-06-22",
+    "date_limite_offres": "2026-07-07",
     "date_demarrage_prevue": null,
-    "duree_marche": "5 ans maximum (1 an ferme + 4 reconductions de 12 mois)"
+    "duree_marche": "12 mois reconductibles 3 fois, soit 48 mois au total"
   },
   "alertes_candidat": [
-    "Date limite de réception des offres fixée au 22 juin 2026 à 17h (heure de Paris) — date différente de celle mentionnée dans les métadonnées BOAMP (07/07/2026) : vérifier impérativement sur la plateforme PLACE",
-    "Les annexes (BPU, Conformité, Valeur technique, Valeur environnementale) sont strictement obligatoires — toute mention 'voir document joint' ou 'voir mémoire technique' sera ignorée pour la notation",
-    "L'acte d'engagement (AE) doit être signé par une personne habilitée à engager l'entreprise, avec délégation de pouvoir jointe si nécessaire — absence = rejet sans examen",
-    "Le CCTP doit être signé et joint à l'offre (document contractuel)",
-    "Exigence RGPD spécifique : les données des agents GPM collectées lors de la procédure ne doivent en aucun cas sortir de l'UE ni être traitées par des IA — manquement entraîne exclusion immédiate"
+    "Le personnel nommément désigné dans l'Annexe 2 à l'AE est considéré comme une 'caractéristique essentielle' du contrat : toute substitution non autorisée est sanctionnée à 3 000 € par manquement — nommer des profils réellement disponibles est critique.",
+    "Présence physique obligatoire sur les installations du GPM Guyane (Dégrad des Cannes et Pariacabo) : les candidats métropolitains ou sans ressource locale en Guyane doivent prévoir une implantation locale ou un partenariat sur place — les frais de déplacement sont inclus dans les prix.",
+    "Référentiel MASE : le GPM est certifié MASE depuis 2016 — maîtriser ce référentiel est implicitement requis et constitue un point différenciant fort.",
+    "Accord-cadre sans minimum garanti : le GPM peut ne commander aucune prestation sans indemnité pour le titulaire — le risque de volume insuffisant est réel.",
+    "Le DCE comporte un document parasite (RC GPM RX 26 06 — fourniture d'une solution SaaS budgétaire) sans lien avec le présent marché sécurité : les candidats ne doivent pas tenir compte de ce document dans leur réponse au marché 'assistance sécurité'."
   ],
   "points_differenciants_attendus": [
     {
-      "libelle": "Solution SaaS fonctionnellement complète et sans écart vis-à-vis du CCTP",
-      "exemple": "Un candidat proposant une solution native sans développement spécifique, avec un bordereau de conformité vierge (aucune différence à charge du GPM), maximisera le critère conformité (5%) et renforcera la note technique (30%).",
-      "source": "RC — Annexe Conformité et critère Valeur technique"
+      "libelle": "Connaissance du référentiel MASE et expérience sur sites multi-employeurs",
+      "exemple": "Le candidat présente un expert ayant conduit des audits MASE et supervisé des sites avec coactivité intense (ex : zones industrielles portuaires, sites ICPE), démontrant une capacité à gérer la complexité des 90 entreprises coprésentes sur le port.",
+      "source": "CCTP — Contexte MASE certifié depuis 2016"
     },
     {
-      "libelle": "Positionnement tarifaire compétitif sur le BPU",
-      "exemple": "Compte tenu du poids de 60% du critère prix et du plafond très bas (50 000 € HT / 5 ans), un candidat proposant un abonnement annuel réduit avec options de paramétrage forfaitisées sera fortement avantagé.",
-      "source": "RC — Critère prix à 60%"
+      "libelle": "Capacité de présence rapide et flexible sur site (délais courts exigés : 2 jours pour RSD, 4 jours pour visite préalable)",
+      "exemple": "Le candidat dispose d'un expert basé en Guyane ou en capacité de déploiement sous 24h, garantissant le respect des délais contractuels, notamment pour les analyses d'accidents (réunion sous 2 jours) et les plans de prévention urgents.",
+      "source": "CCTP — Tableaux d'exigences UO2, UO4, UO7"
     },
     {
-      "libelle": "Hébergement responsable et politique environnementale documentée",
-      "exemple": "Un candidat dont les datacenters sont certifiés ISO 50001 ou Green IT, avec un rapport d'impact carbone annuel, se distinguera sur le critère environnemental (5%) qui peut être décisif en cas de notes proches.",
-      "source": "RC — Critère aspects environnementaux 5%"
+      "libelle": "Amélioration des délais d'exécution des UO (critère négociable et améliorable)",
+      "exemple": "Sur UO2, proposer un délai de fourniture des RSD inférieur à 2 jours (ex : 1 jour ouvré) serait valorisé comme améliorable selon le CCTP — le candidat peut intégrer cette promesse dans l'Annexe 0 (bordereau de conformité).",
+      "source": "CCTP — Tableaux d'exigences, colonne 'Améliorable ou pas'"
     },
     {
-      "libelle": "Références dans le secteur portuaire ou établissements publics avec enjeux budgétaires similaires",
-      "exemple": "La présentation de 2-3 références de grands ports ou d'établissements publics industriels et commerciaux (EPIC) utilisant la solution avec coordonnées vérifiables renforcera la crédibilité de la candidature sur les critères CC1 et CC2.",
-      "source": "RC — Critères de sélection des candidats CC1 et CC2"
+      "libelle": "Outils et méthodes documentées pour le DUERP et les plans de prévention",
+      "exemple": "Le candidat présente un outil Excel structuré de DUERP (exigé au CCTP) déjà utilisé sur des établissements comparables, avec une méthodologie de rédaction des plans de prévention conforme au Décret n°92-158 et aux recommandations INRS (ED 6336, ED 6481).",
+      "source": "CCTP — UO1, UO4, UO5"
+    },
+    {
+      "libelle": "Expérience en milieu portuaire ou sur établissements à intervenants multiples",
+      "exemple": "Une référence sur un GPM, un port autonome, une zone industrielle portuaire ou une installation avec plus de 50 entreprises intervenantes simultanées renforcerait considérablement la valeur technique, au regard de la complexité opérationnelle du GPM Guyane (90 entreprises, 1 500 emplois directs/indirects).",
+      "source": "CCTP — Contexte et aspects sécurité"
     }
   ],
   "_meta": {
     "id_marche": "BOAMP-26-56546",
     "type": "complet",
-    "extraction_le": "2026-06-12T02:40:30.569991+00:00",
+    "date_generation": "2026-06-19T19:59:42.530155+00:00",
+    "extraction_le": "2026-06-19T19:59:42.530155+00:00",
     "modele": "claude-sonnet-4-6",
-    "tokens_input": 26309,
-    "tokens_output": 4959,
-    "cout_eur": 0.1456,
-    "duree_sec": 87.3,
+    "preset_utilise": "conseil",
+    "presets_matches": [
+      "conseil"
+    ],
+    "prompts_versions": {
+      "conseil/_preset.json": "sha256:072a0bf71cb58bf5"
+    },
+    "tokens_input": 54687,
+    "tokens_output": 8029,
+    "cout_eur": 0.2703,
+    "duree_sec": 140.9,
     "pdfs_traites": [
+      {
+        "nom": "CCAP GPM RX 26 03 SECU.docx",
+        "hash": "8633297746c92b6dca251dd8e37c5a44",
+        "taille_chars": 21138
+      },
+      {
+        "nom": "CCTP GPM RX 26 03  SECU.docx",
+        "hash": "48daae7e3c480134076f45839fb7f77d",
+        "taille_chars": 20692
+      },
+      {
+        "nom": "RC GPM RX 26 03 SECU.docx",
+        "hash": "06ab5a081f4a71755b5d0100cf778c5c",
+        "taille_chars": 27123
+      },
       {
         "nom": "RC GPM RX 26 06 EPM 2.docx",
         "hash": "602f259f8930614585b7dce7785d12c7",

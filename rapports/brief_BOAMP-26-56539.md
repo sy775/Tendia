@@ -1,6 +1,6 @@
 # Brief — Aménagement des niveaux 1 à 3 du siège de la CPAM d'Indre-et-Loire
 
-_Généré le 2026-06-12 15:49 par Claude claude-sonnet-4-6_
+_Généré le 2026-06-19 21:57 par Claude claude-sonnet-4-6_
 
 ## Identifiants
 - **ID Tendia** : `BOAMP-26-56539`
@@ -10,101 +10,96 @@ _Généré le 2026-06-12 15:49 par Claude claude-sonnet-4-6_
 - **DCE PLACE** : <https://www.marches-publics.gouv.fr/entreprise/consultation/3014319?orgAcronyme=s7h>
 
 ## Synthèse
-Marché de travaux de rénovation intérieure portant sur l'aménagement des niveaux 1 à 3 du siège de la CPAM d'Indre-et-Loire à Tours (36 rue Édouard Vaillant), décomposé en 8 lots allant de la démolition au câblage VDI. Le marché est structuré en tranche ferme (niveaux 1, 2 et 3 sud) et tranche conditionnelle (niveaux 2 et 3 nord), pour une durée globale de 24 mois. Le site reste occupé pendant les travaux, le personnel de la CPAM étant en télétravail au maximum.
+Marché de travaux de rénovation intérieure portant sur l'aménagement des niveaux 1 à 3 du siège de la CPAM d'Indre-et-Loire à Tours, alloti en 8 lots (démolition, cloisonnement/menuiseries, faux-plafonds, revêtements de sols, revêtements muraux, électricité, plomberie, câblage VDI). Le marché est structuré en une tranche ferme (niveaux 1, 2 et 3 Sud) et une tranche conditionnelle (niveaux 2 et 3 Nord), avec exécution en site occupé (bureaux de la CPAM en activité). La durée globale est de 24 mois, pour une enveloppe estimée à environ 1 680 000 € TTC selon le PGC.
 
 ## 🏗 Chantier — caractéristiques BTP
-- **Description** : Réaménagement complet des niveaux R+1 à R+3 d'un immeuble de bureaux occupé par la CPAM d'Indre-et-Loire : démolitions intérieures, installation de chantier, cloisonnements et menuiseries intérieures, faux-plafonds suspendus, revêtements de sols et carrelages, revêtements muraux, électricité courant fort/faible, plomberie sanitaire et câblage VDI. Les travaux sont phasés en tranche ferme (phases 1 et 3 : niveaux 2 et 3 sud + niveau 1 sud) et tranche conditionnelle (phase 2 : niveaux 2 et 3 nord). Le bâtiment date d'avant 1997 (amiante investigué : absence ; plomb détecté à faibles valeurs entre 0,01 et 0,3 mg/cm²).
-- **Type d'ouvrage** : Immeuble de bureaux (siège administratif CPAM)
-- **Site occupé pendant travaux** : Oui — le bâtiment reste en exploitation pendant toute la durée du chantier ; le personnel de la CPAM sera en télétravail au maximum pendant la période de travaux ; chantier accessible de 08h00 à 18h00 les jours ouvrés.
-- **Corps d'état mobilisés** : Démolitions, Installations de chantier, Cloisonnements et menuiseries intérieures, Faux-plafonds suspendus, Revêtements de sols et carrelages, Revêtements muraux, Électricité courant fort/faible, Plomberie sanitaire, Câblage VDI (réseau informatique)
+- **Description** : Aménagement intérieur des niveaux 1, 2 et 3 d'un immeuble de bureaux (siège CPAM Tours) : démolitions de cloisons et faux-plafonds existants, création de nouveaux cloisonnements (plaques de plâtre, cloisons modulaires aluminium), faux-plafonds minéraux, revêtements de sols (moquette, PVC, carrelage), peintures et revêtements muraux, installations électriques courants forts/faibles/SSI, plomberie sanitaire et câblage VDI. Travaux réalisés en site entièrement occupé, en horaires décalés pour les travaux bruyants (6h-9h et 17h-21h).
+- **Type d'ouvrage** : Immeuble de bureaux (ERP type W 1ère catégorie) — réhabilitation intérieure de niveaux de bureaux administratifs en activité
+- **Surface / volume** : Environ 2 267 m² (tranche ferme : ~1 467 m² de sols souples déposés Niv.1+2+3 Sud ; tranche optionnelle : ~800 m²) — surface totale estimée ~2 300 m² de plancher traité
+- **Site occupé pendant travaux** : true — locaux de la CPAM demeurant en activité pendant toute la durée des travaux ; continuité de service public maintenue ; travaux bruyants obligatoirement en horaires décalés 6h-9h et 17h-21h ou samedi
+- **Corps d'état mobilisés** : Démolition, Cloisons / menuiseries intérieures (plaque de plâtre, modulaires aluminium, portes CF), Faux-plafonds suspendus (dalles minérales), Revêtements de sols (moquette, PVC, carrelage), Revêtements muraux (peinture, vitrophanie, faïence), Électricité courants forts et faibles (SSI, contrôle d'accès, éclairage LED), Plomberie sanitaire, Câblage VDI (cuivre catégorie 6A et fibre optique)
 - **Contraintes spécifiques** :
-  - Site occupé pendant toute la durée des travaux : coordination renforcée avec l'exploitant, horaires stricts 08h-18h
-  - Présence de plomb dans les peintures (valeurs entre 0,01 et 0,3 mg/cm²) — mesures de protection obligatoires
-  - Bâtiment antérieur à 1997 : diagnostic amiante réalisé (absence confirmée) et plomb diagnostiqué
-  - Phasage en tranche ferme (phases 1+3) et tranche conditionnelle (phase 2) — la tranche conditionnelle n'est pas garantie
-  - Coactivité multi-lots simultanée ou successive à gérer — PGC APAVE rédigé
-  - Travaux menés parallèlement à une opération de remplacement des menuiseries extérieures par l'UIOSS37 (tiers)
-  - Coordination SSI obligatoire (MBO Consulting désigné)
-  - Confidentialité renforcée (engagement de confidentialité + livret PSSI à signer)
-  - Visite obligatoire sur site avant remise des offres (attestation de présence à joindre à l'offre)
+  - Site totalement occupé pendant les travaux : CPAM en activité, continuité de service public imposée
+  - Travaux bruyants (démolitions) uniquement en horaires décalés 6h-9h et 17h-21h ou le samedi
+  - Accès chantier exclusivement par rue Flemming ; ascenseur C réservé pour les travaux
+  - Marché à tranches : tranche conditionnelle (niveaux 2 et 3 Nord) affermie sous condition d'obtention de fonds nationaux, au plus tard 10 mois après notification TF
+  - Coordination SSI obligatoire avec coordinateur MBO Consulting ; SSI de catégorie A (marque DEF CASSIOPEE FORTE S) à maintenir opérationnel
+  - Présence de plomb dans les peintures (rapport APAVE) : mesures de protection adaptées requises
+  - Absence d'amiante confirmée (rapport APAVE)
+  - Phasage séquencé niveau par niveau (N3 Sud → N2 Sud → N1 Sud pour TF ; N3 Nord → N2 Nord pour TC)
+  - Engagement de confidentialité et livret SSI à signer par tous les titulaires
+  - Coactivité avec chantier UIOSS37 de remplacement des menuiseries extérieures
 
 ### Allotissement
-Marché alloti en 8 lots distincts, avec possibilité de candidater à plusieurs lots. Lot 8 (câblage VDI) fait l'objet d'un CCTP et d'une DPGF séparés.
+Marché alloti en 8 lots distincts, chacun constituant un marché à part entière avec acte d'engagement séparé. Les lots 1 à 7 partagent un CCTP commun ; le lot 8 (VDI) dispose de son propre CCTP et CCTG VDI v2.0.
 - **Nombre de lots** : 8
 - **Lot 1** — Démolitions
-  - Corps d'état : Démolition intérieure
-  - Travaux de démolition intérieure préalables aux aménagements
+  - Corps d'état : démolition
+  - Dépose de faux-plafonds minéraux et plâtre, démolition de cloisons (716 m² TF + 728 m² TC), dépose de sols souples (~2 267 m²), dépose de portes bois et grilles aluminium. Tri et évacuation des gravats en bennes.
 - **Lot 2** — Installations de chantier - Cloisonnements - Menuiseries bois
-  - Corps d'état : Installation de chantier / Cloisonnement / Menuiserie intérieure
-  - Installation et gestion du chantier commun, réalisation des cloisons et menuiseries intérieures bois
-- **Lot 3** — Faux-Plafonds
-  - Corps d'état : Faux-plafonds suspendus
-  - Mise en place de plafonds suspendus
+  - Corps d'état : cloisons / menuiseries intérieures
+  - Installation et entretien du chantier (base vie, clôtures, sanitaires, protections) pendant 13 mois (TF) + 11 mois (TC). Création de cloisons EI60, cloisons sèches, cloisons modulaires aluminium (383 m² TF + 107 m² TC), blocs-portes CF (E30/EI30), châssis vitrés EI60, cylindres, plinthes bois.
+- **Lot 3** — Faux-plafonds
+  - Corps d'état : faux-plafonds suspendus
+  - Fourniture et pose de faux-plafonds minéraux neufs (1 398 m² TF + 809 m² TC), remplacement de dalles sur structure existante ou neuve, jouées mélaminées et plâtre en circulations et périphéries.
 - **Lot 4** — Revêtements de sols - Carrelages
-  - Corps d'état : Revêtements de sols / Carrelage
-  - Pose de revêtements de sols souples et carrelages
+  - Corps d'état : revêtements de sols
+  - Préparation des supports, ragréage. Pose de moquette (964 m² TF + 652 m² TC), moquette acoustique (365 m² TF + 158 m² TC), sol PVC (42 m² TF), carrelage (20 m² TF), revêtement mural faïencé (88 m² TF) dans les sanitaires.
 - **Lot 5** — Revêtements muraux
-  - Corps d'état : Revêtements muraux
-  - Pose de revêtements muraux et papiers peints
+  - Corps d'état : peinture / revêtements muraux
+  - Dépose des anciens revêtements muraux, peinture murale (1 695 m² TF + 551 m² TC), peinture sur portes, tablettes, meneaux, plinthes, vitrophanie sur vitrages des cloisons modulaires, nettoyage final des locaux.
 - **Lot 6** — Électricité
-  - Corps d'état : Électricité courant fort/faible
-  - Travaux d'équipement électrique (courant fort et courant faible hors VDI)
+  - Corps d'état : électricité courants forts et faibles
+  - Installations électriques de chantier, modification des tableaux existants, équipements d'éclairage LED (dalles 600×600, spots, luminaires), détecteurs de présence DALI, prises de courant, points de consolidation courant fort (62+43 U), postes de travail (172+103 U), goulottes, SSI (dépose/repose/ajout détecteurs DEF, diffuseurs, ventouses CF), contrôle d'accès, CONSUEL obligatoire.
 - **Lot 7** — Plomberie
-  - Corps d'état : Plomberie sanitaire
-  - Travaux de plomberie sanitaire
+  - Corps d'état : plomberie sanitaire
+  - Distribution EF/ECS en cuivre, réseaux EU/EV PVC, cuvettes WC PMR et suspendues (6 U), lave-mains, plan de vasques double, vidoir, ballons ECS 15L, barres d'appui PMR, miroirs, dépose d'un split existant. Uniquement tranche ferme.
 - **Lot 8** — Câblage VDI
-  - Corps d'état : Câblage réseau informatique (VDI)
-  - Installation d'infrastructures de câblage réseau (voix-données-images), avec opération préalable de détournement du câblage 3e étage Nord vers coffret provisoire
+  - Corps d'état : câblage VDI (courants faibles data/télécom)
+  - Câblage capillaire cuivre cat. 6A et fibre optique, garantie système 25 ans constructeur. Opération préalable de détournement du câblage 3e étage Nord vers coffret provisoire. Recette Re-Embedded PL2/PL3 obligatoire. CCTG VDI v2.0 CNAM applicable. Conformité RGPD/confidentialité renforcée.
 
 ### Qualifications BTP exigées
-Le RC exige des certificats de qualifications professionnelles adaptés aux prestations à réaliser, sans en préciser les indices Qualibat spécifiques. Les candidats peuvent également prouver leur capacité par tout moyen équivalent.
-- **Qualibat** : N, o, n, , p, r, é, c, i, s, é, , d, a, n, s, , l, e, s, , p, i, è, c, e, s, , f, o, u, r, n, i, e, s, , —, , l, e, , R, C, , m, e, n, t, i, o, n, n, e, , ', c, e, r, t, i, f, i, c, a, t, s, , d, e, , q, u, a, l, i, f, i, c, a, t, i, o, n, s, , p, r, o, f, e, s, s, i, o, n, n, e, l, l, e, s, , a, d, a, p, t, é, s, , a, u, x, , p, r, e, s, t, a, t, i, o, n, s, , à, , r, é, a, l, i, s, e, r, , o, u, , p, r, e, u, v, e, , d, e, , l, a, , c, a, p, a, c, i, t, é, , d, u, , c, a, n, d, i, d, a, t, , p, a, r, , t, o, u, t, , m, o, y, e, n, ', , (, R, C, , a, r, t, ., , 1, 7, )
-- **RGE** : Non mentionné
-- **OPQIBI** : Non applicable
-- **Autres exigences** :
-  - Pour le lot 8 : certifications constructeur des techniciens sur la solution VDI proposée (exigée dans le mémoire technique)
-  - Pour le lot 8 : garantie système 25 ans cuivre et fibre (attestation constructeur requise)
-  - Assurance décennale exigée pour les lots concernés (RC art. 19 et art. 28)
+Le RC demande des certificats de qualifications professionnelles adaptés ou preuves de capacité par tout moyen, sans imposer de codes Qualibat spécifiques. Assurance décennale exigée pour les lots concernés.
+- **OPQIBI** : non
+- **MASE** : non
 
 ## 💶 Montant du marché
-- **Valeur estimée** : **1,68 M€**
-  - sur Tranche ferme + tranche conditionnelle (22 mois de travaux)
-  - _source : PGC APAVE — section 'Descriptif de l'opération' : Phase 1 : 615 000 € TDC, Phase 2 : 615 000 € TDC, Phase 3 : 450 000 € TDC_
-- _Note_ : Le PGC APAVE indique une estimation du PRECI : Phase 1 (3e+2e SUD) = 615 000 € TDC + Phase 2 (3e+2e NORD, tranche conditionnelle) = 615 000 € TDC + Phase 3 (1er SUD) = 450 000 € TDC, soit un total estimatif de 1 680 000 € TDC toutes phases confondues (TDC = Toutes Dépenses Confondues, incluant travaux + honoraires + divers). Le montant des seuls travaux est probablement inférieur.
+- **Fourchette** : entre 1,20 M€ et 1,68 M€
+  - sur 24 mois (tranche ferme + tranche conditionnelle)
+  - _source : PGC §RENSEIGNEMENTS GENERAUX : 'PHASE 1 – 615 000 € TDC pour les aménagements 3ème et 2ème étage SUD ; PHASE 2 – 615 000 € TDC pour les aménagements 3ème et 2ème étage NORD ; PHASE 3 – 450 000 € TDC pour l'aménagement 1er étage SUD'_
 
 ## Barème de notation
-- **Valeur technique** : 50 %
+- **Valeur technique** : 60 %
 - **Valeur prix** : 40 %
 - **Sous-critères techniques** :
   - Moyens humains mis en œuvre sur le chantier dont encadrement : 15 %
   - Qualité et méthodologie des moyens techniques : 20 %
   - Planning détaillé dédié à l'opération : 15 %
-  - RSO : Démarches environnementales : 5 %
-  - RSO : Considérations sociales : 5 %
-- **Calcul du prix** : Pour les lots 1 à 7 : 40 × (prix le plus bas / prix proposé par l'entreprise). Pour le lot 8 : 40 × (Montant le moins-disant / Montant du candidat). Formule identique dans les deux cas.
+  - Démarches environnementales : 5 %
+  - Considérations sociales : 5 %
+- **Calcul du prix** : Note prix = 40 × (prix le plus bas / prix proposé par l'entreprise)
 
 ## Références et qualifications exigées
 - **Expérience minimale** : 5 ans
-- **Secteur d'expérience** : Travaux similaires à ceux du lot concerné, exécutés et menés à bonne fin au cours des cinq dernières années (date, lieu d'exécution, montant requis pour chaque référence)
-- **Certifications obligatoires** : Certificats de qualifications professionnelles adaptés aux prestations à réaliser, ou preuve de capacité par tout moyen équivalent (source=RC art. 17), Assurance décennale en cours de validité pour les lots concernés (couvrant les responsabilités articles 1792 et suivants du Code civil) (source=RC art. 19 et art. 28), Pour le lot 8 : certifications constructeur des techniciens sur la solution VDI proposée (source=RC art. 19), Pour le lot 8 : attestation constructeur d'éligibilité de la solution à la garantie système 25 ans cuivre et fibre (source=RC art. 19)
+- **Secteur d'expérience** : Travaux similaires correspondant au lot soumissionné (réhabilitation intérieure de bureaux en site occupé, cloisonnements CF, faux-plafonds, revêtements, électricité tertiaire, plomberie, VDI selon le lot)
+- **Certifications obligatoires** : Attestation d'assurance responsabilité civile professionnelle en cours de validité (bloquante=True, source=RC article 28 et CCAP article 37), Attestation d'assurance décennale pour les lots concernés (articles 1792 et suivants Code civil) (bloquante=True, source=RC articles 19 et 28 et CCAP article 37), Attestation CONSUEL pour le lot 6 (Électricité) — condition de réception des travaux (source=CCAP article 8 et RC article 4 CPV lot 6), Attestation de visite du site obligatoire (remise lors de la visite aux dates fixées) (bloquante=True, source=RC article 10 et article 19)
 - **Autres exigences** :
-  - Déclaration du chiffre d'affaires global réalisé au cours des trois derniers exercices disponibles, sur des prestations similaires (source=RC art. 17)
-  - Déclaration des effectifs moyens annuels sur les trois dernières années (source=RC art. 17)
-  - Description de l'outillage, du matériel et de l'équipement technique disponible (source=RC art. 17)
-  - Extrait K-bis datant de moins de 3 mois (source=RC art. 17)
-  - Attestation de visite obligatoire sur site (sans laquelle l'offre peut être rejetée) (source=RC art. 10 et art. 19)
-  - Pour le lot 8 : engagement de confidentialité (livret PSSI de la CPAM à signer) (source=RC art. 30)
+  - Extrait K-bis datant de moins de 3 mois (source=RC article 17)
+  - Déclaration de chiffre d'affaires global réalisé sur les 3 derniers exercices disponibles sur des prestations similaires (source=RC article 17)
+  - Déclaration des effectifs moyens annuels sur les 3 dernières années (source=RC article 17)
+  - Description de l'outillage, du matériel et de l'équipement technique (source=RC article 17)
+  - Certificats de qualifications professionnelles adaptés aux prestations ou preuve de capacité par tout moyen (source=RC article 17)
 
 ## ⚠ Alertes candidat
-- Visite sur site OBLIGATOIRE avec attestation de présence à joindre à l'offre — sans cette attestation, l'offre risque d'être rejetée. Dates imposées : 18/06/2026 (lots 1-2-3 à 9h30, lots 4-5 à 13h30) et 19/06/2026 (lots 6-7-8 à 9h30). Inscription par mail à sgcpam37@assurance-maladie.fr avant la veille 16h.
-- Site occupé en permanence : toute plus-value due à une mauvaise reconnaissance des lieux sera refusée à l'exécution — la visite obligatoire est le seul moyen de chiffrer correctement les contraintes réelles.
-- Présence de plomb dans les peintures existantes (0,01 à 0,3 mg/cm²) : des mesures de protection spécifiques et un PPSPS sont obligatoires avant tout commencement de travaux. Le PPSPS doit être communiqué au coordonnateur SPS avant l'inspection commune.
-- Pour le lot 8 : exigences techniques très spécifiques (CCTG VDI v2.0, fiches PEP environnementales, garantie 25 ans constructeur, opération préalable de détournement câblage 3e étage Nord) — un candidat généraliste sans expérience VDI tertiaire structuré risque de scorer très faiblement sur le critère technique (60%).
-- Tranche conditionnelle non garantie (~615 000 € TDC) : le chiffrage doit être intégré à l'offre mais son exécution reste à la discrétion de la CPAM, avec risque d'immobilisation de ressources sans suite.
+- Visite de site OBLIGATOIRE aux dates imposées (18/06 pour lots 1-5, 19/06 pour lots 6-8) avec attestation de présence à joindre impérativement à l'offre — absence = irrecevabilité pratique.
+- Site entièrement occupé : les travaux bruyants (démolitions, percements) doivent être strictement planifiés en horaires décalés 6h-9h et 17h-21h — nécessite une dérogation mairie et une organisation spécifique à chiffrer.
+- Lot 8 (VDI) : CCTG VDI v2.0 CNAM d'application stricte, garantie système 25 ans constructeur et fiches PEP (ou EPD ISO 14025) obligatoires — vérifier la disponibilité de ces documents chez les fournisseurs avant de soumissionner.
+- Tranche conditionnelle représentant ~36% du volume : aucune indemnité si non affermie — le candidat doit mobiliser des ressources pour la TC sans garantie de chiffre d'affaires.
+- Engagement de confidentialité et livret SSI CPAM à signer dès la réunion de lancement — prévoir l'adhésion formelle de tout le personnel et des sous-traitants.
 
 ## 💡 Points différenciants attendus
-- Méthodologie spécifique chantier en site occupé avec gestion de la coactivité (exemple=Un candidat qui décrit précisément les séquences de travaux par zone (avec plans de phasage), les mesures de confinement phonique et anti-poussières lors des démolitions, et le dispositif de communication avec les occupants de la CPAM (calendrier des interventions bruyantes communiqué à l'avance) se démarquera nettement., source=RC art. 25 — sous-critère 'Qualité et méthodologie des moyens techniques')
-- Planning détaillé intégrant les trois phases et les interfaces entre lots (exemple=Un Gantt détaillé au niveau tâche, distinguant phase 1 (3e+2e Sud), phase 3 (1er Sud) en tranche ferme et phase 2 (3e+2e Nord) en tranche conditionnelle, avec jalons de réception partielle et interfaces explicites avec le chantier menuiseries extérieures UIOSS37, constituera un point fort., source=RC art. 25 — sous-critère 'Planning détaillé dédié à l'opération')
-- Pour le lot 8 : robustesse du protocole de détournement câblage 3e étage Nord avec continuité de service (exemple=Un candidat qui fournit un schéma de bascule détaillé avec durée d'interruption de service nulle ou inférieure à 30 minutes, dimensionnement justifié du coffret provisoire (15U ou autre), et plan de communication aux utilisateurs impactés obtiendra la note maximale sur ce sous-critère., source=RC art. 25 — critère lot 8, sous-critère 1.2)
-- Démarche RSO concrète et chiffrée (insertion + environnement) (exemple=Un engagement quantifié sur le recours à des apprentis (ex: 2 apprentis sur toute la durée), associé à un plan de gestion des déchets avec taux de valorisation cible et noms des filières partenaires, permet de maximiser les 10 points RSO des lots 1 à 7., source=RC art. 25 — critère RSO)
-- Pour le lot 8 : solution VDI homogène avec fiches PEP et garantie constructeur 25 ans documentées (exemple=Un candidat qui produit une solution mono-constructeur validée, avec fiches PEP (ou EPD ISO 14025) pour tous les composants et attestation constructeur de garantie système 25 ans, répond exactement aux attentes des sous-critères 1.4 et 1.5 du lot 8., source=RC art. 25 — critères lot 8, sous-critères 1.4 et 1.5)
+- Expérience documentée en réhabilitation tertiaire en site occupé (bureaux/ERP en activité) (exemple=Présenter 2-3 références similaires (surfaces > 500 m² en bureaux occupés) avec témoignages de maîtres d'ouvrage, planning respecté et gestion des nuisances, pour démontrer la maîtrise des contraintes spécifiques à la CPAM., source=RC article 17 et article 25)
+- Qualité du planning détaillé intégrant les horaires décalés et le phasage par demi-niveau (exemple=Fournir un Gantt au niveau tâche avec créneaux 6h-9h/17h-21h identifiés pour les démolitions, les jalons de réception partielle par niveau, et la gestion des interfaces avec le chantier UIOSS37 (menuiseries extérieures)., source=RC article 25 — sous-critère Planning 15 points)
+- Méthodologie de protection des zones occupées et gestion des poussières/nuisances (exemple=Décrire en détail le dispositif de cloisonnement provisoire étanche à la poussière, les procédures de nettoyage quotidien, et les mesures de protection du personnel de la CPAM, avec plan de circulation dédié chantier., source=CCTP §0.9 et §0.14 ; RC article 25 — sous-critère Valeur technique 20 points)
+- Pour le lot 8 : solution VDI complète avec garantie 25 ans constructeur et fiches PEP documentées (exemple=Présenter la solution câblage homogène (constructeur unique ou validé) avec attestation 25 ans, fiches PEP ou EPD ISO 14025 pour chaque composant, et protocole détaillé de l'opération de détournement du câblage 3e étage Nord avec durée garantie et maintien de service., source=RC article 19 et article 25 — lot 8 critère technique 60 points)
+- Engagements RSE concrets et chiffrés (insertion + déchets) (exemple=Chiffrer le nombre d'heures d'insertion (ex : 3 alternants sur 13 mois) et le plan de gestion des déchets par catégorie (bois, plâtre, moquette via filière certifiée), en identifiant les partenaires locaux de valorisation à Tours., source=RC article 25 — critères RSE 5+5 points)

@@ -1,6 +1,6 @@
 # Brief — Restauration de la toiture des Ecuries de Charance
 
-_Généré le 2026-06-15 00:52 par Claude claude-sonnet-4-6_
+_Généré le 2026-06-19 23:10 par Claude claude-sonnet-4-6_
 
 ## Identifiants
 - **ID Tendia** : `BOAMP-26-56614`
@@ -10,79 +10,71 @@ _Généré le 2026-06-15 00:52 par Claude claude-sonnet-4-6_
 - **DCE PLACE** : <https://www.marches-publics.info/mpiaws/index.cfm?fuseaction=dematent.login&type=Dce&Idm=1833042>
 
 ## Synthèse
-La Ville de Gap lance un marché public de travaux pour la restauration de la toiture des Écuries du domaine de Charance (bâtiment partiellement inscrit Monument Historique). Le marché unique (lot unique) comprend les installations de chantier, les échafaudages, le désamiantage (bardeaux bitumineux/shingle), la dépose de la couverture existante, la réfection de la charpente en recherche et la repose d'une couverture neuve en tuile plate écaille. La durée d'exécution est de 7 mois (période de préparation incluse), avec une procédure adaptée ouverte.
+Marché de travaux de restauration de la toiture des Écuries du Domaine de Charance à Gap (05), édifice inscrit Monument Historique. Le lot unique comprend les installations de chantier, les échafaudages, le désamiantage (dépose de bardeaux bitumineux contenant de l'amiante), la réfection complète de la charpente (recherche et remplacement partiel) et la couverture en tuiles plates écailles, sur une surface réelle d'environ 775 m². Marché global et forfaitaire, procédure adaptée ouverte, délai d'exécution maximal 7 mois incluant la période de préparation.
 
 ## 🏗 Chantier — caractéristiques BTP
-- **Description** : Restauration de la toiture des Écuries du domaine de Charance : désamiantage (dépose des bardeaux bitumineux/shingle et leur support OSB contenant de l'amiante), remplacement des éléments de charpente dégradés (chevrons 15%, pannes faîtières 25%, pannes sablières 25%), mise en œuvre d'un liteaunage/contre-liteaunage, voligeage, isolation en laine de roche 20 cm, pose de tuile plate écaille artisanale 17x27 cm, faîtage et arêtiers en terre cuite, noue fermée sur couloir d'eau en zinc, création de 2 lucarnes rampantes CTA, remplacement de 12 châssis de toit type Cast PMR. Échafaudages de pied sur tout le pourtour (~677 m²), sapine d'accès (2 unités), bâchage de protection ou PSE parapluie métallique. Surface toiture ~775 m² réelle.
-- **Type d'ouvrage** : Bâtiment historique (Écuries du domaine de Charance) partiellement inscrit Monument Historique, rez-de-chaussée + combles, usage non résidentiel
-- **Surface / volume** : Surface toiture projetée ~583 m², surface réelle ~775 m²
-- **Site occupé pendant travaux** : true — Le bâtiment est situé dans un domaine accessible, avec contraintes d'accès et de maintien de la circulation des usagers du domaine public. Intervention sur un Monument Historique inscrit soumis au contrôle de la DRAC.
-- **Corps d'état mobilisés** : Installation de chantier, Échafaudages, Désamiantage (sous-section 3), Couverture (tuile plate écaille), Charpente (bois sapin du nord), Zinguerie (noues, couloir d'eau zinc), Isolation (laine de roche)
+- **Description** : Restauration complète de la toiture des Écuries du Domaine de Charance : désamiantage (dépose bardeaux bitumineux shingle + support OSB contenant amiante), remplacement partiel de charpente en sapin du nord (chevrons 15%, pannes faîtières 25%, pannes sablières 25%), pose liteaunage/contre-liteaunage, voligeage, couverture en tuiles plates artisanales écaille (17×27 cm), faîtage et arêtiers en terre cuite, noues en zinc, création de 2 lucarnes rampantes CTA, remplacement de 12 châssis de toit type Cast PMR 100×130, isolation laine de roche 20 cm, échafaudages de pied périmétrique (677 m²), bâchage ou parapluie métallique (PSE obligatoire à chiffrer).
+- **Type d'ouvrage** : Écuries historiques inscrites Monument Historique — bâtiment patrimonial en milieu naturel (Domaine de Charance, Gap, Hautes-Alpes)
+- **Surface / volume** : Surface de toiture réelle ~775 m² ; projection au sol ~583 m² ; échafaudages extérieurs ~677 m²
+- **Site occupé pendant travaux** : Partiellement — le domaine reste accessible, accès bâtiment maintenu ; horaires de travail limités 8h-18h lundi-vendredi ; contraintes DRAC (Contrôle Scientifique et Technique)
+- **Corps d'état mobilisés** : Installations de chantier et échafaudages, Désamiantage (sous-section 3 Code du travail), Charpente bois (remplacement en recherche), Couverture (tuiles plates écaille, faîtage terre cuite, noues zinc), Étanchéité provisoire (bâchage ou parapluie métallique), Menuiserie toiture (châssis de toit Cast PMR), Isolation (laine de roche 20 cm)
 - **Contraintes spécifiques** :
-  - Bâtiment inscrit Monument Historique — prescriptions DRAC, contrôle scientifique et technique (CST)
-  - Présence d'amiante (bardeaux bitumineux/shingle) — travaux sous-section 3 du Code du travail, plan de retrait à valider par la CARSAT/OPPBTP 30 jours avant démarrage
-  - Désamiantage conditionne le démarrage effectif (période de préparation = 1 mois pour validation plan de retrait CARSAT)
-  - Protection obligatoire du bâtiment contre les intempéries (bâchage quotidien ou PSE parapluie métallique)
-  - Chantier en site contraint — accès limité, présence d'usagers du domaine
-  - Horaires de travail 8h-18h du lundi au vendredi
-  - Constat d'huissier obligatoire avant tout démarrage
-  - Visite obligatoire préalable à la remise d'offre
-  - Qualibat 3123 exigée
-  - Coordination SPS de niveau II (SOCOTEC)
+  - Édifice inscrit Monument Historique — respect des prescriptions DRAC et contrôle scientifique et technique (CST)
+  - Présence d'amiante avérée dans les bardeaux bitumineux (rapport repérage n°2023-02-0232) — désamiantage sous-section 3, plan de retrait soumis à CARSAT 30 jours avant démarrage
+  - Période de préparation = délai d'obtention du plan de retrait validé par CARSAT (~1 mois inclus dans les 7 mois)
+  - Obligation de visite sur site préalable à l'offre (offre déclarée irrégulière sans attestation de visite)
+  - PSE1 Parapluie métallique obligatoirement chiffrée (absence = offre irrégulière)
+  - Constat d'huissier avant tout démarrage à la charge du titulaire
+  - Tuiles artisanales — essais de convenance et panachage sous direction MOE avant pose
+  - Chantier en zone haute-alpine : intempéries (gel, neige, vent, pluie) avec 8 jours réputés prévisibles
+  - Architecte du Patrimoine (AEDIFICIO) en MOE — matériaux et techniques soumis à validation
+  - Interdiction de fumer absolue sur l'ensemble du chantier ; permis de feu pour travaux par points chauds
 
 ### Allotissement
-Marché non alloti — lot unique regroupant installations de chantier, échafaudages, désamiantage et couverture. Le pouvoir adjudicateur justifie l'absence d'allotissement par la co-activité difficile (désamiantage en lien direct avec le couvreur et la mise en place des échafaudages).
+Marché non décomposé en lots — lot unique regroupant l'ensemble des prestations (installations de chantier, échafaudages, désamiantage, couverture, charpente)
 - **Nombre de lots** : 1
-- **Lot 1** — Installations de chantier – Échafaudages – Désamiantage – Couverture
-  - Corps d'état : Installation de chantier, échafaudages, désamiantage (SS3), couverture tuile plate, charpente bois, zinguerie, isolation
-  - Lot unique comprenant : installations communes de chantier (7 mois), échafaudages extérieurs de pied (~677 m²) et sapines (2 unités), bâchage de protection ou PSE parapluie métallique, désamiantage de la couverture en bardeaux bitumineux (~775 m²), dépose/repose des éléments en conservation, remplacement en recherche des éléments de charpente dégradés, liteaunage/contre-liteaunage, isolation laine de roche 20 cm, couverture en tuile plate écaille artisanale (~775 m²), faîtage/arêtiers terre cuite, noues zinc, 2 lucarnes rampantes CTA, 12 châssis de toit Cast PMR.
+- **Lot 1** — LOT UNIQUE : Installations de chantier – Échafaudages – Désamiantage – Couverture
+  - Corps d'état : Installations chantier, échafaudages, désamiantage, charpente bois, couverture tuiles, étanchéité provisoire, isolation, châssis de toit
+  - Ensemble complet des travaux de restauration de la toiture des Écuries de Charance incluant la dépose désamiantage, la restauration de la charpente en sapin du nord, la couverture en tuiles plates artisanales écaille, le faîtage terre cuite, les noues zinc, les lucarnes rampantes, les châssis de toit et l'isolation.
 
 ### Qualifications BTP exigées
-Qualification Qualibat 3123 'Tuiles plates' exigée à peine d'irrecevabilité de la candidature.
+Qualification Qualibat 3123 Tuiles plates exigée comme condition d'admission de la candidature
 - **Qualibat** : 3123
 - **MASE** : non
 - **Autres exigences** :
-  - Certification entreprise désamiantage sous-section 3 (arrêtés du 8 avril 2013) — implicitement requise par le CCTP pour les travaux d'amiante
-
-## 🧮 Mission MOE / ingénierie
-- **Indices révision** : BT32
-- **Coordinations associées** :
-  - SPS hors marché (assuré par SOCOTEC GAP)
+  - Certification entreprise désamiantage (arrêtés du 8 avril 2013 — sous-section 3 Code du travail)
 
 ## 💶 Montant du marché
 - _Montant non communiqué dans le DCE._
   - Typique des accords-cadres à bons de commande : le volume dépend des commandes effectivement passées par l'acheteur sur la durée du marché.
-- _Note_ : Aucun montant estimé ni plafond budgétaire n'est communiqué dans les pièces du DCE (RC, CCAP, CCTP, avis). Le marché est à prix global forfaitaire ; la DPGF est fournie aux candidats mais son contenu chiffré n'est pas reproduit dans les pièces analysées.
+- _Note_ : Aucun montant estimatif publié dans les pièces du DCE. Marché à prix global forfaitaire sans bordereau de prix unitaires chiffré ni enveloppe annoncée. Estimation bottom-up disponible dans montant_3_voies.
 
 ## Barème de notation
-- **Valeur technique** : 35 %
+- **Valeur technique** : 50 %
 - **Valeur prix** : 50 %
 - **Sous-critères techniques** :
-  - Présentation des moyens spécifiques au marché : 15 %
-  - Méthodologie de réalisation des travaux : 10 %
-  - Références similaires : 10 %
-- **Calcul du prix** : Y = offre la plus basse / offre du candidat × 50 points
+  - Valeur technique : 35 %
+  - Délais : 15 %
+- **Calcul du prix** : Y = offre la plus basse / offre du candidat × 50 points (formule moins-disant)
 
 ## Références et qualifications exigées
 - **Expérience minimale** : —
-- **Secteur d'expérience** : Restauration de couverture en tuiles plates, chantiers sur monuments historiques ou bâtiments patrimoniaux, avec désamiantage couverture
-- **Certifications obligatoires** : Qualibat 3123 — Tuiles plates (source=RC §6.1 et avis AAPC), Certification entreprise désamiantage sous-section 3 (arrêtés du 8 avril 2013) pour le retrait de matériaux contenant de l'amiante (source=CCTP §1.3.5)
+- **Secteur d'expérience** : Restauration de toiture sur Monument Historique (couverture tuiles plates, charpente bois, désamiantage en contexte patrimonial)
+- **Certifications obligatoires** : Qualibat 3123 — Tuiles plates (bloquante=True, source=RC §6.1 et AAPC), Certification entreprise désamiantage sous-section 3 (arrêtés du 8 avril 2013) — retrait de matériaux contenant de l'amiante en couverture (bloquante=True, source=CCTP §1.3.5 et CCAP §10.5.1)
 - **Autres exigences** :
-  - Déclaration sur l'honneur (DC1) justifiant l'absence d'interdiction de soumissionner (source=RC §6.1)
-  - Déclaration du chiffre d'affaires global et chiffre d'affaires lié aux prestations objet du contrat sur les 3 derniers exercices (source=RC §6.1)
-  - Liste des principales prestations effectuées au cours des 3 dernières années avec montant, date et destinataire, prouvées par attestations du destinataire ou déclaration du candidat (source=RC §6.1)
-  - Attestation de visite obligatoire (contact Mme Karine BULFONI, Direction des bâtiments — 04.92.53.18.39) (source=RC §6.2 et avis AAPC)
+  - Déclaration concernant le chiffre d'affaires global et le chiffre d'affaires concernant les prestations objet du contrat réalisées au cours des trois derniers exercices disponibles (source=RC §6.1)
+  - Liste des principales prestations effectuées au cours des trois dernières années avec montant, date et destinataire, prouvées par attestations du destinataire (source=RC §6.1)
 
 ## ⚠ Alertes candidat
-- Qualification Qualibat 3123 'Tuiles plates' OBLIGATOIRE — son absence entraîne l'irrecevabilité de la candidature (RC §6.1 et avis AAPC)
-- Visite sur site OBLIGATOIRE préalable à la remise de l'offre — toute offre d'un candidat n'ayant pas effectué la visite sera déclarée irrégulière (RC §6.2)
-- PSE Parapluie métallique OBLIGATOIRE à chiffrer — son absence dans l'offre entraîne le rejet pour irrégularité (RC §2.4)
-- Certification désamiantage SS3 (arrêtés du 8 avril 2013) requise pour les travaux d'amiante — plan de retrait à transmettre à la CARSAT/OPPBTP 30 jours avant démarrage (CCTP §1.3.5)
-- Interventions sur Monument Historique inscrit — respect impératif des prescriptions DRAC et du CST (contrôle scientifique et technique) ; procédés et matériaux soumis à approbation du MOE et des agents DRAC (CCTP §0.5)
+- VISITE OBLIGATOIRE sur site : l'offre d'un candidat qui n'a pas effectué la visite est déclarée irrégulière — contacter Mme Karine BULFONI au 04.92.53.18.39 (RC §6.2)
+- Qualification Qualibat 3123 « Tuiles plates » exigée à peine d'irrecevabilité de la candidature (RC §6.1)
+- Certification désamiantage sous-section 3 (arrêtés 8 avril 2013) obligatoire pour les travaux de retrait des bardeaux bitumineux amiantés — plan de retrait à soumettre à CARSAT 30 jours avant démarrage (CCTP §1.3.5)
+- PSE1 Parapluie métallique OBLIGATOIREMENT chiffrée dans l'offre — son absence rend l'offre irrégulière et entraîne son rejet (RC §2.4 et AAPC)
+- Édifice inscrit Monument Historique avec contrôle DRAC (CST) — toutes entreprises (mandataire, co-traitants, sous-traitants) doivent respecter les règles d'intervention sur MH et se soumettre à l'autorité du MOE et de la DRAC (CCTP §0.5)
 
 ## 💡 Points différenciants attendus
-- Expérience en restauration de couverture sur Monuments Historiques avec attestations MOE (exemple=Présenter 2-3 références illustrées (photos avant/après) de restauration de toiture sur MH inscrit ou classé, avec attestations de bonne exécution signées par les maîtres d'œuvre Architectes du Patrimoine, détaillant surface, type de tuile, désamiantage éventuel et montant., source=RC §8.2 — sous-critère 3)
-- Maîtrise du phasage désamiantage/couverture sur site patrimonial contraint (exemple=Décrire précisément l'articulation entre le plan de retrait SS3 (délai CARSAT), la mise en place du bâchage provisoire, et le démarrage de la réfection charpente/couverture, en intégrant les contraintes DRAC et les procédures d'urgence en cas d'intempéries., source=RC §8.2 — sous-critère 2 et CCTP §1.3.5)
-- Proposition d'un délai court et d'une date de démarrage rapide (exemple=Proposer un démarrage immédiat après notification (ex: J+15) et un délai global de 6 mois au lieu des 7 mois maximum, en justifiant par la capacité de mobilisation immédiate des équipes SS3 et couverture., source=RC §8.2 — critère délai noté sur 15 points)
-- Équipe dédiée combinant compétences couverture patrimoine ET désamiantage SS3 (exemple=Présenter une organisation chantier intégrée évitant la sous-traitance du désamiantage : chef de chantier couverture MH + opérateurs SS3 certifiés au sein de la même entité, garantissant la coordination directe et la réactivité sur le bâchage de protection., source=RC §8.2 — sous-critère 1 et avis AAPC (justification non-allotissement))
-- Qualité et authenticité des matériaux proposés (tuile plate artisanale écaille) (exemple=Proposer des tuiles plates artisanales en écaille demi-ronde 17x27 cm avec panachage naturel lié à la cuisson, en précisant le nom du fabricant, la référence et en joignant des échantillons ou fiches techniques démontrant la conformité aux prescriptions du Ministère de la Culture et du DTU 40.23., source=CCTP §1.6.5.1)
+- Expérience désamiantage couplée à couverture MH (exemple=Présenter des références de chantiers combinant désamiantage SS3 et restauration de couverture sur bâtiment MH — une entreprise ayant les deux agréments en interne est plus forte qu'un groupement car elle maîtrise la co-activité critique entre désamianteur et couvreur (justification lotissement RC)., source=RC §1.4 et AAPC (justification lot unique : co-activité désamiantage-couvreur-échafaudage))
+- Maîtrise des matériaux artisanaux et prescriptions patrimoine (exemple=Détailler dans le mémoire la connaissance des tuiles plates artisanales écaille (fournisseurs, procédures d'essais de convenance, panachage de teintes) et des exigences DRAC/MOE — démontrer une expérience de validation en cours de chantier avec architectes du patrimoine., source=CCTP §1.6.5.1 et §0.5)
+- Délai maîtrisé avec phasage CARSAT anticipé (exemple=Proposer un démarrage accéléré en s'appuyant sur un plan de retrait pré-rédigé et une relation établie avec la CARSAT pour accélérer la validation — permettant d'afficher un délai global de 6 mois au lieu de 7 mois maximum, ce qui maximise le score sur le critère délai (15%)., source=RC §8.2 critère délais et CCAP §5.2)
+- Solution parapluie métallique qualitative et compétitive (exemple=Proposer un parapluie métallique bien conçu (BET intégré, calcul NV 65, tôles gris galvanisé) avec un prix PSE1 compétitif — étant obligatoire et entrant dans la notation prix (50%), une PSE1 bien calibrée peut faire la différence sur le classement final., source=CCTP §1.4.2 et RC §2.4)
+- Références MH illustrées avec attestations MOE architectes du patrimoine (exemple=Joindre 3 attestations signées d'architectes du patrimoine (type AEDIFICIO) pour des chantiers de restauration de toiture MH comparables en surface (500-900 m²), avec photos avant/après et indication des contraintes similaires (désamiantage, tuiles artisanales, sujétions DRAC) — le sous-critère références est noté sur 10 points., source=RC §8.2 sous-critère 3)

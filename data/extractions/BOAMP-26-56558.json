@@ -1,398 +1,611 @@
 {
-  "synthese_marche": "Ce marché concerne la fourniture et la livraison de denrées alimentaires (11 lots : boucherie, volaille, charcuterie, produits de la mer, fruits et légumes, fromages, boulangerie, épicerie, etc.) pour l'Hôtel des ministres et le restaurant de direction Le Cercle des ministères économiques et financiers. Il s'agit d'un accord-cadre à bons de commande, passé en appel d'offres ouvert, pour une durée maximale de 4 ans. Certains lots sont mono-attributaires, d'autres peuvent être attribués à 2 titulaires.",
+  "synthese_marche": "Accord-cadre à bons de commande pour la fourniture et la livraison de denrées alimentaires (11 lots : boucherie, volaille, charcuterie, produits de la mer, fruits et légumes, fromages, boulangerie, épicerie généraliste et spécialisée, produits frais/surgelés, produits du terroir) destinées aux cuisines de l'Hôtel des ministres, du restaurant Le Cercle et du centre de conférences Pierre Mendès France des ministères économiques et financiers (MEF). Le marché est alloti, avec des lots mono ou multi-attributaires, exécuté par bons de commande sans minimum et avec un montant maximum par lot sur 4 ans (durée ferme 2 ans + 2 reconductions d'un an). Les pièces fournies au DCE correspondent à ce marché de denrées alimentaires (BAMAC-2026-352-alimentaire), et non au marché SYBERT de résidus de chantier mentionné en contexte BOAMP, qui semble être une erreur de contexte.",
   "domaines_metier": [
     {
       "code": "restauration_fournitures_alimentaires"
     }
   ],
-  "raison_classification": "Le marché porte exclusivement sur la fourniture et livraison de denrées alimentaires (boucherie, volaille, charcuterie, produits de la mer, fruits et légumes, fromages, boulangerie, épicerie, etc.) sans prestation de restauration collective déléguée. Il s'agit bien d'un achat de denrées en gros pour usage en restauration interne, correspondant exactement au domaine 'restauration_fournitures_alimentaires'.",
-  "caracteristiques_techniques_chantier": {
-    "description": null,
-    "typologie_ouvrage": null,
-    "surface_volume": null,
-    "site_occupe": null,
-    "corps_etat": [],
-    "contraintes_specifiques": []
-  },
-  "allotissement": {
-    "description": "Accord-cadre divisé en 11 lots autonomes portant chacun sur une famille de denrées alimentaires. Certains lots sont mono-attributaires, d'autres peuvent être conclus avec 2 titulaires.",
-    "nb_lots": 11,
-    "lots_detailles": [
-      {
-        "numero": 1,
-        "intitule": "Boucherie",
-        "corps_etat": null,
-        "montant_estime": 510000,
-        "description": "Fourniture et livraison de produits de boucherie — maximum 510 000 € HT sur 4 ans, 2 attributaires maximum"
-      },
-      {
-        "numero": 2,
-        "intitule": "Volaille",
-        "corps_etat": null,
-        "montant_estime": 240000,
-        "description": "Fourniture et livraison de volailles — maximum 240 000 € HT sur 4 ans, 2 attributaires maximum"
-      },
-      {
-        "numero": 3,
-        "intitule": "Charcuterie",
-        "corps_etat": null,
-        "montant_estime": 200000,
-        "description": "Fourniture et livraison de charcuterie — maximum 200 000 € HT sur 4 ans, 1 attributaire"
-      },
-      {
-        "numero": 4,
-        "intitule": "Produits de la mer",
-        "corps_etat": null,
-        "montant_estime": 1060000,
-        "description": "Fourniture et livraison de produits de la mer — maximum 1 060 000 € HT sur 4 ans, 2 attributaires maximum"
-      },
-      {
-        "numero": 5,
-        "intitule": "Fruits et légumes",
-        "corps_etat": null,
-        "montant_estime": 1770000,
-        "description": "Fourniture et livraison de fruits et légumes — maximum 1 770 000 € HT sur 4 ans, 2 attributaires maximum"
-      },
-      {
-        "numero": 6,
-        "intitule": "Fromages affinés et crèmerie",
-        "corps_etat": null,
-        "montant_estime": 670000,
-        "description": "Fourniture et livraison de fromages et produits de crèmerie — maximum 670 000 € HT sur 4 ans, 1 attributaire"
-      },
-      {
-        "numero": 7,
-        "intitule": "Boulangerie",
-        "corps_etat": null,
-        "montant_estime": 520000,
-        "description": "Fourniture et livraison de produits de boulangerie — maximum 520 000 € HT sur 4 ans, 1 attributaire. Seul lot avec BPU à remplir."
-      },
-      {
-        "numero": 8,
-        "intitule": "Epicerie généraliste",
-        "corps_etat": null,
-        "montant_estime": 530000,
-        "description": "Fourniture et livraison d'épicerie généraliste — maximum 530 000 € HT sur 4 ans, 2 attributaires maximum"
-      },
-      {
-        "numero": 9,
-        "intitule": "Epicerie spécialisée italienne",
-        "corps_etat": null,
-        "montant_estime": 90000,
-        "description": "Fourniture et livraison d'épicerie spécialisée italienne — maximum 90 000 € HT sur 4 ans, 1 attributaire"
-      },
-      {
-        "numero": 10,
-        "intitule": "Produits frais et surgelés de restauration",
-        "corps_etat": null,
-        "montant_estime": 360000,
-        "description": "Fourniture et livraison de produits frais et surgelés — maximum 360 000 € HT sur 4 ans, 1 attributaire"
-      },
-      {
-        "numero": 11,
-        "intitule": "Produits du terroir",
-        "corps_etat": null,
-        "montant_estime": 110000,
-        "description": "Fourniture et livraison de produits du terroir — maximum 110 000 € HT sur 4 ans, 1 attributaire"
-      }
+  "raison_classification": "Le marché porte exclusivement sur l'achat de denrées alimentaires en gros (viandes, volailles, poissons, fruits et légumes, fromages, boulangerie, épicerie, produits surgelés) livrées aux cuisines des MEF, sans prestation de restauration déléguée. Le CPV principal des lots (15110000, 15112000, 15612500, etc.) et le CCTP décrivent des fournitures alimentaires brutes, ce qui correspond exactement au code 'restauration_fournitures_alimentaires'. Note : le contexte BOAMP fourni (SYBERT, résidus de chantier, CPV 90513000) ne correspond pas aux pièces DCE analysées ; la classification est faite sur la base des pièces réelles du DCE.",
+  "caracteristiques_metier": {
+    "description": "Fourniture et livraison de denrées alimentaires de qualité (dont produits bio, label rouge, AOC/AOP, circuits courts) pour les cuisines officielles des ministères économiques et financiers. 11 lots distincts couvrant l'ensemble des familles de produits frais, transformés et surgelés. Exigences fortes en traçabilité, qualité gustative (jury d'échantillons), respect de la loi Egalim (50% de produits durables dont 20% bio), et conditions sanitaires (plan HACCP, PMS). Livraisons quotidiennes ou hebdomadaires selon les lots, avec contraintes d'accès sécurisé aux locaux ministériels.",
+    "criteres_eligibilite": [
+      "Aptitude professionnelle à la fourniture de denrées alimentaires",
+      "Chiffre d'affaires global et spécifique sur les 3 derniers exercices",
+      "Effectifs moyens annuels et personnel d'encadrement sur 3 ans",
+      "Description de l'outillage, matériel et équipement technique disponible",
+      "Références de prestations comparables sur 3 dernières années",
+      "Plan de maîtrise sanitaire (PMS) conforme HACCP",
+      "Enquête de sécurité pour l'accès à l'Hôtel des Ministres"
     ]
   },
-  "qualifications_requises": {
-    "description": "Pas de niveaux minimaux de capacité imposés explicitement. Les candidatures sans aptitude professionnelle manifeste peuvent être éliminées.",
-    "qualibat": null,
-    "rge": null,
-    "opqibi": null,
-    "autres_certifications": []
-  },
-  "caracteristiques_mission": {
-    "typologie_mission": null,
-    "domaine_expertise": null,
-    "livrables_attendus": [],
-    "duree_mission": null,
-    "jours_consultant_estimes": null
-  },
-  "profils_intervenants": {
-    "description": null,
-    "chef_de_mission": null,
-    "consultants": null
-  },
-  "volumes_techniques": {
-    "puissance_totale_kwc": null,
-    "puissance_par_site_kwc": null,
-    "nb_sites": null,
-    "surface_panneaux_m2": null,
-    "productible_annuel_estime_mwh": null,
-    "duree_marche_mois": 48,
-    "duree_maintenance_om_annees": null,
-    "commentaire_volumes": "Accord-cadre à bons de commande sans minimum de commande. Durée maximale 4 ans (2 ans ferme + 2 reconductions annuelles). Plafonds par lot de 90 000 € à 1 770 000 € HT sur 4 ans."
-  },
-  "modalites_execution_chantier": {
-    "raccordement_reseau_inclus": null,
-    "etudes_techniques_incluses": null,
-    "calendrier_chantier_contraint": null,
-    "sites_execution": [
-      "Paris 12ème"
-    ],
-    "engagement_productible": null,
-    "engagement_disponibilite_om": null
-  },
-  "publics_cibles": {
-    "description": null,
-    "criteres_eligibilite": [],
-    "publics_specifiques_signales": []
-  },
-  "volumes": {
-    "nb_beneficiaires_total": null,
-    "nb_beneficiaires_par_lot": null,
-    "duree_par_parcours_heures": null,
-    "duree_par_parcours_semaines": null,
-    "duree_marche_mois": 48,
-    "commentaire_volumes": "Accord-cadre à bons de commande sans minimum. Montants maximum par lot sur 4 ans : lot 1 : 510 000 € HT, lot 2 : 240 000 € HT, lot 3 : 200 000 € HT, lot 4 : 1 060 000 € HT, lot 5 : 1 770 000 € HT, lot 6 : 670 000 € HT, lot 7 : 520 000 € HT, lot 8 : 530 000 € HT, lot 9 : 90 000 € HT, lot 10 : 360 000 € HT, lot 11 : 110 000 € HT. Total toutes plafonds : 6 060 000 € HT sur 4 ans."
-  },
-  "modalites": {
-    "presentiel_obligatoire": null,
-    "distanciel_possible": null,
-    "synchrone_asynchrone": null,
-    "sites_execution": [
-      "Paris 12ème — Hôtel des ministres, restaurant Le Cercle, centre de conférences PMF"
-    ],
-    "amplitude_horaire": null
-  },
-  "caracteristiques_mission_moe": {
-    "typologie": null,
-    "phases_couvertes": [],
-    "typologie_ouvrage": null,
-    "montant_travaux_estime": null,
-    "complexite_technique": null
-  },
-  "qualifications_moe": {
-    "opqibi": [],
-    "opqcm": null,
-    "bim": null,
-    "autres": []
-  },
-  "caracteristiques_si": {
-    "description": null,
-    "typologie_projet": null,
-    "technologies_mentionnees": [],
-    "volumetrie": null,
-    "hebergement": null
-  },
-  "qualifications_si": {
-    "iso_27001": null,
-    "anssi": null,
-    "hds": null,
-    "autres": []
-  },
   "bareme_notation": {
-    "valeur_technique_pct": null,
-    "valeur_prix_pct": null,
+    "valeur_technique_pct": 65,
+    "valeur_prix_pct": 35,
     "sous_criteres_techniques": [
       {
-        "libelle": "Critère environnemental",
-        "ponderation_pct": null,
-        "description": "Un critère environnemental est prévu comme critère d'attribution pour chaque lot (cf. annexe 2 du RC). Le contenu détaillé des pondérations par lot est dans l'annexe 2 non fournie.",
-        "elements_attendus": [],
-        "exemple_reponse_forte": "—",
-        "source": "RC art 3.8 et art 6.3"
+        "libelle": "Qualité des échantillons",
+        "ponderation_pct": 35,
+        "description": "La qualité des échantillons fournis par le candidat est évaluée par un jury de professionnels de la restauration et de représentants de l'administration lors d'une séance à l'aveugle. Les critères portent sur l'aspect visuel, la qualité gustative, la texture et la tenue, et selon le produit, la maturité et le comportement à la cuisson.",
+        "elements_attendus": [
+          "Fournir les échantillons listés à l'Annexe 1 du RC dans les délais (07/09 au 18/09/2026)",
+          "Produits présentant un aspect visuel irréprochable et une fraîcheur optimale",
+          "Qualité gustative représentative de la gastronomie française",
+          "Texture et tenue adaptées aux usages en restauration haut de gamme",
+          "Produits conformes aux exigences de traçabilité et d'étiquetage",
+          "Respect du mode de conservation indiqué sur l'emballage extérieur"
+        ],
+        "exemple_reponse_forte": "Pour le lot 1 (Boucherie), fournir un faux-filet de bœuf d'origine française, issu d'un élevage certifié Label Rouge, présenté en état de fraîcheur optimale avec une maturation adaptée, accompagné de la traçabilité complète (né, élevé, abattu en France). La texture est ferme, la couleur rouge vif caractéristique d'une viande de qualité, sans présence de sérum.",
+        "source": "RC Annexe 1 et Annexe 2",
+        "unite_evaluation": "points",
+        "sous_criteres": []
+      },
+      {
+        "libelle": "Modalités d'organisation et de suivi des prestations",
+        "ponderation_pct": 15,
+        "description": "L'acheteur évalue les modalités d'organisation mises en place par le candidat pour l'exécution du marché, notamment la prise de commande, les matériels utilisés, les moyens logistiques, les moyens humains, les modalités de facturation et la sécurisation des approvisionnements (sauf lots 7, 8, 9 où la sécurisation n'est pas dans ce critère).",
+        "elements_attendus": [
+          "Description précise des canaux et créneaux de prise de commande (téléphone, mail, site web)",
+          "Nombre, dimensions et tonnage des véhicules de livraison (hauteur ≤ 2,30 m impérative)",
+          "Modalités de stockage, gestion des stocks et des retours, contenants réutilisables",
+          "Effectifs dédiés au marché, fonctions et formations du personnel",
+          "Modalités de facturation via Chorus Pro",
+          "Plan de continuité en cas de rupture d'approvisionnement ou de pénurie"
+        ],
+        "exemple_reponse_forte": "Le candidat dispose d'une flotte de 3 véhicules réfrigérés de 2,20 m de hauteur maximale, avec un chauffeur-livreur dédié formé à l'hygiène alimentaire et à l'écoconduite. Les commandes sont prises par mail jusqu'à 17h pour une livraison J+1 entre 7h et 8h. En cas de rupture de stock, un fournisseur alternatif référencé est mobilisable sous 2 heures.",
+        "source": "RC Annexe 2 ; Cadres de réponse lots 1 à 11",
+        "unite_evaluation": "points",
+        "sous_criteres": []
+      },
+      {
+        "libelle": "Mesures environnementales",
+        "ponderation_pct": 15,
+        "description": "L'acheteur évalue les mesures environnementales mises en œuvre dans le cadre de l'exécution du marché, notamment la valorisation des circuits courts (nombre d'intermédiaires entre producteur et acheteur), la lutte contre le gaspillage alimentaire, et les pratiques d'emballage et de conditionnement des produits.",
+        "elements_attendus": [
+          "Nombre d'intermédiaires entre le premier metteur en marché et l'acheteur (privilégier 1 ou 2)",
+          "Plan ou démarche de lutte contre le gaspillage alimentaire (partenariat associations, labellisation anti-gaspillage)",
+          "Utilisation de matériaux recyclés et/ou réutilisables pour les emballages",
+          "Pratiques de réduction des emballages et de récupération lors des livraisons",
+          "Formation des conducteurs à l'écoconduite",
+          "Proportion de produits durables, bio, Label Rouge, AOC/AOP proposés"
+        ],
+        "exemple_reponse_forte": "Le candidat livre directement depuis son atelier de découpe sans intermédiaire de grossiste, réduisant à 1 le nombre d'intermédiaires. Tous les emballages sont des caissettes en plastique recyclé récupérées à chaque livraison. Un partenariat avec la Banque Alimentaire permet de redistribuer les invendus chaque semaine, représentant moins de 2% de gaspillage.",
+        "source": "RC Annexe 2 ; CCTP Article 12 ; Cadres de réponse lots 1 à 11",
+        "unite_evaluation": "points",
+        "sous_criteres": []
       }
     ],
     "prix": {
       "type_formule": "moins_disant",
-      "formule_explicite": "Note = (prix le plus bas / prix de l'offre examinée) × 5, puis pondérée par le coefficient de pondération du lot.",
+      "formule_explicite": "Note = (prix le plus bas / prix de l'offre examinée) × 5 ; la note est ensuite pondérée par application du coefficient de pondération (35%)",
+      "source": "RC article 6.4 page 13",
       "elements_a_chiffrer": [
-        "Panier-type de commande complété (simulation de commandes pour chaque lot)",
-        "Annexe financière BPU complétée (uniquement pour le lot n°7 Boulangerie)",
-        "Mercuriale en vigueur ou catalogue fournisseur avec prix disponibles (tous lots)"
+        "Prix unitaires par produit sur le BPU (lot 7 boulangerie uniquement)",
+        "Panier-type de commande complété pour chaque lot (simulation de commande)",
+        "Mercuriale en vigueur ou accès au catalogue fournisseur pour les autres lots"
       ]
     },
-    "modalite_calcul_prix": "Note = (prix le plus bas / prix de l'offre examinée) × 5, pondérée par le coefficient du lot. Simulation réalisée sur le panier-type de commande."
+    "modalite_calcul_prix": "Note = (prix le plus bas / prix de l'offre examinée) × 5, pondérée à 35%"
   },
   "montant_marche": {
-    "valeur_estimee_euros": 6060000,
-    "fourchette_min_euros": null,
-    "fourchette_max_euros": 6060000,
+    "valeur_estimee_euros": 5060000,
+    "fourchette_min_euros": 5060000,
+    "fourchette_max_euros": 5060000,
     "type": "plafond",
-    "duree_couverte": "4 ans (durée maximale de l'accord-cadre)",
-    "source_extraction": "RC article 3.2 — tableau des montants maximum par lot",
-    "commentaire": "Le montant total est calculé en additionnant les plafonds de chaque lot : lot 1 (510 000) + lot 2 (240 000) + lot 3 (200 000) + lot 4 (1 060 000) + lot 5 (1 770 000) + lot 6 (670 000) + lot 7 (520 000) + lot 8 (530 000) + lot 9 (90 000) + lot 10 (360 000) + lot 11 (110 000) = 6 060 000 € HT sur 4 ans. Ce sont des plafonds, les commandes effectives peuvent être inférieures (pas de minimum garanti)."
+    "duree_couverte": "4 ans (2 ans ferme + 2 reconductions d'un an)",
+    "source_extraction": "RC article 3.3 page 5 — tableau des montants maximum par lot",
+    "commentaire": "Somme des montants maximum HT sur 4 ans de tous les lots : Lot1 510k + Lot2 240k + Lot3 200k + Lot4 1060k + Lot5 1770k + Lot6 670k + Lot7 520k + Lot8 530k + Lot9 90k + Lot10 360k + Lot11 110k = 6 060 000 € HT (montants maximum, non garantis). Note : le montant estimatif du contexte BOAMP (3 520 000 €) correspond au marché SYBERT (résidus de chantier) et non à ce marché de denrées alimentaires."
+  },
+  "montant_3_voies": {
+    "voie_1_eur": 6060000,
+    "voie_1_source": "RC article 3.3 page 5 — somme des montants maximum HT sur 4 ans de chacun des 11 lots",
+    "voie_2_disponible": false,
+    "voie_2_min_eur": null,
+    "voie_2_max_eur": null,
+    "voie_2_hypotheses": [],
+    "voie_2_raison_indisponible": "La Voie 1 est disponible (montants maximum publiés explicitement par lot dans le RC). La Voie 2 n'est pas nécessaire."
+  },
+  "cout_realisation": {
+    "cout_total_eur": 5151000,
+    "cout_min_eur": 4545000,
+    "cout_max_eur": 5757000,
+    "postes": [
+      {
+        "poste": "Lot 1 — Boucherie (achat de produits frais d'origine française, bio 20%)",
+        "detail": "Achats matières premières : ~85% du CA lot, marge brute fournisseur ~15%. Coût estimé : 510 000 × 0,85 = 433 500 €",
+        "montant_eur": 433500
+      },
+      {
+        "poste": "Lot 2 — Volaille plein air (achat produits frais, origine française)",
+        "detail": "240 000 × 0,85 = 204 000 €",
+        "montant_eur": 204000
+      },
+      {
+        "poste": "Lot 3 — Charcuterie (produits transformés artisanaux)",
+        "detail": "200 000 × 0,82 = 164 000 €",
+        "montant_eur": 164000
+      },
+      {
+        "poste": "Lot 4 — Produits de la mer (poissons et crustacés frais)",
+        "detail": "1 060 000 × 0,83 = 879 800 €",
+        "montant_eur": 879800
+      },
+      {
+        "poste": "Lot 5 — Fruits et légumes (saisonniers, bio 40% légumes, circuits courts)",
+        "detail": "1 770 000 × 0,80 = 1 416 000 €",
+        "montant_eur": 1416000
+      },
+      {
+        "poste": "Lot 6 — Fromages affinés et crèmerie (AOC/AOP, affinage)",
+        "detail": "670 000 × 0,82 = 549 400 €",
+        "montant_eur": 549400
+      },
+      {
+        "poste": "Lot 7 — Boulangerie (pains pré-cuits, viennoiseries)",
+        "detail": "520 000 × 0,78 = 405 600 €",
+        "montant_eur": 405600
+      },
+      {
+        "poste": "Lot 8 — Epicerie généraliste (épices, condiments, pâtisserie)",
+        "detail": "530 000 × 0,75 = 397 500 €",
+        "montant_eur": 397500
+      },
+      {
+        "poste": "Lot 9 — Epicerie spécialisée italienne",
+        "detail": "90 000 × 0,75 = 67 500 €",
+        "montant_eur": 67500
+      },
+      {
+        "poste": "Lot 10 — Produits frais et surgelés de restauration",
+        "detail": "360 000 × 0,83 = 298 800 €",
+        "montant_eur": 298800
+      },
+      {
+        "poste": "Lot 11 — Produits du terroir (foie gras, champignons, circuit ultra-court)",
+        "detail": "110 000 × 0,85 = 93 500 €",
+        "montant_eur": 93500
+      }
+    ],
+    "taux_journaliers_retenus": "Ratios de coût d'achat sur chiffre d'affaires selon famille de produits (ratios marché indicatifs pour la distribution alimentaire haut de gamme) : viandes fraîches 85%, poissons 83%, charcuterie/fromages/surgelés 82%, fruits-légumes 80%, boulangerie artisanale 78%, épicerie/spécialisée 75%, terroir 85%. Ces ratios incluent le coût d'achat des matières premières, le transport réfrigéré et la logistique de livraison, hors frais de structure de l'entreprise.",
+    "commentaire": "Le coût de réalisation d'un fournisseur de denrées alimentaires est essentiellement constitué du coût d'achat des matières premières (70-85% du CA selon la famille) et des coûts logistiques (transport réfrigéré, livraison quotidienne). La marge brute varie de 15% (terroir, boucherie premium) à 25% (épicerie). Estimation basse (−10%) et haute (+10%) obtenues en faisant varier les ratios d'une direction tout en gardant les montants maximum des lots fixes. Les montants maximum ne seront pas nécessairement atteints (pas de minimum garanti)."
   },
   "revision_prix": {
-    "type": "non_communique",
-    "indices_utilises": [],
-    "ponderation": null,
-    "periodicite": null,
-    "formule_revision": null,
-    "source_extraction": null,
-    "commentaire": "Aucun CCAP ni clause de révision des prix n'est fourni dans les pièces analysées."
+    "type": "indexation",
+    "indices_utilises": [
+      "RNM (Réseau des Nouvelles des Marchés — France AgriMer)"
+    ],
+    "ponderation": "Les prix sont révisés selon le barème du titulaire appliqué à l'ensemble de sa clientèle, dans la limite des variations constatées sur la cotation RNM du marché d'intérêt national le plus proche. Fréquence variable selon les lots : quotidienne (lot 4), hebdomadaire (lots 5 et 11), mensuelle (lots 1, 2, 3), trimestrielle (lot 6), semestrielle (lots 8, 9, 10), annuelle (lot 7).",
+    "periodicite": "Variable selon les lots (de quotidienne à annuelle)",
+    "formule_revision": "Pn = tarif du titulaire appliqué à l'ensemble de sa clientèle, plafonné aux variations RNM du marché d'intérêt national le plus proche. Application après accord express de l'acheteur.",
+    "source_extraction": "CCAP article 8.2",
+    "commentaire": "Mécanisme favorable au candidat car il peut répercuter ses hausses d'approvisionnement, mais chaque révision est soumise à l'accord express de l'acheteur (notification 1 mois avant, réponse sous 10 jours). En cas d'augmentation de plus de 10%, l'acheteur peut résilier sans indemnité (clause de sauvegarde art. 8.3 CCAP) : risque commercial important en période inflationniste sur les matières premières agricoles."
   },
   "alertes_prix": [
-    "Accord-cadre sans minimum de commande garanti : le titulaire peut ne recevoir aucune commande, ce qui rend le chiffrage du panier-type stratégiquement crucial.",
-    "Le lot cesse automatiquement dès que son plafond est atteint, quelle que soit la durée résiduelle — risque de contrat court si volumes réels élevés.",
-    "Seul le lot n°7 (Boulangerie) dispose d'un BPU à remplir ; pour tous les autres lots, la comparaison des prix se fait sur panier-type et mercuriale — attention à la cohérence et la lisibilité du catalogue fourni.",
-    "Lots 1, 2, 4, 5, 8 multi-attributaires (jusqu'à 2 titulaires) : la concurrence sur le prix est accrue puisque plusieurs fournisseurs peuvent être retenus sur un même lot."
+    "Le marché ne prévoit aucun minimum garanti : l'acheteur peut ne passer aucune commande ; le titulaire ne peut prétendre à aucune indemnité si le minimum zéro est atteint.",
+    "Les lots cessent de plein droit dès que leur montant maximum est atteint, quelle que soit la durée résiduelle : risque d'extinction anticipée pour les lots à fort volume (lot 5 : 1 770 000 €, lot 4 : 1 060 000 €).",
+    "Clause de sauvegarde : si les prix du titulaire augmentent de plus de 10%, l'acheteur peut résilier sans indemnité avec un préavis de 2 mois (CCAP art. 8.3). Risque de résiliation en cas de crise matières premières.",
+    "Le critère prix (35%) est noté par simulation sur un panier-type de commande : le chiffrage du panier-type est déterminant — une erreur de prix sur un produit fréquemment commandé peut déclasser l'ensemble de l'offre.",
+    "Pénalités de retard de 30 € TTC par jour à partir de la 3e livraison en retard, non libératoires ; plafonnées à 10% du montant annuel HT des bons de commande."
   ],
   "references_exigees": {
-    "experience_minimale_annees": null,
-    "experience_source": "RC art 5.7",
+    "experience_minimale_annees": 3,
+    "experience_source": "RC article 5.7",
     "volume_min_references_similaires": null,
-    "volume_min_references_unite": null,
-    "secteur_experience": "Fourniture de denrées alimentaires comparables au lot concerné, au titre des 3 dernières années",
-    "secteur_source": "RC art 5.7",
+    "volume_min_references_unite": "marchés similaires",
+    "secteur_experience": "Fourniture et livraison de denrées alimentaires de même type (boucherie, volaille, poissons, fruits et légumes, fromages, boulangerie, épicerie, produits surgelés) pour des structures de restauration de niveau professionnel",
+    "secteur_source": "RC article 5.7",
     "certifications_obligatoires": [],
     "autres_exigences": [
       {
-        "libelle": "Déclaration de chiffre d'affaires global et CA sur prestations similaires sur les 3 derniers exercices",
-        "source": "RC art 5.7"
+        "libelle": "Déclaration de chiffre d'affaires global et CA spécifique sur les 3 derniers exercices disponibles",
+        "source": "RC article 5.7"
       },
       {
-        "libelle": "Déclaration des effectifs moyens annuels et personnel d'encadrement sur les 3 dernières années",
-        "source": "RC art 5.7"
+        "libelle": "Déclaration des effectifs moyens annuels et du personnel d'encadrement sur 3 ans",
+        "source": "RC article 5.7"
       },
       {
-        "libelle": "Description de l'outillage, matériel et équipement technique disponible pour l'exécution du marché",
-        "source": "RC art 5.7"
+        "libelle": "Description de l'outillage, du matériel et de l'équipement technique disponible (notamment véhicules réfrigérés de hauteur ≤ 2,30 m pour l'accès à l'allée technique du ministère)",
+        "source": "RC article 5.7 ; CCTP article 6.1"
       },
       {
-        "libelle": "Dossier de références de prestations comparables au marché (même type, 3 dernières années)",
-        "source": "RC art 5.7"
+        "libelle": "Dossier de références de prestations comparables sur les 3 dernières années",
+        "source": "RC article 5.7"
+      },
+      {
+        "libelle": "Plan de maîtrise sanitaire (PMS) fondé sur la méthode HACCP à transmettre dans les 6 mois suivant la notification",
+        "source": "CCTP article 10 ; CCAP article 7.9.6"
+      },
+      {
+        "libelle": "Enquête de sécurité administrative pour tout personnel accédant à l'Hôtel des Ministres (diligentée par la préfecture de police)",
+        "source": "CCAP article 7.3.4"
+      },
+      {
+        "libelle": "Attestation d'assurance responsabilité civile en cours de validité, à fournir dans les 15 jours suivant la notification",
+        "source": "CCAP article 9.4"
+      },
+      {
+        "libelle": "Fourniture obligatoire d'échantillons physiques entre le 07/09 et le 18/09/2026 (toute offre sans échantillons est éliminée)",
+        "source": "RC article 7.1"
       }
     ]
+  },
+  "dossier_candidature": {
+    "pieces_a_fournir": [
+      {
+        "libelle": "Lettre de candidature — formulaire DC1 ou DUME (Document Unique de Marché Européen)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC article 5.3"
+      },
+      {
+        "libelle": "Déclaration du candidat — formulaire DC2 (ou DUME partie IV)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC article 5.3.2"
+      },
+      {
+        "libelle": "Déclaration de chiffre d'affaires global et spécifique sur les 3 derniers exercices",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC article 5.7"
+      },
+      {
+        "libelle": "Déclaration des effectifs moyens annuels et du personnel d'encadrement sur 3 ans",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC article 5.7"
+      },
+      {
+        "libelle": "Description de l'outillage, du matériel et de l'équipement technique disponible",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC article 5.7"
+      },
+      {
+        "libelle": "Dossier de références de prestations comparables au marché sur les 3 dernières années",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC article 5.7"
+      },
+      {
+        "libelle": "Annexe financière — Bordereau des Prix Unitaires (BPU) complété au format Excel (lot n°7 Boulangerie uniquement)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC article 6.1 ; CCAP article 6"
+      },
+      {
+        "libelle": "Mercuriale en vigueur et/ou accès au catalogue complet du fournisseur avec les produits disponibles à la vente (pour chacun des lots hors lot 7)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC article 6.1"
+      },
+      {
+        "libelle": "Mémoire technique — Cadre de réponse complété pour chaque lot soumissionné",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC article 6.1 ; documents 'Cadre de réponse_Lot X'"
+      },
+      {
+        "libelle": "Panier-type de commande complété pour chaque lot soumissionné",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC article 6.1"
+      },
+      {
+        "libelle": "Échantillons physiques des produits listés à l'Annexe 1 du RC, déposés entre le 07/09 et le 18/09/2026 à l'Hôtel des ministres (124 rue de Bercy, 8e étage, entre 8h et 9h)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC article 7.1"
+      },
+      {
+        "libelle": "Acte d'engagement (formulaire ATTRI1) complété et signé — transmis uniquement au(x) soumissionnaire(s) pressentis après analyse des offres",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC article 8.2"
+      },
+      {
+        "libelle": "DC4 (Déclaration de sous-traitance) si recours à la sous-traitance",
+        "phase": "offre",
+        "obligatoire": false,
+        "source": "RC article 5.1 ; CCAP article 9.3"
+      }
+    ],
+    "mode_remise": "dématérialisé + copie de sauvegarde",
+    "plateforme_depot": "PLACE — marches-publics.gouv.fr (https://www.marches-publics.gouv.fr/entreprise)",
+    "signature_electronique_exigee": true,
+    "format_signature": "Signature électronique avancée avec certificat qualifié (niveau 3) ou qualifiée (niveau 4), conforme au règlement eIDAS (UE n°910/2014), formats XAdES, CAdES ou PAdES",
+    "nombre_exemplaires": null,
+    "langue": "français",
+    "duree_validite_offres_jours": 210,
+    "modalites_source": "RC articles 4.2.2, 4.3.1, 6.5 et 11"
   },
   "lots": [
     {
       "numero": 1,
       "intitule": "Boucherie",
+      "domaine": "restauration_fournitures_alimentaires",
       "zone_geographique": "Paris 12ème",
-      "volume_estime": 510000,
-      "volume_estime_unite": "€ HT (plafond 4 ans)",
-      "particularites": "2 attributaires maximum"
+      "volume_estime": null,
+      "volume_estime_unite": null,
+      "cout_estime_min_eur": 389000,
+      "cout_estime_max_eur": 476000,
+      "particularites": "100% produits durables dont 20% bio. Viandes d'origine française (bœuf, veau, porc, agneau). Livraison quotidienne entre 7h et 8h. Multi-attributaire (2 titulaires maximum). Montant maximum 510 000 € HT sur 4 ans."
     },
     {
       "numero": 2,
       "intitule": "Volaille",
+      "domaine": "restauration_fournitures_alimentaires",
       "zone_geographique": "Paris 12ème",
-      "volume_estime": 240000,
-      "volume_estime_unite": "€ HT (plafond 4 ans)",
-      "particularites": "2 attributaires maximum"
+      "volume_estime": null,
+      "volume_estime_unite": null,
+      "cout_estime_min_eur": 184000,
+      "cout_estime_max_eur": 224000,
+      "particularites": "100% produits de volaille élevées en plein air dont 20% bio. Canard vacciné IAHP obligatoire. Livraison dans les 6 jours ouvrés après abattage. Multi-attributaire (2 max). Montant maximum 240 000 € HT sur 4 ans."
     },
     {
       "numero": 3,
       "intitule": "Charcuterie",
+      "domaine": "restauration_fournitures_alimentaires",
       "zone_geographique": "Paris 12ème",
-      "volume_estime": 200000,
-      "volume_estime_unite": "€ HT (plafond 4 ans)",
-      "particularites": "Mono-attributaire"
+      "volume_estime": null,
+      "volume_estime_unite": null,
+      "cout_estime_min_eur": 148000,
+      "cout_estime_max_eur": 180000,
+      "particularites": "60% produits transformés durables dont 20% bio. Produits artisanaux respectant le savoir-faire gastronomique. Référentiel HACCP requis. Mono-attributaire. Montant maximum 200 000 € HT sur 4 ans."
     },
     {
       "numero": 4,
       "intitule": "Produits de la mer",
+      "domaine": "restauration_fournitures_alimentaires",
       "zone_geographique": "Paris 12ème",
-      "volume_estime": 1060000,
-      "volume_estime_unite": "€ HT (plafond 4 ans)",
-      "particularites": "2 attributaires maximum"
+      "volume_estime": null,
+      "volume_estime_unite": null,
+      "cout_estime_min_eur": 793000,
+      "cout_estime_max_eur": 965000,
+      "particularites": "100% produits durables dont 20% bio. Livraison dans les 3 jours ouvrés après débarque. Prix révisables quotidiennement selon cotation RNM. Multi-attributaire (2 max). Montant maximum 1 060 000 € HT sur 4 ans."
     },
     {
       "numero": 5,
       "intitule": "Fruits et légumes",
+      "domaine": "restauration_fournitures_alimentaires",
       "zone_geographique": "Paris 12ème",
-      "volume_estime": 1770000,
-      "volume_estime_unite": "€ HT (plafond 4 ans)",
-      "particularites": "2 attributaires maximum"
+      "volume_estime": null,
+      "volume_estime_unite": null,
+      "cout_estime_min_eur": 1274000,
+      "cout_estime_max_eur": 1558000,
+      "particularites": "60% fruits durables dont 20% bio + 40% légumes bio. Produits saisonniers, circuits courts, producteurs locaux. Prix révisables hebdomadairement. Multi-attributaire (2 max). Montant maximum 1 770 000 € HT sur 4 ans — lot le plus important."
     },
     {
       "numero": 6,
       "intitule": "Fromages affinés et crèmerie",
+      "domaine": "restauration_fournitures_alimentaires",
       "zone_geographique": "Paris 12ème",
-      "volume_estime": 670000,
-      "volume_estime_unite": "€ HT (plafond 4 ans)",
-      "particularites": "Mono-attributaire"
+      "volume_estime": null,
+      "volume_estime_unite": null,
+      "cout_estime_min_eur": 495000,
+      "cout_estime_max_eur": 603000,
+      "particularites": "60% produits durables dont 20% bio. Large gamme de fromages AOC/AOP/IGP. Prestations de plateaux thématiques et animations cocktails. Mono-attributaire. Montant maximum 670 000 € HT sur 4 ans."
     },
     {
       "numero": 7,
       "intitule": "Boulangerie",
-      "zone_geographique": "Paris 12ème — inclut le centre de conférences PMF",
-      "volume_estime": 520000,
-      "volume_estime_unite": "€ HT (plafond 4 ans)",
-      "particularites": "Mono-attributaire. Seul lot avec BPU (bordereau des prix unitaires) à remplir. Le centre de conférences PMF peut commander sur ce lot."
+      "domaine": "restauration_fournitures_alimentaires",
+      "zone_geographique": "Paris 12ème",
+      "volume_estime": null,
+      "volume_estime_unite": null,
+      "cout_estime_min_eur": 365000,
+      "cout_estime_max_eur": 445000,
+      "particularites": "Seul lot avec BPU à prix unitaires (annexe financière Excel obligatoire). Pains pré-cuits majoritairement. Viennoiseries crues surgelées (HDM) et cuites (PMF, jusqu'à 500 pièces par événement). Prix révisables annuellement. Mono-attributaire. Montant maximum 520 000 € HT sur 4 ans."
     },
     {
       "numero": 8,
       "intitule": "Epicerie généraliste",
+      "domaine": "restauration_fournitures_alimentaires",
       "zone_geographique": "Paris 12ème",
-      "volume_estime": 530000,
-      "volume_estime_unite": "€ HT (plafond 4 ans)",
-      "particularites": "2 attributaires maximum"
+      "volume_estime": null,
+      "volume_estime_unite": null,
+      "cout_estime_min_eur": 358000,
+      "cout_estime_max_eur": 437000,
+      "particularites": "Épices, condiments, assaisonnements, produits de pâtisserie. Livraison 2 fois par mois. Multi-attributaire (2 max). Montant maximum 530 000 € HT sur 4 ans."
     },
     {
       "numero": 9,
       "intitule": "Epicerie spécialisée italienne",
+      "domaine": "restauration_fournitures_alimentaires",
       "zone_geographique": "Paris 12ème",
-      "volume_estime": 90000,
-      "volume_estime_unite": "€ HT (plafond 4 ans)",
-      "particularites": "Mono-attributaire"
+      "volume_estime": null,
+      "volume_estime_unite": null,
+      "cout_estime_min_eur": 61000,
+      "cout_estime_max_eur": 74000,
+      "particularites": "Produits italiens authentiques (producteurs et artisans établis en Italie). Livraison 1 fois par mois. Mono-attributaire. Montant maximum 90 000 € HT sur 4 ans — plus petit lot en valeur."
     },
     {
       "numero": 10,
       "intitule": "Produits frais et surgelés de restauration",
+      "domaine": "restauration_fournitures_alimentaires",
       "zone_geographique": "Paris 12ème",
-      "volume_estime": 360000,
-      "volume_estime_unite": "€ HT (plafond 4 ans)",
-      "particularites": "Mono-attributaire"
+      "volume_estime": null,
+      "volume_estime_unite": null,
+      "cout_estime_min_eur": 269000,
+      "cout_estime_max_eur": 328000,
+      "particularites": "60% produits durables dont 20% bio. Produits BOF, viandes, poissons surgelés, boulangerie-pâtisserie surgelée. Livraison 1 fois par semaine. Mono-attributaire. Montant maximum 360 000 € HT sur 4 ans."
     },
     {
       "numero": 11,
       "intitule": "Produits du terroir",
+      "domaine": "restauration_fournitures_alimentaires",
       "zone_geographique": "Paris 12ème",
-      "volume_estime": 110000,
-      "volume_estime_unite": "€ HT (plafond 4 ans)",
-      "particularites": "Mono-attributaire"
+      "volume_estime": null,
+      "volume_estime_unite": null,
+      "cout_estime_min_eur": 84000,
+      "cout_estime_max_eur": 103000,
+      "particularites": "Exclusivement en circuit court et de saison : champignons sauvages (origine française prioritaire), foie gras de canard cru ou transformé exclusivement d'origine française (livraison sous papier, non sous vide). Délais ultra-courts entre abattage et livraison. Mono-attributaire. Montant maximum 110 000 € HT sur 4 ans."
     }
   ],
+  "tranches": [],
   "calendrier": {
     "date_limite_offres": "2026-07-09",
     "date_demarrage_prevue": "2027-02-01",
-    "duree_marche": "2 ans ferme à compter du 1er février 2027, reconductible 2 fois 1 an, soit 4 ans maximum"
+    "duree_marche": "4 ans maximum (2 ans ferme à compter du 1er février 2027 + 2 reconductions d'un an tacites)"
   },
   "alertes_candidat": [
-    "La remise d'échantillons physiques est OBLIGATOIRE pour tous les lots (dépôt entre le 07/09 et le 18/09/2026) — toute offre sans échantillon conforme est éliminée d'office (RC art 7.1).",
-    "Le mémoire technique (cadre de réponse) ET le panier-type de commande sont obligatoires pour chaque lot — leur absence entraîne l'élimination.",
-    "Pour le lot n°7 uniquement, l'annexe financière (BPU) doit être remise au format Excel sans modification de son architecture — toute modification de structure est proscrite.",
-    "Les critères de jugement détaillés par lot sont dans l'annexe 2 du RC, non fournie dans ce DCE — le candidat doit impérativement se la procurer sur PLACE avant de construire son offre.",
-    "Délai de questions limité au 25/06/2026 et réponses transmises au plus tard le 02/07/2026 — anticipez les questions tôt pour adapter vos offres."
+    "ÉLIMINATOIRE — Fourniture d'échantillons physiques obligatoire : toute offre non accompagnée des échantillons listés à l'Annexe 1 est éliminée d'office. Le dépôt des échantillons est prévu entre le 07/09 et le 18/09/2026 à l'Hôtel des ministres (RC article 7.1). Anticiper la logistique de livraison des échantillons dès la soumission de l'offre.",
+    "CONTRAINTE TECHNIQUE ABSOLUE — Les véhicules de livraison ne doivent pas dépasser 2,30 m de hauteur pour accéder à l'allée technique du ministère. Un véhicule non conforme sera refusé d'accès (CCTP article 6.1). Cette contrainte physique doit être vérifiée avant candidature.",
+    "SÉCURITÉ — Tout personnel accédant à l'Hôtel des Ministres est soumis à une enquête administrative de sécurité diligentée par la préfecture de police. L'avis rendu n'est pas motivé et peut être défavorable sans recours (CCAP article 7.3.4). Prévoir un délai d'obtention pouvant retarder le démarrage.",
+    "AUCUN MINIMUM GARANTI — L'accord-cadre est exécuté sans seuil minimum de commande. Le titulaire ne peut percevoir aucune indemnité si aucun bon de commande n'est émis. Les volumes sont indicatifs et les montants maximum peuvent ne pas être atteints.",
+    "EXIGENCES LOI EGALIM CONTRAIGNANTES — Pour plusieurs lots (1, 2, 4, 5, 6, 10), l'acheteur impose des taux de 60 à 100% de produits durables dont 20% de bio sur le montant annuel de commandes. Le non-respect peut constituer une offre irrégulière ou engager la responsabilité contractuelle du titulaire."
   ],
   "points_differenciants_attendus": [
     {
-      "libelle": "Qualité gustative et technique des produits (jugement à l'aveugle par jury professionnel)",
-      "exemple": "Les échantillons sont évalués par un jury de professionnels de la restauration à l'aveugle — un candidat doit proposer des produits de haute qualité gustative et présenter des fiches techniques détaillées (origine, process, DLC) pour chaque échantillon remis.",
-      "source": "RC art 6.3"
+      "libelle": "Circuit court minimal (1 intermédiaire) valorisé dans le critère environnemental",
+      "exemple": "Un boucher qui abat et découpe lui-même ses animaux (0 ou 1 intermédiaire entre l'éleveur et la cuisine) obtiendra la note maximale sur ce sous-critère. Mentionner dans le mémoire technique le nombre exact d'intermédiaires et la durée du circuit de la bête à l'assiette.",
+      "source": "RC Annexe 2 — Critère n°4 ; Cadres de réponse tableaux 7 et 8"
     },
     {
-      "libelle": "Démarche environnementale et développement durable",
-      "exemple": "Le critère environnemental est à la fois critère d'attribution et condition d'exécution — mettre en avant des certifications bio, labels environnementaux, circuits courts, traçabilité carbone ou emballages éco-conçus valorisera fortement l'offre.",
-      "source": "RC art 3.8 et art 6.3"
+      "libelle": "Démonstration de la qualité gustative par les échantillons (35% de la note)",
+      "exemple": "Le critère échantillons représente 35% du score, autant que le prix. Investir dans la qualité des produits soumis (maturité optimale, fraîcheur, présentation) est aussi important que d'être compétitif sur les prix. Pour le lot 6 Fromages, présenter un plateau thématique d'exception avec fromages de terroir bien affinés.",
+      "source": "RC article 6.3 et Annexe 2"
     },
     {
-      "libelle": "Richesse et accessibilité du catalogue (mercuriale et panier-type)",
-      "exemple": "Fournir une mercuriale exhaustive et à jour avec un panier-type compétitif démontre la capacité à répondre aux besoins d'un restaurant de direction haut de gamme — préciser les délais de livraison, la fréquence de mise à jour des prix et les conditions de remplacement en cas de rupture.",
-      "source": "RC art 6.1"
+      "libelle": "Capacité à sécuriser les approvisionnements en cas de pénurie ou d'aléa climatique",
+      "exemple": "Présenter un plan de continuité d'approvisionnement avec au moins 2 sources alternatives par famille de produits, des accords cadres avec des fournisseurs de substitution, et des stocks tampons permettant d'honorer les commandes sous 2 heures en cas de rejet.",
+      "source": "Cadres de réponse — Tableau 6 ; CCAP article 7.2.3"
     },
     {
-      "libelle": "Expérience sur des prestations similaires en restauration gastronomique ou de direction",
-      "exemple": "Fournir des références d'hôtels, restaurants gastronomiques ou grandes institutions (restaurants ministériels, parlements, grandes entreprises) témoigne d'une aptitude à servir ce type de clientèle exigeante.",
-      "source": "RC art 5.7"
+      "libelle": "Démarche anti-gaspillage formalisée et labellisée",
+      "exemple": "Un candidat disposant d'un partenariat formalisé avec une association caritative (type Banque Alimentaire) pour la redistribution des invendus, accompagné de données chiffrées (% gaspillage, volume redistribué/an), obtiendra une note supérieure sur le critère environnemental par rapport à un candidat qui se contente d'une déclaration d'intention.",
+      "source": "RC Annexe 2 — Critère n°4 ; CCAP article 9.9"
+    },
+    {
+      "libelle": "Proportion de produits bio et signes de qualité supérieure aux seuils Egalim",
+      "exemple": "Pour le lot 5 Fruits et légumes, l'acheteur impose 40% de légumes bio et 60% de fruits durables. Un candidat capable de proposer 50% de légumes bio et 70% de fruits durables se distinguera favorablement et renforcera la sécurité d'exécution du contrat vis-à-vis des obligations réglementaires.",
+      "source": "CCTP articles 5.1 à 5.11 ; CCAP article 7.5 (considération sociale) ; CCTP article 12"
     }
   ],
   "_meta": {
     "id_marche": "BOAMP-26-56558",
     "type": "complet",
-    "extraction_le": "2026-06-12T02:47:19.886545+00:00",
+    "date_generation": "2026-06-19T20:16:00.788261+00:00",
+    "extraction_le": "2026-06-19T20:16:00.788261+00:00",
     "modele": "claude-sonnet-4-6",
-    "tokens_input": 28535,
-    "tokens_output": 6116,
-    "cout_eur": 0.1685,
-    "duree_sec": 91.3,
+    "preset_utilise": null,
+    "presets_matches": [],
+    "prompts_versions": {},
+    "tokens_input": 105821,
+    "tokens_output": 10850,
+    "cout_eur": 0.4562,
+    "duree_sec": 184.7,
     "pdfs_traites": [
+      {
+        "nom": "Annexe financiere_BPU_Lot 7 boulangerie.xlsx",
+        "hash": "659a8441b97551039f2bbd3ec591da18",
+        "taille_chars": 1721
+      },
+      {
+        "nom": "CCAP.pdf",
+        "hash": "026352a8df399dcaafc733a25f9cd858",
+        "taille_chars": 69044
+      },
+      {
+        "nom": "CCTP.pdf",
+        "hash": "1187af34d6185a1f01359770228c16df",
+        "taille_chars": 48344
+      },
+      {
+        "nom": "CCTP_Annexe 1_fiche_releve d'incident.pdf",
+        "hash": "90704ced0b2539243356c2b8f1ae0415",
+        "taille_chars": 503
+      },
+      {
+        "nom": "CCTP_Annexe 2_fiche_suivi_fournisseur.pdf",
+        "hash": "50e15165524c6e9e21cc67665bb2b1df",
+        "taille_chars": 754
+      },
+      {
+        "nom": "Cadre de reponse_Lot 1.docx",
+        "hash": "113861da6124156bf894c53b956f781c",
+        "taille_chars": 3793
+      },
+      {
+        "nom": "Cadre de reponse_Lot 10.docx",
+        "hash": "90a9517bd2464a4b8e4b236e429184fa",
+        "taille_chars": 3817
+      },
+      {
+        "nom": "Cadre de reponse_Lot 11.docx",
+        "hash": "0712d7ff5d0a351e1e38a5507d63b8fc",
+        "taille_chars": 3807
+      },
+      {
+        "nom": "Cadre de reponse_Lot 2.docx",
+        "hash": "d4b192a28387a6fc156ecbf4c2545605",
+        "taille_chars": 3792
+      },
+      {
+        "nom": "Cadre de reponse_Lot 3.docx",
+        "hash": "4b7c0f1bcadce8095395ac46025df96d",
+        "taille_chars": 4061
+      },
+      {
+        "nom": "Cadre de reponse_Lot 4.docx",
+        "hash": "5268116c6b63e28780e22bff7590de72",
+        "taille_chars": 3994
+      },
+      {
+        "nom": "Cadre de reponse_Lot 5.docx",
+        "hash": "816623860d6964bb9632bd1c068d2f8d",
+        "taille_chars": 3804
+      },
+      {
+        "nom": "Cadre de reponse_Lot 6.docx",
+        "hash": "c1096a37bdffec104eb394a92718a380",
+        "taille_chars": 3815
+      },
+      {
+        "nom": "Cadre de reponse_Lot 7.docx",
+        "hash": "ee50ce3d1f315fb555994cf13cfcccf4",
+        "taille_chars": 3053
+      },
+      {
+        "nom": "Cadre de reponse_Lot 8.docx",
+        "hash": "7711957b73eb83141f5352fa8c2af040",
+        "taille_chars": 3182
+      },
+      {
+        "nom": "Cadre de reponse_Lot 9.docx",
+        "hash": "09791da6f87a2a0ac92e88d87bc9c935",
+        "taille_chars": 3192
+      },
+      {
+        "nom": "Question-réponse du 17_06_2026.pdf",
+        "hash": "1dc879a6cc644db92787e4bd155f8dff",
+        "taille_chars": 2825
+      },
+      {
+        "nom": "RC_Annexe 1_Liste des echantillons.pdf",
+        "hash": "c9747fd729726745a913cc85a2ace8f3",
+        "taille_chars": 3257
+      },
+      {
+        "nom": "RC_Annexe 2_Criteres de jugement des offres.pdf",
+        "hash": "e1d59770d55a1dd783b58dba42798d6a",
+        "taille_chars": 7474
+      },
+      {
+        "nom": "RC_Annexe Charte RFAR.pdf",
+        "hash": "e5572c80394d854011ee55a5595f728c",
+        "taille_chars": 2351
+      },
+      {
+        "nom": "RC_Annexe Mediation interne.pdf",
+        "hash": "1d129144b0be19ace22a33d0ddf45d75",
+        "taille_chars": 1742
+      },
+      {
+        "nom": "Reglement de consultation_RC.pdf",
+        "hash": "679ac86a6c815bcbd5cd4c06eb3396c9",
+        "taille_chars": 48806
+      },
       {
         "nom": "RÃ¨glement de consultation_RC.pdf",
         "hash": "679ac86a6c815bcbd5cd4c06eb3396c9",

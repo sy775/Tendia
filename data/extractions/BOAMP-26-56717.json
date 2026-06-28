@@ -1,257 +1,289 @@
 {
-  "synthese_marche": "Accord-cadre multi-attributaires du Département de la Gironde pour les travaux d'entretien, de mise en sécurité, de maintenance, de réparation, de démolition, d'extension et de reconstruction du patrimoine immobilier des collèges publics départementaux. Le marché est divisé en 28 lots correspondant à des corps d'état (électricité, menuiserie alu, plomberie, couverture, gros œuvre, VRD, plâtrerie, peinture, étanchéité, charpente métallique, désamiantage, accès toiture) répartis sur 3 secteurs géographiques de la Gironde. L'accord-cadre prend effet au 1er janvier 2027 pour une durée maximale de 4 ans, avec un maximum de 1 500 000 € HT par lot et par an.",
+  "synthese_marche": "Accord-cadre multi-attributaires (jusqu'à 5 prestataires par lot) du Conseil Départemental de la Gironde pour les travaux d'entretien, mise en sécurité, maintenance, réparation, démolition, extension et reconstruction des collèges publics départementaux. Le marché est divisé en 28 lots correspondant à des corps d'état spécifiques répartis sur 3 secteurs géographiques (Bordeaux Métropole, Est, Ouest) ou couvrant toute la Gironde. L'accord-cadre prend effet au 1er janvier 2027 pour une durée maximale de 4 ans (1 an ferme + 3 reconductions tacites), avec un plafond de 1 500 000 € HT/an/lot.",
   "domaines_metier": [
     {
       "code": "btp_second_oeuvre",
-      "poids": 0.6,
-      "lots_concernes": "Lots 1-3 (Électricité), 4-6 (Menuiserie alu/Vitrerie/Serrurerie), 7-9 (Plomberie/Sanitaire/Chauffage/Ventilation), 10-12 (Couverture tuiles/Zinguerie/Charpente bois), 17-19 (Plâtrerie/Faux plafonds), 20-22 (Ravalement/Peinture/Revêtements sols), 23-25 (Étanchéité), 26 (Charpente métallique/Couverture bac acier/Bardage), 27 (Désamiantage), 28 (Accès toiture/Dispositifs anti-chutes)"
+      "poids": 0.45,
+      "lots_concernes": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        28
+      ]
     },
     {
       "code": "btp_gros_oeuvre",
-      "poids": 0.3,
-      "lots_concernes": "Lots 13-15 (Gros œuvre)"
+      "poids": 0.35,
+      "lots_concernes": [
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        26,
+        27
+      ]
     },
     {
-      "code": "btp_voirie_reseaux",
-      "poids": 0.1,
-      "lots_concernes": "Lot 16 (VRD)"
+      "code": "btp_demolition",
+      "poids": 0.2,
+      "lots_concernes": [
+        27
+      ]
     }
   ],
-  "raison_classification": "Le marché couvre un large spectre de corps d'état BTP pour l'entretien et la réhabilitation de collèges : la majorité des lots relève du second œuvre (électricité, menuiserie, plomberie, couverture, plâtrerie, peinture, étanchéité), avec des lots de gros œuvre (13-15) et un lot VRD (16). Le CPV principal 45214000 (construction d'établissements d'enseignement) confirme le secteur BTP. Les 3 domaines sont attribués en proportion du nombre de lots, le second œuvre étant clairement dominant.",
+  "raison_classification": "Marché de travaux multi-corps d'état dans des collèges publics : lots second œuvre dominants (électricité, menuiserie alu/vitrerie/serrurerie, plomberie/CVC, plâtrerie, peinture/revêtements, étanchéité — 19 lots), complétés par des lots gros œuvre/couverture/charpente/VRD (9 lots) et un lot spécifique désamiantage/démolition. Le domaine btp_second_oeuvre est dominant en nombre de lots, le btp_gros_oeuvre représente environ 35% des lots restants.",
   "caracteristiques_techniques_chantier": {
-    "description": "Travaux d'entretien, de mise en sécurité, de maintenance, de réparation, de démolition, d'extension et de reconstruction du patrimoine immobilier des collèges publics de compétence départementale, hors opérations inscrites au Programme Pluriannuel d'Investissement (grosses opérations). Les interventions se font par bons de commande (≤100 000 € HT, ≤2 mois) ou marchés subséquents, dans des établissements scolaires en activité.",
-    "typologie_ouvrage": "Collèges publics (établissements d'enseignement secondaire)",
+    "description": "Travaux d'entretien courant, mise en sécurité, maintenance, réparation, démolition partielle, extension et reconstruction du patrimoine immobilier des collèges publics du Département de la Gironde non inscrits au Plan Pluriannuel d'Investissement. Les interventions couvrent tous les corps d'état (électricité, menuiserie, plomberie/CVC, couverture, gros œuvre, VRD, plâtrerie, peinture/revêtements de sols, étanchéité, charpente métallique, désamiantage, accès toiture).",
+    "typologie_ouvrage": "Collèges publics (établissements scolaires) — bâtiments existants en fonctionnement",
     "surface_volume": null,
-    "site_occupe": "true — les collèges sont en activité pendant les travaux ; le CCTP prévoit des précautions de base pour intervention en milieu scolaire occupé",
+    "site_occupe": "true — interventions en collèges en activité, contraintes de sécurité spécifiques pour accès aux établissements scolaires, précautions à mettre en place pour intervention en milieu scolaire occupé",
     "corps_etat": [
-      "Électricité courants forts et faibles (lots 1-3)",
-      "Menuiserie aluminium, Vitrerie, Serrurerie (lots 4-6)",
-      "Plomberie, Sanitaire, Chauffage, Ventilation (lots 7-9)",
-      "Couverture tuiles, Zinguerie, Charpente bois (lots 10-12)",
-      "Gros œuvre (lots 13-15)",
-      "VRD (lot 16)",
-      "Plâtrerie et faux plafonds (lots 17-19)",
-      "Ravalement de peinture et revêtements de sols souples (lots 20-22)",
-      "Étanchéité (lots 23-25)",
-      "Charpente métallique / Couverture bac acier / Bardage (lot 26)",
-      "Désamiantage (lot 27)",
-      "Accès toiture et conformité des dispositifs anti-chutes (lot 28)"
+      "Électricité courants forts et faibles (HTA/BT)",
+      "Menuiserie aluminium, vitrerie, serrurerie",
+      "Plomberie, sanitaire, chauffage, ventilation",
+      "Couverture tuiles, zinguerie, charpente bois",
+      "Gros œuvre",
+      "VRD",
+      "Plâtrerie et faux plafonds",
+      "Ravalement de peinture et revêtements de sols souples",
+      "Étanchéité",
+      "Charpente métallique, couverture bac acier, bardage",
+      "Démolition, désamiantage",
+      "Accès toiture et conformité dispositifs anti-chutes"
     ],
     "contraintes_specifiques": [
-      "Interventions en milieu scolaire occupé — précautions spécifiques requises",
-      "Présence d'amiante possible — coefficient de majoration amiante prévu dans les BPU (sous-section 4)",
-      "Installations HTA/BT présentes sur certains sites (annexe recensement HTA pour lots électricité)",
-      "Travaux de nuit ou week-end envisagés (taux horaire majoré prévu dans BPU)",
-      "Bons de commande ≤100 000 € HT avec délai d'exécution ≤2 mois",
-      "Clause d'actions sociales obligatoire (insertion professionnelle) dans les marchés subséquents",
-      "Clauses environnementales (gestion déchets, déplacements écoresponsables, etc.)",
-      "Délai de validité des offres de 210 jours"
+      "Interventions en établissements scolaires occupés — précautions de sécurité renforcées",
+      "Présence d'installations HTA sur certains collèges (recensement fourni en annexe)",
+      "Présence potentielle d'amiante (coefficient de majoration amiante prévu dans les BPU)",
+      "Accords-cadres multi-attributaires avec remise en concurrence par marchés subséquents ou bons de commande",
+      "Bons de commande plafonnés à 100 000 € HT avec exécution ≤ 2 mois et paiement en une seule fois",
+      "Clause sociale obligatoire (insertion professionnelle) applicable aux marchés subséquents",
+      "Clause environnementale obligatoire",
+      "Secteurs géographiques distincts (Bordeaux Métropole, Est, Ouest) pour la majorité des lots"
     ]
   },
   "allotissement": {
-    "description": "Accord-cadre multi-attributaires divisé en 28 lots, chacun correspondant à un corps d'état et à un secteur géographique. Jusqu'à 5 prestataires retenus par lot. Les candidats peuvent soumissionner pour un ou plusieurs lots avec offres distinctes.",
+    "description": "28 lots correspondant à un corps d'état spécifique et un secteur géographique. Pour chaque lot, jusqu'à 5 prestataires sont retenus. Plafond de 1 500 000 € HT/an/lot.",
     "nb_lots": 28,
     "lots_detailles": [
       {
         "numero": 1,
-        "intitule": "Électricité courants forts et faibles — Secteur N°1 Bordeaux Métropole",
+        "intitule": "Électricité courants forts et faibles SECTEUR N°1 BORDEAUX METROPOLE",
         "corps_etat": "Électricité courants forts et faibles",
-        "montant_estime": 1500000,
-        "description": "Travaux électriques (courants forts et faibles) sur collèges du secteur Bordeaux Métropole. Max 1 500 000 € HT/an."
+        "montant_estime": null,
+        "description": "Travaux électriques CF/CF sur les collèges du secteur Bordeaux Métropole"
       },
       {
         "numero": 2,
-        "intitule": "Électricité courants forts et faibles — Secteur N°2 Est",
+        "intitule": "Électricité courants forts et faibles SECTEUR N°2 EST",
         "corps_etat": "Électricité courants forts et faibles",
-        "montant_estime": 1500000,
-        "description": "Travaux électriques secteur Est de la Gironde."
+        "montant_estime": null,
+        "description": "Travaux électriques CF/CF sur les collèges du secteur Est"
       },
       {
         "numero": 3,
-        "intitule": "Électricité courants forts et faibles — Secteur N°3 Ouest",
+        "intitule": "Électricité courants forts et faibles SECTEUR N°3 OUEST",
         "corps_etat": "Électricité courants forts et faibles",
-        "montant_estime": 1500000,
-        "description": "Travaux électriques secteur Ouest de la Gironde."
+        "montant_estime": null,
+        "description": "Travaux électriques CF/CF sur les collèges du secteur Ouest"
       },
       {
         "numero": 4,
-        "intitule": "Menuiserie alu, Vitrerie, Serrurerie — Secteur N°1 Bordeaux Métropole",
-        "corps_etat": "Menuiserie aluminium, Vitrerie, Serrurerie",
-        "montant_estime": 1500000,
-        "description": "Menuiseries extérieures/intérieures aluminium, vitrerie, serrurerie secteur Bordeaux Métropole."
+        "intitule": "Menuiserie alu, Vitrerie, Serrurerie SECTEUR N°1 BORDEAUX METROPOLE",
+        "corps_etat": "Menuiserie aluminium, vitrerie, serrurerie",
+        "montant_estime": null,
+        "description": "Travaux de menuiserie alu, vitrerie, serrurerie sur les collèges du secteur Bordeaux Métropole"
       },
       {
         "numero": 5,
-        "intitule": "Menuiserie alu, Vitrerie, Serrurerie — Secteur N°2 Est",
-        "corps_etat": "Menuiserie aluminium, Vitrerie, Serrurerie",
-        "montant_estime": 1500000,
-        "description": "Menuiseries alu, vitrerie, serrurerie secteur Est."
+        "intitule": "Menuiserie alu, Vitrerie, Serrurerie SECTEUR N°2 EST",
+        "corps_etat": "Menuiserie aluminium, vitrerie, serrurerie",
+        "montant_estime": null,
+        "description": "Travaux de menuiserie alu, vitrerie, serrurerie sur les collèges du secteur Est"
       },
       {
         "numero": 6,
-        "intitule": "Menuiserie alu, Vitrerie, Serrurerie — Secteur N°3 Ouest",
-        "corps_etat": "Menuiserie aluminium, Vitrerie, Serrurerie",
-        "montant_estime": 1500000,
-        "description": "Menuiseries alu, vitrerie, serrurerie secteur Ouest."
+        "intitule": "Menuiserie alu, Vitrerie, Serrurerie SECTEUR N°3 OUEST",
+        "corps_etat": "Menuiserie aluminium, vitrerie, serrurerie",
+        "montant_estime": null,
+        "description": "Travaux de menuiserie alu, vitrerie, serrurerie sur les collèges du secteur Ouest"
       },
       {
         "numero": 7,
-        "intitule": "Plomberie, Sanitaire, Chauffage, Ventilation — Secteur N°1 Bordeaux Métropole",
-        "corps_etat": "Plomberie, Sanitaire, Chauffage, Ventilation",
-        "montant_estime": 1500000,
-        "description": "Plomberie, sanitaire, chauffage et ventilation secteur Bordeaux Métropole."
+        "intitule": "Plomberie, Sanitaire, Chauffage, Ventilation SECTEUR N°1 BORDEAUX METROPOLE",
+        "corps_etat": "Plomberie, sanitaire, chauffage, ventilation",
+        "montant_estime": null,
+        "description": "Travaux de plomberie/CVC sur les collèges du secteur Bordeaux Métropole"
       },
       {
         "numero": 8,
-        "intitule": "Plomberie, Sanitaire, Chauffage, Ventilation — Secteur N°2 Est",
-        "corps_etat": "Plomberie, Sanitaire, Chauffage, Ventilation",
-        "montant_estime": 1500000,
-        "description": "Plomberie, sanitaire, chauffage et ventilation secteur Est."
+        "intitule": "Plomberie, Sanitaire, Chauffage, Ventilation SECTEUR N°2 EST",
+        "corps_etat": "Plomberie, sanitaire, chauffage, ventilation",
+        "montant_estime": null,
+        "description": "Travaux de plomberie/CVC sur les collèges du secteur Est"
       },
       {
         "numero": 9,
-        "intitule": "Plomberie, Sanitaire, Chauffage, Ventilation — Secteur N°3 Ouest",
-        "corps_etat": "Plomberie, Sanitaire, Chauffage, Ventilation",
-        "montant_estime": 1500000,
-        "description": "Plomberie, sanitaire, chauffage et ventilation secteur Ouest."
+        "intitule": "Plomberie, Sanitaire, Chauffage, Ventilation SECTEUR N°3 OUEST",
+        "corps_etat": "Plomberie, sanitaire, chauffage, ventilation",
+        "montant_estime": null,
+        "description": "Travaux de plomberie/CVC sur les collèges du secteur Ouest"
       },
       {
         "numero": 10,
-        "intitule": "Couverture tuiles, Zinguerie, Charpente bois — Secteur N°1 Bordeaux Métropole",
-        "corps_etat": "Couverture tuiles, Zinguerie, Charpente bois",
-        "montant_estime": 1500000,
-        "description": "Couverture tuiles, zinguerie et charpente bois secteur Bordeaux Métropole."
+        "intitule": "Couverture tuiles, Zinguerie, Charpente bois SECTEUR N°1 BORDEAUX METROPOLE",
+        "corps_etat": "Couverture tuiles, zinguerie, charpente bois",
+        "montant_estime": null,
+        "description": "Travaux de couverture, zinguerie, charpente bois sur les collèges du secteur Bordeaux Métropole"
       },
       {
         "numero": 11,
-        "intitule": "Couverture tuiles, Zinguerie, Charpente bois — Secteur N°2 Est",
-        "corps_etat": "Couverture tuiles, Zinguerie, Charpente bois",
-        "montant_estime": 1500000,
-        "description": "Couverture tuiles, zinguerie et charpente bois secteur Est."
+        "intitule": "Couverture tuiles, Zinguerie, Charpente bois SECTEUR N°2 EST",
+        "corps_etat": "Couverture tuiles, zinguerie, charpente bois",
+        "montant_estime": null,
+        "description": "Travaux de couverture, zinguerie, charpente bois sur les collèges du secteur Est"
       },
       {
         "numero": 12,
-        "intitule": "Couverture tuiles, Zinguerie, Charpente bois — Secteur N°3 Ouest",
-        "corps_etat": "Couverture tuiles, Zinguerie, Charpente bois",
-        "montant_estime": 1500000,
-        "description": "Couverture tuiles, zinguerie et charpente bois secteur Ouest."
+        "intitule": "Couverture tuiles, Zinguerie, Charpente bois SECTEUR N°3 OUEST",
+        "corps_etat": "Couverture tuiles, zinguerie, charpente bois",
+        "montant_estime": null,
+        "description": "Travaux de couverture, zinguerie, charpente bois sur les collèges du secteur Ouest"
       },
       {
         "numero": 13,
-        "intitule": "Gros œuvre — Secteur N°1 Bordeaux Métropole",
+        "intitule": "Gros Oeuvre SECTEUR N°1 BORDEAUX METROPOLE",
         "corps_etat": "Gros œuvre",
-        "montant_estime": 1500000,
-        "description": "Travaux de gros œuvre sur collèges secteur Bordeaux Métropole."
+        "montant_estime": null,
+        "description": "Travaux de gros œuvre sur les collèges du secteur Bordeaux Métropole"
       },
       {
         "numero": 14,
-        "intitule": "Gros œuvre — Secteur N°2 Est",
+        "intitule": "Gros Oeuvre SECTEUR N°2 EST",
         "corps_etat": "Gros œuvre",
-        "montant_estime": 1500000,
-        "description": "Gros œuvre secteur Est."
+        "montant_estime": null,
+        "description": "Travaux de gros œuvre sur les collèges du secteur Est"
       },
       {
         "numero": 15,
-        "intitule": "Gros œuvre — Secteur N°3 Ouest",
+        "intitule": "Gros Oeuvre SECTEUR N°3 OUEST",
         "corps_etat": "Gros œuvre",
-        "montant_estime": 1500000,
-        "description": "Gros œuvre secteur Ouest."
+        "montant_estime": null,
+        "description": "Travaux de gros œuvre sur les collèges du secteur Ouest"
       },
       {
         "numero": 16,
-        "intitule": "VRD — Toute la Gironde",
+        "intitule": "VRD TOUTE LA GIRONDE",
         "corps_etat": "VRD",
-        "montant_estime": 1500000,
-        "description": "Travaux de voirie et réseaux divers sur l'ensemble du département de la Gironde."
+        "montant_estime": null,
+        "description": "Travaux de voirie et réseaux divers sur l'ensemble des collèges de Gironde"
       },
       {
         "numero": 17,
-        "intitule": "Plâtrerie et faux plafonds — Secteur N°1 Bordeaux Métropole",
-        "corps_etat": "Plâtrerie, faux plafonds",
-        "montant_estime": 1500000,
-        "description": "Plâtrerie, cloisons sèches et faux plafonds secteur Bordeaux Métropole."
+        "intitule": "Plâtrerie Faux plafonds SECTEUR N°1 BORDEAUX METROPOLE",
+        "corps_etat": "Plâtrerie et faux plafonds",
+        "montant_estime": null,
+        "description": "Travaux de plâtrerie et faux plafonds sur les collèges du secteur Bordeaux Métropole"
       },
       {
         "numero": 18,
-        "intitule": "Plâtrerie et faux plafonds — Secteur N°2 Est",
-        "corps_etat": "Plâtrerie, faux plafonds",
-        "montant_estime": 1500000,
-        "description": "Plâtrerie et faux plafonds secteur Est."
+        "intitule": "Plâtrerie Faux plafonds SECTEUR N°2 EST",
+        "corps_etat": "Plâtrerie et faux plafonds",
+        "montant_estime": null,
+        "description": "Travaux de plâtrerie et faux plafonds sur les collèges du secteur Est"
       },
       {
         "numero": 19,
-        "intitule": "Plâtrerie et faux plafonds — Secteur N°3 Ouest",
-        "corps_etat": "Plâtrerie, faux plafonds",
-        "montant_estime": 1500000,
-        "description": "Plâtrerie et faux plafonds secteur Ouest."
+        "intitule": "Plâtrerie Faux plafonds SECTEUR N°3 OUEST",
+        "corps_etat": "Plâtrerie et faux plafonds",
+        "montant_estime": null,
+        "description": "Travaux de plâtrerie et faux plafonds sur les collèges du secteur Ouest"
       },
       {
         "numero": 20,
-        "intitule": "Ravalement de peinture et revêtements de sols souples — Secteur N°1 Bordeaux Métropole",
-        "corps_etat": "Peinture, ravalement, revêtements de sols",
-        "montant_estime": 1500000,
-        "description": "Ravalement, peinture intérieure/extérieure et revêtements de sols souples secteur Bordeaux Métropole."
+        "intitule": "Ravalement de peinture et revêtements de sols souples SECTEUR N°1 BORDEAUX METROPOLE",
+        "corps_etat": "Peinture et revêtements de sols souples",
+        "montant_estime": null,
+        "description": "Travaux de ravalement de peinture et revêtements de sols souples sur les collèges du secteur Bordeaux Métropole"
       },
       {
         "numero": 21,
-        "intitule": "Ravalement de peinture et revêtements de sols souples — Secteur N°2 Est",
-        "corps_etat": "Peinture, ravalement, revêtements de sols",
-        "montant_estime": 1500000,
-        "description": "Peinture, ravalement et revêtements de sols secteur Est."
+        "intitule": "Ravalement de peinture et revêtements de sols souples SECTEUR N°2 EST",
+        "corps_etat": "Peinture et revêtements de sols souples",
+        "montant_estime": null,
+        "description": "Travaux de ravalement de peinture et revêtements de sols souples sur les collèges du secteur Est"
       },
       {
         "numero": 22,
-        "intitule": "Ravalement de peinture et revêtements de sols souples — Secteur N°3 Ouest",
-        "corps_etat": "Peinture, ravalement, revêtements de sols",
-        "montant_estime": 1500000,
-        "description": "Peinture, ravalement et revêtements de sols secteur Ouest."
+        "intitule": "Ravalement de peinture et revêtements de sols souples SECTEUR N°3 OUEST",
+        "corps_etat": "Peinture et revêtements de sols souples",
+        "montant_estime": null,
+        "description": "Travaux de ravalement de peinture et revêtements de sols souples sur les collèges du secteur Ouest"
       },
       {
         "numero": 23,
-        "intitule": "Étanchéité — Secteur N°1 Bordeaux Métropole",
+        "intitule": "Étanchéité SECTEUR N°1 BORDEAUX METROPOLE",
         "corps_etat": "Étanchéité",
-        "montant_estime": 1500000,
-        "description": "Travaux d'étanchéité toitures terrasses et couvertures secteur Bordeaux Métropole."
+        "montant_estime": null,
+        "description": "Travaux d'étanchéité sur les collèges du secteur Bordeaux Métropole"
       },
       {
         "numero": 24,
-        "intitule": "Étanchéité — Secteur N°2 Est",
+        "intitule": "Étanchéité SECTEUR N°2 EST",
         "corps_etat": "Étanchéité",
-        "montant_estime": 1500000,
-        "description": "Étanchéité secteur Est."
+        "montant_estime": null,
+        "description": "Travaux d'étanchéité sur les collèges du secteur Est"
       },
       {
         "numero": 25,
-        "intitule": "Étanchéité — Secteur N°3 Ouest",
+        "intitule": "Étanchéité SECTEUR N°3 OUEST",
         "corps_etat": "Étanchéité",
-        "montant_estime": 1500000,
-        "description": "Étanchéité secteur Ouest."
+        "montant_estime": null,
+        "description": "Travaux d'étanchéité sur les collèges du secteur Ouest"
       },
       {
         "numero": 26,
-        "intitule": "Charpente métallique / Couverture bac acier / Bardage — Toute la Gironde",
+        "intitule": "Charpente métallique, couverture bac acier, bardage TOUTE LA GIRONDE",
         "corps_etat": "Charpente métallique, couverture bac acier, bardage",
-        "montant_estime": 1500000,
-        "description": "Charpente métallique, couverture bac acier et bardage sur toute la Gironde. Lot évalué sur DPGF."
+        "montant_estime": null,
+        "description": "Travaux de charpente métallique, couverture bac acier et bardage sur l'ensemble des collèges de Gironde — prix sur base DPGF"
       },
       {
         "numero": 27,
-        "intitule": "Désamiantage — Toute la Gironde",
-        "corps_etat": "Désamiantage",
-        "montant_estime": 1500000,
-        "description": "Travaux de désamiantage sur l'ensemble du patrimoine départemental."
+        "intitule": "Démolition, Désamiantage TOUTE LA GIRONDE",
+        "corps_etat": "Démolition et désamiantage",
+        "montant_estime": null,
+        "description": "Travaux de démolition et désamiantage sur l'ensemble des collèges de Gironde"
       },
       {
         "numero": 28,
-        "intitule": "Accès toiture et conformité des dispositifs anti-chutes — Toute la Gironde",
-        "corps_etat": "Accès toiture, dispositifs anti-chutes",
-        "montant_estime": 1500000,
-        "description": "Diagnostic, installation et mise en conformité des équipements d'accès toiture et dispositifs anti-chutes (échelles, lignes de vie, points d'ancrage, garde-corps)."
+        "intitule": "Accès toiture et conformité des dispositifs anti-chutes TOUTE LA GIRONDE",
+        "corps_etat": "Accès toiture, sécurité anti-chutes",
+        "montant_estime": null,
+        "description": "Diagnostic, installation et mise en conformité des dispositifs anti-chutes et accès toiture sur l'ensemble des collèges de Gironde"
       }
     ]
   },
   "qualifications_requises": {
-    "description": "Le RC ne précise pas explicitement de qualifications Qualibat ou RGE obligatoires dans les pièces fournies. Les capacités professionnelles sont appréciées via références travaux des 5 dernières années et certificats d'identité professionnelle.",
+    "description": "Les qualifications requises ne sont pas explicitement détaillées par numéro Qualibat dans le RC fourni. La liste des travaux exécutés sur 5 ans est demandée pour justifier des capacités techniques.",
     "qualibat": [],
     "rge": false,
     "rge_specialites": [],
@@ -282,157 +314,226 @@
     "autres": []
   },
   "bareme_notation": {
-    "valeur_technique_pct": 40,
+    "valeur_technique_pct": 50,
     "valeur_prix_pct": 50,
     "sous_criteres_techniques": [
       {
-        "libelle": "Organisation de la méthodologie pour la réalisation des travaux",
-        "ponderation_pct": 20,
-        "description": "Évaluation de la description des précautions de base à mettre en place pour une intervention dans un collège, sur la base du mémoire technique selon le cadre de réponse fourni.",
+        "libelle": "Valeur technique",
+        "ponderation_pct": 40,
+        "description": "Notée sur 40 points pour les lots 1 à 28 (sauf lot 26), jugée sur le mémoire technique établi selon le cadre de réponse fourni. Pour le lot 26, même pondération, mêmes sous-critères.",
         "elements_attendus": [
-          "Description des précautions spécifiques liées à l'environnement scolaire (sécurité des élèves, confinement chantier)",
-          "Organisation du chantier en site occupé (phasage, horaires, balisage)",
-          "Gestion des nuisances (bruit, poussières, odeurs) en milieu scolaire",
-          "Procédures d'intervention en cas d'urgence ou d'aléa",
-          "Coordination avec l'administration du collège et les utilisateurs"
+          "Mémoire technique conforme au cadre de réponse fourni",
+          "Description des précautions de base pour intervention en collège",
+          "Désignation de l'interlocuteur unique (CV, niveau de compétence)",
+          "Propositions sur la continuité de l'équipe pendant les absences",
+          "Organisation d'une permanence téléphonique"
         ],
-        "exemple_reponse_forte": "Notre entreprise met en place un protocole d'intervention spécifique aux établissements scolaires occupés : réunion préalable avec le gestionnaire du collège, balisage systématique des zones de travaux avec clôtures opaques, interventions lourdes réalisées hors présence d'élèves (vacances scolaires ou fins de semaine), et désignation d'un référent sécurité dédié par chantier.",
+        "exemple_reponse_forte": "Le mémoire technique présente une méthodologie détaillée d'intervention en collège occupé (balisage, horaires de travaux hors présence élèves, coordination avec les gestionnaires), désigne nommément le chef de chantier référent avec son CV et prévoit un interlocuteur adjoint identifié en cas d'absence, avec permanence téléphonique 7j/7.",
         "source": "RC article 7.2",
-        "sous_criteres": []
-      },
-      {
-        "libelle": "Moyens humains pour assurer l'exécution de l'accord cadre",
-        "ponderation_pct": 20,
-        "description": "Évaluation des moyens humains proposés pour l'exécution de l'accord-cadre, comprenant l'interlocuteur unique, la continuité de l'équipe et la permanence téléphonique.",
-        "elements_attendus": [],
-        "source": "RC article 7.2",
+        "unite_evaluation": "points",
         "sous_criteres": [
           {
-            "libelle": "Désignation de l'interlocuteur unique chargé des opérations (CV, niveau de compétence)",
-            "ponderation_pct": 9,
-            "description": "Identification nominative d'un interlocuteur unique dédié, avec CV et justification de son niveau de compétence pour gérer les chantiers en milieu scolaire.",
+            "libelle": "Organisation de la méthodologie pour la réalisation des travaux",
+            "ponderation_pct": 20,
+            "description": "Description des précautions de base à mettre en place pour une intervention dans un collège.",
             "elements_attendus": [
-              "CV détaillé de l'interlocuteur unique nommément désigné",
-              "Justification du niveau de compétence (expérience, qualifications, ancienneté)",
-              "Rôle et périmètre de responsabilité clairement définis",
-              "Expérience démontrée sur des chantiers similaires en milieu occupé"
+              "Précautions spécifiques au milieu scolaire (sécurité des élèves et du personnel)",
+              "Organisation du chantier (balisage, stockage, accès)",
+              "Gestion des nuisances (bruit, poussières, odeurs)",
+              "Phasage des interventions compatible avec la vie scolaire",
+              "Coordination avec l'équipe de direction du collège"
             ],
-            "exemple_reponse_forte": "M. X, Responsable de chantier depuis 12 ans, sera l'interlocuteur unique dédié à cet accord-cadre. Titulaire d'un BTS Bâtiment, il a géré plus de 30 interventions en milieu scolaire occupé sur les 5 dernières années. Son CV est joint au mémoire technique.",
-            "source": "RC article 7.2"
+            "exemple_reponse_forte": "L'entreprise décrit un protocole systématique d'intervention en milieu scolaire : prise de contact avec le gestionnaire dès la réception du bon de commande, pose de balisage normalisé, intervention en dehors des heures de classe pour les travaux bruyants, et remise en état des locaux avant chaque fin de journée.",
+            "source": "RC article 7.2",
+            "unite_evaluation": "points"
           },
           {
-            "libelle": "Continuité de l'équipe pendant les absences des interlocuteurs principaux",
-            "ponderation_pct": 9,
-            "description": "Propositions de l'entreprise pour assurer la continuité de l'équipe notamment pendant la durée du chantier, lors des absences des interlocuteurs principaux.",
+            "libelle": "Moyens humains pour assurer l'exécution de l'accord cadre",
+            "ponderation_pct": 20,
+            "description": "Évaluation des moyens humains dédiés à l'accord-cadre, notamment l'interlocuteur unique, la continuité de l'équipe et la permanence téléphonique.",
             "elements_attendus": [
-              "Identification d'un remplaçant désigné avec ses compétences",
-              "Procédure formalisée de passation lors des absences",
-              "Garantie de continuité de service sans interruption des chantiers",
-              "Organigramme complet de l'équipe dédiée"
+              "Désignation d'un interlocuteur unique chargé des opérations avec CV et niveau de compétence",
+              "Propositions de continuité d'équipe pendant les absences des interlocuteurs principaux",
+              "Organisation d'une permanence téléphonique dédiée"
             ],
-            "exemple_reponse_forte": "En cas d'absence de M. X, Mme Y, chef de chantier confirmée avec 8 ans d'expérience, assure la continuité. Une procédure écrite de passation des consignes est systématiquement appliquée. L'organigramme complet de l'équipe dédiée est joint.",
-            "source": "RC article 7.2"
-          },
-          {
-            "libelle": "Organisation d'une permanence téléphonique",
-            "ponderation_pct": 2,
-            "description": "Mise en place d'une permanence téléphonique pour garantir la réactivité en cas d'urgence ou de besoin du Département.",
-            "elements_attendus": [
-              "Plages horaires de disponibilité téléphonique précisées",
-              "Numéro dédié ou astreinte identifiée",
-              "Délai de rappel garanti"
-            ],
-            "exemple_reponse_forte": "Une permanence téléphonique est assurée 7j/7 de 7h à 20h via le 06 XX XX XX XX. En dehors de ces horaires, une astreinte d'urgence est disponible avec rappel garanti sous 30 minutes.",
-            "source": "RC article 7.2"
+            "exemple_reponse_forte": "Un responsable de secteur nominativement désigné (CV joint, 10 ans d'expérience en marchés publics scolaires) est dédié à l'accord-cadre, secondé par un chef de chantier adjoint activé automatiquement en cas d'absence ; une ligne directe est disponible 7j/7 de 7h à 20h.",
+            "source": "RC article 7.2",
+            "unite_evaluation": "points",
+            "sous_criteres": [
+              {
+                "libelle": "Désignation de l'interlocuteur unique chargé des opérations (CV, niveau de compétence)",
+                "ponderation_pct": 9,
+                "description": "Identification nominative d'un responsable unique avec présentation de ses compétences.",
+                "elements_attendus": [
+                  "Nom et CV de l'interlocuteur unique",
+                  "Niveau de compétence et expérience pertinente",
+                  "Disponibilité dédiée à l'accord-cadre"
+                ],
+                "exemple_reponse_forte": "CV complet de M. X, conducteur de travaux avec 8 ans d'expérience en marchés publics de maintenance scolaire, dédié à 80% à l'accord-cadre.",
+                "source": "RC article 7.2",
+                "unite_evaluation": "points"
+              },
+              {
+                "libelle": "Propositions de l'entreprise sur la continuité de l'équipe, notamment sur la durée du chantier, pendant les absences des interlocuteurs principaux",
+                "ponderation_pct": 9,
+                "description": "Description du dispositif de remplacement et de continuité en cas d'absence de l'interlocuteur principal.",
+                "elements_attendus": [
+                  "Identification d'un ou plusieurs remplaçants nommés",
+                  "Procédure de transfert de dossiers en cas d'absence",
+                  "Garantie de continuité de service sans délai"
+                ],
+                "exemple_reponse_forte": "En cas d'absence de l'interlocuteur principal, Mme Y (chef de chantier, CV joint) prend en charge automatiquement les dossiers en cours ; un tableau de bord partagé garantit la continuité sans délai de transmission.",
+                "source": "RC article 7.2",
+                "unite_evaluation": "points"
+              },
+              {
+                "libelle": "Organisation d'une permanence téléphonique",
+                "ponderation_pct": 2,
+                "description": "Mise en place d'une permanence téléphonique dédiée à l'accord-cadre.",
+                "elements_attendus": [
+                  "Numéro dédié à l'accord-cadre",
+                  "Plages horaires de disponibilité",
+                  "Délai de rappel garanti"
+                ],
+                "exemple_reponse_forte": "Une ligne directe 0800 XXX XXX est dédiée à l'accord-cadre, disponible du lundi au vendredi de 7h à 19h ; en dehors de ces horaires, un système de messagerie garantit un rappel sous 2 heures.",
+                "source": "RC article 7.2",
+                "unite_evaluation": "points"
+              }
+            ]
           }
         ]
       },
       {
         "libelle": "Performances environnementales",
         "ponderation_pct": 10,
-        "description": "Évaluation sur la base d'un questionnaire développement durable comportant 4 questions sur les pratiques environnementales de l'entreprise.",
-        "elements_attendus": [],
+        "description": "Notées sur 10 points à partir d'un questionnaire développement durable comportant 4 questions, chacune valant 2,5 points.",
+        "elements_attendus": [
+          "Gestion écoresponsable des déplacements (2,5 points)",
+          "Sensibilisation et formation environnementale (2,5 points)",
+          "Gestion des déchets des chantiers (2,5 points)",
+          "Nomination d'une personne en charge des questions sécurité/qualité/environnement/développement durable (2,5 points)"
+        ],
+        "exemple_reponse_forte": "Le questionnaire DD décrit un plan de déplacement d'entreprise (véhicules hybrides, covoiturage), une formation environnementale annuelle de tous les compagnons, un système de tri des déchets de chantier avec BSB et bordereaux de suivi, et désigne le responsable SQHE nommément.",
         "source": "RC article 7.2",
+        "unite_evaluation": "points",
         "sous_criteres": [
           {
             "libelle": "Gestion écoresponsable des déplacements",
-            "ponderation_pct": 3,
-            "description": "Pratiques de l'entreprise en matière de réduction de l'empreinte carbone liée aux déplacements (véhicules, covoiturage, modes alternatifs).",
+            "ponderation_pct": 2.5,
+            "description": "Évaluation de la politique de déplacement écoresponsable de l'entreprise.",
             "elements_attendus": [
-              "Politique de déplacements écoresponsables formalisée",
-              "Véhicules propres ou électriques dans le parc",
-              "Mutualisation des déplacements / covoiturage",
-              "Optimisation des tournées d'intervention"
+              "Plan de déplacement d'entreprise",
+              "Véhicules propres ou hybrides",
+              "Covoiturage ou mutualisation des déplacements"
             ],
-            "exemple_reponse_forte": "Notre parc comprend 40% de véhicules hybrides ou électriques. Nous mutualisons systématiquement les déplacements et utilisons un logiciel d'optimisation des tournées réduisant de 25% nos émissions CO2 par rapport à 2020.",
-            "source": "RC article 7.2"
+            "exemple_reponse_forte": "L'entreprise dispose d'une flotte de 3 véhicules utilitaires hybrides et a mis en place un plan de covoiturage pour les chantiers éloignés.",
+            "source": "RC article 7.2",
+            "unite_evaluation": "points"
           },
           {
             "libelle": "Sensibilisation et formation environnementale",
-            "ponderation_pct": 3,
-            "description": "Actions de sensibilisation et de formation du personnel aux enjeux environnementaux.",
+            "ponderation_pct": 2.5,
+            "description": "Actions de formation et sensibilisation des équipes aux enjeux environnementaux.",
             "elements_attendus": [
-              "Programme de formation environnementale des équipes",
-              "Nombre d'heures de formation réalisées",
-              "Certification ou label environnemental éventuel",
-              "Actions de sensibilisation internes"
+              "Formation environnementale annuelle",
+              "Sensibilisation des compagnons",
+              "Référentiels ou certifications environnementales"
             ],
-            "exemple_reponse_forte": "L'ensemble de nos compagnons bénéficie d'une formation annuelle de 4h sur les bonnes pratiques environnementales sur chantier. Nous sommes certifiés ISO 14001 depuis 2019.",
-            "source": "RC article 7.2"
+            "exemple_reponse_forte": "Tous les compagnons suivent une formation d'une demi-journée sur les bonnes pratiques environnementales en chantier, renouvelée chaque année.",
+            "source": "RC article 7.2",
+            "unite_evaluation": "points"
           },
           {
             "libelle": "Gestion des déchets des chantiers",
-            "ponderation_pct": 3,
-            "description": "Organisation du tri, de la collecte et de la valorisation des déchets de chantier.",
+            "ponderation_pct": 2.5,
+            "description": "Organisation du tri et de la valorisation des déchets produits sur les chantiers.",
             "elements_attendus": [
-              "Procédure de tri sélectif sur chantier",
-              "Taux de valorisation/recyclage des déchets",
-              "Partenaires filières de valorisation identifiés",
-              "Registre ou traçabilité des déchets (BSDA pour amiante)"
+              "Système de tri sélectif sur chantier",
+              "Bordereaux de suivi des déchets",
+              "Taux de valorisation ou de recyclage"
             ],
-            "exemple_reponse_forte": "Nous mettons en place sur chaque chantier un plan de gestion des déchets avec tri sélectif systématique (5 flux minimum). Notre taux de valorisation dépasse 80%. Nos partenaires de recyclage sont référencés et les BSD sont conservés.",
-            "source": "RC article 7.2"
+            "exemple_reponse_forte": "L'entreprise impose le tri 5 flux sur tous ses chantiers (bois, métaux, plâtre, béton, DIB), avec BSB remis au maître d'ouvrage et un taux de valorisation supérieur à 70%.",
+            "source": "RC article 7.2",
+            "unite_evaluation": "points"
           },
           {
             "libelle": "Nomination d'une personne en charge des questions liées à la sécurité, à la qualité, à l'environnement de travail et au développement durable",
-            "ponderation_pct": 3,
-            "description": "Désignation d'un référent SQEDD (Sécurité, Qualité, Environnement, Développement Durable) au sein de l'entreprise.",
+            "ponderation_pct": 2.5,
+            "description": "Désignation d'un référent SQHE au sein de l'entreprise.",
             "elements_attendus": [
-              "Identité et fonction du référent SQEDD nommément désigné",
-              "Missions et périmètre de responsabilité",
-              "Qualifications/certifications du référent",
-              "Rattachement hiérarchique et disponibilité"
+              "Nom du référent SQHE",
+              "Missions et responsabilités dédiées",
+              "Rattachement hiérarchique"
             ],
-            "exemple_reponse_forte": "Mme Z, Responsable QHSE à temps plein, est en charge de l'ensemble des questions sécurité, qualité et environnement. Elle est rattachée à la direction et dispose d'un pouvoir d'arrêt de chantier en cas de danger grave.",
-            "source": "RC article 7.2"
+            "exemple_reponse_forte": "Mme Z, Responsable SQHE à temps plein depuis 3 ans, est nominativement désignée ; elle anime les réunions de sécurité hebdomadaires et pilote le système de management environnemental.",
+            "source": "RC article 7.2",
+            "unite_evaluation": "points"
           }
         ]
       }
     ],
     "prix": {
       "type_formule": "moins_disant",
-      "formule_explicite": "Pour les lots 1 à 28 sauf lot 26 : le montant du DQE masqué (tiré au sort parmi 3 DQE représentatifs) est calculé par application des prix du BPU du candidat. Le sous-critère 1 (DQE masqué, 45 points), sous-critère 2 (coefficient fournitures hors BPU, 3 points) et sous-critère 3 (remises quantitatives selon montant commande, 2 points) composent la note prix sur 50 points. Pour le lot 26 : note sur la base du montant total de la DPGF.",
+      "formule_explicite": "Pour les lots 1 à 28 (sauf lot 26) : noté sur 50 points, basé sur le montant total HT du DQE masqué (45 points), un coefficient sur fournitures hors bordereau (3 points), et des coefficients de remise selon montant de commande (2 points). Un DQE tiré au sort parmi 3 est complété par les prix du BPU du candidat. Pour le lot 26 : noté sur 50 points sur la base du montant total de la DPGF.",
+      "source": "RC article 7.2",
       "elements_a_chiffrer": [
-        "BPU complet par lot (prix unitaires HT pour chaque article du bordereau)",
-        "Coefficient sur fournitures hors bordereau (DIV.37 dans les BPU)",
-        "Coefficients de remise selon montant de commande (REM.1 si >20 000€ HT, REM.2 si >40 000€ HT, REM.3 si >60 000€ HT)",
-        "Taux horaire moyen main d'œuvre (intervention sans fourniture)",
-        "Taux horaire moyen hors heures ouvrables (nuit ou week-end)",
-        "Forfaits transport sur matériel loué (4 tranches kilométriques)",
-        "Coefficient de majoration amiante sur fournitures BPU",
-        "DPGF (lot 26 uniquement — Charpente métallique/Couverture bac acier/Bardage)"
+        "Bordereau des Prix Unitaires (BPU) en version Excel pour les lots 1 à 28 sauf lot 26",
+        "Décomposition du Prix Global et Forfaitaire (DPGF) pour le lot 26",
+        "Coefficient sur fournitures hors bordereau des prix unitaires",
+        "Coefficients de remise appliqués en fonction du montant de la commande (paliers 20 000 €, 40 000 €, 60 000 € HT)",
+        "Taux horaire moyen (intervention sans fourniture)",
+        "Taux horaire moyen hors heures ouvrables (de nuit ou en weekend)",
+        "Forfaits de transport sur matériel loué (4 paliers kilométriques)"
       ]
     },
-    "modalite_calcul_prix": "3 DQE masqués établis par l'acheteur ; l'un est tiré au sort avant ouverture des plis ; complété par les prix des candidats. L'offre supérieure au plafond de 1 500 000 € HT/an est déclarée irrégulière (jurisprudence TUE 7 décembre 2020 T536/19). Les remises quantitatives ne sont pas analysées dans le DQE masqué."
+    "modalite_calcul_prix": "Pour les lots 1-28 (sauf 26) : sous-critère 1 = montant DQE masqué tiré au sort (45 pts) ; sous-critère 2 = coefficient fournitures HBP (3 pts) ; sous-critère 3 = coefficients de remise quantitative (2 pts). Pour le lot 26 : montant total DPGF (50 pts). Toute offre supérieure au plafond annuel de 1 500 000 € HT est déclarée irrégulière."
   },
   "montant_marche": {
     "valeur_estimee_euros": null,
-    "fourchette_min_euros": null,
-    "fourchette_max_euros": 42000000,
-    "type": "plafond",
-    "duree_couverte": "4 ans maximum (1 an ferme + 3 reconductions tacites d'un an)",
-    "source_extraction": "RC article 2.1.1 — '1 500 000 euros HT par an pour chacun des lots' — 28 lots × 1 500 000 € × 4 ans = 168 000 000 € (plafond théorique global) ; par lot le plafond est 1 500 000 € HT/an soit 6 000 000 € sur 4 ans",
-    "commentaire": "Plafond annuel de 1 500 000 € HT par lot. L'acheteur retient jusqu'à 5 prestataires par lot ; chaque titulaire ne percevra donc qu'une fraction de ce plafond. Le plafond global pour l'ensemble des 28 lots est de 28 × 1 500 000 = 42 000 000 € HT par an."
+    "fourchette_min_euros": 42000000,
+    "fourchette_max_euros": 168000000,
+    "type": "calcule_volumes",
+    "duree_couverte": "4 ans maximum (1 an ferme + 3 reconductions tacites), 28 lots",
+    "source_extraction": "RC article 2.1.1 — plafond de 1 500 000 € HT/an/lot × 28 lots × 4 ans max = 168 M€ maximum théorique. Minimum estimé sur base 1 an ferme × 28 lots × hypothèse 30% taux d'utilisation moyen.",
+    "commentaire": "Le RC fixe un plafond de 1 500 000 € HT/an/lot. Plafond théorique total : 1 500 000 × 28 lots × 4 ans = 168 M€ sur la durée totale ; sur la période ferme (1 an) : 42 M€ au plafond. En pratique, les accords-cadres multi-attributaires sont rarement consommés à 100% ; la fourchette reflète la période ferme (42 M€) au plafond 4 ans (168 M€). La valeur la plus pertinente pour un candidat sur 1 lot est le plafond annuel de 1 500 000 € HT/an."
+  },
+  "montant_3_voies": {
+    "voie_1_eur": 1500000,
+    "voie_1_source": "RC article 2.1.1 — 'L'accord-cadre est conclu avec un montant maximum de 1 500 000 euros HT par an pour chacun des lots.'",
+    "voie_2_disponible": false,
+    "voie_2_min_eur": null,
+    "voie_2_max_eur": null,
+    "voie_2_hypotheses": [],
+    "voie_2_raison_indisponible": "Voie 1 disponible (plafond annuel par lot explicitement mentionné au RC). L'accord-cadre ne fixe pas de montant minimum garanti ; le plafond de 1 500 000 € HT/an/lot est la seule valeur contractuelle certaine."
+  },
+  "cout_realisation": {
+    "cout_total_eur": null,
+    "cout_min_eur": null,
+    "cout_max_eur": null,
+    "postes": [
+      {
+        "poste": "Main d'œuvre directe chantier (compagnons)",
+        "detail": "Variable selon commandes ; pour un chantier type de 50 000 € HT, environ 60-70% de main d'œuvre = 30 000-35 000 € MO chargée",
+        "montant_eur": null
+      },
+      {
+        "poste": "Matériaux et fournitures",
+        "detail": "20-30% du montant HT selon corps d'état",
+        "montant_eur": null
+      },
+      {
+        "poste": "Encadrement et frais généraux",
+        "detail": "Responsable de secteur + frais administratifs, estimé 8-12% du CA",
+        "montant_eur": null
+      },
+      {
+        "poste": "Location matériel de chantier",
+        "detail": "Échafaudages, nacelles, engins selon nature des travaux",
+        "montant_eur": null
+      }
+    ],
+    "taux_journaliers_retenus": "Taux marché indicatifs : compagnon qualifié BTP 350-420 €/j chargé (45-55 €/h) ; chef de chantier 550-650 €/j chargé ; responsable de secteur 700-900 €/j chargé. Ces taux sont indicatifs, la structure de coût réelle dépend de la convention collective et de la région.",
+    "commentaire": "Le coût de réalisation par lot est fortement variable selon la nature des bons de commande (petits travaux urgents vs marchés subséquents plus importants). L'accord-cadre ne garantissant aucun minimum, le coût de réponse à l'appel d'offres (constitution du BPU, mémoire technique) représente un investissement fixe à amortir. Estimation non chiffrable de façon précise sans connaissance du volume réel commandé."
   },
   "revision_prix": {
     "type": "non_communique",
@@ -440,316 +541,475 @@
     "ponderation": null,
     "periodicite": null,
     "formule_revision": null,
-    "source_extraction": null,
-    "commentaire": "Le CCAP n'est pas fourni dans les pièces analysées. La révision des prix n'est pas précisée dans le RC ou les BPU disponibles. À vérifier dans le CCAP du DCE complet."
+    "source_extraction": "CCAP non fourni dans les pièces analysées",
+    "commentaire": "Le CCAP (qui contient généralement les clauses de révision des prix) n'a pas été fourni parmi les pièces du DCE analysées. La révision des prix est mentionnée comme possible (article 1.10 du CCAP évoqué dans le RC) mais la formule n'est pas disponible."
   },
   "alertes_prix": [
-    "Toute offre dont le montant total du DQE masqué dépasse le plafond de 1 500 000 € HT/an est déclarée irrégulière (jurisprudence TUE 7/12/2020 T536/19) — calibrer impérativement les prix unitaires pour rester sous ce seuil",
-    "Le DQE à appliquer est tiré au sort parmi 3 versions masquées avant ouverture des plis — l'entreprise ne connaît pas à l'avance le DQE qui sera retenu pour la notation, ce qui exige une cohérence des prix sur tout le bordereau",
-    "Les remises quantitatives (REM.1/2/3 selon seuils 20/40/60 k€) sont analysées dans un sous-critère dédié (2 points) mais sont exclues du DQE masqué — leur impact est limité mais visible",
-    "Le coefficient amiante (DIV.38/DIV.4) est un poste à ne pas négliger dans les BPU — une sous-estimation peut peser sur la rentabilité des marchés subséquents en zones amiantées"
+    "Toute offre dont le montant DQE dépasse le plafond de 1 500 000 € HT/an sera déclarée irrégulière (jurisprudence TUE 7/12/2020 T536/19 citée au RC)",
+    "3 DQE masqués sont préparés par l'acheteur — l'un est tiré au sort avant l'ouverture des plis pour chaque lot : le candidat ne sait pas à l'avance quel DQE sera utilisé, rendant le positionnement prix complexe",
+    "Le critère prix est pondéré à 50 points sur 100, soit 50% du total — pondération relativement élevée qui favorise les stratégies de prix bas",
+    "Les remises quantitatives (paliers 20k/40k/60k€) entrent dans le calcul des notes mais ne sont pas analysées à part ; les sous-critères prix représentent 45+3+2=50 points à optimiser séparément"
   ],
   "references_exigees": {
     "experience_minimale_annees": 5,
-    "experience_source": "RC article 5.1 — 'liste des travaux exécutés au cours des 5 dernières années'",
+    "experience_source": "RC article 5.1 — liste des travaux exécutés au cours des 5 dernières années",
     "volume_min_references_similaires": null,
-    "volume_min_references_unite": "marchés similaires",
-    "secteur_experience": "Travaux dans le corps d'état correspondant au lot soumissionné (entretien, réhabilitation, mise en sécurité de bâtiments, idéalement en milieu scolaire ou ERP)",
+    "volume_min_references_unite": "chantiers réalisés",
+    "secteur_experience": "Travaux du corps d'état concerné par le lot soumissionné, avec montant, époque et lieu d'exécution ou attestations de bonne exécution",
     "secteur_source": "RC article 5.1",
     "certifications_obligatoires": [],
     "autres_exigences": [
       {
         "libelle": "Déclaration appropriée de banques ou preuve d'une assurance pour les risques professionnels",
-        "source": "RC article 5.1, pièce ASSRC"
+        "source": "RC article 5.1 (pièce n°4)"
       },
       {
-        "libelle": "Chiffre d'affaires global et le cas échéant chiffre d'affaires du domaine d'activité objet du marché sur les 3 derniers exercices disponibles",
-        "source": "RC article 5.1, pièce ASSDC"
-      },
-      {
-        "libelle": "DC1 (lettre de candidature) et DC2 (déclaration du candidat) à compléter",
-        "source": "RC article 5.1"
+        "libelle": "Chiffre d'affaires global et chiffre d'affaires du domaine d'activité portant sur les 3 derniers exercices disponibles",
+        "source": "RC article 5.1 (pièce n°5)"
       },
       {
         "libelle": "Déclaration sur l'honneur de non-exclusion des procédures de marchés publics",
-        "source": "RC article 5.1, pièce DHONNEUR"
+        "source": "RC article 5.1 (pièce n°3)"
       },
       {
-        "libelle": "Questionnaire Égalité Femmes-Hommes et lutte contre les discriminations (à compléter par le candidat retenu)",
-        "source": "RC article 7.2 et annexe au RC"
+        "libelle": "Clause sociale obligatoire : acceptation sans réserve de l'article 1.10 du CCAP relatif aux actions d'insertion professionnelle — toute offre réservant sur ce point sera déclarée irrégulière",
+        "source": "RC article 2.8"
       }
     ]
+  },
+  "dossier_candidature": {
+    "pieces_a_fournir": [
+      {
+        "libelle": "Lettre de candidature (partie I du kit de réponse ou DC1)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC article 5.1"
+      },
+      {
+        "libelle": "Déclaration du candidat (partie II du kit de réponse ou DC2)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC article 5.1"
+      },
+      {
+        "libelle": "Déclaration sur l'honneur de non-exclusion des procédures de marchés publics (fichier DHONNEUR)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC article 5.1"
+      },
+      {
+        "libelle": "Déclaration appropriée de banques ou preuve d'assurance pour les risques professionnels (fichier ASSRC)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC article 5.1"
+      },
+      {
+        "libelle": "Chiffre d'affaires global et du domaine d'activité portant sur les 3 derniers exercices disponibles (fichier ASSDC)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC article 5.1"
+      },
+      {
+        "libelle": "Liste des travaux exécutés au cours des 5 dernières années avec montant, époque et lieu d'exécution ou attestations de bonne exécution (fichier TRAVAUX)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC article 5.1"
+      },
+      {
+        "libelle": "Acte d'engagement et ses éventuelles annexes (fichier AE au format .doc ou .docx) — éventuellement accompagné du DC4 si sous-traitance",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC article 5.2"
+      },
+      {
+        "libelle": "Mémoire technique établi selon le cadre de réponse fourni (fichier MT) — organisation de la méthodologie et moyens humains avec organigramme",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC article 5.2"
+      },
+      {
+        "libelle": "Bordereau des prix unitaires en version Excel (fichier BPU) — pour les lots 1 à 28 sauf lot 26",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC article 5.2"
+      },
+      {
+        "libelle": "Décomposition du prix global et forfaitaire (fichier DPGF) — uniquement pour le lot 26 Charpente métallique/Couverture bac acier/Bardage",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC article 5.2"
+      },
+      {
+        "libelle": "Questionnaire développement durable selon le cadre de réponse fourni (fichier QDD)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC article 5.2"
+      }
+    ],
+    "mode_remise": "dématérialisé + copie de sauvegarde",
+    "plateforme_depot": "AWS — http://www.marches-publics.gironde.fr",
+    "signature_electronique_exigee": false,
+    "format_signature": "PAdES recommandé — signature requise uniquement pour l'attributaire sur le cahier des charges (CC) ou l'acte d'engagement (AE) au format PDF",
+    "nombre_exemplaires": null,
+    "langue": "français",
+    "duree_validite_offres_jours": 210,
+    "modalites_source": "RC articles 3, 6 et 2.6"
   },
   "lots": [
     {
       "numero": 1,
-      "intitule": "Électricité courants forts et faibles — Secteur N°1 Bordeaux Métropole",
-      "zone_geographique": "Bordeaux Métropole (Gironde)",
-      "volume_estime": 1500000,
-      "volume_estime_unite": "€ HT/an (plafond)",
-      "particularites": "Présence d'installations HTA/BT sur certains sites (annexe recensement HTA). Jusqu'à 5 prestataires retenus."
+      "intitule": "Électricité courants forts et faibles SECTEUR N°1 BORDEAUX METROPOLE",
+      "domaine": "btp_second_oeuvre",
+      "zone_geographique": "Bordeaux Métropole",
+      "volume_estime": null,
+      "volume_estime_unite": null,
+      "cout_estime_min_eur": 600000,
+      "cout_estime_max_eur": 900000,
+      "particularites": "Inclut installations HTA (annexe de recensement fournie) ; plafond 1 500 000 € HT/an"
     },
     {
       "numero": 2,
-      "intitule": "Électricité courants forts et faibles — Secteur N°2 Est",
-      "zone_geographique": "Secteur Est Gironde",
-      "volume_estime": 1500000,
-      "volume_estime_unite": "€ HT/an (plafond)",
-      "particularites": "Installations HTA/BT possibles. 5 prestataires max."
+      "intitule": "Électricité courants forts et faibles SECTEUR N°2 EST",
+      "domaine": "btp_second_oeuvre",
+      "zone_geographique": "Gironde Est",
+      "volume_estime": null,
+      "volume_estime_unite": null,
+      "cout_estime_min_eur": 500000,
+      "cout_estime_max_eur": 800000,
+      "particularites": "Secteur géographique Est de la Gironde ; plafond 1 500 000 € HT/an"
     },
     {
       "numero": 3,
-      "intitule": "Électricité courants forts et faibles — Secteur N°3 Ouest",
-      "zone_geographique": "Secteur Ouest Gironde",
-      "volume_estime": 1500000,
-      "volume_estime_unite": "€ HT/an (plafond)",
-      "particularites": "Installations HTA/BT possibles. 5 prestataires max."
+      "intitule": "Électricité courants forts et faibles SECTEUR N°3 OUEST",
+      "domaine": "btp_second_oeuvre",
+      "zone_geographique": "Gironde Ouest",
+      "volume_estime": null,
+      "volume_estime_unite": null,
+      "cout_estime_min_eur": 500000,
+      "cout_estime_max_eur": 800000,
+      "particularites": "Secteur géographique Ouest de la Gironde ; plafond 1 500 000 € HT/an"
     },
     {
       "numero": 4,
-      "intitule": "Menuiserie alu, Vitrerie, Serrurerie — Secteur N°1 Bordeaux Métropole",
+      "intitule": "Menuiserie alu, Vitrerie, Serrurerie SECTEUR N°1 BORDEAUX METROPOLE",
+      "domaine": "btp_second_oeuvre",
       "zone_geographique": "Bordeaux Métropole",
-      "volume_estime": 1500000,
-      "volume_estime_unite": "€ HT/an (plafond)",
-      "particularites": "BPU très détaillé : menuiseries industrialisées, artisanales, vitrages multiples, stores, volets roulants, révision/réparation."
+      "volume_estime": null,
+      "volume_estime_unite": null,
+      "cout_estime_min_eur": 500000,
+      "cout_estime_max_eur": 800000,
+      "particularites": "BPU très détaillé (vitrages, stores, volets roulants) ; plafond 1 500 000 € HT/an"
     },
     {
       "numero": 5,
-      "intitule": "Menuiserie alu, Vitrerie, Serrurerie — Secteur N°2 Est",
-      "zone_geographique": "Secteur Est Gironde",
-      "volume_estime": 1500000,
-      "volume_estime_unite": "€ HT/an (plafond)",
-      "particularites": null
+      "intitule": "Menuiserie alu, Vitrerie, Serrurerie SECTEUR N°2 EST",
+      "domaine": "btp_second_oeuvre",
+      "zone_geographique": "Gironde Est",
+      "volume_estime": null,
+      "volume_estime_unite": null,
+      "cout_estime_min_eur": 400000,
+      "cout_estime_max_eur": 700000,
+      "particularites": "Plafond 1 500 000 € HT/an"
     },
     {
       "numero": 6,
-      "intitule": "Menuiserie alu, Vitrerie, Serrurerie — Secteur N°3 Ouest",
-      "zone_geographique": "Secteur Ouest Gironde",
-      "volume_estime": 1500000,
-      "volume_estime_unite": "€ HT/an (plafond)",
-      "particularites": null
+      "intitule": "Menuiserie alu, Vitrerie, Serrurerie SECTEUR N°3 OUEST",
+      "domaine": "btp_second_oeuvre",
+      "zone_geographique": "Gironde Ouest",
+      "volume_estime": null,
+      "volume_estime_unite": null,
+      "cout_estime_min_eur": 400000,
+      "cout_estime_max_eur": 700000,
+      "particularites": "Plafond 1 500 000 € HT/an"
     },
     {
       "numero": 7,
-      "intitule": "Plomberie, Sanitaire, Chauffage, Ventilation — Secteur N°1 Bordeaux Métropole",
+      "intitule": "Plomberie, Sanitaire, Chauffage, Ventilation SECTEUR N°1 BORDEAUX METROPOLE",
+      "domaine": "btp_second_oeuvre",
       "zone_geographique": "Bordeaux Métropole",
-      "volume_estime": 1500000,
-      "volume_estime_unite": "€ HT/an (plafond)",
-      "particularites": null
+      "volume_estime": null,
+      "volume_estime_unite": null,
+      "cout_estime_min_eur": 600000,
+      "cout_estime_max_eur": 900000,
+      "particularites": "Corps d'état important en collège (sanitaires, chaufferie) ; plafond 1 500 000 € HT/an"
     },
     {
       "numero": 8,
-      "intitule": "Plomberie, Sanitaire, Chauffage, Ventilation — Secteur N°2 Est",
-      "zone_geographique": "Secteur Est Gironde",
-      "volume_estime": 1500000,
-      "volume_estime_unite": "€ HT/an (plafond)",
-      "particularites": null
+      "intitule": "Plomberie, Sanitaire, Chauffage, Ventilation SECTEUR N°2 EST",
+      "domaine": "btp_second_oeuvre",
+      "zone_geographique": "Gironde Est",
+      "volume_estime": null,
+      "volume_estime_unite": null,
+      "cout_estime_min_eur": 500000,
+      "cout_estime_max_eur": 800000,
+      "particularites": "Plafond 1 500 000 € HT/an"
     },
     {
       "numero": 9,
-      "intitule": "Plomberie, Sanitaire, Chauffage, Ventilation — Secteur N°3 Ouest",
-      "zone_geographique": "Secteur Ouest Gironde",
-      "volume_estime": 1500000,
-      "volume_estime_unite": "€ HT/an (plafond)",
-      "particularites": null
+      "intitule": "Plomberie, Sanitaire, Chauffage, Ventilation SECTEUR N°3 OUEST",
+      "domaine": "btp_second_oeuvre",
+      "zone_geographique": "Gironde Ouest",
+      "volume_estime": null,
+      "volume_estime_unite": null,
+      "cout_estime_min_eur": 500000,
+      "cout_estime_max_eur": 800000,
+      "particularites": "Plafond 1 500 000 € HT/an"
     },
     {
       "numero": 10,
-      "intitule": "Couverture tuiles, Zinguerie, Charpente bois — Secteur N°1 Bordeaux Métropole",
+      "intitule": "Couverture tuiles, Zinguerie, Charpente bois SECTEUR N°1 BORDEAUX METROPOLE",
+      "domaine": "btp_second_oeuvre",
       "zone_geographique": "Bordeaux Métropole",
-      "volume_estime": 1500000,
-      "volume_estime_unite": "€ HT/an (plafond)",
-      "particularites": "BPU inclut tuiles canal, tuiles à emboîtement, charpente bois, zinguerie complète, gouttières zinc et PVC, fenêtres de toit."
+      "volume_estime": null,
+      "volume_estime_unite": null,
+      "cout_estime_min_eur": 450000,
+      "cout_estime_max_eur": 700000,
+      "particularites": "BPU détaillé avec tuiles canal (spécificité girondine) ; plafond 1 500 000 € HT/an"
     },
     {
       "numero": 11,
-      "intitule": "Couverture tuiles, Zinguerie, Charpente bois — Secteur N°2 Est",
-      "zone_geographique": "Secteur Est Gironde",
-      "volume_estime": 1500000,
-      "volume_estime_unite": "€ HT/an (plafond)",
-      "particularites": null
+      "intitule": "Couverture tuiles, Zinguerie, Charpente bois SECTEUR N°2 EST",
+      "domaine": "btp_second_oeuvre",
+      "zone_geographique": "Gironde Est",
+      "volume_estime": null,
+      "volume_estime_unite": null,
+      "cout_estime_min_eur": 350000,
+      "cout_estime_max_eur": 600000,
+      "particularites": "Plafond 1 500 000 € HT/an"
     },
     {
       "numero": 12,
-      "intitule": "Couverture tuiles, Zinguerie, Charpente bois — Secteur N°3 Ouest",
-      "zone_geographique": "Secteur Ouest Gironde",
-      "volume_estime": 1500000,
-      "volume_estime_unite": "€ HT/an (plafond)",
-      "particularites": null
+      "intitule": "Couverture tuiles, Zinguerie, Charpente bois SECTEUR N°3 OUEST",
+      "domaine": "btp_second_oeuvre",
+      "zone_geographique": "Gironde Ouest",
+      "volume_estime": null,
+      "volume_estime_unite": null,
+      "cout_estime_min_eur": 350000,
+      "cout_estime_max_eur": 600000,
+      "particularites": "Plafond 1 500 000 € HT/an"
     },
     {
       "numero": 13,
-      "intitule": "Gros œuvre — Secteur N°1 Bordeaux Métropole",
+      "intitule": "Gros Oeuvre SECTEUR N°1 BORDEAUX METROPOLE",
+      "domaine": "btp_gros_oeuvre",
       "zone_geographique": "Bordeaux Métropole",
-      "volume_estime": 1500000,
-      "volume_estime_unite": "€ HT/an (plafond)",
-      "particularites": "BPU très complet : terrassement, réseaux organiques, maçonnerie, béton armé, ravalement, voirie, clôtures, consolidation, pierre de taille. Travaux sur murs en pierres bordelaises inclus."
+      "volume_estime": null,
+      "volume_estime_unite": null,
+      "cout_estime_min_eur": 700000,
+      "cout_estime_max_eur": 1050000,
+      "particularites": "BPU très complet (pierre de taille bordelaise incluse) ; plafond 1 500 000 € HT/an"
     },
     {
       "numero": 14,
-      "intitule": "Gros œuvre — Secteur N°2 Est",
-      "zone_geographique": "Secteur Est Gironde",
-      "volume_estime": 1500000,
-      "volume_estime_unite": "€ HT/an (plafond)",
-      "particularites": null
+      "intitule": "Gros Oeuvre SECTEUR N°2 EST",
+      "domaine": "btp_gros_oeuvre",
+      "zone_geographique": "Gironde Est",
+      "volume_estime": null,
+      "volume_estime_unite": null,
+      "cout_estime_min_eur": 550000,
+      "cout_estime_max_eur": 850000,
+      "particularites": "Plafond 1 500 000 € HT/an"
     },
     {
       "numero": 15,
-      "intitule": "Gros œuvre — Secteur N°3 Ouest",
-      "zone_geographique": "Secteur Ouest Gironde",
-      "volume_estime": 1500000,
-      "volume_estime_unite": "€ HT/an (plafond)",
-      "particularites": null
+      "intitule": "Gros Oeuvre SECTEUR N°3 OUEST",
+      "domaine": "btp_gros_oeuvre",
+      "zone_geographique": "Gironde Ouest",
+      "volume_estime": null,
+      "volume_estime_unite": null,
+      "cout_estime_min_eur": 550000,
+      "cout_estime_max_eur": 850000,
+      "particularites": "Plafond 1 500 000 € HT/an"
     },
     {
       "numero": 16,
-      "intitule": "VRD — Toute la Gironde",
-      "zone_geographique": "Département de la Gironde (33)",
-      "volume_estime": 1500000,
-      "volume_estime_unite": "€ HT/an (plafond)",
-      "particularites": "Périmètre géographique étendu à toute la Gironde. Capacité logistique nécessaire."
+      "intitule": "VRD TOUTE LA GIRONDE",
+      "domaine": "btp_voirie_reseaux",
+      "zone_geographique": "Gironde (33)",
+      "volume_estime": null,
+      "volume_estime_unite": null,
+      "cout_estime_min_eur": 600000,
+      "cout_estime_max_eur": 900000,
+      "particularites": "Lot couvrant toute la Gironde — périmètre géographique étendu ; plafond 1 500 000 € HT/an"
     },
     {
       "numero": 17,
-      "intitule": "Plâtrerie et faux plafonds — Secteur N°1 Bordeaux Métropole",
+      "intitule": "Plâtrerie Faux plafonds SECTEUR N°1 BORDEAUX METROPOLE",
+      "domaine": "btp_second_oeuvre",
       "zone_geographique": "Bordeaux Métropole",
-      "volume_estime": 1500000,
-      "volume_estime_unite": "€ HT/an (plafond)",
-      "particularites": "BPU inclut cloisons sèches, doublages, plafonds minéraux et plâtre, isolation thermique et acoustique, blocs-portes."
+      "volume_estime": null,
+      "volume_estime_unite": null,
+      "cout_estime_min_eur": 400000,
+      "cout_estime_max_eur": 650000,
+      "particularites": "BPU inclut isolation thermique et traitement acoustique ; plafond 1 500 000 € HT/an"
     },
     {
       "numero": 18,
-      "intitule": "Plâtrerie et faux plafonds — Secteur N°2 Est",
-      "zone_geographique": "Secteur Est Gironde",
-      "volume_estime": 1500000,
-      "volume_estime_unite": "€ HT/an (plafond)",
-      "particularites": null
+      "intitule": "Plâtrerie Faux plafonds SECTEUR N°2 EST",
+      "domaine": "btp_second_oeuvre",
+      "zone_geographique": "Gironde Est",
+      "volume_estime": null,
+      "volume_estime_unite": null,
+      "cout_estime_min_eur": 300000,
+      "cout_estime_max_eur": 500000,
+      "particularites": "Plafond 1 500 000 € HT/an"
     },
     {
       "numero": 19,
-      "intitule": "Plâtrerie et faux plafonds — Secteur N°3 Ouest",
-      "zone_geographique": "Secteur Ouest Gironde",
-      "volume_estime": 1500000,
-      "volume_estime_unite": "€ HT/an (plafond)",
-      "particularites": null
+      "intitule": "Plâtrerie Faux plafonds SECTEUR N°3 OUEST",
+      "domaine": "btp_second_oeuvre",
+      "zone_geographique": "Gironde Ouest",
+      "volume_estime": null,
+      "volume_estime_unite": null,
+      "cout_estime_min_eur": 300000,
+      "cout_estime_max_eur": 500000,
+      "particularites": "Plafond 1 500 000 € HT/an"
     },
     {
       "numero": 20,
-      "intitule": "Ravalement de peinture et revêtements de sols souples — Secteur N°1 Bordeaux Métropole",
+      "intitule": "Ravalement de peinture et revêtements de sols souples SECTEUR N°1 BORDEAUX METROPOLE",
+      "domaine": "btp_second_oeuvre",
       "zone_geographique": "Bordeaux Métropole",
-      "volume_estime": 1500000,
-      "volume_estime_unite": "€ HT/an (plafond)",
-      "particularites": "BPU très exhaustif : revêtements muraux, sols scellés/collés (PVC, textile, caoutchouc, moquette), peintures intérieures/extérieures sur tous supports, ITE, papiers peints."
+      "volume_estime": null,
+      "volume_estime_unite": null,
+      "cout_estime_min_eur": 500000,
+      "cout_estime_max_eur": 800000,
+      "particularites": "BPU très détaillé (peintures, ITE, revêtements souples) ; plafond 1 500 000 € HT/an"
     },
     {
       "numero": 21,
-      "intitule": "Ravalement de peinture et revêtements de sols souples — Secteur N°2 Est",
-      "zone_geographique": "Secteur Est Gironde",
-      "volume_estime": 1500000,
-      "volume_estime_unite": "€ HT/an (plafond)",
-      "particularites": null
+      "intitule": "Ravalement de peinture et revêtements de sols souples SECTEUR N°2 EST",
+      "domaine": "btp_second_oeuvre",
+      "zone_geographique": "Gironde Est",
+      "volume_estime": null,
+      "volume_estime_unite": null,
+      "cout_estime_min_eur": 400000,
+      "cout_estime_max_eur": 650000,
+      "particularites": "Plafond 1 500 000 € HT/an"
     },
     {
       "numero": 22,
-      "intitule": "Ravalement de peinture et revêtements de sols souples — Secteur N°3 Ouest",
-      "zone_geographique": "Secteur Ouest Gironde",
-      "volume_estime": 1500000,
-      "volume_estime_unite": "€ HT/an (plafond)",
-      "particularites": null
+      "intitule": "Ravalement de peinture et revêtements de sols souples SECTEUR N°3 OUEST",
+      "domaine": "btp_second_oeuvre",
+      "zone_geographique": "Gironde Ouest",
+      "volume_estime": null,
+      "volume_estime_unite": null,
+      "cout_estime_min_eur": 400000,
+      "cout_estime_max_eur": 650000,
+      "particularites": "Plafond 1 500 000 € HT/an"
     },
     {
       "numero": 23,
-      "intitule": "Étanchéité — Secteur N°1 Bordeaux Métropole",
+      "intitule": "Étanchéité SECTEUR N°1 BORDEAUX METROPOLE",
+      "domaine": "btp_second_oeuvre",
       "zone_geographique": "Bordeaux Métropole",
-      "volume_estime": 1500000,
-      "volume_estime_unite": "€ HT/an (plafond)",
-      "particularites": "BPU inclut étanchéité multicouche et monocouche, toitures terrasses, végétalisées, parkings, bacs acier, recherche de fuites (caméra thermique, gaz traceur, impulsion électrique)."
+      "volume_estime": null,
+      "volume_estime_unite": null,
+      "cout_estime_min_eur": 500000,
+      "cout_estime_max_eur": 800000,
+      "particularites": "BPU très complet (multicouche, monocouche, végétalisation) ; plafond 1 500 000 € HT/an"
     },
     {
       "numero": 24,
-      "intitule": "Étanchéité — Secteur N°2 Est",
-      "zone_geographique": "Secteur Est Gironde",
-      "volume_estime": 1500000,
-      "volume_estime_unite": "€ HT/an (plafond)",
-      "particularites": null
+      "intitule": "Étanchéité SECTEUR N°2 EST",
+      "domaine": "btp_second_oeuvre",
+      "zone_geographique": "Gironde Est",
+      "volume_estime": null,
+      "volume_estime_unite": null,
+      "cout_estime_min_eur": 400000,
+      "cout_estime_max_eur": 650000,
+      "particularites": "Plafond 1 500 000 € HT/an"
     },
     {
       "numero": 25,
-      "intitule": "Étanchéité — Secteur N°3 Ouest",
-      "zone_geographique": "Secteur Ouest Gironde",
-      "volume_estime": 1500000,
-      "volume_estime_unite": "€ HT/an (plafond)",
-      "particularites": null
+      "intitule": "Étanchéité SECTEUR N°3 OUEST",
+      "domaine": "btp_second_oeuvre",
+      "zone_geographique": "Gironde Ouest",
+      "volume_estime": null,
+      "volume_estime_unite": null,
+      "cout_estime_min_eur": 400000,
+      "cout_estime_max_eur": 650000,
+      "particularites": "Plafond 1 500 000 € HT/an"
     },
     {
       "numero": 26,
-      "intitule": "Charpente métallique / Couverture bac acier / Bardage — Toute la Gironde",
-      "zone_geographique": "Département de la Gironde (33)",
-      "volume_estime": 1500000,
-      "volume_estime_unite": "€ HT/an (plafond)",
-      "particularites": "Seul lot évalué sur DPGF (et non BPU). Périmètre toute Gironde. Lot unique sans découpage géographique."
+      "intitule": "Charpente métallique, couverture bac acier, bardage TOUTE LA GIRONDE",
+      "domaine": "btp_gros_oeuvre",
+      "zone_geographique": "Gironde (33)",
+      "volume_estime": null,
+      "volume_estime_unite": null,
+      "cout_estime_min_eur": 700000,
+      "cout_estime_max_eur": 1050000,
+      "particularites": "Seul lot noté sur DPGF (pas de BPU) ; lot couvrant toute la Gironde ; plafond 1 500 000 € HT/an"
     },
     {
       "numero": 27,
-      "intitule": "Désamiantage — Toute la Gironde",
-      "zone_geographique": "Département de la Gironde (33)",
-      "volume_estime": 1500000,
-      "volume_estime_unite": "€ HT/an (plafond)",
-      "particularites": "Compétences réglementaires spécifiques requises (sous-section 3 et 4 selon zones). Périmètre toute Gironde."
+      "intitule": "Démolition, Désamiantage TOUTE LA GIRONDE",
+      "domaine": "btp_demolition",
+      "zone_geographique": "Gironde (33)",
+      "volume_estime": null,
+      "volume_estime_unite": null,
+      "cout_estime_min_eur": 400000,
+      "cout_estime_max_eur": 700000,
+      "particularites": "Nécessite qualification désamiantage SS4 ; risque amiante présent (coefficient majoration BPU prévu) ; toute la Gironde ; plafond 1 500 000 € HT/an"
     },
     {
       "numero": 28,
-      "intitule": "Accès toiture et conformité des dispositifs anti-chutes — Toute la Gironde",
-      "zone_geographique": "Département de la Gironde (33)",
-      "volume_estime": 1500000,
-      "volume_estime_unite": "€ HT/an (plafond)",
-      "particularites": "BPU spécifique : diagnostic (taux horaire), tests à l'arrachage, notes de calcul, échelles (amovibles, crinolines, fixes), points d'ancrage (9 types), lignes de vie horizontales/verticales, rails de sécurité, garde-corps, passerelles. Périmètre toute Gironde."
+      "intitule": "Accès toiture et conformité des dispositifs anti-chutes TOUTE LA GIRONDE",
+      "domaine": "btp_second_oeuvre",
+      "zone_geographique": "Gironde (33)",
+      "volume_estime": null,
+      "volume_estime_unite": null,
+      "cout_estime_min_eur": 200000,
+      "cout_estime_max_eur": 400000,
+      "particularites": "BPU spécialisé (lignes de vie, points d'ancrage, échelles, garde-corps) ; diagnostic inclus ; toute la Gironde ; plafond 1 500 000 € HT/an"
     }
   ],
+  "tranches": [],
   "calendrier": {
     "date_limite_offres": "2026-07-27",
     "date_demarrage_prevue": "2027-01-01",
-    "duree_marche": "1 an ferme à compter du 1er janvier 2027, reconductible 3 fois par tacite reconduction annuelle, durée totale maximale 4 ans"
+    "duree_marche": "1 an ferme à compter du 1er janvier 2027, reconductible tacitement 3 fois (durée totale maximale 4 ans)"
   },
   "alertes_candidat": [
-    "La clause d'actions sociales est OBLIGATOIRE dans les marchés subséquents : toute offre comportant des réserves sur cette clause est déclarée irrégulière. Les candidats doivent impérativement l'accepter sans condition (RC article 2.8).",
-    "Offre irrégulière si le montant du DQE masqué dépasse le plafond de 1 500 000 € HT/an : calibrer les prix du BPU en conséquence pour rester sous ce seuil (RC article 7.2 et jurisprudence TUE 7/12/2020).",
-    "Le lot 26 (Charpente métallique/Couverture bac acier/Bardage) est le seul évalué sur DPGF et non sur BPU : ne pas remettre un BPU pour ce lot sous peine d'offre non-conforme.",
-    "Les fichiers doivent être nommés avec 10 caractères maximum, sans accent, sans caractère spécial, sans nom de société — les noms de fichiers non conformes peuvent empêcher l'ouverture des plis (RC article 5.2).",
-    "Le désamiantage (lot 27) implique des compétences réglementaires spécifiques (sous-section 3 et 4 amiante) : vérifier l'accréditation COFRAC de l'opérateur et les certifications des encadrants avant de candidater."
+    "La clause sociale est OBLIGATOIRE et non négociable : toute offre comportant des réserves sur l'article 1.10 du CCAP (insertion professionnelle) est déclarée irrégulière — à accepter sans condition (RC article 2.8)",
+    "L'accord-cadre ne garantit aucun minimum de commande : le plafond de 1 500 000 € HT/an/lot est un maximum mais il n'y a aucun montant minimum garanti — risque de volume nul si l'acheteur ne passe pas de commandes",
+    "Pour le lot 27 (Désamiantage), des compétences et certifications spécifiques en désamiantage sous-section 4 sont implicitement requises compte tenu de la nature des travaux et du coefficient amiante prévu aux BPU",
+    "La nomination et disponibilité d'un interlocuteur unique sont évaluées sur 9 points — un manque de nomination nominative avec CV peut faire perdre un nombre significatif de points sur la valeur technique",
+    "Le BPU est très volumineux (plusieurs centaines de lignes par lot) — une erreur de remplissage (prix unitaire manquant, prix zéro non intentionnel) peut fausser le DQE et conduire à une offre déclarée irrégulière ou anormalement basse"
   ],
   "points_differenciants_attendus": [
     {
-      "libelle": "Expérience démontrée en milieu scolaire occupé",
-      "exemple": "Présenter des références de chantiers en collèges, lycées ou établissements scolaires en activité, avec description des dispositifs mis en place pour protéger les élèves et le personnel. Joindre des attestations de bonne exécution signées par des conseils départementaux ou régionaux.",
-      "source": "RC article 7.2 — sous-critère 'Organisation de la méthodologie'"
+      "libelle": "Expérience avérée en milieu scolaire occupé avec exemples concrets",
+      "exemple": "Citer des chantiers réalisés dans des collèges ou lycées en fonctionnement, avec description des précautions mises en œuvre (balisage, phasage horaire, coordination avec le gestionnaire) ; fournir des attestations de bonne exécution d'établissements publics scolaires.",
+      "source": "RC article 7.2 — sous-critère 'Organisation de la méthodologie pour la réalisation des travaux'"
     },
     {
-      "libelle": "Interlocuteur unique dédié avec CV solide et expérience sectorielle",
-      "exemple": "Désigner nominativement un responsable de chantier senior ayant géré au moins 5 chantiers en établissements scolaires occupés, avec CV détaillé et organigramme clair de remplacement. La qualité du CV de l'interlocuteur est notée sur 9 points (40% de la note technique).",
-      "source": "RC article 7.2 — sous-sous-critère 'Désignation de l'interlocuteur unique', 9 points"
+      "libelle": "Interlocuteur unique expérimenté avec profil adapté aux marchés publics",
+      "exemple": "Présenter un responsable de secteur avec CV détaillé mettant en avant des marchés publics similaires (accord-cadre collectivité, maintenance bâtiments éducatifs), avec organigramme complet incluant le remplaçant nommé et les règles de suppléance activées automatiquement.",
+      "source": "RC article 7.2 — sous-critère 'Moyens humains' (9 points sur désignation interlocuteur)"
     },
     {
-      "libelle": "Démarche RSE structurée avec indicateurs mesurables",
-      "exemple": "Présenter des données chiffrées sur la réduction des émissions CO2 (parc véhicules, taux de valorisation déchets >80%), un référent QHSE nommé, et des actions de formation environnementale documentées. Les 4 sous-critères environnementaux pèsent 10 points sur 40 (25% de la note technique).",
+      "libelle": "Politique RSE et environnementale documentée avec preuves",
+      "exemple": "Joindre au questionnaire DD des justificatifs concrets : factures de location véhicules hybrides, attestations de formation environnementale, bordereaux de suivi de déchets d'un chantier récent, organigramme avec fiche de poste du référent SQHE — le questionnaire DD est noté sur 10 points soit 10% du total.",
       "source": "RC article 7.2 — Critère 3 Performances environnementales"
     },
     {
-      "libelle": "Politique de remises quantitatives attractive pour les grandes commandes",
-      "exemple": "Proposer des remises progressives selon les seuils de commande (>20 000 €, >40 000 €, >60 000 € HT) qui démontrent la volonté de l'entreprise d'accompagner les grandes opérations tout en restant compétitif sur les petites interventions en bon de commande.",
-      "source": "RC article 7.2 — sous-critère prix 3 : coefficients de remise sur 2 points"
+      "libelle": "Stratégie de prix cohérente sur les 3 DQE possibles",
+      "exemple": "Analyser les 3 DQE masqués fournis (représentatifs des prestations estimées) et calibrer le BPU pour être compétitif quel que soit le DQE tiré au sort — éviter d'optimiser un seul scénario au détriment des deux autres.",
+      "source": "RC article 7.2 — mécanisme DQE masqué"
     },
     {
-      "libelle": "Capacité multi-lots et couverture géographique",
-      "exemple": "Pour les entreprises capables de répondre à plusieurs lots (même corps d'état sur différents secteurs), mettre en avant les agences ou équipes localisées sur chaque secteur géographique, réduisant les délais d'intervention et les coûts de déplacement — argument fort pour la DQE et le coefficient de remise.",
+      "libelle": "Implantation géographique locale dans le secteur visé",
+      "exemple": "Pour un lot sectoriel (ex: lot 1 Bordeaux Métropole), mentionner la localisation des équipes, le temps de déplacement moyen, et la capacité de réactivité sur urgences (délai d'intervention < 4h) — élément valorisé dans la méthodologie et les moyens humains.",
       "source": null
     }
   ],
   "_meta": {
     "id_marche": "BOAMP-26-56717",
     "type": "complet",
-    "date_generation": "2026-06-14T23:12:32.004682+00:00",
-    "extraction_le": "2026-06-14T23:12:32.004682+00:00",
+    "date_generation": "2026-06-19T22:24:03.864813+00:00",
+    "extraction_le": "2026-06-19T22:24:03.864813+00:00",
     "modele": "claude-sonnet-4-6",
     "preset_utilise": "btp",
     "presets_matches": [
@@ -757,13 +1017,13 @@
       "ingenierie"
     ],
     "prompts_versions": {
-      "btp/_preset.json": "sha256:d1717e0d87f6c265",
-      "ingenierie/_preset.json": "sha256:56f813f829343e24"
+      "btp/_preset.json": "sha256:055bf6f8b2c1f771",
+      "ingenierie/_preset.json": "sha256:b924b32a088673d6"
     },
-    "tokens_input": 194051,
-    "tokens_output": 13451,
-    "cout_eur": 0.7447,
-    "duree_sec": 201.7,
+    "tokens_input": 205275,
+    "tokens_output": 16273,
+    "cout_eur": 0.8169,
+    "duree_sec": 237.9,
     "pdfs_traites": [
       {
         "nom": "AWS-MPI-1833070-RC-V3.pdf",

@@ -1,63 +1,72 @@
 {
-  "synthese_marche": "Marché Global Sectoriel de Conception-Réalisation pour la modernisation et l'extension de l'Hôpital Saint Clair des Hôpitaux du Bassin de Thau (Sète), passé par le CHU de Montpellier en tant qu'établissement support du GHT. Il comprend la construction d'un nouveau bâtiment ambulatoire/SMR (~4 102 m² SDO neuf), la réhabilitation du plateau de naissance et des existants (~1 976 m² SDO), des démolitions, la révision des accès/VRD, pour une enveloppe prévisionnelle de 20 180 000 € HT (base + PSE n°1). Le groupement titulaire doit obligatoirement intégrer un constructeur mandataire (EG ou management de projet) et une équipe de conception (architecte + BET TCE + CSSI).",
+  "synthese_marche": "Marché global sectoriel de conception-réalisation portant sur la modernisation et l'extension de l'Hôpital Saint Clair des Hôpitaux du Bassin de Thau (HBT), passé par le CHU de Montpellier en tant qu'établissement support du GHT. Le projet comprend la construction neuve d'un bâtiment ambulatoire/SMR (~4 102 m² SDO), la réhabilitation de l'existant (~1 976 m² SDO) incluant la relocalisation du plateau de naissance, et diverses restructurations, pour une enveloppe prévisionnelle de 20 180 000 € HT (base + PSE n°1). La durée totale est de 66 mois (27 mois études + 36 mois travaux + 12 mois GPA), avec démarrage prévu en juin 2027.",
   "domaines_metier": [
     {
-      "code": "btp_gros_oeuvre"
+      "code": "btp_gros_oeuvre",
+      "poids": 0.7,
+      "lots_concernes": [
+        "LOT-0001"
+      ]
+    },
+    {
+      "code": "moe_architecte_urbanisme",
+      "poids": 0.3,
+      "lots_concernes": [
+        "LOT-0001"
+      ]
     }
   ],
-  "raison_classification": "Marché de travaux (CPV 45000000) portant sur la construction neuve d'un bâtiment hospitalier et la réhabilitation de bâtiments existants, intégrant conception et réalisation TCE. La dominante est le gros œuvre/construction neuve avec second œuvre, VRD et équipements techniques. Le volet conception (honoraires de MOE) est intégré dans le marché global sectoriel et ne constitue pas un marché d'ingénierie séparé.",
+  "raison_classification": "Marché global sectoriel de conception-réalisation hospitalière : il intègre à la fois la conception (APS, AVP, PRO, EXE — équipe architecte + BET TCE) et la réalisation tous corps d'état (gros œuvre, second œuvre, VRD, équipements techniques). Le domaine principal est le BTP gros œuvre/construction neuve (70%), complété par la mission MOE architecturale intrinsèque au montage conception-réalisation (30%). Le CPV principal 45000000 confirme la dominante travaux.",
   "caracteristiques_techniques_chantier": {
-    "description": "Construction d'un bâtiment neuf à connotation ambulatoire et SMR (4 102 m² SDO), réhabilitation du plateau de naissance en proximité du bloc opératoire (restructuration ex-BOP/REA/SSPI), restructuration partielle des existants (humanisation court séjour gériatrique, développement capacitaire médecine/gériatrie), révision des accès/flux/stationnements, extension de la pharmacie, démolition de la Maison Médicale de Garde, VRD. PSE n°1 optionnelle : réalisation d'une salle d'opération en clos couvert.",
-    "typologie_ouvrage": "Établissement de santé MCO (Médecine Chirurgie Obstétrique) – hôpital en activité",
-    "surface_volume": "6 078 m² SDO total : 4 102 m² SDO construction neuve + 1 976 m² SDO réhabilitation",
-    "site_occupe": "true — chantier en site hospitalier pleinement occupé avec maintien de la continuité d'activité du Centre Hospitalier pendant toute la durée de l'opération",
+    "description": "Construction d'un nouveau bâtiment ambulatoire et SMR (~4 102 m² SDO), réhabilitation du plateau de naissance et restructuration des existants (~1 976 m² SDO), démolition de la Maison Médicale de Garde, révision des accès/flux/stationnements, extension pharmacie, installation scanner. PSE n°1 : réalisation d'un clos-couvert pour future extension du bloc opératoire. Travaux tous corps d'état avec maintien d'activité hospitalière en site occupé.",
+    "typologie_ouvrage": "Établissement de santé — Médecine Chirurgie Obstétrique (MCO), construction neuve et réhabilitation hospitalière",
+    "surface_volume": "6 078 m² SDO total (4 102 m² construction neuve + 1 976 m² réhabilitation)",
+    "site_occupe": "true — maintien de la continuité d'activité du site hospitalier pendant toute la durée de l'opération, avec maintien des flux véhicules, sûreté et sécurité des patients/personnels",
     "corps_etat": [
       "Démolitions, curages, désamiantage",
-      "Reprises en sous-œuvre",
       "Infrastructures et superstructures (gros œuvre)",
-      "Équipements techniques (automatismes, GTB, courants forts, courants faibles, CVC, Plomberie, Fluides médicaux)",
+      "Courants forts et faibles (CFo, CFa, SSI)",
+      "CVC (Génie climatique)",
+      "Plomberie",
+      "Automatisme GTB/GTC",
+      "Fluides médicaux",
       "Étanchéité",
-      "Cloisonnement, faux-plafonds",
-      "Revêtements de sol et murs",
+      "Cloisonnement et faux-plafonds",
+      "Revêtements de sol et peinture",
       "Menuiseries intérieures et extérieures",
-      "Peinture",
       "Liaisons verticales",
       "Revêtements de façade",
-      "VRD (voiries et réseaux divers)",
-      "SSI (Systèmes de Sécurité Incendie)"
+      "VRD (voiries et réseaux divers)"
     ],
     "contraintes_specifiques": [
-      "Maintien de la continuité d'activité hospitalière pendant tous les travaux",
-      "Maintien des flux véhicules du site",
-      "Garantie de la sûreté et sécurité des patients et personnels",
-      "Phasage complexe en plusieurs sous-phases (A, B1, B2, C) avec transferts d'activités",
-      "Désamiantage préalable requis",
-      "Travaux sur bâtiments existants en site hospitalier (ERP type U) avec commissions de sécurité",
-      "Respect des recommandations du CLIN (hygiène hospitalière)",
-      "Gestion des fluides médicaux dans un environnement sensible",
-      "Contraintes de continuité d'exploitation des réseaux hospitaliers",
-      "Travaux de nuit et jours non ouvrables possibles",
-      "Coordination avec les équipes médicales pour les transferts d'activités",
-      "Études géotechniques G2PRO et G3 à la charge du titulaire",
-      "Dossier ICPE à établir",
-      "PSE n°1 optionnelle : réalisation d'une salle d'opération en clos couvert (264 000 € HT)"
+      "Site hospitalier occupé en activité permanente — maintien de la continuité de soins obligatoire",
+      "Phasage complexe : Phase A (préparation), Phase B1 (construction extension), Phase B2 (transferts activités), Phase C (restructuration existants)",
+      "Relocalisation du plateau de naissance à compter de juillet 2026 (obstétrique regroupée sur site HBT)",
+      "Respect du règlement intérieur des HBT",
+      "Contraintes ICPE — dossier de déclaration à prévoir",
+      "Désamiantage à prévoir dans les existants",
+      "Risques géotechniques — études G2PRO et G3 à la charge du titulaire",
+      "Commission de sécurité (ERP) obligatoire avant réception",
+      "Sujétions d'exécution hors heures ouvrables potentielles",
+      "Coordination SSI (CSSI) incluse au marché",
+      "OPC inclus au marché"
     ]
   },
   "allotissement": {
-    "description": "Marché à lot unique, non alloti. Marché Global Sectoriel de Conception-Réalisation passé en application de l'article L.2171-5 du Code de la Commande Publique.",
+    "description": "Marché à lot unique — pas de décomposition en lots séparés",
     "nb_lots": 1,
     "lots_detailles": [
       {
         "numero": 1,
-        "intitule": "Marché Global Sectoriel de Conception-Réalisation – Modernisation et Extension de l'Hôpital Saint Clair",
-        "corps_etat": "Tous corps d'état (TCE) : gros œuvre, second œuvre, équipements techniques, VRD, études de conception",
-        "montant_estime": 20180000,
-        "description": "Conception et réalisation de la modernisation et extension de l'Hôpital Saint Clair incluant construction neuve (~4 102 m² SDO), réhabilitation (~1 976 m² SDO), VRD, démolitions, avec PSE n°1 optionnelle (clos couvert salle d'opération)"
+        "intitule": "HOPITAUX DU BASSIN DE THAU – MODERNISATION ET EXTENSION DE L'HOPITAL SAINT CLAIR - MARCHE GLOBAL SECTORIEL DE CONCEPTION-REALISATION",
+        "corps_etat": "Tous corps d'état (conception + réalisation : gros œuvre, second œuvre, équipements techniques, VRD)",
+        "montant_estime": 19980000.0,
+        "description": "Conception et réalisation de la construction neuve ambulatoire/SMR et de la réhabilitation hospitalière, incluant toutes études de conception, travaux TCE, OPC, CSSI et GPA"
       }
     ]
   },
   "qualifications_requises": {
-    "description": "Le groupement candidat doit impérativement intégrer un constructeur (entreprise générale ou management de projet) couvrant a minima le gros œuvre + OPC, un architecte inscrit à l'Ordre, une ingénierie bâtiment TCE et un CSSI. Les entreprises de travaux électricité, GTB et CVC peuvent être présentées en cotraitance ou sous-traitance au stade candidature ou au plus tard à l'offre finale.",
+    "description": "Qualification Qualibat non exigée au sens strict de code — le RC exige des capacités professionnelles et techniques démontrées par des références, sans mentionner de qualification Qualibat normalisée à 4 chiffres. En revanche, des certifications d'assurance décennale et des attestations professionnelles sont requises.",
     "qualibat": [],
     "rge": false,
     "rge_specialites": [],
@@ -67,56 +76,40 @@
     "iso_45001": false,
     "opqibi": null,
     "autres_certifications": [
-      "Attestation d'inscription à l'Ordre des architectes (ou diplôme reconnu directive 85-384 CEE) — obligatoire pour le cotraitant architecte",
-      "Attestation de formation CSSI (Coordonnateur Systèmes de Sécurité Incendie) — obligatoire",
-      "Assurance décennale obligatoire (L.241-1 code des assurances) — pour tous les membres constructeurs",
-      "Assurance contractant général ou constructeur — pour le mandataire",
-      "Chiffre d'affaires global annuel ≥ 20 000 000 € HT sur chacun des 3 derniers exercices (groupement)"
+      "Attestation d'assurance décennale (RC décennale) exigée à peine d'irrecevabilité",
+      "Inscription à l'Ordre des Architectes ou diplôme reconnu directive 85-384 CEE (pour le cotraitant architecte)",
+      "Attestation de formation CSSI (pour le coordinateur SSI)",
+      "Attestation de régularité fiscale et sociale"
     ]
   },
   "caracteristiques_mission_moe": {
-    "typologie": "MOE intégrée dans le marché global sectoriel de conception-réalisation (mission complète du cotraitant concepteur sous la responsabilité du mandataire constructeur)",
+    "typologie": "MOE intégrée au marché global sectoriel de conception-réalisation (mission complète de conception incluse dans le forfait global)",
     "phases_couvertes": [
-      "APS+",
-      "APS consolidation",
-      "DIAG",
+      "APS",
       "AVP1",
       "AVP2",
       "PRO",
       "EXE",
       "VISA",
       "DET",
-      "SYN",
-      "OPC",
       "AOR",
-      "GPA",
+      "OPC",
+      "DIAG",
+      "SYN",
       "CSSI",
       "SIGN",
-      "IEB"
+      "GPA"
     ],
-    "typologie_ouvrage": "Établissement de santé MCO (hôpital) – construction neuve et réhabilitation",
-    "montant_travaux_estime": 20180000,
+    "typologie_ouvrage": "Établissement de santé public — MCO, construction neuve et réhabilitation hospitalière en site occupé",
+    "montant_travaux_estime": 19916000,
     "complexite_technique": "expert",
     "livrables_par_phase": [
       {
-        "phase": "APS+",
+        "phase": "APS (consolidation) + DIAG",
         "livrables": [
-          "APS Plus constituant le rendu de consultation (offre)",
-          "Plans, coupes, façades au stade APS",
-          "Décomposition prévisionnelle du prix global et forfaitaire"
-        ]
-      },
-      {
-        "phase": "APS consolidation",
-        "livrables": [
-          "Consolidation des études d'avant-projet sommaire",
-          "Mise à jour du planning"
-        ]
-      },
-      {
-        "phase": "DIAG",
-        "livrables": [
-          "Rapport de diagnostic des bâtiments existants à restructurer"
+          "APS Plus (rendu de consultation)",
+          "APS consolidation post-notification",
+          "Rapport diagnostic des existants"
         ]
       },
       {
@@ -124,68 +117,50 @@
         "livrables": [
           "Dossier de demande de permis de construire",
           "Dossier de demande de permis de démolir",
-          "Autres dossiers d'autorisations administratives",
-          "Assistance à l'instruction jusqu'à obtention des autorisations"
+          "Dossiers ICPE",
+          "Autres autorisations administratives nécessaires",
+          "Assistance au maître d'ouvrage lors de l'instruction"
         ]
       },
       {
         "phase": "AVP2",
         "livrables": [
           "Études d'Avant-Projet Définitif (APD)",
-          "Plans, notices techniques",
-          "Tableau d'écarts",
-          "Fiches d'Interface Équipement Bâtiment (IEB)",
-          "DPGF détaillée par corps d'état"
+          "Tableaux des écarts validés par le MOA",
+          "Fiches IEB (Interface Équipement Bâtiment)"
         ]
       },
       {
         "phase": "PRO",
         "livrables": [
-          "CCTP par lot",
-          "Plans de projet tous corps d'état",
+          "CCTP",
+          "Plans de projet",
           "Calendrier détaillé d'exécution",
-          "Tableau d'écarts validé MO",
-          "Dossier ICPE si requis"
+          "Études de signalétique (SIGN)",
+          "Décomposition du Prix Global et Forfaitaire (DPGF)"
         ]
       },
       {
-        "phase": "EXE+SYN+VISA",
+        "phase": "EXE",
         "livrables": [
-          "Plans d'exécution tous corps d'état",
+          "Plans d'exécution corps d'état par corps d'état",
           "Notes de calcul",
-          "Plans de synthèse TCE",
-          "Visas des plans d'exécution entreprises",
-          "Gestion de la cellule de synthèse",
-          "Études IEB complémentaires"
+          "Plans de synthèse",
+          "Études d'interface équipements bâtiment complémentaires"
         ]
       },
       {
         "phase": "DET",
         "livrables": [
-          "Comptes rendus de réunions de chantier",
-          "Suivi de la qualité architecturale et technique",
-          "Tableaux de bord d'avancement"
-        ]
-      },
-      {
-        "phase": "OPC",
-        "livrables": [
-          "Planning détaillé d'exécution",
-          "Tableau de bord de l'avancement",
-          "Ordonnancement des phases et transferts d'activités"
-        ]
-      },
-      {
-        "phase": "SIGN",
-        "livrables": [
-          "Études de signalétique intérieure et extérieure"
+          "Suivi de la qualité architecturale et technique en cours de chantier",
+          "Comptes rendus de chantier"
         ]
       },
       {
         "phase": "AOR",
         "livrables": [
           "Essais et mise en service",
-          "Opérations préalables à la réception (OPR) du titulaire",
+          "Opérations préalables à la réception",
           "Dossier des Ouvrages Exécutés (DOE)",
           "Mise à jour finale des fiches IEB"
         ]
@@ -193,357 +168,501 @@
       {
         "phase": "GPA",
         "livrables": [
-          "Suivi de la garantie de parfait achèvement (12 mois)",
-          "Cahier de GPA",
-          "Visite de fin de GPA"
+          "Suivi de la Garantie de Parfait Achèvement sur 12 mois"
         ]
       }
     ],
     "taux_remuneration_moe_pct": null,
     "indices_revision": [
-      "ING (phase études conception et études réalisation : VISA, EXE, DET, AOR, SYN, OPC, CSSI)",
-      "BT01 (phase travaux)"
+      "ING (phase études de conception)",
+      "BT01 (phase travaux)",
+      "ING (phase études de réalisation : VISA, EXE, DET, AOR, SYN, OPC, CSSI)"
     ],
     "coordinations_associees": [
-      "OPC inclus dans le marché (à la charge du titulaire/mandataire)",
+      "OPC inclus dans le marché (à la charge du titulaire)",
       "CSSI inclus dans le marché",
-      "SPS hors marché (coordonnateur désigné par le maître d'ouvrage)",
-      "Contrôle technique hors marché (désigné par le maître d'ouvrage)",
-      "ATMO hors marché (A2MO pour la programmation, ATMO conduite d'opérations à désigner)"
+      "Coordination SPS hors marché (désignée et financée par le MOA)",
+      "Contrôle technique hors marché (désigné et financé par le MOA)",
+      "BIM non obligatoire (sur la base du volontariat)"
     ],
     "organigramme_attendu": [
       {
-        "profil": "Mandataire constructeur — directeur de projet / chef de projet global",
+        "profil": "Mandataire constructeur (entreprise générale ou management de projet) avec mission OPC",
         "nombre": 1,
         "anciennete_min_annees": null
       },
       {
-        "profil": "Architecte responsable du projet architectural (inscrit à l'Ordre)",
+        "profil": "Architecte inscrit à l'Ordre ou diplôme CEE équivalent",
         "nombre": 1,
         "anciennete_min_annees": null
       },
       {
-        "profil": "Ingénieur(e) structures / Génie Civil",
+        "profil": "BET TCE pluridisciplinaire (VRD, Génie Civil/Structures, CVC, Plomberie, Génie électrique CFo/CFa/SSI, Automatisme GTB, Fluides médicaux)",
         "nombre": null,
         "anciennete_min_annees": null
       },
       {
-        "profil": "Ingénieur(e) CVC-Plomberie",
-        "nombre": null,
-        "anciennete_min_annees": null
-      },
-      {
-        "profil": "Ingénieur(e) Électricité courants forts / courants faibles / SSI",
-        "nombre": null,
-        "anciennete_min_annees": null
-      },
-      {
-        "profil": "Ingénieur(e) Automatismes GTB-GTC",
-        "nombre": null,
-        "anciennete_min_annees": null
-      },
-      {
-        "profil": "Ingénieur(e) Fluides médicaux",
-        "nombre": null,
-        "anciennete_min_annees": null
-      },
-      {
-        "profil": "Coordonnateur SSI (CSSI — attestation formation obligatoire)",
+        "profil": "Coordinateur SSI (attestation formation CSSI)",
         "nombre": 1,
         "anciennete_min_annees": null
       },
       {
-        "profil": "Responsable OPC (nommément désigné)",
+        "profil": "Directeur de synthèse",
         "nombre": 1,
         "anciennete_min_annees": null
       },
       {
-        "profil": "Directeur de synthèse (nommément désigné)",
+        "profil": "Entreprise de Gros Œuvre (cotraitante ou sous le mandataire management de projet)",
         "nombre": 1,
         "anciennete_min_annees": null
       },
       {
-        "profil": "Ingénieur(e) VRD",
+        "profil": "Entreprises travaux Électricité, Automatismes GTB, CVC (à présenter au plus tard à l'offre finale)",
         "nombre": null,
         "anciennete_min_annees": null
       }
     ],
-    "bim_niveau": "BIM non obligatoire — sur la base du volontariat uniquement. Un BIM Manager peut être désigné si le groupement propose le BIM."
+    "bim_niveau": null
   },
   "qualifications_moe": {
     "opqibi": [],
     "opqcm": [],
     "bim": null,
     "autres": [
-      "Inscription à l'Ordre des architectes (ou diplôme équivalent directive 85-384 CEE) — obligatoire pour l'architecte cotraitant",
-      "Attestation de formation CSSI — obligatoire pour le coordinateur SSI cotraitant"
+      "Inscription à l'Ordre des Architectes ou diplôme directive 85-384 CEE (condition d'admission)"
     ]
   },
   "bareme_notation": {
-    "valeur_technique_pct": 50,
+    "valeur_technique_pct": 65,
     "valeur_prix_pct": 30,
     "sous_criteres_techniques": [
       {
-        "libelle": "Critère 1 — Valeur Technique de l'offre appréciée en fonction des notes méthodologique, technique, architecturale fournies",
+        "libelle": "Valeur Technique de l'offre appréciée en fonction des notes méthodologique, technique, architecturale fournies",
         "ponderation_pct": 50,
-        "description": "La valeur technique est appréciée au travers de notes méthodologique, technique et architecturale fournies par le candidat. Elle est décomposée en 4 sous-critères : qualité fonctionnelle (50%), qualité technique (35%), méthodologie de chantier et calendrier (10%), qualité architecturale (5%).",
-        "elements_attendus": [
-          "Notes architecturale, technique et méthodologique complètes et documentées",
-          "Présentation des choix fonctionnels et architecturaux du projet en réponse au PTD",
-          "Démonstration de la maîtrise des contraintes techniques d'un bâtiment hospitalier MCO",
-          "Méthodologie de chantier détaillée tenant compte de la continuité d'activité",
-          "Planning de conception-réalisation crédible respectant les 66 mois",
-          "Supports visuels pour l'audition devant le jury"
-        ],
-        "exemple_reponse_forte": "Le candidat produit des plans APS+ illustrant les partis fonctionnels et architecturaux, accompagnés d'une notice méthodologique détaillant la gestion des flux patients/personnels/logistique en site occupé, un phasage chantier simulé avec maintien des activités critiques (urgences, bloc, maternité), et un calendrier macro montrant la concomitance études/travaux.",
+        "description": "Critère principal d'analyse technique, décomposé en 4 sous-critères notés de 1 à 5, portant sur la qualité fonctionnelle, technique, architecturale de l'ouvrage et la méthodologie de chantier.",
+        "elements_attendus": [],
+        "exemple_reponse_forte": "—",
         "source": "RC article 19.5",
+        "unite_evaluation": "points",
         "sous_criteres": [
           {
-            "libelle": "Sous-critère 1-1 — Qualité fonctionnelle de l'ouvrage",
+            "libelle": "Qualité fonctionnelle de l'ouvrage",
             "ponderation_pct": 25,
-            "description": "Évaluation de la qualité fonctionnelle de l'ouvrage proposé par le candidat, notée de 1 (insuffisant) à 5 (très satisfaisant). La note de 1 à 5 est divisée par 5 puis multipliée par le coefficient du sous-critère.",
+            "description": "Évaluation de la capacité du projet à répondre aux exigences fonctionnelles du PTD Tome 1 : organisation des flux patients/personnels/logistique, adéquation des surfaces aux programmes fonctionnels, organisation des services (plateau de naissance, ambulatoire, SMR, urgences, pharmacie).",
             "elements_attendus": [
-              "Respect des principes d'accès et de distinction des flux décrits au PTD Tome 1 (exigence minimale)",
-              "Organisation fonctionnelle des services : ambulatoire, SMR, court séjour gériatrique, plateau de naissance",
-              "Fluidité des parcours patients et du personnel soignant",
-              "Dimensionnement et organisation des locaux conformes au PTD Tome 3",
-              "Cohérence entre programme fonctionnel et implantation proposée"
+              "Démonstration de la cohérence avec le Programme Technique Détaillé (PTD Tome 1)",
+              "Organisation claire des flux (patients, personnels, logistique, femme-mère-enfant)",
+              "Respect des principes d'accès et distinction des flux (exigence minimale)",
+              "Adéquation des surfaces et locaux aux fiches de spécifications techniques par local (PTD Tome 3)",
+              "Intégration de la continuité d'activité hospitalière dans les phases de travaux",
+              "Solution de relocalisation du plateau de naissance en proximité du bloc opératoire"
             ],
-            "exemple_reponse_forte": "Le candidat démontre que la disposition du nouveau bâtiment SMR/ambulatoire en entrée de site garantit une séparation stricte des flux patients debout/hospitalisés et des flux logistiques, en conformité avec le PTD Tome 1, avec des circuits tracés et un accueil centralisé permettant les admissions directes depuis la médecine de ville.",
-            "source": "RC article 19.5"
+            "exemple_reponse_forte": "Le projet propose une organisation en peigne séparant flux propres/souillés et flux patients/personnels dès l'entrée du nouveau bâtiment ambulatoire, avec une liaison directe niveau 2 vers le bloc opératoire existant. Le plateau de naissance est repositionné en phase B1 dans la continuité du bloc, permettant une réduction des circulations de 35% par rapport à la configuration actuelle, sans interruption de l'activité obstétricale.",
+            "source": "RC article 19.5",
+            "unite_evaluation": "points"
           },
           {
-            "libelle": "Sous-critère 1-2 — Qualité technique de l'ouvrage",
+            "libelle": "Qualité technique de l'ouvrage",
             "ponderation_pct": 17.5,
-            "description": "Évaluation de la qualité technique de l'ouvrage proposé, notée de 1 à 5. Apprécie la cohérence et la pertinence des solutions techniques (structure, fluides, CVC, électricité, GTB, fluides médicaux, SSI) par rapport aux contraintes du programme technique détaillé.",
+            "description": "Évaluation de la pertinence des solutions techniques proposées : structure, équipements techniques (CVC, fluides médicaux, GTB, SSI, courants forts/faibles), performance énergétique, conformité réglementaire ERP/ICPE.",
             "elements_attendus": [
-              "Solutions techniques CVC adaptées aux contraintes des zones à environnement maîtrisé (salles d'opération, soins intensifs)",
-              "Systèmes de fluides médicaux conformes aux normes hospitalières",
-              "Architecture SSI et GTB cohérente avec le projet",
-              "Performance énergétique des solutions proposées (notes techniques, calculs, fiches produits, simulations)",
-              "Gestion des interfaces entre bâtiment neuf et bâtiments existants (réseaux, courants forts/faibles)"
+              "Solutions techniques adaptées au contexte hospitalier (fluides médicaux, qualité d'air, pression différentielle)",
+              "Performance énergétique des solutions (notes techniques, calculs, fiches produits, certifications, simulations)",
+              "Système GTB/GTC pour pilotage énergétique",
+              "Conformité aux exigences SSI/SDIS pour un ERP hospitalier",
+              "Solutions constructives adaptées au phasage en site occupé",
+              "Intégration des matériaux biosourcés, éco-labellisés ou bas carbone (art. 36 CCA)"
             ],
-            "exemple_reponse_forte": "Le BET fluides présente le schéma de principe CVC du nouveau bâtiment avec centrale de traitement d'air dédiée aux zones à atmosphère contrôlée, accompagné d'une simulation thermique dynamique et d'une note sur la conformité aux bonnes pratiques de conception des blocs opératoires (SFHH/CTINILS), avec une fiche synthétique performance énergétique RE2020.",
-            "source": "RC article 19.5"
+            "exemple_reponse_forte": "La solution propose une centrale de traitement d'air à récupération d'énergie (COP > 4) avec surpression positive dans les zones à risque infectieux (bloc, salle de naissance), pilotée par GTB avec reporting mensuel. Les fluides médicaux sont dimensionnés avec redondance N+1 et des vannes d'isolement par service. La structure est en béton préfabriqué pour minimiser les nuisances de chantier en site occupé.",
+            "source": "RC article 19.5",
+            "unite_evaluation": "points"
           },
           {
-            "libelle": "Sous-critère 1-3 — Méthodologie de chantier et calendrier des phases de conception-réalisation",
+            "libelle": "Méthodologie de chantier et calendrier des phases de conception-réalisation",
             "ponderation_pct": 5,
-            "description": "Évaluation de la méthodologie de chantier proposée et du calendrier de conception-réalisation, notée de 1 à 5. Apprécie la crédibilité du phasage, la gestion des interfaces entre phases et la maîtrise des contraintes de continuité d'activité.",
+            "description": "Évaluation de la méthode d'organisation du chantier en site hospitalier occupé, du phasage proposé et du calendrier détaillé respectant les 66 mois contractuels.",
             "elements_attendus": [
-              "Calendrier macro de conception-réalisation respectant les 66 mois (27 mois études + 36 mois travaux + 12 mois GPA)",
-              "Description du phasage des travaux (phases A, B1, B2, C) avec mesures de maintien d'activité",
-              "Plan de gestion des transferts d'activités entre bâtiments",
-              "Identification des risques planning liés aux délais d'instruction du permis de construire",
-              "Mesures de maintien des flux véhicules et de la sécurité des patients/personnels"
+              "Plan de phasage détaillé (Phase A, B1, B2, C) avec jalons précis",
+              "Mesures de maintien de la continuité d'activité hospitalière",
+              "Gestion des flux et accès pendant les travaux",
+              "Planning de transferts d'activités cohérent avec les contraintes du MOA",
+              "Méthodes de réduction des nuisances (bruit, poussières, vibrations) pour patients et personnel"
             ],
-            "exemple_reponse_forte": "Le mandataire présente un planning Gantt macro sur 66 mois avec les jalons clés (dépôt PC, obtention PC, démarrage travaux phases B1/B2/C, transferts d'activités) et détaille les dispositifs de cloisonnement étanche entre zones travaux et zones d'hospitalisation active, incluant les procédures de contrôle aéromicrobiologique conformes aux recommandations du CLIN.",
-            "source": "RC article 19.5"
+            "exemple_reponse_forte": "Le groupement propose un phasage en 4 étapes avec tableau des risques d'interface, incluant une zone tampon de 200 m² en existant mobilisable pendant la phase B2 pour absorber les décalages de transfert. Les travaux bruyants sont planifiés hors horaires de consultation (6h-8h et 20h-22h), avec accord préalable de la Direction des HBT.",
+            "source": "RC article 19.5",
+            "unite_evaluation": "points"
           },
           {
-            "libelle": "Sous-critère 1-4 — Qualité architecturale de l'ouvrage",
+            "libelle": "Qualité architecturale de l'ouvrage",
             "ponderation_pct": 2.5,
-            "description": "Évaluation de la qualité architecturale du projet proposé, notée de 1 à 5. Apprécie l'insertion dans le site hospitalier, la qualité des espaces et l'ambiance architecturale.",
+            "description": "Évaluation de la qualité architecturale du projet : insertion dans le site existant, qualité d'usage des espaces, hôtellerie et confort des patients, cohérence esthétique.",
             "elements_attendus": [
-              "Cohérence architecturale avec le site hospitalier existant",
-              "Qualité des espaces communs et des espaces patients",
-              "Prise en compte de l'hospitalité (label hospitalité mentionné dans le projet d'établissement)",
-              "Qualité des façades et de l'insertion urbaine"
+              "Intégration architecturale avec le bâtiment hospitalier existant",
+              "Qualité des espaces d'accueil et du confort hôtelier (humanisation)",
+              "Orientation et éclairage naturel des locaux d'hospitalisation",
+              "Lisibilité et signalétique des cheminements"
             ],
-            "exemple_reponse_forte": "L'architecte présente des perspectives extérieures et des vues intérieures illustrant une architecture bioclimatique sobre, favorisant la lumière naturelle dans les espaces patients et les circulations, avec un parti pris d'entrée accueillante valorisant le label hospitalité des HBT.",
-            "source": "RC article 19.5"
+            "exemple_reponse_forte": "La façade du nouveau bâtiment reprend le vocabulaire architectural de l'hôpital existant (bandeaux horizontaux, teintes calcaires) tout en affirmant sa connotation ambulatoire par une entrée lumineuse végétalisée. Les chambres d'hospitalisation SMR bénéficient de loggia individuelles orientées sud, avec vue dégagée sur l'arrière-pays.",
+            "source": "RC article 19.5",
+            "unite_evaluation": "points"
           }
         ]
       },
       {
-        "libelle": "Critère 3 — Démarche environnementale de l'entreprise dans la réalisation du chantier",
+        "libelle": "Démarche environnementale de l'entreprise dans la réalisation du chantier",
         "ponderation_pct": 10,
-        "description": "Évaluation de la démarche environnementale du candidat pour la réalisation du chantier, notée de 1 (insuffisant) à 5 (très satisfaisant). La note est divisée par 5 puis affectée du coefficient de pondération du critère.",
+        "description": "Évaluation de la démarche environnementale proposée pour la conduite du chantier, notée de 1 (insuffisant) à 5 (très satisfaisant). Le ratio note/5 est affecté du coefficient de pondération.",
         "elements_attendus": [
-          "Plan de gestion des déchets de chantier avec tri sélectif et traçabilité (bordereaux de suivi)",
-          "Utilisation de matériaux biosourcés, éco-labellisés, éco-conçus ou bas carbone identifiés à l'offre",
-          "Mesures de réduction des nuisances (bruit, poussières, vibrations) en site hospitalier occupé",
-          "Matériaux issus du réemploi pour le poste VRD",
-          "Démarche de réduction de l'empreinte carbone chantier (logistique, engins, transports)"
+          "Schéma d'organisation et de gestion des déchets de chantier avec filières de valorisation identifiées",
+          "Mesures de réduction des émissions (poussières, bruit, vibrations)",
+          "Utilisation de matériaux biosourcés, éco-conçus ou issus du réemploi (VRD notamment)",
+          "Plan de limitation des nuisances sur l'environnement hospitalier",
+          "Indicateurs de suivi environnemental du chantier"
         ],
-        "exemple_reponse_forte": "Le candidat présente un SOGED (Schéma d'Organisation et de Gestion des Déchets) détaillé avec les filières de tri et valorisation identifiées, liste les matériaux biosourcés et bas carbone intégrés dans la conception (béton bas carbone, isolants biosourcés), et décrit les mesures de réduction des émissions de poussières et de bruit intégrées au plan d'installation de chantier.",
-        "source": "RC article 19.5"
+        "exemple_reponse_forte": "Le groupement s'engage sur un taux de valorisation des déchets de chantier ≥ 85%, avec bennes de tri sélectif sur site (béton, métaux, bois, déchets dangereux). Un bordereau de suivi mensuel sera transmis à l'ATMO. Les engins utilisent du B30 (30% biodiesel) et l'éclairage de chantier est intégralement en LED avec détection de présence.",
+        "source": "RC article 19.5",
+        "unite_evaluation": "points"
       },
       {
-        "libelle": "Critère 4 — Démarche d'insertion sociale — Proposition d'un nombre d'heures d'insertion sociale (heures minimales imposées + heures proposées en plus)",
+        "libelle": "Démarche d'insertion sociale — Proposition d'un nombre d'heures d'insertion sociale (heures minimales imposées + heures proposées en plus)",
         "ponderation_pct": 5,
-        "description": "Le critère est noté selon la formule : Note = Nombre d'heures proposées par le candidat / Nombre d'heures le plus haut constaté. Un nombre d'heures inférieur au minimum imposé entraîne le rejet de l'offre.",
+        "description": "Critère noté selon la formule : Note = Nombre d'heures proposées par le candidat / Nombre d'heures le plus haut constaté. Un nombre d'heures inférieur au minimum imposé entraîne le rejet de l'offre.",
         "elements_attendus": [
-          "Nombre d'heures d'insertion indiqué dans l'Acte d'Engagement",
-          "Proposition supérieure au minimum imposé pour maximiser la note",
-          "Description de la modalité de mise en œuvre envisagée (recrutement direct, ETTI, EI, AI, GEIQ)"
+          "Nombre d'heures d'insertion déclaré dans l'Acte d'Engagement, supérieur au minimum imposé",
+          "Identification du public ciblé (allocataires RSA, demandeurs d'emploi longue durée, etc.)",
+          "Modalité de mise en œuvre (recrutement direct, ETTI, association intermédiaire, entreprise d'insertion)",
+          "Contact avec le facilitateur Sète Agglopole Méditerranée (Michel VALERO)"
         ],
-        "exemple_reponse_forte": "Le groupement propose X heures d'insertion au-delà du minimum contractuel, en s'appuyant sur le réseau de Michel VALERO (Sète Agglopole Méditerranée) pour le fléchage vers des structures d'insertion locales du bassin de Thau, avec un plan de suivi trimestriel.",
-        "source": "RC article 19.5 et CCA article 43.10.3"
-      },
-      {
-        "libelle": "Critère 5 — Taux du marché réservé à des PME ou à des artisans",
-        "ponderation_pct": 5,
-        "description": "Ce taux est apprécié en fonction du taux fourni par le candidat dans son Acte d'Engagement. Formule : Note = Taux proposé / Taux le plus haut constaté. Le taux minimum légal est de 20% (décret n°2024-1251 du 30 décembre 2024). Non-respect du minimum = rejet de l'offre.",
-        "elements_attendus": [
-          "Taux ≥ 20% indiqué dans l'Acte d'Engagement",
-          "Taux supérieur à 20% pour se différencier",
-          "Liste prévisionnelle des PME/artisans envisagés en sous-traitance ou cotraitance"
-        ],
-        "exemple_reponse_forte": "Le groupement s'engage sur un taux de 35% du montant prévisionnel du marché confié à des PME ou artisans, en identifiant dans l'offre les lots techniques (électricité, serrurerie, revêtements) sous-traités à des entreprises locales PME du bassin de Thau.",
-        "source": "RC article 19.5 et CCA article 8.7"
+        "exemple_reponse_forte": "Le groupement s'engage sur 2 500 heures d'insertion (versus le minimum imposé), avec une modalité de mise en œuvre via l'ETTI locale partenaire de Sète Agglopole Méditerranée pour les postes de manutentionnaire et aide-coffreur, et recrutement direct pour 2 postes d'agent de propreté chantier éligibles.",
+        "source": "RC article 19.5",
+        "unite_evaluation": "points"
       }
     ],
     "prix": {
       "type_formule": "moins_disant",
-      "formule_explicite": "Note prix = Prix le plus bas / Prix proposé par le candidat × 30. Le prix considéré sera celui de l'offre de base avec ou sans PSE n°1 selon la décision du jury.",
+      "formule_explicite": "Note = Prix le plus bas / Prix proposé par le candidat. La note globale est pondérée par le coefficient 30. Le prix considéré est celui de l'offre de base avec ou sans PSE n°1 selon la décision du jury.",
+      "source": "RC article 19.5",
       "elements_a_chiffrer": [
-        "Montant global et forfaitaire du marché (base : études + travaux TCE + GPA)",
-        "Montant de la PSE n°1 : clos couvert salle d'opération (264 000 € HT)",
-        "Décomposition du Prix Global et Forfaitaire (DPGF) par corps d'état et par phase selon modèle EDIFLEX",
-        "Répartition du prix par phase (études conception : APS/DIAG/AVP/PRO, études réalisation : EXE/VISA/DET/SYN/OPC/CSSI/AOR/GPA, travaux TCE)",
-        "Nombre d'heures d'insertion sociale proposées (Acte d'Engagement)",
-        "Taux de part PME/artisans (% du montant prévisionnel)"
+        "Prix Global et Forfaitaire (PGF) de l'offre de base — enveloppe ≤ 19 916 000 € HT",
+        "Prix de la PSE n°1 (réalisation d'une salle d'opération en clos-couvert) — enveloppe additionnelle ≤ 264 000 € HT",
+        "Nombre d'heures d'insertion (Acte d'Engagement)",
+        "Taux de marché réservé aux PME/artisans (minimum 20%)",
+        "DPGF décomposée par corps d'état et par phase (conception + réalisation)"
       ]
     },
-    "modalite_calcul_prix": "Note = Prix le plus bas / Prix proposé par le candidat × 30. Le prix pris en compte est le montant global et forfaitaire de l'offre de base, avec ou sans PSE n°1 selon décision du jury. Les offres dépassant l'enveloppe prévisionnelle (20 180 000 € HT avec PSE ou 19 916 000 € HT sans PSE) sont déclarées irrégulières et non analysées."
+    "modalite_calcul_prix": "Note prix = Prix le plus bas / Prix proposé par le candidat, pondérée × 30. Plafond d'offre : 19 916 000 € HT (sans PSE) ou 20 180 000 € HT (avec PSE). Toute offre dépassant le plafond est déclarée irrégulière."
   },
   "montant_marche": {
-    "valeur_estimee_euros": 20180000,
+    "valeur_estimee_euros": 19916000,
     "fourchette_min_euros": 19916000,
     "fourchette_max_euros": 20180000,
     "type": "estime_explicite",
-    "duree_couverte": "66 mois (27 mois études + 36 mois travaux + 12 mois GPA), démarrage prévisionnel juin 2027",
-    "source_extraction": "RC article premier page 7 : 'L'enveloppe prévisionnelle (montant travaux + honoraires de maîtrise d'œuvre) du marché global sectoriel de conception-réalisation est de 20 180 000 €HT (base : 19 916 000 € + PSE n°1 : 264 000 € - valeur janvier 2026)'",
-    "commentaire": "Enveloppe ferme : les offres dépassant ce montant sont déclarées irrégulières et rejetées sans analyse. Base sans PSE = 19 916 000 € HT. Avec PSE n°1 (clos couvert salle d'opération) = 20 180 000 € HT. Prime aux candidats ayant remis une offre conforme : 188 000 € HT (comprise dans le montant du marché de l'attributaire)."
+    "duree_couverte": "66 mois (études + travaux + GPA)",
+    "source_extraction": "RC article premier page 7 : 'L'enveloppe prévisionnelle (montant travaux + honoraires de maîtrise d'œuvre) du marché global sectoriel de conception-réalisation est de 20 180 000 €HT (base : 19 916 000 € + PSE n°1 : 264 000 €)'",
+    "commentaire": "Enveloppe ferme : 19 916 000 € HT (base sans PSE). Si le jury retient la PSE n°1 (clos-couvert bloc opératoire), le plafond monte à 20 180 000 € HT. Toute offre dépassant ces plafonds est déclarée irrégulière sans analyse."
+  },
+  "montant_3_voies": {
+    "voie_1_eur": 19916000,
+    "voie_1_source": "RC article premier page 7 — enveloppe prévisionnelle base sans PSE",
+    "voie_2_disponible": false,
+    "voie_2_min_eur": null,
+    "voie_2_max_eur": null,
+    "voie_2_hypotheses": [],
+    "voie_2_raison_indisponible": "Montant publié explicitement dans le RC (Voie 1 disponible) — estimation bottom-up non nécessaire"
+  },
+  "cout_realisation": {
+    "cout_total_eur": 16200000,
+    "cout_min_eur": 14800000,
+    "cout_max_eur": 17600000,
+    "postes": [
+      {
+        "poste": "Travaux TCE (gros œuvre, second œuvre, équipements techniques, VRD)",
+        "detail": "~5 700 m² SDO × ratio moyen 2 300 €/m² en hôpital neuf/réhab complexe (dont GO ~900, TCE technique ~800, second œuvre ~400, VRD ~200). Variable selon le ratio retenu entre 2 100 et 2 500 €/m².",
+        "montant_eur": 13110000
+      },
+      {
+        "poste": "Honoraires conception (architecte + BET TCE)",
+        "detail": "Estimation 7-8% du coût travaux en conception-réalisation hospitalière. 13 110 000 × 7,5% ≈ 983 000 €",
+        "montant_eur": 983000
+      },
+      {
+        "poste": "Missions complémentaires (OPC, CSSI, SYN, SIGN, études géotechniques G2PRO+G3, DIAG)",
+        "detail": "Forfaits missions spécialisées estimés à 1,5-2% du coût travaux",
+        "montant_eur": 250000
+      },
+      {
+        "poste": "Frais de chantier / installations / frais généraux groupement",
+        "detail": "Estimation 12-15% des travaux TCE (chantier complexe site hospitalier occupé, gardiennage, sécurité, mesures d'isolement)",
+        "montant_eur": 1800000
+      },
+      {
+        "poste": "Études géotechniques G3 (à charge du titulaire, réputées incluses au forfait)",
+        "detail": "Estimation forfaitaire pour mission G2PRO + G3 sur surface ~6 000 m²",
+        "montant_eur": 57000
+      }
+    ],
+    "taux_journaliers_retenus": "Ratios marché indicatifs : coût de construction hôpital neuf MCO 2 000-2 600 €/m² SDP (hors équipements biomédicaux) ; réhabilitation hospitalière 1 600-2 200 €/m² ; honoraires conception en conception-réalisation 6-8% du coût travaux ; missions OPC/CSSI 0,8-1,2% du montant travaux. Ce sont des ratios marché indicatifs, la structure de coût réelle du candidat peut varier.",
+    "commentaire": "Estimation basée sur 6 078 m² SDO (4 102 m² neuf + 1 976 m² réhab) à des ratios hospitaliers complexes. La variable principale est le ratio €/m² : fourchette 2 100-2 500 €/m² pour le neuf, 1 400-1 900 €/m² pour la réhabilitation. Le marché étant à prix global forfaitaire avec plafond strict à 19 916 000 € HT, la marge du groupement (CA - coût) est déterminée par la qualité de son chiffrage. Une marge brute de 15-20% (≈ 3,0-4,0 M€) est plausible sur ce type d'opération en conception-réalisation."
   },
   "revision_prix": {
     "type": "indexation",
     "indices_utilises": [
-      "ING (études conception et études réalisation : VISA, EXE, DET, AOR, SYN, OPC, CSSI)",
+      "ING (études de conception et études de réalisation)",
       "BT01 (travaux)"
     ],
-    "ponderation": "Phase études et études réalisation : 15% partie fixe + 85% × (In/I0) avec indice ING. Phase travaux : 15% partie fixe + 85% × (In/I0) avec indice BT01.",
+    "ponderation": "Phase études : 15% partie fixe + 85% ING. Phase travaux : 15% partie fixe + 85% BT01. Phase études de réalisation (VISA, EXE, DET, AOR, SYN, OPC, CSSI) : 15% partie fixe + 85% ING.",
     "periodicite": "mensuelle",
-    "formule_revision": "Ct = 0.15 + 0.85 × (In/I0) — applicable à chaque acompte mensuel. In = valeur de l'indice (ING ou BT01) au mois de l'établissement de l'acompte (dernière valeur connue) ; I0 = valeur au mois M0 de l'acte d'engagement.",
-    "source_extraction": "CCA article 21.8.2 (études), 21.8.3 (travaux et études réalisation)",
-    "commentaire": "Formule favorable pour le titulaire en période d'inflation sur les matériaux (BT01) et les honoraires d'ingénierie (ING). La partie fixe de 15% limite légèrement l'effet de couverture. Le mois M0 est déterminant et doit être soigneusement négocié lors de la mise au point du marché."
+    "formule_revision": "Ct = 0.15 + 0.85 × (In/I0). Pour la phase études et études de réalisation : In/I0 = indice ING. Pour la phase travaux : In/I0 = indice BT01. Ct appliqué au montant de l'échéancier du mois correspondant.",
+    "source_extraction": "CCA articles 21.8.2 et 21.8.3",
+    "commentaire": "Formule classique BTP avec partie fixe 15% et indexation 85% sur indice sectoriel — favorable pour le titulaire en phase d'inflation, mais le plafond d'offre ferme à 19 916 000 € HT s'applique aux prix initiaux (mois M0), non aux prix révisés."
   },
   "alertes_prix": [
-    "Plafond budgétaire strict et opposable : les offres dépassant 20 180 000 € HT (avec PSE) ou 19 916 000 € HT (sans PSE) sont déclarées irrégulières et rejetées sans analyse ni prime — risque majeur de non-conformité si sous-évaluation du coût de construction en site hospitalier occupé.",
-    "Prime de 188 000 € HT incluse dans le montant de l'attributaire : les candidats non attributaires la perçoivent également en cas d'offre conforme, mais ce montant doit être déduit de l'offre pour apprécier la rentabilité réelle du marché.",
-    "PSE n°1 (264 000 € HT) : le jury décide ou non de la retenir — le candidat doit chiffrer les deux scénarios et l'offre finale sera analysée sur le montant retenu par le jury, impactant le critère prix.",
-    "Pondération prix de 30% sur 100 : relativement faible face aux 50% technique — la différenciation se fait principalement sur la valeur technique, mais une sous-estimation des coûts hospitaliers peut entraîner l'irrégularité automatique de l'offre."
+    "Plafond budgétaire STRICT et éliminatoire : toute offre dépassant 19 916 000 € HT (sans PSE) ou 20 180 000 € HT (avec PSE) est déclarée irrégulière, non analysée, non présentée au jury et ne donne pas lieu à la prime — risque d'élimination sur l'enveloppe",
+    "Prix à forfait global et définitif : les erreurs de DPGF ne constituent pas des travaux supplémentaires — le chiffrage initial est irréversible, exiger une revue exhaustive avant soumission",
+    "Pondération prix à 30% : significative pour un marché à haute valeur technique — un candidat moins-disant de 5% gagne 1,5 point sur 30, soit un avantage notable face à un concurrent plus cher",
+    "Prime de 188 000 € HT par concurrent (incluse dans le PGF de l'attributaire) — à intégrer dans la structure financière de l'offre",
+    "Taux PME/artisans minimum 20% contractuel : le non-respect entraîne une pénalité de 25% de la part non affectée — risque financier à anticiper dans la structuration du groupement"
   ],
   "references_exigees": {
-    "experience_minimale_annees": 5,
-    "experience_source": "RC article 11.1 — références travaux exécutés au cours des cinq dernières années pour la partie réalisation",
+    "experience_minimale_annees": null,
+    "experience_source": "RC article 11.1",
     "volume_min_references_similaires": null,
     "volume_min_references_unite": "marchés similaires",
-    "secteur_experience": "Conception-Réalisation ou Entreprise Générale de bâtiments neufs d'Hospitalisation complète en Médecine Chirurgie Obstétrique (MCO) pour montants compris entre 15 M€ HT et 30 M€ HT, et supérieurs à 30 M€ HT. Pour la conception : références en Conception-Réalisation ou Loi MOP de bâtiments neufs MCO mêmes fourchettes.",
-    "secteur_source": "RC article 11.1 — tableau des capacités techniques et professionnelles",
+    "secteur_experience": "Conception-Réalisation ou Loi MOP de bâtiments neufs d'Hospitalisation complète en Médecine Chirurgie Obstétrique, pour des montants compris entre 15 M€ et 30 M€ HT et supérieurs à 30 M€ HT",
+    "secteur_source": "RC article 11.1 — tableau des capacités professionnelles et techniques",
     "certifications_obligatoires": [
       {
-        "libelle": "Inscription à l'Ordre des architectes (ou diplôme reconnu directive 85-384 CEE du 10 juin 1985) — pour le cotraitant architecte",
-        "source": "RC article 10.2 et 11.1"
+        "libelle": "Attestation d'assurance Responsabilité Civile Décennale (exigée à la notification du marché, minimums : 10 M€ par sinistre GO, 6 M€ SO, 3 M€ prestations intellectuelles)",
+        "codes": [],
+        "bloquante": true,
+        "source": "RC article 11.4 et CCA article 20.1"
       },
       {
-        "libelle": "Attestation de formation CSSI (Coordonnateur Systèmes de Sécurité Incendie) — pour le CSSI cotraitant",
-        "source": "RC article 10.2 et 11.1"
+        "libelle": "Inscription à l'Ordre des Architectes ou diplôme reconnu directive 85-384 CEE du 10 juin 1985 (pour le cotraitant architecte)",
+        "codes": [],
+        "bloquante": true,
+        "source": "RC article 10.2 et article 11.1"
       },
       {
-        "libelle": "Assurance de responsabilité civile décennale (L.241-1 code des assurances) — pour tous les membres constructeurs et les bureaux d'études",
-        "source": "RC article 11.4 et CCA article 20.1.2"
+        "libelle": "Attestation de formation CSSI (Coordinateur des Systèmes de Sécurité Incendie)",
+        "codes": [],
+        "bloquante": true,
+        "source": "RC article 10.2 et article 11.1"
       },
       {
-        "libelle": "Assurance 'constructeur' / 'contractant général' ou équivalent — obligatoire pour le mandataire constructeur ou entreprise de management de projet",
+        "libelle": "Assurance 'constructeur' / 'contractant général' ou équivalent pour le mandataire (si entreprise de management de projet)",
+        "codes": [],
+        "bloquante": true,
         "source": "RC article 10.2"
       }
     ],
     "autres_exigences": [
       {
-        "libelle": "Chiffre d'affaires global annuel du groupement candidat ≥ 20 000 000 € HT sur chacun des trois derniers exercices disponibles (somme des CA annuels de chaque membre)",
-        "source": "RC article 11.1 — tableau des capacités économiques et financières"
+        "libelle": "Chiffre d'affaires global annuel du groupement ≥ 20 000 000 € HT sur chacun des trois derniers exercices disponibles",
+        "source": "RC article 11.1 — Capacité économique et financière"
       },
       {
-        "libelle": "Le mandataire doit obligatoirement être le constructeur (entreprise générale ou entreprise de management de projet) — il lui est interdit de présenter plusieurs candidatures",
+        "libelle": "Le mandataire constructeur doit présenter obligatoirement l'entreprise de gros œuvre (cotraitant) si mandataire = management de projet",
         "source": "RC article 10.2"
       },
       {
-        "libelle": "Les cotraitants architecte(s) et BET pluridisciplinaires et spécialisés 'bâtiment' ne peuvent présenter plusieurs candidatures dans des groupements différents",
+        "libelle": "Indépendance financière, technique et juridique de l'AMO programmiste A2MO",
         "source": "RC article 10.2"
       },
       {
-        "libelle": "Indépendance financière, technique et juridique vis-à-vis de l'ATMO programmiste A2MO obligatoire pour tous les membres du groupement",
-        "source": "RC article 10.2"
-      },
-      {
-        "libelle": "Remplissage obligatoire du fichier Excel 'Tableau des capacités' en version Excel et PDF",
-        "source": "RC article 11.1"
+        "libelle": "Présentation des entreprises de travaux Électricité, Automatismes GTB et CVC obligatoire au plus tard lors de la remise de l'offre finale",
+        "source": "RC article 10.2 et article 19.5"
       }
     ]
+  },
+  "dossier_candidature": {
+    "pieces_a_fournir": [
+      {
+        "libelle": "DUME (Document Unique de Marché Européen) ou Lettre de candidature DC1 (désignation du mandataire par ses co-traitants)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC article 11.1"
+      },
+      {
+        "libelle": "Déclaration du candidat individuel ou du membre du groupement DC2 (un par membre)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC article 11.1"
+      },
+      {
+        "libelle": "Habilitation du mandataire complétée et signée par chaque cotraitant",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC article 11.1"
+      },
+      {
+        "libelle": "Tableau des capacités complété en version Excel ET PDF (onglets références, effectifs, CA)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC article 11.1"
+      },
+      {
+        "libelle": "Liste des principaux services et travaux réalisés (3 à 5 dernières années) — Annexe 1 Tableau des Capacités",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC article 11.1"
+      },
+      {
+        "libelle": "Déclaration des effectifs globaux annuels et du personnel d'encadrement (3 dernières années)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC article 11.1"
+      },
+      {
+        "libelle": "Déclaration du chiffre d'affaires global sur les 3 derniers exercices",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC article 11.1"
+      },
+      {
+        "libelle": "Attestation d'assurance Responsabilité Civile Décennale (fournie au plus tard avant l'envoi de l'invitation à soumissionner)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC article 11.4 et article 25"
+      },
+      {
+        "libelle": "Attestation d'inscription à l'Ordre des Architectes (pour le cotraitant architecte)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC article 11.1"
+      },
+      {
+        "libelle": "Attestation de formation CSSI (pour le coordinateur SSI)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC article 11.1"
+      },
+      {
+        "libelle": "Pouvoir de signature de la personne habilitée (de préférence signature électronique, à défaut manuscrite)",
+        "phase": "candidature",
+        "obligatoire": false,
+        "source": "RC article 11.1"
+      },
+      {
+        "libelle": "Déclaration de sous-traitance DC4 le cas échéant",
+        "phase": "candidature",
+        "obligatoire": false,
+        "source": "RC article 11.1"
+      },
+      {
+        "libelle": "Acte d'Engagement (AE) complété et signé électroniquement",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC article 21.1"
+      },
+      {
+        "libelle": "Notes méthodologique, technique et architecturale (mémoire technique — APS Plus)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC article 18.1"
+      },
+      {
+        "libelle": "Décomposition du Prix Global et Forfaitaire (DPGF) conforme au modèle EDIFLEX fourni",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "CCA article 22.1"
+      },
+      {
+        "libelle": "Supports physiques (panneaux de présentation) en phase offre",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC article 18.1"
+      },
+      {
+        "libelle": "Attestation sur l'honneur 'sanctions russes'",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC article 5"
+      },
+      {
+        "libelle": "Documents permettant d'apprécier la performance énergétique des solutions (notes techniques, calculs, fiches produits, certifications, simulations)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC article 5"
+      },
+      {
+        "libelle": "Présentation des entreprises de travaux Électricité, Automatismes GTB et CVC (si non présentées en candidature)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC article 19.5"
+      }
+    ],
+    "mode_remise": "dématérialisé + copie de sauvegarde",
+    "plateforme_depot": "PLACE — marches-publics.gouv.fr (coffre-fort de la consultation)",
+    "signature_electronique_exigee": true,
+    "format_signature": null,
+    "nombre_exemplaires": null,
+    "langue": "français",
+    "duree_validite_offres_jours": 180,
+    "modalites_source": "RC article 11.2 et article 21 (candidatures) ; RC article 18.1 et article 21.1 (offres finales)"
   },
   "lots": [
     {
       "numero": 1,
-      "intitule": "Marché Global Sectoriel de Conception-Réalisation — Modernisation et Extension de l'Hôpital Saint Clair",
-      "zone_geographique": "Sète (34) — Hôpitaux du Bassin de Thau",
-      "volume_estime": 20180000,
-      "volume_estime_unite": "€ HT",
-      "particularites": "Lot unique non alloti. Marché comprenant la conception (APS+ à GPA) et la réalisation TCE d'un bâtiment neuf ambulatoire/SMR (~4 102 m² SDO) et la réhabilitation hospitalière (~1 976 m² SDO) en site occupé. PSE n°1 optionnelle (clos couvert salle opératoire, 264 000 € HT). Prime aux candidats conformes : 188 000 € HT (incluse dans le prix de l'attributaire). Procédure avec négociation : 3 à 4 candidats maximum invités à négocier."
+      "intitule": "HOPITAUX DU BASSIN DE THAU – MODERNISATION ET EXTENSION DE L'HOPITAL SAINT CLAIR - MARCHE GLOBAL SECTORIEL DE CONCEPTION-REALISATION",
+      "domaine": "btp_gros_oeuvre",
+      "zone_geographique": "Sète — Hérault (34) — FRJ13",
+      "volume_estime": 6078,
+      "volume_estime_unite": "m² SDO",
+      "cout_estime_min_eur": 14800000,
+      "cout_estime_max_eur": 17600000,
+      "ca_estime_min_eur": 19916000,
+      "ca_estime_max_eur": 20180000,
+      "marge_brute_pct": 16,
+      "particularites": "Marché global sectoriel unique à lot unique — conception + réalisation TCE + OPC + CSSI + GPA. PSE n°1 optionnelle (clos-couvert bloc opératoire, 264 000 € HT). Prime de 188 000 € HT par candidat ayant remis une offre conforme. Plafond d'offre ferme et éliminatoire. Taux PME minimum 20% imposé par décret."
     }
   ],
+  "tranches": [],
   "calendrier": {
     "date_limite_offres": "2026-07-09",
     "date_demarrage_prevue": "2027-06-01",
-    "duree_marche": "66 mois (27 mois études + 36 mois travaux + 12 mois GPA) — non reconductible"
+    "duree_marche": "66 mois (27 mois études + 36 mois réalisation + 12 mois GPA)"
   },
   "alertes_candidat": [
-    "COMPOSITION DU GROUPEMENT OBLIGATOIRE : le mandataire doit impérativement être le constructeur (EG ou management de projet avec assurance constructeur/contractant général) et non l'architecte — une candidature avec un architecte mandataire sera rejetée.",
-    "EXCLUSIVITÉ DES MEMBRES : les cotraitants architecte(s) et BET spécialisés 'bâtiment' ne peuvent figurer que dans UN SEUL groupement — une participation dans plusieurs équipes entraîne l'irrecevabilité des candidatures concernées.",
-    "PLAFOND BUDGÉTAIRE INFRANCHISSABLE : toute offre dépassant 20 180 000 € HT (avec PSE) ou 19 916 000 € HT (sans PSE) est déclarée irrégulière sans analyse ni versement de prime — la difficulté est de chiffrer un bâtiment hospitalier MCO en site occupé à l'intérieur de cette enveloppe en incluant les honoraires de MOE.",
-    "TAUX PME MINIMUM LÉGAL : un taux de sous-traitance PME/artisans inférieur à 20% (décret n°2024-1251) entraîne le rejet de l'offre — à vérifier impérativement avec les sous-traitants envisagés.",
-    "NOMBRE D'HEURES D'INSERTION MINIMUM : un nombre d'heures d'insertion non renseigné ou inférieur au minimum imposé entraîne le rejet de l'offre — le minimum n'est pas indiqué dans le RC (sera précisé dans l'Acte d'Engagement en phase offre), à clarifier lors de la visite ou par question sur la plateforme.",
-    "DÉPÔT EXCLUSIVEMENT DÉMATÉRIALISÉ sur PLACE (https://www.marches-publics.gouv.fr) dans le 'coffre-fort' dédié — tout dépôt hors coffre-fort est irrecevable. Des panneaux de présentation physiques seront demandés en phase offre.",
-    "DÉLAI DE VALIDITÉ DES CANDIDATURES : 9 mois à compter du 9 juillet 2026 — l'engagement est long car la notification du marché est prévue pour juin 2027."
+    "COMPOSITION DU GROUPEMENT OBLIGATOIRE ET STRICTE : le mandataire doit être le constructeur (EG ou management de projet) avec assurance constructeur ; un architecte Ordre inscrit est impératif ; un BET TCE pluridisciplinaire couvrant VRD/Structure/CVC/Plomberie/Électricité/Automatisme GTB/Fluides médicaux est requis ; un CSSI attesté est requis — toute composition incomplète entraîne l'élimination",
+    "PLAFOND D'OFFRE FERME ET ÉLIMINATOIRE : toute offre dépassant 19 916 000 € HT (sans PSE) ou 20 180 000 € HT (avec PSE) n'est ni analysée, ni présentée au jury, ni indemnisée par la prime — vérifier impérativement que le PGF respecte le plafond",
+    "RÉFÉRENCES SECTORIELLES HOSPITALIÈRES EXIGÉES : les références doivent démontrer des réalisations en MCO (Médecine Chirurgie Obstétrique), idéalement en Conception-Réalisation, entre 15 M€ et 30 M€ HT ou supérieures à 30 M€ HT — une absence de référence hospitalière peut conduire à la non-sélection en phase candidature",
+    "CA MINIMUM DU GROUPEMENT ≥ 20 M€ HT sur chacun des 3 derniers exercices — condition d'admissibilité financière vérifiée par l'acheteur",
+    "CLAUSE D'INSERTION SOCIALE OBLIGATOIRE ET IRRÉFRAGABLE : le nombre d'heures d'insertion est une condition de régularité de l'offre (non renseigné ou inférieur au minimum = rejet) ; de plus, un taux PME ≥ 20% est contractuellement obligatoire sous peine de pénalité de 25% de la part non affectée",
+    "EXCLUSIVITÉ DE CANDIDATURE : le mandataire constructeur et les cotraitants Architecte et BET ne peuvent présenter qu'UNE SEULE candidature — vérifier l'absence de double participation avant le dépôt"
   ],
   "points_differenciants_attendus": [
     {
-      "libelle": "Références communes entre membres du groupement en Conception-Réalisation hospitalière MCO",
-      "exemple": "Un groupement ayant déjà co-réalisé ensemble un projet CR hospitalier MCO entre 15 et 30 M€ HT — par exemple un centre hospitalier de taille similaire — valorise cette référence commune qui est explicitement mentionnée comme critère d'attention particulière dans le RC.",
-      "source": "RC article 11.1 et 11.4 : 'Une attention particulière sera donnée aux références communes entre les membres de chaque groupement'"
+      "libelle": "Maîtrise du phasage hospitalier en site occupé avec continuité d'activité garantie",
+      "exemple": "Un groupement ayant réalisé un projet similaire en MCO avec phasage en 3+ phases sans interruption d'activité, disposant d'un OPC expérimenté en milieu hospitalier, présentera un plan de phasage détaillé avec identification des risques d'interface et mesures de protection des flux (patients, personnels, logistique stérile).",
+      "source": "RC article 19.5 (sous-critère méthodologie) et RC article 20.1 (exigences minimales opérationnelles)"
     },
     {
-      "libelle": "Maîtrise des travaux en site hospitalier actif et gestion de la continuité d'activité",
-      "exemple": "Le candidat présente un mémoire méthodologique documenté avec exemples de chantiers similaires réalisés en site MCO occupé (phasages avec zones à environnement maîtrisé, protocoles CLIN, gestion des transferts d'activités), démontrant des processus éprouvés de maintien des activités critiques.",
-      "source": "RC article 20.1 et CCA article 43 — maintien de la continuité d'activité identifié comme exigence minimale infranchissable en négociation"
+      "libelle": "Références communes entre membres du groupement en conception-réalisation hospitalière",
+      "exemple": "Un groupement ayant déjà travaillé ensemble (architecte + constructeur + BET) sur au moins une opération MCO en conception-réalisation > 15 M€ HT valorisera ce point explicitement dans le tableau des capacités, avec les noms de projets partagés en évidence.",
+      "source": "RC article 11.1 — 'Une attention particulière sera donnée aux références communes entre les membres de chaque groupement'"
     },
     {
-      "libelle": "Performance énergétique documentée avec simulations et certifications matériaux",
-      "exemple": "Le candidat joint à son offre des simulations thermiques dynamiques, des fiches de performance énergétique des équipements CVC proposés et des attestations de matériaux bas carbone ou biosourcés, répondant à la demande explicite du RC d'éléments permettant d'apprécier la performance énergétique.",
-      "source": "RC article 5 (documents phase offre) et CCA article 36 (matériaux biosourcés, éco-labellisés, bas carbone)"
+      "libelle": "Performance énergétique et solutions techniques hospitalières innovantes",
+      "exemple": "Proposer des simulations thermiques dynamiques avec objectifs RE2020, une GTB avec reporting énergétique mensuel, et des solutions de récupération d'énergie sur les centrales de traitement d'air (enjeu particulier pour les blocs opératoires et la salle de naissance en pression différentielle positive).",
+      "source": "RC article 5 (documents offre phase) et CCA article 36 (matériaux biosourcés/bas carbone)"
     },
     {
-      "libelle": "Taux PME/artisans et démarche d'insertion sociale ambitieux au-delà des minima légaux",
-      "exemple": "Proposer un taux PME de 35-40% (vs. minimum légal 20%) en mobilisant des entreprises locales du bassin de Thau, et un volume d'heures d'insertion significativement supérieur au minimum, en s'appuyant sur le partenariat avec Sète Agglopole Méditerranée (contact Michel VALERO fourni dans le CCA).",
-      "source": "RC article 19.5 critères 4 et 5 (5% + 5% = 10% de la note globale) et CCA article 43.10.3"
+      "libelle": "Offre financière au plus proche du plafond sans le dépasser — positionnement prix stratégique",
+      "exemple": "Avec 30% de poids prix et la formule moins-disant, un groupement offrant 18 900 000 € HT (5,1% sous plafond) capte une note prix supérieure à un concurrent à 19 500 000 € HT (tout en restant dans l'enveloppe). L'enjeu est de trouver l'équilibre optimal entre compétitivité prix et qualité technique.",
+      "source": "RC article 19.5 (critère 2 — Prix global et forfaitaire, pondération 30)"
     },
     {
-      "libelle": "Intégration proactive du BIM volontaire avec valeur ajoutée pour le maître d'ouvrage",
-      "exemple": "Bien que le BIM soit non obligatoire, proposer une démarche BIM structurée (LOD 300, maquette numérique IFC partagée) peut distinguer le groupement en démontrant une gestion optimisée des interfaces entre les sous-phases de conception-réalisation et une meilleure coordination TCE.",
-      "source": "RC article premier et CCA article 8.2 — BIM 'sur la base du volontariat'"
-    },
-    {
-      "libelle": "Expérience spécifique sur la relocalisation de plateaux techniques hospitaliers (bloc opératoire, maternité) en site occupé",
-      "exemple": "Le candidat met en avant des références de restructuration de plateau technique de bloc opératoire ou de salle de naissance réalisées sans interruption complète de l'activité, avec mise en place de mesures de protection contre la contamination aéroportée et de continuité des circuits stériles.",
-      "source": null
+      "libelle": "Démarche d'insertion sociale ambitieuse (heures au-delà du minimum imposé)",
+      "exemple": "Proposer 30 à 50% d'heures d'insertion au-delà du minimum imposé, avec une modalité de mise en œuvre en partenariat identifié avec Sète Agglopole Méditerranée (contact Michel VALERO déjà activé), en ciblant des profils employables sur le chantier (aide-maçon, agent de propreté, manœuvre).",
+      "source": "RC article 19.5 (critère 4 — Démarche d'insertion, pondération 5) et CCA article 43.10.3"
     }
   ],
   "_meta": {
     "id_marche": "BOAMP-26-56238",
     "type": "complet",
-    "date_generation": "2026-06-14T22:12:52.467714+00:00",
-    "extraction_le": "2026-06-14T22:12:52.467714+00:00",
+    "date_generation": "2026-06-20T14:51:01.079732+00:00",
+    "extraction_le": "2026-06-20T14:51:01.079732+00:00",
     "modele": "claude-sonnet-4-6",
     "preset_utilise": "btp",
     "presets_matches": [
@@ -551,13 +670,13 @@
       "ingenierie"
     ],
     "prompts_versions": {
-      "btp/_preset.json": "sha256:d1717e0d87f6c265",
-      "ingenierie/_preset.json": "sha256:56f813f829343e24"
+      "btp/_preset.json": "sha256:055bf6f8b2c1f771",
+      "ingenierie/_preset.json": "sha256:b924b32a088673d6"
     },
-    "tokens_input": 136104,
-    "tokens_output": 11555,
-    "cout_eur": 0.5526,
-    "duree_sec": 214.7,
+    "tokens_input": 145309,
+    "tokens_output": 12679,
+    "cout_eur": 0.5948,
+    "duree_sec": 233.3,
     "pdfs_traites": [
       {
         "nom": "01 RC 26A0059 MGS HBT SDI SAINT CLAIR.pdf",

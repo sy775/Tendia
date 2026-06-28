@@ -1,57 +1,80 @@
 {
-  "synthese_marche": "La DDTM 34 (Direction Départementale des Territoires et de la Mer de l'Hérault) lance un marché de prestations intellectuelles pour la réalisation d'études de définition des aléas inondation sur le bassin versant de l'Orb Amont. Ces études sont préalables à l'élaboration ou la révision des Plans de Prévention des Risques d'inondation (PPRi) de communes du bassin versant. Le marché est passé en appel d'offres ouvert, sans décomposition en lots.",
+  "synthese_marche": "La DDTM 34 (Hérault) lance un marché de prestations intellectuelles pour la définition des aléas inondation sur le bassin versant de l'Orb Amont (15 communes, ~400 km²), préalable à l'élaboration ou révision des Plans de Prévention des Risques d'Inondation (PPRi). Les prestations comprennent la collecte de données, l'étude hydrologique, la modélisation hydraulique 2D (a minima 8 scénarios par commune), la cartographie des aléas et la production de zones inondées potentielles (ZIP/ZICH) pour le SPC Méditerranée-Ouest. Marché unique, prix global forfaitaire, durée d'exécution estimée 36 mois (durée contractuelle max 48 mois).",
   "domaines_metier": [
     {
-      "code": "ingenierie_environnementale"
+      "code": "ingenierie_eau_milieux"
     }
   ],
-  "raison_classification": "Le marché porte explicitement sur des études d'aléas inondation préalables à l'élaboration de PPRi (Plans de Prévention des Risques d'inondation), incluant modélisation hydraulique, cartographie des aléas et des enjeux, analyse hydrologique — prestations typiques de l'ingénierie environnementale/hydraulique. Le CPV 90711100 correspond aux études d'impact sur l'environnement. Ce n'est pas une étude de conseil stratégique ni un AMO énergie.",
+  "raison_classification": "Le marché porte exclusivement sur des études d'ingénierie de l'eau : modélisation hydraulique 2D, analyse hydrologique, cartographie des aléas inondation par débordement de cours d'eau et ruissellement, en vue de l'élaboration de PPRi. Ces prestations relèvent pleinement de l'ingénierie eau et milieux (hydraulique fluviale, hydrologie, SIG risques inondation). Le vocabulaire clé (Telemac2D, SHYREG, Vigicrues, ZIP/ZICH, PPRi, cours d'eau, bassins versants) confirme ce domaine.",
   "caracteristiques_mission_moe": {
-    "typologie": "Étude d'impact / étude technique spécialisée hydraulique et hydrologie (hors MOE bâtiment)",
+    "typologie": "Étude technique d'ingénierie hydraulique (modélisation des aléas inondation pour PPRi)",
     "phases_couvertes": [],
-    "typologie_ouvrage": "Bassin versant de l'Orb Amont — étude hydrologique et hydraulique pour PPRi",
+    "typologie_ouvrage": "Étude hydrologique et hydraulique sur bassin versant fluvial (Orb Amont, ~400 km², 15 communes)",
     "montant_travaux_estime": null,
     "complexite_technique": "expert",
     "livrables_par_phase": [
       {
-        "phase": "Collecte et analyse des données",
+        "phase": "Phase 1 — Collecte et terrain",
         "livrables": [
-          "Rapport de collecte et analyse des données hydrologiques",
-          "Présentation des données disponibles et lacunes identifiées"
+          "Rapport de collecte des données",
+          "Enquête de terrain",
+          "Descriptif des besoins de levés complémentaires géo-référencés + cahier des charges technique (délai 15 jours après collecte)"
         ]
       },
       {
-        "phase": "Modélisation hydraulique",
+        "phase": "Phase 2 — Analyse hydrologique",
         "livrables": [
-          "Modèle hydraulique calibré intégrant débits, pluie, occupation du sol, ouvrages enterrés, barrage",
-          "Résultats de simulation pour différentes périodes de retour"
+          "Rapport hydrologique avec méthodologie de détermination des débits de crue par période de retour",
+          "Analyse statistique avec incertitudes (méthodes bayésiennes)",
+          "Comparaison Q100 SHYREG / débits historiques",
+          "Prise en compte du karst et du barrage"
         ]
       },
       {
-        "phase": "Cartographie des aléas et des enjeux",
+        "phase": "Phase 3 — Modélisations hydrauliques",
         "livrables": [
-          "Cartographies des aléas inondation (hauteurs, vitesses, classes d'aléas)",
-          "Cartographie des enjeux exposés",
-          "Cartes préalables PPRi"
+          "Modèle hydraulique 2D (fichiers d'entrée/sortie, relançable en un clic)",
+          "Cartographie des aléas PPRi (modérés, forts, très forts, résiduels) — a minima 8 scénarios/commune",
+          "Couches SIG raster et vecteur (hauteurs, vitesses, débits linéiques)",
+          "ZIP et ZICH formatées Viginond pour SPC-MO (10 scénarios environ)",
+          "Atlas cartographique ZIP/ZICH",
+          "Isocotes hauteurs d'inondation (pas 30cm, 50cm, puis 50cm)",
+          "Tables de profils et hydrogrammes"
+        ]
+      },
+      {
+        "phase": "Phase 4 — Rapport et restitution",
+        "livrables": [
+          "Rapport de présentation complet (contexte, hydrologie, hydraulique, aléas)",
+          "Supports de présentation pour réunions (format Qgis prêt à l'emploi)",
+          "15 jours de vacation pour présentation aux collectivités et au public",
+          "BEGES annuel simplifié (bilan émissions GES déplacements)"
         ]
       }
     ],
     "taux_remuneration_moe_pct": null,
-    "indices_revision": [],
+    "indices_revision": [
+      "Index d'ingénierie INSEE"
+    ],
     "coordinations_associees": [],
     "organigramme_attendu": [
       {
-        "profil": "Chef de projet hydraulicien/hydrologue",
+        "profil": "Directeur de projet / Chef de mission hydrologie-hydraulique",
+        "nombre": 1,
+        "anciennete_min_annees": null
+      },
+      {
+        "profil": "Ingénieur hydraulicien (modélisation 2D, Telemac2D/Swan ou équivalent)",
         "nombre": null,
         "anciennete_min_annees": null
       },
       {
-        "profil": "Ingénieur modélisateur hydraulique",
+        "profil": "Ingénieur hydrologue (analyse statistique, SHYREG, méthodes bayésiennes)",
         "nombre": null,
         "anciennete_min_annees": null
       },
       {
-        "profil": "Cartographe/SIG",
+        "profil": "Géomaticien / Expert SIG (shapefile, géopackage, Qgis, Géostandard risques CNIG)",
         "nombre": null,
         "anciennete_min_annees": null
       }
@@ -60,24 +83,58 @@
   },
   "qualifications_moe": {
     "opqibi": [],
-    "opqcm": null,
+    "opqcm": [],
     "bim": null,
     "autres": []
   },
   "caracteristiques_techniques_chantier": {
-    "description": "Études de définition des aléas inondation sur le bassin versant de l'Orb Amont, incluant collecte et analyse de données hydrologiques, modélisation hydraulique (prenant en compte pluie, débits, occupation du sol, transformations hydrologiques, ouvrages enterrés et impact du barrage), et cartographie des aléas et enjeux. Ces études sont préalables à l'élaboration ou la révision des PPRi des communes concernées.",
-    "technologies_concernees": [],
-    "type_de_sites": "Bassin versant de l'Orb Amont (Hérault, 34) — milieu naturel fluvial avec ouvrage barrage",
-    "criteres_eligibilite": [
-      {
-        "libelle": "Justifications à produire quant aux qualifications et références du candidat précisées dans l'avis de marché",
-        "source": "RC art 4.3.1"
-      }
-    ],
-    "contraintes_site_signalees": [
-      "Prise en compte du barrage dans la modélisation",
-      "Intégration des ouvrages enterrés dans le modèle hydraulique"
+    "description": "Marché de prestations intellectuelles (études) — pas de travaux de chantier. Études documentaires, de terrain et de modélisation hydraulique sur le bassin versant de l'Orb Amont.",
+    "typologie_ouvrage": "Études d'ingénierie hydraulique fluviale (modélisation aléas inondation, PPRi)",
+    "surface_volume": "Bassin versant d'environ 400 km² — 15 communes du département de l'Hérault (nord-ouest)",
+    "site_occupe": "false — études et modélisation en bureaux + enquêtes de terrain ponctuelles",
+    "corps_etat": [],
+    "contraintes_specifiques": [
+      "Territoire karstique : prise en compte du comportement karstique en crue obligatoire",
+      "Présence d'un barrage (impact sur les débits et scénarios de défaillance à modéliser)",
+      "Intégration des données de l'étude socle Cerema (Cartino2D) fournie après notification",
+      "Modèle hydraulique doit être relançable sans logiciel propriétaire payant",
+      "ZICAD : zones interdites à la captation aérienne à masquer dans les cartographies",
+      "Validation partielle par le SPC Méditerranée-Ouest (ZIP/ZICH Viginond)",
+      "Levés topographiques/bathymétriques complémentaires non inclus dans le marché (pris en charge par la DDTM sur cahier des charges du titulaire)",
+      "Déplacements terrain multiples (15 communes, 400 km²) — BEGES annuel exigé"
     ]
+  },
+  "allotissement": {
+    "description": "Marché unique, sans décomposition en lots ni en tranches.",
+    "nb_lots": 1,
+    "lots_detailles": [
+      {
+        "numero": 1,
+        "intitule": "Définition des aléas inondation sur le bassin versant de l'Orb Amont",
+        "corps_etat": "Études hydrauliques et hydrologiques (prestations intellectuelles)",
+        "montant_estime": null,
+        "description": "Collecte des données, étude hydrologique, modélisation hydraulique 2D, cartographie des aléas PPRi (a minima 8 scénarios/commune), production ZIP/ZICH Viginond, rapport et présentations aux collectivités."
+      }
+    ]
+  },
+  "qualifications_requises": {
+    "description": "Le RC ne précise pas de qualifications certifiées bloquantes obligatoires de type Qualibat ou RGE. Des capacités techniques et professionnelles spécifiques sont exigées (CV des intervenants, références en modélisation hydraulique). Les personnels affectés doivent justifier des capacités techniques conformément à l'offre.",
+    "qualibat": [],
+    "rge": false,
+    "rge_specialites": [],
+    "mase": false,
+    "iso_9001": false,
+    "iso_14001": false,
+    "iso_45001": false,
+    "opqibi": null,
+    "autres_certifications": []
+  },
+  "caracteristiques_techniques_enr": {
+    "description": null,
+    "technologies_concernees": [],
+    "type_de_sites": null,
+    "criteres_eligibilite": [],
+    "contraintes_site_signalees": []
   },
   "volumes_techniques": {
     "puissance_totale_kwc": null,
@@ -85,9 +142,9 @@
     "nb_sites": null,
     "surface_panneaux_m2": null,
     "productible_annuel_estime_mwh": null,
-    "duree_marche_mois": null,
+    "duree_marche_mois": 48,
     "duree_maintenance_om_annees": null,
-    "commentaire_volumes": "Marché de prestations intellectuelles d'études hydrauliques — les volumes sont exprimés en jours-hommes et en périmètre géographique (bassin versant de l'Orb Amont). Aucune puissance ni surface n'est applicable. La durée du marché et les délais de réalisation sont fixés dans l'acte d'engagement et le CCAP, non fournis dans ce DCE partiel."
+    "commentaire_volumes": "Marché d'ingénierie hydraulique sur 15 communes, bassin versant ~400 km². Durée d'exécution estimée 36 mois, durée contractuelle max 48 mois. A minima 8 scénarios de modélisation par commune + 1 scénario exceptionnel + 10 scénarios ZIP/ZICH Viginond. 15 jours de vacation pour présentations collectivités inclus."
   },
   "modalites_execution_chantier": {
     "raccordement_reseau_inclus": null,
@@ -95,182 +152,445 @@
     "calendrier_chantier_contraint": null,
     "sites_execution": [
       "Hérault (34)",
-      "Bassin versant de l'Orb Amont"
+      "Bassin versant de l'Orb Amont — communes : Bédarieux, Hérépian, Avène, Graissessac, Lunas, Ceilhes-et-Rocozels, Tour-sur-Orb, Bousquet-d'Orb, Saint-Gervais-sur-Mare, Villemagne-l'Argentière et autres communes du BV"
     ],
     "engagement_productible": null,
     "engagement_disponibilite_om": null
   },
+  "qualifications_enr": {
+    "qualipv": false,
+    "qualisol": false,
+    "qualipac": false,
+    "qualibois": false,
+    "autres_certifications": []
+  },
   "bareme_notation": {
-    "valeur_technique_pct": 60,
+    "valeur_technique_pct": 75,
     "valeur_prix_pct": 25,
     "sous_criteres_techniques": [
       {
-        "libelle": "VT1 — Méthode de collecte et d'analyse des données, y compris hydrologiques",
-        "ponderation_pct": 15,
-        "description": "L'acheteur évalue la pertinence et la complétude de la méthode proposée pour collecter et analyser les données nécessaires à l'étude, incluant les données hydrologiques. La présentation des moyens engagés et du temps passé est requise.",
+        "libelle": "Valeur technique (VT)",
+        "ponderation_pct": 60,
+        "description": "Évalue la pertinence des méthodes proposées et des moyens prévus pour obtenir les résultats attendus, décomposée en 3 sous-critères : VT1 (méthodologie collecte/hydrologie), VT2 (méthodologie modélisation hydraulique et cartographie), VT3 (organisation et procédures de vérification).",
         "elements_attendus": [
-          "Description détaillée des sources de données mobilisées (données pluviométriques, hydrométriques, topographiques, occupation du sol)",
-          "Méthode d'analyse et de traitement des données hydrologiques",
-          "Estimation du temps passé et des moyens humains dédiés à cette phase",
-          "Identification des lacunes potentielles et des stratégies pour y remédier",
-          "Lien avec les résultats de l'étude Cerema mentionnés dans le CCTP"
+          "Description complète et précise de la méthodologie de collecte et d'analyse des données hydrologiques",
+          "Explication détaillée de la méthode de modélisation hydraulique (outil retenu, capacités pluie/débits/occupation du sol/ouvrages enterrés/barrage)",
+          "Organisation claire avec CV des intervenants et prestations dévolues à chacun",
+          "Calendrier prévisionnel optimisé incluant tous les éléments de mission et étapes de validation MO",
+          "Procédés de vérification et validation internes et d'échange avec la maîtrise d'ouvrage"
         ],
-        "exemple_reponse_forte": "Le candidat proposera une collecte systématique auprès de Météo-France, DREAL et des gestionnaires locaux, incluant l'analyse statistique des séries hydrologiques disponibles sur les stations de l'Orb. Il détaillera les méthodes de reconstitution des débits de pointe aux points non jaugés (SHYREG, régionalisation) en précisant le temps passé pour chaque action (ex: 15 jours-ingénieur).",
-        "source": "RC art 4.3.2 et RC §5.2.2",
-        "sous_criteres": []
+        "exemple_reponse_forte": "Le mémoire présente une méthodologie structurée en 4 phases avec jalons de validation DDTM, en s'appuyant sur Telemac2D (code libre) pour la modélisation 2D, en explicitant la prise en compte du karst et du barrage. Il détaille le calendrier sur 32 mois (optimisé vs les 36 estimés) avec un organigramme nominatif incluant CV et charge hebdomadaire de chaque intervenant.",
+        "source": "RC §5.2.1",
+        "unite_evaluation": "points",
+        "sous_criteres": [
+          {
+            "libelle": "VT1 — Méthode de collecte et d'analyse des données, y compris hydrologiques",
+            "ponderation_pct": 15,
+            "description": "Évalue la pertinence et la complétude de la méthodologie de collecte des données (terrain, bibliographie, données hydrologiques) et de leur analyse, notamment les moyens et le temps passé prévus.",
+            "elements_attendus": [
+              "Protocole de collecte bibliographique et de terrain adapté aux 15 communes",
+              "Méthodologie hydrologique (SHYREG, méthodes statistiques, méthodes bayésiennes pour l'incertitude)",
+              "Prise en compte du comportement karstique",
+              "Approche de collecte des repères de crues et données historiques",
+              "Estimation du temps passé et des moyens humains mobilisés pour cette phase"
+            ],
+            "exemple_reponse_forte": "La méthodologie VT1 détaille un protocole de collecte en 3 étapes (archives departementales, terrain, données numériques IGN/SHYREG) avec une analyse statistique bayésienne pour intégrer les données historiques incertaines de l'Orb. Le prestataire prévoit 2 mois de collecte avec 1 hydrologue senior (15 j) et 1 géomaticien (10 j), en justifiant l'approche karstique sur la base des études INRAE disponibles.",
+            "source": "RC §5.2.1",
+            "unite_evaluation": "points"
+          },
+          {
+            "libelle": "VT2 — Méthode de modélisation hydraulique et de cartographie des aléas et des enjeux",
+            "ponderation_pct": 40,
+            "description": "Sous-critère principal évaluant la pertinence de la méthode de modélisation hydraulique 2D et de cartographie, notamment les capacités des outils retenus pour prendre en compte la pluie, les débits, l'occupation du sol, les transformations hydrologiques, les ouvrages enterrés et l'impact du barrage.",
+            "elements_attendus": [
+              "Choix du code de calcul hydraulique 2D justifié (Telemac2D, Swan ou équivalent open-source/libre)",
+              "Explication des capacités de l'outil à prendre en compte pluie+débits+occupation du sol+ouvrages enterrés+barrage",
+              "Approche de modélisation des 8+ scénarios (pluie, débit, barrage) par commune et du scénario exceptionnel",
+              "Méthodologie de calage et validation du modèle (laisses de crues, données historiques)",
+              "Post-traitements cartographiques détaillés (filtres raster, vectorisation, géostandard CNIG)",
+              "Livrables SIG prévus (raster, vecteur, projet Qgis) compatibles avec les spécifications Viginond"
+            ],
+            "exemple_reponse_forte": "Le prestataire propose Telemac2D (logiciel libre, relançable sans licence) avec maillage déstructuré à 2-5 m en zone urbaine et 10-20 m en zone rurale. Il détaille le schéma de modélisation pour les 9 scénarios PPRI et les 10 scénarios ZIP/ZICH Viginond, avec calage sur les crues de 2014 et 2023. La cartographie finale est produite en shapefile et géopackage conforme au Géostandard Risques CNIG, exploitable en Qgis.",
+            "source": "RC §5.2.1",
+            "unite_evaluation": "points"
+          },
+          {
+            "libelle": "VT3 — Organisation, moyens humains/matériels et procédures de vérification",
+            "ponderation_pct": 5,
+            "description": "Évalue la qualité de l'organisation générale, la cohérence des moyens humains et matériels avec les délais, et les procédures internes de vérification et de validation.",
+            "elements_attendus": [
+              "Organigramme nominatif avec CV et prestations dévolues à chaque intervenant",
+              "Cohérence entre les moyens alloués et les délais d'exécution proposés",
+              "Description des procédés de vérification interne (contrôle qualité des modèles, validation croisée)",
+              "Modalités d'échange avec la maîtrise d'ouvrage (jalons, réunions, comptes rendus)"
+            ],
+            "exemple_reponse_forte": "L'équipe présentée comprend un chef de projet hydraulicien (senior, 15 ans d'expérience PPRi), un hydraulicien modélisateur, un hydrologue et un géomaticien SIG. Le plan d'assurance qualité interne prévoit une revue systématique des modèles par un ingénieur n'ayant pas participé à leur construction avant chaque rendu au MO.",
+            "source": "RC §5.2.1",
+            "unite_evaluation": "points"
+          }
+        ]
       },
       {
-        "libelle": "VT2 — Méthode de modélisation hydraulique et de cartographie des aléas et des enjeux",
-        "ponderation_pct": 40,
-        "description": "L'acheteur évalue la pertinence des outils de modélisation hydraulique et de cartographie proposés. Le mémoire doit expliquer les capacités de ces outils pour prendre en compte la pluie, les débits, l'occupation du sol, les transformations hydrologiques, les ouvrages enterrés et l'impact du barrage.",
-        "elements_attendus": [
-          "Présentation du logiciel de modélisation hydraulique retenu et justification du choix",
-          "Démonstration de la capacité du modèle à intégrer les apports pluviaux (modélisation pluie-débit couplée)",
-          "Méthode d'intégration des ouvrages enterrés (réseaux, buses, ponts) dans le modèle",
-          "Méthode de prise en compte de l'impact du barrage sur les aléas en aval",
-          "Approche cartographique des aléas (hauteurs, vitesses, classes d'aléas) et des enjeux exposés",
-          "Estimation du temps passé et des moyens alloués à la modélisation"
-        ],
-        "exemple_reponse_forte": "Le candidat proposera un modèle couplé 1D/2D (ex: HEC-RAS 2D ou TELEMAC) intégrant un module hydrologique pour la transformation pluie-débit sur l'ensemble du bassin. La prise en compte du barrage fera l'objet d'une modélisation spécifique avec différents scénarios de gestion. La cartographie des aléas sera produite sur fond orthophoto au 1/25 000 avec une classification en 3 niveaux conformément aux guides méthodologiques PPRi.",
-        "source": "RC art 4.3.2 et RC §5.2.2",
-        "sous_criteres": []
-      },
-      {
-        "libelle": "VT3 — Présentation générale de l'organisation, des moyens humains et matériels, et des procédés de validation",
-        "ponderation_pct": 5,
-        "description": "L'acheteur évalue l'organisation générale, les moyens humains et matériels consacrés à la mission (CV des intervenants, répartition des tâches), ainsi que les procédés de vérification/validation internes et les modalités d'échange avec la maîtrise d'ouvrage.",
-        "elements_attendus": [
-          "Présentation de l'équipe avec CV des intervenants et rôles de chacun",
-          "Procédures de vérification et contrôle qualité interne",
-          "Modalités d'échange et de validation avec la maîtrise d'ouvrage (DDTM 34)",
-          "Présentation des pratiques environnementales mises en œuvre"
-        ],
-        "exemple_reponse_forte": "Le candidat présentera un organigramme de projet avec un chef de projet sénior (>10 ans d'expérience PPRi) et des ingénieurs spécialisés, précisant les heures dédiées par profil. Il décrira un processus de contrôle interne en deux étapes (revue croisée interne, validation chef de projet) avant chaque remise à la DDTM, avec des jalons de validation intermédiaires formalisés.",
-        "source": "RC art 4.3.2 et RC §5.2.2",
-        "sous_criteres": []
-      },
-      {
-        "libelle": "Planning de réalisation (PR1 + PR2)",
+        "libelle": "Planning de réalisation (PR)",
         "ponderation_pct": 10,
-        "description": "L'acheteur note la cohérence du planning (durées prévues pour chaque tâche, enchaînement des prestations) et son optimisation (délais de réalisation les plus courts proposés). Le planning doit couvrir tous les éléments de mission et les étapes de validation par la maîtrise d'ouvrage.",
+        "description": "Évalue la cohérence (délais par tâche, enchaînement des prestations) et l'optimisation (délais de réalisation les plus courts) du calendrier proposé, selon deux sous-critères PR1 et PR2.",
         "elements_attendus": [
-          "Calendrier prévisionnel détaillé couvrant toutes les tâches du CCTP",
-          "Enchaînement logique et réaliste des prestations",
-          "Intégration des jalons de validation par la DDTM 34",
-          "Proposition d'un délai global optimisé"
+          "Calendrier prévisionnel détaillé par éléments de mission (collecte, hydrologie, modélisation, cartographie, ZIP/ZICH, rapport)",
+          "Cohérence des délais proposés avec les durées estimées dans le CCAP",
+          "Enchaînement logique des tâches et identification des dépendances",
+          "Optimisation conduisant à des délais inférieurs aux 36 mois estimés"
         ],
-        "exemple_reponse_forte": "Le candidat présentera un planning de type GANTT sur 18 mois avec identification du chemin critique, intégrant les délais de consultation/validation de la DDTM (délais d'instruction de 3 semaines par jalon). Il proposera une parallélisation des phases collecte et pré-modélisation pour optimiser les délais globaux.",
+        "exemple_reponse_forte": "Le planning Gantt proposé présente 8 phases séquencées sur 30 mois (vs 36 estimés), avec parallelisation de la collecte terrain et de l'analyse hydrologique à partir du mois 2. Les jalons de validation DDTM sont intégrés avec des délais de réponse conservateurs de 4 semaines, sans impacter le chemin critique.",
         "source": "RC §5.2.2",
-        "sous_criteres": []
+        "unite_evaluation": "points",
+        "sous_criteres": [
+          {
+            "libelle": "PR1 — Cohérence du planning",
+            "ponderation_pct": null,
+            "description": "Cohérence entre les délais prévus pour chaque tâche et l'enchaînement des prestations.",
+            "elements_attendus": [
+              "Délais réalistes par tâche en regard du CCAP",
+              "Enchaînement logique respectant les dépendances (ex: validation hydrologie avant modélisation)"
+            ],
+            "exemple_reponse_forte": "—",
+            "source": "RC §5.2.2",
+            "unite_evaluation": "points"
+          },
+          {
+            "libelle": "PR2 — Optimisation du planning",
+            "ponderation_pct": null,
+            "description": "Délais de réalisation les plus courts proposés par le candidat.",
+            "elements_attendus": [
+              "Planning global inférieur aux 36 mois estimés",
+              "Justification des gains obtenus (parallélisation, ressources renforcées)"
+            ],
+            "exemple_reponse_forte": "—",
+            "source": "RC §5.2.2",
+            "unite_evaluation": "points"
+          }
+        ]
       },
       {
-        "libelle": "Pratiques environnementales (NPE)",
+        "libelle": "Pratiques environnementales (PE)",
         "ponderation_pct": 5,
-        "description": "L'acheteur évalue la qualité et l'engagement du candidat en matière de pratiques environnementales mises en œuvre dans la réalisation de la prestation.",
+        "description": "Évalue la qualité et l'engagement du candidat sur la limitation des émissions de GES liées aux déplacements et sur la sobriété numérique dans le cadre de l'exécution du marché.",
         "elements_attendus": [
-          "Description des pratiques environnementales concrètes appliquées (dématérialisation, déplacements, etc.)",
-          "Engagement mesurable sur la thématique environnementale"
+          "Politique de limitation des déplacements (télétravail, visioconférence, regroupement des visites terrain)",
+          "Types de transport privilégiés (train, véhicule électrique/hybride)",
+          "Méthode de réalisation du BEGES annuel simplifié (outil, périmètre, indicateurs)",
+          "Politique de sobriété numérique (tri des données, stockage raisonné, gestion des mails)"
         ],
-        "exemple_reponse_forte": "Le candidat présentera sa politique de réduction des déplacements (mutualisation des visites terrain, visioconférences pour les réunions de validation) et sa démarche de dématérialisation des livrables, en indiquant les indicateurs de suivi environnemental utilisés en interne.",
-        "source": "RC §5.2.2",
-        "sous_criteres": []
+        "exemple_reponse_forte": "Le prestataire s'engage à réaliser toutes les réunions de suivi en visioconférence sauf les 4 réunions formelles de validation MO, à utiliser le train pour les déplacements Montpellier-Bédarieux, et à produire un BEGES annuel via l'outil GES 1point5. La politique de sobriété numérique prévoit un archivage mensuel des fichiers de calcul intermédiaires et la suppression des versions obsolètes.",
+        "source": "RC §5.2.2 et CCTP §6",
+        "unite_evaluation": "points"
       }
     ],
     "prix": {
       "type_formule": "moins_disant",
-      "formule_explicite": "CP1 = (prix de l'offre recevable la plus basse / prix de l'offre examinée) × 20 — noté sur 20. CP2 = cohérence entre la décomposition du prix global forfaitaire par éléments de mission, le contenu des éléments considérés, les moyens alloués et le temps passé estimé — noté sur 5. NCP = CP1 + CP2.",
+      "formule_explicite": "CP1 (20 pts) = (prix de l'offre recevable la plus basse / prix de l'offre examinée) × 20. CP2 (5 pts) = cohérence entre DPGF par éléments de mission, contenu, moyens et temps passé. NCP = CP1 + CP2. Note finale : NF = NVT + NCP + NPR + NPE.",
+      "source": "RC §5.2.2",
       "elements_a_chiffrer": [
-        "Prix global et forfaitaire de la prestation (décomposé par éléments de mission)",
-        "Décomposition du prix global et forfaitaire par éléments de mission avec temps passé et moyens alloués",
-        "Sous-détail par phase ou tâche en cohérence avec le mémoire technique"
+        "Prix global et forfaitaire (PGF) HT — seul le PGF est retenu pour CP1",
+        "Décomposition du prix global et forfaitaire (DPGF) par éléments de mission : collecte des données et enquête de terrain, descriptif des besoins de levés, analyse hydrologique, cartographie des aléas PPRi, modélisation ZIP/ZICH (mise au format Viginond, atlas cartographique, documents d'accompagnement), rapport et support de présentation",
+        "Détail temps passé par intervenant et par élément de mission (cohérence CP2)",
+        "Forfait vacations présentation collectivités (15 jours)"
       ]
     },
-    "modalite_calcul_prix": "NCP = CP1 + CP2 (max 25 points). CP1 = (prix_min / prix_examiné) × 20. CP2 noté sur 5 selon cohérence décomposition/mission/temps passé."
+    "modalite_calcul_prix": "Note prix (NCP/25) = CP1 (20 pts, moins-disant proportionnel) + CP2 (5 pts, cohérence DPGF/mission/temps passé). RC §5.2.2."
   },
   "montant_marche": {
     "valeur_estimee_euros": null,
     "fourchette_min_euros": null,
     "fourchette_max_euros": null,
     "type": "non_communique",
-    "duree_couverte": null,
+    "duree_couverte": "Durée d'exécution estimée 36 mois, durée contractuelle max 48 mois",
     "source_extraction": null,
-    "commentaire": "Aucun montant estimé, plafond ou prix unitaire n'est mentionné dans les pièces du DCE fournies (RC uniquement). Le CCAP et l'acte d'engagement, qui pourraient contenir cette information, ne sont pas fournis dans le DCE analysé."
+    "commentaire": "Aucun montant estimé ni plafond n'est publié dans les pièces du DCE. Le marché est passé en appel d'offres ouvert européen (seuil > 90 000 € HT). Estimation bottom-up : voir montant_3_voies."
+  },
+  "montant_3_voies": {
+    "voie_1_eur": null,
+    "voie_1_source": null,
+    "voie_2_disponible": true,
+    "voie_2_min_eur": 280000,
+    "voie_2_max_eur": 400000,
+    "voie_2_hypotheses": [
+      {
+        "hypothese": "Durée estimée d'exécution : 36 mois (CCAP art 1.4 et AE art 3)",
+        "valeur": "36 mois"
+      },
+      {
+        "hypothese": "Périmètre : 15 communes, bassin versant ~400 km², a minima 8 scénarios/commune + scénario exceptionnel + 10 scénarios ZIP/ZICH Viginond (CCTP §III et Annexe 3)",
+        "valeur": "15 communes, 9+ scénarios"
+      },
+      {
+        "hypothese": "Charge estimée pour une étude PPRi de ce type (bureaux d'études hydrauliques) : 400 à 600 jours-homme sur l'ensemble de la mission (collecte, hydrologie, modélisation multi-scénarios, cartographie SIG, rapports, présentations). Dimension fixée à 500 j-h (valeur centrale).",
+        "valeur": "500 jours-homme"
+      },
+      {
+        "hypothese": "Taux journalier moyen d'un bureau d'études hydraulique (ingénieurs hydrauliciens, hydrologues, géomaticiens) : 700 à 900 €/jour HT. Dimension variée pour construire la fourchette.",
+        "valeur": "700 à 900 €/j"
+      },
+      {
+        "hypothese": "15 jours de vacation présentation collectivités inclus dans le forfait (CCTP §7)",
+        "valeur": "15 jours vacation"
+      }
+    ],
+    "voie_2_raison_indisponible": null
+  },
+  "cout_realisation": {
+    "cout_total_eur": 280000,
+    "cout_min_eur": 245000,
+    "cout_max_eur": 340000,
+    "postes": [
+      {
+        "poste": "Collecte des données, enquête de terrain et analyse hydrologique",
+        "detail": "~80 j-h (chef de projet + hydrologue + géomaticien) × 750 €/j moyen",
+        "montant_eur": 60000
+      },
+      {
+        "poste": "Modélisation hydraulique 2D (8+ scénarios/commune, 15 communes + ZIP/ZICH Viginond)",
+        "detail": "~250 j-h (ingénieurs hydrauliciens + modélisateurs) × 780 €/j",
+        "montant_eur": 195000
+      },
+      {
+        "poste": "Cartographie SIG et post-traitements (raster, vecteur, atlas, géostandard CNIG)",
+        "detail": "~60 j-h (géomaticien) × 650 €/j",
+        "montant_eur": 39000
+      },
+      {
+        "poste": "Rapport de présentation, mémoires techniques et supports de réunion",
+        "detail": "~40 j-h (chef de projet + rédacteur) × 750 €/j",
+        "montant_eur": 30000
+      },
+      {
+        "poste": "Vacations présentation collectivités (15 jours inclus au forfait CCTP §7)",
+        "detail": "15 j × 750 €/j (déplacements + préparation)",
+        "montant_eur": 11250
+      },
+      {
+        "poste": "Frais de déplacement et de terrain (enquêtes, réunions DDTM/SPC-MO)",
+        "detail": "Estimation forfaitaire sur 36 mois, déplacements Montpellier / Bédarieux (110 km), 4 réunions formelles + intermédiaires",
+        "montant_eur": 8000
+      }
+    ],
+    "taux_journaliers_retenus": "Taux marché indicatifs 2026 : chef de projet / hydraulicien senior 800-900 €/j HT ; ingénieur hydraulicien 700-800 €/j ; géomaticien SIG 600-700 €/j. Taux moyens utilisés dans l'estimation (indications de marché, non contractuels).",
+    "commentaire": "Estimation bottom-up du coût de production côté candidat. La fourchette est construite en faisant varier le taux journalier moyen (700 à 900 €/j) sur une charge fixée à ~500 j-h. Coût total central ~340 k€ si taux élevés (senior) ; ~245 k€ si équipe junior. La marge brute dépend du positionnement tarifaire retenu dans le PGF, non communiqué. Revenu estimé (Voie 2) : 280 à 400 k€. Le marché semble financièrement viable avec une marge brute de 5 à 30% selon offre."
   },
   "revision_prix": {
-    "type": "non_communique",
-    "indices_utilises": [],
-    "ponderation": null,
-    "periodicite": null,
-    "formule_revision": null,
-    "source_extraction": null,
-    "commentaire": "Le CCAP n'est pas fourni dans les pièces analysées. La révision des prix est mentionnée comme relevant du CCAP mais son contenu n'est pas accessible dans ce DCE partiel."
+    "type": "indexation",
+    "indices_utilises": [
+      "Index d'ingénierie INSEE"
+    ],
+    "ponderation": "85% partie variable (index d'ingénierie INSEE) + 15% partie fixe",
+    "periodicite": "autre",
+    "formule_revision": "Pn = P0 × (0,15 + 0,85 × Im/I0) — où Im = index du mois d'exécution de la prestation, I0 = index du mois d'établissement des prix (M0 = mois de remise des offres)",
+    "source_extraction": "CCAP art 6.2.4",
+    "commentaire": "Révision à la demande expresse du titulaire (pas automatique), transmise au plus tard le dernier jour du mois suivant l'exécution ou la facture. Clause butoir : révision plafonnée à +8%/an ou +15% sur la durée totale, déclenchant une résiliation sans indemnité si dépassement. Formule favorable en inflation mais soumise à une clause butoir contraignante à surveiller sur 36 mois."
   },
   "alertes_prix": [
-    "Pondération prix totale de 25% sur 100 (CP1=20 + CP2=5) — la valeur technique domine à 60%, ce qui est favorable pour les bureaux d'études spécialisés mais le prix reste significatif",
-    "Le critère CP2 évalue la cohérence entre décomposition du prix, contenu des éléments de mission et temps passé — une DPGF incohérente avec le mémoire technique peut faire perdre jusqu'à 5 points sur 25 de la partie prix",
-    "En cas d'erreur de calcul dans la DPGF, le prix global forfaitaire ne sera pas rectifié pour le jugement — attention à la cohérence des additions/multiplications",
-    "Risque d'offre anormalement basse (OAB) : le RC précise que les OAB seront traitées conformément aux articles R.2152-3 à R.2152-5 du CCP — ne pas sous-évaluer le temps passé"
+    "Clause butoir révision des prix : si l'augmentation excède 8% par année ou 15% sur la durée totale, l'acheteur peut résilier sans indemnité (CCAP art 6.2.5) — risque commercial significatif sur un marché de 36 mois en contexte inflationniste.",
+    "Révision des prix NON automatique : le titulaire doit la demander expressément au plus tard le dernier jour du mois suivant la prestation, sous peine de forclusion (CCAP art 6.2.2) — contrainte procédurale à intégrer dans l'organisation.",
+    "Pondération prix de 25% (CP1 20% + CP2 5%) relativement faible : la valeur technique (60%) et le planning (10%) priment fortement — marge de différenciation sur le prix limitée, mais cohérence DPGF/mission notée sur 5 points (CP2) à ne pas négliger.",
+    "CP2 — cohérence DPGF : les erreurs de calcul significatives dans la décomposition peuvent être prises en compte pour juger la cohérence (RC §5.2.2). Une DPGF mal articulée avec les éléments de mission pénalise directement la note prix."
   ],
   "references_exigees": {
     "experience_minimale_annees": null,
     "experience_source": null,
     "volume_min_references_similaires": null,
-    "volume_min_references_unite": null,
-    "secteur_experience": "Études hydrauliques et hydrologiques pour la définition d'aléas inondation, idéalement en contexte PPRi (Plans de Prévention des Risques d'inondation)",
+    "volume_min_references_unite": "marchés similaires (études hydrauliques/PPRi)",
+    "secteur_experience": "Études de définition des aléas inondation, modélisation hydraulique 2D, cartographie des aléas PPRi — expérience dans le domaine de l'ingénierie hydraulique fluviale et de la prévention des risques d'inondation.",
     "secteur_source": "RC art 4.3.1",
     "certifications_obligatoires": [],
     "autres_exigences": [
       {
-        "libelle": "Justifications à produire quant aux qualités et capacités du candidat précisées dans l'avis de marché, notamment qualifications et références",
+        "libelle": "Justifications à produire quant aux qualités et capacités du candidat : qualifications et références (avis de marché)",
         "source": "RC art 4.3.1"
+      },
+      {
+        "libelle": "CV des intervenants avec prestations dévolues à chacun, en cohérence avec les délais d'exécution proposés",
+        "source": "RC art 4.3.2 (mémoire technique)"
+      },
+      {
+        "libelle": "Les personnels affectés doivent justifier des capacités techniques et professionnelles conformément à l'offre ; l'acheteur peut exiger des justificatifs (diplômes, certificats, attestations). Non-conformité = pénalité 200 €/j après délai de 10 jours.",
+        "source": "CCAP art 7.2.4"
       }
     ]
   },
-  "lots": [],
+  "dossier_candidature": {
+    "pieces_a_fournir": [
+      {
+        "libelle": "Lettre de candidature DC1 (ou équivalent) dûment remplie et datée — un DC1 par membre en cas de groupement",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC art 4.3.1"
+      },
+      {
+        "libelle": "Déclaration du candidat DC2 (ou équivalent) dûment remplie et datée — un DC2 par membre en cas de candidature groupée",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC art 4.3.1"
+      },
+      {
+        "libelle": "Déclaration de sous-traitance DC4 (le cas échéant, un par sous-traitant) — annexé à l'acte d'engagement",
+        "phase": "candidature",
+        "obligatoire": false,
+        "source": "RC art 4.3.1"
+      },
+      {
+        "libelle": "Justifications quant aux qualités et capacités du candidat (qualifications et références) — précisées dans l'avis de marché",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC art 4.3.1"
+      },
+      {
+        "libelle": "Acte d'engagement (AE) complété, signé et daté — avec annexe financière (DPGF). En cas de groupement conjoint : annexe de répartition des prestations entre co-traitants.",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC art 4.3.2"
+      },
+      {
+        "libelle": "CCAP paraphé et signé",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC art 4.3.2"
+      },
+      {
+        "libelle": "CCTP paraphé et signé",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC art 4.3.2"
+      },
+      {
+        "libelle": "Mémoire technique justificatif et explicatif (méthodes, moyens, calendrier, organisation, pratiques environnementales)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC art 4.3.2"
+      }
+    ],
+    "mode_remise": "dématérialisé + copie de sauvegarde",
+    "plateforme_depot": "PLACE — marchespublics.gouv.fr (référence : Alea_BV_ORBAMONT)",
+    "signature_electronique_exigee": true,
+    "format_signature": "Signature électronique selon modalités de l'annexe n°12 du CCP. Un zip signé ne vaut pas signature des documents qu'il contient — chaque document signé doit l'être séparément.",
+    "nombre_exemplaires": null,
+    "langue": "français",
+    "duree_validite_offres_jours": 150,
+    "modalites_source": "RC art 6.1 et 6.2"
+  },
+  "lots": [
+    {
+      "numero": 1,
+      "intitule": "Définition des aléas inondation sur le bassin versant de l'Orb Amont",
+      "domaine": "ingenierie_eau_milieux",
+      "zone_geographique": "Hérault (34) — bassin versant de l'Orb Amont, 15 communes",
+      "volume_estime": null,
+      "volume_estime_unite": "jours-homme",
+      "cout_estime_min_eur": 245000,
+      "cout_estime_max_eur": 340000,
+      "particularites": "Marché unique, pas de décomposition en lots. Toutes les prestations (hydrologie, modélisation 2D, cartographie PPRi, ZIP/ZICH Viginond, rapport, présentations) sont incluses dans ce lot unique. Levés topographiques complémentaires non inclus (pris en charge par la DDTM)."
+    }
+  ],
+  "tranches": [],
   "calendrier": {
     "date_limite_offres": "2026-07-10",
     "date_demarrage_prevue": null,
-    "duree_marche": "Non précisé dans le RC — voir CCAP et acte d'engagement"
+    "duree_marche": "36 mois estimés pour l'exécution des prestations, durée contractuelle maximale 48 mois à compter de la notification"
   },
   "alertes_candidat": [
-    "Les qualifications et références spécifiques requises sont précisées dans l'avis de marché (non fourni) — consulter l'avis BOAMP 26-56656 avant soumission pour vérifier l'éligibilité",
-    "Le mémoire technique doit impérativement détailler les capacités des outils de modélisation à prendre en compte : pluie, débits, occupation du sol, transformations hydrologiques, ouvrages enterrés ET l'impact du barrage — toute omission sur l'un de ces points pénalise le sous-critère VT2 (40 pts)",
-    "Les résultats de l'étude Cerema mentionnés dans le CCTP ne seront communiqués qu'APRÈS notification du marché — impossible d'en tenir compte dans l'offre, mais il faut démontrer la capacité à intégrer des données existantes",
-    "La DPGF doit être strictement cohérente avec le mémoire technique (temps passé, moyens alloués) sous peine de pénalité sur CP2 (5 pts) et risque d'offre non cohérente",
-    "Délai de validité des offres de 150 jours — à anticiper dans la gestion des coûts internes et des disponibilités des équipes"
+    "Modèle hydraulique doit être relançable sans logiciel propriétaire payant : le code de calcul retenu (Telemac2D, Swan, etc.) doit être accessible sans achat de licence ou abonnement (CCTP §III-3.1) — à vérifier impérativement si le candidat utilise un outil propriétaire.",
+    "Levés topographiques et bathymétriques complémentaires NON inclus dans le marché : le titulaire fournit uniquement le cahier des charges de ces levés ; ils sont réalisés par la DDTM (CCTP §IV-1). Ne pas les budgéter ni les inclure dans le PGF.",
+    "Personnels affectés à la mission doivent justifier des capacités techniques conformes à l'offre (CCAP art 7.2.4) : toute non-conformité constatée en cours d'exécution donne lieu à un remplacement sous 10 jours, sinon pénalité de 200 €/j. Les CV présentés dans l'offre sont contractuels.",
+    "Validation ZIP/ZICH par le SPC Méditerranée-Ouest : les données doivent être versées en base nationale Viginond sans rejet (format strict). Le prestataire doit retravailler les couches jusqu'à acceptation complète. Compétence SIG/géomatique spécialisée Viginond fortement recommandée (CCTP Annexe 3).",
+    "Clause butoir révision des prix : dépassement de +8%/an ou +15% sur la durée totale → résiliation sans indemnité pour le titulaire (CCAP art 6.2.5). Sur 36 mois, ce risque est à intégrer dans le chiffrage de l'offre."
   ],
   "points_differenciants_attendus": [
     {
-      "libelle": "Maîtrise des outils de modélisation hydraulique prenant en compte les spécificités du bassin versant (barrage, ouvrages enterrés, pluie)",
-      "exemple": "Un candidat qui présente un modèle couplé 1D/2D avec module hydrologique intégré et qui démontre une expérience spécifique sur des bassins versants avec barrage obtiendra la note maximale sur VT2 (40 pts). La description des algorithmes de gestion du barrage dans le modèle est un élément différenciant fort.",
-      "source": "RC art 4.3.2"
+      "libelle": "Maîtrise des outils hydrauliques 2D libres (Telemac2D, Swan) et compatibilité avec les spécifications Viginond du SPC-MO",
+      "exemple": "Un candidat qui présente une expérience démontrée avec Cartino2D/Telemac2D (l'outil utilisé par le Cerema pour l'étude socle) et qui décrit précisément comment il assurera la jointure avec l'étude Cerema tout en produisant des couches Viginond validées sans rejet marque fortement VT2 (40 pts).",
+      "source": "CCTP §III-3.1 et Annexe 3"
     },
     {
-      "libelle": "Cohérence et optimisation du planning avec intégration des jalons de validation DDTM",
-      "exemple": "Un candidat proposant un planning GANTT détaillé avec chemin critique identifié, parallélisation des tâches et délais de validation explicitement intégrés se démarquera sur le critère planning (10 pts). Proposer un délai global inférieur à la durée standard pour ce type d'étude, avec justification, maximise le sous-critère PR2.",
+      "libelle": "Expérience en hydrologie karstique méditerranéenne et connaissance du bassin de l'Orb",
+      "exemple": "Un bureau d'études ayant déjà travaillé sur l'Orb ou sur des bassins versants karstiques méditerranéens (Hérault, Gard, Ardèche) peut valoriser cette connaissance dans VT1 en citant des références PPRi similaires et en proposant une méthodologie karstique adaptée aux crues rapides de l'arc méditerranéen.",
+      "source": "CCTP §I (préambule) et §IV-2"
+    },
+    {
+      "libelle": "Calendrier optimisé (gain de délai vs les 36 mois estimés)",
+      "exemple": "Un candidat proposant un planning à 28-30 mois grâce à une parallélisation de la collecte terrain et des premières analyses hydrologiques, avec justification des ressources supplémentaires mobilisées, se différenciera sur le sous-critère PR2 et signalera une bonne maîtrise organisationnelle.",
       "source": "RC §5.2.2"
     },
     {
-      "libelle": "Qualité et cohérence de la décomposition du prix global forfaitaire (DPGF) avec le contenu des éléments de mission",
-      "exemple": "Présenter une DPGF par phase (collecte données, modélisation, cartographie, rapports) avec détail des jours-hommes par profil et leur coût unitaire, strictement alignée avec les effectifs présentés dans le mémoire technique, maximise le score CP2 (5 pts) et renforce la crédibilité de l'offre technique.",
+      "libelle": "Cohérence et lisibilité de la DPGF par éléments de mission (CP2 — 5 pts)",
+      "exemple": "Une DPGF qui ventile le PGF en 7-8 éléments de mission distincts (correspondant exactement aux phases du CCAP art 7.2), avec temps passé par intervenant et taux journaliers affichés, donnera la meilleure note CP2 et rassurera le MO sur la maîtrise du périmètre.",
       "source": "RC §5.2.2"
     },
     {
-      "libelle": "Expérience de l'équipe en études d'aléas pour PPRi en contexte méditerranéen",
-      "exemple": "Des CV de chefs de projet ayant réalisé des études d'aléas inondation PPRi sur des cours d'eau méditerranéens (crues torrentielles, étiages marqués) et connaissant les guides méthodologiques MITE/CEREMA constituent un avantage discriminant dans l'évaluation de VT1 et VT3.",
-      "source": null
+      "libelle": "Politique de sobriété numérique et BEGES crédible",
+      "exemple": "Un candidat proposant un BEGES construit sur l'outil GES 1point5 ou Bilan GES ADEME, avec des indicateurs de déplacements concrets (km voiture, train, visioconférence) et une politique de tri des données numériques explicite, se distinguera sur le critère PE (5 pts) par rapport à une simple déclaration d'intention.",
+      "source": "RC §5.2.2 et CCTP §6"
     }
   ],
   "_meta": {
     "id_marche": "BOAMP-26-56656",
     "type": "complet",
-    "extraction_le": "2026-06-12T13:04:30.180390+00:00",
+    "date_generation": "2026-06-19T21:37:25.444596+00:00",
+    "extraction_le": "2026-06-19T21:37:25.444596+00:00",
     "modele": "claude-sonnet-4-6",
-    "tokens_input": 22498,
-    "tokens_output": 5717,
-    "cout_eur": 0.1456,
-    "duree_sec": 105.4,
+    "preset_utilise": "ingenierie",
+    "presets_matches": [
+      "ingenierie",
+      "btp",
+      "energie_renouvelable"
+    ],
+    "prompts_versions": {
+      "ingenierie/_preset.json": "sha256:b924b32a088673d6",
+      "btp/_preset.json": "sha256:055bf6f8b2c1f771",
+      "energie_renouvelable/_preset.json": "sha256:d5db6e4d3d386add"
+    },
+    "tokens_input": 78809,
+    "tokens_output": 11250,
+    "cout_eur": 0.3849,
+    "duree_sec": 208.8,
     "pdfs_traites": [
+      {
+        "nom": "01.2026_AE_ORB_vpp.pdf",
+        "hash": "32baef37328a9cd36baa3a309b3177a9",
+        "taille_chars": 16984
+      },
+      {
+        "nom": "01.Annexe_1_AE_groupement_conjoint_vpp.pdf",
+        "hash": "f3cf7965802df9e0532f799ff006a28d",
+        "taille_chars": 989
+      },
+      {
+        "nom": "01.Annexe_3_AE_DC4.pdf",
+        "hash": "fe13a5fe6c4d507f49c9a038ffbd6b45",
+        "taille_chars": 17714
+      },
+      {
+        "nom": "02.2026_CCAP_ORB_vpp.pdf",
+        "hash": "af6c0d3ea03bf255c3466a302e005203",
+        "taille_chars": 44921
+      },
+      {
+        "nom": "03.2026_CCTP_ORB_vpp.pdf",
+        "hash": "ea8d75abd03b64e35d31eb788222ecc1",
+        "taille_chars": 28820
+      },
+      {
+        "nom": "03.Annexe_1_Atlas.pdf",
+        "hash": "745455ac1f533a8d831f84dbc6c46192",
+        "taille_chars": 15704
+      },
+      {
+        "nom": "03.Annexe_2_CCTP_bibliographie_Orb_Amont_vpp.pdf",
+        "hash": "8a3fd6f63418d2828bc80b0774b22e41",
+        "taille_chars": 7409
+      },
+      {
+        "nom": "03.Annexe_3_CCTP_ZIP_SPC_vpp.pdf",
+        "hash": "42926b54783856943fb1eb6cc534c999",
+        "taille_chars": 5144
+      },
       {
         "nom": "04.2026_RC_ORB_vpp.pdf",
         "hash": "22812f4f92cbd3bf22cfeba44fa19cfa",

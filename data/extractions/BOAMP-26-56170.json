@@ -1,255 +1,398 @@
 {
-  "synthese_marche": "Le CHU d'Angers, en tant qu'établissement support du GHT 49 (Maine-et-Loire), lance un appel d'offres ouvert pour la maintenance préventive et corrective des groupes électrogènes et de leurs équipements auxiliaires (armoires de commande, batteries, circuits de carburant) pour l'ensemble des établissements membres et partenaires du GHT 49 (9 CH + 6 EHPAD/GCS). Le marché est un accord-cadre à bons de commande, mono-titulaire, non alloti, d'une durée de 12 mois reconductibles deux fois (3 ans maximum), estimé à 120 000 € HT/an.",
+  "synthese_marche": "Accord-cadre à bons de commande pour la maintenance préventive et corrective des groupes électrogènes et de leurs équipements auxiliaires dans les établissements du GHT 49 (Maine-et-Loire), coordonné par le CHU d'Angers. Le marché couvre 9 hôpitaux membres du GHT et 6 EHPAD partenaires, pour un estimatif annuel de 120 000 € HT et un maximum de 480 000 € HT par période. Durée initiale 12 mois, reconductible 2 fois, pour une durée totale maximale de 3 ans.",
   "domaines_metier": [
     {
-      "code": "autre"
+      "code": "fourniture_materiel"
     }
   ],
-  "raison_classification": "Ce marché porte exclusivement sur la maintenance préventive et corrective de groupes électrogènes (équipements électromécaniques) dans des établissements hospitaliers. Il ne correspond à aucun des codes IT ni aux autres codes de la taxonomie : il ne s'agit ni d'IT, ni de BTP, ni d'énergie renouvelable, ni de services aux personnes. Le code 'autre' est le seul applicable.",
-  "caracteristiques_mission_it": {
-    "typologie_mission": null,
-    "typologie_systeme": null,
-    "cloud_ou_on_premise": null,
-    "niveau_securite": null,
-    "technologies_attendues": [],
-    "modele_prestation": "accord-cadre à bons de commande",
-    "volumetrie": "Parc de groupes électrogènes réparti sur 15+ sites (inventaire en annexe CCTP Annexe 1)",
-    "jours_homme_estimes": null,
-    "sla_attendus": "Intervention corrective sous 4h après appel ; remise en service en cas de panne affectant la sécurité électrique sous 8h ; remise en service panne sans impact sécurité sous 96h ; astreinte 24h/24 7j/7 optionnelle selon établissement",
-    "livrables_par_phase": [
-      {
-        "phase": "Mise en route",
-        "livrables": [
-          "Réunion de mise en œuvre dans le mois suivant la notification",
-          "État des lieux du parc à entretenir (facultatif, sans facturation)"
-        ]
-      },
-      {
-        "phase": "Maintenance préventive (complète)",
-        "livrables": [
-          "Rapport d'intervention détaillé remis en fin d'intervention",
-          "Compte rendu de maintenance préventive sous 2 semaines après fin de la visite",
-          "Rapport annuel d'activité par établissement"
-        ]
-      },
-      {
-        "phase": "Maintenance corrective",
-        "livrables": [
-          "Compte rendu d'intervention sous 2 jours",
-          "Devis de réparation sous 4 jours après intervention corrective"
-        ]
-      },
-      {
-        "phase": "Suivi annuel",
-        "livrables": [
-          "Réunion annuelle par établissement (pilotée par le prestataire)",
-          "Réunion annuelle GHT 49 globale",
-          "Compte rendu de réunion annuelle GHT 49 (rédigé par l'établissement support)"
-        ]
-      }
+  "raison_classification": "Le marché porte exclusivement sur des prestations de maintenance préventive et corrective de groupes électrogènes (équipements électromécaniques industriels), avec fourniture de pièces détachées, essais en charge et mise à disposition de GE de substitution. Ce type de prestation — entretien d'équipements techniques spécialisés avec composante pièces détachées — ne correspond pas strictement aux codes BTP (pas de travaux de construction/réhabilitation) ni au second œuvre. Le code le plus proche est 'fourniture_materiel' (maintenance d'équipements), à défaut d'un code 'maintenance_equipements_techniques' dans la taxonomie. La CPV principale est 31121000-0 (groupes électrogènes).",
+  "caracteristiques_techniques_chantier": {
+    "description": "Maintenance préventive (1 à 2 visites annuelles selon établissement) et corrective (astreinte 24h/7j pour les établissements abonnés) des groupes électrogènes et armoires d'inversion normal/secours dans des établissements hospitaliers. Opérations : vidange huile, remplacement filtres, analyse liquide de refroidissement, essais en charge, vérification batteries/chargeurs, dépoussiérage armoires, rapport d'intervention, essais banc de charge sur demande, fourniture de GE de substitution.",
+    "typologie_ouvrage": "Établissements de santé (CHU, CH, EHPAD, CESAME) — sites hospitaliers occupés 24h/24",
+    "surface_volume": null,
+    "site_occupe": "true — tous les établissements sont en activité permanente (hôpitaux, EHPAD). Coordination obligatoire avec les services de soins pour les essais de coupure, respect des protocoles d'hygiène, permis de feu, plans de prévention.",
+    "corps_etat": [
+      "Maintenance électromécanique groupes électrogènes",
+      "Maintenance armoires électriques (inversion normal/secours)",
+      "Essais électriques (banc de charge)",
+      "Fourniture et pose de pièces détachées (filtres, batteries, durites, liquide refroidissement)"
     ],
-    "profils_attendus": [
-      {
-        "profil": "Technicien de maintenance groupes électrogènes",
-        "nombre": null,
-        "anciennete_min_annees": null,
-        "certifs_requises": [
-          "Habilitations réglementaires électriques requises (non précisées dans le DCE)"
-        ]
-      }
-    ],
-    "exigences_securite": [],
-    "reversibilite": null
+    "contraintes_specifiques": [
+      "Astreinte 24h/24 7j/7 pour les établissements abonnés",
+      "Délai d'intervention corrective : 4h maximum après appel",
+      "Délai de remise en service sécurité électrique : 8h maximum",
+      "Coordination impérative avec les services de soins avant toute coupure d'alimentation",
+      "Plan de prévention obligatoire avec chaque établissement",
+      "Permis de feu pour interventions par point chaud (soudure, meulage)",
+      "Mesures d'hygiène spécifiques milieu hospitalier (immunodéprimés)",
+      "Habilitations électriques réglementaires exigées",
+      "Rapport d'intervention obligatoire avant facturation",
+      "15 établissements/sites répartis sur le département du Maine-et-Loire (49)"
+    ]
   },
-  "qualifications_it": {
-    "iso_27001": false,
-    "hds": false,
-    "secnumcloud": false,
-    "rgs": false,
-    "referencement_anssi": false,
-    "certifications_securite": [],
-    "certifications_technologiques": [],
-    "autres": []
+  "allotissement": {
+    "description": "Marché non alloti — lot unique couvrant l'ensemble des établissements du GHT 49 et partenaires",
+    "nb_lots": 1,
+    "lots_detailles": [
+      {
+        "numero": 1,
+        "intitule": "Prestations de maintenance préventive et corrective des groupes électrogènes et de leurs équipements auxiliaires des établissements du GHT 49",
+        "corps_etat": "Maintenance électromécanique groupes électrogènes",
+        "montant_estime": 120000,
+        "description": "Maintenance préventive (1 à 2 visites/an selon établissement), maintenance corrective avec astreinte, essais en charge sur banc, fourniture de GE de substitution et fourniture de pièces détachées pour l'ensemble des établissements du GHT 49 et partenaires."
+      }
+    ]
+  },
+  "qualifications_requises": {
+    "description": "Le RC exige des habilitations réglementaires pour les intervenants. Des certifications ISO sont mentionnées comme souhaitables. Pas de qualification Qualibat explicitement listée.",
+    "qualibat": [],
+    "rge": false,
+    "rge_specialites": [],
+    "mase": false,
+    "iso_9001": true,
+    "iso_14001": true,
+    "iso_45001": false,
+    "opqibi": null,
+    "autres_certifications": [
+      "Habilitations électriques réglementaires des techniciens intervenants (exigées, non précisées en code dans le DCE)"
+    ]
   },
   "bareme_notation": {
-    "valeur_technique_pct": 60,
+    "valeur_technique_pct": 70,
     "valeur_prix_pct": 30,
     "sous_criteres_techniques": [
       {
         "libelle": "QUALITE — Valeur technique au regard du mémoire technique et de la fiche de moyens",
         "ponderation_pct": 60,
-        "description": "L'acheteur évalue la qualité de l'offre technique à travers le mémoire technique descriptif (moyens humains et qualifications des techniciens, moyens techniques, méthodologie d'intervention, délais et organisation pour les établissements du GHT 49) et la fiche de moyens.",
+        "description": "L'acheteur évalue la valeur technique de l'offre sur la base du mémoire technique descriptif et de la fiche de moyens. Le RC précise que le mémoire technique doit notamment détailler les moyens humains et qualifications des techniciens, les moyens techniques de l'entreprise, la méthodologie d'intervention, les délais et l'organisation mise en place pour l'exécution des prestations dans les établissements du GHT 49.",
         "elements_attendus": [
-          "Présentation des qualifications et habilitations réglementaires des techniciens intervenants",
-          "Description des moyens matériels disponibles (outillage, équipements de diagnostic, banc de charge, groupes de substitution)",
-          "Méthodologie d'intervention détaillée pour la maintenance préventive et corrective",
-          "Organisation proposée pour gérer les délais d'intervention (4h, 8h, 96h) sur l'ensemble des sites du GHT 49",
-          "Planning prévisionnel d'intervention par établissement conforme au calendrier du CCTP",
-          "Dispositif d'astreinte 24h/24 7j/7"
+          "Moyens humains : effectifs dédiés, qualifications et habilitations des techniciens (habilitations électriques, formations spécifiques groupes électrogènes)",
+          "Moyens techniques : parc d'outillage, bancs de charge disponibles, GE de substitution disponibles avec caractéristiques",
+          "Méthodologie d'intervention préventive et corrective : procédures, gammes de maintenance, checklist",
+          "Organisation géographique pour couvrir les 15+ sites du Maine-et-Loire avec les délais contractuels (4h corrective)",
+          "Gestion de l'astreinte 24h/7j : organisation, effectifs d'astreinte, temps de réponse garanti",
+          "Qualité des pièces détachées et traçabilité (conformité constructeur)"
         ],
-        "exemple_reponse_forte": "Notre équipe dédiée GHT 49 comprend 3 techniciens habilités BR/BC/H1V, basés à Angers, avec un rayon d'intervention maximal de 45 minutes sur l'ensemble des sites. Un technicien d'astreinte est disponible 24h/24 7j/7 avec un groupe de substitution de 500 kVA disponible sous 4h, permettant de respecter systématiquement les délais contractuels. Notre méthodologie de maintenance préventive complète suit les préconisations constructeur et intègre une analyse d'huile systématique pour conditionner les vidanges.",
+        "exemple_reponse_forte": "Le candidat présente une équipe de 3 techniciens habilités B2V BR BC dédiés au GHT 49, basés à Angers, avec une astreinte assurée par rotation hebdomadaire garantissant un temps de déplacement maximal de 45 minutes vers tous les sites. Il dispose de 2 bancs de charge portables (puissances 100 kVA et 500 kVA) et de 3 GE de substitution (50, 200 et 600 kVA) stockés sur site ou dépôt régional avec certificats d'essais mensuels. La méthodologie détaille les gammes préventives complètes et complémentaires avec les critères de déclenchement de la vidange (analyse d'huile).",
         "source": "RC article 14.2",
+        "unite_evaluation": "points",
         "sous_criteres": []
       },
       {
         "libelle": "PERFORMANCES EN MATIERE DE PROTECTION DE L'ENVIRONNEMENT",
         "ponderation_pct": 10,
-        "description": "L'acheteur évalue les actions concrètes prises dans le cadre de l'exécution du marché en matière de protection de l'environnement, sous réserve qu'elles soient en lien direct avec les prestations objet du marché.",
+        "description": "L'acheteur évalue les actions prises dans le cadre de l'exécution du marché en matière de protection de l'environnement, sous réserve qu'elles soient en lien direct avec les prestations objet du marché.",
         "elements_attendus": [
-          "Actions de réemploi, réutilisation, reconditionnement et intégration de matières recyclées",
-          "Politique de prévention et valorisation des déchets (huiles usagées, filtres, batteries)",
-          "Pratiques de réduction des émissions de gaz à effet de serre (flotte véhicules, optimisation des déplacements)",
-          "Politique de réduction de l'impact environnemental des interventions (gestion des fluides frigorigènes, carburants)"
+          "Politique de gestion des déchets : collecte et filière de valorisation des huiles usagées, filtres usagés, batteries",
+          "Réduction des émissions de GES : optimisation des déplacements (véhicules hybrides/électriques, tournées groupées), politique carbone",
+          "Réemploi et reconditionnement des pièces détachées",
+          "Prévention de la production de déchets lors des interventions",
+          "Certification ou démarche ISO 14001 / EMAS"
         ],
-        "exemple_reponse_forte": "Nous contractualisons avec une filière agréée pour la collecte et la valorisation des huiles usagées, filtres et batteries remplacées, avec traçabilité des bordereaux de suivi. Notre flotte de véhicules d'intervention est composée à 60% de véhicules Euro 6 et nous optimisons les tournées pour réduire les déplacements à vide lors des visites préventives planifiées.",
+        "exemple_reponse_forte": "Le candidat s'engage à évacuer 100% des huiles usagées via un collecteur agréé (contrat joint), à utiliser un véhicule de service électrique pour les interventions sur Angers intramuros, et à optimiser ses tournées préventives pour regrouper les établissements géographiquement proches. Il est certifié ISO 14001 (certificat joint) et dispose d'une procédure interne de tri et valorisation des déchets d'intervention.",
         "source": "RC article 14.2",
+        "unite_evaluation": "points",
         "sous_criteres": []
       }
     ],
     "prix": {
-      "type_formule": "autre",
-      "formule_explicite": "Le RC précise un critère Prix pondéré à 30% sans détailler la formule de notation. L'offre économiquement la plus avantageuse est retenue selon le rapport qualité/prix.",
+      "type_formule": "moins_disant",
+      "formule_explicite": "Prix des prestations — 30%. La formule exacte de calcul de la note prix n'est pas précisée dans le RC. Application du principe de l'offre économiquement la plus avantageuse ; le prix le moins-disant est a priori le mieux noté.",
+      "source": "RC article 14.2",
       "elements_a_chiffrer": [
-        "Forfait annuel de maintenance préventive complète par établissement/groupe électrogène",
-        "Forfait visite complémentaire par établissement/groupe électrogène",
-        "Main d'œuvre corrective (taux horaire heures ouvrées et heures d'astreinte)",
-        "Déplacement (forfait ou prix au km)",
-        "Pièces détachées (sur tarif public avec remise contractuelle)",
-        "Fourniture et mise à disposition d'un groupe électrogène de substitution (prix unitaire)",
-        "Essais en charge sur banc (prix unitaire)"
+        "Forfait annuel de maintenance préventive complète par établissement/site",
+        "Prix de la visite complémentaire par établissement/site",
+        "Taux horaire main d'œuvre (heures ouvrées)",
+        "Taux horaire main d'œuvre (heures d'astreinte / nuit / week-end)",
+        "Prix de déplacement/forfait déplacement",
+        "Prix forfaitaire vidange huile (par tranche de puissance GE)",
+        "Prix fourniture et remplacement filtres (huile, air, fuel, eau)",
+        "Prix journée banc de charge (essais en charge)",
+        "Prix journée location GE de substitution (par tranche de puissance)",
+        "Taux de remise sur catalogue pièces détachées constructeur",
+        "Prix des principales pièces détachées consommables (batteries, durites, liquide refroidissement)"
       ]
     },
-    "modalite_calcul_prix": "Critère Prix pondéré à 30% de la note finale. Formule exacte non précisée dans le RC."
+    "modalite_calcul_prix": "Prix des prestations — 30%. Formule non explicitée dans le RC ; critère prix pondéré à 30% dans le jugement des offres."
   },
   "montant_marche": {
-    "valeur_estimee_euros": 360000,
-    "fourchette_min_euros": null,
-    "fourchette_max_euros": 1440000,
+    "valeur_estimee_euros": 120000,
+    "fourchette_min_euros": 120000,
+    "fourchette_max_euros": 480000,
     "type": "estime_explicite",
-    "duree_couverte": "3 ans (période initiale 12 mois + 2 reconductions de 12 mois)",
-    "source_extraction": "RC article 4 et CCAP article 3",
-    "commentaire": "Valeur estimée : 120 000 € HT/an × 3 ans = 360 000 € HT sur la durée maximale. Montant maximum par période : 480 000 € HT, soit un plafond total de 1 440 000 € HT sur 3 ans. L'accord-cadre est sans minimum."
+    "duree_couverte": "Montant estimatif annuel 120 000 € HT ; montant maximum par période de 12 mois 480 000 € HT ; durée maximale 3 ans (montant maximum cumulé 1 440 000 € HT si 3 périodes à plafond)",
+    "source_extraction": "RC article 3 et CCAP article 3",
+    "commentaire": "Le RC et le CCAP publient explicitement un estimatif annuel de 120 000 € HT et un plafond de 480 000 € HT par période de 12 mois. Le marché est conclu sans minimum. La durée maximale est 3 ans, soit un plafond cumulé théorique de 1 440 000 € HT."
+  },
+  "montant_3_voies": {
+    "voie_1_eur": 120000,
+    "voie_1_source": "RC article 3 et CCAP article 3 — 'Valeur estimée (€ HT) pour la période de 12 mois : 120 000 € HT'",
+    "voie_2_disponible": false,
+    "voie_2_min_eur": null,
+    "voie_2_max_eur": null,
+    "voie_2_hypotheses": [],
+    "voie_2_raison_indisponible": "Voie 1 disponible : montant estimatif explicitement publié dans le RC et le CCAP à 120 000 € HT/an avec plafond 480 000 € HT/période."
+  },
+  "cout_realisation": {
+    "cout_total_eur": 95000,
+    "cout_min_eur": 85000,
+    "cout_max_eur": 108000,
+    "postes": [
+      {
+        "poste": "Main d'œuvre techniciens — visites préventives (environ 16 sites, 2 visites/an, 1 journée/site en moyenne)",
+        "detail": "32 jours × 2,5 techniciens-jour (déplacement inclus) = 80 jours-homme × 350 €/j chargé",
+        "montant_eur": 28000
+      },
+      {
+        "poste": "Main d'œuvre techniciens — interventions correctives et astreinte",
+        "detail": "Estimation 150 heures d'interventions correctives/an + astreinte (surcoût estimé 15 000 €/an pour organisation 24/7 sur 9 sites avec astreinte)",
+        "montant_eur": 20000
+      },
+      {
+        "poste": "Fournitures et consommables (filtres, huiles, liquide refroidissement, pièces courantes)",
+        "detail": "Achats fournisseur estimés à ~25% du CA annuel sur la base de marchés similaires",
+        "montant_eur": 25000
+      },
+      {
+        "poste": "Frais de déplacement (15+ sites dans le Maine-et-Loire, véhicules de service)",
+        "detail": "Estimation kilométrique et coût véhicule 150 j × 80 € forfait déplacement moyen",
+        "montant_eur": 12000
+      },
+      {
+        "poste": "Encadrement technique et administratif (suivi marché, réunions annuelles, rapports)",
+        "detail": "15 jours d'encadrement + gestion administrative × 500 €/j",
+        "montant_eur": 7500
+      },
+      {
+        "poste": "Assurances, charges indirectes, frais généraux (estimés à 3-4% du CA)",
+        "detail": "Charges fixes pro-ratisées sur ce marché",
+        "montant_eur": 4000
+      }
+    ],
+    "taux_journaliers_retenus": "Technicien maintenance GE : 300-400 €/j chargé (taux marché indicatif pour technicien spécialisé en maintenance industrielle/électromécanique en région Pays de la Loire). Ingénieur/encadrement : 500 €/j. Ces taux sont des références marché indicatives, non contractuelles.",
+    "commentaire": "Estimation du coût de production à taux marché. La dimension la plus incertaine est le volume d'interventions correctives (dépendant de l'état du parc GE, non chiffré dans le CCTP sans l'inventaire annexe). La fourchette est obtenue en faisant varier le coût main d'œuvre corrective de ±15%. Marge brute estimée : (120 000 - 96 500) / 120 000 ≈ 20%."
   },
   "revision_prix": {
     "type": "indexation",
     "indices_utilises": [
-      "ICHT-IME",
-      "FSD1"
+      "ICHT-IME (Indice du Coût Horaire du Travail tous salariés — Industries Mécaniques et Électriques)",
+      "FSD1 (Frais et Services Divers 1)"
     ],
-    "ponderation": "15% partie fixe + 60% ICHT-IME + 25% FSD1 pour la maintenance ; ajustement annuel possible pour les pièces détachées plafonné à +3%/an",
+    "ponderation": "15% partie fixe + 60% ICHT-IME + 25% FSD1",
     "periodicite": "annuelle",
-    "formule_revision": "P = P0 × (0,15 + 0,60 × ICHT-IME/ICHT-IME0 + 0,25 × FSD1/FSD10)",
+    "formule_revision": "P = P0 × (0,15 + 0,60 × ICHT-IME / ICHT-IME0 + 0,25 × FSD1 / FSD10). Pour les pièces détachées : prix ajustables une fois par période de 12 mois ; à la hausse sur demande justifiée (tarif catalogue), à la baisse obligatoire si le tarif public du fournisseur baisse. Clause de sauvegarde résiliation si hausse > 3%/an.",
     "source_extraction": "CCAP article 7.4",
-    "commentaire": "Formule mixte industrie mécanique/électrique adaptée à la maintenance d'équipements électromécaniques ; la clause de sauvegarde permet à l'acheteur de résilier sans indemnité si la hausse dépasse 3%/an sur les pièces détachées, ce qui constitue un risque à anticiper dans le chiffrage."
+    "commentaire": "Formule mixte avec forte composante main d'œuvre (ICHT-IME 60%) cohérente avec la nature du marché. Favorable au titulaire en période d'inflation salariale dans l'industrie. La clause de sauvegarde (résiliation sans indemnité si hausse > 3%/an sur pièces détachées) constitue un risque à anticiper dans le chiffrage."
   },
   "alertes_prix": [
-    "Clause de sauvegarde pièces détachées : l'acheteur peut résilier sans indemnité la partie non exécutée si la hausse de prix des pièces dépasse 3% par an (CCAP article 7.4)",
-    "Accord-cadre sans minimum garanti : aucune commande minimale n'est assurée au prestataire, le risque de sous-utilisation est entièrement supporté par le titulaire",
-    "Montant maximum par période à 480 000 € HT soit 4× l'estimatif annuel de 120 000 € HT : marge de manœuvre importante pour l'acheteur mais potentiel de commandes difficile à anticiper",
-    "Les frais de mise en indisponibilité du groupe électrogène à la charge du prestataire en cas de pièce absente le jour de l'intervention sont un risque financier à intégrer dans le chiffrage (CCTP §5.1.2)"
+    "Accord-cadre sans minimum garanti : le titulaire peut ne recevoir aucune commande (0 € garanti). Le montant estimatif de 120 000 €/an n'est pas un engagement.",
+    "Plafond par période fixé à 480 000 € HT (4× l'estimatif annuel) : il existe un potentiel de volume nettement supérieur à l'estimatif, mais aussi un risque de dépassement de plafond.",
+    "Clause de sauvegarde pièces détachées : résiliation sans indemnité si hausse catalogue > 3%/an — risque sur marge si prix fournisseurs augmentent (contexte inflationniste pièces GE).",
+    "Le prix est pondéré à 30% contre 60% pour la valeur technique : le mémoire technique est le levier principal de différenciation, pas le prix. Un discount excessif n'est pas stratégiquement optimal."
   ],
   "references_exigees": {
     "experience_minimale_annees": null,
     "experience_source": null,
     "volume_min_references_similaires": null,
     "volume_min_references_unite": "marchés similaires",
-    "secteur_experience": "Maintenance de groupes électrogènes, idéalement en milieu hospitalier ou industriel à contraintes de continuité électrique",
-    "secteur_source": "RC article 6.2",
+    "secteur_experience": "Maintenance préventive et corrective de groupes électrogènes, notamment en milieu hospitalier ou tertiaire. Liste de principales prestations de services au cours des 3 dernières années avec montants et destinataires.",
+    "secteur_source": "RC article 6.2 c)",
     "certifications_obligatoires": [
       {
-        "libelle": "Habilitations réglementaires électriques des techniciens (non précisées dans le DCE mais mentionnées comme requises)",
+        "libelle": "Habilitations électriques réglementaires des techniciens intervenants (B2V, BR, BC ou équivalent selon les équipements)",
+        "codes": [],
+        "bloquante": true,
         "source": "CCAP article 11.4.7"
+      },
+      {
+        "libelle": "Certificats de qualité attestant la conformité à des normes d'assurance qualité (ex : ISO 9001) — souhaitée",
+        "codes": [],
+        "bloquante": false,
+        "source": "RC article 6.2 d)"
+      },
+      {
+        "libelle": "Certificats de gestion environnementale (ex : ISO 14001, EMAS) — souhaitée",
+        "codes": [],
+        "bloquante": false,
+        "source": "RC article 6.2 d)"
       }
     ],
     "autres_exigences": [
       {
         "libelle": "Déclaration du chiffre d'affaires global et du CA du domaine d'activité sur les 3 derniers exercices",
-        "source": "RC article 6.2b"
+        "source": "RC article 6.2 b)"
+      },
+      {
+        "libelle": "Preuve d'une assurance des risques professionnels pertinents",
+        "source": "RC article 6.2 b)"
       },
       {
         "libelle": "Déclaration des effectifs moyens annuels et du personnel d'encadrement sur les 3 dernières années",
-        "source": "RC article 6.2c"
+        "source": "RC article 6.2 c)"
       },
       {
-        "libelle": "Liste des principales prestations de services fournies au cours des 3 dernières années avec montants, dates et destinataires",
-        "source": "RC article 6.2c"
+        "libelle": "Titres d'études et professionnels des responsables de prestation de services de même nature",
+        "source": "RC article 6.2 c)"
+      }
+    ]
+  },
+  "dossier_candidature": {
+    "pieces_a_fournir": [
+      {
+        "libelle": "Document Unique de Marché Européen (D.U.M.E.) complété en ligne sur la plateforme PLACE — ou DC1 + DC2",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC article 6.1"
+      },
+      {
+        "libelle": "Déclaration concernant le chiffre d'affaires global et le CA du domaine d'activité sur les 3 derniers exercices",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC article 6.2 b)"
       },
       {
         "libelle": "Preuve d'assurance des risques professionnels pertinents",
-        "source": "RC article 6.2b"
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC article 6.2 b)"
       },
       {
-        "libelle": "Certificats de qualité (normes ISO 9000 ou équivalent) et/ou certificats de management environnemental (EMAS ou équivalent) — souhaitables",
-        "source": "RC article 6.2d"
+        "libelle": "Déclaration des effectifs moyens annuels et du personnel d'encadrement sur 3 ans",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC article 6.2 c)"
+      },
+      {
+        "libelle": "Liste des principales prestations de services au cours des 3 dernières années (montant, date, destinataire) avec attestations",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC article 6.2 c)"
+      },
+      {
+        "libelle": "Titres d'études et professionnels des responsables de prestation",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC article 6.2 c)"
+      },
+      {
+        "libelle": "Certificats de qualité (ISO 9001 ou équivalent) et/ou certificats de gestion environnementale (ISO 14001, EMAS)",
+        "phase": "candidature",
+        "obligatoire": false,
+        "source": "RC article 6.2 d)"
+      },
+      {
+        "libelle": "Bordereau des Prix Unitaires (BPU) complété sous format Excel",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC article 8.3"
+      },
+      {
+        "libelle": "Acte d'engagement (ATTRI1) dûment complété et signé",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC article 8.3"
+      },
+      {
+        "libelle": "Mémoire technique descriptif (moyens humains et qualifications, moyens techniques, méthodologie, délais et organisation pour les établissements du GHT 49)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC article 8.3"
+      },
+      {
+        "libelle": "Actions en matière de protection de l'environnement (réemploi, valorisation déchets, réduction GES, pratiques environnementales)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC article 8.3"
+      },
+      {
+        "libelle": "Fiche moyens",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC article 8.3"
       }
-    ]
+    ],
+    "mode_remise": "dématérialisé + copie de sauvegarde",
+    "plateforme_depot": "PLACE — www.marches-publics.gouv.fr",
+    "signature_electronique_exigee": false,
+    "format_signature": "PAdES, CAdES, XAdES — certificat RGS** minimum ou eIDAS qualifié (exigé au stade de l'attribution, pas au dépôt)",
+    "nombre_exemplaires": null,
+    "langue": "français",
+    "duree_validite_offres_jours": 120,
+    "modalites_source": "RC articles 5, 10.1, 10.2"
   },
   "lots": [
     {
       "numero": 1,
-      "intitule": "Prestations de maintenance préventive et corrective des groupes électrogènes et de leurs équipements auxiliaire des établissements du GHT 49",
-      "zone_geographique": "Maine-et-Loire (49) — multisites : Angers, Cholet, Saumur, Saint-Gemmes-sur-Loire, Baugé-en-Anjou, Chalonnes, Doué-en-Anjou, Martigné-Briand, Chemillé-en-Anjou et communes EHPAD associées",
-      "volume_estime": 120000,
-      "volume_estime_unite": "€ HT/an",
-      "particularites": "Lot unique non alloti couvrant 9 établissements du GHT + 6 EHPAD/GCS partenaires. Inventaire exact des GE en CCTP Annexe 1 (non fourni dans le DCE transmis). Inclut option astreinte 24h/24 7j/7 selon souscription de chaque établissement."
+      "intitule": "Prestations de maintenance préventive et corrective des groupes électrogènes et de leurs équipements auxiliaires des établissements du GHT 49",
+      "domaine": "fourniture_materiel",
+      "zone_geographique": "Maine-et-Loire (49) — département Pays de la Loire",
+      "volume_estime": null,
+      "volume_estime_unite": null,
+      "cout_estime_min_eur": 85000,
+      "cout_estime_max_eur": 108000,
+      "ca_estime_min_eur": 108000,
+      "ca_estime_max_eur": 140000,
+      "marge_brute_pct": 20,
+      "particularites": "Lot unique non alloti. Couvre 15+ sites hospitaliers et EHPAD dans le Maine-et-Loire. Astreinte 24h/7j pour les établissements ayant souscrit cette option. Montant estimatif 120 000 € HT/an, plafond 480 000 € HT/an, sans minimum garanti. Démarrage prévu 01/10/2026."
     }
   ],
+  "tranches": [],
   "calendrier": {
     "date_limite_offres": "2026-07-30",
     "date_demarrage_prevue": "2026-10-01",
-    "duree_marche": "12 mois reconductibles 2 fois (durée maximale 36 mois)"
+    "duree_marche": "12 mois, reconductible 2 fois — durée totale maximale 3 ans"
   },
   "alertes_candidat": [
-    "Couverture géographique multisites étendue (15+ sites en Maine-et-Loire) : le prestataire doit démontrer sa capacité à respecter le délai d'intervention corrective de 4h sur l'ensemble des établissements, y compris les EHPAD ruraux (RC art 14.2 / CCAP art 17.1)",
-    "Habilitations réglementaires électriques obligatoires pour tous les techniciens intervenants : l'absence de justificatif peut conduire à l'élimination de la candidature (CCAP art 11.4.7)",
-    "Obligation de disponibilité d'un groupe électrogène de substitution de puissance et tension équivalentes avec certificat d'essai sur banc de charge de moins d'un mois : capacité matérielle à justifier dans le mémoire technique (CCTP §5.1.5)",
-    "Permis de feu et plan de prévention obligatoires : leur non-respect déclenche des pénalités de 250 € HT par infraction sans mise en demeure préalable (CCAP art 17.1)",
-    "Marché sans minimum garanti : les entreprises ne disposant pas d'une assise financière suffisante pour absorber une période de faible activité doivent évaluer le risque de sous-utilisation de l'accord-cadre"
+    "Habilitations électriques réglementaires (B2V, BR, BC ou équivalent) exigées pour TOUS les techniciens intervenants — à justifier dans le mémoire technique et la fiche de moyens.",
+    "Astreinte 24h/24 7j/7 requise pour les établissements ayant souscrit cette option : le candidat doit démontrer une organisation d'astreinte opérationnelle et crédible pour l'ensemble du département 49.",
+    "Délai d'intervention corrective de 4 heures maximum après appel téléphonique — et 8 heures pour les pannes affectant la sécurité électrique — avec pénalités de 50 €/heure. Contrainte logistique forte sur 15+ sites.",
+    "Plan de prévention obligatoire avec chaque établissement avant démarrage des prestations — opération chronophage non facturable à intégrer dans la charge initiale.",
+    "L'inventaire des groupes électrogènes (CCTP Annexe 1) est indispensable pour chiffrer le BPU : le candidat doit impérativement télécharger cette annexe et peut demander une visite de site facultative auprès de chaque responsable technique."
   ],
   "points_differenciants_attendus": [
     {
-      "libelle": "Proximité géographique et réactivité démontrée sur l'ensemble des sites",
-      "exemple": "Un prestataire disposant d'une base logistique en Maine-et-Loire (Angers ou axe Angers-Cholet-Saumur) peut démontrer chiffres à l'appui que ses délais d'intervention sont structurellement inférieurs à 4h sur tous les sites, y compris les EHPAD les plus éloignés, en s'appuyant sur des temps de trajet cartographiés.",
-      "source": "CCAP article 17.1"
-    },
-    {
-      "libelle": "Expérience spécifique en milieu hospitalier et connaissance des contraintes de continuité électrique",
-      "exemple": "Mettre en avant des références de maintenance GE en établissements de santé (CHU, CHR, EHPAD) avec les contraintes de coordination avec les services de soins (coupures planifiées, essais mensuels, fluides médicaux) démontre une compréhension des enjeux critiques du secteur.",
-      "source": "CCTP §5.1.2"
-    },
-    {
-      "libelle": "Disponibilité et capacité du parc de groupes électrogènes de substitution",
-      "exemple": "Détailler le parc de GE de substitution disponible (puissances, disponibilité, procédure de mise à disposition sous 8h) et produire des certificats d'essai récents rassurent l'acheteur sur la capacité à faire face aux pannes graves affectant la sécurité électrique.",
+      "libelle": "Disponibilité démontrée de groupes électrogènes de substitution dimensionnés pour les puissances du parc GHT 49",
+      "exemple": "Le candidat liste ses GE de substitution disponibles (puissances, certifications d'essai < 1 mois, délai de mise à disposition) et démontre qu'il peut couvrir les plus grosses puissances du CHU d'Angers et du CH Cholet sans faire appel à un sous-traitant.",
       "source": "CCTP §5.1.5"
     },
     {
-      "libelle": "Organisation documentaire et reporting structuré (comptes rendus, suivi de parc)",
-      "exemple": "Proposer un portail ou un outil de suivi numérique du parc (historique des interventions, alertes d'échéances, comptes rendus standardisés) permettant à chaque établissement d'accéder à l'état de son parc en temps réel valorise la valeur technique au-delà du simple respect des délais de transmission de rapports.",
-      "source": "CCTP §8"
+      "libelle": "Proximité géographique et couverture du Maine-et-Loire avec maîtrise des délais d'intervention de 4 heures",
+      "exemple": "Le candidat présente une carte de couverture montrant les temps de trajet réels depuis sa base vers chaque établissement, avec un technicien d'astreinte basé dans le 49 garantissant le délai de 4h vers les sites les plus éloignés (Baugeois-Vallée, Doué-en-Anjou).",
+      "source": "CCAP article 17.1"
     },
     {
-      "libelle": "Politique environnementale concrète et traçable liée aux déchets de maintenance",
-      "exemple": "Fournir des bordereaux de suivi de déchets (BSD) pour les huiles usagées et les batteries, contractualiser avec une filière de valorisation agréée, et présenter le bilan carbone des interventions (optimisation des tournées) permet de scorer fortement sur les 10% du critère environnement.",
-      "source": "RC article 14.2 / CCTP §7"
+      "libelle": "Expérience confirmée en maintenance de GE en milieu hospitalier (contraintes hygiène, immunodéprimés, sécurité incendie)",
+      "exemple": "Le candidat cite des références spécifiques en CHU ou CH (3 dernières années), détaille ses protocoles d'hygiène adaptés aux zones à risque (bloc opératoire, stérilisation) et sa gestion des permis de feu en site hospitalier.",
+      "source": "CCTP §11.4.3 et RC article 14.2"
+    },
+    {
+      "libelle": "Méthodologie de maintenance conditionnelle (analyse d'huile, endoscopie) plutôt que systématique",
+      "exemple": "Le candidat propose une approche basée sur l'analyse d'huile pour conditionner la vidange (pas systématique), avec un laboratoire partenaire et une procédure d'interprétation des résultats, permettant d'optimiser les coûts de maintenance tout en respectant les préconisations constructeur.",
+      "source": "CCTP §5.1.2.1"
+    },
+    {
+      "libelle": "Traçabilité numérique des interventions et outil de GMAO / reporting pour le GHT",
+      "exemple": "Le candidat propose un accès en ligne aux rapports d'intervention, historiques des équipements et préconisations pour chaque établissement, facilitant le pilotage du parc GE par les responsables techniques du GHT 49 lors des réunions annuelles.",
+      "source": "CCTP §8"
     }
   ],
   "_meta": {
     "id_marche": "BOAMP-26-56170",
     "type": "complet",
-    "date_generation": "2026-06-15T18:37:05.769967+00:00",
-    "extraction_le": "2026-06-15T18:37:05.769967+00:00",
+    "date_generation": "2026-06-20T14:31:08.442767+00:00",
+    "extraction_le": "2026-06-20T14:31:08.442767+00:00",
     "modele": "claude-sonnet-4-6",
-    "preset_utilise": "it",
+    "preset_utilise": "btp",
     "presets_matches": [
-      "it"
+      "btp"
     ],
     "prompts_versions": {
-      "it/_preset.json": "sha256:0113727ecb269e98"
+      "btp/_preset.json": "sha256:055bf6f8b2c1f771"
     },
-    "tokens_input": 72492,
-    "tokens_output": 5012,
-    "cout_eur": 0.278,
-    "duree_sec": 94.7,
+    "tokens_input": 81310,
+    "tokens_output": 8041,
+    "cout_eur": 0.3463,
+    "duree_sec": 149.2,
     "pdfs_traites": [
       {
         "nom": "ACTE D'ENGAGEMENT (ATTRI 1).docx",

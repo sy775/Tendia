@@ -1,6 +1,6 @@
 # Brief — Accord cadre pour les travaux dans les collèges publics de compétence Départementale
 
-_Généré le 2026-06-15 01:12 par Claude claude-sonnet-4-6_
+_Généré le 2026-06-20 00:24 par Claude claude-sonnet-4-6_
 
 ## Identifiants
 - **ID Tendia** : `BOAMP-26-56717`
@@ -11,178 +11,147 @@ _Généré le 2026-06-15 01:12 par Claude claude-sonnet-4-6_
 - **DCE PLACE** : <https://www.marches-publics.info/mpiaws/index.cfm?fuseaction=dematEnt.login&amp;type=DCE&amp;IDM=1833070>
 
 ## Synthèse
-Accord-cadre multi-attributaires du Département de la Gironde pour les travaux d'entretien, de mise en sécurité, de maintenance, de réparation, de démolition, d'extension et de reconstruction du patrimoine immobilier des collèges publics départementaux. Le marché est divisé en 28 lots correspondant à des corps d'état (électricité, menuiserie alu, plomberie, couverture, gros œuvre, VRD, plâtrerie, peinture, étanchéité, charpente métallique, désamiantage, accès toiture) répartis sur 3 secteurs géographiques de la Gironde. L'accord-cadre prend effet au 1er janvier 2027 pour une durée maximale de 4 ans, avec un maximum de 1 500 000 € HT par lot et par an.
+Accord-cadre multi-attributaires (jusqu'à 5 prestataires par lot) du Conseil Départemental de la Gironde pour les travaux d'entretien, mise en sécurité, maintenance, réparation, démolition, extension et reconstruction des collèges publics départementaux. Le marché est divisé en 28 lots correspondant à des corps d'état spécifiques répartis sur 3 secteurs géographiques (Bordeaux Métropole, Est, Ouest) ou couvrant toute la Gironde. L'accord-cadre prend effet au 1er janvier 2027 pour une durée maximale de 4 ans (1 an ferme + 3 reconductions tacites), avec un plafond de 1 500 000 € HT/an/lot.
 
 ## 🏗 Chantier — caractéristiques BTP
-- **Description** : Travaux d'entretien, de mise en sécurité, de maintenance, de réparation, de démolition, d'extension et de reconstruction du patrimoine immobilier des collèges publics de compétence départementale, hors opérations inscrites au Programme Pluriannuel d'Investissement (grosses opérations). Les interventions se font par bons de commande (≤100 000 € HT, ≤2 mois) ou marchés subséquents, dans des établissements scolaires en activité.
-- **Type d'ouvrage** : Collèges publics (établissements d'enseignement secondaire)
-- **Site occupé pendant travaux** : true — les collèges sont en activité pendant les travaux ; le CCTP prévoit des précautions de base pour intervention en milieu scolaire occupé
-- **Corps d'état mobilisés** : Électricité courants forts et faibles (lots 1-3), Menuiserie aluminium, Vitrerie, Serrurerie (lots 4-6), Plomberie, Sanitaire, Chauffage, Ventilation (lots 7-9), Couverture tuiles, Zinguerie, Charpente bois (lots 10-12), Gros œuvre (lots 13-15), VRD (lot 16), Plâtrerie et faux plafonds (lots 17-19), Ravalement de peinture et revêtements de sols souples (lots 20-22), Étanchéité (lots 23-25), Charpente métallique / Couverture bac acier / Bardage (lot 26), Désamiantage (lot 27), Accès toiture et conformité des dispositifs anti-chutes (lot 28)
+- **Description** : Travaux d'entretien courant, mise en sécurité, maintenance, réparation, démolition partielle, extension et reconstruction du patrimoine immobilier des collèges publics du Département de la Gironde non inscrits au Plan Pluriannuel d'Investissement. Les interventions couvrent tous les corps d'état (électricité, menuiserie, plomberie/CVC, couverture, gros œuvre, VRD, plâtrerie, peinture/revêtements de sols, étanchéité, charpente métallique, désamiantage, accès toiture).
+- **Type d'ouvrage** : Collèges publics (établissements scolaires) — bâtiments existants en fonctionnement
+- **Site occupé pendant travaux** : true — interventions en collèges en activité, contraintes de sécurité spécifiques pour accès aux établissements scolaires, précautions à mettre en place pour intervention en milieu scolaire occupé
+- **Corps d'état mobilisés** : Électricité courants forts et faibles (HTA/BT), Menuiserie aluminium, vitrerie, serrurerie, Plomberie, sanitaire, chauffage, ventilation, Couverture tuiles, zinguerie, charpente bois, Gros œuvre, VRD, Plâtrerie et faux plafonds, Ravalement de peinture et revêtements de sols souples, Étanchéité, Charpente métallique, couverture bac acier, bardage, Démolition, désamiantage, Accès toiture et conformité dispositifs anti-chutes
 - **Contraintes spécifiques** :
-  - Interventions en milieu scolaire occupé — précautions spécifiques requises
-  - Présence d'amiante possible — coefficient de majoration amiante prévu dans les BPU (sous-section 4)
-  - Installations HTA/BT présentes sur certains sites (annexe recensement HTA pour lots électricité)
-  - Travaux de nuit ou week-end envisagés (taux horaire majoré prévu dans BPU)
-  - Bons de commande ≤100 000 € HT avec délai d'exécution ≤2 mois
-  - Clause d'actions sociales obligatoire (insertion professionnelle) dans les marchés subséquents
-  - Clauses environnementales (gestion déchets, déplacements écoresponsables, etc.)
-  - Délai de validité des offres de 210 jours
+  - Interventions en établissements scolaires occupés — précautions de sécurité renforcées
+  - Présence d'installations HTA sur certains collèges (recensement fourni en annexe)
+  - Présence potentielle d'amiante (coefficient de majoration amiante prévu dans les BPU)
+  - Accords-cadres multi-attributaires avec remise en concurrence par marchés subséquents ou bons de commande
+  - Bons de commande plafonnés à 100 000 € HT avec exécution ≤ 2 mois et paiement en une seule fois
+  - Clause sociale obligatoire (insertion professionnelle) applicable aux marchés subséquents
+  - Clause environnementale obligatoire
+  - Secteurs géographiques distincts (Bordeaux Métropole, Est, Ouest) pour la majorité des lots
 
 ### Allotissement
-Accord-cadre multi-attributaires divisé en 28 lots, chacun correspondant à un corps d'état et à un secteur géographique. Jusqu'à 5 prestataires retenus par lot. Les candidats peuvent soumissionner pour un ou plusieurs lots avec offres distinctes.
+28 lots correspondant à un corps d'état spécifique et un secteur géographique. Pour chaque lot, jusqu'à 5 prestataires sont retenus. Plafond de 1 500 000 € HT/an/lot.
 - **Nombre de lots** : 28
-- **Lot 1** — Électricité courants forts et faibles — Secteur N°1 Bordeaux Métropole
+- **Lot 1** — Électricité courants forts et faibles SECTEUR N°1 BORDEAUX METROPOLE
   - Corps d'état : Électricité courants forts et faibles
-  - Montant estimé : 1,50 M€
-  - Travaux électriques (courants forts et faibles) sur collèges du secteur Bordeaux Métropole. Max 1 500 000 € HT/an.
-- **Lot 2** — Électricité courants forts et faibles — Secteur N°2 Est
+  - Travaux électriques CF/CF sur les collèges du secteur Bordeaux Métropole
+- **Lot 2** — Électricité courants forts et faibles SECTEUR N°2 EST
   - Corps d'état : Électricité courants forts et faibles
-  - Montant estimé : 1,50 M€
-  - Travaux électriques secteur Est de la Gironde.
-- **Lot 3** — Électricité courants forts et faibles — Secteur N°3 Ouest
+  - Travaux électriques CF/CF sur les collèges du secteur Est
+- **Lot 3** — Électricité courants forts et faibles SECTEUR N°3 OUEST
   - Corps d'état : Électricité courants forts et faibles
-  - Montant estimé : 1,50 M€
-  - Travaux électriques secteur Ouest de la Gironde.
-- **Lot 4** — Menuiserie alu, Vitrerie, Serrurerie — Secteur N°1 Bordeaux Métropole
-  - Corps d'état : Menuiserie aluminium, Vitrerie, Serrurerie
-  - Montant estimé : 1,50 M€
-  - Menuiseries extérieures/intérieures aluminium, vitrerie, serrurerie secteur Bordeaux Métropole.
-- **Lot 5** — Menuiserie alu, Vitrerie, Serrurerie — Secteur N°2 Est
-  - Corps d'état : Menuiserie aluminium, Vitrerie, Serrurerie
-  - Montant estimé : 1,50 M€
-  - Menuiseries alu, vitrerie, serrurerie secteur Est.
-- **Lot 6** — Menuiserie alu, Vitrerie, Serrurerie — Secteur N°3 Ouest
-  - Corps d'état : Menuiserie aluminium, Vitrerie, Serrurerie
-  - Montant estimé : 1,50 M€
-  - Menuiseries alu, vitrerie, serrurerie secteur Ouest.
-- **Lot 7** — Plomberie, Sanitaire, Chauffage, Ventilation — Secteur N°1 Bordeaux Métropole
-  - Corps d'état : Plomberie, Sanitaire, Chauffage, Ventilation
-  - Montant estimé : 1,50 M€
-  - Plomberie, sanitaire, chauffage et ventilation secteur Bordeaux Métropole.
-- **Lot 8** — Plomberie, Sanitaire, Chauffage, Ventilation — Secteur N°2 Est
-  - Corps d'état : Plomberie, Sanitaire, Chauffage, Ventilation
-  - Montant estimé : 1,50 M€
-  - Plomberie, sanitaire, chauffage et ventilation secteur Est.
-- **Lot 9** — Plomberie, Sanitaire, Chauffage, Ventilation — Secteur N°3 Ouest
-  - Corps d'état : Plomberie, Sanitaire, Chauffage, Ventilation
-  - Montant estimé : 1,50 M€
-  - Plomberie, sanitaire, chauffage et ventilation secteur Ouest.
-- **Lot 10** — Couverture tuiles, Zinguerie, Charpente bois — Secteur N°1 Bordeaux Métropole
-  - Corps d'état : Couverture tuiles, Zinguerie, Charpente bois
-  - Montant estimé : 1,50 M€
-  - Couverture tuiles, zinguerie et charpente bois secteur Bordeaux Métropole.
-- **Lot 11** — Couverture tuiles, Zinguerie, Charpente bois — Secteur N°2 Est
-  - Corps d'état : Couverture tuiles, Zinguerie, Charpente bois
-  - Montant estimé : 1,50 M€
-  - Couverture tuiles, zinguerie et charpente bois secteur Est.
-- **Lot 12** — Couverture tuiles, Zinguerie, Charpente bois — Secteur N°3 Ouest
-  - Corps d'état : Couverture tuiles, Zinguerie, Charpente bois
-  - Montant estimé : 1,50 M€
-  - Couverture tuiles, zinguerie et charpente bois secteur Ouest.
-- **Lot 13** — Gros œuvre — Secteur N°1 Bordeaux Métropole
+  - Travaux électriques CF/CF sur les collèges du secteur Ouest
+- **Lot 4** — Menuiserie alu, Vitrerie, Serrurerie SECTEUR N°1 BORDEAUX METROPOLE
+  - Corps d'état : Menuiserie aluminium, vitrerie, serrurerie
+  - Travaux de menuiserie alu, vitrerie, serrurerie sur les collèges du secteur Bordeaux Métropole
+- **Lot 5** — Menuiserie alu, Vitrerie, Serrurerie SECTEUR N°2 EST
+  - Corps d'état : Menuiserie aluminium, vitrerie, serrurerie
+  - Travaux de menuiserie alu, vitrerie, serrurerie sur les collèges du secteur Est
+- **Lot 6** — Menuiserie alu, Vitrerie, Serrurerie SECTEUR N°3 OUEST
+  - Corps d'état : Menuiserie aluminium, vitrerie, serrurerie
+  - Travaux de menuiserie alu, vitrerie, serrurerie sur les collèges du secteur Ouest
+- **Lot 7** — Plomberie, Sanitaire, Chauffage, Ventilation SECTEUR N°1 BORDEAUX METROPOLE
+  - Corps d'état : Plomberie, sanitaire, chauffage, ventilation
+  - Travaux de plomberie/CVC sur les collèges du secteur Bordeaux Métropole
+- **Lot 8** — Plomberie, Sanitaire, Chauffage, Ventilation SECTEUR N°2 EST
+  - Corps d'état : Plomberie, sanitaire, chauffage, ventilation
+  - Travaux de plomberie/CVC sur les collèges du secteur Est
+- **Lot 9** — Plomberie, Sanitaire, Chauffage, Ventilation SECTEUR N°3 OUEST
+  - Corps d'état : Plomberie, sanitaire, chauffage, ventilation
+  - Travaux de plomberie/CVC sur les collèges du secteur Ouest
+- **Lot 10** — Couverture tuiles, Zinguerie, Charpente bois SECTEUR N°1 BORDEAUX METROPOLE
+  - Corps d'état : Couverture tuiles, zinguerie, charpente bois
+  - Travaux de couverture, zinguerie, charpente bois sur les collèges du secteur Bordeaux Métropole
+- **Lot 11** — Couverture tuiles, Zinguerie, Charpente bois SECTEUR N°2 EST
+  - Corps d'état : Couverture tuiles, zinguerie, charpente bois
+  - Travaux de couverture, zinguerie, charpente bois sur les collèges du secteur Est
+- **Lot 12** — Couverture tuiles, Zinguerie, Charpente bois SECTEUR N°3 OUEST
+  - Corps d'état : Couverture tuiles, zinguerie, charpente bois
+  - Travaux de couverture, zinguerie, charpente bois sur les collèges du secteur Ouest
+- **Lot 13** — Gros Oeuvre SECTEUR N°1 BORDEAUX METROPOLE
   - Corps d'état : Gros œuvre
-  - Montant estimé : 1,50 M€
-  - Travaux de gros œuvre sur collèges secteur Bordeaux Métropole.
-- **Lot 14** — Gros œuvre — Secteur N°2 Est
+  - Travaux de gros œuvre sur les collèges du secteur Bordeaux Métropole
+- **Lot 14** — Gros Oeuvre SECTEUR N°2 EST
   - Corps d'état : Gros œuvre
-  - Montant estimé : 1,50 M€
-  - Gros œuvre secteur Est.
-- **Lot 15** — Gros œuvre — Secteur N°3 Ouest
+  - Travaux de gros œuvre sur les collèges du secteur Est
+- **Lot 15** — Gros Oeuvre SECTEUR N°3 OUEST
   - Corps d'état : Gros œuvre
-  - Montant estimé : 1,50 M€
-  - Gros œuvre secteur Ouest.
-- **Lot 16** — VRD — Toute la Gironde
+  - Travaux de gros œuvre sur les collèges du secteur Ouest
+- **Lot 16** — VRD TOUTE LA GIRONDE
   - Corps d'état : VRD
-  - Montant estimé : 1,50 M€
-  - Travaux de voirie et réseaux divers sur l'ensemble du département de la Gironde.
-- **Lot 17** — Plâtrerie et faux plafonds — Secteur N°1 Bordeaux Métropole
-  - Corps d'état : Plâtrerie, faux plafonds
-  - Montant estimé : 1,50 M€
-  - Plâtrerie, cloisons sèches et faux plafonds secteur Bordeaux Métropole.
-- **Lot 18** — Plâtrerie et faux plafonds — Secteur N°2 Est
-  - Corps d'état : Plâtrerie, faux plafonds
-  - Montant estimé : 1,50 M€
-  - Plâtrerie et faux plafonds secteur Est.
-- **Lot 19** — Plâtrerie et faux plafonds — Secteur N°3 Ouest
-  - Corps d'état : Plâtrerie, faux plafonds
-  - Montant estimé : 1,50 M€
-  - Plâtrerie et faux plafonds secteur Ouest.
-- **Lot 20** — Ravalement de peinture et revêtements de sols souples — Secteur N°1 Bordeaux Métropole
-  - Corps d'état : Peinture, ravalement, revêtements de sols
-  - Montant estimé : 1,50 M€
-  - Ravalement, peinture intérieure/extérieure et revêtements de sols souples secteur Bordeaux Métropole.
-- **Lot 21** — Ravalement de peinture et revêtements de sols souples — Secteur N°2 Est
-  - Corps d'état : Peinture, ravalement, revêtements de sols
-  - Montant estimé : 1,50 M€
-  - Peinture, ravalement et revêtements de sols secteur Est.
-- **Lot 22** — Ravalement de peinture et revêtements de sols souples — Secteur N°3 Ouest
-  - Corps d'état : Peinture, ravalement, revêtements de sols
-  - Montant estimé : 1,50 M€
-  - Peinture, ravalement et revêtements de sols secteur Ouest.
-- **Lot 23** — Étanchéité — Secteur N°1 Bordeaux Métropole
+  - Travaux de voirie et réseaux divers sur l'ensemble des collèges de Gironde
+- **Lot 17** — Plâtrerie Faux plafonds SECTEUR N°1 BORDEAUX METROPOLE
+  - Corps d'état : Plâtrerie et faux plafonds
+  - Travaux de plâtrerie et faux plafonds sur les collèges du secteur Bordeaux Métropole
+- **Lot 18** — Plâtrerie Faux plafonds SECTEUR N°2 EST
+  - Corps d'état : Plâtrerie et faux plafonds
+  - Travaux de plâtrerie et faux plafonds sur les collèges du secteur Est
+- **Lot 19** — Plâtrerie Faux plafonds SECTEUR N°3 OUEST
+  - Corps d'état : Plâtrerie et faux plafonds
+  - Travaux de plâtrerie et faux plafonds sur les collèges du secteur Ouest
+- **Lot 20** — Ravalement de peinture et revêtements de sols souples SECTEUR N°1 BORDEAUX METROPOLE
+  - Corps d'état : Peinture et revêtements de sols souples
+  - Travaux de ravalement de peinture et revêtements de sols souples sur les collèges du secteur Bordeaux Métropole
+- **Lot 21** — Ravalement de peinture et revêtements de sols souples SECTEUR N°2 EST
+  - Corps d'état : Peinture et revêtements de sols souples
+  - Travaux de ravalement de peinture et revêtements de sols souples sur les collèges du secteur Est
+- **Lot 22** — Ravalement de peinture et revêtements de sols souples SECTEUR N°3 OUEST
+  - Corps d'état : Peinture et revêtements de sols souples
+  - Travaux de ravalement de peinture et revêtements de sols souples sur les collèges du secteur Ouest
+- **Lot 23** — Étanchéité SECTEUR N°1 BORDEAUX METROPOLE
   - Corps d'état : Étanchéité
-  - Montant estimé : 1,50 M€
-  - Travaux d'étanchéité toitures terrasses et couvertures secteur Bordeaux Métropole.
-- **Lot 24** — Étanchéité — Secteur N°2 Est
+  - Travaux d'étanchéité sur les collèges du secteur Bordeaux Métropole
+- **Lot 24** — Étanchéité SECTEUR N°2 EST
   - Corps d'état : Étanchéité
-  - Montant estimé : 1,50 M€
-  - Étanchéité secteur Est.
-- **Lot 25** — Étanchéité — Secteur N°3 Ouest
+  - Travaux d'étanchéité sur les collèges du secteur Est
+- **Lot 25** — Étanchéité SECTEUR N°3 OUEST
   - Corps d'état : Étanchéité
-  - Montant estimé : 1,50 M€
-  - Étanchéité secteur Ouest.
-- **Lot 26** — Charpente métallique / Couverture bac acier / Bardage — Toute la Gironde
+  - Travaux d'étanchéité sur les collèges du secteur Ouest
+- **Lot 26** — Charpente métallique, couverture bac acier, bardage TOUTE LA GIRONDE
   - Corps d'état : Charpente métallique, couverture bac acier, bardage
-  - Montant estimé : 1,50 M€
-  - Charpente métallique, couverture bac acier et bardage sur toute la Gironde. Lot évalué sur DPGF.
-- **Lot 27** — Désamiantage — Toute la Gironde
-  - Corps d'état : Désamiantage
-  - Montant estimé : 1,50 M€
-  - Travaux de désamiantage sur l'ensemble du patrimoine départemental.
-- **Lot 28** — Accès toiture et conformité des dispositifs anti-chutes — Toute la Gironde
-  - Corps d'état : Accès toiture, dispositifs anti-chutes
-  - Montant estimé : 1,50 M€
-  - Diagnostic, installation et mise en conformité des équipements d'accès toiture et dispositifs anti-chutes (échelles, lignes de vie, points d'ancrage, garde-corps).
+  - Travaux de charpente métallique, couverture bac acier et bardage sur l'ensemble des collèges de Gironde — prix sur base DPGF
+- **Lot 27** — Démolition, Désamiantage TOUTE LA GIRONDE
+  - Corps d'état : Démolition et désamiantage
+  - Travaux de démolition et désamiantage sur l'ensemble des collèges de Gironde
+- **Lot 28** — Accès toiture et conformité des dispositifs anti-chutes TOUTE LA GIRONDE
+  - Corps d'état : Accès toiture, sécurité anti-chutes
+  - Diagnostic, installation et mise en conformité des dispositifs anti-chutes et accès toiture sur l'ensemble des collèges de Gironde
 
 ### Qualifications BTP exigées
-Le RC ne précise pas explicitement de qualifications Qualibat ou RGE obligatoires dans les pièces fournies. Les capacités professionnelles sont appréciées via références travaux des 5 dernières années et certificats d'identité professionnelle.
+Les qualifications requises ne sont pas explicitement détaillées par numéro Qualibat dans le RC fourni. La liste des travaux exécutés sur 5 ans est demandée pour justifier des capacités techniques.
 - **MASE** : non
 
 ## 💶 Montant du marché
-- **Fourchette** : entre ? et 42,00 M€
-  - sur 4 ans maximum (1 an ferme + 3 reconductions tacites d'un an)
-  - _source : RC article 2.1.1 — '1 500 000 euros HT par an pour chacun des lots' — 28 lots × 1 500 000 € × 4 ans = 168 000 000 € (plafond théorique global) ; par lot le plafond est 1 500 000 € HT/an soit 6 000 000 € sur 4 ans_
-- _Note_ : Plafond annuel de 1 500 000 € HT par lot. L'acheteur retient jusqu'à 5 prestataires par lot ; chaque titulaire ne percevra donc qu'une fraction de ce plafond. Le plafond global pour l'ensemble des 28 lots est de 28 × 1 500 000 = 42 000 000 € HT par an.
+- **Fourchette** : entre 42,00 M€ et 168,00 M€
+  - sur 4 ans maximum (1 an ferme + 3 reconductions tacites), 28 lots
+  - _source : RC article 2.1.1 — plafond de 1 500 000 € HT/an/lot × 28 lots × 4 ans max = 168 M€ maximum théorique. Minimum estimé sur base 1 an ferme × 28 lots × hypothèse 30% taux d'utilisation moyen._
 
 ## Barème de notation
-- **Valeur technique** : 40 %
+- **Valeur technique** : 50 %
 - **Valeur prix** : 50 %
 - **Sous-critères techniques** :
-  - Organisation de la méthodologie pour la réalisation des travaux : 20 %
-  - Moyens humains pour assurer l'exécution de l'accord cadre : 20 %
+  - Valeur technique : 40 %
   - Performances environnementales : 10 %
-- **Calcul du prix** : 3 DQE masqués établis par l'acheteur ; l'un est tiré au sort avant ouverture des plis ; complété par les prix des candidats. L'offre supérieure au plafond de 1 500 000 € HT/an est déclarée irrégulière (jurisprudence TUE 7 décembre 2020 T536/19). Les remises quantitatives ne sont pas analysées dans le DQE masqué.
+- **Calcul du prix** : Pour les lots 1-28 (sauf 26) : sous-critère 1 = montant DQE masqué tiré au sort (45 pts) ; sous-critère 2 = coefficient fournitures HBP (3 pts) ; sous-critère 3 = coefficients de remise quantitative (2 pts). Pour le lot 26 : montant total DPGF (50 pts). Toute offre supérieure au plafond annuel de 1 500 000 € HT est déclarée irrégulière.
 
 ## Références et qualifications exigées
 - **Expérience minimale** : 5 ans
-- **Secteur d'expérience** : Travaux dans le corps d'état correspondant au lot soumissionné (entretien, réhabilitation, mise en sécurité de bâtiments, idéalement en milieu scolaire ou ERP)
+- **Secteur d'expérience** : Travaux du corps d'état concerné par le lot soumissionné, avec montant, époque et lieu d'exécution ou attestations de bonne exécution
 - **Autres exigences** :
-  - Déclaration appropriée de banques ou preuve d'une assurance pour les risques professionnels (source=RC article 5.1, pièce ASSRC)
-  - Chiffre d'affaires global et le cas échéant chiffre d'affaires du domaine d'activité objet du marché sur les 3 derniers exercices disponibles (source=RC article 5.1, pièce ASSDC)
-  - DC1 (lettre de candidature) et DC2 (déclaration du candidat) à compléter (source=RC article 5.1)
-  - Déclaration sur l'honneur de non-exclusion des procédures de marchés publics (source=RC article 5.1, pièce DHONNEUR)
-  - Questionnaire Égalité Femmes-Hommes et lutte contre les discriminations (à compléter par le candidat retenu) (source=RC article 7.2 et annexe au RC)
+  - Déclaration appropriée de banques ou preuve d'une assurance pour les risques professionnels (source=RC article 5.1 (pièce n°4))
+  - Chiffre d'affaires global et chiffre d'affaires du domaine d'activité portant sur les 3 derniers exercices disponibles (source=RC article 5.1 (pièce n°5))
+  - Déclaration sur l'honneur de non-exclusion des procédures de marchés publics (source=RC article 5.1 (pièce n°3))
+  - Clause sociale obligatoire : acceptation sans réserve de l'article 1.10 du CCAP relatif aux actions d'insertion professionnelle — toute offre réservant sur ce point sera déclarée irrégulière (source=RC article 2.8)
 
 ## ⚠ Alertes candidat
-- La clause d'actions sociales est OBLIGATOIRE dans les marchés subséquents : toute offre comportant des réserves sur cette clause est déclarée irrégulière. Les candidats doivent impérativement l'accepter sans condition (RC article 2.8).
-- Offre irrégulière si le montant du DQE masqué dépasse le plafond de 1 500 000 € HT/an : calibrer les prix du BPU en conséquence pour rester sous ce seuil (RC article 7.2 et jurisprudence TUE 7/12/2020).
-- Le lot 26 (Charpente métallique/Couverture bac acier/Bardage) est le seul évalué sur DPGF et non sur BPU : ne pas remettre un BPU pour ce lot sous peine d'offre non-conforme.
-- Les fichiers doivent être nommés avec 10 caractères maximum, sans accent, sans caractère spécial, sans nom de société — les noms de fichiers non conformes peuvent empêcher l'ouverture des plis (RC article 5.2).
-- Le désamiantage (lot 27) implique des compétences réglementaires spécifiques (sous-section 3 et 4 amiante) : vérifier l'accréditation COFRAC de l'opérateur et les certifications des encadrants avant de candidater.
+- La clause sociale est OBLIGATOIRE et non négociable : toute offre comportant des réserves sur l'article 1.10 du CCAP (insertion professionnelle) est déclarée irrégulière — à accepter sans condition (RC article 2.8)
+- L'accord-cadre ne garantit aucun minimum de commande : le plafond de 1 500 000 € HT/an/lot est un maximum mais il n'y a aucun montant minimum garanti — risque de volume nul si l'acheteur ne passe pas de commandes
+- Pour le lot 27 (Désamiantage), des compétences et certifications spécifiques en désamiantage sous-section 4 sont implicitement requises compte tenu de la nature des travaux et du coefficient amiante prévu aux BPU
+- La nomination et disponibilité d'un interlocuteur unique sont évaluées sur 9 points — un manque de nomination nominative avec CV peut faire perdre un nombre significatif de points sur la valeur technique
+- Le BPU est très volumineux (plusieurs centaines de lignes par lot) — une erreur de remplissage (prix unitaire manquant, prix zéro non intentionnel) peut fausser le DQE et conduire à une offre déclarée irrégulière ou anormalement basse
 
 ## 💡 Points différenciants attendus
-- Expérience démontrée en milieu scolaire occupé (exemple=Présenter des références de chantiers en collèges, lycées ou établissements scolaires en activité, avec description des dispositifs mis en place pour protéger les élèves et le personnel. Joindre des attestations de bonne exécution signées par des conseils départementaux ou régionaux., source=RC article 7.2 — sous-critère 'Organisation de la méthodologie')
-- Interlocuteur unique dédié avec CV solide et expérience sectorielle (exemple=Désigner nominativement un responsable de chantier senior ayant géré au moins 5 chantiers en établissements scolaires occupés, avec CV détaillé et organigramme clair de remplacement. La qualité du CV de l'interlocuteur est notée sur 9 points (40% de la note technique)., source=RC article 7.2 — sous-sous-critère 'Désignation de l'interlocuteur unique', 9 points)
-- Démarche RSE structurée avec indicateurs mesurables (exemple=Présenter des données chiffrées sur la réduction des émissions CO2 (parc véhicules, taux de valorisation déchets >80%), un référent QHSE nommé, et des actions de formation environnementale documentées. Les 4 sous-critères environnementaux pèsent 10 points sur 40 (25% de la note technique)., source=RC article 7.2 — Critère 3 Performances environnementales)
-- Politique de remises quantitatives attractive pour les grandes commandes (exemple=Proposer des remises progressives selon les seuils de commande (>20 000 €, >40 000 €, >60 000 € HT) qui démontrent la volonté de l'entreprise d'accompagner les grandes opérations tout en restant compétitif sur les petites interventions en bon de commande., source=RC article 7.2 — sous-critère prix 3 : coefficients de remise sur 2 points)
-- Capacité multi-lots et couverture géographique (exemple=Pour les entreprises capables de répondre à plusieurs lots (même corps d'état sur différents secteurs), mettre en avant les agences ou équipes localisées sur chaque secteur géographique, réduisant les délais d'intervention et les coûts de déplacement — argument fort pour la DQE et le coefficient de remise.)
+- Expérience avérée en milieu scolaire occupé avec exemples concrets (exemple=Citer des chantiers réalisés dans des collèges ou lycées en fonctionnement, avec description des précautions mises en œuvre (balisage, phasage horaire, coordination avec le gestionnaire) ; fournir des attestations de bonne exécution d'établissements publics scolaires., source=RC article 7.2 — sous-critère 'Organisation de la méthodologie pour la réalisation des travaux')
+- Interlocuteur unique expérimenté avec profil adapté aux marchés publics (exemple=Présenter un responsable de secteur avec CV détaillé mettant en avant des marchés publics similaires (accord-cadre collectivité, maintenance bâtiments éducatifs), avec organigramme complet incluant le remplaçant nommé et les règles de suppléance activées automatiquement., source=RC article 7.2 — sous-critère 'Moyens humains' (9 points sur désignation interlocuteur))
+- Politique RSE et environnementale documentée avec preuves (exemple=Joindre au questionnaire DD des justificatifs concrets : factures de location véhicules hybrides, attestations de formation environnementale, bordereaux de suivi de déchets d'un chantier récent, organigramme avec fiche de poste du référent SQHE — le questionnaire DD est noté sur 10 points soit 10% du total., source=RC article 7.2 — Critère 3 Performances environnementales)
+- Stratégie de prix cohérente sur les 3 DQE possibles (exemple=Analyser les 3 DQE masqués fournis (représentatifs des prestations estimées) et calibrer le BPU pour être compétitif quel que soit le DQE tiré au sort — éviter d'optimiser un seul scénario au détriment des deux autres., source=RC article 7.2 — mécanisme DQE masqué)
+- Implantation géographique locale dans le secteur visé (exemple=Pour un lot sectoriel (ex: lot 1 Bordeaux Métropole), mentionner la localisation des équipes, le temps de déplacement moyen, et la capacité de réactivité sur urgences (délai d'intervention < 4h) — élément valorisé dans la méthodologie et les moyens humains.)

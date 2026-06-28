@@ -1,0 +1,431 @@
+{
+  "synthese_marche": "La Ville de Pontarlier lance un accord-cadre à bons de commande pour la location, la maintenance et les prestations associées d'un parc de moyens d'impression multifonctions (MFP) destiné aux services administratifs et aux écoles du territoire. Le marché couvre le déploiement, la supervision, la gestion des consommables et la formation des utilisateurs pour une durée initiale d'un an reconductible 3 fois (4 ans maximum). Le montant maximum toutes périodes confondues est de 200 000 € HT.",
+  "domaines_metier": [
+    {
+      "code": "fourniture_materiel"
+    }
+  ],
+  "raison_classification": "Le marché porte sur la location et maintenance de matériels d'impression multifonctions (MFP), prestations de fourniture/mise à disposition d'équipements bureautiques avec maintenance associée. Le CPV principal est 30120000-6 (photocopieurs et matériel d'impression offset), clairement dans le registre fourniture/location de matériel technique. Il ne s'agit ni de développement IT/logiciel, ni d'infogérance SI au sens strict, mais bien d'une prestation de location de matériel avec services associés.",
+  "caracteristiques_metier": {
+    "description": "Location et maintenance d'un parc de multifonctions (impression, copie, numérisation) pour les services administratifs de la Ville de Pontarlier et ses écoles. La prestation inclut le déploiement complet du parc (livraison, installation, configuration, formation), la maintenance préventive/corrective/curative avec GTI ≤ 4h et GTR ≤ 8h ouvrées, la gestion automatisée des consommables, un outil de supervision centralisée, et le reporting mensuel/semestriel. Option d'achat en fin de marché possible.",
+    "criteres_eligibilite": [
+      "Capacité professionnelle, technique et financière en matière de location/maintenance de parcs d'impression multifonctions",
+      "Références de prestations similaires sur les 3 dernières années",
+      "Effectifs et personnel d'encadrement suffisants",
+      "Outillage, matériel et équipement technique disponibles pour exécuter le contrat",
+      "Conformité RGPD et obligations de confidentialité",
+      "Normes ISO 9001 et ISO 14001 pour le matériel et les prestations"
+    ]
+  },
+  "bareme_notation": {
+    "valeur_technique_pct": 65,
+    "valeur_prix_pct": 35,
+    "sous_criteres_techniques": [
+      {
+        "libelle": "Valeur technique",
+        "ponderation_pct": 60,
+        "description": "Évaluation de la méthodologie/organisation et de la qualité du matériel/solutions logicielles proposées. Le RC structure ce critère en deux sous-critères de 30 points chacun.",
+        "elements_attendus": [],
+        "exemple_reponse_forte": "—",
+        "source": "RC §7.2",
+        "unite_evaluation": "points",
+        "sous_criteres": [
+          {
+            "libelle": "Méthodologie et organisation",
+            "ponderation_pct": 30,
+            "description": "Évaluation du déploiement, des modalités de mise en œuvre et de mise en service, des moyens humains et matériels, de la maintenance et SLA, du parc de secours, du réapprovisionnement automatique et du reporting.",
+            "elements_attendus": [
+              "Planning de déploiement détaillé avec jalons et garantie de mise en service au 1er décembre 2026",
+              "Cohérence des moyens humains et matériels dédiés à la mise en service et au respect des délais",
+              "Moyens logistiques pour la gestion du parc (livraison, installation, configuration)",
+              "Document de maintenance et SLA précisant GTI ≤ 4h et GTR ≤ 8h avec taux de conformité cibles",
+              "Dimensionnement du parc de secours (machines de remplacement proportionnel au parc installé)",
+              "Fonctionnement du réapprovisionnement automatique des consommables et procédure de secours",
+              "Outil de reporting mensuel et semestriel avec format exploitable (CSV, XLSX)"
+            ],
+            "exemple_reponse_forte": "Notre organisation mobilise 2 techniciens régionaux basés à Besançon et Dijon, garantissant une GTI de 2h et une GTR de 4h pour 95% des incidents. Un parc tampon de 5 MFP de remplacement est maintenu en stock régional. Le réapprovisionnement automatique est assuré par relevé télémétrique quotidien avec activation du stock tampon sous 4h en cas de défaillance. Le planning prévoit un déploiement progressif du 15 octobre au 28 novembre 2026 avec PV de mise en service individuel pour chaque équipement.",
+            "source": "RC §7.2 — sous-critère 1.1"
+          },
+          {
+            "libelle": "Qualité du matériel et des solutions logicielles proposées",
+            "ponderation_pct": 30,
+            "description": "Évaluation des caractéristiques techniques et performances du matériel au regard des besoins de la collectivité, de la robustesse, de l'ergonomie/simplicité et des performances d'impression et de numérisation ainsi que des fonctionnalités logicielles (Follow-Me, OCR, accounting, supervision).",
+            "elements_attendus": [
+              "Caractéristiques techniques précises du MFP proposé (vitesse, résolution, formats A3/A4, recto-verso en une passe)",
+              "Robustesse justifiée : MTBF, durée de vie constructeur, fiabilité sur des parcs similaires",
+              "Ergonomie et simplicité d'utilisation : interface tactile couleur avec navigation par pictogrammes adaptée au milieu scolaire",
+              "Performances d'impression NB/couleur et de numérisation (temps de première copie, capacité ADF)",
+              "Fonctionnalités logicielles : Follow-Me, OCR, accounting, supervision centralisée, impression du logo dynamique",
+              "Compatibilité badges MIFARE Classic 1K, DESFire EV1 4k, IClass et intégration dans l'environnement Windows/Active Directory"
+            ],
+            "exemple_reponse_forte": "Le Konica Minolta bizhub C450i proposé offre une vitesse de 45 ppm NB et couleur, une numérisation recto-verso en une passe à 240 ipm, un écran tactile 10 pouces avec interface personnalisée par pictogrammes. La solution logicielle PaperCut NG assure le Follow-Me, l'accounting par service et le reporting exportable. La compatibilité badges multi-technologie est native. Le MTBF constructeur est de 300 000 cycles avec une durée de vie moyenne de 5 ans attestée sur des parcs collectivités.",
+            "source": "RC §7.2 — sous-critère 1.2"
+          }
+        ]
+      },
+      {
+        "libelle": "Performances en matière de protection de l'environnement",
+        "ponderation_pct": 5,
+        "description": "Évaluation des engagements en matière de recyclage des consommables et de reprise des matériels en fin de vie, ainsi que de la politique RSE en lien avec le marché.",
+        "elements_attendus": [
+          "Processus de recyclage des toners usagés (filière de collecte et valorisation)",
+          "Procédure de reprise et valorisation des matériels en fin de vie (reconditionnement, seconde vie)",
+          "Politique RSE de l'entreprise en lien direct avec les prestations du marché",
+          "Conformité loi AGEC et normes ISO 14001 applicables"
+        ],
+        "exemple_reponse_forte": "Notre politique RSE prévoit la collecte systématique des toners usagés via un partenariat avec un éco-organisme agréé (taux de recyclage 98%). Les matériels remplacés sont reconditionnés ou envoyés en filière DEEE certifiée. Nous sommes certifiés ISO 14001 et nos équipements portent le label Energy Star. En fin de marché, une option d'achat est proposée à valeur résiduelle négociée pour prolonger la durée de vie des équipements.",
+        "source": "RC §7.2 — critère 3",
+        "unite_evaluation": "points",
+        "sous_criteres": []
+      }
+    ],
+    "prix": {
+      "type_formule": "moins_disant",
+      "formule_explicite": "Le critère prix est évalué sur la base du montant indiqué au DQE, intégrant le Coût Total de Possession (TCO) — loyer du modèle de référence, consommables, pièces détachées et interventions, licences nécessaires, fin de contrat — et le coût des copies (NB et couleur, par format A4 et A3). Pondération totale : 35 points sur 100.",
+      "source": "RC §7.2",
+      "elements_a_chiffrer": [
+        "Loyer mensuel par MFP (modèle de référence)",
+        "Coût forfaitaire de déploiement (global, ferme, non révisable)",
+        "Coût copie noir et blanc A4",
+        "Coût copie noir et blanc A3",
+        "Coût copie couleur A4",
+        "Coût copie couleur A3",
+        "Licences logicielles (Follow-Me, OCR, accounting, supervision) incluses dans le loyer",
+        "Option : cassettes papier supplémentaires",
+        "Option : capacité télécopie matérielle ou logicielle"
+      ]
+    },
+    "modalite_calcul_prix": "Le Coût Total de Possession (TCO) intègre le loyer du modèle de référence, les consommables, les pièces détachées et interventions, l'ensemble des licences nécessaires et la fin de contrat. Le coût copie est apprécié pour les impressions NB et couleur, par format A4 et A3. Note prix évaluée sur 35 points sur la base du DQE (Détail Quantitatif Estimatif valant BPU)."
+  },
+  "montant_marche": {
+    "valeur_estimee_euros": 200000,
+    "fourchette_min_euros": null,
+    "fourchette_max_euros": null,
+    "type": "plafond",
+    "duree_couverte": "4 ans (période initiale 1 an + 3 reconductions d'1 an)",
+    "source_extraction": "AE §4 — tableau des maxima par période : période initiale 65 000 € HT, 3 reconductions à 45 000 € HT chacune, total maximum 200 000 € HT",
+    "commentaire": "Plafond accord-cadre toutes périodes confondues. La période initiale est plafonnée à 65 000 € HT et chaque reconduction à 45 000 € HT. Il s'agit d'un maximum : les commandes effectives peuvent être inférieures. Estimation BOAMP valeur estimée : 200 000 € HT."
+  },
+  "montant_3_voies": {
+    "voie_1_eur": 200000,
+    "voie_1_source": "AE §4 — 'Soit un montant maximum de 200 000 € HT toutes périodes confondues' + tableau : période initiale 65 000 €, 3 reconductions à 45 000 € chacune",
+    "voie_2_disponible": false,
+    "voie_2_min_eur": null,
+    "voie_2_max_eur": null,
+    "voie_2_hypotheses": [],
+    "voie_2_raison_indisponible": "Voie 1 disponible (montant publié explicite dans l'acte d'engagement) — estimation bottom-up non nécessaire."
+  },
+  "cout_realisation": {
+    "cout_total_eur": 130000,
+    "cout_min_eur": 110000,
+    "cout_max_eur": 155000,
+    "postes": [
+      {
+        "poste": "Location/amortissement du parc MFP (coût d'acquisition ou leasing fournisseur amont)",
+        "detail": "Environ 28 MFP (sites ville + écoles d'après annexe 1) × coût d'acquisition amont ~1 500-2 000 € amortis sur 4 ans, ou loyer leasing constructeur estimé ~25 €/mois/MFP × 28 × 48 mois",
+        "montant_eur": 33600
+      },
+      {
+        "poste": "Consommables (toners, tambours, pièces de maintenance)",
+        "detail": "Volume estimatif 4 000-8 000 pages/mois/MFP × 28 MFP × 48 mois × coût consommable ~0,008 €/page NB et ~0,05 €/page couleur, mix estimé ~0,012 €/page moyen",
+        "montant_eur": 48000
+      },
+      {
+        "poste": "Main d'œuvre technique (déploiement + maintenance sur 4 ans)",
+        "detail": "Déploiement : 5 j-h technicien × 28 sites = 140 j-h à 350 €/j = 49 000 € ; Maintenance annuelle : 2 interventions/MFP/an × 28 × 4 ans × 2h × 60 €/h = 26 880 € — soit ~40 000 € total maintenance",
+        "montant_eur": 40000
+      },
+      {
+        "poste": "Licences logicielles (Follow-Me, OCR, accounting, supervision)",
+        "detail": "Licences incluses dans la solution, coût fournisseur estimé ~5 €/MFP/mois × 28 × 48 mois",
+        "montant_eur": 6720
+      },
+      {
+        "poste": "Logistique, transport, emballage, déploiement et fin de marché",
+        "detail": "Livraison, installation, reprise matériels : forfait estimé 3 000 à 5 000 €",
+        "montant_eur": 4000
+      },
+      {
+        "poste": "Reporting, supervision centralisée, frais de structure et encadrement",
+        "detail": "Chef de projet + reporting : 0,2 ETP × 48 mois × 4 500 €/mois",
+        "montant_eur": 7680
+      }
+    ],
+    "taux_journaliers_retenus": "Technicien d'intervention : 350 €/j (taux marché indicatif secteur impression/TIC) ; Chef de projet : 4 500 €/mois (0,2 ETP dédié) ; Loyer leasing constructeur : 25-35 €/mois/MFP A3 couleur (taux marché indicatif). Ces taux sont des estimations indicatives à taux marché.",
+    "commentaire": "Estimation du coût de production du candidat sur 4 ans (toutes périodes). Le parc comprend environ 28 sites identifiés en annexe 1. La dimension la plus incertaine est le mix NB/couleur et le volume réel de copies (4 000-8 000 pages/mois/MFP, fourchette large du CCTP). Le coût total estimé à ~130 000 € sur 4 ans laisse une marge brute de ~70 000 € par rapport au plafond de 200 000 €, soit ~35%, cohérent avec le secteur. La fourchette (110 000 - 155 000 €) fait varier le volume de copies (dimension la plus incertaine) en maintenant les autres postes fixes."
+  },
+  "revision_prix": {
+    "type": "indexation",
+    "indices_utilises": [
+      "FSD2"
+    ],
+    "ponderation": "15% partie fixe + 85% variation selon l'indice FSD2",
+    "periodicite": "annuelle",
+    "formule_revision": "Cn = 15.0% + 85.0% (FSD2(n) / FSD2(o))",
+    "source_extraction": "CCAP §7.2",
+    "commentaire": "Révision annuelle basée sur l'indice FSD2 (indice de remplacement du PSDB, PSDC et PSDT, publié au Moniteur des TP ou INSEE). Mois zéro = juillet 2026. La révision définitive s'opère au 1er décembre de chaque période de reconduction. La partie fixe à 15% limite partiellement l'exposition à l'inflation, mais la forte pondération de l'indice matériel (85%) est favorable en cas de hausse des coûts d'équipement."
+  },
+  "alertes_prix": [
+    "Le plafond de 200 000 € HT est un maximum : les commandes effectives peuvent être très inférieures (accord-cadre sans minimum garanti), ce qui représente un risque commercial réel pour le candidat.",
+    "La période initiale est plafonnée à 65 000 € HT seulement (≈ 9 mois de déploiement + exploitation), plus faible que les reconductions à 45 000 €/an — anticiper un coût de déploiement initial significatif à absorber.",
+    "Le DQE vaut BPU : toute erreur de report ou de multiplication peut conduire à une offre éliminée ; le RC prévoit une procédure de rectification mais le candidat doit relire scrupuleusement chaque ligne.",
+    "Le coût forfaitaire de déploiement est 'ferme, global et non révisable' et 'aucun surcoût ne pourra être appliqué' — risque de sous-estimation à anticiper au chiffrage initial.",
+    "La révision des prix n'intervient qu'à compter de la 1ère reconduction (mois zéro = juillet 2026, révision au 1er décembre de chaque période) : la période initiale est à prix ferme, ce qui peut peser si les coûts augmentent rapidement."
+  ],
+  "references_exigees": {
+    "experience_minimale_annees": 3,
+    "experience_source": "RC §5.1 — 'Liste des principales prestations effectuées au cours des trois dernières années'",
+    "volume_min_references_similaires": null,
+    "volume_min_references_unite": "marchés similaires",
+    "secteur_experience": "Location et maintenance de parcs de moyens d'impression multifonctions (MFP) pour des collectivités territoriales ou organismes publics, avec services associés (déploiement, supervision, consommables, maintenance).",
+    "secteur_source": "RC §5.1",
+    "certifications_obligatoires": [
+      {
+        "libelle": "Conformité aux normes ISO 9001 et ISO 14001 pour le matériel et les prestations",
+        "codes": [],
+        "bloquante": false,
+        "source": "CCAP §12 et CCTP §7.3"
+      }
+    ],
+    "autres_exigences": [
+      {
+        "libelle": "Déclaration du chiffre d'affaires global et concernant les services objet du contrat sur les 3 derniers exercices disponibles",
+        "source": "RC §5.1"
+      },
+      {
+        "libelle": "Déclaration des effectifs moyens annuels et du personnel d'encadrement sur les 3 dernières années",
+        "source": "RC §5.1"
+      },
+      {
+        "libelle": "Déclaration de l'outillage, matériel et équipement technique disponibles pour l'exécution du contrat",
+        "source": "RC §5.1"
+      },
+      {
+        "libelle": "Accord de confidentialité signé (transmis pour information — sera signé et mis en œuvre avec le titulaire après notification)",
+        "source": "RC §4 et CCAP §4"
+      }
+    ]
+  },
+  "dossier_candidature": {
+    "pieces_a_fournir": [
+      {
+        "libelle": "Déclaration sur l'honneur de non-interdiction de soumissionner (document joint au DCE, signé)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §5.1"
+      },
+      {
+        "libelle": "Copie du ou des jugements prononcés si le candidat est en redressement judiciaire",
+        "phase": "candidature",
+        "obligatoire": false,
+        "source": "RC §5.1"
+      },
+      {
+        "libelle": "Lettre de candidature DC1 (ou équivalent DUME) complétée",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §5.1"
+      },
+      {
+        "libelle": "Déclaration du candidat DC2 (ou équivalent DUME) complétée, incluant le CA global et sectoriel sur les 3 derniers exercices",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §5.1"
+      },
+      {
+        "libelle": "Liste des principales prestations effectuées au cours des 3 dernières années (montant, date, destinataire), prouvées par attestations du destinataire ou déclaration du candidat",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §5.1"
+      },
+      {
+        "libelle": "Déclaration des effectifs moyens annuels et de l'importance du personnel d'encadrement pour les 3 dernières années",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §5.1"
+      },
+      {
+        "libelle": "Déclaration de l'outillage, matériel et équipement technique dont le candidat dispose pour la réalisation du contrat",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §5.1"
+      },
+      {
+        "libelle": "Note méthodologique (à partir du cadre obligatoire fourni au DCE) précisant : méthodologie et organisation, qualité du matériel et des solutions logicielles proposées, dispositions en matière de protection de l'environnement",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §5.1"
+      },
+      {
+        "libelle": "Acte d'engagement (AE) et ses annexes complété (notamment délais GTI/GTR proposés)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §5.1"
+      },
+      {
+        "libelle": "Détail Quantitatif Estimatif valant Bordereau des Prix Unitaires (DQE/BPU) complété",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §5.1"
+      },
+      {
+        "libelle": "Catalogue des prix du fournisseur",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §5.1"
+      },
+      {
+        "libelle": "Planning de déploiement",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §5.1"
+      },
+      {
+        "libelle": "Fiches techniques des matériels proposés",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §5.1"
+      }
+    ],
+    "mode_remise": "dématérialisé",
+    "plateforme_depot": "http://agysoft.marches-publics.info",
+    "signature_electronique_exigee": false,
+    "format_signature": null,
+    "nombre_exemplaires": null,
+    "langue": "français",
+    "duree_validite_offres_jours": 180,
+    "modalites_source": "RC §6.1 et §2.1"
+  },
+  "lots": [],
+  "tranches": [],
+  "calendrier": {
+    "date_limite_offres": "2026-07-07",
+    "date_demarrage_prevue": "2026-12-01",
+    "duree_marche": "1 an reconductible 3 fois (4 ans maximum)"
+  },
+  "alertes_candidat": [
+    "Jalon contractuel impératif : le parc doit être entièrement opérationnel au 1er décembre 2026 à 08h00 — date ferme, non modifiable, pénalités de 200 €/jour ouvré de retard sans plafond et sans exonération.",
+    "La sous-traitance est INTERDITE pour les prestations essentielles de déploiement, maintenance, support N2/N3 et formation — tout candidat qui sous-traite ces activités sera en non-conformité.",
+    "Le cadre de la note méthodologique fourni au DCE est OBLIGATOIRE : son non-usage ou des réserves sur les conditions d'exécution environnementales rendent l'offre irrégulière.",
+    "Conformité RGPD et CNIL requise pour les systèmes d'impression (journalisation, chiffrement, effacement sécurisé en fin de vie) — le titulaire assume la responsabilité de traitement des données pour le compte de la Ville.",
+    "Interventions dans les écoles exclusivement sur les plages d'activité scolaire (sauf urgence) — l'organisation logistique doit être adaptée en conséquence et décrite dans la note méthodologique."
+  ],
+  "points_differenciants_attendus": [
+    {
+      "libelle": "Démonstration concrète et chiffrée de la capacité à tenir les GTI/GTR avec organisation territoriale prouvée",
+      "exemple": "Présenter l'implantation géographique des techniciens (ex : technicien basé à Pontarlier ou Besançon), le nombre de techniciens dédiés, les données historiques de GTI/GTR sur des parcs similaires collectivités, et le dimensionnement du parc de secours (nombre de machines en stock tampon, localisées).",
+      "source": "RC §7.2 — sous-critère 1.1 Méthodologie et organisation"
+    },
+    {
+      "libelle": "Qualité et fiabilité du réapprovisionnement automatique des consommables avec procédure de secours détaillée",
+      "exemple": "Décrire précisément le système de télémétrie (relevé des niveaux de toner en temps réel), les seuils d'alerte, le stock tampon remis au démarrage et son mode de réapprovisionnement automatique, avec une attention particulière aux écoles (accès contraints aux horaires scolaires).",
+      "source": "CCTP §6.2 et CCAP §11"
+    },
+    {
+      "libelle": "Ergonomie et simplicité d'usage pour le milieu scolaire et administratif — interface adaptée, branding personnalisé",
+      "exemple": "Fournir des captures d'écran de l'interface proposée avec pictogrammes, démontrer la facilité de configuration du logo dynamique pour supprimer le papier pré-imprimé, et présenter l'accompagnement au changement prévu (formation utilisateurs finaux, référents métiers, DSI).",
+      "source": "CCTP §4.3 et RC §7.2 — sous-critère 1.2"
+    },
+    {
+      "libelle": "Politique RSE différenciée : recyclage prouvé + option d'achat / seconde vie des équipements",
+      "exemple": "Proposer une valeur d'option d'achat chiffrée en fin de marché pour prolonger la durée de vie, présenter les certifications de reconditionnement ou de recyclage (éco-organisme agréé, taux de recyclage), et la politique RSE documentée en lien avec le marché (ISO 14001, label Energy Star, conformité loi AGEC).",
+      "source": "CCTP §7.3 et RC §7.2 — critère 3"
+    },
+    {
+      "libelle": "Tableau de bord de reporting mensuel clair, exportable et pertinent pour le pilotage interne de la collectivité",
+      "exemple": "Joindre un exemple de tableau de bord mensuel réel (CSV ou XLSX) issu d'un client existant, montrant le suivi des volumes par service, les indicateurs GTI/GTR, les consommations consommables et les éléments financiers — en démontrant la capacité d'export pour la refacturation interne.",
+      "source": "CCTP §7 et CCAP §11"
+    }
+  ],
+  "_meta": {
+    "id_marche": "BOAMP-26-57216",
+    "type": "complet",
+    "date_generation": "2026-06-20T03:40:09.151344+00:00",
+    "extraction_le": "2026-06-20T03:40:09.151344+00:00",
+    "modele": "claude-sonnet-4-6",
+    "preset_utilise": null,
+    "presets_matches": [],
+    "prompts_versions": {},
+    "tokens_input": 66447,
+    "tokens_output": 7667,
+    "cout_eur": 0.2986,
+    "duree_sec": 143.7,
+    "pdfs_traites": [
+      {
+        "nom": "AE VILLE PONTARLIER relance.docx",
+        "hash": "7bd1fcb81726a7003f153cc32388da8e",
+        "taille_chars": 13217
+      },
+      {
+        "nom": "AE VILLE PONTARLIER relance.pdf",
+        "hash": "f50730e6c501ae8f7ff6a237d976848b",
+        "taille_chars": 11313
+      },
+      {
+        "nom": "AWS-MODE OPERATOIRE DEPOT AVEC SIGNATURE.pdf",
+        "hash": "b8a7d8b0fb4fd6a33f5929d1e7b8b789",
+        "taille_chars": 1564
+      },
+      {
+        "nom": "AWS-MPI-1833699-RC.pdf",
+        "hash": "0bb3464381e9812aec6f1c7baf74790d",
+        "taille_chars": 28053
+      },
+      {
+        "nom": "Annexe 1_VILLE - Localisation sites MFP.pdf",
+        "hash": "b20a0cfb98190ac0e9f4b0c6719ba4a7",
+        "taille_chars": 2293
+      },
+      {
+        "nom": "CCAP VILLE PONTARLIER.pdf",
+        "hash": "d28b635f4f03c3c7da2cbb71d0f4dd6e",
+        "taille_chars": 58453
+      },
+      {
+        "nom": "CCTP - VILLE - Moyens d'impression et de Numérisation fs.pdf",
+        "hash": "182287fe6e61a425f44d989165d8871d",
+        "taille_chars": 17724
+      },
+      {
+        "nom": "Cadre de réponse de la note méthodologique.docx",
+        "hash": "ac0d8088d0492ff28d4d7d4b731414c0",
+        "taille_chars": 4602
+      },
+      {
+        "nom": "DQE valant BP_VILLE_Impression.pdf",
+        "hash": "586b914727afb96b918c34a28012723c",
+        "taille_chars": 1262
+      },
+      {
+        "nom": "DQE valant BP_VILLE_Impression.xlsx",
+        "hash": "9674de638d79aba96596c62ac73013bc",
+        "taille_chars": 1606
+      },
+      {
+        "nom": "Fiche contact.docx",
+        "hash": "37a8b5dc393e2612d72299844463fd98",
+        "taille_chars": 2199
+      },
+      {
+        "nom": "Formulaire déclaration sur l'honneur-Code Commande Publique.pdf",
+        "hash": "d9b1170330e3a9d930af9bdd5d6691be",
+        "taille_chars": 11130
+      },
+      {
+        "nom": "MPI1833699_AAPC.pdf",
+        "hash": "814463efef247c865c14104db41ce02a",
+        "taille_chars": 4229
+      },
+      {
+        "nom": "OBLIGATION TRANSMISSION OFFRE DEMATERIALISEE.pdf",
+        "hash": "780f0fc2087ceace892650a39bc35cdb",
+        "taille_chars": 917
+      },
+      {
+        "nom": "pour info Annexe 2 - Clause de Confidentialité.pdf",
+        "hash": "4f9507e81de42585804f4b47b4a387c0",
+        "taille_chars": 2296
+      }
+    ]
+  }
+}

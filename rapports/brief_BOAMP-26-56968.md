@@ -1,6 +1,6 @@
 # Brief — Réalisation de podcasts
 
-_Généré le 2026-06-12 15:49 par Claude claude-sonnet-4-6_
+_Généré le 2026-06-20 02:26 par Claude claude-sonnet-4-6_
 
 ## Identifiants
 - **ID Tendia** : `BOAMP-26-56968`
@@ -10,66 +10,13 @@ _Généré le 2026-06-12 15:49 par Claude claude-sonnet-4-6_
 - **DCE PLACE** : <https://www.marches-publics.gouv.fr/entreprise/consultation/3015264?orgAcronyme=f5j>
 
 ## Synthèse
-Le Mucem (Musée des Civilisations de l'Europe et de la Méditerranée, Marseille) recherche un prestataire pour la réalisation de podcasts sonores à partir d'enregistrements de rencontres captées au musée. Le marché est un accord-cadre mono-attributaire à bons de commande, d'une durée de 24 mois reconductibles jusqu'à 48 mois, avec un minimum de 16 podcasts et un plafond de 125 000 € HT. La sélection porte à 60% sur la qualité éditoriale, méthodologique et humaine, et à 40% sur le prix.
-
-## 🏗 Chantier — caractéristiques BTP
-- **Description** : Réalisation de podcasts sonores à partir des enregistrements de rencontres captées au Mucem (conférences, débats, rencontres culturelles). La prestation comprend le montage éditorial, la coupe, le mixage et la production finale des épisodes. Le travail s'effectue principalement à distance dans les locaux du titulaire.
-- **Contraintes spécifiques** :
-  - Travail principalement à distance/en télétravail
-  - En cas d'intervention sur site : Mucem, Esplanade du J4, Marseille 13002
-  - Cohérence éditoriale exigée sur l'ensemble des podcasts (non allotissement justifié par l'interdépendance)
-  - Traitement de sujets de société pouvant être sensibles (ex : 'Procès du siècle')
-
-### Allotissement
-Marché non alloti — une seule prestation globale. Justification : interdépendance des prestations et nécessité de cohérence éditoriale.
-- **Nombre de lots** : 1
-- **Lot 1** — Réalisation de podcasts sonores à partir des rencontres captées au Mucem
-  - Montant estimé : 125 000 €
-  - Production complète de podcasts sonores : approche éditoriale, plan de coupe, montage, mixage, livraison des épisodes. Commande minimale de 16 podcasts. Plafond de 125 000 € HT sur 48 mois.
-
-### Qualifications BTP exigées
-Aucune qualification réglementaire spécifique mentionnée. Capacités appréciées sur références de podcasts produits et composition de l'équipe.
-
-## ⚡ Parc EnR — caractéristiques techniques
-### Volumes techniques
-- **Durée du marché (mois)** : 48
-- **Note** : Minimum de commande : 16 podcasts au démarrage du contrat. Plafond global : 125 000 € HT sur toute la durée (48 mois). Prix unitaires définis par BPU.
-
-### Modalités d'exécution
-- **Sites d'exécution** : Marseille (13002) — principalement à distance dans les locaux du titulaire
-
-## 🎯 Mission conseil
-- **Typologie de mission** : production de contenus sonores / podcasts
-- **Domaine d'expertise** : production radiophonique, montage audio, édition sonore, sujets culturels et de société
-- **Durée de mission** : 24 mois fermes, reconductibles 2 fois 12 mois (48 mois max)
-- **Livrables attendus** :
-  - Épisodes de podcasts montés et mixés (format à préciser dans le CCP-AE)
-  - Plan de coupe validé avant montage
-  - Plannings types de production selon les cas (saison 5 des Procès du siècle, saisons suivantes, autres podcasts)
-  - Fichiers audio livrables selon modèle épisode podcast (Annexe 2 du CCP-AE)
-
-### Profils intervenants
-L'équipe dédiée est un critère de sélection (15 points). Le CRT exige la présentation des profils en lien avec l'article 9.1.4 du CCP-AE (non fourni en intégralité).
-- **Chef de mission** : Profil éditorial/journalistique sonore, expérience en production de podcasts sur des sujets de société sensibles
-- **Consultants** : Équipe pluridisciplinaire dédiée : monteurs audio, journalistes/éditeurs, techniciens son — variété et qualité des profils exigées
-
-## 🎓 Formation / accompagnement
-### Publics cibles
-Non applicable — marché de production de contenus culturels, pas de formation ou d'accompagnement.
-
-### Volumes
-- **Durée marché (mois)** : 48
-- **Note** : Minimum de 16 podcasts à commander dès le démarrage du contrat. Plafond de 125 000 € HT sur 48 mois. Volumes réels pilotés par bons de commande.
-
-### Modalités
-- **Présentiel/distanciel** : principalement à distance
-- **Sites d'exécution** : Marseille
+Le Mucem (Musée des Civilisations de l'Europe et de la Méditerranée, Marseille) lance un accord-cadre mono-attributaire à bons de commande pour la réalisation de podcasts sonores à partir des captations brutes de ses rencontres culturelles, notamment le cycle 'Les Procès du siècle'. Les prestations comprennent montage, mixage, étalonnage, habillage sonore et cession des droits d'exploitation au Mucem, pour un maximum de 125 000 € HT sur 48 mois. Le marché démarre par une commande minimum de 16 épisodes (saison 5 des Procès du siècle) et vise 20 à 30 podcasts par an.
 
 ## 💶 Montant du marché
-- **Fourchette** : entre ? et 125 000 €
-  - sur 48 mois (période ferme 24 mois + 2 reconductions de 12 mois)
-  - _source : RC Tableau 5 — Montant maximum 125 000 € HT pour 48 mois_
-- _Note_ : Plafond accord-cadre de 125 000 € HT toutes commandes confondues sur la durée totale du contrat (48 mois). Commande minimale de 16 podcasts au démarrage. Le montant minimum n'est pas exprimé en euros mais en nombre d'épisodes (16 podcasts).
+- **Plafond accord-cadre** : **125 000 €**
+  - sur Durée totale du contrat : 48 mois (24 mois fermes + 2 reconductions de 12 mois)
+  - _source : RC tableau 2 — Synthèse ; CCP article 11.2_
+- _Note_ : Le contrat est conclu avec un maximum de 125 000 € HT sur sa durée totale de 48 mois. La commande minimum porte sur 16 podcasts (saison 5 des Procès du siècle). La volumétrie indicative est de 20 à 30 podcasts par an.
 
 ## Barème de notation
 - **Valeur technique** : 60 %
@@ -78,27 +25,27 @@ Non applicable — marché de production de contenus culturels, pas de formation
   - Qualité de l'approche éditoriale de contenus sonores : 30 %
   - Qualité de la méthodologie de la production et des moyens techniques mis en œuvre : 15 %
   - Qualité et variété des profils de l'équipe : 15 %
-- **Calcul du prix** : Note financière = (Prix le plus bas parmi les offres acceptables / Prix proposé) × 40. Source : RC Tableau 21.
+- **Calcul du prix** : Note financière = (Prix le plus bas parmi les offres acceptables / Prix proposé) × 40. La note financière est établie à partir du montant total estimé issu du DQE complété par le candidat.
 
 ## Références et qualifications exigées
-- **Expérience minimale** : —
-- **Secteur d'expérience** : Production de podcasts sonores, particulièrement sur des sujets de société et/ou culturels
+- **Expérience minimale** : 3 ans
+- **Secteur d'expérience** : Réalisation de podcasts sonores et/ou services de production radiophonique/audiovisuelle
 - **Autres exigences** :
-  - Déclaration de chiffre d'affaires global et du domaine d'activité sur les 3 derniers exercices (source=RC Tableau 15 — pièces candidature)
-  - Liste des principaux services effectués au cours des 3 dernières années avec montant, date et destinataire (source=RC Tableau 15 — pièces candidature)
-  - Déclaration des effectifs moyens annuels et du personnel d'encadrement sur 3 ans (source=RC Tableau 15 — pièces candidature)
-  - Assurance des risques professionnels pertinents ou déclarations bancaires appropriées (source=RC Tableau 15 — pièces candidature)
+  - Déclaration du chiffre d'affaires global et du CA du domaine d'activité faisant l'objet du marché sur les 3 derniers exercices disponibles (source=RC article 7.1 — Tableau CANDIDATURE)
+  - Déclarations appropriées de banques ou preuve d'assurance des risques professionnels pertinents (source=RC article 7.1 — Tableau CANDIDATURE)
+  - Liste des principaux services effectués au cours des 3 dernières années avec montant, date et destinataire (attestations du destinataire ou déclaration de l'opérateur) (source=RC article 7.1 — Tableau CANDIDATURE)
+  - Déclaration indiquant les effectifs moyens annuels et l'importance du personnel d'encadrement pendant les 3 dernières années (source=RC article 7.1 — Tableau CANDIDATURE)
 
 ## ⚠ Alertes candidat
-- Le cas pratique de plan de coupe (Annexe 2 — enregistrement 'Tous les hommes coupables') est obligatoire dans l'offre : le candidat doit avoir écouté et travaillé l'enregistrement fourni avant le dépôt.
-- Note technique éliminatoire fixée à 30/60 minimum — une offre trop générique ou sans références solides sera écartée avant analyse financière.
-- L'offre entière (CRT + BPU-DQE) est obligatoirement remise par voie dématérialisée sur PLACE avant le 07/07/2026 à 17h00 — aucun autre mode de transmission accepté.
-- Le CCP-AE complet n'est pas fourni dans le DCE transmis : le candidat doit le télécharger sur PLACE (référence C2026_DDCP01) pour prendre connaissance des prescriptions techniques des articles 9.1.3 et 9.1.4 qui conditionnent 25 points sur 60 en technique.
-- Délai de validité des offres de 6 mois à compter du 07/07/2026 : disponibilité à engager les équipes jusqu'en janvier 2027 si négociation.
+- Note éliminatoire sur la valeur technique : toute offre obtenant ≤ 30/60 (avant harmonisation) est éliminée sans classement — une réponse technique insuffisante, même avec un très bon prix, ne suffit pas.
+- Le CRT (Cadre de Réponse Technique) est obligatoire et inclut un cas pratique sur l'enregistrement fourni en annexe 2 (épisode 'Tous les hommes coupables') : le candidat DOIT télécharger et analyser cet enregistrement pour proposer un plan de coupe concret — à ne pas omettre.
+- Le BPU-DQE doit être complété en Excel (format obligatoire) : des erreurs de calcul ou des postes non renseignés peuvent entraîner l'irrégularité de l'offre ou la rectification par l'acheteur (RC article 8.4 sur les erreurs matérielles).
+- Prix fermes sur 48 mois sans révision d'indice (CCP art 11.4) : bien calibrer les prix unitaires pour rester rentable sur la durée totale du contrat, notamment si les coûts de main d'œuvre augmentent.
+- La livraison de la saison 5 (16 épisodes) est attendue avant début octobre 2026, soit dès notification du contrat (prévue fin août-début septembre 2026) : délai très court, environ 4-6 semaines — vérifier la disponibilité immédiate de l'équipe.
 
 ## 💡 Points différenciants attendus
-- Maîtrise du format podcast issu de captation live (rencontres, conférences, débats) (exemple=Le candidat démontre une méthodologie spécifique pour valoriser des enregistrements de rencontres (non scriptées) : gestion des chevauchements de parole, des silences, des répétitions, adaptation du rythme pour un auditeur non-présent lors de l'événement., source=RC Tableau 18 — sous-critère 'Qualité de l'approche éditoriale')
-- Expérience en podcasts sur des sujets sensibles ou complexes (exemple=Références de productions sur des sujets judiciaires, mémoriels, politiques ou sociaux difficiles, attestant d'une capacité à traiter ces contenus avec rigueur éthique et qualité narrative., source=RC Tableau 18 — sous-critère 'Qualité des précédentes réalisations')
-- Qualité et variété de l'équipe dédiée (exemple=Équipe pluridisciplinaire combinant compétences éditoriales (journalisme, documentaire), techniques (montage audio professionnel) et culturelles (connaissance du secteur musées/patrimoine), avec engagement nominatif sur le marché., source=RC Tableau 18 — critère 'Qualité et variété des profils de l'équipe' (15 points))
-- Plannings types réalistes et adaptés aux différentes configurations de commande (exemple=Proposer trois plannings Gantt distincts (saison 5 Procès du siècle, nouvelles saisons, podcasts ponctuels) avec des délais précis et des jalons de validation intermédiaire, montrant une capacité à absorber des volumes variables., source=RC Tableau 18 / CRT Element 2)
-- Pertinence et qualité du plan de coupe sur le cas pratique fourni (exemple=Un plan de coupe annoté précis sur l'enregistrement 'Tous les hommes coupables', avec justification de chaque coupure, proposition d'une accroche, d'un arc narratif et d'une durée finale argumentée — seul élément différenciant objectivement mesurable dès l'analyse., source=RC Tableau 18 / CRT Element 1, sous-critère 2 — 10 points)
+- Maîtrise des Questions Socialement Vives (QSV) et sensibilité aux sujets sensibles (exemple=Le candidat met en avant des réalisations sur des sujets comme les discriminations, la justice sociale ou la santé mentale, et décrit sa méthode de traitement éditorial de ces contenus en coordination avec le commanditaire. Il peut citer un cas concret où il a navigué une QSV avec un commanditaire culturel., source=CCP article 9.1.1 (Procès du siècle — quatrième point de vigilance QSV))
+- Capacité à proposer un plan de coupe pertinent et un planning de production réaliste pour la saison 5 en urgence (exemple=Présenter un planning Gantt détaillé de production des 16 épisodes de la saison 5 entre septembre et début octobre 2026, en expliquant le traitement en flux parallèle (plusieurs épisodes simultanément) pour tenir le délai très serré de notification à livraison., source=CCP article 9.1.3 — Délais d'exécution ; RC article 8.4 — sous-critère planning)
+- Profils d'équipe avec double compétence audiovisuelle ET sciences humaines/sociales (exemple=Présenter un ingénieur du son ayant travaillé pour France Culture ou Arte Radio, combiné à un réalisateur-documentariste familier des sujets de sciences humaines. La complémentarité des profils (technique + éditorial + sensibilité thématique) est explicitement valorisée par le RC à 15 points., source=CCP article 9.1.4 ; RC article 8.4 — critère 'Qualité et variété des profils de l'équipe' 15 points)
+- Références de podcasts culturels ou documentaires pour des institutions publiques/musées (exemple=Citer des productions pour des musées, institutions culturelles ou médias publics (France Musiques, INA, RFI…) démontre une expérience directement transposable au contexte du Mucem et rassure sur la capacité à travailler avec des commanditaires publics exigeants., source=RC article 7.1 — références principaux services ; CRT Element 1)
+- Approche RSE : recours à un alternant ou à l'insertion sociale dans l'équipe (exemple=Le candidat indique qu'un alternant en formation sonore sera associé à la production des épisodes courants, ou qu'une partie des missions sera confiée à une personne en contrat d'insertion — répondant directement aux clauses incitatives du CCP art 15., source=CCP article 15 — Démarche RSE)

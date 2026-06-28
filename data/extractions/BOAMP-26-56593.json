@@ -1,50 +1,103 @@
 {
-  "synthese_marche": "La DREAL Pays de la Loire recherche un prestataire pour une mission d'Assistance à Maîtrise d'Ouvrage (AMO) portant sur l'animation régionale du réseau du service public de la rénovation de l'habitat privé (France Rénov'). L'accord-cadre est mono-attributaire, exécuté par bons de commande sur 4 ans, avec un plafond annuel de 157 976,67 € HT. Le périmètre d'exécution couvre la région Pays de la Loire.",
+  "synthese_marche": "Accord-cadre mono-attributaire à bons de commande passé par la DREAL Pays de la Loire, portant sur des prestations intellectuelles d'AMO pour l'animation régionale du réseau France Rénov' (service public de rénovation de l'habitat privé). Le prestataire devra animer l'écosystème régional (ECFR', DDT, MAR, professionnels), capitaliser les retours d'expériences et créer un espace de ressources en ligne, sur une durée de 4 ans. Montant maximum de l'accord-cadre : 631 906,68 € HT.",
   "domaines_metier": [
     {
       "code": "conseil_strategie_organisation"
     }
   ],
-  "raison_classification": "Le marché porte explicitement sur une prestation d'AMO pour l'animation et la coordination d'un réseau régional de service public (France Rénov'). Ce n'est pas de l'AMO énergétique au sens travaux/études EnR (pas de dimension photovoltaïque, thermique ou géothermique), ni de la formation professionnelle. Il s'agit d'un accompagnement stratégique et organisationnel d'un réseau d'acteurs publics, ce qui correspond à `conseil_strategie_organisation`. Le CPV 79416200 (services de conseil en relations publiques) confirme la dimension conseil/coordination.",
-  "caracteristiques_techniques_chantier": {
-    "description": null,
-    "typologie_ouvrage": null,
-    "surface_volume": null,
-    "site_occupe": null,
-    "corps_etat": [],
-    "contraintes_specifiques": []
-  },
-  "allotissement": {
-    "description": "Marché non alloti — accord-cadre mono-attributaire unique",
-    "nb_lots": 1,
-    "lots_detailles": [
+  "raison_classification": "Le marché porte sur une prestation intellectuelle d'animation de réseau et d'appui au pilotage d'une politique publique (rénovation de l'habitat privé France Rénov'), sans réalisation de travaux ni mission de maîtrise d'œuvre. Il s'agit d'un conseil/accompagnement stratégique en organisation et animation d'écosystème, à la frontière avec le conseil en transition énergétique, mais la dominante est l'animation institutionnelle et la coordination d'acteurs publics/parapublics, ce qui le rattache à `conseil_strategie_organisation`.",
+  "caracteristiques_mission": {
+    "typologie_mission": "AMO, accompagnement, animation de réseau",
+    "domaine_expertise": "politique publique logement/habitat, animation de réseau territorial, rénovation énergétique de l'habitat privé (France Rénov')",
+    "livrables_attendus": [
+      "Supports de présentation pour réunions de coordination (J-10 avant réunion)",
+      "Relevés de décision / comptes-rendus de réunions (J+10 après réunion)",
+      "Calendrier prévisionnel annuel des réunions",
+      "Tableau de suivi des prestations (liste des réunions, ordres du jour, participants, supports, contacts)",
+      "Supports d'analyse du fonctionnement de l'animation (analyse des questionnaires de satisfaction, bilan des remontées)",
+      "Calendrier prévisionnel des missions d'animation",
+      "Modèle et analyse des questionnaires de satisfaction des participants",
+      "Fiches et articles de capitalisation / retours d'expériences (minimum 4)",
+      "Espace dématérialisé partagé accessible au réseau",
+      "Bilan annuel des missions réalisées",
+      "Organisation de 2 COPIL annuels"
+    ],
+    "duree_mission": "48 mois (4 ans)",
+    "jours_consultant_estimes": null,
+    "methodologie_attendue": "Phase de lancement (réunion de lancement dans les 15 jours post-notification) + coordination mensuelle avec la DREAL (réunions présentiel/distanciel) + animation régulière de l'écosystème (journées/demi-journées régionales et départementales) + capitalisation continue (fiches REX) + administration d'un espace collaboratif en ligne + bilan annuel de la feuille de route France Rénov'",
+    "livrables_par_phase": [
       {
-        "numero": 1,
-        "intitule": "AMO animation régionale réseau service public rénovation habitat privé",
-        "corps_etat": null,
-        "montant_estime": 631906.68,
-        "description": "Prestations d'AMO pour l'animation régionale du réseau France Rénov' en Pays de la Loire sur 4 ans (4 × 157 976,67 € HT max)"
+        "phase": "Phase 1 — Appui à la DREAL pour la coordination territoriale",
+        "livrables": [
+          "Supports de présentation à J-10 avant réunion",
+          "Relevés de décision / comptes-rendus à J+10",
+          "Calendrier prévisionnel annuel des réunions"
+        ]
+      },
+      {
+        "phase": "Phase 2 — Organisation et animation de l'écosystème régional",
+        "livrables": [
+          "Tableau de suivi des prestations",
+          "Support d'analyse du fonctionnement de l'animation",
+          "Calendrier prévisionnel des missions d'animation",
+          "Modèle et analyse des questionnaires de satisfaction"
+        ]
+      },
+      {
+        "phase": "Phase 3 — Capitalisation et retours d'expériences",
+        "livrables": [
+          "Minimum 4 fiches/articles diffusés aux partenaires (au minimum 2 mois avant la fin de la première période)"
+        ]
+      },
+      {
+        "phase": "Phase 4 — Gestion de l'espace de ressources en ligne",
+        "livrables": [
+          "Mise à disposition des fiches et articles sur un espace dématérialisé partagé accessible au réseau"
+        ]
+      }
+    ],
+    "jours_consultant_par_profil": [
+      {
+        "profil": "Profil technicien (graphiste ou autre) — création et entretien espace partagé en ligne",
+        "nb_jours_min": null,
+        "nb_jours_max": null
+      },
+      {
+        "profil": "Animateur / chef de projet (correspondant permanent du titulaire)",
+        "nb_jours_min": null,
+        "nb_jours_max": null
+      }
+    ],
+    "accompagnement_apres": null
+  },
+  "profils_intervenants": {
+    "description": "Correspondant permanent du titulaire (CPT) : chef de projet ayant pouvoir de décision, assurant la coordination des prestations, la planification et le pilotage des opérations. Profil technicien (graphiste ou autre) pour la création et l'entretien de l'espace partagé en ligne.",
+    "chef_de_mission": {
+      "_commentaire": "Le CCTP exige un 'Correspondant permanent du titulaire' (CPT) avec capacités de chef de projet, désigné au plus tard à la notification.",
+      "anciennete_min_annees": null,
+      "secteur_experience": "Animation de réseau, politiques publiques de l'habitat ou rénovation énergétique",
+      "taux_dedie_pct": null,
+      "certifs_requises": []
+    },
+    "consultants": [
+      {
+        "profil": "Profil technicien (graphiste ou autre) pour espace partagé en ligne",
+        "nombre": null,
+        "anciennete_min_annees": null
       }
     ]
   },
-  "qualifications_requises": {
-    "description": "Aucune qualification professionnelle réglementaire spécifique exigée formellement. Les capacités professionnelles sont appréciées sur la base des références et des moyens humains.",
-    "qualibat": null,
-    "rge": null,
-    "opqibi": null,
-    "autres_certifications": []
+  "qualifications_conseil": {
+    "opqcm": [],
+    "certifications_methodologiques": [],
+    "ordre_profession": null
   },
-  "caracteristiques_mission": {
-    "typologie_mission": "AMO, animation de réseau, conseil stratégique",
-    "domaine_expertise": "rénovation de l'habitat privé, service public de la rénovation énergétique, animation de réseau territorial, France Rénov'",
-    "livrables_attendus": [],
-    "duree_mission": "48 mois (4 ans)",
-    "jours_consultant_estimes": null
-  },
-  "profils_intervenants": {
-    "description": "Les moyens humains sont un sous-critère de notation (qualification et expérience des personnes chargées de l'exécution des missions). Aucun profil imposé formellement dans les pièces disponibles.",
-    "chef_de_mission": "Non précisé dans les pièces fournies",
-    "consultants": "Non précisé dans les pièces fournies"
+  "caracteristiques_techniques_enr": {
+    "description": null,
+    "technologies_concernees": [],
+    "type_de_sites": null,
+    "criteres_eligibilite": [],
+    "contraintes_site_signalees": []
   },
   "volumes_techniques": {
     "puissance_totale_kwc": null,
@@ -54,65 +107,26 @@
     "productible_annuel_estime_mwh": null,
     "duree_marche_mois": 48,
     "duree_maintenance_om_annees": null,
-    "commentaire_volumes": "Accord-cadre sans montant minimum, plafond annuel de 157 976,67 € HT. La durée est de 4 ans à compter de la notification. Exécution par bons de commande référencés au BPU."
+    "commentaire_volumes": "Marché de prestations intellectuelles, pas de volumes techniques énergétiques. Montant maximum de l'accord-cadre sur 4 ans : 631 906,68 € HT, soit un plafond annuel de 157 976,67 € HT (précisé au RC §3.5). Pas de montant minimum."
   },
   "modalites_execution_chantier": {
     "raccordement_reseau_inclus": null,
     "etudes_techniques_incluses": null,
     "calendrier_chantier_contraint": null,
     "sites_execution": [
-      "Pays de la Loire"
+      "Pays de la Loire (région)",
+      "Nantes (siège DREAL)",
+      "Loire-Atlantique, Maine-et-Loire, Mayenne, Sarthe, Vendée (interventions départementales)"
     ],
     "engagement_productible": null,
     "engagement_disponibilite_om": null
   },
-  "publics_cibles": {
-    "description": "Acteurs du réseau régional du service public de la rénovation de l'habitat privé (France Rénov') en Pays de la Loire — pas un public de bénéficiaires formation.",
-    "criteres_eligibilite": [],
-    "publics_specifiques_signales": []
-  },
-  "volumes": {
-    "nb_beneficiaires_total": null,
-    "nb_beneficiaires_par_lot": null,
-    "duree_par_parcours_heures": null,
-    "duree_par_parcours_semaines": null,
-    "duree_marche_mois": 48,
-    "commentaire_volumes": "Accord-cadre à bons de commande, sans minimum garanti, plafond annuel 157 976,67 € HT sur 4 ans."
-  },
-  "modalites": {
-    "presentiel_obligatoire": null,
-    "distanciel_possible": null,
-    "synchrone_asynchrone": null,
-    "sites_execution": [
-      "Pays de la Loire"
-    ],
-    "amplitude_horaire": null
-  },
-  "caracteristiques_mission_moe": {
-    "typologie": null,
-    "phases_couvertes": [],
-    "typologie_ouvrage": null,
-    "montant_travaux_estime": null,
-    "complexite_technique": null
-  },
-  "qualifications_moe": {
-    "opqibi": [],
-    "opqcm": null,
-    "bim": null,
-    "autres": []
-  },
-  "caracteristiques_si": {
-    "description": null,
-    "typologie_projet": null,
-    "technologies_mentionnees": [],
-    "volumetrie": null,
-    "hebergement": null
-  },
-  "qualifications_si": {
-    "iso_27001": null,
-    "anssi": null,
-    "hds": null,
-    "autres": []
+  "qualifications_enr": {
+    "qualipv": false,
+    "qualisol": false,
+    "qualipac": false,
+    "qualibois": false,
+    "autres_certifications": []
   },
   "bareme_notation": {
     "valeur_technique_pct": 60,
@@ -123,161 +137,360 @@
         "ponderation_pct": 50,
         "description": "Appréciation de la qualité technique des prestations proposées au regard de la compréhension des enjeux, de la méthodologie mise en œuvre pour l'ensemble des missions prévues, et de la méthode d'organisation.",
         "elements_attendus": [
-          "Démonstration d'une compréhension approfondie des enjeux de l'animation du réseau France Rénov' en Pays de la Loire",
-          "Méthodologie détaillée pour chacun des volets de mission prévus au CCTP",
-          "Description de la méthode d'organisation interne (suivi, reporting, coordination avec la DREAL)",
-          "Proposition d'une organisation adaptée aux spécificités d'un réseau régional multi-acteurs"
+          "Démonstration de la compréhension des enjeux de l'animation du réseau France Rénov' en Pays de la Loire",
+          "Méthodologie détaillée pour chaque volet de mission (coordination DREAL, animation écosystème, capitalisation REX, espace en ligne)",
+          "Exemples de méthodes d'animation adaptées (intelligence collective, facilitation graphique, outils en ligne)",
+          "Planning prévisionnel d'intervention pour 2026",
+          "Proposition concrète sur les cibles prioritaires et les formats d'animation envisagés",
+          "Dispositions environnementales pour les déplacements et matériels/outils (10 points)"
         ],
-        "exemple_reponse_forte": "Le candidat présente un diagnostic des enjeux spécifiques du réseau France Rénov' en Pays de la Loire (couverture territoriale, articulation guichets locaux/régionaux, montée en compétences des conseillers), décline une méthodologie par volet de mission (animation de réunions réseau, appui méthodologique aux opérateurs, capitalisation de bonnes pratiques), et propose un plan d'organisation avec jalons trimestriels et livrables identifiés.",
-        "source": "RC Section 10",
-        "sous_criteres": []
-      },
-      {
-        "libelle": "Moyens mis en œuvre",
-        "ponderation_pct": 20,
-        "description": "Appréciation de la qualification et de l'expérience des personnes chargées de l'exécution des missions, ainsi que des moyens spécifiques mis en œuvre.",
-        "elements_attendus": [
-          "CV et profils des intervenants affectés à la mission avec indication de leur expérience en animation de réseau ou en rénovation de l'habitat",
-          "Qualification et séniorité des personnes dédiées (chef de mission, experts thématiques)",
-          "Moyens matériels et logistiques spécifiques (outils de gestion de réseau, plateformes collaboratives, locaux en région)"
-        ],
-        "exemple_reponse_forte": "Le candidat présente une équipe de 2 consultants seniors (dont un chef de mission avec 8 ans d'expérience en animation de réseau dans le secteur de la rénovation énergétique), complétée d'un expert France Rénov' ayant piloté des programmes similaires en région. Les moyens matériels incluent un outil de suivi collaboratif et une implantation physique en Pays de la Loire garantissant la réactivité terrain.",
-        "source": "RC Section 10",
-        "sous_criteres": []
+        "exemple_reponse_forte": "Le candidat présente une méthodologie structurée par volet : pour l'animation régionale, il propose un cycle trimestriel de journées en présentiel avec ateliers d'intelligence collective, complété par des webinaires mensuels ; pour la capitalisation, il décrit un processus en 4 étapes (identification, rédaction, validation, diffusion) avec gabarit type de fiche REX ; pour l'espace en ligne, il propose une solution existante (type Notion ou SharePoint) déjà maîtrisée par son équipe. Il intègre une proposition de limitation des déplacements via covoiturage et train, et utilise des supports dématérialisés.",
+        "source": "RC §10",
+        "unite_evaluation": "points",
+        "sous_criteres": [
+          {
+            "libelle": "Méthodologie et organisation (compréhension des enjeux, méthodes)",
+            "ponderation_pct": 30,
+            "description": "Évalue la compréhension des enjeux du service public de la rénovation de l'habitat et la pertinence des méthodes d'animation proposées pour chacun des volets de mission.",
+            "elements_attendus": [
+              "Compréhension des enjeux du SPRH France Rénov' en Pays de la Loire et du rôle de la DREAL",
+              "Méthodologie détaillée pour chaque volet : appui coordination DREAL, animation écosystème, capitalisation REX, espace collaboratif",
+              "Exemples de formats d'animation adaptés aux différents publics (ECFR', MAR, professionnels, DDT)",
+              "Planning prévisionnel 2026 réaliste avec capacité de mobilisation démontrée",
+              "Proposition sur cibles prioritaires et méthodes innovantes d'animation"
+            ],
+            "exemple_reponse_forte": "Notre approche s'articule autour d'un cycle d'animation annuel : 2 journées régionales en présentiel (format conférence + ateliers), 10 sessions départementales (demi-journées), et 12 réunions mensuelles DREAL en distanciel. Pour chaque événement, nous utilisons des outils d'animation collaborative (Klaxoon, Miro) et produisons un compte-rendu dans les 10 jours. Notre connaissance du réseau France Rénov' (références similaires avec l'ANAH ou autres DREAL) garantit une prise en main rapide des enjeux régionaux.",
+            "source": "RC §10, Cadre mémoire technique §2.1"
+          },
+          {
+            "libelle": "Moyens mis en œuvre (qualification et expérience des personnes, moyens spécifiques)",
+            "ponderation_pct": 20,
+            "description": "Évalue la qualification et l'expérience des personnes chargées de l'exécution des missions, ainsi que les moyens matériels et techniques spécifiques mis en œuvre.",
+            "elements_attendus": [
+              "Profil et expérience du correspondant permanent du titulaire (chef de projet) en animation de réseau et politiques de l'habitat",
+              "Organigramme dédié avec présentation des intervenants et de leurs rôles",
+              "Moyens matériels : outils de visioconférence, gestion de listes de diffusion, questionnaires en ligne, espace partagé",
+              "Localisation géographique des intervenants (proximité du territoire des Pays de la Loire valorisée)",
+              "Références similaires des 3 dernières années en animation de réseau / politiques habitat"
+            ],
+            "exemple_reponse_forte": "L'équipe dédiée comprend un chef de projet basé à Nantes (10 ans d'expérience en animation de réseaux territoriaux, dont 3 ans sur des programmes SARE/France Rénov') et un technicien graphiste pour l'espace en ligne. Nous disposons d'une licence Teams et d'outils de sondage (Typeform) intégrés à nos process. Nos 3 références incluent une mission d'animation pour une DREAL voisine (2023-2024) et une mission d'accompagnement d'un réseau de guichets énergie pour une région.",
+            "source": "RC §10, Cadre mémoire technique §1.2 et §1.3"
+          }
+        ]
       },
       {
         "libelle": "Critère développement durable",
         "ponderation_pct": 10,
-        "description": "Le candidat expose les démarches mises en place pour limiter l'impact de ses prestations sur l'environnement et les actions concrètes qui seront engagées en la matière.",
+        "description": "Le candidat expose les démarches mises en place afin de limiter l'impact de ses prestations sur l'environnement et les actions concrètes engagées en la matière (déplacements du personnel et des participants, matériels, process, outils dont IA).",
         "elements_attendus": [
-          "Démarches internes de l'entreprise pour réduire son empreinte environnementale (mobilité, déplacements, numérique responsable)",
-          "Actions concrètes prévues dans l'exécution de la prestation (privilégier les réunions en visioconférence, réduire les impressions, etc.)",
-          "Éventuellement, politique RSE ou bilan carbone de la structure"
+          "Dispositions pour limiter les déplacements du personnel (train, covoiturage, télétravail)",
+          "Dispositions pour limiter les déplacements des participants aux animations",
+          "Mesures de réduction de l'empreinte numérique (outils sobres, limiter le poids des fichiers, hébergement sobre)",
+          "Positionnement sur l'utilisation de l'Intelligence Artificielle dans le cadre des prestations",
+          "Préférence pour les supports dématérialisés, papier recyclé si impression nécessaire"
         ],
-        "exemple_reponse_forte": "Le candidat s'engage à limiter les déplacements en organisant 70% des réunions de réseau en format hybride ou visioconférence, à utiliser uniquement des supports dématérialisés pour les livrables, et à compenser les déplacements incompressibles via un programme certifié. Il dispose d'une politique de mobilité durable formalisée.",
-        "source": "RC Section 10",
+        "exemple_reponse_forte": "Nous nous engageons à privilégier le train pour tous les déplacements > 100 km et à proposer des formats hybrides pour les sessions départementales afin de réduire les déplacements des participants. Nos outils numériques sont hébergés sur des serveurs certifiés écoresponsables. Concernant l'IA, nous l'utilisons pour la synthèse des compte-rendus (outil interne, données non transmises à des tiers), avec validation systématique par un consultant avant diffusion.",
+        "source": "RC §10, Cadre mémoire technique §2.3",
+        "unite_evaluation": "points",
         "sous_criteres": []
       }
     ],
     "prix": {
       "type_formule": "moins_disant",
       "formule_explicite": "Note = (prix le plus bas / prix de l'offre examinée) × 40",
+      "source": "RC §10",
       "elements_a_chiffrer": [
-        "Prix unitaires renseignés au Bordereau des Prix Unitaires (BPU)",
-        "Scénario de commande simulé à partir des prix BPU"
+        "Prix unitaire par réunion mensuelle de coordination DREAL en présentiel (par réunion de 2h)",
+        "Prix unitaire par réunion de coordination en distanciel DDT (par réunion de 2h)",
+        "Forfait annuel de suivi des prestations (tableau de bord en continu)",
+        "Prix unitaire par animation de rencontre régionale en présentiel (1 journée)",
+        "Prix unitaire par session d'animation départementale ou interdépartementale en présentiel/distanciel (1/2 journée)",
+        "Prix unitaire par fiche d'expérience rédigée (par fiche ou article)",
+        "Prix unitaire profil technicien (graphiste) pour espace partagé en ligne (1/2 journée)",
+        "Scénario de commande fourni par l'acheteur (à compléter par le candidat)"
       ]
     },
-    "modalite_calcul_prix": "Note = (prix le plus bas / prix de l'offre examinée) × 40 — Analysé au regard du scénario de commande basé sur les prix indiqués au BPU."
+    "modalite_calcul_prix": "Note prix = (prix le plus bas / prix de l'offre examinée) × 40. Analysé au regard du scénario de commande basé sur les prix indiqués au bordereau des prix unitaires."
   },
   "montant_marche": {
-    "valeur_estimee_euros": null,
-    "fourchette_min_euros": 0,
+    "valeur_estimee_euros": 631906.68,
+    "fourchette_min_euros": null,
     "fourchette_max_euros": 631906.68,
     "type": "plafond",
-    "duree_couverte": "4 ans (durée totale de l'accord-cadre)",
-    "source_extraction": "RC Section 3.5",
-    "commentaire": "Accord-cadre sans montant minimum, plafond annuel de 157 976,67 € HT × 4 ans = 631 906,68 € HT au total. Le montant réel dépendra des bons de commande émis."
+    "duree_couverte": "4 ans (accord-cadre complet), soit 157 976,67 € HT/an",
+    "source_extraction": "AE article 2 / CCAP §1.4 / RC §3.5",
+    "commentaire": "Plafond de l'accord-cadre à bons de commande sur 4 ans : 631 906,68 € HT (758 288 € TTC). Montant maximum annuel : 157 976,67 € HT. Aucun minimum prévu. Le volume réel dépendra des bons de commande émis."
+  },
+  "montant_3_voies": {
+    "voie_1_eur": 631906.68,
+    "voie_1_source": "AE article 2 — Minimum/Maximum accord-cadre : Maximum HT 631 906,68 €",
+    "voie_2_disponible": false,
+    "voie_2_min_eur": null,
+    "voie_2_max_eur": null,
+    "voie_2_hypotheses": [],
+    "voie_2_raison_indisponible": "Montant publié explicitement dans le DCE (AE et RC) : Voie 1 disponible, Voie 2 non nécessaire."
+  },
+  "cout_realisation": {
+    "cout_total_eur": 420000,
+    "cout_min_eur": 350000,
+    "cout_max_eur": 490000,
+    "postes": [
+      {
+        "poste": "Chef de projet / Correspondant permanent (animateur réseau senior)",
+        "detail": "Estimation : ~120 j/an × 4 ans = 480 j × 600 €/j (taux marché consultant senior animation/politique publique)",
+        "montant_eur": 288000
+      },
+      {
+        "poste": "Consultant junior / chargé de mission (préparation supports, CR, fiches REX)",
+        "detail": "Estimation : ~50 j/an × 4 ans = 200 j × 400 €/j",
+        "montant_eur": 80000
+      },
+      {
+        "poste": "Profil technicien graphiste (espace en ligne, supports visuels)",
+        "detail": "Estimation : ~15 j/an × 4 ans = 60 j × 350 €/j",
+        "montant_eur": 21000
+      },
+      {
+        "poste": "Frais de déplacements (train, hébergement ponctuels)",
+        "detail": "Estimation : ~8 000 €/an × 4 ans (déplacements sur Pays de la Loire)",
+        "montant_eur": 32000
+      }
+    ],
+    "taux_journaliers_retenus": "Chef de projet senior animation/politiques publiques : 600 €/j indicatif marché ; Consultant junior/chargé de mission : 400 €/j indicatif ; Technicien graphiste : 350 €/j indicatif. Ces taux sont des estimations marché indicatives.",
+    "commentaire": "Estimation bottom-up du coût de production pour le candidat. La fourchette (350 k€–490 k€) est obtenue en faisant varier le taux journalier du chef de projet (550–650 €/j), la charge restant fixée. Le revenu maximum est de 631 906,68 € HT, ce qui laisse une marge brute estimée de 25-45% sur le plafond, cohérente avec ce type de prestation intellectuelle. En pratique, les bons de commande seront partiels (pas de minimum) : le volume réel activé peut être nettement inférieur au plafond."
   },
   "revision_prix": {
-    "type": "non_communique",
-    "indices_utilises": [],
-    "ponderation": null,
-    "periodicite": null,
-    "formule_revision": null,
-    "source_extraction": null,
-    "commentaire": "Le CCAP n'est pas fourni dans les pièces analysées. La révision des prix ne peut pas être renseignée."
+    "type": "indexation",
+    "indices_utilises": [
+      "CPF 70.21 — Services de relations publiques et communication (indice INSEE 010766719)"
+    ],
+    "ponderation": "15% partie fixe + 85% indexé sur l'indice CPF 70.21",
+    "periodicite": "annuelle",
+    "formule_revision": "P = P0 [0,15 + 0,85 (In / I0)]",
+    "source_extraction": "CCAP article X — Révision des prix",
+    "commentaire": "Prix fermes la première année, puis révisables annuellement à chaque date anniversaire. La formule à 85% variable sur l'indice CPF 70.21 (services de RP/communication) est favorable en période inflationniste, mais cet indice est spécifique et moins courant que SYNTEC — le candidat devra en suivre l'évolution. La clause de sauvegarde prévoit une résiliation sans indemnité si la hausse dépasse 5% par période."
   },
   "alertes_prix": [
-    "Accord-cadre sans montant minimum : le prestataire ne dispose d'aucune garantie de commande, le risque de sous-activité est réel.",
-    "Plafond annuel de 157 976,67 € HT à ne pas dépasser — les bons de commande sont limités à ce plafond par exercice.",
-    "La note prix représente 40% de la note globale : pondération significative qui peut inciter à une sous-évaluation risquée (attention aux offres anormalement basses).",
-    "Le scénario de commande (pièce du DCE) structure l'évaluation prix — une mauvaise lecture du scénario peut conduire à un positionnement tarifaire inadapté."
+    "Aucun montant minimum garanti : le marché est un accord-cadre à bons de commande sans minimum, ce qui signifie que le volume réel commandé peut être très inférieur au plafond de 631 906,68 € HT.",
+    "Le scénario de commande fourni par l'acheteur est la base de notation du prix (40% du total) : une erreur de compréhension ou de calcul dans ce scénario peut fortement dégrader la note prix.",
+    "Clause de sauvegarde : résiliation sans indemnité possible si la révision de prix dépasse +5% par rapport à la période précédente (CCAP) — risque de résiliation anticipée en cas de forte inflation.",
+    "Le prix est noté à 40% avec formule moins-disant stricte : le candidat doit viser un niveau de prix compétitif, l'écart avec le moins-disant est linéairement pénalisant."
   ],
   "references_exigees": {
     "experience_minimale_annees": null,
     "experience_source": null,
     "volume_min_references_similaires": null,
-    "volume_min_references_unite": null,
-    "secteur_experience": "Animation de réseau, service public de la rénovation de l'habitat, AMO territoriale",
-    "secteur_source": "RC Section 8.1",
+    "volume_min_references_unite": "marchés similaires",
+    "secteur_experience": "Animation de réseau d'acteurs, politiques publiques de l'habitat ou de la rénovation énergétique, facilitation, accompagnement d'écosystèmes territoriaux",
+    "secteur_source": "RC §8.1, Cadre mémoire technique §1.4",
     "certifications_obligatoires": [],
     "autres_exigences": [
       {
-        "libelle": "Liste des principaux services effectués au cours des trois dernières années, indiquant le montant, la date et le destinataire public ou privé, ainsi que les coordonnées des interlocuteurs clients",
-        "source": "RC Section 8.1"
+        "libelle": "Déclaration concernant le chiffre d'affaires global et le CA concernant les services objet du contrat sur les 3 derniers exercices disponibles",
+        "source": "RC §8.1"
       },
       {
-        "libelle": "Déclaration concernant le chiffre d'affaires global et le chiffre d'affaires concernant les services objet du contrat, réalisés au cours des trois derniers exercices disponibles",
-        "source": "RC Section 8.1"
+        "libelle": "Déclaration indiquant les effectifs moyens annuels et l'importance du personnel d'encadrement pendant les 3 dernières années",
+        "source": "RC §8.1"
       },
       {
-        "libelle": "Déclaration indiquant les effectifs moyens annuels et l'importance du personnel d'encadrement pendant les trois dernières années",
-        "source": "RC Section 8.1"
+        "libelle": "Liste des principaux services effectués au cours des 3 dernières années avec montant, date, destinataire et coordonnées des interlocuteurs",
+        "source": "RC §8.1"
+      },
+      {
+        "libelle": "Déclarations appropriées de banques ou preuve d'assurance des risques professionnels",
+        "source": "RC §8.1"
+      }
+    ]
+  },
+  "dossier_candidature": {
+    "pieces_a_fournir": [
+      {
+        "libelle": "DUME (formulaire électronique pré-rempli via SIRET) OU Lettre de candidature DC1",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §8.1"
+      },
+      {
+        "libelle": "Déclaration du candidat DC2 (ou équivalent DUME) — chiffre d'affaires global et CA services objet du contrat sur 3 derniers exercices",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §8.1"
+      },
+      {
+        "libelle": "Documents relatifs aux pouvoirs de la personne habilitée pour engager le candidat",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §8.1"
       },
       {
         "libelle": "Note méthodologique décrivant la compréhension de la prestation et de ses enjeux pour chacun des volets du marché",
-        "source": "RC Section 8.1"
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §8.1"
       },
       {
-        "libelle": "Déclarations appropriées de banques ou preuve d'une assurance des risques professionnels",
-        "source": "RC Section 8.1"
+        "libelle": "Déclaration indiquant les effectifs moyens annuels et l'importance du personnel d'encadrement pendant les 3 dernières années",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §8.1"
+      },
+      {
+        "libelle": "Déclaration indiquant les moyens matériels affectés à la prestation (y compris locaux)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §8.1"
+      },
+      {
+        "libelle": "Liste des principaux services effectués au cours des 3 dernières années (montant, date, destinataire, coordonnées interlocuteurs)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §8.1"
+      },
+      {
+        "libelle": "Déclarations appropriées de banques ou preuve d'assurance des risques professionnels",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §8.1"
+      },
+      {
+        "libelle": "Acte d'engagement (AE) complété",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §8.3"
+      },
+      {
+        "libelle": "Bordereau des prix unitaires (BPU) complété (format .xls ou .xlsx obligatoire)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §8.3"
+      },
+      {
+        "libelle": "Cadre de mémoire technique détaillé (qualité technique, moyens humains, dimension environnementale)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §8.3"
+      },
+      {
+        "libelle": "Scénario de commande complété",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §8.3"
+      },
+      {
+        "libelle": "DC4 complété (si sous-traitance envisagée)",
+        "phase": "offre",
+        "obligatoire": false,
+        "source": "RC §8.3"
       }
-    ]
+    ],
+    "mode_remise": "dématérialisé",
+    "plateforme_depot": "PLACE — www.marches-publics.gouv.fr",
+    "signature_electronique_exigee": false,
+    "format_signature": "XAdES, CAdES ou PAdES (si signature électronique utilisée par l'attributaire)",
+    "nombre_exemplaires": null,
+    "langue": "français",
+    "duree_validite_offres_jours": 180,
+    "modalites_source": "RC §2.1, §2.2, §8.5, §8.6, §11"
   },
   "lots": [
     {
       "numero": 1,
-      "intitule": "AMO animation régionale réseau France Rénov' — Pays de la Loire",
-      "zone_geographique": "Pays de la Loire",
-      "volume_estime": 631906.68,
-      "volume_estime_unite": "€ HT (plafond 4 ans)",
-      "particularites": "Accord-cadre mono-attributaire, sans minimum garanti, exécution par bons de commande sur BPU, durée 4 ans"
+      "intitule": "Assistance à Maîtrise d'Ouvrage pour l'animation régionale du réseau sur service public de la rénovation de l'habitat privé",
+      "domaine": "conseil_strategie_organisation",
+      "zone_geographique": "Pays de la Loire (région FRG01)",
+      "volume_estime": null,
+      "volume_estime_unite": "jours-homme",
+      "cout_estime_min_eur": 350000,
+      "cout_estime_max_eur": 490000,
+      "particularites": "Accord-cadre mono-attributaire non alloti. Durée 4 ans. Plafond 631 906,68 € HT. Aucun minimum garanti. Exécution par bons de commande sur la base du BPU."
     }
   ],
+  "tranches": [],
   "calendrier": {
     "date_limite_offres": "2026-07-17",
     "date_demarrage_prevue": null,
-    "duree_marche": "48 mois (4 ans) à compter de la notification"
+    "duree_marche": "4 ans à compter de la notification, renouvelable tacitement (durée totale = 4 ans ferme)"
   },
   "alertes_candidat": [
-    "La note méthodologique est OBLIGATOIRE à la candidature (pas à l'offre) et doit décrire la compréhension de la prestation pour CHACUN des volets du marché — son absence rend la candidature irrecevable.",
-    "Le BPU doit impérativement être fourni au format électronique .xls ou .xlsx — tout autre format peut entraîner l'irrecevabilité de l'offre.",
-    "Le scénario de commande doit être complété et joint à l'offre — pièce constitutive de l'évaluation prix.",
-    "Attention au conflit d'intérêts : tout candidat détenant un marché sur des prestations connexes doit en informer la DREAL sous peine de rejet de candidature (RC Section 8.2).",
-    "Aucune variante n'est autorisée — toute offre comportant une variante ne verra sa variante pas retenue mais l'offre de base sera néanmoins examinée."
+    "Aucun minimum garanti : le marché est un accord-cadre à bons de commande sans plancher, ce qui signifie que le prestataire peut ne percevoir aucune rémunération si aucun bon de commande n'est émis — risque commercial à intégrer dans la décision de candidature.",
+    "Le BPU doit être fourni obligatoirement au format .xls ou .xlsx : un fichier PDF ou autre format sera déclaré irrégulier.",
+    "Le scénario de commande fourni par l'acheteur est la base de notation du prix (40%) : il doit être complété avec soin car il détermine directement le classement sur le critère prix.",
+    "Le candidat doit désigner un correspondant permanent du titulaire (CPT) au plus tard à la notification — cette exigence doit être anticipée dès la rédaction de l'offre (nom et coordonnées à mentionner dans l'acte d'engagement).",
+    "La clause de sauvegarde prévoit une résiliation sans indemnité si la révision des prix dépasse +5% : le candidat doit anticiper l'impact de la formule d'indexation CPF 70.21 sur sa rentabilité pluriannuelle."
   ],
   "points_differenciants_attendus": [
     {
-      "libelle": "Connaissance approfondie du dispositif France Rénov' et de ses acteurs en Pays de la Loire",
-      "exemple": "Un candidat ayant déjà collaboré avec des guichets France Rénov', des ADIL, ANAH ou collectivités de la région pourra démontrer une connaissance des enjeux locaux (couverture territoriale, profils de ménages, articulation avec les programmes régionaux) qui rassurera l'acheteur sur l'efficacité rapide de la prise en main.",
-      "source": "RC Section 10"
+      "libelle": "Connaissance approfondie du réseau France Rénov' et des acteurs de la rénovation de l'habitat privé en Pays de la Loire",
+      "exemple": "Un candidat ayant déjà animé des réseaux SARE, PTRE ou France Rénov' dans d'autres régions peut valoriser cette expérience avec des références précises (DREAL, ANAH, collectivités délégataires) et démontrer une prise en main rapide du contexte local sans temps de montée en compétence.",
+      "source": "CCTP §6, Cadre mémoire technique §1.4"
     },
     {
-      "libelle": "Méthodologie d'animation de réseau structurée et éprouvée",
-      "exemple": "Présenter une méthodologie outillée (ateliers de capitalisation, comités techniques réguliers, outils de suivi des actions du réseau) appuyée sur des références comparables dans d'autres régions ou dispositifs publics similaires (SPEE, CEP, PACTE, etc.).",
-      "source": "RC Section 10"
+      "libelle": "Maîtrise de techniques d'animation innovantes et adaptées aux profils variés du réseau",
+      "exemple": "Proposer des formats différenciés selon les publics (journées régionales avec keynotes + ateliers en intelligence collective pour les ECFR', sessions en distanciel pour les DDT, modules courts 'brèves de réseau' pour la diffusion d'actualités réglementaires) démontre une capacité à aller au-delà des réunions classiques.",
+      "source": "CCTP §6, Cadre mémoire technique §2.1.2"
     },
     {
-      "libelle": "Équipe dédiée avec expérience spécifique en rénovation de l'habitat et animation territoriale",
-      "exemple": "Valoriser un chef de mission ayant conduit des missions d'animation de réseau auprès de services déconcentrés de l'État ou d'EPCI, avec CV détaillé mentionnant des missions France Rénov' ou équivalentes.",
-      "source": "RC Section 10"
+      "libelle": "Disposition environnementale concrète et outillée pour les déplacements et le numérique",
+      "exemple": "Présenter un plan de déplacement du prestataire (100% train, voiture électrique pour les segments non desservis) et une charte de numérique responsable (limitation du poids des fichiers, outils hébergés en France sur serveurs bas-carbone, positionnement transparent sur l'IA générative) permet de se démarquer sur le critère développement durable (10%).",
+      "source": "RC §10, CCAP §6.5, Cadre mémoire technique §2.3"
     },
     {
-      "libelle": "Démarche environnementale crédible et intégrée à la mission",
-      "exemple": "Proposer un plan concret de réduction de l'empreinte carbone de la mission (taux de réunions hybrides visé, politique de déplacement sobre, supports 100% numériques) plutôt qu'une simple déclaration d'intention — ce sous-critère vaut 10% de la note.",
-      "source": "RC Section 10"
+      "libelle": "Capacité de mobilisation rapide et proximité géographique des Pays de la Loire",
+      "exemple": "Un prestataire disposant d'une antenne ou d'intervenants basés à Nantes ou dans la région peut mettre en avant sa réactivité (démarrage effectif dans les 15 jours post-notification, disponibilité pour des réunions de coordination de dernière minute) comme avantage concurrentiel explicite dans le mémoire technique.",
+      "source": "Cadre mémoire technique §1.2.1"
     }
   ],
   "_meta": {
     "id_marche": "BOAMP-26-56593",
     "type": "complet",
-    "extraction_le": "2026-06-12T02:56:43.087942+00:00",
+    "date_generation": "2026-06-19T20:40:48.610078+00:00",
+    "extraction_le": "2026-06-19T20:40:48.610078+00:00",
     "modele": "claude-sonnet-4-6",
-    "tokens_input": 23421,
-    "tokens_output": 4951,
-    "cout_eur": 0.1373,
-    "duree_sec": 89.4,
+    "preset_utilise": "conseil",
+    "presets_matches": [
+      "conseil",
+      "energie_renouvelable"
+    ],
+    "prompts_versions": {
+      "conseil/_preset.json": "sha256:072a0bf71cb58bf5",
+      "energie_renouvelable/_preset.json": "sha256:d5db6e4d3d386add"
+    },
+    "tokens_input": 74606,
+    "tokens_output": 8779,
+    "cout_eur": 0.3377,
+    "duree_sec": 159.9,
     "pdfs_traites": [
+      {
+        "nom": "2026_BPU_animation DREAL_PDL.pdf",
+        "hash": "39e224b0a86f95d9bc9945cb761985b8",
+        "taille_chars": 2263
+      },
+      {
+        "nom": "2026_scenario commande_animation DREAL_PDL.pdf",
+        "hash": "bac2b68a782988f67f402fc2d1b6d1db",
+        "taille_chars": 2516
+      },
+      {
+        "nom": "5092H25AA CCTP_animation DREAL_PDL.pdf",
+        "hash": "3b33edd4314d88e7e17b41ea6afb496e",
+        "taille_chars": 29877
+      },
+      {
+        "nom": "AE_FranceRenov.Instruction_PDL_VD.pdf",
+        "hash": "41746be705f0e33626a493362656a339",
+        "taille_chars": 11964
+      },
+      {
+        "nom": "CADRE MEMOIRE TECHNIQUE PDL-3.pdf",
+        "hash": "f8472930e075f505ddab1d27cbdae4df",
+        "taille_chars": 10800
+      },
+      {
+        "nom": "CCAP_animation DREAL_VF_ PDL V4.pdf",
+        "hash": "f2f51b05141eb645287a205f959e5801",
+        "taille_chars": 87973
+      },
       {
         "nom": "Reglement de la consultation_animation DREAL FR_PDL.pdf",
         "hash": "f20f93e1f69490fd19b6d114945df892",

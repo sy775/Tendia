@@ -1,158 +1,165 @@
 {
-  "synthese_marche": "Le CHU Dijon Bourgogne (établissement support du GHT 21-52) lance un appel d'offres ouvert pour une mission de Coordination Sécurité et Protection de la Santé (CSPS) de niveau 1, portant sur quatre projets de construction/réhabilitation hospitalière : Chirurgie Ambulatoire, Psychiatrie, Parkings et Maternité de demain. Le marché est divisé en 4 lots indépendants, avec des durées d'exécution allant de 36 à 60 mois et des budgets travaux cumulés d'environ 69,3 millions d'euros HT.",
+  "synthese_marche": "Le CHU Dijon Bourgogne lance un marché de Coordination de la Sécurité et Protection de la Santé (CSPS) de niveau 1 pour quatre projets de construction/réhabilitation sur son site Bocage : Chirurgie Ambulatoire (23,8 M€ HT travaux), Psychiatrie (20 M€), Parkings (11,2 M€), Maternité de demain (14,3 M€). Le marché est divisé en 4 lots distincts (un par opération), avec des durées de mission de 36 à 60 mois, pour un total de 69,3 M€ HT de travaux à coordonner. Nota : les pièces DCE fournies correspondent à l'AO 26017 du CHU Dijon Bourgogne (CSPS), non au marché BOAMP-26-56732 du SMMAR (suivi hydrométrique) — il y a une incohérence entre l'identifiant BOAMP fourni et le contenu des pièces DCE.",
   "domaines_metier": [
     {
       "code": "ingenierie_structure_genie_civil"
     }
   ],
-  "raison_classification": "Le marché porte exclusivement sur une mission de CSPS (Coordination Sécurité et Protection de la Santé) de niveau 1 au sens de l'article R.4532-1 du Code du Travail, couvrant les phases conception et réalisation de projets de construction hospitalière. Il s'agit d'une prestation intellectuelle d'ingénierie technique réglementaire (CPV 71317210-8 : services de conseil en matière de santé et de sécurité au travail sur chantier), rattachée au domaine ingénierie structure et génie civil en l'absence d'un code dédié 'coordination SPS'.",
+  "raison_classification": "Le marché porte exclusivement sur une mission de Coordination de Sécurité et Protection de la Santé (CSPS) de catégorie 1 pour des opérations de construction/réhabilitation de bâtiments hospitaliers. Il s'agit d'une prestation intellectuelle réglementée (art. R.4532-25 et R.4532-26 du Code du travail) assimilable à de l'ingénierie technique de bâtiment (mission d'études/coordination) — le code `ingenierie_structure_genie_civil` couvre les missions techniques d'ingénierie bâtiment hors exécution de travaux, ce qui correspond au profil CSPS niveau 1. Aucun code dédié 'CSPS' n'existe dans la taxonomie.",
+  "caracteristiques_mission_moe": {
+    "typologie": "CSPS niveau 1 — coordination sécurité et protection de la santé (mission intellectuelle réglementée, non MOE architecturale)",
+    "phases_couvertes": [
+      "PRO",
+      "DCE",
+      "EXE",
+      "AOR"
+    ],
+    "typologie_ouvrage": "Bâtiments hospitaliers (ERP type U) : chirurgie ambulatoire, psychiatrie, parkings silo, maternité",
+    "montant_travaux_estime": 69300000,
+    "complexite_technique": "complexe",
+    "livrables_par_phase": [
+      {
+        "phase": "PT1 — Analyse risques/PGCSPS",
+        "livrables": [
+          "Analyse des risques (rapport écrit)",
+          "Premier Plan Général de Coordination Sécurité et Protection de la Santé (PGCSPS)",
+          "Ouverture du registre-journal de la coordination",
+          "Analyse de l'offre du groupement titulaire du marché (2ème PGC)"
+        ]
+      },
+      {
+        "phase": "PT2 — Coordination de conception",
+        "livrables": [
+          "Déclaration préalable rédigée pour le compte du MOA",
+          "PGCSPS mis à jour",
+          "Premier projet de DIUO",
+          "Projet de règlement du CISSCT"
+        ]
+      },
+      {
+        "phase": "PT3 — Coordination réalisation des travaux",
+        "livrables": [
+          "Compte-rendus de visites de chantier (registre-journal)",
+          "Avis/visa des PPSPS de chaque entreprise",
+          "PGC tenu à jour",
+          "DIUO complété (2ème projet et version finalisée)",
+          "Mise en place du DMLT",
+          "Procès-verbal de transmission du DIUO au MOA"
+        ]
+      },
+      {
+        "phase": "PT4 — GPA",
+        "livrables": [
+          "DIUO finalisé et complet",
+          "Cadre de plan de prévention intégrant les risques d'exploitation",
+          "Formation demi-journée au personnel de maintenance",
+          "Bilan de mission (REX)"
+        ]
+      }
+    ],
+    "taux_remuneration_moe_pct": null,
+    "indices_revision": [
+      "ING"
+    ],
+    "coordinations_associees": [
+      "CSPS niveau 1 — mission principale",
+      "SSI hors marché (non désigné à ce jour)",
+      "Contrôle technique hors marché (non désigné à ce jour)",
+      "Sous-traitance CSPS interdite"
+    ],
+    "organigramme_attendu": [
+      {
+        "profil": "Coordonnateur SPS niveau 1 — titulaire (personne physique agréée, attestation quinquennale)",
+        "nombre": 1,
+        "anciennete_min_annees": null
+      },
+      {
+        "profil": "Coordonnateur SPS niveau 1 — suppléant (personne physique agréée, continuité de mission)",
+        "nombre": 1,
+        "anciennete_min_annees": null
+      }
+    ],
+    "bim_niveau": null
+  },
+  "qualifications_moe": {
+    "opqibi": [],
+    "opqcm": [],
+    "bim": null,
+    "autres": [
+      "Certificat d'agrément de coordinateur SPS niveau 1 (art. R.4532-25 et R.4532-26 du Code du travail) — obligatoire et bloquant"
+    ]
+  },
   "caracteristiques_techniques_chantier": {
-    "description": "Mission de CSPS de niveau 1 couvrant quatre opérations de construction et réhabilitation hospitalière sur le site du CHU Dijon Bourgogne : Chirurgie Ambulatoire (Marché Global Sectoriel, 23,8 M€ HT travaux), Psychiatrie (concours MOE, 20 M€ HT), Parkings (Marché Global Sectoriel, 11,2 M€ HT), Maternité de demain (concours MOE, 14,3 M€ HT). La mission couvre analyse des risques, PGCSPS, coordination conception, coordination réalisation et coordination GPA.",
-    "typologie_ouvrage": "Bâtiments hospitaliers (chirurgie ambulatoire, psychiatrie, parkings, maternité) — établissement de santé en exploitation",
-    "surface_volume": null,
-    "site_occupe": true,
-    "corps_etat": [],
+    "description": "Quatre opérations hospitalières menées en site occupé sur le site Bocage du CHU Dijon Bourgogne : (1) Construction d'un bâtiment neuf Chirurgie Ambulatoire ~8 000 m² SDO (10 salles bloc, SSPI, HJ, consultations) — Marché Global Sectoriel, budget 23,8 M€ HT ; (2) Construction d'un bâtiment neuf Psychiatrie enfants-adolescents-adultes ~8 500 m² SDO — concours MOE, budget 20 M€ HT ; (3) Construction parkings silo R+2 (FILAB 300 places + Hémodialyse 390 places) + démolition bâtiment hémodialyse — MGS, budget 11,2 M€ HT ; (4) Extension-réhabilitation Maternité ~5 528 m² SDO — concours MOE, budget 14,3 M€ HT.",
+    "typologie_ouvrage": "Bâtiments hospitaliers ERP type U — constructions neuves et réhabilitation/extension en site hospitalier occupé",
+    "surface_volume": "Lot 1 : ~8 000 m² SDO ; Lot 2 : ~8 500 m² SDO ; Lot 3 : parkings silo ~690 places ; Lot 4 : ~5 528 m² SDO",
+    "site_occupe": "true — toutes les opérations se déroulent sur le site Bocage du CHU Dijon Bourgogne en activité continue ; la coactivité avec l'exploitation hospitalière est une contrainte centrale de la mission CSPS",
+    "corps_etat": [
+      "Gros œuvre / structure",
+      "Démolition (Lot 3 — bâtiment hémodialyse)",
+      "Second œuvre tous corps d'état",
+      "VRD",
+      "Fluides / CVC / électricité",
+      "Façades / étanchéité"
+    ],
     "contraintes_specifiques": [
-      "Site hospitalier en activité — établissement occupé pendant les travaux",
-      "Opérations mixtes : Marchés Globaux Sectoriels (Chirurgie, Parkings) et concours de MOE (Psychiatrie, Maternité)",
-      "Mission de catégorie 1 (niveau le plus élevé) selon R.4532-1 du Code du Travail",
-      "Désignation obligatoire d'au moins deux personnes physiques agréées pour assurer la continuité de mission",
-      "Sous-traitance interdite",
-      "Quatre parties techniques distinctes par lot (analyse risques, coordination conception, coordination réalisation, coordination GPA)"
+      "Site hospitalier en exploitation continue — coactivité patients/personnel/chantier",
+      "Quatre opérations simultanées sur le même site avec interfaces et co-activités croisées",
+      "Marchés globaux sectoriels (conception + réalisation) pour lots 1 et 3 : coordination CSPS dès la conception",
+      "Concours de MOE pour lots 2 et 4 : CSPS intervient tôt, avant désignation des entreprises",
+      "Opérations en site occupé : démolition, terrassement, connexions entre bâtiments existants et neufs (galeries enterrées)",
+      "Travaux de nuit ou en phases décalées potentiellement nécessaires",
+      "Formation obligatoire du personnel de maintenance en fin de mission (PT4)"
     ]
   },
   "allotissement": {
-    "description": "Marché divisé en 4 lots, chacun correspondant à une opération distincte du CHU Dijon Bourgogne. Chaque lot fait l'objet d'un marché simple indépendant.",
+    "description": "Le marché est divisé en 4 lots distincts, correspondant à 4 opérations de construction/réhabilitation différentes sur le site Bocage du CHU Dijon Bourgogne. Chaque lot fait l'objet d'un marché distinct (4 marchés simples conclus séparément). Candidature possible sur plusieurs lots.",
     "nb_lots": 4,
     "lots_detailles": [
       {
         "numero": 1,
         "intitule": "Chirurgie ambulatoire",
-        "corps_etat": "CSPS niveau 1",
+        "corps_etat": "CSPS niveau 1 — mission intellectuelle de coordination sécurité",
         "montant_estime": null,
-        "description": "Mission CSPS niveau 1 pour le projet de Chirurgie Ambulatoire — Marché Global Sectoriel, budget travaux prévisionnel 23,8 M€ HT. Durée estimée 60 mois, démarrage prévu juin 2026."
+        "description": "CSPS niveau 1 pour la construction d'un bâtiment neuf de Chirurgie Ambulatoire ~8 000 m² SDO, budget travaux 23,8 M€ HT, durée mission 60 mois, début juin 2026, travaux mars 2028 – février 2031"
       },
       {
         "numero": 2,
         "intitule": "Psychiatrie",
-        "corps_etat": "CSPS niveau 1",
+        "corps_etat": "CSPS niveau 1 — mission intellectuelle de coordination sécurité",
         "montant_estime": null,
-        "description": "Mission CSPS niveau 1 pour le projet de Psychiatrie — marché séquencé (concours MOE), budget travaux prévisionnel 20 M€ HT. Durée estimée 60 mois, démarrage prévu juin 2026."
+        "description": "CSPS niveau 1 pour la construction d'un bâtiment neuf Psychiatrie ~8 500 m² SDO, budget travaux 20 M€ HT, durée mission 60 mois, début juin 2026, travaux juin 2027 – janvier 2030"
       },
       {
         "numero": 3,
         "intitule": "Parkings",
-        "corps_etat": "CSPS niveau 1",
+        "corps_etat": "CSPS niveau 1 — mission intellectuelle de coordination sécurité",
         "montant_estime": null,
-        "description": "Mission CSPS niveau 1 pour le projet de Parkings — Marché Global Sectoriel, budget travaux prévisionnel 11,2 M€ HT. Durée estimée 36 mois, démarrage prévu juin 2026."
+        "description": "CSPS niveau 1 pour démolition bâtiment hémodialyse + construction de 2 parkings silo R+2 (~690 places), budget travaux 11,2 M€ HT, durée mission 36 mois, début juin 2026, travaux sept. 2027 – mai 2029"
       },
       {
         "numero": 4,
         "intitule": "Maternité de demain",
-        "corps_etat": "CSPS niveau 1",
+        "corps_etat": "CSPS niveau 1 — mission intellectuelle de coordination sécurité",
         "montant_estime": null,
-        "description": "Mission CSPS niveau 1 pour le projet de Maternité de demain — marché séquencé (concours MOE), budget travaux prévisionnel 14,3 M€ HT. Durée estimée 48 mois, démarrage prévu septembre 2026."
+        "description": "CSPS niveau 1 pour extension-réhabilitation Maternité ~5 528 m² SDO, budget travaux 14,3 M€ HT, durée mission 48 mois, début septembre 2026, travaux juillet 2028 – juillet 2030"
       }
     ]
   },
   "qualifications_requises": {
-    "description": "La prestation est réservée à une profession réglementée. Les personnes physiques désignées doivent justifier de leur compétence en application des articles R4532-25 et R4532-26 du Code du Travail, et détenir un agrément de coordinateur SPS de catégorie 1 (niveau 1) en cours de validité.",
-    "qualibat": null,
+    "description": "La prestation est réservée à une profession particulière. Les personnes physiques désignées doivent justifier de leur compétence en application des articles R.4532-25 et R.4532-26 du Code du travail, et disposer d'un certificat d'agrément CSPS à jour pour la catégorie 1.",
+    "qualibat": [],
     "rge": false,
+    "rge_specialites": [],
+    "mase": false,
+    "iso_9001": false,
+    "iso_14001": false,
+    "iso_45001": false,
     "opqibi": null,
     "autres_certifications": [
-      {
-        "libelle": "Certificat d'agrément de coordinateur SPS de catégorie 1 (niveau 1), à jour, en application des articles R4532-19, R4532-25 et R4532-26 du Code du Travail",
-        "source": "RC art 5.1"
-      }
+      "Certificat d'agrément de Coordonnateur SPS niveau 1 (catégorie 1 au sens de l'article R.4532-1 du Code du travail), en cours de validité (attestation quinquennale)",
+      "Renouvellement de l'attestation quinquennale obligatoire pendant l'exécution du marché sous peine de résiliation aux torts du titulaire"
     ]
-  },
-  "caracteristiques_mission": {
-    "typologie_mission": "coordination réglementaire CSPS niveau 1 — prestation intellectuelle",
-    "domaine_expertise": "Sécurité et protection de la santé sur chantiers de construction (coordination SPS, PGCSPS, DIUO)",
-    "livrables_attendus": [
-      "Analyse des risques et 1er PGCSPS (Partie technique 1)",
-      "Coordination de conception (Partie technique 2)",
-      "Coordination pendant la réalisation des travaux incluant réception (Partie technique 3)",
-      "Coordination pendant la période de Garantie de Parfait Achèvement (Partie technique 4)",
-      "Prestations transversales décrites au CCTP",
-      "Décomposition du temps prévisionnel d'intervention (DTP)"
-    ],
-    "duree_mission": "36 à 60 mois selon les lots",
-    "jours_consultant_estimes": null
-  },
-  "profils_intervenants": {
-    "description": "La mission doit être assurée par au moins deux personnes physiques agréées CSPS niveau 1, afin de garantir la continuité de la mission en cas de défaillance du coordonnateur désigné.",
-    "chef_de_mission": "Coordonnateur SPS titulaire — agrément catégorie 1 obligatoire, CV + références exigés",
-    "consultants": "Au minimum un suppléant agréé CSPS catégorie 1 — CV + références exigés. La sous-traitance est interdite."
-  },
-  "caracteristiques_si": {
-    "description": null,
-    "typologie_projet": null,
-    "technologies_mentionnees": [],
-    "volumetrie": null,
-    "hebergement": null
-  },
-  "qualifications_si": {
-    "iso_27001": null,
-    "anssi": null,
-    "hds": null,
-    "autres": []
-  },
-  "caracteristiques_mission_moe": {
-    "typologie": null,
-    "phases_couvertes": [],
-    "typologie_ouvrage": null,
-    "montant_travaux_estime": null,
-    "complexite_technique": null
-  },
-  "qualifications_moe": {
-    "opqibi": [],
-    "opqcm": null,
-    "bim": null,
-    "autres": []
-  },
-  "volumes_techniques": {
-    "puissance_totale_kwc": null,
-    "puissance_par_site_kwc": null,
-    "nb_sites": 4,
-    "surface_panneaux_m2": null,
-    "productible_annuel_estime_mwh": null,
-    "duree_marche_mois": null,
-    "duree_maintenance_om_annees": null,
-    "commentaire_volumes": "4 lots / 4 opérations distinctes. Budget travaux cumulé : 69,3 M€ HT (Chirurgie 23,8 M€ + Psychiatrie 20 M€ + Parkings 11,2 M€ + Maternité 14,3 M€). Durées : Lot 1 et 2 = 60 mois, Lot 3 = 36 mois, Lot 4 = 48 mois."
-  },
-  "modalites_execution_chantier": {
-    "raccordement_reseau_inclus": null,
-    "etudes_techniques_incluses": null,
-    "calendrier_chantier_contraint": null,
-    "sites_execution": [
-      "Dijon (21) — CHU Dijon Bourgogne"
-    ],
-    "engagement_productible": null,
-    "engagement_disponibilite_om": null
-  },
-  "publics_cibles": {
-    "description": null,
-    "criteres_eligibilite": [],
-    "publics_specifiques_signales": []
-  },
-  "volumes": {
-    "nb_beneficiaires_total": null,
-    "nb_beneficiaires_par_lot": null,
-    "duree_par_parcours_heures": null,
-    "duree_par_parcours_semaines": null,
-    "duree_marche_mois": null,
-    "commentaire_volumes": null
-  },
-  "modalites": {
-    "presentiel_obligatoire": null,
-    "distanciel_possible": null,
-    "synchrone_asynchrone": null,
-    "sites_execution": [
-      "Dijon (21)"
-    ],
-    "amplitude_horaire": null
   },
   "bareme_notation": {
     "valeur_technique_pct": 60,
@@ -161,46 +168,51 @@
       {
         "libelle": "Pertinence des moyens humains, de l'affectation des temps et de la répartition des rôles des intervenants",
         "ponderation_pct": 30,
-        "description": "L'acheteur évalue la pertinence de l'équipe proposée (titulaire + suppléant), la répartition des temps prévisionnels entre les intervenants et la clarté de l'organisation des rôles sur la mission CSPS.",
+        "description": "L'acheteur évalue la cohérence et la pertinence des CV du coordonnateur et de son suppléant (qualifications, références), la répartition des temps entre les parties techniques, et l'organisation interne des rôles.",
         "elements_attendus": [
-          "CV détaillé du coordonnateur titulaire et de son suppléant (qualifications, agréments, références similaires)",
-          "Répartition claire des rôles entre le titulaire et le suppléant",
-          "Affectation des temps prévisionnels par phase et par intervenant, cohérente avec la DTP",
-          "Justification du dimensionnement humain par rapport à la complexité et au volume des 4 opérations",
-          "Modalités de continuité de mission (dispositif de remplacement en cas de défaillance)"
+          "CV détaillé du titulaire et du suppléant incluant qualifications professionnelles CSPS niveau 1 et références sur opérations similaires",
+          "Justification de la Décomposition du Temps Prévisionnel (DTP) par partie technique et par poste",
+          "Répartition explicite des rôles entre titulaire et suppléant",
+          "Justification du nombre d'heures proposé au regard de la complexité et du calendrier de chaque lot",
+          "Modalités de continuité de service en cas de défaillance du coordonnateur principal"
         ],
-        "exemple_reponse_forte": "Le titulaire (CSPS catégorie 1, 15 ans d'expérience en milieu hospitalier occupé) sera renforcé par un suppléant agréé catégorie 1 présent dès la phase conception. La DTP détaille 480 heures sur 60 mois avec une répartition 70/30 entre titulaire et suppléant, avec des pics identifiés en phase préparation de chantier et lors des phases de démarrage des entreprises.",
-        "source": "RC art 7.2",
+        "exemple_reponse_forte": "Le mémoire technique présente les CV complets du coordonnateur principal (10 ans d'expérience CSPS niveau 1, dont 3 opérations hospitalières en site occupé) et de son suppléant, avec une DTP détaillée par PT justifiant 420 heures sur PT3 (1 visite/semaine × 36 semaines + réunions CISSCT). La répartition des rôles précise que le suppléant assure systématiquement les visites inopinées, garantissant une continuité sans interruption de la mission.",
+        "source": "RC §7.2",
+        "unite_evaluation": "points",
         "sous_criteres": []
       },
       {
-        "libelle": "Méthodologie mise en œuvre pour la mission",
+        "libelle": "Méthodologie mise en œuvre pour la mission (modalités de travail, organisation des phases conception et suivi, fréquence des visites de chantier)",
         "ponderation_pct": 30,
-        "description": "L'acheteur évalue les dispositions méthodologiques proposées pour l'exécution de la mission CSPS, notamment les modalités de travail interne et avec le maître d'ouvrage, l'organisation des phases conception et suivi de chantier, et la fréquence des visites de chantier.",
+        "description": "L'acheteur évalue la qualité de la méthodologie proposée pour l'exécution de la mission CSPS, notamment l'organisation des phases conception et réalisation, la fréquence et la nature des visites de chantier, et les modalités de collaboration avec le MOA.",
         "elements_attendus": [
-          "Modalités de travail en interne et avec le maître d'ouvrage (CHU) clairement décrites",
-          "Organisation de la phase conception (intégration dans les réunions de conception, points d'étape PGCSPS)",
-          "Organisation de la phase suivi de chantier (fréquence et contenu des visites de chantier justifiés)",
-          "Méthode d'élaboration et de mise à jour du PGCSPS en cours de projet",
-          "Processus de gestion des situations d'urgence et d'intervention sur site hospitalier occupé",
-          "Coordination avec les entreprises et les intervenants extérieurs sur un chantier en milieu de soins"
+          "Description précise des modalités de travail en phase conception (participation cellule MOA, analyse des offres des groupements)",
+          "Organisation détaillée du suivi en phase réalisation : fréquence des visites inopinées, participation aux RDV de chantier (minimum 1/semaine), participation aux réunions MOA mensuelles",
+          "Méthode de tenue et diffusion du registre-journal",
+          "Organisation des inspections communes préalables avec les entreprises (PPSPS)",
+          "Gestion de la coactivité sur site hospitalier occupé",
+          "Modalités de collaboration et de reporting avec le maître d'ouvrage"
         ],
-        "exemple_reponse_forte": "La méthodologie proposée prévoit une visite de chantier hebdomadaire en phase gros œuvre et bimensuelle en phases de second œuvre, avec des rapports de visite transmis sous 48h au maître d'ouvrage. Un registre journal partagé et des réunions mensuelles CSPS/MOE/MOA sont organisés dès la phase PRO pour intégrer la sécurité au cœur des études. La spécificité du site hospitalier occupé (maintien des soins, accès ambulances, zones de confinement) est traitée via un protocole de gestion des interfaces spécifique.",
-        "source": "RC art 5.2 et art 7.2",
+        "exemple_reponse_forte": "La méthodologie distingue trois temps : (1) phase conception — participation mensuelle à la cellule MOA avec fiche de suivi des points CSPS, analyse documentée de l'offre du groupement sous 2 semaines ; (2) phase réalisation — visite inopinée bimensuelle (calendrier fixé par le MOA) + RDV chantier hebdomadaire, compte-rendu au registre-journal transmis au MOA sous 48h ; (3) GPA — suivi des levées de réserves avec intégration des risques d'exploitation hospitalière. Un tableau de bord mensuel est remis au MOA.",
+        "source": "RC §7.2",
+        "unite_evaluation": "points",
         "sous_criteres": []
       }
     ],
     "prix": {
       "type_formule": "moins_disant",
-      "formule_explicite": "Le prix sera analysé au regard des prix HT de la DPGF remplie par le candidat. Le candidat proposant le prix le plus bas obtient la meilleure note (40 points). La formule exacte de calcul n'est pas précisée dans le RC.",
+      "formule_explicite": "Le prix sera analysé au regard des prix HT de la DPGF remplie par le candidat. Formule exacte non précisée dans le RC — note proportionnelle au prix le plus bas.",
+      "source": "RC §7.2",
       "elements_a_chiffrer": [
-        "Décomposition du prix global et forfaitaire (DPGF) par lot",
-        "Décomposition du temps prévisionnel d'intervention (DTP) par phase et par intervenant",
-        "Forfait global et forfaitaire par partie technique (PT1, PT2, PT3, PT4) pour chaque lot",
-        "Prestations transversales"
+        "Coût total HT par lot (DPGF) = somme des coûts unitaires par prestation",
+        "Nombre d'heures par prestation × coût horaire HT",
+        "PT1 : Visite initiale, analyse des risques, PGCSPS, registre-journal, analyse offre groupement",
+        "PT2 : Réunions cellule MOA, déclaration préalable, PGCSPS mises à jour, DIUO, PGC finalisé, CISSCT",
+        "PT3 : Inspections communes, examen PPSPS, visites inopinées, réunions chantier, CISSCT, coordination niveau 1, finalisation DIUO/DMLT",
+        "PT4 : GPA, finalisation DIUO, plan de prévention, formation maintenance, REX"
       ]
     },
-    "modalite_calcul_prix": "Prix analysé au regard des prix HT de la DPGF (prix global et forfaitaire). Note maximale de 40 points attribuée à l'offre la moins disante."
+    "modalite_calcul_prix": "Note prix attribuée sur la base du total HT de la DPGF complétée par le candidat, selon un mécanisme proportionnel au moins-disant (formule exacte non précisée dans le RC)."
   },
   "montant_marche": {
     "valeur_estimee_euros": null,
@@ -209,146 +221,383 @@
     "type": "non_communique",
     "duree_couverte": null,
     "source_extraction": null,
-    "commentaire": "Aucun montant d'honoraires CSPS n'est communiqué dans le RC. Seuls les budgets travaux sont indiqués (23,8 M€ + 20 M€ + 11,2 M€ + 14,3 M€ = 69,3 M€ HT cumulés). Les honoraires CSPS sont à chiffrer via la DPGF et la DTP fournies au dossier."
+    "commentaire": "Aucun montant de marché n'est publié dans le DCE. Le DCE indique uniquement les montants prévisionnels des travaux à coordonner (23,8 + 20 + 11,2 + 14,3 = 69,3 M€ HT). La DPGF est laissée vide (cellules à remplir par le candidat). Estimation Voie 2 réalisée ci-dessous."
+  },
+  "montant_3_voies": {
+    "voie_1_eur": null,
+    "voie_1_source": null,
+    "voie_2_disponible": true,
+    "voie_2_min_eur": 260000,
+    "voie_2_max_eur": 380000,
+    "voie_2_hypotheses": [
+      {
+        "hypothese": "Budget travaux total à coordonner (source : RC §1.1 et CCTP §1.2) = 23,8 + 20 + 11,2 + 14,3 = 69,3 M€ HT",
+        "valeur": "69 300 000 €"
+      },
+      {
+        "hypothese": "Taux de rémunération CSPS niveau 1 en milieu hospitalier complexe : fourchette marché 0,38% à 0,55% du coût des travaux (ratio varié, quantité fixée à 69,3 M€)",
+        "valeur": "0,38% à 0,55% des travaux"
+      },
+      {
+        "hypothese": "Application du ratio bas (0,38%) : 69,3 M€ × 0,38% = 263 340 €",
+        "valeur": "~263 000 €"
+      },
+      {
+        "hypothese": "Application du ratio haut (0,55%) : 69,3 M€ × 0,55% = 381 150 €",
+        "valeur": "~381 000 €"
+      },
+      {
+        "hypothese": "Durée globale des missions : 60 mois (lots 1 et 2), 36 mois (lot 3), 48 mois (lot 4) — confirme des missions longues et un volume horaire important (source : RC §2.2, CCAP §3.1)",
+        "valeur": "36 à 60 mois par lot"
+      },
+      {
+        "hypothese": "Complexité justifiant le ratio haut : site hospitalier en activité, 4 opérations simultanées, démolition + construction neuve + réhabilitation, missions catégorie 1 (source : CCTP §1)",
+        "valeur": "complexité élevée → ratio pondéré vers le haut"
+      }
+    ],
+    "voie_2_raison_indisponible": null
+  },
+  "cout_realisation": {
+    "cout_total_eur": 216000,
+    "cout_min_eur": 176000,
+    "cout_max_eur": 256000,
+    "postes": [
+      {
+        "poste": "Lot 1 — Chirurgie Ambulatoire (CSPS niveau 1, 60 mois)",
+        "detail": "~320 h conception PT1/PT2 + ~780 h réalisation PT3 (1 visite/sem × 130 sem) + ~40 h PT4 = ~1 140 h × 75 €/h chargé",
+        "montant_eur": 85500
+      },
+      {
+        "poste": "Lot 2 — Psychiatrie (CSPS niveau 1, 60 mois)",
+        "detail": "~280 h conception + ~780 h réalisation + ~40 h PT4 = ~1 100 h × 75 €/h chargé",
+        "montant_eur": 82500
+      },
+      {
+        "poste": "Lot 3 — Parkings (CSPS niveau 1, 36 mois)",
+        "detail": "~160 h conception + ~350 h réalisation (1 visite/sem × 70 sem) + ~30 h PT4 = ~540 h × 75 €/h chargé",
+        "montant_eur": 40500
+      },
+      {
+        "poste": "Lot 4 — Maternité de demain (CSPS niveau 1, 48 mois)",
+        "detail": "~200 h conception + ~500 h réalisation (1 visite/sem × 95 sem) + ~35 h PT4 = ~735 h × 75 €/h chargé (réhabilitation plus complexe → ratio légèrement inférieur en volume)",
+        "montant_eur": 55000
+      },
+      {
+        "poste": "Frais de déplacement et logistique (4 lots)",
+        "detail": "Déplacements hebdomadaires sur site + coordination, estimé forfaitairement",
+        "montant_eur": 12000
+      }
+    ],
+    "taux_journaliers_retenus": "Coordonnateur CSPS niveau 1 sénior : 600-750 €/j (taux marché indicatif 2025, soit 75-94 €/h) ; taux central retenu : 75 €/h chargé (incluant charges et frais de structure). Ces ratios sont des taux marché indicatifs ne reflétant pas la structure de coût réelle de chaque candidat.",
+    "commentaire": "Estimation du coût de production du CANDIDAT pour les 4 lots cumulés sur la base des volumes horaires déduits du CCTP (1 visite/semaine minimum en PT3, réunions mensuelles MOA, production des livrables). Fourchette obtenue en faisant varier le taux horaire (70 €/h min, 90 €/h max) à volume fixé. Cette estimation est inférieure au revenu attendu (260-380 k€) : la marge brute serait de l'ordre de 40-50% si le candidat propose des prix dans la fourchette estimée, ce qui est cohérent avec le secteur des missions intellectuelles réglementées."
   },
   "revision_prix": {
-    "type": "non_communique",
-    "indices_utilises": [],
-    "ponderation": null,
-    "periodicite": null,
-    "formule_revision": null,
-    "source_extraction": null,
-    "commentaire": "Le CCAP n'est pas fourni dans les pièces analysées. Aucune disposition relative à la révision des prix n'est mentionnée dans le RC."
+    "type": "indexation",
+    "indices_utilises": [
+      "ING"
+    ],
+    "ponderation": "15% partie fixe + 85% index ING (Index divers dans la construction — Ingénierie — Base 2010, publié au Moniteur des Travaux Publics ou INSEE)",
+    "periodicite": "autre",
+    "formule_revision": "P = Po [0.15 + 0.85*(Im/Io)] — où Im = valeur de l'index ING au mois M de la révision, Io = valeur de l'index ING au mois de la remise de la dernière offre. Révision effectuée à chaque acompte, au mois de réalisation des prestations, sans variation provisoire.",
+    "source_extraction": "CCAP §4.2",
+    "commentaire": "Formule favorable en contexte inflationniste (85% indexé sur l'ING ingénierie) avec une partie fixe limitée à 15%. La révision à chaque acompte simplifie le suivi mais nécessite de surveiller la publication mensuelle de l'index. Formule standard pour les marchés d'ingénierie en France."
   },
   "alertes_prix": [
-    "Aucun montant d'honoraires CSPS publié : le candidat doit chiffrer la mission à partir de la DPGF et DTP sans référence de prix acheteur — risque de dispersion des offres.",
-    "Pondération prix à 40% sur 100 : relativement élevée pour une mission de coordination réglementaire de niveau 1 ; le risque de sous-valorisation des prestations est à surveiller.",
-    "4 lots à chiffrer indépendamment avec des durées différentes (36, 48, 60 mois) — complexité de la DPGF à gérer pour éviter les erreurs de calcul.",
-    "Budget travaux élevé (69,3 M€ HT cumulés) pour une mission CSPS cat. 1 : vérifier la cohérence des temps prévisionnels et s'assurer que le taux d'honoraires est réaliste par rapport au marché."
+    "Pondération prix à 40% dans un marché de prestations intellectuelles réglementées (CSPS) : relativement élevée — le prix est un critère déterminant, attention au risque de sous-offre pour remporter le marché.",
+    "La DPGF est libre (cellules à remplir) : le candidat détermine lui-même sa décomposition horaire et son taux horaire — une DPGF incohérente (trop d'heures mais taux bas, ou trop peu d'heures) sera pénalisée sur le critère technique.",
+    "Aucun montant estimatif publié : le candidat ne peut pas s'ancrer sur une valeur cible de l'acheteur pour calibrer son offre prix.",
+    "Marché publié au-dessus des seuils européens (BOAMP européen) : le marché a une valeur totale (4 lots) dépassant les seuils formalisés, ce qui attire des concurrents nationaux expérimentés."
   ],
   "references_exigees": {
     "experience_minimale_annees": 3,
-    "experience_source": "RC art 5.1 (références sur 3 dernières années exigées)",
+    "experience_source": "RC §5.1 (document de références sur les 3 dernières années)",
     "volume_min_references_similaires": null,
-    "volume_min_references_unite": null,
-    "secteur_experience": "Coordination SPS de niveau 1 sur opérations de construction ou réhabilitation, idéalement en milieu hospitalier ou établissement de santé",
-    "secteur_source": "RC art 5.1 et art 8.3",
+    "volume_min_references_unite": "marchés similaires",
+    "secteur_experience": "Coordination de Sécurité et Protection de la Santé (CSPS) niveau 1, de préférence en milieu hospitalier ou bâtiments complexes en site occupé",
+    "secteur_source": "RC §5.1 et §8.3",
     "certifications_obligatoires": [
       {
-        "libelle": "Agrément de coordinateur SPS de catégorie 1 (niveau 1) en cours de validité — pour le titulaire et le suppléant — obligatoire en application des articles R4532-19, R4532-25 et R4532-26 du Code du Travail",
-        "source": "RC art 5.1"
-      },
-      {
-        "libelle": "Attestation d'assurance de responsabilité civile en cours de validité",
-        "source": "RC art 5.1"
+        "libelle": "Certificat d'agrément de Coordonnateur SPS à jour pour la catégorie 1 (niveau 1), en application des articles R.4532-25 et R.4532-26 du Code du travail — pour le titulaire ET le suppléant",
+        "codes": [],
+        "bloquante": true,
+        "source": "RC §5.1"
       }
     ],
     "autres_exigences": [
       {
-        "libelle": "Désignation obligatoire d'au moins deux personnes physiques agréées CSPS catégorie 1 au sein de la société ou du groupement (titulaire + suppléant)",
-        "source": "RC art 1.6"
+        "libelle": "Désignation d'au moins 2 personnes physiques agréées CSPS niveau 1 au sein de la société ou du groupement (titulaire + suppléant) pour assurer la continuité de la mission",
+        "source": "RC §1.6"
       },
       {
-        "libelle": "Chiffre d'affaires analysé sur les 3 dernières années — le pouvoir adjudicateur se réserve le droit d'éliminer les candidats dont le CA moyen est inférieur au double du montant annuel plafond",
-        "source": "RC art 8.3"
+        "libelle": "Attestation d'assurance de responsabilité civile professionnelle en cours de validité (incluant couverture CSPS)",
+        "source": "RC §5.1 et CCAP §6.1"
       },
       {
-        "libelle": "Indication des effectifs moyens annuels pour chacune des 3 dernières années",
-        "source": "RC art 5.1"
+        "libelle": "Chiffre d'affaires annuel moyen sur 3 derniers exercices examiné : le PA se réserve le droit d'éliminer les candidats dont le CA moyen équivaut à moins du double du montant annuel du marché",
+        "source": "RC §8.3"
       },
       {
-        "libelle": "Liste de références pour les 3 dernières années détaillées avec attestations clients le cas échéant",
-        "source": "RC art 5.1"
+        "libelle": "Interdiction absolue de sous-traiter la mission CSPS (art. R.4532-19 Code du travail et CCAP §6.4)",
+        "source": "RC §1.6 et CCAP §6.4"
       },
       {
-        "libelle": "La sous-traitance de ces prestations est interdite",
-        "source": "RC art 1.6"
+        "libelle": "Incompatibilité réglementaire : ne pas exercer simultanément la fonction de Contrôleur technique (art. L.111-23 CCH) sur la même opération",
+        "source": "CCAP §1.5 et RC §1.6"
       }
     ]
+  },
+  "dossier_candidature": {
+    "pieces_a_fournir": [
+      {
+        "libelle": "Formulaire DC1 (lettre de candidature – habilitation du mandataire) OU DUME",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §5.1"
+      },
+      {
+        "libelle": "Formulaire DC2 (déclaration du candidat individuel ou du membre du groupement) OU DUME",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §5.1"
+      },
+      {
+        "libelle": "Document regroupant : effectifs moyens annuels des 3 dernières années + liste de références détaillées des 3 dernières années (avec attestations clients le cas échéant)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §5.1"
+      },
+      {
+        "libelle": "Copie des certificats d'agrément de Coordonnateur SPS à jour pour la catégorie 1 (niveau 1) — pour le titulaire et le suppléant",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §5.1"
+      },
+      {
+        "libelle": "Attestation d'assurance de responsabilité civile professionnelle en cours de validité",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §5.1"
+      },
+      {
+        "libelle": "Mémoire technique comprenant : CV du titulaire et du suppléant (qualifications et références) + mémoire justificatif des dispositions méthodologiques (modalités de travail interne et avec le MOA, organisation phase conception et suivi exécution, fréquence des visites de chantier)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §5.2"
+      },
+      {
+        "libelle": "Décomposition du Temps Prévisionnel (DTP) et Décomposition du Prix Global et Forfaitaire (DPGF) complétées au format Excel — une par lot soumissionné",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §5.2"
+      }
+    ],
+    "mode_remise": "dématérialisé + copie de sauvegarde",
+    "plateforme_depot": "PLACE — marches-publics.gouv.fr",
+    "signature_electronique_exigee": false,
+    "format_signature": "PAdES, CAdES ou XAdES — certificat conforme RGS niveau ** minimum (si signature électronique utilisée)",
+    "nombre_exemplaires": null,
+    "langue": "français",
+    "duree_validite_offres_jours": 180,
+    "modalites_source": "RC §6.1 à §6.5"
   },
   "lots": [
     {
       "numero": 1,
       "intitule": "Chirurgie ambulatoire",
-      "zone_geographique": "Dijon (21)",
+      "domaine": "ingenierie_structure_genie_civil",
+      "zone_geographique": "Dijon (21) — site Bocage CHU Dijon Bourgogne",
       "volume_estime": null,
-      "volume_estime_unite": null,
-      "particularites": "Marché Global Sectoriel hors exploitation-maintenance. Budget travaux prévisionnel : 23,8 M€ HT. Durée mission estimée : 60 mois. Démarrage prévu juin 2026."
+      "volume_estime_unite": "jours-homme",
+      "cout_estime_min_eur": 70000,
+      "cout_estime_max_eur": 100000,
+      "particularites": "Bâtiment neuf ~8 000 m² SDO, 10 salles bloc opératoire + SSPI + HJ, budget travaux 23,8 M€ HT, Marché Global Sectoriel (conception + réalisation), durée mission 60 mois, démarrage prévu juin 2026, travaux mars 2028 – février 2031. Opération la plus importante en volume financier."
     },
     {
       "numero": 2,
       "intitule": "Psychiatrie",
-      "zone_geographique": "Dijon (21)",
+      "domaine": "ingenierie_structure_genie_civil",
+      "zone_geographique": "Dijon (21) — site Bocage CHU Dijon Bourgogne",
       "volume_estime": null,
-      "volume_estime_unite": null,
-      "particularites": "Marché séquencé avec concours de MOE. Budget travaux prévisionnel : 20 M€ HT. Durée mission estimée : 60 mois. Démarrage prévu juin 2026."
+      "volume_estime_unite": "jours-homme",
+      "cout_estime_min_eur": 68000,
+      "cout_estime_max_eur": 96000,
+      "particularites": "Bâtiment neuf ~8 500 m² SDO, psychiatrie enfants/adolescents/adultes, budget travaux 20 M€ HT, concours de MOE (marché séquencé), durée mission 60 mois, démarrage prévu juin 2026, travaux juin 2027 – janvier 2030. Milieu psychiatrique avec exigences spécifiques d'accès/sécurité."
     },
     {
       "numero": 3,
       "intitule": "Parkings",
-      "zone_geographique": "Dijon (21)",
+      "domaine": "ingenierie_structure_genie_civil",
+      "zone_geographique": "Dijon (21) — site Bocage CHU Dijon Bourgogne",
       "volume_estime": null,
-      "volume_estime_unite": null,
-      "particularites": "Marché Global Sectoriel hors exploitation-maintenance. Budget travaux prévisionnel : 11,2 M€ HT. Durée mission estimée : 36 mois (la plus courte). Démarrage prévu juin 2026."
+      "volume_estime_unite": "jours-homme",
+      "cout_estime_min_eur": 32000,
+      "cout_estime_max_eur": 48000,
+      "particularites": "Démolition bâtiment hémodialyse + construction 2 parkings silo R+2 (~690 places), budget travaux 11,2 M€ HT, MGS, durée mission 36 mois (la plus courte), démarrage juin 2026, travaux sept. 2027 – mai 2029. Opération en 3 tranches (tranche ferme démolition + 2 tranches optionnelles silos)."
     },
     {
       "numero": 4,
       "intitule": "Maternité de demain",
-      "zone_geographique": "Dijon (21)",
+      "domaine": "ingenierie_structure_genie_civil",
+      "zone_geographique": "Dijon (21) — site Bocage CHU Dijon Bourgogne",
       "volume_estime": null,
-      "volume_estime_unite": null,
-      "particularites": "Marché séquencé avec concours de MOE. Budget travaux prévisionnel : 14,3 M€ HT. Durée mission estimée : 48 mois. Démarrage prévu septembre 2026 (décalé par rapport aux 3 autres lots)."
+      "volume_estime_unite": "jours-homme",
+      "cout_estime_min_eur": 42000,
+      "cout_estime_max_eur": 60000,
+      "particularites": "Extension-réhabilitation Maternité ~5 528 m² SDO (HJ, consultations, salles de travail, urgences), budget travaux 14,3 M€ HT, concours de MOE, durée mission 48 mois, démarrage septembre 2026 (décalé), travaux juillet 2028 – juillet 2030. Réhabilitation d'un bâtiment en activité."
+    }
+  ],
+  "tranches": [
+    {
+      "type": "ferme",
+      "numero": "TF",
+      "intitule": "Démolition bâtiment hémodialyse",
+      "objet": "Démolition du bâtiment hémodialyse existant sur le site Bocage (Lot 3 Parkings uniquement).",
+      "montant_estime_eur": null,
+      "condition_affermissement": null,
+      "source": "CCTP §1.2.3"
+    },
+    {
+      "type": "optionnelle",
+      "numero": "TO1",
+      "intitule": "Construction silo parking FILAB R+2",
+      "objet": "Construction d'un parking silo R+2 de 300 places sur le site FILAB (Lot 3 Parkings).",
+      "montant_estime_eur": null,
+      "condition_affermissement": "Sur décision du MOA, selon planning prévisionnel",
+      "source": "CCTP §1.2.3"
+    },
+    {
+      "type": "optionnelle",
+      "numero": "TO2",
+      "intitule": "Construction silo parking Hémodialyse R+2",
+      "objet": "Construction d'un parking silo R+2 de 390 places sur l'emplacement du bâtiment hémodialyse démoli (Lot 3 Parkings).",
+      "montant_estime_eur": null,
+      "condition_affermissement": "Sur décision du MOA, après réalisation de la tranche ferme de démolition",
+      "source": "CCTP §1.2.3"
     }
   ],
   "calendrier": {
     "date_limite_offres": "2026-06-29",
     "date_demarrage_prevue": "2026-06-01",
-    "duree_marche": "36 à 60 mois selon les lots (Lot 3 : 36 mois, Lot 4 : 48 mois, Lots 1 et 2 : 60 mois)"
+    "duree_marche": "36 à 60 mois selon les lots (Lot 1 : 60 mois, Lot 2 : 60 mois, Lot 3 : 36 mois, Lot 4 : 48 mois)"
   },
   "alertes_candidat": [
-    "Agrément CSPS catégorie 1 obligatoire pour le titulaire ET le suppléant — l'absence de l'un ou l'autre entraîne le rejet de la candidature.",
-    "La sous-traitance est INTERDITE : toute la mission doit être réalisée en interne ou par un groupement, avec deux coordonnateurs agréés désignés nommément.",
-    "Interdiction de présenter plusieurs offres en cumulant plusieurs qualités (candidat individuel + membre de groupement, ou membre de plusieurs groupements).",
-    "L'absence de mémoire technique entraîne le rejet de l'offre pour incomplétude (critère éliminatoire).",
-    "Le mémoire technique doit couvrir explicitement les deux sous-critères : moyens humains/DTP ET méthodologie/organisation des phases, sous peine de perdre les 60 points de valeur technique.",
-    "Délai de validité des offres de 6 mois : engagement long à anticiper dans le chiffrage."
+    "BLOQUANT — Certificat d'agrément CSPS catégorie 1 (niveau 1) obligatoire et à jour pour DEUX personnes physiques minimum (titulaire + suppléant) : toute candidature sans ces agréments est irrecevable (art. R.4532-25 et R.4532-26 Code du travail — RC §5.1).",
+    "BLOQUANT — Sous-traitance de la mission CSPS strictement interdite (RC §1.6 et CCAP §6.4) : le titulaire doit disposer en propre des ressources humaines agréées ; tout recours à la sous-traitance entraîne résiliation aux torts du titulaire.",
+    "INCOMPATIBILITÉ RÉGLEMENTAIRE — La même personne physique ne peut cumuler les fonctions de CSPS et de Contrôleur technique sur la même opération (art. R.4532-19 Code du travail — CCAP §1.5) : vérifier l'absence de conflit avec d'autres missions en cours sur le site.",
+    "RENOUVELLEMENT QUINQUENNAL — L'attestation de compétence CSPS doit être renouvelée pendant l'exécution du marché (durée jusqu'à 60 mois) : l'absence de renouvellement entraîne résiliation aux torts du titulaire (CCAP §15).",
+    "PÉNALITÉS STRICTES — Absence à une réunion de chantier : 100 €/absence non justifiée ; retard > 15 min : 50 € ; retard de transmission de document : 50 €/jour calendaire. Sur 60 mois avec réunions hebdomadaires, le cumul potentiel est significatif (CCAP §10.2)."
   ],
   "points_differenciants_attendus": [
     {
-      "libelle": "Expérience spécifique en milieu hospitalier occupé pour la mission CSPS",
-      "exemple": "Mettre en avant des références CSPS de niveau 1 sur des opérations de construction/réhabilitation hospitalières avec maintien d'activité de soins (bloc opératoire, maternité, psychiatrie) : citer les budgets travaux, durées et attestations clients correspondantes.",
-      "source": "RC art 5.1 et art 8.3"
+      "libelle": "Expérience CSPS niveau 1 en milieu hospitalier en site occupé",
+      "exemple": "Présenter des références de missions CSPS niveau 1 sur des projets hospitaliers (ERP type U) réalisés en site occupé (reconstruction partielle, démolition sur campus actif) avec mention explicite des budgets travaux et des spécificités liées à la continuité des soins. Une référence sur un CHU ou CHR avec budget > 10 M€ est fortement valorisée.",
+      "source": "RC §8.3"
     },
     {
-      "libelle": "Qualité et crédibilité de l'organisation titulaire/suppléant avec répartition des rôles",
-      "exemple": "Présenter une organisation binôme avec CV détaillés, agréments à jour et répartition claire des rôles (qui intervient sur quelle phase, avec quelle fréquence) ; démontrer que le suppléant est réellement impliqué et non seulement nominatif.",
-      "source": "RC art 5.2 et art 7.2"
+      "libelle": "DTP cohérente et justifiée démontrant une connaissance fine des opérations",
+      "exemple": "Pour le Lot 1 (60 mois, 1 visite/semaine minimum), proposer une DTP détaillée par PT avec justification du nombre d'heures : ex. PT3 = 130 semaines × (2h RDV chantier + 3h visite inopinée) + 36 réunions CISSCT × 3h + production livrables. Une DTP trop faible en heures sera pénalisée sur le critère technique 'pertinence des temps'.",
+      "source": "RC §7.2 et CCAP §4.3"
     },
     {
-      "libelle": "Fréquence et contenu des visites de chantier adaptés à la complexité des 4 opérations",
-      "exemple": "Proposer une fréquence de visite différenciée selon les phases (hebdomadaire en gros œuvre, bimensuelle en second œuvre) et selon les opérations (plus élevée pour Chirurgie et Maternité compte tenu des enjeux sanitaires), avec justification dans le mémoire méthodologique.",
-      "source": "RC art 5.2"
+      "libelle": "Organisation claire de la continuité de service (titulaire + suppléant)",
+      "exemple": "Décrire un binôme CSPS désigné avec répartition explicite des rôles (ex : titulaire assure les réunions conception et CISSCT, suppléant assure les visites inopinées) et un protocole de passation de témoin en cas d'indisponibilité, avec maintien du registre-journal. Cela répond directement à l'exigence de 2 personnes minimum (RC §1.6).",
+      "source": "RC §1.6"
     },
     {
-      "libelle": "Cohérence et précision de la DTP (Décomposition du Temps Prévisionnel)",
-      "exemple": "Produire une DTP Excel détaillée par lot, par partie technique et par intervenant, avec des temps cohérents avec la fréquence de visites annoncée et les budgets travaux respectifs (plus de temps sur Chirurgie 23,8 M€ que sur Parkings 11,2 M€).",
-      "source": "RC art 5.2"
+      "libelle": "Méthodologie adaptée à la coactivité multi-opérations sur un même campus hospitalier",
+      "exemple": "Proposer une approche transversale explicite pour gérer les 4 opérations simultanées sur le site Bocage : tableau de bord des interférences entre chantiers, coordination avec les équipes SSI de chaque lot, planning de co-activité site-chantier communiqué mensuellement au MOA. La gestion des interfaces entre le futur bâtiment Chirurgie et le futur bâtiment Psychiatrie (galerie enterrée commune) est un point technique différenciant.",
+      "source": "CCTP §1.2.1 et §1.2.2"
+    },
+    {
+      "libelle": "Connaissance des spécificités des marchés globaux sectoriels (MGS) pour les lots 1 et 3",
+      "exemple": "Expliciter la méthodologie d'analyse de l'offre finale du groupement MGS (PT1) et d'intégration précoce des contraintes CSPS dès l'APS, en différenciant l'approche MGS (titulaire unique conception+réalisation) de l'approche concours MOE (lots 2 et 4). Cette connaissance procédurale démontre une expertise opérationnelle directement applicable.",
+      "source": "CCTP §2.1.4"
     }
   ],
   "_meta": {
     "id_marche": "BOAMP-26-56732",
     "type": "complet",
-    "extraction_le": "2026-06-12T03:18:45.807019+00:00",
+    "date_generation": "2026-06-19T22:35:22.224730+00:00",
+    "extraction_le": "2026-06-19T22:35:22.224730+00:00",
     "modele": "claude-sonnet-4-6",
-    "tokens_input": 26103,
-    "tokens_output": 6767,
-    "cout_eur": 0.1708,
-    "duree_sec": 115.0,
+    "preset_utilise": "ingenierie",
+    "presets_matches": [
+      "ingenierie",
+      "btp"
+    ],
+    "prompts_versions": {
+      "ingenierie/_preset.json": "sha256:b924b32a088673d6",
+      "btp/_preset.json": "sha256:055bf6f8b2c1f771"
+    },
+    "tokens_input": 69490,
+    "tokens_output": 11293,
+    "cout_eur": 0.359,
+    "duree_sec": 202.4,
     "pdfs_traites": [
+      {
+        "nom": "AO 26017_CCAP_V2.pdf",
+        "hash": "a29fd7964dd6b8a3105784d0f4f337dd",
+        "taille_chars": 54551
+      },
+      {
+        "nom": "AO 26017_CCTP.pdf",
+        "hash": "cbc8ea45bb696953c019b4f99487a957",
+        "taille_chars": 29220
+      },
+      {
+        "nom": "AO 26017_DTP_DPGF.xlsx",
+        "hash": "e5744b067579d6808a17d57656724789",
+        "taille_chars": 2815
+      },
+      {
+        "nom": "AO 26017_DTP_DPGF_LOT 1.xlsx",
+        "hash": "d0b1453b0ab2e727dcd58369ba9aba0f",
+        "taille_chars": 2817
+      },
+      {
+        "nom": "AO 26017_DTP_DPGF_LOT 2.xlsx",
+        "hash": "5d91872f6a14be9730ddeb4221dd155d",
+        "taille_chars": 2817
+      },
+      {
+        "nom": "AO 26017_DTP_DPGF_LOT 3.xlsx",
+        "hash": "698b146d3a5f737ba9d1a0ee79992949",
+        "taille_chars": 2817
+      },
+      {
+        "nom": "AO 26017_DTP_DPGF_LOT 4.xlsx",
+        "hash": "8bfc41052f7a88f9f0133a2625c431ab",
+        "taille_chars": 2817
+      },
       {
         "nom": "AO26017_RC_V2.pdf",
         "hash": "bbf2868c7d2c2ab1344fff0e7d4d7ffd",
         "taille_chars": 39482
+      },
+      {
+        "nom": "AO26017_Tableau Questions Réponses_V1.pdf",
+        "hash": "592dadf4cc470263a4a9302ebfb326ef",
+        "taille_chars": 886
+      },
+      {
+        "nom": "Annexe informations sur l ouvrage_CSPS_Maternite de demain.docx",
+        "hash": "665d75ec02bfa194984e0c33874903d1",
+        "taille_chars": 1356
+      },
+      {
+        "nom": "Annexe informations sur l'ouvrage_CSPS_Chir.docx",
+        "hash": "2c00e70e423242b1433265132052c63e",
+        "taille_chars": 1430
+      },
+      {
+        "nom": "Annexe informations sur l'ouvrage_CSPS_Parkings.docx",
+        "hash": "b87944d1d71bd06133b34a1516d779b6",
+        "taille_chars": 1443
+      },
+      {
+        "nom": "Annexe informations sur l'ouvrage_CSPS_Psy.docx",
+        "hash": "5a309ad84476ed4075e6010ba7c8da6a",
+        "taille_chars": 1390
       }
     ]
   }

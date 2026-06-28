@@ -1,11 +1,11 @@
 {
-  "synthese_marche": "Marché de maintenance préventive et corrective des portes, portails, barrières, grilles automatiques et semi-automatiques pour un groupement régional de CPAM, CES et UIOSS de Bourgogne Franche-Comté. Le marché est structuré en 2 lots géographiques couvrant 7 départements, sous forme d'accords-cadres à bons de commande d'une durée maximale de 4 ans. Les prestations comprennent 2 visites préventives annuelles par équipement et des interventions correctives avec des délais contractuels stricts (4h urgents, 24h non urgents).",
+  "synthese_marche": "Marché de services de maintenance préventive et corrective des portes, portails, barrières, grilles automatiques et semi-automatiques pour un groupement de 9 organismes de Sécurité Sociale de Bourgogne Franche-Comté (CPAM, CES, UIOSS). Le marché est structuré en 2 lots géographiques (Côte d'Or/Nièvre/Saône-et-Loire/Yonne pour le lot 1 ; Doubs/Jura/Haute-Saône pour le lot 2), chacun sous forme d'accord-cadre mono-attributaire à bons de commande, d'une durée de 4 ans maximum. Les montants maximaux sont de 270 000 € HT (lot 1) et 210 000 € HT (lot 2) sur toute la durée.",
   "domaines_metier": [
     {
       "code": "autre"
     }
   ],
-  "raison_classification": "Ce marché porte exclusivement sur la maintenance de portes, portails, barrières et grilles automatiques/semi-automatiques dans des bâtiments tertiaires. Il ne correspond à aucun des codes disponibles dans la taxonomie : il ne relève ni du BTP (travaux), ni de la maintenance IT, ni de la sécurité/gardiennage, ni de l'entretien de locaux. Le CPV 50700000-2 'Services de réparation et d'entretien d'installations de bâtiments' confirme qu'il s'agit d'une maintenance technique de second œuvre spécialisée hors taxonomie.",
+  "raison_classification": "Ce marché porte sur la maintenance de portes, portails, barrières et grilles automatiques et semi-automatiques : il s'agit d'un service de maintenance d'équipements techniques de bâtiment (CPV 50700000-2), hors des domaines IT, BTP travaux neufs, énergie ou autres catégories disponibles dans la taxonomie. La catégorie la plus proche serait 'fourniture_materiel' ou 'btp_second_oeuvre' mais il s'agit d'une prestation de service de maintenance et non de travaux ni de fourniture. Le code 'autre' est donc retenu.",
   "caracteristiques_mission_it": {
     "typologie_mission": null,
     "typologie_systeme": null,
@@ -13,36 +13,32 @@
     "niveau_securite": null,
     "technologies_attendues": [],
     "modele_prestation": "accord-cadre à bons de commande",
-    "volumetrie": null,
+    "volumetrie": "Lot 1 : environ 80+ équipements répartis sur 11 sites ; Lot 2 : environ 45+ équipements répartis sur 5 sites",
     "jours_homme_estimes": null,
-    "sla_attendus": "Intervention urgente : 4h max ; intervention non urgente : 24h max ; remise en service : 2h max après arrivée technicien ; réparation définitive : 72h max après arrivée technicien ; devis sous 24h",
+    "sla_attendus": "Intervention urgente : délai maximal 4h ; Intervention non urgente : délai maximal 24h ; Remise en service : délai maximal 2h après arrivée technicien ; Réparation définitive : délai maximal 72h après arrivée initiale",
     "livrables_par_phase": [
       {
         "phase": "Démarrage",
         "livrables": [
-          "Liste nominative des intervenants",
-          "Plan de continuité d'activité (PCA) dans les 3 mois",
-          "Plan de prévention par site",
-          "Planning annuel maintenance préventive avant le 15 janvier 2027"
+          "Liste nominative des intervenants (J+15 après réunion de démarrage)",
+          "Livret du prestataire signé",
+          "Planning annuel de maintenance préventive 2027 (au plus tard 15/01/2027)"
         ]
       },
       {
         "phase": "Exécution courante",
         "livrables": [
-          "Bons d'intervention signés à chaque visite",
-          "Rapports d'intervention sous 5 jours calendaires",
-          "Tableau récapitulatif des matériels sous 15 jours ouvrés après maintenance préventive",
-          "Statistiques annuelles sous Excel avant le 15 janvier N+1",
-          "Compte-rendu de réunion sous 10 jours ouvrés",
-          "Planning annuel préventif avant le 15 décembre de chaque année"
+          "Bon d'intervention signé à chaque intervention",
+          "Rapport d'intervention détaillé (J+5 calendaires)",
+          "Renseignement du registre de sécurité",
+          "Listing annuel des équipements avec historique (J+15 ouvrés après maintenance préventive)",
+          "Statistiques annuelles par organisme (15 janvier N+1)"
         ]
       },
       {
-        "phase": "Maintenance corrective",
+        "phase": "Continuité",
         "livrables": [
-          "Devis sous 24h en cas de hors-forfait",
-          "Rapport d'intervention détaillé",
-          "Remplissage registre de sécurité"
+          "Plan de continuité de l'activité (PCA) fourni au plus tard le 30/03/2027"
         ]
       }
     ],
@@ -54,7 +50,7 @@
         "certifs_requises": []
       },
       {
-        "profil": "Interlocuteur unique dédié au marché",
+        "profil": "Interlocuteur unique / coordinateur marché",
         "nombre": 1,
         "anciennete_min_annees": null,
         "certifs_requises": []
@@ -80,158 +76,214 @@
       {
         "libelle": "Valeur technique et méthodologique",
         "ponderation_pct": 40,
-        "description": "Évaluation de la qualité de l'organisation, des délais d'intervention proposés et de la gestion des pièces détachées, sur la base du cadre de réponse (annexe 2 à l'acte d'engagement).",
+        "description": "Évaluation de la capacité technique du candidat à réaliser les prestations : délais d'intervention et de réparation, organisation et moyens humains, gestion des stocks et pièces détachées.",
         "elements_attendus": [],
         "exemple_reponse_forte": "—",
         "source": "RC article 12.3",
+        "unite_evaluation": "points",
         "sous_criteres": [
           {
             "libelle": "Les délais d'intervention et de réparation",
             "ponderation_pct": 15,
-            "description": "Le candidat précise les délais maximaux d'intervention urgente et non urgente, de remise en service et de réparation définitive, ainsi que les modalités organisationnelles garantissant leur respect.",
+            "description": "Le candidat précise ses délais maximaux d'intervention urgente et non urgente, délai de remise en service, délai de réparation définitive, et les modalités pour garantir ces délais.",
             "elements_attendus": [
-              "Délai d'intervention maximal pour une intervention non urgente (inférieur ou égal à 24h requis par le CCTP)",
-              "Délai d'intervention maximal pour une intervention urgente (inférieur ou égal à 4h requis par le CCTP)",
-              "Délai de remise en service maximal (inférieur ou égal à 2h requis par le CCTP)",
-              "Délai de réparation définitive maximal (inférieur ou égal à 72h requis par le CCTP)",
-              "Moyens organisationnels mis en place pour garantir le respect de ces délais (astreinte, planning, système d'alerte)"
+              "Délai d'intervention maximal pour une intervention non urgente (≤ 24h requis par le CCTP)",
+              "Délai d'intervention maximal pour une intervention urgente (≤ 4h requis par le CCTP)",
+              "Délai de remise en service maximal (≤ 2h requis par le CCTP)",
+              "Délai de réparation définitive maximal (≤ 72h requis par le CCTP)",
+              "Modalités organisationnelles garantissant le respect de ces délais (astreinte, géolocalisation, sectorisation)"
             ],
-            "exemple_reponse_forte": "Notre service d'astreinte 24h/24 7j/7 garantit une intervention urgente en moins de 2h sur tout le territoire du lot via une équipe de techniciens sectorisés. Un outil de ticketing dédié déclenche automatiquement l'alerte et trace chaque demande. Le délai de réparation définitive est systématiquement inférieur à 48h grâce à notre stock central de pièces courantes.",
-            "source": "RC article 12.3, CCTP articles 2.3 et 3.3"
+            "exemple_reponse_forte": "Notre organisation garantit une intervention urgente en moins de 2h grâce à une sectorisation géographique avec techniciens dédiés par zone. Un système d'astreinte 24h/24 7j/7 permet de répondre à toute demande urgente, avec une remise en service systématique en moins de 1h30 après arrivée sur site.",
+            "source": "RC article 12.3, sous-critère 1",
+            "unite_evaluation": "delai_jours"
           },
           {
             "libelle": "Organisation et moyens humains dédiés pour la bonne réalisation des prestations",
             "ponderation_pct": 15,
-            "description": "Le candidat décrit les moyens humains (nombre, qualifications, répartition géographique) affectés au marché et les modalités de pilotage et suivi des interventions.",
+            "description": "Le candidat présente les moyens humains affectés au marché et les modalités de pilotage et de suivi des interventions.",
             "elements_attendus": [
-              "Nombre de techniciens affectés au lot avec leur répartition géographique sur les départements concernés",
-              "Qualifications professionnelles du personnel intervenant",
-              "Modalités de pilotage : interlocuteur unique, organisation hiérarchique, remontée d'informations",
-              "Outils de suivi des interventions (GMAO, plateforme de ticketing, reporting)",
-              "Gestion des absences et remplacements pour assurer la continuité des délais contractuels"
+              "Nombre et qualifications des techniciens affectés par zone géographique",
+              "Organisation du pilotage et du suivi des interventions (GMAO, outil de traçabilité)",
+              "Modalités de reporting et de communication avec les organismes",
+              "Gestion des remplacements et absences",
+              "Expérience des intervenants sur les équipements concernés (marques citées dans le CCTP)"
             ],
-            "exemple_reponse_forte": "Deux techniciens qualifiés sont dédiés exclusivement au lot 1, l'un basé à Dijon couvrant la Côte-d'Or et la Nièvre, l'autre à Mâcon couvrant la Saône-et-Loire et l'Yonne. Un chef de secteur unique assure le pilotage et constitue l'interlocuteur contractuel. Notre GMAO permet de tracer chaque intervention en temps réel avec compte-rendu dématérialisé.",
-            "source": "RC article 12.3, CCTP article 8.1"
+            "exemple_reponse_forte": "Trois techniciens qualifiés sont dédiés au lot 1, couvrant respectivement les zones Côte d'Or, Saône-et-Loire/Nièvre, et Yonne. Chaque intervention est tracée dans notre GMAO, accessible aux organismes en temps réel, avec un compte-rendu automatisé transmis sous 48h.",
+            "source": "RC article 12.3, sous-critère 2",
+            "unite_evaluation": "points"
           },
           {
             "libelle": "Gestion des stocks, des pièces détachées et délai d'approvisionnement",
             "ponderation_pct": 10,
-            "description": "Le candidat décrit son organisation en matière de stock de pièces courantes et sa capacité à approvisionner rapidement les pièces nécessaires à la réparation des équipements du marché.",
+            "description": "Le candidat décrit son organisation en matière de stockage et gestion des pièces détachées, ainsi que les délais et modalités d'approvisionnement.",
             "elements_attendus": [
-              "Organisation du stock de pièces courantes (localisation, niveau de stock, référencement)",
-              "Présence des pièces spécifiques exigées par le CCTP (piles, bras moteur garage pour Montbard, barre palpeuse, batterie 12V et sandow pour Uioss de l'Yonne)",
-              "Délais d'approvisionnement selon les types de pièces (courantes vs pièces rares/spécifiques)",
-              "Procédure de gestion en cas d'indisponibilité d'une pièce (solutions alternatives)"
+              "Description du stock de pièces courantes (piles, bras moteur, barres palpeuses, batteries 12V, sandows mentionnés au CCTP)",
+              "Organisation du réapprovisionnement auprès des fournisseurs",
+              "Délais moyens d'approvisionnement selon type de pièces",
+              "Solutions alternatives en cas d'indisponibilité d'une pièce",
+              "Localisation du stock par rapport aux zones d'intervention"
             ],
-            "exemple_reponse_forte": "Un stock tournant de pièces courantes (piles toutes références, moteurs de remplacement standard, bras de garage) est maintenu dans nos véhicules d'intervention. Pour les équipements spécifiques identifiés (Uioss de l'Yonne : barre palpeuse, batterie 12V, sandow), un lot de sécurité est stocké dans notre agence régionale. Les pièces spéciales sont approvisionnées sous 48h via notre réseau de fournisseurs.",
-            "source": "RC article 12.3, CCTP articles 2.3 et 3.3"
+            "exemple_reponse_forte": "Nous maintenons un stock tournant de pièces courantes dans notre dépôt régional de Dijon, comprenant spécifiquement les pièces listées au CCTP (bras moteur Montbard, barre palpeuse et batterie 12V Uioss Yonne). Pour les pièces non stockées, nos délais d'approvisionnement habituels sont de 24 à 48h auprès de nos fournisseurs agréés.",
+            "source": "RC article 12.3, sous-critère 3",
+            "unite_evaluation": "points"
           }
         ]
       },
       {
         "libelle": "Démarche environnementale",
         "ponderation_pct": 10,
-        "description": "Évaluation de la capacité du candidat à réduire l'impact environnemental de ses déplacements, à gérer et valoriser ses déchets, et à former son personnel aux pratiques écoresponsables.",
+        "description": "Évaluation de la capacité du candidat à réduire l'impact environnemental de ses interventions, à valoriser ses déchets et à former son personnel aux pratiques écoresponsables.",
         "elements_attendus": [],
         "exemple_reponse_forte": "—",
-        "source": "RC article 12.3",
+        "source": "RC article 12.3, critère 3",
+        "unite_evaluation": "points",
         "sous_criteres": [
           {
             "libelle": "Capacité à réduire l'impact environnemental des déplacements",
             "ponderation_pct": 4,
-            "description": "Le candidat présente son organisation pour optimiser les déplacements (sectorisation, mutualisation des interventions) et la qualité environnementale de son parc automobile (véhicules électriques, hybrides, Crit'Air 1).",
+            "description": "Organisation et optimisation des interventions pour réduire les déplacements (sectorisation, mutualisation), qualité environnementale du parc automobile, et dispositifs de suivi.",
             "elements_attendus": [
-              "Sectorisation géographique des techniciens pour minimiser les déplacements",
-              "Mutualisation des interventions sur un même site ou secteur",
-              "Composition du parc automobile : proportion de véhicules électriques, hybrides ou Crit'Air 1",
-              "Engagements d'amélioration du parc en cours de marché",
-              "Indicateurs de suivi des émissions GES et fréquence de reporting au coordonnateur"
+              "Organisation géographique (sectorisation) réduisant les km parcourus",
+              "Part de véhicules électriques, hybrides ou Crit'Air 1 dans le parc dédié au marché",
+              "Engagement d'amélioration du parc en cours de marché",
+              "Indicateurs de suivi des émissions GES (obligation L1431-3 Code des transports)"
             ],
-            "exemple_reponse_forte": "Nos techniciens sont affectés par sectorisation géographique fixe, réduisant les kilomètres parcourus. 60% de notre flotte est composée de véhicules hybrides ou électriques avec engagement d'atteindre 80% d'ici fin 2028. Nous suivons annuellement les émissions GES conformément à l'article L1431-3 du Code des transports et transmettons le bilan au coordonnateur.",
-            "source": "RC article 12.3, CCTP article 7"
+            "exemple_reponse_forte": "Notre parc comprend 40% de véhicules hybrides affectés à ce marché, avec un objectif de 60% d'ici 2028. Nos techniciens sont regroupés par bassins géographiques pour mutualiser les déplacements, réduisant notre empreinte kilométrique de 25%. Un rapport trimestriel GES est transmis au coordonnateur.",
+            "source": "RC article 12.3, sous-critère 3.1",
+            "unite_evaluation": "points"
           },
           {
             "libelle": "La gestion et la valorisation des déchets",
             "ponderation_pct": 3,
-            "description": "Le candidat décrit ses procédures de tri, collecte, stockage et élimination/valorisation des déchets issus des interventions, les filières utilisées et les moyens de traçabilité.",
+            "description": "Procédures de tri, collecte, stockage et élimination/valorisation des déchets générés lors des interventions, filières et prestataires utilisés, moyens de traçabilité.",
             "elements_attendus": [
-              "Procédures de tri et de collecte des déchets sur site (pièces usagées, emballages, charges remplacées)",
-              "Filières de valorisation ou d'élimination utilisées (noms des prestataires ou filières agréées)",
-              "Moyens de traçabilité : BSDD (anciennement BSDA), attestations de valorisation",
-              "Intégration du coût de gestion des déchets dans le forfait"
+              "Procédures de tri et collecte des déchets sur site",
+              "Filières de valorisation des pièces usagées et matériels hors service",
+              "Prestataires de traitement des déchets avec bordereau de suivi des déchets dangereux (BSDD)",
+              "Attestations de valorisation fournies aux organismes"
             ],
-            "exemple_reponse_forte": "Toutes les pièces remplacées (motorisations, coffrets électroniques) sont reprises en véhicule et acheminées vers notre prestataire agréé pour valorisation matière. Nous émettons un BSDD pour les déchets dangereux et fournissons sur demande les attestations de valorisation. Ces coûts sont intégralement inclus dans notre forfait de maintenance.",
-            "source": "RC article 12.3, CCTP article 7"
+            "exemple_reponse_forte": "Les pièces remplacées sont systématiquement rapportées en dépôt pour tri : métaux et électronique vers filières agréées DEEE, batteries vers collecteur certifié. Un BSDD est établi pour chaque déchet dangereux, les attestations de valorisation étant transmises annuellement au coordonnateur.",
+            "source": "RC article 12.3, sous-critère 3.2",
+            "unite_evaluation": "points"
           },
           {
             "libelle": "Dispositif de formation et de sensibilisation du personnel aux pratiques écoresponsables",
             "ponderation_pct": 3,
-            "description": "Le candidat précise le contenu, la fréquence et les publics concernés par les formations/sensibilisations écoresponsables, ainsi que ses engagements d'amélioration en cours de marché.",
+            "description": "Contenu et fréquence des formations et sensibilisations aux pratiques écoresponsables, personnels concernés, et engagements d'amélioration en cours de marché.",
             "elements_attendus": [
-              "Contenu des formations écoresponsables dispensées au personnel (éco-conduite, gestion déchets, etc.)",
-              "Fréquence des formations (annuelle, bi-annuelle…)",
-              "Postes concernés par ces formations (techniciens, encadrement, commercial)",
-              "Engagements d'amélioration du dispositif pendant la durée du marché"
+              "Contenu des formations écoresponsables (éco-conduite, gestion déchets, réduction consommables)",
+              "Fréquence des formations (annuelle, biannuelle…)",
+              "Périmètre des personnels formés (techniciens, commerciaux, encadrement)",
+              "Engagements d'amélioration du dispositif sur la durée du marché"
             ],
-            "exemple_reponse_forte": "L'ensemble de nos techniciens et chefs de secteur suit une formation annuelle d'une demi-journée couvrant l'éco-conduite, le tri des déchets et la réduction de l'empreinte carbone. Une sensibilisation trimestrielle est relayée par le management. Nous nous engageons à étendre ce dispositif aux fonctions support d'ici 2028.",
-            "source": "RC article 12.3, CCTP article 7"
+            "exemple_reponse_forte": "L'ensemble de nos techniciens suit une formation annuelle écoresponsable couvrant éco-conduite, tri des déchets et utilisation raisonnée des consommables. Une sensibilisation bi-annuelle est déployée pour l'encadrement. Nous nous engageons à inclure un module spécifique sur la réduction GES lié aux déplacements à partir de 2028.",
+            "source": "RC article 12.3, sous-critère 3.3",
+            "unite_evaluation": "points"
           }
         ]
       }
     ],
     "prix": {
       "type_formule": "moins_disant",
-      "formule_explicite": "50 × (Prix TTC de l'offre la moins chère / Prix TTC de l'offre du candidat)",
+      "formule_explicite": "Note prix = 50 × (Prix TTC de l'offre la moins chère / Prix TTC de l'offre du candidat)",
+      "source": "RC article 12.3, critère 1",
       "elements_a_chiffrer": [
-        "Prix forfaitaire annuel HT et TTC par équipement/groupe d'équipements et par site (DPGF Lot 1 et Lot 2)",
-        "Sous-totaux par organisme (Cpam Côte d'Or, Cpam Nièvre, Cpam Saône-et-Loire, Cpam Yonne, Uioss Yonne, CES Auxerre pour le lot 1 ; Uioss Doubs, Cpam Jura, Uioss Haute-Saône pour le lot 2)",
-        "Total tous organismes confondus pour le lot"
+        "Prix forfaitaire annuel HT par équipement et par site (DPGF)",
+        "Sous-totaux par organisme (Cpam Côte d'Or, Cpam Nièvre, Cpam Saône-et-Loire, Cpam Yonne, Uioss Yonne, CES Auxerre pour lot 1 ; Uioss Doubs, Cpam Jura, Uioss Haute-Saône pour lot 2)",
+        "Total global HT et TTC pour tous les organismes du lot"
       ]
     },
-    "modalite_calcul_prix": "50 × (Prix TTC de l'offre la moins chère / Prix TTC de l'offre du candidat). Note arrondie au centième inférieur si millième ∈ {0,1,2,3,4} et au centième supérieur si millième ∈ {5,6,7,8,9}."
+    "modalite_calcul_prix": "50 × (Prix TTC de l'offre la moins chère / Prix TTC de l'offre du candidat)"
   },
   "montant_marche": {
     "valeur_estimee_euros": 215000,
-    "fourchette_min_euros": null,
+    "fourchette_min_euros": 125000,
     "fourchette_max_euros": 480000,
     "type": "estime_explicite",
-    "duree_couverte": "Durée totale du marché (4 ans maximum, 1 an ferme + 3 reconductions)",
-    "source_extraction": "RC article 3, CCAP article 1.4",
-    "commentaire": "Montant estimatif total : 125 000 € HT (lot 1) + 90 000 € HT (lot 2) = 215 000 € HT sur 4 ans. Plafond maximum : 270 000 € HT (lot 1) + 210 000 € HT (lot 2) = 480 000 € HT sur la durée totale. Les montants estimatifs sont non contractuels."
+    "duree_couverte": "Durée totale du marché (4 ans maximum, 2027-2030)",
+    "source_extraction": "RC article 3 et CCAP article 1.4",
+    "commentaire": "Montants maximaux d'accord-cadre : 270 000 € HT lot 1 + 210 000 € HT lot 2 = 480 000 € HT (plafond total sur 4 ans). Montants estimatifs : 125 000 € HT lot 1 + 90 000 € HT lot 2 = 215 000 € HT sur 4 ans. La valeur estimée retenue est la valeur estimative totale (215 000 € HT)."
+  },
+  "montant_3_voies": {
+    "voie_1_eur": 215000,
+    "voie_1_source": "CCAP article 1.4 et RC article 3 — montants estimatifs : lot 1 : 125 000 € HT, lot 2 : 90 000 € HT, total : 215 000 € HT sur 4 ans. Plafond accord-cadre : 480 000 € HT.",
+    "voie_2_disponible": false,
+    "voie_2_min_eur": null,
+    "voie_2_max_eur": null,
+    "voie_2_hypotheses": [],
+    "voie_2_raison_indisponible": "Voie 1 disponible : les montants estimatifs et les plafonds sont explicitement publiés dans le CCAP et le RC."
+  },
+  "cout_realisation": {
+    "cout_total_eur": 118000,
+    "cout_min_eur": 100000,
+    "cout_max_eur": 136000,
+    "postes": [
+      {
+        "poste": "Main d'œuvre techniciens lot 1 (maintenance préventive + corrective sur ~80 équipements, 2 visites/an/équipement + interventions correctives estimées)",
+        "detail": "Environ 320 h/an × 4 ans × 45 €/h chargé ≈ 57 600 € (hypothèse 2 h/équipement préventive + 1 appel correctif moyen mensuel par site = 11 sites × 12 × 1h)",
+        "montant_eur": 57600
+      },
+      {
+        "poste": "Main d'œuvre techniciens lot 2 (maintenance préventive + corrective sur ~45 équipements)",
+        "detail": "Environ 180 h/an × 4 ans × 45 €/h chargé ≈ 32 400 €",
+        "montant_eur": 32400
+      },
+      {
+        "poste": "Frais de déplacement (inclus dans forfait — véhicule, carburant, péages) — lots 1 et 2",
+        "detail": "Estimé à environ 8 000 €/an sur 4 ans (zones rurales/semi-urbaines BFC, distances significatives) ≈ 32 000 €",
+        "montant_eur": 32000
+      },
+      {
+        "poste": "Pièces et consommables inclus dans le forfait (valeur unitaire < 100 € HT)",
+        "detail": "Estimation forfaitaire 1 500 €/an sur 4 ans = 6 000 €",
+        "montant_eur": 6000
+      },
+      {
+        "poste": "Coordination/administration/reporting",
+        "detail": "Interlocuteur unique + rapports + statistiques : environ 2j/mois × 12 × 4 ans × 350 €/j = ~33 600 € (partiellement mutualisé)",
+        "montant_eur": 10000
+      }
+    ],
+    "taux_journaliers_retenus": "Technicien maintenance spécialisé : 45 €/h chargé (360 €/j) — taux marché indicatif secteur automatisme/fermeture ; coordinateur/administratif : 350 €/j indicatif. Ces taux sont indicatifs et dépendent de la structure de coûts réelle du candidat.",
+    "commentaire": "Estimation du coût de production du prestataire sur 4 ans pour les deux lots. Le coût réel dépend fortement de la densité géographique des techniciens du candidat et de son stock de pièces. Les frais de déplacement sont un poste critique dans ce marché multi-sites en BFC. La main d'œuvre est incluse dans le forfait donc le candidat doit calibrer précisément sa charge réelle à partir des DPGF et de la liste des équipements."
   },
   "revision_prix": {
     "type": "indexation",
     "indices_utilises": [
-      "ICHT-IME (INSEE identifiant 001565183 - Indice mensuel du coût horaire du travail révisé – Industries mécaniques et électriques – Base 2008)",
-      "FSD2 (Frais et services divers – modèle de référence n°2)"
+      "ICHT-IME (INSEE Identifiant 001565183)",
+      "FSD2 (Frais et services divers — modèle de référence n°2)"
     ],
     "ponderation": "15% partie fixe + 70% ICHT-IME + 15% FSD2",
     "periodicite": "annuelle",
     "formule_revision": "P = P0 × (0,15 + (0,70 × (ICHT-IME/ICHT-IME0)) + (0,15 × (FSD2/FSD2_0)))",
-    "source_extraction": "CCAP article 11",
-    "commentaire": "Prix fermes la première année (2027), révision annuelle à partir du 1er janvier 2028. Clause butoir limitant la hausse à 3% par an ; dépassement entraîne droit de résiliation unilatérale de l'acheteur. Formule favorable pour le titulaire en contexte d'inflation des coûts de main-d'œuvre, mais la clause butoir 3% constitue un risque si l'inflation sectorielle dépasse ce seuil."
+    "source_extraction": "CCAP article 11, modalités de variation des prix",
+    "commentaire": "Formule mixte avec 70% indexée sur les coûts salariaux (ICHT-IME industrie mécanique/électrique) et 15% sur les frais de services. Révision annuelle à partir du 1er janvier 2028. Clause butoir à 3% par an. Favorable en inflation pour le prestataire mais plafonnée ; la partie fixe de 15% constitue un risque si l'inflation dépasse 3%."
   },
   "alertes_prix": [
-    "Clause butoir de 3% par an : toute révision dépassant ce seuil permet à l'acheteur de résilier le marché sans indemnité — risque en cas de forte inflation des coûts salariaux (CCAP article 11)",
-    "Montant estimatif non contractuel : aucune indemnisation possible si le montant réel est inférieur à l'estimatif — le candidat doit dimensionner son offre pour être rentable même sur le seul plancher (sans minimum garanti)",
-    "Prix forfaitaire tout inclus (main-d'œuvre + déplacements + pièces < 100€ HT) : risque de sous-évaluation si le nombre d'interventions correctives ou la dispersion géographique des sites est sous-estimée lors du chiffrage",
-    "Pièces > 100€ HT hors forfait sur devis : seul le coût des fournitures est facturable hors forfait, la main-d'œuvre et les déplacements restent inclus dans le forfait quelle que soit la nature de l'intervention"
+    "Clause butoir à 3% par an : toute hausse d'indice dépassant 3% ne sera pas répercutée, exposant le prestataire à un risque si l'inflation des coûts salariaux dépasse ce seuil.",
+    "Clause de sauvegarde : l'acheteur peut résilier unilatéralement le marché sans indemnité si le seuil de 3% est franchi, ce qui constitue un risque de volume non garanti.",
+    "Accord-cadre sans minimum : aucune garantie de commande minimale — le candidat doit adapter sa structure de coûts fixes à ce risque de volume.",
+    "Plafond maximum de 480 000 € HT tous lots sur 4 ans (270 000 € lot 1 + 210 000 € lot 2), mais estimation à seulement 215 000 € — écart important signalant une incertitude forte sur les volumes réels commandés.",
+    "Prix forfaitaire annuel par équipement : le candidat doit avoir une connaissance précise des équipements lors de la visite obligatoire pour calibrer son forfait sans risque de sous-estimation."
   ],
   "references_exigees": {
-    "experience_minimale_annees": null,
-    "experience_source": null,
+    "experience_minimale_annees": 3,
+    "experience_source": "RC article 9.1 (DC2 — références des 3 dernières années)",
     "volume_min_references_similaires": null,
     "volume_min_references_unite": "marchés similaires",
-    "secteur_experience": "Maintenance de portes, portails, barrières, grilles automatiques et semi-automatiques (prestations similaires à celles demandées dans le marché)",
+    "secteur_experience": "Maintenance de portes, portails, barrières, grilles automatiques et semi-automatiques ou équipements similaires",
     "secteur_source": "RC article 9.1",
-    "certifications_obligatoires": [],
+    "certifications_obligatoires": [
+      {
+        "libelle": "Certificats de qualifications professionnelles ou preuve de compétence pour la maintenance de portes/portails/barrières automatiques",
+        "codes": [],
+        "bloquante": null,
+        "source": "RC article 9.1"
+      }
+    ],
     "autres_exigences": [
       {
-        "libelle": "Présentation des principales références de prestations similaires réalisées au cours des 3 dernières années (montant, date, destinataire) — via DC2",
-        "source": "RC article 9.1"
-      },
-      {
-        "libelle": "Déclaration du chiffre d'affaires global et du CA spécifique aux prestations de l'objet du marché sur les 3 derniers exercices disponibles",
+        "libelle": "Déclaration du chiffre d'affaires global et du CA concernant les prestations objet du marché sur les 3 derniers exercices",
         "source": "RC article 9.1"
       },
       {
@@ -239,77 +291,168 @@
         "source": "RC article 9.1"
       },
       {
-        "libelle": "Certificats de qualifications professionnelles ou tout moyen de preuve équivalent attestant de la compétence à réaliser la prestation (certificats d'identité professionnelle, références attestant de la compétence)",
+        "libelle": "Attestation de visite obligatoire des sites signée (visite à planifier avant le 24/06/2026 à 12h00)",
+        "source": "RC article 8"
+      },
+      {
+        "libelle": "Engagement sur les clauses sociales d'insertion (annexe 3 à l'acte d'engagement) — 105h lot 1, 70h lot 2 — condition d'éligibilité : offre irrégulière si non rempli",
+        "source": "RC article 4.8 et CCAP article 6.2"
+      }
+    ]
+  },
+  "dossier_candidature": {
+    "pieces_a_fournir": [
+      {
+        "libelle": "Lettre de candidature (formulaire DC1) — déclaration sur l'honneur de non-exclusion",
+        "phase": "candidature",
+        "obligatoire": true,
         "source": "RC article 9.1"
       },
       {
-        "libelle": "Attestation de visite obligatoire signée pour chaque lot candidaté (visite à planifier avant le 24 juin 2026 à 12h00)",
-        "source": "RC article 8"
+        "libelle": "Déclaration du candidat (formulaire DC2) — un pour chaque lot candidaté — incluant CA, références, effectifs, qualifications",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC article 9.1"
+      },
+      {
+        "libelle": "Pouvoir de la personne habilitée à engager la société",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC article 9.1"
+      },
+      {
+        "libelle": "Déclaration sur l'honneur de régularité au regard des articles L5212-1 à L5212-11 du Code du travail (emploi travailleurs handicapés)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC article 9.1"
+      },
+      {
+        "libelle": "Copie du/des jugement(s) si le candidat est en redressement judiciaire (si applicable)",
+        "phase": "candidature",
+        "obligatoire": false,
+        "source": "RC article 9.1"
+      },
+      {
+        "libelle": "Déclaration de sous-traitance DC4 pour chaque sous-traitant déclaré (si applicable)",
+        "phase": "candidature",
+        "obligatoire": false,
+        "source": "RC article 9.1"
+      },
+      {
+        "libelle": "Acte d'engagement — un par lot candidaté — dûment complété",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC article 9.2"
+      },
+      {
+        "libelle": "Annexe 1 à l'acte d'engagement — Décomposition du Prix Global et Forfaitaire (DPGF) — un par lot candidaté",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC article 9.2"
+      },
+      {
+        "libelle": "Annexe 2 à l'acte d'engagement — Cadre de réponse (valeur technique et démarche environnementale) — un par lot candidaté",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC article 9.2"
+      },
+      {
+        "libelle": "Annexe 3 à l'acte d'engagement — Engagement sur les clauses sociales — un par lot candidaté",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC article 9.2"
+      },
+      {
+        "libelle": "Attestation de visite obligatoire signée — pour chaque lot candidaté",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC article 9.2"
+      },
+      {
+        "libelle": "RIB",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC article 9.2"
       }
-    ]
+    ],
+    "mode_remise": "dématérialisé + copie de sauvegarde",
+    "plateforme_depot": "PLACE — marches-publics.gouv.fr",
+    "signature_electronique_exigee": false,
+    "format_signature": "XAdES, CAdES, PAdES (si signature électronique utilisée)",
+    "nombre_exemplaires": null,
+    "langue": "français",
+    "duree_validite_offres_jours": 160,
+    "modalites_source": "RC articles 10 et 11"
   },
   "lots": [
     {
       "numero": 1,
       "intitule": "Maintenance des portes, portails, barrières, grilles automatiques et semi-automatiques situés dans les départements de la Côte d'Or, de la Nièvre, de la Saône-et-Loire et de l'Yonne",
-      "zone_geographique": "Côte-d'Or (21), Nièvre (58), Saône-et-Loire (71), Yonne (89)",
+      "domaine": "autre",
+      "zone_geographique": "Côte d'Or (21), Nièvre (58), Saône-et-Loire (71), Yonne (89) — Bourgogne",
       "volume_estime": 125000,
-      "volume_estime_unite": "euros HT sur 4 ans (estimatif), plafond 270 000 € HT",
-      "particularites": "Couvre 6 organismes sur 11 sites : Cpam Côte-d'Or (Dijon, Beaune), Cpam Nièvre (Nevers siège, Nevers Baratte), Cpam Saône-et-Loire (Mâcon, Chalon, Le Creusot), Cpam Yonne (Foch, Paradis), Uioss Yonne (Fossy Auxerre), CES Auxerre. Dates de démarrage échelonnées selon les sites (01/01/2027 pour la majorité, certains en 2028). Environ 80+ équipements recensés. Réunion de démarrage le 23 novembre 2026 à Mâcon. Obligation d'insertion : 105 heures sur la durée totale."
+      "volume_estime_unite": "euros HT sur 4 ans (estimatif)",
+      "cout_estime_min_eur": 57000,
+      "cout_estime_max_eur": 78000,
+      "particularites": "11 sites concernés (Beaune, Dijon, Nevers x2, Mâcon, Chalon-sur-Saône, Le Creusot, Sens x2, Auxerre x2). Environ 80 équipements recensés (portes coulissantes, rideaux métalliques, portails, barrières, portes sectionnelles, portes basculantes). Démarrage échelonné : certains équipements démarrent le 01/01/2027, d'autres au 01/07/2027 voire 01/01/2028 ou 01/08/2028. Plafond accord-cadre : 270 000 € HT."
     },
     {
       "numero": 2,
       "intitule": "Maintenance des portes, portails, barrières, grilles automatiques et semi-automatiques situés dans les départements du Doubs, du Jura et de la Haute-Saône",
-      "zone_geographique": "Doubs (25), Jura (39), Haute-Saône (70)",
+      "domaine": "autre",
+      "zone_geographique": "Doubs (25), Jura (39), Haute-Saône (70) — Franche-Comté",
       "volume_estime": 90000,
-      "volume_estime_unite": "euros HT sur 4 ans (estimatif), plafond 210 000 € HT",
-      "particularites": "Couvre 3 organismes sur 6 sites : Uioss Doubs (Besançon, Montbéliard), Cpam Jura (Lons-le-Saunier, Dole, Champagnole), Uioss Haute-Saône (Vesoul). Plusieurs équipements sur Besançon/Montbéliard ne démarrent qu'au 01/01/2029 (engagements actuels en cours). Certains équipements anciens (1987-1997 à Vesoul, 1993 pour rideaux Javey). Réunion de démarrage le 25 novembre 2026 à Mâcon. Obligation d'insertion : 70 heures sur la durée totale."
+      "volume_estime_unite": "euros HT sur 4 ans (estimatif)",
+      "cout_estime_min_eur": 43000,
+      "cout_estime_max_eur": 58000,
+      "particularites": "5 sites concernés (Besançon, Montbéliard, Lons-le-Saunier, Dole, Champagnole, Vesoul). Environ 45 équipements recensés. Plusieurs équipements Uioss Doubs démarrent seulement le 01/01/2029 (encore engagés avec prestataire actuel). Quelques équipements très anciens (portes basculantes Otis 1987, rideaux Javey 1993). Plafond accord-cadre : 210 000 € HT."
     }
   ],
+  "tranches": [],
   "calendrier": {
     "date_limite_offres": "2026-07-10",
     "date_demarrage_prevue": "2027-01-01",
-    "duree_marche": "1 an ferme reconductible 3 fois par tacite reconduction, soit 4 ans maximum (01/01/2027 au 31/12/2030)"
+    "duree_marche": "1 an ferme reconductible 3 fois (4 ans maximum, jusqu'au 31/12/2030)"
   },
   "alertes_candidat": [
-    "Visite obligatoire sur tous les sites pour chaque lot candidaté, à planifier impérativement avant le 24 juin 2026 à 12h00 — absence d'attestation de visite = offre irrégulière (RC article 8)",
-    "Clause sociale d'insertion obligatoire contractuelle : 105h pour le lot 1, 70h pour le lot 2 sur la durée totale du marché — une offre ne satisfaisant pas à cette condition est déclarée irrégulière (RC article 4.8, CCAP article 6.2)",
-    "Obligation de disposer en stock des pièces spécifiques citées au CCTP (bras moteur garage pour Montbard, barre palpeuse, batterie 12V et sandow pour Uioss Yonne) dès le démarrage du marché",
-    "Délais contractuels très courts sous pénalités immédiates (dès le 1er euro, sans mise en demeure) : 4h intervention urgente, 2h remise en service — nécessite une présence locale des techniciens sur chaque lot",
-    "Interdiction de sous-traiter la totalité du marché ; tout sous-traitant doit être déclaré et agréé — le titulaire reste responsable de l'exécution et de l'obligation d'insertion"
+    "VISITE OBLIGATOIRE — La visite préalable de l'ensemble des sites est obligatoire pour candidater, à planifier auprès de chaque organisme avant le 24/06/2026 à 12h00. L'attestation de visite signée est une pièce obligatoire de l'offre — son absence rend l'offre irrégulière.",
+    "CLAUSE SOCIALE D'INSERTION OBLIGATOIRE — Le candidat doit s'engager sur 105h d'insertion (lot 1) ou 70h (lot 2) sur la durée totale du marché. Une offre ne satisfaisant pas cette condition est déclarée irrégulière (RC article 4.8).",
+    "ACCORD-CADRE SANS MINIMUM — Aucune garantie de commande minimale n'est prévue. Le titulaire assume le risque de volume nul sur la maintenance corrective hors forfait. Le candidat doit dimensionner sa structure de coûts fixes en conséquence.",
+    "DÉMARRAGE ÉCHELONNÉ COMPLEXE — Les dates de démarrage varient par équipement (01/01/2027, 01/07/2027, 01/01/2028, 01/08/2028, 01/01/2029 pour certains équipements lot 2). Le candidat doit bien lire les annexes au CCAP et facturer uniquement sur la base des équipements effectivement pris en charge.",
+    "QUALIFICATIONS PROFESSIONNELLES — Le RC exige des certificats de qualifications professionnelles ou preuves de compétence sur les équipements concernés. Les candidats sans expérience documentée sur des marques multi-technologies (Record, Portalp, Came, Nice, Citec, etc.) seront pénalisés dans l'évaluation technique."
   ],
   "points_differenciants_attendus": [
     {
-      "libelle": "Proposer des délais d'intervention inférieurs aux seuils contractuels maximaux (4h urgents, 24h non urgents)",
-      "exemple": "Un candidat disposant de techniciens basés à proximité immédiate des sites (ex: technicien à Dijon pour la Côte-d'Or, technicien à Auxerre pour l'Yonne) peut proposer des délais garantis de 2h pour les urgences, valorisant fortement le sous-critère délais (15 points).",
-      "source": "RC article 12.3, CCTP articles 2.3 et 3.3"
+      "libelle": "Délais d'intervention inférieurs aux maxima contractuels (4h urgence, 24h non urgente)",
+      "exemple": "Un candidat proposant une intervention urgente garantie en 2h et non urgente en 8h, grâce à des techniciens dédiés par zone BFC, scorera significativement mieux sur le sous-critère 1 (15 pts) qu'un candidat proposant exactement les délais contractuels.",
+      "source": "RC article 12.3 sous-critère 1 ; CCTP articles 2.3 et 3.3"
     },
     {
-      "libelle": "Sectorisation géographique fine des techniciens pour couvrir tous les départements du lot sans temps de trajet excessif",
-      "exemple": "Présenter une carte de sectorisation avec un technicien dédié par zone (ex: nord Bourgogne / sud Bourgogne pour le lot 1) et indiquer les temps de trajet moyens vers chaque site renforce la crédibilité de l'organisation et marque positivement le sous-critère organisation/moyens humains (15 points).",
-      "source": "RC article 12.3"
+      "libelle": "Présence de techniciens déjà implantés en Bourgogne Franche-Comté",
+      "exemple": "Un candidat avec une agence ou des techniciens basés à Dijon/Mâcon (lot 1) ou Besançon/Lons-le-Saunier (lot 2) justifiera de délais crédibles et réduira ses coûts de déplacement, renforçant simultanément sa compétitivité prix et son score technique.",
+      "source": null
     },
     {
-      "libelle": "Flotte de véhicules à faible émission (électriques, hybrides, Crit'Air 1) avec indicateurs de suivi GES",
-      "exemple": "Un candidat dont plus de 50% de sa flotte est électrique ou hybride, avec engagement contractuel d'atteindre 80% avant 2028 et reporting GES annuel, score significativement mieux sur le sous-critère environnemental déplacements (4 points) par rapport à un concurrent avec flotte diesel standard.",
-      "source": "RC article 12.3, CCTP article 7"
+      "libelle": "Stock de pièces spécifiques aux équipements recensés dans le CCTP",
+      "exemple": "Le CCTP liste explicitement des pièces à avoir en stock (bras moteur garage Montbard, barre palpeuse Uioss Yonne, batterie 12V, sandow). Un candidat confirmant disposer de ces pièces spécifiques + une gamme étendue couvrant les marques présentes (Record, Portalp, Came, Nice, Citec, Tormax, Dormakaba…) se différenciera nettement sur le sous-critère 3 (10 pts).",
+      "source": "CCTP article 2.3, section gestion des pièces détachées"
     },
     {
-      "libelle": "Stock de pièces spécifiques identifiées dans le CCTP prêt dès le démarrage du marché",
-      "exemple": "Mentionner explicitement la présence en stock des pièces listées par le CCTP (bras moteur Montbard, barre palpeuse/batterie 12V/sandow Uioss Yonne) rassure l'acheteur sur la capacité à tenir le délai de 72h pour les réparations définitives et différencie sur le sous-critère gestion stocks (10 points).",
-      "source": "CCTP article 2.3"
+      "libelle": "Parc automobile avec véhicules à faible émission (électrique, hybride, Crit'Air 1)",
+      "exemple": "Un candidat documentant 50%+ de véhicules hybrides ou électriques dans sa flotte dédiée au marché BFC, avec indicateurs de suivi des émissions GES, obtiendra le maximum sur le sous-critère environnemental déplacements (4 pts) et valorisera son image RSE.",
+      "source": "RC article 12.3 sous-critère 3.1 ; CCTP article 7"
     },
     {
-      "libelle": "Outil numérique de suivi et de traçabilité des interventions mis à disposition des organismes",
-      "exemple": "Proposer un accès en ligne (extranet ou GMAO) permettant à chaque organisme de consulter l'historique des interventions, les rapports et les plannings constitue un argument fort sur le sous-critère organisation/pilotage, notamment au regard de l'exigence de traçabilité du CCTP.",
-      "source": "CCTP articles 4.3, 4.4, 8.2"
+      "libelle": "Outil numérique de traçabilité et reporting accessible aux organismes",
+      "exemple": "Un candidat proposant un portail client en ligne donnant accès en temps réel aux rapports d'intervention, aux historiques de maintenance par équipement et aux statistiques, réduira la charge administrative des 9 organismes bénéficiaires et se différenciera sur l'organisation et le pilotage (sous-critère 2, 15 pts).",
+      "source": "CCTP article 8.2 ; CCAP article 4"
     }
   ],
   "_meta": {
     "id_marche": "BOAMP-26-56547",
     "type": "complet",
-    "date_generation": "2026-06-15T18:45:01.826053+00:00",
-    "extraction_le": "2026-06-15T18:45:01.826053+00:00",
+    "date_generation": "2026-06-19T20:07:51.382057+00:00",
+    "extraction_le": "2026-06-19T20:07:51.382057+00:00",
     "modele": "claude-sonnet-4-6",
     "preset_utilise": "it",
     "presets_matches": [
@@ -318,10 +461,10 @@
     "prompts_versions": {
       "it/_preset.json": "sha256:0113727ecb269e98"
     },
-    "tokens_input": 77932,
-    "tokens_output": 7453,
-    "cout_eur": 0.3283,
-    "duree_sec": 136.2,
+    "tokens_input": 85975,
+    "tokens_output": 9520,
+    "cout_eur": 0.3807,
+    "duree_sec": 487.5,
     "pdfs_traites": [
       {
         "nom": "MBFC2026-1_Acte_engagement_Annexe_2_Cadre_de_reponse_Lot_1.docx",

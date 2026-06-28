@@ -1,28 +1,30 @@
 {
-  "synthese_marche": "Le CCAS de Calais lance un appel d'offres ouvert en deux lots pour la fourniture de chèques d'accompagnement personnalisé (hygiène, alimentation, énergie, habillement) et de chèques/cartes cadeau multi-enseignes destinés aux bénéficiaires calaisiens de l'action sociale. Le lot 1 porte sur environ 9 300 tickets/an à 5€ valeur faciale, le lot 2 sur environ 16 200 chèques cadeau à 5€ ou 2 700 cartes cadeau à 30€ par an. Il s'agit d'un accord-cadre à bons de commande mono-attributaire par lot.",
+  "synthese_marche": "Le CCAS de Calais lance un appel d'offres ouvert en deux lots pour la fourniture de chèques d'accompagnement personnalisé (lot 1 : hygiène, alimentation, énergie, habillement) et de chèques ou cartes cadeau multi-enseignes (lot 2 : festivités de fin d'année et actions de solidarité), destinés aux bénéficiaires calaisiens de l'action sociale. Le marché est structuré en accord-cadre à bons de commande mono-attributaire par lot, d'une durée de 4 ans. Les deux lots ont des grilles de notation identiques en termes de poids (Prix 40% / Valeur technique 60%), mais des sous-critères techniques différents.",
   "domaines_metier": [
     {
       "code": "prestations_speciales_titres_cheques"
     }
   ],
-  "raison_classification": "Le marché porte exclusivement sur la fourniture de chèques d'accompagnement personnalisé (CAP) et de chèques/cartes cadeau multi-enseignes, ce qui correspond exactement au code 'prestations_speciales_titres_cheques'. Bien que le commanditaire soit un CCAS et les bénéficiaires des personnes relevant de l'action sociale, la prestation achetée est la fourniture de titres/chèques, pas une prestation d'insertion ou de formation.",
+  "raison_classification": "Le marché porte exclusivement sur la fourniture de chèques d'accompagnement personnalisé (CAP) et de chèques/cartes cadeau multi-enseignes, relevant directement du code 'prestations_speciales_titres_cheques'. Le CPV principal 22440000 ('Formules de chèque') confirme cette classification, indépendamment du contexte d'action sociale des bénéficiaires finaux.",
   "publics_cibles": {
-    "description": "Bénéficiaires calaisiens de l'action sociale suivis par le CCAS de Calais, recevant des aides sous forme de chèques d'accompagnement personnalisé ou de chèques/cartes cadeau dans le cadre de festivités de fin d'année ou d'actions de solidarité.",
+    "description": "Bénéficiaires calaisiens de l'action sociale du CCAS de Calais : personnes accompagnées dans le cadre de l'aide sociale (hygiène, alimentation, énergie, habillement) ou des actions de solidarité et festivités de fin d'année.",
     "criteres_eligibilite": [
       {
         "libelle": "Être bénéficiaire de l'action sociale du CCAS de Calais",
-        "source": "RC art. 1.1"
+        "source": "RC art 1.1"
       }
     ],
-    "publics_specifiques_signales": []
+    "publics_specifiques_signales": [
+      "BRSA"
+    ]
   },
   "volumes": {
     "nb_beneficiaires_total": null,
     "nb_beneficiaires_par_lot": null,
     "duree_par_parcours_heures": null,
     "duree_par_parcours_semaines": null,
-    "duree_marche_mois": null,
-    "commentaire_volumes": "Lot 1 : environ 9 300 chèques accompagnement personnalisé par an, valeur faciale 5€. Lot 2 : environ 16 200 chèques cadeau à 5€ ou 2 700 cartes cadeau à 30€ par an. La durée totale du marché n'est pas précisée dans le RC fourni."
+    "duree_marche_mois": 48,
+    "commentaire_volumes": "Lot 1 : environ 9 300 tickets/an de valeur faciale 5€. Lot 2 : environ 16 200 chèques cadeau/an de 5€ ou 2 700 cartes cadeau de 30€/an. Durée : 4 ans (accord-cadre à bons de commande)."
   },
   "modalites": {
     "presentiel_obligatoire": null,
@@ -33,6 +35,13 @@
     ],
     "amplitude_horaire": null
   },
+  "qualifications_formation": {
+    "qualiopi": false,
+    "rncp": false,
+    "rncp_titres": [],
+    "cpf": false,
+    "autres_certifications": []
+  },
   "bareme_notation": {
     "valeur_technique_pct": 60,
     "valeur_prix_pct": 40,
@@ -40,148 +49,206 @@
       {
         "libelle": "La liste des enseignes affiliées sur le territoire de la Ville de Calais, Notamment pour les tickets habillement",
         "ponderation_pct": 20,
-        "description": "L'acheteur évalue l'étendue du réseau d'enseignes acceptant les chèques CAP sur le territoire de Calais, avec une attention particulière pour les enseignes habillement.",
+        "description": "Évaluation du réseau d'enseignes acceptant les chèques CAP sur Calais, avec attention particulière aux enseignes habillement. L'acheteur apprécie la couverture et la diversité du réseau local.",
         "elements_attendus": [
-          "Liste exhaustive des enseignes affiliées à Calais acceptant les chèques CAP",
-          "Identification spécifique des enseignes habillement présentes sur Calais",
-          "Nombre total d'enseignes affiliées sur la ville",
-          "Catégories couvertes : hygiène, alimentation, énergie, habillement"
+          "Liste exhaustive des enseignes affiliées présentes à Calais",
+          "Nombre et diversité des enseignes habillement",
+          "Couverture géographique sur la ville de Calais",
+          "Types de commerces acceptant les différentes catégories de chèques (hygiène/alimentation, énergie, habillement)"
         ],
-        "exemple_reponse_forte": "Le candidat présente une liste nominative des enseignes affiliées à Calais (ex : Auchan, Leclerc, Lidl pour alimentation/hygiène ; Kiabi, Vêti pour habillement ; EDF, Engie pour énergie), avec indication du nombre total (ex : 45 enseignes) et une carte ou tableau synthétique par catégorie d'usage.",
-        "source": "RC art. 4.2",
+        "exemple_reponse_forte": "Le candidat liste l'ensemble des enseignes affiliées à Calais (ex: 50+ commerces couvrant les 3 catégories), avec une cartographie par catégorie et notamment le détail des enseignes habillement (ex: Kiabi, La Halle, Vêtimarché), incluant adresses et jours d'ouverture pour faciliter l'usage par les bénéficiaires.",
+        "source": "RC art 4.2 — Lot 1",
+        "unite_evaluation": "points",
         "sous_criteres": []
       },
       {
         "libelle": "Les délais de livraison",
         "ponderation_pct": 15,
-        "description": "L'acheteur évalue le délai de livraison des chèques CAP après commande, avec un délai contractuel maximal de 5 jours. Les candidats s'engageant sur un délai ≥ 5 jours obtiennent 0%, les délais inférieurs sont notés proportionnellement au délai le plus court proposé.",
+        "description": "Évaluation du délai de livraison proposé par le candidat, noté proportionnellement à l'offre la plus courte. Tout délai supérieur ou égal à 5 jours obtient 0%.",
         "elements_attendus": [
-          "Délai de livraison inférieur à 5 jours ouvrés",
-          "Engagement ferme sur le délai indiqué dans l'acte d'engagement",
-          "Modalités de sécurisation de la livraison (suivi, accusé de réception)"
+          "Délai de livraison ferme inférieur à 5 jours ouvrés",
+          "Engagement contractuel sur le délai dans l'acte d'engagement",
+          "Moyens de sécurisation du délai (stock tampon, processus de fabrication rapide)",
+          "Modalités de livraison (transporteur, traçabilité)"
         ],
-        "exemple_reponse_forte": "Le candidat s'engage sur un délai de 2 jours ouvrés à compter de la réception du bon de commande, avec remise en main propre ou envoi suivi, et confirmation de livraison par bon de réception signé.",
-        "source": "RC art. 4.2",
+        "exemple_reponse_forte": "Le candidat s'engage à un délai de livraison de 2 jours ouvrés à compter de la réception du bon de commande, grâce à un stock de carnets prépersonnalisés et à un partenariat avec un transporteur express. Un accusé de réception de commande est envoyé sous 4h.",
+        "source": "RC art 4.2 — Lot 1",
+        "unite_evaluation": "delai_jours",
         "sous_criteres": []
       },
       {
         "libelle": "Le processus d'acheminement de la commande et de retour des chèques Non utilisés ou périmés",
         "ponderation_pct": 15,
-        "description": "L'acheteur évalue le processus complet depuis la prise de commande jusqu'à la fabrication et la livraison des chèques CAP, ainsi que les modalités de retour, d'échange et de remboursement des chèques non utilisés ou périmés.",
+        "description": "Évaluation du circuit complet de la commande : de la prise de commande à la fabrication et livraison des chèques CAP, ainsi que les modalités de retour et traitement des chèques non utilisés ou périmés.",
         "elements_attendus": [
-          "Description du circuit de commande (canal, délai de prise en compte)",
+          "Description détaillée du processus de prise de commande (interface dédiée, formulaire, interlocuteur)",
           "Processus de fabrication et personnalisation des chèques",
           "Modalités de retour des chèques non utilisés",
-          "Modalités de remboursement ou d'échange des chèques périmés",
-          "Procédure de gestion des litiges ou erreurs de commande"
+          "Procédure de traitement des chèques périmés",
+          "Délais de remboursement ou d'échange"
         ],
-        "exemple_reponse_forte": "Le candidat décrit un processus en 3 étapes : réception de la commande par email/interface dédiée sous 24h, fabrication et expédition sous 48h, avec retour possible des chèques non utilisés dans un délai de 12 mois après émission contre remboursement intégral sur présentation du bon de retour signé par le CCAS.",
-        "source": "RC art. 4.2",
+        "exemple_reponse_forte": "La commande est passée via une interface web dédiée ou par email à un interlocuteur unique ; les chèques sont fabriqués sous 48h et livrés en colissimo suivi. Les chèques non utilisés ou périmés sont retournés par courrier et font l'objet d'un avoir sous 10 jours, sans frais pour le CCAS.",
+        "source": "RC art 4.2 — Lot 1",
+        "unite_evaluation": "points",
         "sous_criteres": []
       },
       {
         "libelle": "La relation client / Interlocuteur dédié",
         "ponderation_pct": 10,
-        "description": "L'acheteur évalue la qualité de la relation client proposée, notamment la désignation d'un interlocuteur dédié pour le CCAS de Calais.",
+        "description": "Évaluation de la qualité du suivi client et de la disponibilité d'un interlocuteur dédié pour le CCAS de Calais tout au long de l'exécution du marché.",
         "elements_attendus": [
-          "Désignation nominative d'un interlocuteur dédié",
+          "Identification nominative d'un interlocuteur dédié au compte CCAS de Calais",
           "Coordonnées directes (téléphone, email) de l'interlocuteur",
-          "Plages horaires de disponibilité",
-          "Procédure de remplacement en cas d'absence de l'interlocuteur"
+          "Plages de disponibilité et délais de réponse garantis",
+          "Procédure de remplacement en cas d'absence"
         ],
-        "exemple_reponse_forte": "Le candidat désigne M./Mme X comme référent dédié au CCAS de Calais, joignable directement par téléphone et email du lundi au vendredi de 8h à 18h, avec un remplaçant nommément identifié en cas d'absence.",
-        "source": "RC art. 4.2",
+        "exemple_reponse_forte": "Un chargé de compte dédié (nom, prénom, téléphone direct et email) est attribué au CCAS de Calais ; disponible du lundi au vendredi de 8h à 18h, il s'engage à répondre à toute demande dans un délai de 4h ouvrées. En cas d'absence, un suppléant identifié prend le relais.",
+        "source": "RC art 4.2 — Lot 1",
+        "unite_evaluation": "points",
         "sous_criteres": []
       },
       {
-        "libelle": "La liste des commerces de proximité affiliées sur Calais (Lot 2)",
+        "libelle": "La liste des commerces de proximité affiliées sur Calais",
         "ponderation_pct": 25,
-        "description": "Pour le lot 2, l'acheteur évalue le réseau de commerces de proximité affiliés acceptant les chèques/cartes cadeau multi-enseignes sur la ville de Calais.",
+        "description": "Évaluation du réseau de commerces de proximité acceptant les chèques ou cartes cadeau multi-enseignes sur la ville de Calais. Critère le plus fortement pondéré du lot 2.",
         "elements_attendus": [
-          "Liste nominative des commerces de proximité affiliés à Calais",
-          "Nombre total de commerces affiliés en ville de Calais",
-          "Diversité des types de commerces couverts",
-          "Présence de commerces de proximité de quartier"
+          "Liste exhaustive des commerces affiliés présents à Calais",
+          "Diversité et variété des enseignes (alimentation, loisirs, culture, mode, etc.)",
+          "Nombre de points d'acceptation sur le territoire calaisien",
+          "Accessibilité géographique pour les bénéficiaires"
         ],
-        "exemple_reponse_forte": "Le candidat fournit une liste de 80 commerces affiliés à Calais (grandes surfaces, épiceries, pharmacies, commerces de vêtements, etc.), avec une cartographie par quartier démontrant une couverture équilibrée du territoire calaisien.",
-        "source": "RC art. 4.2",
+        "exemple_reponse_forte": "Le candidat présente une liste de 80+ commerces affiliés à Calais couvrant l'alimentation (Auchan, Carrefour), le prêt-à-porter, la culture et les loisirs, avec une cartographie des points d'acceptation montrant une couverture équilibrée sur les différents quartiers de la ville.",
+        "source": "RC art 4.2 — Lot 2",
+        "unite_evaluation": "points",
         "sous_criteres": []
       },
       {
-        "libelle": "La personnalisation des chèques ou des cartes cadeau (Lot 2)",
+        "libelle": "La personnalisation des chèques ou des cartes cadeau, dotée de la mention : « Offert par – Nom et Titres du représentant légal du CCAS de CALAIS »",
         "ponderation_pct": 15,
-        "description": "L'acheteur évalue la capacité du candidat à personnaliser les chèques/cartes cadeau avec la mention imposée : 'Offert par – Nom et Titres du représentant légal du CCAS de CALAIS'.",
+        "description": "Évaluation de la capacité à personnaliser les chèques ou cartes cadeau avec la mention exigée par le CCAS, incluant le nom et les titres du représentant légal.",
         "elements_attendus": [
-          "Démonstration de la capacité à imprimer la mention exigée sur les chèques/cartes",
-          "Qualité visuelle de la personnalisation (cf. échantillons)",
-          "Délai supplémentaire éventuel lié à la personnalisation",
-          "Options graphiques proposées (logo, charte graphique CCAS)"
+          "Description technique du processus de personnalisation",
+          "Exemples ou maquettes de chèques/cartes personnalisés",
+          "Délai d'intégration de la mention personnalisée",
+          "Qualité graphique et lisibilité de la mention",
+          "Possibilité de mise à jour de la mention en cours de marché"
         ],
-        "exemple_reponse_forte": "Le candidat présente des échantillons de chèques/cartes personnalisés avec la mention requise en bonne lisibilité, propose d'intégrer le logo du CCAS de Calais en option, et garantit que la personnalisation n'allonge pas le délai de livraison standard.",
-        "source": "RC art. 4.2",
+        "exemple_reponse_forte": "Le candidat présente des maquettes de chèques et cartes cadeaux personnalisés avec la mention « Offert par M./Mme [Nom et titre] du CCAS de Calais », intégrée dès la conception graphique. La personnalisation est confirmée sous 48h après validation de la maquette par le CCAS, sans surcoût.",
+        "source": "RC art 4.2 — Lot 2",
+        "unite_evaluation": "points",
         "sous_criteres": []
       },
       {
-        "libelle": "Le processus d'acheminement de la commande et le délai de livraison (Lot 2)",
+        "libelle": "Le processus d'acheminement de la commande et le délai de Livraison",
         "ponderation_pct": 10,
-        "description": "Pour le lot 2, l'acheteur évalue le processus complet de commande, fabrication et livraison des chèques/cartes cadeau, ainsi que le délai de livraison (délai contractuel maximal : 5 jours).",
+        "description": "Évaluation du circuit complet de commande et du délai de livraison pour les chèques ou cartes cadeau multi-enseignes du lot 2.",
         "elements_attendus": [
-          "Description du circuit de commande spécifique aux chèques/cartes cadeau",
-          "Délai de livraison inférieur à 5 jours ouvrés",
-          "Modalités de sécurisation de la livraison"
+          "Description du processus de prise de commande",
+          "Délai de livraison proposé (inférieur à 5 jours pour être noté)",
+          "Moyens de sécurisation du délai",
+          "Modalités de traçabilité de la livraison"
         ],
-        "exemple_reponse_forte": "Le candidat décrit un processus dématérialisé de commande en ligne avec confirmation sous 4h, fabrication et expédition sous 3 jours ouvrés, livraison sécurisée avec signature à réception.",
-        "source": "RC art. 4.2",
+        "exemple_reponse_forte": "La commande est traitée en ligne ou par email dédié, avec fabrication et livraison en 3 jours ouvrés par transporteur sécurisé avec suivi en temps réel. Un accusé de livraison est transmis au CCAS dès réception confirmée.",
+        "source": "RC art 4.2 — Lot 2",
+        "unite_evaluation": "points",
         "sous_criteres": []
       },
       {
-        "libelle": "La qualité des échantillons (Lot 2)",
+        "libelle": "La qualité des échantillons",
         "ponderation_pct": 5,
-        "description": "L'acheteur évalue la qualité physique des échantillons de chèques/cartes cadeau fournis simultanément à l'offre.",
+        "description": "Évaluation de la qualité des échantillons de chèques ou cartes cadeau fournis simultanément avec l'offre du lot 2.",
         "elements_attendus": [
-          "Qualité du support (papier, carte plastique)",
-          "Lisibilité des informations imprimées",
-          "Durabilité et résistance des titres",
-          "Esthétique générale"
+          "Qualité visuelle et matérielle des échantillons",
+          "Lisibilité et clarté des informations portées",
+          "Solidité et durabilité du support",
+          "Respect des spécifications demandées"
         ],
-        "exemple_reponse_forte": "Le candidat remet des échantillons de chèques sur papier sécurisé et des cartes cadeau plastifiées avec hologramme anti-fraude, démontrant une qualité d'impression et une robustesse adaptées à un usage en action sociale.",
-        "source": "RC art. 4.2",
+        "exemple_reponse_forte": "Les échantillons fournis présentent un grammage supérieur (350g/m²), un plastification anti-contrefaçon, et une impression couleur haute définition avec code-barres sécurisé visible. La carte cadeau est au format CB avec puce NFC pour facilitation des paiements.",
+        "source": "RC art 4.2 — Lot 2",
+        "unite_evaluation": "points",
         "sous_criteres": []
       },
       {
-        "libelle": "La relation client / Interlocuteur dédié et de proximité (Lot 2)",
+        "libelle": "La relation client / Interlocuteur dédié et de proximité",
         "ponderation_pct": 5,
-        "description": "Pour le lot 2, l'acheteur évalue la qualité de la relation client et la proximité géographique ou fonctionnelle de l'interlocuteur dédié.",
+        "description": "Évaluation de la qualité du suivi client et de la disponibilité d'un interlocuteur dédié et de proximité pour le lot 2.",
         "elements_attendus": [
-          "Désignation d'un interlocuteur dédié avec coordonnées directes",
-          "Dimension de proximité (présence régionale, réactivité locale)",
-          "Disponibilité et modalités de contact"
+          "Interlocuteur dédié identifié nominativement",
+          "Notion de proximité géographique ou de disponibilité renforcée",
+          "Coordonnées directes et délais de réponse",
+          "Procédure de gestion des réclamations"
         ],
-        "exemple_reponse_forte": "Le candidat désigne un responsable de compte basé en région Hauts-de-France, disponible du lundi au vendredi avec un numéro direct, et propose des visites sur site si nécessaire pour le suivi des commandes.",
-        "source": "RC art. 4.2",
+        "exemple_reponse_forte": "Un chargé de compte unique, basé en région Nord, est attitré au CCAS de Calais avec engagement de visite sur site semestrielle et réponse garantie sous 2h ouvrées. Une hotline dédiée est disponible en période de livraison des chèques de fin d'année.",
+        "source": "RC art 4.2 — Lot 2",
+        "unite_evaluation": "points",
         "sous_criteres": []
       }
     ],
     "prix": {
-      "type_formule": "autre",
-      "formule_explicite": "Le RC indique une pondération de 40% pour le prix mais ne détaille pas la formule exacte de notation. Le critère prix représente 40% de la note finale pour les deux lots.",
+      "type_formule": "moins_disant",
+      "formule_explicite": "Le prix représente 40% de la note finale pour les deux lots. La formule exacte n'est pas précisée dans le RC ; il s'agit vraisemblablement d'une note proportionnelle au prix le plus bas.",
+      "source": "RC art 4.2",
       "elements_a_chiffrer": [
-        "Commission ou frais de gestion par chèque/ticket émis",
-        "Prix de la prestation par lot (lot 1 : chèques CAP ; lot 2 : chèques/cartes cadeau)",
-        "Éventuels frais de livraison",
-        "Éventuels frais de personnalisation (lot 2)"
+        "Commission ou frais de service par chèque/carnet (lot 1)",
+        "Prix unitaire par chèque cadeau ou carte cadeau (lot 2)",
+        "Frais de livraison par bon de commande",
+        "Frais de personnalisation (lot 2)",
+        "Frais de gestion des retours/remboursements"
       ]
     },
-    "modalite_calcul_prix": "Pondération prix : 40% pour les deux lots. Formule exacte non précisée dans le RC."
+    "modalite_calcul_prix": "Prix de la prestation = 40% pour les deux lots. Formule non précisée explicitement dans le RC."
   },
   "montant_marche": {
-    "valeur_estimee_euros": null,
+    "valeur_estimee_euros": 513100,
     "fourchette_min_euros": null,
     "fourchette_max_euros": null,
-    "type": "non_communique",
-    "duree_couverte": null,
-    "source_extraction": null,
-    "commentaire": "Aucun montant estimé ni plafond n'est mentionné dans le RC. À titre indicatif : Lot 1 = 9 300 tickets × 5€ valeur faciale = 46 500€/an en valeur faciale émise, mais le coût réel pour l'acheteur dépend des commissions/frais du prestataire, non précisés. Lot 2 = 16 200 × 5€ ou 2 700 × 30€ = 81 000€ ou 81 000€/an en valeur faciale."
+    "type": "estime_explicite",
+    "duree_couverte": "4 ans (durée totale de l'accord-cadre)",
+    "source_extraction": "Contexte BOAMP — montants estimés par lot : Lot 1 = 193 800 € ; Lot 2 = 319 300 €",
+    "commentaire": "Montant total estimé = 193 800 € (lot 1) + 319 300 € (lot 2) = 513 100 € sur 4 ans, soit environ 128 275 €/an. Les montants sont des maxima de l'accord-cadre à bons de commande."
+  },
+  "montant_3_voies": {
+    "voie_1_eur": 513100,
+    "voie_1_source": "Contexte BOAMP : Lot 1 = 193 800 € + Lot 2 = 319 300 € sur 4 ans",
+    "voie_2_disponible": false,
+    "voie_2_min_eur": null,
+    "voie_2_max_eur": null,
+    "voie_2_hypotheses": [],
+    "voie_2_raison_indisponible": "Voie 1 disponible : montants estimés publiés dans l'avis BOAMP pour chaque lot."
+  },
+  "cout_realisation": {
+    "cout_total_eur": null,
+    "cout_min_eur": null,
+    "cout_max_eur": null,
+    "postes": [
+      {
+        "poste": "Lot 1 — Fabrication et impression des chèques CAP (9 300 tickets/an × 4 ans = 37 200 tickets)",
+        "detail": "Coût de production d'un chèque papier sécurisé : environ 0,15 à 0,25 €/unité selon volume et personnalisation",
+        "montant_eur": null
+      },
+      {
+        "poste": "Lot 2 — Fabrication des chèques cadeau / cartes cadeau",
+        "detail": "16 200 chèques/an + 2 700 cartes/an × 4 ans ; coût de production : 0,20 à 0,40 €/unité selon format (papier vs carte)",
+        "montant_eur": null
+      },
+      {
+        "poste": "Frais de gestion de réseau d'enseignes affiliées",
+        "detail": "Maintenance du réseau, conventions enseignes, support affiliés",
+        "montant_eur": null
+      },
+      {
+        "poste": "Logistique et livraison",
+        "detail": "Conditionnement, expédition par bon de commande sur 4 ans",
+        "montant_eur": null
+      },
+      {
+        "poste": "Gestion des retours et remboursements",
+        "detail": "Traitement des chèques non utilisés ou périmés",
+        "montant_eur": null
+      }
+    ],
+    "taux_journaliers_retenus": "Non applicable — marché de fourniture de titres spéciaux. Le coût de réalisation est principalement constitué du coût de production des titres (impression sécurisée, personnalisation, logistique) et non de jours-homme. Les ratios marché pour ce type de prestation (éditeurs de chèques services) ne sont pas standardisés publiquement.",
+    "commentaire": "Le coût de réalisation n'est pas chiffrable de façon fiable sans connaître la structure de coût interne des éditeurs de chèques (Edenred, Sodexo, Cadhoc, etc.). La marge commerciale sur ces produits est généralement constituée des commissions sur transactions (réseau d'enseignes) et non d'un coût de revient classique. Les montants estimés BOAMP constituent le plafond de revenu."
   },
   "revision_prix": {
     "type": "non_communique",
@@ -190,108 +257,239 @@
     "periodicite": null,
     "formule_revision": null,
     "source_extraction": null,
-    "commentaire": "Aucune clause de révision des prix mentionnée dans les pièces du DCE fournies (RC uniquement). Le CCP/CCAP n'a pas été mis à disposition dans les extraits analysés."
+    "commentaire": "Le CCP (Cahier des Clauses Particulières) n'est pas fourni dans les pièces analysées ; la révision des prix n'est donc pas renseignée. À vérifier dans le CCP joint au DCE."
   },
   "alertes_prix": [
-    "Pondération prix de 40% : relativement élevée mais standard pour ce type de fourniture ; la compétitivité tarifaire est déterminante.",
-    "La valeur faciale des titres est fixée (5€ et 30€) : la concurrence se joue sur les frais/commissions du prestataire, poste à optimiser soigneusement.",
-    "Risque d'offre anormalement basse : le RC prévoit explicitement la procédure OAB (art. 4.2), il convient de ne pas sous-évaluer les frais de gestion.",
-    "Volume indicatif non contractuel : les quantités annoncées (9 300 et 16 200 unités) sont données à titre indicatif ; l'accord-cadre à bons de commande peut varier sensiblement."
+    "Pondération prix de 40% : assez élevée, ce qui signifie qu'un écart de tarif entre candidats aura un fort impact sur le classement final.",
+    "Marché à bons de commande sans minimum garanti : le montant maximum (193 800 € lot 1 / 319 300 € lot 2) est un plafond indicatif ; le volume réel dépend des besoins du CCAS, sans plancher contractuel annoncé.",
+    "La valeur faciale des titres (5€ ou 30€) est fixée par le CCAS : le seul levier prix pour le candidat est la commission de service/gestion, ce qui réduit les marges de manœuvre concurrentielles sur ce critère.",
+    "Offre anormalement basse : le RC prévoit la procédure OAB ; sur un marché de titres, une commission trop faible peut être questionnée."
   ],
   "references_exigees": {
     "experience_minimale_annees": null,
     "experience_source": null,
     "volume_min_references_similaires": null,
     "volume_min_references_unite": null,
-    "secteur_experience": "Fourniture de chèques d'accompagnement personnalisé et/ou chèques/cartes cadeau multi-enseignes",
-    "secteur_source": "RC art. 4.1",
+    "secteur_experience": "Fourniture de chèques d'accompagnement personnalisé et/ou chèques/cartes cadeau multi-enseignes pour collectivités ou organismes d'action sociale",
+    "secteur_source": "RC art 4.1",
     "certifications_obligatoires": [],
     "autres_exigences": [
       {
-        "libelle": "Déclaration du chiffre d'affaires global et chiffre d'affaires concernant les fournitures/services objet du marché sur les 3 derniers exercices disponibles",
-        "source": "RC art. 3.1"
-      },
-      {
-        "libelle": "Attestation d'assurance en cours de validité",
-        "source": "RC art. 3.1"
+        "libelle": "Déclaration du chiffre d'affaires global et du chiffre d'affaires relatif aux fournitures/services objet du marché sur les 3 derniers exercices",
+        "source": "RC art 3.1"
       },
       {
         "libelle": "Déclaration des effectifs moyens annuels et du personnel d'encadrement sur les 3 dernières années",
-        "source": "RC art. 3.1"
+        "source": "RC art 3.1"
+      },
+      {
+        "libelle": "Déclaration indiquant l'outillage, le matériel et l'équipement technique disponible pour marchés de même nature",
+        "source": "RC art 3.1"
+      },
+      {
+        "libelle": "Attestation d'assurance en cours de validité",
+        "source": "RC art 3.1"
+      },
+      {
+        "libelle": "Aucune sous-traitance acceptée pour l'exécution du marché",
+        "source": "RC art 1.3"
+      }
+    ]
+  },
+  "dossier_candidature": {
+    "pieces_a_fournir": [
+      {
+        "libelle": "Lettre de candidature et d'habilitation du mandataire (DC1) — en cas de groupement",
+        "phase": "candidature",
+        "obligatoire": false,
+        "source": "RC art 3.1"
+      },
+      {
+        "libelle": "Déclaration du candidat (DC2) dûment complétée, signée et revêtue du cachet",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC art 3.1"
+      },
+      {
+        "libelle": "Copie du ou des jugements prononcés si le candidat est en redressement judiciaire",
+        "phase": "candidature",
+        "obligatoire": false,
+        "source": "RC art 3.1"
+      },
+      {
+        "libelle": "Déclaration sur l'honneur attestant de l'absence de cas d'exclusion (art. L.2141-1 à L.2141-5 et L.2141-7 à L.2141-11 CCP), incluant les obligations relatives aux travailleurs handicapés",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC art 3.1"
+      },
+      {
+        "libelle": "Déclaration concernant le chiffre d'affaires global et le CA relatif aux fournitures/services objet du marché sur les 3 derniers exercices disponibles",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC art 3.1"
+      },
+      {
+        "libelle": "Déclaration indiquant les effectifs moyens annuels et l'importance du personnel d'encadrement pour chacune des 3 dernières années",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC art 3.1"
       },
       {
         "libelle": "Déclaration indiquant l'outillage, le matériel et l'équipement technique dont le candidat dispose pour la réalisation de marchés de même nature",
-        "source": "RC art. 3.1"
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC art 3.1"
+      },
+      {
+        "libelle": "Documents relatifs aux pouvoirs de la personne habilitée à engager l'entreprise",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC art 3.1"
+      },
+      {
+        "libelle": "Attestation d'assurance en cours de validité",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC art 3.1"
+      },
+      {
+        "libelle": "Acte d'engagement (AE) complété intégralement, daté et signé par le représentant qualifié de la société",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC art 3.1"
+      },
+      {
+        "libelle": "Cahier des Clauses Particulières (CCP) : accepté sans modification, daté, paraphé à chaque page et signé",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC art 3.1"
+      },
+      {
+        "libelle": "Mémoire technique décrivant : liste des enseignes affiliées sur Calais, moyens d'acheminement des commandes, processus de retour des chèques, délais de livraison, modalités d'échange et de remboursement, échantillons",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC art 3.1"
+      },
+      {
+        "libelle": "Échantillons fournis simultanément avec l'offre (avec bordereau de livraison)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC art 3.2"
+      },
+      {
+        "libelle": "Attestations et certificats fiscaux et sociaux (NOTI2 — état annuel des certificats fiscaux et sociaux) — au stade de l'attribution",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC art 3.1"
+      },
+      {
+        "libelle": "Extrait Kbis (pièces prévues aux articles D.8222-5 ou D.8222-7 et D.8222-8 du code du travail) — au stade de l'attribution",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC art 3.1"
       }
-    ]
+    ],
+    "mode_remise": "dématérialisé + copie de sauvegarde",
+    "plateforme_depot": "e-marchespublics — www.e-marchespublics.com",
+    "signature_electronique_exigee": false,
+    "format_signature": "XADES, CADES, PADES — certificat RGS** minimum si signature électronique utilisée",
+    "nombre_exemplaires": null,
+    "langue": "français",
+    "duree_validite_offres_jours": 120,
+    "modalites_source": "RC art 3.3 et 3.5"
   },
   "lots": [
     {
       "numero": 1,
       "intitule": "Fourniture de Chèques Accompagnement Personnalisé attribués aux bénéficiaires calaisiens de l'action sociale",
+      "domaine": "prestations_speciales_titres_cheques",
       "zone_geographique": "Calais (62)",
-      "volume_estime": 9300,
-      "volume_estime_unite": "tickets/an (valeur faciale 5€ unitaire)",
-      "particularites": "Chèques déclinés en 3 catégories d'usage : Hygiène alimentation (hors boissons alcoolisées), Énergie, Habillement. Accord-cadre mono-attributaire à bons de commande. Aucune sous-traitance autorisée."
+      "volume_estime": 37200,
+      "volume_estime_unite": "tickets (sur 4 ans, soit ~9 300/an)",
+      "cout_estime_min_eur": null,
+      "cout_estime_max_eur": null,
+      "particularites": "Chèques déclinés en 3 catégories : Hygiène alimentation (hors boissons alcoolisées), Énergie, Habillement. Valeur faciale de 5€ par ticket. Maximum de l'accord-cadre : 193 800 €. Accord-cadre mono-attributaire à bons de commande."
     },
     {
       "numero": 2,
-      "intitule": "Fourniture de Chèques ou de Cartes cadeau multi enseignes offerts dans le cadre des festivités de fin d'année ou des actions de solidarité aux bénéficiaires calaisiens de l'action sociale",
+      "intitule": "Fourniture de Chèques ou de cartes cadeau multi enseignes",
+      "domaine": "prestations_speciales_titres_cheques",
       "zone_geographique": "Calais (62)",
       "volume_estime": null,
-      "volume_estime_unite": "chèques cadeau à 5€ ou cartes cadeau à 30€ par an",
-      "particularites": "Environ 16 200 chèques cadeau à 5€ ou 2 700 cartes cadeau à 30€ par an. Personnalisation obligatoire avec mention 'Offert par – Nom et Titres du représentant légal du CCAS de CALAIS'. Accord-cadre mono-attributaire à bons de commande. Aucune sous-traitance autorisée."
+      "volume_estime_unite": "chèques cadeau ou cartes cadeau (unités)",
+      "cout_estime_min_eur": null,
+      "cout_estime_max_eur": null,
+      "particularites": "Environ 16 200 chèques cadeau/an de 5€ ou 2 700 cartes cadeau de 30€/an. Attribués dans le cadre des festivités de fin d'année et actions de solidarité. Personnalisation obligatoire avec mention du représentant légal du CCAS. Maximum de l'accord-cadre : 319 300 €. Accord-cadre mono-attributaire à bons de commande."
     }
   ],
+  "tranches": [],
   "calendrier": {
     "date_limite_offres": "2026-07-13",
     "date_demarrage_prevue": null,
-    "duree_marche": "Non précisée dans le RC"
+    "duree_marche": "4 ans (accord-cadre à bons de commande)"
   },
   "alertes_candidat": [
-    "Le mémoire technique est OBLIGATOIRE : son absence entraîne le rejet automatique de l'offre (RC art. 3.1).",
-    "Les échantillons doivent impérativement être remis simultanément au dépôt de l'offre, sous peine de nullité de l'offre ; un bordereau de livraison doit les accompagner (RC art. 3.2).",
-    "Aucune sous-traitance n'est acceptée pour l'exécution de ce marché (RC art. 1.3) : le candidat doit pouvoir assurer 100% de la prestation en propre.",
-    "Le délai de livraison indiqué dans l'acte d'engagement doit être strictement inférieur à 5 jours ouvrés : tout délai ≥ 5 jours donne automatiquement 0% sur ce sous-critère (RC art. 4.2).",
-    "La signature électronique n'est pas exigée mais les pièces doivent être datées et signées ; les offres incomplètes sont immédiatement écartées (RC art. 3.4)."
+    "Échantillons obligatoires sous peine de nullité de l'offre : ils doivent être fournis SIMULTANÉMENT au dépôt de l'offre, avec un bordereau de livraison. Leur absence entraîne le rejet immédiat de l'offre.",
+    "Mémoire technique indispensable : son absence entraîne le rejet de l'offre comme incomplète (RC art 3.1). Il doit couvrir tous les éléments listés (réseau enseignes, processus, délais, modalités de retour).",
+    "Aucune sous-traitance acceptée : le candidat doit assurer lui-même l'intégralité de la prestation. Condition éliminatoire pour tout groupement ou structure souhaitant sous-traiter.",
+    "Délai de livraison contractuel maximal de 5 jours : tout délai supérieur ou égal à 5 jours dans l'acte d'engagement entraîne la note de 0% sur le sous-critère délai (15% du total pour lot 1). L'engagement sur le délai se fait dans l'AE et est contractuel.",
+    "Signature électronique non exigée au dépôt, mais les pièces doivent être signées (signature manuscrite scannée sans valeur légale) : vérifier que les pièces importantes sont signées selon les règles de la plateforme e-marchespublics."
   ],
   "points_differenciants_attendus": [
     {
-      "libelle": "Densité et pertinence du réseau d'enseignes affiliées à Calais, notamment habillement (Lot 1)",
-      "exemple": "Un candidat listant 60+ enseignes calaisiennnes dont au moins 5 enseignes habillement (Kiabi, Vêti, La Halle…) avec une cartographie par quartier se démarquera nettement sur le sous-critère à 20%.",
-      "source": "RC art. 4.2"
+      "libelle": "Étendue et qualité du réseau d'enseignes affiliées à Calais (lot 1 : 20% ; lot 2 : 25%)",
+      "exemple": "Un candidat listant 60+ enseignes callaisiennes pour le lot 1 (avec notamment plusieurs enseignes habillement comme Kiabi, La Halle, etc.) et 90+ commerces de proximité pour le lot 2, présenté sous forme de tableau détaillé par quartier et catégorie, se distinguera nettement de ceux présentant une liste générique régionale.",
+      "source": "RC art 4.2 — critères techniques Lot 1 et Lot 2"
     },
     {
-      "libelle": "Densité du réseau de commerces de proximité sur Calais (Lot 2)",
-      "exemple": "Le candidat capable de justifier un maillage de commerces de quartier (épiceries, tabacs-presse, pharmacies) en plus des grandes enseignes obtiendra un avantage décisif sur le sous-critère à 25%.",
-      "source": "RC art. 4.2"
+      "libelle": "Délai de livraison le plus court possible (inférieur à 5 jours, noté proportionnellement au meilleur délai)",
+      "exemple": "Un candidat capable de s'engager sur un délai de 2 jours ouvrés grâce à une organisation logistique dédiée (stock prépersonalisé, transporteur express) obtiendra la note maximale sur ce sous-critère et distancera significativement ses concurrents.",
+      "source": "RC art 4.2 — critère délai Lot 1 (15%) et Lot 2 (inclus dans acheminement 10%)"
     },
     {
-      "libelle": "Délai de livraison le plus court possible (< 5 jours, idéalement 1-2 jours)",
-      "exemple": "Un engagement sur 2 jours ouvrés avec processus de commande dématérialisé et suivi en temps réel permettra de scorer proportionnellement plus haut que les concurrents s'engageant à 3 ou 4 jours.",
-      "source": "RC art. 4.2"
+      "libelle": "Qualité et niveau de personnalisation des chèques/cartes cadeau (lot 2 : 15%)",
+      "exemple": "Fournir des maquettes de chèques personnalisés avec la mention exacte requise ('Offert par [Nom et Titres du représentant légal du CCAS de CALAIS]'), intégrée dans un design soigné avec éléments de sécurité anti-contrefaçon, démontrera la capacité technique et la réactivité du candidat.",
+      "source": "RC art 4.2 — Lot 2 : personnalisation 15%"
     },
     {
-      "libelle": "Qualité et robustesse du processus de retour/remboursement des chèques non utilisés ou périmés",
-      "exemple": "Proposer une procédure claire de rachat des chèques périmés avec un délai de remboursement garanti et un interlocuteur dédié rassure l'acheteur sur la gestion financière post-distribution.",
-      "source": "RC art. 4.2"
+      "libelle": "Interlocuteur dédié et de proximité clairement identifié",
+      "exemple": "Nommer un chargé de compte dédié au CCAS de Calais (avec CV, coordonnées directes et engagement SLA de réponse sous 4h), basé en région Nord pour la notion de 'proximité', renforcera la crédibilité de la relation client sur ce critère noté à 10% (lot 1) et 5% (lot 2).",
+      "source": "RC art 4.2 — critère relation client Lot 1 et Lot 2"
     },
     {
-      "libelle": "Interlocuteur dédié avec forte proximité et réactivité",
-      "exemple": "Désigner un référent basé en région Hauts-de-France, joignable directement (pas de plateau téléphonique), avec engagement de temps de réponse garanti (ex. : 2h), maximise le score sur les sous-critères 'relation client' des deux lots.",
-      "source": "RC art. 4.2"
+      "libelle": "Processus transparent et sécurisé de retour et remboursement des chèques non utilisés",
+      "exemple": "Décrire précisément la procédure de retour (formulaire, adresse d'envoi, délai d'avoir, conditions), avec engagement contractuel sur les délais de remboursement et un exemple de procédure appliquée chez d'autres collectivités clientes, répond directement aux attentes du sous-critère dédié (15% lot 1).",
+      "source": "RC art 4.2 — Lot 1 : processus retour chèques 15%"
     }
   ],
   "_meta": {
     "id_marche": "BOAMP-26-56729",
     "type": "complet",
-    "extraction_le": "2026-06-12T12:52:46.971201+00:00",
+    "date_generation": "2026-06-19T22:28:40.209918+00:00",
+    "extraction_le": "2026-06-19T22:28:40.209918+00:00",
     "modele": "claude-sonnet-4-6",
-    "tokens_input": 19038,
-    "tokens_output": 6167,
-    "cout_eur": 0.1421,
-    "duree_sec": 102.9,
+    "preset_utilise": "formation",
+    "presets_matches": [
+      "formation"
+    ],
+    "prompts_versions": {
+      "formation/_preset.json": "sha256:ef591556b4b95673"
+    },
+    "tokens_input": 28199,
+    "tokens_output": 9242,
+    "cout_eur": 0.2121,
+    "duree_sec": 157.1,
     "pdfs_traites": [
+      {
+        "nom": "Comment repondre par voie dematerialisee sur cette plate-forme.pdf",
+        "hash": "59740cfb43dcc36ff7d4ad8d02257cac",
+        "taille_chars": 9117
+      },
+      {
+        "nom": "How to Submit Your Bid on the Platform.pdf",
+        "hash": "4bb904ae79b2a65b44f5dd27e5318199",
+        "taille_chars": 8554
+      },
       {
         "nom": "Règlement de consultation.pdf",
         "hash": "d6c3e9fb1639883ef9e45df6c0eabb84",

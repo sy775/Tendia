@@ -1,0 +1,450 @@
+{
+  "id_marche": "BOAMP-26-56097",
+  "numero_lot": 1,
+  "intitule_lot": "Infogérance de proximité",
+  "domaine_lot": "it_maintenance_support",
+  "version_prompt": "v1",
+  "genere_le": "2026-06-21T14:04:32.221865+00:00",
+  "digest": {
+    "synthese_lot": "Le Lot 1 'Infogérance de proximité' constitue la couche service desk et support utilisateur du marché d'infogérance informatique de France Terre d'Asile (FTDA), association loi 1901 reconnue d'utilité publique gérant 128 établissements répartis sur 10 régions françaises avec environ 1 960 ETP. Ce lot couvre le Service Desk N1/N2 (~1 800 tickets/an estimés), la gestion complète du cycle de vie d'un parc de ~1 500 PC, le support Microsoft 365, l'administration fonctionnelle AD/Entra ID, et impose une présence physique mensuelle obligatoire sur 3 sites franciliens. L'enjeu central pour le candidat est de démontrer sa capacité à garantir une équité de traitement entre le siège parisien et 128 établissements nationaux, tout en assurant la continuité de service sur un environnement hybride Microsoft 365 en migration active (45 sites SharePoint déployés sur 134 à atteindre). Le marché est conclu pour 1 an ferme + 3 reconductions annuelles tacites (durée maximale 4 ans), avec une enveloppe estimative de 421 875 à 515 625 EUR pour ce lot.",
+    "objet_et_perimetre": "Le Lot 1 porte sur l'ensemble des prestations de support de proximité des utilisateurs de FTDA. Le périmètre est défini à l'article 3 du CCTP et couvre : (1) Le Service Desk / Helpdesk : point d'entrée unique (numéro non surtaxé, portail web SSO Entra ID, email, intégration Teams optionnelle recommandée) pour qualification, enregistrement et traitement des tickets incidents et demandes, avec escalade vers N2 ou Lot 2 selon nature. (2) Le support N1 (incidents courants, réinitialisation mots de passe, déblocage comptes, bureautique) et N2 (expertise technique avancée, diagnostic système, problème applicatif non documenté, configuration réseau utilisateur). Le N3 relève du Lot 2 ou de l'éditeur. (3) La gestion du parc de postes de travail : ~1 500 PC fixes et portables Windows (10 et 11), maintenance corrective et préventive, déploiement selon image standard FTDA, gestion pièces de rechange, postes de prêt, décommissionnement sécurisé avec effacement certifié. (4) La gestion des périphériques utilisateurs (imprimantes, scanners, écrans, périphériques réseau). (5) L'administration fonctionnelle des comptes : création/modification/suppression comptes AD et Microsoft Entra ID, gestion groupes de sécurité et droits d'accès, réinitialisation mots de passe, attribution/révocation licences M365, gestion listes de diffusion et calendriers partagés (salles de réunion siège et établissements), cycle de vie des identités numériques (arrivées, mobilités, départs). (6) Le support Microsoft 365 utilisateurs : Teams, Outlook, Word, Excel, PowerPoint, SharePoint Online, OneDrive, synchronisation, partage de documents, bonnes pratiques collaboratives. (7) L'accompagnement de la migration SharePoint Online de 45 vers 134 sites (reprise partages, permissions, bibliothèques, formation utilisateurs). Périmètre géographique : 128 établissements répartis sur 10 régions françaises (Île-de-France, Grand Est, Auvergne-Rhône-Alpes, PACA, Occitanie, Nouvelle-Aquitaine, Hauts-de-France, Pays de la Loire, Bretagne, Centre-Val de Loire), avec 4 catégories de sites : Siège Paris (>200 utilisateurs), Grands établissements (~15 sites, >30 utilisateurs), Établissements standards (~50 sites, 10-30 utilisateurs), Petits sites (~60 sites, <10 utilisateurs). Durée : 12 mois ferme à compter du 18 juillet 2026 (date prévisionnelle de notification), reconduction tacite jusqu'à 3 fois par période de 12 mois, durée totale maximale 4 ans. Volume indicatif estimé : ~1 800 tickets/an, ~1 500 postes gérés, ~1 960 utilisateurs. Ces volumes sont indicatifs et non contractuels (CCTP §2.5).",
+    "exigences_techniques_detaillees": [
+      {
+        "categorie": "Service Desk — Plages horaires",
+        "exigence": "Le Service Desk doit être accessible : (a) Heures ouvrées standard L-V hors jours fériés 8h00-18h00 par téléphone, portail web, email et Teams, pour tous incidents et demandes ; (b) Astreinte téléphonique L-V 18h00-20h00 pour incidents P1 et P2 uniquement ; (c) Permanence téléphonique réduite le samedi 9h00-13h00 pour les foyers hébergeant des mineurs non accompagnés (P1 et P2, périmètre limité foyers mineurs) ; (d) Astreinte week-end et jours fériés sur activation explicite de FTDA pour incidents P1 uniquement. Le portail web reste accessible 24h/24 7j/7 pour enregistrement, mais le traitement reprend à la réouverture.",
+        "source_cctp": "CCTP §3.2.1",
+        "criticite": "obligatoire"
+      },
+      {
+        "categorie": "Service Desk — Canaux de contact",
+        "exigence": "Le titulaire met à disposition : (a) Un numéro de téléphone fixe unique non surtaxé dédié exclusivement à FTDA, avec décroché moyen ≤ 2 minutes sur heures ouvrées, techniciens francophones, message d'accueil personnalisé FTDA ; (b) Un portail web accessible 24h/24 via navigateur standard sans plugin, avec SSO Microsoft Entra ID, responsive (PC/tablette/smartphone), disponibilité ≥ 99,5% mensuel, permettant création tickets, suivi, accès base de connaissances, téléchargement pièces jointes ; (c) Une adresse email dédiée générant automatiquement un ticket ITSM avec accusé de réception incluant le numéro de ticket ; (d) Intégration Microsoft Teams (optionnelle mais recommandée) via bot ou canal dédié pour ouverture de tickets depuis l'espace de travail FTDA.",
+        "source_cctp": "CCTP §3.2.2 ; Annexe D §T1.3",
+        "criticite": "obligatoire"
+      },
+      {
+        "categorie": "Service Desk — Qualification et catégorisation des incidents",
+        "exigence": "Tout incident est qualifié selon 4 niveaux : P1 Critique (service totalement indisponible, affectant l'ensemble des utilisateurs ou service critique — les incidents de sécurité sont automatiquement P1 quelle que soit l'ampleur initiale) ; P2 Majeur (service dégradé affectant un groupe d'utilisateurs, solutions de contournement possibles) ; P3 Standard (incident individuel sans impact opérationnel immédiat) ; P4 Demande (demande planifiable sans urgence). La catégorisation fonctionnelle complémentaire couvre : matériel, système d'exploitation, logiciel, messagerie/collaboration, réseau/connectivité, comptes/droits, sécurité, demande de service. En cas de désaccord sur la criticité, FTDA fixe le niveau définitif.",
+        "source_cctp": "CCTP §3.2.3",
+        "criticite": "obligatoire"
+      },
+      {
+        "categorie": "SLA — Engagements GTI/GTR",
+        "exigence": "Les engagements SLA contractuels par niveau de criticité sont : P1 GTI 30 min (heures ouvrées) / 1 heure (astreinte 18h-20h), GTR 4 heures ouvrées (8 heures en astreinte), disponibilité cible 99% ; P2 GTI 2 heures ouvrées, GTR 8 heures ouvrées, disponibilité cible 99% ; P3 GTI 4 heures ouvrées, GTR 3 jours ouvrés, disponibilité cible 98% ; P4 GTI 1 jour ouvré, GTR 5 jours ouvrés, disponibilité cible 98%. Pour les P4 signalés au moins 5 jours ouvrés à l'avance (arrivée planifiée), le traitement doit être réalisé avant la date d'arrivée effective. Les délais sont suspendus en cas d'attente utilisateur, d'attente tiers hors périmètre ou d'attente décision/approvisionnement FTDA, chaque suspension devant être documentée dans le ticket.",
+        "source_cctp": "CCTP §3.3.3 ; Annexe D §T1.4",
+        "criticite": "obligatoire"
+      },
+      {
+        "categorie": "SLA — Reporting mensuel",
+        "exigence": "Le respect des SLA est mesuré mensuellement depuis l'outil ITSM. Le tableau de bord mensuel doit présenter : taux de respect GTI par niveau de criticité, taux de respect GTR par niveau de criticité, temps moyen de résolution par criticité, nombre de dépassements GTI/GTR avec analyse des causes. En cas de non-respect des objectifs de disponibilité, le titulaire fournit une analyse détaillée des causes et un plan d'action correctif. Le compte-rendu mensuel du COPIL est rédigé par le titulaire sous 5 jours ouvrés.",
+        "source_cctp": "CCTP §3.3.4 ; §5.3.1",
+        "criticite": "obligatoire"
+      },
+      {
+        "categorie": "Pénalités SLA",
+        "exigence": "Les pénalités s'appliquent de plein droit sans mise en demeure préalable. Plafonds par type de manquement : non-respect GTI 5% du forfait mensuel, non-respect GTR 5% du forfait mensuel, indisponibilité des services 5% du forfait mensuel, retard de production des rapports 2% du forfait mensuel, absence aux comités sans motif valable 1% du forfait mensuel, non-respect procédures de sécurité 5% du forfait mensuel. Plafond global 10% du montant mensuel du Lot 1. Non-remise rapport d'intervention : 50 € HT/jour de retard à compter de J+7 après l'intervention. En cas de dépassement récurrent (3 mois consécutifs ou 4 mois sur 6), FTDA peut résilier pour faute.",
+        "source_cctp": "CCTP §3.3.5 ; §5.5 ; CCAP §13",
+        "criticite": "obligatoire"
+      },
+      {
+        "categorie": "Gestion du parc — Maintenance corrective",
+        "exigence": "La télémaintenance (TeamViewer, AnyDesk ou équivalent sécurisé) doit être systématiquement tentée en priorité avec accord explicite de l'utilisateur. Si insuffisante, intervention sur site dans les délais différenciés suivants : Siège Paris et sites IDF : 24 heures ouvrées (GTR matérielle 48h ouvrées) ; Grands établissements régionaux >30 utilisateurs : 48 heures ouvrées (GTR 72h ouvrées) ; Sites régionaux standards et petits sites : 72 heures ouvrées (GTR 5 jours ouvrés). En cas d'incident P1 affectant plusieurs utilisateurs d'un site, le délai peut être raccourci sur demande de FTDA. À l'issue de chaque intervention sur site, un rapport d'intervention est rédigé (description panne, actions, pièces remplacées avec références/numéros de série, durée, validation utilisateur) et archivé dans l'ITSM.",
+        "source_cctp": "CCTP §3.4.1 ; Annexe D §T1.5",
+        "criticite": "obligatoire"
+      },
+      {
+        "categorie": "Gestion du parc — Pièces de rechange et postes de prêt",
+        "exigence": "Le titulaire constitue et maintient un stock de pièces de rechange courantes (disques durs, barrettes mémoire, claviers, souris, chargeurs, batteries) permettant de traiter rapidement les pannes sans délai d'approvisionnement. Pour les pièces non disponibles en stock : délai d'approvisionnement inférieur à 5 jours ouvrés. En cas de panne nécessitant une immobilisation du poste supérieure à 48 heures, le titulaire met à disposition un poste de prêt configuré selon l'image standard FTDA (applications de base), récupéré dès réparation/remplacement du poste principal.",
+        "source_cctp": "CCTP §3.4.1",
+        "criticite": "obligatoire"
+      },
+      {
+        "categorie": "Gestion du parc — Maintenance préventive",
+        "exigence": "Au minimum une campagne de maintenance préventive par trimestre sur l'ensemble du parc, comprenant : (1) Vérification état matériel (poussière, ventilation, connectique, batteries PC portables, périphériques) ; (2) Vérification état logiciel (mises à jour sécurité Windows et applications, antivirus/EDR, espace disque, absence logiciels malveillants/non autorisés) ; (3) Optimisation (fichiers temporaires, cache, logs, défragmentation HDD si pertinent, programmes démarrage) ; (4) Application correctifs de sécurité critiques sous 15 jours après publication, importants sous 30 jours. Les campagnes sont planifiées en concertation avec FTDA, avec information des utilisateurs au moins 48 heures à l'avance si redémarrage nécessaire. Priorité aux interventions hors heures ouvrées ou en mode 'maintenance silencieuse'.",
+        "source_cctp": "CCTP §3.4.2",
+        "criticite": "obligatoire"
+      },
+      {
+        "categorie": "Gestion du parc — Décommissionnement sécurisé",
+        "exigence": "Les postes en fin de vie font l'objet d'un décommissionnement sécurisé avec effacement certifié des données et délivrance d'un certificat de destruction.",
+        "source_cctp": "CCTP §3.1.1 ; Annexe D §T1.5",
+        "criticite": "obligatoire"
+      },
+      {
+        "categorie": "Présence physique mensuelle obligatoire",
+        "exigence": "Pour assurer le suivi opérationnel des tickets et la proximité utilisateur, le titulaire du Lot 1 organise une présence physique d'au moins 1 journée par mois sur chacun des trois sites franciliens majeurs : Siège Paris, Cinetika, Créteil. Cette présence est formalisée dans un planning trimestriel validé par FTDA. Cette obligation est qualifiée d'OBLIGATOIRE dans le CCTP (§1.5.3) et dans l'Annexe E (élément L1-T14 à vérifier en recette avec PV de présence signé).",
+        "source_cctp": "CCTP §1.5.3 ; Annexe D §T1.6 ; Annexe E §L1-T14",
+        "criticite": "obligatoire"
+      },
+      {
+        "categorie": "Couverture géographique nationale",
+        "exigence": "Le prestataire doit être en mesure d'intervenir sur site sur l'ensemble du territoire métropolitain dans les délais SLA contractuels. Les niveaux de service s'appliquent à l'ensemble des sites y compris les établissements régionaux éloignés du siège. L'équité de traitement entre siège et établissements régionaux est un enjeu explicite du marché.",
+        "source_cctp": "CCTP §1.3.2 ; §1.5.2 ; §1.5.3 ; Annexe D §T1.6",
+        "criticite": "obligatoire"
+      },
+      {
+        "categorie": "Support Microsoft 365 — couverture fonctionnelle",
+        "exigence": "Support complet sur l'ensemble des applications M365 : Teams, Outlook, Word, Excel, PowerPoint, SharePoint Online, OneDrive. Configuration et dépannage clients de messagerie (Outlook, applications mobiles). Support synchronisation, partage de documents, accès aux données. Accompagnement bonnes pratiques Teams et outils collaboratifs. Résolution incidents liés au stockage OneDrive et aux bibliothèques SharePoint.",
+        "source_cctp": "CCTP §3.1.1",
+        "criticite": "obligatoire"
+      },
+      {
+        "categorie": "Administration fonctionnelle AD / Entra ID",
+        "exigence": "Création, modification, suppression de comptes Active Directory et Microsoft Entra ID. Gestion des groupes de sécurité et attribution des droits d'accès. Réinitialisation des mots de passe. Attribution et révocation des licences Microsoft 365. Gestion des listes de diffusion (création, mise à jour membres, suppression) et des calendriers partagés, en particulier les calendriers de réservation des salles de réunion du siège et des établissements incluant le paramétrage des règles d'acceptation automatique et des quotas de réservation. Gestion du cycle de vie des identités numériques (arrivées, mobilités internes, départs).",
+        "source_cctp": "CCTP §3.1.1",
+        "criticite": "obligatoire"
+      },
+      {
+        "categorie": "Migration SharePoint — accompagnement",
+        "exigence": "FTDA a engagé une migration progressive des fichiers métier vers SharePoint Online. Au démarrage du marché, 45 sites sur 134 sont déjà déployés (~34%). L'objectif est d'atteindre 100% (134 sites) sur la durée du marché. Le titulaire du Lot 1 accompagne cette migration : reprise des partages de fichiers, permissions, bibliothèques, formation utilisateurs. Le plan d'accompagnement doit reprendre la trajectoire 45→134 sites.",
+        "source_cctp": "CCTP §1.4.4 ; Annexe D §T1.7 ; Annexe E §L1-T17",
+        "criticite": "obligatoire"
+      },
+      {
+        "categorie": "Outil ITSM — Exigences fonctionnelles",
+        "exigence": "L'outil ITSM (SaaS ou on-premise, au choix du titulaire sous réserve des exigences) doit obligatoirement inclure : gestion des tickets (incidents, demandes, changements, conforme ITIL v3/v4) ; portail utilisateur web sans plugin (Chrome, Edge, Firefox) ; application mobile iOS et Android ; intégration Microsoft Teams (notifications temps réel ouverture/mise à jour/clôture) ; historique complet sur toute la durée du marché ; exports CSV et Excel natifs ; authentification SSO via comptes Microsoft 365 / Entra ID ; gestion multi-tenant avec vues consolidées pour FTDA ; niveaux de criticité P1 à P4 ; SLA automatisés selon plages horaires contractuelles ; notifications emails automatiques utilisateurs ; base de connaissances accessible aux utilisateurs finaux ; tableaux de bord temps réel. Disponibilité portail ≥ 99,5% mensuel. Accès FTDA fourni sans surcoût (licences consultation illimitées). FTDA peut imposer un outil spécifique dans un délai de 2 mois.",
+        "source_cctp": "CCTP §5.1 ; §3.2.2 ; Annexe D §T1.8",
+        "criticite": "obligatoire"
+      },
+      {
+        "categorie": "Outil ITSM — Propriété et portabilité des données",
+        "exigence": "Toutes les données de ticketing (tickets, pièces jointes, historiques, commentaires, rapports) sont la propriété exclusive de FTDA et doivent être exportables à tout moment dans un format exploitable (CSV, Excel, ou dump de base de données documenté). Export complet réalisé à la demande de FTDA (délai maximum 5 jours ouvrés) et en fin de contrat (J-30 avant fin du marché). Les données comprennent tickets ouverts/en cours/clôturés/archivés, pièces jointes, commentaires, données de configuration, tableaux de bord et rapports personnalisés.",
+        "source_cctp": "CCTP §5.1.3",
+        "criticite": "obligatoire"
+      },
+      {
+        "categorie": "Catalogue de procédures opérationnelles",
+        "exigence": "Le titulaire élabore, maintient et publie un catalogue de procédures destinées aux référents informatiques des 128 établissements, couvrant à minima : onboarding d'un nouvel utilisateur (création compte, attribution licence M365, remise matériel, première connexion) ; départ d'un collaborateur (désactivation compte, récupération matériel, archivage boîte mail et OneDrive) ; remplacement d'un poste de travail (PC fixe/portable) ; remplacement d'une imprimante ou périphérique ; ouverture d'un site (déploiement pare-feu, switchs, bornes Wi-Fi, imprimante, postes) ; déménagement de site (transfert matériel, mise à jour CMDB, continuité accès) ; signalement d'un incident de sécurité (phishing, suspicion de compromission, perte matériel) ; demande de création/modification d'accès à une ressource partagée ; guide d'utilisation du portail de ticketing. Le catalogue est enrichi tout au long de l'année sur la base du top 20 des motifs récurrents transformés en procédure ou article de base de connaissances. La nouvelle version est validée par la DSI FTDA.",
+        "source_cctp": "CCTP §5.3.5 ; Annexe D §T1.9 ; Annexe E §L1-T18",
+        "criticite": "obligatoire"
+      },
+      {
+        "categorie": "Gouvernance contractuelle — COPIL mensuel",
+        "exigence": "COPIL mensuel (1ère semaine du mois suivant, 1h30 max) avec ordre du jour type comprenant : revue des indicateurs SLA, analyse des incidents majeurs P1/P2, suivi des plans d'action, planification des interventions préventives et projets, points d'attention utilisateurs, évolutions contractuelles. Livrables : compte-rendu rédigé par le titulaire sous 5 jours ouvrés, tableau de bord mensuel des indicateurs, plan d'action mis à jour. Présence physique au siège FTDA minimum 1 fois par trimestre. Interlocuteurs côté titulaire : Responsable de compte (obligatoire) et Chef de projet (obligatoire).",
+        "source_cctp": "CCTP §5.3.1",
+        "criticite": "obligatoire"
+      },
+      {
+        "categorie": "Gouvernance contractuelle — COPIL trimestriel et revue annuelle",
+        "exigence": "COPIL trimestriel (1ère quinzaine du trimestre suivant, 2h max, présentiel au siège FTDA obligatoire) avec rapport trimestriel détaillé (15 pages max) et bilan financier, transmis 3 jours ouvrés avant le comité. Revue annuelle (dans les 2 mois suivant la fin de l'année, 3h max, présentiel obligatoire) avec rapport annuel complet (30 pages max). Enquête de satisfaction annuelle (≤15 questions, taux de réponse minimum visé 40%), résultats présentés en COPIL trimestriel puis en revue annuelle avec plan d'action.",
+        "source_cctp": "CCTP §5.3.2 ; §5.3.3 ; Annexe D §T1.10",
+        "criticite": "obligatoire"
+      },
+      {
+        "categorie": "Interlocuteurs dédiés et continuité",
+        "exigence": "Le titulaire désigne : Responsable de compte (relation contractuelle, escalade, arbitrage, joignable heures ouvrées + email) ; Chef de projet / Responsable technique (suivi opérationnel, coordination interventions, participation comités, joignable heures ouvrées) ; Responsable facturation (email + téléphone heures ouvrées) ; Techniciens et ingénieurs N1/N2. Délai de réponse aux sollicitations : 2 heures maximum. Tout changement d'interlocuteur notifié par écrit à FTDA 1 mois à l'avance minimum, avec période de passation d'au moins 2 semaines. Numéro d'astreinte unique communiqué à FTDA à la notification, décroché astreinte ≤ 15 minutes.",
+        "source_cctp": "CCTP §5.2",
+        "criticite": "obligatoire"
+      },
+      {
+        "categorie": "Plan de transition — Obligations titulaire entrant",
+        "exigence": "Le titulaire entrant s'engage à : (1) Réaliser un audit complet de l'existant dans les 30 premiers jours de la notification (identification des écarts documentation/terrain, signalement à FTDA de tout point bloquant ou risque) ; (2) Rédiger un plan de transition détaillé sous 15 jours après l'audit (validé par FTDA avant mise en œuvre, avec jalons et critères de bascule) ; (3) Constituer l'équipe opérationnelle avant la date de bascule ; (4) Réaliser des tests de reprise en charge (ouverture/traitement d'un ticket ITSM, intervention à distance sur un poste utilisateur, connexion aux équipements et serveurs critiques, accès supervision et sauvegarde, accès CMDB et documentation). La bascule définitive intervient après validation conjointe FTDA/titulaire entrant/titulaire sortant. Phase de stabilisation d'1 mois post-bascule avec accompagnement renforcé.",
+        "source_cctp": "CCTP §5.6.4 ; §5.6.5 ; Annexe D §T1.2",
+        "criticite": "obligatoire"
+      },
+      {
+        "categorie": "Sécurité et confidentialité",
+        "exigence": "Tout intervenant du titulaire accédant aux systèmes FTDA fait l'objet d'une vérification d'antécédents (casier judiciaire, références professionnelles). Liste nominative des intervenants transmise à FTDA à la notification et mise à jour mensuellement. Tout nouvel intervenant notifié à FTDA 5 jours ouvrés avant sa première intervention. Tous les intervenants signent une clause de confidentialité couvrant toute la durée d'intervention et 3 ans après la fin de la mission (données personnelles des bénéficiaires FTDA, données internes, configurations techniques, incidents de sécurité). Formation annuelle de sensibilisation à la sécurité obligatoire. Le titulaire respecte la PSSI de FTDA.",
+        "source_cctp": "CCTP §6.1.3 ; §6.1.4 ; CCAP §6.1-2",
+        "criticite": "obligatoire"
+      },
+      {
+        "categorie": "Hébergement et localisation des données",
+        "exigence": "Toute donnée appartenant à FTDA ou traitée pour son compte (données ITSM, sauvegardes, logs, supervision, fichiers temporaires) doit être hébergée en France ou dans l'Union Européenne. Interdictions formelles : hébergement hors UE (notamment USA, Royaume-Uni post-Brexit, Asie), transfert vers pays tiers sans accord préalable écrit de FTDA, utilisation de services cloud soumis au Cloud Act américain sans garanties juridiques renforcées. Le titulaire fournit à la notification du marché un document détaillé de localisation des données (nom et adresse datacenter, pays, cadre juridique, type de données hébergées, certifications, mesures de sécurité). Non-conformité sur ce point constitue une cause d'irrégularité éliminatoire (Annexe D §8).",
+        "source_cctp": "CCTP §6.2 ; Annexe D §8",
+        "criticite": "obligatoire"
+      },
+      {
+        "categorie": "RGPD — Data Processing Agreement",
+        "exigence": "Un DPA RGPD doit être signé à la notification. L'absence de DPA constitue une cause d'irrégularité éliminatoire. Le titulaire agit en qualité de sous-traitant au sens du RGPD et doit notamment : traiter les données uniquement selon les instructions documentées de FTDA, notifier toute violation de données dans les meilleurs délais permettant à FTDA de répondre à ses obligations de notification (y compris délais RGPD), tenir un registre des catégories d'activités de traitement, ne procéder à aucun transfert de données personnelles hors UE sans accord préalable écrit de FTDA.",
+        "source_cctp": "CCAP §7 ; CCTP §6.2 ; Annexe D §8",
+        "criticite": "obligatoire"
+      },
+      {
+        "categorie": "Enregistrement et traçabilité tickets",
+        "exigence": "Tout incident ou demande, quel que soit le canal, fait l'objet d'un enregistrement ITSM avec les informations minimales suivantes : numéro unique auto-généré, date/heure de création, identité utilisateur (nom, prénom, service, site, coordonnées), canal de contact, niveau de criticité (P1-P4), catégorie fonctionnelle, description détaillée, actions réalisées, temps passé, état du ticket, date/heure de résolution. L'historique complet est conservé 3 ans minimum. Chaque action est horodatée et attribuée à un technicien identifié. L'utilisateur reçoit un numéro de ticket par email dès la création et est informé de tout changement d'état majeur.",
+        "source_cctp": "CCTP §3.2.4",
+        "criticite": "obligatoire"
+      },
+      {
+        "categorie": "Rapport d'intervention",
+        "exigence": "À l'issue de chaque intervention sur site, le titulaire remet un rapport d'intervention incluant : nature de l'intervention, date et heure, délai d'intervention, résolution apportée. Non-remise dans les 7 jours après l'intervention : pénalité forfaitaire de 50 € HT/jour de retard. Ce document est à remettre obligatoirement et archivé dans l'ITSM.",
+        "source_cctp": "CCAP §9.1 ; §13.4 ; CCTP §3.4.1",
+        "criticite": "obligatoire"
+      },
+      {
+        "categorie": "Démarche RSE",
+        "exigence": "Le jury évalue les engagements RSE du candidat : diversité et inclusion (mixité, handicap, insertion professionnelle), recours à des structures du secteur protégé / ESS / entreprises adaptées, empreinte environnementale du service (datacenters verts, écoconception), certifications RSE (ISO 26000, EcoVadis, B Corp ou équivalent), cohérence avec la mission associative de FTDA d'accompagnement des publics vulnérables. Sous-critère pondéré à 5% de la valeur technique.",
+        "source_cctp": "Annexe D §T1.R",
+        "criticite": "recommandée"
+      },
+      {
+        "categorie": "Interface Lot 1 / Lot 2",
+        "exigence": "Le titulaire du Lot 1 et le titulaire du Lot 2 doivent établir des procédures d'escalade claires pour les incidents à la frontière des deux lots ou nécessitant une intervention combinée. En cas de doute, le Lot 1 assure la qualification et l'escalade vers le Lot 2. Le Lot 1 reste responsable de l'information de l'utilisateur final jusqu'à résolution complète.",
+        "source_cctp": "CCTP §3.1.2",
+        "criticite": "obligatoire"
+      },
+      {
+        "categorie": "Intégration Microsoft Teams — ITSM",
+        "exigence": "Intégration native ou via connecteur entre l'outil ITSM et Microsoft Teams permettant : réception de notifications dans un canal Teams dédié au Service Desk, ouverture de tickets directement depuis Teams (via bot ou formulaire), mise à jour du statut des tickets en temps réel, consultation des tickets affectés à un utilisateur depuis Teams. Cette intégration doit être opérationnelle au plus tard à la fin de la phase de transition. Qualifiée d'optionnelle mais recommandée pour les canaux de contact (CCTP §3.2.2), mais explicitement attendue dans les éléments à démontrer (Annexe D §T1.3 et §T1.8).",
+        "source_cctp": "CCTP §5.1.4 ; §3.2.2 ; Annexe D §T1.3 ; §T1.8",
+        "criticite": "recommandée"
+      }
+    ],
+    "livrables_attendus_lot": [
+      "Rapport d'intervention après chaque intervention sur site (description panne/dysfonctionnement, actions réalisées, pièces remplacées avec références et numéros de série, durée, validation utilisateur) — à remettre sous J+7 après intervention",
+      "Tableau de bord mensuel des indicateurs SLA (taux de respect GTI/GTR par criticité, temps moyen de résolution, dépassements avec analyse des causes, plans d'action correctifs) — livré dans le cadre du COPIL mensuel",
+      "Compte-rendu du COPIL mensuel rédigé par le titulaire — sous 5 jours ouvrés après la réunion",
+      "Rapport trimestriel détaillé (15 pages maximum) incluant bilan de performance du trimestre, satisfaction utilisateurs, axes d'amélioration, évolutions contractuelles, budget et facturation, projets structurants — transmis 3 jours ouvrés avant le COPIL trimestriel",
+      "Rapport annuel complet (30 pages maximum) incluant bilan quantitatif et qualitatif, analyse des incidents majeurs, plan d'amélioration continue, propositions d'optimisation, bilan financier détaillé",
+      "Catalogue de procédures opérationnelles destinées aux référents des 128 établissements (première version livrée dès le démarrage, couvrant a minima les 9 thèmes listés au CCTP §5.3.5, enrichissement annuel basé sur top 20 motifs récurrents, validé par la DSI FTDA)",
+      "Plan de transition détaillé avec jalons et critères de bascule — sous 15 jours après la phase d'audit de 30 jours (CCTP §5.6.4)",
+      "Document de contacts dédiés (noms, fonctions, téléphones direct et mobile, emails, horaires, numéro d'astreinte et calendrier de rotation) — transmis à la notification du marché et mis à jour sous 5 jours ouvrés à chaque modification",
+      "Document détaillé de localisation des données (datacenters, pays, cadre juridique, types de données, certifications) — à fournir à la notification du marché",
+      "Liste nominative des intervenants avec justificatifs de vérification d'antécédents — transmise à la notification et mise à jour mensuellement",
+      "Export complet des données ITSM (tickets, pièces jointes, historiques, commentaires, configurations) — sur demande de FTDA dans un délai de 5 jours ouvrés, et à J-30 avant fin du marché",
+      "Enquête de satisfaction annuelle (≤15 questions, taux de réponse cible ≥40%) avec résultats consolidés et plan d'action d'amélioration présenté en COPIL trimestriel et en revue annuelle",
+      "Facture mensuelle par établissement et facture globale mensuelle détaillant le total de chaque site, avec annexes obligatoires : récapitulatif tickets ITSM (nombre par criticité, taux GTI/GTR, liste tickets hors SLA), détail régies (nom intervenant, profil, jours, description), frais de déplacement justifiés",
+      "Planning trimestriel de présence physique mensuelle sur les 3 sites franciliens (Siège Paris, Cinetika, Créteil) — validé par FTDA avec PV de présence signé",
+      "Rapport d'audit de reprise de l'existant (30 premiers jours post-notification) : état des lieux, identification des écarts documentation/terrain, signalement des points bloquants",
+      "Supports de formation référents informatiques des établissements en français, avec évaluation post-formation"
+    ],
+    "contraintes_specifiques": [
+      "Soutenance obligatoire devant jury après dépôt des offres (audition en visioconférence ou dans les locaux de FTDA — RC §2.5). La mémoire technique constitue la base mais la présentation orale est un moment clé.",
+      "Date limite de remise des offres : 30/06/2026 à 12h00 (heure de Paris) — avis rectifié du 08/06/26. Délai de validité des offres : 6 mois.",
+      "Offre intégralement en français, prix exprimés en euros. BPU/DPGF à remplir intégralement sous peine d'irrégularité éliminatoire (tout prix non renseigné entraîne le rejet — Annexe F §1).",
+      "Variantes interdites (RC §2.7). L'offre doit être entièrement conforme au DCE.",
+      "Périmètre susceptible d'évoluer pendant le marché (ouverture/fermeture d'établissements, évolution des effectifs) sans que cela ne justifie de surcoût de la part du titulaire (CCAP §1.6).",
+      "Prix fermes la première année, révisables à date d'anniversaire selon indice Syntec. Clause de sauvegarde : résiliation possible si augmentation annuelle >2% sans circonstances extérieures (CCAP §4.3).",
+      "Avance de 10% du montant initial du marché (si >50 000 € HT et durée >12 mois), avec garantie à première demande à concurrence de 100% de l'avance (CCAP §5).",
+      "Chaque lot est mono-attributaire. Les deux lots peuvent être attribués au même soumissionnaire mais font l'objet de notations indépendantes.",
+      "Collaboration obligatoire avec le titulaire du Lot 2 (procédures d'escalade documentées, interface Lot 1/Lot 2 — CCTP §3.1.2). Si les lots sont attribués à deux prestataires distincts, le titulaire du Lot 1 doit formaliser cette collaboration.",
+      "Coordination avec le prestataire du marché télécoms FTDA (Lot 4 du marché télécom) pour les aspects MDM (administration MDM à la charge du prestataire télécoms) et ToIP.",
+      "La facturation est mensuelle, à terme échu, par lot. Une facture par établissement est demandée. FTDA s'engage à réduire au maximum le nombre de commandes mensuelles par établissement (CCAP §4.4a).",
+      "Le démarrage opérationnel des prestations et de la facturation au plein tarif est subordonné à la validation des tests de reprise en charge (Annexe E §1.1). Les services en transition sont gratuits jusqu'à acceptation définitive.",
+      "Présence physique mensuelle obligatoire sur 3 sites franciliens (Siège Paris, Cinetika, Créteil) : 1 jour/mois sur chaque site, planning trimestriel formalisé et validé par FTDA. L'absence d'un agent prévu sur site sans remplacement entraîne une pénalité forfaitaire de 100 € (CCAP §13.7).",
+      "Enjeux RGPD critiques : les systèmes traitent des informations relatives à des personnes vulnérables (demandeurs d'asile, réfugiés, mineurs non accompagnés), soumises au RGPD. Le DPA doit être signé à la notification sous peine d'irrégularité éliminatoire.",
+      "Hébergement France/UE obligatoire : toute donnée traitée pour FTDA doit être hébergée en France ou dans l'UE. Interdiction formelle du Cloud Act américain sans garanties juridiques renforcées. Non-conformité = cause d'irrégularité éliminatoire (Annexe D §8).",
+      "Score technique inférieur à 30/100 : offre écartée sans analyse du prix (Annexe D §8 — à confirmer dans le RC selon la formulation de l'Annexe D).",
+      "Transition : le titulaire entrant ne peut facturer au plein tarif qu'après acceptation formelle de la phase de reprise. L'astreinte partagée de 15 jours post-bascule avec le titulaire sortant est une obligation contractuelle (CCTP §5.6.3).",
+      "Réversibilité : à la fin du marché, le titulaire s'engage à transmettre en toute sécurité la totalité de la documentation, des données et des procédures. Si la réversibilité intervient suite à un manquement du titulaire, les coûts sont entièrement à sa charge (CCAP §11).",
+      "Contexte associatif spécifique : FTDA est une association loi 1901 reconnue d'utilité publique. Le candidat doit démontrer la compréhension des enjeux propres au secteur associatif (absence d'actionnariat, contraintes budgétaires, mission sociale auprès de publics vulnérables).",
+      "Visite de site recommandée : la liste exhaustive des établissements (adresses, nombre d'utilisateurs) et le plan de charge par région sont communicables lors d'une visite obligatoire du siège (Annexe B du CCTP). Le DCE mentionne cette possibilité pour les candidats retenus pour la phase d'analyse des offres."
+    ],
+    "moyens_attendus": {
+      "humains": "L'Annexe D (§T1.3) et le CCTP (§5.2) exigent la désignation nominative de : Responsable de compte (relation contractuelle, escalade, arbitrage) ; Chef de projet / Responsable technique (suivi opérationnel, coordination, participation aux comités) ; Responsable facturation ; Techniciens N1 (Service Desk, traitement des incidents courants, décroché téléphonique dans les délais) ; Techniciens N2 / spécialistes M365 (expertise technique avancée, diagnostic système, configuration réseau utilisateur). Les profils sont explicitement listés dans le BPU (Annexe F §2.3) : Technicien Service Desk N1, Technicien Support N2 / spécialiste M365, Chef de projet / coordinateur Lot 1. L'Annexe D (exemple de réponse forte §T1.3) mentionne une équipe de '3 techniciens N1 et 2 N2 en roulement avec astreinte téléphonique nominative sur 18h-20h'. Les CV et certifications des profils proposés sont attendus dans la mémoire technique. La continuité est exigée : tout changement d'interlocuteur doit être notifié 1 mois à l'avance avec période de passation de 2 semaines minimum (CCTP §5.2.2). Tous les intervenants doivent avoir fait l'objet d'une vérification d'antécédents et signer une clause de confidentialité. Compétence en français obligatoire pour les techniciens répondant aux appels.",
+      "materiels": "Stock de pièces de rechange courantes constituées et maintenues par le titulaire (disques durs/SSD, barrettes mémoire RAM, claviers, souris, chargeurs, batteries) permettant une résolution matérielle rapide. L'Annexe D (exemple de réponse forte §T1.5) mentionne comme exemple une réponse forte '50 disques SSD, 30 barrettes RAM, 20 alimentations'. Postes de prêt configurés selon l'image standard FTDA (PC fixe ou portable selon besoin) mis à disposition en cas d'immobilisation >48 heures. Outils de prise en main à distance sécurisés (TeamViewer, AnyDesk ou équivalent sécurisé). Outil ITSM (SaaS ou on-premise) répondant aux exigences CCTP §5.1. Application mobile iOS et Android pour les équipes terrain.",
+      "organisationnels": "Organisation du Service Desk : plages de service et astreintes définies et tenues (8h-18h L-V, astreinte 18h-20h L-V, permanence samedi 9h-13h foyers mineurs, astreinte week-end sur activation). Structure N1/N2 avec escalade formalisée vers N3 (Lot 2). Planning trimestriel de présence physique mensuelle sur les 3 sites franciliens (Siège Paris, Cinetika, Créteil) validé par FTDA. Gouvernance contractuelle structurée : COPIL mensuel, trimestriel, revue annuelle avec interlocuteurs nommés et ordre du jour types définis dans le CCTP. Procédures d'escalade documentées entre Lot 1 et Lot 2. Procédures de substitution garantissant qu'aucune absence ne perturbe l'exécution des prestations (CCAP §6.1-1). Réseau d'intervenants régionaux ou stratégie de couverture nationale pour assurer la GTR dans les délais sur les 128 établissements répartis sur 10 régions (enjeu fort du sous-critère T1.6). Mécanisme d'alimentation du catalogue de procédures à partir du top 20 mensuel des tickets récurrents de l'ITSM."
+    },
+    "criteres_publics_adaptes_lot": [
+      {
+        "critere": "Valeur technique — Compréhension du contexte FTDA et reformulation des enjeux (Lot 1)",
+        "ponderation_publiee": "8% de la note globale (soit 13,3% de la note technique)",
+        "applicabilite_lot": "Pour le Lot 1, ce sous-critère porte spécifiquement sur la compréhension des enjeux du support utilisateur dans un contexte associatif gérant des données sensibles de personnes vulnérables. Il s'agit de démontrer la connaissance du contexte FTDA (128 établissements, 1 960 ETP, 10 régions, public MNA/demandeurs d'asile) et d'identifier les axes d'amélioration du Service Desk sortant : réactivité régionale, qualité CMDB, migration SharePoint 45→134 sites, gouvernance. Ce critère valorise la différenciation par rapport aux candidats généralistes.",
+        "elements_a_demontrer_dans_memoire": [
+          "Reformulation précise du besoin FTDA avec mention explicite des 128 établissements, de leur répartition en 10 régions, des 1 960 ETP, du contexte associatif (loi 1901, utilité publique, financement public)",
+          "Identification des enjeux spécifiques du support utilisateur dans un contexte de public vulnérable (données sensibles MNA/demandeurs d'asile, obligations RGPD, confidentialité des dossiers)",
+          "Analyse des axes d'amélioration du marché sortant cités dans le CCTP §1.3.5 : réactivité Service Desk (notamment régionale), CMDB et documentation technique, monitoring proactif, gouvernance COPIL",
+          "Compréhension de l'écosystème Microsoft 365 et de l'état de la migration SharePoint (45/134 sites déployés au démarrage, objectif 100% sur la durée du marché)",
+          "Conscience de la complexité logistique (équité de traitement siège/régions, 4 catégories de sites aux effectifs très variables de <10 à >200 utilisateurs)",
+          "Identification des facteurs clés de succès pour ce lot : couverture nationale avec délais SLA tenus, Service Desk réactif avec plages étendues, migration SharePoint accompagnée, présence physique mensuelle sur 3 sites franciliens"
+        ]
+      },
+      {
+        "critere": "Valeur technique — Plan de transition et reprise de l'existant (Lot 1)",
+        "ponderation_publiee": "12% de la note globale (soit 20% de la note technique) — sous-critère le plus pondéré avec T1.3",
+        "applicabilite_lot": "Pour le Lot 1, ce sous-critère porte sur la capacité à reprendre le Service Desk et la gestion du parc de 1 500 PC sans interruption ni dégradation. Le risque principal est la perte de continuité pour les 1 960 utilisateurs répartis sur 128 sites pendant la phase de bascule. Il faut démontrer une méthodologie éprouvée de transition incluant l'audit de l'existant ITSM (tickets en cours, procédures, contacts référents), la reprise de l'outil de ticketing et la formation des équipes.",
+        "elements_a_demontrer_dans_memoire": [
+          "Méthodologie d'audit complet de l'existant sous 30 jours post-notification : audit du parc 1 500 PC (CMDB, état matériel, configurations), audit de l'outil ITSM sortant (historique tickets, procédures, base de connaissances), identification des écarts documentation/terrain, identification des contacts référents des 128 établissements",
+          "Plan de transition détaillé avec jalons binaires de validation FTDA, sous 15 jours après audit : phasage (préparation, audit, transition active, stabilisation), critères de bascule, gestion des risques de continuité",
+          "Description des tests de reprise en charge (CCTP §5.6.5) : simulation d'ouverture d'un ticket P1, intervention à distance sur un poste utilisateur, accès aux outils ITSM et documentation",
+          "Phase de stabilisation d'1 mois post-bascule avec accompagnement renforcé et monitoring des SLA",
+          "Gestion de la cohabitation avec le titulaire sortant (participation aux réunions de transition bi-mensuelles, astreinte partagée 15 jours post-bascule)",
+          "Matrice de risques de la transition avec plans de mitigation (risques principaux : perte d'accès aux outils, non-connaissance des procédures métier FTDA, défaut de contact avec les référents régionaux)"
+        ]
+      },
+      {
+        "critere": "Valeur technique — Service Desk — organisation et fonctionnement (Lot 1)",
+        "ponderation_publiee": "14% de la note globale (soit 23,3% de la note technique) — sous-critère le plus pondéré du lot",
+        "applicabilite_lot": "Ce sous-critère est le plus important de la valeur technique du Lot 1. Il évalue l'organisation complète du Service Desk proposée : dimensionnement de l'équipe, gestion des plages horaires (y compris les astreintes atypiques foyers mineurs), canaux de contact, et la conformité technique du portail SSO Entra ID. L'aspect 'astreinte foyers mineurs samedi 9h-13h' est un signal fort de la spécificité du contexte FTDA à valoriser.",
+        "elements_a_demontrer_dans_memoire": [
+          "Dimensionnement précis de l'équipe N1/N2 avec CV nominatifs et certifications des profils proposés, organisation en roulement garantissant la continuité sur toutes les plages de service",
+          "Description détaillée des plages de service : 8h-18h L-V (tous incidents/demandes), astreinte 18h-20h L-V (P1/P2 uniquement, technicien nominatif), permanence samedi 9h-13h foyers mineurs (P1/P2, périmètre limité foyers MNA), astreinte week-end sur activation FTDA (P1 uniquement)",
+          "Numéro de téléphone unique non surtaxé dédié FTDA : temps de décroché moyen ≤2 minutes sur heures ouvrées (si possible étayé par des métriques d'un client existant comparable), message d'accueil personnalisé FTDA",
+          "Portail web avec SSO Microsoft Entra ID (démonstration ou capture d'écran si disponible), application mobile iOS/Android, responsive, disponibilité ≥99,5% mensuel",
+          "Intégration Microsoft Teams (bot ou canal dédié) : notifications, ouverture de tickets depuis Teams, mise à jour statuts",
+          "Procédures de continuité en cas d'absence d'un technicien (remplacement garanti, information FTDA)"
+        ]
+      },
+      {
+        "critere": "Valeur technique — Engagements SLA (GTI/GTR) et qualité du reporting (Lot 1)",
+        "ponderation_publiee": "12% de la note globale (soit 20% de la note technique)",
+        "applicabilite_lot": "Ce sous-critère évalue la fiabilité des engagements SLA proposés et la qualité de leur suivi. Pour ce lot, les SLA les plus contraignants sont le P1 GTI 30 min et la disponibilité 99% des P1/P2. La qualité du reporting mensuel — qui conditionne directement la détection des pénalités — est un enjeu fort. L'outil ITSM doit calculer automatiquement les GTI/GTR selon les plages horaires contractuelles complexes (heures ouvrées, astreinte 18h-20h, samedi foyers mineurs).",
+        "elements_a_demontrer_dans_memoire": [
+          "Confirmation explicite du respect des SLA contractuels (tableau reprenant exactement les valeurs du CCTP §3.3.3) : P1 GTI 30 min / GTR 4h (HO) et GTI 1h / GTR 8h (astreinte) ; P2 GTI 2h / GTR 8h ; P3 GTI 4h / GTR 3j ; P4 GTI 1j / GTR 5j",
+          "Description de l'outil ITSM avec calcul automatique des GTI/GTR selon les différentes plages horaires contractuelles (heures ouvrées, astreinte 18h-20h, samedi 9h-13h foyers mineurs)",
+          "Présentation du tableau de bord mensuel (modèle ou capture d'écran) : taux de respect GTI/GTR par criticité, temps moyen de résolution, dépassements avec analyse des causes, plan d'action correctif",
+          "Procédure de suspension des délais documentée dans chaque ticket (statut 'En attente utilisateur' avec horodatage, reprise automatique à la réouverture)",
+          "Métriques historiques de SLA sur des contrats comparables (si disponibles, à présenter anonymisés)",
+          "Processus de détection proactive des risques de dépassement SLA (alertes avant expiration des délais)"
+        ]
+      },
+      {
+        "critere": "Valeur technique — Gestion du parc de postes de travail (~1 500 PC) (Lot 1)",
+        "ponderation_publiee": "10% de la note globale (soit 16,7% de la note technique)",
+        "applicabilite_lot": "Ce sous-critère évalue la capacité à assurer la maintenance d'un parc distribué sur 128 sites nationaux avec des délais d'intervention différenciés selon la catégorie de site. L'enjeu principal est la couverture nationale et la gestion des pièces de rechange/postes de prêt pour garantir les délais (notamment le 72h ouvrées pour les petits sites régionaux). La maintenance préventive trimestrielle sur 1 500 postes répartis sur 10 régions représente un défi logistique significatif.",
+        "elements_a_demontrer_dans_memoire": [
+          "Stratégie de télémaintenance : outil sécurisé (TeamViewer, AnyDesk ou équivalent), enregistrement des sessions pour audit, procédure d'accord explicite de l'utilisateur",
+          "Délais d'intervention sur site différenciés conformes au CCTP §3.4.1 : Siège/IDF 24h ouvrées (GTR 48h), grands établissements 48h ouvrées (GTR 72h), sites standards/petits 72h ouvrées (GTR 5j)",
+          "Stock de pièces de rechange (description du stock constitué : références, volumes) et procédure d'approvisionnement <5j ouvrés pour pièces hors stock",
+          "Processus de mise à disposition et gestion des postes de prêt (configurés selon image standard FTDA)",
+          "Plan de maintenance préventive trimestrielle sur 1 500 postes : organisation logistique, planification en concertation avec FTDA, mode 'maintenance silencieuse' ou hors heures ouvrées, délais de déploiement des correctifs (critiques <15j, importants <30j)",
+          "Processus de décommissionnement sécurisé avec effacement certifié et certificat de destruction"
+        ]
+      },
+      {
+        "critere": "Valeur technique — Présence physique et proximité régionale (Lot 1)",
+        "ponderation_publiee": "8% de la note globale (soit 13,3% de la note technique)",
+        "applicabilite_lot": "Ce sous-critère évalue une contrainte explicitement qualifiée d'OBLIGATOIRE dans le CCTP (§1.5.3) : la présence physique mensuelle sur les 3 sites franciliens majeurs. Au-delà de cette obligation minimale, il évalue la stratégie de couverture des 128 établissements nationaux dans les délais SLA. La capacité à intervenir sur des sites très dispersés (10 régions, 60 petits sites <10 utilisateurs) dans un délai de 72 heures ouvrées est un facteur discriminant.",
+        "elements_a_demontrer_dans_memoire": [
+          "Planning trimestriel nominatif (technicien identifié) de présence physique sur les 3 sites franciliens : Siège Paris, Cinetika, Créteil — 1 jour/mois sur chaque site",
+          "Description du réseau d'intervention national : réseau de partenaires techniciens régionaux, équipe mobile nationale, ou autre stratégie garantissant la couverture des 10 régions dans les délais SLA",
+          "Cartographie ou description de la couverture nationale des 10 régions FTDA avec les temps d'accès garantis aux établissements les plus éloignés",
+          "Démonstration de l'équité de traitement entre siège et établissements régionaux (même niveau de SLA applicable à tous les sites)"
+        ]
+      },
+      {
+        "critere": "Valeur technique — Support Microsoft 365 et accompagnement de la migration SharePoint (Lot 1)",
+        "ponderation_publiee": "10% de la note globale (soit 16,7% de la note technique)",
+        "applicabilite_lot": "Ce sous-critère évalue le niveau d'expertise M365 de l'équipe proposée et la méthodologie d'accompagnement de la migration SharePoint Online. Cette migration (45→134 sites) est un chantier actif au démarrage du marché, représentant 89 sites à migrer sur la durée du contrat (4 ans maximum). La qualité de l'accompagnement conditionne directement l'adoption des outils collaboratifs par les 1 960 ETP.",
+        "elements_a_demontrer_dans_memoire": [
+          "Démonstration du niveau d'expertise M365 de l'équipe : certifications Microsoft (MS-900, MS-100, MS-700, ou équivalents), références de support M365 chez des clients comparables (secteur associatif ou social préférable)",
+          "Couverture fonctionnelle complète : Teams, Outlook, SharePoint Online, OneDrive, Word/Excel/PowerPoint — description des cas d'usage courants et des incidents traités",
+          "Administration fonctionnelle AD/Entra ID : processus d'onboarding/offboarding (création comptes, attribution licences M365, gestion listes diffusion, calendriers salles de réunion)",
+          "Plan d'accompagnement migration SharePoint 45→134 sites : phasage (pilotes, grands établissements, petits sites), checklist de reprise par site (inventaire partages, mapping permissions, test synchronisation OneDrive), livrables (livret de formation, sessions de prise en main à distance)",
+          "Formation utilisateurs et référents sur Teams et outils collaboratifs : programme, supports en français, modalités (présentiel/distanciel)",
+          "Références de migrations SharePoint similaires (si disponibles)"
+        ]
+      },
+      {
+        "critere": "Valeur technique — Outil ITSM, tableau de bord et intégration Teams (Lot 1)",
+        "ponderation_publiee": "8% de la note globale (soit 13,3% de la note technique)",
+        "applicabilite_lot": "Ce sous-critère évalue la qualité et la conformité de l'outil ITSM proposé par rapport aux exigences exhaustives du CCTP §5.1. L'intégration Microsoft Teams (canal ou bot) est un attendu fort compte tenu de l'usage intensif de Teams chez FTDA. La propriété des données FTDA et l'exportabilité dans les délais sont des exigences contractuelles explicites dont la non-conformité peut entraîner l'irrégularité de l'offre.",
+        "elements_a_demontrer_dans_memoire": [
+          "Présentation de l'outil ITSM proposé (nom, éditeur, type SaaS/on-premise) avec démonstration ou captures d'écran des fonctionnalités clés : SSO Entra ID, app mobile iOS/Android, tableau de bord temps réel",
+          "Intégration Microsoft Teams : démonstration ou description technique de la notification temps réel dans un canal dédié, ouverture de tickets via bot ou formulaire Teams",
+          "SLA automatisés selon les plages horaires contractuelles complexes du CCTP §3.2.1 (heures ouvrées, astreinte 18h-20h, samedi 9h-13h foyers mineurs)",
+          "Tableau de bord avec vue par établissement et drill-down sur les incidents en cours (exigence explicite CCTP §1.3.5 et Annexe D §T1.8)",
+          "Base de connaissances accessible aux utilisateurs finaux et alimentée par les tickets résolus",
+          "Engagement contractuel explicite sur la propriété exclusive FTDA des données ITSM et l'exportabilité sous 5 jours ouvrés à la demande (CCTP §5.1.3)",
+          "Hébergement de l'outil ITSM en France ou UE (conformité CCTP §6.2)"
+        ]
+      },
+      {
+        "critere": "Valeur technique — Catalogue de procédures et formations utilisateurs (Lot 1)",
+        "ponderation_publiee": "8% de la note globale (soit 13,3% de la note technique)",
+        "applicabilite_lot": "Ce sous-critère évalue une prestation spécifique au contexte FTDA : la production et l'animation d'un catalogue de procédures pour les référents informatiques des 128 établissements. Ces référents sont des non-techniciens (directeurs d'établissements, assistants administratifs) qui ont besoin de procédures simples pour gérer les opérations courantes. L'enrichissement continu basé sur les tickets récurrents est un mécanisme d'amélioration continue valorisé.",
+        "elements_a_demontrer_dans_memoire": [
+          "Exemple de catalogue de procédures issu d'un contrat similaire (format PDF/Word, 1-2 pages par procédure, captures d'écran, adapté à des non-techniciens) ou maquette adaptée au contexte FTDA",
+          "Couverture des 9 thèmes minimaux du CCTP §5.3.5 : onboarding, départ collaborateur, remplacement poste, remplacement imprimante, ouverture de site, déménagement de site, signalement incident sécurité, demande d'accès, guide portail ticketing",
+          "Mécanisme d'alimentation et d'enrichissement du catalogue : processus de transformation du top 20 mensuel des motifs récurrents en procédures, validation par la DSI FTDA, versionning",
+          "Plan de formation des référents informatiques des établissements : programme de formation journée + supports en français, calendrier annuel, quiz ou évaluation post-formation (taux de couverture des 128 établissements)",
+          "Modalités de diffusion du catalogue (portail web, base de connaissances ITSM accessible 24h/24)"
+        ]
+      },
+      {
+        "critere": "Valeur technique — Gouvernance contractuelle (Lot 1)",
+        "ponderation_publiee": "5% de la note globale (soit 8,3% de la note technique)",
+        "applicabilite_lot": "Ce sous-critère évalue la maturité organisationnelle du candidat dans la gestion de contrats de service IT. Pour ce lot, la gouvernance se traduit par 3 niveaux de comités (mensuel, trimestriel, annuel) avec des livrables précis et des indicateurs SLA. L'enquête de satisfaction annuelle avec un taux de réponse visé ≥40% sur 1 960 utilisateurs répartis sur 128 établissements est un objectif ambitieux.",
+        "elements_a_demontrer_dans_memoire": [
+          "Présentation de l'organigramme de l'équipe dédiée avec noms et fonctions des interlocuteurs (Responsable de compte, Chef de projet, Responsable facturation)",
+          "Modèle de compte-rendu mensuel et de tableau de bord (capture d'écran ou maquette) conforme à l'ordre du jour type du CCTP §5.3.1",
+          "Exemple d'enquête de satisfaction utilisée sur un contrat actuel (anonymisé) avec taux de réponse historique, ou proposition de méthodologie pour atteindre le taux cible de 40%",
+          "Description de l'ordre du jour type du COPIL trimestriel et des livrables associés (rapport 15 pages max, bilan financier, roadmap)"
+        ]
+      },
+      {
+        "critere": "Valeur technique — Démarche RSE et insertion professionnelle (Lot 1)",
+        "ponderation_publiee": "5% de la note globale (soit 8,3% de la note technique)",
+        "applicabilite_lot": "Ce sous-critère évalue la cohérence des engagements RSE du candidat avec la mission associative de FTDA. Le jury sera particulièrement sensible aux engagements en matière d'insertion professionnelle et au recours au secteur protégé/ESS, en cohérence avec la mission d'accompagnement des publics vulnérables de l'association. Les certifications RSE documentées (EcoVadis, ISO 26000, B Corp) sont valorisées.",
+        "elements_a_demontrer_dans_memoire": [
+          "Engagements diversité et inclusion : politique mixité, emploi de personnes en situation de handicap (OETH), insertion professionnelle (CDDI, alternance)",
+          "Recours au secteur protégé ou à l'ESS : partenariat avec ESAT, EA ou structures IAE (par exemple pour la gestion du parc informatique en fin de vie, le recyclage, ou certaines prestations techniques)",
+          "Empreinte environnementale du service : hébergement du ITSM dans des datacenters certifiés (ISO 50001, PUE <1,4), politique d'allongement de durée de vie du matériel informatique (reconditionné), gestion responsable des DEEE",
+          "Certifications RSE présentées avec date de validité (EcoVadis, ISO 26000, B Corp ou équivalent)",
+          "Cohérence explicite avec la mission de FTDA : valorisation de l'engagement social du candidat"
+        ]
+      },
+      {
+        "critere": "Prix des prestations",
+        "ponderation_publiee": "40%",
+        "applicabilite_lot": "La note prix est calculée par la formule moins-disante : Note Prix = 100 × (Prix de l'offre la mieux-disante / Prix de l'offre examinée), appliquée à la simulation financière du BPU sur le scénario de consommation type fourni en annexe du RC. Pour le Lot 1, les postes principaux à chiffrer sont le forfait mensuel global (12 mois ferme + reconductions sur périmètre 128 établissements + ~1 500 PC + ~1 960 utilisateurs), les astreintes (18h-20h L-V incluse ou séparée, permanence samedi 9h-13h foyers mineurs, astreinte week-end sur activation), la présence physique mensuelle sur 3 sites franciliens, les tarifs journaliers en régie par profil (N1, N2/M365, Chef de projet), les prestations forfaitaires ponctuelles (préparation de poste, onboarding/offboarding, formation référent, décommissionnement), les frais de déplacement (forfaits IDF et régionaux), les coefficients hors heures ouvrées, et la phase de transition.",
+        "elements_a_demontrer_dans_memoire": [
+          "Compléter intégralement le BPU/DPGF Lot 1 (Annexe F §2) : tout prix non renseigné entraîne l'irrégularité éliminatoire de l'offre",
+          "Forfait mensuel global L1.1.1 (ou alternatives L1.1.2 au poste géré ou L1.1.3 à l'utilisateur géré) couvrant l'intégralité des prestations CCTP article 3 incluant présence mensuelle, COPIL, reporting",
+          "Tarification explicite des astreintes : L1.1.4 (astreinte 18h-20h L-V), L1.1.5 (permanence samedi 9h-13h foyers mineurs), L1.1.6 BPU (astreinte week-end sur activation)",
+          "Tarification des présences physiques mensuelles sur les 3 sites (L1.2.1 à L1.2.3) si non incluses dans le forfait, et journées supplémentaires (L1.2.4 et L1.2.5 BPU)",
+          "Tarifs journaliers en régie par profil (L1.3.1 à L1.3.3) : N1, N2/M365, Chef de projet",
+          "Prestations forfaitaires ponctuelles (L1.4.1 à L1.4.10) : préparation poste, onboarding/offboarding utilisateur, formation référent, production procédure catalogue",
+          "Frais de déplacement (F.1 à F.6) et coefficients hors heures ouvrées (C.1 à C.5)",
+          "Phase de transition et réversibilité (T.1, T.5, T.7)",
+          "Synthèse financière annuelle (S.1 à S.6) selon le scénario de consommation type du RC"
+        ]
+      }
+    ],
+    "points_attention_redaction": [
+      "SIGNAL FORT DU DCE : Le CCTP utilise le terme OBLIGATOIRE en majuscules pour qualifier la présence physique mensuelle sur les 3 sites franciliens (§1.5.3 : 'une présence physique d'au moins 1 journée par mois sur chacun des trois sites franciliens majeurs'). La mémoire doit reprendre ce terme et présenter un planning trimestriel nominatif comme preuve opérationnelle, pas seulement une déclaration d'intention.",
+      "SIGNAL FORT : L'Annexe D précise que 'Le respect des engagements minimaux SLA définis au CCTP' constitue une cause d'irrégularité éliminatoire possible (§8). La mémoire doit reprendre textellement les valeurs SLA du CCTP §3.3.3 dans un tableau récapitulatif et ne pas proposer de SLA 'équivalents' ou 'améliorés' sans reprendre les valeurs minimales.",
+      "SIGNAL FORT : L'hébergement France/UE et l'absence de Cloud Act sont cités comme causes d'irrégularité éliminatoire dans l'Annexe D §8. La mémoire doit inclure un document de localisation des données ITSM et des engagements explicites sur ce point, avec mention du datacenter utilisé (nom, pays, certifications).",
+      "SIGNAL FORT : Le DPA RGPD absent entraîne l'irrégularité éliminatoire (Annexe D §8). Prévoir un engagement de signature du DPA à la notification et joindre un modèle de DPA ou un engagement sur les clauses minimales.",
+      "SCORE TECHNIQUE PLANCHER : L'Annexe D §8 mentionne qu'un 'score Valeur technique inférieur à 30/100' peut entraîner l'élimination sans analyse du prix. Cette disposition est à confirmer dans le RC selon la formulation exacte, mais elle implique de ne laisser aucun sous-critère non traité dans la mémoire.",
+      "FORMULATIONS À REPRENDRE TEXTELLEMENT DU CCTP : Le jury a rédigé sa grille d'évaluation (Annexe D) avec des expressions très précises. Les reprendre dans la mémoire crée une résonance avec les critères d'évaluation : 'équité de traitement entre siège et établissements régionaux' (§1.3.2), 'axes d'amélioration vs marché sortant' (§1.3.5), 'trajectoire 45→134 sites' (§1.4.4), 'vue cartographique ou par établissement montrant pour chacun des 128 sites l'état de santé instantané' (§1.3.5).",
+      "ENJEU RSE SPÉCIFIQUE : FTDA est une association d'accompagnement de publics vulnérables (réfugiés, MNA). La RSE du candidat doit être mise en cohérence avec cette mission associative. Un candidat qui évoque simplement ses certifications EcoVadis sans lien avec la mission de FTDA sera moins bien noté qu'un candidat qui démontre une culture sociale alignée (partenariat ESAT, politique d'insertion, bilan carbone du service IT).",
+      "PIÈGE COURANT : L'intégration Microsoft Teams est qualifiée d''optionnelle mais recommandée' dans le CCTP §3.2.2 pour les canaux de contact, mais l'Annexe D §T1.3 et §T1.8 en fait un élément clairement attendu dans la mémoire technique. Ne pas la traiter comme optionnelle dans la mémoire.",
+      "PIÈGE COURANT : Le CCTP précise que les incidents de sécurité sont 'automatiquement qualifiés en P1, quelle que soit l'ampleur initiale' (§3.2.3). La mémoire doit démontrer que le Service Desk a des procédures d'escalade dédiées pour ce cas et que les techniciens N1 sont formés à cette qualification automatique.",
+      "PIÈGE COURANT BPU : L'Annexe F §1 précise que 'Tout prix NON renseigné dans cette annexe entraînera l'irrégularité de l'offre du candidat pour incomplétude. Le pouvoir adjudicateur ne régularisera pas'. Tous les postes du BPU doivent être renseignés, y compris les lignes BPU à faible volumétrie. La structure de prix est à prix mixtes (DPGF + BPU).",
+      "ATTENTION INTERFACE LOTS : Si le candidat soumissionne aux deux lots ou envisage une candidature solo sur le Lot 1, la mémoire doit traiter explicitement l'interface Lot 1/Lot 2 (CCTP §3.1.2). Si le candidat ne répond qu'au Lot 1, il doit montrer comment il coordonnera avec un Lot 2 potentiellement attribué à un tiers concurrent.",
+      "ATTENTION CONTEXTE ASSOCIATIF : Le CCTP §1.1 précise que FTDA est reconnue d'utilité publique depuis 1981 et accompagne 'plusieurs milliers de demandeurs d'asile' par an. La mémoire doit démontrer une compréhension réelle de ce contexte (financement majoritairement public, contraintes budgétaires, sensibilité des données) et ne pas traiter FTDA comme un client commercial standard.",
+      "ATTENTION PERMANENCE FOYERS MINEURS : La plage 'samedi 9h-13h pour les foyers hébergeant des mineurs non accompagnés (MNA)' est une exigence très spécifique qui ne se retrouve pas dans les marchés IT classiques. La mentionner explicitement démontre une lecture approfondie du CCTP et valorise la compréhension du contexte.",
+      "ATTENTION MIGRATION SHAREPOINT : Le DCE indique '45 sites sur 134 sont déjà déployés (~34%)'. Cela signifie que 89 sites restent à migrer. Sur une durée maximale de 4 ans, c'est environ 22 sites/an à migrer. La mémoire doit proposer un phasage réaliste (pilotes + vagues) et non une promesse irréaliste de migration immédiate.",
+      "HYPOTHÈSE : La formulation de l'Annexe D §8 sur le score plancher de 30/100 est présentée comme une possibilité ('peut être écartée') et est assortie de la mention 'à confirmer dans le RC'. En l'absence de confirmation explicite dans le RC, traiter cette disposition comme un risque fort mais non certain. Il est conseillé de poser une question à l'acheteur avant la date limite.",
+      "HYPOTHÈSE : Les sous-critères de notation technique sont présentés avec leurs pondérations dans l'Annexe D, ce qui est inhabituel pour un appel d'offres ouvert (généralement seule la pondération globale valeur technique/prix est publiée). Ces pondérations sont confirmées dans le barème fourni et constituent des données contractuelles opposables. Le rédacteur peut calibrer le volume de la mémoire en proportion des pondérations (T1.3 à 14% > T1.2 et T1.4 à 12% > T1.5 et T1.7 à 10% > etc.).",
+      "SOUTENANCE OBLIGATOIRE : Le RC §2.5 prévoit une soutenance devant jury après dépôt des offres. La mémoire doit être conçue aussi comme un support de présentation orale : structurer par sous-critères, utiliser des tableaux/schémas qui peuvent être présentés en PowerPoint, prévoir des éléments de preuve (captures d'écran ITSM, métriques SLA historiques, organigramme de l'équipe) qui peuvent être montrés lors de la soutenance.",
+      "ATTENTION ÉVOLUTIVITÉ DU PÉRIMÈTRE : Le CCAP §1.6 et le RC §1.2.2 précisent que le périmètre de FTDA est 'susceptible d'évoluer tout au long de l'exécution du marché, soit par la mise en place de nouveaux projets et/ou soit en raison de l'évolution de l'effectif' et que 'En aucun cas, cela justifie de la part du Titulaire du marché un surcoût sur les prestations'. La mémoire doit démontrer la capacité à absorber des variations de périmètre dans le forfait mensuel."
+    ],
+    "elements_manquants_dans_DCE": [
+      "LISTE DÉTAILLÉE DES ÉTABLISSEMENTS PAR RÉGION : L'Annexe B du CCTP mentionne que 'La liste nominative des sites est communiquée aux candidats retenus pour la phase d'analyse des offres' et que 'Le prestataire pourra demander la liste exhaustive des établissements (adresses, nombre d'utilisateurs) et le plan de charge par région lors de la visite obligatoire du siège'. Les candidats n'ont donc pas accès à la liste complète des 128 sites avec leurs adresses précises pour calibrer leur offre de couverture nationale.",
+      "SCÉNARIO DE CONSOMMATION TYPE DU RC : L'Annexe D §4 et l'Annexe F §8 font référence à 'un scénario de consommation type fourni en annexe du Règlement de la Consultation' servant de base à la notation financière. Ce scénario n'est pas reproduit dans les pièces fournies. Il est indispensable pour calibrer la simulation financière et la note prix. À demander ou vérifier sur la plateforme.",
+      "IDENTITÉ ET PÉRIMÈTRE DU TITULAIRE SORTANT : Le CCTP évoque à plusieurs reprises 'le titulaire sortant' et les axes d'amélioration du 'marché sortant' (§1.3.5), mais ne communique pas l'identité du prestataire actuel ni les volumes réels de son activité (taux de respect SLA, nombre réel de tickets par criticité, état de la CMDB). Ces informations seraient utiles pour calibrer le plan de transition.",
+      "ÉTAT RÉEL DE LA CMDB ET DE LA DOCUMENTATION TECHNIQUE : Le CCTP cite la CMDB comme un axe d'amélioration du marché sortant mais ne donne pas d'information sur l'état de documentation existant (qualité, format, complétude). Le candidat ne peut pas évaluer l'ampleur du travail de reprise documentaire.",
+      "OUTIL ITSM ACTUELLEMENT EN PLACE : Le CCTP ne précise pas l'outil ITSM utilisé par le titulaire sortant. Cette information est pourtant utile pour planifier la migration des données historiques (tickets archivés) vers le nouvel outil ITSM.",
+      "MODÈLE D'IMAGE STANDARD FTDA POUR LES POSTES : Le CCTP mentionne un 'modèle standard FTDA' pour la configuration des postes de travail et des postes de prêt, mais ne le détaille pas. Le candidat ne connaît pas les applications obligatoires, la version Windows cible, les GPO de base, ni les configurations matérielles minimales.",
+      "BUDGET ANNUEL ESTIMATIF PAR LOT : La fourchette communiquée (421 875 à 515 625 EUR pour le Lot 1) est large (~94 000 EUR d'écart). L'estimation totale du marché est de 1 500 000 EUR pour 4 ans et 2 lots, soit 375 000 EUR/lot/an en moyenne. L'absence de scénario de consommation type détaillé rend difficile la construction d'une offre prix optimale.",
+      "LISTE DES SERVEURS CRITIQUES : Le CCTP §4.2.4 mentionne que 'la liste des serveurs critiques est définie en annexe et mise à jour trimestriellement' mais cette annexe n'est pas fournie dans les pièces analysées. Bien que relevant principalement du Lot 2, cette liste a un impact sur les procédures d'escalade Lot 1 / Lot 2.",
+      "CV ET CERTIFICATIONS DES PROFILS PROPOSÉS : La mémoire technique doit présenter les CV nominatifs et certifications des profils de l'équipe dédiée (Annexe D §T1.3 : 'profils proposés (CV, certifications)'). Ces documents sont à produire par le candidat et constituent des éléments manquants indispensables à la constitution du dossier.",
+      "RÉFÉRENCES SIMILAIRES NOMINATIVES : Le RC §6.1 exige des 'références professionnelles (des 3 dernières années) qui se rapportent à l'objet du marché et indiquant le montant, la date et le destinataire'. Ces références doivent être fournies avec attestation du destinataire ou déclaration du candidat. L'Annexe D valorise explicitement les 'références de migrations SharePoint similaires chez des associations de taille comparable' (§T1.7).",
+      "CERTIFICATIONS RSE DU CANDIDAT : L'Annexe D §T1.R évalue les 'certifications RSE présentées (ISO 26000, EcoVadis, B Corp ou équivalent)'. Ces certifications sont propres au candidat et doivent être jointes ou référencées avec leurs dates de validité.",
+      "POLITIQUE DE SÉCURITÉ DE L'INFORMATION DU CANDIDAT : Le CCTP §6.1.2 exige que le titulaire fournisse 'à la notification du marché sa politique de sécurité de l'information (version publique ou adaptée) [et] les certifications et attestations de conformité en cours de validité'. Ces documents sont à produire par le candidat.",
+      "DÉTAIL DES SITES CINETIKA ET CRÉTEIL : Le CCTP mentionne ces deux sites franciliens majeurs (avec le Siège Paris) comme cibles de la présence mensuelle obligatoire, mais ne précise pas le nombre d'utilisateurs, le périmètre technique spécifique ni l'adresse exacte de Cinetika. L'annexe C définit 'Cinetika' comme 'Site FTDA situé en Île-de-France, regroupant plusieurs services transverses', ce qui est insuffisant pour planifier les interventions.",
+      "CLARIFICATION SUR LE SCORE PLANCHER DE 30/100 : L'Annexe D §8 mentionne que 'Score Valeur technique inférieur à 30/100 : offre écartée sans analyse du prix (à confirmer dans le RC)'. Cette condition éliminatoire n'est pas confirmée dans le RC publié. Il est recommandé de poser une question formelle à l'acheteur sur la plateforme avant la date limite (10 jours avant le 30/06/2026 soit avant le 20/06/2026).",
+      "MODALITÉS PRÉCISES DE LA SOUTENANCE : Le RC §2.5 indique qu'une soutenance sera organisée ('phase de soutenance avec les soumissionnaires') mais ne précise pas : durée, format exact (PowerPoint/démo live), nombre de membres du jury, questions-types attendues. Ces informations seraient utiles pour préparer la soutenance."
+    ]
+  },
+  "_meta": {
+    "cout_eur": 0.614,
+    "tokens_entree": 100552,
+    "tokens_sortie": 22979,
+    "modele": "claude-sonnet-4-6",
+    "duree_s": 447.5,
+    "cctp_fichiers": [
+      "1. RC_SSI.pdf",
+      "2. CCAP_SSI_PDF.pdf",
+      "3. CCTP_SSI.pdf",
+      "6. Annexe_D_evaluation_offres.docx",
+      "7. Annexe_E_Grilles_recette_acceptation.docx",
+      "8. ANNEXES_F_ FINANCIERES.docx",
+      "MPI1826033_AAPC.pdf"
+    ],
+    "cctp_mode_filtre": "fallback_tout_dce",
+    "cctp_tronque": false
+  }
+}

@@ -1,365 +1,157 @@
 {
-  "synthese_marche": "Ce DCE concerne un Système d'Acquisition Dynamique (SAD) pour l'achat et la location de véhicules motorisés (véhicules personnels, utilitaires, fourgons, véhicules sanitaires, TPMR, etc.) au profit des établissements du GHT Alliance de Gironde, piloté par le CHU de Bordeaux. Le SAD est divisé en 25 catégories couvrant achats neufs, achats d'occasion et locations, avec des quantités estimatives sur 10 ans. La durée du SAD est de 10 ans à compter du 18 juin 2026.",
+  "synthese_marche": "Système d'Acquisition Dynamique (SAD) sur 10 ans (2026-2036) porté par le CHU de Bordeaux pour le compte des établissements du GHT Alliance de Gironde, portant sur l'achat et la location de véhicules motorisés de toutes catégories : véhicules personnels, utilitaires, poids lourds, véhicules sanitaires (ambulances type A et C, VLM), TPMR, et prestations d'aménagement. Le SAD est divisé en 29 catégories couvrant achat neuf, occasion et location courte/moyenne/longue durée. Les marchés spécifiques seront lancés au fil du besoin par les 11 établissements hospitaliers parties.",
   "domaines_metier": [
     {
       "code": "transport_logistique_vehicules"
     }
   ],
-  "raison_classification": "Le marché porte exclusivement sur l'achat et la location de véhicules motorisés (voitures particulières, VUL, fourgons, véhicules sanitaires, TPMR) au profit d'établissements hospitaliers du GHT. Le CPV principal est 34100000-8 (Véhicules à moteur). Le code domaine 'transport_logistique_vehicules' couvre explicitement la location longue durée de véhicules et les achats de flottes.",
-  "caracteristiques_techniques_chantier": {
-    "description": "Achat neuf, achat d'occasion et location de véhicules motorisés de toutes catégories (véhicules personnels, VUL, fourgons <3,5T, véhicules sanitaires types A/B/C, VLM, TPMR, véhicules aménagés divers, véhicules sans permis, véhicules de transport de biens) ainsi que des prestations d'aménagement de véhicules, dont certains soumis à la norme NF EN 1789.",
-    "technologies_concernees": [],
-    "type_de_sites": "Établissements hospitaliers du GHT Alliance de Gironde (Gironde, région Nouvelle-Aquitaine)",
+  "raison_classification": "Le marché porte exclusivement sur l'achat et la location de véhicules motorisés (VP, VUL, fourgons, PL, ambulances, TPMR, VLM) au profit d'établissements hospitaliers. Il s'agit d'une fourniture/location de véhicules avec prestations associées (immatriculation, livraison, aménagement), ce qui correspond exactement au code transport_logistique_vehicules. Aucun lien avec la formation ou l'insertion.",
+  "caracteristiques_metier": {
+    "description": "Système d'acquisition dynamique pour l'achat (neuf et occasion) et la location (courte, moyenne et longue durée) de véhicules motorisés au profit des 11 établissements du GHT Alliance de Gironde, incluant : véhicules personnels, VUL, fourgons, poids lourds, véhicules sanitaires aménagés (ambulances NF EN 1789 type A et C, VLM, TPMR, véhicules funéraires, médicobus), ainsi que des prestations d'aménagement de porteurs déjà acquis. Durée : 10 ans avec marchés spécifiques lancés au fil du besoin.",
     "criteres_eligibilite": [
-      {
-        "libelle": "Déclaration sur l'honneur justifiant que le candidat n'entre dans aucun cas d'interdiction de soumissionner",
-        "source": "RC §5.1"
-      },
-      {
-        "libelle": "Déclaration concernant le chiffre d'affaires global et le chiffre d'affaires relatif aux prestations objet du contrat sur les trois derniers exercices",
-        "source": "RC §5.1"
-      },
-      {
-        "libelle": "Assurance pour les risques professionnels pour l'année en cours",
-        "source": "RC §5.1"
-      },
-      {
-        "libelle": "Pour les aménageurs (catégories 7a, 7b, 8a, 8b, 12b, 17b) : capacité à réaliser des aménagements conformes à la norme NF EN 1789 et à l'arrêté du 12 décembre 2017 relatif aux véhicules de transport sanitaire terrestre",
-        "source": "RC §5.1"
-      },
-      {
-        "libelle": "Pour les aménageurs : capacité à produire des véhicules susceptibles d'obtenir une réception administrative en catégorie VASP – ambulance, incluant la fourniture du dossier technique d'homologation",
-        "source": "RC §5.1"
-      }
-    ],
-    "contraintes_site_signalees": []
-  },
-  "allotissement": {
-    "description": "Le SAD est divisé en 25 catégories (et non des lots au sens classique), chaque candidat pouvant postuler à une ou plusieurs catégories.",
-    "nb_lots": 25,
-    "lots_detailles": [
-      {
-        "numero": 1,
-        "intitule": "Véhicules personnels – Achat neuf",
-        "corps_etat": null,
-        "montant_estime": null,
-        "description": "174 véhicules personnels neufs estimatifs sur 10 ans"
-      },
-      {
-        "numero": 2,
-        "intitule": "Véhicules personnels – Achat occasion",
-        "corps_etat": null,
-        "montant_estime": null,
-        "description": "21 véhicules personnels d'occasion estimatifs sur 10 ans"
-      },
-      {
-        "numero": 3,
-        "intitule": "VUL (Camionnettes – fourgonnette) – Achat neuf",
-        "corps_etat": null,
-        "montant_estime": null,
-        "description": "54 VUL neufs estimatifs sur 10 ans"
-      },
-      {
-        "numero": 4,
-        "intitule": "VUL (Camionnettes – fourgonnette) – Achat occasion",
-        "corps_etat": null,
-        "montant_estime": null,
-        "description": "6 VUL d'occasion estimatifs sur 10 ans"
-      },
-      {
-        "numero": 5,
-        "intitule": "Fourgon (utilitaire < 3,5T) – Achat neuf",
-        "corps_etat": null,
-        "montant_estime": null,
-        "description": "8 fourgons neufs estimatifs sur 10 ans"
-      },
-      {
-        "numero": 6,
-        "intitule": "Fourgon (utilitaire < 3,5T) – Achat occasion",
-        "corps_etat": null,
-        "montant_estime": null,
-        "description": "8 fourgons d'occasion estimatifs sur 10 ans"
-      },
-      {
-        "numero": 7,
-        "intitule": "Véhicule sanitaire type A – Achat neuf",
-        "corps_etat": null,
-        "montant_estime": null,
-        "description": "9 véhicules sanitaires type A neufs estimatifs sur 10 ans"
-      },
-      {
-        "numero": 8,
-        "intitule": "Véhicule sanitaire type B et C – Achat neuf",
-        "corps_etat": null,
-        "montant_estime": null,
-        "description": "3 véhicules sanitaires types B/C neufs estimatifs sur 10 ans"
-      },
-      {
-        "numero": 9,
-        "intitule": "Véhicule sanitaire VLM – Achat neuf",
-        "corps_etat": null,
-        "montant_estime": null,
-        "description": "3 VLM neufs estimatifs sur 10 ans"
-      },
-      {
-        "numero": 10,
-        "intitule": "Véhicule TPMR – Achat neuf",
-        "corps_etat": null,
-        "montant_estime": null,
-        "description": "5 TPMR neufs estimatifs sur 10 ans"
-      },
-      {
-        "numero": 11,
-        "intitule": "Véhicule aménagés divers – Achat neuf",
-        "corps_etat": null,
-        "montant_estime": null,
-        "description": "3 véhicules aménagés divers neufs estimatifs sur 10 ans"
-      },
-      {
-        "numero": 12,
-        "intitule": "Véhicule sanitaire type A – Achat occasion",
-        "corps_etat": null,
-        "montant_estime": null,
-        "description": "2 véhicules sanitaires type A d'occasion estimatifs sur 10 ans"
-      },
-      {
-        "numero": 13,
-        "intitule": "Véhicule sanitaire type B et C – Achat occasion",
-        "corps_etat": null,
-        "montant_estime": null,
-        "description": "2 véhicules sanitaires types B/C d'occasion estimatifs sur 10 ans"
-      },
-      {
-        "numero": 14,
-        "intitule": "Véhicule sanitaire VLM – Achat occasion",
-        "corps_etat": null,
-        "montant_estime": null,
-        "description": "2 VLM d'occasion estimatifs sur 10 ans"
-      },
-      {
-        "numero": 15,
-        "intitule": "Véhicule TPMR – Achat occasion",
-        "corps_etat": null,
-        "montant_estime": null,
-        "description": "2 TPMR d'occasion estimatifs sur 10 ans"
-      },
-      {
-        "numero": 16,
-        "intitule": "Véhicule aménagés divers – Achat occasion",
-        "corps_etat": null,
-        "montant_estime": null,
-        "description": "2 véhicules aménagés divers d'occasion estimatifs sur 10 ans"
-      },
-      {
-        "numero": 17,
-        "intitule": "Véhicules motorisés sans permis – Achat neuf",
-        "corps_etat": null,
-        "montant_estime": null,
-        "description": "8 véhicules sans permis neufs estimatifs sur 10 ans"
-      },
-      {
-        "numero": 18,
-        "intitule": "Véhicules de transport de biens – Achat neuf",
-        "corps_etat": null,
-        "montant_estime": null,
-        "description": "2 véhicules de transport de biens neufs estimatifs sur 10 ans"
-      },
-      {
-        "numero": 19,
-        "intitule": "Véhicules de transport de biens – Achat occasion",
-        "corps_etat": null,
-        "montant_estime": null,
-        "description": "2 véhicules de transport de biens d'occasion estimatifs sur 10 ans"
-      },
-      {
-        "numero": 20,
-        "intitule": "Prestation d'aménagement de véhicule",
-        "corps_etat": null,
-        "montant_estime": null,
-        "description": "6 prestations d'aménagement de véhicules estimatives sur 10 ans"
-      },
-      {
-        "numero": 21,
-        "intitule": "Prestation d'aménagement de véhicule soumis à la norme NF 1798",
-        "corps_etat": null,
-        "montant_estime": null,
-        "description": "3 prestations d'aménagement soumises à norme NF EN 1789 estimatives sur 10 ans"
-      },
-      {
-        "numero": 22,
-        "intitule": "Véhicules personnels – Location",
-        "corps_etat": null,
-        "montant_estime": null,
-        "description": "503 véhicules personnels en location estimatifs sur 10 ans"
-      },
-      {
-        "numero": 23,
-        "intitule": "Véhicules de transport de biens – Location",
-        "corps_etat": null,
-        "montant_estime": null,
-        "description": "33 véhicules de transport de biens en location estimatifs sur 10 ans"
-      },
-      {
-        "numero": 24,
-        "intitule": "VUL (Camionnettes – fourgonnette) – Location",
-        "corps_etat": null,
-        "montant_estime": null,
-        "description": "62 VUL en location estimatifs sur 10 ans"
-      },
-      {
-        "numero": 25,
-        "intitule": "Fourgon (utilitaire < 3,5T) – Location",
-        "corps_etat": null,
-        "montant_estime": null,
-        "description": "20 fourgons en location estimatifs sur 10 ans"
-      }
+      "Déclaration sur l'honneur de non-exclusion (articles L.2141-1 à L.2141-10 CCP)",
+      "Chiffre d'affaires global et sur les prestations objet du contrat des 3 derniers exercices",
+      "Attestation d'assurance risques professionnels en cours",
+      "Déclaration des effectifs moyens annuels des 3 dernières années",
+      "Liste des principales prestations similaires des 3 dernières années avec montants, dates et destinataires",
+      "Moyens techniques et humains mobilisés (ateliers, équipements, outillages)",
+      "Pour aménageurs (cat. 7a, 7b, 8a, 8b, 12b, 17b) : capacité à réaliser aménagements conformes NF EN 1789 et arrêté du 12/12/2017, capacité à obtenir réception VASP-ambulance, expérience sur véhicules sanitaires"
     ]
-  },
-  "qualifications_requises": {
-    "description": "Pas de qualification Qualibat ou RGE exigée. Pour les aménageurs de véhicules sanitaires, conformité à la norme NF EN 1789 et à l'arrêté du 12 décembre 2017 exigée, ainsi que capacité à obtenir réception VASP-ambulance.",
-    "qualibat": null,
-    "rge": null,
-    "opqibi": null,
-    "autres_certifications": [
-      "Conformité norme NF EN 1789 pour aménagements véhicules sanitaires (catégories 7a, 7b, 8a, 8b, 12b, 17b)",
-      "Capacité à fournir le dossier technique d'homologation VASP – ambulance"
-    ]
-  },
-  "caracteristiques_mission": {
-    "typologie_mission": null,
-    "domaine_expertise": null,
-    "livrables_attendus": [],
-    "duree_mission": "10 ans (SAD)",
-    "jours_consultant_estimes": null
-  },
-  "profils_intervenants": {
-    "description": null,
-    "chef_de_mission": null,
-    "consultants": null
-  },
-  "volumes_techniques": {
-    "puissance_totale_kwc": null,
-    "puissance_par_site_kwc": null,
-    "nb_sites": null,
-    "surface_panneaux_m2": null,
-    "productible_annuel_estime_mwh": null,
-    "duree_marche_mois": 120,
-    "duree_maintenance_om_annees": null,
-    "commentaire_volumes": "SAD de 10 ans. Quantités estimatives totales sur 10 ans : 174 VP neufs, 21 VP occasion, 54 VUL neufs, 503 VP location, 62 VUL location, 9 VST type A neufs, etc. Les quantités réelles dépendent des commandes effectives des établissements parties."
-  },
-  "modalites_execution_chantier": {
-    "raccordement_reseau_inclus": null,
-    "etudes_techniques_incluses": null,
-    "calendrier_chantier_contraint": null,
-    "sites_execution": [
-      "GHT Alliance de Gironde",
-      "Gironde",
-      "Nouvelle-Aquitaine"
-    ],
-    "engagement_productible": null,
-    "engagement_disponibilite_om": null
-  },
-  "publics_cibles": {
-    "description": null,
-    "criteres_eligibilite": [],
-    "publics_specifiques_signales": []
-  },
-  "volumes": {
-    "nb_beneficiaires_total": null,
-    "nb_beneficiaires_par_lot": null,
-    "duree_par_parcours_heures": null,
-    "duree_par_parcours_semaines": null,
-    "duree_marche_mois": 120,
-    "commentaire_volumes": "SAD de 10 ans couvrant l'ensemble des établissements du GHT Alliance de Gironde. Volumes estimatifs par catégorie détaillés dans l'annexe 2 du CCAP."
-  },
-  "modalites": {
-    "presentiel_obligatoire": null,
-    "distanciel_possible": null,
-    "synchrone_asynchrone": null,
-    "sites_execution": [
-      "GHT Alliance de Gironde",
-      "Gironde"
-    ],
-    "amplitude_horaire": null
-  },
-  "caracteristiques_mission_moe": {
-    "typologie": null,
-    "phases_couvertes": [],
-    "typologie_ouvrage": null,
-    "montant_travaux_estime": null,
-    "complexite_technique": null
-  },
-  "qualifications_moe": {
-    "opqibi": [],
-    "opqcm": null,
-    "bim": null,
-    "autres": []
-  },
-  "caracteristiques_si": {
-    "description": null,
-    "typologie_projet": null,
-    "technologies_mentionnees": [],
-    "volumetrie": null,
-    "hebergement": null
-  },
-  "qualifications_si": {
-    "iso_27001": null,
-    "anssi": null,
-    "hds": null,
-    "autres": []
   },
   "bareme_notation": {
-    "valeur_technique_pct": 45,
+    "valeur_technique_pct": 50,
     "valeur_prix_pct": 50,
     "sous_criteres_techniques": [
       {
         "libelle": "Critère technique",
         "ponderation_pct": 45,
-        "description": "Critère technique (exemple : délais, etc.) représentant 45% de la note globale. Les marchés spécifiques pourront préciser les sous-critères et faire varier la pondération dans une fourchette de ±10%.",
+        "description": "Évaluation de la qualité technique de l'offre (délais, organisation, moyens mis en œuvre). Le RC précise que ce critère oscille entre 40% et 50% selon le marché spécifique.",
         "elements_attendus": [
-          "Délais de livraison proposés",
-          "Caractéristiques techniques des véhicules proposés",
-          "Capacité d'aménagement et conformité réglementaire (pour véhicules sanitaires)",
-          "Service après-vente et assistance technique"
+          "Délais de livraison proposés pour chaque catégorie de véhicule",
+          "Organisation du suivi de marché (chef de projet dédié, interface de gestion de flotte)",
+          "Moyens humains et matériels dédiés (ateliers, personnels d'aménagement)",
+          "Barème de dépréciation détaillé pour les restitutions de véhicules de location",
+          "Modalités de mise à disposition d'un véhicule de remplacement en cas de retard",
+          "Modalités de gestion du couple durée/kilométrage pour la location"
         ],
-        "exemple_reponse_forte": "Le candidat proposant des délais de livraison fermes et courts, une gamme de véhicules récents avec options de personnalisation, et un réseau de SAV en Gironde se démarquera sur ce critère. Pour les véhicules sanitaires, la démonstration d'une capacité homologuée NF EN 1789 et de références VASP sera déterminante.",
+        "exemple_reponse_forte": "Le candidat propose un chef de projet dédié au GHT avec un réseau régional de 5 ateliers en Nouvelle-Aquitaine, des délais de livraison de 8 semaines pour les véhicules sanitaires aménagés et une interface numérique de suivi de flotte en temps réel accessible à chaque gestionnaire de parc des établissements. Il joint un barème de dépréciation détaillé conforme aux normes SNLVLD.",
         "source": "RC §8.1",
+        "unite_evaluation": "points",
         "sous_criteres": []
       },
       {
         "libelle": "Critère développement durable",
         "ponderation_pct": 5,
-        "description": "Critère développement durable représentant 5% de la note globale, pouvant osciller entre 5% et 10% selon le marché spécifique.",
+        "description": "Évaluation des engagements environnementaux de l'offre, notamment sur les émissions CO2, les motorisations alternatives et la gestion des batteries en fin de vie. Ce critère oscille entre 5% et 10% selon le marché spécifique.",
         "elements_attendus": [
-          "Proportion de véhicules électriques ou hybrides proposés",
-          "Émissions de CO2 de la gamme proposée",
-          "Démarche environnementale de l'entreprise"
+          "Proportion de véhicules électriques ou hybrides proposés dans le catalogue",
+          "Conformité Euro 6 pour tous les thermiques neufs",
+          "Détail des contraintes d'exploitation des batteries (coût, durée, temps de recharge)",
+          "Modalités de traitement des batteries en fin d'usage",
+          "Valorisation des Certificats d'Économie d'Énergie (CEE)"
         ],
-        "exemple_reponse_forte": "Un candidat proposant une gamme incluant des véhicules à faibles émissions (électriques, hybrides) et disposant d'une certification ISO 14001 valorisera ce critère.",
-        "source": "RC §8.1",
+        "exemple_reponse_forte": "Le candidat propose 30% de véhicules électriques dans son catalogue pour les catégories VP et VUL, détaille les performances des batteries (400 km d'autonomie, recharge rapide 80% en 30 min), les modalités de recyclage conformes à la réglementation, et s'engage à valoriser les CEE en déduction directe du prix.",
+        "source": "RC §8.1 ; CCTP §8",
+        "unite_evaluation": "points",
         "sous_criteres": []
       }
     ],
     "prix": {
       "type_formule": "moins_disant",
-      "formule_explicite": "Critère prix à 50% (pouvant osciller entre 45% et 55% selon le marché spécifique). La formule exacte sera précisée dans le règlement de consultation de chaque marché spécifique.",
+      "formule_explicite": "Critère prix pondéré à 50% (pouvant osciller entre 45% et 55% selon le marché spécifique). La note est calculée par comparaison des offres financières remises au BPU/DPGF de chaque marché spécifique.",
+      "source": "RC §8.1",
       "elements_a_chiffrer": [
-        "Prix unitaire d'achat par véhicule (neuf ou occasion) par catégorie",
-        "Loyer mensuel par véhicule pour les catégories location",
-        "Forfait prestation d'aménagement par véhicule",
-        "Options et accessoires éventuels"
+        "Prix unitaire HT des véhicules par catégorie (BPU marché spécifique)",
+        "Loyers mensuels HT pour les catégories location (longue, moyenne, courte durée)",
+        "Frais d'immatriculation, carte grise, plaques, vignette Crit'Air",
+        "Prix des aménagements spécifiques (TPMR, ambulances, VLM)",
+        "Pourcentage de remise sur catalogue pour fournitures hors BPU",
+        "Coût kilométrique supplémentaire au-delà du forfait (location)",
+        "Montant des CEE déduits en valeur sur l'offre financière"
       ]
     },
-    "modalite_calcul_prix": "Critère prix pondéré à 50%, pouvant varier entre 45% et 55% selon le marché spécifique. La formule exacte sera précisée dans chaque marché spécifique."
+    "modalite_calcul_prix": "Critère prix à 50% (fourchette 45-55% par marché spécifique) ; comparaison des prix unitaires HT du BPU ou DPGF ; le moins-disant obtient la note maximale."
   },
   "montant_marche": {
     "valeur_estimee_euros": null,
     "fourchette_min_euros": null,
     "fourchette_max_euros": null,
     "type": "non_communique",
-    "duree_couverte": "10 ans (SAD)",
-    "source_extraction": null,
-    "commentaire": "Aucun montant estimatif global n'est mentionné dans le RC fourni. Les quantités estimatives par catégorie sont disponibles (ex: 503 véhicules personnels en location, 174 VP achat neuf, etc.) mais sans prix unitaires, un calcul n'est pas possible. Les montants seront définis marché spécifique par marché spécifique."
+    "duree_couverte": "10 ans (2026-2036)",
+    "source_extraction": "RC §1.4 ; CCAP §1.3",
+    "commentaire": "Aucun montant global du SAD n'est publié dans le DCE. Le RC et le CCAP ne donnent que des quantités estimatives sur 10 ans (ex : 174 VP neuf, 503 VP location, 9 ambulances type A neuf…) sans prix unitaires de référence. Les prix unitaires seront définis dans chaque marché spécifique. Voir estimation bottom-up en montant_3_voies."
+  },
+  "montant_3_voies": {
+    "voie_1_eur": null,
+    "voie_1_source": null,
+    "voie_2_disponible": true,
+    "voie_2_min_eur": 8500000,
+    "voie_2_max_eur": 13000000,
+    "voie_2_hypotheses": [
+      {
+        "hypothese": "174 véhicules personnels neufs (cat.1) à un prix moyen de marché public hospitalier de 25 000 € HT",
+        "valeur": "174 × 25 000 = 4 350 000 €"
+      },
+      {
+        "hypothese": "503 locations longue durée VP (cat.13) à un loyer moyen de 400 €/mois × 36 mois moyen",
+        "valeur": "503 × 400 × 36 = 7 243 200 € sur 10 ans ; annualisé ≈ 724 000 €/an"
+      },
+      {
+        "hypothese": "54 VUL neufs (cat.3) à 35 000 € HT moyen",
+        "valeur": "54 × 35 000 = 1 890 000 €"
+      },
+      {
+        "hypothese": "9 ambulances type A neuves (cat.7a) à 75 000 € HT moyen (véhicule + aménagement NF EN 1789)",
+        "valeur": "9 × 75 000 = 675 000 €"
+      },
+      {
+        "hypothese": "5 TPMR neufs (cat.7d) à 55 000 € HT moyen",
+        "valeur": "5 × 55 000 = 275 000 €"
+      },
+      {
+        "hypothese": "Autres catégories (VUL occ., fourgons, PL, aménagements, locations diverses) estimées globalement à 2 M€",
+        "valeur": "Estimation résiduelle toutes autres catégories"
+      },
+      {
+        "hypothese": "Dimension incertaine variée : ratio prix unitaire des véhicules personnels et utilitaires (source : prix de marché public hospitalier) — fourchette ±25%",
+        "valeur": "Ratio : 20 000 à 30 000 € pour VP neuf ; 28 000 à 42 000 € pour VUL neuf"
+      }
+    ],
+    "voie_2_raison_indisponible": null
+  },
+  "cout_realisation": {
+    "cout_total_eur": null,
+    "cout_min_eur": null,
+    "cout_max_eur": null,
+    "postes": [
+      {
+        "poste": "Approvisionnement et livraison des véhicules (achat/fabricant)",
+        "detail": "Coût d'achat catalogue constructeur après remise concessionnaire ; représente 85-90% du prix de vente HT",
+        "montant_eur": null
+      },
+      {
+        "poste": "Aménagements spécifiques (sanitaires, TPMR, VLM, funéraires)",
+        "detail": "Sous-traitance carrossier/aménageur ; coût d'aménagement ambulance type A ≈ 25 000-40 000 € ; TPMR ≈ 15 000-25 000 €",
+        "montant_eur": null
+      },
+      {
+        "poste": "Démarches administratives et immatriculation",
+        "detail": "Frais carte grise, plaques, Crit'Air, homologation VASP — environ 300 à 800 € par véhicule",
+        "montant_eur": null
+      },
+      {
+        "poste": "Logistique de livraison et gestion du parc",
+        "detail": "Transport, convoyage, coordinateur de compte dédié — estimé 1-2% du CA",
+        "montant_eur": null
+      },
+      {
+        "poste": "Structure commerciale et administrative du SAD",
+        "detail": "Chef de projet dédié, interface de suivi, bilans semestriels, reporting — coût estimé 50 000-80 000 €/an",
+        "montant_eur": null
+      }
+    ],
+    "taux_journaliers_retenus": "Marché de fourniture de véhicules : pas de taux journaliers applicables. Marge brute distributeur automobile : 8-15% sur VP standard, 12-20% sur véhicules spéciaux/aménagés. Taux marché indicatifs uniquement.",
+    "commentaire": "Ce marché est essentiellement un marché de fourniture/revente de véhicules ; le coût de production correspond principalement au prix d'achat au constructeur/importateur. Sans prix unitaires fournis dans le DCE (définis dans chaque marché spécifique), la décomposition précise des coûts est impossible. Le candidat (concessionnaire, carrossier, loueur) doit calibrer sa marge sur la base de son prix d'achat réel."
   },
   "revision_prix": {
     "type": "non_communique",
@@ -368,103 +160,383 @@
     "periodicite": null,
     "formule_revision": null,
     "source_extraction": null,
-    "commentaire": "Aucune information sur la révision des prix dans le RC fourni. Le CCAP n'est pas disponible dans les pièces analysées."
+    "commentaire": "Le CCAP prévoit une clause de réexamen des conditions d'exécution (art.16) permettant d'ajuster le forfait kilométrique en cours de location, mais aucune formule de révision des prix indexée sur un indice n'est mentionnée dans les pièces fournies. Les prix des marchés spécifiques seront définis au cas par cas dans chaque BPU/DPGF."
   },
   "alertes_prix": [
-    "Aucun montant estimatif global communiqué : difficulté pour évaluer l'attractivité économique du SAD sans volumes financiers indicatifs.",
-    "La pondération prix de 50% est élevée pour un marché hospitalier spécialisé incluant des véhicules sanitaires avec contraintes réglementaires fortes.",
-    "Les critères techniques et prix pourront varier de ±10% selon le marché spécifique : anticiper des configurations allant de 40/55 à 55/40.",
-    "Pas de montant minimum garanti mentionné : le SAD ne garantit aucun volume d'achat aux candidats admis."
+    "Critère prix à 50% (fourchette 45-55%) : pondération élevée — la compétitivité tarifaire sera déterminante sur chaque marché spécifique.",
+    "Pénalités de retard de 100 €/jour sans plafond et sans mise en demeure préalable : risque financier direct à intégrer dans la politique de prix.",
+    "Clause CEE obligatoire : le titulaire doit déduire les CEE de son prix d'offre et ne peut pas compter sur un remboursement complémentaire si les CEE attendus ne sont pas obtenus.",
+    "Achats hors BPU plafonnés à 10% du montant total du marché spécifique : la remise sur catalogue doit être proposée dans l'offre.",
+    "Aucun montant global du SAD publié : risque de sous-estimer le volume réel des marchés spécifiques à venir — les quantités sont indicatives et non garanties."
   ],
   "references_exigees": {
     "experience_minimale_annees": 3,
     "experience_source": "RC §5.1",
     "volume_min_references_similaires": null,
-    "volume_min_references_unite": null,
-    "secteur_experience": "Fourniture et location de véhicules motorisés, aménagement de véhicules sanitaires pour les catégories concernées",
+    "volume_min_references_unite": "marchés similaires",
+    "secteur_experience": "Livraison de véhicules motorisés (personnels, utilitaires, sanitaires, TPMR) et/ou aménagement de véhicules spéciaux à des acheteurs publics ou privés",
     "secteur_source": "RC §5.1",
-    "certifications_obligatoires": [],
+    "certifications_obligatoires": [
+      {
+        "libelle": "Capacité à réaliser des aménagements conformes à la norme NF EN 1789 relative aux véhicules de transport sanitaire (pour catégories 7a, 7b, 8a, 8b, 12b, 17b)",
+        "codes": [],
+        "bloquante": true,
+        "source": "RC §5.1 — section 'Pour les aménageurs'"
+      },
+      {
+        "libelle": "Capacité à produire des véhicules susceptibles d'obtenir une réception administrative en catégorie VASP – ambulance (homologation UTAC ou équivalent)",
+        "codes": [],
+        "bloquante": true,
+        "source": "RC §5.1 — section 'Pour les aménageurs'"
+      },
+      {
+        "libelle": "Conformité à l'arrêté du 12 décembre 2017 relatif aux véhicules affectés aux transports sanitaires terrestres (pour aménageurs ambulances)",
+        "codes": [],
+        "bloquante": true,
+        "source": "RC §5.1 — section 'Pour les aménageurs'"
+      }
+    ],
     "autres_exigences": [
       {
-        "libelle": "Liste des principales prestations effectuées au cours des trois dernières années, indiquant le montant, la date et le destinataire, prouvées par attestations",
+        "libelle": "Déclaration du chiffre d'affaires global et chiffre d'affaires sur les prestations objet du contrat des 3 derniers exercices disponibles",
         "source": "RC §5.1"
       },
       {
-        "libelle": "Pour les aménageurs : liste de prestations similaires d'aménagement de véhicules sanitaires ou spéciaux réalisées au cours des trois dernières années",
+        "libelle": "Attestation d'assurance adaptée (risques professionnels) pour l'année en cours",
         "source": "RC §5.1"
       },
       {
-        "libelle": "Description des moyens de production et d'aménagement (atelier, équipements, outillage spécifique) et compétences du personnel affecté à l'aménagement",
+        "libelle": "Déclaration des effectifs moyens annuels et importance du personnel d'encadrement pour chacune des 3 dernières années",
         "source": "RC §5.1"
       },
       {
-        "libelle": "Indiquer dans l'annexe 2 du CCAP la ou les catégories pour lesquelles le candidat demande son admission — à défaut, candidature rejetée",
+        "libelle": "Liste des capacités à assurer les prestations associées : nombre de personnels, nombre d'ateliers, horaires d'ouverture (ou liste des sous-traitants avec leurs capacités)",
+        "source": "RC §5.1"
+      },
+      {
+        "libelle": "Indication obligatoire de la ou des catégories pour lesquelles le candidat postule (en complétant l'annexe 2 du CCAP) — à défaut la candidature est rejetée",
         "source": "RC §5.2"
       }
     ]
   },
+  "dossier_candidature": {
+    "pieces_a_fournir": [
+      {
+        "libelle": "Formulaire DC1 — Lettre de candidature et désignation du mandataire",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §5.1"
+      },
+      {
+        "libelle": "Formulaire DC2 — Déclaration du candidat individuel ou du membre du groupement",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §5.1"
+      },
+      {
+        "libelle": "Déclaration sur l'honneur de non-exclusion (articles L.2141-1 à L.2141-10 CCP)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §5.1"
+      },
+      {
+        "libelle": "Déclaration du chiffre d'affaires global et sur les prestations objet du contrat des 3 derniers exercices",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §5.1"
+      },
+      {
+        "libelle": "Attestation d'assurance risques professionnels pour l'année en cours",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §5.1"
+      },
+      {
+        "libelle": "Déclaration des effectifs moyens annuels et importance du personnel d'encadrement des 3 dernières années",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §5.1"
+      },
+      {
+        "libelle": "Liste des principales prestations effectuées au cours des 3 dernières années (montant, date, destinataire) — prouvées par attestations destinataire ou déclaration candidat",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §5.1"
+      },
+      {
+        "libelle": "Moyens techniques et humains mobilisés pour la prestation (description des moyens de production/aménagement, outillage spécifique, compétences du personnel)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §5.1"
+      },
+      {
+        "libelle": "Liste des capacités à assurer les prestations associées (nombre de personnels, ateliers, horaires) ou liste des sous-traitants/co-traitants avec leurs capacités",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §5.1"
+      },
+      {
+        "libelle": "Annexe 2 du CCAP complétée — indication de la ou des catégories sur lesquelles le candidat postule",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §5.2"
+      },
+      {
+        "libelle": "Pour aménageurs (cat. 7a, 7b, 8a, 8b, 12b, 17b) : justificatifs de capacité à réaliser des aménagements conformes à la norme NF EN 1789 et à l'arrêté du 12/12/2017",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §5.1 — section 'Pour les aménageurs'"
+      },
+      {
+        "libelle": "Pour aménageurs : expérience professionnelle — liste de prestations similaires des 3 dernières années (véhicules sanitaires ou spéciaux équivalents, montant, date, destinataire)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §5.1 — section 'Pour les aménageurs'"
+      },
+      {
+        "libelle": "Acte d'engagement et ses annexes (à fournir dans le cadre des marchés spécifiques)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "CCAP §2.6"
+      },
+      {
+        "libelle": "Bordereau de prix unitaires (BPU) et/ou décomposition du prix global forfaitaire (DPGF) (marchés spécifiques)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "CCAP §2.6"
+      },
+      {
+        "libelle": "Mémoire technique (marchés spécifiques)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "CCAP §2.6"
+      }
+    ],
+    "mode_remise": "dématérialisé",
+    "plateforme_depot": "PLACE — marches-publics.gouv.fr",
+    "signature_electronique_exigee": false,
+    "format_signature": "PAdES (préconisé si signature volontaire)",
+    "nombre_exemplaires": null,
+    "langue": "français",
+    "duree_validite_offres_jours": null,
+    "modalites_source": "RC §6.1"
+  },
   "lots": [
     {
       "numero": 1,
-      "intitule": "Catégorie 1 – Véhicules personnels, Achat neuf",
-      "zone_geographique": "Gironde / GHT Alliance de Gironde",
+      "intitule": "Catégorie 1 — Véhicules personnels — Achat neuf",
+      "domaine": "transport_logistique_vehicules",
+      "zone_geographique": "Gironde (33)",
       "volume_estime": 174,
       "volume_estime_unite": "véhicules",
-      "particularites": null
+      "cout_estime_min_eur": 3480000,
+      "cout_estime_max_eur": 4350000,
+      "particularites": "Citadines, berlines, monospaces, SUV, véhicules motorisés sans permis (cat.9 incluse). Quantités estimatives sur 10 ans non garanties."
     },
     {
-      "numero": 13,
-      "intitule": "Catégorie 13 – Véhicules personnels, Location",
-      "zone_geographique": "Gironde / GHT Alliance de Gironde",
-      "volume_estime": 503,
+      "numero": 2,
+      "intitule": "Catégories 3/4/15 — Véhicules Utilitaires Légers (VUL) — Achat et location",
+      "domaine": "transport_logistique_vehicules",
+      "zone_geographique": "Gironde (33)",
+      "volume_estime": 122,
       "volume_estime_unite": "véhicules",
-      "particularites": "Catégorie la plus volumineuse du SAD"
+      "cout_estime_min_eur": 2800000,
+      "cout_estime_max_eur": 4200000,
+      "particularites": "Camionnettes et fourgonnettes neuf et occasion + location ; minibus 6-9 places possibles ; aménagements spécifiques (rayonnages, frigo, benne). 54 neuf + 6 occasion + 62 location sur 10 ans."
+    },
+    {
+      "numero": 3,
+      "intitule": "Catégories 5/6/16 — Fourgons utilitaires ≤ 3,5T — Achat et location",
+      "domaine": "transport_logistique_vehicules",
+      "zone_geographique": "Gironde (33)",
+      "volume_estime": 36,
+      "volume_estime_unite": "véhicules",
+      "cout_estime_min_eur": 700000,
+      "cout_estime_max_eur": 1100000,
+      "particularites": "Fourgons L1 à L4 / H1 à H3, PTAC ≤ 3,5T, options hayon élévateur, cloison, aménagements température. 8 neuf + 8 occasion + 20 location sur 10 ans."
+    },
+    {
+      "numero": 4,
+      "intitule": "Catégories 7a/7b/8a/8b — Véhicules sanitaires NF EN 1789 (Ambulances type A et C) — Achat et location",
+      "domaine": "transport_logistique_vehicules",
+      "zone_geographique": "Gironde (33)",
+      "volume_estime": 23,
+      "volume_estime_unite": "véhicules",
+      "cout_estime_min_eur": 1100000,
+      "cout_estime_max_eur": 1800000,
+      "particularites": "Ambulances type A (transport couché non urgent) et type C (ASSU, soins d'urgence). Aménagement conforme NF EN 1789, homologation VASP requise. 9+3 neuf + 2+2 occasion + 5+2 location sur 10 ans. Sous-traitance carrossier possible."
+    },
+    {
+      "numero": 5,
+      "intitule": "Catégories 7c/8c/17c — Véhicules Légers Médicalisés (VLM) — Achat et location",
+      "domaine": "transport_logistique_vehicules",
+      "zone_geographique": "Gironde (33)",
+      "volume_estime": 7,
+      "volume_estime_unite": "véhicules",
+      "cout_estime_min_eur": 280000,
+      "cout_estime_max_eur": 420000,
+      "particularites": "VLM avec rangements modulaires matériel médical, gyrophares, balisage SMUR/SAMU. 3 neuf + 2 occasion + 2 location sur 10 ans."
+    },
+    {
+      "numero": 6,
+      "intitule": "Catégories 7d/8d/17d — Véhicules TPMR — Achat et location",
+      "domaine": "transport_logistique_vehicules",
+      "zone_geographique": "Gironde (33)",
+      "volume_estime": 12,
+      "volume_estime_unite": "véhicules",
+      "cout_estime_min_eur": 440000,
+      "cout_estime_max_eur": 660000,
+      "particularites": "Transport de Personnes à Mobilité Réduite : 4 places + 1 fauteuil, rampe d'accès manuelle, climatisation 20 renouvellements/h. 5 neuf + 2 occasion + 5 location sur 10 ans."
+    },
+    {
+      "numero": 7,
+      "intitule": "Catégories 7e/8e/17e — Véhicules aménagés divers — Achat et location",
+      "domaine": "transport_logistique_vehicules",
+      "zone_geographique": "Gironde (33)",
+      "volume_estime": 22,
+      "volume_estime_unite": "véhicules",
+      "cout_estime_min_eur": 800000,
+      "cout_estime_max_eur": 1400000,
+      "particularites": "Médicobus, postes de régulation avancés, véhicules de décontamination, véhicules funéraires. Aménagements multiples et variés. 3 neuf + 2 occasion + 15 location sur 10 ans. Date d'exécution prévisionnelle pour certains : 28/01/2029."
+    },
+    {
+      "numero": 8,
+      "intitule": "Catégories 12a/12b — Prestation d'aménagement de véhicule (porteurs déjà acquis)",
+      "domaine": "transport_logistique_vehicules",
+      "zone_geographique": "Gironde (33)",
+      "volume_estime": 9,
+      "volume_estime_unite": "aménagements",
+      "cout_estime_min_eur": 150000,
+      "cout_estime_max_eur": 350000,
+      "particularites": "Aménagement de porteurs fournis par le CHU : ASSU type C (cat.12a), VLM / véhicule 'aller vers' / flocage / installation hayon / rampes d'accès / fauteuils TPMR supplémentaires (cat.12b). Norme NF 1798 pour 12b. 6+3 aménagements sur 10 ans."
+    },
+    {
+      "numero": 9,
+      "intitule": "Catégories 10/11/14 — Poids lourds / Véhicules de transport de biens — Achat et location",
+      "domaine": "transport_logistique_vehicules",
+      "zone_geographique": "Gironde (33)",
+      "volume_estime": 37,
+      "volume_estime_unite": "véhicules",
+      "cout_estime_min_eur": 1200000,
+      "cout_estime_max_eur": 2200000,
+      "particularites": "PTAC > 3,5T, options hayon, température dirigée, caisses variables. 2 neuf + 2 occasion + 33 location sur 10 ans. Location courte/moyenne durée disponible (notamment pour CHU et CH Libourne)."
+    },
+    {
+      "numero": 10,
+      "intitule": "Catégorie 13 — Location véhicules personnels (longue durée)",
+      "domaine": "transport_logistique_vehicules",
+      "zone_geographique": "Gironde (33)",
+      "volume_estime": 503,
+      "volume_estime_unite": "contrats de location",
+      "cout_estime_min_eur": 4500000,
+      "cout_estime_max_eur": 7200000,
+      "particularites": "Catégorie la plus volumineuse du SAD. Location longue durée de VP avec gestion de flotte, interface informatisée, suivi sinistralité, réajustement couple durée/km. Date d'exécution prévisionnelle pour certains établissements : 12/04/2027."
     }
   ],
+  "tranches": [],
   "calendrier": {
     "date_limite_offres": "2026-06-18",
     "date_demarrage_prevue": "2026-06-18",
-    "duree_marche": "10 ans (SAD valide jusqu'au 17 juin 2036)"
+    "duree_marche": "10 ans fermes (SAD valide jusqu'au 17/06/2036) — marchés spécifiques de durée variable"
   },
   "alertes_candidat": [
-    "OBLIGATION d'indiquer les catégories postulées en complétant l'annexe 2 du CCAP — à défaut, candidature rejetée automatiquement (RC §5.2).",
-    "Pour les catégories 7a, 7b, 8a, 8b, 12b, 17b : conformité NF EN 1789 et capacité d'homologation VASP-ambulance obligatoires — dossier technique à préparer soigneusement.",
-    "Transmission exclusivement électronique via PLACE (marches-publics.gouv.fr) — aucune transmission papier autorisée.",
-    "Date limite de première candidature stricte : 18 juin 2026 à 12h00 — anticiper le dépôt d'au moins 48h.",
-    "Toute candidature déposée au moins 10 jours avant l'envoi d'une invitation à concourir à un marché spécifique sera prise en compte : surveiller les mises à jour du SAD tout au long des 10 ans."
+    "L'absence d'indication des catégories postulées (Annexe 2 CCAP) entraîne le rejet automatique de la candidature — pièce absolument obligatoire.",
+    "Pour les catégories d'aménagement de véhicules sanitaires (7a, 7b, 8a, 8b, 12b, 17b) : justification obligatoire de la capacité à réaliser des aménagements conformes NF EN 1789 et à obtenir une homologation VASP-ambulance — sans ce justificatif, la candidature est irrecevable sur ces catégories.",
+    "Un candidat admis au SAD qui refuse de répondre sans justification à 5 invitations consécutives peut être exclu définitivement du système — prévoir une organisation interne pour traiter les invitations.",
+    "Les pénalités de retard de livraison s'appliquent sans mise en demeure préalable, sans plafond et sans possibilité d'exonération — le risque financier est significatif, à anticiper dans la politique tarifaire.",
+    "Le SAD est ouvert en continu pendant 10 ans : les candidatures peuvent être déposées à tout moment, mais doivent être soumises au moins 10 jours calendaires avant l'invitation à soumissionner à un marché spécifique."
   ],
   "points_differenciants_attendus": [
     {
-      "libelle": "Capacité d'homologation VASP-ambulance et conformité NF EN 1789",
-      "exemple": "Un aménageur disposant d'un agrément préfectoral de centre d'aménagement VASP, de références récentes sur ambulances type A homologuées et d'un accord avec un DREETS pour les réceptions se démarquera nettement sur les catégories 7a, 7b, 12b.",
-      "source": "RC §5.1"
+      "libelle": "Interface de gestion de flotte numérique dédiée au GHT",
+      "exemple": "Un candidat proposant une plateforme web permettant à chaque responsable de parc des 11 établissements de suivre en temps réel les commandes, les loyers, la sinistralité et les entretiens, avec export automatique des bilans semestriels, se différenciera fortement sur le critère technique.",
+      "source": "CCTP §2.3"
     },
     {
-      "libelle": "Réseau de livraison et SAV en Gironde / Nouvelle-Aquitaine",
-      "exemple": "Disposer d'une concession ou d'un partenaire agréé en Gironde permettant des livraisons sous 30 jours et un SAV à moins de 30 km des établissements du GHT renforcera le critère technique.",
-      "source": null
+      "libelle": "Réseau d'ateliers de livraison et d'aménagement en Nouvelle-Aquitaine",
+      "exemple": "Un candidat disposant d'ateliers agréés VASP et carrossiers spécialisés ambulances en Gironde (ou sous-traitants certifiés localement) réduira ses délais de livraison et rassurera l'acheteur sur la capacité à gérer les aménagements spéciaux dans les délais contractuels.",
+      "source": "RC §5.1 ; CCTP §4.3"
     },
     {
-      "libelle": "Offre de véhicules électriques ou à faibles émissions",
-      "exemple": "Proposer une gamme comprenant des véhicules électriques pour les catégories VP et VUL, avec bornes de recharge associées, valorise le critère développement durable (5% à 10%).",
-      "source": "RC §8.1"
+      "libelle": "Offre proactive sur les Certificats d'Économie d'Énergie (CEE)",
+      "exemple": "Un candidat qui chiffre et déduit systématiquement les CEE de son offre financière (avec simulation du volume de kWhcumac par véhicule éligible), et qui propose un mécanisme de suivi des évolutions réglementaires, se distinguera sur le critère développement durable.",
+      "source": "CCAP §23.5"
     },
     {
-      "libelle": "Couverture multi-catégories pour un partenariat global",
-      "exemple": "Un candidat capable de couvrir simultanément les catégories VP achat neuf, VP location, VUL neuf et VUL location pourra proposer une offre économique globale cohérente, facilitant la gestion pour les établissements parties.",
-      "source": null
+      "libelle": "Barème de dépréciation détaillé et transparent pour les restitutions de véhicules de location",
+      "exemple": "Un candidat présentant un barème de dépréciation conforme aux normes SNLVLD, avec des taux d'abattement détaillés par type de dommage et ancienneté, et un engagement sur les délais de rapport de bilan 30 jours avant restitution, réduit le risque de litige et renforce la confiance des établissements.",
+      "source": "CCTP §7"
+    },
+    {
+      "libelle": "Catalogue large incluant des motorisations alternatives (électrique/hybride) sur toutes les catégories",
+      "exemple": "Un candidat proposant une gamme complète de véhicules électriques pour les catégories VP et VUL, avec des solutions de recharge adaptées aux sites hospitaliers et un engagement sur les performances de batterie (autonomie, cycles de charge), se distinguera sur le critère développement durable (5-10%).",
+      "source": "CCTP §8"
     }
   ],
   "_meta": {
     "id_marche": "BOAMP-26-56575",
     "type": "complet",
-    "extraction_le": "2026-06-12T02:53:43.699824+00:00",
+    "date_generation": "2026-06-19T20:23:22.868681+00:00",
+    "extraction_le": "2026-06-19T20:23:22.868681+00:00",
     "modele": "claude-sonnet-4-6",
-    "tokens_input": 23857,
-    "tokens_output": 6705,
-    "cout_eur": 0.1635,
-    "duree_sec": 103.9,
+    "preset_utilise": null,
+    "presets_matches": [],
+    "prompts_versions": {},
+    "tokens_input": 77849,
+    "tokens_output": 9669,
+    "cout_eur": 0.3597,
+    "duree_sec": 161.6,
     "pdfs_traites": [
+      {
+        "nom": "20260605_Registre Questions Réponses.docx",
+        "hash": "6ddcfb97de2c9a7606a1bb510ea2040d",
+        "taille_chars": 825
+      },
+      {
+        "nom": "Annexe 1 CCTP - Exemple de commande - TPMR.pdf",
+        "hash": "f36d2a93b8d3aeff686d7c7b4a5c9bf5",
+        "taille_chars": 1779
+      },
+      {
+        "nom": "Annexe 1 au CCAP Liste des Etablissements du GHT.pdf",
+        "hash": "212d8284a0aaef6dd903638ee54b08a2",
+        "taille_chars": 1214
+      },
+      {
+        "nom": "Annexe 2 CCTP - Exemple de commande - Ambulance type A.pdf",
+        "hash": "138e34df7125adfa0194b5b2bb68d251",
+        "taille_chars": 2801
+      },
+      {
+        "nom": "Annexe 2 a AE liste des comptables assignataires - Tresoriers.pdf",
+        "hash": "7e7e31bd11aa80b00158dff5af5fcd26",
+        "taille_chars": 1764
+      },
+      {
+        "nom": "Annexe 2 au CCAP Liste des categories.xlsx",
+        "hash": "09fc0c04f9d8dbde2e09ccb421a430b0",
+        "taille_chars": 2266
+      },
+      {
+        "nom": "CCAP_26EEAFGA014.pdf",
+        "hash": "49be60d89fe3e2b3ada14f6c13671f12",
+        "taille_chars": 75914
+      },
+      {
+        "nom": "CCTP_26EEAFGA014.pdf",
+        "hash": "1401b45d92e452a9da5689438ebc53d3",
+        "taille_chars": 32926
+      },
+      {
+        "nom": "DC1.docx",
+        "hash": "8389e3a27e9b36855cfca90bf621110a",
+        "taille_chars": 10242
+      },
+      {
+        "nom": "DC2.docx",
+        "hash": "21f35308d71cdb3c607e578371383274",
+        "taille_chars": 17507
+      },
       {
         "nom": "RC_26EEAFGA014.pdf",
         "hash": "b0680dab9f2ebf8267b4b1f6a2ebafc1",

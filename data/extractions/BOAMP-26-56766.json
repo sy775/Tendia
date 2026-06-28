@@ -1,110 +1,116 @@
 {
-  "synthese_marche": "Marché de travaux de réaménagement des bureaux et du hall d'accueil des services centraux du CROUS Lorraine situés au 75 rue de Laxou à Nancy. Les travaux sont décomposés en 7 lots couvrant l'ensemble des corps d'état du second œuvre (démolition/gros œuvre, plâtrerie, menuiserie intérieure, revêtements/peinture, chauffage/plomberie, électricité, ascenseur). Le délai d'achèvement est fixé au 26 août 2026, dans un bâtiment occupé.",
+  "synthese_marche": "Marché de travaux de réaménagement des bureaux et du hall d'accueil des services centraux du CROUS Lorraine à Nancy (75 rue de Laxou). Le marché est décomposé en 7 lots couvrant l'ensemble des corps d'état : démolition/gros œuvre, plâtrerie, menuiserie intérieure, revêtements/peinture, chauffage/plomberie, électricité et ascenseur. Les travaux doivent être achevés au plus tard le 26 août 2026.",
   "domaines_metier": [
     {
       "code": "btp_second_oeuvre",
-      "poids": 0.75,
+      "poids": 0.7,
       "lots_concernes": [
-        "Lot 2 Plâtrerie",
-        "Lot 3 Menuiserie intérieure",
-        "Lot 4 Revêtements/Peinture",
-        "Lot 5 Chauffage/Plomberie",
-        "Lot 6 Electricité",
-        "Lot 7 Ascenseur"
+        "2",
+        "3",
+        "4",
+        "5",
+        "6"
       ]
     },
     {
-      "code": "btp_demolition",
-      "poids": 0.25,
+      "code": "btp_gros_oeuvre",
+      "poids": 0.2,
       "lots_concernes": [
-        "Lot 1 Démolitions - Gros œuvre"
+        "1"
+      ]
+    },
+    {
+      "code": "btp_renovation_rehabilitation",
+      "poids": 0.1,
+      "lots_concernes": [
+        "7"
       ]
     }
   ],
-  "raison_classification": "Le marché porte principalement sur un réaménagement intérieur d'un bâtiment de bureaux existant, avec une dominante second œuvre (plâtrerie, menuiserie, revêtements, peinture, fluides, électricité) représentant 6 lots sur 7. Le lot 1 couvre des démolitions et travaux de gros œuvre légers (cloisons, faux-plafonds, escalier, ouvrage élévateur), justifiant la prise en compte du domaine démolition pour ce lot spécifique.",
+  "raison_classification": "Le marché est un chantier de réhabilitation/réaménagement de locaux existants en site occupé (bureaux administratifs CROUS), avec une large majorité des travaux relevant du second œuvre (plâtrerie, menuiseries, revêtements, peinture, chauffage, électricité). Le lot 1 relève du gros œuvre/démolition. Le lot 7 (ascenseur PMR) est un équipement spécialisé rattaché à la réhabilitation.",
   "caracteristiques_techniques_chantier": {
-    "description": "Réaménagement intérieur des bureaux et du hall d'accueil des services centraux du CROUS Lorraine : démolition de cloisons et faux-plafonds existants, création de nouveaux cloisonnements (plâtre et modulaires), rénovation des sols (revêtements souples caoutchouc, carrelage), peinture générale, mise en conformité sanitaire (WC PMR suspendu), redistribution chauffage/plomberie, mise à jour électricité CFO/CFA, et installation d'un élévateur PMR extérieur.",
-    "typologie_ouvrage": "Bureaux administratifs (services centraux d'un CROUS) — bâtiment existant à réaménager",
-    "surface_volume": "Environ 452 m² de surfaces peintes (toile de verre + peinture), 129 m² de sols souples, 129 m² de faux-plafonds Armstrong — surface globale non précisée explicitement",
-    "site_occupe": "true — le CCTP mentionne explicitement 'intervention dans des locaux dont une grande partie des finitions sont conservées', impliquant des précautions particulières pour ne pas endommager les sols et murs conservés. Le chantier se déroule dans des locaux en service.",
+    "description": "Réaménagement intérieur de bureaux et du hall d'accueil des services centraux du CROUS Lorraine situés au 75 rue de Laxou à Nancy. Les travaux comprennent des démolitions de cloisons et faux-plafonds existants, la création de nouvelles cloisons (plâtre et modulaires), la réfection des revêtements de sols et des peintures, le déplacement et remplacement des équipements sanitaires et de chauffage, la mise à jour de l'installation électrique, et la pose d'un appareil élévateur PMR. Une variante est prévue au lot 1 (dalles pleines escalier sur paillasse). Les travaux incluent également la rénovation de l'escalier monumental existant.",
+    "typologie_ouvrage": "Bureaux administratifs (services centraux d'un CROUS) — réaménagement intérieur en site occupé",
+    "surface_volume": "Environ 450-600 m² selon les surfaces cumulées des locaux identifiées dans les CDPGF (bureaux ~300 m², hall et dégagements ~100 m², sanitaires et zones communes ~50 m²)",
+    "site_occupe": "true — intervention dans des locaux dont une grande partie des finitions (sols et murs) sont conservées ; travaux à réaliser probablement pendant ou à proximité de l'activité du CROUS",
     "corps_etat": [
-      "Démolition / gros œuvre / installations de chantier",
-      "Plâtrerie, doublages, cloisons, faux-plafonds",
+      "Démolition - Gros œuvre - Installations de chantier",
+      "Plâtrerie, isolation, doublages, faux-plafonds",
       "Menuiserie intérieure bois, cloisons modulables",
       "Revêtements de sols souples et durs, peinture, finitions",
       "Chauffage, plomberie sanitaire, ventilation",
-      "Electricité courants forts et faibles",
-      "Ascenseur / élévateur PMR"
+      "Électricité courants forts et faibles",
+      "Ascenseur/élévateur PMR"
     ],
     "contraintes_specifiques": [
-      "Site occupé : précautions obligatoires pour préserver finitions existantes conservées",
-      "Délai contraint : travaux à achever au 26 août 2026",
-      "Présence d'un ERP (hall d'accueil) : exigences coupe-feu (cloisons CF 1H, portes CF 1/2H)",
-      "Accessibilité PMR : élévateur extérieur, WC suspendu PMR, largeurs de passage normées",
-      "Travaux en bâtiment occupé nécessitant protections journalières des ouvrages conservés",
-      "Variante obligatoire pour le lot 1 (dalle pleine escalier sur paillasse)",
-      "PSE pour le lot 1 (base vie chantier)",
-      "Compte prorata géré par le titulaire du lot 1",
-      "Coordination multi-lots obligatoire, planning OPC établi par la maîtrise d'œuvre"
+      "Délai d'exécution contraint : achèvement au 26 août 2026",
+      "Site occupé ou en fonctionnement : protections obligatoires des ouvrages conservés",
+      "Coordination multi-lots obligatoire avec OPC assuré par le maître d'œuvre",
+      "Variante obligatoire pour le lot 1 (dalles pleines escalier sur paillasse)",
+      "PSE prévu pour le lot 1 (base de vie chantier)",
+      "Rénovation d'un escalier monumental en pierre calcaire (contrainte de mise en œuvre soignée)",
+      "Pose d'un élévateur PMR conformément à la directive ascenseur 95/16/CE et norme EN 81/70",
+      "Bâtiment ERP (prescriptions CF, réglementation accessibilité PMR)",
+      "Chantier en milieu urbain (occupation domaine public, démarches auprès services de voirie)"
     ]
   },
   "allotissement": {
-    "description": "Marché décomposé en 7 lots indépendants, chacun faisant l'objet d'un marché séparé à prix global et forfaitaire. Les candidats peuvent soumissionner sur tous les lots.",
+    "description": "Marché décomposé en 7 lots indépendants, chacun faisant l'objet d'un marché séparé. Les candidats peuvent soumissionner à tous les lots.",
     "nb_lots": 7,
     "lots_detailles": [
       {
         "numero": 1,
         "intitule": "Démolitions - Gros œuvre - Installations de chantier",
-        "corps_etat": "Démolition, gros œuvre, installations de chantier",
+        "corps_etat": "Gros œuvre, démolition",
         "montant_estime": null,
-        "description": "Démolitions de parois, faux-plafonds, ouvertures dans cloisons plâtre, rénovation escalier pierre calcaire, modification canalisation EU, décaisses tapis brosse, radier et murs soutènement pour élévateur. Variante obligatoire (dalles pleines escalier sur paillasse). PSE base de vie."
+        "description": "Démolitions de cloisons, faux-plafonds, ouvertures, démolition partielle escalier extérieur, rénovation escalier monumental, modification de canalisation eaux vannes, décaissés tapis brosse, réalisation radier et mur de soutènement pour élévateur PMR. PSE : base de vie chantier. Variante : dalles pleines escalier sur paillasse."
       },
       {
         "numero": 2,
         "intitule": "Plâtrerie",
-        "corps_etat": "Plâtrerie, doublages, cloisons, faux-plafonds",
+        "corps_etat": "Plâtrerie, isolation, faux-plafonds",
         "montant_estime": null,
-        "description": "Doublages BA13 collés ou enduit plâtre, doublages acoustiques sur ossature, cloisons séparatives SAD 160, cloisons 98/48 (dont CF 1H hall ERP), faux-plafonds Armstrong Ultima 600x600, faux-plafonds plaques de plâtre sanitaire, caisson WC suspendu PMR, raccords finitions."
+        "description": "Doublages BA13, cloisons séparatives (SAD 160, 98/48, CF 1h), faux-plafonds Armstrong Ultima et plaques de plâtre, caisson WC suspendu, raccords de finitions."
       },
       {
         "numero": 3,
         "intitule": "Menuiserie intérieure",
         "corps_etat": "Menuiserie intérieure bois, cloisons modulables",
         "montant_estime": null,
-        "description": "Blocs-portes CF 1/2H (7 simples + 1 tierce) sur organigramme BRICARD, châssis intérieurs vitrés, plinthe bois, dépose/repose cloisons modulaires Harmonie P86 Claustra-Hauserman, dépose/repose miroir, trappe de visite gaine, dépose/repose meuble bar. Organigramme complet."
+        "description": "Blocs-portes intérieurs CF 1/2h, châssis intérieurs vitrés, dépose/repose cloisons modulaires Harmonie P86, dépose/repose miroir, organigramme et cylindres BRICARD, plinthes bois, ensemble bar salle de pose."
       },
       {
         "numero": 4,
         "intitule": "Revêtements de sols, Peinture",
         "corps_etat": "Revêtements de sols souples et durs, peinture, finitions",
         "montant_estime": null,
-        "description": "Dépose sols souples existants, ragréage, revêtements souples caoutchouc Norament 926 (128 m²), carrelage grès céramique et faïence sanitaires, tapis d'entrée Emco, peinture toile de verre sur ensemble des locaux (452 m²), peinture tuyauteries, portes bois, nettoyage mise en service."
+        "description": "Dépose sols souples existants, ragréage, revêtements souples isophoniques (~129 m²), carrelage grès céramique et faïence (sanitaires), peinture voile de verre sur toutes zones (~450 m²), tapis d'entrée, nettoyage de mise en service."
       },
       {
         "numero": 5,
         "intitule": "Plomberie - Chauffage - Ventilation",
         "corps_etat": "Chauffage, plomberie sanitaire, ventilation",
         "montant_estime": null,
-        "description": "Dépose et redistribution chauffage (radiateurs panneaux acier FINIMETAL), distribution bitube cuivre, WC suspendu PMR Villeroy & Boch TARGA, lavabo TARGA PRO, évier double bac, accessoires sanitaires PMR, ventilation sanitaires et salle de pose raccordée sur réseau existant."
+        "description": "Dépose et remplacement radiateurs (2 unités), distribution bitube cuivre, WC suspendu Villeroy & Boch, lavabo, évier double bac, accessoires sanitaires, ventilation sanitaires et salle de pose."
       },
       {
         "numero": 6,
         "intitule": "Electricité CFO_CFA",
-        "corps_etat": "Electricité courants forts et faibles",
+        "corps_etat": "Électricité courants forts et faibles",
         "montant_estime": null,
-        "description": "Dépose/neutralisation installations existantes, modification tableau électrique existant, distribution CFO/CFA par chemins de câbles séparés, prises courant (32+6 unités), prises RJ45 (16), interrupteurs, luminaires LED (plafonniers encastrés 26W, spots 185, plafonniers 600x600 36W 4000K UGR17), éclairage de sécurité blocs autonomes (9 unités)."
+        "description": "Déposes et neutralisations préalables, modification tableau électrique existant, distribution CF/Cf, prises de courant et informatiques (32+6 PC, 16 RJ45), appareillage, luminaires LED (dalles 600x600, plafonniers, spots), éclairage de sécurité par blocs autonomes."
       },
       {
         "numero": 7,
         "intitule": "Ascenseur",
-        "corps_etat": "Ascenseur / élévateur PMR",
+        "corps_etat": "Ascenseur/élévateur PMR",
         "montant_estime": null,
-        "description": "Fourniture et pose d'un appareil élévateur PMR selon EN 81-1 partie 41, capacité 300 kg, 2 arrêts, 2 faces de service opposées, plateau 1400x900 mm, vitesse 0,15 m/s, motorisation vis sans fin sans local machinerie, portillons vitrés automatiques, batterie de secours. Contrat d'entretien proposé pour mémoire."
+        "description": "Fourniture et pose d'un appareil élévateur PMR (EN 81-1 partie 41) : capacité 300 kg min, 2 arrêts, accès opposé, dimensions plateau 1400x900 mm, motorisation vis sans fin intégrée. Contrat d'entretien pour mémoire."
       }
     ]
   },
   "qualifications_requises": {
-    "description": "Le RC et les CCTP mentionnent que les entreprises sont 'réputées détenir et mettre en œuvre les capacités correspondant aux qualifications professionnelles du niveau de celles exigées pour l'agrément de leur candidature'. Aucune qualification Qualibat spécifique n'est listée numériquement dans les pièces fournies.",
+    "description": "Le RC et les CCTP indiquent que les entreprises doivent détenir les capacités correspondant aux qualifications professionnelles du niveau de celles exigées pour l'agrément de leur candidature. Aucune qualification Qualibat spécifique n'est explicitement listée avec code dans le RC fourni.",
     "qualibat": [],
     "rge": false,
     "rge_specialites": [],
@@ -113,7 +119,31 @@
     "iso_14001": false,
     "iso_45001": false,
     "opqibi": false,
-    "autres_certifications": []
+    "autres_certifications": [
+      "Assurance responsabilité civile professionnelle (exigée avant démarrage des travaux)",
+      "Assurance responsabilité civile décennale (exigée pour les ouvrages soumis à obligation d'assurance)",
+      "Pour lot 7 : conformité à la Directive Européenne 95/16/CE (ascenseurs)",
+      "Pour lot 6 : attestation CONSUEL à la charge de l'entreprise"
+    ]
+  },
+  "caracteristiques_mission_moe": {
+    "typologie": null,
+    "phases_couvertes": [],
+    "typologie_ouvrage": null,
+    "montant_travaux_estime": null,
+    "complexite_technique": null,
+    "livrables_par_phase": [],
+    "taux_remuneration_moe_pct": null,
+    "indices_revision": [],
+    "coordinations_associees": [],
+    "organigramme_attendu": [],
+    "bim_niveau": null
+  },
+  "qualifications_moe": {
+    "opqibi": [],
+    "opqcm": [],
+    "bim": null,
+    "autres": []
   },
   "bareme_notation": {
     "valeur_technique_pct": 60,
@@ -122,54 +152,113 @@
       {
         "libelle": "Valeur technique de l'offre",
         "ponderation_pct": 60,
-        "description": "Le RC prévoit une note technique à 60% portant sur la méthodologie d'exécution et les moyens mis en œuvre. Le lot 7 (ascenseur) exige explicitement un mémoire technique détaillé avec références locales, organisation maintenance, dispositifs anti-bruit.",
+        "description": "Évaluation de la qualité technique de la proposition du candidat, appréciée sur la base du mémoire technique remis (organisation du chantier, méthodologie, moyens humains et matériels, planning d'exécution, gestion des interfaces entre lots).",
         "elements_attendus": [
-          "Méthodologie d'exécution détaillée adaptée au site occupé",
-          "Phasage et organisation du chantier en coordination multi-lots",
-          "Moyens humains et matériels affectés",
-          "Références de travaux similaires (en particulier pour le lot 7)",
-          "Dispositifs de protection des ouvrages conservés",
-          "Mesures de sécurité et de coordination SPS"
+          "Présentation de la méthodologie d'intervention et du phasage des travaux",
+          "Moyens humains et matériels affectés au chantier",
+          "Planning d'exécution détaillé compatible avec l'achèvement au 26 août 2026",
+          "Gestion des interfaces avec les autres corps d'état",
+          "Mesures de protection des ouvrages conservés en site occupé",
+          "Gestion des déchets de chantier et mesures sécurité"
         ],
-        "exemple_reponse_forte": "L'entreprise présente un phasage en 3 phases hebdomadaires avec protection plastique systématique des sols existants entre chaque intervention, une équipe dédiée de 4 compagnons supervisée par un chef de chantier expérimenté en réhabilitation bureaux occupés, et joint 3 références de réaménagements similaires en bâtiments tertiaires occupés réalisés dans les 5 dernières années.",
+        "exemple_reponse_forte": "Le candidat présente un planning d'intervention en 3 phases s'articulant avec le planning MOE, identifie les interfaces critiques avec les lots adjacents (notamment lot plâtrerie/électricité), détaille les effectifs affectés (chef de chantier + 2 compagnons), et décrit les protections mises en place pour les circulations du personnel CROUS pendant les travaux.",
         "source": "RC §7.1",
-        "sous_criteres": []
-      },
-      {
-        "libelle": "Prix",
-        "ponderation_pct": 40,
-        "description": "La valeur prix représente 40% de la note globale. L'offre est évaluée sur la base du montant forfaitaire global HT renseigné dans le CDPGF de chaque lot.",
-        "elements_attendus": [
-          "CDPGF complété pour chaque lot soumissionné",
-          "Montant HT de l'offre de base",
-          "Montant HT de la variante (lot 1 uniquement)",
-          "Montant HT du PSE (lot 1 : base vie)"
-        ],
-        "exemple_reponse_forte": "—",
-        "source": "RC §7.1",
+        "unite_evaluation": "points",
         "sous_criteres": []
       }
     ],
     "prix": {
-      "type_formule": "autre",
-      "formule_explicite": "Le RC indique que le prix est noté à 40% mais ne précise pas la formule exacte de notation (moins-disant, proportionnelle ou linéaire). Par défaut pour les marchés adaptés de travaux : note proportionnelle au moins-disant.",
+      "type_formule": "moins_disant",
+      "formule_explicite": "Le prix est évalué sur la base du montant global et forfaitaire HT remis dans l'acte d'engagement, en fonction du CDPGF rempli par le candidat.",
+      "source": "RC §7.1",
       "elements_a_chiffrer": [
-        "Montant global forfaitaire HT par lot (CDPGF complété)",
-        "Montant de la variante obligatoire lot 1 (dalles pleines escalier sur paillasse)",
-        "Montant du PSE n°1 lot 1 (base de vie chantier)",
-        "Contrat d'entretien élévateur lot 7 (pour mémoire, non inclus dans le montant travaux)"
+        "Montant global et forfaitaire HT par lot (acte d'engagement)",
+        "Cadre de Décomposition du Prix Global Forfaitaire (CDPGF) par lot",
+        "PSE 1 — Base de vie chantier (lot 1)",
+        "Variante au poste 1 — Dalles pleines escalier sur paillasse (lot 1)",
+        "Contrat d'entretien élévateur pour mémoire (lot 7)"
       ]
     },
-    "modalite_calcul_prix": "Prix noté sur 40% — formule exacte non précisée dans le RC. Application probable du rapport prix_moins_disant / prix_candidat × 40."
+    "modalite_calcul_prix": "Évaluation du prix sur la base du montant global et forfaitaire HT par lot, appuyée sur le CDPGF rempli. Critère pondéré à 40% selon RC §7.1."
   },
   "montant_marche": {
     "valeur_estimee_euros": null,
     "fourchette_min_euros": null,
     "fourchette_max_euros": null,
     "type": "non_communique",
-    "duree_couverte": "Durée des travaux jusqu'au 26 août 2026",
+    "duree_couverte": null,
     "source_extraction": null,
-    "commentaire": "Aucun montant estimé global ni par lot n'est mentionné dans les pièces fournies (RC, CCAP, CCTP, CDPGF). Les CDPGF sont des cadres vides sans prix unitaires renseignés. Le montant est à estimer par l'entreprise sur la base des quantités figurant aux CDPGF."
+    "commentaire": "Aucun montant estimé global ni par lot n'est publié dans les pièces du DCE. Les CDPGF sont des cadres vides sans prix unitaires renseignés. L'estimation est calculée en Voie 2."
+  },
+  "montant_3_voies": {
+    "voie_1_eur": null,
+    "voie_1_source": null,
+    "voie_2_disponible": true,
+    "voie_2_min_eur": 320000,
+    "voie_2_max_eur": 480000,
+    "voie_2_hypotheses": [
+      {
+        "hypothese": "Surface totale réaménagée estimée à ~450-500 m² (bureaux ~300 m² + hall ~100 m² + sanitaires/dégagements ~80 m²) d'après les quantités des CDPGF (faux-plafonds lot 2 : 129 m², sols souples lot 4 : ~129 m², peintures ~450 m²)",
+        "valeur": "500 m²"
+      },
+      {
+        "hypothese": "Ratio moyen de réhabilitation intérieure tous corps d'état (hors élévateur) pour bureaux administratifs en Lorraine : 600 à 800 €/m² HT (second œuvre complet avec gros œuvre léger). Dimension la plus incertaine : ratio €/m².",
+        "valeur": "600-800 €/m²"
+      },
+      {
+        "hypothese": "Lot 7 élévateur PMR 2 arrêts intérieur : marché spécialisé, estimation séparée 35 000 à 55 000 € HT d'après références marché pour appareil standard",
+        "valeur": "35 000-55 000 €"
+      },
+      {
+        "hypothese": "PSE base de vie (lot 1) non inclus dans le montant principal, estimé 5 000-10 000 € HT pour chantier de cette durée (~2 mois)",
+        "valeur": "5 000-10 000 €"
+      }
+    ],
+    "voie_2_raison_indisponible": null
+  },
+  "cout_realisation": {
+    "cout_total_eur": 270000,
+    "cout_min_eur": 230000,
+    "cout_max_eur": 340000,
+    "postes": [
+      {
+        "poste": "Lot 1 — Démolition, gros œuvre, installations chantier",
+        "detail": "Démolitions légères, rénovation escalier, radier+mur soutènement élévateur, dalles béton (variante), frais chantier. Main d'œuvre + matériaux.",
+        "montant_eur": 45000
+      },
+      {
+        "poste": "Lot 2 — Plâtrerie, isolation, faux-plafonds",
+        "detail": "Cloisons SAD 160 (55 m²) + 98/48 (72 m²) + doublages + faux-plafonds Armstrong (129 m²) + plâtre sanitaire. Main d'œuvre + fournitures.",
+        "montant_eur": 50000
+      },
+      {
+        "poste": "Lot 3 — Menuiserie intérieure bois, cloisons modulables",
+        "detail": "7 blocs-portes CF, 1 porte tierce, châssis vitrés, dépose/repose cloisons modulaires (37 m²), organigramme, miroir.",
+        "montant_eur": 35000
+      },
+      {
+        "poste": "Lot 4 — Revêtements sols, peinture, finitions",
+        "detail": "Sols souples 129 m² + carrelage 5 m² + faïence 8,6 m² + peinture voile de verre ~450 m² + tapis entrée + nettoyage.",
+        "montant_eur": 55000
+      },
+      {
+        "poste": "Lot 5 — Chauffage, plomberie sanitaire, ventilation",
+        "detail": "2 radiateurs dépose/repose + distribution, WC suspendu, lavabo, évier, VMC sanitaires, accessoires.",
+        "montant_eur": 25000
+      },
+      {
+        "poste": "Lot 6 — Électricité courants forts et faibles",
+        "detail": "Distribution CF/Cf, 38 PC + 16 RJ45 + appareillage, 25 luminaires LED, éclairage sécurité 9 blocs, modification tableau.",
+        "montant_eur": 28000
+      },
+      {
+        "poste": "Lot 7 — Ascenseur/élévateur PMR",
+        "detail": "Fourniture + pose appareil élévateur PMR 300 kg, 2 arrêts, accès opposé, machinerie intégrée.",
+        "montant_eur": 32000
+      }
+    ],
+    "taux_journaliers_retenus": "Compagnon BTP 380-420 €/j chargé ; chef de chantier 550-650 €/j chargé. Matériaux au prix fabricant catalogue. Taux indicatifs marché Lorraine 2026.",
+    "commentaire": "Coûts de production (matériaux + main d'œuvre + frais généraux de chantier) estimés par lot à partir des quantités des CDPGF et de ratios BTP second œuvre Lorraine. La fourchette fait varier le ratio main d'œuvre (±15% selon charge réelle). PSE lot 1 non inclus dans ces coûts (option). Cohérence avec estimation revenu Voie 2 (400 k€ central) : marge brute estimée ~30-35% conforme au secteur."
   },
   "revision_prix": {
     "type": "actualisation",
@@ -185,156 +274,273 @@
       "BT47",
       "BT48"
     ],
-    "ponderation": "Indices du bâtiment base 2010 spécifiques à chaque lot : BT01 (lot 1 GO), BT08 (lot 2 Plâtrerie), BT18a (lot 3 Menuiserie bois), BT09/BT46 (lot 4 Revêtements durs/Peinture), BT38/BT40/BT41 (lot 5 Plomberie-Chauffage-Ventilation), BT47 (lot 6 Electricité), BT48 (lot 7 Ascenseur)",
-    "periodicite": "Actualisation unique (une seule fois entre mois zéro et début d'exécution)",
-    "formule_revision": "Prix actualisé = Prix initial × Index(d-3) / Index(0) — où d = mois de début d'exécution, Index(d-3) = valeur de l'indice 3 mois avant début, Index(0) = valeur au mois zéro (date limite de remise des offres). L'actualisation ne s'applique que si le délai entre mois zéro et début d'exécution est supérieur à 3 mois.",
+    "ponderation": "Actualisation unique par lot selon l'indice spécifique au corps d'état : Lot 1 BT01, Lot 2 BT08, Lot 3 BT18a, Lot 4 BT09/BT46, Lot 5 BT38/BT40/BT41, Lot 6 BT47, Lot 7 BT48",
+    "periodicite": null,
+    "formule_revision": "Prix actualisé = Prix initial × Index(d-3) / Index(0) — où d est le mois de début d'exécution, Index(d-3) la valeur de l'indice 3 mois avant le début, Index(0) la valeur au mois zéro (date limite de remise des offres). L'actualisation ne s'applique que si un délai supérieur à 3 mois s'écoule entre le mois zéro et le début d'exécution.",
     "source_extraction": "CCAP article 5.4",
-    "commentaire": "Prix fermes actualisables une seule fois : mécanisme simple et protecteur pour l'entreprise si notification tardive, mais sans révision en cours d'exécution, ce qui expose le titulaire aux hausses de matériaux pendant le chantier."
+    "commentaire": "Marché à prix fermes actualisables une seule fois (au démarrage). Étant donné le délai court entre remise des offres (30/06/2026) et démarrage prévu, l'actualisation ne s'appliquera probablement pas (délai < 3 mois). Indices bâtiment spécifiques par lot, publiés au Moniteur des Travaux Publics et INSEE."
   },
   "alertes_prix": [
-    "Prix forfaitaires globaux sans BPU détaillé : les CDPGF comportent des quantités indicatives non opposables — risque d'erreur d'estimation si les métrés ne sont pas vérifiés sur plans",
-    "Aucun montant estimatif communiqué par l'acheteur : l'entreprise chiffre sans référence, risque de positionnement inadapté par rapport aux autres soumissionnaires",
-    "Pénalités de retard de 200 €/jour calendaire sans plafond journalier ni exonération, plafonné à 20% du montant du marché — impact financier significatif sur un chantier court",
-    "Retenue de garantie 5% (substituable par garantie première demande uniquement — caution personnelle et solidaire non acceptée)"
+    "Prix global et forfaitaire : aucun prix unitaire indicatif publié dans les CDPGF — le candidat doit estimer toutes les quantités à partir des plans et du CCTP (risque d'erreur d'estimation)",
+    "Délai très contraint (achèvement 26 août 2026) : risque de pénalités de retard à 200 €/jour calendaire applicable sans mise en demeure préalable",
+    "Plafond pénalités à 20% du montant du marché : signal d'un acheteur sévère sur les retards",
+    "Marché à prix ferme actualisable une seule fois : si démarrage rapide (< 3 mois après remise offres), aucune protection contre la hausse des prix des matériaux entre offre et exécution"
   ],
   "references_exigees": {
     "experience_minimale_annees": null,
     "experience_source": null,
     "volume_min_references_similaires": null,
     "volume_min_references_unite": null,
-    "secteur_experience": "Travaux de second œuvre / réaménagement de bâtiments tertiaires ou ERP, avec expérience en site occupé souhaitée. Pour le lot 7 : références locales d'appareils élévateurs similaires exigées dans le mémoire technique.",
-    "secteur_source": "CCTP lot 7 §Mémoire technique",
-    "certifications_obligatoires": [],
-    "autres_exigences": [
+    "secteur_experience": "Réaménagement de bureaux ou locaux administratifs, travaux de second œuvre en site occupé",
+    "secteur_source": "RC §6.1",
+    "certifications_obligatoires": [
       {
-        "libelle": "Mémoire technique détaillé pour le lot 7 (ascenseur) précisant références locales d'appareils similaires avec coordonnées maîtres d'ouvrages, organisation service maintenance et dépannage 7j/7-24h/24, modalités gestion téléalarme, 3 attestations de capacités de moins d'un an",
-        "source": "CCTP lot 7 §Mémoire technique"
+        "libelle": "Assurance responsabilité civile professionnelle en cours de validité",
+        "codes": [],
+        "bloquante": true,
+        "source": "CCAP article 13.1.1"
       },
       {
-        "libelle": "Attestations d'assurance responsabilité civile professionnelle et décennale à produire avant signature du marché ou dans les 15 jours de notification",
+        "libelle": "Assurance responsabilité civile décennale (pour ouvrages soumis à obligation)",
+        "codes": [],
+        "bloquante": true,
+        "source": "CCAP article 13.1.2"
+      },
+      {
+        "libelle": "Pour lot 7 : conformité à la Directive Européenne Ascenseurs 95/16/CE — attestation de conformité requise",
+        "codes": [],
+        "bloquante": true,
+        "source": "CCTP lot 7"
+      },
+      {
+        "libelle": "Pour lot 6 : attestation CONSUEL (installations électriques neuves)",
+        "codes": [],
+        "bloquante": false,
+        "source": "CCTP lot 6 §3"
+      }
+    ],
+    "autres_exigences": [
+      {
+        "libelle": "Capacités financières : chiffre d'affaires et références à préciser dans le dossier de candidature (DC2 ou équivalent)",
+        "source": "RC §6.1"
+      },
+      {
+        "libelle": "Pour lot 7 : mémoire technique détaillé obligatoire avec références locales d'appareils similaires (nom, coordonnées MO, photos, année, montant), attestations de capacités de maintenance < 1 an",
+        "source": "CCTP lot 7"
+      }
+    ]
+  },
+  "dossier_candidature": {
+    "pieces_a_fournir": [
+      {
+        "libelle": "Lettre de candidature (DC1 ou équivalent)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §6.1"
+      },
+      {
+        "libelle": "Déclaration du candidat (DC2 ou équivalent) — capacités financières, techniques et professionnelles",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §6.1"
+      },
+      {
+        "libelle": "Attestations prouvant que le candidat n'est pas en état de liquidation judiciaire, de redressement judiciaire ou en faillite personnelle",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §6.1"
+      },
+      {
+        "libelle": "Attestations fiscales et sociales (URSSAF, impôts) à jour",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §6.1"
+      },
+      {
+        "libelle": "Références de travaux similaires réalisés au cours des 3 dernières années",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §6.1"
+      },
+      {
+        "libelle": "Attestations d'assurance responsabilité civile professionnelle et décennale",
+        "phase": "candidature",
+        "obligatoire": true,
         "source": "CCAP article 13"
       },
       {
-        "libelle": "Plan Particulier de Sécurité et Protection de la Santé (PPSPS) à transmettre dans les 15 jours après notification du marché",
-        "source": "CCAP article 10.3.2"
+        "libelle": "Acte d'engagement (AE) complété et signé (un par lot soumissionné)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §6.2"
+      },
+      {
+        "libelle": "Cadre de Décomposition du Prix Global Forfaitaire (CDPGF) renseigné (un par lot)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §6.2"
+      },
+      {
+        "libelle": "Mémoire technique justificatif des dispositions prévues pour l'exécution du contrat",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §6.2"
+      },
+      {
+        "libelle": "Pour lot 1 — Variante : acte d'engagement variante renseigné (CDPGF variante)",
+        "phase": "offre",
+        "obligatoire": false,
+        "source": "RC §3.3.2"
+      },
+      {
+        "libelle": "Pour lot 7 : mémoire technique détaillé avec références locales, organisation maintenance et projet de contrat d'entretien",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "CCTP lot 7"
       }
-    ]
+    ],
+    "mode_remise": "dématérialisé",
+    "plateforme_depot": "PLACE — marches-publics.gouv.fr",
+    "signature_electronique_exigee": null,
+    "format_signature": null,
+    "nombre_exemplaires": null,
+    "langue": "français",
+    "duree_validite_offres_jours": 180,
+    "modalites_source": "RC §3.1, RC §8.1, RC §8.2"
   },
   "lots": [
     {
       "numero": 1,
       "intitule": "Démolitions - Gros œuvre - Installations de chantier",
+      "domaine": "btp_gros_oeuvre",
       "zone_geographique": "Nancy (54)",
       "volume_estime": null,
       "volume_estime_unite": null,
-      "particularites": "Lot pilote : gestionnaire du compte prorata, responsable base vie chantier (PSE). Variante obligatoire sur dalles pleines escalier sur paillasse. Comprend radier et murs soutènement pour élévateur PMR. Démolitions : 33,75 m² parois, 114 m² faux-plafonds, escalier partiel extérieur."
+      "cout_estime_min_eur": 38000,
+      "cout_estime_max_eur": 55000,
+      "particularites": "Inclut une variante obligatoire (dalles pleines escalier sur paillasse) et une PSE (base de vie chantier). Titulaire gestionnaire du compte prorata."
     },
     {
       "numero": 2,
       "intitule": "Plâtrerie",
+      "domaine": "btp_second_oeuvre",
       "zone_geographique": "Nancy (54)",
-      "volume_estime": null,
-      "volume_estime_unite": null,
-      "particularites": "Cloisons CF 1H en hall ERP. Faux-plafonds Armstrong Ultima 129 m². Cloisons SAD 160 (55 m²) et 98/48 (72,5 m² dont 17,5 m² CF 1H). Coordination étroite avec lots 3 et 6 pour réservations luminaires et blocs-portes."
+      "volume_estime": 129,
+      "volume_estime_unite": "m² faux-plafonds + ~200 m² cloisons",
+      "cout_estime_min_eur": 42000,
+      "cout_estime_max_eur": 60000,
+      "particularites": "Cloisons CF 1h en hall ERP. Coordination obligatoire avec lot électricité pour découpes luminaires."
     },
     {
       "numero": 3,
       "intitule": "Menuiserie intérieure",
+      "domaine": "btp_second_oeuvre",
       "zone_geographique": "Nancy (54)",
-      "volume_estime": null,
-      "volume_estime_unite": null,
-      "particularites": "Organigramme complet BRICARD à établir. Cloisons modulaires existantes Harmonie P86 à déposer/reposer (37 m²). 7 blocs-portes CF 1/2H simples + 1 tierce. Châssis vitrés sur trame 1000 mm. Coordination avec plâtrier pour calfeutrements et ossatures."
+      "volume_estime": 7,
+      "volume_estime_unite": "blocs-portes CF + cloisons modulaires 37 m²",
+      "cout_estime_min_eur": 28000,
+      "cout_estime_max_eur": 42000,
+      "particularites": "Dépose/repose cloisons modulaires Harmonie P86 existantes (réemploi). Organigramme BRICARD à coordonner avec ensemble des serrures. Portes CF à PV CSTB."
     },
     {
       "numero": 4,
       "intitule": "Revêtements de sols, Peinture",
+      "domaine": "btp_second_oeuvre",
       "zone_geographique": "Nancy (54)",
-      "volume_estime": null,
-      "volume_estime_unite": null,
-      "particularites": "Revêtements souples caoutchouc Norament 926 (128,82 m²) — produit certifié Greenguard Gold et Ange Bleu. Toile de verre + peinture satinée sur 452 m². Jonction délicate entre sols souples et sols en pierre existants conservés. Nettoyage mise en service à charge du lot."
+      "volume_estime": 129,
+      "volume_estime_unite": "m² sols souples + ~450 m² peinture",
+      "cout_estime_min_eur": 46000,
+      "cout_estime_max_eur": 65000,
+      "particularites": "Revêtement isophonique spécifié (Norament 926 ou équivalent certifié Greenguard Gold/Ange Bleu). Nettoyage de mise en service à la charge de ce lot."
     },
     {
       "numero": 5,
       "intitule": "Plomberie - Chauffage - Ventilation",
+      "domaine": "btp_second_oeuvre",
       "zone_geographique": "Nancy (54)",
       "volume_estime": null,
       "volume_estime_unite": null,
-      "particularites": "Etude technique thermique à charge de l'entreprise (mission MOE sans études techniques). Distribution bitube cuivre apparente. WC PMR suspendu sur caisson plâtrier (coordination lots 2 et 5). Raccordement ventilation sur réseau existant. Essais de température exigés à 0°C extérieur."
+      "cout_estime_min_eur": 20000,
+      "cout_estime_max_eur": 32000,
+      "particularites": "Études techniques chauffage à la charge de l'entreprise (mission loi MOP sans études techniques par le MOE). Coordination avec lot électricité pour raccordements VMC."
     },
     {
       "numero": 6,
       "intitule": "Electricité CFO_CFA",
+      "domaine": "btp_second_oeuvre",
       "zone_geographique": "Nancy (54)",
       "volume_estime": null,
       "volume_estime_unite": null,
-      "particularites": "Distribution séparée CFO/CFA (espacement 60 cm). Luminaires LED 4000K UGR17 L80B10 flicker free (20 unités 36W 600x600). CONSUEL à charge de l'entreprise. Coordination avec lot chauffage pour liaison régulation. 9 blocs autonomes sécurité."
+      "cout_estime_min_eur": 22000,
+      "cout_estime_max_eur": 35000,
+      "particularites": "Attestation CONSUEL obligatoire. Distribution CF et CFA séparées. Application directives DSI PRO BTP pour courants faibles/informatique."
     },
     {
       "numero": 7,
       "intitule": "Ascenseur",
+      "domaine": "btp_renovation_rehabilitation",
       "zone_geographique": "Nancy (54)",
-      "volume_estime": null,
-      "volume_estime_unite": null,
-      "particularites": "Élévateur PMR extérieur 2 niveaux, 2 faces de service opposées, motorisation vis sans fin intégrée sans local machinerie. Gaine et radier réalisés par lot 1. Mémoire technique détaillé obligatoire avec références locales et organisation maintenance 7j/7. Contrat d'entretien à proposer pour mémoire (non inclus dans le prix des travaux)."
+      "volume_estime": 1,
+      "volume_estime_unite": "appareil",
+      "cout_estime_min_eur": 28000,
+      "cout_estime_max_eur": 42000,
+      "particularites": "Élévateur PMR EN 81-1 partie 41, 2 arrêts, accès opposé. Lot 1 fournit le génie civil (radier, mur soutènement, gaine). Mémoire technique détaillé obligatoire avec références locales. Contrat d'entretien à proposer pour mémoire."
     }
   ],
+  "tranches": [],
   "calendrier": {
     "date_limite_offres": "2026-06-30",
     "date_demarrage_prevue": null,
-    "duree_marche": "Travaux à achever au 26 août 2026 — durée totale depuis notification jusqu'à expiration du délai de garantie de parfait achèvement"
+    "duree_marche": "Achèvement au 26 août 2026 + délai de garantie de parfait achèvement (1 an)"
   },
   "alertes_candidat": [
-    "Délai d'exécution extrêmement court : date limite de dépôt des offres le 30 juin 2026, travaux à achever au 26 août 2026 — vérifier la disponibilité des équipes avant de soumissionner",
-    "Variante obligatoire pour le lot 1 : l'offre de base ET la variante (dalle pleine escalier sur paillasse) doivent être chiffrées — une offre sans variante pour le lot 1 serait incomplète",
-    "Bâtiment occupé avec finitions existantes conservées : les CCTP imposent des protections journalières obligatoires, sous peine de pénalités pour manquements hygiène/sécurité (200 €/manquement)",
-    "Pénalités de retard sans mise en demeure préalable (dérogation au CCAG), 200 €/jour calendaire — le calendrier détaillé OPC est contractuel dès notification par OS",
-    "Pour le lot 7 (ascenseur) : mémoire technique détaillé obligatoire avec 3 attestations de capacités de moins d'un an et références locales — absence = offre irrégulière probable",
-    "Retenue de garantie 5% — seule la garantie à première demande est acceptée pour la substituer (caution personnelle et solidaire explicitement refusée par le CCAP)"
+    "Délai d'exécution extrêmement court : remise des offres le 30/06/2026, achèvement exigé au 26 août 2026 — vérifier la faisabilité dans le calendrier et le planning avant de soumissionner",
+    "Pour le lot 7 (élévateur), un mémoire technique détaillé avec références locales ET attestations de capacités de maintenance de moins d'un an est obligatoire — son absence peut constituer une offre irrégulière",
+    "Variante obligatoire pour le lot 1 : l'offre de base ET la variante doivent être chiffrées séparément dans des actes d'engagement distincts — risque d'irrégularité si l'une des deux est omise",
+    "Attestations d'assurance RC professionnelle et décennale doivent être fournies dans les 15 jours de notification — leur absence entraîne résiliation pour faute sans mise en demeure préalable (CCAP art 15.1)",
+    "CDPGF sans prix indicatifs publiés : le candidat doit estimer toutes les quantités sur la base du CCTP et des plans, avec risque significatif d'omissions pouvant affecter la compétitivité et la marge"
   ],
   "points_differenciants_attendus": [
     {
-      "libelle": "Expérience prouvée en réaménagement de bureaux en site occupé",
-      "exemple": "Un candidat présentant 3 références récentes de réaménagements de bureaux tertiaires ou ERP réalisés sans interruption de l'activité, avec protocoles de protection des finitions existantes documentés, se différenciera nettement dans la note technique.",
-      "source": "CCTP lots 1 à 6 — prescriptions particulières"
-    },
-    {
-      "libelle": "Organisation de chantier multi-lots coordonnée et phasage détaillé",
-      "exemple": "Proposer dès l'offre un planning prévisionnel phasé par zones avec interfaces inter-lots explicites (ex: ordre GO → plâtrerie → menuiserie → peinture/sol → fluides → électricité par bureau), démontrant la maîtrise de la coordination en délai contraint (<2 mois travaux).",
+      "libelle": "Planning d'exécution crédible respectant le délai du 26 août 2026",
+      "exemple": "Présenter un planning détaillé par lots avec les interfaces critiques identifiées (ex : lot 1 démolitions → lot 2 plâtrerie → lot 4 peinture → lot 3 menuiseries), démontrant la possibilité de tenir le délai en ~6 semaines de travaux effectifs.",
       "source": "CCAP article 4.2"
     },
     {
-      "libelle": "Maîtrise des exigences ERP et accessibilité PMR",
-      "exemple": "Pour les lots 2 et 3, mettre en avant la maîtrise des classements coupe-feu (CF 1H cloisons hall, CF 1/2H portes), et pour le lot 7, démontrer des réalisations d'élévateurs PMR EN 81-41 avec accès opposés en bâtiments tertiaires.",
-      "source": "CCTP lot 2 §3.3, CCTP lot 3 §01.1.1, CCTP lot 7 §3"
+      "libelle": "Expérience en réaménagement de bureaux en site occupé ou partiellement occupé",
+      "exemple": "Référencer des chantiers similaires (réaménagement de bureaux administratifs de 300-600 m², intervention sur site occupé ou à proximité d'activités en cours) réalisés dans les 3 dernières années, avec coordonnées du maître d'ouvrage.",
+      "source": "RC §6.1"
     },
     {
-      "libelle": "Références locales récentes pour le lot 7 (ascenseur/élévateur)",
-      "exemple": "L'ascensoriste joignant 3 fiches de réalisation d'appareils similaires (2 faces opposées, EN 81-41) en région Grand Est avec coordonnées des maîtres d'ouvrages contactables, scores mieux que tout concurrent sans référence locale documentée.",
-      "source": "CCTP lot 7 §Mémoire technique"
+      "libelle": "Pour lot 7 : solide réseau de maintenance locale et SAV 7j/7",
+      "exemple": "Détailler l'organisation du service de dépannage 24h/24 en Lorraine, les délais d'intervention contractuels, les références de contrats d'entretien actifs sur des appareils similaires dans le secteur Nancy-Metz.",
+      "source": "CCTP lot 7"
     },
     {
-      "libelle": "Proposition de méthodologie de protection des revêtements existants conservés",
-      "exemple": "Le lot 4 (peinture/sol) peut se différencier en décrivant précisément le protocole de protection des sols en pierre calcaire existants (bâches épaisses, signalétique de circulation), et en proposant un protocole de réception contradictoire des supports avec le lot 1 avant démarrage.",
-      "source": "CCTP lot 4 §B — Prescriptions particulières"
+      "libelle": "Proposition d'un chef de chantier dédié avec expérience multi-corps d'état",
+      "exemple": "Nommer un chef de chantier ayant coordonné des chantiers TCE similaires (réhabilitation bureaux > 400 m²), capable d'assurer les interfaces avec les 6 autres lots et les réunions de chantier hebdomadaires.",
+      "source": null
     }
   ],
   "_meta": {
     "id_marche": "BOAMP-26-56766",
     "type": "complet",
-    "date_generation": "2026-06-14T23:18:36.259718+00:00",
-    "extraction_le": "2026-06-14T23:18:36.259718+00:00",
+    "date_generation": "2026-06-19T23:15:48.807884+00:00",
+    "extraction_le": "2026-06-19T23:15:48.807884+00:00",
     "modele": "claude-sonnet-4-6",
     "preset_utilise": "btp",
     "presets_matches": [
-      "btp"
+      "btp",
+      "ingenierie"
     ],
     "prompts_versions": {
-      "btp/_preset.json": "sha256:d1717e0d87f6c265"
+      "btp/_preset.json": "sha256:055bf6f8b2c1f771",
+      "ingenierie/_preset.json": "sha256:b924b32a088673d6"
     },
-    "tokens_input": 144498,
-    "tokens_output": 7360,
-    "cout_eur": 0.5167,
-    "duree_sec": 144.5,
+    "tokens_input": 153785,
+    "tokens_output": 9553,
+    "cout_eur": 0.5744,
+    "duree_sec": 168.5,
     "pdfs_traites": [
       {
         "nom": "AE lot 1 - VARIANTE.pdf",

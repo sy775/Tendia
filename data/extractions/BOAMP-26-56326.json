@@ -1,0 +1,1223 @@
+{
+  "synthese_marche": "Marché public de travaux portant sur l'aménagement d'une voie verte de 27 km entre Montluçon et Evaux-les-Bains, sur une ancienne voie ferrée, dans le cadre d'un groupement de commandes entre Montluçon Communauté (coordonnateur) et Creuse Confluence. Le marché est alloti en 2 lots : Lot 1 (VRD - aménagement de la piste cyclable en enrobé avec ses annexes : éclairage public, mobilier, plantations) et Lot 2 (ouvrages d'art - travaux sur les viaducs existants). Procédure ouverte avec variantes exigées et visite obligatoire.",
+  "domaines_metier": [
+    {
+      "code": "btp_voirie_reseaux",
+      "poids": 0.7,
+      "lots_concernes": [
+        "LOT-0001"
+      ]
+    },
+    {
+      "code": "ingenierie_structure_genie_civil",
+      "poids": 0.3,
+      "lots_concernes": [
+        "LOT-0002"
+      ]
+    }
+  ],
+  "raison_classification": "Le Lot 1 (CPV 45233162 - pistes cyclables) correspond à des travaux de voirie avec terrassements, enrobés, réseaux EP et mobilier urbain : code btp_voirie_reseaux. Le Lot 2 (CPV 45220000 - ouvrages d'art) porte sur des viaducs existants sur une ancienne voie ferrée, travaux de génie civil sur ouvrages d'art : ingenierie_structure_genie_civil est retenu faute de code 'btp_ouvrage_art' dans la taxonomie, mais il s'agit bien de travaux de réalisation (pas d'études), le code le plus proche est btp_voirie_reseaux pour les travaux de génie civil linéaire ; toutefois ingenierie_structure_genie_civil est conservé par défaut pour signaler la spécificité ouvrages d'art.",
+  "caracteristiques_techniques_chantier": {
+    "description": "Aménagement d'une voie ferrée désaffectée en voie verte cyclable sur 27 km entre Montluçon et Evaux-les-Bains. Les travaux comprennent : dépose de voie ferrée (marché séparé), terrassements/préparation de la plateforme existante (ballast), mise en œuvre d'une structure en GNT 0/31.5 15 cm + BB 0/10 6 cm (ou 5 cm selon zones), assainissement (réseaux EP), traversées de ruisseaux en contrebas, aménagement des passages à niveau (PN7, PN8, PN9, PN10), éclairage public, plantations, mobilier urbain, signalétique. Le Lot 2 porte sur la réhabilitation de viaducs (remplacement/installation de garde-corps, interventions structurelles).",
+    "typologie_ouvrage": "Voie verte / piste cyclable en site propre sur emprise ferroviaire désaffectée - chantier linéaire mobile sur 27 km + ouvrages d'art (viaducs)",
+    "surface_volume": "27 km linéaires de voie verte ; largeur de piste ~3 m (bande roulante 2,60 m en variante) soit environ 81 000 m² de revêtement ; 6 communes traversées",
+    "site_occupe": "false — emprise d'ancienne voie ferrée non exploitée, mais chantier mobile avec coactivité entre lots et présence riverains/commerçants à gérer",
+    "corps_etat": [
+      "VRD (terrassements, chaussée enrobée, GNT)",
+      "Réseaux EP (eaux pluviales, traversées hydrauliques)",
+      "Éclairage public",
+      "Signalisation routière et directionnelle",
+      "Espaces verts / plantations",
+      "Mobilier urbain",
+      "Ouvrages d'art (garde-corps, maçonnerie, génie civil viaducs)",
+      "Gestion des déchets (ballast, traverses)"
+    ],
+    "contraintes_specifiques": [
+      "Chantier mobile sur 27 km traversant 6 communes",
+      "Présence de plomb sur les parties peintes des ouvrages d'art (rapport 2024)",
+      "Ballasts potentiellement pollués aux HAP/HCT (rapport mars 2025) - gestion déchets ISDI",
+      "Mesures d'accompagnement écologique obligatoires (écologue désigné, charte environnementale)",
+      "Phasage en 2 secteurs : Allier (Montluçon Communauté) et Creuse (Creuse Confluence)",
+      "Visite obligatoire sous peine d'irrecevabilité",
+      "Coactivité entre les 2 lots du marché (coordination OPC par MOE)",
+      "Présence AEP en emprise (réseaux eau potable à préserver)",
+      "Demandes d'arrêtés voirie auprès des communes pour les PN",
+      "Contraintes environnementales (EVEE, zones sensibles, périodes d'intervention)",
+      "Présence d'amiante : rapport négatif (repérage 2022/2024)",
+      "Délai 15 mois + période de préparation 2 mois"
+    ]
+  },
+  "allotissement": {
+    "description": "Marché alloti en 2 lots distincts ; les candidats peuvent soumissionner aux 2 lots. Chaque lot fait l'objet d'un marché séparé.",
+    "nb_lots": 2,
+    "lots_detailles": [
+      {
+        "numero": 1,
+        "intitule": "Aménagement de la voie verte",
+        "corps_etat": "VRD, enrobés, réseaux EP, éclairage public, plantations, mobilier urbain, signalisation",
+        "montant_estime": null,
+        "description": "Travaux d'aménagement de la piste cyclable sur l'emprise ferroviaire : préparation du sol (dépose ballast, terrassements), structure GNT + BB, drainage EP, traversées hydrauliques, éclairage public sur zones urbaines, mobilier, plantations, signalétique. Chantier mobile sur ~27 km, 2 phases (secteur Allier et secteur Creuse)."
+      },
+      {
+        "numero": 2,
+        "intitule": "Ouvrage d'art",
+        "corps_etat": "Génie civil, ouvrages d'art, garde-corps (fonte), maçonnerie, traitement plomb",
+        "montant_estime": null,
+        "description": "Réhabilitation et mise en conformité des viaducs sur le tracé (dont OA n°8 viaduc sur le Cher à Montluçon, OA n°33 viaduc de Lignerolles, OA n°47 viaduc d'Artiges à Teillet-Argenty). Travaux de génie civil, remplacement de garde-corps, traitement des parties peintes plombifères. PSE sur garde-corps en fonte de caractéristiques similaires aux existants."
+      }
+    ]
+  },
+  "qualifications_requises": {
+    "description": "Le RC ne précise pas de qualifications Qualibat ou RGE spécifiques dans les pièces transmises. Les exigences portent sur les capacités professionnelles, techniques et financières (CA, références, effectifs, matériel).",
+    "qualibat": [],
+    "rge": false,
+    "rge_specialites": [],
+    "mase": false,
+    "iso_9001": false,
+    "iso_14001": false,
+    "iso_45001": false,
+    "opqibi": null,
+    "autres_certifications": []
+  },
+  "caracteristiques_mission_moe": {
+    "typologie": null,
+    "phases_couvertes": [],
+    "typologie_ouvrage": null,
+    "montant_travaux_estime": null,
+    "complexite_technique": null,
+    "livrables_par_phase": [],
+    "taux_remuneration_moe_pct": null,
+    "indices_revision": [],
+    "coordinations_associees": [],
+    "organigramme_attendu": [],
+    "bim_niveau": null
+  },
+  "qualifications_moe": {
+    "opqibi": [],
+    "opqcm": [],
+    "bim": null,
+    "autres": []
+  },
+  "bareme_notation": {
+    "valeur_technique_pct": 60,
+    "valeur_prix_pct": 40,
+    "sous_criteres_techniques": [
+      {
+        "libelle": "Valeur technique — Lot 1 : Aménagement de la Voie Verte",
+        "ponderation_pct": 60,
+        "description": "La valeur technique du Lot 1 est évaluée sur un mémoire justificatif structuré en 6 chapitres thématiques, portant sur l'organisation, la gestion environnementale, les méthodes d'exécution, le phasage et le planning, les fournitures, et le critère environnemental. La meilleure note est portée à 40 points si elle n'atteint pas le maximum, les autres offres étant recalculées proportionnellement.",
+        "elements_attendus": [
+          "Organigramme nominatif avec CV en annexe (titulaire, cotraitants, sous-traitants)",
+          "Organisation des contrôles intérieurs et désignation d'un responsable CQ global",
+          "Analyse des contraintes (accès chantier, riverains, commerçants, coactivité)",
+          "Plan de gestion environnementale en lien avec MOE et écologue (charte environnementale)",
+          "SOSED (Schéma d'Organisation et de Suivi de l'Elimination des Déchets) remis dans l'offre",
+          "Planning détaillé avec phasage par zone (Allier/Creuse), interfaces entre lots",
+          "Méthodologies d'exécution pour chaque tâche (terrassement, enrobés, EP, mobilier)",
+          "Provenance des matériaux (enrobés, bordures, bétons, graves) et distributeurs (mobilier, végétaux)"
+        ],
+        "exemple_reponse_forte": "Le candidat présente un organigramme nominatif avec CV du chef de chantier et du responsable QSE, liste ses cotraitants et sous-traitants pour chaque corps d'état, et décrit une organisation de contrôle interne structurée avec points d'arrêt définis par phase. Il propose un planning détaillé par secteur (Allier en premier / Creuse en deuxième) intégrant les contraintes écologiques (périodes d'intervention, zones sensibles EVEE) et les interfaces avec le Lot 2 sur les viaducs.",
+        "source": "RC §8.2",
+        "unite_evaluation": "points",
+        "sous_criteres": [
+          {
+            "libelle": "Chapitre 1 : Organisation générale (+ CV en annexe)",
+            "ponderation_pct": 15,
+            "description": "Évalue l'organigramme d'encadrement du chantier, les liens fonctionnels entre entités, l'organisation des contrôles intérieurs, la désignation d'un responsable général CQ, les moyens humains et la gestion de la coactivité.",
+            "elements_attendus": [
+              "Organigramme nominatif avec CV en annexe pour tous les encadrants",
+              "Schéma des liens de fonctionnement entre titulaire, cotraitants et sous-traitants",
+              "Organisation des contrôles intérieurs et désignation du responsable CQ global",
+              "Tableau des moyens humains par phase et par entité"
+            ],
+            "exemple_reponse_forte": "Organigramme avec noms/fonctions du conducteur de travaux, chef de chantier, responsable SPS et responsable environnement ; CV en annexe ; schéma décisionnel clair entre les cotraitants enrobés, VRD et espaces verts.",
+            "source": "RC §8.2 - Chapitre 1",
+            "unite_evaluation": "points",
+            "grille_actions": [
+              {
+                "action": "Produire un organigramme nominatif couleur avec noms, fonctions et rattachement de TOUS les intervenants (titulaire + cotraitants + sous-traitants annoncés)",
+                "type": "livrable",
+                "poids_pct": 35,
+                "source": "RC §8.2"
+              },
+              {
+                "action": "Joindre en annexe les CV du conducteur de travaux, du chef de chantier et du responsable QSE avec références de chantiers similaires (voie verte, piste cyclable, VRD linéaire)",
+                "type": "livrable",
+                "poids_pct": 30,
+                "source": "RC §8.2"
+              },
+              {
+                "action": "Décrire l'organisation des contrôles intérieurs (PAQ) avec désignation nominative d'un responsable général CQ, points d'arrêt et d'alerte par phase",
+                "type": "livrable",
+                "poids_pct": 20,
+                "source": "RC §8.2"
+              },
+              {
+                "action": "Valoriser la gestion de coactivité Lot 1/Lot 2 avec dispositif de coordination entre les deux titulaires sur les zones de viaduc",
+                "type": "levier",
+                "poids_pct": 15,
+                "source": "estimé"
+              }
+            ]
+          },
+          {
+            "libelle": "Chapitre 2 : Analyse des contraintes, chantier respectueux de l'environnement et gestion des déchets",
+            "ponderation_pct": 20,
+            "description": "Évalue la capacité du candidat à identifier les risques spécifiques du chantier (accès, riverains, coactivité), à proposer des mesures de gestion environnementale cohérentes avec l'étude d'impact et l'écologue, et à décrire un dispositif de gestion des déchets avec lieux de valorisation.",
+            "elements_attendus": [
+              "Identification des risques : accès chantier linéaire, riverains, commerçants, zones sensibles",
+              "Mesures environnementales cohérentes avec les prescriptions de l'écologue (EVEE, faune-flore, périodes)",
+              "SOSED avec lieux de recyclage des matériaux inertes (ballasts) et des déchets dangereux (plomb)",
+              "Quantification des matériaux recyclés et identification des décharges ISDI"
+            ],
+            "exemple_reponse_forte": "Le candidat identifie les 3 principaux risques (accès étroit aux viaducs, zones humides protégées, pollution HAP des ballasts) et propose des mesures concrètes : aire étanche de ravitaillement, balisage des zones sensibles validé par l'écologue, plan de suivi des bordereaux de déchets avec ISDI identifiée pour les ballasts. Il joint un SOSED complet avec filières de valorisation.",
+            "source": "RC §8.2 - Chapitre 2",
+            "unite_evaluation": "points",
+            "grille_actions": [
+              {
+                "action": "Joindre le SOSED complété avec filières de traitement pour chaque type de déchet (ballast HAP, traverses, plomb, déchets de chantier) et coordonnées des ISDI/ISDND identifiées",
+                "type": "livrable",
+                "poids_pct": 35,
+                "source": "RC §8.2"
+              },
+              {
+                "action": "Décrire les mesures de conformité à la charte environnementale : briefing d'ouverture de chantier, fiches réflexes espèces protégées, aire de ravitaillement étanche, balisage zones sensibles",
+                "type": "livrable",
+                "poids_pct": 30,
+                "source": "CCAP §12"
+              },
+              {
+                "action": "Quantifier les tonnages de ballast à évacuer et proposer un calcul du taux de valorisation (matériaux inertes vs déchets) pour démontrer l'effort environnemental",
+                "type": "levier",
+                "poids_pct": 20,
+                "source": "estimé"
+              },
+              {
+                "action": "Identifier et lister les risques riverains/commerçants spécifiques à chaque commune traversée (Montluçon, Lavault-Sainte-Anne, Lignerolles, Teillet-Argenty, Budelière, Evaux-les-Bains) avec actions de communication proposées",
+                "type": "levier",
+                "poids_pct": 15,
+                "source": "RC §8.2"
+              }
+            ]
+          },
+          {
+            "libelle": "Chapitre 3 : Méthodologies d'exécution",
+            "ponderation_pct": 15,
+            "description": "Évalue les méthodes et techniques pour chaque tâche (installation de chantier, réseaux EP, terrassement, remise en état, éclairage public), les points d'arrêt et de contrôle, et les moyens matériels et humains associés.",
+            "elements_attendus": [
+              "Fiche méthode pour chaque tâche principale (terrassement/préparation plateforme, couche GNT, enrobé, EP, éclairage, mobilier)",
+              "Points d'arrêt et de contrôle identifiés par phase",
+              "Matériel listé avec type et nombre (compacteur, finisseur, camions, nacelle)",
+              "Moyens humains par tâche (qualification, nombre)"
+            ],
+            "exemple_reponse_forte": "Le candidat décrit pour la pose d'enrobé : finisseur 2,5 m, compacteur tandem + compacteur pneumatique, température de mise en œuvre contrôlée, essais de compactage (PCG), épaisseurs vérifiées par carottage. Pour les traversées hydrauliques : technique de terrassement en zone sensible avec aspiratrice excavatrice.",
+            "source": "RC §8.2 - Chapitre 3",
+            "unite_evaluation": "points",
+            "grille_actions": [
+              {
+                "action": "Rédiger une fiche méthode illustrée pour chaque tâche critique : préparation de la plateforme ballast, mise en œuvre GNT, enrobé BB 0/10, réseaux EP (traversées hydrauliques), éclairage public",
+                "type": "livrable",
+                "poids_pct": 45,
+                "source": "RC §8.2"
+              },
+              {
+                "action": "Lister précisément le matériel prévu (marques/modèles si possible) et justifier l'adéquation avec les contraintes du chantier linéaire mobile",
+                "type": "livrable",
+                "poids_pct": 30,
+                "source": "RC §8.2"
+              },
+              {
+                "action": "Proposer des solutions innovantes de mise en œuvre adaptées au contexte (aspiratrice pour zones sensibles, technique d'application d'enrobé basse température pour réduction émissions CO2)",
+                "type": "levier",
+                "poids_pct": 25,
+                "source": "estimé"
+              }
+            ]
+          },
+          {
+            "libelle": "Chapitre 4 : Phasage des travaux, plan de circulation, délais (avec planning détaillé)",
+            "ponderation_pct": 25,
+            "description": "Évalue le planning général des travaux (intégrant les deux lots), l'enchaînement des tâches, les délais par phase, la gestion des interfaces avec la circulation, et l'identification des points d'alerte. C'est le critère le plus pondéré de la valeur technique Lot 1.",
+            "elements_attendus": [
+              "Planning général en Gantt sur 15 mois avec jalons principaux",
+              "Intégration des délais propres au Lot 2 (ouvrages d'art)",
+              "Délais par phase (préparation, secteur Allier, secteur Creuse)",
+              "Plan de signalisation routière et gestion des PN (PN7, PN8, PN9, PN10)",
+              "Identification des points d'alerte (intempéries, coactivité, délais fournisseurs enrobés)"
+            ],
+            "exemple_reponse_forte": "Planning Gantt détaillé avec démarrage secteur Allier en juillet 2026, enrobé à partir de septembre 2026 après démarrage Lot 2, secteur Creuse de novembre 2026 à mi-2027. Plans de circulation aux PN avec dispositifs de mise en sécurité. Identification du chemin critique : approvisionnement enrobé et période hivernale.",
+            "source": "RC §8.2 - Chapitre 4",
+            "unite_evaluation": "points",
+            "grille_actions": [
+              {
+                "action": "Produire un planning Gantt détaillé sur 15 mois + 2 mois préparation, avec toutes les tâches et leurs interdépendances, intégrant le démarrage prévu du Lot 2",
+                "type": "livrable",
+                "poids_pct": 40,
+                "source": "RC §8.2"
+              },
+              {
+                "action": "Joindre un plan de signalisation de chantier pour chaque PN (7, 8, 9, 10) conforme à la réglementation, avec arrêtés de voirie identifiés auprès des communes concernées",
+                "type": "livrable",
+                "poids_pct": 25,
+                "source": "RC §8.2"
+              },
+              {
+                "action": "Identifier le chemin critique et les risques de glissement (intempéries, période hivernale, approvisionnement enrobé) avec plans de rattrapage chiffrés",
+                "type": "levier",
+                "poids_pct": 20,
+                "source": "estimé"
+              },
+              {
+                "action": "Démontrer la capacité à tenir les délais des 2 phases (Allier/Creuse) en proposant un calendrier de démarrage anticipé avec 10 jours d'intempéries prévisibles intégrés",
+                "type": "levier",
+                "poids_pct": 15,
+                "source": "CCAP §6.2"
+              }
+            ]
+          },
+          {
+            "libelle": "Chapitre 5 : Fournitures (origine et provenance)",
+            "ponderation_pct": 15,
+            "description": "Évalue la provenance des matériaux (bordures, enrobés, bétons, graves, ballasts) et l'identification des distributeurs pour les fournitures (mobiliers, végétaux, préfabriqués). L'origine des produits est valorisée au titre du développement durable.",
+            "elements_attendus": [
+              "Identification des centrales d'enrobé approvisionnant le chantier (distances, capacité)",
+              "Provenance des bordures, bétons et granulats (carrières locales de préférence)",
+              "Noms des distributeurs de mobilier urbain, végétaux et préfabriqués",
+              "Distances de transport et bilan carbone indicatif"
+            ],
+            "exemple_reponse_forte": "Le candidat cite la centrale d'enrobé de X (xx km, capacité journalière), les carrières d'Allier pour les GNT, les pépinières locales pour les végétaux, et le fabricant de mobilier avec référence au catalogue. Il indique un bilan transport estimé.",
+            "source": "RC §8.2 - Chapitre 5",
+            "unite_evaluation": "points",
+            "grille_actions": [
+              {
+                "action": "Citer nominativement les fournisseurs d'enrobés (centrale), de granulats (carrière) et de mobilier urbain avec leurs localisations et distances au chantier",
+                "type": "livrable",
+                "poids_pct": 50,
+                "source": "RC §8.2"
+              },
+              {
+                "action": "Valoriser les circuits courts (fournisseurs dans un rayon < 100 km) et calculer un bilan CO2 du transport des matériaux comme levier RSE",
+                "type": "levier",
+                "poids_pct": 30,
+                "source": "estimé"
+              },
+              {
+                "action": "Joindre les fiches techniques des produits principaux (enrobé, bordures, mobilier) démontrant leur conformité aux exigences du CCTP",
+                "type": "livrable",
+                "poids_pct": 20,
+                "source": "RC §8.2"
+              }
+            ]
+          },
+          {
+            "libelle": "Chapitre 6 : Critère environnemental",
+            "ponderation_pct": 10,
+            "description": "Évalue l'organisation générale mise en place pour assurer un chantier respectueux de l'environnement, en lien avec le MOE et l'écologue coordinateur environnement.",
+            "elements_attendus": [
+              "Description de l'organisation de coordination avec l'écologue",
+              "Mesures de protection des zones sensibles (Natura 2000, faune-flore)",
+              "Gestion des EVEE (Espèces Végétales Exotiques Envahissantes)",
+              "Protocole de reporting environnemental au MOE"
+            ],
+            "exemple_reponse_forte": "Le candidat désigne un référent environnement identifié nominativement, décrit le protocole de briefing environnemental en début de chantier, liste les espèces protégées identifiées dans l'étude d'impact et les mesures ERC associées, et propose un calendrier de suivi hebdomadaire avec l'écologue.",
+            "source": "RC §8.2 - Chapitre 6",
+            "unite_evaluation": "points",
+            "grille_actions": [
+              {
+                "action": "Désigner nominativement un référent environnement et décrire son rôle de liaison avec l'écologue et le MOE durant le chantier",
+                "type": "livrable",
+                "poids_pct": 35,
+                "source": "RC §8.2"
+              },
+              {
+                "action": "Décrire les protocoles de détection et gestion des EVEE (Espèces Végétales Exotiques Envahissantes) avec mesures de confinement et d'élimination",
+                "type": "livrable",
+                "poids_pct": 35,
+                "source": "PGC SPS §3.7.2"
+              },
+              {
+                "action": "Proposer un suivi environnemental formalisé (fiche de signalement anomalie, tableau de bord hebdomadaire) comme outil de pilotage partagé avec le MOE",
+                "type": "levier",
+                "poids_pct": 30,
+                "source": "estimé"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "libelle": "Valeur technique — Lot 2 : Ouvrages d'art",
+        "ponderation_pct": 60,
+        "description": "La valeur technique du Lot 2 est évaluée sur 2 chapitres : organisation/moyens/environnement (VT1, 30 pts) et méthodes/procédures/planning (VT2, 30 pts). Note = VT1 + VT2 ; méthode de calcul par note d'appréciation × pondération.",
+        "elements_attendus": [
+          "Organisation et moyens humains/matériels dédiés au chantier",
+          "Actions pour un chantier respectueux de l'environnement (cohérence avec étude d'impact)",
+          "Procédures d'exécution détaillées pour chaque ouvrage",
+          "Planning détaillé des interventions sur chaque viaduc"
+        ],
+        "exemple_reponse_forte": "Le candidat présente un organigramme dédié ouvrages d'art avec cordistes habilités, nacelles adaptées, décrit les procédures de traitement du plomb sur les gardes corps peints (EPI spécifiques, déchets traçables), et fournit un planning par ouvrage intégrant les protections temporaires collectives.",
+        "source": "RC §8.2 - LOT 2",
+        "unite_evaluation": "points",
+        "sous_criteres": [
+          {
+            "libelle": "VT1 : Organisation – Moyens humains et matériels + actions environnementales",
+            "ponderation_pct": 30,
+            "description": "Évalue l'organisation générale du chantier OA (moyens humains et matériels) et les mesures environnementales cohérentes avec les préconisations du maître d'ouvrage.",
+            "elements_attendus": [
+              "Organigramme nominatif des intervenants sur les viaducs (chef de chantier, cordistes, chef d'équipe)",
+              "Liste du matériel spécifique OA (échafaudages, nacelles, équipements de levage)",
+              "Habilitations et certifications du personnel (travail en hauteur, habilitations électriques)",
+              "Mesures environnementales adaptées aux viaducs (protection cours d'eau en contrebas)"
+            ],
+            "exemple_reponse_forte": "Organigramme avec cordistes certifiés, chef de chantier OA expérimenté en viaduc ferroviaire ; matériel listé : nacelles articulées, échafaudages surplombant les cours d'eau avec système de rétention ; plan de protection des cours d'eau lors des travaux de traitement plomb.",
+            "source": "RC §8.2 - LOT 2 - VT1",
+            "unite_evaluation": "points",
+            "grille_actions": [
+              {
+                "action": "Produire un organigramme nominatif spécifique OA avec qualifications/habilitations du personnel (travail en hauteur, CATEC, habilitation électrique)",
+                "type": "livrable",
+                "poids_pct": 35,
+                "source": "RC §8.2"
+              },
+              {
+                "action": "Décrire les protections collectives sur chaque viaduc (dispositifs anti-chute, garde-corps provisoires) conformément au PGC SPS § protections temporaires",
+                "type": "livrable",
+                "poids_pct": 35,
+                "source": "PGC SPS §3.6.2"
+              },
+              {
+                "action": "Proposer des mesures spécifiques de protection des cours d'eau sous les viaducs lors des opérations de traitement du plomb (bâchage, rétention, bordereau de suivi)",
+                "type": "levier",
+                "poids_pct": 30,
+                "source": "PGC SPS §3.4.1"
+              }
+            ]
+          },
+          {
+            "libelle": "VT2 : Méthodes – Procédures et planning",
+            "ponderation_pct": 30,
+            "description": "Évalue les méthodes et procédures d'exécution sur les ouvrages d'art et le planning détaillé des interventions.",
+            "elements_attendus": [
+              "Procédures d'exécution par type de travaux OA (dépose/pose garde-corps, traitement surface plomb, travaux structure)",
+              "Planning détaillé par ouvrage (OA8, OA33, OA47 + autres)",
+              "Gestion des déchets plombifères (bordereau de suivi, décharge adaptée)",
+              "Interfaces avec Lot 1 (coordination des zones travaux communes)"
+            ],
+            "exemple_reponse_forte": "Procédure détaillée de dépose/pose garde-corps sur le viaduc du Cher (étayage, levage, scellement) ; procédure de décapage des peintures plombifères avec aspiratrice, bâchage, EPI niveau 4, bordereau BSD identifié ; planning par viaduc avec démarrage OA8 en mi-septembre 2026.",
+            "source": "RC §8.2 - LOT 2 - VT2",
+            "unite_evaluation": "points",
+            "grille_actions": [
+              {
+                "action": "Rédiger des procédures d'exécution détaillées (mode opératoire) pour les travaux sur chaque viaduc, notamment le traitement des peintures plombifères et la pose des garde-corps",
+                "type": "livrable",
+                "poids_pct": 40,
+                "source": "RC §8.2"
+              },
+              {
+                "action": "Produire un planning détaillé par ouvrage (OA n°8, 33, 47 + autres) avec jalons clés et coordination avec le planning Lot 1",
+                "type": "livrable",
+                "poids_pct": 35,
+                "source": "RC §8.2"
+              },
+              {
+                "action": "Démontrer l'expérience en interventions sur ouvrages d'art ferroviaires ou similaires par des références récentes avec photos et descriptif technique",
+                "type": "levier",
+                "poids_pct": 25,
+                "source": "estimé"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "prix": {
+      "type_formule": "moins_disant",
+      "formule_explicite": "Note critère prix = (Montant de l'offre moins-disante / Montant de l'offre à noter) × Base de notation (40 points). L'offre la moins chère (hors OAB) obtient le maximum de 40 points.",
+      "source": "RC §8.2",
+      "elements_a_chiffrer": [
+        "Bordereau des prix unitaires (BPU) par lot complété",
+        "Détail quantitatif estimatif (DQE) par lot complété",
+        "Acte d'engagement avec montants par lot (solution de base)",
+        "Variante 1 : prix de la structure alternative de piste (chiffrée séparément dans l'AE)",
+        "Variante 2 : prix pour bande de roulement 2,60 ml en enrobé noir (chiffrée séparément)",
+        "PSE 1 à 5 : prix des prestations supplémentaires éventuelles (moins-value ou plus-value)"
+      ]
+    },
+    "modalite_calcul_prix": "Note = (prix moins-disant / prix de l'offre) × 40. En cas d'erreur matérielle entre BPU et DQE, le BPU prévaut et le DQE est rectifié."
+  },
+  "montant_marche": {
+    "valeur_estimee_euros": null,
+    "fourchette_min_euros": 3500000,
+    "fourchette_max_euros": 7000000,
+    "type": "calcule_volumes",
+    "duree_couverte": "15 mois d'exécution (+ 2 mois préparation)",
+    "source_extraction": "Estimation bottom-up à partir des données techniques du DCE (27 km, structure enrobé, ouvrages d'art)",
+    "commentaire": "Montant non publié. Estimation : Lot 1 (voie verte 27 km) : 27 000 ml × largeur ~3 m × structure GNT+BB ≈ 81 000 m² d'enrobé + terrassements + EP + mobilier + éclairage ≈ 2,5-5 M€ selon complexité terrain et quantité mobilier. Lot 2 (ouvrages d'art) : nombre de viaducs non précisé, garde-corps en fonte PSE inclus, estimation 1-2 M€. Total estimé : 3,5-7 M€ HT, fourchette large en raison de l'absence de BPU chiffré dans les pièces fournies."
+  },
+  "montant_3_voies": {
+    "voie_1_eur": null,
+    "voie_1_source": null,
+    "voie_2_disponible": true,
+    "voie_2_min_eur": 3500000,
+    "voie_2_max_eur": 7000000,
+    "voie_2_hypotheses": [
+      {
+        "hypothese": "Linéaire voie verte Lot 1 (CCAP §1.1, PGC SPS §1.2)",
+        "valeur": "27 000 ml"
+      },
+      {
+        "hypothese": "Largeur piste (plans profils en travers DCE)",
+        "valeur": "3,0 m (bande roulante + accotements)"
+      },
+      {
+        "hypothese": "Surface totale enrobée Lot 1",
+        "valeur": "~81 000 m²"
+      },
+      {
+        "hypothese": "Ratio VRD voie verte tout compris (enrobé + GNT + EP + mobilier + éclairage) — dimension variée",
+        "valeur": "30 à 55 €/m² selon densité d'équipements (zones urbaines vs rurales) ; quantité fixée à 81 000 m²"
+      },
+      {
+        "hypothese": "Lot 2 ouvrages d'art — estimation forfaitaire",
+        "valeur": "1 à 2 M€ selon nombre et état des viaducs"
+      }
+    ],
+    "voie_2_raison_indisponible": null
+  },
+  "cout_realisation": {
+    "cout_total_eur": 3150000,
+    "cout_min_eur": 2800000,
+    "cout_max_eur": 5500000,
+    "postes": [
+      {
+        "poste": "Lot 1 — Main d'œuvre directe (conducteur travaux + chefs de chantier + ouvriers sur 15 mois)",
+        "detail": "~5 agents × 15 mois × 20 j/mois × 350 €/j chargé",
+        "montant_eur": 525000
+      },
+      {
+        "poste": "Lot 1 — Matériaux enrobé BB 0/10 et GNT 0/31.5",
+        "detail": "81 000 m² × (0,06 m × 2,4 T/m³ BB + 0,15 m × 2,1 T/m³ GNT) ≈ 25 000 T enrobé + 26 000 T GNT × prix moyens",
+        "montant_eur": 1100000
+      },
+      {
+        "poste": "Lot 1 — Matériel de chantier (finisseur, compacteurs, engins TP, camions)",
+        "detail": "Location + amortissement sur 15 mois",
+        "montant_eur": 350000
+      },
+      {
+        "poste": "Lot 1 — Fournitures (bordures, réseaux EP, éclairage, mobilier, végétaux)",
+        "detail": "Estimation forfaitaire",
+        "montant_eur": 600000
+      },
+      {
+        "poste": "Lot 1 — Gestion déchets (évacuation ballast, plomb, divers)",
+        "detail": "Estimation sur base volumétrie ballast à évacuer",
+        "montant_eur": 200000
+      },
+      {
+        "poste": "Lot 2 — Ouvrages d'art (main d'œuvre spécialisée + matériaux + garde-corps)",
+        "detail": "Estimation forfaitaire lot 2",
+        "montant_eur": 700000
+      },
+      {
+        "poste": "Frais généraux et encadrement (5-8% du coût direct)",
+        "detail": "Frais de siège, OPC, assurances, installations de chantier",
+        "montant_eur": 250000
+      }
+    ],
+    "taux_journaliers_retenus": "Conducteur de travaux : 550-650 €/j ; chef de chantier : 400-500 €/j ; ouvrier qualifié TP : 280-350 €/j chargé ; enrobé fourni posé : 25-35 €/m² selon épaisseur ; GNT posée : 12-18 €/m²",
+    "commentaire": "Estimation à taux marché indicatifs. Coût de production Lot 1 ≈ 2,5-4,5 M€ ; Lot 2 ≈ 600K-1,5 M€. La fourchette est large car les quantités précises (ml de réseaux, nombre de luminaires, quantités OA) ne sont pas dans les pièces fournies (BPU/DQE non présents)."
+  },
+  "revision_prix": {
+    "type": "indexation",
+    "indices_utilises": [
+      "TP09 (Fabrication et mise en œuvre d'enrobés - Base 2010)",
+      "TP02 (Travaux de génie civil et d'ouvrages d'art neufs ou rénovation - Base 2010)"
+    ],
+    "ponderation": "Lot 1 : Cn = 15% + 85% × (TP09(n) / TP09(0)) ; Lot 2 : Cn = 15% + 85% × (TP02(n) / TP02(0))",
+    "periodicite": "mensuelle (révision mensuelle sur le mois de réalisation des prestations)",
+    "formule_revision": "Lot 1 : Cn = 15.0% + 85.0% × (TP09(n) / TP09(o)) | Lot 2 : Cn = 15.0% + 85.0% × (TP02(n) / TP02(o)). Prix du mois n = Prix initial × Cn. Indices publiés au Moniteur des Travaux Publics ou par l'INSEE.",
+    "source_extraction": "CCAP §7.2",
+    "commentaire": "Formule à 85% variable avec une part fixe de 15% : protège partiellement le candidat contre la hausse des matériaux (enrobé et génie civil). La part fixe de 15% représente le risque résiduel non couvert. Favorable en contexte inflationniste pour les matériaux TP."
+  },
+  "alertes_prix": [
+    "Variantes exigées OBLIGATOIRES (Var.1 et Var.2 sur Lot 1) : leur absence rend l'offre irrégulière et conduit au rejet — à chiffrer séparément dans l'AE",
+    "PSE obligatoires (5 PSE sur Lots 1 et 2) : leur absence rend aussi l'offre irrégulière — prévoir chiffrage spécifique des PSE garde-corps en fonte sur OA8, OA33, OA47",
+    "Formule prix avec 85% d'indices TP (TP09/TP02) : favorable en inflation mais la part fixe 15% reste à la charge du titulaire",
+    "En cas d'erreur BPU/DQE : le BPU prévaut et le DQE est rectifié — risque de rectification unilatérale par l'acheteur"
+  ],
+  "references_exigees": {
+    "experience_minimale_annees": null,
+    "experience_source": null,
+    "volume_min_references_similaires": null,
+    "volume_min_references_unite": "chantiers réalisés",
+    "secteur_experience": "Travaux de VRD / pistes cyclables / voies vertes et/ou ouvrages d'art (selon lot)",
+    "secteur_source": "RC §6.1",
+    "certifications_obligatoires": [],
+    "autres_exigences": [
+      {
+        "libelle": "Déclaration de chiffre d'affaires global et CA concernant les prestations objet du contrat sur les 3 derniers exercices disponibles",
+        "source": "RC §6.1"
+      },
+      {
+        "libelle": "Déclaration appropriée de banques ou preuve d'une assurance pour les risques professionnels",
+        "source": "RC §6.1"
+      },
+      {
+        "libelle": "Déclaration indiquant les effectifs moyens annuels et l'importance du personnel d'encadrement sur les 3 dernières années",
+        "source": "RC §6.1"
+      },
+      {
+        "libelle": "Déclaration indiquant l'outillage, le matériel et l'équipement technique dont le candidat dispose",
+        "source": "RC §6.1"
+      },
+      {
+        "libelle": "Attestation d'assurance décennale à produire avant attribution dans un délai de 10 jours",
+        "source": "RC §8.3"
+      }
+    ]
+  },
+  "dossier_candidature": {
+    "pieces_a_fournir": [
+      {
+        "libelle": "DC1 (lettre de candidature) ou Document Unique de Marché Européen (DUME)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §6.1"
+      },
+      {
+        "libelle": "DC2 (déclaration du candidat) — ou DUME",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §6.1"
+      },
+      {
+        "libelle": "Déclaration sur l'honneur (absence d'interdiction de soumissionner)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §6.1"
+      },
+      {
+        "libelle": "Renseignements sur le respect de l'obligation d'emploi RQTH (art. L.5212-1 à L.5212-11 CT)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §6.1"
+      },
+      {
+        "libelle": "Déclaration de chiffre d'affaires global et CA des prestations objet du contrat (3 derniers exercices)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §6.1"
+      },
+      {
+        "libelle": "Déclaration appropriée de banques ou preuve d'assurance risques professionnels",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §6.1"
+      },
+      {
+        "libelle": "Déclaration effectifs moyens annuels et personnel d'encadrement (3 dernières années)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §6.1"
+      },
+      {
+        "libelle": "Déclaration outillage, matériel et équipement technique disponible",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §6.1"
+      },
+      {
+        "libelle": "Acte d'engagement (AE) par lot et ses annexes (complété avec prix de base + variantes + PSE)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §6.1"
+      },
+      {
+        "libelle": "CCAP (signature pour acceptation)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §6.1"
+      },
+      {
+        "libelle": "CCTP commun et ses annexes (signature pour acceptation)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §6.1"
+      },
+      {
+        "libelle": "CCTP par lot et ses annexes (signature pour acceptation)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §6.1"
+      },
+      {
+        "libelle": "Bordereau des prix unitaires (BPU) par lot complété",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §6.1"
+      },
+      {
+        "libelle": "Détail quantitatif estimatif (DQE) par lot complété",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §6.1"
+      },
+      {
+        "libelle": "Attestation de visite (visite obligatoire sous peine d'irrecevabilité)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §6.1 et §6.3"
+      },
+      {
+        "libelle": "Mémoire justificatif des dispositions que l'entreprise se propose d'adopter pour l'exécution du contrat (max 50 pages, structuré selon trame RC)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §6.1"
+      },
+      {
+        "libelle": "Fiches techniques correspondant aux produits et prestations proposés",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §6.1"
+      },
+      {
+        "libelle": "SOSED (Schéma d'Organisation et de Suivi de l'Elimination des Déchets)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §6.1"
+      },
+      {
+        "libelle": "Dossier variantes exigées (Variante 1 et Variante 2 pour Lot 1) avec chiffrage distinct dans l'AE",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §2.4 et §6.2"
+      }
+    ],
+    "mode_remise": "dématérialisé",
+    "plateforme_depot": "AWS — http://agysoft.marches-publics.info",
+    "signature_electronique_exigee": false,
+    "format_signature": null,
+    "nombre_exemplaires": null,
+    "langue": "français",
+    "duree_validite_offres_jours": 120,
+    "modalites_source": "RC §7.1 et §2.1"
+  },
+  "lots": [
+    {
+      "numero": 1,
+      "intitule": "Aménagement de la voie verte",
+      "domaine": "btp_voirie_reseaux",
+      "zone_geographique": "Allier (03) et Creuse (23) — communes : Montluçon, Lavault-Sainte-Anne, Lignerolles, Teillet-Argenty, Budelière",
+      "volume_estime": 27000,
+      "volume_estime_unite": "ml de voie verte (linéaire)",
+      "cout_estime_min_eur": 2200000,
+      "cout_estime_max_eur": 4500000,
+      "ca_estime_min_eur": 2800000,
+      "ca_estime_max_eur": 5500000,
+      "marge_brute_pct": 15,
+      "particularites": "Chantier linéaire mobile sur 27 km. Variantes exigées (structure piste et bande de roulement 2,60 ml enrobé noir) et PSE 1 et 2 obligatoires. Démarrage secteur Allier prévu juillet 2026. Phasage Allier/Creuse. Contraintes écologiques majeures (écologue coordinateur). Indice révision TP09."
+    },
+    {
+      "numero": 2,
+      "intitule": "Ouvrage d'art",
+      "domaine": "btp_voirie_reseaux",
+      "zone_geographique": "Allier (03) : Montluçon (OA n°8), Lignerolles (OA n°33), Teillet-Argenty (OA n°47)",
+      "volume_estime": null,
+      "volume_estime_unite": "ouvrages d'art (nombre non précisé)",
+      "cout_estime_min_eur": 600000,
+      "cout_estime_max_eur": 1500000,
+      "ca_estime_min_eur": 700000,
+      "ca_estime_max_eur": 2000000,
+      "marge_brute_pct": 20,
+      "particularites": "Travaux sur viaducs (génie civil, garde-corps). Présence de plomb sur parties peintes (mesures spécifiques EPI/déchets). PSE 3, 4, 5 (garde-corps en fonte similaires aux existants) obligatoires. Démarrage mi-septembre 2026. Indice révision TP02. Protections temporaires sur ouvrages d'art exigées."
+    }
+  ],
+  "tranches": [],
+  "calendrier": {
+    "date_limite_offres": "2026-07-09",
+    "date_demarrage_prevue": "2026-07-14",
+    "duree_marche": "15 mois d'exécution + 2 mois de préparation (non compris dans le délai d'exécution)"
+  },
+  "alertes_candidat": [
+    "VISITE OBLIGATOIRE : toute offre d'un candidat n'ayant pas effectué la visite est déclarée irrégulière. Prendre rendez-vous par mail auprès de b.genar@mairie-montlucon.fr ou j.porche@mairie-montlucon.fr avant le dépôt.",
+    "VARIANTES EXIGÉES OBLIGATOIRES (Lot 1) : les Variantes 1 et 2 doivent être chiffrées dans l'acte d'engagement. Leur absence rend l'offre irrégulière et entraîne le rejet.",
+    "PSE OBLIGATOIRES (5 PSE sur les 2 lots) : tous les PSE (1 à 5) doivent être chiffrés. Leur absence rend également l'offre irrégulière.",
+    "RISQUE PLOMB (Lot 2) : présence avérée de plomb sur les parties peintes des ouvrages d'art (rapport 2024). Mesures réglementaires obligatoires : EPI adaptés, douches vestiaires double, gestion des déchets contaminés. À intégrer dans le prix et le PPSPS.",
+    "MÉMOIRE TECHNIQUE LIMITÉ À 50 PAGES : le mémoire justificatif ne peut pas dépasser 50 pages. Structurer impérativement selon les 6 chapitres (Lot 1) ou 2 chapitres (Lot 2) définis dans le RC sous peine de perte de points."
+  ],
+  "points_differenciants_attendus": [
+    {
+      "libelle": "Démonstration d'une connaissance approfondie du tracé lors de la visite obligatoire",
+      "exemple": "Le mémoire technique fait référence à des points précis du tracé identifiés lors de la visite (zones sensibles écologiques, contraintes d'accès, état réel des viaducs) pour montrer une préparation terrain solide. Citer des problèmes spécifiques observés et les solutions proposées.",
+      "source": "RC §6.3"
+    },
+    {
+      "libelle": "Planning Lot 1 intégrant les contraintes Lot 2 (chapitre 4, pondération 25 pts)",
+      "exemple": "Présenter un Gantt croisant les deux lots avec des zones de coactivité clairement matérialisées, notamment sur les viaducs, et démontrant la capacité à tenir le délai de 15 mois en intégrant 10 jours d'intempéries et les périodes écologiques contraintes.",
+      "source": "RC §8.2 - Chapitre 4"
+    },
+    {
+      "libelle": "Gestion environnementale proactive avec référence aux préconisations de l'écologue",
+      "exemple": "Citer nominativement les espèces protégées identifiées dans l'étude d'impact du projet, décrire un protocole de briefing environnemental spécifique à ce chantier (pas une procédure générique), et proposer un outil de reporting partagé avec le MOE DCI Environnement.",
+      "source": "CCAP §12"
+    },
+    {
+      "libelle": "Références en aménagement de voies vertes / greenways sur emprise ferroviaire",
+      "exemple": "Valoriser dans le mémoire des chantiers similaires (EuroVelo, voies vertes en Auvergne ou Nouvelle-Aquitaine) avec photos, métrés réalisés et contacts MOA pour vérification. La spécificité 'voie ferrée désaffectée' est un contexte rare qui mérite d'être illustré.",
+      "source": null
+    },
+    {
+      "libelle": "Provenance locale des matériaux (chapitre 5) comme levier RSE et performance environnementale",
+      "exemple": "Identifier les centrales d'enrobé les plus proches du tracé (région Allier/Creuse), calculer un bilan CO2 du transport, et proposer des matériaux avec FDES validées pour démontrer la conformité aux exigences de développement durable du CCAP.",
+      "source": "CCAP §12"
+    }
+  ],
+  "_meta": {
+    "id_marche": "BOAMP-26-56326",
+    "type": "complet",
+    "date_generation": "2026-06-21T02:09:54.355579+00:00",
+    "extraction_le": "2026-06-21T02:09:54.355579+00:00",
+    "modele": "claude-sonnet-4-6",
+    "preset_utilise": "btp",
+    "presets_matches": [
+      "btp",
+      "ingenierie"
+    ],
+    "prompts_versions": {
+      "btp/_preset.json": "sha256:055bf6f8b2c1f771",
+      "ingenierie/_preset.json": "sha256:b924b32a088673d6"
+    },
+    "tokens_input": 241914,
+    "tokens_output": 15321,
+    "cout_eur": 0.9078,
+    "duree_sec": 268.0,
+    "pdfs_traites": [
+      {
+        "nom": "A0 - CARTO_Acces.pdf",
+        "hash": "3d26139c8486e2f3b794b48bf96ea15c",
+        "taille_chars": 0
+      },
+      {
+        "nom": "AWS-MPI-1828361-RC.pdf",
+        "hash": "21b7bc25516bb436a147a7a1a79f00f3",
+        "taille_chars": 37525
+      },
+      {
+        "nom": "CCAP.pdf",
+        "hash": "cae4bc41d1bebbf7c5cc1019a4a77b2c",
+        "taille_chars": 51170
+      },
+      {
+        "nom": "CSPS PGC V2 - Montluçon - VV Evaux Les Bains - Montluçon.pdf",
+        "hash": "d813711ca3b2a98d9954ab0c2e7070e6",
+        "taille_chars": 49461
+      },
+      {
+        "nom": "Certificat de visite Marché 1.docx",
+        "hash": "c4c222bc6965efbe44252bee4c5fb591",
+        "taille_chars": 421
+      },
+      {
+        "nom": "MPI1828361_AAPC.pdf",
+        "hash": "2938d50846d67d84adf6c40f49c591ca",
+        "taille_chars": 8170
+      },
+      {
+        "nom": "Planning_OPC - 08.06.26.pdf",
+        "hash": "1d35b92f8ddcb4a9192a77795842780f",
+        "taille_chars": 1569
+      },
+      {
+        "nom": "VV CC MONTLUCON MOE1787 - DCE_BUDELIERE - CAHIERS DES PROFILS EN TRAVERS - 2026.06.pdf",
+        "hash": "fb55565fea4a936b8ef3bc45399c0ca9",
+        "taille_chars": 36635
+      },
+      {
+        "nom": "VV CC MONTLUCON MOE1787 - DCE_BUDELIERE - PLAN DES AMENAGEMENTS_1 - 2026.06.pdf",
+        "hash": "f72c6f3e0f040fcff6b21d267ab547da",
+        "taille_chars": 1297
+      },
+      {
+        "nom": "VV CC MONTLUCON MOE1787 - DCE_BUDELIERE - PLAN DES AMENAGEMENTS_2 - 2026.06.pdf",
+        "hash": "2ddfabe7dd561d764dd323ce07eb0268",
+        "taille_chars": 1407
+      },
+      {
+        "nom": "VV CC MONTLUCON MOE1787 - DCE_BUDELIERE - PLAN DES AMENAGEMENTS_3 - 2026.06.pdf",
+        "hash": "c6c443db571853df087b6fe8946910d5",
+        "taille_chars": 1619
+      },
+      {
+        "nom": "VV CC MONTLUCON MOE1787 - DCE_BUDELIERE - PLAN DES AMENAGEMENTS_4 - 2026.06.pdf",
+        "hash": "ef46990629dfee0de1136b2249e8e325",
+        "taille_chars": 1177
+      },
+      {
+        "nom": "VV CC MONTLUCON MOE1787 - DCE_BUDELIERE - PLAN DES AMENAGEMENTS_5 - 2026.06.pdf",
+        "hash": "007e30943ce9e1a7532513d236b621cb",
+        "taille_chars": 1246
+      },
+      {
+        "nom": "VV CC MONTLUCON MOE1787 - DCE_BUDELIERE - PLAN DES AMENAGEMENTS_6 - 2026.06.pdf",
+        "hash": "039847bb3ab27a7e5ebeec33c00871ef",
+        "taille_chars": 1973
+      },
+      {
+        "nom": "VV CC MONTLUCON MOE1787 - DCE_BUDELIERE - PLAN DES AMENAGEMENTS_7 - 2026.06.pdf",
+        "hash": "6b3115a8e2d4e148b46d3f816a32cc42",
+        "taille_chars": 3538
+      },
+      {
+        "nom": "VV CC MONTLUCON MOE1787 - DCE_BUDELIERE - PLAN DES EXISTANTS_1 - 2026.06.pdf",
+        "hash": "ac2b7df78552be08851862a063895dc4",
+        "taille_chars": 9011
+      },
+      {
+        "nom": "VV CC MONTLUCON MOE1787 - DCE_BUDELIERE - PLAN DES EXISTANTS_2 - 2026.06.pdf",
+        "hash": "10f9e44004bbeb29f7f619da51892db6",
+        "taille_chars": 6781
+      },
+      {
+        "nom": "VV CC MONTLUCON MOE1787 - DCE_BUDELIERE - PLAN DES EXISTANTS_3 - 2026.06.pdf",
+        "hash": "57e0b1276f8792e9908a563ecff662a8",
+        "taille_chars": 7946
+      },
+      {
+        "nom": "VV CC MONTLUCON MOE1787 - DCE_BUDELIERE - PLAN DES EXISTANTS_4 - 2026.06.pdf",
+        "hash": "8e4a5c93923c9dd3d4d2e6ca7ddc1241",
+        "taille_chars": 7502
+      },
+      {
+        "nom": "VV CC MONTLUCON MOE1787 - DCE_BUDELIERE - PLAN DES EXISTANTS_5 - 2026.06.pdf",
+        "hash": "c919fef01ffab3618695d18a869fc470",
+        "taille_chars": 11325
+      },
+      {
+        "nom": "VV CC MONTLUCON MOE1787 - DCE_BUDELIERE - PLAN DES EXISTANTS_6 - 2026.06.pdf",
+        "hash": "26207539fa754bd64edfc20c4204b27f",
+        "taille_chars": 12188
+      },
+      {
+        "nom": "VV CC MONTLUCON MOE1787 - DCE_BUDELIERE - PLAN DES EXISTANTS_7 - 2026.06.pdf",
+        "hash": "99be62ce8ed8bf60a6239d5a2e3b7b96",
+        "taille_chars": 6749
+      },
+      {
+        "nom": "VV CC MONTLUCON MOE1787 - DCE_BUDELIERE - PLAN DES RESEAUX EXISTANTS - 2026.06.pdf",
+        "hash": "6a048756b57262e78cddd4e68522933b",
+        "taille_chars": 5687
+      },
+      {
+        "nom": "VV CC MONTLUCON MOE1787 - DCE_BUDELIERE - PLAN DES TABULATIONS_1 - 2026.06.pdf",
+        "hash": "5f2132bfd968cb499d7521994275cb64",
+        "taille_chars": 15711
+      },
+      {
+        "nom": "VV CC MONTLUCON MOE1787 - DCE_BUDELIERE - PLAN DES TABULATIONS_2 - 2026.06.pdf",
+        "hash": "ebbe8591710a3cf883efb548a8f07460",
+        "taille_chars": 12561
+      },
+      {
+        "nom": "VV CC MONTLUCON MOE1787 - DCE_BUDELIERE - PLAN DU PROFIL EN LONG_1 - 2026.06.pdf",
+        "hash": "88984dec1353100c0ca279a003564c82",
+        "taille_chars": 32245
+      },
+      {
+        "nom": "VV CC MONTLUCON MOE1787 - DCE_BUDELIERE - PLAN DU PROFIL EN LONG_2 - 2026.06.pdf",
+        "hash": "e6e6bb3519e8b2487338f6d726518d5c",
+        "taille_chars": 17973
+      },
+      {
+        "nom": "VV CC MONTLUCON MOE1787 - DCE_EVAUX - CAHIERS DES PROFILS EN TRAVERS - 2026.06.pdf",
+        "hash": "151bd589965f752e2bc9966fed5f9b51",
+        "taille_chars": 35064
+      },
+      {
+        "nom": "VV CC MONTLUCON MOE1787 - DCE_EVAUX - PLAN DES AMENAGEMENTS_1 - 2026.06.pdf",
+        "hash": "1ca8392bcea9d2959795eaebd64ad49c",
+        "taille_chars": 1653
+      },
+      {
+        "nom": "VV CC MONTLUCON MOE1787 - DCE_EVAUX - PLAN DES AMENAGEMENTS_2 - 2026.06.pdf",
+        "hash": "69b4fbf3eeeefc04bfad31a5cdc84354",
+        "taille_chars": 1962
+      },
+      {
+        "nom": "VV CC MONTLUCON MOE1787 - DCE_EVAUX - PLAN DES AMENAGEMENTS_3 - 2026.06.pdf",
+        "hash": "fcfb378e81d8ee889627dff3c026bbfb",
+        "taille_chars": 4076
+      },
+      {
+        "nom": "VV CC MONTLUCON MOE1787 - DCE_EVAUX - PLAN DES AMENAGEMENTS_3 - PSE2 - 2026.06.pdf",
+        "hash": "f3b4a0f1594dcec631cf4bfdafe283c3",
+        "taille_chars": 1858
+      },
+      {
+        "nom": "VV CC MONTLUCON MOE1787 - DCE_EVAUX - PLAN DES EXISTANTS_1 - 2026.06.pdf",
+        "hash": "b9f06945f7dbb79bebb59d56353da641",
+        "taille_chars": 11738
+      },
+      {
+        "nom": "VV CC MONTLUCON MOE1787 - DCE_EVAUX - PLAN DES EXISTANTS_2 - 2026.06.pdf",
+        "hash": "14d0ad0e0e5e4961b008013fb4988ad9",
+        "taille_chars": 14371
+      },
+      {
+        "nom": "VV CC MONTLUCON MOE1787 - DCE_EVAUX - PLAN DES EXISTANTS_3 - 2026.06.pdf",
+        "hash": "72eac16058323c6f8b292d4fc0abace5",
+        "taille_chars": 18948
+      },
+      {
+        "nom": "VV CC MONTLUCON MOE1787 - DCE_EVAUX - PLAN DES RESEAUX EXISTANTS - 2026.06.pdf",
+        "hash": "0879ca151103dcc298353792d1fd764f",
+        "taille_chars": 6181
+      },
+      {
+        "nom": "VV CC MONTLUCON MOE1787 - DCE_EVAUX - PLAN DES TABULATIONS - 2026.06.pdf",
+        "hash": "093d1ca7dd1338075b508ad35460addd",
+        "taille_chars": 11866
+      },
+      {
+        "nom": "VV CC MONTLUCON MOE1787 - DCE_EVAUX - PLAN DU PROFIL EN LONG - 2026.06.pdf",
+        "hash": "01aaa90956e44684a0b3390f9bb19cdb",
+        "taille_chars": 22553
+      },
+      {
+        "nom": "VV CC MONTLUCON MOE1787 - DCE_EVAUX - PLANS RD996 - 2026.06.pdf",
+        "hash": "79a2f9ed927600aa18cbcb0c081103e8",
+        "taille_chars": 22821
+      },
+      {
+        "nom": "VV CC MONTLUCON MOE1787 - DCE_LAVAULT - CAHIERS DES PROFILS EN TRAVERS - 2026.06.pdf",
+        "hash": "63726ca0be04eb6c919fdb9023977b3a",
+        "taille_chars": 11733
+      },
+      {
+        "nom": "VV CC MONTLUCON MOE1787 - DCE_LAVAULT - PLAN DES AMENAGEMENTS_1 - 2026.06.pdf",
+        "hash": "e832638b049eaeea7e9236bfb80a0303",
+        "taille_chars": 1751
+      },
+      {
+        "nom": "VV CC MONTLUCON MOE1787 - DCE_LAVAULT - PLAN DES AMENAGEMENTS_2 - 2026.06.pdf",
+        "hash": "01f94cb07490c2102fcc97ec6b5d639f",
+        "taille_chars": 2744
+      },
+      {
+        "nom": "VV CC MONTLUCON MOE1787 - DCE_LAVAULT - PLAN DES EXISTANTS_1 - 2026.06.pdf",
+        "hash": "7a81e9c606508d3ca4057da8e591583d",
+        "taille_chars": 9131
+      },
+      {
+        "nom": "VV CC MONTLUCON MOE1787 - DCE_LAVAULT - PLAN DES EXISTANTS_2 - 2026.06.pdf",
+        "hash": "46602163202dad762973b4378b1ad907",
+        "taille_chars": 5503
+      },
+      {
+        "nom": "VV CC MONTLUCON MOE1787 - DCE_LAVAULT - PLAN DES RESEAUX EXISTANTS  - 2026.06.pdf",
+        "hash": "1f34f84d9adee2e8d8267bc0fdd6e20d",
+        "taille_chars": 6132
+      },
+      {
+        "nom": "VV CC MONTLUCON MOE1787 - DCE_LAVAULT - PLAN TABULATIONS & PROFIL EN LONG - 2026.06.pdf",
+        "hash": "290fa9bb0890d4e2ae66c567e16d163e",
+        "taille_chars": 16216
+      },
+      {
+        "nom": "VV CC MONTLUCON MOE1787 - DCE_LIGNEROLLES - CAHIERS DES PROFILS EN TRAVERS - 2026.06.pdf",
+        "hash": "87d29a15982450611dfd88b91ef55f40",
+        "taille_chars": 31172
+      },
+      {
+        "nom": "VV CC MONTLUCON MOE1787 - DCE_LIGNEROLLES - PLAN DES AMENAGEMENTS_1 - 2026.06.pdf",
+        "hash": "1bbb2ab586c0e74bcb54c45e8f538fba",
+        "taille_chars": 1325
+      },
+      {
+        "nom": "VV CC MONTLUCON MOE1787 - DCE_LIGNEROLLES - PLAN DES AMENAGEMENTS_2 - 2026.06.pdf",
+        "hash": "2630f436b2f377b917b5bfb586547419",
+        "taille_chars": 1185
+      },
+      {
+        "nom": "VV CC MONTLUCON MOE1787 - DCE_LIGNEROLLES - PLAN DES AMENAGEMENTS_3 - 2026.06.pdf",
+        "hash": "5f8d8f38b035a403d7020872974b0b5c",
+        "taille_chars": 1724
+      },
+      {
+        "nom": "VV CC MONTLUCON MOE1787 - DCE_LIGNEROLLES - PLAN DES AMENAGEMENTS_4 - 2026.06.pdf",
+        "hash": "bad2e2926a86ab26c289251e94376989",
+        "taille_chars": 1872
+      },
+      {
+        "nom": "VV CC MONTLUCON MOE1787 - DCE_LIGNEROLLES - PLAN DES EXISTANTS_1 - 2026.06.pdf",
+        "hash": "2a61a874727751535bf9d871765c3cfc",
+        "taille_chars": 8827
+      },
+      {
+        "nom": "VV CC MONTLUCON MOE1787 - DCE_LIGNEROLLES - PLAN DES EXISTANTS_2 - 2026.06.pdf",
+        "hash": "d75b133d59553901319846e1edece791",
+        "taille_chars": 5861
+      },
+      {
+        "nom": "VV CC MONTLUCON MOE1787 - DCE_LIGNEROLLES - PLAN DES EXISTANTS_3 - 2026.06.pdf",
+        "hash": "9fe3baf4a857df45bdf076c48663d40c",
+        "taille_chars": 9054
+      },
+      {
+        "nom": "VV CC MONTLUCON MOE1787 - DCE_LIGNEROLLES - PLAN DES EXISTANTS_4 - 2026.06.pdf",
+        "hash": "3e8d2607f05e52151bd4761b1532529a",
+        "taille_chars": 8453
+      },
+      {
+        "nom": "VV CC MONTLUCON MOE1787 - DCE_LIGNEROLLES - PLAN DES RESEAUX EXISTANTS - 2026.06.pdf",
+        "hash": "fb1517de7155d1e56200f6516ed50e4a",
+        "taille_chars": 3035
+      },
+      {
+        "nom": "VV CC MONTLUCON MOE1787 - DCE_LIGNEROLLES - PLAN DES TABULATIONS_1 - 2026.06.pdf",
+        "hash": "03b1fcaff3a35aa8fdb485ecbf0bed57",
+        "taille_chars": 14418
+      },
+      {
+        "nom": "VV CC MONTLUCON MOE1787 - DCE_LIGNEROLLES - PLAN DES TABULATIONS_2 - 2026.06.pdf",
+        "hash": "05eb2754ed59de1e6e74f5e8073c2759",
+        "taille_chars": 5407
+      },
+      {
+        "nom": "VV CC MONTLUCON MOE1787 - DCE_LIGNEROLLES - PLAN DU PROFIL EN LONG_1 - 2026.06.pdf",
+        "hash": "3f7d9104df2299d90e53656507d88d57",
+        "taille_chars": 27871
+      },
+      {
+        "nom": "VV CC MONTLUCON MOE1787 - DCE_LIGNEROLLES - PLAN DU PROFIL EN LONG_2 - 2026.06.pdf",
+        "hash": "b9ccb0a81d49f4eb7b9754c90e1ed762",
+        "taille_chars": 8395
+      },
+      {
+        "nom": "VV CC MONTLUCON MOE1787 - DCE_MONTLUCON - CAHIERS DES PROFILS EN TRAVERS - 2026.06.pdf",
+        "hash": "9a52fe2878e1efb08aa28732cefe15f7",
+        "taille_chars": 24975
+      },
+      {
+        "nom": "VV CC MONTLUCON MOE1787 - DCE_MONTLUCON - PLAN DES AMENAGEMENTS_1 - 2026.06.pdf",
+        "hash": "5401bff528ebd65862ee652bd2533e19",
+        "taille_chars": 3832
+      },
+      {
+        "nom": "VV CC MONTLUCON MOE1787 - DCE_MONTLUCON - PLAN DES AMENAGEMENTS_1 - PSE2 - 2026.06.pdf",
+        "hash": "7a6b65a53a4d288a1d50236828684f8d",
+        "taille_chars": 3921
+      },
+      {
+        "nom": "VV CC MONTLUCON MOE1787 - DCE_MONTLUCON - PLAN DES AMENAGEMENTS_2 - 2026.06.pdf",
+        "hash": "bf57c22df2d86e362704ede08c436fd7",
+        "taille_chars": 4663
+      },
+      {
+        "nom": "VV CC MONTLUCON MOE1787 - DCE_MONTLUCON - PLAN DES AMENAGEMENTS_CARREFOUR FAUCHEROUX - SLT - 2026.06.pdf",
+        "hash": "f09e9a3b01142452ad91f104d55546ca",
+        "taille_chars": 4697
+      },
+      {
+        "nom": "VV CC MONTLUCON MOE1787 - DCE_MONTLUCON - PLAN DES EXISTANTS - 2026.06.pdf",
+        "hash": "0d504eec1bcdf888d9644f6ff8bcc7e2",
+        "taille_chars": 13032
+      },
+      {
+        "nom": "VV CC MONTLUCON MOE1787 - DCE_MONTLUCON - PLAN DES RESEAUX EXISTANTS - 2026.06.pdf",
+        "hash": "8751e9dc812332b75ff8cdaefe85dc40",
+        "taille_chars": 35784
+      },
+      {
+        "nom": "VV CC MONTLUCON MOE1787 - DCE_MONTLUCON - PLAN DES TABULATIONS - 2026.06.pdf",
+        "hash": "42e30a6c48f1d986d8efa62bdc6035c5",
+        "taille_chars": 12895
+      },
+      {
+        "nom": "VV CC MONTLUCON MOE1787 - DCE_MONTLUCON - PLAN DU PROFIL EN LONG - 2026.06.pdf",
+        "hash": "e7053f5ad22ee41f301d553eeb93651f",
+        "taille_chars": 15178
+      },
+      {
+        "nom": "VV CC MONTLUCON MOE1787 - DCE_TEILLET - CAHIERS DES PROFILS EN TRAVERS - 2026.06.pdf",
+        "hash": "648d9e0c74da0db14d47cd240a06e650",
+        "taille_chars": 21730
+      },
+      {
+        "nom": "VV CC MONTLUCON MOE1787 - DCE_TEILLET - PLAN DES AMENAGEMENTS_1 - 2026.06.pdf",
+        "hash": "7435ace4a890ec69b3d69ebecafde987",
+        "taille_chars": 1412
+      },
+      {
+        "nom": "VV CC MONTLUCON MOE1787 - DCE_TEILLET - PLAN DES AMENAGEMENTS_2 - 2026.06.pdf",
+        "hash": "794c27616ed6fb2145720c57addfb8c7",
+        "taille_chars": 1250
+      },
+      {
+        "nom": "VV CC MONTLUCON MOE1787 - DCE_TEILLET - PLAN DES AMENAGEMENTS_3 - 2026.06.pdf",
+        "hash": "826ea4ab72ec3ae58e15d47374f7b108",
+        "taille_chars": 2778
+      },
+      {
+        "nom": "VV CC MONTLUCON MOE1787 - DCE_TEILLET - PLAN DES AMENAGEMENTS_4 - 2026.06.pdf",
+        "hash": "3a32c0651f8ce857e1cf56a148a96c07",
+        "taille_chars": 3526
+      },
+      {
+        "nom": "VV CC MONTLUCON MOE1787 - DCE_TEILLET - PLAN DES EXISTANTS_1 - 2026.06.pdf",
+        "hash": "8e654d13c47beeff0393e6b04fd0daf2",
+        "taille_chars": 5630
+      },
+      {
+        "nom": "VV CC MONTLUCON MOE1787 - DCE_TEILLET - PLAN DES EXISTANTS_2 - 2026.06.pdf",
+        "hash": "b03aa787c69cb75ca4108a60463cc9ee",
+        "taille_chars": 5593
+      },
+      {
+        "nom": "VV CC MONTLUCON MOE1787 - DCE_TEILLET - PLAN DES EXISTANTS_3 - 2026.06.pdf",
+        "hash": "ebf6638a6604ecb9edfffdc9b122fc2d",
+        "taille_chars": 9088
+      },
+      {
+        "nom": "VV CC MONTLUCON MOE1787 - DCE_TEILLET - PLAN DES EXISTANTS_4 - 2026.06.pdf",
+        "hash": "326c3847b5a1bc4ed3a2d71d1be3b48c",
+        "taille_chars": 5478
+      },
+      {
+        "nom": "VV CC MONTLUCON MOE1787 - DCE_TEILLET - PLAN DES RESEAUX EXISTANTS - 2026.06.pdf",
+        "hash": "1dccbf0f295a717bf658a2e8e9b4d514",
+        "taille_chars": 2982
+      },
+      {
+        "nom": "VV CC MONTLUCON MOE1787 - DCE_TEILLET - PLAN DES TABULATIONS_1 - 2026.06.pdf",
+        "hash": "6bce2280a0c149641cc96a7fb45b83cf",
+        "taille_chars": 15218
+      },
+      {
+        "nom": "VV CC MONTLUCON MOE1787 - DCE_TEILLET - PLAN DES TABULATIONS_2 - 2026.06.pdf",
+        "hash": "5367bfa07e3b2a62e74599c247ca6014",
+        "taille_chars": 5051
+      },
+      {
+        "nom": "VV CC MONTLUCON MOE1787 - DCE_TEILLET - PLAN DU PROFIL EN LONG_1 - 2026.06.pdf",
+        "hash": "b655aa9bc8307ac76855ef05df5dcf3a",
+        "taille_chars": 27347
+      },
+      {
+        "nom": "VV CC MONTLUCON MOE1787 - DCE_TEILLET - PLAN DU PROFIL EN LONG_2 - 2026.06.pdf",
+        "hash": "3373a187094e2cac29b4742ea0e736d1",
+        "taille_chars": 9157
+      },
+      {
+        "nom": "VV CC MONTLUCON MOE1787 - DCE_VIADUC DE LA TARBES - PLAN DIVERS - 2026.06.pdf",
+        "hash": "bd4c05222e0d8d8785560314bc840d30",
+        "taille_chars": 17065
+      },
+      {
+        "nom": "VV MONTLUCON-EVAUX MOE1787 - DCE - PHASE_1&2 - CCTP - GÉNÉRALITES COMMUNES - Marché 2.pdf",
+        "hash": "46d1da7f20f6d795ad51180fe7d4ea94",
+        "taille_chars": 57489
+      }
+    ]
+  }
+}

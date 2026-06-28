@@ -1,6 +1,6 @@
 # Brief — Aménagement d'une maison d'assistants maternels à Taluyers
 
-_Généré le 2026-06-15 00:54 par Claude claude-sonnet-4-6_
+_Généré le 2026-06-19 23:13 par Claude claude-sonnet-4-6_
 
 ## Identifiants
 - **ID Tendia** : `BOAMP-26-56626`
@@ -10,82 +10,87 @@ _Généré le 2026-06-15 00:54 par Claude claude-sonnet-4-6_
 - **DCE PLACE** : <https://www.achatpublic.com/sdm/ent/gen/ent_detail.do?PCSLID=CSL_2026_dS0BXPifsG>
 
 ## Synthèse
-Marché public de travaux en procédure adaptée pour l'aménagement d'une maison d'assistants maternels à Taluyers (69), porté par la Communauté de Communes du Pays Mornantais. Le marché est divisé en 7 lots couvrant le second œuvre complet (menuiserie, plâtrerie, carrelage, sols souples, électricité, CVC-plomberie, aménagements extérieurs). Le délai d'exécution des travaux est de 6 mois, précédé d'un mois de préparation.
+Marché public de travaux portant sur l'aménagement intérieur d'une Maison d'Assistants Maternels (MAM) d'une capacité de 18 enfants, localisée route du Bâtard à Taluyers (69). L'opération concerne l'aménagement intérieur d'un local ERP de 270 m² livré brut par ALLIADE HABITAT, ainsi que l'aménagement de l'espace extérieur de 125,3 m². Le marché est divisé en 7 lots couvrant les corps d'état second œuvre et techniques.
 
 ## 🏗 Chantier — caractéristiques BTP
-- **Description** : Aménagement intérieur et extérieur d'une maison d'assistants maternels existante, comprenant menuiseries intérieures et mobilier, plâtrerie et plafonds suspendus, chape-carrelage-faïence, sols souples, électricité courant fort et faible, CVC-plomberie, et aménagements extérieurs avec espaces verts.
-- **Type d'ouvrage** : Maison d'assistants maternels (MAM) — équipement petite enfance
-- **Site occupé pendant travaux** : Non précisé dans le RC
-- **Corps d'état mobilisés** : Menuiserie intérieure bois / mobilier, Plâtrerie - Plafond suspendu - Peinture, Chape - Carrelage - Faïence, Sol souple, Électricité courant fort - courant faible, CVC - Plomberie, Aménagements extérieurs - Espaces verts
+- **Description** : Aménagement intérieur complet d'un local ERP de 270 m² (rez-de-chaussée) livré brut par le bailleur ALLIADE HABITAT, transformé en Maison d'Assistants Maternels pour 18 enfants. Les travaux comprennent : cloisons, doublages, plafonds suspendus en laine de bois, sols souples (linoléum) et carrelages, menuiseries intérieures bois et mobilier fixe, électricité courants forts/faibles (alarme incendie, intrusion, PPMS, VDI, vidéophonie), CVC (PAC, plancher chauffant, VMC ERP) et plomberie, aménagements extérieurs (espace 125,3 m², clôture, revêtement drainant, sol souple liège).
+- **Type d'ouvrage** : ERP (Établissement Recevant du Public) — local petite enfance / crèche (type R, 4e catégorie)
+- **Surface / volume** : 270 m² ERP intérieur + 125,3 m² espace extérieur
+- **Site occupé pendant travaux** : false — le bâtiment est livré brut avant aménagement ; les travaux se déroulent en concomitance avec le projet de logements d'ALLIADE mais la MAM n'est pas occupée
+- **Corps d'état mobilisés** : Menuiseries intérieures bois et mobilier (Lot 1), Plâtrerie, plafond suspendu, peinture (Lot 2), Chape, carrelage, faïence (Lot 3), Sol souple (Lot 4), Électricité courants forts et courants faibles (Lot 5), CVC, plomberie (Lot 6), Aménagements extérieurs, espaces verts (Lot 7)
 - **Contraintes spécifiques** :
-  - Visite de site obligatoire préalablement à la remise de l'offre (attestation à joindre)
-  - Coordination entre 7 lots distincts sur un même chantier
-  - Délai d'exécution global des travaux limité à 6 mois
-  - Planning imposé par le maître d'œuvre à respecter
-  - Lieu-dit la Ronze, Route du Bâtard, Taluyers (69440) — site rural
+  - Coordination avec les travaux ALLIADE HABITAT en cours sur le même bâtiment (logements + enveloppe)
+  - Respect RE 2020 — test d'étanchéité à l'air obligatoire (Q4Pa-surf ≤ 0,8 m³/h.m²)
+  - ERP type R 4e catégorie — réglementation incendie, accessibilité PMR, sécurité enfants (poignées à 1,30 m, protections anti-pince-doigts)
+  - Plancher chauffant hydraulique intégré à la chape anhydrite 60 mm
+  - Plafonds suspendus en laine de bois 120×60 cm avec flocage existant en sous-face dalle haute à dégarnir localement
+  - Peintures biosourcées obligatoires (labelliséés Ecolabel Européen/Natureplus/NF Environnement/Ange Bleu)
+  - Gestion des déchets de chantier avec schéma d'organisation obligatoire
+  - Chantier faibles nuisances exigé
+  - Matériaux bois éco-certifiés FSC ou PEFC
 
 ### Allotissement
-Marché divisé en 7 lots, chacun constituant un marché distinct. Un candidat peut soumissionner pour un ou plusieurs lots sans limitation.
+Marché divisé en 7 lots distincts, chacun constituant un marché séparé à prix forfaitaire global et définitif, d'une durée prévisionnelle de 7 mois (1 mois préparation + 6 mois exécution).
 - **Nombre de lots** : 7
 - **Lot 1** — Menuiserie intérieure bois/mobilier
-  - Corps d'état : Menuiserie intérieure / Mobilier
-  - Fourniture et pose de menuiseries intérieures bois et mobilier (CPV 45421000-4)
-- **Lot 2** — Plâtrerie-Plafond suspendu - peinture
-  - Corps d'état : Plâtrerie / Plafonds suspendus / Peinture
-  - Travaux de plâtrerie, pose de plafonds suspendus et peinture intérieure (CPV 45410000-4)
-- **Lot 3** — Chappe-carrelage-Faïence
-  - Corps d'état : Chape / Carrelage / Faïence
-  - Réalisation de chapes, pose de carrelage et faïence (CPV 45431000-7)
+  - Corps d'état : menuiseries intérieures bois, mobilier fixe
+  - Blocs-portes stratifiés (toute hauteur 2,92 m), châssis bois vitrés intérieurs CF30, mobilier fixe de toutes les pièces (accueil, salles d'activités, dortoirs, change, bureau, lingerie, kitchenette), extincteurs, plans d'évacuation, organigramme de clés.
+- **Lot 2** — Plâtrerie - Plafond suspendu - peinture
+  - Corps d'état : plâtrerie, plafonds suspendus, peinture
+  - Cloisons sèches de distribution et de doublage (acoustiques jusqu'à 60 dB), habillages isolants sous dalle, plafonds suspendus laine de bois 120×60 (non démontable) et dalles acoustiques 60×60 (démontable), peintures biosourcées, nettoyage final de chantier, installation commune de chantier, gestion compte prorata.
+- **Lot 3** — Chappe - carrelage - Faïence
+  - Corps d'état : chape, carrelage, faïence
+  - Chape anhydrite 60 mm pour plancher chauffant, carrelage grès cérame 60×60 (locaux humides), faïences grès émaillé 20×20, système d'étanchéité sous faïence, isolant phonique au bruit d'impact, miroirs, tapis d'entrée encadrés.
 - **Lot 4** — Sol souple
-  - Corps d'état : Revêtements de sols souples
-  - Fourniture et pose de revêtements de sols souples (CPV 45432111-5)
+  - Corps d'état : revêtements de sol souples
+  - Ragréage et revêtement linoléum collé (DLW Marmorette ou équivalent) U4P3E1/2C2 avec remontée de plinthe, dans l'ensemble des locaux de vie (accueil, circulations, activités, dortoirs, change, bureau, équipe, repas, motricité).
 - **Lot 5** — Electricité courant fort - courant faible
-  - Corps d'état : Électricité courant fort / courant faible
-  - Travaux d'électricité courant fort et courant faible, avec PSE optionnelle sur modulation des débits de ventilation (CPV 45310000-3)
-- **Lot 6** — CVC-Plomberie
-  - Corps d'état : CVC / Plomberie
-  - Travaux de chauffage, ventilation, climatisation et plomberie, avec PSE sur modulation des débits de ventilation et traitement physique de l'eau (CPV 45330000-9)
+  - Corps d'état : électricité courants forts et courants faibles
+  - Armoire électrique MAM, dérivation depuis colonne ALLIADE, distribution CF et CFA, éclairage LED (downlights, linéaires encastrés rail REGGIANI, plafonniers), détection de présence, BAES, alarme incendie type 4, PPMS (système BODET), vidéophonie IP, alarme intrusion, réseau VDI catégorie 6a, sèche-mains.
+- **Lot 6** — CVC - Plomberie
+  - Corps d'état : chauffage, ventilation, climatisation, plomberie
+  - PAC eau/eau (local technique), plancher chauffant hydraulique, VMC double-flux ERP, ballons ECS, production et distribution eau froide/chaude sanitaire, appareils sanitaires (WC suspendu, lavabos, douche PMR, meuble-change double LOXOS), siphons, réseaux EU/EV/EP.
 - **Lot 7** — Aménagements extérieurs - espaces verts
-  - Corps d'état : Aménagements extérieurs / Espaces verts
-  - Travaux d'aménagements extérieurs et création d'espaces verts (CPV 45112710-5)
+  - Corps d'état : aménagements extérieurs, espaces verts
+  - Espace extérieur ERP 125,3 m² : revêtement minéral drainant URBALITH (70%) et sol souple liège CORKEEN (30%), clôture grillage plastifié H=1,60 m avec portillon, espace engazonné 40 m², bordures P3, lierre grimpant sur clôture. Indice de révision TP08.
 
 ### Qualifications BTP exigées
-Aucune qualification Qualibat ou certification spécifique n'est explicitement exigée dans le RC. L'acheteur demande des références de travaux similaires et des déclarations de capacités.
+Le CCAP et le CCTC ne mentionnent pas de qualifications Qualibat spécifiques à titre de condition d'admission ; les pièces du DCE analysées ne précisent pas de qualifications exigées à peine d'irrecevabilité.
 - **MASE** : non
+- **Autres exigences** :
+  - Bois éco-certifiés FSC ou PEFC (Lot 1)
+  - Peintures labellisées Ecolabel Européen, Natureplus, NF Environnement ou Ange Bleu (Lot 2)
+  - Matériaux classe réaction au feu conformes (M1 à M3 selon usage)
 
 ## 💶 Montant du marché
 - _Montant non communiqué dans le DCE._
   - Typique des accords-cadres à bons de commande : le volume dépend des commandes effectivement passées par l'acheteur sur la durée du marché.
-- _Note_ : Aucun montant estimé ou plafond budgétaire n'est mentionné dans les pièces du DCE fournies (RC uniquement). Les DPGF par lot permettront de préciser les montants à la remise des offres.
+- _Note_ : Aucun montant estimatif global n'est mentionné dans les pièces du DCE transmises (CCAP, CCTC, CCTP lots 1 à 7, plans). Le RC n'a pas été fourni. La DPGF (décomposition du prix global et forfaitaire) est mentionnée dans le CCAP mais n'est pas jointe au DCE analysé.
 
 ## Barème de notation
-- **Valeur technique** : 45 %
-- **Valeur prix** : 35 %
-- **Sous-critères techniques** :
-  - Valeur technique : 45 %
-  - Délai d'exécution : 5 %
-  - Développement durable : 15 %
-- **Calcul du prix** : Note offre = (prix de l'offre la plus basse / prix de l'offre) × 35
+- **Valeur technique** : —
+- **Valeur prix** : —
+- **Calcul du prix** : Non précisé dans les pièces du DCE fournies — le RC n'a pas été transmis.
 
 ## Références et qualifications exigées
 - **Expérience minimale** : —
-- **Secteur d'expérience** : Travaux de second œuvre bâtiment (liste des travaux exécutés au cours des 5 dernières années avec attestations de bonne exécution pour les travaux les plus importants)
+- **Certifications obligatoires** : Assurance responsabilité civile professionnelle en cours de validité (bloquante=True, source=CCAP article 5), Assurance responsabilité civile décennale (applicable selon l'article L.243-11 du code des assurances) (bloquante=True, source=CCAP article 5), Assurance responsabilité en matière d'accidents de travail (bloquante=True, source=CCAP article 5), Bois éco-certifiés FSC ou PEFC (Lot 1 — essences de bois) (source=CCTP Lot 1 §36-00-00.00), Peintures labellisées Ecolabel Européen, Natureplus, NF Environnement ou Ange Bleu — classe COV A+ obligatoire (Lot 2) (source=CCTP Lot 2 §16-00-00.00)
 - **Autres exigences** :
-  - Déclaration du chiffre d'affaires global (et le cas échéant du domaine d'activité) sur les 3 derniers exercices disponibles (source=RC article 4.1)
-  - Déclaration des effectifs moyens annuels et du personnel d'encadrement sur les 3 dernières années (source=RC article 4.1)
-  - Description de l'outillage, du matériel et de l'équipement technique disponible pour la réalisation du marché (source=RC article 4.1)
-  - Liste des travaux exécutés au cours des 5 dernières années avec attestations de bonne exécution pour les travaux les plus importants (montant, date, lieu d'exécution) (source=RC article 4.1)
+  - Plan Particulier de Sécurité et de Protection de la Santé (PPSPS) à produire pour toutes les entreprises (source=CCTC §14)
+  - Schéma d'organisation et de gestion des déchets à remettre dans un délai de 2 mois à compter de la notification (source=CCAP article 12.3)
+  - Sous-détail de prix à fournir à la fin de la période de préparation (1 mois) (source=CCAP article 21)
+  - Facturation obligatoire via Chorus Pro (format électronique exclusif) (source=CCAP article 10.3)
 
 ## ⚠ Alertes candidat
-- Visite de site OBLIGATOIRE : l'attestation de visite (Annexe 1) doit impérativement être jointe à l'offre — l'absence de ce document peut entraîner l'irrecevabilité de l'offre. Prendre contact avec Philippe BOUTRY au 06 73 86 89 63 pour planifier la visite.
-- La DPGF doit être transmise en format Excel/Calc SANS modification de la structure (aucun ajout, suppression, fusion de colonne ou ligne) — toute modification structurelle est un motif de rejet.
-- Le mémoire technique est déterminant (45% valeur technique + 15% développement durable = 60% du score total) : une offre price-only sans mémoire argumenté ne peut pas gagner.
-- Demandes de renseignements complémentaires à formuler impérativement au plus tard 7 jours calendaires avant la date limite (soit avant le 23 juin 2026), via la plateforme achatpublic.com uniquement.
-- L'acheteur se réserve le droit de négocier avec les 3 meilleurs candidats après analyse des offres initiales : il faut soigner la première offre tout en laissant une marge de négociation.
+- Facturation EXCLUSIVEMENT via Chorus Pro — toute facture transmise hors de ce portail pourra être rejetée sans obligation de rectification par l'acheteur (CCAP art. 10.3)
+- Aucune avance accordée aux lots 3, 4 et 7 : trésorerie à financer intégralement sur fonds propres pendant toute la durée du chantier (6 mois minimum)
+- Les travaux se déroulent en concomitance avec le chantier de logements ALLIADE HABITAT — coordination obligatoire et contraintes de phasage avec un autre maître d'ouvrage sur le même site
+- Test d'étanchéité à l'air obligatoire (RE 2020) en deux phases (hors d'eau/air + final) : chaque entreprise doit être présente et reprendre ses ouvrages défaillants SANS surcoût — intégrer ce risque dans le forfait
+- Délai de remise des offres très court (21 jours calendaires entre publication BOAMP le 09/06/2026 et date limite le 30/06/2026) — marché publié en procédure adaptée sans délai minimum réglementaire obligatoire mais laissant peu de temps pour chiffrer des DPGF multi-lots
 
 ## 💡 Points différenciants attendus
-- Qualité du mémoire technique sur les moyens humains et matériels (20 pts sur 45) (exemple=Présenter un organigramme nominatif avec CV synthétiques du chef de chantier et des compagnons, accompagné d'une liste détaillée du matériel disponible adapté à chaque corps d'état du lot soumissionné., source=RC article 6)
-- Organisation de chantier et coordination inter-lots (15 pts sur 45) (exemple=Fournir un planning Gantt prévisionnel intégrant les interfaces avec les autres lots (notamment CVC/électricité pour les réservations), démontrant la maîtrise du délai de 6 mois., source=RC article 6)
-- Démarche de gestion des déchets et réemploi (10 pts sur 15 développement durable) (exemple=Présenter un SOGED (Schéma d'Organisation et de Gestion des Déchets) avec les filières de valorisation identifiées, les bennes prévues, le taux de valorisation cible et les borderaux de suivi déchets fournis., source=RC article 6)
-- Engagements environnementaux de l'entreprise (5 pts sur 15 développement durable) (exemple=Mettre en avant une certification ISO 14001, une politique carbone documentée ou des véhicules de chantier à faibles émissions, avec justificatifs à l'appui., source=RC article 6)
-- Maîtrise du délai d'exécution et réactivité (5 pts) (exemple=Démontrer la capacité à mobiliser des ressources supplémentaires en cas de retard (liste de sous-traitants habituels, intérimaires qualifiés mobilisables) et décrire le processus de reporting hebdomadaire au maître d'œuvre., source=RC article 6)
+- Expérience spécifique en aménagement d'ERP petite enfance (crèche, MAM, EAJE) (exemple=Présenter des références de chantiers similaires (MAM, micro-crèche, EAJE) avec descriptif des contraintes réglementaires traitées (accessibilité PMR, résistance au feu des portes PF30/EI30, acoustique 36-60 dB, sécurité enfants) renforce la crédibilité technique., source=CCTP Lot 1 §36-45-15.05 (conformité EAJE/PMI) ; CCTP Lot 2 §16-05-05.05 (60 dB dortoirs))
+- Démarche chantier faibles nuisances et gestion exemplaire des déchets (exemple=Fournir un schéma d'organisation des déchets détaillant les filières de valorisation par type (plâtre, bois, emballages, matériaux inertes), les taux de recyclage visés et la désignation d'un responsable déchets nommément identifié. Le contexte BOAMP signale des critères environnementaux dans l'attribution., source=CCTC §29 ; CCTC §31 ; CCAP article 13)
+- Maîtrise des exigences d'étanchéité à l'air (RE 2020) propres au lot (exemple=Pour le lot électricité : présenter une méthode de calfeutrement des sorties de câbles en façade (manchettes PROCLIMA ou équivalent, scotch adaptés) et expliquer la procédure de présence aux tests et de reprise sans surcoût — c'est un risque qui peut coûter cher si mal anticipé., source=CCTC §32 ; CCTP Lot 5 §2.2)
+- Références de matériaux à faible impact COV et biosourcés (exemple=Pour le lot peinture (Lot 2), indiquer la marque et la référence des peintures biosourcées retenues (ex : PHYLOPUR La Seigneurie ou BIOALKYD Zolpan) avec la copie de l'ecolabel en vigueur, et préciser le taux d'émission COV mesuré en µg/m³ — bien en dessous du seuil classe A+., source=CCTP Lot 2 §16-00-00.00)
+- Planning détaillé et coordination inter-lots maîtrisée (exemple=Présenter un planning de phasage respectant l'ordre impératif : cloisons AVANT chapes, chapes APRÈS plancher chauffant, sols souples en dernier. Identifier les interfaces critiques avec le lot CVC (plancher chauffant) et le lot plâtrerie (niveaux de référence). Cela rassure le maître d'œuvre sur la capacité à travailler dans un chantier multi-lots concurrent ALLIADE., source=CCTC §21 ; CCTC §34 ; CCTP Lot 3 §26-00-00.00 (chapes après cloisons))

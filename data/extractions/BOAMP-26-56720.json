@@ -1,0 +1,393 @@
+{
+  "synthese_marche": "Accord-cadre à bons de commande pour la vérification et la maintenance des portes sectionnelles motorisées ou non, portails, portes et rideaux motorisés des bâtiments du Conseil Départemental du Cantal (CD15) et du SDIS Cantal (SDIS15). Le marché est divisé en 2 lots géographiques (Ouest Cantal / Est Cantal), avec une durée initiale de 12 mois reconductible 3 fois (4 ans au total), pour un montant total estimé à 210 648 € HT. Les prestations couvrent la maintenance préventive (visites annuelles ou biannuelles), le dépannage d'urgence et les réparations, sur un parc de plusieurs centaines de portes réparties sur l'ensemble du département.",
+  "domaines_metier": [
+    {
+      "code": "autre"
+    }
+  ],
+  "raison_classification": "Ce marché porte sur la vérification et la maintenance de fermetures industrielles (portes sectionnelles, portails, rideaux motorisés) dans des bâtiments publics. Il s'agit d'un service de maintenance technique de second œuvre spécialisé (CPV 50700000 - services de réparation et d'entretien d'installations de bâtiments), qui ne correspond pas exactement à un code de la taxonomie disponible : ni BTP travaux neufs, ni formation, ni énergie, ni conseil. Le code `autre` est retenu car aucune entrée de la taxonomie ne couvre précisément la maintenance de fermetures industrielles.",
+  "caracteristiques_metier": {
+    "description": "Contrat de vérification et de maintenance préventive et curative des fermetures industrielles (portes sectionnelles motorisées ou manuelles, portails automatiques, rideaux métalliques motorisés) des bâtiments du CD15 et du SDIS15, répartis en 2 zones géographiques. Les prestations comprennent des visites périodiques (1 à 2 fois/an selon le type), le dépannage d'urgence (délai max 2h pour CD15, 24h pour SDIS15), la fourniture forfaitaire de petites pièces et la rédaction de rapports de visite.",
+    "criteres_eligibilite": [
+      "Capacité professionnelle et technique dans la maintenance de fermetures industrielles",
+      "Attestation de responsabilité civile (RC) en cours de validité",
+      "Attestation fiscale de régularité",
+      "Attestation de vigilance URSSAF datée de moins de 6 mois",
+      "Chiffre d'affaires global et sectoriel sur les 3 derniers exercices"
+    ]
+  },
+  "bareme_notation": {
+    "valeur_technique_pct": 40,
+    "valeur_prix_pct": 60,
+    "sous_criteres_techniques": [
+      {
+        "libelle": "Délais d'intervention en cas de panne",
+        "ponderation_pct": 30,
+        "description": "Le critère est jugé en fonction du délai maximum d'intervention en cas de panne tel que porté sur l'acte d'engagement par le candidat, pour le CD15 et le SDIS15 séparément.",
+        "elements_attendus": [
+          "Délai maximum d'intervention en cas de panne pour le CD15 (inférieur à 2h selon le CCTP)",
+          "Délai maximum d'intervention en cas de panne pour le SDIS15 (inférieur à 24h selon le CCTP)",
+          "Engagement contractuel chiffré et réaliste",
+          "Couverture 7j/7 incluant samedis, dimanches et jours fériés"
+        ],
+        "exemple_reponse_forte": "La société s'engage à intervenir dans un délai maximum de 2 heures pour le CD15 et 8 heures pour le SDIS15, 7j/7 et jours fériés, grâce à une équipe dédiée basée à Aurillac avec astreinte permanente. Un stock de pièces courantes est maintenu en véhicule d'intervention pour éviter tout délai d'approvisionnement.",
+        "source": "RC §7.2",
+        "unite_evaluation": "delai_jours",
+        "sous_criteres": []
+      },
+      {
+        "libelle": "Performance environnementale de la flotte automobile pour l'exécution du marché",
+        "ponderation_pct": 10,
+        "description": "Le critère est jugé au vu de la liste des véhicules dont l'entreprise est propriétaire et potentiellement utilisés pour l'exécution du marché, en termes de performance environnementale.",
+        "elements_attendus": [
+          "Liste des véhicules utilisés pour ce marché avec leurs caractéristiques environnementales",
+          "Normes Euro des véhicules (Euro 6 ou supérieur valorisé)",
+          "Part de véhicules électriques, hybrides ou à faibles émissions dans la flotte",
+          "Niveau d'émission de CO2 (g/km) des véhicules listés"
+        ],
+        "exemple_reponse_forte": "La flotte dédiée à ce marché se compose de 2 fourgonnettes Euro 6d répondant aux normes Crit'Air 1, présentant des émissions moyennes de 140 g CO2/km. L'entreprise a engagé un plan de renouvellement incluant l'acquisition d'un véhicule utilitaire électrique d'ici 12 mois.",
+        "source": "RC §7.2",
+        "unite_evaluation": "points",
+        "sous_criteres": []
+      }
+    ],
+    "prix": {
+      "type_formule": "moins_disant",
+      "formule_explicite": "Note de l'offre = (Montant de l'offre moins-disante / Montant de l'offre à noter) × 60",
+      "source": "RC §7.2",
+      "elements_a_chiffrer": [
+        "Prix unitaire HT par porte sectionnelle motorisée (visite biannuelle)",
+        "Prix unitaire HT par porte sectionnelle manuelle (visite annuelle)",
+        "Prix unitaire HT par portail motorisé (visite biannuelle)",
+        "Prix unitaire HT par rideau métallique motorisé (visite biannuelle)",
+        "Forfait déplacement pour intervention hors maintenance",
+        "Taux horaire main d'œuvre pour réparations",
+        "Prix des pièces détachées courantes"
+      ]
+    },
+    "modalite_calcul_prix": "Note de l'offre = (Montant de l'offre moins-disante / Montant de l'offre à noter) × 60"
+  },
+  "montant_marche": {
+    "valeur_estimee_euros": 210648,
+    "fourchette_min_euros": null,
+    "fourchette_max_euros": null,
+    "type": "estime_explicite",
+    "duree_couverte": "Période ferme initiale de 12 mois (reconductions incluses dans les maxima par lot)",
+    "source_extraction": "Avis BOAMP AAPC — rubrique 'Quantité ou étendue' : 'Valeur estimée hors TVA : 210 648,00 €' ; Lot 1 : 96 220 € HT, Lot 2 : 114 428 € HT",
+    "commentaire": "Montant estimé global fourni dans l'avis de publicité BOAMP. Les actes d'engagement indiquent un maximum par période initiale pour la part CD15 uniquement (Lot1 CD15 : 15 282 € ; Lot1 SDIS15 : 8 773 € ; Lot2 CD15 : 20 451 € ; Lot2 SDIS15 : 8 156 €). Le montant total de 210 648 € HT correspond vraisemblablement à l'ensemble de la durée de l'accord-cadre (4 ans) ou à la valeur estimée de la procédure."
+  },
+  "montant_3_voies": {
+    "voie_1_eur": 210648,
+    "voie_1_source": "Avis BOAMP AAPC — 'Valeur estimée hors TVA : 210 648,00 €' (Lot 1 : 96 220 € + Lot 2 : 114 428 €)",
+    "voie_2_disponible": false,
+    "voie_2_min_eur": null,
+    "voie_2_max_eur": null,
+    "voie_2_hypotheses": [],
+    "voie_2_raison_indisponible": "Voie 1 disponible — estimation bottom-up non nécessaire"
+  },
+  "cout_realisation": {
+    "cout_total_eur": 126000,
+    "cout_min_eur": 110000,
+    "cout_max_eur": 145000,
+    "postes": [
+      {
+        "poste": "Lot 1 Ouest Cantal — main d'œuvre visites préventives + dépannage",
+        "detail": "73 portes SDIS + env. 60 équipements CD15 Lot1 ; ~100 visites/an × 2h × 45€/h + déplacements estimés à 15 000 km/an × 0,50 €/km",
+        "montant_eur": 50000
+      },
+      {
+        "poste": "Lot 2 Est Cantal — main d'œuvre visites préventives + dépannage",
+        "detail": "77 portes SDIS + 88 portes + 18 portails CD15 Lot2 ; ~150 visites/an × 2h × 45€/h + déplacements estimés à 20 000 km/an × 0,50 €/km",
+        "montant_eur": 76000
+      }
+    ],
+    "taux_journaliers_retenus": "Technicien maintenance fermetures industrielles : 45-55 €/h chargé (taux marché indicatif) ; frais kilométriques : 0,50 €/km ; petites pièces et consommables : inclus dans forfait visite selon CCTP.",
+    "commentaire": "Estimation indicative du coût de production pour un candidat couvrant les deux lots (hypothèse candidat unique). La variable principale est le nombre d'interventions de dépannage (non borné dans le DCE). Les pièces de rechange importantes (maintenance lourde) sont facturées en sus via devis et bons de commande séparés, donc non intégrées ici. Taux marché indicatifs — la structure de coût réelle dépend de l'implantation locale du candidat."
+  },
+  "revision_prix": {
+    "type": "indexation",
+    "indices_utilises": [
+      "ICHT-IME"
+    ],
+    "ponderation": "100% ICHT-IME (Industries mécaniques et électriques) — partie fixe nulle (0%)",
+    "periodicite": "annuelle",
+    "formule_revision": "Cn = 0.0% + 100.0% × (ICHT-IME(n) / ICHT-IME(o))",
+    "source_extraction": "CCAP article 6.2",
+    "commentaire": "Formule entièrement variable (0% partie fixe), indexée à 100% sur l'indice ICHT-IME (industries mécaniques et électriques, publié au Moniteur ou INSEE). Favorable au titulaire en période d'inflation des coûts de main d'œuvre technique, mais exposition totale à la baisse en cas de déflation."
+  },
+  "alertes_prix": [
+    "Pondération prix à 60% très élevée : le prix est le critère dominant, la concurrence se jouera principalement sur le BPU — attention aux offres très agressives.",
+    "Pénalité de 500 € HT par heure de retard d'intervention en cas de panne (CCAP art 16.1) : une mauvaise estimation du délai d'intervention peut générer des pénalités significatives.",
+    "Le bordereau des prix (BPU) n'est pas joint au DCE analysé : les postes à chiffrer précis ne sont pas visibles, risque d'erreur lors du remplissage.",
+    "Montant maximum par accord-cadre fixé dans les actes d'engagement : passé ce plafond, le marché est reconduit mais le maximum annuel reste plafonné — surveiller l'atteinte du plafond."
+  ],
+  "references_exigees": {
+    "experience_minimale_annees": null,
+    "experience_source": null,
+    "volume_min_references_similaires": null,
+    "volume_min_references_unite": null,
+    "secteur_experience": "Maintenance de fermetures industrielles (portes sectionnelles motorisées, portails automatiques, rideaux métalliques)",
+    "secteur_source": "RC §7.1",
+    "certifications_obligatoires": [],
+    "autres_exigences": [
+      {
+        "libelle": "Déclaration concernant le chiffre d'affaires global et le chiffre d'affaires concernant les prestations objet du contrat, réalisées au cours des trois derniers exercices disponibles",
+        "source": "RC §5.1"
+      },
+      {
+        "libelle": "Attestation d'assurance responsabilité civile (RC) en cours de validité",
+        "source": "RC §5.1"
+      },
+      {
+        "libelle": "Attestation de vigilance URSSAF datée de moins de 6 mois",
+        "source": "RC §5.1"
+      },
+      {
+        "libelle": "Attestation fiscale de régularité (TVA et impôt sur le revenu ou sociétés)",
+        "source": "RC §5.1"
+      }
+    ]
+  },
+  "dossier_candidature": {
+    "pieces_a_fournir": [
+      {
+        "libelle": "Déclaration sur l'honneur justifiant que le candidat n'entre dans aucun cas d'interdiction de soumissionner (articles L.2141-1 à L.2141-14 CCP)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §5.1"
+      },
+      {
+        "libelle": "Renseignements sur le respect de l'obligation d'emploi des travailleurs handicapés (articles L.5212-1 à L.5212-11 CT)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §5.1"
+      },
+      {
+        "libelle": "Documents relatifs aux pouvoirs de la personne habilitée à engager le candidat, datés et signés",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §5.1"
+      },
+      {
+        "libelle": "En cas de groupement : document relatif au pouvoir de la personne habilitée à engager le groupement",
+        "phase": "candidature",
+        "obligatoire": false,
+        "source": "RC §5.1"
+      },
+      {
+        "libelle": "Déclaration concernant le chiffre d'affaires global et sectoriel des 3 derniers exercices",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §5.1"
+      },
+      {
+        "libelle": "Copie du (des) jugement(s) si le candidat est en redressement judiciaire",
+        "phase": "candidature",
+        "obligatoire": false,
+        "source": "RC §5.1"
+      },
+      {
+        "libelle": "Formulaire DC1 (lettre de candidature) ou DUME",
+        "phase": "candidature",
+        "obligatoire": false,
+        "source": "RC §5.1"
+      },
+      {
+        "libelle": "Formulaire DC2 (déclaration du candidat) ou DUME",
+        "phase": "candidature",
+        "obligatoire": false,
+        "source": "RC §5.1"
+      },
+      {
+        "libelle": "Attestation fiscale (régularité TVA et impôt) — à fournir uniquement si attributaire",
+        "phase": "candidature",
+        "obligatoire": false,
+        "source": "RC §5.1"
+      },
+      {
+        "libelle": "Attestation de vigilance URSSAF datée de moins de 6 mois — à fournir uniquement si attributaire",
+        "phase": "candidature",
+        "obligatoire": false,
+        "source": "RC §5.1"
+      },
+      {
+        "libelle": "Attestation d'assurance responsabilité civile (RC) en cours de validité — à fournir uniquement si attributaire",
+        "phase": "candidature",
+        "obligatoire": false,
+        "source": "RC §5.1"
+      },
+      {
+        "libelle": "Acte d'engagement (AE) et ses annexes complétés (un AE par acheteur par lot : AE lot CD + AE lot SDIS)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §5.1"
+      },
+      {
+        "libelle": "Bordereau des prix unitaires (BPU) complété",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §5.1"
+      },
+      {
+        "libelle": "Détail quantitatif estimatif (DQE) complété",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §5.1"
+      },
+      {
+        "libelle": "Liste des véhicules dont l'entreprise est propriétaire et potentiellement utilisés pour l'exécution du marché (critère environnemental)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §7.2"
+      }
+    ],
+    "mode_remise": "dématérialisé",
+    "plateforme_depot": "https://www.marches-publics.info/",
+    "signature_electronique_exigee": false,
+    "format_signature": "Si signature électronique spontanée : signature avancée reposant sur un certificat qualifié (eIDAS annexe I)",
+    "nombre_exemplaires": null,
+    "langue": "français",
+    "duree_validite_offres_jours": 120,
+    "modalites_source": "RC §6.1 et §2.1"
+  },
+  "lots": [
+    {
+      "numero": 1,
+      "intitule": "Lot 01 — Ouest Cantal : arrondissement d'Aurillac et partie de celui de Mauriac",
+      "domaine": "autre",
+      "zone_geographique": "Ouest Cantal — arrondissement d'Aurillac et partie de l'arrondissement de Mauriac (département 15)",
+      "volume_estime": 73,
+      "volume_estime_unite": "équipements SDIS (portes sectionnelles) + parc CD15 non chiffré globalement",
+      "cout_estime_min_eur": 45000,
+      "cout_estime_max_eur": 58000,
+      "particularites": "73 portes sectionnelles SDIS (DQE SDIS lot1) ; parc CD15 à chiffrer via BPU. Maximum période initiale : 15 282 € HT pour CD15 + 8 773 € HT pour SDIS15 = 24 055 € HT/an. Délai d'intervention en cas de panne : 2h max pour CD15, 24h max pour SDIS15, 7j/7 y compris jours fériés."
+    },
+    {
+      "numero": 2,
+      "intitule": "Lot 02 — Est Cantal : arrondissement de Saint-Flour et partie de celui de Mauriac",
+      "domaine": "autre",
+      "zone_geographique": "Est Cantal — arrondissement de Saint-Flour et partie de l'arrondissement de Mauriac (département 15)",
+      "volume_estime": 183,
+      "volume_estime_unite": "équipements (77 portes SDIS + 88 portes + 18 portails CD15)",
+      "cout_estime_min_eur": 65000,
+      "cout_estime_max_eur": 87000,
+      "particularites": "77 portes sectionnelles SDIS (DQE SDIS lot2) + 88 portes et 18 portails CD15 (DQE CD15 lot2). Maximum période initiale : 20 451 € HT pour CD15 + 8 156 € HT pour SDIS15 = 28 607 € HT/an. Pôle Routier Départemental de Saint-Flour : 36 portes sectionnelles motorisées à lui seul. Lot plus volumineux que le lot 1."
+    }
+  ],
+  "tranches": [],
+  "calendrier": {
+    "date_limite_offres": "2026-06-22",
+    "date_demarrage_prevue": "2026-09-01",
+    "duree_marche": "12 mois période initiale, reconductible 3 fois 12 mois — durée maximale 48 mois (4 ans)"
+  },
+  "alertes_candidat": [
+    "Délai d'intervention extrêmement court pour le CD15 : 2 heures maximum en cas de panne, 7j/7 jours fériés inclus (CCTP §5) — pénalité de 500 € HT par heure de retard (CCAP art. 16.1). Un candidat sans implantation locale dans le Cantal ne pourra pas tenir cet engagement.",
+    "Le marché couvre 4 acheteurs distincts via un groupement de commandes (CD15 + SDIS15) avec des actes d'engagement SÉPARÉS par acheteur et par lot : soit 4 AE à compléter pour un candidat visant les 2 lots — risque d'erreur ou d'omission.",
+    "Clause environnementale d'exécution OBLIGATOIRE (CCAP art. 11) : les pièces de rechange doivent être issues de l'économie circulaire (réemploi/réutilisation en priorité, sinon matière recyclée). Une offre ne respectant pas cette clause sera déclarée irrégulière.",
+    "Le BPU n'est pas visible dans le DCE analysé : les candidats doivent impérativement télécharger et remplir le bordereau disponible sur la plateforme avant le 22/06/2026 à 11h59.",
+    "Délai de dépôt très court : l'avis initial prévoyait une date limite au 12/06/2026, repoussée au 22/06/2026 par avis rectificatif — vérifier que l'on travaille bien sur la date corrigée et anticiper le dépôt de 48h comme recommandé."
+  ],
+  "points_differenciants_attendus": [
+    {
+      "libelle": "Délai d'intervention garanti très court pour le CD15",
+      "exemple": "Un candidat basé à Aurillac avec une astreinte 24h/24 et un stock de pièces courantes en véhicule peut proposer un délai d'intervention de 1h30 au lieu de 2h, ce qui lui donnerait un avantage significatif sur le critère noté à 30%.",
+      "source": "RC §7.2 — critère 'Délais d'intervention en cas de panne' (30 points)"
+    },
+    {
+      "libelle": "Flotte de véhicules à faibles émissions dédiée au marché",
+      "exemple": "Présenter une liste de véhicules utilitaires électriques ou hybrides rechargeables (Crit'Air 1) avec leur immatriculation et taux d'émissions CO2, en précisant leur disponibilité pour ce marché, permet de scorer au maximum sur les 10 points environnementaux.",
+      "source": "RC §7.2 — critère 'Performance environnementale de la flotte automobile' (10 points)"
+    },
+    {
+      "libelle": "Implantation géographique locale dans le Cantal",
+      "exemple": "Un candidat disposant d'un dépôt ou d'une équipe basée dans l'arrondissement d'Aurillac (lot 1) ou de Saint-Flour (lot 2) peut démontrer de façon crédible sa capacité à respecter les délais d'urgence et minimiser ses frais de déplacement, se rendant plus compétitif sur le prix.",
+      "source": null
+    },
+    {
+      "libelle": "Stock de pièces détachées courantes disponible localement",
+      "exemple": "Mentionner dans l'offre un stock de câbles, roulettes, fusibles et petites pièces maintenu dans le véhicule ou dans un dépôt local permet de rassurer l'acheteur sur la continuité de service et la rapidité des dépannages, conformément à l'exigence du CCTP.",
+      "source": "CCTP §5 — 'Fourniture forfaitaire des petites pièces et produits'"
+    }
+  ],
+  "_meta": {
+    "id_marche": "BOAMP-26-56720",
+    "type": "complet",
+    "date_generation": "2026-06-19T22:26:02.330925+00:00",
+    "extraction_le": "2026-06-19T22:26:02.330925+00:00",
+    "modele": "claude-sonnet-4-6",
+    "preset_utilise": null,
+    "presets_matches": [],
+    "prompts_versions": {},
+    "tokens_input": 57969,
+    "tokens_output": 6732,
+    "cout_eur": 0.2611,
+    "duree_sec": 116.6,
+    "pdfs_traites": [
+      {
+        "nom": "AE lot 1 CD.docx",
+        "hash": "4ca0799b76b195597ab816c68b6d7037",
+        "taille_chars": 10472
+      },
+      {
+        "nom": "AE lot 1 SDIS.docx",
+        "hash": "b7e530b91a6b89baa4c65eb7eff6653c",
+        "taille_chars": 10228
+      },
+      {
+        "nom": "AE lot 2 CD.docx",
+        "hash": "dd541fca4e7a0cd8a3657e1a29a5ead0",
+        "taille_chars": 10468
+      },
+      {
+        "nom": "AE lot 2 SDIS.docx",
+        "hash": "4d3580ef6cd4afe171c8a468b5555225",
+        "taille_chars": 10224
+      },
+      {
+        "nom": "AWS-MPI-1823538-RC.pdf",
+        "hash": "93354bdf484ec0db1ba0f68e14896294",
+        "taille_chars": 28683
+      },
+      {
+        "nom": "BPU.xlsx",
+        "hash": "11bacdfb46087bf0deb7e6bc2e5892c0",
+        "taille_chars": 570
+      },
+      {
+        "nom": "CCAP.pdf",
+        "hash": "aa01411e13b4181a3336d8958740c311",
+        "taille_chars": 27469
+      },
+      {
+        "nom": "CCTP portes sectionnelles.pdf",
+        "hash": "ce69ea42b9bf762c1600ea7bc5ba2800",
+        "taille_chars": 7554
+      },
+      {
+        "nom": "DQE Portes SDIS lot 1.xlsx",
+        "hash": "1f72330fc44bf91a1ab83f060dfd79e4",
+        "taille_chars": 1721
+      },
+      {
+        "nom": "DQE Portes SDIS lot 2.xlsx",
+        "hash": "e2ee3c41bae8749ec60f942043dfab36",
+        "taille_chars": 1392
+      },
+      {
+        "nom": "DQE portes Cd15 lot 2.xlsx",
+        "hash": "4603dcde5e8fece67d886bf6acf68dc7",
+        "taille_chars": 3535
+      },
+      {
+        "nom": "MPI1823538_AAPC.pdf",
+        "hash": "76361ddf72a5e01a07818ddd1b5789da",
+        "taille_chars": 6876
+      },
+      {
+        "nom": "NOTI 6 Certificat cessibilité de créances.docx",
+        "hash": "8ce378fe77e97b74accb03491e21b542",
+        "taille_chars": 7489
+      }
+    ]
+  }
+}

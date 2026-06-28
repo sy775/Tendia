@@ -1,6 +1,6 @@
 # Brief — Exploitation des installations thermiques des bâtiments communaux
 
-_Généré le 2026-06-15 00:21 par Claude claude-sonnet-4-6_
+_Généré le 2026-06-21 02:20 par Claude claude-sonnet-4-6_
 
 ## Identifiants
 - **ID Tendia** : `BOAMP-26-56450`
@@ -11,74 +11,63 @@ _Généré le 2026-06-15 00:21 par Claude claude-sonnet-4-6_
 - **DCE PLACE** : <https://www.marches-publics.info/mpiaws/index.cfm?fuseaction=dematEnt.login&amp;type=DCE&amp;IDM=1829083>
 
 ## Synthèse
-La Ville de Montigny-lès-Metz lance un marché de services pour l'exploitation et la maintenance des installations thermiques de ses 23 bâtiments communaux (chauffage, ECS, traitement d'air, climatisation, VMC). Le marché couvre la conduite, l'entretien courant, les dépannages et la gestion qualité de l'eau, avec obligation de résultat. Il s'agit d'un lot unique à prix global et forfaitaire annuel (P2), reconductible 3 fois, prenant effet au 1er octobre 2026.
+Marché de services pour l'exploitation et la maintenance des installations thermiques (chauffage, ECS, traitement d'eau, climatisation, VMC) de 23 bâtiments communaux de la Ville de Montigny-lès-Metz (57). Le titulaire assure la conduite, l'entretien courant, les dépannages et la gestion de la qualité de l'eau dans le cadre d'un contrat forfaitaire annuel (P2). Le marché est conclu pour 1 an reconductible 3 fois, à effet du 1er octobre 2026.
 
 ## 🏗 Chantier — caractéristiques BTP
-- **Description** : Exploitation et maintenance des installations thermiques (chaudières gaz/fuel, brûleurs, pompes à chaleur, CTA, VMC, climatisations, adoucisseurs, ballons ECS) de 23 bâtiments communaux. Prestations P2 : conduite, entretien courant, dépannage, gestion de l'eau, ramonage, contrôles réglementaires, GMAO, livrets de chaufferie et carnets sanitaires.
-- **Type d'ouvrage** : Bâtiments communaux divers : hôtel de ville, groupes scolaires, gymnases, restaurants scolaires, complexes sportifs, médiathèque, services techniques, stades, centre culturel
-- **Site occupé pendant travaux** : true — les bâtiments sont en exploitation (écoles, gymnases, équipements publics) pendant l'exécution du contrat
-- **Corps d'état mobilisés** : Chauffage/CVC (conduite et entretien chaudières, brûleurs, pompes, vases d'expansion), Climatisation (unités intérieures/extérieures, groupes frigorifiques), Ventilation/CTA (centrales de traitement d'air, VMC, caissons), Traitement d'eau (adoucisseurs, pompes doseuses, analyses eau chauffage et ECS), Eau chaude sanitaire (ballons, échangeurs, prévention légionellose), Électricité courants faibles (armoires électriques, télégestion, GMAO)
+- **Description** : Exploitation et maintenance des installations thermiques de 23 bâtiments communaux : production de chauffage (chaudières gaz/PAC), production d'ECS, traitement d'eau (adoucisseurs, pompes doseuses), traitement d'air (CTA, VMC, aérothermes), climatisation (groupes froids, splits). Prestations de conduite P2 : surveillance, entretien courant, dépannage, astreinte 24h/7j, GMAO, carnets sanitaires, rapports périodiques.
+- **Type d'ouvrage** : Bâtiments communaux variés : hôtel de ville, écoles maternelles et primaires, gymnases, stades, centre culturel, médiathèque, restaurant scolaire, services techniques municipaux (23 sites au total)
+- **Site occupé pendant travaux** : true — bâtiments en exploitation (écoles, gymnases, équipements publics) occupés en cours de marché
+- **Corps d'état mobilisés** : Génie climatique / chauffage, Traitement d'eau, Ventilation / traitement d'air (CVC), Climatisation / froid, Électricité courants forts (armoires électriques installations)
 - **Contraintes spécifiques** :
-  - Visite obligatoire des installations les 17 et 24 juin 2026 (certificat de visite requis)
-  - Astreinte 24h/24 - 7j/7 avec délai d'intervention de 3h en période d'ouverture et 6h hors ouverture
-  - Déploiement en cours d'un réseau de chaleur urbain : certains bâtiments (hôtel de ville, groupe scolaire Pougin, salle Pougin, groupe scolaire Cressot) susceptibles d'être déconnectés du gaz en 2026 sans indemnisation
-  - Fourniture et mise en place d'équipements de secours dans les 6h en cas de rupture
-  - GMAO obligatoire opérationnelle dans les 2 mois suivant notification (4 postes informatiques)
-  - Schémas hydrauliques à réaliser/afficher dans les 6 premiers mois de contrat
-  - Mise en place de disconnecteurs et compteurs d'appoint sur tous les sites non équipés dans la 1ère année
-  - Présence de matériaux amiantés potentiels dans les bâtiments (obligation réglementaire amiante)
-  - Nettoyage semestriel de 114 douches dans gymnases et stades
-  - Recherche légionellose annuelle dans tous les ERP
+  - Astreinte 24h/24 et 7j/7 avec délai d'intervention de 3h en période d'ouverture des établissements
+  - Visite obligatoire des installations (17 et 24 juin 2026) — certificat de visite requis
+  - Présence d'amiante possible — obligations réglementaires spécifiques (CCAP art. 12)
+  - Certains bâtiments susceptibles d'être déconnectés en cours de marché suite raccordement au réseau de chaleur urbain (ex: hôtel de ville, groupes scolaires Pougin, Cressot)
+  - Mise à jour des schémas hydrauliques et électriques dans les 6 premiers mois
+  - GMAO à déployer dans un délai de 2 mois sur 4 postes informatiques
+  - Fourniture de 3 thermomètres enregistreurs numériques et 1 thermomètre digital à sonde (devenus propriété du MO en fin de contrat)
 
 ### Allotissement
-Marché en lot unique portant sur l'ensemble des bâtiments communaux de Montigny-lès-Metz
+Marché en lot unique — pas de décomposition en lots
 - **Nombre de lots** : 1
-- **Lot 1** — Exploitation et maintenance des installations thermiques des bâtiments communaux
-  - Corps d'état : Chauffage/CVC, climatisation, ventilation/CTA, traitement d'eau, ECS
-  - Conduite, entretien courant, dépannage et gestion de 23 bâtiments communaux incluant chaudières, brûleurs, pompes à chaleur, CTA, VMC, climatisations, adoucisseurs, ballons ECS et installations de télégestion
+- **Lot 1** — Exploitation des installations thermiques des bâtiments communaux
+  - Corps d'état : Génie climatique, chauffage, CVC, traitement d'eau, climatisation
+  - Exploitation et maintenance P2 de l'ensemble des installations thermiques, ECS, traitement d'eau, CVC et climatisation de 23 bâtiments communaux de Montigny-lès-Metz
 
 ### Qualifications BTP exigées
-Le RC ne liste pas de qualifications Qualibat ou certifications spécifiques obligatoires. Les candidats doivent justifier de références similaires et de capacités techniques et professionnelles appropriées.
-- **OPQIBI** : non
+Le RC ne prescrit pas de qualifications Qualibat ou RGE nominativement. Il exige des capacités professionnelles et techniques démontrées par références et moyens humains.
 - **MASE** : non
 
 ## 💶 Montant du marché
-- _Montant non communiqué dans le DCE._
-  - Typique des accords-cadres à bons de commande : le volume dépend des commandes effectivement passées par l'acheteur sur la durée du marché.
-- _Note_ : Aucun montant estimé ni plafond n'est mentionné dans les pièces du DCE. Le marché est à prix global et forfaitaire annuel (P2) mais aucune valeur de référence n'est communiquée. L'avance est applicable si le montant dépasse 50 000 € HT (CCAP art. 11), ce qui constitue un plancher implicite.
+- **Fourchette** : entre 180 000 € et 260 000 €
+  - sur 1 an (période ferme) — reconductible 3 fois soit 4 ans maximum
+  - _source : CCTP Annexe 1 (23 sites, inventaire équipements) + ratios marché exploitation thermique collectivités_
 
 ## Barème de notation
 - **Valeur technique** : 50 %
 - **Valeur prix** : 50 %
 - **Sous-critères techniques** :
-  - Moyens humains (Qualification, expérience…) : 8 %
-  - L'organisation spécifique et les moyens mis en place pour la maintenance : 23 %
-  - L'organisation de l'astreinte, des demandes d'intervention en cas de panne et les moyens de secours : 6 %
-  - L'organisation de la traçabilité des opérations de maintenance avec gestion de maintenance assistée par ordinateur : 3 %
-  - La gestion de la qualité de l'eau : 3 %
-  - La mise en place et le suivi des carnets sanitaires et des livrets de chaufferies : 3 %
-  - L'attestation de visite : 2 %
-  - Le respect du cadre de réponse : 2 %
-- **Calcul du prix** : Note = 50 x (offre du moins disant / offre du candidat)
+  - Valeur technique de l'offre au regard des moyens humains et matériel mis à disposition : 50 %
+- **Calcul du prix** : Note prix = 50 × (offre du moins disant / offre du candidat)
 
 ## Références et qualifications exigées
 - **Expérience minimale** : —
-- **Secteur d'expérience** : Exploitation et maintenance d'installations thermiques (chauffage, ECS, CVC, climatisation) sur bâtiments publics ou tertiaires de même ampleur
+- **Secteur d'expérience** : Exploitation et maintenance d'installations thermiques de bâtiments publics ou privés, de même ampleur, réalisées de moins de 3 ans avec identification du maître d'ouvrage.
 - **Autres exigences** :
-  - Déclaration du chiffre d'affaires global et du chiffre d'affaires concernant les prestations objet du contrat, réalisés au cours des trois derniers exercices disponibles (source=RC §4.1)
-  - Références pour des prestations similaires et de même ampleur datant de moins de trois ans, avec identification du maître d'ouvrage (source=RC §4.1)
-  - Attestations d'assurance en cours de validité (RC, dommages corporels/matériels/immatériels consécutifs) (source=RC §4.1, CCAP art. 4)
+  - Déclaration du chiffre d'affaires global et du CA concernant les prestations objet du contrat, réalisés au cours des trois derniers exercices disponibles (source=RC §4.1)
+  - Attestations d'assurance en cours de validité (RC, assurance couvrant la responsabilité résultant des articles 1792 à 1792-3 et 2270 du Code Civil) (source=RC §4.1 et CCAP §4)
+  - Références pour des prestations similaires de moins de 3 ans avec identification du maître d'ouvrage (source=RC §4.1)
 
 ## ⚠ Alertes candidat
-- VISITE OBLIGATOIRE : la visite des installations les 17 ou 24 juin 2026 est obligatoire — le certificat de visite vaut 2 points et son absence peut disqualifier ou pénaliser lourdement l'offre
-- GMAO obligatoire opérationnelle dans les 2 mois suivant notification sur 4 postes : le candidat doit disposer d'un outil existant et éprouvé, pas d'un développement à venir
-- ASTREINTE 24h/24 - 7j/7 avec délai d'intervention de 3h en période d'ouverture : exige une organisation locale (techniciens basés à proximité de Metz), ce qui peut exclure les entreprises sans agence en Moselle
-- STOCK DE SECOURS obligatoire (radiateurs d'appoint électriques 2000-3000W) à maintenir en permanence pour déploiement immédiat : coût fixe à intégrer dans le P2
-- PÉRIMÈTRE ÉVOLUTIF : des bâtiments peuvent être retirés du contrat sans indemnisation dès raccordement au réseau de chaleur urbain — le candidat doit anticiper une réduction possible du CA en cours de marché dans sa politique de prix
+- VISITE OBLIGATOIRE : les 17 et/ou 24 juin 2026 — sans certificat de visite joint à l'offre, le candidat perd 2 points sur 50 en valeur technique (et risque l'irrecevabilité si la visite est jugée condition préalable). Confirmation obligatoire par mail avant la visite.
+- CADRE DE RÉPONSE OBLIGATOIRE : le non-respect ou le remplissage partiel du cadre est éliminatoire sur 2 points et signale un manque de sérieux — tous les items doivent être traités sans exception.
+- RISQUE DE PERTE DE REVENU EN COURS DE MARCHÉ : plusieurs bâtiments (hôtel de ville, groupes scolaires Pougin, Cressot, etc.) peuvent être déconnectés suite au développement du réseau de chaleur urbain — le titulaire ne peut réclamer aucune indemnisation. À intégrer dans la stratégie de prix.
+- ASTREINTE 24H/7J OBLIGATOIRE avec délai 3h garanti en période d'ouverture : capacité d'intervention rapide à prouver concrètement (base géographique, personnel d'astreinte nommé, stock équipements de secours). L'absence d'organisation crédible pénalise le critère technique (6 points).
+- OBLIGATION DE RÉSULTAT : le contrat combine obligation de résultat (températures, continuité chauffage/ECS) et obligation de moyens — les pénalités sont lourdes (jusqu'à 300% de la redevance P2 journalière). Anticiper un chiffrage prudent intégrant le risque opérationnel.
 
 ## 💡 Points différenciants attendus
-- Qualité et exhaustivité du protocole légionellose et de la gestion qualité de l'eau (exemple=Un candidat proposant un protocole détaillé avec fréquences de chasse par site, trames de carnet sanitaire préremplies adaptées aux ERP de Montigny-lès-Metz, et protocoles de gestion de crise légionellose clés-en-main se différenciera nettement, ce critère étant valorisé à 3 points sur 50 de la valeur technique., source=RC §5, CCTP §4.2)
-- Proposition d'un mode opératoire d'optimisation énergétique avec chiffrage (exemple=Un candidat fournissant, dès l'offre, une analyse préliminaire des pistes d'optimisation identifiées lors de la visite obligatoire (ex : réglage des courbes de chauffe, équilibrage hydraulique, remplacement de pompes énergivores) avec un chiffrage estimatif des économies potentielles démontrera une valeur ajoutée conseil au-delà de la simple maintenance., source=RC §5, CCTP §3.2.2)
-- Richesse et fonctionnalités de la plateforme GMAO proposée (exemple=Un candidat présentant une GMAO avec portail web accessible à la Maîtrise d'Ouvrage, alertes mail automatiques, tableau de bord par établissement, et trames de rapports mensuels/trimestriels/annuels préremplies adaptées au présent marché se démarquera sur le critère GMAO (3 points), très axé sur la transparence et le suivi en temps réel., source=RC §5, CCTP §4.5.6)
-- Connaissance des équipements lors de la visite obligatoire et qualité du PV de prise en charge proposé (exemple=Un candidat qui, lors de la visite obligatoire des 17/24 juin, identifie des anomalies (pompes HS, disconnecteurs non contrôlables, équipements vétustes comme la chaudière De Dietrich 1989 du groupe scolaire Pougin) et les intègre dans son PV de prise en charge type démontrera une connaissance terrain qui rassure la Maîtrise d'Ouvrage., source=RC §5, CCTP §4.5.3)
-- Réactivité et organisation locale de l'astreinte avec moyens de secours dimensionnés (exemple=Un candidat démontrant une implantation en Moselle (agence à moins de 30 minutes de Montigny-lès-Metz), avec un stock dédié de moyens de secours chiffrés (nombre de radiateurs d'appoint, soufflants) et un organigramme d'astreinte nominatif (technicien d'astreinte, responsable de contrat joignable) se positionnera très favorablement sur les 6 points du critère astreinte., source=RC §5, CCTP §4.5.5)
+- Qualité et exhaustivité du cadre de réponse technique (exemple=Un candidat qui joint des trames pré-remplies de livret de chaufferie et carnet sanitaire adaptées aux types d'installations présentes (PAC, CTA double flux, ballons ECS avec risque légionnelles) démontre sa maîtrise et facilite l'évaluation. Cela pèse directement sur les 3 points 'carnets sanitaires' et crédibilise l'ensemble de l'offre., source=RC §5)
+- Organisation d'astreinte crédible et géographiquement ancrée (exemple=Un prestataire implanté en Moselle (Metz ou agglomération) avec un technicien d'astreinte dédié documenté et un stock de radiateurs d'appoint physiquement localisé prouve la faisabilité du délai 3h — contrairement à une organisation centralisée à Paris ou Lyon., source=RC §5 et CCTP §4.5.5)
+- Proposition d'optimisation énergétique chiffrée (exemple=La demande explicite d'un 'mode opératoire d'optimisation de l'énergie avec proposition technique + chiffrage' dans le cadre de réponse est un différenciateur clé : un candidat qui quantifie le potentiel d'économie (ex: réglage courbes de chauffe, télégestion, équilibrage hydraulique = 8-12% économies gaz = 20-40 k€/an) scorera mieux qu'une réponse générique., source=RC §5 (conduite et petit entretien))
+- GMAO fonctionnelle et démonstrable dès la remise de l'offre (exemple=Présenter des captures d'écran ou un accès démo d'une GMAO existante déjà déployée sur des marchés similaires de collectivités, plutôt qu'une description théorique, renforce la crédibilité sur les 3 points GMAO et rassure le MO sur le délai de 2 mois., source=RC §5 et CCTP §4.5.6)
+- Expérience sur des marchés d'exploitation thermique multi-sites de collectivités (exemple=Citer 2-3 références de marchés similaires (>15 bâtiments, collectivité, astreinte incluse) de moins de 3 ans avec coordonnées du MO contact, en précisant les équipements maintenus (PAC, CTA, ECS) et les résultats obtenus, positionne le candidat comme expert du secteur., source=RC §4.1)

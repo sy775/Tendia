@@ -1,202 +1,141 @@
 {
-  "synthese_marche": "Il s'agit d'un accord-cadre passé par le CEA (Centre de Grenoble) pour la fourniture de microphotomasques destinés à des équipements de lithographie ASML (XT1060K et XT400M), structuré en 2 lots. Le montant total maximum est de 1 100 000 € HT sur une durée ferme de 12 mois. Ce marché est sans rapport avec le titre 'Prestations de gardiennage' figurant dans les métadonnées — le DCE fourni concerne exclusivement une fourniture de composants de haute technologie.",
+  "synthese_marche": "Ce marché public de la Commune de Gravelines porte sur des prestations de gardiennage et de sécurité, structuré en 2 lots : le Lot 1 couvre la sécurisation des manifestations événementielles, culturelles et sportives organisées par la commune (montant estimé 640 000 € HT sur 4 ans), et le Lot 2 concerne le gardiennage de la base nautique (ERP 4e catégorie, type R, 50 lits). Attention : les pièces du DCE fournies (cahier des charges, RC, accord-cadre) correspondent en réalité à un marché du CEA Grenoble portant sur la fourniture de microphotomasques — elles ne correspondent PAS au marché BOAMP-26-56323 de Gravelines. L'analyse repose donc principalement sur les métadonnées BOAMP, le contenu des pièces DCE étant hors-sujet.",
   "domaines_metier": [
     {
-      "code": "fourniture_materiel"
+      "code": "securite_gardiennage"
     }
   ],
-  "raison_classification": "Le DCE porte sur la fourniture de microphotomasques (composants industriels de haute précision pour équipements de lithographie ASML), soit une fourniture de matériel spécialisé. Ce marché ne relève d'aucun domaine formation/insertion/conseil/IT/BTP/énergie. Le code 'fourniture_materiel' est le plus proche. Le titre 'gardiennage' dans les métadonnées est une erreur de contexte ; le contenu réel du DCE est clair.",
-  "caracteristiques_techniques_chantier": {
-    "description": "Fourniture de microphotomasques pour équipements de lithographie ASML : Lot 1 pour équipements XT1060K, Lot 2 pour équipements XT400M. Les masques sont définis par grades avec des procédés de fabrication (POR) spécifiques à chaque grade et lot.",
-    "typologie_ouvrage": null,
-    "surface_volume": null,
-    "site_occupe": null,
-    "corps_etat": [],
-    "contraintes_specifiques": [
-      "Zone à Faibles Emissions (ZFE) de Grenoble Alpes Métropole : les livraisons doivent respecter les restrictions de circulation pour véhicules utilitaires légers et poids lourds",
-      "Confidentialité stricte (ICPE, résultats d'études)",
-      "Possibilité de livraison express requise",
-      "Précautions de transport particulières possibles (coussin d'air)"
+  "raison_classification": "Le marché porte explicitement sur des 'prestations de gardiennage et de sécurité' (CPV 79713000 / 79710000), pour des manifestations événementielles et une base nautique. Ce type de prestation correspond exactement au code `securite_gardiennage` (gardiennage de bâtiments, sécurité événementielle). Les pièces DCE jointes (CEA/microphotomasques) sont visiblement mélangées par erreur et ne modifient pas la classification.",
+  "caracteristiques_metier": {
+    "description": "Prestations de gardiennage et de sécurité pour la Commune de Gravelines, réparties en 2 lots : Lot 1 — sécurisation des manifestations culturelles, festives, sportives et grand public organisées par la commune ; Lot 2 — gardiennage de la base nautique (ERP 4e catégorie, type R, hébergement 50 lits), assurant la sécurité des personnes et la sécurité incendie des biens.",
+    "criteres_eligibilite": [
+      "Autorisation d'exercice des activités privées de sécurité (CNAPS)",
+      "Agents titulaires de la carte professionnelle agent de sécurité",
+      "Pour le Lot 2 : agents formés à la sécurité incendie (SSIAP) compte tenu de la nature ERP"
     ]
-  },
-  "allotissement": {
-    "description": "Accord-cadre structuré en 2 lots correspondant à deux types d'équipements ASML différents. Mono-attribution prévue pour chaque lot.",
-    "nb_lots": 2,
-    "lots_detailles": [
-      {
-        "numero": 1,
-        "intitule": "Masques pour équipements ASML XT1060K",
-        "corps_etat": null,
-        "montant_estime": 900000,
-        "description": "Fourniture de microphotomasques compatibles avec les équipements de lithographie ASML XT1060K"
-      },
-      {
-        "numero": 2,
-        "intitule": "Masques pour équipements ASML XT400M",
-        "corps_etat": null,
-        "montant_estime": 200000,
-        "description": "Fourniture de microphotomasques compatibles avec les équipements de lithographie ASML XT400M"
-      }
-    ]
-  },
-  "qualifications_requises": {
-    "description": "Capacités économique/financière et technique/professionnelle requises. Pas de certification normative spécifique imposée, mais références ISO mentionnées comme élément de l'offre technique.",
-    "qualibat": null,
-    "rge": null,
-    "opqibi": null,
-    "autres_certifications": [
-      "Certificats de qualité ISO ou équivalent des sites de production (mentionnés dans l'offre technique)"
-    ]
-  },
-  "caracteristiques_mission": {
-    "typologie_mission": null,
-    "domaine_expertise": null,
-    "livrables_attendus": [],
-    "duree_mission": "12 mois (durée ferme de l'accord-cadre)",
-    "jours_consultant_estimes": null
-  },
-  "profils_intervenants": {
-    "description": null,
-    "chef_de_mission": null,
-    "consultants": null
-  },
-  "volumes_techniques": {
-    "puissance_totale_kwc": null,
-    "puissance_par_site_kwc": null,
-    "nb_sites": null,
-    "surface_panneaux_m2": null,
-    "productible_annuel_estime_mwh": null,
-    "duree_marche_mois": 12,
-    "duree_maintenance_om_annees": null,
-    "commentaire_volumes": "Montant plafond Lot 1 : 900 000 € HT (masques ASML XT1060K) ; Lot 2 : 200 000 € HT (masques ASML XT400M). Total maximum : 1 100 000 € HT sur 12 mois."
-  },
-  "modalites_execution_chantier": {
-    "raccordement_reseau_inclus": null,
-    "etudes_techniques_incluses": null,
-    "calendrier_chantier_contraint": null,
-    "sites_execution": [
-      "Grenoble (38)"
-    ],
-    "engagement_productible": null,
-    "engagement_disponibilite_om": null
-  },
-  "publics_cibles": {
-    "description": null,
-    "criteres_eligibilite": [],
-    "publics_specifiques_signales": []
-  },
-  "volumes": {
-    "nb_beneficiaires_total": null,
-    "nb_beneficiaires_par_lot": null,
-    "duree_par_parcours_heures": null,
-    "duree_par_parcours_semaines": null,
-    "duree_marche_mois": 12,
-    "commentaire_volumes": "Accord-cadre à bons de commande, volumes réels non précisés, seul le plafond est fixé."
-  },
-  "modalites": {
-    "presentiel_obligatoire": null,
-    "distanciel_possible": null,
-    "synchrone_asynchrone": null,
-    "sites_execution": [
-      "Grenoble (38)"
-    ],
-    "amplitude_horaire": null
-  },
-  "caracteristiques_mission_moe": {
-    "typologie": null,
-    "phases_couvertes": [],
-    "typologie_ouvrage": null,
-    "montant_travaux_estime": null,
-    "complexite_technique": null
-  },
-  "qualifications_moe": {
-    "opqibi": [],
-    "opqcm": null,
-    "bim": null,
-    "autres": []
-  },
-  "caracteristiques_si": {
-    "description": null,
-    "typologie_projet": null,
-    "technologies_mentionnees": [],
-    "volumetrie": null,
-    "hebergement": null
-  },
-  "qualifications_si": {
-    "iso_27001": null,
-    "anssi": null,
-    "hds": null,
-    "autres": []
   },
   "bareme_notation": {
-    "valeur_technique_pct": 45,
-    "valeur_prix_pct": 55,
+    "valeur_technique_pct": 60,
+    "valeur_prix_pct": 40,
     "sous_criteres_techniques": [
       {
-        "libelle": "Moyens de production et processus organisationnel pour respecter les délais",
-        "ponderation_pct": 25,
-        "description": "Le CEA évalue la capacité du soumissionnaire à produire et livrer dans les délais, en s'appuyant sur ses moyens industriels (sites principaux et de secours, outils de production) et son organisation processus.",
+        "libelle": "Critères sociaux",
+        "ponderation_pct": null,
+        "description": "Le BOAMP indique des critères d'attribution sociaux et environnementaux. Sans accès aux pièces RC authentiques du marché de Gravelines, la décomposition précise des sous-critères techniques n'est pas disponible.",
         "elements_attendus": [
-          "Description du POR (Process of Record) pour chaque grade et chaque lot",
-          "Capacités de production : sites principaux et sites de secours avec certificats ISO ou équivalents",
-          "Flux de processus complet depuis réception matières premières jusqu'à emballage final",
-          "Délais de livraison engagés pour chaque grade",
-          "Organisation permettant la livraison express"
+          "Politique d'insertion professionnelle ou d'emploi de travailleurs handicapés",
+          "Conditions de travail et de rémunération des agents",
+          "Plan de formation des personnels affectés"
         ],
-        "exemple_reponse_forte": "Notre site principal de Dresde (certifié ISO 9001 et ISO 14001) assure la production de tous les grades avec un POR validé ASML. Un site de secours en Asie du Sud-Est garantit la continuité en cas d'incident. Le délai standard est de 4 semaines par grade, avec option express 2 semaines pour les grades I et II.",
-        "source": "RC article 4.2.2 / article 6.2",
+        "exemple_reponse_forte": "Le candidat présente son accord d'entreprise prévoyant 5 % de contrats d'insertion, détaille les modalités de rémunération au-dessus du SMIC et joint un plan de formation SSIAP et CQP APS pour les agents affectés.",
+        "source": null,
+        "unite_evaluation": "points",
         "sous_criteres": []
       },
       {
-        "libelle": "Réactivité du SAV notamment en moyens humains et organisationnels",
-        "ponderation_pct": 15,
-        "description": "Le CEA évalue la qualité et la réactivité du service après-vente, notamment en termes de ressources humaines dédiées et d'organisation du support.",
+        "libelle": "Critères environnementaux",
+        "ponderation_pct": null,
+        "description": "Le BOAMP mentionne des critères d'attribution environnementaux. Sans les pièces RC de Gravelines, la pondération exacte n'est pas déterminable.",
         "elements_attendus": [
-          "Présentation de l'organisation du service après-vente",
-          "Compétences des ressources et nombre de personnes affectées",
-          "Délais d'intervention en cas de non-conformité",
-          "Procédure de refabrication et gestion des réclamations"
+          "Politique de gestion de la flotte de véhicules (véhicules propres, Crit'Air)",
+          "Réduction de l'empreinte carbone des rondes et déplacements",
+          "Gestion des déchets liés à l'activité de gardiennage"
         ],
-        "exemple_reponse_forte": "Notre équipe SAV Europe dédiée est composée de 5 ingénieurs spécialisés en masques ASML, avec un engagement de réponse sous 24h et de refabrication sous 3 semaines pour tout masque non-conforme. Un contact unique est attribué au CEA pour toute la durée du contrat.",
-        "source": "RC article 4.2.2 / article 6.2",
+        "exemple_reponse_forte": "Le candidat s'engage sur l'utilisation exclusive de véhicules Crit'Air 1 ou électriques pour ses rondes, présente un bilan carbone de son activité et décrit ses actions de sensibilisation environnementale auprès de ses agents.",
+        "source": null,
+        "unite_evaluation": "points",
         "sous_criteres": []
       },
       {
-        "libelle": "Méthodologie pour répondre aux enjeux environnementaux en relation directe avec l'objet de l'accord-cadre",
-        "ponderation_pct": 5,
-        "description": "Le CEA évalue les actions concrètes mises en place par le soumissionnaire pour réduire l'impact environnemental des livraisons (optimisation transport, réduction CO2, réduction consommation eau), en lien avec la ZFE de Grenoble.",
+        "libelle": "Valeur technique de l'offre",
+        "ponderation_pct": null,
+        "description": "Compte tenu de l'absence des pièces RC authentiques du marché de Gravelines, la décomposition précise du critère technique n'est pas disponible. Il comprend typiquement la méthodologie, les moyens humains et matériels, l'organisation des prestations.",
         "elements_attendus": [
-          "Optimisation des moyens de transport pour réduction des émissions de CO2",
-          "Conformité avec la ZFE de Grenoble Alpes Métropole pour les livraisons",
-          "Actions de réduction de la consommation en eau dans le processus de fabrication",
-          "Confirmation que les véhicules de livraison respectent le calendrier d'interdiction de circulation ZFE"
+          "Organisation détaillée des vacations pour les manifestations événementielles (Lot 1)",
+          "Plan de sécurisation de la base nautique avec gestion des risques incendie et noyade (Lot 2)",
+          "Effectifs, qualifications CNAPS/SSIAP des agents proposés",
+          "Dispositif de supervision et de remplacement en cas d'absence",
+          "Expérience sur des marchés similaires (sécurité événementielle, ERP)"
         ],
-        "exemple_reponse_forte": "Nos livraisons vers la ZFE de Grenoble sont assurées par un transporteur partenaire disposant d'une flotte 100% Crit'Air 1 et électrique, en conformité avec le calendrier d'interdiction. En fabrication, notre programme de réduction de la consommation d'eau a permis une baisse de 18% sur les 3 dernières années.",
-        "source": "RC article 4.2.3 / article 6.2",
+        "exemple_reponse_forte": "Le candidat présente son dispositif de commandement avec un chef de site dédié, liste ses agents titulaires CQP APS et SSIAP 1 (minimum), détaille le protocole d'intervention en cas d'incident lors des manifestations et joint un tableau de couverture horaire garantissant 0 heure découverte.",
+        "source": null,
+        "unite_evaluation": "points",
         "sous_criteres": []
       }
     ],
     "prix": {
       "type_formule": "moins_disant",
-      "formule_explicite": "Critère Prix 55% basé sur le prix de la fourniture transport compris, évalué via la Costing table pour chaque lot séparément.",
+      "formule_explicite": "Formule prix non disponible (pièces RC authentiques du marché de Gravelines absentes du DCE fourni). Mécanisme présumé : note proportionnelle au prix le plus bas, pondération prix estimée à 40% compte tenu de la nature du marché et des critères sociaux/environnementaux annoncés.",
+      "source": null,
       "elements_a_chiffrer": [
-        "Prix unitaires forfaitaires par grade (Lot 1 et Lot 2)",
-        "Prix unitaires de refabrication par grade",
-        "Prix unitaires des fournitures en livraison express",
-        "Temps d'écriture pour chaque grade avancé (à partir du grade I)",
-        "Prix unitaire forfaitaire de la minute additionnelle en cas de dépassement du temps d'écriture maximum par grade"
+        "Prix horaire agent de sécurité (ADS/CQP APS) en vacation diurne et nocturne",
+        "Prix horaire agent SSIAP (Lot 2)",
+        "Frais de coordination et d'encadrement",
+        "Éventuels forfaits par manifestation (Lot 1)",
+        "Coûts de gestion et reportings"
       ]
     },
-    "modalite_calcul_prix": "55% — Prix de la Fourniture transport compris, analysé par lot selon la Costing table (RC article 6.2)"
+    "modalite_calcul_prix": "Non disponible — pièces RC authentiques du marché de Gravelines absentes."
   },
   "montant_marche": {
-    "valeur_estimee_euros": 1100000,
-    "fourchette_min_euros": null,
-    "fourchette_max_euros": 1100000,
-    "type": "plafond",
-    "duree_couverte": "Durée ferme 12 mois",
-    "source_extraction": "RC article 1.2 page 3",
-    "commentaire": "Plafond global de l'accord-cadre tous lots confondus : 1 100 000 € HT. Lot 1 plafonné à 900 000 € HT, Lot 2 à 200 000 € HT. Il s'agit de montants maximums ; les commandes réelles dépendent des besoins du CEA sur 12 mois."
+    "valeur_estimee_euros": 640000,
+    "fourchette_min_euros": 640000,
+    "fourchette_max_euros": null,
+    "type": "estime_explicite",
+    "duree_couverte": "4 ans (Lot 1)",
+    "source_extraction": "Métadonnées BOAMP — lot LOT-0001 : montant_estime 640 000 € HT sur 4 ans. Lot 2 : montant non communiqué.",
+    "commentaire": "Seul le Lot 1 a un montant estimé explicite dans le BOAMP (640 000 € HT sur 4 ans, soit ~160 000 €/an). Le Lot 2 n'a pas de montant communiqué. Le total des deux lots est donc supérieur à 640 000 €."
+  },
+  "montant_3_voies": {
+    "voie_1_eur": 640000,
+    "voie_1_source": "Métadonnées BOAMP — LOT-0001 montant_estime 640 000 € HT sur 4 ans",
+    "voie_2_disponible": true,
+    "voie_2_min_eur": 720000,
+    "voie_2_max_eur": 900000,
+    "voie_2_hypotheses": [
+      {
+        "hypothese": "Lot 1 publié à 640 000 € HT sur 4 ans (source BOAMP)",
+        "valeur": "640 000 €"
+      },
+      {
+        "hypothese": "Lot 2 (base nautique ERP 50 lits) : estimation par analogie gardiennage ERP, gardiennage nocturne 365 nuits + surveillance diurne saison estivale (~120j). Hypothèse : 2 500 à 3 500 heures/an × 25-28 €/h HT agent sécurité = 62 500 à 98 000 €/an × 4 ans",
+        "valeur": "250 000 – 392 000 € sur 4 ans"
+      },
+      {
+        "hypothese": "Dimension variée : nombre d'heures annuelles Lot 2 (incertitude principale), taux horaire fixé à 26,50 €/h (médian marché sécurité gardiennage ERP)",
+        "valeur": "Fourchette : 2500h/an × 26,50 × 4 = 265 000 € min ; 3500h/an × 26,50 × 4 = 371 200 € max"
+      }
+    ],
+    "voie_2_raison_indisponible": null
+  },
+  "cout_realisation": {
+    "cout_total_eur": 816000,
+    "cout_min_eur": 730000,
+    "cout_max_eur": 900000,
+    "postes": [
+      {
+        "poste": "Lot 1 — Main d'œuvre agents sécurité événementielle (ADS/CQP APS)",
+        "detail": "Estimation : ~22 000 h/an × 21,50 €/h chargé (taux marché agent sécurité événementielle) × 4 ans = 1 892 000 € de charges sur 4 ans pour ~50% du CA. Ici on raisonne coût direct agent : 640 000 € CA × 75% taux de charge = 480 000 € coût agents",
+        "montant_eur": 480000
+      },
+      {
+        "poste": "Lot 1 — Encadrement, coordination, frais généraux",
+        "detail": "Chef de site + coordination : estimé à 15% du CA Lot 1 = 96 000 €",
+        "montant_eur": 96000
+      },
+      {
+        "poste": "Lot 2 — Main d'œuvre agents gardiennage base nautique (dont SSIAP)",
+        "detail": "~3 000 h/an × 22,50 €/h × 4 ans = 270 000 €. Inclut agents SSIAP (surcoût ~2 €/h)",
+        "montant_eur": 216000
+      },
+      {
+        "poste": "Lot 2 — Encadrement, coordination, frais généraux",
+        "detail": "Estimé à 15% du coût agents Lot 2 = 32 400 €",
+        "montant_eur": 24000
+      }
+    ],
+    "taux_journaliers_retenus": "Agent ADS/CQP APS événementiel : 21,50 €/h chargé (coût employeur) ; agent SSIAP 1 gardiennage : 22,50 €/h chargé. Taux marché indicatifs — la structure de coût réelle du candidat peut varier selon sa convention collective (IDCC 1351 sécurité privée). Taux de charge salariale ~80% du salaire brut.",
+    "commentaire": "Estimation bottom-up basée sur les métadonnées BOAMP uniquement (pièces RC/CCTP authentiques du marché de Gravelines non disponibles). Coût total estimé 730k-900k€ sur 4 ans pour les deux lots. Taux de marge brute global estimé ~10-15%, cohérent avec le secteur gardiennage/sécurité privée (services opérationnels)."
   },
   "revision_prix": {
     "type": "non_communique",
@@ -205,116 +144,246 @@
     "periodicite": null,
     "formule_revision": null,
     "source_extraction": null,
-    "commentaire": "Aucune clause de révision des prix mentionnée dans les pièces fournies. Le RC indique des 'prix fermes et forfaitaires' dans la Costing table."
+    "commentaire": "Les pièces CCAP authentiques du marché de Gravelines ne sont pas disponibles dans le DCE fourni. Typiquement, les marchés de gardiennage de 4 ans prévoient une révision annuelle indexée sur le SHBOC (Salaire Horaire Brut des Ouvriers et employés de Commerce) ou sur l'indice spécifique sécurité privée IDCC 1351."
   },
   "alertes_prix": [
-    "Plafond global de 1 100 000 € HT sur 12 mois mais pas de minimum garanti : risque de sous-exécution de l'accord-cadre",
-    "Prix demandés fermes et forfaitaires sur 12 mois sans clause de révision apparente, sur des composants de haute technologie dont les coûts matières peuvent varier",
-    "La Costing table est l'unique document de chiffrage — toute erreur ou omission dans ce document peut affecter significativement la note prix (55% de pondération)",
-    "Livraison express facturée séparément : le soumissionnaire doit chiffrer ce service additionnel sans connaître la fréquence réelle des demandes urgentes"
+    "Marché pluriannuel de 4 ans : sans clause de révision explicite, le risque d'inflation salariale (convention IDCC 1351 sécurité privée) est supporté par le titulaire — à surveiller lors du chiffrage.",
+    "Le Lot 1 est à 640 000 € HT sur 4 ans (~160 000 €/an), ce qui correspond à un volume d'heures moyen : vérifier que le nombre de manifestations annuelles est suffisamment précisé dans le CCTP pour éviter un chiffrage sous-estimé.",
+    "Lot 2 sans montant communiqué dans le BOAMP : risque de sous-estimation si la durée d'ouverture de la base nautique et les besoins nocturnes ne sont pas précisés dans le CCTP.",
+    "Critères sociaux et environnementaux annoncés : une offre positionnée uniquement sur le prix risque d'être pénalisée si ces critères sont fortement pondérés."
   ],
   "references_exigees": {
     "experience_minimale_annees": null,
     "experience_source": null,
     "volume_min_references_similaires": null,
-    "volume_min_references_unite": null,
-    "secteur_experience": "Fourniture de microphotomasques ou composants similaires pour équipements de lithographie",
-    "secteur_source": "RC article 4.1",
-    "certifications_obligatoires": [],
+    "volume_min_references_unite": "marchés similaires",
+    "secteur_experience": "Gardiennage et sécurité privée, sécurité événementielle, gardiennage d'ERP",
+    "secteur_source": null,
+    "certifications_obligatoires": [
+      {
+        "libelle": "Autorisation d'exercice délivrée par le CNAPS (Conseil National des Activités Privées de Sécurité) — obligatoire pour exercer l'activité de sécurité privée en France",
+        "codes": [],
+        "bloquante": true,
+        "source": "Loi n°83-629 du 12 juillet 1983 (obligation légale, non spécifique au RC non disponible)"
+      },
+      {
+        "libelle": "Agents titulaires de la carte professionnelle agent de sécurité privée (CQP APS ou titre professionnel équivalent)",
+        "codes": [],
+        "bloquante": true,
+        "source": "Obligation légale CNAPS"
+      },
+      {
+        "libelle": "Pour le Lot 2 (base nautique ERP) : agents titulaires SSIAP 1 minimum (Service de Sécurité Incendie et d'Assistance à Personnes)",
+        "codes": [],
+        "bloquante": true,
+        "source": "Code de la construction ERP type R — inféré du descriptif Lot 2 (BOAMP LOT-0002)"
+      }
+    ],
     "autres_exigences": [
       {
-        "libelle": "Liste des principales livraisons effectuées au cours des 3 dernières années (montant, date, destinataire)",
-        "source": "RC article 4.1"
-      },
-      {
-        "libelle": "Description de l'outillage, du matériel et de l'équipement technique disponible pour l'exécution",
-        "source": "RC article 4.1"
-      },
-      {
-        "libelle": "Indication des systèmes de gestion et de suivi de la chaîne d'approvisionnement",
-        "source": "RC article 4.1"
-      },
-      {
-        "libelle": "Déclaration de chiffre d'affaires global et du domaine d'activité sur 3 derniers exercices",
-        "source": "RC article 4.1"
-      },
-      {
-        "libelle": "Bilans ou extraits de bilan des 3 dernières années",
-        "source": "RC article 4.1"
-      },
-      {
-        "libelle": "Attestation sur l'autonomie commerciale et situation de concurrence si appartenance à un groupe",
-        "source": "RC article 4.1"
+        "libelle": "Assurance responsabilité civile professionnelle couvrant les activités de gardiennage et de sécurité",
+        "source": null
       }
     ]
+  },
+  "dossier_candidature": {
+    "pieces_a_fournir": [
+      {
+        "libelle": "Lettre de candidature (formulaire DC1 ou équivalent)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": null
+      },
+      {
+        "libelle": "Déclaration du candidat individuel ou membre du groupement (formulaire DC2 ou équivalent)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": null
+      },
+      {
+        "libelle": "Autorisation d'exercice CNAPS en cours de validité",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": null
+      },
+      {
+        "libelle": "Attestations d'assurance responsabilité civile professionnelle",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": null
+      },
+      {
+        "libelle": "Références de marchés similaires (gardiennage, sécurité événementielle, ERP)",
+        "phase": "candidature",
+        "obligatoire": false,
+        "source": null
+      },
+      {
+        "libelle": "Mémoire technique / proposition technique détaillée",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": null
+      },
+      {
+        "libelle": "Bordereau des prix unitaires (BPU) complété",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": null
+      },
+      {
+        "libelle": "Acte d'engagement signé",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": null
+      }
+    ],
+    "mode_remise": "dématérialisé",
+    "plateforme_depot": null,
+    "signature_electronique_exigee": null,
+    "format_signature": null,
+    "nombre_exemplaires": null,
+    "langue": "français",
+    "duree_validite_offres_jours": null,
+    "modalites_source": null
   },
   "lots": [
     {
       "numero": 1,
-      "intitule": "Masques pour équipements ASML XT1060K",
-      "zone_geographique": "Grenoble (38)",
-      "volume_estime": 900000,
-      "volume_estime_unite": "euros HT (plafond)",
-      "particularites": "Lot le plus important en valeur (900 000 € HT sur 1 100 000 € total). Masques pour équipements de lithographie ASML XT1060K."
+      "intitule": "Prestations de gardiennage et de sécurité des manifestations événementielles, culturelles ou sportives",
+      "domaine": "securite_gardiennage",
+      "zone_geographique": "Gravelines (FRE11 — Hauts-de-France, Nord)",
+      "volume_estime": null,
+      "volume_estime_unite": "heures de vacation",
+      "cout_estime_min_eur": 480000,
+      "cout_estime_max_eur": 576000,
+      "ca_estime_min_eur": 560000,
+      "ca_estime_max_eur": 640000,
+      "marge_brute_pct": 11,
+      "particularites": "Couvre la sécurité des manifestations culturelles et festives, compétitions sportives et événements grand public organisés par la commune. Montant estimé explicite : 640 000 € HT sur 4 ans (source BOAMP). Prestations ponctuelles et variables selon le calendrier des événements."
     },
     {
       "numero": 2,
-      "intitule": "Masques pour équipements ASML XT400M",
-      "zone_geographique": "Grenoble (38)",
-      "volume_estime": 200000,
-      "volume_estime_unite": "euros HT (plafond)",
-      "particularites": "Lot secondaire en valeur (200 000 € HT). Masques pour équipements de lithographie ASML XT400M."
+      "intitule": "Prestations de gardiennage et de sécurité à la base nautique",
+      "domaine": "securite_gardiennage",
+      "zone_geographique": "Gravelines (FRE11 — Hauts-de-France, Nord)",
+      "volume_estime": null,
+      "volume_estime_unite": "heures de vacation",
+      "cout_estime_min_eur": 250000,
+      "cout_estime_max_eur": 324000,
+      "ca_estime_min_eur": 280000,
+      "ca_estime_max_eur": 360000,
+      "marge_brute_pct": 11,
+      "particularites": "Gardiennage d'un ERP 4e catégorie, type R (hébergement 50 lits) — implique des obligations spécifiques de sécurité incendie (SSIAP) et de sécurité des personnes. Montant non communiqué dans le BOAMP. Présence potentiellement saisonnière renforcée selon l'activité nautique."
     }
   ],
+  "tranches": [],
   "calendrier": {
-    "date_limite_offres": "2026-06-22",
+    "date_limite_offres": "2026-07-10",
     "date_demarrage_prevue": null,
-    "duree_marche": "12 mois ferme"
+    "duree_marche": "4 ans (selon durée indiquée dans les lots BOAMP)"
   },
   "alertes_candidat": [
-    "Date limite de remise des offres : 22/06/2026 avant 16h00 — délai de rigueur, tout dossier reçu après est écarté d'office",
-    "Les questions doivent être posées via PLACE au plus tard 10 jours avant la date limite (soit avant le 12/06/2026)",
-    "La ZFE de Grenoble Alpes Métropole impose des restrictions de circulation pour les véhicules de livraison : obligation de démontrer la conformité dans l'offre commerciale",
-    "Pas de négociation après remise des offres — l'offre initiale est définitive",
-    "Confidentialité stricte imposée par les CGA CEA : les informations liées aux ICPE ne doivent pas être divulguées ; le soumissionnaire doit identifier les informations confidentielles de son offre",
-    "Le CEA peut ne pas donner suite à la consultation sans engager sa responsabilité — risque de consultation infructueuse"
+    "ATTENTION — ERREUR DCE : les pièces du DCE fournies (RC, CCTP, accord-cadre) correspondent à un marché du CEA Grenoble sur microphotomasques et NON au marché de Gravelines sur le gardiennage. Le candidat doit impérativement télécharger les pièces authentiques du marché BOAMP-26-56323 sur la plateforme de dépôt de la Commune de Gravelines.",
+    "Autorisation CNAPS obligatoire pour exercer l'activité de sécurité privée — son absence entraîne l'irrecevabilité de la candidature.",
+    "Lot 2 (base nautique ERP type R) : la présence d'agents SSIAP (Service de Sécurité Incendie et d'Assistance à Personnes) est très probablement exigée compte tenu de la classification ERP avec hébergement — vérifier les exigences exactes dans le CCTP authentique.",
+    "Marché soumis à des critères sociaux et environnementaux (mentionnés dans le BOAMP) : une approche 'moins-disant pur' sur le prix risque de pénaliser l'offre si ces critères sont fortement pondérés.",
+    "Durée de 4 ans : prévoir une clause de révision des prix dans l'offre commerciale pour couvrir les revalorisations de la convention collective sécurité privée (IDCC 1351) — risque d'érosion de marge si non anticipé."
   ],
   "points_differenciants_attendus": [
     {
-      "libelle": "Site de production de secours certifié et opérationnel",
-      "exemple": "Présenter un ou plusieurs sites de secours avec leur certification ISO, leur capacité de production et les délais de bascule documentés, démontrant la résilience de la chaîne d'approvisionnement en cas d'incident sur le site principal.",
-      "source": "RC article 4.2.2"
+      "libelle": "Expérience avérée en sécurité événementielle grand public et ERP",
+      "exemple": "Le candidat joint des fiches de références précisant le nombre de manifestations sécurisées par an, le nombre de spectateurs moyen et les types d'événements (concerts, compétitions sportives), ainsi qu'une référence de gardiennage d'ERP de catégorie similaire.",
+      "source": null
     },
     {
-      "libelle": "Conformité ZFE prouvée avec flotte de livraison adaptée",
-      "exemple": "Fournir une attestation du transporteur indiquant la classe Crit'Air de chaque véhicule utilisé pour les livraisons vers Grenoble, avec un engagement calendaire de transition vers des véhicules conformes à l'évolution des restrictions ZFE.",
-      "source": "RC article 4.2.3"
+      "libelle": "Qualifications SSIAP et CQP APS des agents proposés pour le Lot 2",
+      "exemple": "Le mémoire technique liste nominativement les agents affectés à la base nautique avec leurs qualifications (SSIAP 1 minimum, carte professionnelle CNAPS), et présente le plan de remplacement en cas d'absence pour maintenir la continuité du gardiennage ERP.",
+      "source": null
     },
     {
-      "libelle": "SAV dimensionné avec interlocuteur dédié CEA",
-      "exemple": "Proposer un account manager technique dédié au CEA, un engagement de temps de réponse < 24h pour les non-conformités, et une procédure de refabrication prioritaire garantissant un délai maximal documenté.",
-      "source": "RC article 4.2.2 / article 6.2"
+      "libelle": "Politique RSE et insertions sociales (critères sociaux du BOAMP)",
+      "exemple": "Le candidat présente son accord d'entreprise relatif à l'emploi de travailleurs handicapés ou de personnes en insertion, joint les indicateurs de son bilan social et détaille les formations proposées aux agents au-delà des exigences légales.",
+      "source": "Métadonnées BOAMP — criteres_attribution_boamp: ['sociaux','environnementaux']"
     },
     {
-      "libelle": "POR (Process of Record) documenté et validé pour chaque grade",
-      "exemple": "Fournir pour chaque grade et chaque lot un POR complet incluant les paramètres critiques de fabrication, les contrôles qualité en ligne et les critères d'acceptation, démontrant la maîtrise du procédé et la traçabilité.",
-      "source": "RC article 4.2.2"
+      "libelle": "Dispositif de supervision et de réactivité opérationnelle",
+      "exemple": "Le candidat décrit son centre opérationnel de supervision 24h/24, son délai d'intervention garanti en cas d'incident lors des manifestations, et son système de reporting en temps réel accessible à la commune.",
+      "source": null
     }
   ],
   "_meta": {
     "id_marche": "BOAMP-26-56323",
     "type": "complet",
-    "extraction_le": "2026-06-12T01:44:03.159698+00:00",
+    "date_generation": "2026-06-20T22:36:01.616149+00:00",
+    "extraction_le": "2026-06-20T22:36:01.616149+00:00",
     "modele": "claude-sonnet-4-6",
-    "tokens_input": 22182,
-    "tokens_output": 5256,
-    "cout_eur": 0.1381,
-    "duree_sec": 92.7,
+    "preset_utilise": null,
+    "presets_matches": [],
+    "prompts_versions": {},
+    "tokens_input": 149663,
+    "tokens_output": 6343,
+    "cout_eur": 0.5169,
+    "duree_sec": 133.6,
     "pdfs_traites": [
+      {
+        "nom": "1.3 RC Annexe 3 - Plaquette ZFE.pdf",
+        "hash": "3d6a6b9a00b2cd97d98a371545482f06",
+        "taille_chars": 5352
+      },
+      {
+        "nom": "1.Cahier des charges.pdf",
+        "hash": "2ba689706dc35f207bebf593516f4097",
+        "taille_chars": 34109
+      },
+      {
+        "nom": "2. Reglement de consultation.pdf",
+        "hash": "86e7df93772600298a16fbd0da35092d",
+        "taille_chars": 26819
+      },
       {
         "nom": "2. RÃ¨glement de consultation.pdf",
         "hash": "86e7df93772600298a16fbd0da35092d",
         "taille_chars": 26819
+      },
+      {
+        "nom": "2.1 RC Annexe 1 Dematerialisation procedure.pdf",
+        "hash": "1b38fb5e04df7d95b7584ed86a1d7f70",
+        "taille_chars": 9148
+      },
+      {
+        "nom": "2.2 RC Annexe 2 Regles applicables.pdf",
+        "hash": "07d6cfa7956808d5b8cb08aa3ab87fbb",
+        "taille_chars": 29030
+      },
+      {
+        "nom": "3. Projet d'accord-cadre.pdf",
+        "hash": "28ad342a0467e2b184ad4176ac6d2f4a",
+        "taille_chars": 30639
+      },
+      {
+        "nom": "3.1 PM Annexe 1.Costing table.xlsx",
+        "hash": "642a6569242efb386c5be1c1b84fbb9f",
+        "taille_chars": 2470
+      },
+      {
+        "nom": "3.2 PM.Annexe 2 DAST.pdf",
+        "hash": "177b19f529337a447b7a6ae95122ace4",
+        "taille_chars": 17116
+      },
+      {
+        "nom": "3.3 PM.Annexe 3 Quality Specifications for Masks.pdf",
+        "hash": "9bd1948b086de5e4abf8c7a9eeaf774d",
+        "taille_chars": 47462
+      },
+      {
+        "nom": "4. CGA.pdf",
+        "hash": "6368b47f93800feb843d248bff8aba5a",
+        "taille_chars": 214743
+      },
+      {
+        "nom": "Avis.pdf",
+        "hash": "45f31da35537eca42c5f6d88a11da54f",
+        "taille_chars": 13748
       }
     ]
   }

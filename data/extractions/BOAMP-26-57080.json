@@ -1,0 +1,349 @@
+{
+  "synthese_marche": "Marché de maîtrise d'œuvre pour la construction de 8 logements collectifs à Le-Monêtier-les-Bains (05220), Route des Bains, commandité par l'OPH 05 (bailleur social). Les pièces du DCE fournies sont en réalité des documents du PLU de la commune (rapport de présentation, PADD, règlement écrit) et non les pièces contractuelles du marché de MOE (RC, CCAP, CCTP mission). Les informations sur la mission, le barème, les pièces de candidature et la rémunération sont absentes.",
+  "domaines_metier": [
+    {
+      "code": "moe_architecte_urbanisme"
+    }
+  ],
+  "raison_classification": "Le marché est explicitement un marché de maîtrise d'œuvre pour la construction de 8 logements collectifs (acheteur : OPH 05, bailleur social). Le domaine moe_architecte_urbanisme correspond à la MOE architecturale du bâtiment (construction neuve, ESQ à AOR). Les pièces du DCE fournies sont des documents de PLU communal, sans lien direct avec la mission de MOE, mais l'objet du marché reste sans ambiguïté une mission de conception architecturale.",
+  "caracteristiques_mission_moe": {
+    "typologie": "MOE complète",
+    "phases_couvertes": [],
+    "typologie_ouvrage": "Logements collectifs neufs (8 logements), bailleur social OPH",
+    "montant_travaux_estime": null,
+    "complexite_technique": "standard",
+    "livrables_par_phase": [],
+    "taux_remuneration_moe_pct": null,
+    "indices_revision": [],
+    "coordinations_associees": [],
+    "organigramme_attendu": [],
+    "bim_niveau": null
+  },
+  "qualifications_moe": {
+    "opqibi": [],
+    "opqcm": [],
+    "bim": null,
+    "autres": []
+  },
+  "bareme_notation": {
+    "valeur_technique_pct": null,
+    "valeur_prix_pct": null,
+    "sous_criteres_techniques": [],
+    "prix": {
+      "type_formule": "autre",
+      "formule_explicite": null,
+      "source": null,
+      "elements_a_chiffrer": []
+    },
+    "modalite_calcul_prix": null
+  },
+  "montant_marche": {
+    "valeur_estimee_euros": null,
+    "fourchette_min_euros": null,
+    "fourchette_max_euros": null,
+    "type": "non_communique",
+    "duree_couverte": null,
+    "source_extraction": null,
+    "commentaire": "Les pièces du DCE fournies sont exclusivement des documents du PLU communal (rapport de présentation, PADD, règlement écrit) et non les pièces contractuelles du marché de MOE. Aucun montant de travaux, taux de rémunération MOE ni bordereau de prix n'est disponible dans les documents transmis. Estimation bottom-up : 8 logements collectifs en zone alpine (station ski Serre-Chevalier, Hautes-Alpes), surface typique 60-70 m² SdP par logement ≈ 480-560 m² SdP totaux, coût construction logement social montagne ~2 000-2 400 €/m² SdP = montant travaux estimé 960 000 à 1 344 000 € HT, taux MOE logement social ~9-12% → honoraires estimés 86 000 à 161 000 € HT."
+  },
+  "montant_3_voies": {
+    "voie_1_eur": null,
+    "voie_1_source": null,
+    "voie_2_disponible": true,
+    "voie_2_min_eur": 86000,
+    "voie_2_max_eur": 161000,
+    "voie_2_hypotheses": [
+      {
+        "hypothese": "Nombre de logements collectifs (objet du marché)",
+        "valeur": "8 logements"
+      },
+      {
+        "hypothese": "Surface moyenne par logement (logement social T3-T4 en montagne)",
+        "valeur": "60-70 m² SdP → total 480-560 m² SdP"
+      },
+      {
+        "hypothese": "Coût construction neuve logement collectif montagne alpin (ratio marché, Hautes-Alpes)",
+        "valeur": "2 000 à 2 400 €/m² SdP HT"
+      },
+      {
+        "hypothese": "Montant travaux estimé (surface fixée à 520 m² SdP central ; ratio varié 2 000-2 400 €/m²)",
+        "valeur": "1 040 000 à 1 248 000 € HT"
+      },
+      {
+        "hypothese": "Taux de rémunération MOE logement social collectif neuf (ratio marché)",
+        "valeur": "9% à 12% du coût travaux HT"
+      },
+      {
+        "hypothese": "Publication BOAMP seuil européen : montant MOE supérieur au seuil procédure ouverte services (~221 000 € en 2024) ou seuil inférieur — marché est déclaré 'est_europeen: true', cohérent avec seuils MOE logement social",
+        "valeur": "Fourchette cohérente avec seuil européen uniquement si marché multi-lots ou durée longue"
+      }
+    ],
+    "voie_2_raison_indisponible": null
+  },
+  "cout_realisation": {
+    "cout_total_eur": 62000,
+    "cout_min_eur": 52000,
+    "cout_max_eur": 75000,
+    "postes": [
+      {
+        "poste": "Chef de projet / Architecte mandataire (études ESQ à PRO-DCE)",
+        "detail": "Estimé 55 j-h × 750 €/j = 41 250 € (ratio marché indicatif)",
+        "montant_eur": 41250
+      },
+      {
+        "poste": "BET structure (mission de base)",
+        "detail": "Estimé 10 j-h × 600 €/j = 6 000 €",
+        "montant_eur": 6000
+      },
+      {
+        "poste": "BET fluides / thermique (RE2020)",
+        "detail": "Estimé 8 j-h × 600 €/j = 4 800 €",
+        "montant_eur": 4800
+      },
+      {
+        "poste": "Économiste de la construction",
+        "detail": "Estimé 5 j-h × 550 €/j = 2 750 €",
+        "montant_eur": 2750
+      },
+      {
+        "poste": "Suivi chantier / Direction de travaux (ACT-EXE-AOR)",
+        "detail": "Estimé 10 j-h × 750 €/j = 7 500 €",
+        "montant_eur": 7500
+      }
+    ],
+    "taux_journaliers_retenus": "Architecte/chef de projet 750 €/j ; ingénieur BET 600 €/j ; économiste 550 €/j — taux marché indicatifs 2024 pour PME/cabinet indépendant en région Auvergne-Rhône-Alpes/Provence-Alpes-Côte d'Azur. La fourchette fait varier le taux journalier (−10%/+10%) à charge constante.",
+    "commentaire": "Estimation du coût de production (charge interne + sous-traitance BET) distinct du revenu honoraires. Le coût total estimé (62 000 € HT) représente environ 50-70% des honoraires estimés (86 000-161 000 €), ce qui correspond à une marge brute de 30-50% typique pour une agence de MOE sur logement social. Les pièces du DCE fournies ne contiennent pas les détails de mission (phases, prestations exclues) permettant d'affiner la charge."
+  },
+  "revision_prix": {
+    "type": "non_communique",
+    "indices_utilises": [],
+    "ponderation": null,
+    "periodicite": null,
+    "formule_revision": null,
+    "source_extraction": null,
+    "commentaire": "Aucun CCAP ni pièce contractuelle relative à la révision des prix n'est présente dans les documents fournis (uniquement des pièces du PLU communal). La révision des prix est généralement prévue dans le CCAP du marché de MOE, non disponible ici."
+  },
+  "alertes_prix": [
+    "Les documents du DCE fournis ne contiennent pas les pièces contractuelles (RC, CCAP, BPU) du marché de MOE — le barème de notation et les modalités de prix sont totalement absents.",
+    "Marché publié en procédure ouverte européenne (BOAMP) pour un marché de MOE logement social 8 logements : le montant des honoraires est probablement au-dessus du seuil européen services (~221 000 € en 2024), ce qui implique une concurrence internationale potentielle.",
+    "OPH 05 (bailleur social) : les marchés de MOE logement social sont souvent soumis à des plafonds de rémunération stricts (référentiel de coûts ANAH/Action Logement) — risque de prix très serrés.",
+    "Absence totale d'information sur le montant des travaux estimé par le maître d'ouvrage : le candidat ne peut pas calibrer son offre d'honoraires sans cette donnée fondamentale."
+  ],
+  "references_exigees": {
+    "experience_minimale_annees": null,
+    "experience_source": null,
+    "volume_min_references_similaires": null,
+    "volume_min_references_unite": null,
+    "secteur_experience": null,
+    "secteur_source": null,
+    "certifications_obligatoires": [],
+    "autres_exigences": []
+  },
+  "dossier_candidature": {
+    "pieces_a_fournir": [],
+    "mode_remise": null,
+    "plateforme_depot": null,
+    "signature_electronique_exigee": null,
+    "format_signature": null,
+    "nombre_exemplaires": null,
+    "langue": "français",
+    "duree_validite_offres_jours": null,
+    "modalites_source": null
+  },
+  "lots": [],
+  "tranches": [],
+  "calendrier": {
+    "date_limite_offres": "2026-07-13",
+    "date_demarrage_prevue": null,
+    "duree_marche": null
+  },
+  "alertes_candidat": [
+    "ALERTE CRITIQUE : les pièces du DCE fournies pour analyse sont exclusivement des documents du PLU de la commune du Monêtier-les-Bains (rapport de présentation révision allégée n°1, PADD, règlement écrit) — elles ne constituent PAS le DCE du marché de MOE. Le RC, CCAP, CCTP mission, bordereau des prix et formulaires de candidature sont absents : il est impossible de statuer sur les critères d'éligibilité réels.",
+    "Procédure ouverte européenne (est_europeen: true selon BOAMP) : dossier de candidature complet exigé dès le premier tour — vérifier le RC dès sa disponibilité pour les exigences capacitaires (CA, références, assurances).",
+    "Acheteur OPH 05 (organisme de logement social) : les marchés de MOE pour logement social imposent souvent la maîtrise des contraintes réglementaires spécifiques (PMR, RE2020, accessibilité, financement aidé PLAI/PLUS), et peuvent exiger une inscription à l'Ordre des Architectes pour le mandataire.",
+    "Localisation en zone alpine (Le-Monêtier-les-Bains, 05, station de ski Serre-Chevalier, altitude ~1 480 m) : contraintes techniques spécifiques (neige, sismicité zone 3, loi Montagne, PPRn, ABF probable) — vérifier si des qualifications spécifiques sont requises dans le RC.",
+    "Date limite de dépôt : 2026-07-13 — délai potentiellement court si le RC a été publié le 2026-06-10 (33 jours), compatible avec procédure ouverte européenne (délai minimum 35 jours normalement) : surveiller toute modification ou prorogation de délai."
+  ],
+  "points_differenciants_attendus": [
+    {
+      "libelle": "Expérience en logement collectif social en zone de montagne ou contrainte",
+      "exemple": "Présenter 2-3 références de logements collectifs sociaux (PLAI/PLUS) réalisés en zone alpine ou montagnarde, idéalement dans les Hautes-Alpes ou départements limitrophes, avec photos et descriptif des contraintes climatiques/sismiques gérées.",
+      "source": null
+    },
+    {
+      "libelle": "Maîtrise des contraintes réglementaires spécifiques au site (loi Montagne, PPRn, ABF, RE2020)",
+      "exemple": "Démontrer la connaissance du PLU du Monêtier-les-Bains (zones Ub/Uc, règles architecturales locales enduit ocré, toiture ardoise, pente 50-100%, ABF) et des contraintes du PPRn approuvé en 2018 — notamment la gestion des risques naturels en zone bleue et rouge.",
+      "source": null
+    },
+    {
+      "libelle": "Groupement pluridisciplinaire complet et coordonné (architecte + BET structure + BET fluides + économiste)",
+      "exemple": "Présenter un organigramme de groupement avec mandataire architecte inscrit à l'Ordre, BET structure expérimenté en zones sismiques (zone 3 Hautes-Alpes), BET fluides/thermique avec compétences RE2020 logement, et économiste de la construction — avec lettres d'engagement des cotraitants.",
+      "source": null
+    },
+    {
+      "libelle": "Connaissance des exigences des bailleurs sociaux et des financements aidés (PLAI, PLUS, APL)",
+      "exemple": "Mettre en avant des missions réalisées pour des OPH ou SA HLM avec respect des plafonds de coûts travaux subventionnés, maîtrise des dossiers de financement (DDT, CDC, Action Logement) et suivi des marchés de travaux en CCAG Travaux.",
+      "source": null
+    }
+  ],
+  "_meta": {
+    "id_marche": "BOAMP-26-57080",
+    "type": "complet",
+    "date_generation": "2026-06-20T02:58:32.444118+00:00",
+    "extraction_le": "2026-06-20T02:58:32.444118+00:00",
+    "modele": "claude-sonnet-4-6",
+    "preset_utilise": "ingenierie",
+    "presets_matches": [
+      "ingenierie"
+    ],
+    "prompts_versions": {
+      "ingenierie/_preset.json": "sha256:b924b32a088673d6"
+    },
+    "tokens_input": 156003,
+    "tokens_output": 3979,
+    "cout_eur": 0.5013,
+    "duree_sec": 79.5,
+    "pdfs_traites": [
+      {
+        "nom": "01-rapport-presentation.pdf",
+        "hash": "8bf48ca3b4235e6f976ed18601b51e32",
+        "taille_chars": 72026
+      },
+      {
+        "nom": "2-padd.pdf",
+        "hash": "37c42f581c574605ce84d6c8bea93187",
+        "taille_chars": 16973
+      },
+      {
+        "nom": "41-reglement-ecrit.pdf",
+        "hash": "a00c6a84ead9c0e8b69a33befb0002d0",
+        "taille_chars": 512169
+      },
+      {
+        "nom": "42-plan-zonage-commune-20-000e.pdf",
+        "hash": "37ba70cf393062f3608bb5458cbfa8fe",
+        "taille_chars": 0
+      },
+      {
+        "nom": "ANTARGAZ.pdf",
+        "hash": "c0d45f1b1e7f16904ba08b7b35ac6008",
+        "taille_chars": 6048
+      },
+      {
+        "nom": "AWS-MPI-1833713-RC.pdf",
+        "hash": "c7b7a7f12a72208dd7e464b58545ed91",
+        "taille_chars": 11520
+      },
+      {
+        "nom": "DCC-PRE BAGNOL3-AAPC.pdf",
+        "hash": "efbff0d1e594d47a334ec9e7f35ba840",
+        "taille_chars": 4099
+      },
+      {
+        "nom": "DCC-PRE BAGNOL3-AE.pdf",
+        "hash": "ede936dc52c4fdeca8af9c03fa3b660d",
+        "taille_chars": 7869
+      },
+      {
+        "nom": "DCC-PRE BAGNOL3-CCAP-CCAG 2021.pdf",
+        "hash": "965d7bb538a2c5e480dc2d886ca9156d",
+        "taille_chars": 84987
+      },
+      {
+        "nom": "DCC-PRE BAGNOL3-CCTP.pdf",
+        "hash": "0a30c8eb332cc9baf5ca0e6bfc5499dc",
+        "taille_chars": 59131
+      },
+      {
+        "nom": "DCC-PRE BAGNOL3-PdG.pdf",
+        "hash": "e66318a4ee70908c5dc12840bf1bafa8",
+        "taille_chars": 1205
+      },
+      {
+        "nom": "DCC-PRE BAGNOL3-programme.pdf",
+        "hash": "40e7de0963e9fe5afafffaf9d19e6b91",
+        "taille_chars": 30453
+      },
+      {
+        "nom": "ENEDIS.pdf",
+        "hash": "8070252774a5e4e925b0261a953921a1",
+        "taille_chars": 54153
+      },
+      {
+        "nom": "MPI1833713_AAPC.pdf",
+        "hash": "b6c9d46e3ddd46e0e8e6b0c70be853fe",
+        "taille_chars": 1981
+      },
+      {
+        "nom": "ORANGE.pdf",
+        "hash": "c9095c4f1d58042495ccd1a390c3f294",
+        "taille_chars": 6800
+      },
+      {
+        "nom": "Ppr-2.pdf",
+        "hash": "7718b0cad6723497651cf98bc21e24f8",
+        "taille_chars": 0
+      },
+      {
+        "nom": "SUEZ.pdf",
+        "hash": "1c2c17c58c20306e3f8292873c02b936",
+        "taille_chars": 13006
+      },
+      {
+        "nom": "Servitude d'accés.pdf",
+        "hash": "05d153692d33d936b6780e33579475b1",
+        "taille_chars": 0
+      },
+      {
+        "nom": "arrete_decision_1_1.pdf",
+        "hash": "2f7cfece9d76ea0137351fffefecf720",
+        "taille_chars": 274
+      },
+      {
+        "nom": "avis_ENEDIS_2_1.pdf",
+        "hash": "fb575989e24760fd739fd56d3c089bb6",
+        "taille_chars": 136
+      },
+      {
+        "nom": "avis_document_2_1.pdf",
+        "hash": "9f4f78963c8648ec72091bf79e9d25d8",
+        "taille_chars": 136
+      },
+      {
+        "nom": "avis_syme05_1_1.pdf",
+        "hash": "fe2212f1500e8269f003f59a768174a6",
+        "taille_chars": 274
+      },
+      {
+        "nom": "liste des servitudes.pdf",
+        "hash": "9b72d707c3be8ef1b7e0a0e7caee8b4f",
+        "taille_chars": 84029
+      },
+      {
+        "nom": "modif-ndeg1-plu-3-orientation-amenagt-prog.pdf",
+        "hash": "4c0e347fb49446594fa65304b974d05f",
+        "taille_chars": 0
+      },
+      {
+        "nom": "planCadastral_1-500-A3.pdf",
+        "hash": "e005680779a83ea104ac738e8a20c141",
+        "taille_chars": 802
+      },
+      {
+        "nom": "plu-1.pdf",
+        "hash": "e3d46d94be1ac132acea53c8a0897257",
+        "taille_chars": 0
+      },
+      {
+        "nom": "réseaux.pdf",
+        "hash": "a1001a9c41930d4b27d834f50a0ef4e8",
+        "taille_chars": 0
+      },
+      {
+        "nom": "seisme_2020.pdf",
+        "hash": "4715fd6a2e27bba895eb0b222e18ae55",
+        "taille_chars": 0
+      }
+    ]
+  }
+}

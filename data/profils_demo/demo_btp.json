@@ -1,0 +1,74 @@
+{
+  "id": "demo_btp",
+  "_description": "PROFIL FICTIF (batch validation Sprint B). Bâti Confiance Construction (BCC) — entreprise générale de gros œuvre et second œuvre, Pays de la Loire. Sert UNIQUEMENT à tester la génération de mémoire technique. Données représentatives mais non réelles.",
+  "_creation": "2026-06-21T00:00:00.000000+00:00",
+  "_version_schema": "1.0",
+  "_fictif": true,
+  "identite": {
+    "raison_sociale": "Bâti Confiance Construction (BCC)",
+    "forme_juridique": "SAS",
+    "siren": "812345678",
+    "siret_siege": "81234567800021",
+    "naf_principal": "4120A",
+    "effectif_salaries": 84,
+    "annee_creation": 2004,
+    "tva_intracom": "FR42812345678",
+    "adresse_siege": {
+      "rue": "14 rue des Bâtisseurs",
+      "code_postal": "72000",
+      "ville": "Le Mans",
+      "departement": "72"
+    },
+    "site_web": "https://exemple-bcc.fr",
+    "contact_AO": {
+      "nom": "",
+      "fonction": "Responsable études de prix",
+      "email": "ao@exemple-bcc.fr",
+      "telephone": "02 43 00 00 00"
+    }
+  },
+  "zones_intervention": ["72", "49", "53", "44", "61"],
+  "capacite_globale": {
+    "ca_annuel_n_moins_1": 14500000,
+    "ca_annuel_n_moins_2": 12800000,
+    "ca_annuel_n_moins_3": 11200000,
+    "fonds_propres": 4200000,
+    "effectif_total_etp": 84,
+    "capacite_engagement_simultane": 6000000,
+    "seuil_minimum_marche_eur": 50000
+  },
+  "economie": {
+    "marge_brute_cible_pct": 12,
+    "taux_journalier_moyen_eur": 0,
+    "frais_de_structure_pct": 16,
+    "agressivite_commerciale": "neutre"
+  },
+  "mots_cles_catalogue": [
+    "gros œuvre", "béton armé", "maçonnerie", "fondations", "VRD",
+    "réhabilitation", "construction neuve", "chantier site occupé", "ERP"
+  ],
+  "presets_couverts": ["btp"],
+  "profils_sectoriels": {
+    "btp": {
+      "qualifications": {
+        "qualibat": ["1112", "2112 (béton armé courant)", "Mention RGE"],
+        "assurance_decennale": "Police décennale en cours de validité (multirisque chantier)",
+        "certifications": ["MASE (sécurité)"]
+      },
+      "corps_de_metier": ["gros œuvre", "maçonnerie", "béton armé", "VRD légers"],
+      "types_ouvrages": [
+        "bâtiments tertiaires et techniques",
+        "équipements publics (ERP)",
+        "logements collectifs",
+        "réhabilitation lourde"
+      ],
+      "moyens_materiels": "Parc propre : 3 grues mobiles, banches métalliques, centrale à béton mobile, matériel de carottage, échafaudages.",
+      "bureau_etudes_beton": "BET structure partenaire (sous-traitance d'études récurrente)"
+    }
+  },
+  "references_chantiers": [
+    "Construction d'un groupe scolaire (MOA commune, ~3,2 M€ HT, 2022)",
+    "Réhabilitation d'un bâtiment technique en site occupé (~1,1 M€ HT, 2023)"
+  ],
+  "_notes_fictif": "CV nominatifs, attestations de visite, références en zone sismique : volontairement non renseignés pour exercer les [À COMPLÉTER]."
+}

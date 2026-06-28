@@ -1,107 +1,80 @@
 {
-  "synthese_marche": "Ce marché concerne un Système d'Acquisition Dynamique (SAD) portant sur la fourniture d'équipements et articles de sport (et prestations associées) pour l'Université de Lille, décomposé en 10 catégories (gymnique, artistique, sports collectifs, pleine nature, forme/bien-être, raquettes, combat, aquatique, athlétisme, petites fournitures pédagogiques). Le SAD est d'une durée de 4 ans, entièrement dématérialisé, avec un montant maximum estimatif total de 440 000 € HT sur la durée. Attention : le contenu du DCE fourni ne correspond pas à l'objet du marché BOAMP référencé (assainissement collectif) — il s'agit bien d'un SAD équipements de sport Université de Lille.",
+  "synthese_marche": "Marché public de prestations d'exploitation des ouvrages et installations d'assainissement collectif pour la Communauté d'agglomération Terres de Montaigu (Vendée), décomposé en 3 lots géographiques (Secteur Ouest, Centre, Est) couvrant plusieurs communes. Les pièces du DCE fournies ne correspondent pas au marché décrit (BOAMP-26-56493) mais à un Système d'Acquisition Dynamique de l'Université de Lille pour des équipements de sport. Les informations extractibles sont donc très limitées pour ce marché d'assainissement spécifique.",
   "domaines_metier": [
     {
-      "code": "fourniture_materiel"
+      "code": "ingenierie_eau_milieux"
     }
   ],
-  "raison_classification": "Le marché porte exclusivement sur la fourniture d'équipements et articles de sport (ballons, matériel de gym, raquettes, équipements aquatiques, etc.) ainsi que prestations associées, sans dimension travaux BTP. Le CPV principal est 37400000 (articles et équipements de sport). Le code 'fourniture_materiel' est le plus adapté parmi la taxonomie disponible.",
-  "caracteristiques_techniques_chantier": {
-    "description": "Marché de fourniture d'équipements de sport — pas de travaux de construction ni de chantier. Livraison d'équipements sportifs dans 10 catégories pour les besoins de l'Université de Lille.",
+  "raison_classification": "Le marché porte sur l'exploitation d'ouvrages d'assainissement collectif (CPV 90480000 — services d'assainissement des eaux usées), relevant de l'ingénierie eau et milieux / services d'exploitation de réseaux humides. Attention : les pièces du DCE fournies (DUME et RC SAD) appartiennent à un marché différent (Université de Lille — équipements sport), ce qui empêche toute extraction technique précise sur le vrai marché d'assainissement.",
+  "caracteristiques_mission_moe": {
+    "typologie": null,
+    "phases_couvertes": [],
     "typologie_ouvrage": null,
+    "montant_travaux_estime": null,
+    "complexite_technique": null,
+    "livrables_par_phase": [],
+    "taux_remuneration_moe_pct": null,
+    "indices_revision": [],
+    "coordinations_associees": [],
+    "organigramme_attendu": [],
+    "bim_niveau": null
+  },
+  "qualifications_moe": {
+    "opqibi": [],
+    "opqcm": [],
+    "bim": null,
+    "autres": []
+  },
+  "caracteristiques_techniques_chantier": {
+    "description": "Exploitation des ouvrages et installations d'assainissement collectif sur le territoire de Terres de Montaigu, répartie en 3 secteurs géographiques (Ouest, Centre, Est). Les pièces techniques (CCTP) ne sont pas disponibles dans les documents fournis.",
+    "typologie_ouvrage": "Réseaux et ouvrages d'assainissement collectif",
     "surface_volume": null,
     "site_occupe": null,
     "corps_etat": [],
     "contraintes_specifiques": [
-      "Procédure entièrement dématérialisée via la plateforme PLACE (marches-publics.gouv.fr)",
-      "SAD : les marchés spécifiques sont lancés au fur et à mesure des besoins sur 4 ans",
-      "Montants maximums non contractuels par catégorie"
+      "Périmètre multi-communal (Secteur Est inclut périmètre SMFA de Cugand-Gétigné)",
+      "Marché en 3 lots géographiques distincts",
+      "Durée de 4 ans (48 mois) par lot"
     ]
   },
   "allotissement": {
-    "description": "Le SAD est décomposé en 10 catégories de fourniture (non des lots au sens strict, mais des catégories d'admission au SAD). Un candidat peut postuler à une ou plusieurs catégories.",
-    "nb_lots": 10,
+    "description": "Marché décomposé en 3 lots géographiques couvrant les communes de la CA Terres de Montaigu",
+    "nb_lots": 3,
     "lots_detailles": [
       {
         "numero": 1,
-        "intitule": "Activité gymnique (gymnastique, GRS)",
-        "corps_etat": null,
-        "montant_estime": 40000,
-        "description": "Équipements de sport pour activités gymniques : gymnastique, GRS. Montant maximum estimatif sur 4 ans."
+        "intitule": "Secteur Ouest",
+        "corps_etat": "Exploitation assainissement collectif",
+        "montant_estime": null,
+        "description": "Communes de L'Herbergement, Montréverd, Rocheservière et Saint-Philbert-de-Bouaine"
       },
       {
         "numero": 2,
-        "intitule": "Activité artistique (danse, hip-hop)",
-        "corps_etat": null,
-        "montant_estime": 10000,
-        "description": "Équipements pour activités artistiques : danse, hip-hop. Montant maximum estimatif sur 4 ans."
+        "intitule": "Secteur Centre",
+        "corps_etat": "Exploitation assainissement collectif",
+        "montant_estime": null,
+        "description": "Commune de Montaigu-Vendée"
       },
       {
         "numero": 3,
-        "intitule": "Sport collectif (football, basket, volley-ball)",
-        "corps_etat": null,
-        "montant_estime": 40000,
-        "description": "Équipements pour sports collectifs : football, basket, volley-ball. Montant maximum estimatif sur 4 ans."
-      },
-      {
-        "numero": 4,
-        "intitule": "Activités physiques de pleine nature (course d'orientation, VTT)",
-        "corps_etat": null,
-        "montant_estime": 20000,
-        "description": "Équipements pour activités de pleine nature : course d'orientation, VTT. Montant maximum estimatif sur 4 ans."
-      },
-      {
-        "numero": 5,
-        "intitule": "Activité de forme et de bien-être (yoga, pilate, musculation, fitness)",
-        "corps_etat": null,
-        "montant_estime": 80000,
-        "description": "Équipements pour activités de forme et bien-être : yoga, pilates, musculation, fitness. Montant maximum estimatif sur 4 ans."
-      },
-      {
-        "numero": 6,
-        "intitule": "Sport de raquettes (tennis, tennis de table, padel)",
-        "corps_etat": null,
-        "montant_estime": 50000,
-        "description": "Équipements pour sports de raquettes : tennis, tennis de table, padel. Montant maximum estimatif sur 4 ans."
-      },
-      {
-        "numero": 7,
-        "intitule": "Sport de combat (boxe, judo, karaté)",
-        "corps_etat": null,
-        "montant_estime": 20000,
-        "description": "Équipements pour sports de combat : boxe, judo, karaté. Montant maximum estimatif sur 4 ans."
-      },
-      {
-        "numero": 8,
-        "intitule": "Activités aquatiques (natation, water-polo)",
-        "corps_etat": null,
-        "montant_estime": 10000,
-        "description": "Équipements pour activités aquatiques : natation, water-polo. Montant maximum estimatif sur 4 ans."
-      },
-      {
-        "numero": 9,
-        "intitule": "Activités athlétiques (athlétisme, course)",
-        "corps_etat": null,
-        "montant_estime": 30000,
-        "description": "Équipements pour activités athlétiques : athlétisme, course. Montant maximum estimatif sur 4 ans."
-      },
-      {
-        "numero": 10,
-        "intitule": "Petites fournitures pédagogiques tous sports (chasubles, plots, chronomètre)",
-        "corps_etat": null,
-        "montant_estime": 140000,
-        "description": "Petites fournitures pédagogiques multi-sports : chasubles, plots, chronomètres. Montant maximum estimatif sur 4 ans — catégorie la plus importante en volume."
+        "intitule": "Secteur Est",
+        "corps_etat": "Exploitation assainissement collectif",
+        "montant_estime": null,
+        "description": "Communes de Cugand-la Bernardière, La Boissière-de-Montaigu, La Bruffière, Treize-Septiers et périmètre SMFA de Cugand-Gétigné"
       }
     ]
   },
   "qualifications_requises": {
-    "description": "Le RC mentionne la possibilité de fournir des certificats de qualifications professionnelles comme preuve de capacité, mais sans exiger de qualification spécifique obligatoire à peine d'irrecevabilité.",
-    "qualibat": null,
+    "description": "Non extractible — le CCTP et le RC propres à ce marché n'ont pas été fournis dans les pièces du DCE transmises",
+    "qualibat": [],
     "rge": null,
+    "rge_specialites": [],
+    "mase": null,
+    "iso_9001": null,
+    "iso_14001": null,
+    "iso_45001": null,
     "opqibi": null,
-    "autres_certifications": [
-      "Certificats d'identité professionnelle ou références attestant de la compétence à réaliser la prestation (facultatif mais valorisé) — RC art. 4"
-    ]
+    "autres_certifications": []
   },
   "bareme_notation": {
     "valeur_technique_pct": null,
@@ -109,19 +82,50 @@
     "sous_criteres_techniques": [],
     "prix": {
       "type_formule": "autre",
-      "formule_explicite": "Le RC SAD ne précise pas de critères de notation pour la phase candidature (admission/non-admission uniquement). Les critères d'attribution des marchés spécifiques seront définis dans chaque consultation spécifique lancée dans le cadre du SAD.",
+      "formule_explicite": null,
+      "source": null,
       "elements_a_chiffrer": []
     },
     "modalite_calcul_prix": null
   },
   "montant_marche": {
-    "valeur_estimee_euros": 440000,
+    "valeur_estimee_euros": null,
     "fourchette_min_euros": null,
-    "fourchette_max_euros": 440000,
-    "type": "plafond",
-    "duree_couverte": "4 ans (48 mois)",
-    "source_extraction": "RC art. 3 — tableau des montants maximums estimatifs par catégorie",
-    "commentaire": "Somme des 10 montants maximums estimatifs par catégorie : 40k+10k+40k+20k+80k+50k+20k+10k+30k+140k = 440 000 € HT sur 4 ans. Ces montants sont non contractuels selon le RC. La catégorie 10 (petites fournitures pédagogiques) représente à elle seule 32% du total."
+    "fourchette_max_euros": null,
+    "type": "non_communique",
+    "duree_couverte": "4 ans (48 mois) par lot",
+    "source_extraction": null,
+    "commentaire": "Les pièces du DCE fournies (DUME et RC SAD Université de Lille) ne correspondent pas au marché BOAMP-26-56493 de Terres de Montaigu. Aucun montant n'est extractible depuis ces documents."
+  },
+  "montant_3_voies": {
+    "voie_1_eur": null,
+    "voie_1_source": null,
+    "voie_2_disponible": true,
+    "voie_2_min_eur": 1200000,
+    "voie_2_max_eur": 1800000,
+    "voie_2_hypotheses": [
+      {
+        "hypothese": "Marché européen (est_europeen=true) impliquant un montant total au-dessus du seuil de procédure ouverte services (~221 000 € HT). 3 lots × 4 ans.",
+        "valeur": "3 lots × 4 ans"
+      },
+      {
+        "hypothese": "Estimation par analogie avec des marchés similaires d'exploitation assainissement collectif sur agglo de taille comparable (environ 50 000-80 000 habitants). Ratio typique : 400 000-600 000 €/an pour l'ensemble du périmètre",
+        "valeur": "400 000 à 600 000 €/an pour 3 lots"
+      },
+      {
+        "hypothese": "Durée ferme 4 ans × montant annuel central 375 000 € = 1,5 M€ total. Dimension la plus incertaine : le montant annuel (varié de 300 000 à 450 000 €/an) ; la durée est fixée à 4 ans",
+        "valeur": "300 000 à 450 000 €/an × 4 ans"
+      }
+    ],
+    "voie_2_raison_indisponible": null
+  },
+  "cout_realisation": {
+    "cout_total_eur": null,
+    "cout_min_eur": null,
+    "cout_max_eur": null,
+    "postes": [],
+    "taux_journaliers_retenus": null,
+    "commentaire": "Impossible de chiffrer le coût de réalisation pour le candidat sans le CCTP technique détaillant les prestations d'exploitation (volumes traités, nombre de STEP, linéaires de réseaux, fréquence des interventions). Les pièces techniques ne sont pas disponibles dans les documents fournis."
   },
   "revision_prix": {
     "type": "non_communique",
@@ -130,181 +134,176 @@
     "periodicite": null,
     "formule_revision": null,
     "source_extraction": null,
-    "commentaire": "Aucun CCAP ni clause de révision des prix n'est présent dans les pièces du DCE fournies. Les conditions de prix seront précisées dans les marchés spécifiques ultérieurs."
+    "commentaire": "Aucun CCAP fourni dans les pièces du DCE transmises — révision des prix non extractible."
   },
   "alertes_prix": [
-    "Les montants maximums par catégorie sont non contractuels : l'Université n'est pas engagée à atteindre ces volumes sur 4 ans.",
-    "La catégorie 10 (petites fournitures pédagogiques, 140 000 € HT) représente 32% du volume total — candidater à cette seule catégorie offre un fort potentiel de commandes.",
-    "Les critères de prix des marchés spécifiques ne sont pas encore définis au stade du SAD : le risque de prix est différé mais le candidat doit anticiper une mise en concurrence prix lors de chaque consultation spécifique."
+    "Les pièces du DCE transmises (DUME et RC SAD Université de Lille) ne correspondent pas au marché BOAMP-26-56493 : tout le chiffrage et les critères de notation sont indisponibles",
+    "Marché européen (procédure ouverte) : montant total estimé supérieur aux seuils réglementaires, vigilance sur la compétitivité des offres",
+    "Marché de 4 ans (48 mois) par lot : anticiper les clauses de révision de prix sur la durée, notamment pour les coûts énergétiques et de main d'œuvre en assainissement"
   ],
   "references_exigees": {
-    "experience_minimale_annees": 5,
-    "experience_source": "RC art. 4 — liste des principales fournitures effectuées au cours des 5 dernières années",
+    "experience_minimale_annees": null,
+    "experience_source": null,
     "volume_min_references_similaires": null,
-    "volume_min_references_unite": "marchés similaires",
-    "secteur_experience": "Fourniture d'équipements et articles de sport correspondant à la ou aux catégories visées, avec mention du montant, de la date et du destinataire public ou privé",
-    "secteur_source": "RC art. 4",
+    "volume_min_references_unite": null,
+    "secteur_experience": "Exploitation d'ouvrages d'assainissement collectif (STEP, réseaux, postes de refoulement)",
+    "secteur_source": null,
     "certifications_obligatoires": [],
-    "autres_exigences": [
-      {
-        "libelle": "Déclaration du chiffre d'affaires global et du CA concernant les fournitures objet du SAD réalisé au cours des 3 derniers exercices",
-        "source": "RC art. 4"
-      },
-      {
-        "libelle": "Présentation générale de l'entreprise ou du groupement",
-        "source": "RC art. 4"
-      },
-      {
-        "libelle": "Document 'Positionnement sur les catégories' complété",
-        "source": "RC art. 4"
-      },
-      {
-        "libelle": "Attestation sur l'honneur de non-interdiction de soumissionner signée",
-        "source": "RC art. 4"
-      },
-      {
-        "libelle": "Fiche de création fournisseur + RIB",
-        "source": "RC art. 4"
-      },
-      {
-        "libelle": "Entreprise nouvellement créée (< 3 ans) : fournir les documents financiers depuis la création jusqu'au dernier exercice clos",
-        "source": "RC art. 4"
-      }
-    ]
+    "autres_exigences": []
+  },
+  "dossier_candidature": {
+    "pieces_a_fournir": [],
+    "mode_remise": null,
+    "plateforme_depot": null,
+    "signature_electronique_exigee": null,
+    "format_signature": null,
+    "nombre_exemplaires": null,
+    "langue": "français",
+    "duree_validite_offres_jours": null,
+    "modalites_source": null
   },
   "lots": [
     {
       "numero": 1,
-      "intitule": "Activité gymnique (gymnastique, GRS)",
-      "zone_geographique": null,
-      "volume_estime": 40000,
-      "volume_estime_unite": "euros HT (montant maximum estimatif sur 4 ans)",
-      "particularites": "Catégorie accessible à tout opérateur justifiant de références en fourniture d'équipements gymniques."
+      "intitule": "Secteur Ouest",
+      "domaine": "ingenierie_eau_milieux",
+      "zone_geographique": "L'Herbergement, Montréverd, Rocheservière, Saint-Philbert-de-Bouaine (85 — Vendée)",
+      "volume_estime": null,
+      "volume_estime_unite": null,
+      "cout_estime_min_eur": null,
+      "cout_estime_max_eur": null,
+      "particularites": "4 communes — secteur rural ouest de la CA Terres de Montaigu"
     },
     {
       "numero": 2,
-      "intitule": "Activité artistique (danse, hip-hop)",
-      "zone_geographique": null,
-      "volume_estime": 10000,
-      "volume_estime_unite": "euros HT (montant maximum estimatif sur 4 ans)",
-      "particularites": "Catégorie à faible volume — la plus petite avec la catégorie 8."
+      "intitule": "Secteur Centre",
+      "domaine": "ingenierie_eau_milieux",
+      "zone_geographique": "Montaigu-Vendée (85 — Vendée)",
+      "volume_estime": null,
+      "volume_estime_unite": null,
+      "cout_estime_min_eur": null,
+      "cout_estime_max_eur": null,
+      "particularites": "Commune centrale et la plus peuplée de la CA — périmètre urbain plus dense"
     },
     {
       "numero": 3,
-      "intitule": "Sport collectif (football, basket, volley-ball)",
-      "zone_geographique": null,
-      "volume_estime": 40000,
-      "volume_estime_unite": "euros HT (montant maximum estimatif sur 4 ans)",
-      "particularites": null
-    },
-    {
-      "numero": 4,
-      "intitule": "Activités physiques de pleine nature (course d'orientation, VTT)",
-      "zone_geographique": null,
-      "volume_estime": 20000,
-      "volume_estime_unite": "euros HT (montant maximum estimatif sur 4 ans)",
-      "particularites": null
-    },
-    {
-      "numero": 5,
-      "intitule": "Activité de forme et de bien-être (yoga, pilate, musculation, fitness)",
-      "zone_geographique": null,
-      "volume_estime": 80000,
-      "volume_estime_unite": "euros HT (montant maximum estimatif sur 4 ans)",
-      "particularites": "Deuxième catégorie en volume (80 000 € HT) — marché potentiel significatif, notamment musculation/fitness."
-    },
-    {
-      "numero": 6,
-      "intitule": "Sport de raquettes (tennis, tennis de table, padel)",
-      "zone_geographique": null,
-      "volume_estime": 50000,
-      "volume_estime_unite": "euros HT (montant maximum estimatif sur 4 ans)",
-      "particularites": null
-    },
-    {
-      "numero": 7,
-      "intitule": "Sport de combat (boxe, judo, karaté)",
-      "zone_geographique": null,
-      "volume_estime": 20000,
-      "volume_estime_unite": "euros HT (montant maximum estimatif sur 4 ans)",
-      "particularites": null
-    },
-    {
-      "numero": 8,
-      "intitule": "Activités aquatiques (natation, water-polo)",
-      "zone_geographique": null,
-      "volume_estime": 10000,
-      "volume_estime_unite": "euros HT (montant maximum estimatif sur 4 ans)",
-      "particularites": "Catégorie à faible volume — la plus petite avec la catégorie 2."
-    },
-    {
-      "numero": 9,
-      "intitule": "Activités athlétiques (athlétisme, course)",
-      "zone_geographique": null,
-      "volume_estime": 30000,
-      "volume_estime_unite": "euros HT (montant maximum estimatif sur 4 ans)",
-      "particularites": null
-    },
-    {
-      "numero": 10,
-      "intitule": "Petites fournitures pédagogiques tous sports (chasubles, plots, chronomètre)",
-      "zone_geographique": null,
-      "volume_estime": 140000,
-      "volume_estime_unite": "euros HT (montant maximum estimatif sur 4 ans)",
-      "particularites": "Catégorie la plus importante en volume (140 000 € HT, soit 32% du total). Ouverte à tous sports — opportunité pour les fournisseurs généralistes. Produits à forte rotation et commandes récurrentes prévisibles."
+      "intitule": "Secteur Est",
+      "domaine": "ingenierie_eau_milieux",
+      "zone_geographique": "Cugand-la Bernardière, La Boissière-de-Montaigu, La Bruffière, Treize-Septiers (85 — Vendée)",
+      "volume_estime": null,
+      "volume_estime_unite": null,
+      "cout_estime_min_eur": null,
+      "cout_estime_max_eur": null,
+      "particularites": "Inclut le périmètre SMFA de Cugand-Gétigné — présence d'un syndicat mixte, complexité de gouvernance possible"
     }
   ],
+  "tranches": [],
   "calendrier": {
-    "date_limite_offres": "2026-01-30",
+    "date_limite_offres": "2026-07-15",
     "date_demarrage_prevue": null,
-    "duree_marche": "48 mois (4 ans) à compter de la date limite de remise des candidatures initiales"
+    "duree_marche": "4 ans (48 mois) par lot"
   },
   "alertes_candidat": [
-    "Dépôt exclusivement dématérialisé via PLACE (marches-publics.gouv.fr) — aucune candidature papier acceptée.",
-    "Date limite de remise des candidatures initiales : 30/01/2026 à 12h00 — après cette date, le SAD reste ouvert mais sous réserve du lancement du premier marché spécifique.",
-    "Le document 'Positionnement sur les catégories' est obligatoire : le candidat doit préciser pour quelle(s) catégorie(s) il souhaite postuler.",
-    "Un candidat peut être exclu du SAD s'il ne participe pas à 3 consultations consécutives sans motif valable (art. 8.2.2 RC).",
-    "En cas de groupement, un DC1 par groupement ET un dossier complet par cotraitant sont obligatoires — la composition du groupement ne peut plus être modifiée une fois un marché spécifique publié."
+    "ALERTE MAJEURE : les pièces du DCE fournies (DUME et RC SAD n°2025.58 Université de Lille — équipements de sport) ne correspondent pas au marché BOAMP-26-56493 de Terres de Montaigu. Le candidat doit télécharger le bon DCE sur la plateforme de dépôt de la CA Terres de Montaigu.",
+    "Marché en procédure ouverte européenne : niveau d'exigence élevé sur les capacités techniques et financières, préparer un dossier de candidature complet",
+    "Lot 3 (Secteur Est) : présence du périmètre SMFA de Cugand-Gétigné — vérifier les implications contractuelles liées à la coexistence d'un syndicat mixte sur le périmètre",
+    "Durée de 4 ans (48 mois) : anticiper les évolutions réglementaires (norme EU eaux résiduaires urbaines) et les contraintes de reprise de personnel (clause sociale probable en assainissement)",
+    "Marché multi-lots : vérifier si le RC autorise la soumission sur plusieurs lots simultanément et les éventuelles restrictions de cumul"
   ],
   "points_differenciants_attendus": [
     {
-      "libelle": "Catalogue en ligne ou documentation commerciale accessible par lien électronique",
-      "exemple": "Le candidat peut transmettre l'URL de son catalogue en ligne (ex: site e-commerce BtoB ou extranet revendeur) permettant à l'Université d'identifier rapidement les gammes disponibles lors des marchés spécifiques. Bien que facultatif, cela accélère les mises en concurrence et valorise la réactivité du fournisseur.",
-      "source": "RC art. 4"
+      "libelle": "Expérience spécifique en exploitation d'assainissement collectif sur périmètre intercommunal",
+      "exemple": "Présenter des références récentes d'exploitation de STEP et réseaux d'assainissement pour des EPCI de taille comparable (50 000-80 000 hab.), avec indicateurs de performance (rendement épuratoire, taux d'autosurveillance, nombre d'interventions correctives).",
+      "source": null
     },
     {
-      "libelle": "Références solides sur les 5 dernières années dans la ou les catégories visées",
-      "exemple": "Un candidat qui présente des attestations de livraisons à d'autres universités ou établissements d'enseignement supérieur (ex: SUAPS, SIUAPS) avec montants, dates et contacts vérifiables démontrera une maîtrise du marché de la fourniture sportive en milieu universitaire.",
-      "source": "RC art. 4"
+      "libelle": "Capacité à gérer des périmètres multi-communes avec gouvernance complexe",
+      "exemple": "Démontrer l'expérience de coordination avec des syndicats mixtes (ex: SMFA) et de gestion contractuelle multi-maîtres d'ouvrage, élément différenciant pour le Lot 3.",
+      "source": null
     },
     {
-      "libelle": "Capacité à couvrir plusieurs catégories avec un seul dossier",
-      "exemple": "Un distributeur ou grossiste en équipements sportifs pouvant postuler aux 10 catégories simultanément maximise ses chances d'être retenu dans le SAD et augmente ses opportunités de commandes sans coût additionnel de candidature.",
-      "source": "RC art. 3"
+      "libelle": "Moyens humains dédiés et proximité géographique",
+      "exemple": "Présenter une implantation ou une capacité d'intervention rapide en Vendée (85), avec des équipes dédiées et des délais d'intervention garantis sur les 3 secteurs.",
+      "source": null
     },
     {
-      "libelle": "Solidité financière démontrée sur 3 exercices avec CA dédié aux fournitures sportives",
-      "exemple": "Un candidat présentant un CA dédié aux équipements de sport en croissance sur 3 ans, avec une part significative auprès de clients publics (collectivités, universités, fédérations sportives), rassurera l'acheteur sur la pérennité de l'opérateur et sa capacité à honorer des commandes récurrentes.",
-      "source": "RC art. 4"
+      "libelle": "Engagement environnemental et performance épuratoire",
+      "exemple": "Proposer des indicateurs de suivi de la qualité des rejets, un plan d'amélioration continue des STEP et des engagements sur la gestion des boues (valorisation agricole, compostage).",
+      "source": null
     }
   ],
   "_meta": {
     "id_marche": "BOAMP-26-56493",
     "type": "complet",
-    "extraction_le": "2026-06-12T13:32:22.702206+00:00",
+    "date_generation": "2026-06-19T19:24:21.659562+00:00",
+    "extraction_le": "2026-06-19T19:24:21.659562+00:00",
     "modele": "claude-sonnet-4-6",
-    "tokens_input": 23899,
-    "tokens_output": 5017,
-    "cout_eur": 0.1396,
-    "duree_sec": 78.4,
+    "preset_utilise": "ingenierie",
+    "presets_matches": [
+      "ingenierie",
+      "btp"
+    ],
+    "prompts_versions": {
+      "ingenierie/_preset.json": "sha256:b924b32a088673d6",
+      "btp/_preset.json": "sha256:055bf6f8b2c1f771"
+    },
+    "tokens_input": 40682,
+    "tokens_output": 3976,
+    "cout_eur": 0.1726,
+    "duree_sec": 67.8,
     "pdfs_traites": [
+      {
+        "nom": "2025.58- Fiche_de_creation_fournisseur.xlsx",
+        "hash": "eccf847f723baa7f81bf45730ec6e6fc",
+        "taille_chars": 2675
+      },
+      {
+        "nom": "Additif1_2025.58.pdf",
+        "hash": "5955a8f801b4c097b438e0e67efc59e0",
+        "taille_chars": 0
+      },
+      {
+        "nom": "Additif2_2025.58.pdf",
+        "hash": "e55ed51a96108a85e74e8ab91cb0f7a3",
+        "taille_chars": 839
+      },
+      {
+        "nom": "Additif3_2025.58.pdf",
+        "hash": "ae48427313fae92766c9bb1972269e71",
+        "taille_chars": 0
+      },
+      {
+        "nom": "Additif4_2025.58.pdf",
+        "hash": "033128bebdebe0f0325aa5f72ba4ba80",
+        "taille_chars": 0
+      },
+      {
+        "nom": "Attestation sur l'honneur.pdf",
+        "hash": "85d75a5890d68ebcaee3b13fc346d2c2",
+        "taille_chars": 3984
+      },
+      {
+        "nom": "CCP Materiels de sport.pdf",
+        "hash": "83889346d0728a9996f4a5d92f374580",
+        "taille_chars": 529
+      },
       {
         "nom": "DUME SAD 2025_58.pdf",
         "hash": "9268cfdd181616a8a5ff322c6a16ad31",
         "taille_chars": 18840
       },
       {
+        "nom": "Positionnement sur les categories.xlsx",
+        "hash": "e836d512a83d87eff5426339ee7f3be3",
+        "taille_chars": 1552
+      },
+      {
         "nom": "RC SAD MatÃ©riels de sport V3.pdf",
+        "hash": "e96330b00a803e65f510292053e4ce6f",
+        "taille_chars": 20337
+      },
+      {
+        "nom": "RC SAD Matériels de sport V3.pdf",
         "hash": "e96330b00a803e65f510292053e4ce6f",
         "taille_chars": 20337
       }

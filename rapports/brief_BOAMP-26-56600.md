@@ -1,6 +1,6 @@
 # Brief — Extension de la déchèterie de Saint-Hippolyte
 
-_Généré le 2026-06-15 00:41 par Claude claude-sonnet-4-6_
+_Généré le 2026-06-19 22:52 par Claude claude-sonnet-4-6_
 
 ## Identifiants
 - **ID Tendia** : `BOAMP-26-56600`
@@ -10,37 +10,38 @@ _Généré le 2026-06-15 00:41 par Claude claude-sonnet-4-6_
 - **DCE PLACE** : <https://www.marches-publics.info/mpiaws/index.cfm?fuseaction=dematent.login&type=Dce&Idm=1828987>
 
 ## Synthèse
-Marché public de travaux d'extension de la déchèterie de Saint-Hippolyte (66510), portant sur la création d'alvéoles en béton armé (dalles et murs banchers), une chaussée lourde, un génie civil pour pont bascule, un réseau pluvial avec séparateur, et des réseaux secs. Le marché est passé en procédure adaptée ouverte, sans allotissement, pour un délai d'exécution de 2 mois (+ 1 mois de période préparatoire). Une visite obligatoire sur site est imposée.
+Marché public de travaux pour l'extension de la déchèterie de Saint-Hippolyte (66510), portée par Perpignan Méditerranée Métropole Communauté Urbaine. Les travaux comprennent la réalisation d'alvéoles béton armé pour différents flux de déchets, des voiries lourdes, un ouvrage génie civil pour un pont bascule, un réseau pluvial avec séparateur, et des réseaux secs et AEP. Le marché est unique (non alloti), à prix unitaires, avec un délai d'exécution de 2 mois hors période préparatoire d'1 mois.
 
 ## 🏗 Chantier — caractéristiques BTP
-- **Description** : Extension d'une déchèterie à plat existante sur une parcelle adjacente appartenant à PMMCU. Les travaux comprennent : création de 3 alvéoles béton (dalles + murs banchers en U), chaussée lourde sur l'ensemble de la surface, génie civil pour 2ème pont bascule, reprise des pentes et réseau pluvial vers séparateur, pose réseau AEP DN25, fourreaux TPC DN63, dépose de clôture existante entre site existant et extension.
-- **Type d'ouvrage** : Infrastructure de déchèterie (équipement public de traitement des déchets)
-- **Site occupé pendant travaux** : false — aucune coactivité avec le site existant selon CCTP §3 ; accès engins uniquement par portail de l'ancienne déchèterie
-- **Corps d'état mobilisés** : Terrassement / démolition, Voirie et chaussée lourde, Maçonnerie béton armé (dalles, murs banchers), Génie civil (pont bascule), Réseau pluvial (canalisations, regard, séparateur, avaloirs), Réseaux secs (fourreaux, chambres de tirage), AEP (réseau PE DN25)
+- **Description** : Extension d'une déchèterie à plat sur parcelle adjacente : création de 3 alvéoles béton (2 pour gravats/éco-mobilier de 6×10 m et 1 pour déchets verts de 10×10 m) avec murs à bancher en U, chaussée lourde sur toute la surface restante, reprise de la dalle béton existante, ouvrage génie civil pour 2ème pont bascule, réseau pluvial avec séparateur, réseau AEP DN25, fourreaux TPC DN63, dépose de clôture entre site existant et extension.
+- **Type d'ouvrage** : Infrastructure extérieure de déchèterie (voirie lourde, réseaux, génie civil)
+- **Surface / volume** : Surface non précisée explicitement ; alvéoles : 2×(6×10 m) + 1×(10×10 m) = 220 m² de dalles ; voirie sur le reste de l'emprise de la parcelle adjacente (superficie non chiffrée)
+- **Site occupé pendant travaux** : false — pas de coactivité avec le site existant ; accès chantier uniquement par portail de l'ancienne déchèterie
+- **Corps d'état mobilisés** : Terrassement / démolition, Voirie (chaussée lourde, bordures, caniveaux), Maçonnerie / béton armé (murs à bancher, dalles, génie civil pont bascule), Réseau pluvial (canalisations, séparateur, avaloirs), Réseaux secs (fourreaux, chambre de tirage), Réseau AEP
 - **Contraintes spécifiques** :
-  - Accès chantier uniquement par portail de l'ancienne déchèterie pour éviter toute coactivité
-  - Coordination SPS de niveau II avec coordonnateur désigné ultérieurement
-  - Visite obligatoire sur site préalable au dépôt des offres (1er juillet 2026)
-  - Délai d'exécution travaux limité à 2 mois calendaires
-  - Remise d'un DOE complet en fin de chantier
-  - Clause d'insertion sociale obligatoire : 50 heures minimum
-  - Garanties particulières : dallages/béton, fonctionnement hydraulique, réseaux enterrés, continuité existant/neuf
+  - Visite obligatoire le 1er juillet 2026 — offre irrecevable sans certificat de visite
+  - Accès chantier uniquement par portail de l'ancienne déchèterie pour éviter coactivité
+  - Travaux en site ouvert
+  - Clause d'insertion sociale : 50 heures minimum (5% du volume horaire de l'entreprise)
+  - Délai d'exécution plafonné à 2 mois (+ 1 mois période préparatoire)
+  - Plans d'exécution et notes de calcul établis par le titulaire et soumis au visa du MOA
+  - Garanties particulières : dallages/béton, fonctionnement hydraulique, réseaux enterrés, performances d'exploitation
 
 ### Allotissement
-Marché unique non alloti. La dévolution en lots séparés a été jugée techniquement difficile.
+Marché non alloti — lot unique. La dévolution en lots séparés risquerait de rendre techniquement difficile l'exécution des prestations.
 - **Nombre de lots** : 1
-- **Lot 1** — Extension de la déchèterie de Saint-Hippolyte
-  - Corps d'état : Terrassement, voirie, maçonnerie béton armé, génie civil, réseaux pluviaux, réseaux secs, AEP
-  - Ensemble des travaux d'extension : alvéoles béton, chaussée lourde, pont bascule, réseau pluvial avec séparateur, fourreaux, AEP
+- **Lot 1** — Extension de la déchèterie de Saint-Hippolyte — lot unique
+  - Corps d'état : Terrassement, maçonnerie béton armé, voirie lourde, réseaux pluviaux, réseaux secs, AEP
+  - Ensemble des travaux d'extension : alvéoles béton, voiries lourdes, pont bascule, réseau pluvial avec séparateur, fourreaux, AEP, dépose clôture
 
 ### Qualifications BTP exigées
-Aucune qualification Qualibat ou certification spécifique n'est explicitement exigée dans le RC ou le CCAP. Le RC demande des références de travaux similaires et une attestation d'assurance décennale.
+Le RC ne mentionne pas de qualifications Qualibat ou RGE spécifiquement exigées. Il exige des références de travaux similaires, une déclaration de CA, et une attestation d'assurance décennale.
 - **MASE** : non
 
 ## 💶 Montant du marché
 - _Montant non communiqué dans le DCE._
   - Typique des accords-cadres à bons de commande : le volume dépend des commandes effectivement passées par l'acheteur sur la durée du marché.
-- _Note_ : Aucun montant estimatif, plafond ou fourchette n'est mentionné dans les pièces du DCE. Le BPU ne contient pas de prix unitaires renseignés (champ vide). Le DQE est mentionné comme pièce du DCE mais n'est pas fourni dans les extraits analysés.
+- _Note_ : Aucun montant estimatif explicite n'est communiqué dans le DCE ou l'avis BOAMP. Le BPU ne contient pas de quantités ni de prix unitaires renseignés. Une estimation bottom-up est produite en Voie 2.
 
 ## Barème de notation
 - **Valeur technique** : 60 %
@@ -48,29 +49,28 @@ Aucune qualification Qualibat ou certification spécifique n'est explicitement e
 - **Sous-critères techniques** :
   - Valeur technique : 50 %
   - Performances en matière de protection de l'environnement : 10 %
-- **Calcul du prix** : Note de l'offre = (Montant de l'offre moins-disante / Montant de l'offre à noter) × 20, pondérée à 40%. Basée sur le DQE.
+- **Calcul du prix** : Note de l'offre = (Montant de l'offre moins-disante / Montant de l'offre à noter) × 20, puis pondérée à 40%
 
 ## Références et qualifications exigées
 - **Expérience minimale** : 5 ans
-- **Secteur d'expérience** : Travaux de VRD, voirie lourde, maçonnerie béton armé et/ou génie civil — attestations de bonne exécution pour les plus importants avec indication du montant, de l'époque et du lieu
+- **Secteur d'expérience** : Travaux de voirie lourde, génie civil béton armé, réseaux pluviaux et/ou travaux d'aménagement d'infrastructure extérieure
+- **Certifications obligatoires** : Assurance décennale couvrant les travaux objets du marché (bloquante=True, source=RC §9.3 et CCAP §17)
 - **Autres exigences** :
-  - Déclaration du chiffre d'affaires global et CA concernant les prestations objet du contrat sur les trois derniers exercices disponibles (source=RC §6.1)
+  - Déclaration concernant le chiffre d'affaires global et le CA concernant les prestations objet du contrat sur les 3 derniers exercices disponibles (source=RC §6.1)
+  - Déclaration indiquant les effectifs moyens annuels et l'importance du personnel d'encadrement pour chacune des 3 dernières années (source=RC §6.1)
+  - Déclaration indiquant l'outillage, le matériel et l'équipement technique dont le candidat dispose pour la réalisation du contrat (source=RC §6.1)
   - Déclaration appropriée de banques ou preuve d'une assurance pour les risques professionnels (source=RC §6.1)
-  - Déclaration des effectifs moyens annuels et importance du personnel d'encadrement sur les 3 dernières années (source=RC §6.1)
-  - Déclaration de l'outillage, matériel et équipement technique disponibles pour la réalisation du contrat (source=RC §6.1)
-  - Attestation d'assurance décennale à produire dans un délai de 10 jours après notification provisoire d'attribution (source=RC §8.2 et §9.3)
-  - Attestation de visite obligatoire sur site (1er juillet 2026 à 9h00) — offre déclarée irrégulière sans cette attestation (source=RC §6.2)
 
 ## ⚠ Alertes candidat
-- VISITE OBLIGATOIRE — la visite sur site du 1er juillet 2026 à 9h00 est impérative : toute offre sans attestation de visite sera déclarée irrégulière (RC §6.2).
-- CLAUSE D'INSERTION — engagement obligatoire de 50 heures d'insertion via le GE-RSE BTP 66&11 à contacter dans les 15 jours suivant la notification. Non-respect = pénalités de 2× SMIC horaire brut par heure non réalisée, voire résiliation (CCAP Annexe 1).
-- MÉMOIRE TECHNIQUE rendu contractuel — le mémoire justificatif est contractualisé ; toute sur-promesse engagera l'entreprise sur les moyens, délais et méthodes décrits (RC §8.2).
-- ATTESTATION DÉCENNALE exigée dans les 10 jours suivant notification provisoire d'attribution — prévoir que l'assureur couvre les ouvrages de génie civil (dalles BA, murs banchers, réseaux enterrés) (RC §9.3).
-- DQE manquant dans les extraits analysés — vérifier impérativement la présence du Détail Quantitatif Estimatif sur la plateforme www.marches-publics.info avant dépôt, car la notation prix s'appuie dessus et toute erreur de report sera rectifiée par le BPU (RC §8.2).
+- VISITE OBLIGATOIRE le 1er juillet 2026 à 9h00 — l'offre d'un candidat n'ayant pas effectué la visite sera déclarée IRRECEVABLE ; le certificat de visite doit être joint à l'offre.
+- CLAUSE D'INSERTION SOCIALE obligatoire : 50 heures minimum à réserver, engagement à signer dans l'acte d'engagement (Annexe 1 CCAP). Non-respect sanctionné par pénalités (2× SMIC/h) voire résiliation.
+- ASSURANCE DÉCENNALE exigée à peine d'élimination : l'attestation doit être produite dans les 10 jours suivant la demande du pouvoir adjudicateur après attribution.
+- PLANS D'EXÉCUTION établis par le TITULAIRE et soumis au visa du MOA (délai 15 jours) — le candidat doit intégrer ce coût dans son offre et l'annoncer dans son mémoire technique.
+- NÉGOCIATION POSSIBLE mais attributaire possible sur offres initiales — ne pas sous-estimer l'offre initiale comme si une renégociation était acquise.
 
 ## 💡 Points différenciants attendus
-- Méthodologie béton armé détaillée et phasage cohérent avec le délai de 2 mois (exemple=Proposer un planning Gantt séquençant précisément coffrage/coulage/décoffrage des 3 alvéoles, en démontrant que le délai de 2 mois est tenu avec les ressources annoncées. Indiquer les temps de séchage prévus et le chevauchement avec les phases voirie., source=RC §8.2)
-- Gestion hydraulique et raccordement au bassin existant (exemple=Présenter un schéma hydraulique du chantier montrant la collecte des eaux de ruissellement pendant et après travaux, le dimensionnement du séparateur proposé et les modalités de raccordement au bassin existant sans interruption de service de la déchèterie., source=RC §8.2 et CCTP §5)
-- Expérience sur chantiers similaires (déchèteries, plateformes logistiques industrielles, génie civil VRD + béton armé) (exemple=Produire 2-3 attestations de bonne exécution sur des chantiers mêlant voirie lourde et ouvrages béton armé (dalles industrielles, murs de soutènement), avec montants et maîtres d'ouvrages identifiés — terrain préférable dans le 66., source=RC §6.1)
-- Plan de gestion environnementale chantier avec taux de valorisation déchets élevé (exemple=Fournir un tableau flux déchets prévisionnel avec filières de valorisation identifiées (nom et localisation des centres agréés dans les Pyrénées-Orientales), et un engagement de taux de valorisation ≥ 90% pour les inertes — critère environnement valorisé à 10%., source=RC §8.2)
-- Utilisation de matériaux locaux et/ou recyclés pour la chaussée lourde (exemple=Proposer des graves recyclées certifiées issues d'une plateforme du département 66 ou régionale, avec justification de la conformité aux spécifications techniques de la chaussée lourde pour déchèterie (trafic de bennes)., source=RC §8.2)
+- Qualité du mémoire technique — la valeur technique représente 50% de la note finale (exemple=Un candidat qui présente un planning Gantt détaillé sur 2 mois avec jalons clés (fin terrassement J+10, fin murs BA J+25, voirie J+40, réseaux J+50, DOE J+55) et un organigramme nominatif avec CV se différenciera nettement des offres génériques., source=RC §8.2)
+- Expérience en génie civil déchèterie ou infrastructure similaire (pont bascule, alvéoles béton) (exemple=Joindre 2-3 attestations de bonne exécution sur des chantiers de déchèterie ou d'infrastructure VRD avec ouvrages béton armé de complexité comparable (murs à bancher, dalles de forte charge) renforcera significativement la valeur technique., source=RC §6.1)
+- Gestion du réseau pluvial et coordination avec ouvrages existants (exemple=Présenter un schéma hydraulique simplifié montrant le chemin des eaux depuis les alvéoles jusqu'au bassin existant, en passant par le nouveau séparateur avec alarme, démontre la maîtrise technique de cette contrainte spécifique valorisée à 5/20., source=RC §8.2)
+- Démarche environnementale concrète (10% de la note) — différenciante à effort modéré (exemple=Une fiche de gestion des déchets chantier avec tableau par flux (béton, acier, plastiques, terres), les filières de valorisation retenues et un objectif de taux de recyclage > 80% répond précisément aux sous-critères 'gestion des déchets' et 'choix des matériaux'., source=RC §8.2)
+- Délai proposé inférieur au plafond de 2 mois (exemple=Proposer 7 semaines au lieu de 8 (délai plafond) apporte 2 points techniques supplémentaires sur le sous-critère délai, tout en restant réaliste compte tenu des tâches à accomplir., source=RC §8.2)

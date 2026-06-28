@@ -1,6 +1,6 @@
 # Brief — Impression de documents de communication et de supports de signalétique pour le Département du Val-de-Marne
 
-_Généré le 2026-06-15 02:12 par Claude claude-sonnet-4-6_
+_Généré le 2026-06-20 16:20 par Claude claude-sonnet-4-6_
 
 ## Identifiants
 - **ID Tendia** : `BOAMP-26-56129`
@@ -11,64 +11,49 @@ _Généré le 2026-06-15 02:12 par Claude claude-sonnet-4-6_
 - **DCE PLACE** : <https://marches.maximilien.fr/?page=Entreprise.EntrepriseAdvancedSearch&AllCons&id=935869&orgAcronyme=a8z>
 
 ## Synthèse
-Le Département du Val-de-Marne lance un accord-cadre à bons de commande en 4 lots pour l'impression de documents de communication et la fabrication/pose/dépose de supports de signalétique. Le marché couvre : impression rotative (lot 1), impression feuilles ou numérique (lot 2), signalétique chantiers et équipements (lot 3), signalétique événements et campagnes (lot 4). La durée est d'un an reconductible tacitement jusqu'à 4 ans maximum.
-
-## 🎯 Mission conseil
-- **Typologie de mission** : fournitures courantes et services
-- **Domaine d'expertise** : impression graphique, signalétique
-- **Durée de mission** : 1 an reconductible jusqu'à 4 ans
-- **Livrables attendus** :
-  - Documents imprimés sur presses rotatives (magazines, brochures, dépliants)
-  - Documents imprimés en feuilles ou numérique (brochures, feuillets, affiches, chemises)
-  - Supports de signalétique fabriqués (banderoles, panneaux, kakémonos, flèches, autocollants, drapeaux)
-  - Pose et dépose de supports de signalétique chantiers et équipements
-  - Pose et dépose de supports de signalétique événements et campagnes
-
-### Profils intervenants
-Imprimeurs et prestataires signalétique disposant des équipements techniques requis (presses rotatives pour lot 1, machines impression feuilles/numérique pour lot 2, équipements impression grand format numérique et sérigraphie pour lots 3 et 4)
+Marché public d'impression de documents de communication et de supports de signalétique pour le Département du Val-de-Marne (94), structuré en 4 lots : impression rotative (lot 1), impression feuilles/numérique (lot 2), signalétique chantiers/équipements (lot 3) et signalétique événements/campagnes (lot 4). Accord-cadre à bons de commande, procédure ouverte, durée maximale 4 ans (reconduction tacite annuelle à partir du 1er janvier 2027). Montant maximum total tous lots : 1 800 000 € HT sur 4 ans.
 
 ## 💶 Montant du marché
-- **Plafond accord-cadre** : **1,80 M€**
-  - sur Durée totale de l'accord-cadre (jusqu'à 4 ans)
-  - _source : AE lot 1 art 3.3 (max 800 000 € HT), AE lot 2 art 3.3 (max 500 000 € HT), AE lot 3 art 3.3 (max 250 000 € HT), AE lot 4 art 3.3 (max 250 000 € HT)_
-- _Note_ : Plafonds des accords-cadres sans montant minimum : lot 1 = 800 000 € HT, lot 2 = 500 000 € HT, lot 3 = 250 000 € HT, lot 4 = 250 000 € HT. Total toutes tranches = 1 800 000 € HT maximum sur la durée totale (jusqu'à 4 ans).
+- **Valeur estimée** : **4,08 M€**
+  - sur 4 ans (1 an + 3 reconductions tacites)
+  - _source : Actes d'Engagement lots 1-4 (montants maximum par lot)_
+- _Note_ : Montants maximum sur 4 ans issus des AE : Lot 1 = 800 000 € HT × 4 ans = 3 200 000 € (mais AE précise 800 000 € comme max, durée 4 ans), Lot 2 = 500 000 € HT, Lot 3 = 250 000 € HT, Lot 4 = 250 000 € HT. Total maximum accord-cadre = 800 000 + 500 000 + 250 000 + 250 000 = 1 800 000 € HT. Les montants BOAMP (1 895 369 + 1 285 509 + 218 007 + 682 530 = 4 081 415 €) semblent être des estimations sur toute la durée et divergent des plafonds AE. On retient la valeur BOAMP comme estimé publié.
 
 ## Barème de notation
-- **Valeur technique** : —
-- **Valeur prix** : —
-- **Calcul du prix** : Bordereau des prix unitaires : prix unitaires HT appliqués aux quantités réellement commandées par bons de commande.
+- **Valeur technique** : 60 %
+- **Valeur prix** : 40 %
+- **Sous-critères techniques** :
+  - Qualité : 60 %
+- **Calcul du prix** : DQE : application des prix unitaires du BPU aux quantités non contractuelles estimées par l'acheteur. Le total HT du DQE est la base de comparaison prix.
 
 ## Références et qualifications exigées
 - **Expérience minimale** : —
+- **Secteur d'expérience** : Impression offset, rotative ou numérique de documents de communication pour collectivités ; fabrication et pose de supports de signalétique grand format selon les lots.
 
 ## Lots
 - **Lot 1** — Impression rotative des documents de communication sur supports papier
   - Zone : Val-de-Marne (94)
-  - Volume estimé : 800000 euros HT (plafond accord-cadre)
-  - Impression sur machines rotatives. Principaux documents : magazine départemental 36 pages 80g couché demi-mat 19x26 cm collé-rogné (6 × 640 000 ex.), brochures 8 pages à bons de commande (200 000 ex.), dépliants 4 pages 100% recyclé. Planning annuel prévisionnel fourni pour le magazine. Préavis 15 jours ouvrés avant BAT pour grandes quantités. Disponibilité annuelle totale exigée y compris été et fin d'année.
+  - Impression sur machines rotatives uniquement. Comprend le magazine départemental (640 000 ex, 36 pages, 6 parutions/an), brochures à forts tirages (200 000 ex), dépliants (100 000 ex). Montant maximum 800 000 € HT sur l'accord-cadre. Reconduction tacite annuelle, 4 ans max. BOAMP estime à 1 895 369 € sur 4 ans. Exige disponibilité totale y compris été et fin d'année.
 - **Lot 2** — Impression feuilles ou numérique des documents de communication sur supports papier et spéciaux
   - Zone : Val-de-Marne (94)
-  - Volume estimé : 500000 euros HT (plafond accord-cadre)
-  - Impression feuilles ou numérique pour petites et moyennes séries : brochures formats spécifiques (8p + encart, 12p, 16p), feuillets (A6 à A4), affiches (40x60, 60x80, 120x176 cm), chemises pelliculées avec façonnage manuel. Façonnages inclus : pliage croisé, roulé, accordéon. Délais fixés par bon de commande.
+  - Impression offset feuilles ou numérique. Petits et moyens tirages : brochures spécifiques, feuillets, affiches, chemises avec pelliculage, suppléments pliage. Montant maximum 500 000 € HT. BOAMP estime à 1 285 509 € sur 4 ans.
 - **Lot 3** — Impression, fabrication, pose et dépose de supports de signalétique des chantiers et équipements départementaux
-  - Zone : Val-de-Marne (94)
-  - Volume estimé : 250000 euros HT (plafond accord-cadre)
-  - Fabrication par impression numérique et sérigraphique (banderoles PVC, panneaux Dispa/akilux/Dibond/PVC, kakémonos, drapeaux, autocollants, flèches, jupes de table, urnes). Panneaux grand format réutilisables (4x3 m, 3x2 m). Finitions spécifiques (antidérapant, anti-graffiti, M1, découpe, lamination Velleda). Pose/dépose avec déplacement compris, possibilité nacelle. Intervention urgence < 12h majorée.
+  - Zone : Val-de-Marne (94) et zones limitrophes
+  - Signalétique chantiers et équipements départementaux : panneaux 4x3 et 3x2 m réutilisables, kakémonos, banderoles, flèches, adhésifs, drapeaux. Pose et dépose avec déplacement inclus. Montant maximum 250 000 € HT. BOAMP estime à 218 007 € sur 4 ans. Les prestations (impression, fabrication, pose, dépose) sont indépendantes.
 - **Lot 4** — Impression, fabrication, pose et dépose de supports de signalétique des évènements et campagnes de communication
-  - Zone : Val-de-Marne (94)
-  - Volume estimé : 250000 euros HT (plafond accord-cadre)
-  - Mêmes typologies de supports que le lot 3 mais orientés événements et campagnes de communication (roll-up, beach flags, panneaux d'affichage mobiles, adhésifs sur véhicules). Panneaux grand format réutilisables (4x3 m, 3x3 m). Pose distinctée en pose temporaire et pose définitive. Intervention urgence < 12h majorée.
+  - Zone : Val-de-Marne (94) et zones limitrophes
+  - Signalétique événementielle et campagnes : banderoles, panneaux, kakémonos, roll-up, beach flags, jupes de tables, urnes, adhésifs sur véhicules. Pose et dépose. Montant maximum 250 000 € HT. BOAMP estime à 682 530 € sur 4 ans (valeur bien supérieure au plafond AE — incohérence à vérifier). Intervention urgente < 12h prévue au BPU.
 
 ## ⚠ Alertes candidat
-- Disponibilité annuelle totale exigée sans exception de période : le titulaire ne peut refuser la reconduction et doit livrer dans les délais y compris en été et en fin d'année — exigence de capacité de production continue à intégrer dans le mémoire technique
-- BPU très détaillé (plus de 50 références tarifaires pour les lots 3 et 4) : toute ligne non renseignée ou incohérente peut entraîner une irrégularité de l'offre — vérifier exhaustivité avant dépôt
-- La signature de l'acte d'engagement n'est exigée qu'à l'attribution : un candidat en groupement conjoint doit prévoir que le mandataire deviendra solidaire à la notification
-- Un candidat ne peut pas présenter plusieurs offres en qualité à la fois de candidat individuel et de membre d'un groupement, ni être membre de plusieurs groupements — risque d'exclusion automatique
-- Taille des fichiers limitée à 4 Go par pli et 1 Go par fichier sur la plateforme Maximilien : anticiper le volume des BPU et DQE complétés bien avant la date limite du 15 juillet 2026
+- Aucun montant minimum garanti : accord-cadre à bons de commande sans plancher — le prestataire peut ne recevoir aucune commande malgré l'attribution. Vérifier la cohérence de son offre avec ce risque volume.
+- Incohérence entre les montants maximum des Actes d'Engagement (lot 1 : 800 000 €, lot 2 : 500 000 €, lots 3 et 4 : 250 000 € chacun, total 1 800 000 €) et les estimations BOAMP (total 4 081 415 €) : clarifier avec l'acheteur avant remise, les plafonds AE s'imposent contractuellement.
+- BPU très complexe (lots 3 et 4) : des dizaines de références avec tarification dégressives à 7 tranches de surface, risque d'erreur ou d'oubli de ligne — vérifier l'exhaustivité du BPU avant dépôt.
+- Disponibilité annuelle totale exigée, y compris été et fin d'année : les délais sont fixés par bon de commande, la capacité à honorer les engagements en périodes chargées est un critère opérationnel clé.
+- Groupement conjoint possible mais mandataire devra être solidarisé après attribution : anticiper la clause de solidarité imposée par l'acheteur (article R2142-24 du Code de la commande publique mentionné dans chaque AE).
 
 ## 💡 Points différenciants attendus
-- Capacité à livrer dans les délais courts y compris hors saison standard (exemple=Mentionner l'organisation en astreinte/permanence production (équipes, sous-traitants qualifiés) pour les périodes estivales et de fin d'année, avec engagement contractualisé sur les délais de livraison du magazine départemental selon le planning annuel prévisionnel., source=AE lot 1 art 6)
-- Offre de prix compétitive sur les lignes à fort volume (magazine 640 000 ex.) (exemple=Proposer un tarif unitaire optimisé pour le tirage de masse rotative en intégrant les économies d'échelle, et présenter le coût du 1 000 plus de manière transparente pour faciliter la comparaison., source=DQE lot 1)
-- Couverture complète des références BPU sans lacune (exemple=Renseigner exhaustivement l'ensemble des 50+ lignes des BPU lots 3 et 4 en proposant des tarifs cohérents et compétitifs sur toutes les matières, grammages et formats demandés, y compris les finitions spécifiques (anti-graffiti, M1, découpe)., source=BPU lot 3, BPU lot 4)
-- Réactivité pour les interventions urgentes (< 12h) de pose/dépose (exemple=Justifier d'une organisation locale (équipes basées en Île-de-France, véhicules dédiés) permettant une intervention en moins de 12h sur le territoire du Val-de-Marne, avec un process d'astreinte formalisé., source=BPU lot 3 ligne P/D10, BPU lot 4 ligne P/D13)
-- Matériaux éco-responsables proposés en alternative (exemple=Valoriser les équivalents éco-responsables au 'Dispa' (panneaux recyclés/recyclables) et les papiers 100% recyclés déjà attendus sur certaines lignes du DQE, en précisant les certifications environnementales des fournisseurs., source=BPU lot 3 codes N7-N9, DQE lot 1)
+- Parc machines dédié et capacité de tirage élevée (lot 1 rotative) (exemple=Présenter les presses rotatives propres (nombre, format, vitesse), la capacité à produire 640 000 exemplaires en délai maîtrisé pour le magazine départemental, et les références de publications similaires pour des collectivités., source=AE lot 1)
+- Maîtrise des délais et réactivité (tous lots) (exemple=Proposer un planning type de production pour le magazine (avec le planning prévisionnel annuel attendu par l'acheteur) et illustrer la capacité à répondre aux commandes urgentes (intervention < 12h prévue au BPU lot 4) avec un exemple concret., source=AE lots 1-4 §6)
+- Offre environnementale : matériaux éco-responsables (exemple=Valoriser l'utilisation de papiers recyclés (lot 1 : 100% recyclé déjà cité au DQE), de supports type 'Dispa' ou équivalent éco-responsable (lot 3 et 4 BPU), de certifications FSC/PEFC, et de processus de fabrication bas-carbone. Le critère BOAMP mentionne des critères environnementaux., source=Contexte BOAMP (criteres_attribution_boamp: environnementaux) ; BPU lots 3-4)
+- Réseau de distribution et couverture territoriale (livraison sur le 94) (exemple=Préciser les délais de livraison sur le territoire du Val-de-Marne, les points de livraison possibles, la gestion des livraisons en grande quantité (camion, conditionnement) pour les tirages du magazine à 640 000 exemplaires., source=AE lot 1 §6)
+- Prix compétitif sur le DQE (déterminant à 40%) (exemple=Analyser les quantités non-contractuelles du DQE et optimiser les prix sur les lignes à fort volume (magazine 640 000 ex × 6, panneaux 50×150 cm en grande quantité) pour maximiser la note prix sans sous-tarifer les lignes à faible volume., source=DQE lots 1-4)

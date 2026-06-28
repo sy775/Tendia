@@ -1,19 +1,41 @@
 {
-  "synthese_marche": "Marché public de travaux en procédure adaptée ouverte pour la rénovation de la crèche Gaston Variot à Savigny-le-Temple (77). Le marché est décomposé en 6 lots couvrant l'ensemble des corps d'état (gros œuvre, menuiseries, revêtements, plomberie-CVC, électricité, aménagements extérieurs) pour une valeur estimée de 260 000 € HT. Le délai global d'exécution est de 22 semaines avec un démarrage prévu le 03/08/2026.",
+  "synthese_marche": "Marché public de travaux de rénovation de la crèche Gaston Variot à Savigny-le-Temple (77), décomposé en 6 lots couvrant l'ensemble des corps d'état (maçonnerie, menuiseries, revêtements, plomberie/CVC, électricité, aménagements extérieurs). Le marché est estimé à 260 000 € HT, avec un délai global d'exécution de 22 semaines (dont 2 semaines de préparation) à compter du 03/08/2026. La visite sur site est obligatoire et le dépôt est exclusivement dématérialisé.",
   "domaines_metier": [
     {
-      "code": "btp_renovation_rehabilitation"
+      "code": "btp_second_oeuvre",
+      "poids": 0.6,
+      "lots_concernes": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ]
+    },
+    {
+      "code": "btp_gros_oeuvre",
+      "poids": 0.25,
+      "lots_concernes": [
+        "01"
+      ]
+    },
+    {
+      "code": "amenagement_paysager_creation",
+      "poids": 0.15,
+      "lots_concernes": [
+        "06"
+      ]
     }
   ],
-  "raison_classification": "Il s'agit d'une rénovation multi-lots d'un équipement public (crèche) incluant curage, maçonnerie, menuiseries, revêtements, plomberie-CVC, électricité et aménagements extérieurs. Le marché ne présente pas de dominante énergétique/thermique particulière mais une réhabilitation complète d'un bâtiment existant, ce qui correspond au code btp_renovation_rehabilitation.",
+  "raison_classification": "Le marché est majoritairement composé de travaux de second œuvre (maçonnerie/plâtrerie/menuiseries/revêtements/peinture/plomberie/CVC/électricité – lots 1 à 5). Le lot 1 comporte également une composante gros œuvre (curage/maçonnerie structurelle). Le lot 6 (aménagements extérieurs) relève de l'aménagement paysager/création d'espaces extérieurs.",
   "caracteristiques_techniques_chantier": {
-    "description": "Rénovation complète de la crèche Gaston Variot, Avenue des Régalles à Savigny-le-Temple (77176). Les travaux comprennent installations de chantier, curage, maçonnerie, plâtrerie, menuiseries intérieures et extérieures, serrurerie, revêtements de sols et muraux, peinture, plomberie, CVC, électricité et aménagements extérieurs.",
-    "typologie_ouvrage": "Crèche / établissement de petite enfance (équipement public municipal)",
-    "surface_volume": null,
-    "site_occupe": "Non précisé explicitement dans les pièces disponibles ; la crèche est objet de rénovation, aucune mention d'occupation pendant les travaux.",
+    "description": "Rénovation complète d'une crèche existante comprenant : curage, maçonnerie, plâtrerie, menuiseries intérieures et extérieures, serrurerie, revêtements de sols et muraux, peinture, plomberie/CVC, installations électriques et aménagements extérieurs.",
+    "typologie_ouvrage": "Crèche (équipement petite enfance/ERP)",
+    "surface_volume": "Surface totale estimable à environ 600-700 m² d'après le plan RDC (somme des pièces identifiées sur le plan d'accessibilité)",
+    "site_occupe": "Non précisé explicitement dans les documents fournis, mais probable fermeture pendant travaux (démarrage prévu début août 2026)",
     "corps_etat": [
       "Installations de chantier",
-      "Curage",
+      "Curage / démolition",
       "Maçonnerie",
       "Plâtrerie",
       "Menuiseries intérieures",
@@ -21,71 +43,72 @@
       "Serrurerie",
       "Revêtements de sols et muraux",
       "Peinture",
-      "Plomberie",
+      "Plomberie / Sanitaires",
       "CVC (Chauffage Ventilation Climatisation)",
-      "Électricité",
+      "Électricité courants forts et faibles",
       "Aménagements extérieurs"
     ],
     "contraintes_specifiques": [
-      "Visite obligatoire sur site avant dépôt de l'offre (deux dates imposées : 17/06/2026 et 23/06/2026)",
+      "Visite sur site obligatoire préalablement au dépôt d'offre",
+      "Délai global contraint : 22 semaines dont 2 semaines de préparation",
+      "Coordination SPS de niveau II obligatoire (ARC 77)",
+      "Contrôle technique assuré par BTP Consultants",
       "Clauses environnementales obligatoires (gestion des déchets, limitation des nuisances)",
-      "Planning imposé par le DCE à respecter obligatoirement",
-      "Accessibilité PMR à traiter (plan accessibilité fourni au DCE)",
-      "PSE obligatoire pour le lot 1",
-      "Délai global de 22 semaines dont 2 semaines de préparation, démarrage prévu le 03/08/2026",
-      "Coordination SPS de niveau II obligatoire"
+      "PSE obligatoire sur le lot 1 (prestation supplémentaire éventuelle définie en DPGF)",
+      "Déblais à évacuer au fur et à mesure",
+      "Facturation électronique via Chorus Pro obligatoire"
     ]
   },
   "allotissement": {
-    "description": "Marché décomposé en 6 lots distincts, chacun faisant l'objet d'un marché séparé. Les candidats peuvent soumissionner sur plusieurs lots.",
+    "description": "Marché alloti en 6 lots, chacun donnant lieu à un marché séparé. Les candidats peuvent soumissionner à tous les lots.",
     "nb_lots": 6,
     "lots_detailles": [
       {
         "numero": 1,
         "intitule": "Installations de chantier - Curage - Maçonnerie - Plâtrerie - Menuiseries intérieures",
-        "corps_etat": "Gros œuvre / second œuvre intérieur",
+        "corps_etat": "Installation de chantier, curage, maçonnerie, plâtrerie, menuiseries intérieures",
         "montant_estime": null,
-        "description": "Installations de chantier, curage, travaux de maçonnerie, plâtrerie et menuiseries intérieures. Comprend une PSE obligatoire."
+        "description": "Lot principal incluant les installations de chantier, le curage des existants, la maçonnerie structurelle et de second œuvre, la plâtrerie et les menuiseries intérieures. Comprend une PSE obligatoire."
       },
       {
         "numero": 2,
         "intitule": "Menuiseries extérieures - Serrurerie",
-        "corps_etat": "Menuiseries extérieures / serrurerie",
+        "corps_etat": "Menuiseries extérieures, serrurerie",
         "montant_estime": null,
-        "description": "Fourniture et pose de menuiseries extérieures et éléments de serrurerie."
+        "description": "Fourniture et pose des menuiseries extérieures (portes, fenêtres, vitrages) et serrurerie."
       },
       {
         "numero": 3,
         "intitule": "Revêtements de sols et muraux - Peinture",
-        "corps_etat": "Revêtements / peinture",
+        "corps_etat": "Revêtements de sols, revêtements muraux, peinture",
         "montant_estime": null,
-        "description": "Travaux de revêtements de sols et muraux ainsi que de peinture intérieure."
+        "description": "Pose de revêtements de sols et muraux ainsi que les travaux de peinture intérieure."
       },
       {
         "numero": 4,
         "intitule": "Plomberie - CVC",
-        "corps_etat": "Plomberie / chauffage ventilation climatisation",
+        "corps_etat": "Plomberie, chauffage, ventilation, climatisation",
         "montant_estime": null,
-        "description": "Travaux de plomberie sanitaire et installations CVC."
+        "description": "Travaux de plomberie sanitaire et installations CVC (chauffage, ventilation, climatisation)."
       },
       {
         "numero": 5,
         "intitule": "Electricité",
-        "corps_etat": "Electricité",
+        "corps_etat": "Électricité courants forts et faibles",
         "montant_estime": null,
-        "description": "Travaux d'installations électriques."
+        "description": "Travaux d'installations électriques courants forts et courants faibles."
       },
       {
         "numero": 6,
         "intitule": "Aménagements extérieurs",
-        "corps_etat": "Aménagements extérieurs",
+        "corps_etat": "Aménagements extérieurs, mobilier de jardin d'enfants",
         "montant_estime": null,
-        "description": "Travaux d'aménagements extérieurs incluant mobilier pour jardin d'enfants."
+        "description": "Aménagements des espaces extérieurs incluant mobilier pour jardin d'enfants (CPV 39161000-8)."
       }
     ]
   },
   "qualifications_requises": {
-    "description": "Certificat Qualibat ou équivalent exigé pour tous les lots, démontrant la capacité du candidat à réaliser les prestations. Aucun indice Qualibat spécifique n'est précisé dans le RC.",
+    "description": "Le RC exige un certificat Qualibat ou équivalent, ou tout autre moyen de preuve équivalent démontrant la capacité du candidat à réaliser les prestations. Aucun indice Qualibat spécifique n'est listé par code dans le RC.",
     "qualibat": [],
     "rge": false,
     "rge_specialites": [],
@@ -122,104 +145,160 @@
       {
         "libelle": "Valeur technique",
         "ponderation_pct": 45,
-        "description": "La valeur technique est évaluée sur 4 sous-critères couvrant le mode opératoire, les moyens humains et matériels, le phasage/planning et la qualité des fournitures.",
+        "description": "Le critère valeur technique est subdivisé en 4 sous-critères couvrant le mode opératoire, les moyens humains/matériels, le planning et la qualité des fournitures. Il représente 45% de la note globale.",
         "elements_attendus": [],
         "exemple_reponse_forte": "—",
         "source": "RC §8.2",
+        "unite_evaluation": "points",
         "sous_criteres": [
           {
             "libelle": "Mode opératoire de réalisation de l'opération",
             "ponderation_pct": 20,
-            "description": "L'acheteur évalue la méthodologie et le mode opératoire proposé par le candidat pour réaliser les travaux du lot concerné.",
+            "description": "Évalue la méthode de réalisation des travaux proposée par le candidat : organisation du chantier, enchaînement des tâches, méthodologie d'exécution.",
             "elements_attendus": [
-              "Description détaillée du processus d'exécution des travaux lot par lot",
-              "Identification des phases critiques et des points d'attention techniques",
-              "Mesures de coordination avec les autres lots",
-              "Gestion des interfaces entre corps d'état",
-              "Méthodes de mise en œuvre des matériaux"
+              "Description détaillée des méthodes de réalisation pour chaque corps d'état du lot concerné",
+              "Organisation de chantier : zones de stockage, accès, circulation",
+              "Gestion des interfaces entre les différents intervenants",
+              "Mesures de protection des ouvrages existants et des usagers",
+              "Dispositions spécifiques liées aux contraintes de site (crèche, ERP)"
             ],
-            "exemple_reponse_forte": "Pour le lot 1, l'entreprise détaillera la séquence curage/démolition partielle avant mise en œuvre de la maçonnerie neuve, avec identification des zones à risque (amiante, plomb) et procédure de confinement. Le mode opératoire précisera les techniques de maçonnerie retenues, les interfaces avec les lots 2 à 5 et les mesures de protection des ouvrages existants.",
+            "exemple_reponse_forte": "Pour le lot 1, le candidat proposera un phasage détaillé du curage puis des travaux de maçonnerie/plâtrerie, avec description précise des mesures de protection des réseaux existants et de confinement des poussières. L'organisation spatiale du chantier (zones de bungalows, accès livraisons, benne déchets) sera schématisée sur plan.",
             "source": "RC §8.2",
-            "sous_criteres": []
+            "unite_evaluation": "points"
           },
           {
             "libelle": "Moyens matériels et humains (qualification du personnel, …) dédiés au chantier",
             "ponderation_pct": 10,
-            "description": "L'acheteur évalue les moyens humains (qualification, effectifs) et matériels que le candidat dédiera spécifiquement à ce chantier.",
+            "description": "Évalue les ressources humaines et matérielles affectées au chantier : effectifs, qualification du personnel d'encadrement et d'exécution, matériel spécifique mobilisé.",
             "elements_attendus": [
-              "Organigramme nominatif du chantier (chef de chantier, conducteur de travaux)",
-              "Qualifications et certifications du personnel dédié",
-              "Liste du matériel et équipements affectés au chantier",
-              "Expérience des compagnons sur des chantiers similaires"
+              "Organigramme nominatif de l'équipe chantier (chef de chantier, compagnons)",
+              "CV du chef de chantier avec références similaires",
+              "Qualifications et habilitations du personnel (Qualibat, habilitations électriques…)",
+              "Liste du matériel spécifique prévu (nacelles, échafaudages, etc.)",
+              "Engagement sur la présence effective du personnel d'encadrement"
             ],
-            "exemple_reponse_forte": "L'entreprise présentera un chef de chantier disposant de 10 ans d'expérience en rénovation d'ERP, assisté d'une équipe de 3 compagnons qualifiés. Le matériel dédié comprend une nacelle, un compresseur et un matériel de découpe adapté aux travaux en milieu occupé.",
+            "exemple_reponse_forte": "L'entreprise affecte un chef de chantier expérimenté (10 ans en rénovation ERP) secondé par 3 compagnons qualifiés. Le matériel comprend un monte-matériaux, 2 bennes pour déchets triés et un groupe électrogène de secours. Les habilitations électriques BR/BC sont à jour pour le personnel intervenant en lot 5.",
             "source": "RC §8.2",
-            "sous_criteres": []
+            "unite_evaluation": "points"
           },
           {
             "libelle": "Phasage et planning d'exécution des travaux faisant apparaître les phases études et travaux avec détail des tâches suivant le planning du DCE fourni",
             "ponderation_pct": 10,
-            "description": "L'acheteur évalue la cohérence et le détail du planning proposé par rapport au planning prévisionnel fourni dans le DCE, avec identification des phases études et travaux.",
+            "description": "Évalue la cohérence et la précision du planning proposé par le candidat, en conformité avec le planning prévisionnel du DCE, en distinguant phase de préparation et phase travaux.",
             "elements_attendus": [
-              "Planning Gantt détaillé en cohérence avec le planning du DCE",
-              "Distinction entre phase préparation (2 semaines) et phase travaux",
-              "Tâches détaillées avec durées et jalons",
-              "Identification des interfaces avec les autres lots",
-              "Respect du délai global de 22 semaines"
+              "Planning en diagramme de Gantt reprenant la structure du planning DCE",
+              "Distinction claire entre période de préparation (2 semaines) et travaux (20 semaines)",
+              "Jalons de coordination inter-lots identifiés",
+              "Tâches détaillées par corps d'état avec durées réalistes",
+              "Identification des chemins critiques et des marges"
             ],
-            "exemple_reponse_forte": "Le candidat produira un planning Gantt calé sur le planning DCE, distinguant la période de préparation (semaines 1-2 : études d'exécution, PPSPS, approvisionnements) et les phases travaux (semaines 3-22), avec les jalons de réception partielle et les interfaces entre lots identifiées.",
+            "exemple_reponse_forte": "Le candidat fournit un planning Gantt sur 22 semaines calé sur le planning DCE, avec décomposition en 3 niveaux de tâches : préparation (semaines 1-2), travaux par zone (semaines 3-20) et réception/DOE (semaines 21-22). Les interfaces avec les autres lots sont matérialisées par des dépendances et des jalons communs.",
             "source": "RC §8.2",
-            "sous_criteres": []
+            "unite_evaluation": "points"
           },
           {
             "libelle": "Qualité des fournitures et références fournisseurs (délais de livraison, …)",
             "ponderation_pct": 5,
-            "description": "L'acheteur évalue la qualité des produits et matériaux proposés ainsi que la fiabilité des fournisseurs (délais de livraison, références).",
+            "description": "Évalue la qualité et la pertinence des fournitures proposées ainsi que la fiabilité des approvisionnements (délais de livraison, références fournisseurs).",
             "elements_attendus": [
               "Fiches techniques des produits et matériaux proposés",
-              "Références et agréments des fournisseurs",
-              "Délais de livraison garantis",
-              "Adéquation des produits avec les exigences du CCTP"
+              "Références des fournisseurs retenus avec délais de livraison confirmés",
+              "Conformité aux normes et spécifications du CCTP",
+              "Justification des choix techniques (durabilité, performances)"
             ],
-            "exemple_reponse_forte": "Le candidat joindra les fiches techniques des revêtements de sol proposés (norme NF EN 649, classement UPEC adapté à un ERP petite enfance), avec confirmation des délais de livraison à 3 semaines auprès du fournisseur référencé.",
+            "exemple_reponse_forte": "Le candidat joint les fiches techniques des revêtements de sols proposés (classement UPEC conforme aux exigences ERP petite enfance), avec confirmation écrite du fournisseur sur les délais de livraison (3 semaines). Les menuiseries extérieures sont certifiées ACOTHERM et disponibles en stock fournisseur sous 4 semaines.",
             "source": "RC §8.2",
-            "sous_criteres": []
+            "unite_evaluation": "points"
           }
         ]
       },
       {
-        "libelle": "Développement Durable (sera noté notamment sur la base des mesures de protection de l'environnement (gestion des déchets, limitation des nuisances), conformément aux exigences du CCTP)",
+        "libelle": "Développement Durable",
         "ponderation_pct": 5,
-        "description": "L'acheteur évalue les mesures concrètes mises en place par le candidat pour protéger l'environnement et limiter les nuisances de chantier (gestion des déchets, bruit, poussières), conformément aux exigences du CCTP.",
+        "description": "Évalué notamment sur la base des mesures de protection de l'environnement (gestion des déchets, limitation des nuisances), conformément aux exigences du CCTP.",
         "elements_attendus": [
-          "Plan de gestion des déchets de chantier (tri, filières de valorisation, traçabilité)",
+          "Plan de gestion des déchets de chantier avec tonnages estimés et filières de valorisation",
           "Mesures de limitation des nuisances sonores et de poussières",
-          "Identification des déchets dangereux potentiels (amiante, peintures) et filières adaptées",
-          "Engagements sur la réduction de l'impact environnemental du chantier"
+          "Dispositions pour réduire les émissions (motorisation chantier, livraisons groupées)",
+          "Traçabilité des déchets (bordereau de suivi)"
         ],
-        "exemple_reponse_forte": "L'entreprise présentera un bordereau de suivi des déchets distinguant inertes, non dangereux et dangereux, avec contrats signés avec les filières de valorisation agréées. Un protocole de bâchage et d'arrosage des zones de démolition sera mis en place pour limiter les poussières.",
+        "exemple_reponse_forte": "Le candidat présente un schéma de tri sélectif sur chantier avec 3 bennes distinctes (inertes/DIB/bois) et les noms des centres de recyclage agréés. Un plan de limitation des nuisances sonores précise les horaires de travail bruyant et les équipements silencieux retenus, conformément aux prescriptions du CCTP.",
         "source": "RC §8.2",
-        "sous_criteres": []
+        "unite_evaluation": "points"
       }
     ],
     "prix": {
       "type_formule": "moins_disant",
-      "formule_explicite": "Le critère prix représente 50% de la note globale. La formule exacte de notation n'est pas précisée dans le RC ; il s'agit d'une offre économiquement la plus avantageuse avec 50% pour le prix.",
+      "formule_explicite": "Prix des prestations noté sur 50 points ; formule exacte non précisée dans le RC — présomption de notation proportionnelle au prix le moins disant.",
+      "source": "RC §8.2",
       "elements_a_chiffrer": [
-        "Prix global forfaitaire par lot (DPGF au format Excel)",
-        "PSE obligatoire pour le lot 1 (Décomposition du Prix Global Forfaitaire du lot 1)"
+        "Prix global forfaitaire par lot (DPGF à compléter au format Excel)",
+        "PSE obligatoire du lot 1 (prestation supplémentaire éventuelle détaillée en DPGF)"
       ]
     },
-    "modalite_calcul_prix": "50% de la note globale attribuée au critère prix ; formule exacte non précisée dans le RC. Offre économiquement la plus avantageuse."
+    "modalite_calcul_prix": "Prix des prestations pondéré à 50% de la note globale. Formule exacte non précisée dans le RC."
   },
   "montant_marche": {
     "valeur_estimee_euros": 260000,
     "fourchette_min_euros": null,
     "fourchette_max_euros": null,
     "type": "estime_explicite",
-    "duree_couverte": "22 semaines (durée globale d'exécution)",
-    "source_extraction": "Avis AAPC (MPI1832499_AAPC.pdf) rubrique 'Quantité ou étendue : Valeur estimée hors TVA : 260 000,00 €'",
-    "commentaire": "Valeur estimée globale toutes lots confondus, mentionnée dans l'avis d'appel public à la concurrence. Les montants par lot ne sont pas détaillés."
+    "duree_couverte": "Durée ferme — 22 semaines de travaux",
+    "source_extraction": "AAPC (avis d'appel public à la concurrence) — rubrique 'Valeur estimée hors TVA : 260 000,00 €'",
+    "commentaire": "Montant global estimé de l'opération toutes lots confondus, publié dans l'AAPC. Aucune décomposition par lot n'est fournie dans les documents disponibles."
+  },
+  "montant_3_voies": {
+    "voie_1_eur": 260000,
+    "voie_1_source": "AAPC — rubrique 'Valeur estimée hors TVA : 260 000,00 €'",
+    "voie_2_disponible": false,
+    "voie_2_min_eur": null,
+    "voie_2_max_eur": null,
+    "voie_2_hypotheses": [],
+    "voie_2_raison_indisponible": "Voie 1 disponible — estimation bottom-up non nécessaire."
+  },
+  "cout_realisation": {
+    "cout_total_eur": 208000,
+    "cout_min_eur": 182000,
+    "cout_max_eur": 234000,
+    "postes": [
+      {
+        "poste": "Lot 1 — Inst. chantier / Curage / Maçonnerie / Plâtrerie / Menuiseries intérieures",
+        "detail": "Corps d'état le plus lourd : curage + maçonnerie + plâtrerie + menuiseries int. Estimation ~35% du total travaux",
+        "montant_eur": 73000
+      },
+      {
+        "poste": "Lot 2 — Menuiseries extérieures / Serrurerie",
+        "detail": "Fourniture et pose menuiseries extérieures + serrurerie. Estimation ~15% du total",
+        "montant_eur": 39000
+      },
+      {
+        "poste": "Lot 3 — Revêtements de sols et muraux / Peinture",
+        "detail": "Revêtements + peinture sur environ 600-700 m² de surface rénovée. Estimation ~15% du total",
+        "montant_eur": 39000
+      },
+      {
+        "poste": "Lot 4 — Plomberie / CVC",
+        "detail": "Plomberie sanitaire et CVC crèche. Estimation ~20% du total",
+        "montant_eur": 52000
+      },
+      {
+        "poste": "Lot 5 — Électricité",
+        "detail": "Installations électriques courants forts/faibles. Estimation ~10% du total",
+        "montant_eur": 26000
+      },
+      {
+        "poste": "Lot 6 — Aménagements extérieurs",
+        "detail": "Mobilier extérieur et aménagements jardin d'enfants. Estimation ~5% du total",
+        "montant_eur": 13000
+      },
+      {
+        "poste": "Encadrement et frais généraux chantier (tous lots)",
+        "detail": "Chef de projet, conducteur de travaux, frais de chantier communs — estimé à ~5% du coût direct",
+        "montant_eur": 12000
+      }
+    ],
+    "taux_journaliers_retenus": "Taux marché indicatifs utilisés : maçon qualifié 38-45 €/h chargé, plombier/électricien 42-50 €/h chargé, chef de chantier 55-65 €/h chargé. Ces taux sont des estimations marché régionales (IDF) et ne constituent pas des données réelles du DCE.",
+    "commentaire": "Estimation bottom-up du coût de production pour un candidat répondant à l'ensemble des lots. La variation de fourchette porte sur les taux horaires chargés (±13%). Le coût total estimé (208 k€) représente un taux de charge moyen de ~80% par rapport au montant marché estimé (260 k€), laissant une marge brute d'environ 20%, cohérente avec des travaux de rénovation second œuvre en IDF. Décomposition par lot à titre indicatif — les DPGF fourniront la décomposition réelle."
   },
   "revision_prix": {
     "type": "actualisation",
@@ -231,36 +310,34 @@
       "BT47",
       "BT01"
     ],
-    "ponderation": "Lot 01 : 100% BT18a (Menuiserie intérieure) ; Lot 02 : 100% BT19b (Menuiseries extérieures bois) ; Lot 03 : 100% BT46 (Peinture, tenture, revêtements muraux) ; Lot 04 : 100% BT38 (Plomberie sanitaire) ; Lot 05 : 100% BT47 (Électricité) ; Lot 06 : 100% BT01 (Tous corps d'état)",
-    "periodicite": null,
-    "formule_revision": "Cn = 0.0% + 100.0% (Index(d-3) / Index(o)) — application d'un coefficient d'actualisation unique basé sur l'index au mois de début d'exécution décalé de 3 mois par rapport à l'index du mois zéro (date d'établissement des prix).",
-    "source_extraction": "CCAP article 6.2",
-    "commentaire": "Les prix sont actualisables (et non révisables en cours d'exécution) : un seul coefficient appliqué en début d'exécution selon l'indice BT spécifique à chaque lot ; formule 100% variable sans partie fixe, ce qui est favorable au titulaire en période inflationniste."
+    "ponderation": "100% de l'indice de référence propre à chaque lot (0% partie fixe) : Lot 1 = BT18a (Menuiserie intérieure), Lot 2 = BT19b (Menuiseries extérieures bois), Lot 3 = BT46 (Peinture, tenture, revêtements muraux), Lot 4 = BT38 (Plomberie sanitaire), Lot 5 = BT47 (Électricité), Lot 6 = BT01 (Tous corps d'état)",
+    "periodicite": "autre",
+    "formule_revision": "Cn = 0.0% + 100.0% × (Index(d-3) / Index(o)) — applicable une fois au démarrage des prestations si le mois de début est postérieur au mois zéro augmenté du décalage",
+    "source_extraction": "CCAP §6.2 — Modalités de variation des prix",
+    "commentaire": "Formule d'actualisation (application unique au démarrage, non révision périodique) avec 100% sur l'indice sectoriel sans partie fixe — favorable au titulaire en période d'inflation des matériaux de construction, mais le décalage de 3 mois réduit la protection pour les marchés courts (22 semaines)."
   },
   "alertes_prix": [
-    "Valeur estimée globale de 260 000 € HT pour 6 lots, soit une enveloppe moyenne par lot de ~43 000 € HT — certains lots peuvent être en dessous du seuil d'avance de 50 000 € HT.",
-    "Prix global forfaitaire : toute erreur dans la DPGF Excel peut entraîner une offre irrégulière ou une demande de rectification par l'acheteur.",
-    "PSE obligatoire pour le lot 1 : le candidat doit impérativement chiffrer la prestation supplémentaire éventuelle sous peine d'offre irrégulière.",
-    "Pondération prix à 50% : marché très sensible au prix, le moins-disant technique a un fort avantage."
+    "Montant global estimé à 260 000 € HT pour 6 lots — lot moyen d'environ 43 000 € HT, avec des disparités importantes selon le corps d'état (lot 1 probablement dominant)",
+    "PSE obligatoire sur le lot 1 : le candidat DOIT chiffrer cette prestation supplémentaire en DPGF, sous peine d'irrégularité",
+    "Formule d'actualisation à 100% sans partie fixe : le candidat doit identifier le mois zéro et anticiper le délai de 3 mois de décalage d'index pour sa formule de prix",
+    "Pondération prix à 50% : marché équilibré prix/technique mais la moindre erreur dans la DPGF impacte significativement le classement"
   ],
   "references_exigees": {
     "experience_minimale_annees": null,
     "experience_source": null,
     "volume_min_references_similaires": null,
-    "volume_min_references_unite": null,
-    "secteur_experience": "Travaux de bâtiment dans le corps d'état correspondant au lot soumissionné (maçonnerie, menuiseries, revêtements, plomberie-CVC, électricité, aménagements extérieurs)",
+    "volume_min_references_unite": "chantiers réalisés",
+    "secteur_experience": "Travaux de rénovation de bâtiments (tous corps d'état selon le lot concerné) — attestations de bonne exécution des 5 dernières années exigées",
     "secteur_source": "RC §6.1",
     "certifications_obligatoires": [
       {
         "libelle": "Certificat Qualibat ou équivalent, ou par tout autre moyen de preuve équivalent (références, moyens techniques et humains) démontrant la capacité du candidat à réaliser les prestations",
+        "codes": [],
+        "bloquante": false,
         "source": "RC §6.1"
       }
     ],
     "autres_exigences": [
-      {
-        "libelle": "Liste des travaux exécutés au cours des cinq dernières années, appuyée d'attestations de bonne exécution pour les plus importants",
-        "source": "RC §6.1"
-      },
       {
         "libelle": "Déclaration concernant le chiffre d'affaires global et le chiffre d'affaires concernant les prestations objet du contrat, réalisées au cours des trois derniers exercices disponibles",
         "source": "RC §6.1"
@@ -270,105 +347,217 @@
         "source": "RC §6.1"
       },
       {
+        "libelle": "Liste des travaux exécutés au cours des cinq dernières années, appuyée d'attestations de bonne exécution pour les plus importants",
+        "source": "RC §6.1"
+      },
+      {
         "libelle": "Déclaration indiquant l'outillage, le matériel et l'équipement technique dont le candidat dispose pour la réalisation du contrat",
         "source": "RC §6.1"
+      },
+      {
+        "libelle": "Attestation d'assurance décennale à produire par l'attributaire dans un délai de 10 jours",
+        "source": "RC §8.3"
       }
     ]
+  },
+  "dossier_candidature": {
+    "pieces_a_fournir": [
+      {
+        "libelle": "Déclaration sur l'honneur pour justifier que le candidat n'entre dans aucun des cas d'interdiction de soumissionner (DC1 ou équivalent)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §6.1"
+      },
+      {
+        "libelle": "Renseignements sur le respect de l'obligation d'emploi (articles L. 5212-1 à L. 5212-11 du Code du travail)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §6.1"
+      },
+      {
+        "libelle": "Pouvoir de signature du marché",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §6.1"
+      },
+      {
+        "libelle": "Déclaration concernant le chiffre d'affaires global et le chiffre d'affaires concernant les prestations objet du contrat (3 derniers exercices)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §6.1"
+      },
+      {
+        "libelle": "Déclaration indiquant les effectifs moyens annuels et l'importance du personnel d'encadrement (3 dernières années)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §6.1"
+      },
+      {
+        "libelle": "Liste des travaux exécutés au cours des cinq dernières années appuyée d'attestations de bonne exécution",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §6.1"
+      },
+      {
+        "libelle": "Déclaration indiquant l'outillage, le matériel et l'équipement technique dont le candidat dispose",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §6.1"
+      },
+      {
+        "libelle": "Certificat Qualibat ou équivalent, ou moyen de preuve équivalent",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §6.1"
+      },
+      {
+        "libelle": "Acte d'engagement (AE) et ses annexes",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §6.1"
+      },
+      {
+        "libelle": "Décomposition du prix global forfaitaire (DPGF) au format Excel",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §6.1"
+      },
+      {
+        "libelle": "Attestation de visite (visite obligatoire)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §6.1 et §6.2"
+      },
+      {
+        "libelle": "Fiches techniques correspondant aux produits et prestations proposés",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §6.1"
+      },
+      {
+        "libelle": "Cadre de mémoire technique (CRT) fourni dans le DCE",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §6.1"
+      }
+    ],
+    "mode_remise": "dématérialisé",
+    "plateforme_depot": "AWS — marches-publics.info",
+    "signature_electronique_exigee": false,
+    "format_signature": null,
+    "nombre_exemplaires": null,
+    "langue": "français",
+    "duree_validite_offres_jours": 180,
+    "modalites_source": "RC §7.1 et §2.1"
   },
   "lots": [
     {
       "numero": 1,
       "intitule": "Installations de chantier - Curage - Maçonnerie - Plâtrerie - Menuiseries intérieures",
+      "domaine": "btp_gros_oeuvre",
       "zone_geographique": "Savigny-le-Temple (77)",
       "volume_estime": null,
       "volume_estime_unite": null,
-      "particularites": "Lot principal supportant les charges d'installation de chantier. Comprend une PSE obligatoire à chiffrer. Indice de révision BT18a (menuiserie intérieure). Titulaire responsable de l'installation de chantier pour l'ensemble de l'opération."
+      "cout_estime_min_eur": 63000,
+      "cout_estime_max_eur": 83000,
+      "particularites": "Lot principal incluant les installations de chantier (lot support). PSE obligatoire à chiffrer. Comprend le curage des existants. Index de révision : BT18a."
     },
     {
       "numero": 2,
       "intitule": "Menuiseries extérieures - Serrurerie",
+      "domaine": "btp_second_oeuvre",
       "zone_geographique": "Savigny-le-Temple (77)",
       "volume_estime": null,
       "volume_estime_unite": null,
-      "particularites": "Indice de révision BT19b (menuiseries extérieures bois). CPV 44316500-3 (serrurerie)."
+      "cout_estime_min_eur": 31000,
+      "cout_estime_max_eur": 46000,
+      "particularites": "Fourniture et pose des menuiseries extérieures et serrurerie. Index de révision : BT19b."
     },
     {
       "numero": 3,
       "intitule": "Revêtements de sols et muraux - Peinture",
+      "domaine": "btp_second_oeuvre",
       "zone_geographique": "Savigny-le-Temple (77)",
       "volume_estime": null,
       "volume_estime_unite": null,
-      "particularites": "Lot le plus avancé dans le planning (le titulaire du lot 3 avise le maître d'ouvrage de l'achèvement des travaux pour déclencher la réception). Indice de révision BT46."
+      "cout_estime_min_eur": 31000,
+      "cout_estime_max_eur": 46000,
+      "particularites": "Le titulaire du lot 3 est désigné comme référent pour aviser de l'achèvement des travaux en vue de la réception (CCAP §12). Index de révision : BT46."
     },
     {
       "numero": 4,
       "intitule": "Plomberie - CVC",
+      "domaine": "btp_second_oeuvre",
       "zone_geographique": "Savigny-le-Temple (77)",
       "volume_estime": null,
       "volume_estime_unite": null,
-      "particularites": "Indice de révision BT38 (plomberie sanitaire y compris appareils)."
+      "cout_estime_min_eur": 42000,
+      "cout_estime_max_eur": 62000,
+      "particularites": "Plomberie sanitaire et installations CVC pour une crèche (ERP). Index de révision : BT38."
     },
     {
       "numero": 5,
       "intitule": "Electricité",
+      "domaine": "btp_second_oeuvre",
       "zone_geographique": "Savigny-le-Temple (77)",
       "volume_estime": null,
       "volume_estime_unite": null,
-      "particularites": "Indice de révision BT47 (électricité)."
+      "cout_estime_min_eur": 21000,
+      "cout_estime_max_eur": 31000,
+      "particularites": "Installations électriques courants forts et faibles pour ERP petite enfance. Index de révision : BT47."
     },
     {
       "numero": 6,
       "intitule": "Aménagements extérieurs",
+      "domaine": "amenagement_paysager_creation",
       "zone_geographique": "Savigny-le-Temple (77)",
       "volume_estime": null,
       "volume_estime_unite": null,
-      "particularites": "CPV 39161000-8 (mobilier pour jardin d'enfants). Indice de révision BT01 (tous corps d'état)."
+      "cout_estime_min_eur": 10000,
+      "cout_estime_max_eur": 15000,
+      "particularites": "Aménagements extérieurs incluant mobilier pour jardin d'enfants (CPV 39161000-8). Index de révision : BT01."
     }
   ],
+  "tranches": [],
   "calendrier": {
     "date_limite_offres": "2026-06-30",
     "date_demarrage_prevue": "2026-08-03",
-    "duree_marche": "22 semaines dont 2 semaines de période de préparation (délai global)"
+    "duree_marche": "22 semaines dont 2 semaines de préparation (soit environ 5 mois)"
   },
   "alertes_candidat": [
-    "Visite obligatoire sur site : l'offre d'un candidat n'ayant pas effectué la visite sera déclarée irrégulière. Deux dates imposées : 17/06/2026 à 9h30 ou 23/06/2026 à 9h30. Contact : Mauricette CLARISSE (01 64 19 12 20 / 06 74 79 94 51). (RC §6.2)",
-    "PSE obligatoire pour le lot 1 : les candidats soumissionnant au lot 1 ont l'obligation de chiffrer la prestation supplémentaire éventuelle décrite à la DPGF lot 1, sous peine d'offre irrégulière. (RC §2.3)",
-    "Clauses environnementales obligatoires : le non-respect des dispositions environnementales du CCAP/CCTP entraîne l'irrégularité de l'offre. (RC §2.4 et CCAP art. 11)",
-    "Transmission exclusivement dématérialisée : aucun dépôt papier autorisé. Anticiper le dépôt 48h avant la date limite sur marches-publics.info. (RC §7.1-7.2)",
-    "Attestation d'assurance décennale requise à produire dans les 10 jours suivant l'attribution provisoire, sous peine de non-attribution. (RC §8.3)"
+    "VISITE OBLIGATOIRE : l'absence d'attestation de visite rend l'offre irrégulière — deux dates disponibles (17/06/2026 et 23/06/2026). Contact obligatoire avec Mauricette CLARISSE (01 64 19 12 20) pour s'inscrire.",
+    "PSE OBLIGATOIRE sur le lot 1 : le RC impose de chiffrer la prestation supplémentaire éventuelle définie en DPGF. L'absence de chiffrage de la PSE peut entraîner l'irrégularité de l'offre sur ce lot.",
+    "DÉPÔT EXCLUSIVEMENT DÉMATÉRIALISÉ via marches-publics.info — aucun envoi papier accepté. Inscription préalable à la plateforme requise.",
+    "CLAUSES ENVIRONNEMENTALES OBLIGATOIRES : le non-respect des dispositions environnementales du CCTP entraîne l'irrégularité de l'offre. Le mémoire technique doit expressément les aborder.",
+    "DÉLAI TRÈS COURT entre date limite de dépôt (30/06) et dates de visite (17/06 et 23/06) : seulement 7 jours ouvrés après la dernière visite pour finaliser l'offre."
   ],
   "points_differenciants_attendus": [
     {
-      "libelle": "Mode opératoire détaillé et adapté à la rénovation d'une crèche",
-      "exemple": "Présenter une méthodologie intégrant les spécificités d'un ERP petite enfance (gestion des matériaux potentiellement dangereux lors du curage, séquencement curage/maçonnerie, interfaces entre les 6 lots) avec des mesures de sécurité renforcées pour ce type d'établissement.",
-      "source": "RC §8.2"
+      "libelle": "Mode opératoire détaillé et adapté à la crèche (ERP accueillant des jeunes enfants)",
+      "exemple": "Le candidat peut valoriser sa connaissance des contraintes spécifiques aux ERP petite enfance : normes d'accessibilité PMR (plan RDC disponible en DCE), exigences acoustiques, matériaux sans COV pour les pièces de vie des enfants, et protocoles anti-poussières renforcés.",
+      "source": "RC §8.2 — sous-critère 2.1 Mode opératoire"
     },
     {
-      "libelle": "Planning détaillé calé sur le planning DCE avec interfaces entre lots",
-      "exemple": "Fournir un planning Gantt faisant apparaître explicitement la période de préparation de 2 semaines, les phases travaux par lot, les jalons communs (réunions de chantier, réceptions partielles) et les points d'interface critique entre le lot 1 (gros œuvre) et les lots techniques (4 et 5).",
-      "source": "RC §8.2"
+      "libelle": "Planning précis et cohérent avec le planning DCE fourni",
+      "exemple": "Un Gantt à 3 niveaux calé sur le planning prévisionnel du DCE, avec identification des interfaces inter-lots et jalons de réception partielle, sera fortement différenciant car le sous-critère est explicitement évalué sur la conformité au planning DCE.",
+      "source": "RC §8.2 — sous-critère 2.3"
     },
     {
-      "libelle": "Plan de gestion des déchets de chantier avec traçabilité documentée",
-      "exemple": "Produire un tableau de bord de gestion des déchets distinguant les flux (inertes, non dangereux, dangereux) avec les filières de valorisation contractualisées et les bordereaux de suivi. Ce critère est noté à part (5%) et peut faire la différence sur un marché de cette taille.",
-      "source": "RC §8.2"
+      "libelle": "Engagement fort sur la gestion des déchets et les mesures environnementales",
+      "exemple": "Au-delà du critère environnemental à 5%, les conditions d'exécution environnementales sont contractuellement obligatoires (CCAP §11). Un candidat qui quantifie ses tonnages par flux de déchets et nomme les filières de valorisation agréées se démarquera nettement.",
+      "source": "CCAP §11 et RC §8.2 critère 3"
     },
     {
-      "libelle": "Fiches techniques produits conformes aux exigences ERP petite enfance",
-      "exemple": "Pour le lot 3, joindre des fiches techniques de revêtements de sol adaptés aux zones de change/sanitaires et à la salle polyvalente (classement UPEC, entretien facilité, résistance aux produits désinfectants conformes aux usages d'une crèche), avec délais de livraison confirmés.",
-      "source": "RC §8.2"
-    },
-    {
-      "libelle": "Qualification Qualibat ou références équivalentes démontrant l'expérience en rénovation ERP",
-      "exemple": "En l'absence d'indice Qualibat spécifique exigé, valoriser des références récentes (5 dernières années) sur des chantiers de rénovation d'équipements publics similaires (crèches, écoles, ERP de catégorie 4 ou 5) avec attestations de bonne exécution.",
-      "source": "RC §6.1"
+      "libelle": "Qualification du chef de chantier et références en rénovation d'ERP similaires",
+      "exemple": "Présenter un chef de chantier avec CV et références dans des crèches ou établissements petite enfance similaires (SHON comparable, même type de travaux) répond précisément à l'évaluation des moyens humains (10% de la note).",
+      "source": "RC §8.2 — sous-critère 2.2"
     }
   ],
   "_meta": {
     "id_marche": "BOAMP-26-56498",
     "type": "complet",
-    "date_generation": "2026-06-14T22:35:46.622629+00:00",
-    "extraction_le": "2026-06-14T22:35:46.622629+00:00",
+    "date_generation": "2026-06-19T19:33:43.395656+00:00",
+    "extraction_le": "2026-06-19T19:33:43.395656+00:00",
     "modele": "claude-sonnet-4-6",
     "preset_utilise": "btp",
     "presets_matches": [
@@ -376,13 +565,13 @@
       "ingenierie"
     ],
     "prompts_versions": {
-      "btp/_preset.json": "sha256:d1717e0d87f6c265",
-      "ingenierie/_preset.json": "sha256:56f813f829343e24"
+      "btp/_preset.json": "sha256:055bf6f8b2c1f771",
+      "ingenierie/_preset.json": "sha256:b924b32a088673d6"
     },
-    "tokens_input": 53099,
-    "tokens_output": 7153,
-    "cout_eur": 0.2533,
-    "duree_sec": 119.4,
+    "tokens_input": 61142,
+    "tokens_output": 9772,
+    "cout_eur": 0.3135,
+    "duree_sec": 161.5,
     "pdfs_traites": [
       {
         "nom": "1_RC.pdf",

@@ -1,254 +1,685 @@
 {
-  "synthese_marche": "La Commune de Lorient lance un appel d'offres pour la souscription de polices d'assurance construction dans le cadre de la modernisation du stade Yves Allainmat. Le marché est alloti en 2 lots : Lot 1 (Tous Risques Chantier) et Lot 2 (Dommages Ouvrage et Contrat Collectif de Responsabilité Décennale). Les travaux couverts comprennent une tranche ferme (tribune Ouest, éclairage, parvis) et deux tranches optionnelles (angle Nord-Ouest, angle Nord-Est).",
+  "synthese_marche": "Marché d'assurances construction en deux lots (TRC et DO/CCRD) pour la modernisation du Stade Yves Allainmat à Lorient, opération comportant déconstruction partielle, reconstruction de tribunes et aménagements extérieurs. Le DCE fourni est principalement constitué des pièces techniques de travaux (CCTC, CCTP lot 01 démolition/désamiantage) et non des pièces du marché d'assurance lui-même (RC, CCAP spécifiques à l'assurance). Les informations sur les critères de notation, les pièces à fournir et les modalités de candidature propres aux lots assurance sont absentes du DCE analysé.",
   "domaines_metier": [
     {
       "code": "assurance"
     }
   ],
-  "raison_classification": "Le marché porte exclusivement sur la souscription de polices d'assurance construction (TRC, DO, CCRD) pour une opération de travaux publics. Les CPV principaux sont 66513200 et 66515000, relevant du secteur assurantiel. Aucune prestation de formation, de conseil ou de travaux n'est demandée.",
-  "caracteristiques_techniques_chantier": {
-    "description": "Modernisation du stade Yves Allainmat à Lorient (56100), Rue du Tour des Portes. Opération comprenant : tranche ferme (déconstruction/construction tribune Ouest, parvis rue Jean le Coutaler, nouvel éclairage aire de jeu, démolition mâts existants, renforts charpente tribune Est, aire régie provisoire) ; tranche optionnelle 1 (angle Nord-Ouest, aire régie définitive, KOP visiteur tribune Nord, parking visiteur, aménagements extérieurs, voirie) ; tranche optionnelle 2 (déconstruction/reconstruction angle Nord-Est).",
-    "technologies_concernees": [],
-    "type_de_sites": "Stade municipal (équipement sportif), site en exploitation partielle potentielle",
+  "raison_classification": "Le marché est intitulé 'ASSURANCES CONSTRUCTION' avec deux lots explicites : Lot 1 Assurance Tous Risques Chantier (TRC) et Lot 2 Assurance Dommages Ouvrage (DO) et Contrat Collectif de Responsabilité Décennale (CCRD), CPV 66513200 et 66515000. Bien que le DCE fourni contienne des pièces techniques de travaux (CCTC, CCTP démolition), l'objet du marché à analyser est bien la fourniture de couvertures d'assurance construction.",
+  "caracteristiques_metier": {
+    "description": "Marché d'assurances construction pour l'opération de modernisation du Stade Yves Allainmat à Lorient : Lot 1 couvre l'Assurance Tous Risques Chantier (TRC) pour la durée du chantier (6 mois), Lot 2 couvre l'Assurance Dommages Ouvrage (DO) et le Contrat Collectif de Responsabilité Décennale (CCRD). L'opération comprend déconstruction partielle de tribunes, reconstruction de la tribune Ouest, aménagements extérieurs, en site occupé avec maintien des matchs de football.",
     "criteres_eligibilite": [
-      {
-        "libelle": "Intermédiaire : inscription auprès de l'ORIAS en cours de validité",
-        "source": "RC §5.1.1"
-      },
-      {
-        "libelle": "Assureurs : agrément ministériel en cours de validité relatif à la garantie des risques, objet du marché",
-        "source": "RC §5.1.1"
-      }
-    ],
-    "contraintes_site_signalees": []
-  },
-  "volumes_techniques": {
-    "puissance_totale_kwc": null,
-    "puissance_par_site_kwc": null,
-    "nb_sites": 1,
-    "surface_panneaux_m2": null,
-    "productible_annuel_estime_mwh": null,
-    "duree_marche_mois": null,
-    "duree_maintenance_om_annees": null,
-    "commentaire_volumes": "Marché d'assurance construction (non EnR). La durée du contrat est définie dans le CCTP aux articles 1.2 (TRC) et 2.2 (DO/CCRD) non fournis. Les tranches optionnelles ont des délais d'affermissement de 30 mois (TO1) et 45 mois (TO2) à compter de la notification des marchés de travaux."
-  },
-  "modalites_execution_chantier": {
-    "raccordement_reseau_inclus": null,
-    "etudes_techniques_incluses": null,
-    "calendrier_chantier_contraint": null,
-    "sites_execution": [
-      "Lorient (56)"
-    ],
-    "engagement_productible": null,
-    "engagement_disponibilite_om": null
-  },
-  "publics_cibles": {
-    "description": null,
-    "criteres_eligibilite": [],
-    "publics_specifiques_signales": []
-  },
-  "volumes": {
-    "nb_beneficiaires_total": null,
-    "nb_beneficiaires_par_lot": null,
-    "duree_par_parcours_heures": null,
-    "duree_par_parcours_semaines": null,
-    "duree_marche_mois": null,
-    "commentaire_volumes": "Marché d'assurance construction : pas de notion de bénéficiaires ou de parcours. La durée est liée à la période de chantier définie dans le CCTP (non fourni)."
-  },
-  "modalites": {
-    "presentiel_obligatoire": null,
-    "distanciel_possible": null,
-    "synchrone_asynchrone": null,
-    "sites_execution": [
-      "Lorient (56)"
-    ],
-    "amplitude_horaire": null
+      "Être une compagnie d'assurance ou un courtier mandaté habilitée à couvrir les risques chantier (TRC) et dommages ouvrage en France",
+      "Capacité à assurer des opérations de construction en ERP de 1ère catégorie avec montant de travaux significatif",
+      "Habilitation à délivrer des polices DO conformément à la loi Spinetta du 4 janvier 1978"
+    ]
   },
   "bareme_notation": {
-    "valeur_technique_pct": 60,
-    "valeur_prix_pct": 40,
-    "sous_criteres_techniques": [
-      {
-        "libelle": "Qualité des prestations en matière de gestion des sinistres",
-        "ponderation_pct": 5,
-        "description": "L'acheteur évalue la qualité des outils et de l'organisation dédiée à la gestion des sinistres : outils de déclaration et de suivi, interlocuteur dédié, organigramme de l'équipe, expériences similaires.",
-        "elements_attendus": [
-          "Mise à disposition d'outils de déclaration et de suivi de sinistres",
-          "Désignation d'un interlocuteur dédié tout au long de la gestion du dossier",
-          "Organigramme de l'équipe dédiée à la prestation",
-          "Expériences de l'équipe dédiée et références de prestations similaires accomplies"
-        ],
-        "exemple_reponse_forte": "Notre équipe sinistres dédiée aux marchés publics de construction comprend 3 gestionnaires spécialisés TRC/DO, accessibles via une plateforme en ligne de suivi en temps réel. Un interlocuteur nommé est désigné dès la souscription et suit le dossier jusqu'au règlement définitif, avec un engagement de réponse sous 48h pour toute déclaration de sinistre.",
-        "source": "RC §7.2",
-        "sous_criteres": []
-      },
-      {
-        "libelle": "Qualité des prestations en matière de gestion du contrat",
-        "ponderation_pct": 5,
-        "description": "L'acheteur évalue la qualité de l'accompagnement à la mise en place et au suivi du contrat : interlocuteur unique jusqu'au règlement de la prime définitive, modalités de transmission des documents et aide à la mise en place.",
-        "elements_attendus": [
-          "Désignation d'un interlocuteur unique jusqu'au règlement de la prime définitive",
-          "Description des modalités de transmission des documents contractuels",
-          "Aide à la mise en place des contrats (accompagnement, conseil)"
-        ],
-        "exemple_reponse_forte": "Un courtier référent unique est désigné pour accompagner la Ville de Lorient de la souscription jusqu'au règlement de la prime définitive, y compris pour les affermissements de tranches optionnelles. Toutes les pièces contractuelles sont transmises via une plateforme documentaire sécurisée avec accusé de réception.",
-        "source": "RC §7.2",
-        "sous_criteres": []
-      },
-      {
-        "libelle": "Nature et étendue des clauses contractuelles et qualité et modalités des garanties proposées y compris observations, amendements et commentaires",
-        "ponderation_pct": 50,
-        "description": "L'acheteur évalue la qualité et l'étendue des garanties proposées au regard des besoins exprimés dans le CCTP, ainsi que les réserves et amendements émis par les prestataires sur les clauses contractuelles.",
-        "elements_attendus": [
-          "Couverture complète des garanties de base et aux existants définies dans le CCTP",
-          "Propositions de garanties complémentaires optionnelles",
-          "Observations et amendements motivés sur les clauses du CCTP",
-          "Étendue des exclusions et franchises clairement précisées",
-          "Qualité des conditions particulières proposées"
-        ],
-        "exemple_reponse_forte": "Notre proposition intègre la garantie de base TRC sans franchise pour les dommages matériels supérieurs à 5 000 €, la garantie aux existants jusqu'à la valeur à neuf, ainsi que des extensions optionnelles pour les équipements provisoires et les éclairages sportifs. Nous proposons également des variantes de franchise réduites (variantes 1 et 2) et mentionnons explicitement nos observations sur les clauses de subrogation du CCTP.",
-        "source": "RC §7.2",
-        "sous_criteres": []
-      }
-    ],
+    "valeur_technique_pct": null,
+    "valeur_prix_pct": null,
+    "sous_criteres_techniques": [],
     "prix": {
-      "type_formule": "moins_disant",
-      "formule_explicite": "Note de l'offre considérée = (offre de prix la moins disante / offre de prix considérée) × 8 ; avec décomposition : Tranche ferme = (moins disante / considérée) × 5 ; TO1 = (moins disante / considérée) × 2 ; TO2 = (moins disante / considérée) × 1",
+      "type_formule": "prix_reference",
+      "formule_explicite": "Non précisé dans les pièces fournies — le RC spécifique au marché d'assurance n'est pas disponible dans le DCE analysé.",
+      "source": null,
       "elements_a_chiffrer": [
-        "Prime TTC Tranche ferme",
-        "Prime TTC Tranche optionnelle 1",
-        "Prime TTC Tranche optionnelle 2",
-        "Total prime TTC (DPGF par lot)"
+        "Prime annuelle TRC (Lot 1)",
+        "Taux de prime sur coût de travaux (Lot 1)",
+        "Prime DO (Lot 2)",
+        "Taux CCRD (Lot 2)",
+        "Franchise(s) applicables"
       ]
     },
-    "modalite_calcul_prix": "Note prix = (offre de prix la moins disante / offre de prix considérée) × 8 points — décliné par tranche : TF × 5 pts, TO1 × 2 pts, TO2 × 1 pt"
+    "modalite_calcul_prix": "Non précisé dans les pièces fournies."
   },
   "montant_marche": {
     "valeur_estimee_euros": null,
     "fourchette_min_euros": null,
     "fourchette_max_euros": null,
     "type": "non_communique",
-    "duree_couverte": null,
-    "source_extraction": null,
-    "commentaire": "Aucun montant estimatif ni enveloppe budgétaire n'est communiqué dans le RC fourni. Le CCAP et la fiche technique de l'opération (Annexe 1 CCTP) pourraient contenir les données nécessaires à l'estimation mais ne sont pas disponibles dans le DCE fourni."
+    "duree_couverte": "6 mois (durée indiquée pour chacun des deux lots selon BOAMP)",
+    "source_extraction": "BOAMP contexte lots (durée 6 mois chacun)",
+    "commentaire": "Le montant du marché d'assurance n'est pas publié dans les pièces DCE disponibles. Le DCE fourni est constitué des pièces techniques de travaux et non du RC/CCAP assurance. La valeur des primes dépend du montant des travaux assurés et des taux de prime, non communiqués."
+  },
+  "montant_3_voies": {
+    "voie_1_eur": null,
+    "voie_1_source": null,
+    "voie_2_disponible": true,
+    "voie_2_min_eur": 150000,
+    "voie_2_max_eur": 350000,
+    "voie_2_hypotheses": [
+      {
+        "hypothese": "Montant estimatif des travaux d'opération : grande opération de modernisation d'un stade de Ligue 1 en 3 phases (tranche ferme + 2 options), typiquement entre 40 et 80 M€ HT de travaux (source : taille de l'opération décrite au CCTC, 16 lots de travaux, 3 phases)",
+        "valeur": "50 000 000 € HT (hypothèse centrale)"
+      },
+      {
+        "hypothese": "Taux de prime TRC typique pour une opération de cette nature : 0,15 à 0,25% du montant des travaux. Taux retenu : 0,20% central, dimension variée 0,15%-0,25%",
+        "valeur": "0,20% du montant des travaux"
+      },
+      {
+        "hypothese": "Taux de prime DO typique : 0,15 à 0,40% du coût de construction. Taux retenu : 0,25% central",
+        "valeur": "0,25% du montant des travaux"
+      },
+      {
+        "hypothese": "Prime TRC estimée : 50 M€ × 0,15%-0,25% = 75 000 € à 125 000 € ; Prime DO+CCRD estimée : 50 M€ × 0,15%-0,45% = 75 000 € à 225 000 €. Total des deux lots : 150 000 € à 350 000 €",
+        "valeur": "250 000 € (valeur centrale)"
+      }
+    ],
+    "voie_2_raison_indisponible": null
+  },
+  "cout_realisation": {
+    "cout_total_eur": null,
+    "cout_min_eur": null,
+    "cout_max_eur": null,
+    "postes": [
+      {
+        "poste": "Coût de la prime reversée à la compagnie d'assurance (pour un courtier)",
+        "detail": "Variable selon la structure du candidat (assureur direct vs courtier). Pour un courtier : prime brute reversée à l'assureur porteur moins commission de 15-25%.",
+        "montant_eur": null
+      },
+      {
+        "poste": "Frais de gestion et d'instruction du dossier",
+        "detail": "Étude du risque, rédaction des conditions particulières, suivi sinistres. Estimé 2-4 j-h × 600 €/j = 1 200 à 2 400 €",
+        "montant_eur": 1800
+      }
+    ],
+    "taux_journaliers_retenus": "Taux marché indicatifs : ingénieur assurance/souscripteur 600 €/j ; courtier spécialisé 700 €/j. Ces taux sont des estimations de marché, non contractuels.",
+    "commentaire": "Pour un marché d'assurance, le 'coût de réalisation' est atypique : la prime collectée est en grande partie reversée à l'assureur porteur. La marge du candidat est sa commission (15-25% pour un courtier) ou sa propre marge technique pour un assureur direct. Chiffrage précis impossible sans données sur le montant des travaux."
   },
   "revision_prix": {
-    "type": "ferme",
+    "type": "non_communique",
     "indices_utilises": [],
     "ponderation": null,
     "periodicite": null,
     "formule_revision": null,
-    "source_extraction": "RC §3.2",
-    "commentaire": "Le RC précise explicitement que 'les prix sont fermes conformément aux dispositions du CCAP'. Pas de révision prévue sur la durée du contrat."
+    "source_extraction": null,
+    "commentaire": "Le RC spécifique au marché d'assurance n'est pas disponible dans les pièces fournies. Les marchés d'assurance sont généralement conclus à prime ferme pour la durée du marché (6 mois selon BOAMP)."
   },
   "alertes_prix": [
-    "Les prix sont fermes (non révisables) sur toute la durée du contrat — le candidat doit intégrer les aléas dans sa prime dès la souscription.",
-    "La pondération prix à 40% est relativement équilibrée pour un marché d'assurance ; la valeur technique (60%) reste dominante, notamment la qualité des garanties (50/60).",
-    "La décomposition du prix par tranche (TF 5pts, TO1 2pts, TO2 1pt) : une prime basse sur la tranche ferme est décisive, les tranches optionnelles ont peu d'impact sur la note prix.",
-    "Les DPGF doivent impérativement être fournies en format Excel/LibreOffice — une version PDF seule peut entraîner une irrégularité de l'offre."
+    "Les primes d'assurance construction (TRC et DO) sont fortement dépendantes du montant définitif des travaux et des garanties exigées, non communiqués dans le DCE analysé.",
+    "Durée de 6 mois pour chaque lot selon BOAMP : vérifier si cela correspond à la durée du chantier de la tranche ferme uniquement ou à l'ensemble de l'opération (tranches optionnelles incluses), ce qui impacte significativement le niveau de prime.",
+    "Opération en site occupé avec matchs de Ligue 1 maintenus : ce facteur aggrave le risque TRC et peut entraîner des surprimes ou exclusions à budgéter dans l'offre.",
+    "Présence d'amiante et de plomb sur l'opération (DAAD joint au DCE travaux) : risque de sinistre pollution pouvant être exclu ou limité dans les conditions générales TRC standard."
   ],
   "references_exigees": {
     "experience_minimale_annees": null,
     "experience_source": null,
     "volume_min_references_similaires": null,
-    "volume_min_references_unite": "marchés similaires",
-    "secteur_experience": "Assurances construction (TRC/DO/CCRD) pour des opérations de même nature et ampleur",
-    "secteur_source": "RC §5.1.1",
+    "volume_min_references_unite": null,
+    "secteur_experience": "Assurance construction (TRC et/ou Dommages Ouvrage) pour des opérations de réhabilitation ou construction de bâtiments ERP de grande envergure",
+    "secteur_source": null,
     "certifications_obligatoires": [
       {
-        "libelle": "Intermédiaire : inscription auprès de l'ORIAS en cours de validité",
-        "source": "RC §5.1.1"
-      },
-      {
-        "libelle": "Assureurs : agrément ministériel en cours de validité relatif à la garantie des risques objet du marché",
-        "source": "RC §5.1.1"
+        "libelle": "Agrément du Comité des Établissements de Crédit et des Entreprises d'Investissement (ACPR) pour exercer l'activité d'assurance en France dans les branches concernées (TRC - branche 8 / DO - branche 13)",
+        "codes": [],
+        "bloquante": true,
+        "source": null
       }
     ],
-    "autres_exigences": [
-      {
-        "libelle": "Numéro unique d'identification SIREN et pouvoirs des personnes habilitées à engager l'entreprise",
-        "source": "RC §5.1.1"
-      },
-      {
-        "libelle": "Chiffres d'affaires des trois dernières années en identifiant la part relevant du marché concerné (ou justification de date de création pour entreprises nouvelles)",
-        "source": "RC §5.1.1"
-      },
-      {
-        "libelle": "Liste de références récentes de prestations de même nature et de même ampleur (objet, année, montant, nom du maître d'ouvrage)",
-        "source": "RC §5.1.1"
-      },
-      {
-        "libelle": "Formulaires DC1 (lettre de candidature) et DC2 (déclaration du candidat) complétés, ou DUME",
-        "source": "RC §5.1.1"
-      }
-    ]
+    "autres_exigences": []
+  },
+  "dossier_candidature": {
+    "pieces_a_fournir": [],
+    "mode_remise": null,
+    "plateforme_depot": null,
+    "signature_electronique_exigee": null,
+    "format_signature": null,
+    "nombre_exemplaires": null,
+    "langue": "français",
+    "duree_validite_offres_jours": null,
+    "modalites_source": null
   },
   "lots": [
     {
       "numero": 1,
-      "intitule": "Lot 1 (26146) - Assurance Tous Risques Chantier (TRC)",
+      "intitule": "LOT 1 - Assurance Tous Risques Chantier (TRC)",
+      "domaine": "assurance",
       "zone_geographique": "Lorient (56)",
       "volume_estime": null,
       "volume_estime_unite": null,
-      "particularites": "Couvre la phase chantier de la modernisation du stade pour la tranche ferme et les deux tranches optionnelles. CPV 66513200. Inclut une solution de base obligatoire et des variantes de franchise (variantes 1 et 2)."
+      "cout_estime_min_eur": null,
+      "cout_estime_max_eur": null,
+      "ca_estime_min_eur": 75000,
+      "ca_estime_max_eur": 125000,
+      "marge_brute_pct": 20,
+      "particularites": "Couverture TRC pour l'opération de modernisation du Stade Yves Allainmat. Durée 6 mois. Opération en site occupé avec maintien des matchs de Ligue 1. Présence d'amiante et plomb. Chantier multi-lots (16 corps d'état). Contrainte forte de phasage et coactivité. CPV 66513200."
     },
     {
       "numero": 2,
-      "intitule": "Lot 2 (26147) - Assurance Dommages Ouvrage (DO) et Contrat Collectif de Responsabilité Décennale (CCRD)",
+      "intitule": "LOT 2 - Assurance Dommages Ouvrage (DO) et Contrat Collectif de Responsabilité Décennales (CCRD)",
+      "domaine": "assurance",
       "zone_geographique": "Lorient (56)",
       "volume_estime": null,
       "volume_estime_unite": null,
-      "particularites": "Couvre la responsabilité décennale post-réception pour la tranche ferme et les tranches optionnelles. CPV 66515000. Inclut également les variantes de franchise optionnelles."
+      "cout_estime_min_eur": null,
+      "cout_estime_max_eur": null,
+      "ca_estime_min_eur": 75000,
+      "ca_estime_max_eur": 225000,
+      "marge_brute_pct": 18,
+      "particularites": "Couverture DO et CCRD pour la construction neuve (tribune Ouest E3C1) et réhabilitation du stade. Durée 6 mois (période probable de chantier), garantie décennale de 10 ans. ERP 1ère catégorie existant / ERP 5ème catégorie pour extension billetterie. CPV 66515000."
+    }
+  ],
+  "tranches": [
+    {
+      "type": "ferme",
+      "numero": "TF",
+      "intitule": "Phase 1 — Tranche Ferme",
+      "objet": "Déconstruction et construction de la tribune Ouest, réalisation du parvis rue Jean le Coutaler, mise en place du nouvel éclairage de l'aire de jeu, démolition des mâts d'éclairage, réalisation de l'aire régie provisoire.",
+      "montant_estime_eur": null,
+      "condition_affermissement": null,
+      "source": "CCTC §1.5.1"
+    },
+    {
+      "type": "optionnelle",
+      "numero": "TO1",
+      "intitule": "Phase 2 — Tranche Optionnelle 1",
+      "objet": "Construction de l'angle Nord-Ouest, aire régie définitive, finalisation KOP visiteur tribune Nord, aménagement parking visiteur, aménagements extérieurs, voirie parking visiteur.",
+      "montant_estime_eur": null,
+      "condition_affermissement": "Sur décision du maître d'ouvrage",
+      "source": "CCTC §1.5.2"
+    },
+    {
+      "type": "optionnelle",
+      "numero": "TO2",
+      "intitule": "Phase 3 — Tranche Optionnelle 2",
+      "objet": "Déconstruction et reconstruction de l'angle Nord-Est.",
+      "montant_estime_eur": null,
+      "condition_affermissement": "Sur décision du maître d'ouvrage",
+      "source": "CCTC §1.5.3"
     }
   ],
   "calendrier": {
-    "date_limite_offres": "2026-07-15",
+    "date_limite_offres": "2026-06-22",
     "date_demarrage_prevue": null,
-    "duree_marche": "Durée liée à la période de chantier (tranche ferme + tranches optionnelles avec affermissement TO1 à 30 mois et TO2 à 45 mois après notification des marchés de travaux)"
+    "duree_marche": "6 mois par lot (selon BOAMP)"
   },
   "alertes_candidat": [
-    "L'inscription ORIAS en cours de validité est obligatoire pour les intermédiaires — vérifier la validité avant dépôt sous peine d'éviction de la candidature.",
-    "L'agrément ministériel en cours de validité est obligatoire pour les assureurs — son absence entraîne l'irrecevabilité de la candidature.",
-    "Les DPGF doivent impérativement être fournies en format Excel ou LibreOffice (pas uniquement PDF) — exigence explicite du RC.",
-    "Le mémoire justificatif doit couvrir la gestion des sinistres ET la gestion du contrat avec les éléments précis listés en §7.2 du RC — une réponse générique sera pénalisée sur 10% des points techniques.",
-    "La réponse doit obligatoirement couvrir la solution de base (tranche ferme + tranches optionnelles) ; les variantes de franchise sont facultatives mais fortement recommandées pour la complétude de l'offre."
+    "Le RC spécifique aux marchés d'assurance (règlement de consultation, CCAP assurance, cahier des charges des garanties) est absent des pièces DCE analysées : le candidat doit impérativement télécharger les pièces complètes du DCE sur la plateforme de dépôt.",
+    "Opération en site occupé avec maintien des matchs de Ligue 1 pendant les travaux : ce facteur aggrave le risque TRC et doit être analysé attentivement pour ne pas sous-évaluer la prime ou prévoir des exclusions inadaptées.",
+    "Présence confirmée d'amiante (DAAD joint au DCE) et de plomb sur les bâtiments à démolir : vérifier la couverture TRC pour les risques de pollution et les sinistres liés aux opérations de désamiantage.",
+    "L'opération comporte 2 tranches optionnelles importantes (construction angle NE, angle NO) non garanties : la prime TRC et la DO doivent prévoir ou exclure clairement ces tranches, avec option d'avenant si affermissement.",
+    "Le stade est classé ERP 1ère catégorie (existant) avec une extension ERP 5ème catégorie : vérifier la compatibilité de la police DO avec ce double classement et les exigences de la commission de sécurité."
   ],
   "points_differenciants_attendus": [
     {
-      "libelle": "Qualité et étendue des garanties proposées avec amendements motivés sur le CCTP",
-      "exemple": "Proposer des extensions de garantie au-delà des minima du CCTP (équipements provisoires, vols sur chantier, perte indirecte) en justifiant leur pertinence pour ce type d'opération de réhabilitation de stade, et formuler des observations constructives sur les clauses de subrogation ou de vétusté.",
-      "source": "RC §7.2"
+      "libelle": "Expérience en assurance construction de grands équipements sportifs en site occupé",
+      "exemple": "Un assureur ou courtier pouvant présenter des références de polices TRC/DO sur des stades, arénas ou équipements sportifs majeurs en fonctionnement (matchs maintenus) aura un avantage pour démontrer sa maîtrise du risque spécifique à ce type d'opération.",
+      "source": null
     },
     {
-      "libelle": "Organisation dédiée avec interlocuteur unique nommé et outils de suivi sinistres",
-      "exemple": "Présenter un organigramme nominatif de l'équipe dédiée avec CV synthétiques des gestionnaires sinistres, un accès à une plateforme numérique de suivi en temps réel, et des engagements de délai de réponse (ex: 48h pour accusé de sinistre, 15 jours pour décision préliminaire).",
-      "source": "RC §7.2"
+      "libelle": "Couverture étendue des risques amiante et pollution dans la police TRC",
+      "exemple": "Proposer une couverture TRC incluant explicitement les risques de contamination amiante lors des opérations de désamiantage (lot 01), sans exclusion de ce chef, constitue un différenciant fort compte tenu du DAAD joint au DCE.",
+      "source": "CCTP lot 01 §6"
     },
     {
-      "libelle": "Références similaires de même ampleur sur des opérations de réhabilitation d'équipements sportifs publics",
-      "exemple": "Citer des opérations TRC/DO sur des stades ou équipements sportifs de collectivités pour des montants de travaux comparables, avec coordonnées des maîtres d'ouvrage vérifiables.",
-      "source": "RC §5.1.1"
+      "libelle": "Structuration de la DO/CCRD intégrant les spécificités E3C1 du bâtiment accueil/billetterie",
+      "exemple": "La tribune Ouest doit atteindre le niveau E3C1 (label E+C-) et une démarche HQE est mise en place : un assureur proposant une DO adaptée à ces exigences environnementales et aux éventuelles garanties complémentaires liées à la performance énergétique se différenciera.",
+      "source": "CCTC §1.8 et §2.1"
     },
     {
-      "libelle": "Compétitivité tarifaire sur la tranche ferme (pondérée 5 pts sur 8)",
-      "exemple": "La tranche ferme concentre 62,5% des points prix ; un effort commercial ciblé sur cette tranche, avec des variantes de franchise permettant d'abaisser la prime de base, est décisif pour le classement final.",
-      "source": "RC §7.2"
+      "libelle": "Gestion des interfaces entre lots et couverture de la coactivité",
+      "exemple": "Avec 16 lots de travaux en corps d'état séparés et une cellule de synthèse BIM imposée, la police TRC doit couvrir sans ambiguïté les dommages imputables à des interactions entre corps d'état : un candidat précisant explicitement la couverture de ces risques de coactivité apportera une plus-value.",
+      "source": "CCTC §7"
     }
   ],
   "_meta": {
     "id_marche": "BOAMP-26-56076",
     "type": "complet",
-    "extraction_le": "2026-06-11T21:55:57.919424+00:00",
+    "date_generation": "2026-06-22T10:34:18.148910+00:00",
+    "extraction_le": "2026-06-22T10:34:18.148910+00:00",
     "modele": "claude-sonnet-4-6",
-    "tokens_input": 19706,
-    "tokens_output": 4842,
-    "cout_eur": 0.1252,
-    "duree_sec": 92.8,
+    "preset_utilise": null,
+    "presets_matches": [],
+    "prompts_versions": {},
+    "tokens_input": 156648,
+    "tokens_output": 4873,
+    "cout_eur": 0.5159,
+    "duree_sec": 89.7,
     "pdfs_traites": [
+      {
+        "nom": "0 0 1 SDP plan niveau S01.pdf",
+        "hash": "2b1e3e3143a7737d829c6bd782c5088b",
+        "taille_chars": 1696
+      },
+      {
+        "nom": "0 0 2 SDP plan niveau RDC.pdf",
+        "hash": "c134cf0f8998719024d3fef5232ab4ed",
+        "taille_chars": 1704
+      },
+      {
+        "nom": "0 0 3 SDP plan niveau R01.pdf",
+        "hash": "803575bf1ea7eb994ca7986c5e6c4a34",
+        "taille_chars": 1717
+      },
+      {
+        "nom": "0 0 4 SDP plan niveau R02.pdf",
+        "hash": "d5724ffa364d82364448b02b61200a6d",
+        "taille_chars": 1702
+      },
+      {
+        "nom": "0 0 5 Surface emprise au sol.pdf",
+        "hash": "d15d97c62f074d45e9b6bbd89d44555a",
+        "taille_chars": 1689
+      },
+      {
+        "nom": "0-97AD~1.PDF",
+        "hash": "304794055ead0bf7f93fa7b58c7a4b0b",
+        "taille_chars": 177115
+      },
+      {
+        "nom": "0-PRO2~1.PDF",
+        "hash": "68254ba3a9e1bc1e80f86a73310c05f7",
+        "taille_chars": 62554
+      },
+      {
+        "nom": "0-PRO2~2.PDF",
+        "hash": "e910bb3a285ff0d75be21b09762e5761",
+        "taille_chars": 21272
+      },
+      {
+        "nom": "0-PRO2~3.PDF",
+        "hash": "1f4e902240dd0b511ef1d6ee715d652f",
+        "taille_chars": 3374
+      },
+      {
+        "nom": "0-PRO2~4.PDF",
+        "hash": "cbc6289027d7dd2bf568689692021da1",
+        "taille_chars": 2671
+      },
+      {
+        "nom": "1-PRO2~1.PDF",
+        "hash": "7f41cb7f78b9671fb1fa0300ed985f29",
+        "taille_chars": 166502
+      },
+      {
+        "nom": "10-PRO~1.PDF",
+        "hash": "82d8defa5218b3a225ac0b80a246b1c8",
+        "taille_chars": 69874
+      },
+      {
+        "nom": "11-PRO~1.PDF",
+        "hash": "7f1e43e43174445c6c79a52c5afdab53",
+        "taille_chars": 622251
+      },
+      {
+        "nom": "12-PRO~1.PDF",
+        "hash": "ac58a48c6ddb53035738faf608019187",
+        "taille_chars": 143836
+      },
+      {
+        "nom": "13-PRO~1.PDF",
+        "hash": "c93d71c064f7066c0fe9e391e040b411",
+        "taille_chars": 78603
+      },
+      {
+        "nom": "14-PRO~1.PDF",
+        "hash": "e9b3d38ce8c58be62074c7d5c9ac4424",
+        "taille_chars": 411362
+      },
+      {
+        "nom": "153320 (DIAG DAD).pdf",
+        "hash": "21c1f73c7cc4db20eaef587f22140c61",
+        "taille_chars": 74098
+      },
+      {
+        "nom": "153320 (HCT).pdf",
+        "hash": "2d60b373a237750ce849f1f85f74ce14",
+        "taille_chars": 11453
+      },
+      {
+        "nom": "15_PRO~1.PDF",
+        "hash": "5ebb01aa569748bf164df0657073d52f",
+        "taille_chars": 269308
+      },
+      {
+        "nom": "16-PRO~1.PDF",
+        "hash": "ae22b51f23ce61827b2de2096f9d038f",
+        "taille_chars": 33407
+      },
+      {
+        "nom": "201_PR~1.PDF",
+        "hash": "ad3235437c516ad6866c7ff75e4a0d12",
+        "taille_chars": 15867
+      },
+      {
+        "nom": "202_PR~1.PDF",
+        "hash": "d1f961756971b5e19a56c8a3cd93ca62",
+        "taille_chars": 11631
+      },
+      {
+        "nom": "203_PR~1.PDF",
+        "hash": "4f3ae0bb1b12374d0fb25a22f8ec736f",
+        "taille_chars": 11072
+      },
+      {
+        "nom": "204_PR~1.PDF",
+        "hash": "f5550e285afdc7ea8784e96d9e48f949",
+        "taille_chars": 10584
+      },
+      {
+        "nom": "205_PR~1.PDF",
+        "hash": "1df6844d4da9df4dbaf5a33d27919a88",
+        "taille_chars": 9791
+      },
+      {
+        "nom": "21-PRO~1.PDF",
+        "hash": "adba333289c4503ac270c6cad27c0337",
+        "taille_chars": 413299
+      },
+      {
+        "nom": "22-PRO~1.PDF",
+        "hash": "41bef695fe68a66ffc9f5a489b8ee20d",
+        "taille_chars": 156109
+      },
+      {
+        "nom": "23-PRO~1.PDF",
+        "hash": "a4ab3754333dfa038e799e17fe67447a",
+        "taille_chars": 369875
+      },
+      {
+        "nom": "24-PRO~1.PDF",
+        "hash": "8e559e052fefd530d52160a26d618e20",
+        "taille_chars": 376017
+      },
+      {
+        "nom": "25-PRO~1.PDF",
+        "hash": "9d316aa46dc4df5befa68446f21456f9",
+        "taille_chars": 378495
+      },
+      {
+        "nom": "26146 AE (lot 1).docx",
+        "hash": "6fc15f31381679a9ff69358c0938999f",
+        "taille_chars": 18151
+      },
+      {
+        "nom": "26146 DPGF lot 1 TRC.xlsx",
+        "hash": "48a3f2510072869f547faa8c6a01632b",
+        "taille_chars": 5953
+      },
+      {
+        "nom": "26146-26147 CCAP.pdf",
+        "hash": "1bb4eb671846c07393489808b2df50b2",
+        "taille_chars": 23669
+      },
       {
         "nom": "26146-26147 RC V2.pdf",
         "hash": "040f6069ac69fbb54c0eae7846409401",
         "taille_chars": 24982
+      },
+      {
+        "nom": "26147 AE (lot 2).docx",
+        "hash": "9da26c03da841aaca41f66a3df313d17",
+        "taille_chars": 23563
+      },
+      {
+        "nom": "26147 DPGF lot 2 DO-CCRD.xlsx",
+        "hash": "d5752b767ac7c5f8a8fbc599dc54593a",
+        "taille_chars": 8675
+      },
+      {
+        "nom": "31_PRO~1.PDF",
+        "hash": "503de1431f2fe478bf599d31883844ff",
+        "taille_chars": 152608
+      },
+      {
+        "nom": "32-PRO~1.PDF",
+        "hash": "1d2361640ffd0c3305f77b8ceae5c855",
+        "taille_chars": 127715
+      },
+      {
+        "nom": "4-PRO2~1.PDF",
+        "hash": "eab44bfd1fc7a64d5c4a5aa0d4a7b5e7",
+        "taille_chars": 125960
+      },
+      {
+        "nom": "4502335 - 18-01-2024 - AMENROBES.pdf",
+        "hash": "6c9bb484b399257808abc318436fd24e",
+        "taille_chars": 215874
+      },
+      {
+        "nom": "5-PRO2~1.PDF",
+        "hash": "45d31e645f1850056346f45caabdb133",
+        "taille_chars": 194662
+      },
+      {
+        "nom": "51851 (DIAG - A).pdf",
+        "hash": "ac34596ef71ccf250ebd046748239b81",
+        "taille_chars": 146751
+      },
+      {
+        "nom": "51851 (DIAG P).pdf",
+        "hash": "c059eadf6be6b4c243f1affb2076d90d",
+        "taille_chars": 91789
+      },
+      {
+        "nom": "52887 (DIAG A) enrobés.pdf",
+        "hash": "f5af0692cbbf5865772fd763ad66315b",
+        "taille_chars": 50024
+      },
+      {
+        "nom": "6-PRO2~1.PDF",
+        "hash": "bd9dd73ee26ad4324438e4f5dbbaa849",
+        "taille_chars": 118852
+      },
+      {
+        "nom": "7-PRO2~1.PDF",
+        "hash": "efad4bf6efe2280aed3fcb484e20f388",
+        "taille_chars": 140194
+      },
+      {
+        "nom": "8-PRO2~1.PDF",
+        "hash": "c2a512c0f31b87f783cb48265c7f385e",
+        "taille_chars": 348954
+      },
+      {
+        "nom": "9-PRO2~1.PDF",
+        "hash": "e7a4c33dee5d0affdda36a184c63d24f",
+        "taille_chars": 173989
+      },
+      {
+        "nom": "ANNEXE 1 au CCTP - Fiche technique de l'opération.pdf",
+        "hash": "e99063639373f80cc23f0edc4816dfff",
+        "taille_chars": 7059
+      },
+      {
+        "nom": "ANNEXE AE - Fiche DO et CCRD descriptive des règles diverses opposables.docx",
+        "hash": "6004986105d347f3a98d0c0fe12940a2",
+        "taille_chars": 616
+      },
+      {
+        "nom": "ANNEXE AE - Fiche TRC descriptive des délais et règles diverses opposables.docx",
+        "hash": "9ef24e9a821b8c8b1c1acd9007f1865e",
+        "taille_chars": 777
+      },
+      {
+        "nom": "CCTP - Assurances modernisation stade.pdf",
+        "hash": "e4b0cd61d7b5d7cda5329ca49fe80f5d",
+        "taille_chars": 24360
+      },
+      {
+        "nom": "DOSSIE~1.PDF",
+        "hash": "0a1410dcc50bf9adbfa6be5e99b040df",
+        "taille_chars": 26457
+      },
+      {
+        "nom": "ESSP ALLAINMAT.pdf",
+        "hash": "0234a5f3c907f13262f4f8f5d2998d43",
+        "taille_chars": 80541
+      },
+      {
+        "nom": "ETUDED~1.PDF",
+        "hash": "e8e65d0fe5680621f3b3405042339696",
+        "taille_chars": 45752
+      },
+      {
+        "nom": "ETUDED~2.PDF",
+        "hash": "126cb54b6dcc22cfbdcc87462bda7e2e",
+        "taille_chars": 149023
+      },
+      {
+        "nom": "ETUDED~3.PDF",
+        "hash": "e24939802b4ebf0b5c6fc44d05882ae9",
+        "taille_chars": 127576
+      },
+      {
+        "nom": "Etude G4_AE.pdf",
+        "hash": "d58ac6be9d34804ef60d12566c0d937f",
+        "taille_chars": 12105
+      },
+      {
+        "nom": "FICHE RECAPITULATIVE DES LOTS.pdf",
+        "hash": "ee09c4b65cb71320e503539f6ea6d9c0",
+        "taille_chars": 790
+      },
+      {
+        "nom": "Fiche technique.pdf",
+        "hash": "5dfce534ec2a63bdb0aac23920717b09",
+        "taille_chars": 7010
+      },
+      {
+        "nom": "GDD-Stade de Lorient.pdf",
+        "hash": "abc49c4b15c8ed26b7012b00d8b2963e",
+        "taille_chars": 26145
+      },
+      {
+        "nom": "Marché MOE CCAP.pdf",
+        "hash": "cec69ad5be69fca6eab94e2e91e2ea3e",
+        "taille_chars": 82409
+      },
+      {
+        "nom": "Marché MOE CCTP.pdf",
+        "hash": "1518ae538bff7f89440f492411356a85",
+        "taille_chars": 89412
+      },
+      {
+        "nom": "Marché MOE NOTIF.pdf",
+        "hash": "33034d6d4b83b8f4312ceb628265b1a3",
+        "taille_chars": 2123
+      },
+      {
+        "nom": "Marché MOE Programme stade Lorient.pdf",
+        "hash": "7a28c248298c777a92d2d3f58a8f3b1f",
+        "taille_chars": 393785
+      },
+      {
+        "nom": "Marché MOE_AE.pdf",
+        "hash": "4e314d7d1be174f6f16a14ba0d26d327",
+        "taille_chars": 23570
+      },
+      {
+        "nom": "PC561212500034_Arrêté_PC_AT.pdf",
+        "hash": "8326a0eea6673df29907b7b7dbc78ce8",
+        "taille_chars": 0
+      },
+      {
+        "nom": "PV CNSES Stade Yves Allainmat de Lorient.pdf",
+        "hash": "34676f70a0884c64c3804e92e251e7f4",
+        "taille_chars": 0
+      },
+      {
+        "nom": "PVSCD0~1.PDF",
+        "hash": "f0a4cef8669a43b085c6b5ce99b62473",
+        "taille_chars": 0
+      },
+      {
+        "nom": "Planning marché de travaux.pdf",
+        "hash": "2b4a57af22ee15d42c47c895fe861dfa",
+        "taille_chars": 11119
+      },
+      {
+        "nom": "RAAD_M~1.PDF",
+        "hash": "fab9a5a3f855a9e2cb83171d3bbd0a88",
+        "taille_chars": 46886
+      },
+      {
+        "nom": "RPAD_M~1.PDF",
+        "hash": "5f089878d138d987bef03430a92385ce",
+        "taille_chars": 35975
+      },
+      {
+        "nom": "Rapport RICT-CT.pdf",
+        "hash": "f945d37e0b9d015e8f99227016efc45f",
+        "taille_chars": 138927
+      },
+      {
+        "nom": "SLO DPC 000 cerfa_13409-15_Signé.pdf",
+        "hash": "cd06c90b817896e79849f7df2524f4ae",
+        "taille_chars": 0
+      },
+      {
+        "nom": "SLO DPC 001 situation.pdf",
+        "hash": "3b73bbc0e7be06581f9729c5d3261dd2",
+        "taille_chars": 413
+      },
+      {
+        "nom": "SLO DPC 002 plan masse avec réseaux.pdf",
+        "hash": "e17897d086a379f0f903bc9349a62f52",
+        "taille_chars": 96664
+      },
+      {
+        "nom": "SLO DPC 003 coupe.pdf",
+        "hash": "fc2b3ca3382dc591b7869be2b06ffdb3",
+        "taille_chars": 1738
+      },
+      {
+        "nom": "SLO DPC 004 notice terrain et projet.pdf",
+        "hash": "9ceb1423d1ec72ae327afd41a34edead",
+        "taille_chars": 29547
+      },
+      {
+        "nom": "SLO DPC 005 toiture élévations.pdf",
+        "hash": "accb4a44a6e68e65805548842c46132d",
+        "taille_chars": 4853
+      },
+      {
+        "nom": "SLO DPC 006 insertion.pdf",
+        "hash": "49776e224871cfe4311192040f8a6e14",
+        "taille_chars": 955
+      },
+      {
+        "nom": "SLO DPC 007 photo proche.pdf",
+        "hash": "37bc2d8d60d0395bba23ed3b73ee40c5",
+        "taille_chars": 979
+      },
+      {
+        "nom": "SLO DPC 008 photo lointain.pdf",
+        "hash": "e9892e833c21523cd0221e45cbfcfede",
+        "taille_chars": 485
+      },
+      {
+        "nom": "SLO DPC 011 dispense étude impact.pdf",
+        "hash": "56eaa3495ab73fff7fd844fd388a3c3f",
+        "taille_chars": 9753
+      },
+      {
+        "nom": "SLO DPC 012 attestation parasismique.pdf",
+        "hash": "f53f4ea96280c4e63c1209bc1e45e535",
+        "taille_chars": 2461
+      },
+      {
+        "nom": "SLO DPC 016 ESSP.pdf",
+        "hash": "0c0fc71b74453e019ae0dab2209a54c1",
+        "taille_chars": 7577
+      },
+      {
+        "nom": "SLO DPC 016.1 attestation thermique.pdf",
+        "hash": "09412d1d7f22822b1c444604e5240a27",
+        "taille_chars": 2035
+      },
+      {
+        "nom": "SLO DPC 027 permis démolir.pdf",
+        "hash": "952fd7264a618ea411dcc2a8b23ebdb6",
+        "taille_chars": 1684
+      },
+      {
+        "nom": "SLO DPC 039 ERP accessibilité.pdf",
+        "hash": "d87a8d9521a564194e7bb6fcab94b870",
+        "taille_chars": 50918
+      },
+      {
+        "nom": "complmt d info 1.pdf",
+        "hash": "4f41a11a5ed602662ac01b5b834c1dea",
+        "taille_chars": 1664
       }
     ]
   }

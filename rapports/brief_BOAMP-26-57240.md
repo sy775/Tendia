@@ -1,6 +1,6 @@
 # Brief — Accord-cadre relatif aux prestations de déménagement des locaux de différents sites de l’Assurance Maladie de l’Isère
 
-_Généré le 2026-06-12 15:49 par Claude claude-sonnet-4-6_
+_Généré le 2026-06-20 05:47 par Claude claude-sonnet-4-6_
 
 ## Identifiants
 - **ID Tendia** : `BOAMP-26-57240`
@@ -10,65 +10,13 @@ _Généré le 2026-06-12 15:49 par Claude claude-sonnet-4-6_
 - **DCE PLACE** : <https://www.marches-publics.gouv.fr/entreprise/consultation/3015509?orgAcronyme=s7h>
 
 ## Synthèse
-Accord-cadre à bons de commande passé par la CPAM de l'Isère pour des prestations de déménagement (transferts intra/inter-sites, démontage/remontage de mobilier, stockage temporaire et prestations associées) sur l'ensemble des sites de l'Assurance Maladie de l'Isère (Grenoble + agences départementales). Marché non alloti, d'une durée initiale de 12 mois renouvelable 3 fois (4 ans maximum), pour un montant maximum de 132 000 € HT. Procédure adaptée (MAPA) avec possibilité de négociation.
-
-## 🏗 Chantier — caractéristiques BTP
-- **Description** : Prestations de déménagement sur les différents sites de l'Assurance Maladie de l'Isère : transferts de mobiliers intra-sites ou inter-sites, démontage et remontage de mobilier et équipements, stockage temporaire, et prestations associées (véhicules, monte-meubles, fournitures d'emballage, gestion des déchets). Interventions en site occupé sur sites administratifs.
-- **Type d'ouvrage** : Locaux administratifs (siège social à Grenoble + agences réparties en Isère)
-- **Site occupé pendant travaux** : oui
-- **Corps d'état mobilisés** : déménagement, manutention, stockage temporaire
-- **Contraintes spécifiques** :
-  - Continuité de service à assurer lors des interventions
-  - Interventions en site occupé
-  - Gestion des demandes urgentes ou imprévues
-  - Coordination multi-sites sur l'ensemble du département de l'Isère
-  - Traçabilité des biens mobiliers
-
-### Allotissement
-Marché non alloti — un seul attributaire pour l'ensemble des prestations
-- **Nombre de lots** : 1
-- **Lot 1** — Prestations de déménagement des locaux de l'Assurance Maladie de l'Isère
-  - Corps d'état : déménagement / manutention / stockage
-  - Montant estimé : 132 000 €
-  - Transferts intra/inter-sites, démontage/remontage de mobilier, stockage temporaire, prestations associées (véhicules, monte-meubles, emballages, gestion des déchets)
-
-### Qualifications BTP exigées
-Certificat de qualification professionnelle demandé, assurance RC professionnelle en cours de validité. Aucune qualification Qualibat ou RGE spécifique mentionnée.
-- **Autres exigences** :
-  - Certificat de qualification professionnelle (secteur déménagement)
-
-## ⚡ Parc EnR — caractéristiques techniques
-### Volumes techniques
-- **Durée du marché (mois)** : 48
-- **Note** : Accord-cadre à bons de commande — volumes non figés. Montant maximum 132 000 € HT sur 4 ans. Les quantités du DQE sont estimatives pour l'analyse des offres uniquement.
-
-### Modalités d'exécution
-- **Sites d'exécution** : Grenoble (38), Isère (38) — ensemble du département
-
-## 🎯 Mission conseil
-- **Durée de mission** : 12 mois renouvelables 3 fois (4 ans maximum)
-
-### Profils intervenants
-Équipes de déménageurs encadrées, interlocuteur dédié CPAM, personnel de manutention qualifié
-- **Chef de mission** : Interlocuteur dédié chargé de la coordination et de la communication avec la CPAM
-- **Consultants** : Équipes de déménageurs/manutentionnaires avec encadrement et supervision définis
-
-## 🎓 Formation / accompagnement
-### Publics cibles
-Non applicable — marché de services de déménagement, pas de formation ou d'insertion.
-
-### Volumes
-- **Durée marché (mois)** : 48
-- **Note** : Accord-cadre à bons de commande. Les quantités du DQE sont estimatives. Montant maximum 132 000 € HT / 158 400 € TTC toutes périodes confondues (4 ans).
-
-### Modalités
-- **Sites d'exécution** : Grenoble (38), Isère (38)
+Accord-cadre à bons de commande passé par la CPAM de l'Isère pour des prestations de déménagement (transfert intra/inter-sites, démontage/remontage, stockage temporaire, fournitures et gestion des déchets) sur l'ensemble du département de l'Isère. Le marché est non alloti, d'une durée d'un an renouvelable 3 fois (4 ans maximum), pour un montant maximum de 132 000 € HT. La notation privilégie la valeur technique (50 pts) sur le prix (40 pts) avec un critère écologique distinct (10 pts).
 
 ## 💶 Montant du marché
-- **Plafond accord-cadre** : **132 000 €**
-  - sur Durée totale du marché : 4 ans (12 mois + 3 reconductions)
-  - _source : RC article 2-3 page 3_
-- _Note_ : Montant maximum pour la durée totale du marché : 132 000 € HT / 158 400 € TTC. Il s'agit d'un accord-cadre à bons de commande sans minimum garanti. Le montant annuel moyen implicite est d'environ 33 000 € HT/an.
+- **Valeur estimée** : **110 000 €**
+  - sur Durée totale du marché : 4 ans (1 an + 3 reconductions)
+  - _source : CCAP art 4 et art 5 / RC art 2.3_
+- _Note_ : Le CCAP indique un montant estimatif de 110 000 € HT et un montant maximum de 132 000 € HT sur 4 ans. Le RC confirme le montant maximum à 132 000 € HT (158 400 € TTC).
 
 ## Barème de notation
 - **Valeur technique** : 60 %
@@ -79,28 +27,27 @@ Non applicable — marché de services de déménagement, pas de formation ou d'
   - Moyens techniques et logistiques : 10 %
   - Gestion du stockage et des flux mobiliers : 10 %
   - Valeur écologique : 10 %
-- **Calcul du prix** : Note = Offre la moins disante × coefficient de pondération / Offre du candidat noté. Calculée sur le montant TTC du DQE quadri-annuel (simulation de commande sur 4 ans).
+- **Calcul du prix** : Note = Offre la moins disante × 40 / Offre du candidat noté. Évaluation sur la base du DQE (simulation de commande quadri-annuelle) combinant prix unitaires BPU × quantités estimatives définies par l'organisme.
 
 ## Références et qualifications exigées
 - **Expérience minimale** : —
-- **Secteur d'expérience** : Prestations de déménagement auprès d'organismes publics et/ou privés
-- **Certifications obligatoires** : Certificat de qualification professionnelle (secteur déménagement) (source=RC article 5-1), Assurance responsabilité civile professionnelle en cours de validité (source=RC article 5-1 / Annexe I RC)
+- **Secteur d'expérience** : Prestations de déménagement (transfert de mobilier, stockage, démontage/remontage) auprès d'organismes publics ou privés
+- **Certifications obligatoires** : Certificat de qualification professionnelle dans le domaine du déménagement (source=RC art 5.1), Preuve d'assurance pour les risques professionnels en cours de validité (bloquante=True, source=RC art 5.1 / CCAP art 10-6)
 - **Autres exigences** :
-  - Liste des principales prestations effectuées au cours des 3 dernières années (montant, date, destinataire) avec attestations (source=RC article 5-1)
-  - Déclaration du chiffre d'affaires global et CA relatif aux prestations objet du contrat sur 3 derniers exercices (source=RC article 5-1)
-  - Déclaration des effectifs moyens annuels et personnel d'encadrement sur 3 dernières années (source=RC article 5-1)
-  - Déclaration indiquant l'outillage, matériel et équipement technique disponible (source=RC article 5-1)
+  - Déclaration du chiffre d'affaires global et du CA concernant les prestations de déménagement sur les 3 derniers exercices disponibles (source=RC art 5.1)
+  - Déclaration indiquant les effectifs moyens annuels et l'importance du personnel d'encadrement pendant les 3 dernières années (source=RC art 5.1)
+  - Déclaration indiquant l'outillage, le matériel et l'équipement technique disponible pour la réalisation du contrat (source=RC art 5.1)
 
 ## ⚠ Alertes candidat
-- Certificat de qualification professionnelle exigé — vérifier que l'entreprise dispose d'une certification reconnue dans le secteur du déménagement (type NF Déménagement ou équivalent)
-- Capacité de stockage temporaire requise : l'absence d'entrepôt propre doit être justifiée ou compensée par un partenaire sous-traitant déclaré (DC4)
-- Interlocuteur dédié nominativement identifié attendu — prévoir une personne nommée et joignable dans le mémoire technique
-- Assurance RC professionnelle en cours de validité obligatoire à fournir dès la candidature
-- Documents de l'Annexe I (attestations fiscales, vigilance, RIB) exigés dans un délai de 8 jours calendaires après désignation — à préparer en amont sous peine d'élimination
+- Le mémoire technique est limité à 20 pages hors annexes (AnnexeII RC) : toute réponse plus longue risque d'être pénalisée ou ignorée au-delà de la limite.
+- Une visite préalable obligatoire est requise avant chaque déménagement (CCTP art V.1) : le candidat doit démontrer sa capacité à mobiliser un interlocuteur qualifié sur tout le département de l'Isère dans des délais contraints.
+- La clause d'insertion professionnelle est une condition d'exécution obligatoire (CCAP art 10-3) : le titulaire doit s'engager chiffrement sur des heures d'insertion ou le recours à une structure d'insertion, sous peine de pénalités.
+- L'attestation d'assurance RC professionnelle doit être fournie dans les 15 jours suivant la notification et avant tout début d'exécution (CCAP art 10-6) : son absence bloque l'exécution du contrat.
+- Le candidat doit être en capacité d'intervenir simultanément sur plusieurs agences du département de l'Isère (CCTP art IV.1), ce qui nécessite une flotte et des équipes suffisantes pour des opérations concomitantes.
 
 ## 💡 Points différenciants attendus
-- Démonstration d'un interlocuteur dédié et d'un processus de prise en charge rapide (exemple=Désigner nominativement un chef de projet dédié avec SLA de rappel sous 4h pour toute demande, et présenter un logigramme précis de traitement d'une demande de la réception à la validation du devis., source=Annexe II RC Cadre de réponse technique — Sous-critère 1)
-- Gestion des urgences avec équipe de réserve (exemple=Décrire un mécanisme concret : disponibilité d'une équipe de réserve permettant une intervention sous 48h, planning de rotation préétabli, contact d'astreinte., source=Annexe II RC Cadre de réponse technique — Sous-critère 1)
-- Flotte de véhicules écologiques et outils de traçabilité numérique (exemple=Valoriser des véhicules électriques ou hybrides dans la flotte, et un outil numérique de traçabilité (scan code-barres, accès client en ligne) — deux leviers qui jouent à la fois sur le critère technique et le critère écologique., source=Annexe II RC Cadre de réponse technique — Sous-critères 3 et Critère 3)
-- Références auprès d'organismes de protection sociale ou collectivités publiques (exemple=Mettre en avant des références nominatives avec attestations pour des CPAM, URSSAF, mutuelles ou collectivités : cela valorise directement la capacité à travailler en site occupé, en environnement administratif et avec des contraintes de continuité de service., source=Annexe II RC Cadre de réponse technique — Sous-critère 2)
-- Capacités de stockage propres avec traçabilité en temps réel (exemple=Décrire un entrepôt propriétaire ou en location longue durée, sécurisé, avec inventaire contradictoire et accès client à l'état du stock via un portail web — différenciant fort sur le sous-critère 4., source=Annexe II RC Cadre de réponse technique — Sous-critère 4)
+- Gestion des urgences et réactivité (délai 5 jours ouvrés) (exemple=Décrire précisément l'organisation interne permettant de déclencher une équipe dans les 5 jours ouvrés (astreinte, équipe dédiée, procédure d'activation) et illustrer par un exemple concret d'intervention urgente réalisée pour un client similaire., source=CCTP art III.5 / AnnexeII_RC sous-critère 1)
+- Capacité de stockage temporaire sécurisé et traçabilité des biens (exemple=Présenter un entrepôt localisé en Isère ou dans l'agglomération grenobloise, avec sa superficie, ses conditions de sécurité (contrôle d'accès, alarme, couverture incendie) et son outil de gestion de stock permettant à la CPAM de consulter l'état de son mobilier en temps réel., source=CCTP art III.3 / AnnexeII_RC sous-critère 4)
+- Flotte à faibles émissions et démarche RSE documentée (exemple=Valoriser des véhicules électriques ou hybrides pour les transferts intra-sites Grenoble, produire un bilan carbone de l'activité de déménagement et présenter une charte RSE formalisée avec des engagements chiffrés (réduction km, filières déchets agréées DEEE)., source=RC art 6.5 / CCAP art 10-4)
+- Références auprès d'organismes de sécurité sociale ou administrations publiques (exemple=Citer 2-3 déménagements réalisés pour des CPAM, CARSAT, URSSAF ou collectivités locales avec volume (m³), nombre de sites, complexité (matériel médical, informatique) et attestation du client., source=RC art 5.1 / AnnexeII_RC sous-critère 2)
+- Interlocuteur dédié expérimenté avec suppléance opérationnelle garantie (exemple=Nommer l'interlocuteur proposé (CV joint), préciser son expérience en déménagement tertiaire, présenter le suppléant et décrire la procédure de passation de consignes pour garantir une continuité sans rupture de service, y compris pour les opérations simultanées sur plusieurs sites., source=CCTP art V.2 / AnnexeII_RC sous-critère 2)

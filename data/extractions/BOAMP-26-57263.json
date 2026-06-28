@@ -1,43 +1,56 @@
 {
-  "synthese_marche": "L'EPIC U Caminu di Ferru di a Corsica (Chemin de Fer de la Corse) recherche un prestataire pour assurer la maintenance du tour en fosse de modèle TALGO 2112 de son atelier de Casamozza (Lucciana, Corse). Les prestations couvrent les visites générales, le dépannage, les réglages et étalonnages, les essais de fonctionnement et la fourniture d'un rapport d'intervention post-opération (main d'œuvre uniquement, les pièces étant à la charge du CFC). Le contrat est conclu pour 2 ans, avec une première intervention prévue entre octobre et novembre 2026, les opérations se déroulant tous les 18 mois.",
+  "synthese_marche": "Marché public de services portant sur la maintenance du tour en fosse de modèle TALGO 2112 de l'atelier de Casamozza (Lucciana, Corse) de l'EPIC CFC (Chemin de Fer de la Corse). Les prestations consistent en des visites générales, appui technique, remplacement de pièces (pneumatique, hydraulique, mécanique, automatique, électrique) et étalonnages, à réaliser tous les 18 mois. Le marché couvre 2 ans, la première intervention étant prévue entre octobre et novembre 2026.",
   "domaines_metier": [
     {
       "code": "autre"
     }
   ],
-  "raison_classification": "Ce marché porte sur la maintenance d'un tour en fosse ferroviaire (machine-outil spécifique TALGO 2112 utilisée pour le reprofilage des essieux de trains), relevant de la maintenance industrielle / ferroviaire. Aucun code de la taxonomie disponible ne couvre la maintenance d'équipements ferroviaires ou de machines-outils industrielles ; le code le plus proche serait 'fourniture_materiel' ou 'services_environnement_analyses' mais ils ne correspondent pas. Le CPV principal est 50220000 (services de réparation/entretien transport ferroviaire).",
-  "caracteristiques_mission_it": {
-    "typologie_mission": null,
-    "typologie_systeme": null,
-    "cloud_ou_on_premise": null,
-    "niveau_securite": null,
-    "technologies_attendues": [],
-    "modele_prestation": "forfait",
-    "volumetrie": null,
-    "jours_homme_estimes": null,
-    "sla_attendus": null,
-    "livrables_par_phase": [
-      {
-        "phase": "Post-intervention",
-        "livrables": [
-          "Rapport d'intervention comprenant un compte rendu d'intervention",
-          "Listing précis des pièces à prévoir de remplacer lors de l'opération suivante"
-        ]
-      }
+  "raison_classification": "Ce marché porte exclusivement sur la maintenance spécialisée d'un tour en fosse ferroviaire (machine-outil industrielle), compétence de techniciens en mécanique industrielle/ferroviaire. Aucun code de la taxonomie BTP, ingénierie bâtiment, énergie, formation ou services généraux ne correspond : le plus proche serait 'formation_metiers_techniques' (hors sujet) ou 'fourniture_materiel' (hors sujet). Le CPV 50220000 (réparation/entretien équipements ferroviaires) n'a pas d'équivalent direct dans la taxonomie fournie.",
+  "caracteristiques_techniques_chantier": {
+    "description": "Maintenance d'un tour en fosse de modèle TALGO 2112, mis en service en 2012 avec 3 600 heures, situé dans l'atelier de Casamozza (Lucciana). Prestations : visite générale ou grande visite générale, appui technique et recherche de pannes, remplacement de pièces pneumatiques/hydrauliques/mécaniques/automatiques/électriques, vérification et ajustage des outils de mesure, vérification des dispositifs de sécurité, essais de fonctionnement, passage de l'essieu étalon, usinage d'un essieu en fin d'intervention, étalonnage de l'essieu étalon. Fréquence : tous les 18 mois. Les prestations couvrent uniquement la main d'œuvre ; les pièces sont à la charge du CFC.",
+    "typologie_ouvrage": "Atelier ferroviaire industriel — machine-outil spécialisée (tour en fosse TALGO 2112)",
+    "surface_volume": null,
+    "site_occupe": "true — l'atelier de Casamozza est en exploitation ; des mesures de sécurité et un protocole spécifique sont requis",
+    "corps_etat": [
+      "Maintenance mécanique industrielle",
+      "Maintenance hydraulique et pneumatique",
+      "Maintenance électrique et automatisme (commande numérique)",
+      "Métrologie et étalonnage"
     ],
-    "profils_attendus": [],
-    "exigences_securite": [],
-    "reversibilite": null
+    "contraintes_specifiques": [
+      "Protocole de sécurité obligatoire remis par le CFC et à diffuser à tout le personnel",
+      "Première intervention impérativement entre le 5 octobre et le 13 novembre 2026",
+      "Périodicité fixe des interventions : tous les 18 mois",
+      "Remise d'un rapport d'intervention post-opération avec compte rendu et liste des pièces à prévoir",
+      "Essieu étalon à disposition pour passage avant/après intervention",
+      "Mesures de confidentialité et de sécurité ferroviaire à respecter",
+      "Site en Corse — contrainte logistique de déplacement insulaire"
+    ]
   },
-  "qualifications_it": {
-    "iso_27001": false,
-    "hds": false,
-    "secnumcloud": false,
-    "rgs": false,
-    "referencement_anssi": false,
-    "certifications_securite": [],
-    "certifications_technologiques": [],
-    "autres": []
+  "allotissement": {
+    "description": "Marché non décomposé en lots — prestation unique",
+    "nb_lots": 1,
+    "lots_detailles": [
+      {
+        "numero": 1,
+        "intitule": "Maintenance du tour en fosse de l'atelier de Casamozza",
+        "corps_etat": "Maintenance mécanique, hydraulique, pneumatique, électrique et métrologie (tour en fosse TALGO 2112)",
+        "montant_estime": null,
+        "description": "Visites générales, appui technique, remplacement de pièces, vérification des sécurités, essais, usinage d'essieu et étalonnage — main d'œuvre uniquement, 2 interventions sur 2 ans"
+      }
+    ]
+  },
+  "qualifications_requises": {
+    "description": "Aucune qualification normalisée (Qualibat, RGE, MASE, ISO) n'est explicitement exigée dans le RC ou le CCP. Les candidats doivent justifier de références similaires et d'un chiffre d'affaires pertinent.",
+    "qualibat": [],
+    "rge": false,
+    "rge_specialites": [],
+    "mase": false,
+    "iso_9001": false,
+    "iso_14001": false,
+    "iso_45001": false,
+    "opqibi": null,
+    "autres_certifications": []
   },
   "bareme_notation": {
     "valeur_technique_pct": 40,
@@ -46,38 +59,110 @@
       {
         "libelle": "Valeur technique",
         "ponderation_pct": 40,
-        "description": "La valeur technique est appréciée au regard de la qualité des éléments fournis dans le cadre de réponses techniques à compléter. Le RC ne détaille pas de sous-critères chiffrés.",
+        "description": "La valeur technique est appréciée au regard de la qualité des éléments fournis dans le cadre de réponses techniques à compléter (cadre de réponses techniques joint au DCE).",
         "elements_attendus": [
-          "Compréhension des spécificités du tour en fosse TALGO 2112",
-          "Méthodologie d'intervention (visite générale, grande visite générale, appui technique)",
-          "Organisation des essais avant/après intervention et passage de l'essieu étalon",
-          "Modalités de l'appui téléphonique à distance et de la visite supplémentaire en cas de panne",
-          "Qualité et précision du compte rendu d'intervention et du listing de pièces prévisionnelles"
+          "Méthodologie d'intervention sur le tour en fosse TALGO 2112",
+          "Organisation des interventions et respect de la fenêtre calendaire imposée (oct-nov 2026)",
+          "Moyens humains et techniques dédiés (techniciens spécialisés, outillage spécifique)",
+          "Références similaires sur machines-outils ferroviaires ou tours en fosse",
+          "Démarche qualité et sécurité sur site ferroviaire",
+          "Appui téléphonique à distance et modalités d'intervention en cas de panne"
         ],
-        "exemple_reponse_forte": "Le candidat décrit précisément le protocole d'intervention sur un tour en fosse TALGO 2112 : visite générale ciblée sur les éléments défectueux identifiés, essais de fonctionnement avant/après, passage et étalonnage de l'essieu étalon, puis restitution d'un rapport structuré listant les pièces à anticiper pour la prochaine échéance (18 mois). Il précise également les modalités de son service d'astreinte téléphonique et les délais d'intervention en cas de panne.",
+        "exemple_reponse_forte": "Le candidat présente une méthodologie détaillée d'intervention sur tour en fosse TALGO 2112 avec planning précis sur la fenêtre oct-nov 2026, une équipe de 2 techniciens spécialisés en machines-outils ferroviaires, et des références de maintenance similaires (ex: SNCF, réseaux régionaux). Il décrit la procédure de passage de l'essieu étalon, l'organisation du rapport d'intervention et le service d'astreinte téléphonique.",
         "source": "RC §7.2",
+        "unite_evaluation": "points",
         "sous_criteres": []
       }
     ],
     "prix": {
       "type_formule": "moins_disant",
       "formule_explicite": "Le prix sera apprécié en fonction du montant indiqué à l'acte d'engagement.",
+      "source": "RC §7.2",
       "elements_a_chiffrer": [
-        "Prix global forfaitaire pour les prestations de maintenance (main d'œuvre uniquement)",
+        "Prix global forfaitaire pour la maintenance périodique (visite générale tous les 18 mois) sur 2 ans",
         "Prix d'une visite supplémentaire en cas de panne",
-        "Prix de la mise à disposition d'un appui téléphonique à distance"
+        "Mise à disposition d'un appui téléphonique à distance pour la maintenance"
       ]
     },
-    "modalite_calcul_prix": "Le prix sera apprécié en fonction du montant indiqué à l'acte d'engagement (RC §7.2). La DPGF (décomposition du prix global forfaitaire) doit être fournie."
+    "modalite_calcul_prix": "Le prix est apprécié en fonction du montant indiqué à l'acte d'engagement — formule moins-disant."
   },
   "montant_marche": {
     "valeur_estimee_euros": null,
     "fourchette_min_euros": null,
     "fourchette_max_euros": null,
     "type": "non_communique",
-    "duree_couverte": "24 mois",
+    "duree_couverte": "2 ans",
     "source_extraction": null,
-    "commentaire": "Aucun montant estimé, plafond ou enveloppe budgétaire n'est mentionné dans les pièces du DCE fournies. Le marché étant à prix global forfaitaire, le montant dépend entièrement de l'offre des candidats. Une seule indication indirecte : l'avance est versée pour les marchés > 50 000 € HT (CCP §7.1), ce qui suggère que l'acheteur anticipe un montant pouvant dépasser ce seuil."
+    "commentaire": "Aucun montant estimé n'est publié dans le DCE. Le marché est publié en procédure adaptée ouverte (non européenne sur le fond malgré la mention BOAMP), ce qui est compatible avec un montant sous le seuil européen services (221 000 € HT). Estimation bottom-up dans montant_3_voies."
+  },
+  "montant_3_voies": {
+    "voie_1_eur": null,
+    "voie_1_source": null,
+    "voie_2_disponible": true,
+    "voie_2_min_eur": 90000,
+    "voie_2_max_eur": 150000,
+    "voie_2_hypotheses": [
+      {
+        "hypothese": "Nombre d'interventions sur 2 ans : 2 interventions (périodicité 18 mois, donc 1 grande visite + 1 visite intermédiaire sur 24 mois) — CCP §16",
+        "valeur": "2 interventions"
+      },
+      {
+        "hypothese": "Durée estimée d'une intervention grande visite sur tour en fosse TALGO : 5 à 7 jours ouvrés avec équipe de 2-3 techniciens spécialisés (marché de référence maintenance machines-outils ferroviaires)",
+        "valeur": "5 à 7 jours/intervention × 2-3 techniciens"
+      },
+      {
+        "hypothese": "Taux journalier technicien spécialisé maintenance ferroviaire (indicatif marché) : 700-900 €/jour tout compris (déplacement Corse inclus, supplément insularité estimé +20%)",
+        "valeur": "700 à 900 €/j/technicien"
+      },
+      {
+        "hypothese": "Calcul central : 2 interventions × 6 jours × 2,5 techniciens × 800 €/j = 24 000 € × 2 = 48 000 € main d'œuvre directe + déplacements/hébergement Corse (~15 000 €/intervention × 2) = 30 000 € + forfait astreinte téléphonique 2 ans (~5 000 €) + visite de dépannage éventuelle forfait (~10 000 €). Fourchette haute retenue pour la dimension insulaire et la spécialisation.",
+        "valeur": "Valeur centrale ~110 000 € sur 2 ans"
+      },
+      {
+        "hypothese": "Dimension faisant varier la fourchette : taux journalier technicien (700 €/j → borne basse ~90 000 € ; 900 €/j → borne haute ~150 000 €). Quantités fixes.",
+        "valeur": "Taux 700-900 €/j technicien spécialisé"
+      }
+    ],
+    "voie_2_raison_indisponible": null
+  },
+  "cout_realisation": {
+    "cout_total_eur": 75000,
+    "cout_min_eur": 60000,
+    "cout_max_eur": 100000,
+    "postes": [
+      {
+        "poste": "Main d'œuvre technique — 2 interventions × 6 j × 2,5 techniciens",
+        "detail": "2 × 6 jours × 2,5 techniciens × 550 €/j chargé = 16 500 € × 2 = 33 000 €",
+        "montant_eur": 33000
+      },
+      {
+        "poste": "Déplacements et hébergement en Corse",
+        "detail": "Vol + ferry + hébergement : ~6 000 €/intervention × 2 = 12 000 €",
+        "montant_eur": 12000
+      },
+      {
+        "poste": "Outillage spécifique et consommables de prestation",
+        "detail": "Matériel de métrologie, lubrifiants, consommables d'intervention (pièces à charge CFC) : ~3 000 €/intervention × 2",
+        "montant_eur": 6000
+      },
+      {
+        "poste": "Astreinte téléphonique 2 ans",
+        "detail": "Forfait astreinte hot-line sur 24 mois : ~5 000 €",
+        "montant_eur": 5000
+      },
+      {
+        "poste": "Encadrement et rédaction rapport d'intervention",
+        "detail": "1 ingénieur/chef de projet × 2 j × 2 interventions × 700 €/j = 2 800 €",
+        "montant_eur": 2800
+      },
+      {
+        "poste": "Visite de dépannage en cas de panne (provision)",
+        "detail": "1 intervention de dépannage probable sur 2 ans : 3 j × 2 techniciens × 550 €/j + déplacements ~5 000 €",
+        "montant_eur": 8300
+      }
+    ],
+    "taux_journaliers_retenus": "Technicien spécialisé maintenance industrielle/ferroviaire : 500-600 €/j chargé (taux marché indicatif) ; ingénieur/chef de projet : 700 €/j ; supplément insulaire Corse (transport + hébergement) : ~6 000 € par mission de terrain. Ces taux sont indicatifs et varient selon la structure du candidat.",
+    "commentaire": "Le coût de réalisation est dominé par les déplacements en Corse (insularité) et la spécialisation des techniciens. La dimension faisant varier la fourchette est le taux chargé du technicien (500 €/j → borne basse ~60 000 € ; 600 €/j → borne haute ~100 000 €). Les pièces de remplacement sont à la charge du CFC, ce qui allège significativement le coût."
   },
   "revision_prix": {
     "type": "ferme",
@@ -86,85 +171,158 @@
     "periodicite": null,
     "formule_revision": null,
     "source_extraction": "CCP §5.2",
-    "commentaire": "Les prix sont fermes et non actualisables sur toute la durée du contrat de 2 ans. Risque pour le candidat en cas de hausse des coûts de main d'œuvre ou de déplacement sur la durée."
+    "commentaire": "Les prix sont fermes et non actualisables sur toute la durée du contrat (2 ans). Risque pour le candidat en cas d'inflation des coûts de transport vers la Corse ou d'augmentation des taux de main d'œuvre."
   },
   "alertes_prix": [
-    "Prix fermes et non révisables sur 24 mois : le candidat doit anticiper l'évolution de ses coûts de main d'œuvre spécialisée et de déplacement en Corse sur 2 ans.",
-    "Le CCP prévoit une avance uniquement si le montant > 50 000 € HT : en dessous de ce seuil, aucune avance ne sera versée.",
-    "Pénalités de retard non plafonnées applicables sans mise en demeure préalable (CCP §12), ce qui représente un risque financier en cas de retard sur la première intervention (fenêtre étroite : 5 octobre – 13 novembre 2026).",
-    "La pondération prix à 60% est élevée : le prix sera déterminant pour le classement final."
+    "Prix ferme et non révisable sur 2 ans : risque d'inflation des coûts de transport vers la Corse à anticiper dans l'offre initiale",
+    "Pondération prix de 60% très élevée : le moins-disant sera fortement avantagé ; attention au risque d'offre anormalement basse sur un marché à forte composante déplacement insulaire",
+    "La DPGF doit intégrer 3 lignes distinctes : forfait maintenance périodique, visite supplémentaire panne, et forfait astreinte téléphonique — erreur de décomposition = risque d'offre incomplète",
+    "Aucun montant estimé publié : le candidat ne dispose pas de repère pour calibrer son offre par rapport au budget du CFC"
   ],
   "references_exigees": {
-    "experience_minimale_annees": null,
-    "experience_source": null,
+    "experience_minimale_annees": 3,
+    "experience_source": "RC §5.1",
     "volume_min_references_similaires": null,
-    "volume_min_references_unite": null,
-    "secteur_experience": "Maintenance et réparation de tours en fosse ou d'équipements ferroviaires / machines-outils à usage spécifique",
+    "volume_min_references_unite": "marchés similaires",
+    "secteur_experience": "Maintenance et réparation d'équipements ferroviaires ou de machines-outils à usage spécifique (tour en fosse, machines de reprofilation)",
     "secteur_source": "RC §5.1",
     "certifications_obligatoires": [],
     "autres_exigences": [
       {
-        "libelle": "Déclaration du chiffre d'affaires global et du chiffre d'affaires concernant les prestations objet du contrat, réalisées au cours des trois derniers exercices disponibles",
+        "libelle": "Déclaration de chiffre d'affaires global et chiffre d'affaires sur prestations similaires, pour les 3 derniers exercices disponibles",
         "source": "RC §5.1"
       },
       {
-        "libelle": "Liste des principales prestations effectuées au cours des trois dernières années, indiquant le montant, la date et le destinataire, prouvées par attestations du destinataire ou déclaration du candidat",
+        "libelle": "Liste des principales prestations effectuées au cours des 3 dernières années, avec montant, date et destinataire (attestations destinataire ou déclaration candidat)",
         "source": "RC §5.1"
       }
     ]
   },
-  "lots": [],
+  "dossier_candidature": {
+    "pieces_a_fournir": [
+      {
+        "libelle": "Déclaration sur l'honneur pour justifier que le candidat n'entre dans aucun des cas d'interdiction de soumissionner",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §5.1"
+      },
+      {
+        "libelle": "Lettre de candidature dûment complétée, datée et signée (DC1)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §5.1"
+      },
+      {
+        "libelle": "Déclaration concernant le chiffre d'affaires global et le chiffre d'affaires concernant les prestations objet du contrat, réalisées au cours des trois derniers exercices disponibles",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §5.1"
+      },
+      {
+        "libelle": "Liste des principales prestations effectuées au cours des trois dernières années, indiquant le montant, la date et le destinataire (attestations destinataire ou déclaration candidat)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §5.1"
+      },
+      {
+        "libelle": "L'acte d'engagement (AE) et ses annexes",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §5.1"
+      },
+      {
+        "libelle": "Le cahier des clauses particulières (CCP) — à signer en retour",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §5.1"
+      },
+      {
+        "libelle": "La décomposition du prix global forfaitaire (DPGF)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §5.1"
+      },
+      {
+        "libelle": "Le cadre de réponses techniques complété",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §5.1"
+      }
+    ],
+    "mode_remise": "dématérialisé",
+    "plateforme_depot": "AWS — https://marches-publics.info",
+    "signature_electronique_exigee": false,
+    "format_signature": null,
+    "nombre_exemplaires": null,
+    "langue": "français",
+    "duree_validite_offres_jours": 150,
+    "modalites_source": "RC §6.1 et §2.1"
+  },
+  "lots": [
+    {
+      "numero": 1,
+      "intitule": "Maintenance du tour en fosse de l'atelier de Casamozza de l'EPIC CFC",
+      "domaine": "autre",
+      "zone_geographique": "Lucciana (20290) — Haute-Corse",
+      "volume_estime": null,
+      "volume_estime_unite": null,
+      "cout_estime_min_eur": 60000,
+      "cout_estime_max_eur": 100000,
+      "particularites": "Marché sans lot unique. Main d'œuvre uniquement (pièces à la charge du CFC). Première intervention obligatoire entre le 5 octobre et le 13 novembre 2026. Contrainte insulaire forte (logistique Corse)."
+    }
+  ],
+  "tranches": [],
   "calendrier": {
     "date_limite_offres": "2026-07-08",
     "date_demarrage_prevue": "2026-10-05",
-    "duree_marche": "24 mois (non reconductible)"
+    "duree_marche": "24 mois à compter de la notification du contrat"
   },
   "alertes_candidat": [
-    "Fenêtre d'exécution de la première intervention très contrainte : entre le 5 octobre et le 13 novembre 2026 (CCP §16). Le candidat doit s'assurer de la disponibilité de ses techniciens spécialisés sur cette période.",
-    "Les prestations n'incluent que la main d'œuvre : les pièces de rechange sont à la charge du CFC. Le candidat doit bien dissocier MO et fournitures dans son chiffrage et ne pas inclure le matériel dans son offre de prix.",
-    "Le chantier est situé en Corse (Lucciana, 20290) : les frais de déplacement et d'hébergement sont à anticiper dans le prix forfaitaire, qui est ferme et non révisable.",
-    "Le marché porte sur un équipement très spécifique (tour en fosse TALGO 2112, mis en service en 2012, 3 600 heures) : des références sur des équipements similaires ou du même fabricant seront probablement déterminantes pour convaincre l'acheteur sur la valeur technique (40% du barème).",
-    "Protocole de sécurité à respecter impérativement (CCP §3) : le titulaire devra le diffuser à l'ensemble de son personnel et en fournir la confirmation écrite au CFC avant toute intervention."
+    "Fenêtre d'intervention imposée : la première maintenance doit impérativement avoir lieu entre le 5 octobre et le 13 novembre 2026 — tout candidat ne pouvant mobiliser ses techniciens dans ce créneau sera en risque de pénalités ou d'irrégularité d'exécution",
+    "Protocole de sécurité ferroviaire obligatoire : le titulaire doit diffuser le document à tout son personnel et en fournir confirmation écrite au CFC avant toute intervention — ne pas l'anticiper peut bloquer le démarrage",
+    "Logistique insulaire : les déplacements en Corse (vols, ferry, hébergement) représentent une part significative du coût — une sous-estimation peut conduire à une offre anormalement basse déclenchant une demande de justification",
+    "Absence de références sur tour en fosse TALGO ou équipements ferroviaires similaires : le critère valeur technique (40%) valorise fortement l'expérience sectorielle, ce qui peut éliminer de facto les candidats sans référence ferroviaire",
+    "Prix fermes et non révisables : sur 2 ans, le candidat assume seul le risque d'inflation des coûts de main d'œuvre et de transport vers la Corse"
   ],
   "points_differenciants_attendus": [
     {
-      "libelle": "Expertise démontrée sur les tours en fosse TALGO ou équipements ferroviaires équivalents",
-      "exemple": "Un candidat qui cite des références de maintenance sur des tours en fosse TALGO (idéalement modèle 2112 ou proche) pour d'autres réseaux ferroviaires régionaux français ou européens aura un avantage décisif sur la valeur technique. Présenter des attestations de clients (ex: autres régies ferroviaires, SNCF Voyageurs, régies régionales) renforcerait la crédibilité.",
+      "libelle": "Expérience démontrée sur tour en fosse TALGO ou équipements ferroviaires de même type",
+      "exemple": "Un candidat qui a déjà réalisé la maintenance de tours en fosse TALGO 2112 ou similaires pour un réseau ferroviaire régional ou pour SNCF peut fournir des attestations clients précises, détaillant les travaux réalisés, les délais tenus et les résultats d'étalonnage — ce qui différencie nettement face à un concurrent sans référence sectorielle.",
+      "source": "RC §5.1 et RC §7.2"
+    },
+    {
+      "libelle": "Capacité à respecter la contrainte calendaire stricte (oct-nov 2026) avec planning d'intervention détaillé",
+      "exemple": "Présenter un planning prévisionnel d'intervention à J+5 de la notification, avec identification nominative des techniciens, confirmation des billets/ferry réservés et une procédure de gestion des aléas (technicien de remplacement identifié) montre une organisation concrète et rassure le CFC sur le risque calendaire.",
       "source": "CCP §16"
     },
     {
-      "libelle": "Qualité et précision du cadre de réponses techniques",
-      "exemple": "La valeur technique (40%) repose entièrement sur les éléments fournis dans le cadre de réponses techniques à compléter. Un candidat qui détaille précisément son protocole d'intervention (séquençage des opérations, outillage spécifique, gestion de l'essieu étalon, étalonnage) se distinguera d'une réponse générique.",
-      "source": "RC §7.2"
-    },
-    {
-      "libelle": "Capacité d'astreinte et de réactivité en cas de panne",
-      "exemple": "Le CCP demande de chiffrer une visite supplémentaire en cas de panne et un appui téléphonique à distance. Un candidat qui propose un délai d'intervention court en cas d'urgence (ex: J+2 ou J+3 depuis la Corse) et une astreinte téléphonique structurée valorisera son offre technique.",
+      "libelle": "Qualité de l'appui technique à distance et réactivité en cas de panne",
+      "exemple": "Proposer un service d'astreinte téléphonique avec engagement contractuel de délai de réponse (ex: 4h ouvrées) et un technicien référent dédié au CFC, couplé à un historique de maintenance documenté, constitue un argument fort pour la valeur technique.",
       "source": "CCP §16"
     },
     {
-      "libelle": "Rapport d'intervention structuré avec anticipation des besoins futurs",
-      "exemple": "Proposer un modèle de rapport d'intervention détaillé (compte rendu + listing prévisionnel de pièces) dans la réponse technique démontrerait concrètement la méthode de travail et la maîtrise des enjeux de planification de maintenance préventive sur cycle 18 mois.",
-      "source": "CCP §16"
+      "libelle": "Maîtrise des contraintes de sécurité ferroviaire et protocoles de travail en atelier",
+      "exemple": "Un candidat certifié ou habilité pour les interventions en environnement ferroviaire (ex: habilitation gestionnaire d'infrastructure, formation sécurité en atelier) et disposant d'un système de gestion sécurité documenté donne une garantie immédiate au CFC sur le respect du protocole de sécurité exigé.",
+      "source": "CCP §3"
     }
   ],
   "_meta": {
     "id_marche": "BOAMP-26-57263",
     "type": "complet",
-    "date_generation": "2026-06-15T18:47:36.903595+00:00",
-    "extraction_le": "2026-06-15T18:47:36.903595+00:00",
+    "date_generation": "2026-06-20T03:59:57.321912+00:00",
+    "extraction_le": "2026-06-20T03:59:57.321912+00:00",
     "modele": "claude-sonnet-4-6",
-    "preset_utilise": "it",
+    "preset_utilise": "btp",
     "presets_matches": [
-      "it"
+      "btp"
     ],
     "prompts_versions": {
-      "it/_preset.json": "sha256:0113727ecb269e98"
+      "btp/_preset.json": "sha256:055bf6f8b2c1f771"
     },
-    "tokens_input": 33128,
-    "tokens_output": 3261,
-    "cout_eur": 0.1409,
-    "duree_sec": 62.5,
+    "tokens_input": 40824,
+    "tokens_output": 6236,
+    "cout_eur": 0.2052,
+    "duree_sec": 109.7,
     "pdfs_traites": [
       {
         "nom": "AWS-MPI-1833996-RC.pdf",

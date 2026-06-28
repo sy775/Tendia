@@ -1,50 +1,48 @@
 {
-  "synthese_marche": "La Ville de Bouguenais (44) lance un marché unique de travaux VRD pour la réalisation et le raccordement d'ouvrages hydrauliques de gestion des eaux pluviales sur le site du Piano'cktail, en lien avec la création d'ombrières photovoltaïques sur le parking existant. Les travaux comprennent terrassements, réseaux EP (canalisations béton Ø600 et Ø1000, PVC Ø250), un bassin de rétention aérien (~303 m³), une noue d'infiltration (~31 m³), un ouvrage de régulation à débit limité (1,5 l/s), engazonnements et clôtures. Le délai d'exécution est de 45 jours calendaires, démarrage souhaité le 14/09/2026.",
+  "synthese_marche": "Marché de travaux de réalisation et raccordement au réseau existant d'ouvrages hydrauliques de gestion des eaux pluviales sur le site du Piano'cktail à Bouguenais (44). Les travaux comprennent terrassements, assainissement EP (réseaux PVC et béton, regards, ouvrage de régulation, noue d'infiltration, bassin de rétention 303 m³), engazonnement et clôtures, en lien avec l'implantation future d'ombrières photovoltaïques sur le parking. Lot unique, marché à prix unitaires, délai d'exécution de 45 jours calendaires avec début prévu le 14/09/2026.",
   "domaines_metier": [
     {
-      "code": "btp_voirie_reseaux"
+      "code": "btp_reseaux_divers"
     }
   ],
-  "raison_classification": "Le marché porte exclusivement sur des travaux VRD : terrassements, réseaux d'assainissement eaux pluviales (canalisations, regards, ouvrages de régulation, noue, bassin), engazonnement et clôtures, sans dimension bâtiment. Le CCTP et le BPU confirment un chantier typique de voirie et réseaux divers avec maîtrise d'œuvre bureau d'études VRD (BE 2LM).",
+  "raison_classification": "Le marché porte exclusivement sur des travaux de réseaux humides (canalisations EP en PVC Ø250 et béton Ø600/Ø1000, regards, ouvrage de régulation, raccordement au réseau existant) avec terrassements, engazonnement et clôtures associés. Il s'agit typiquement d'un marché VRD assainissement eaux pluviales relevant de `btp_reseaux_divers`.",
   "caracteristiques_techniques_chantier": {
-    "description": "Réalisation d'ouvrages hydrauliques de gestion des eaux pluviales pour gérer le ruissellement des futures ombrières photovoltaïques du parking Piano'cktail : bassin de stockage aérien (~303 m³, fond cote 14.70-14.80 NGF, NPHE 15.55 NGF), noue d'infiltration (~31 m³), réseau EP en canalisations béton Ø600 et Ø1000 et PVC Ø250, ouvrage de régulation siphoïde en béton (débit fuite 1.5 l/s), regards Ø1000 et Ø1500, têtes de buse, enrochements, engazonnements, clôtures panneaux rigides H=1.50m et portail 4m. Réseaux existants à déposer, investigations complémentaires de réseaux incluses.",
-    "typologie_ouvrage": "Ouvrages hydrauliques de gestion des eaux pluviales (bassin de rétention aérien, noue d'infiltration, réseau EP) — parking existant",
-    "surface_volume": "Bassin de rétention ~303 m³ ; noue d'infiltration ~31 m³ ; surface parking ~33 000 m² (emprise projet plus restreinte)",
-    "site_occupe": "true — chantier en concomitance avec les travaux de montage des ombrières sur le parking existant ; présence simultanée d'autres entreprises sur site",
+    "description": "Réalisation d'ouvrages hydrauliques de gestion des eaux pluviales : terrassements, dépose/repose de bordures et canalisations existantes, pose de canalisations EP en PVC CR16 Ø250 et béton 135A Ø600 et Ø1000, regards de visite béton Ø1000 et Ø1500, ouvrage de régulation de débit (1,5 l/s), noue d'infiltration (~31 m³), bassin de rétention aérien (~303 m³), enrochements, engazonnement, clôtures panneaux rigides et portail, raccordement au réseau EP existant.",
+    "typologie_ouvrage": "Ouvrages hydrauliques d'assainissement eaux pluviales sur parking existant (site Piano'cktail, parking de salle de spectacle)",
+    "surface_volume": "Bassin de rétention : 303 m³ ; noue d'infiltration : 31 m³ ; surface engazonnement non précisée explicitement",
+    "site_occupe": "Oui — le site Piano'cktail est en activité ; des travaux d'ombrières photovoltaïques seront menés en concomitance sur le même parking (contrainte de coactivité explicite au CCTP §I.3.2)",
     "corps_etat": [
-      "Terrassements / VRD",
-      "Assainissement eaux pluviales",
-      "Génie civil (ouvrage de régulation béton)",
-      "Espaces verts (engazonnement)",
-      "Clôtures / portail"
+      "VRD / assainissement eaux pluviales",
+      "Terrassements",
+      "Espaces verts / engazonnement",
+      "Clôtures et portail"
     ],
     "contraintes_specifiques": [
-      "Coactivité avec l'entreprise de montage des ombrières photovoltaïques sur le parking",
-      "Sol peu perméable (K ≈ 1.9 à 3.6 × 10⁻⁸ m/s) — risque de nappe remontante jusqu'à 0,50 m sous la surface",
-      "Présence de nombreux réseaux enterrés (BT, HTA, EP, EU unitaire, AEP, gaz, télécom, fibre) détectés par investigations ADRÉ — DICT obligatoire",
-      "Délai court : 45 jours calendaires (période de préparation 30 jours non incluse)",
-      "Démarrage souhaité 14/09/2026 — travaux en période automnale (risques intempéries)",
-      "Terrassements potentiellement en terrain rocheux (leptynite dès 0.60 m) nécessitant BRH",
-      "Constat d'huissier avant travaux obligatoire",
-      "Inspection télévisée COFRAC de l'ensemble du réseau EP avant réception",
-      "Plans de récolement géoréférencés classe A obligatoires (format SHP/DWG)"
+      "Coactivité avec chantier d'ombrières photovoltaïques simultané (aucune indemnité pour gêne)",
+      "Présence de nombreux réseaux enterrés (BT, HTA, EP, EU, AEP, éclairage public, télécom, gaz) — investigations complémentaires réalisées par le MOA (ADRÉ Réseaux)",
+      "Sol peu perméable (k ≈ 1,9 à 3,6 × 10⁻⁸ m/s) avec nappe proche de la surface",
+      "Délai d'exécution très court : 45 jours calendaires",
+      "Travaux limités aux horaires 7h-20h jours ouvrables",
+      "Constat d'huissier avant travaux obligatoire à la charge du titulaire",
+      "Inspection télévisée des réseaux EP obligatoire à la réception",
+      "Plan de récolement géoréférencé (classe A) obligatoire"
     ]
   },
   "allotissement": {
-    "description": "Marché en lot unique — non-allotissement justifié par l'impossibilité d'identifier des prestations distinctes",
+    "description": "Marché en lot unique. Le non-recours à l'allotissement est justifié par l'impossibilité d'identifier des prestations distinctes.",
     "nb_lots": 1,
     "lots_detailles": [
       {
         "numero": 1,
-        "intitule": "Travaux d'aménagement d'ouvrages hydrauliques sur le site du Piano'cktail à Bouguenais",
-        "corps_etat": "VRD / Assainissement EP / Génie civil / Espaces verts / Clôtures",
+        "intitule": "Lot unique — Travaux d'aménagement d'ouvrages hydrauliques sur le site du Piano'cktail",
+        "corps_etat": "VRD assainissement eaux pluviales",
         "montant_estime": null,
-        "description": "Ensemble des travaux : terrassements, dépose réseaux existants, réseaux EP (Ø250 PVC, Ø600 et Ø1000 béton), regards, ouvrage de régulation siphoïde béton, bassin aérien, noue, têtes de buse, enrochements, engazonnement, clôtures et portail, plan de récolement"
+        "description": "Terrassements, réseaux EP (PVC Ø250, béton Ø600/Ø1000), regards, ouvrage de régulation, noue, bassin, enrochements, engazonnement, clôtures et portail"
       }
     ]
   },
   "qualifications_requises": {
-    "description": "Le DCE ne mentionne pas explicitement de qualifications Qualibat ou autres certifications exigées à titre d'irrecevabilité. Seule la justification d'une assurance RC chantier est exigée à la remise de l'offre.",
+    "description": "Le DCE fourni ne mentionne pas explicitement de qualifications Qualibat ou autres certifications exigées à peine d'irrecevabilité. Seule l'assurance responsabilité civile est exigée.",
     "qualibat": [],
     "rge": false,
     "rge_specialites": [],
@@ -53,9 +51,7 @@
     "iso_14001": false,
     "iso_45001": false,
     "opqibi": null,
-    "autres_certifications": [
-      "Certification COFRAC pour l'entreprise réalisant l'inspection télévisée des réseaux EP (peut être sous-traitée)"
-    ]
+    "autres_certifications": []
   },
   "bareme_notation": {
     "valeur_technique_pct": null,
@@ -63,39 +59,37 @@
     "sous_criteres_techniques": [],
     "prix": {
       "type_formule": "autre",
-      "formule_explicite": "Marché à prix unitaires rémunérés en fonction des quantités réellement exécutées, sur la base du BPU rempli par le candidat. Le RC ne précise pas de formule de notation des offres.",
+      "formule_explicite": "Le RC n'est pas fourni dans les pièces analysées ; les critères d'attribution ne sont pas explicitement décrits dans le CCAP ou le CCTP disponibles. Le marché est à prix unitaires (BPU) selon le CCAP art. 3.1.",
+      "source": null,
       "elements_a_chiffrer": [
-        "Installation de chantier (forfait FT)",
-        "Signalisation de chantier (forfait FT)",
-        "Marquage-piquetage des réseaux (forfait FT)",
-        "Dépose/repose de bordures existantes (prix ML)",
-        "Dépose de canalisations existantes (prix ML)",
-        "Démolition de regards/grilles existants (prix U)",
-        "Décapage de terre végétale 30 cm — mis en stock (prix M3)",
-        "Décapage de terre végétale 30 cm — évacuation (prix M3)",
-        "Terrassements en déblais — mis en remblais (prix M3)",
-        "Terrassements en déblais — évacuation (prix M3)",
-        "Reprise sur stock et mise en œuvre terre végétale 20 cm (prix M3)",
-        "Préparation de sol et engazonnement (prix M2)",
-        "Tranchée + pose canalisation PVC CR16 Ø250 (prix ML)",
-        "Tranchée + pose canalisation béton Ø600 (prix ML)",
-        "Tranchée + pose canalisation béton Ø1000 (prix ML)",
-        "Regard de visite béton 500×500 (prix U)",
-        "Regard de visite béton Ø1000 (prix U)",
-        "Regard de visite béton Ø1500 (prix U)",
-        "Regard à grille 400×400 de surverse (prix U)",
-        "Tête de buse maçonnée Ø500 (prix U)",
-        "Tête de buse maçonnée Ø600 (prix U)",
-        "Enrochements (prix M2)",
-        "Ouvrage de régulation (prix U)",
-        "Piquage sur regard ou réseau existant (prix U)",
-        "Inspection télévisée EP avec hydrocurage (prix ML)",
-        "Plan de récolement et DOE (forfait FT)",
-        "Clôture grillagée rigide H=1.50m (prix ML)",
-        "Portail double vantaux 4m H=1.50m (prix U)"
+        "Installation de chantier (forfait)",
+        "Signalisation de chantier (forfait)",
+        "Marquage-piquetage des réseaux existants (forfait)",
+        "Dépose/repose de bordures existantes (prix au ml)",
+        "Dépose de canalisations existantes (prix au ml)",
+        "Démolition de regards/grilles existants (prix à l'unité)",
+        "Décapage de terre végétale sur 30 cm (prix au m³)",
+        "Terrassements en déblais (prix au m³)",
+        "Reprise sur stock et mise en œuvre de terre végétale (prix au m³)",
+        "Préparation de sol et engazonnement (prix au m²)",
+        "Tranchée, fourniture et pose de canalisation PVC CR16 Ø250 (prix au ml)",
+        "Tranchée, fourniture et pose de canalisation béton Ø600 (prix au ml)",
+        "Tranchée, fourniture et pose de canalisation béton Ø1000 (prix au ml)",
+        "Fourniture et pose de regard de visite béton 500x500 (prix à l'unité)",
+        "Fourniture et pose de regard de visite béton Ø1000 (prix à l'unité)",
+        "Fourniture et pose de regard de visite béton Ø1500 (prix à l'unité)",
+        "Fourniture et pose de regard à grille 400x400 de surverse (prix à l'unité)",
+        "Fourniture et pose de tête de buse maçonnée Ø500 et Ø600 (prix à l'unité)",
+        "Fourniture et mise en œuvre d'enrochements (prix au m²)",
+        "Ouvrage de régulation (prix à l'unité)",
+        "Piquage sur regard ou réseau existant (prix à l'unité)",
+        "Inspection télévisée sur réseaux EP (prix au ml)",
+        "Réalisation d'un plan de récolement et DOE (forfait)",
+        "Fourniture et mise en œuvre de clôture grillagée rigide H=1,50 m (prix au ml)",
+        "Fourniture et pose d'un portail double vantaux largeur 4 m (prix à l'unité)"
       ]
     },
-    "modalite_calcul_prix": "Marché à prix unitaires. Les candidats remplissent le BPU avec leurs prix unitaires HT. Le règlement se fait en fonction des quantités réellement exécutées constatées contradictoirement."
+    "modalite_calcul_prix": "Marché à prix unitaires. Règlement sur la base des quantités réellement exécutées selon le BPU. Révision des prix selon formule P = Po × (TPm/TPmo) avec index TP01 (Travaux Publics — Index général tous travaux base 2010)."
   },
   "montant_marche": {
     "valeur_estimee_euros": null,
@@ -103,126 +97,276 @@
     "fourchette_max_euros": null,
     "type": "non_communique",
     "duree_couverte": "45 jours calendaires d'exécution + 30 jours de préparation",
-    "source_extraction": "CCAP article 1.7 — aucun montant estimatif communiqué dans les pièces du DCE",
-    "commentaire": "Aucun montant estimatif n'est fourni dans le RC, le CCAP ou le BPU. L'avance forfaitaire n'est pas accordée car le délai d'exécution est inférieur à 2 mois (CCAP art. 5.1), ce qui suggère un marché inférieur à 50 000 € HT ou en tout cas un délai court. La retenue de garantie de 5% TTC est prévue."
+    "source_extraction": null,
+    "commentaire": "Aucun montant estimatif explicite n'est fourni dans les pièces du DCE disponibles (pas de DQE chiffré ni de montant de référence). Le BPU est un bordereau de prix unitaires sans quantités chiffrées associées. L'estimation est réalisée en Voie 2 ci-dessous."
+  },
+  "montant_3_voies": {
+    "voie_1_eur": null,
+    "voie_1_source": null,
+    "voie_2_disponible": true,
+    "voie_2_min_eur": 280000,
+    "voie_2_max_eur": 420000,
+    "voie_2_hypotheses": [
+      {
+        "hypothese": "Réseau EP principal : ~250 ml de canalisation béton Ø1000 (plan des travaux) à ~600-900 €/ml tout compris (fouille, pose, remblai)",
+        "valeur": "250 ml × 700 €/ml = 175 000 €"
+      },
+      {
+        "hypothese": "Réseau EP secondaire : ~80 ml de canalisation béton Ø600 à ~350-500 €/ml",
+        "valeur": "80 ml × 420 €/ml = 33 600 €"
+      },
+      {
+        "hypothese": "Réseau EP tertiaire : ~100 ml de canalisation PVC Ø250 à ~150-250 €/ml",
+        "valeur": "100 ml × 180 €/ml = 18 000 €"
+      },
+      {
+        "hypothese": "Regards de visite : 2 Ø1500 + 4 Ø1000 + quelques 500x500 estimés (plan des travaux R1 à R7)",
+        "valeur": "2 × 8 000 + 4 × 4 500 + 4 × 1 200 ≈ 38 800 €"
+      },
+      {
+        "hypothese": "Ouvrage de régulation (R3 — REGUL) : ouvrage béton avec cloison siphoïde et vanne",
+        "valeur": "1 × 12 000 € = 12 000 €"
+      },
+      {
+        "hypothese": "Terrassements bassin de rétention 303 m³ + noue 31 m³ (déblai, façonnage talus, remblai)",
+        "valeur": "Environ 1 200 m³ de terrassements à ~25 €/m³ = 30 000 €"
+      },
+      {
+        "hypothese": "Engazonnement et terre végétale : surface estimée ~2 000 m² à ~8 €/m²",
+        "valeur": "2 000 × 8 = 16 000 €"
+      },
+      {
+        "hypothese": "Clôtures ~100 ml à ~120 €/ml + portail 4 m à ~3 000 €",
+        "valeur": "100 × 120 + 3 000 = 15 000 €"
+      },
+      {
+        "hypothese": "Démolitions, dépose bordures/canalisations existantes, enrochements, têtes de buse",
+        "valeur": "Forfait estimé ~20 000 €"
+      },
+      {
+        "hypothese": "Installation de chantier, signalisation, marquage-piquetage, inspection télévisée, DOE/récolement",
+        "valeur": "Forfait estimé ~30 000 €"
+      },
+      {
+        "hypothese": "La dimension variée est le prix unitaire des canalisations béton Ø1000 (poste dominant) : entre 600 et 900 €/ml, les autres quantités restent fixes",
+        "valeur": "Fourchette : 280 000 € (ratio bas) — 420 000 € (ratio haut)"
+      }
+    ],
+    "voie_2_raison_indisponible": null
+  },
+  "cout_realisation": {
+    "cout_total_eur": 250000,
+    "cout_min_eur": 210000,
+    "cout_max_eur": 300000,
+    "postes": [
+      {
+        "poste": "Main d'œuvre terrassement et pose canalisations (équipe TP 4-5 personnes × 45 jours)",
+        "detail": "5 personnes × 45 j × 350 €/j chargé = 78 750 €",
+        "montant_eur": 79000
+      },
+      {
+        "poste": "Sous-traitance ou location engins (pelle hydraulique, dumper)",
+        "detail": "Pelle + chauffeur ~600 €/j × 30 j + dumper ~250 €/j × 20 j",
+        "montant_eur": 23000
+      },
+      {
+        "poste": "Fournitures canalisations béton et PVC (matériaux)",
+        "detail": "250 ml Ø1000 béton à ~200 €/ml + 80 ml Ø600 à ~100 €/ml + 100 ml Ø250 PVC à ~40 €/ml",
+        "montant_eur": 62000
+      },
+      {
+        "poste": "Fournitures regards, ouvrage de régulation, tampons, enrochements",
+        "detail": "Estimatif matériel : 2 Ø1500 + 4 Ø1000 + regards + REGUL + tampons",
+        "montant_eur": 35000
+      },
+      {
+        "poste": "Clôtures, portail, terre végétale, semences, engazonnement",
+        "detail": "Matériaux + pose clôture 100 ml + portail + terre végétale + gazon",
+        "montant_eur": 18000
+      },
+      {
+        "poste": "Installation de chantier, base vie, signalisation, bungalows, clôtures Héras",
+        "detail": "Forfait installation/repli",
+        "montant_eur": 15000
+      },
+      {
+        "poste": "Inspection télévisée, DOE, récolement géoréférencé (prestataire certifié)",
+        "detail": "Sous-traitance spécialisée",
+        "montant_eur": 8000
+      },
+      {
+        "poste": "Encadrement chantier (chef de chantier, conducteur de travaux)",
+        "detail": "CT : 0,25 ETP × 2 mois × 6 000 €/mois = 3 000 € ; CDC : 1 j/semaine × 8 sem × 500 € = 4 000 €",
+        "montant_eur": 7000
+      },
+      {
+        "poste": "Constat d'huissier, assurances chantier, frais divers",
+        "detail": "Forfait",
+        "montant_eur": 3000
+      }
+    ],
+    "taux_journaliers_retenus": "Ouvrier TP chargé : 350 €/j ; pelle hydraulique avec chauffeur : 600 €/j ; dumper : 250 €/j ; conducteur de travaux : 500 €/j. Ces taux sont des taux marché indicatifs moyens pour la région Pays de la Loire (2026).",
+    "commentaire": "Estimation du coût de production à taux marché. La dimension variée est le ratio main d'œuvre (taux chargé ouvrier TP entre 310 et 400 €/j) avec les quantités fixées. Marge brute estimée sur la base d'un prix marché central de 350 000 € : environ 100 000 € soit ~29%, compatible avec un marché TP de cette nature."
   },
   "revision_prix": {
     "type": "indexation",
     "indices_utilises": [
-      "TP01 — Index Travaux Publics, Index général tous travaux, base 2010"
+      "TP01"
     ],
-    "ponderation": "100% TP01 — formule simple sans partie fixe",
+    "ponderation": "100% TP01 — Index Travaux Publics, Index général tous travaux, base 2010. Aucune partie fixe mentionnée.",
     "periodicite": "autre",
-    "formule_revision": "P = Po × (TPm / TPmo) — P : montant révisé HT ; Po : montant initial offre HT ; TPm : valeur index TP connu au mois de démarrage des travaux ; TPmo : valeur index TP du mois d'établissement du prix",
+    "formule_revision": "P = Po × (TPm/TPmo) où TPm est la valeur de l'index TP connue au mois de démarrage des travaux et TPmo est la valeur de l'index TP du mois d'établissement du prix (date de remise de l'offre).",
     "source_extraction": "CCAP article 3.2",
-    "commentaire": "Révision appliquée une seule fois au démarrage des travaux (actualisation de fait) ; formule intégralement indexée sur TP01 sans partie fixe, ce qui est favorable en période inflationniste mais expose le candidat si les prix baissent."
+    "commentaire": "Formule d'actualisation simple (revision unique au démarrage) sur la base de l'index TP01 — favorable pour le candidat en contexte de hausse des coûts des matériaux TP, mais le délai très court (45 j) limite l'enjeu."
   },
   "alertes_prix": [
-    "Aucun montant estimatif fourni — le candidat doit s'appuyer sur les plans et le BPU pour estimer les quantités sans DQE chiffré, risque d'erreur de métré.",
-    "Présence simultanée d'une autre entreprise (ombrières) sur le chantier : les prix doivent intégrer les sujétions de coactivité sans indemnité possible.",
-    "Délai très court (45 jours calendaires) : les pénalités de retard sont calculées par P = √A (racine carrée du montant du marché) par jour — formule agressive sur petit marché.",
-    "Pas d'avance forfaitaire (délai < 2 mois) : l'entreprise doit préfinancer intégralement les travaux jusqu'au premier acompte mensuel.",
-    "Retenue de garantie de 5% TTC — la Ville s'oppose à la caution personnelle et solidaire, seule la garantie à première demande est acceptée."
+    "Marché à prix unitaires sans DQE chiffré fourni : le candidat doit construire son estimation de prix globale sans référence de volume officielle — risque de sous-estimation ou sur-estimation.",
+    "La pénalité de retard est calculée par la formule P = √A (racine carrée du montant du marché) par jour calendaire — cette formule peut conduire à des pénalités importantes pour un marché de 300-400 k€ (≈550-630 €/jour).",
+    "Installation de chantier plafonnée à 5% de l'offre globale — à contrôler lors du chiffrage pour ne pas dépasser ce seuil.",
+    "Délai d'exécution de 45 jours calendaires très court pour un bassin de 303 m³ et des réseaux Ø1000 : risque de pénalités de retard élevé si le planning n'est pas tenu.",
+    "Coactivité avec un chantier d'ombrières PV simultané : aucune indemnité possible pour gêne — à intégrer dans le prix sans supplément."
   ],
   "references_exigees": {
     "experience_minimale_annees": null,
     "experience_source": null,
     "volume_min_references_similaires": null,
     "volume_min_references_unite": null,
-    "secteur_experience": "Travaux de VRD / assainissement eaux pluviales — réalisation d'ouvrages hydrauliques",
+    "secteur_experience": "Travaux VRD assainissement eaux pluviales (réseaux, ouvrages hydrauliques, terrassements)",
     "secteur_source": null,
     "certifications_obligatoires": [
       {
-        "libelle": "Assurance RC chantier couvrant les tiers en cas d'accidents ou dommages causés par l'exécution des travaux — justificatif à fournir à la remise de l'offre",
+        "libelle": "Assurance responsabilité civile garantissant les tiers en cas d'accidents ou dommages causés par l'exécution des travaux (à justifier à la remise de l'offre)",
+        "codes": [],
+        "bloquante": true,
+        "source": "CCAP article 2.3"
+      }
+    ],
+    "autres_exigences": []
+  },
+  "dossier_candidature": {
+    "pieces_a_fournir": [
+      {
+        "libelle": "Acte d'engagement (AE)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "CCAP article 2.1"
+      },
+      {
+        "libelle": "Bordereau des Prix Unitaires (BPU) complété en chiffres",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "CCAP article 2.1"
+      },
+      {
+        "libelle": "Détail Quantitatif Estimatif (DQE) complété",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "CCAP article 2.1"
+      },
+      {
+        "libelle": "Attestation d'assurance responsabilité civile garantissant les tiers",
+        "phase": "offre",
+        "obligatoire": true,
         "source": "CCAP article 2.3"
       },
       {
-        "libelle": "Certification COFRAC pour l'entreprise réalisant l'inspection télévisée des réseaux EP (agrément indépendant exigé pour l'ITV)",
-        "source": "CCTP §III.8.10"
-      }
-    ],
-    "autres_exigences": [
+        "libelle": "Offre technique du titulaire (mémoire technique)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "CCAP article 2.1"
+      },
       {
-        "libelle": "Fourniture d'un SOPRE (Schéma d'Organisation du Plan de Respect de l'Environnement) à la remise de l'offre ou pendant la période de préparation",
+        "libelle": "SOPRE — Schéma d'Organisation du Plan de Respect de l'Environnement",
+        "phase": "offre",
+        "obligatoire": true,
         "source": "CCTP §I.6.1"
       },
       {
-        "libelle": "Fourniture d'un SOGED (Schéma d'Organisation et Gestion des Déchets) détaillé",
+        "libelle": "SOGED — Schéma d'Organisation et Gestion des Déchets détaillé",
+        "phase": "offre",
+        "obligatoire": true,
         "source": "CCTP §I.6.2"
-      },
-      {
-        "libelle": "Constat d'huissier avant travaux obligatoire, à la charge du titulaire",
-        "source": "CCTP §III.4 et BPU 1.01"
       }
-    ]
+    ],
+    "mode_remise": "dématérialisé",
+    "plateforme_depot": null,
+    "signature_electronique_exigee": null,
+    "format_signature": null,
+    "nombre_exemplaires": null,
+    "langue": "français",
+    "duree_validite_offres_jours": null,
+    "modalites_source": "CCAP article 4.2.6 (Chorus Pro pour facturation) ; modalités de dépôt des offres non précisées dans les pièces fournies"
   },
   "lots": [
     {
       "numero": 1,
-      "intitule": "Marché de travaux d'aménagements d'ouvrages hydrauliques sur le site du Piano'cktail à Bouguenais",
-      "zone_geographique": "Bouguenais (44340) — Rue Ginsheim Gustavsburg — Parking Piano'cktail",
+      "intitule": "Lot unique — Travaux d'aménagement d'ouvrages hydrauliques sur le site du Piano'cktail à Bouguenais",
+      "domaine": "btp_reseaux_divers",
+      "zone_geographique": "Bouguenais (44340), Pays de la Loire",
       "volume_estime": null,
       "volume_estime_unite": null,
-      "particularites": "Lot unique — coactivité avec montage ombrières PV — sol peu perméable avec nappe sub-affleurante — nombreux réseaux enterrés — canalisations béton jusqu'à Ø1000 — bassin aérien ~303 m³"
+      "cout_estime_min_eur": 210000,
+      "cout_estime_max_eur": 300000,
+      "particularites": "Lot unique incluant réseaux EP Ø250/Ø600/Ø1000, bassin de rétention 303 m³, ouvrage de régulation, noue d'infiltration, engazonnement et clôtures. Coactivité avec chantier PV simultané. Délai 45 j calendaires."
     }
   ],
+  "tranches": [],
   "calendrier": {
     "date_limite_offres": "2026-06-30",
     "date_demarrage_prevue": "2026-09-14",
-    "duree_marche": "30 jours calendaires de préparation + 45 jours calendaires d'exécution, puis délai de garantie de parfait achèvement (1 an)"
+    "duree_marche": "30 jours de préparation + 45 jours calendaires d'exécution + délai de garantie de parfait achèvement (1 an)"
   },
   "alertes_candidat": [
-    "Coactivité obligatoire avec l'entreprise d'installation des ombrières photovoltaïques : aucune indemnité ni réclamation possible pour gêne ou interfaces — à intégrer dans la méthode et les prix.",
-    "Sol potentiellement rocheux dès 0.60 m (leptynite) nécessitant BRH : les prix de terrassement doivent couvrir tout terrain y compris rocher, sans supplément possible.",
-    "Nappe phréatique remontant jusqu'à 0.50 m de la surface en période pluvieuse : prévoir épuisements dans les prix de tranchée — frais de pompage à la charge de l'entreprise.",
-    "Inspection télévisée COFRAC avant réception obligatoire : sous-traiter à une entreprise agréée indépendante certifiée COFRAC — à prévoir dans l'organisation et les prix.",
-    "Plans de récolement géoréférencés classe A obligatoires en format SIG (SHP/MIF-MID) ET DWG AutoCAD 2000 : nécessite un prestataire certifié pour le géoréférencement — coût à intégrer.",
-    "Délai court de 45 jours calendaires avec pénalités de retard calculées par racine carrée du montant du marché par jour : organisation rigoureuse et ressources disponibles immédiatement en septembre 2026 indispensables."
+    "Délai d'exécution de 45 jours calendaires très court pour un chantier incluant un bassin de rétention de 303 m³ avec terrassements importants en sol peu perméable — planifier impérativement la disponibilité des engins et équipes dès la notification.",
+    "Coactivité obligatoire avec le chantier d'ombrières photovoltaïques simultané : aucune indemnité possible pour gêne ou interfaces de chantier — à anticiper dans le planning et le prix.",
+    "Nappe phréatique très proche de la surface (jusqu'à 50 cm selon sondages géotechniques) : épuisements probablement nécessaires lors des fouilles pour réseaux Ø1000 (profondeur 2,73 m) — à chiffrer impérativement.",
+    "Inspection télévisée COFRAC obligatoire avant réception + plan de récolement géoréférencé classe A par prestataire certifié — sous-traiter ces prestations spécialisées ou en disposer en interne.",
+    "Constat d'huissier avant travaux à la charge de l'entrepreneur (art. CCAP et CCTP §III.4) — délai et coût à intégrer dans la période de préparation."
   ],
   "points_differenciants_attendus": [
     {
-      "libelle": "Maîtrise de la gestion des interfaces avec les travaux concomitants d'ombrières",
-      "exemple": "Proposer un plan de phasage détaillé coordonné avec le planning prévisible de montage des ombrières, avec zones de travail séparées et planning semaine par semaine, démontrant la capacité à travailler en coactivité sans allongement de délai.",
+      "libelle": "Maîtrise des travaux en nappe haute et gestion des venues d'eau",
+      "exemple": "Proposer un plan de gestion des eaux de fouille détaillé (points de pompage, basins de décantation, chemins d'évacuation) compte tenu de la nappe à -0,5 m constatée lors des sondages géotechniques de janvier 2025 — démontre la capacité à gérer le risque hydrogéologique majeur du site.",
+      "source": "ANNEXE2_G2_AVP — §3.4 Hydrogéologie"
+    },
+    {
+      "libelle": "Planification réaliste d'un chantier de 45 jours en coactivité",
+      "exemple": "Présenter un planning Gantt détaillé montrant la compatibilité des phasages avec le chantier d'ombrières PV concomitant, les zones d'accès engins, et le respect des jalons de réception partielle — répond directement à la contrainte de coactivité mentionnée au CCTP §I.3.2.",
       "source": "CCTP §I.3.2"
     },
     {
-      "libelle": "Expérience prouvée en ouvrages hydrauliques de rétention EP sur sol à faible perméabilité",
-      "exemple": "Fournir des références de bassins de rétention aériens avec ouvrage de régulation à débit limité réalisés sur des sols peu perméables (K < 10⁻⁷ m/s), avec volumes similaires (200-400 m³), idéalement en contexte urbain ou péri-urbain.",
-      "source": null
+      "libelle": "Expérience avérée en ouvrages hydrauliques de rétention / régulation de débit",
+      "exemple": "Citer des références de réalisation d'ouvrages de rétention eaux pluviales avec régulateur de débit en milieu urbain (maîtrise des tolérances ±5 mm sur les seuils de déversoir exigées par le CCTP §III.8.9.1) et inspection télévisée préalable à la réception.",
+      "source": "CCTP §III.8.9.1"
     },
     {
-      "libelle": "Qualité et précision du SOPRE et du SOGED",
-      "exemple": "Détailler les mesures spécifiques de protection des espaces végétalisés existants (balisage type Heras conformément au CCTP), la gestion des eaux de chantier pour éviter pollution du futur bassin, et les filières de valorisation des déblais de terrassement.",
+      "libelle": "Qualité du SOPRE et du SOGED adaptés à un site sensible",
+      "exemple": "Présenter un SOPRE détaillant la gestion des carburants (double-enveloppe), le maintien de la propreté du parking en activité, et la traçabilité des déchets de terrassement (sols peu perméables à caractère argileux pouvant être soumis à réglementation déchets).",
       "source": "CCTP §I.6.1 et §I.6.2"
     },
     {
-      "libelle": "Capacité à réaliser les plans de récolement géoréférencés classe A en interne ou avec prestataire certifié identifié",
-      "exemple": "Mentionner le prestataire certifié de géoréférencement (ex: ADRÉ Réseaux ou équivalent) déjà identifié et contractualisé, en précisant la méthodologie de levé en tranchée ouverte conforme à l'arrêté du 15 février 2012.",
-      "source": "CCTP §IV.9 et BPU 6.01"
-    },
-    {
-      "libelle": "Disponibilité des ressources humaines et matérielles pour un démarrage en septembre 2026",
-      "exemple": "Indiquer explicitement la disponibilité du chef de chantier, de la pelle hydraulique avec BRH, et de l'équipe de pose de réseaux dès la date de démarrage souhaitée (14/09/2026), avec un planning hebdomadaire prévisionnel sur 45 jours.",
-      "source": "CCAP article 1.7"
+      "libelle": "Capacité à réaliser l'engazonnement en période favorable avec garantie de reprise",
+      "exemple": "Planifier l'ensemencement après le 14/09 (fin automne = période favorable en région océanique selon CCTG fascicule 35) et proposer une garantie contractuelle de regarnissage en cas de prise insuffisante — valorise la maîtrise du risque végétal inhérent à cette saison.",
+      "source": "CCTP §III.7.4"
     }
   ],
   "_meta": {
     "id_marche": "BOAMP-26-56712",
     "type": "complet",
-    "date_generation": "2026-06-14T20:14:12.497034+00:00",
-    "extraction_le": "2026-06-14T20:14:12.497034+00:00",
+    "date_generation": "2026-06-19T22:19:04.604493+00:00",
+    "extraction_le": "2026-06-19T22:19:04.604493+00:00",
     "modele": "claude-sonnet-4-6",
     "preset_utilise": "btp",
     "presets_matches": [
       "btp"
     ],
     "prompts_versions": {
-      "btp/_preset.json": "sha256:d1717e0d87f6c265"
+      "btp/_preset.json": "sha256:055bf6f8b2c1f771"
     },
-    "tokens_input": 169509,
-    "tokens_output": 5098,
-    "cout_eur": 0.5557,
-    "duree_sec": 99.2,
+    "tokens_input": 177534,
+    "tokens_output": 7313,
+    "cout_eur": 0.6102,
+    "duree_sec": 133.2,
     "pdfs_traites": [
       {
         "nom": "01_AE_TX_OUVRAGES_HYDRAU_PIANO.pdf",

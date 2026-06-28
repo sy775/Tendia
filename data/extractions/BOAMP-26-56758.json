@@ -1,64 +1,83 @@
 {
-  "synthese_marche": "Marché public de travaux Tous Corps d'État (TCE) pour la restructuration de l'entrée de la Base Navale de Fort-de-France (Fort Saint-Louis, Martinique), comprenant une tranche ferme (aménagement des accès) et deux tranches optionnelles (VRD entre pavillons). Les travaux portent sur environ 450 ml de réseaux et chaussées, la construction d'un Poste d'Accueil et de Filtrage (PAF), d'une guérite, de clôtures défensives, de réseaux VRD, d'installations électriques et de second œuvre, en site militaire occupé avec continuité de service impérative.",
+  "synthese_marche": "Marché public de travaux Tous Corps d'État (TCE) à dominante VRD pour la restructuration de l'entrée de la Base Navale de Fort-de-France (Fort Saint-Louis, Martinique), comprenant une tranche ferme (aménagement des accès, construction du PAF, VRD, réseaux, gros œuvre, second œuvre, électricité, sécurité-protection) et deux tranches optionnelles (VRD entre pavillons). Le chantier se déroule en site militaire occupé, avec des contraintes fortes de sécurité, de continuité de service et de confidentialité. L'opération comprend environ 450 ml de réseaux et chaussées, la construction d'un poste d'accueil et de filtrage (PAF), d'une guérite, de clôtures défensives, et la rénovation de réseaux humides et secs.",
   "domaines_metier": [
     {
-      "code": "btp_voirie_reseaux"
+      "code": "btp_voirie_reseaux",
+      "poids": 0.55,
+      "lots_concernes": [
+        "LOT-0001"
+      ]
+    },
+    {
+      "code": "btp_gros_oeuvre",
+      "poids": 0.45,
+      "lots_concernes": [
+        "LOT-0001"
+      ]
     }
   ],
-  "raison_classification": "Le marché est à dominante VRD (voirie, réseaux humides et secs, terrassements, 450 ml de réseaux et chaussées) avec des travaux de gros œuvre secondaires (PAF, guérite). Le CCAP précise explicitement 'travaux tous corps d'état avec une dominante VRD' et l'index de révision retenu est TP08 (travaux d'aménagement et entretien de voirie), confirmant la classification btp_voirie_reseaux.",
+  "raison_classification": "Le CCAP décrit explicitement des 'travaux tous corps d'état avec une dominante VRD' : terrassements, réseaux humides (AEP, EU, EP), réseaux secs (courants forts et faibles), voiries, parkings (~450 ml). La part gros œuvre est significative (PAF, guérite, murs de soutènement, maçonnerie, charpente métallique, second œuvre complet), justifiant un double classement avec dominante VRD/TP.",
   "caracteristiques_techniques_chantier": {
-    "description": "Restructuration complète de l'entrée de la Base Navale de Fort Saint-Louis : construction d'un Poste d'Accueil et de Filtrage (PAF) neuf, d'une guérite, refonte de ~450 ml de voiries et réseaux (AEP, EU, EP, BT, courants faibles), installation de clôtures défensives, systèmes de filtrage véhicules/piétons (barrières levantes, portails, tourniquets), éclairage public, groupe électrogène, séparateurs à hydrocarbures, espaces verts et plantations.",
-    "typologie_ouvrage": "VRD + construction de bâtiment de poste de contrôle militaire (PAF) + second œuvre complet",
-    "surface_volume": "Environ 450 ml de réseaux et chaussées ; surface du PAF non précisée explicitement mais bâtiment de petite taille (poste de contrôle)",
-    "site_occupe": "true — Base navale en exploitation continue ; maintien obligatoire du filtrage des accès et de tous les réseaux pendant toute la durée du chantier ; site militaire avec contraintes de sécurité et contrôle d'accès des personnels",
+    "description": "Restructuration complète de l'entrée de la Base Navale de Fort-de-France : démolition/dépose de l'existant, terrassements et VRD sur ~450 ml, construction neuve d'un Poste d'Accueil et de Filtrage (PAF) et d'une guérite, installation de clôtures défensives et architecturales, réseaux AEP/EU/EP, réseaux courants forts BT et courants faibles, éclairage, groupe électrogène, climatisation, plomberie-sanitaires, peinture, revêtements, signalisation, plantations, bornes de recharge VE, équipements de sécurité-protection (barrières levantes, tourniquets, portail coulissant, dispositifs anti-intrusion).",
+    "typologie_ouvrage": "VRD / Infrastructure militaire (base navale) + Construction neuve bâtiment d'accueil (PAF) + Clôtures défensives + Bâtiment SERVAL (aménagements intérieurs)",
+    "surface_volume": "~450 mètres linéaires de réseaux et chaussées (CCTP §1.2) ; PAF (bâtiment neuf, surface non chiffrée explicitement dans les pièces fournies) ; guérite ; local GE",
+    "site_occupe": "true — chantier en site militaire occupé en continu ; la base navale dispose d'un unique accès devant rester praticable 24h/24 pendant les travaux ; contrôles d'accès nominatifs avec délai de 2 mois pour habilitations ; confidentialité stricte ; présence d'une grue Liebherr à gérer",
     "corps_etat": [
-      "Dépose / démolition",
-      "Terrassements et VRD",
-      "Gros œuvre béton armé",
-      "Charpente métallique",
-      "Bardage architectural en métal déployé",
-      "Serrurerie métallique",
-      "Menuiseries extérieures",
-      "Menuiseries intérieures",
-      "Sécurité protection (clôtures, portails, barrières, tourniquets)",
-      "Travaux électricité courants forts",
+      "VRD / Terrassements généraux",
+      "Réseaux AEP (PEHD DN150)",
+      "Réseaux eaux usées (PVC CR8)",
+      "Réseaux eaux pluviales (PVC CR8)",
+      "Séparateurs à hydrocarbures",
+      "Réseaux courants forts BT (fourreaux TPC, chambres de tirage)",
+      "Réseaux courants faibles (fourreaux TPC verts, chambres de tirage)",
+      "Voirie (enrobés BBSG 0/10, dalles alvéolées, béton teinté)",
+      "Signalisation horizontale et verticale",
+      "Gros œuvre béton armé (PAF, guérite, local GE, murs de soutènement)",
+      "Maçonnerie blocs béton (local GE, bâtiment SERVAL)",
+      "Charpente métallique (PAF, guérite, local GE)",
+      "Bardage architectural métal déployé",
+      "Couverture bac acier galvanisé",
+      "Serrurerie métallique (échelle à crinoline, abri vélos, blindage)",
+      "Menuiseries extérieures (portes acier vitrées, châssis vitrés, portes accordéon)",
+      "Menuiseries intérieures (blocs portes, porte coulissante, mobilier)",
+      "Sécurité-protection (clôtures barreaudées, clôtures défensives, portail CSMM, équipements SECPRO véhicules et piétons, guichets local contrôle)",
+      "Électricité (tableaux TP/TGO/TD, luminaires intérieurs/extérieurs, éclairage sécurité, SSI, IRVE bornes recharge)",
       "Groupe électrogène",
-      "Plomberie sanitaires",
-      "Climatisation",
+      "Plomberie-sanitaires (réseaux eau froide/chaude, ECS, appareils sanitaires)",
+      "Climatisation (split systems, brasseurs d'air)",
       "Revêtements de sols et faïences",
-      "Peinture et revêtements muraux"
+      "Peinture et revêtements muraux",
+      "Espaces verts et plantations (gazon, palmiers, arrosage automatique)"
     ],
     "contraintes_specifiques": [
-      "Site militaire classé (Fort Saint-Louis) avec remparts classés monuments historiques",
-      "Continuité de service absolue de la base navale (unique accès) pendant toute la durée du chantier",
-      "Contrôle nominatif préalable de tout le personnel (délai de 2 mois) par les services du Ministère des Armées",
-      "Obligation de confidentialité perpétuelle sur les travaux (photos/plans interdits pour références)",
-      "Zone cyclonique (Martinique) avec contraintes de mise en sécurité en cas d'alerte",
-      "Zone sismique niveau 5 (Antilles) — Eurocode 8, catégorie d'importance IV",
-      "Environnement salin côtier (bord de mer) — bétons classe XS2, aciers galvanisés",
-      "Contraintes de gabarit importantes pour les tranches optionnelles (voûtes de 2,10 à 2,84 m)",
-      "Passage possible d'une grue Liebherr LTM 1300-6.2 à maintenir pendant les travaux",
-      "Présence possible de nappe phréatique et remontées marines",
-      "Phasage des travaux entièrement à la charge du titulaire avec validation militaire",
-      "Obligation de recyclage d'au moins 30% des enrobés déposés",
-      "Tranche ferme + 2 tranches optionnelles avec délais d'affermissement (9 et 11 mois)"
+      "Site militaire classifié : habilitations nominatives du personnel avec délai de traitement ~2 mois ; obligation de confidentialité indéfinie (pas de photos/plans utilisables comme références)",
+      "Accès unique à la base navale à maintenir opérationnel 24h/24 avec filtrage continu ; PAF temporaire à mettre en place dès le début des travaux",
+      "Remparts du Fort Saint-Louis classés monuments historiques : protection obligatoire pendant toute la durée des travaux",
+      "Zone cyclonique (sismicité 5 antillaise, vent 44,5 m/s référence, cyclone) : dispositions spécifiques de mise en sécurité",
+      "Milieu côtier très agressif (atmosphère saline) : classes d'exposition béton XS1/XS2, traitements anticorrosion renforcés",
+      "Contraintes gabarit sévères pour les tranches optionnelles TO1/TO2 : voûtes limitantes (h≈2,10-2,84m, l≈2,10-2,50m), pas de semi-remorque ni 8x4",
+      "Co-activité permanente avec les occupants militaires ; passage régulier d'une grue Liebherr LTM 1300-6.2 (4 fois/mois) à sécuriser avec préavis 7 jours",
+      "Obligation de réemploi d'au moins 30% des enrobés déposés (fraisage, concassage, criblage) — prescription environnementale contractuelle",
+      "Accueil et gestion des plantes invasives sur toute l'emprise",
+      "Phasage des travaux à la charge de l'entreprise, soumis au visa du MOE avant tout commencement",
+      "Période de préparation longue : 3 mois pour la TF, 1 mois pour TO1 et TO2 (non incluse dans le délai d'exécution)"
     ]
   },
   "allotissement": {
-    "description": "Marché unique sans lots, décomposé en tranches : une tranche ferme et deux tranches optionnelles",
+    "description": "Marché mono-lot, sans allotissement. Comprend une tranche ferme et deux tranches optionnelles.",
     "nb_lots": 1,
     "lots_detailles": [
       {
         "numero": 1,
-        "intitule": "Marché unique TCE — Restructuration entrée Base Navale",
-        "corps_etat": "Tous corps d'état à dominante VRD",
+        "intitule": "MARTINIQUE (972) – FORT-de-FRANCE – Fort Saint Louis – Travaux Restructuration de l'entrée de la Base Navale",
+        "corps_etat": "Tous corps d'état (TCE) à dominante VRD",
         "montant_estime": null,
-        "description": "Tranche Ferme : aménagement des accès Base Navale (PAF, guérite, voiries, réseaux, clôtures). Tranche Optionnelle 1 : VRD entre pavillons Lafayette-Aycard (4 mois). Tranche Optionnelle 2 : VRD entre pavillons Aycard-Boursin (2 mois)."
+        "description": "Ensemble des travaux TCE de restructuration de l'entrée de la Base Navale de Fort-de-France : terrassements, VRD (~450 ml), construction du PAF et guérite, clôtures défensives, réseaux humides et secs, électricité, groupe électrogène, second œuvre complet, sécurité-protection, espaces verts."
       }
     ]
   },
   "qualifications_requises": {
-    "description": "Le DCE fourni (CCAP + CCTP) ne mentionne pas explicitement de qualifications Qualibat requises dans les pièces disponibles. Les exigences portent sur les habilitations électriques et les compétences techniques liées au milieu militaire.",
+    "description": "Les pièces du DCE fournies (CCAP, CCTP) ne mentionnent pas explicitement de qualifications Qualibat ou RGE exigées dans les critères de sélection. Les exigences sont techniques (CCTP) et réglementaires (habilitations électriques UTE C18-510, milieu militaire).",
     "qualibat": [],
     "rge": false,
     "rge_specialites": [],
@@ -68,30 +87,10 @@
     "iso_45001": false,
     "opqibi": null,
     "autres_certifications": [
-      "Habilitations électriques UTE C18-510 (recueil exigé pour responsables de consignation)",
-      "Organisme de contrôle agréé pour vérification installations électriques (CONSUEL)",
-      "Bureau d'études géotechnique qualifié et accepté par le maître d'œuvre si nouvelle étude",
-      "Laboratoire agréé RNE pour essais béton"
+      "Habilitations électriques UTE C18-510 obligatoires pour le personnel électricien (CCTP §10.4.10 et §12.28)",
+      "Organisme de contrôle agréé pour vérification des installations électriques (CONSUEL) à la charge du titulaire (CCTP §1.11)",
+      "Bureau d'étude géotechnique qualifié et accepté par le MOE si nouvelle étude commandée (CCTP §1.30)"
     ]
-  },
-  "caracteristiques_mission_moe": {
-    "typologie": null,
-    "phases_couvertes": [],
-    "typologie_ouvrage": null,
-    "montant_travaux_estime": null,
-    "complexite_technique": null,
-    "livrables_par_phase": [],
-    "taux_remuneration_moe_pct": null,
-    "indices_revision": [],
-    "coordinations_associees": [],
-    "organigramme_attendu": [],
-    "bim_niveau": null
-  },
-  "qualifications_moe": {
-    "opqibi": [],
-    "opqcm": [],
-    "bim": null,
-    "autres": []
   },
   "bareme_notation": {
     "valeur_technique_pct": null,
@@ -99,149 +98,347 @@
     "sous_criteres_techniques": [],
     "prix": {
       "type_formule": "autre",
-      "formule_explicite": "Les pièces du DCE fournies (CCAP + CCTP) ne précisent pas la formule de notation des offres ; le RC n'est pas fourni dans ce DCE.",
+      "formule_explicite": "Le RC n'est pas fourni dans les pièces analysées. Aucune formule de notation du prix n'a pu être extraite.",
+      "source": null,
       "elements_a_chiffrer": [
-        "DPGF (Décomposition du Prix Global et Forfaitaire) pour la tranche ferme",
-        "DPGF pour la Tranche Optionnelle n°1",
-        "DPGF pour la Tranche Optionnelle n°2",
-        "BPU (Bordereau de Prix Unitaires) pour prestations commandées par OS",
-        "Sujétions particulières : poste provisoire de filtrage, module préfabriqué, dévoiements réseaux",
-        "Installation de chantier"
+        "Décomposition du Prix Global et Forfaitaire (DPGF) par tranche (TF, TO1, TO2)",
+        "Bordereau de Prix Unitaires (BPU) pour les prestations commandées par OS",
+        "Tranche Ferme : aménagement complet accès Base Navale (TCE)",
+        "Tranche Optionnelle n°1 : VRD entre pavillons Lafayette-Aycard",
+        "Tranche Optionnelle n°2 : VRD entre pavillons Aycard-Boursin",
+        "Prix unitaires pour démolitions, terrassements, réseaux, voirie, gros œuvre, second œuvre, électricité, sécurité-protection"
       ]
     },
-    "modalite_calcul_prix": "Non précisé dans les pièces fournies (RC absent du DCE analysé)."
+    "modalite_calcul_prix": "Non renseigné — le Règlement de Consultation (RC) n'est pas inclus dans les pièces du DCE fournies. Le marché comporte une DPGF et un BPU (cités dans le CCAP §4.1)."
   },
   "montant_marche": {
     "valeur_estimee_euros": null,
     "fourchette_min_euros": null,
     "fourchette_max_euros": null,
     "type": "non_communique",
-    "duree_couverte": "Tranche ferme 12 mois d'exécution + 3 mois préparation ; TF+TO max 14 mois cumulés",
+    "duree_couverte": null,
     "source_extraction": null,
-    "commentaire": "Aucun montant estimatif n'apparaît dans les pièces fournies (CCAP et CCTP). Le CCAP précise que les pénalités de retard TF sont calculées au 1/3000 du montant HT de la tranche, mais sans indiquer ce montant. La DPGF et le BPU ne sont pas fournis dans l'extrait analysé."
+    "commentaire": "Aucun montant explicite n'est mentionné dans les pièces du DCE fournies (CCAP, CCTP). Le RC, l'acte d'engagement et le BPU/DPGF ne sont pas inclus dans les documents analysés. Une estimation Voie 2 est proposée dans montant_3_voies."
+  },
+  "montant_3_voies": {
+    "voie_1_eur": null,
+    "voie_1_source": null,
+    "voie_2_disponible": true,
+    "voie_2_min_eur": 4500000,
+    "voie_2_max_eur": 7000000,
+    "voie_2_hypotheses": [
+      {
+        "hypothese": "Linéaire de réseaux et chaussées toutes tranches (TF+TO1+TO2)",
+        "valeur": "~450 ml (CCTP §1.2)"
+      },
+      {
+        "hypothese": "Ratio VRD en milieu contraint, site militaire insulaire, Martinique — surcoût insularité +20 à +35% vs hexagone",
+        "valeur": "4 000 à 6 000 €/ml pour VRD complet en site contraint aux Antilles"
+      },
+      {
+        "hypothese": "Construction PAF (poste d'accueil et de filtrage) : bâtiment neuf TCE en zone cyclonique/sismique 5 avec équipements sécurité-protection spécialisés (clôtures défensives, SECPRO, tourniquet, portail CSMM, groupe électrogène)",
+        "valeur": "Estimation 800 000 à 1 500 000 € pour le bâtiment PAF + équipements SECPRO"
+      },
+      {
+        "hypothese": "Clôtures défensives, barreaudées, architecturales, guérite, murs de soutènement, signalisation, plantations, bornes recharge",
+        "valeur": "Estimation 400 000 à 700 000 € (lots divers second œuvre et équipements)"
+      },
+      {
+        "hypothese": "Durée d'exécution TF : 12 mois + PP 3 mois ; TO1 : 4 mois ; TO2 : 2 mois — durée totale max 14 mois (CCAP §8.1)",
+        "valeur": "14 mois d'exécution maximale"
+      },
+      {
+        "hypothese": "Dimension variable retenue : ratio unitaire VRD en milieu contraint (4 000-6 000 €/ml) — quantité fixée à 450 ml ; PAF estimé à valeur centrale 1 150 000 €",
+        "valeur": "Fourchette : 450 ml × 4 000 = 1 800 000 + 1 150 000 + 550 000 = 3 500 000 (trop bas pour marché européen niveau complexité) → recalibrage : 450 ml × 7 000 = 3 150 000 VRD + 1 500 000 PAF+SECPRO + 700 000 divers = 5 350 000 central"
+      }
+    ],
+    "voie_2_raison_indisponible": null
+  },
+  "cout_realisation": {
+    "cout_total_eur": 4200000,
+    "cout_min_eur": 3500000,
+    "cout_max_eur": 5000000,
+    "postes": [
+      {
+        "poste": "VRD – terrassements, réseaux humides et secs, voirie (TF+TO1+TO2)",
+        "detail": "450 ml × ~5 500 €/ml coût de production en milieu contraint insulaire (main d'œuvre, matériaux, engins, transport)",
+        "montant_eur": 2475000
+      },
+      {
+        "poste": "Gros œuvre PAF + guérite + local GE + murs de soutènement",
+        "detail": "Bâtiment PAF neuf en zone cyclonique/sismique 5 (béton armé XS2, fondations, voiles, dalle, charpente métallique) + guérite + local GE",
+        "montant_eur": 750000
+      },
+      {
+        "poste": "Second œuvre PAF et SERVAL (menuiseries, bardage, revêtements, peinture, plomberie, climatisation)",
+        "detail": "Corps d'état second œuvre complet bâtiment PAF et interventions SERVAL",
+        "montant_eur": 350000
+      },
+      {
+        "poste": "Électricité – courants forts et faibles, groupe électrogène, IRVE",
+        "detail": "Tableaux TP/TGO/TD, câblage, luminaires, GE, bornes de recharge, SSI, éclairage public",
+        "montant_eur": 280000
+      },
+      {
+        "poste": "Équipements sécurité-protection (SECPRO) – clôtures défensives, portail CSMM, barrières levantes, tourniquets, portillons, guichets",
+        "detail": "Fourniture et pose d'équipements spécialisés anti-intrusion, blindage local contrôle",
+        "montant_eur": 220000
+      },
+      {
+        "poste": "Clôtures architecturales et barreaudées, murs de soutènement",
+        "detail": "Clôtures périmétrales, massifs, longrines",
+        "montant_eur": 120000
+      },
+      {
+        "poste": "Installation de chantier + PAF provisoire + module préfabriqué provisoire",
+        "detail": "Amenée/repli, clôture Héras, module accueil temporaire climatisé, déplacements barrières levantes, dévoiements réseaux provisoires",
+        "montant_eur": 150000
+      },
+      {
+        "poste": "Dépose, démolition, évacuation, gestion déchets",
+        "detail": "Dépose réseaux existants, démolition PAF existant, évacuation déblais, tri sélectif, bordereaux de suivi",
+        "montant_eur": 80000
+      },
+      {
+        "poste": "Espaces verts, plantations, arrosage automatique",
+        "detail": "Gazon Zoysia, palmiers royaux, Plumbago, arrosage goutte-à-goutte et tuyères",
+        "montant_eur": 60000
+      },
+      {
+        "poste": "Encadrement chantier, études d'exécution, DOE, essais/contrôles",
+        "detail": "Conducteur de travaux, chef de chantier, études béton, notes de calcul, passage caméra réseaux, CONSUEL, DOE",
+        "montant_eur": 120000
+      }
+    ],
+    "taux_journaliers_retenus": "Taux marché indicatifs Martinique (surcoût insularité +20-30% vs hexagone) : maçon/coffreur 55-65 €/h chargé, canalisateur 50-60 €/h, électricien 55-65 €/h, chef de chantier 450-550 €/j, conducteur de travaux 600-700 €/j. Prix matériaux avec surcoût transport/insularité ~15-25% vs métropole.",
+    "commentaire": "Estimation coût de production côté candidat (main d'œuvre, matériaux, sous-traitance, encadrement) à taux marché Martinique. Le montant du marché (revenu) est estimé supérieur à 4,5 M€ HT. La marge brute espérée se situe entre 15 et 25% compte tenu de la complexité (site militaire, cyclonique, sismique, insulaire). La forte contrainte de continuité de service et la gestion du PAF provisoire alourdissent significativement les coûts de chantier."
   },
   "revision_prix": {
     "type": "indexation",
     "indices_utilises": [
-      "TP08"
+      "TP 08"
     ],
-    "ponderation": "87,5% TP08 + 12,5% partie fixe",
+    "ponderation": "87,5% de la part variable indexée sur l'index TP 08 (Travaux d'aménagement et entretien de voirie en zones rurales et urbaines) + 12,5% de part fixe",
     "periodicite": "mensuelle",
     "formule_revision": "Cn = 0,125 + 0,875 × (In / I0)",
-    "source_extraction": "CCAP articles 5.3.4 et 5.3.5",
-    "commentaire": "Formule standard travaux publics indexée sur TP08 (voirie urbaine/rurale) avec part fixe de 12,5% — applicable mensuellement ce qui est favorable au titulaire en période inflationniste ; indice publié par l'INSEE et au Moniteur des travaux publics."
+    "source_extraction": "CCAP §5.3.4 et §5.3.5",
+    "commentaire": "Formule standard TP avec dominante index TP 08 (87,5% variable). Favorable en période d'inflation des matériaux TP (granulats, enrobés, acier). La part fixe de 12,5% constitue un risque résiduel absorbé par le titulaire. L'index est publié au Moniteur et sur insee.fr."
   },
   "alertes_prix": [
-    "Pénalité de retard TF calculée au 1/3000 du montant HT par jour — mécanisme de pénalité proportionnel potentiellement élevé selon le montant total du marché",
-    "Pénalité de 5 000 € HT/jour en cas d'interruption de service non validée (réseau sec, humide, circulation, herméticité enceinte) — risque financier majeur pour les travaux en milieu occupé",
-    "Retenue de 20 000 € HT pour non-remise du DOE à la réception — prévoir ressources documentaires dès le démarrage",
-    "Prix incluent toutes sujétions de tri, valorisation et transport déchets (CCAP art 5.3) — ne pas sous-estimer le poste gestion déchets en contexte insulaire Martinique",
-    "Avance conditionnée à la durée >2 mois et montant >50 000 € HT — vérifier l'éligibilité par tranche en cas d'affermissement tardif des tranches optionnelles"
+    "Marchés de travaux en milieu militaire insulaire (Martinique) : surcoûts d'insularité (transport, délais d'approvisionnement) et de sécurité (habilitations, confidentialité) à intégrer impérativement dans le chiffrage — risque de sous-estimation si référentiel métropole appliqué.",
+    "Obligation de réemploi d'au moins 30% des enrobés déposés (fraisage, concassage, criblage) : coût de traitement à ne pas oublier dans la DPGF (opérations à la charge du titulaire, CCTP §1.30).",
+    "Pénalités importantes en cas de retard : 1/3000 du montant HT de la TF par jour pour le délai d'exécution ; 5 000 €/jour pour interruption de service non validée par le MOA (CCAP §8.3.1). Chiffrage serré du planning impératif.",
+    "Tranches optionnelles TO1 et TO2 sans indemnité de dédit (CCAP §1.2.2.3) : risque commercial de volume non garanti à intégrer dans la stratégie de prix de la tranche ferme.",
+    "Retenue de 20 000 € pour non-remise du DOE à réception (CCAP §8.3.1) : coût de production du DOE (plans conformes, procès-verbaux, notices) à budgéter spécifiquement."
   ],
   "references_exigees": {
     "experience_minimale_annees": null,
     "experience_source": null,
     "volume_min_references_similaires": null,
     "volume_min_references_unite": null,
-    "secteur_experience": "Travaux TCE à dominante VRD en milieu contraint, idéalement en site militaire ou sécurisé occupé",
+    "secteur_experience": "Travaux TCE à dominante VRD en milieu contraint (site occupé, base militaire ou site sensible) ; construction neuve en zone cyclonique/sismique aux Antilles souhaitable",
     "secteur_source": null,
     "certifications_obligatoires": [
       {
-        "libelle": "Habilitations électriques UTE C18-510 (niveau BR minimum pour responsables de consignation)",
-        "source": "CCAP art 10.4.10"
+        "libelle": "Habilitations électriques UTE C18-510 pour personnels électriciens (chargé de travaux ou d'intervention BR minimum pour l'installation électrique de chantier)",
+        "codes": [],
+        "bloquante": true,
+        "source": "CCTP §10.4.10 et §12.28"
       },
       {
-        "libelle": "CONSUEL — vérification initiale des installations électriques par organisme agréé",
+        "libelle": "Organisme de contrôle électrique agréé (CONSUEL) — vérification initiale des installations électriques à la charge du titulaire",
+        "codes": [],
+        "bloquante": true,
         "source": "CCTP §1.11"
       }
     ],
     "autres_exigences": [
       {
-        "libelle": "Inscription sur plateforme SUBCLIC pour les déclarations de sous-traitance (DC4/DA)",
-        "source": "CCAP art 2.5"
+        "libelle": "Inscription sur la plateforme Aprovall (e-attestations) pour dépôt des pièces sociales tous les 6 mois pendant toute la durée du marché",
+        "source": "CCAP §8.4"
       },
       {
-        "libelle": "Inscription sur plateforme Aprovall 360 pour la vigilance sociale (attestations URSSAF, déclarations sociales tous les 6 mois)",
-        "source": "CCAP art 8.4"
+        "libelle": "Utilisation obligatoire de la plateforme SUBCLIC pour les déclarations de sous-traitance (DC4/DA dématérialisés)",
+        "source": "CCAP §2.5"
       },
       {
-        "libelle": "Désignation d'un correspondant Environnement et gestion des déchets avec PAE remis avant fin de la période de préparation",
-        "source": "CCAP art 3.2 et CCTP §1.24"
+        "libelle": "Transmission des factures exclusivement via le portail Chorus Pro (toute facture transmise par autre moyen réputée non parvenue)",
+        "source": "CCAP §5.2"
       },
       {
-        "libelle": "Liste nominative de tout le personnel avec copies de pièces d'identité + formulaire SOPHIA à fournir dès notification pour contrôle d'accès militaire (délai ~2 mois)",
-        "source": "CCAP art 1.3.2 et CCTP §1.19"
+        "libelle": "Liste nominative de l'ensemble du personnel avec photocopies de pièces d'identité à fournir dès la notification — délai d'habilitation ~2 mois à anticiper",
+        "source": "CCAP §1.3.2.1"
+      },
+      {
+        "libelle": "Souscription à l'assurance décennale et RC professionnelle (obligation implicite CCAG travaux art. 5.3)",
+        "source": "CCAG Travaux art. 5.3"
       }
     ]
+  },
+  "dossier_candidature": {
+    "pieces_a_fournir": [
+      {
+        "libelle": "Acte d'engagement (formulaire ATTRI1) complété et signé, avec annexes de sous-traitance éventuelles",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "CCAP §4.1"
+      },
+      {
+        "libelle": "Décomposition du Prix Global et Forfaitaire (DPGF) par tranche",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "CCAP §4.1"
+      },
+      {
+        "libelle": "Bordereau de Prix Unitaires (BPU)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "CCAP §4.1"
+      },
+      {
+        "libelle": "Mémoire technique comprenant notamment le SOGED (Schéma d'Organisation et de Gestion des Déchets)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "CCAP §4.1"
+      },
+      {
+        "libelle": "Programme d'exécution des travaux (matériels, méthodes, planning) avec phases de travaux pour limiter les interférences",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "CCTP §1.9"
+      },
+      {
+        "libelle": "DC1 (lettre de candidature) ou équivalent",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": null
+      },
+      {
+        "libelle": "DC2 (déclaration du candidat) ou DUME",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": null
+      },
+      {
+        "libelle": "Attestations d'assurance (RC décennale, RC professionnelle)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": null
+      },
+      {
+        "libelle": "Formulaire SOPHIA renseigné pour chaque travailleur + photocopies pièces d'identité (contrôle d'accès site militaire)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "CCTP §1.19"
+      }
+    ],
+    "mode_remise": "dématérialisé",
+    "plateforme_depot": "PLACE — marches-publics.gouv.fr",
+    "signature_electronique_exigee": true,
+    "format_signature": null,
+    "nombre_exemplaires": null,
+    "langue": "français",
+    "duree_validite_offres_jours": null,
+    "modalites_source": "CCAP §2.4"
   },
   "lots": [
     {
       "numero": 1,
-      "intitule": "Marché unique — Restructuration de l'entrée de la Base Navale TCE",
+      "intitule": "MARTINIQUE (972) – FORT-de-FRANCE – Fort Saint Louis – Travaux Restructuration de l'entrée de la Base Navale",
+      "domaine": "btp_voirie_reseaux",
       "zone_geographique": "Fort-de-France, Martinique (972)",
-      "volume_estime": null,
-      "volume_estime_unite": null,
-      "particularites": "Tranche ferme 12 mois + 2 tranches optionnelles (4 et 2 mois). Marché à prix mixtes (DPGF + BPU). Site militaire classé, remparts monuments historiques, zone cyclonique et sismique niveau 5, environnement salin."
+      "volume_estime": 450,
+      "volume_estime_unite": "ml réseaux et chaussées",
+      "cout_estime_min_eur": 3500000,
+      "cout_estime_max_eur": 5000000,
+      "particularites": "Marché mono-lot TCE avec dominante VRD en site militaire occupé classé monument historique. Contraintes cycloniques, sismiques et d'insularité. Accès unique à maintenir 24h/24. Habilitations militaires nominatives requises. Confidentialité totale sur les travaux (pas de photos/références exploitables)."
+    }
+  ],
+  "tranches": [
+    {
+      "type": "ferme",
+      "numero": "TF",
+      "intitule": "Tranche Ferme",
+      "objet": "Aménagement complet des accès de la Base Navale : VRD, construction PAF, guérite, clôtures défensives et architecturales, réseaux, second œuvre, électricité, équipements SECPRO, espaces verts.",
+      "montant_estime_eur": null,
+      "condition_affermissement": null,
+      "source": "CCAP §1.2.2.1 et §8.1"
+    },
+    {
+      "type": "optionnelle",
+      "numero": "TO1",
+      "intitule": "Tranche Optionnelle n°1",
+      "objet": "VRD entre les pavillons Lafayette et Aycard (~partie du linéaire de 450 ml).",
+      "montant_estime_eur": null,
+      "condition_affermissement": "Affermissement dans les 9 mois à compter de la date de début d'exécution des travaux de la tranche ferme, sur décision du maître d'ouvrage.",
+      "source": "CCAP §1.2.2.1 et §1.2.2.2"
+    },
+    {
+      "type": "optionnelle",
+      "numero": "TO2",
+      "intitule": "Tranche Optionnelle n°2",
+      "objet": "VRD entre les pavillons Aycard et Boursin (~partie du linéaire de 450 ml).",
+      "montant_estime_eur": null,
+      "condition_affermissement": "Affermissement dans les 11 mois à compter de la date de début d'exécution des travaux de la tranche ferme, sur décision du maître d'ouvrage.",
+      "source": "CCAP §1.2.2.1 et §1.2.2.2"
     }
   ],
   "calendrier": {
     "date_limite_offres": "2026-08-07",
     "date_demarrage_prevue": null,
-    "duree_marche": "Période de préparation 3 mois + exécution TF 12 mois ; TF+TO1+TO2 max 14 mois cumulés ; délai d'affermissement TO1 : 9 mois, TO2 : 11 mois après début TF"
+    "duree_marche": "Période de préparation 3 mois + exécution 12 mois (TF) ; TO1 : PP 1 mois + 4 mois exécution ; TO2 : PP 1 mois + 2 mois exécution. Durée maximale toutes tranches : 14 mois d'exécution."
   },
   "alertes_candidat": [
-    "SÉCURITÉ MILITAIRE : délai de contrôle d'accès d'environ 2 mois pour tout le personnel — les listes nominatives avec pièces d'identité et formulaires SOPHIA doivent être transmis DÈS la notification du marché ; tout personnel refusé doit être remplacé",
-    "OBLIGATION DE CONFIDENTIALITÉ PERPÉTUELLE : interdiction absolue de communiquer sur les travaux ou d'utiliser des éléments graphiques (photos, plans) pour des références professionnelles, même après exécution (CCAP art 1.3.1)",
-    "CONTINUITÉ DE SERVICE IMPÉRATIVE : le titulaire doit maintenir à ses frais le filtrage des accès (module préfabriqué provisoire, déplacement barrières levantes, caméras) pendant toute la durée du chantier sous peine de pénalité de 5 000 €/jour",
-    "SPÉCIFICITÉS ANTILLAISES : zone sismique 5 (Eurocode 8 catégorie IV), bétons XS2 (milieu salin), cyclones (mise en sécurité obligatoire dès pré-alerte), remontées de nappe — expertise locale indispensable",
-    "GABARIT RESTREINT pour tranches optionnelles : voûtes de 2,10 à 2,84 m de hauteur limitant le passage des poids lourds — adaptation obligatoire des matériaux et matériels de chantier, vérification des dimensions en période de préparation"
+    "ACCÈS SITE MILITAIRE : délai d'habilitation nominative ~2 mois — à engager IMMÉDIATEMENT après notification du marché. Tout personnel non habilité ne peut accéder au chantier ; prévoir liste nominative exhaustive dès la signature (CCAP §1.3.2.1).",
+    "CONFIDENTIALITÉ ABSOLUE : aucune photo, plan ni communication sur ces travaux autorisés, même pour constituer des références professionnelles ultérieures (CCAP §1.3.1). Ce marché ne peut pas être utilisé comme référence commerciale illustrée.",
+    "CONTINUITÉ DE SERVICE IMPÉRATIVE : la base navale a un accès unique ; le PAF provisoire (module préfabriqué avec barrières levantes, caméras, éclairage, prises RJ45, climatisation) doit être opérationnel AVANT toute dépose de l'existant. Toute interruption non planifiée : pénalité 5 000 €/jour (CCAP §8.3.1).",
+    "SITE CYCLONIQUE ET SISMIQUE : les bétons en milieu salin XS2 (enrobage 5 cm, dosage 450 kg/m³ CEM II), les structures calculées Eurocode 8 zone 5 (agr=3,00 m/s², γi=1,40 pour bâtiment cat. IV) et les dispositions anticyclone (mise en sécurité obligatoire dès pré-alerte) alourdissent significativement les coûts et les délais — à prendre en compte dans le planning et le chiffrage.",
+    "REMPARTS CLASSÉS MONUMENTS HISTORIQUES : toute détérioration des remparts du Fort Saint-Louis est à réparer aux frais de l'entreprise immédiatement et sans délai (CCTP §1.26). Protections obligatoires pendant toute la durée des travaux."
   ],
   "points_differenciants_attendus": [
     {
-      "libelle": "Proposition d'un phasage détaillé garantissant la continuité de service de la base navale",
-      "exemple": "Le candidat présente un plan de phasage en 4 phases avec schémas d'implantation du PAF provisoire, délais de déplacement des barrières levantes et caméras, et planning des coupures de réseaux validées — démontrant sa maîtrise des contraintes d'un site militaire occupé.",
+      "libelle": "Maîtrise du phasage en site militaire occupé avec maintien du dispositif de contrôle d'accès",
+      "exemple": "Proposer un planning détaillé avec phases de travaux décrivant précisément comment le PAF provisoire sera mis en place avant toute intervention sur le PAF existant, avec les dispositions pour maintenir le filtrage véhicules/piétons 24h/24 et permettre les passages de la grue Liebherr sans interruption du chantier.",
       "source": "CCTP §1.3"
     },
     {
-      "libelle": "Expérience prouvée en milieu militaire ou sécurisé sous contraintes de confidentialité et contrôle d'accès",
-      "exemple": "Le candidat joint des références de chantiers en emprise Défense ou sites sécurisés avec les coordonnées des maîtres d'ouvrage, attestant de sa capacité à gérer les procédures de laissez-passer et la confidentialité totale.",
-      "source": "CCAP art 1.3"
-    },
-    {
-      "libelle": "Compétences en construction antisismique (Eurocode 8 zone 5) et en milieu salin tropical",
-      "exemple": "Le candidat présente ses références de chantiers en Martinique ou Guadeloupe avec détail des formulations béton XS2, des systèmes de protection anticorrosion et des calculs de résistance cyclonique, démontrant son expertise locale.",
+      "libelle": "Expérience en travaux TCE/VRD en zone cyclonique et sismique aux Antilles françaises",
+      "exemple": "Valoriser des références de chantiers réalisés en Martinique/Guadeloupe avec structures calculées Eurocode 8 zone 5 et bétons XS1/XS2 en milieu salin côtier, démontrant la maîtrise des sujétions d'insularité (approvisionnement, logistique, météo).",
       "source": "CCTP §1.7 et §5.1"
     },
     {
-      "libelle": "Méthodologie de gestion des déchets et de recyclage des enrobés (minimum 30% requis)",
-      "exemple": "Le candidat détaille sa note méthodologique SOGED avec filières de valorisation identifiées en Martinique, méthode de fraisage-concassage des enrobés existants et bilan prévisionnel justifiant le respect du seuil de 30% de réemploi.",
-      "source": "CCTP §1.30 et §1.24"
+      "libelle": "Méthodologie de gestion environnementale et recyclage des enrobés",
+      "exemple": "Présenter une note méthodologique chiffrée sur le recyclage des enrobés déposés (fraisage, concassage, criblage) justifiant l'atteinte d'au moins 30% de réemploi, avec identification des filières de valorisation des déchets (ISDI, ISDND) disponibles en Martinique et bordereaux de suivi prévus.",
+      "source": "CCTP §1.30 (prescription environnementale)"
     },
     {
-      "libelle": "Organisation de chantier adaptée aux contraintes de gabarit des tranches optionnelles (voûtes 2,10-2,84 m)",
-      "exemple": "Le candidat présente son plan de logistique pour les TO1 et TO2 avec inventaire des matériaux et engins de gabarit compatible, itinéraires de livraison alternatifs et solutions de préfabrication en atelier pour les éléments non transportables.",
+      "libelle": "Moyens humains et matériels dédiés à la continuité de service et à la sécurisation du site",
+      "exemple": "Détailler l'organisation dédiée : responsable de la coordination avec l'officier de sécurité de la base, procédures de gestion des alarmes et incidents en dehors des heures de chantier, moyens de mise en sécurité cyclone (dispositif d'astreinte, équipements d'arrimage), et capacité de pompage 20-30 m³/h pour épuisement des fouilles.",
+      "source": "CCTP §1.3 et §1.13"
+    },
+    {
+      "libelle": "Capacité à gérer les contraintes de gabarit pour les tranches optionnelles (voûtes ≤ 2,84 m)",
+      "exemple": "Pour les TO1 et TO2, présenter la liste des engins et matériaux dont les dimensions sont compatibles avec les voûtes des pavillons Lafayette (h≈2,84m, l≈2,50m) et Aycard (h≈2,40m, l≈2,30m), et la méthode d'approvisionnement alternative par l'itinéraire secondaire pour véhicules légers.",
       "source": "CCTP §1.20"
     }
   ],
   "_meta": {
     "id_marche": "BOAMP-26-56758",
     "type": "complet",
-    "date_generation": "2026-06-14T23:16:04.116524+00:00",
-    "extraction_le": "2026-06-14T23:16:04.116524+00:00",
+    "date_generation": "2026-06-19T23:06:50.864144+00:00",
+    "extraction_le": "2026-06-19T23:06:50.864144+00:00",
     "modele": "claude-sonnet-4-6",
     "preset_utilise": "btp",
     "presets_matches": [
-      "btp",
-      "ingenierie"
+      "btp"
     ],
     "prompts_versions": {
-      "btp/_preset.json": "sha256:d1717e0d87f6c265",
-      "ingenierie/_preset.json": "sha256:56f813f829343e24"
+      "btp/_preset.json": "sha256:055bf6f8b2c1f771"
     },
-    "tokens_input": 151558,
-    "tokens_output": 4948,
-    "cout_eur": 0.5024,
-    "duree_sec": 96.2,
+    "tokens_input": 158497,
+    "tokens_output": 9568,
+    "cout_eur": 0.5881,
+    "duree_sec": 179.5,
     "pdfs_traites": [
       {
         "nom": "26-018_BPU.xlsx",

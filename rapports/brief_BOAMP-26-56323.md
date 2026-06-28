@@ -1,6 +1,6 @@
 # Brief — PRESTATIONS DE GARDIENNAGE ET DE SECURITÉ
 
-_Généré le 2026-06-12 15:49 par Claude claude-sonnet-4-6_
+_Généré le 2026-06-21 00:36 par Claude claude-sonnet-4-6_
 
 ## Identifiants
 - **ID Tendia** : `BOAMP-26-56323`
@@ -11,86 +11,47 @@ _Généré le 2026-06-12 15:49 par Claude claude-sonnet-4-6_
 - **DCE PLACE** : <https://www.marches-publics.gouv.fr/?page=Entreprise.EntrepriseDetailsConsultation&id=3001049&orgAcronyme=s2d>
 
 ## Synthèse
-Il s'agit d'un accord-cadre passé par le CEA (Centre de Grenoble) pour la fourniture de microphotomasques destinés à des équipements de lithographie ASML (XT1060K et XT400M), structuré en 2 lots. Le montant total maximum est de 1 100 000 € HT sur une durée ferme de 12 mois. Ce marché est sans rapport avec le titre 'Prestations de gardiennage' figurant dans les métadonnées — le DCE fourni concerne exclusivement une fourniture de composants de haute technologie.
-
-## 🏗 Chantier — caractéristiques BTP
-- **Description** : Fourniture de microphotomasques pour équipements de lithographie ASML : Lot 1 pour équipements XT1060K, Lot 2 pour équipements XT400M. Les masques sont définis par grades avec des procédés de fabrication (POR) spécifiques à chaque grade et lot.
-- **Contraintes spécifiques** :
-  - Zone à Faibles Emissions (ZFE) de Grenoble Alpes Métropole : les livraisons doivent respecter les restrictions de circulation pour véhicules utilitaires légers et poids lourds
-  - Confidentialité stricte (ICPE, résultats d'études)
-  - Possibilité de livraison express requise
-  - Précautions de transport particulières possibles (coussin d'air)
-
-### Allotissement
-Accord-cadre structuré en 2 lots correspondant à deux types d'équipements ASML différents. Mono-attribution prévue pour chaque lot.
-- **Nombre de lots** : 2
-- **Lot 1** — Masques pour équipements ASML XT1060K
-  - Montant estimé : 900 000 €
-  - Fourniture de microphotomasques compatibles avec les équipements de lithographie ASML XT1060K
-- **Lot 2** — Masques pour équipements ASML XT400M
-  - Montant estimé : 200 000 €
-  - Fourniture de microphotomasques compatibles avec les équipements de lithographie ASML XT400M
-
-### Qualifications BTP exigées
-Capacités économique/financière et technique/professionnelle requises. Pas de certification normative spécifique imposée, mais références ISO mentionnées comme élément de l'offre technique.
-- **Autres exigences** :
-  - Certificats de qualité ISO ou équivalent des sites de production (mentionnés dans l'offre technique)
-
-## ⚡ Parc EnR — caractéristiques techniques
-### Volumes techniques
-- **Durée du marché (mois)** : 12
-- **Note** : Montant plafond Lot 1 : 900 000 € HT (masques ASML XT1060K) ; Lot 2 : 200 000 € HT (masques ASML XT400M). Total maximum : 1 100 000 € HT sur 12 mois.
-
-### Modalités d'exécution
-- **Sites d'exécution** : Grenoble (38)
-
-## 🎯 Mission conseil
-- **Durée de mission** : 12 mois (durée ferme de l'accord-cadre)
-
-## 🎓 Formation / accompagnement
-### Volumes
-- **Durée marché (mois)** : 12
-- **Note** : Accord-cadre à bons de commande, volumes réels non précisés, seul le plafond est fixé.
-
-### Modalités
-- **Sites d'exécution** : Grenoble (38)
+Ce marché public de la Commune de Gravelines porte sur des prestations de gardiennage et de sécurité, structuré en 2 lots : le Lot 1 couvre la sécurisation des manifestations événementielles, culturelles et sportives organisées par la commune (montant estimé 640 000 € HT sur 4 ans), et le Lot 2 concerne le gardiennage de la base nautique (ERP 4e catégorie, type R, 50 lits). Attention : les pièces du DCE fournies (cahier des charges, RC, accord-cadre) correspondent en réalité à un marché du CEA Grenoble portant sur la fourniture de microphotomasques — elles ne correspondent PAS au marché BOAMP-26-56323 de Gravelines. L'analyse repose donc principalement sur les métadonnées BOAMP, le contenu des pièces DCE étant hors-sujet.
 
 ## 💶 Montant du marché
-- **Plafond accord-cadre** : **1,10 M€**
-  - sur Durée ferme 12 mois
-  - _source : RC article 1.2 page 3_
-- _Note_ : Plafond global de l'accord-cadre tous lots confondus : 1 100 000 € HT. Lot 1 plafonné à 900 000 € HT, Lot 2 à 200 000 € HT. Il s'agit de montants maximums ; les commandes réelles dépendent des besoins du CEA sur 12 mois.
+- **Valeur estimée** : **640 000 €**
+  - sur 4 ans (Lot 1)
+  - _source : Métadonnées BOAMP — lot LOT-0001 : montant_estime 640 000 € HT sur 4 ans. Lot 2 : montant non communiqué._
+- _Note_ : Seul le Lot 1 a un montant estimé explicite dans le BOAMP (640 000 € HT sur 4 ans, soit ~160 000 €/an). Le Lot 2 n'a pas de montant communiqué. Le total des deux lots est donc supérieur à 640 000 €.
 
 ## Barème de notation
-- **Valeur technique** : 45 %
-- **Valeur prix** : 55 %
+- **Valeur technique** : 60 %
+- **Valeur prix** : 40 %
 - **Sous-critères techniques** :
-  - Moyens de production et processus organisationnel pour respecter les délais : 25 %
-  - Réactivité du SAV notamment en moyens humains et organisationnels : 15 %
-  - Méthodologie pour répondre aux enjeux environnementaux en relation directe avec l'objet de l'accord-cadre : 5 %
-- **Calcul du prix** : 55% — Prix de la Fourniture transport compris, analysé par lot selon la Costing table (RC article 6.2)
+  - Critères sociaux : —
+  - Critères environnementaux : —
+  - Valeur technique de l'offre : —
+- **Calcul du prix** : Non disponible — pièces RC authentiques du marché de Gravelines absentes.
 
 ## Références et qualifications exigées
 - **Expérience minimale** : —
-- **Secteur d'expérience** : Fourniture de microphotomasques ou composants similaires pour équipements de lithographie
+- **Secteur d'expérience** : Gardiennage et sécurité privée, sécurité événementielle, gardiennage d'ERP
+- **Certifications obligatoires** : Autorisation d'exercice délivrée par le CNAPS (Conseil National des Activités Privées de Sécurité) — obligatoire pour exercer l'activité de sécurité privée en France (bloquante=True, source=Loi n°83-629 du 12 juillet 1983 (obligation légale, non spécifique au RC non disponible)), Agents titulaires de la carte professionnelle agent de sécurité privée (CQP APS ou titre professionnel équivalent) (bloquante=True, source=Obligation légale CNAPS), Pour le Lot 2 (base nautique ERP) : agents titulaires SSIAP 1 minimum (Service de Sécurité Incendie et d'Assistance à Personnes) (bloquante=True, source=Code de la construction ERP type R — inféré du descriptif Lot 2 (BOAMP LOT-0002))
 - **Autres exigences** :
-  - Liste des principales livraisons effectuées au cours des 3 dernières années (montant, date, destinataire) (source=RC article 4.1)
-  - Description de l'outillage, du matériel et de l'équipement technique disponible pour l'exécution (source=RC article 4.1)
-  - Indication des systèmes de gestion et de suivi de la chaîne d'approvisionnement (source=RC article 4.1)
-  - Déclaration de chiffre d'affaires global et du domaine d'activité sur 3 derniers exercices (source=RC article 4.1)
-  - Bilans ou extraits de bilan des 3 dernières années (source=RC article 4.1)
-  - Attestation sur l'autonomie commerciale et situation de concurrence si appartenance à un groupe (source=RC article 4.1)
+  - Assurance responsabilité civile professionnelle couvrant les activités de gardiennage et de sécurité
+
+## Lots
+- **Lot 1** — Prestations de gardiennage et de sécurité des manifestations événementielles, culturelles ou sportives
+  - Zone : Gravelines (FRE11 — Hauts-de-France, Nord)
+  - Couvre la sécurité des manifestations culturelles et festives, compétitions sportives et événements grand public organisés par la commune. Montant estimé explicite : 640 000 € HT sur 4 ans (source BOAMP). Prestations ponctuelles et variables selon le calendrier des événements.
+- **Lot 2** — Prestations de gardiennage et de sécurité à la base nautique
+  - Zone : Gravelines (FRE11 — Hauts-de-France, Nord)
+  - Gardiennage d'un ERP 4e catégorie, type R (hébergement 50 lits) — implique des obligations spécifiques de sécurité incendie (SSIAP) et de sécurité des personnes. Montant non communiqué dans le BOAMP. Présence potentiellement saisonnière renforcée selon l'activité nautique.
 
 ## ⚠ Alertes candidat
-- Date limite de remise des offres : 22/06/2026 avant 16h00 — délai de rigueur, tout dossier reçu après est écarté d'office
-- Les questions doivent être posées via PLACE au plus tard 10 jours avant la date limite (soit avant le 12/06/2026)
-- La ZFE de Grenoble Alpes Métropole impose des restrictions de circulation pour les véhicules de livraison : obligation de démontrer la conformité dans l'offre commerciale
-- Pas de négociation après remise des offres — l'offre initiale est définitive
-- Confidentialité stricte imposée par les CGA CEA : les informations liées aux ICPE ne doivent pas être divulguées ; le soumissionnaire doit identifier les informations confidentielles de son offre
-- Le CEA peut ne pas donner suite à la consultation sans engager sa responsabilité — risque de consultation infructueuse
+- ATTENTION — ERREUR DCE : les pièces du DCE fournies (RC, CCTP, accord-cadre) correspondent à un marché du CEA Grenoble sur microphotomasques et NON au marché de Gravelines sur le gardiennage. Le candidat doit impérativement télécharger les pièces authentiques du marché BOAMP-26-56323 sur la plateforme de dépôt de la Commune de Gravelines.
+- Autorisation CNAPS obligatoire pour exercer l'activité de sécurité privée — son absence entraîne l'irrecevabilité de la candidature.
+- Lot 2 (base nautique ERP type R) : la présence d'agents SSIAP (Service de Sécurité Incendie et d'Assistance à Personnes) est très probablement exigée compte tenu de la classification ERP avec hébergement — vérifier les exigences exactes dans le CCTP authentique.
+- Marché soumis à des critères sociaux et environnementaux (mentionnés dans le BOAMP) : une approche 'moins-disant pur' sur le prix risque de pénaliser l'offre si ces critères sont fortement pondérés.
+- Durée de 4 ans : prévoir une clause de révision des prix dans l'offre commerciale pour couvrir les revalorisations de la convention collective sécurité privée (IDCC 1351) — risque d'érosion de marge si non anticipé.
 
 ## 💡 Points différenciants attendus
-- Site de production de secours certifié et opérationnel (exemple=Présenter un ou plusieurs sites de secours avec leur certification ISO, leur capacité de production et les délais de bascule documentés, démontrant la résilience de la chaîne d'approvisionnement en cas d'incident sur le site principal., source=RC article 4.2.2)
-- Conformité ZFE prouvée avec flotte de livraison adaptée (exemple=Fournir une attestation du transporteur indiquant la classe Crit'Air de chaque véhicule utilisé pour les livraisons vers Grenoble, avec un engagement calendaire de transition vers des véhicules conformes à l'évolution des restrictions ZFE., source=RC article 4.2.3)
-- SAV dimensionné avec interlocuteur dédié CEA (exemple=Proposer un account manager technique dédié au CEA, un engagement de temps de réponse < 24h pour les non-conformités, et une procédure de refabrication prioritaire garantissant un délai maximal documenté., source=RC article 4.2.2 / article 6.2)
-- POR (Process of Record) documenté et validé pour chaque grade (exemple=Fournir pour chaque grade et chaque lot un POR complet incluant les paramètres critiques de fabrication, les contrôles qualité en ligne et les critères d'acceptation, démontrant la maîtrise du procédé et la traçabilité., source=RC article 4.2.2)
+- Expérience avérée en sécurité événementielle grand public et ERP (exemple=Le candidat joint des fiches de références précisant le nombre de manifestations sécurisées par an, le nombre de spectateurs moyen et les types d'événements (concerts, compétitions sportives), ainsi qu'une référence de gardiennage d'ERP de catégorie similaire.)
+- Qualifications SSIAP et CQP APS des agents proposés pour le Lot 2 (exemple=Le mémoire technique liste nominativement les agents affectés à la base nautique avec leurs qualifications (SSIAP 1 minimum, carte professionnelle CNAPS), et présente le plan de remplacement en cas d'absence pour maintenir la continuité du gardiennage ERP.)
+- Politique RSE et insertions sociales (critères sociaux du BOAMP) (exemple=Le candidat présente son accord d'entreprise relatif à l'emploi de travailleurs handicapés ou de personnes en insertion, joint les indicateurs de son bilan social et détaille les formations proposées aux agents au-delà des exigences légales., source=Métadonnées BOAMP — criteres_attribution_boamp: ['sociaux','environnementaux'])
+- Dispositif de supervision et de réactivité opérationnelle (exemple=Le candidat décrit son centre opérationnel de supervision 24h/24, son délai d'intervention garanti en cas d'incident lors des manifestations, et son système de reporting en temps réel accessible à la commune.)

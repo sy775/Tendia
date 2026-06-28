@@ -1,0 +1,325 @@
+{
+  "synthese_marche": "La commune de Val d'Isère lance un accord-cadre à bons de commande mono-attributaire pour des prestations de nettoyage (ménage) de ses bâtiments communaux (écoles, mairie, crèche, CTM, WC publics, logements, etc.) pour la période 2026-2029. Le marché est non alloti, rémunéré au prix horaire, avec un plafond de 280 000 € HT par période de 12 mois, reconductible deux fois. Le prestataire fournit uniquement la main-d'œuvre, la commune fournissant matériel et produits.",
+  "domaines_metier": [
+    {
+      "code": "entretien_proprete_locaux"
+    }
+  ],
+  "raison_classification": "Le marché porte exclusivement sur des prestations de nettoyage et de propreté de locaux communaux (bâtiments administratifs, scolaires, sportifs, WC publics). Le CPV principal 90911200 'Services de nettoyage de bâtiments' confirme la classification `entretien_proprete_locaux`.",
+  "caracteristiques_metier": {
+    "description": "Prestations de nettoyage courant et approfondi de bâtiments communaux de Val d'Isère : mairie, écoles, crèche, CTM, chapelle, église, WC publics, gare routière, logements, etc. Le prestataire fournit uniquement la main-d'œuvre (la commune fournit matériel et produits). Obligation de résultat, plannings adaptés aux saisons (station de ski), interventions en dehors des heures d'ouverture.",
+    "criteres_eligibilite": [
+      "Expérience dans les prestations de nettoyage de bâtiments",
+      "Capacité à mobiliser des effectifs suffisants pour des horaires contraints et variables",
+      "Références sur prestations similaires (3 dernières années)",
+      "Chiffre d'affaires global et sectoriel justifiable"
+    ]
+  },
+  "bareme_notation": {
+    "valeur_technique_pct": 60,
+    "valeur_prix_pct": 40,
+    "sous_criteres_techniques": [
+      {
+        "libelle": "Qualité du mémoire technique",
+        "ponderation_pct": 40,
+        "description": "Ce critère évalue le dimensionnement des équipes proposées et la bonne compréhension des horaires de travail imposés par la commune, ainsi que l'organisation envisagée pour assurer les prestations sur l'ensemble des sites.",
+        "elements_attendus": [
+          "Planning type par période (décembre, mai-juin, été) avec affectation de chaque agent",
+          "Dimensionnement des équipes en lien avec les volumes horaires par site",
+          "Démonstration de la compréhension des contraintes horaires spécifiques à chaque bâtiment",
+          "Organisation de la continuité de service (remplacements, absences)",
+          "Gestion des demandes ponctuelles/exceptionnelles",
+          "Démarche qualité et fiches de contrôle"
+        ],
+        "exemple_reponse_forte": "Le candidat présente un planning détaillé par période saisonnière (saison ski, intersaison, été) avec le nombre d'agents affectés par site et les plages horaires respectées (ex : CTM dès 17h, écoles à partir de 16h40). Il décrit le système de remplacement en cas d'absence et joint des fiches de contrôle contradictoires proposées. La réponse montre une connaissance fine des contraintes de la station (pics hivernaux).",
+        "source": "RC article 6",
+        "unite_evaluation": "points",
+        "sous_criteres": []
+      },
+      {
+        "libelle": "Références sur travaux similaires",
+        "ponderation_pct": 20,
+        "description": "Ce critère évalue les références du candidat sur des prestations de nettoyage similaires réalisées au cours des trois dernières années, attestées par les destinataires.",
+        "elements_attendus": [
+          "Liste de références de nettoyage de bâtiments (collectivités, établissements scolaires, ERP)",
+          "Montant, date et destinataire pour chaque référence",
+          "Attestations des destinataires ou déclaration de l'opérateur économique",
+          "Références de préférence en contexte de station de montagne ou de contraintes horaires complexes"
+        ],
+        "exemple_reponse_forte": "Le candidat produit 3 références attestées pour le nettoyage de bâtiments communaux (mairie + écoles) dans une commune touristique alpine, avec montants annuels comparables (>100 000 €/an), accompagnées d'attestations signées des donneurs d'ordre.",
+        "source": "RC article 6 et RC article 4.1",
+        "unite_evaluation": "points",
+        "sous_criteres": []
+      }
+    ],
+    "prix": {
+      "type_formule": "moins_disant",
+      "formule_explicite": "Note offre = (prix de l'offre la plus basse / prix de l'offre) × 40",
+      "source": "RC article 6",
+      "elements_a_chiffrer": [
+        "Prix unitaire de l'heure de ménage (HT et TTC)"
+      ]
+    },
+    "modalite_calcul_prix": "Note offre = (prix de l'offre la plus basse / prix de l'offre) × 40"
+  },
+  "montant_marche": {
+    "valeur_estimee_euros": null,
+    "fourchette_min_euros": 280000,
+    "fourchette_max_euros": 840000,
+    "type": "plafond",
+    "duree_couverte": "Période initiale 12 mois (280 000 € HT) + 2 reconductions de 12 mois (280 000 € HT chacune) = 840 000 € HT sur 36 mois maximum",
+    "source_extraction": "RC article 1.1 page 4 : 'Le montant de commande du marché initial et de chaque reconduction est limité à 280 000,00 € HT' ; AE article 4 : 'MONTANT MAXIMUM HT DE COMMANDE (par période) : 280 000,00 €'",
+    "commentaire": "Plafond annuel de 280 000 € HT. Sur la durée totale maximale (3 périodes de 12 mois), le plafond global est de 840 000 € HT. Le CCAP mentionne 260 000 € HT (art. 2) mais l'AE et le RC indiquent 280 000 € HT — le RC et l'AE prévalent. Les quantités réelles dépendent des commandes émises (accord-cadre à bons de commande)."
+  },
+  "montant_3_voies": {
+    "voie_1_eur": 280000,
+    "voie_1_source": "RC article 1.1 : plafond annuel de 280 000 € HT par période ; AE article 4",
+    "voie_2_disponible": false,
+    "voie_2_min_eur": null,
+    "voie_2_max_eur": null,
+    "voie_2_hypotheses": [],
+    "voie_2_raison_indisponible": "Un plafond explicite est publié (Voie 1 disponible) : 280 000 € HT par période annuelle. La Voie 2 n'est pas nécessaire."
+  },
+  "cout_realisation": {
+    "cout_total_eur": 237000,
+    "cout_min_eur": 215000,
+    "cout_max_eur": 259000,
+    "postes": [
+      {
+        "poste": "Main-d'œuvre agents de nettoyage",
+        "detail": "Estimation : ~12 000 à 14 000 heures/an (ratio volume/prix horaire marché ~18-21 €/h coût chargé pour agents propreté). Volume horaire estimé à partir du plafond de 280 k€ et d'un prix de vente indicatif ~22-25 €/h, soit ~11 200-12 700 h/an. Coût main-d'œuvre chargée ~18-20 €/h.",
+        "montant_eur": 220000
+      },
+      {
+        "poste": "Encadrement / responsable non-œuvrant",
+        "detail": "1 responsable de site (non-œuvrant) : ~15-20% du coût MO selon CCTP ch. II art. 1",
+        "montant_eur": 17000
+      }
+    ],
+    "taux_journaliers_retenus": "Taux marché indicatifs secteur propreté : agent de nettoyage 18-21 €/h coût chargé (SMIC + charges + congés) ; responsable de site 25-30 €/h. La commune fournit matériel et produits, donc aucun coût fournitures côté prestataire (CCTP art. 7.2 et 7.3). Taux marché indicatifs, non contractuels.",
+    "commentaire": "La commune fournit le matériel et les produits (CCTP art. 7.2 et 7.3), ce qui réduit fortement le coût de réalisation. Les seuls postes de coût sont la main-d'œuvre et l'encadrement. Fourchette basée sur la variation du taux horaire chargé (dimension la plus incertaine : 18 €/h bas vs 21 €/h haut), volume fixé à ~11 500 h. Marge brute estimée à ~15-23% pour le prestataire sur ce type de marché, cohérente avec les services de propreté (bande 5-15% à 15-20% selon taux de vente et volume)."
+  },
+  "revision_prix": {
+    "type": "actualisation",
+    "indices_utilises": [
+      "10766460 - Indices des prix de production BtoB CPF 81.21 - Services de nettoyage courant des bâtiments"
+    ],
+    "ponderation": "Prix actualisé = Prix initial × (i1/I1) où i1 = indice CPF 81.21 au 1er jour du mois précédant l'exécution, I1 = indice CPF 81.21 à la date de remise de l'offre finale",
+    "periodicite": "annuelle",
+    "formule_revision": "Prix actualisé = Prix initial du marché × CA ; CA = i1/I1 ; i1 = indice 10766460 CPF 81.21 en vigueur le 1er jour du mois calendaire précédant le mois d'exécution ; I1 = indice 10766460 CPF 81.21 en vigueur à la date de remise de l'offre finale. Pour les reconductions : prix actualisables annuellement à date anniversaire.",
+    "source_extraction": "CCAP article 8.3 page 9",
+    "commentaire": "Actualisation unique à la notification si délai > 3 mois entre offre et démarrage, puis révision annuelle pour les reconductions. Formule favorable au prestataire en contexte inflationniste (indice nettoyage). Attention : l'indice CPF 81.21 (INSEE) peut être retardé dans sa publication."
+  },
+  "alertes_prix": [
+    "Plafond annuel de 280 000 € HT non garanti : accord-cadre à bons de commande sans minimum — le titulaire ne peut réclamer aucune indemnité si les quantités ne sont pas atteintes (CCAP art. 8.1).",
+    "Discordance dans les pièces : le CCAP art. 2 mentionne un plafond de 260 000 € HT tandis que le RC art. 1.1 et l'AE art. 4 indiquent 280 000 € HT — vérifier avant de chiffrer.",
+    "Prix ferme puis actualisable : le prix initial est ferme mais la formule d'actualisation (indice CPF 81.21) s'applique dès la notification si délai > 3 mois, et annuellement pour les reconductions — à intégrer dans le chiffrage sur 3 ans.",
+    "Pénalités de retard sans plafond ni exonération (CCAP art. 21) — risque financier en cas de retard d'exécution à ne pas sous-estimer dans la structure de prix."
+  ],
+  "references_exigees": {
+    "experience_minimale_annees": null,
+    "experience_source": null,
+    "volume_min_references_similaires": null,
+    "volume_min_references_unite": "marchés similaires",
+    "secteur_experience": "Nettoyage de bâtiments (services de propreté), avec attestations de destinataires publics ou privés pour les 3 dernières années",
+    "secteur_source": "RC article 4.1",
+    "certifications_obligatoires": [],
+    "autres_exigences": [
+      {
+        "libelle": "Déclaration concernant le chiffre d'affaires global et sectoriel (domaine nettoyage) portant sur les 3 derniers exercices disponibles",
+        "source": "RC article 4.1"
+      },
+      {
+        "libelle": "Déclaration indiquant les effectifs moyens annuels et l'importance du personnel d'encadrement pour chacune des 3 dernières années",
+        "source": "RC article 4.1"
+      },
+      {
+        "libelle": "Liste des principales prestations de services réalisées au cours des 3 dernières années (montant, date, destinataire), prouvées par attestations des destinataires ou déclaration de l'opérateur",
+        "source": "RC article 4.1"
+      }
+    ]
+  },
+  "dossier_candidature": {
+    "pieces_a_fournir": [
+      {
+        "libelle": "Acte d'engagement (AE) dûment rempli et daté par la personne habilitée (signature au dépôt possible ou imposée à l'attribution)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC article 5.1"
+      },
+      {
+        "libelle": "Relevé d'identité bancaire (RIB)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC article 5.1"
+      },
+      {
+        "libelle": "Mémoire technique",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC article 5.1"
+      },
+      {
+        "libelle": "Déclarations de sous-traitances (DC4) le cas échéant",
+        "phase": "offre",
+        "obligatoire": false,
+        "source": "RC article 5.1"
+      },
+      {
+        "libelle": "Document unique de marché européen (DUME) ou formulaires DC1 et DC2 — déclarations du candidat",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC article 4.1"
+      },
+      {
+        "libelle": "Déclaration concernant le chiffre d'affaires global et sectoriel (3 derniers exercices)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC article 4.1"
+      },
+      {
+        "libelle": "Déclaration sur les effectifs moyens annuels et personnel d'encadrement (3 dernières années)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC article 4.1"
+      },
+      {
+        "libelle": "Liste des principales prestations de services des 3 dernières années avec montant, date et destinataire (attestations ou déclaration)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC article 4.1"
+      },
+      {
+        "libelle": "Attestation de visite de site (si visite effectuée — optionnelle)",
+        "phase": "offre",
+        "obligatoire": false,
+        "source": "RC article 3.4"
+      }
+    ],
+    "mode_remise": "dématérialisé",
+    "plateforme_depot": "https://www.valdisere.fr/mon-village/vie-municipale/marches-publics/",
+    "signature_electronique_exigee": false,
+    "format_signature": "XAdES, CAdES ou PAdES (de préférence) ; certificats RGS acceptés pour la durée de leur validité",
+    "nombre_exemplaires": null,
+    "langue": "français",
+    "duree_validite_offres_jours": 120,
+    "modalites_source": "RC article 7 et article 5.4"
+  },
+  "lots": [
+    {
+      "numero": 1,
+      "intitule": "Ménage 2026-2029",
+      "domaine": "entretien_proprete_locaux",
+      "zone_geographique": "Val d'Isère (73150) — commune alpine, station de ski",
+      "volume_estime": null,
+      "volume_estime_unite": "heures",
+      "cout_estime_min_eur": 215000,
+      "cout_estime_max_eur": 259000,
+      "ca_estime_min_eur": 252000,
+      "ca_estime_max_eur": 280000,
+      "marge_brute_pct": 14,
+      "particularites": "Marché non alloti. La commune fournit tout le matériel et les produits. Contraintes horaires fortes et variables selon les sites (certains avant 8h, d'autres après 18h). Activité saisonnière marquée (pic hivernal station de ski). Logements inclus (ménage de fin de saison). Prix unique : heure de ménage."
+    }
+  ],
+  "tranches": [],
+  "calendrier": {
+    "date_limite_offres": "2026-07-09",
+    "date_demarrage_prevue": "2026-08-10",
+    "duree_marche": "12 mois (période initiale) + 2 reconductions de 12 mois = 36 mois maximum (jusqu'au 12 août 2029)"
+  },
+  "alertes_candidat": [
+    "Contraintes horaires très strictes et variables selon les sites : certains bâtiments doivent être nettoyés avant 8h ou après 18h, avec des plages spécifiques imposées pour chaque site. La non-maîtrise de ces horaires peut entraîner des pénalités sans plafond ni exonération (CCAP art. 21).",
+    "La commune fournit le matériel et les produits : le prestataire ne doit pas chiffrer ces postes dans son offre, mais doit accepter de travailler avec les équipements et produits de la commune, ce qui exige une bonne adaptabilité.",
+    "Obligation de résultat : en cas d'insuffisance de nettoyage, le prestataire supporte le coût de remise en état. Les pénalités de retard s'appliquent sans mise en demeure préalable et sans plafond (CCAP art. 21).",
+    "Activité saisonnière prononcée (station de ski) : les volumes horaires varient fortement selon les saisons. Le candidat doit démontrer sa capacité à mobiliser les effectifs en haute saison hivernale dans une vallée alpine isolée (recrutement local difficile).",
+    "Discordance entre le plafond mentionné dans le CCAP (260 000 € HT, art. 2) et celui de l'AE/RC (280 000 € HT) — vérifier impérativement avant dépôt auprès de l'acheteur via la plateforme."
+  ],
+  "points_differenciants_attendus": [
+    {
+      "libelle": "Dimensionnement précis des équipes par site et par période saisonnière",
+      "exemple": "Le candidat présente un planning type pour chaque période (saison ski de décembre à avril, intersaison, été), avec le nombre exact d'agents affectés par site, les horaires respectés pour chacun des 19 bâtiments listés, et le volume horaire hebdomadaire détaillé. Il justifie les effectifs par rapport aux superficies (ex : 1800 m² école maternelle).",
+      "source": "CCTP article 8.1 et RC article 6"
+    },
+    {
+      "libelle": "Connaissance et gestion des contraintes horaires spécifiques à Val d'Isère",
+      "exemple": "Le mémoire technique détaille pour chaque site l'heure de début/fin d'intervention et explique comment le prestataire gère les contraintes croisées (ex : CTM dès 17h, mairie avant 8h ou après 18h, crèche à partir de 18h). Il montre sa connaissance du rythme de la station.",
+      "source": "CCTP article 9.1 et RC article 6"
+    },
+    {
+      "libelle": "Organisation des remplacements et continuité de service en contexte montagnard",
+      "exemple": "Le prestataire décrit son pool de remplaçants locaux (ou à proximité) et son organisation pour pallier les absences même en haute saison hivernale. Il justifie d'une implantation ou d'un réseau local dans la région Tarentaise/Haute-Tarentaise.",
+      "source": "CCTP article 8.3"
+    },
+    {
+      "libelle": "Références sur des prestations similaires en station de ski ou contexte saisonnier",
+      "exemple": "Le candidat produit des attestations de nettoyage de bâtiments communaux dans des communes touristiques alpines (Courchevel, Méribel, Les Arcs…), démontrant sa capacité à gérer les pics d'activité et les contraintes horaires propres à ce contexte.",
+      "source": "RC article 6"
+    },
+    {
+      "libelle": "Démarche qualité avec fiches de contrôle contradictoires proposées",
+      "exemple": "Le candidat joint en annexe de son offre des fiches de contrôle pré-remplies par bâtiment, décrivant les indicateurs de propreté mesurés, la fréquence des autocontrôles internes et les modalités de contrôle contradictoire avec le représentant de la commune (Pascal Frouin, service Bâtiment).",
+      "source": "CCTP article 4"
+    }
+  ],
+  "_meta": {
+    "id_marche": "BOAMP-26-56215",
+    "type": "complet",
+    "date_generation": "2026-06-20T14:44:47.330073+00:00",
+    "extraction_le": "2026-06-20T14:44:47.330073+00:00",
+    "modele": "claude-sonnet-4-6",
+    "preset_utilise": null,
+    "presets_matches": [],
+    "prompts_versions": {},
+    "tokens_input": 60070,
+    "tokens_output": 6010,
+    "cout_eur": 0.2568,
+    "duree_sec": 110.3,
+    "pdfs_traites": [
+      {
+        "nom": "202604 - AE.pdf",
+        "hash": "7e8f5c5c2e6ef92b8a66280a6317e231",
+        "taille_chars": 10101
+      },
+      {
+        "nom": "202604 - Attestation de visite du site.pdf",
+        "hash": "edb77d635ca89244a28af11f126e2d63",
+        "taille_chars": 1165
+      },
+      {
+        "nom": "202604 - CCAP.pdf",
+        "hash": "ba355b7fde10108b788dd7fcc3c1a3cb",
+        "taille_chars": 39889
+      },
+      {
+        "nom": "202604 - RC.pdf",
+        "hash": "92d448cab3eb36414d8ed95aa1278497",
+        "taille_chars": 22263
+      },
+      {
+        "nom": "202604 -CCTP.pdf",
+        "hash": "07704dcf1012665202575f29bed8579a",
+        "taille_chars": 34130
+      },
+      {
+        "nom": "202604 Tableau heures proposés.xlsx",
+        "hash": "316cba3d88bd8331269db6d2de5b195a",
+        "taille_chars": 2701
+      },
+      {
+        "nom": "202604 planning général prévisionnel.xlsx",
+        "hash": "0ff71e488e008cdc62a137a1d059b4e7",
+        "taille_chars": 4510
+      },
+      {
+        "nom": "Annexe RGPD.pdf",
+        "hash": "dde3932cf7409cdf34cc4921ee26bad0",
+        "taille_chars": 14174
+      },
+      {
+        "nom": "MPI1832214_AAPC.pdf",
+        "hash": "a6246b7c4c68cffd659850a9b4dc532c",
+        "taille_chars": 2932
+      }
+    ]
+  }
+}

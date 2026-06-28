@@ -1,6 +1,6 @@
 # Brief — TRANSPORTS PAR AUTOCARS
 
-_Généré le 2026-06-12 15:49 par Claude claude-sonnet-4-6_
+_Généré le 2026-06-20 00:41 par Claude claude-sonnet-4-6_
 
 ## Identifiants
 - **ID Tendia** : `BOAMP-26-56737`
@@ -11,82 +11,49 @@ _Généré le 2026-06-12 15:49 par Claude claude-sonnet-4-6_
 - **DCE PLACE** : <https://mairie-gouvieux.e-marchespublics.com/pack/annonce_marche_public_3399_1164291.html>
 
 ## Synthèse
-La Commune de Gouvieux (60270) lance un marché formalisé de location d'autocars avec chauffeurs, divisé en 2 lots : ramassage scolaire/périscolaire/rotation (Lot 1) et transport en car à la demande (Lot 2). Le marché est conclu pour 1 an renouvelable 3 fois, soit une durée maximale de 4 ans. L'attribution repose à 70% sur le prix et à 30% sur la valeur technique.
-
-## 🏗 Chantier — caractéristiques BTP
-- **Description** : Prestation de location d'autocars avec chauffeurs pour la Commune de Gouvieux : Lot 1 couvrant le ramassage scolaire, périscolaire et rotation ; Lot 2 couvrant le transport en car à la demande.
-- **Type d'ouvrage** : Transport de personnes (scolaire et à la demande)
-- **Contraintes spécifiques** :
-  - Conducteurs titulaires des permis et qualifications professionnelles réglementaires
-  - Respect de la réglementation transport routier de voyageurs
-  - Inscription au registre électronique national des entreprises de transport par route
-  - Licence de transport obligatoire
-  - Gestion des pannes, accidents et absences conducteur
-  - Procédure d'évacuation d'une école exigée dans le mémoire technique
-
-### Allotissement
-Marché divisé en 2 lots pouvant être soumissionnés séparément ou cumulativement.
-- **Nombre de lots** : 2
-- **Lot 1** — Ramassage scolaire, périscolaire et rotation
-  - Transport pour le ramassage scolaire, périscolaire et les rotations associées
-- **Lot 2** — Transport en car à la demande
-  - Transport en autocar à la demande pour la Ville de Gouvieux
-
-### Qualifications BTP exigées
-Qualifications professionnelles réglementaires liées à l'activité de transporteur public routier de voyageurs
-- **Autres exigences** :
-  - Inscription au registre électronique national des entreprises de transport par route (RC art 10)
-  - Licence de transport (RC art 10)
-  - Permis de conduire et qualifications professionnelles des conducteurs conformes à la réglementation (RC art 10)
-
-## ⚡ Parc EnR — caractéristiques techniques
-### Volumes techniques
-- **Durée du marché (mois)** : 12
-- **Note** : Marché de 1 an renouvelable 3 fois (4 ans maximum). Volumes de transport non précisés dans le RC ; le BPU (non fourni) contiendra les détails quantitatifs. Lot 2 dispose d'un estimatif joint au dossier.
-
-### Modalités d'exécution
-- **Sites d'exécution** : Gouvieux (60270)
-
-## 🎓 Formation / accompagnement
-### Volumes
-- **Durée marché (mois)** : 48
-- **Note** : Durée ferme : 12 mois. Reconduction tacite 3 fois pour 1 an chacune, soit 48 mois maximum.
-
-### Modalités
-- **Sites d'exécution** : Gouvieux (60270)
+La Commune de Gouvieux (60270) lance un marché public de services pour la location d'autocars avec chauffeurs, divisé en 2 lots : Lot 1 (ramassage scolaire, périscolaire et rotations régulières) et Lot 2 (transport en car à la demande pour déplacements occasionnels). Le marché est conclu pour 1 an reconductible 3 fois (4 ans max). Le Lot 2 prend la forme d'un accord-cadre à bons de commande plafonné à 125 000 € HT sur la durée totale.
 
 ## 💶 Montant du marché
-- _Montant non communiqué dans le DCE._
-  - Typique des accords-cadres à bons de commande : le volume dépend des commandes effectivement passées par l'acheteur sur la durée du marché.
-- _Note_ : Aucun montant estimé, plafond ou prix unitaire n'est communiqué dans les pièces fournies (RC uniquement). Le BPU et l'estimatif du Lot 2 sont mentionnés comme documents du dossier mais n'ont pas été fournis pour analyse.
+- **Fourchette** : entre 200 000 € et 400 000 €
+  - sur 4 ans (1 an ferme + 3 reconductions tacites)
+  - _source : CCP article 1.3 (plafond Lot 2 : 125 000 € HT sur 4 ans) ; estimation Lot 1 par volume scolaire_
 
 ## Barème de notation
 - **Valeur technique** : 30 %
 - **Valeur prix** : 70 %
 - **Sous-critères techniques** :
-  - Qualité du matériel mis à disposition : 50 %
-  - Organisation du service : 50 %
-- **Calcul du prix** : P = 100 × (montant de l'offre la moins-disante / montant de l'offre considérée) — note sur 100 avant pondération à 70%.
+  - Qualité du matériel mis à disposition : 15 %
+  - Organisation du service : 15 %
+- **Calcul du prix** : P = 100 × (montant de l'offre la moins-disante / montant de l'offre considérée). Pondération prix = 70%.
 
 ## Références et qualifications exigées
 - **Expérience minimale** : 3 ans
-- **Secteur d'expérience** : Transport public routier de voyageurs (collectivités publiques ou privées)
-- **Certifications obligatoires** : Inscription au registre électronique national des entreprises de transport par route (ou document équivalent attestant l'autorisation d'exercer la profession de transporteur public routier de voyageurs) (source=RC Article 10), Licence de transport (source=RC Article 10), Permis de conduire et qualifications professionnelles réglementaires des conducteurs affectés au marché (source=RC Article 10)
+- **Secteur d'expérience** : Prestations de transport routier de voyageurs (transport scolaire, périscolaire, tourisme, sorties) pour des collectivités ou des privés
+- **Certifications obligatoires** : Inscription au registre électronique national des entreprises de transport par route ou document équivalent attestant de l'autorisation d'exercer la profession de transporteur public routier de voyageurs (bloquante=True, source=RC article 10 §3), Licence de transport (copie exigée) (bloquante=True, source=RC article 10 §3), Permis de conduire et qualifications professionnelles réglementaires des conducteurs (FIMO/FCO voyageurs) (bloquante=True, source=RC article 10 §5 ; CCP article 6.5)
 - **Autres exigences** :
-  - Assurance des risques professionnels à un niveau approprié pour l'exécution du marché (source=RC Article 11)
-  - Chiffre d'affaires permettant l'exécution du marché (niveau non chiffré mais exigé) (source=RC Article 11)
-  - Présentation du parc de véhicules (nombre, capacité, ancienneté, caractéristiques principales) (source=RC Article 10)
-  - Déclaration sur les effectifs moyens annuels et le personnel d'encadrement sur 3 ans (source=RC Article 10)
+  - Chiffre d'affaires global justifiant la capacité à exécuter le marché (3 derniers exercices disponibles) (source=RC article 10 §4)
+  - Attestation d'assurance des risques professionnels (niveau approprié pour transport de personnes) (source=RC article 10 §4 ; CCP article 10)
+  - Parc de véhicules de moins de 6 ans à la date du transport (source=CCP article 6.3)
+  - Déclaration sur les effectifs moyens annuels et personnel d'encadrement sur 3 ans (source=RC article 10 §5)
+
+## Lots
+- **Lot 1** — Ramassage scolaire, périscolaire et rotation
+  - Zone : Gouvieux (60270)
+  - Marché ordinaire à prix unitaires. Circuits réguliers quotidiens (matin/soir) vers 3 écoles (Manoir des Aigles, Centre, Pagnol) et un collège. Les élèves ne peuvent être déposés plus de 10 minutes avant le début des cours. Véhicules < 6 ans, sans strapontins. Les horaires sont susceptibles d'être modifiés. Pénalités détaillées en cas de retard (80 à 200 €) ou absence de véhicule (500 €).
+- **Lot 2** — Transport en car à la demande
+  - Zone : Gouvieux (60270) et déplacements occasionnels
+  - Volume estimé : 125000 euros HT (plafond accord-cadre sur 4 ans)
+  - Accord-cadre mono-attributaire à bons de commande, plafonné à 125 000 € HT sur la durée totale du marché (4 ans). Aucun minimum garanti. Réservation 3 jours minimum avant la prestation (24h en urgence). Prestations occasionnelles : voyages, excursions, sorties pédagogiques. Sanitaires obligatoires pour trajets > 100 km.
 
 ## ⚠ Alertes candidat
-- Licence de transport et inscription au registre électronique national des entreprises de transport par route obligatoires — absence = irrecevabilité de la candidature (RC Article 10).
-- Les conducteurs doivent impérativement être titulaires des permis et qualifications professionnelles réglementaires (FIMO/FCO notamment) — à justifier dans le dossier de candidature (RC Article 10).
-- Un cadre de mémoire technique est annexé au RC et doit impérativement être complété — une réponse insuffisante sur un sous-critère entraîne une note nulle sur ce sous-critère (RC Article 11).
-- Le BPU doit être remis en double format : PDF signé ET Excel — tout manquement peut constituer une irrégularité de l'offre (RC Article 10).
-- La remise des offres est exclusivement dématérialisée via https://mairie-gouvieux.e-marchespublics.com — toute remise sous une autre forme entraîne l'irrégularité de l'offre (RC Article 9).
+- Licence de transport et inscription au registre national des entreprises de transport par route obligatoires — leur absence entraîne l'irrecevabilité de la candidature.
+- Parc de véhicules de moins de 6 ans exigé contractuellement (pénalité de 200 € par véhicule non conforme) : vérifier l'ancienneté des autocars proposés avant de candidater.
+- Lot 2 en accord-cadre sans volume minimum garanti : le plafond de 125 000 € HT ne constitue pas un engagement d'achat — risque commercial élevé si ce lot est l'essentiel du chiffre d'affaires visé.
+- Clause de sauvegarde révision des prix : si la révision dépasse +10%, la Ville peut résilier sans indemnité — à anticiper dans la politique tarifaire pluriannuelle.
+- Le BPU (non fourni dans les pièces analysées) est à compléter en format PDF signé ET Excel : vérifier la disponibilité des deux fichiers sur la plateforme avant le dépôt.
 
 ## 💡 Points différenciants attendus
-- Modernité et faible émission du parc de véhicules (exemple=Présenter un parc composé de véhicules Euro 6 de moins de 3 ans avec un plan de renouvellement et des équipements de confort (climatisation, USB, sièges homologués scolaires) valorise directement les 50 points du sous-critère 'Qualité du matériel'., source=RC Article 11)
-- Robustesse du dispositif de remplacement des conducteurs absents (exemple=S'engager contractuellement sur un remplacement du conducteur absent sous 20 minutes, avec un pool de conducteurs remplaçants dédié et disponible en astreinte, répond précisément à l'exigence 'gestion des absences conducteur' (50 points Organisation du service)., source=RC Article 11)
-- Procédure formalisée d'évacuation d'école (exemple=Produire une procédure écrite d'évacuation en cas d'incident (incendie, accident, panne) avec coordination avec le directeur d'établissement et les services de secours, testée lors d'exercices annuels — élément explicitement demandé par l'acheteur dans le sous-critère Organisation du service., source=RC Article 11)
-- Démarche environnementale documentée (exemple=Présenter un plan de réduction des émissions (véhicules GNV ou électriques, éco-conduite formalisée, suivi CO2) permet de marquer des points sur le critère 'nuisances sonores / impact environnemental' et répond à la demande de mesures de gestion environnementale exigée en candidature., source=RC Article 10)
+- Flotte jeune et norme environnementale élevée (exemple=Présenter des véhicules Euro VI de moins de 2 ans avec certificat de contrôle DREAL < 6 mois joint à l'offre : cela maximise le score sur le sous-critère 'Qualité du matériel' (50% de la valeur technique), notamment sur l'âge, le kilométrage et l'impact environnemental., source=RC article 11 — sous-critère 'Qualité du matériel mis à disposition')
+- Procédure robuste de gestion des pannes et absences conducteur (exemple=Décrire un pool de conducteurs remplaçants disponibles en moins de 2 heures, avec un véhicule de substitution déployable sous 45 minutes (en dessous du délai contractuel d'1 heure prévu à l'article 9.9 du CCP), et un interlocuteur d'astreinte 7j/7 : cela répond directement aux attentes du sous-critère 'Organisation du service'., source=RC article 11 — sous-critère 'Organisation du service' ; CCP article 9.9)
+- Expérience en transport scolaire pour des collectivités locales similaires (exemple=Joindre 2 à 3 attestations de collectivités (communes ou intercommunalités de 5 000 à 30 000 hab.) pour lesquelles des circuits scolaires réguliers ont été assurés sans incident de sécurité majeur : valeur de réassurance forte pour l'acheteur., source=RC article 10 §5 1°)
+- Offre financière compétitive sur le Lot 1 (pondération prix 70%) (exemple=Avec 70% du jugement sur le prix, optimiser le coût de revient kilométrique (mutualisation conducteurs, tournées optimisées) permet de déposer une offre significativement sous la médiane du marché tout en restant rentable — à documenter dans la note méthodologique., source=RC article 11 — critère Prix 70%)

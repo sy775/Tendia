@@ -1,6 +1,6 @@
 # Brief — International PR Agency Support for ESCP Business School
 
-_Généré le 2026-06-15 02:27 par Claude claude-sonnet-4-6_
+_Généré le 2026-06-21 01:25 par Claude claude-sonnet-4-6_
 
 ## Identifiants
 - **ID Tendia** : `BOAMP-26-56368`
@@ -11,78 +11,77 @@ _Généré le 2026-06-15 02:27 par Claude claude-sonnet-4-6_
 - **DCE PLACE** : <https://www.achatpublic.com/sdm/ent2/gen/ficheCsl.action?PCSLID=CSL_2026_G6CzHe3Adg>
 
 ## Synthèse
-ESCP Business School recherche une agence de relations publiques internationale pour soutenir sa stratégie de communication institutionnelle à l'échelle mondiale, principalement en Europe et en Amérique du Nord. Le prestataire devra assurer le conseil stratégique en PR, les relations avec les médias internationaux, le développement de contenus et le reporting. Il s'agit d'un accord-cadre à bons de commande, non divisé en lots, pour un montant maximum de 80 000 € HT par période annuelle, renouvelable jusqu'à 4 ans.
+ESCP Business School recherche une agence internationale de relations publiques (RP) pour définir, mettre en œuvre et évaluer sa stratégie internationale de communication institutionnelle. Le prestataire devra couvrir les relations médias internationales (principalement anglophones), la production de contenus, la formation des porte-parole et le reporting KPI. Il s'agit d'un accord-cadre à bons de commande sur 4 ans (1 an renouvelable 3 fois) avec un plafond de 80 000 € HT par période annuelle, soit 320 000 € HT au total.
 
 ## 🎯 Mission conseil
 - **Typologie de mission** : accompagnement
-- **Domaine d'expertise** : relations publiques internationales, communication externe, relations médias
-- **Durée de mission** : 12 mois reconductibles, jusqu'à 48 mois maximum
-- **Méthodologie attendue** : Analyse du positionnement et des cibles + définition de la stratégie PR + identification des médias cibles par zone géographique + implémentation du plan d'action PR + coordination régulière avec l'équipe communication ESCP + reporting trimestriel + réunions de coordination périodiques
+- **Domaine d'expertise** : Relations publiques internationales, communication institutionnelle, stratégie médias
+- **Durée de mission** : 48 mois (accord-cadre 1 an renouvelable 3 fois)
+- **Méthodologie attendue** : Analyse du positionnement ESCP + définition de la stratégie RP internationale + mise en œuvre opérationnelle (pitching, relations journalistes) + reporting trimestriel + réunions de coordination régulières avec l'équipe communication ESCP. Services facturés via bons de commande sur la base de TJM par profil (BPU).
 - **Livrables attendus** :
-  - Stratégie internationale de relations publiques
-  - Plan d'action PR structuré et opérationnel
-  - Communiqués de presse, tribunes, articles et contenus éditoriaux
-  - Rapports trimestriels de résultats et recommandations d'optimisation
-  - Briefings et talking points pour les porte-paroles ESCP
-  - Rapports de monitoring et d'évaluation de la couverture médiatique
+  - Plan d'action RP international structuré
+  - Communiqués de presse, tribunes, articles éditoriaux
+  - Briefings et talking points pour les porte-parole ESCP
+  - Rapports trimestriels de suivi des actions et résultats médias
+  - Indicateurs de performance (KPIs) définis conjointement
+  - Revue de presse quantitative et qualitative
 - **Livrables par phase** :
   - **Phase 1 — Conseil stratégique et planification** :
-    - Analyse du positionnement et des défis de communication d'ESCP
-    - Stratégie internationale de relations publiques alignée sur les orientations institutionnelles
-    - Messages clés, angles éditoriaux et cadres narratifs adaptés aux marchés internationaux
+    - Analyse du positionnement et des cibles prioritaires
+    - Stratégie RP internationale alignée avec les orientations institutionnelles
+    - Messages clés et cadres narratifs par marché
   - **Phase 2 — Relations médias internationales** :
-    - Plan d'action PR structuré et continu
-    - Cartographie des médias et journalistes cibles par zone géographique et thématique
-    - Pitches et histoires adaptés aux médias business, enseignement supérieur et grand public
-  - **Phase 3 — Développement de contenus et accompagnement des porte-paroles** :
-    - Communiqués de presse, tribunes, articles et contenus éditoriaux
-    - Opportunités d'interviews, podcasts et passages en médias audiovisuels
-    - Briefings et talking points pour les porte-paroles ESCP
-  - **Phase 4 — Monitoring, évaluation et reporting** :
-    - Indicateurs de performance (KPIs) définis en coordination avec ESCP
-    - Rapports trimestriels détaillant actions, résultats et recommandations
-    - Participation aux réunions régulières avec l'équipe communication ESCP
-- **Jours-consultant par profil** :
-  - Profils définis dans le BPU (non détaillés dans les pièces fournies)
+    - Plan d'action RP structuré
+    - Cartographie des médias et journalistes cibles
+    - Pitches et placements d'articles
+  - **Phase 3 — Production de contenus et engagement des porte-parole** :
+    - Communiqués de presse et tribunes
+    - Préparation des porte-parole (briefings, talking points)
+  - **Phase 4 — Suivi, évaluation et reporting** :
+    - Tableau de bord KPIs
+    - Rapports trimestriels avec actions, résultats et recommandations
 
 ### Profils intervenants
-Le contractor doit nommer un contact principal (primary contact) disposant d'une expérience avérée en relations publiques internationales, responsable de la coordination globale des services et de la relation avec ESCP. Les profils sont définis dans le BPU (Bordereau des Prix Unitaires), non fourni dans les pièces analysées.
+L'agence désigne un contact principal (primary contact) avec une expérience avérée en relations publiques internationales, responsable de la coordination globale et de la relation avec ESCP. Les profils mobilisés sont définis dans le BPU (non fourni dans le DCE analysé).
 - **Chef de mission** :
   - secteur : relations publiques internationales
-- **Consultants** :
-  - Profils définis dans le BPU (non fourni dans les pièces analysées)
 
 ## 💶 Montant du marché
 - **Plafond accord-cadre** : **320 000 €**
-  - sur 4 périodes annuelles (durée totale maximale 4 ans)
-  - _source : RC §2.4 et AE §3.4 — tableau des montants maximums par période_
-- _Note_ : Le RC et l'AE fixent un montant maximum de 80 000 € HT par période annuelle, pour 4 périodes possibles, soit un plafond total de 320 000 € HT sur la durée totale de l'accord-cadre (4 ans). Il s'agit d'un plafond d'accord-cadre, les montants réellement commandés dépendront des bons de commande émis.
+  - sur 4 ans (1 an × 4 périodes renouvelables)
+  - _source : RC §2.4 et AE §3.4 : plafond de 80 000 € HT par période × 4 périodes_
+- _Note_ : Plafond accord-cadre : 80 000 € HT/an × 4 ans = 320 000 € HT. Le montant estimé dans le contexte BOAMP (55 000 €) correspond vraisemblablement à une estimation annuelle partielle ou à la valeur attendue de la première période. Le plafond maximum est de 80 000 €/an (320 000 € sur 4 ans).
 
 ## Barème de notation
 - **Valeur technique** : 60 %
 - **Valeur prix** : 40 %
 - **Sous-critères techniques** :
   - Technical value : 60 %
-- **Calcul du prix** : Prix représente 40% de la note globale. Rémunération sur la base de prix unitaires par profil (TJM) définis dans le BPU. La formule exacte de notation du prix n'est pas précisée dans les pièces fournies.
+- **Calcul du prix** : Note sur la base des prix unitaires (TJM par profil) pondérés à 40% du score global. Le barème exact n'est pas précisé dans le RC.
 
 ## Références et qualifications exigées
 - **Expérience minimale** : —
-- **Secteur d'expérience** : relations publiques internationales pour institutions d'enseignement supérieur ou organisations comparables
+- **Secteur d'expérience** : Agence internationale de relations publiques — principaux services fournis au cours des 3 dernières années (secteur non restreint, mais contexte enseignement supérieur / grande école recommandé)
 - **Autres exigences** :
-  - Déclaration des effectifs : déclaration indiquant l'effectif moyen annuel et le nombre de cadres dirigeants sur les 3 dernières années (source=RC §5.1)
+  - Attestation d'assurance responsabilité civile professionnelle (source=RC §5.1)
+  - Déclaration des effectifs salariés moyens annuels et du nombre de cadres sur les 3 dernières années (source=RC §5.1)
   - Liste des principales prestations similaires réalisées au cours des 3 dernières années (source=RC §5.1)
-  - Preuve d'assurance professionnelle (responsabilité civile professionnelle) (source=RC §5.1 et CCAP §11)
+
+## Lots
+- **Lot 1** — International PR Agency Support for ESCP Business School
+  - Zone : Paris, France (prestation principalement orientée Europe et Amérique du Nord)
+  - Accord-cadre unique sans lots, sans minimum garanti. Plafond 80 000 €/an. Prestation en anglais. Marché publié en anglais, réponse exigée en anglais.
 
 ## ⚠ Alertes candidat
-- Les offres et l'ensemble des documents doivent être rédigés ENTIÈREMENT EN ANGLAIS (pas en français), sous peine d'irrégularité — y compris l'acte d'engagement et la réponse technique.
-- Le BPU (Bordereau des Prix Unitaires) et l'EQS (Estimated Quantities Schedule) ne sont pas inclus dans les pièces analysées : leur téléchargement sur la plateforme achatpublic.com est indispensable avant toute réponse.
-- La réponse doit être soumise EXCLUSIVEMENT par voie électronique via le profil acheteur (achatpublic.com) — aucune soumission papier ou physique n'est acceptée.
-- Les candidats étrangers (hors France) doivent produire un certificat d'établissement ou une déclaration sur l'honneur équivalente au Kbis, traduite ou en anglais.
-- Accord-cadre attribué à un prestataire unique, sans allotissement : un groupement ou sous-traitant devra être déclaré formellement avec le formulaire DC4, et les droits de propriété intellectuelle des sous-traitants devront être cédés dans les mêmes conditions que ceux du titulaire principal.
+- Les offres et l'ensemble des documents de candidature doivent être rédigés entièrement en ANGLAIS — toute soumission en français sera irrégulière (RC §5 : 'Candidates' tenders shall be written entirely in English').
+- Le BPU et l'EQS (bordereau des prix unitaires et détail quantitatif estimatif) n'ont pas été intégrés aux pièces fournies : ils doivent être téléchargés sur la plateforme achatpublic.com et renseignés obligatoirement sous peine d'offre irrégulière.
+- Signature électronique obligatoire conforme eIDAS (certificat qualifié PAdES/CAdES/XAdES) — un candidat international sans certificat qualifié français peut utiliser la signature manuscrite scannée, mais doit s'en assurer au préalable auprès de l'acheteur (RC §7.3).
+- Accord-cadre sans minimum garanti : le risque de faible volume commandé est réel ; l'estimation BOAMP (55 000 €) est nettement inférieure au plafond annuel (80 000 €) — calibrer l'offre en conséquence.
+- Date limite de dépôt : 09/07/2026 à 13h00 (heure de Paris) — délai court (moins d'un mois après publication le 10/06/2026).
 
 ## 💡 Points différenciants attendus
-- Réseau média international avéré en Europe et en Amérique du Nord (exemple=Un candidat présentant des relations établies avec des journalistes de Financial Times, The Economist, Bloomberg, ainsi que des médias spécialisés en enseignement supérieur (Times Higher Education, QS) disposera d'un avantage concret pour démontrer sa capacité à générer de la visibilité pour ESCP dans ses marchés prioritaires., source=CCTP §2.2 et §3.2)
-- Expertise spécifique en communication pour les grandes écoles ou universités de management (exemple=Mettre en avant des références de campagnes PR réalisées pour des business schools ou institutions académiques (INSEAD, HEC, London Business School, etc.) permettrait de démontrer la compréhension des enjeux de positionnement et de rankings internationaux., source=CCTP §2.1)
-- Capacité à valoriser le positionnement pan-européen unique d'ESCP (6 campus) (exemple=Proposer une stratégie PR tirant parti de la présence d'ESCP à Berlin, Londres, Madrid, Paris, Turin et Varsovie — avec des angles éditoriaux sur l'européanité, la mobilité étudiante et le leadership multiculturel — répondrait directement à l'ambition institutionnelle d'ESCP., source=CCTP §2.2 et Preamble)
-- Approche thought leadership structurée sur les thématiques prioritaires d'ESCP (exemple=Proposer un programme de placement d'opinions (op-eds) et d'interviews de professeurs ESCP sur des thèmes comme l'innovation responsable, l'entrepreneuriat inclusif ou la transition climatique dans des médias grand public et spécialisés valoriserait directement les objectifs de notoriété de l'école., source=CCTP §2.2 et §3.3)
-- Qualité et expérience du contact principal désigné (primary contact) (exemple=Nommer un directeur de compte senior ayant piloté des mandats PR comparables pour des institutions académiques ou professionnelles internationales, avec un parcours démontrable et des références nominatives, est explicitement exigé par le CCTP., source=CCTP §4.1)
+- Expertise avérée en RP pour l'enseignement supérieur international et les grandes écoles de commerce (exemple=Présenter 2-3 références nommées dans le secteur business school/université (Financial Times, QS Rankings, AACSB context) avec résultats médias mesurables (nombre de placements, médias atteints) montre une connaissance directe du secteur concurrentiel d'ESCP., source=CCTP §2.1)
+- Réseau de journalistes et médias anglophones business identifiés et actifs (exemple=Citer un réseau de contacts établis dans des médias cibles tels que the Financial Times, Bloomberg, Forbes, Times Higher Education, le Guardian Education, ou des médias économiques européens démontre une capacité opérationnelle immédiate sans phase d'apprentissage., source=CCTP §3.2)
+- Positionnement pan-européen : capacité à couvrir plusieurs marchés géographiques simultanément (Europe + Amérique du Nord) (exemple=Une agence avec des bureaux ou des correspondants à Londres, Madrid, Berlin et New York peut démontrer qu'elle peut relayer les actions RP d'ESCP sur ses 6 campus européens de façon coordonnée, ce qui est directement aligné avec le positionnement unique 'pan-European' de l'école., source=CCTP §2.2)
+- Thought leadership et connaissance des thématiques prioritaires (innovation, entrepreneuriat, leadership inclusif, durabilité) (exemple=Présenter des cas concrets de développement de thought leadership pour des institutions académiques sur des thèmes comme la transformation numérique ou le leadership durable (ex: placement d'une tribune dans HBR ou MIT Sloan Management Review) illustre la capacité à positionner les experts ESCP sur les grandes plateformes de débat., source=CCTP §2.2)
+- Système de reporting et pilotage par KPIs quantitatifs et qualitatifs (exemple=Proposer dès l'offre un cadre de mesure structuré (reach médiatique, équivalents publicitaires, sentiment analysis, part de voix vs concurrents HEC/LBS/IE) et des exemples de dashboards trimestriels remis à d'autres clients académiques démontrera la maturité de la démarche d'évaluation attendue., source=CCTP §3.4)

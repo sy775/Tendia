@@ -1,65 +1,70 @@
 {
-  "synthese_marche": "Le SDIS 46 (Service Départemental d'Incendie et de Secours du Lot) lance un marché de travaux en 2 lots pour la création d'un plateau technique de formation sur la commune de Francoulès (46090). Le lot 1 concerne la fourniture, le transport et l'installation de bâtiments modulaires préfabriqués (salles de formation, vestiaires et sanitaires), neufs ou d'occasion. Le lot 2 concerne l'isolation thermique par l'extérieur et le bardage de ces bâtiments modulaires.",
+  "synthese_marche": "Le SDIS du Lot (46) lance un marché de travaux alloti en 2 lots pour la création d'un plateau technique de formation à Francoulès (46090) : Lot 1 — fourniture et installation de bâtiments modulaires préfabriqués (salles de formation, vestiaires/sanitaires), Lot 2 — isolation thermique par l'extérieur et bardage de ces bâtiments. Le marché est passé en procédure adaptée ouverte avec possibilité de négociation, sans maîtrise d'œuvre dédiée, financé sur ressources propres du SDIS.",
   "domaines_metier": [
     {
-      "code": "btp_gros_oeuvre",
-      "poids": 0.6,
+      "code": "btp_second_oeuvre",
+      "poids": 0.55,
       "lots_concernes": [
-        "Lot 1"
+        1,
+        2
       ]
     },
     {
-      "code": "btp_second_oeuvre",
-      "poids": 0.4,
+      "code": "btp_gros_oeuvre",
+      "poids": 0.45,
       "lots_concernes": [
-        "Lot 2"
+        1
       ]
     }
   ],
-  "raison_classification": "Le marché porte explicitement sur la construction/installation de bâtiments modulaires préfabriqués (CPV 45223810 — constructions préfabriquées) pour le lot 1, relevant du gros œuvre/construction neuve, et sur des travaux d'isolation par l'extérieur et bardage (CPV 45320000 / 45262650) pour le lot 2, relevant du second œuvre. La combinaison des deux lots distincts justifie un double domaine pondéré.",
+  "raison_classification": "Le Lot 1 porte sur la construction/installation de bâtiments modulaires préfabriqués (structures en acier galvanisé, équipements intérieurs plomberie/électricité/CVC) relevant principalement du gros œuvre/construction préfabriquée. Le Lot 2 porte sur l'isolation thermique par l'extérieur et le bardage, corps d'état typique du second œuvre/enveloppe. L'ensemble est un marché de travaux BTP multi-corps d'état.",
   "caracteristiques_techniques_chantier": {
-    "description": "Création d'un plateau technique de formation pour les sapeurs-pompiers du Lot : fourniture, transport et installation de 2 bâtiments modulaires à usage de salles de formation (20-30 m² chacun) et de 1 à 2 bâtiments vestiaires/sanitaires (14-25 m² chacun), puis isolation thermique par l'extérieur et bardage imitation bois de l'ensemble des façades. Le maître d'ouvrage réalise les plots béton, les réseaux (eau, électricité, assainissement) et les raccordements.",
-    "typologie_ouvrage": "Bâtiments modulaires préfabriqués permanents à usage de formation (salles de cours, vestiaires, sanitaires) — terrain nu sur site de 6 hectares",
-    "surface_volume": "2 salles de formation de 20 à 30 m² chacune + 1 ou 2 bâtiments vestiaires/sanitaires de 14 à 25 m² chacun (surfaces utiles minimales)",
-    "site_occupe": "false — terrain nu sur parcelles E n°620 et 635, commune de Francoulès, accessible par voie en castine carrossable pour poids lourds (largeur 3 m)",
+    "description": "Fourniture, transport, installation et mise en service de bâtiments modulaires préfabriqués permanents (2 salles de formation de 20-30 m² chacune + vestiaires/sanitaires hommes et femmes de 14-25 m² chacun), puis réalisation de l'isolation thermique par l'extérieur (90 mm) et bardage imitation bois sur l'ensemble des façades. Le maître d'ouvrage réalise les plots béton, les raccordements réseaux (eau, électricité, assainissement) et les voiries d'accès.",
+    "typologie_ouvrage": "Bâtiments modulaires préfabriqués permanents à usage de formation (SDIS) — construction hors ERP (usage code du travail uniquement)",
+    "surface_volume": "Lot 1 : 2 salles de formation 20-30 m² chacune + 2 locaux vestiaires/sanitaires 14-25 m² chacun, soit environ 68-110 m² utiles total. Lot 2 : isolation et bardage sur l'ensemble des façades des 2 à 4 bâtiments (surface à préciser à la notification)",
+    "site_occupe": "false — site vierge en création, commune de Francoulès, parcelles E n°620 et 635, accès par voie en castine 3 m de large pour poids lourds",
     "corps_etat": [
-      "Construction et installation de bâtiments modulaires préfabriqués (lot 1)",
-      "Équipements intérieurs (plomberie, CVC, électricité, revêtements de sol) inclus dans le lot 1",
-      "Isolation thermique par l'extérieur (lot 2)",
-      "Bardage extérieur imitation bois (lot 2)"
+      "Construction modulaire préfabriquée (Lot 1)",
+      "Plomberie / sanitaires (Lot 1)",
+      "Électricité courants forts (Lot 1)",
+      "Climatisation réversible / chauffage (Lot 1)",
+      "Isolation thermique par l'extérieur (Lot 2)",
+      "Bardage extérieur imitation bois (Lot 2)",
+      "Finitions et points singuliers bardage (Lot 2)"
     ],
     "contraintes_specifiques": [
-      "Accès par voie en castine de 3 mètres de largeur — vérification nécessaire pour véhicules de livraison et de levage",
-      "Les plots béton sont réalisés par le maître d'ouvrage sur la base des prescriptions fournies par le titulaire du lot 1 dans les 30 jours suivant la notification",
-      "Les raccordements aux réseaux (eau, électricité, assainissement) sont à la charge du maître d'ouvrage ; les arrivées sont en attente au pied des modules",
-      "Visite de site recommandée (non obligatoire) — en cas de refus, aucune réclamation liée à la méconnaissance du site n'est recevable",
-      "Bâtiments soumis au code du travail (pas ERP), conformité aux normes applicables aux constructions modulaires",
-      "Coordination entre les deux lots indispensable : le lot 2 intervient après installation des bâtiments du lot 1",
-      "Bâtiments neufs ou d'occasion acceptés (lot 1) — les bâtiments d'occasion doivent être entièrement reconditionnés et conformes aux normes en vigueur"
+      "Accès chantier limité : voie en castine 3 m de large carrossable pour poids lourds — vérification obligatoire par le candidat",
+      "Le titulaire du Lot 1 doit fournir les prescriptions techniques des plots dans les 30 jours suivant la notification",
+      "Les plots béton sont réalisés par le MO 30 jours avant la date d'installation — coordination impérative",
+      "Raccordements réseaux réalisés par le MO : travaux séquencés entre Lot 1 et MO",
+      "Visite sur site recommandée mais non obligatoire — refus de visite = acceptation des contraintes du site",
+      "Bâtiments conformes au code du travail (pas ERP) — pas de normes PMR ERP applicables",
+      "Lot 2 dépend de la livraison du Lot 1 — coordination inter-lots gérée par le MO sans maître d'œuvre dédié",
+      "Site sur 6 ha, commune de Francoulès (46090), parcelles cadastrées E n°620 et 635"
     ]
   },
   "allotissement": {
-    "description": "Marché alloti en 2 lots distincts, chacun faisant l'objet d'un marché séparé. Un candidat peut répondre à l'un ou aux deux lots.",
+    "description": "Marché alloti en 2 lots distincts, chacun faisant l'objet d'un acte d'engagement séparé. Un candidat peut répondre aux 2 lots. Durée globale 8 mois : Lot 1 ≤ 5 mois, Lot 2 ≤ 3 mois (exécutés consécutivement avec 1 mois de préparation inclus).",
     "nb_lots": 2,
     "lots_detailles": [
       {
         "numero": 1,
         "intitule": "Construction de bâtiments modulaires pour le plateau technique de formation du SDIS 46",
-        "corps_etat": "Construction et installation de bâtiments modulaires préfabriqués (structure acier galvanisé, équipements intérieurs plomberie/CVC/électricité, revêtements de sol)",
+        "corps_etat": "Construction modulaire préfabriquée, plomberie, électricité, CVC",
         "montant_estime": null,
-        "description": "Fourniture, transport, installation et mise en service de 2 bâtiments modulaires salles de formation (20-30 m²) et de 1 à 2 bâtiments vestiaires/sanitaires (14-25 m²), neufs ou d'occasion reconditionnés. Délai maximum 5 mois."
+        "description": "Conception, fabrication, transport, installation et mise en service de 2 bâtiments modulaires salles de formation (20-30 m² chacun) et de 1 ou 2 bâtiments vestiaires/sanitaires (14-25 m² chacun), neufs ou d'occasion entièrement reconditionnés"
       },
       {
         "numero": 2,
         "intitule": "Isolation par l'extérieur et bardage de bâtiments modulaires pour le plateau technique de formation du SDIS 46",
-        "corps_etat": "Isolation thermique par l'extérieur (laine de roche HD ou fibre de bois rigide, 90 mm) + bardage ventilé imitation bois (composite bois-polymère ou PVC texturé)",
+        "corps_etat": "Isolation thermique par l'extérieur, bardage imitation bois",
         "montant_estime": null,
-        "description": "Préparation des supports, ossature primaire et secondaire, isolation 90 mm, pare-pluie HPV, lame d'air ventilée, bardage imitation bois sur l'ensemble des façades, traitement des points singuliers. Délai maximum 3 mois."
+        "description": "Réalisation des travaux d'isolation thermique par l'extérieur (laine de roche HD ou fibre de bois rigide, 90 mm) et pose d'un bardage imitation bois (composite bois-polymère ou PVC texturé) sur l'ensemble des façades des bâtiments modulaires"
       }
     ]
   },
   "qualifications_requises": {
-    "description": "Le RC ne mentionne aucune qualification Qualibat ou certification ISO obligatoire. Seules des attestations d'assurance RC professionnelle et décennale sont exigées.",
+    "description": "Le RC ne mentionne pas de qualifications Qualibat ou certifications exigées à peine d'irrecevabilité. Les candidats doivent fournir attestations d'assurance RC professionnelle et garantie décennale, ainsi que justificatifs de capacité (CA sur 3 ans, DC1/DC2).",
     "qualibat": [],
     "rge": false,
     "rge_specialites": [],
@@ -71,292 +76,396 @@
     "autres_certifications": []
   },
   "bareme_notation": {
-    "valeur_technique_pct": 40,
+    "valeur_technique_pct": 50,
     "valeur_prix_pct": 50,
     "sous_criteres_techniques": [
       {
-        "libelle": "Critère n°2 : Qualité des produits et matériaux proposés (Lot 1)",
+        "libelle": "Qualité des produits et matériaux proposés",
         "ponderation_pct": 40,
-        "description": "Évaluation de la qualité constructive et de la durabilité des matériaux, de la qualité des équipements de chaque bâtiment, et de la présentation détaillée des caractéristiques des bâtiments modulaires proposés.",
-        "elements_attendus": [
-          "Performances thermiques détaillées (résistance thermique parois, couverture, plancher)",
-          "Caractéristiques des huisseries (double vitrage, volets roulants, portes 3 points)",
-          "Résistance aux intempéries et durée de garantie des bâtiments",
-          "Détail du système de chauffage/climatisation réversible, plomberie, éclairage, revêtements de sol",
-          "Présentation détaillée via fiches techniques, plans, notices descriptives et certifications",
-          "Pour les bâtiments d'occasion : photos récentes, année de fabrication, descriptif reconditionnement"
-        ],
-        "exemple_reponse_forte": "Le candidat fournit des fiches techniques complètes pour chaque bâtiment modulaire, incluant les résistances thermiques (R≥3,5 m².K/W en toiture), les certificats de conformité des huisseries double vitrage et les caractéristiques de la climatisation réversible (COP et SEER). Il présente un plan intérieur détaillé et une durée de garantie de 5 ans sur l'ensemble de la structure et des équipements.",
-        "source": "RC §7.1.1",
+        "description": "Évaluation de la valeur technique des bâtiments ou des matériaux d'isolation/bardage proposés, selon 3 sous-critères chiffrés détaillés dans le RC pour chaque lot.",
+        "elements_attendus": [],
+        "exemple_reponse_forte": "—",
+        "source": "RC §7.1.1 et §7.1.2",
+        "unite_evaluation": "points",
         "sous_criteres": [
           {
-            "libelle": "Qualité constructive et durabilité des matériaux",
+            "libelle": "Qualité constructive et durabilité des matériaux (Lot 1) / Performances d'étanchéité et imputrescibilité (Lot 2)",
             "ponderation_pct": 15,
-            "description": "Évalue les performances thermiques, les caractéristiques des huisseries, la résistance aux intempéries et la durée de garantie des bâtiments.",
+            "description": "Lot 1 : performances thermiques, caractéristiques des huisseries, résistance aux intempéries, durée de garantie des bâtiments. Lot 2 : étanchéité à l'eau et à l'air, imputrescibilité du bardage et des supports.",
             "elements_attendus": [
-              "Valeurs de résistance thermique ou coefficient U des parois, toiture et plancher",
-              "Caractéristiques détaillées des fenêtres double vitrage et des portes (serrure 3 points)",
-              "Certification ou norme de la structure acier galvanisé",
-              "Durée de garantie proposée sur la structure et l'étanchéité"
+              "Résistance thermique des parois, couverture et plancher (valeurs R ou U chiffrées)",
+              "Caractéristiques des menuiseries (double vitrage, volet roulant, serrure 3 points)",
+              "Résistance aux intempéries (class. au vent, à la pluie)",
+              "Durée de garantie des bâtiments proposée (en mois)",
+              "Lot 2 : niveau d'étanchéité du pare-pluie HPV et des finitions",
+              "Lot 2 : imputrescibilité du bardage (fiche technique, ATec/DTA)"
             ],
-            "exemple_reponse_forte": "Bâtiment proposé avec structure acier galvanisé S320GD, isolation laine de verre 90 mm en couverture (R=2,7 m².K/W), fenêtres double vitrage 4/16/4 avec Uw=1,4 W/m².K et volet roulant manuel alu. Garantie fabricant 10 ans sur la structure, 2 ans sur les équipements.",
-            "source": "RC §7.1.1"
+            "exemple_reponse_forte": "Les bâtiments proposés présentent une résistance thermique des parois R=2,2 m²K/W et de la couverture R=4,0 m²K/W, des menuiseries double vitrage Uw≤1,4 W/m²K avec volet roulant manuel et serrure 3 points, et bénéficient d'une garantie fabricant de 24 mois pièces et main d'œuvre. L'étanchéité est garantie par un traitement complet des points singuliers (angles, tableaux, soubassements) avec pare-pluie HPV classe W1.",
+            "source": "RC §7.1.1 et §7.1.2"
           },
           {
-            "libelle": "Qualité des équipements de chaque bâtiment",
+            "libelle": "Qualité des équipements de chaque bâtiment (Lot 1) / Résistance globale isolation et bardage (Lot 2)",
             "ponderation_pct": 15,
-            "description": "Évalue la qualité du chauffage/climatisation, de la plomberie, de l'éclairage et des revêtements de sol de chaque bâtiment modulaire.",
+            "description": "Lot 1 : qualité du chauffage/climatisation, plomberie, éclairage et revêtements de sols. Lot 2 : résistance aux UV, au gel, à la chaleur, aux rongeurs, longévité et durée de garantie de l'ensemble isolation+bardage.",
             "elements_attendus": [
-              "Marque et références de la climatisation réversible (COP, puissance frigorifique)",
-              "Descriptif de la plomberie sanitaire (chauffe-eau, robinetterie, douches pour vestiaires)",
-              "Niveau d'éclairement prévu (lux) et type de luminaires",
-              "Référence et classe d'usage du revêtement de sol PVC (résistance chaussures rangers)"
+              "Lot 1 : marque et COP/EER de la climatisation réversible",
+              "Lot 1 : qualité des équipements sanitaires (robinetterie, douches, WC)",
+              "Lot 1 : niveau d'éclairement intérieur/extérieur (lux, type LED)",
+              "Lot 1 : qualité et résistance du revêtement de sol PVC (usage rangers)",
+              "Lot 2 : classement UV et résistance thermique du bardage (fiche technique)",
+              "Lot 2 : protection anti-rongeurs (grille en pied d'ouvrage) et durée de garantie"
             ],
-            "exemple_reponse_forte": "Climatisation réversible Daikin FTXB20C (COP 4,2 / SEER 6,1), plomberie cuivre avec chauffe-eau électrique 50L, éclairage LED 500 lux en surface de travail, revêtement sol PVC Tarkett ID Tilt classe 33 résistant aux chaussures de sécurité.",
-            "source": "RC §7.1.1"
+            "exemple_reponse_forte": "La climatisation réversible est de marque Daikin, COP 4,2, avec régulation par thermostat programmable. Le revêtement de sol PVC est classé usage 33 (commercial intense), résistant aux chaussures rangers. Pour le Lot 2, le bardage composite bois-polymère est garanti 15 ans contre les UV et l'humidité, avec grille anti-rongeurs INOX en pied d'ouvrage et lame d'air ventilée conforme DTU 41.2.",
+            "source": "RC §7.1.1 et §7.1.2"
           },
           {
-            "libelle": "Présentation détaillée des caractéristiques des bâtiments",
+            "libelle": "Présentation détaillée des caractéristiques des bâtiments (Lot 1) / Performances thermiques et acoustiques (Lot 2)",
             "ponderation_pct": 10,
-            "description": "Évalue la complétude et la clarté de la documentation technique fournie : fiches techniques, plans, notices, certifications, nuanciers.",
+            "description": "Lot 1 : qualité de la présentation technique (plans, fiches, notices). Lot 2 : valeurs de résistance thermique de l'isolation et performances acoustiques de l'ensemble.",
             "elements_attendus": [
-              "Plans intérieurs, façades et coupes de chaque bâtiment",
-              "Photographies des bâtiments projetés ou en stock",
-              "Fiches techniques des matériaux principaux avec labels ou normes",
-              "Notice descriptive complète de chaque bâtiment modulaire"
+              "Lot 1 : plans intérieurs, façades et coupes de chaque bâtiment",
+              "Lot 1 : fiches techniques fabricant avec références normatives",
+              "Lot 1 : photos des bâtiments projetés ou réalisés",
+              "Lot 2 : valeur R de l'isolant (épaisseur 90 mm : R ≥ 2,5 m²K/W minimum)",
+              "Lot 2 : affaiblissement acoustique Rw du complexe",
+              "Lot 2 : Avis Technique (ATec) ou DTA des matériaux"
             ],
-            "exemple_reponse_forte": "Le dossier comprend des plans architecturaux (intérieur, façades, coupes) au 1/50e, des photographies de références récentes de bâtiments similaires livrés, les fiches techniques de tous les matériaux avec référence aux normes NF et DTU applicables, et une notice descriptive de 15 pages.",
-            "source": "RC §7.1.1"
+            "exemple_reponse_forte": "Le dossier comprend les plans côtés de chaque bâtiment (implantation, intérieur, façades, coupes), les fiches techniques Portakabin réf. PK-20 avec certifications CE et bilans thermiques, ainsi que photos des modules en stock. Pour le Lot 2, l'isolant laine de roche HD 90 mm affiche R=2,6 m²K/W (ATec n°20/23-456) et l'ensemble bardage+ossature présente un Rw de 32 dB.",
+            "source": "RC §7.1.1 et §7.1.2"
           }
         ]
       },
       {
-        "libelle": "Critère n°2 : Qualité des produits et matériaux proposés (Lot 2)",
-        "ponderation_pct": 40,
-        "description": "Évaluation des performances d'étanchéité et d'imputrescibilité du système, de la résistance globale de l'isolation et du bardage (UV, gel, chaleur, rongeurs, longévité, garantie), et des performances thermiques et acoustiques.",
-        "elements_attendus": [
-          "Étanchéité à l'eau et à l'air garantie du système complet",
-          "Imputrescibilité du bardage et de l'isolant attestée (ATec ou DTA)",
-          "Résistance aux UV, au gel, à la chaleur et aux rongeurs du bardage",
-          "Durée de garantie du système bardage + isolation",
-          "Résistance thermique de l'isolant (valeur R pour 90 mm d'épaisseur)",
-          "Performances acoustiques du complexe isolant+bardage"
-        ],
-        "exemple_reponse_forte": "Système complet avec laine de roche haute densité 90 mm (λ=0,035 W/m.K, R=2,57 m².K/W) sous pare-pluie HPV certifié, bardage composite bois-polymère Cedral Click bénéficiant d'un ATec et d'une garantie fabricant 25 ans, classé B-s1,d0 au feu. Résistance aux UV testée selon ISO 4892-2, protection rongeurs par grille inox en pied d'ouvrage.",
-        "source": "RC §7.1.2",
-        "sous_criteres": [
-          {
-            "libelle": "Performances d'étanchéité et imputrescibilité",
-            "ponderation_pct": 15,
-            "description": "Évalue la garantie d'étanchéité à l'eau et à l'air du complexe isolation+bardage et l'imputrescibilité des matériaux mis en œuvre.",
-            "elements_attendus": [
-              "Attestation de l'ATec ou DTA du système isolation+bardage",
-              "Classement de réaction au feu du bardage compatible avec l'usage",
-              "Imputrescibilité de l'isolant (laine de roche HD ou fibre de bois rigide)",
-              "Détail de la mise en œuvre du pare-pluie HPV et des joints d'étanchéité"
-            ],
-            "exemple_reponse_forte": "Système sous ATec n°XX/XX avec pare-pluie HPV Solitex Mento 1000 posé joints croisés et agrafes inox, bardage PVC texturé bois imputrescible classé B-s1,d0, isolant laine de roche 90 mm haute densité (ρ=80 kg/m³) imputrescible et inerte.",
-            "source": "RC §7.1.2"
-          },
-          {
-            "libelle": "Résistance globale de l'isolation et bardage",
-            "ponderation_pct": 15,
-            "description": "Évalue la résistance du système aux contraintes climatiques (UV, gel, chaleur) et biologiques (rongeurs), ainsi que sa longévité et sa durée de garantie.",
-            "elements_attendus": [
-              "Résistance aux UV du bardage (test normé)",
-              "Résistance au gel-dégel du matériau de bardage",
-              "Protection contre les rongeurs en pied d'ouvrage (grille anti-rongeur)",
-              "Durée de garantie fabricant sur le bardage"
-            ],
-            "exemple_reponse_forte": "Bardage composite testé 5 000 h aux UV selon ISO 4892-2 sans dégradation colorimétrique, résistance au gel-dégel selon EN 539-2, grille anti-rongeur inox maillage 5 mm en pied d'ouvrage, garantie fabricant 25 ans contre la pourriture et la déformation.",
-            "source": "RC §7.1.2"
-          },
-          {
-            "libelle": "Performances thermiques et acoustiques",
-            "ponderation_pct": 10,
-            "description": "Évalue les performances thermiques (résistance thermique de l'isolant à 90 mm) et acoustiques du complexe isolation+bardage.",
-            "elements_attendus": [
-              "Valeur R de l'isolant à 90 mm d'épaisseur",
-              "Affaiblissement acoustique apporté par le complexe (Rw en dB)",
-              "Conductivité thermique λ déclarée de l'isolant"
-            ],
-            "exemple_reponse_forte": "Isolant laine de roche 90 mm, λ déclaré 0,035 W/m.K, R=2,57 m².K/W, contribuant à une amélioration de l'affaiblissement acoustique de +8 dB (Rw) selon test en laboratoire accrédité.",
-            "source": "RC §7.1.2"
-          }
-        ]
-      },
-      {
-        "libelle": "Critère n°3 : Délai de livraison (Lot 1)",
+        "libelle": "Délai de livraison",
         "ponderation_pct": 10,
-        "description": "Le délai d'exécution proposé par le candidat est un critère de jugement. La note maximale est attribuée à l'offre proposant le délai de livraison et d'installation des bâtiments modulaires le plus court, dans la limite de 5 mois maximum.",
+        "description": "Le délai d'exécution proposé par le candidat est un critère noté : la note maximale de 10 points est attribuée à l'offre présentant le délai le plus court. Lot 1 ≤ 5 mois, Lot 2 ≤ 3 mois.",
         "elements_attendus": [
-          "Délai de livraison et d'installation réaliste, inférieur à 5 mois (période de préparation comprise)",
-          "Planning détaillé des étapes (fabrication, transport, installation, mise en service)",
-          "Précision des périodes de congés annuels éventuelles"
+          "Délai proposé en mois, inférieur au plafond réglementaire (5 mois Lot 1 / 3 mois Lot 2)",
+          "Planning détaillé réaliste justifiant le délai annoncé",
+          "Identification des congés annuels pris en compte"
         ],
-        "exemple_reponse_forte": "Le candidat propose un délai global de 3,5 mois incluant 1 mois de préparation et de fabrication, 0,5 mois de transport et 2 mois d'installation et de mise en service. Il joint un planning Gantt détaillé et précise une période de congés de 2 semaines en août.",
-        "source": "RC §7.1.1"
-      },
-      {
-        "libelle": "Critère n°3 : Délai d'exécution (Lot 2)",
-        "ponderation_pct": 10,
-        "description": "Le délai d'exécution des travaux d'isolation et de bardage proposé par le candidat est un critère de jugement. La note maximale est attribuée à l'offre proposant le délai le plus court, dans la limite de 3 mois maximum.",
-        "elements_attendus": [
-          "Délai d'exécution réaliste, inférieur à 3 mois (période de préparation comprise)",
-          "Planning détaillé des phases de travaux (préparation, ossature, isolation, bardage, finitions)",
-          "Précision des périodes de congés annuels éventuelles"
-        ],
-        "exemple_reponse_forte": "Le candidat propose un délai de 2 mois incluant 2 semaines de préparation/commandes, 5 semaines de pose de l'ossature et de l'isolation, et 3 semaines de bardage et finitions. Le planning est joint en annexe avec les jalons clés.",
-        "source": "RC §7.1.2"
+        "exemple_reponse_forte": "Le délai proposé pour le Lot 1 est de 4 mois (1 mois préparation + 3 mois fabrication/livraison/installation), étayé par un planning Gantt détaillé. Le délai proposé pour le Lot 2 est de 2 mois, incluant 15 jours de préparation et 45 jours de travaux de bardage.",
+        "source": "RC §7.1.1 et §7.1.2",
+        "unite_evaluation": "delai_jours"
       }
     ],
     "prix": {
       "type_formule": "moins_disant",
-      "formule_explicite": "Note attribuée au candidat étudié = 50 × montant de l'offre la moins-disante / montant de l'offre étudiée. L'offre la moins-disante est celle présentant le prix le moins élevé, sous réserve qu'il ne soit pas anormalement bas.",
+      "formule_explicite": "Note prix = 50 × (montant de l'offre la moins-disante / montant de l'offre étudiée). L'offre la moins-disante est celle au prix le plus bas, sous réserve qu'elle ne soit pas anormalement basse.",
+      "source": "RC §7.1.1 et §7.1.2",
       "elements_a_chiffrer": [
-        "Lot 1 : Prix unitaire HT par bâtiment modulaire salle de formation (neuf et/ou d'occasion), avec surface en m²",
-        "Lot 1 : Prix unitaire HT par bâtiment modulaire vestiaires/sanitaires (neuf et/ou d'occasion), avec surface en m²",
-        "Lot 1 : Prix forfaitaire HT transport",
-        "Lot 1 : Prix forfaitaire HT installation",
-        "Lot 2 : Prix unitaire HT au m² isolation par l'extérieur",
-        "Lot 2 : Prix unitaire HT au m² bardage"
+        "Prix unitaire HT par bâtiment modulaire salle de formation (neuf et/ou d'occasion) avec surface en m²",
+        "Prix unitaire HT par bâtiment modulaire vestiaires/sanitaires (neuf et/ou d'occasion) avec surface en m²",
+        "Prix forfaitaire HT transport des bâtiments modulaires",
+        "Prix forfaitaire HT installation des bâtiments modulaires",
+        "Prix unitaire HT au m² isolation par l'extérieur (Lot 2)",
+        "Prix unitaire HT au m² bardage (Lot 2)"
       ]
     },
-    "modalite_calcul_prix": "Note attribuée au candidat étudié = 50 × montant de l'offre la moins-disante / montant de l'offre étudiée (RC §7.1.1 et §7.1.2)"
+    "modalite_calcul_prix": "Note attribuée au candidat étudié = 50 × montant de l'offre la moins-disante / montant de l'offre étudiée"
   },
   "montant_marche": {
     "valeur_estimee_euros": null,
     "fourchette_min_euros": null,
     "fourchette_max_euros": null,
     "type": "non_communique",
-    "duree_couverte": "Durée d'exécution globale 8 mois (lot 1 max 5 mois + lot 2 max 3 mois)",
+    "duree_couverte": "8 mois (durée globale d'exécution)",
     "source_extraction": null,
-    "commentaire": "Aucun montant estimé n'est communiqué dans les pièces du DCE (ni dans l'AAPC, ni dans le RC, ni dans le CCAP). Les champs 'Estimé €HT' de l'avis BOAMP par lot sont vides. L'acte d'engagement prévoit des prix unitaires et forfaitaires à renseigner par le candidat sans fourchette indicative."
+    "commentaire": "Aucun montant estimé publié ni dans l'avis BOAMP ni dans le RC ou le CCAP. Les tableaux de prix de l'AE sont vierges (à remplir par les candidats). Voir estimation bottom-up dans montant_3_voies."
+  },
+  "montant_3_voies": {
+    "voie_1_eur": null,
+    "voie_1_source": null,
+    "voie_2_disponible": true,
+    "voie_2_min_eur": 130000,
+    "voie_2_max_eur": 220000,
+    "voie_2_hypotheses": [
+      {
+        "hypothese": "Surface salles de formation : 2 bâtiments × 25 m² (médiane 20-30) = 50 m² (valeur fixe)",
+        "valeur": "50 m²"
+      },
+      {
+        "hypothese": "Surface vestiaires/sanitaires : 2 bâtiments × 20 m² (médiane 14-25) = 40 m² (valeur fixe)",
+        "valeur": "40 m²"
+      },
+      {
+        "hypothese": "Surface totale bardage/isolation (Lot 2) : ~4 façades × 4 bâtiments × ~15 m² linéaire = estimation ~120-150 m² de façade (valeur centrale 135 m²)",
+        "valeur": "135 m²"
+      },
+      {
+        "hypothese": "Prix unitaire bâtiment modulaire neuf 25 m² équipé (salle de formation avec CVC, plomberie, électricité) : 18 000-28 000 €/unité selon marché (ratio varié, quantité fixe)",
+        "valeur": "18 000-28 000 €/unité"
+      },
+      {
+        "hypothese": "Prix unitaire bâtiment modulaire vestiaires 20 m² neuf équipé (douches, sanitaires, CVC) : 15 000-22 000 €/unité",
+        "valeur": "15 000-22 000 €/unité"
+      },
+      {
+        "hypothese": "Transport + installation forfaitaire 4 modules : 8 000-15 000 €",
+        "valeur": "8 000-15 000 €"
+      },
+      {
+        "hypothese": "Lot 2 isolation+bardage : 135 m² × 80-120 €/m² (ratio varié, surface fixe)",
+        "valeur": "80-120 €/m²"
+      }
+    ],
+    "voie_2_raison_indisponible": null
+  },
+  "cout_realisation": {
+    "cout_total_eur": 105000,
+    "cout_min_eur": 80000,
+    "cout_max_eur": 155000,
+    "postes": [
+      {
+        "poste": "Lot 1 — Fabrication/achat bâtiments modulaires (2 salles + 2 vestiaires neufs ou reconditionnés)",
+        "detail": "4 modules × 12 000-18 000 € coût fabricant/reconditionnement (hors marge commerciale)",
+        "montant_eur": 60000
+      },
+      {
+        "poste": "Lot 1 — Transport et installation (levage, dépose, raccordements internes)",
+        "detail": "Forfait logistique : 6 000-10 000 € selon distance et nombre de rotations",
+        "montant_eur": 8000
+      },
+      {
+        "poste": "Lot 1 — Main d'œuvre installation, finitions, essais (2-3 compagnons × 10 jours)",
+        "detail": "25 jours × 400 €/j chargé = 10 000 €",
+        "montant_eur": 10000
+      },
+      {
+        "poste": "Lot 2 — Fourniture et pose isolation+bardage (135 m²)",
+        "detail": "135 m² × 55-75 €/m² coût matériaux+pose (laine de roche + ossature + bardage composite)",
+        "montant_eur": 22000
+      },
+      {
+        "poste": "Encadrement/coordination/déplacements (chef de chantier)",
+        "detail": "Estimation 10 j-h × 450 €/j = 4 500 €",
+        "montant_eur": 5000
+      }
+    ],
+    "taux_journaliers_retenus": "Compagnon BTP chargé : 350-450 €/j ; chef de chantier : 450-550 €/j ; module modulaire neuf 25 m² équipé coût fabricant : 12 000-20 000 € (selon équipements intégrés) ; bardage composite pose incluse : 55-85 €/m². Taux marché indicatifs.",
+    "commentaire": "Estimation centrée sur un scénario 4 modules neufs. En modules d'occasion reconditionnés, le coût fabricant baisserait de 30-50%, améliorant la marge. Le Lot 2 dépend de la surface réelle des façades (non chiffrée dans le DCE) : fourchette élargie en conséquence. Lot 1 min/max : 70 000-130 000 € ; Lot 2 min/max : 10 000-25 000 €."
   },
   "revision_prix": {
     "type": "actualisation",
     "indices_utilises": [
       "BT01"
     ],
-    "ponderation": "Actualisation par application du coefficient Cn = I(n-3) / I(0), où I est l'indice BT01 (Tous corps d'état base 2010). L'actualisation n'est déclenchée que si un délai supérieur à 3 mois s'écoule entre la date de remise des offres (mois zéro) et la date de début d'exécution.",
-    "periodicite": "autre",
-    "formule_revision": "Cn = l(n-3) / l0 — où Cn est le coefficient d'actualisation, l(n-3) est la valeur de l'indice BT01 au mois n-3 (3 mois avant le début d'exécution), l(0) est la valeur de l'indice BT01 au mois zéro (mois de remise des offres). Les prix sont fermes actualisables.",
+    "ponderation": "100% BT01 (Tous corps d'état, base 2010) — actualisation unique si délai supérieur à 3 mois entre remise des offres et début d'exécution",
+    "periodicite": null,
+    "formule_revision": "Cn = I(n-3) / I(0) — où I(n-3) est la valeur de BT01 au mois antérieur de 3 mois à la date de début d'exécution et I(0) est la valeur du mois zéro (date de remise des offres)",
     "source_extraction": "CCAP article 5.3",
-    "commentaire": "Prix fermes actualisables : l'actualisation est unique (à la date de début d'exécution) et non périodique. Elle est favorable au candidat si le délai entre offre et démarrage dépasse 3 mois et que le BT01 est en hausse, mais ne couvre pas l'évolution des prix en cours de chantier."
+    "commentaire": "Actualisation unique (et non révision périodique) : favorable si délai court (<3 mois entre offre et OS), neutre sur durée d'exécution car les prix sont fermes une fois actualisés. L'index BT01 est généraliste et couvre bien le marché de construction modulaire."
   },
   "alertes_prix": [
-    "Aucun montant estimatif communiqué dans le DCE : les candidats doivent établir leur prix sans fourchette de référence, ce qui augmente le risque d'offre anormalement basse.",
-    "Offre anormalement basse possible : le RC prévoit explicitement une procédure de vérification OAB avec délai impératif de réponse (RC §7.1.1 et §7.1.2).",
-    "Bâtiments d'occasion admis pour le lot 1 : les candidats proposant des modules reconditionnés peuvent présenter des offres prix très compétitives, créant une forte disparité de prix entre offres.",
-    "Prix au m² pour le lot 2 sans surface totale communiquée au stade de l'offre : le candidat sera informé des dimensions exactes à la notification du marché (CCTP lot 2), ce qui rend difficile une estimation totale précise avant attribution."
+    "Aucun montant estimé publié ni seuil OAB annoncé dans le RC — risque de sous-évaluation ou d'offre anormalement basse implicite (vérification par l'acheteur prévue à l'article R2152-3 du CCP, RC §7.1.1)",
+    "Possibilité de proposer bâtiments neufs OU d'occasion : fort écart de prix possible entre offres — le critère prix (50%) est déterminant ; les offres d'occasion économiques peuvent dominer sur ce critère",
+    "Prix défini par l'AE avec tableaux libres (pas de BPU imposé avec quantités) : risque d'erreur dans la construction de l'offre et difficulté de comparaison inter-offres",
+    "Pondération prix à 50% : forte — un écart de prix de 20% entre deux candidats génère un écart de note de 5 points (sur 50) ; la valeur technique (40%) ne compensera un désavantage prix que si elle est très supérieure",
+    "Délai d'actualisation BT01 appliqué si >3 mois entre offre et OS : à intégrer dans le chiffrage si le planning est tendu"
   ],
   "references_exigees": {
     "experience_minimale_annees": null,
     "experience_source": null,
     "volume_min_references_similaires": null,
     "volume_min_references_unite": null,
-    "secteur_experience": "Construction, fourniture et installation de bâtiments modulaires préfabriqués (lot 1) ; isolation thermique par l'extérieur et bardage ventilé (lot 2)",
-    "secteur_source": "RC §2.3",
+    "secteur_experience": "Le RC ne fixe pas de volume minimum ni de nombre de références similaires. Les capacités sont appréciées via le chiffre d'affaires sur 3 ans et le mémoire technique.",
+    "secteur_source": "RC §6.1",
     "certifications_obligatoires": [
       {
         "libelle": "Attestation d'assurance responsabilité civile professionnelle",
+        "codes": [],
+        "bloquante": true,
         "source": "RC §6.1"
       },
       {
-        "libelle": "Attestation d'assurance au titre de la garantie décennale",
+        "libelle": "Attestation d'assurance au titre de la garantie décennale (articles 1792 et suivants du Code civil)",
+        "codes": [],
+        "bloquante": true,
         "source": "RC §6.2 et CCAP article 14"
       }
     ],
     "autres_exigences": [
       {
-        "libelle": "Déclaration de chiffre d'affaires global portant sur les 3 derniers exercices disponibles",
+        "libelle": "Déclaration du chiffre d'affaires global et du CA du domaine d'activité faisant l'objet du marché sur les 3 derniers exercices disponibles",
         "source": "RC §6.1"
       },
       {
-        "libelle": "Kbis datant de moins de 3 mois ou délégation de pouvoir de signature",
-        "source": "RC §6.1"
+        "libelle": "Extrait KBIS ou équivalent datant de moins de 3 mois (exigé de l'attributaire)",
+        "source": "RC §6.2"
       },
       {
-        "libelle": "Pour les bâtiments d'occasion (lot 1) : photographies récentes, année de fabrication, descriptif des opérations de reconditionnement, garanties proposées, fiches techniques et certificats de conformité",
-        "source": "RC §2.3"
+        "libelle": "Attestation de régularité fiscale à jour (attributaire)",
+        "source": "RC §6.2"
+      },
+      {
+        "libelle": "Déclaration URSSAF datant de moins de 6 mois (attributaire)",
+        "source": "RC §6.2"
+      },
+      {
+        "libelle": "Pouvoir de signature de la personne habilitée à engager la société (Kbis < 3 mois ou délégation de pouvoir)",
+        "source": "RC §6.1"
       }
     ]
+  },
+  "dossier_candidature": {
+    "pieces_a_fournir": [
+      {
+        "libelle": "Déclaration sur l'honneur (non exclusion + emploi travailleurs handicapés) — formulaire DC1 ou équivalent DUME",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §6.1"
+      },
+      {
+        "libelle": "Déclaration concernant le chiffre d'affaires global et CA domaine d'activité sur 3 derniers exercices — formulaire DC2 ou DUME",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §6.1"
+      },
+      {
+        "libelle": "Attestations d'assurance civile et professionnelle",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §6.1 et CCAP article 14"
+      },
+      {
+        "libelle": "Pouvoir de signature (Kbis < 3 mois ou délégation de pouvoir)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §6.1"
+      },
+      {
+        "libelle": "Copie du ou des jugements en cas de redressement judiciaire",
+        "phase": "candidature",
+        "obligatoire": false,
+        "source": "RC §6.1"
+      },
+      {
+        "libelle": "Acte d'engagement (AE) dûment complété, daté et signé pour chaque lot concerné",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §6.3"
+      },
+      {
+        "libelle": "Cadre de Mémoire Technique (CMT) dûment complété pour chaque lot",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §6.3"
+      },
+      {
+        "libelle": "Mémoire technique de l'entreprise (descriptif technique bâtiments, fiches, plans, certifications, performance énergétique, durée de garantie, planning — Lot 1 ; descriptif matériaux, fiches techniques, certifications, planning — Lot 2)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §6.3"
+      },
+      {
+        "libelle": "Attestation d'assurance garantie décennale (exigée au stade attribution)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §6.2 et CCAP article 14"
+      },
+      {
+        "libelle": "Pièces attestation URSSAF < 6 mois, extrait KBIS < 3 mois, attestation fiscale, RIB/RIP original (uniquement pour l'attributaire pressenti)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §6.2"
+      },
+      {
+        "libelle": "Formulaire DC4 (sous-traitant) si recours à la sous-traitance — au dépôt ou en cours d'exécution",
+        "phase": "offre",
+        "obligatoire": false,
+        "source": "AE Lot 1 et Lot 2 — clause sous-traitance"
+      }
+    ],
+    "mode_remise": "dématérialisé + copie de sauvegarde",
+    "plateforme_depot": "AWS — marches-publics.info / awsolutions.fr",
+    "signature_electronique_exigee": true,
+    "format_signature": "eIDAS qualifié — signature avancée sur certificat qualifié (PAdES, XAdES ou CAdES)",
+    "nombre_exemplaires": null,
+    "langue": "français",
+    "duree_validite_offres_jours": 120,
+    "modalites_source": "RC §8 et §3.1"
   },
   "lots": [
     {
       "numero": 1,
       "intitule": "Construction de bâtiments modulaires pour le plateau technique de formation du SDIS 46",
-      "zone_geographique": "Francoulès (46090) — Chemin départemental Combe de Marty, Lot",
+      "domaine": "btp_gros_oeuvre",
+      "zone_geographique": "Francoulès, 46090, Lot",
       "volume_estime": null,
       "volume_estime_unite": null,
-      "particularites": "Bâtiments neufs ou d'occasion entièrement reconditionnés admis. Le candidat est obligé de répondre sur les 2 salles de formation et sur le transport/installation ; les vestiaires/sanitaires peuvent être proposés en 1 ou 2 bâtiments au choix. Le titulaire est seul responsable de la définition des caractéristiques techniques des supports (plots béton réalisés par le MO). Délai maximum 5 mois depuis l'OS de démarrage. Garantie sur pièces et main-d'œuvre à préciser par le candidat."
+      "cout_estime_min_eur": 70000,
+      "cout_estime_max_eur": 130000,
+      "particularites": "Candidat OBLIGÉ de répondre sur les 2 salles de formation et le transport/installation. Offre libre pour vestiaires/sanitaires (1 ou 2 bâtiments, neuf et/ou d'occasion). Délai ≤ 5 mois. Le titulaire fournit les prescriptions techniques des plots dans les 30 jours post-notification. Les bâtiments d'occasion sont admis sous réserve de respect intégral du CCTP."
     },
     {
       "numero": 2,
       "intitule": "Isolation par l'extérieur et bardage de bâtiments modulaires pour le plateau technique de formation du SDIS 46",
-      "zone_geographique": "Francoulès (46090) — Chemin départemental Combe de Marty, Lot",
+      "domaine": "btp_second_oeuvre",
+      "zone_geographique": "Francoulès, 46090, Lot",
       "volume_estime": null,
       "volume_estime_unite": "m²",
-      "particularites": "Les dimensions exactes des bâtiments (surfaces de façades) sont communiquées à la notification. Le candidat devra vérifier l'état des façades et les contraintes d'accès sur site. Matériaux devant bénéficier d'un ATec ou DTA. Teintes et finitions validées par le MO sur présentation d'échantillons avant démarrage. Délai maximum 3 mois depuis l'OS de démarrage."
+      "cout_estime_min_eur": 10000,
+      "cout_estime_max_eur": 25000,
+      "particularites": "Surface exacte des façades communiquée à la notification — le candidat doit visiter le site. Bardage imitation bois avec validation par échantillons avant démarrage. Matériaux avec ATec ou DTA obligatoire. Délai ≤ 3 mois."
     }
   ],
+  "tranches": [],
   "calendrier": {
     "date_limite_offres": "2026-07-10",
     "date_demarrage_prevue": null,
-    "duree_marche": "8 mois au total (1 mois préparation + lot 1 max 5 mois + lot 2 max 3 mois, en partie concomitants)"
+    "duree_marche": "8 mois maximum (Lot 1 ≤ 5 mois + Lot 2 ≤ 3 mois, avec 1 mois de préparation commun inclus)"
   },
   "alertes_candidat": [
-    "IMPÉRATIF : Le délai d'exécution DOIT être renseigné dans l'acte d'engagement sous peine d'offre irrégulière et irrecevable (AE lot 1 et lot 2).",
-    "IMPÉRATIF : La durée de garantie DOIT être renseignée dans l'acte d'engagement sous peine d'offre irrégulière (AE lot 1 et lot 2).",
-    "Lot 2 : les dimensions exactes des façades ne sont communiquées qu'à la notification du marché — le candidat doit chiffrer au m² sans connaître précisément les surfaces totales à la date de remise des offres.",
-    "Attestations d'assurance RC professionnelle ET décennale exigées au plus tard à l'attribution (dérogation à l'article 8.1.3 du CCAG Travaux) — possibilité de les fournir dès le dépôt.",
-    "Dépôt exclusivement dématérialisé via la plateforme AWS Solutions (marches-publics.info) — copie de sauvegarde papier possible mais dépôt électronique obligatoire. Signature de l'acte d'engagement exigée lors du dépôt.",
-    "Pour les bâtiments d'occasion (lot 1) : dossier complet obligatoire (photos, année fabrication, descriptif reconditionnement, garanties, fiches techniques) — une offre incomplète sur ces éléments sera pénalisée à l'évaluation qualité."
+    "Délai d'exécution à renseigner OBLIGATOIREMENT dans l'AE (≤ 5 mois Lot 1, ≤ 3 mois Lot 2) : si non rempli, offre irrégulière et irrecevable — RC §4.2 et AE",
+    "Durée de garantie à renseigner OBLIGATOIREMENT dans l'AE : idem, offre irrecevable si absent",
+    "Attestation d'assurance garantie décennale obligatoire au plus tard au stade attribution (CCAP article 14) — la préparer dès le dépôt de l'offre est recommandé",
+    "Surface exacte des façades (Lot 2) non communiquée avant notification : le candidat chiffre sans connaître précisément le linéaire — visite de site fortement recommandée pour éviter sous-évaluation",
+    "Acte d'engagement à signer électroniquement lors du dépôt (RC §8.3) — prévoir certificat eIDAS qualifié valide ; sans signature de l'AE, offre irrecevable"
   ],
   "points_differenciants_attendus": [
     {
-      "libelle": "Durée de garantie supérieure aux minimums légaux sur les bâtiments modulaires",
-      "exemple": "Un candidat lot 1 proposant une garantie fabricant de 10 ans sur la structure et 5 ans sur les équipements (au-delà de la garantie de parfait achèvement 1 an) se distinguera nettement sur le sous-critère 'qualité constructive et durabilité' noté sur 15 points.",
-      "source": "RC §7.1.1"
+      "libelle": "Durée de garantie proposée supérieure au minimum réglementaire",
+      "exemple": "Un candidat proposant 36 mois de garantie sur les bâtiments (contre 12 mois minimum légaux) capitalise sur les 15 points 'qualité constructive et durabilité' — valeur perçue forte par un SDIS qui veut minimiser la maintenance.",
+      "source": "RC §7.1.1 — sous-critère qualité constructive 15 points"
     },
     {
-      "libelle": "Délai d'exécution significativement inférieur au plafond réglementaire",
-      "exemple": "Pour le lot 1, un délai de 3 mois au lieu du maximum de 5 mois obtient la note maximale de 10 points sur le critère délai ; pour le lot 2, viser 2 mois sur 3 maximum. Le planning détaillé doit être crédible et justifier ce délai.",
-      "source": "RC §7.1.1 et §7.1.2"
+      "libelle": "Délai d'exécution significativement inférieur au plafond",
+      "exemple": "Proposer 3 mois sur le Lot 1 (plafond 5 mois) en justifiant par un stock disponible de modules en entrepôt et un planning Gantt détaillé maximise les 10 points délai, tout en rassurant sur la réalisme de l'offre.",
+      "source": "RC §7.1.1 critère n°3"
     },
     {
-      "libelle": "Qualité du dossier technique pour les bâtiments d'occasion (lot 1)",
-      "exemple": "Un candidat proposant des modules d'occasion fournit un rapport de reconditionnement complet avec photos avant/après, test d'étanchéité, certificat de conformité aux normes actuelles et photos récentes datées : cela répond directement aux exigences du RC et lève les doutes sur la qualité.",
-      "source": "RC §2.3"
+      "libelle": "Bâtiments d'occasion entièrement reconditionnés avec dossier de traçabilité complet",
+      "exemple": "Une offre d'occasion 30-40% moins chère, accompagnée de photos récentes, attestation de reconditionnement, certificats de conformité et garanties fabricant, peut dominer sur le critère prix (50%) sans perdre de points sur la qualité si la documentation est irréprochable.",
+      "source": "RC §2.3 et CCTP Lot 1"
     },
     {
-      "libelle": "Choix du bardage imitation bois avec ATec reconnu et garantie longue durée (lot 2)",
-      "exemple": "Proposer un bardage composite bois-polymère bénéficiant d'un ATec en cours de validité avec garantie fabricant 25 ans et classement réaction au feu B-s1,d0 répond précisément aux 3 sous-critères techniques du lot 2 (étanchéité/imputrescibilité, résistance globale, performances).",
-      "source": "CCTP lot 2"
+      "libelle": "Mémoire technique dense avec fiches techniques chiffrées et Avis Techniques pour Lot 2",
+      "exemple": "Joindre les ATec ou DTA du système d'isolation et du bardage, les valeurs R chiffrées, les essais de réaction au feu et un nuancier avec échantillons physiques permet de scorer haut sur les 10 points 'performances thermiques et acoustiques' et de rassurer sur la conformité réglementaire.",
+      "source": "RC §7.1.2 et CCTP Lot 2"
     },
     {
-      "libelle": "Intégration paysagère cohérente avec l'environnement rural du site",
-      "exemple": "Un candidat lot 2 proposant une teinte bardage 'bois naturel clair' avec des profils d'angle et accessoires assortis, et fournissant des échantillons physiques dans son offre, anticipe les exigences de validation du MO et démontre son soin pour l'intégration paysagère.",
-      "source": "CCTP lot 2"
+      "libelle": "Réponse multi-lots cohérente avec planning inter-lots coordonné",
+      "exemple": "Un candidat répondant aux 2 lots avec un planning coordonné montrant l'enchaînement Lot 1 (installation modules) → Lot 2 (bardage) en maîtrisant le séquençage avec le MO (plots, raccordements) se positionne comme partenaire unique et fiable — avantage organisationnel notable en l'absence de maître d'œuvre.",
+      "source": "CCAP article 10.1 et RC §2.3"
     }
   ],
   "_meta": {
     "id_marche": "BOAMP-26-57187",
     "type": "complet",
-    "date_generation": "2026-06-14T23:56:02.353918+00:00",
-    "extraction_le": "2026-06-14T23:56:02.353918+00:00",
+    "date_generation": "2026-06-20T03:30:50.503205+00:00",
+    "extraction_le": "2026-06-20T03:30:50.503205+00:00",
     "modele": "claude-sonnet-4-6",
     "preset_utilise": "btp",
     "presets_matches": [
       "btp"
     ],
     "prompts_versions": {
-      "btp/_preset.json": "sha256:d1717e0d87f6c265"
+      "btp/_preset.json": "sha256:055bf6f8b2c1f771"
     },
-    "tokens_input": 74760,
-    "tokens_output": 8592,
-    "cout_eur": 0.3355,
-    "duree_sec": 153.7,
+    "tokens_input": 82785,
+    "tokens_output": 9702,
+    "cout_eur": 0.3742,
+    "duree_sec": 175.3,
     "pdfs_traites": [
       {
         "nom": "AE Lot 1 Construction bâtiments modulaires.docx",

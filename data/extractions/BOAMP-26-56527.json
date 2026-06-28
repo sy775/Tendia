@@ -1,158 +1,28 @@
 {
-  "synthese_marche": "La Ville de Marseille (Mairie des arrondissements 11 et 12) lance un appel d'offres ouvert pour des prestations de propreté, d'entretien horticole et d'élagage des équipements transférés des 11ème et 12ème arrondissements. Le marché est décomposé en 3 lots : propreté/entretien du 11ème, propreté/entretien du 12ème, et abattage/élagage/reboisement d'arbres du 6ème secteur. Les pièces disponibles se limitent au DUME (formulaire de candidature), sans RC ni CCTP détaillés fournis.",
+  "synthese_marche": "Marché public de la Ville de Marseille portant sur des prestations de propreté, entretien horticole et élagage des équipements transférés des mairies des 11ème et 12ème arrondissements, structuré en 3 lots : propreté/entretien espaces verts du 11ème, propreté/entretien espaces verts du 12ème, et abattage/élagage/reboisement d'arbres pour le 6ème secteur. Le DCE fourni est très incomplet (seul un guide de dématérialisation et un DUME vierge sont présents), sans RC, CCTP ni BPU détaillant les critères d'attribution et les volumes. La durée de chaque lot est de 6 mois.",
   "domaines_metier": [
     {
       "code": "amenagement_paysager_entretien",
-      "poids": 0.6,
+      "poids": 0.7,
+      "lots_concernes": [
+        1,
+        2
+      ]
+    },
+    {
+      "code": "entretien_proprete_locaux",
+      "poids": 0.3,
       "lots_concernes": [
         1,
         2,
         3
       ]
-    },
-    {
-      "code": "entretien_proprete_locaux",
-      "poids": 0.4,
-      "lots_concernes": [
-        1,
-        2
-      ]
     }
   ],
-  "raison_classification": "Le marché combine explicitement des prestations de propreté (lots 1 et 2) et d'entretien horticole/élagage/abattage/reboisement (lot 3), ce qui justifie deux domaines : entretien des espaces verts/paysager pour la part horticole-arboricole (dominante, 60%) et nettoyage/propreté de locaux/équipements pour la part propreté (40%). Le CPV principal 77300000 confirme la dominante services horticoles.",
-  "caracteristiques_techniques_chantier": {
-    "description": "Prestations de propreté et d'entretien horticole des équipements publics transférés à la Mairie des 11ème et 12ème arrondissements de Marseille, incluant l'abattage, l'élagage et le reboisement d'arbres sur les équipements du 6ème secteur.",
-    "typologie_ouvrage": "Équipements municipaux transférés (nature exacte non précisée dans les pièces disponibles — DUME uniquement)",
-    "surface_volume": null,
-    "site_occupe": null,
-    "corps_etat": [
-      "Propreté / nettoyage d'équipements",
-      "Entretien horticole",
-      "Abattage et élagage d'arbres",
-      "Reboisement"
-    ],
-    "contraintes_specifiques": [
-      "Équipements 'transférés' — nature et localisation précises non renseignées dans les pièces disponibles",
-      "Intervention sur espaces publics en milieu urbain (Marseille 11ème, 12ème arrondissements et 6ème secteur)"
-    ]
-  },
-  "allotissement": {
-    "description": "Marché alloti en 3 lots distincts par périmètre géographique et nature de prestations",
-    "nb_lots": 3,
-    "lots_detailles": [
-      {
-        "numero": 1,
-        "intitule": "Propreté et entretien des équipements transférés du 11ème arrondissement",
-        "corps_etat": "Propreté, entretien horticole",
-        "montant_estime": null,
-        "description": "Prestations de propreté et d'entretien horticole sur les équipements transférés relevant du 11ème arrondissement de Marseille"
-      },
-      {
-        "numero": 2,
-        "intitule": "Propreté et entretien des équipements transférés du 12ème arrondissement",
-        "corps_etat": "Propreté, entretien horticole",
-        "montant_estime": null,
-        "description": "Prestations de propreté et d'entretien horticole sur les équipements transférés relevant du 12ème arrondissement de Marseille"
-      },
-      {
-        "numero": 3,
-        "intitule": "Abattage, élagage et reboisement d'arbres des équipements transférés de la Mairie du 6ème secteur",
-        "corps_etat": "Arboriculture, élagage, abattage, reboisement",
-        "montant_estime": null,
-        "description": "Prestations d'abattage, d'élagage et de reboisement d'arbres sur les équipements relevant du 6ème secteur (11ème et 12ème arrondissements)"
-      }
-    ]
-  },
-  "qualifications_requises": {
-    "description": "Non renseigné dans les pièces disponibles (DUME uniquement, sans RC ni CCTP)",
-    "qualibat": null,
-    "rge": null,
-    "opqibi": null,
-    "autres_certifications": []
-  },
-  "caracteristiques_mission": {
-    "typologie_mission": null,
-    "domaine_expertise": null,
-    "livrables_attendus": [],
-    "duree_mission": null,
-    "jours_consultant_estimes": null
-  },
-  "profils_intervenants": {
-    "description": null,
-    "chef_de_mission": null,
-    "consultants": null
-  },
-  "volumes_techniques": {
-    "puissance_totale_kwc": null,
-    "puissance_par_site_kwc": null,
-    "nb_sites": null,
-    "surface_panneaux_m2": null,
-    "productible_annuel_estime_mwh": null,
-    "duree_marche_mois": null,
-    "duree_maintenance_om_annees": null,
-    "commentaire_volumes": "Aucune information volumétrique disponible dans les pièces fournies (DUME uniquement)"
-  },
-  "modalites_execution_chantier": {
-    "raccordement_reseau_inclus": null,
-    "etudes_techniques_incluses": null,
-    "calendrier_chantier_contraint": null,
-    "sites_execution": [
-      "Marseille — 11ème arrondissement",
-      "Marseille — 12ème arrondissement",
-      "Marseille — 6ème secteur"
-    ],
-    "engagement_productible": null,
-    "engagement_disponibilite_om": null
-  },
-  "publics_cibles": {
-    "description": null,
-    "criteres_eligibilite": [],
-    "publics_specifiques_signales": []
-  },
-  "volumes": {
-    "nb_beneficiaires_total": null,
-    "nb_beneficiaires_par_lot": null,
-    "duree_par_parcours_heures": null,
-    "duree_par_parcours_semaines": null,
-    "duree_marche_mois": null,
-    "commentaire_volumes": null
-  },
-  "modalites": {
-    "presentiel_obligatoire": null,
-    "distanciel_possible": null,
-    "synchrone_asynchrone": null,
-    "sites_execution": [
-      "Marseille — 11ème arrondissement",
-      "Marseille — 12ème arrondissement",
-      "Marseille — 6ème secteur"
-    ],
-    "amplitude_horaire": null
-  },
-  "caracteristiques_mission_moe": {
-    "typologie": null,
-    "phases_couvertes": [],
-    "typologie_ouvrage": null,
-    "montant_travaux_estime": null,
-    "complexite_technique": null
-  },
-  "qualifications_moe": {
-    "opqibi": [],
-    "opqcm": null,
-    "bim": null,
-    "autres": []
-  },
-  "caracteristiques_si": {
-    "description": null,
-    "typologie_projet": null,
-    "technologies_mentionnees": [],
-    "volumetrie": null,
-    "hebergement": null
-  },
-  "qualifications_si": {
-    "iso_27001": null,
-    "anssi": null,
-    "hds": null,
-    "autres": []
+  "raison_classification": "Les lots 1 et 2 concernent la propreté ET l'entretien horticole des équipements (espaces verts, entretien courant), ce qui mixe entretien espaces verts (amenagement_paysager_entretien) et nettoyage de locaux/équipements (entretien_proprete_locaux). Le lot 3 porte exclusivement sur l'abattage, l'élagage et le reboisement d'arbres, qui relève également de amenagement_paysager_entretien. Le CPV principal 77300000 confirme les services horticoles. La propreté des locaux (nettoyage) coexiste avec l'entretien vert dans les lots 1 et 2, justifiant un second domaine.",
+  "caracteristiques_metier": {
+    "description": "Prestations de propreté et entretien horticole (tonte, taille, désherbage, arrosage, entretien des espaces verts) ainsi qu'élagage, abattage et reboisement d'arbres sur les équipements transférés des mairies des 11ème et 12ème arrondissements de Marseille (6ème secteur). Les lots 1 et 2 couvrent respectivement les équipements des 11ème et 12ème arrondissements ; le lot 3 couvre spécifiquement les travaux arboricoles pour l'ensemble du 6ème secteur.",
+    "criteres_eligibilite": []
   },
   "bareme_notation": {
     "valeur_technique_pct": null,
@@ -160,7 +30,8 @@
     "sous_criteres_techniques": [],
     "prix": {
       "type_formule": "autre",
-      "formule_explicite": null,
+      "formule_explicite": "Non précisé dans les pièces disponibles du DCE.",
+      "source": null,
       "elements_a_chiffrer": []
     },
     "modalite_calcul_prix": null
@@ -170,9 +41,59 @@
     "fourchette_min_euros": null,
     "fourchette_max_euros": null,
     "type": "non_communique",
-    "duree_couverte": null,
+    "duree_couverte": "6 mois par lot",
     "source_extraction": null,
-    "commentaire": "Aucun montant, prix unitaire ou enveloppe budgétaire mentionné dans les pièces disponibles (DUME uniquement, sans RC, CCTP, BPU ni CCAP)"
+    "commentaire": "Le DCE fourni ne contient ni RC, ni CCTP, ni BPU, ni avis BOAMP avec estimation. Aucune valeur estimée n'est donc disponible. Seule la durée de 6 mois par lot est mentionnée dans les données BOAMP. La publication au BOAMP en procédure ouverte européenne indique un montant total vraisemblablement supérieur au seuil de 214 000 € HT (seuils 2024-2025 pour les marchés de services des collectivités territoriales)."
+  },
+  "montant_3_voies": {
+    "voie_1_eur": null,
+    "voie_1_source": null,
+    "voie_2_disponible": true,
+    "voie_2_min_eur": 240000,
+    "voie_2_max_eur": 360000,
+    "voie_2_hypotheses": [
+      {
+        "hypothese": "Nombre de lots : 3 lots de durée 6 mois chacun (source : contexte BOAMP)",
+        "valeur": "3 lots × 6 mois"
+      },
+      {
+        "hypothese": "Procédure ouverte européenne (est_europeen=true) → montant total > seuil européen services collectivités locales (~214 000 € HT en 2024). Ce seuil sert de plancher de cohérence.",
+        "valeur": "> 214 000 € HT"
+      },
+      {
+        "hypothese": "Estimation par analogie marché similaire : entretien espaces verts + propreté d'équipements municipaux sur 6 mois pour 2 arrondissements d'une grande ville. Hypothèse centrale : 80 000 € à 120 000 € par lot entretien (lots 1 et 2), et 60 000 € à 90 000 € pour le lot élagage/abattage (lot 3). Dimension incertaine variée : le prix/lot (quantité fixée à 1 lot par secteur).",
+        "valeur": "Lots 1+2 : 2 × [80 000 ; 120 000] € ; Lot 3 : [60 000 ; 90 000] €"
+      },
+      {
+        "hypothese": "Calcul : borne basse = 2 × 80 000 + 60 000 = 220 000 € ; borne haute = 2 × 120 000 + 90 000 = 330 000 € → arrondi à [240 000 ; 360 000] € pour conserver marge sur la durée de 6 mois et écarter une sous-estimation sous le seuil européen.",
+        "valeur": "[240 000 ; 360 000] €"
+      }
+    ],
+    "voie_2_raison_indisponible": null
+  },
+  "cout_realisation": {
+    "cout_total_eur": 168000,
+    "cout_min_eur": 136000,
+    "cout_max_eur": 202000,
+    "postes": [
+      {
+        "poste": "Lot 1 — Propreté et entretien horticole 11ème arrondissement (main-d'œuvre espaces verts + agents de propreté + fournitures/consommables)",
+        "detail": "Estimation : 3 ETP × 6 mois × taux chargé ~3 000 €/mois + consommables ~5 000 €",
+        "montant_eur": 59000
+      },
+      {
+        "poste": "Lot 2 — Propreté et entretien horticole 12ème arrondissement (main-d'œuvre espaces verts + agents de propreté + fournitures/consommables)",
+        "detail": "Même hypothèse que lot 1",
+        "montant_eur": 59000
+      },
+      {
+        "poste": "Lot 3 — Abattage, élagage et reboisement 6ème secteur (arboristes, matériel spécialisé nacelle/tronçonneuses, évacuation déchets verts, plants)",
+        "detail": "Estimation : 2 arboristes qualifiés × 6 mois × 3 500 €/mois chargé + matériel location ~10 000 € + évacuation/plants ~10 000 €",
+        "montant_eur": 52000
+      }
+    ],
+    "taux_journaliers_retenus": "Agent d'espaces verts/propreté : ~150 €/j chargé (taux marché indicatif, soit ~3 000 €/mois). Arboriste grimpeur : ~175 €/j chargé. Matériel élagage (nacelle, broyeur) : ~300-500 €/j en location. Ces taux sont indicatifs et peuvent varier selon la structure du candidat.",
+    "commentaire": "Estimation bottom-up en l'absence de CCTP/BPU. La dimension incertaine variée est le taux horaire chargé (×0,85 pour borne basse, ×1,20 pour borne haute). La fourchette [136 000 ; 202 000] € représente le coût de production estimé, à comparer au prix de marché estimé [240 000 ; 360 000] €, laissant une marge brute théorique de l'ordre de 30-40%. Cohérence correcte : coût < revenu estimé."
   },
   "revision_prix": {
     "type": "non_communique",
@@ -181,11 +102,13 @@
     "periodicite": null,
     "formule_revision": null,
     "source_extraction": null,
-    "commentaire": null
+    "commentaire": "Aucun CCAP ni clause de révision des prix n'est présent dans les pièces fournies. La durée courte (6 mois par lot) rend toutefois la révision peu déterminante pour ce marché."
   },
   "alertes_prix": [
-    "Aucune pièce financière disponible (pas de RC, CCAP, BPU) : impossible d'évaluer le niveau de prix avant de candidater",
-    "Marché multi-lots : vérifier si des variantes ou restrictions de cumul de lots sont prévues dans le RC (non fourni)"
+    "Montant total non communiqué dans les pièces du DCE transmises : le candidat devra reconstituer le BPU à partir de ses propres hypothèses de volume.",
+    "Procédure ouverte européenne impliquant une concurrence forte, avec risque de pression à la baisse sur les prix.",
+    "Durée courte de 6 mois par lot : faible horizon d'amortissement des frais fixes (mobilisation de matériel spécialisé élagage, encadrement de chantier).",
+    "Lot 3 (élagage/abattage) nécessite du matériel spécialisé coûteux (nacelle, broyeur) à amortir sur 6 mois seulement."
   ],
   "references_exigees": {
     "experience_minimale_annees": null,
@@ -197,70 +120,125 @@
     "certifications_obligatoires": [],
     "autres_exigences": []
   },
+  "dossier_candidature": {
+    "pieces_a_fournir": [
+      {
+        "libelle": "Lettre de candidature et habilitation du mandataire (DC1) ou Document Unique de Marché Européen (DUME)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "Guide dématérialisation — section 'Préparer sa candidature'"
+      },
+      {
+        "libelle": "Déclaration du candidat (DC2) ou intégrée dans le DUME",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "Guide dématérialisation — section 'Préparer sa candidature'"
+      },
+      {
+        "libelle": "Acte d'engagement signé électroniquement (exigé auprès de l'attributaire pressenti)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "Guide dématérialisation — section 'L'acte d'engagement signé électroniquement'"
+      }
+    ],
+    "mode_remise": "dématérialisé + copie de sauvegarde",
+    "plateforme_depot": "marchespublics.mairie-marseille.fr",
+    "signature_electronique_exigee": false,
+    "format_signature": "XAdES, CAdES ou PAdES (signature avancée reposant sur certificat qualifié eIDAS)",
+    "nombre_exemplaires": null,
+    "langue": "français",
+    "duree_validite_offres_jours": null,
+    "modalites_source": "Guide dématérialisation (ANNEXE_1_RC_GUIDE_DEMAT.pdf)"
+  },
   "lots": [
     {
       "numero": 1,
-      "intitule": "Propreté et entretien des équipements transférés du 11ème arrondissement",
-      "zone_geographique": "Marseille — 11ème arrondissement",
+      "intitule": "PROPRETÉ ET ENTRETIEN DES ÉQUIPEMENTS TRANSFÈRES DU 11ème ARRONDISSEMENT",
+      "domaine": "amenagement_paysager_entretien",
+      "zone_geographique": "Marseille 11ème arrondissement",
       "volume_estime": null,
       "volume_estime_unite": null,
-      "particularites": "Périmètre limité aux équipements transférés à la Mairie du 11ème arrondissement"
+      "cout_estime_min_eur": 48000,
+      "cout_estime_max_eur": 72000,
+      "particularites": "Durée de 6 mois. Couvre les équipements transférés de la mairie du 11ème arrondissement de Marseille. Mélange propreté des locaux/équipements et entretien des espaces verts."
     },
     {
       "numero": 2,
-      "intitule": "Propreté et entretien des équipements transférés du 12ème arrondissement",
-      "zone_geographique": "Marseille — 12ème arrondissement",
+      "intitule": "PROPRETÉ ET ENTRETIEN DES ÉQUIPEMENTS TRANSFÈRES DU 12ème ARRONDISSEMENT",
+      "domaine": "amenagement_paysager_entretien",
+      "zone_geographique": "Marseille 12ème arrondissement",
       "volume_estime": null,
       "volume_estime_unite": null,
-      "particularites": "Périmètre limité aux équipements transférés à la Mairie du 12ème arrondissement"
+      "cout_estime_min_eur": 48000,
+      "cout_estime_max_eur": 72000,
+      "particularites": "Durée de 6 mois. Même périmètre que le lot 1 mais pour le 12ème arrondissement."
     },
     {
       "numero": 3,
-      "intitule": "Abattage, élagage et reboisement d'arbres des équipements transférés de la Mairie du 6ème secteur",
-      "zone_geographique": "Marseille — 6ème secteur (11ème et 12ème arrondissements)",
+      "intitule": "ABATTAGE ÉLAGAGE ET REBOISEMENT D'ARBRES DES ÉQUIPEMENTS TRANSFÉRÉS DE LA MAIRIE DU 6ème SECTEUR",
+      "domaine": "amenagement_paysager_entretien",
+      "zone_geographique": "Marseille 6ème secteur (11ème et 12ème arrondissements)",
       "volume_estime": null,
       "volume_estime_unite": null,
-      "particularites": "Lot spécialisé arboriculture (abattage, élagage, reboisement) — compétences et matériels spécifiques requis"
+      "cout_estime_min_eur": 40000,
+      "cout_estime_max_eur": 58000,
+      "particularites": "Durée de 6 mois. Prestations arboricoles spécialisées (abattage, élagage, reboisement). Nécessite du matériel spécifique (nacelle, broyeur, équipements de sécurité arboricole) et du personnel qualifié. CPV 77310000 (plantation et entretien d'espaces verts) en secondaire."
     }
   ],
+  "tranches": [],
   "calendrier": {
     "date_limite_offres": "2026-07-09",
     "date_demarrage_prevue": null,
-    "duree_marche": null
+    "duree_marche": "6 mois par lot"
   },
   "alertes_candidat": [
-    "DCE très incomplet transmis : seul le DUME est disponible, sans RC, CCTP, CCAP ni BPU — impossible d'évaluer les critères d'attribution, les exigences techniques et les conditions financières avant téléchargement complet du dossier sur la plateforme",
-    "Lot 3 (élagage/abattage) requiert des compétences et équipements spécialisés en arboriculture — vérifier la compatibilité de votre activité avec ce lot avant de candidater",
-    "Date limite de dépôt des offres : 9 juillet 2026 — délai court à vérifier selon la date de retrait effectif du dossier complet",
-    "Marché de la Ville de Marseille portant sur des 'équipements transférés' : nature précise des sites (espaces verts, équipements sportifs, bâtiments ?) non précisée dans les pièces disponibles — nécessite lecture du CCTP complet"
+    "Le DCE fourni est très incomplet : absence du Règlement de Consultation (RC), du CCTP et du BPU — le candidat doit impérativement télécharger le dossier complet sur la plateforme marchespublics.mairie-marseille.fr avant de candidater.",
+    "Lot 3 (élagage/abattage) : des certifications professionnelles spécialisées peuvent être exigées pour les travaux arboricoles en hauteur (CS Arboriste-Grimpeur, formation tronçonnage CNPF, etc.) — à vérifier dans le RC complet.",
+    "Procédure ouverte européenne avec publication au BOAMP et JOUE : forte concurrence internationale possible, délais de réponse courts (dépôt au 09/07/2026 soit moins d'un mois après publication du 10/06/2026).",
+    "Dépôt obligatoirement dématérialisé sur marchespublics.mairie-marseille.fr — anticiper la création de compte et les tests de configuration de poste avant la date limite.",
+    "La signature électronique de l'acte d'engagement n'est requise qu'auprès de l'attributaire pressenti (pas au stade du dépôt), mais le candidat doit disposer d'un certificat qualifié eIDAS en cas d'attribution."
   ],
   "points_differenciants_attendus": [
     {
-      "libelle": "Connaissance du territoire marseillais et des arrondissements concernés",
-      "exemple": "Présence d'une agence ou d'un dépôt logistique sur Marseille ou sa proche banlieue, permettant des interventions réactives sur les 11ème et 12ème arrondissements avec des équipes dédiées.",
+      "libelle": "Capacité à intervenir sur des équipements transférés d'arrondissements spécifiques de Marseille avec connaissance du terrain local",
+      "exemple": "Un prestataire disposant déjà d'une implantation ou d'une expérience sur les 11ème/12ème arrondissements ou dans le 6ème secteur pourra valoriser sa connaissance du tissu urbain, des accès et des contraintes locales dans son mémoire technique.",
       "source": null
     },
     {
-      "libelle": "Capacité à intervenir sur les 3 lots simultanément (propreté + élagage)",
-      "exemple": "Structure multi-compétences ou groupement momentané d'entreprises couvrant à la fois les prestations de propreté et les travaux arboricoles (élagage, abattage, reboisement).",
+      "libelle": "Capacités techniques et matérielles pour le lot élagage/abattage (lot 3)",
+      "exemple": "Justifier de la détention ou de l'accès à du matériel spécialisé (nacelle, broyeur, équipements de sécurité) et d'arboristes qualifiés (CS arboriste-grimpeur) permettra de se démarquer et de rassurer l'acheteur sur la faisabilité technique.",
       "source": null
     },
     {
-      "libelle": "Références sur des marchés similaires avec des collectivités (mairies d'arrondissement, communes)",
-      "exemple": "Présentation de 2-3 références récentes de marchés de propreté/entretien horticole pour des communes ou établissements publics en milieu urbain dense.",
+      "libelle": "Organisation et réactivité pour des prestations récurrentes sur 6 mois",
+      "exemple": "Présenter un planning d'intervention hebdomadaire détaillé, un organigramme de chantier et un dispositif de remplacement en cas d'absence d'agents permettrait de démontrer la fiabilité opérationnelle sur la durée du marché.",
+      "source": null
+    },
+    {
+      "libelle": "Démarche environnementale et sociale (clauses RSE probables en marchés de collectivité locale)",
+      "exemple": "Valoriser l'utilisation de matériel thermique à faibles émissions ou électrique, la gestion éco-responsable des déchets verts (compostage, broyage sur site), ainsi que le recours à des clauses d'insertion sociale pour les lots propreté/entretien.",
       "source": null
     }
   ],
   "_meta": {
     "id_marche": "BOAMP-26-56527",
     "type": "complet",
-    "extraction_le": "2026-06-12T02:28:53.970942+00:00",
+    "date_generation": "2026-06-19T19:47:19.705293+00:00",
+    "extraction_le": "2026-06-19T19:47:19.705293+00:00",
     "modele": "claude-sonnet-4-6",
-    "tokens_input": 18854,
-    "tokens_output": 3694,
-    "cout_eur": 0.1064,
-    "duree_sec": 58.7,
+    "preset_utilise": null,
+    "presets_matches": [],
+    "prompts_versions": {},
+    "tokens_input": 35315,
+    "tokens_output": 4884,
+    "cout_eur": 0.1702,
+    "duree_sec": 84.9,
     "pdfs_traites": [
+      {
+        "nom": "ANNEXE_1_RC_GUIDE_DEMAT.pdf",
+        "hash": "1cdc3d4a53cbe9e66a14d30f7ae7c542",
+        "taille_chars": 35004
+      },
       {
         "nom": "ndcrwg6r.pdf",
         "hash": "e7116f6f2294094ab342ab3e75b29c3e",

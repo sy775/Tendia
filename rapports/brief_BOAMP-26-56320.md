@@ -1,6 +1,6 @@
 # Brief — Prestations de transport collectif des usagers établissements de l’UGECAM Bourgogne Franche-Comté
 
-_Généré le 2026-06-12 15:49 par Claude claude-sonnet-4-6_
+_Généré le 2026-06-21 00:33 par Claude claude-sonnet-4-6_
 
 ## Identifiants
 - **ID Tendia** : `BOAMP-26-56320`
@@ -11,75 +11,13 @@ _Généré le 2026-06-12 15:49 par Claude claude-sonnet-4-6_
 - **DCE PLACE** : <https://www.marches-publics.gouv.fr/?page=Entreprise.EntrepriseDetailsConsultation&id=3013369&orgAcronyme=s7h>
 
 ## Synthèse
-Marché de transport collectif des usagers de trois établissements médico-sociaux de l'UGECAM Bourgogne Franche-Comté (DAME du Jura, DAMSA à Essey, DIME de Noidans-lès-Vesoul). Accord-cadre mono-attributaire à bons de commande, alloti en 3 lots géographiques, d'une durée de 1 an reconductible 2 fois (3 ans max), prenant effet le 1er septembre 2026. Le prestataire assure la mise à disposition de véhicules avec chauffeur sur des circuits définis, avec un rôle de conseil dans l'organisation des circuits.
-
-## 🏗 Chantier — caractéristiques BTP
-- **Description** : Mise à disposition de véhicules avec chauffeur pour le transport collectif d'usagers d'établissements médico-sociaux sur des circuits définis. Prestations incluant respect des circuits et horaires, conseil annuel pour l'ajustement des circuits avant la rentrée, et à titre exceptionnel transport individuel ou mise à disposition de véhicule.
-- **Type d'ouvrage** : Établissements médico-sociaux (DAME, DAMSA, DIME)
-- **Contraintes spécifiques** :
-  - Transport d'usagers vulnérables (établissements médico-sociaux)
-  - Respect strict des circuits et horaires de passage
-  - Véhicules accessibles (accessibilité PMR mentionnée dans les critères)
-  - Périmètre pouvant s'étendre aux départements limitrophes
-  - Clause de reprise du personnel prévue (CCAP)
-  - Attestation sur l'honneur requise : aucun membre des équipes ne doit avoir fait l'objet d'une condamnation définitive (article L133.6 CASF)
-
-### Allotissement
-Marché alloti en 3 lots géographiques correspondant chacun à un établissement médico-social distinct
-- **Nombre de lots** : 3
-- **Lot 1** — Transport des usagers du DAME du Jura – Montaigu (39570)
-  - Corps d'état : Transport routier de passagers
-  - Montant estimé : 300 000 €
-  - Transport collectif des usagers du DAME du Jura, Avenue de la Solidarité, 39570 MONTAIGU
-- **Lot 2** — Transport des usagers du DAMSA à Essey (21320)
-  - Corps d'état : Transport routier de passagers
-  - Montant estimé : 260 000 €
-  - Transport collectif des usagers du DAMSA, Château de Villeneuve, D981, 21320 Essey
-- **Lot 3** — Transport des usagers du DIME de Noidans-lès-Vesoul (70000)
-  - Corps d'état : Transport routier de passagers
-  - Montant estimé : 200 000 €
-  - Transport collectif des usagers du DIME de Noidans-lès-Vesoul, 25 rue de Frapertuis, 70000 Noidans-lès-Vesoul (noté Lot 4 dans le tableau RC)
-
-### Qualifications BTP exigées
-Aucune qualification Qualibat ou RGE exigée. Présentation de références similaires dans le secteur tertiaire sur 3 ans. Attestation RCP obligatoire à l'attribution.
-- **Autres exigences** :
-  - Attestation d'assurance responsabilité civile professionnelle en cours de validité (obligatoire au stade de l'attribution)
-
-## ⚡ Parc EnR — caractéristiques techniques
-### Volumes techniques
-- **Nombre de sites** : 3
-- **Durée du marché (mois)** : 36
-- **Note** : 3 lots géographiques, 1 établissement par lot. Durée initiale 12 mois, reconductible 2 fois. Les montants plafonds par lot sont donnés pour la période initiale uniquement.
-
-### Modalités d'exécution
-- **Sites d'exécution** : Montaigu (39 - Jura), Essey (21 - Côte-d'Or), Noidans-lès-Vesoul (70 - Haute-Saône), Départements limitrophes selon circuits
-
-## 🎯 Mission conseil
-- **Durée de mission** : 12 mois reconductibles 2 fois (36 mois max)
-
-### Profils intervenants
-Chauffeurs avec équipements adaptés, personnel d'encadrement. L'équipe intervenante ne doit pas avoir fait l'objet de condamnations définitives (article L133.6 CASF).
-
-## 🎓 Formation / accompagnement
-### Publics cibles
-Usagers (patients/résidents) des établissements médico-sociaux de l'UGECAM BFC : DAME du Jura, DAMSA à Essey, DIME de Noidans-lès-Vesoul
-- **Critères d'éligibilité** :
-  - Usagers des établissements médico-sociaux de l'UGECAM BFC (source=RC art 2.1)
-- **Publics spécifiques signalés** : RQTH (établissements DAME et DIME accueillant des personnes en situation de handicap)
-
-### Volumes
-- **Durée marché (mois)** : 36
-- **Note** : Nombre d'usagers transportés non précisé dans les pièces fournies. Les circuits détaillés sont dans les annexes au CCTP (non fournies).
-
-### Modalités
-- **Présentiel/distanciel** : présentiel obligatoire (transport physique)
-- **Sites d'exécution** : Montaigu (39 - Jura), Essey (21 - Côte-d'Or), Noidans-lès-Vesoul (70 - Haute-Saône)
+Accord-cadre à bons de commande (3 lots, mono-attributaire par lot) portant sur la prestation de transport collectif avec chauffeur des usagers d'établissements médico-sociaux de l'UGECAM Bourgogne Franche-Comté (DAME du Jura, DAMSA Essey, DIME Noidans-lès-Vesoul), desservant des jeunes de 6 à 20 ans en situation de handicap. Les prestations démarrent le 1er septembre 2026 pour une durée d'un an, reconductible deux fois (3 ans maximum), avec un maximum global de 760 000 € HT/an (Lot 1 : 300 000 €, Lot 2 : 260 000 €, Lot 3 : 200 000 €). Le prix est au kilomètre parcouru, avec une composante développement durable et sociale notable dans la notation.
 
 ## 💶 Montant du marché
-- **Plafond accord-cadre** : **760 000 €**
-  - sur Période initiale de 12 mois (plafonds par lot pour la période initiale)
-  - _source : RC art 2.2.4 tableau des montants maximums_
-- _Note_ : Plafonds annuels par lot pour la période initiale : Lot 1 = 300 000 € HT, Lot 2 = 260 000 € HT, Lot 3 = 200 000 € HT. Total période initiale = 760 000 € HT. Sur la durée totale maximale (3 ans), le plafond théorique cumulé pourrait atteindre 2 280 000 € HT (si reconduit 2 fois aux mêmes plafonds), mais les plafonds pour les périodes reconduites ne sont pas précisés dans les pièces fournies.
+- **Fourchette** : entre 760 000 € et 760 000 €
+  - sur Période initiale d'un an (chaque lot : Lot 1 = 300 000 € HT, Lot 2 = 260 000 € HT, Lot 3 = 200 000 € HT). Montant maximum total sur 3 ans : 2 280 000 € HT.
+  - _source : CCAP art 1.2.2 + AE Lot 1, Lot 2, Lot 3 (Article 2)_
+- _Note_ : Les plafonds annuels sont explicitement indiqués dans chaque Acte d'Engagement : Lot 1 = 300 000 € HT, Lot 2 = 260 000 € HT, Lot 3 = 200 000 € HT, soit un total de 760 000 € HT sur la période initiale. Reconduction tacite 2 fois = maximum 2 280 000 € HT sur 3 ans. Il s'agit de plafonds sans minimum garanti (accord-cadre sans minimum).
 
 ## Barème de notation
 - **Valeur technique** : 50 %
@@ -87,27 +25,41 @@ Usagers (patients/résidents) des établissements médico-sociaux de l'UGECAM BF
 - **Sous-critères techniques** :
   - Valeur technique : 35 %
   - Développement durable : 15 %
-- **Calcul du prix** : Prix des prestations selon un Détail Quantitatif Estimé masqué — 50 points. Formule de notation non détaillée dans le RC.
+- **Calcul du prix** : Détail Quantitatif Estimé masqué appliqué aux prix unitaires au km renseignés dans le Cadre de réponse économique (Annexe 1 à l'AE). La facturation est au réel (km réellement parcourus × prix au km).
 
 ## Références et qualifications exigées
-- **Expérience minimale** : 3 ans
-- **Secteur d'expérience** : Transport routier de passagers ou services similaires (secteur tertiaire)
-- **Certifications obligatoires** : Attestation d'assurance responsabilité civile professionnelle en cours de validité (source=RC art 4.2.1 b)), Attestation sur l'honneur qu'aucun membre des équipes intervenantes n'a fait l'objet d'une condamnation définitive (article L133.6 CASF) (source=RC art 4.2.1 a))
+- **Expérience minimale** : —
+- **Secteur d'expérience** : Services spécialisés de transport routier de passagers, idéalement auprès d'établissements médico-sociaux ou scolaires
+- **Certifications obligatoires** : Inscription au registre des transports de voyageurs (certificat d'inscription) (bloquante=True, source=CCTP Lot 1 art 2.7 / CCTP Lot 2 art 2.7 / CCTP Lot 3 art 2.7), Attestation d'assurance responsabilité civile professionnelle et auto couvrant l'activité de transport de voyageurs (bloquante=True, source=RC art 4.2.1 b) et art 7.1 / CCTP art 2.6), Attestation sur l'honneur d'absence de condamnation définitive pour infractions visées à l'article L133.6 du CASF (honorabilité des intervenants) (bloquante=True, source=RC art 4.2.1 a) / CCAP art 10.4)
 - **Autres exigences** :
-  - Déclaration de chiffre d'affaires global et sectoriel sur les 3 derniers exercices disponibles (source=RC art 4.2.1 b))
+  - Déclaration de chiffre d'affaires global et du domaine d'activité transport sur les 3 derniers exercices (source=RC art 4.2.1 b))
   - Déclaration des effectifs moyens annuels et du personnel d'encadrement sur les 3 dernières années (source=RC art 4.2.1 b))
-  - Liste des principaux services effectués sur les 3 dernières années avec montant, date et destinataire (source=RC art 4.2.1 b))
+  - Liste des principaux services de transport effectués au cours des 3 dernières années (montant, date, destinataire) (source=RC art 4.2.1 b))
+  - Carte professionnelle en cours de validité pour chaque conducteur susceptible d'intervenir (source=CCTP Lot 1 art 2.7 / CCTP Lot 2 art 2.7 / CCTP Lot 3 art 2.7)
+  - Photocopie des permis de conduire pour chaque conducteur susceptible d'intervenir (source=CCTP Lot 1 art 2.7)
+  - Copie des cartes grises ou descriptif du parc de véhicules (dates de mise en circulation, kilométrages) (source=CCTP Lot 1 art 2.7)
+
+## Lots
+- **Lot 1** — Transport des usagers du DAME du Jura – Avenue de la Solidarité – 39570 MONTAIGU
+  - Zone : Département du Jura (39) et départements limitrophes — circuits porte-à-porte et points de collecte dans un rayon de 25 km autour de Montaigu
+  - 7 circuits définis en annexe (Commenailles, Chaux-Crotenay, Thoirette, Champagnole, Salins, Saint-Amour, Louhans) — km indicatifs par circuit fournis dans le fichier XLSX. 7 conducteurs à reprendre obligatoirement (tableau CCAP annexe Lot 1, salaires bruts annuels de 8 871 € à 14 214 €). Prise en charge en porte-à-porte les lundis matin et vendredis après-midi. Durée maximale par trajet : 1h30/enfant, total journalier 2h.
+- **Lot 2** — Transport des usagers du DAMSA à Essey (21320)
+  - Zone : Département de la Côte-d'Or (21) et départements limitrophes — circuits depuis Saulieu, Semur-en-Auxois, Beaune, Dijon vers Essey/Château de Villeneuve
+  - 5 circuits indicatifs fournis (km aller-retour : 50-106 km par circuit), avec passage possible par la MFR de Pouilly-en-Auxois. L'établissement a un projet de déménagement en cours de marché. Logique internat/demi-pension : différenciation lundi matin / vendredi soir (porte-à-porte) vs. reste de la semaine (points de collecte). Pas de tableau de reprise du personnel fourni dans le DCE.
+- **Lot 3** — Transport des usagers du DIME de Noidans-lès-Vesoul (70000) situé au 25 rue de Frapertuis
+  - Zone : Département de la Haute-Saône (70) — circuits depuis Vesoul, Lure, Gray, Ronchamp, Villersexel vers Noidans-lès-Vesoul
+  - 4 circuits semi-internat + 3 circuits internat (semaines paires/impaires) avec passages par établissements scolaires ordinaires (lycée, collège, école primaire) de Vesoul et Noidans. Organisation complexe : horaires précis par usager fournis dans le XLSX, semaines paires/impaires différenciées. 46 jeunes accueillis dont 6 avec TSA. Les chauffeurs doivent rester dans leur véhicule lors des déposes.
 
 ## ⚠ Alertes candidat
-- Attestation obligatoire sur l'honneur (article L133.6 CASF) : aucun membre de l'équipe intervenante ne doit avoir fait l'objet d'une condamnation définitive — vérification pendant toute la vie du marché
-- Le RC prévoit une clause de reprise du personnel (CCAP et son annexe 'éléments de reprise du personnel') : anticiper l'impact sur les coûts salariaux si des chauffeurs sont à reprendre
-- DQE masqué : le candidat ne connaît pas à l'avance les volumes précis des circuits — risque de sous-évaluation financière si les hypothèses de chiffrage sont erronées
-- Anomalie de numérotation dans le RC : le lot décrit comme 'Lot 3' en article 2.1 est numéroté 'Lot 4' dans le tableau financier — vérifier avec l'acheteur avant remise de l'offre
-- Délai de validité des offres de 150 jours : engagement financier long, à intégrer dans la réflexion sur la révision des prix
+- Obligation de reprise du personnel sortant (L1224-1 Code du travail + Convention collective transports) : 7 conducteurs identifiés pour le Lot 1, avec ancienneté et salaires imposés — sous-estimer ce coût de reprise peut rendre l'offre non rentable.
+- Le Cadre de Réponse Technique (CRT) doit être complété INTÉGRALEMENT sous peine de rejet pour offre irrégulière — aucun renvoi à un mémoire externe n'est autorisé, les engagements inscrits sont contractuels.
+- Inscription au registre des transports de voyageurs obligatoire pour chaque conducteur (carte professionnelle en cours de validité) — documents à joindre à l'offre au stade de l'attribution.
+- Accord-cadre sans minimum garanti : aucun volume de km n'est garanti — le revenu effectif dépend entièrement des bons de commande émis par les établissements.
+- Attestation d'honorabilité (L133.6 CASF) requise pour tous les intervenants — exigée au stade de la candidature et renouvelée à chaque changement de personnel pendant toute la durée du marché.
 
 ## 💡 Points différenciants attendus
-- Parc de véhicules accessibles PMR avec équipements de communication embarqués (exemple=Présenter un parc dédié incluant des véhicules équipés de rampes d'accès, arrimage fauteuils roulants et GPS temps réel, avec fiches techniques jointes et année de mise en circulation récente (moins de 3 ans)., source=RC art 6.1)
-- Dispositif de continuité de service en cas d'absence de chauffeur (exemple=Décrire un pool de chauffeurs volants formés à la prise en charge de publics médico-sociaux, avec engagement de remplacement sous 30 minutes et protocole de communication immédiate avec l'établissement., source=RC art 6.1)
-- Flotte à motorisation propre (électrique, hybride, GNV) (exemple=Présenter une trajectoire de verdissement du parc avec engagement chiffré de part de véhicules à faibles émissions sur les circuits concernés dès la prise en charge du marché., source=RC art 6.1)
-- Taux d'emploi de salariés en insertion ou RQTH dans les équipes dédiées (exemple=Indiquer un taux chiffré (ex: 10% des heures de conduite assurées par des salariés en parcours d'insertion) avec justificatif d'un partenariat actif avec une SIAE ou GEIQ du territoire., source=RC art 6.1)
-- Expérience spécifique dans le transport de publics médico-sociaux (DAME, DIME, IME) (exemple=Citer des références récentes (< 3 ans) de transport d'usagers d'établissements médico-sociaux similaires, avec coordonnées de contacts vérifiables et description des contraintes similaires gérées., source=RC art 4.2.1 b))
+- Expérience démontrée dans le transport de publics handicapés ou médico-sociaux (exemple=Présenter des références de marchés similaires (transport ESAT, IME, SESSAD) avec témoignages ou lettres de satisfaction des établissements destinataires, et décrire le protocole spécifique de prise en charge des usagers avec TSA ou déficience intellectuelle., source=CCTP Lot 1 art 4.3)
+- Qualité et récence du parc de véhicules dédié aux circuits (exemple=Proposer un parc entièrement dédié avec des véhicules de moins de 5 ans, équipés de harnais et rehausseurs homologués, avec un plan de renouvellement contractualisé et des outils de géolocalisation en temps réel accessibles à l'établissement., source=RC art 7.1 — sous-critère Moyens techniques dédiés 15 points)
+- Réactivité et robustesse du plan de substitution en cas d'incident (exemple=S'engager contractuellement sur un délai de substitution garanti (ex : véhicule de remplacement en moins de 30 minutes) avec un conducteur volant en astreinte quotidienne, et présenter la chaîne d'alerte formalisée avec des niveaux d'escalade clairs., source=RC art 7.1 — sous-critère Gestion des incidents 10 points / CCTP art 2.3.3)
+- Véhicules à faibles émissions et engagement GES chiffré (exemple=Présenter un plan de décarbonation du parc sur 3 ans (objectif % de véhicules électriques ou hybrides) avec engagement de transmission trimestrielle des données de consommation énergétique et d'émissions CO2 par circuit., source=RC art 7.1 — sous-critère Développement durable 10 points / CCTP art 5.3)
+- Intégration de clauses d'insertion sociale concrètes et mesurables (exemple=Présenter un partenariat formalisé avec une SIAE locale (GEIQ transport, ACI), un engagement chiffré d'heures d'insertion par an, et une politique de formation continue incluant des modules spécifiques à l'accueil de publics en situation de handicap., source=RC art 7.1 — sous-critère Engagements sociaux 5 points / CCTP art 5.2)

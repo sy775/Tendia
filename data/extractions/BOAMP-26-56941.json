@@ -1,52 +1,51 @@
 {
-  "synthese_marche": "Marché unique de travaux de réhabilitation des regards d'assainissement (génie civil) sur les communes d'Archamps, Bossey et Collonges-sous-Salève (Haute-Savoie), comprenant le remplacement de 193 regards, la pose de canalisations EU, la conversion de regards mixtes et le remplacement de cadres et tampons. Les travaux incluent des interventions en présence d'amiante, en milieu confiné, et sur domaine privé, avec coordination obligatoire avec un marché parallèle de réhabilitation sans tranchée attribué à TST.",
+  "synthese_marche": "Marché public de travaux de réhabilitation des regards d'assainissement sur les communes d'Archamps, Bossey et Collonges-sous-Salève (Haute-Savoie), confié par la Communauté de Communes du Genevois. Le marché porte sur environ 193 regards (remplacement de regards, de cadres et tampons, étanchéification, conversion de regards mixtes, pose de canalisations, interventions amiante) et constitue un marché unique sans allotissement. Les travaux sont de génie civil pur, les réhabilitations par l'intérieur étant confiées à un autre marché (TST).",
   "domaines_metier": [
     {
-      "code": "btp_voirie_reseaux"
+      "code": "btp_reseaux_divers"
     }
   ],
-  "raison_classification": "Le marché porte exclusivement sur des travaux de génie civil d'assainissement : remplacement de regards de visite, pose de canalisations EU gravitaires, terrassements en tranchée, réfection de chaussée, sur réseaux humides. Le CPV principal est 45232400 (travaux d'égouts) et le CCTP fait explicitement référence au fascicule 70 du CCTG (assainissement). Classification VRD — réseaux humides.",
+  "raison_classification": "Le marché porte exclusivement sur des travaux de réhabilitation de regards d'assainissement (réseaux humides enterrés) : remplacement de regards béton DN1000, pose de canalisations PVC/PP, étanchéification, conversion de regards mixtes, terrassements et réfections de tranchées. Le CPV principal est 45232400 (Travaux de construction d'égouts) et le CCTP précise 'ces travaux ne concernent que des opérations de génie civil' sur réseaux d'eaux usées. Ce marché relève donc du code `btp_reseaux_divers` (travaux de réseaux humides assainissement).",
   "caracteristiques_techniques_chantier": {
-    "description": "Réhabilitation de 193 regards d'assainissement eaux usées répartis sur 3 communes : remplacement complet de 60 regards DN1000 béton étanches, conversion de 15 regards mixtes en regards EP, remplacement de 100 cadres et tampons classe D400, pose d'environ 410 ml de canalisations gravitaires PVC/PP (Ø125 à Ø250), reprise de branchements EU, retrait d'amiante sur conduites Ø150/Ø200 (regards n°65, 555, 636, 726, 794), interventions en milieu confiné (certification CATEC requise), réfections de chaussée en béton bitumineux, béton désactivé, pavés ou espaces verts.",
-    "typologie_ouvrage": "Réseau d'assainissement eaux usées urbain — regards de visite enterrés, profondeurs variant de 0,6 m à 7,11 m",
-    "surface_volume": "193 regards au total (124 en lot 1 génie civil lourd, 13 en lot commun, 56 en lot 2 étanchéification seule)",
-    "site_occupe": "false — travaux en voirie publique et sur domaine privé (environ 40 regards sur propriétés privées), mais pas de site occupé au sens bâtiment",
+    "description": "Réhabilitation de 193 regards d'assainissement (eaux usées) répartis sur 3 communes : remplacement complet de 60 regards DN1000, conversion de 15 regards mixtes en EP, remplacement de 100 cadres et tampons, étanchéification de viroles et cunettes, pose d'environ 420 ml de canalisations gravitaires (PP SN12 et PVC CR8 Ø200/250), pose de branchements (~125 ml), retrait d'amiante sur collecteurs et branchements (6 regards concernés), réfections de tranchées en béton bitumineux ou béton désactivé, remises en état (pavés, espaces verts). Période de préparation 1 mois, délai global 11 mois.",
+    "typologie_ouvrage": "Réseaux d'assainissement enterrés (regards de visite et canalisations gravitaires EU) en milieu urbain/semi-rural",
+    "surface_volume": "193 regards répartis sur 3 communes ; ~420 ml de canalisations principales et ~125 ml de branchements",
+    "site_occupe": "true — interventions en voirie ouverte à la circulation, domaine privé (nombreux regards en propriété privée), coordinations avec riverains et avec le marché TST de réhabilitation par l'intérieur",
     "corps_etat": [
-      "VRD / réseaux humides assainissement",
-      "Terrassement et fouilles en tranchée",
-      "Maçonnerie / génie civil souterrain",
-      "Réfection de chaussée (enrobés bitumineux, béton désactivé, pavés)",
-      "Désamiantage sous-section 4",
-      "Levés topographiques et récolement SIG"
+      "Assainissement (réseaux gravitaires EU)",
+      "Génie civil (terrassements, fouilles, remblais, regards béton préfabriqués)",
+      "Voirie (réfection enrobés BB, béton désactivé, pavés)",
+      "Amiante (sous-section 4 — retrait sur conduites et regards)",
+      "Topographie / géomètre (levés de récolement SIG CCG)"
     ],
     "contraintes_specifiques": [
-      "Interventions en présence d'amiante (conduites Ø150/Ø200) — sous-section 4, personnel habilité obligatoire",
-      "Interventions en milieu confiné (regards en service) — certification CATEC exigée",
-      "Coordination avec le marché de réhabilitation sans tranchée attribué à TST (13 regards communs)",
-      "Nombreuses interventions sur domaine privé (~40 regards) avec constat d'huissier obligatoire",
-      "Regards inaccessibles sous végétation ou enrobés nécessitant investigations préalables par le MOA",
-      "Travaux en milieu urbain, opérations ponctuelles dispersées sur 3 communes, organisation logistique complexe",
-      "Profondeurs importantes : plusieurs regards > 4 m, un regard à 7,11 m",
-      "Forte densité de réseaux enterrés existants — DICT et piquetage spécial obligatoires",
-      "Démarrage prévu octobre 2026, délai global d'exécution 11 mois incluant période de préparation d'1 mois",
-      "Plans de récolement en coordonnées Lambert 93 CC46 / NGF IGN69 RAF20 au format DWG + SHP selon cahier des charges SIG de la CCG"
+      "Interventions ponctuelles multi-sites (193 regards dispersés sur 3 communes)",
+      "Coordination obligatoire avec le marché TST (réhabilitation par l'intérieur sur 13 regards communs)",
+      "Interventions sur domaine privé pour environ 40 regards (accord propriétaires, constat huissier)",
+      "Présence d'amiante sur collecteurs et branchements (sous-section 4, personnel habilité CATEC)",
+      "Travaux en voirie (signalisation, maintien circulation, plans de déviation)",
+      "Investigations complémentaires à réaliser par le MOA avant travaux sur 8 regards (n°6, 301, 522, 537, 608, 749, 864, 961)",
+      "Regards sous enrobé, sous végétation ou inaccessibles (localisation préalable nécessaire)",
+      "Espèces exotiques envahissantes à gérer (renouée du Japon, etc.)",
+      "Présence de nombreux réseaux enterrés existants (AIPR obligatoire)",
+      "Démarrage prévu novembre 2026, délai max 11 mois (hors reconduction)"
     ]
   },
   "allotissement": {
-    "description": "Marché unique sans allotissement, sans tranche ni bon de commande",
+    "description": "Marché unique sans allotissement. La fourniture et l'installation nécessitent d'être réalisées par le même prestataire pour des motifs techniques et de cohérence (article R.2113-2 CCP).",
     "nb_lots": 1,
     "lots_detailles": [
       {
         "numero": 1,
-        "intitule": "Travaux de réhabilitation des regards d'assainissement — marché unique",
-        "corps_etat": "VRD / réseaux humides assainissement (génie civil)",
+        "intitule": "Travaux de réhabilitation des regards d'assainissement — communes d'Archamps, Bossey et Collonges-sous-Salève",
+        "corps_etat": "Assainissement / réseaux humides / génie civil VRD",
         "montant_estime": null,
-        "description": "Ensemble des travaux de génie civil de réhabilitation des regards d'assainissement sur les communes d'Archamps, Bossey et Collonges-sous-Salève : terrassements, remplacement de regards DN1000, pose de canalisations EU, conversion de regards mixtes, remplacement cadres et tampons, réfections de chaussée, désamiantage, récolement SIG"
+        "description": "Ensemble des travaux de réhabilitation des regards EU : remplacement de regards DN1000, cadres et tampons, étanchéification, conversion regards mixtes, pose de canalisations, retrait amiante, réfections de tranchées, levés topographiques SIG."
       }
     ]
   },
   "qualifications_requises": {
-    "description": "Le RC ne liste pas de qualifications Qualibat spécifiques mais exige des capacités techniques et des certifications réglementaires pour les travaux en présence d'amiante et en milieu confiné",
+    "description": "Le RC n'exige pas explicitement de qualification Qualibat, RGE ou ISO. Il demande des références de travaux similaires sur les 5 dernières années, une déclaration de moyens techniques, et une attestation d'assurance. Le CCTP impose une habilitation AIPR pour les encadrants/opérateurs et une certification CATEC pour le personnel intervenant dans les regards (milieu confiné), ainsi qu'une habilitation sous-section 4 pour les travaux en présence d'amiante.",
     "qualibat": [],
     "rge": false,
     "rge_specialites": [],
@@ -56,255 +55,471 @@
     "iso_45001": false,
     "opqibi": null,
     "autres_certifications": [
-      "Habilitation sous-section 4 (travaux en présence d'amiante) — personnel intervenant — obligatoire",
-      "Certification CATEC (travail en espace confiné) — obligatoire pour les interventions à l'intérieur des regards en service",
-      "Habilitation AIPR (Autorisation d'Intervention à Proximité des Réseaux) — obligatoire pour encadrants et opérateurs"
+      "AIPR (Autorisation d'Intervention à Proximité des Réseaux) — encadrants et opérateurs",
+      "CATEC (Certificat d'Aptitude au Travail en Espaces Confinés) — personnel intervenant dans les regards",
+      "Habilitation sous-section 4 (travaux en présence d'amiante) — personnel concerné"
     ]
   },
+  "caracteristiques_mission_moe": {
+    "typologie": null,
+    "phases_couvertes": [],
+    "typologie_ouvrage": null,
+    "montant_travaux_estime": null,
+    "complexite_technique": null,
+    "livrables_par_phase": [],
+    "taux_remuneration_moe_pct": null,
+    "indices_revision": [],
+    "coordinations_associees": [],
+    "organigramme_attendu": [],
+    "bim_niveau": null
+  },
+  "qualifications_moe": {
+    "opqibi": [],
+    "opqcm": [],
+    "bim": null,
+    "autres": []
+  },
   "bareme_notation": {
-    "valeur_technique_pct": 55,
+    "valeur_technique_pct": 60,
     "valeur_prix_pct": 40,
     "sous_criteres_techniques": [
       {
-        "libelle": "Mode opératoire et solutions aux difficultés techniques, spécifiques au chantier, gestion administrative",
-        "ponderation_pct": 30,
-        "description": "Ce sous-critère évalue la qualité du mode opératoire proposé par le candidat pour répondre aux difficultés techniques spécifiques du chantier (amiante, milieu confiné, domaine privé, regards profonds, opérations ponctuelles dispersées) ainsi que la gestion administrative du chantier.",
-        "elements_attendus": [
-          "Mode opératoire détaillé pour les interventions en présence d'amiante (sous-section 4) avec identification du personnel habilité",
-          "Procédure d'intervention en milieu confiné avec mention de la certification CATEC des intervenants",
-          "Méthodologie d'intervention sur domaine privé (coordination propriétaires, constat d'huissier)",
-          "Solutions proposées pour les regards profonds (> 4 m) et les regards sous végétation ou enrobés",
-          "Organisation logistique pour les opérations ponctuelles dispersées sur 3 communes",
-          "Procédure de gestion des DICT et du piquetage spécial des réseaux existants"
-        ],
-        "exemple_reponse_forte": "Notre mémoire technique présente pour chaque type d'opération (remplacement regard, étanchéification, conversion mixte, retrait amiante) une fiche mode opératoire spécifique. Pour les 5 regards avec retrait d'amiante, notre chef de chantier certifié SS4 supervisera les opérations avec port d'EPI adaptés et évacuation en benne dédiée. L'organisation en équipes mobiles de 3 personnes, chacune équipée d'un camion-grue, permettra de traiter 2 à 3 regards par jour selon leur complexité.",
+        "libelle": "Valeur technique",
+        "ponderation_pct": 55,
+        "description": "Critère évalué à partir du mémoire technique ou de la note méthodologique. Le RC décompose la valeur technique en 5 sous-critères portant sur le mode opératoire, le planning, les moyens, la gêne chantier et les fournitures.",
+        "elements_attendus": [],
+        "exemple_reponse_forte": null,
         "source": "RC §6.2",
-        "sous_criteres": []
+        "unite_evaluation": "points",
+        "sous_criteres": [
+          {
+            "libelle": "Mode opératoire et solutions aux difficultés techniques, spécifiques au chantier, gestion administrative",
+            "ponderation_pct": 30,
+            "description": "L'acheteur évalue la capacité du candidat à identifier et résoudre les difficultés propres au chantier (interventions ponctuelles multi-sites, domaine privé, amiante, milieu confiné, réseaux existants) et à assurer la gestion administrative du marché.",
+            "elements_attendus": [
+              "Description du mode opératoire pour chaque type de prestation (remplacement regard, étanchéification, conversion mixte, retrait amiante)",
+              "Solutions proposées pour les cas particuliers : regards inaccessibles, sous enrobé, sous végétation, en domaine privé",
+              "Organisation administrative : suivi du tableau d'avancement partagé, journal de chantier, DICT, PAQ",
+              "Procédures spécifiques amiante (sous-section 4) et CATEC (espaces confinés)",
+              "Gestion des effluents pendant travaux (pompage, maintien du réseau en service)"
+            ],
+            "exemple_reponse_forte": "Pour les regards en domaine privé (ex. regards 435, 438, 439 — Chemin des Cortets), l'entreprise prévoit un constat d'huissier préalable, la prise de contact avec les propriétaires via coordonnées transmises par le MOA, et un accès en petits engins avec protection des clôtures. Pour les 6 regards comportant de l'amiante (n°65, 555, 636, 794, 779, 365), un sous-traitant certifié SS4 interviendra selon un mode opératoire dédié remis au MOE avant démarrage.",
+            "source": "RC §6.2 (Sous-Critère 1)",
+            "unite_evaluation": "points",
+            "sous_criteres": []
+          },
+          {
+            "libelle": "Organisation du planning, phasage, interactions avec le marché réhabilitation sans tranchée, communication avec le maître d'ouvrage et le maître d'œuvre",
+            "ponderation_pct": 25,
+            "description": "L'acheteur évalue la cohérence du planning proposé, la prise en compte du phasage (priorité aux regards verts communs aux 2 marchés), la coordination avec l'entreprise TST (marché réhabilitation par l'intérieur) et la qualité des modalités de communication avec le MOA/MOE.",
+            "elements_attendus": [
+              "Planning semaine par semaine sur 11 mois couvrant préparation (octobre 2026) et travaux (novembre 2026 – août 2027)",
+              "Identification explicite des 13 regards communs aux 2 marchés (étiquettes vertes) et planification en priorité",
+              "Modalités de coordination avec TST (réunions de calage, séquençage des interventions sur regards partagés)",
+              "Fréquence et format des comptes-rendus au MOA/MOE, mise à jour du tableau de suivi partagé",
+              "Gestion des regards nécessitant investigations préalables du MOA (n°6, 301, 522, 537, 608, 749, 864, 961)"
+            ],
+            "exemple_reponse_forte": "Le planning distingue 3 phases : préparation (octobre 2026 : études exécution, DICT, constat huissier, PAQ), travaux sur regards prioritaires (communs aux 2 marchés, novembre-décembre 2026), puis travaux sur regards uniquement GC (janvier-août 2027). Une réunion de coordination bimensuelle avec TST est prévue pour séquencer les 13 regards partagés. Le tableau de suivi partagé (Excel CCG) est mis à jour chaque vendredi.",
+            "source": "RC §6.2 (Sous-Critère 2)",
+            "unite_evaluation": "points",
+            "sous_criteres": []
+          },
+          {
+            "libelle": "Moyens humains et matériels mis en œuvre, sous-traitants",
+            "ponderation_pct": 15,
+            "description": "L'acheteur évalue l'adéquation des moyens humains (qualifications, effectifs, encadrement) et matériels (engins de terrassement, matériel de pompage, atelier soudure PVC) ainsi que la liste et les capacités des sous-traitants envisagés (amiante notamment).",
+            "elements_attendus": [
+              "Organigramme chantier avec fonctions et qualifications (AIPR, CATEC, SS4)",
+              "Liste du matériel principal (pelle, compacteur, finisseur enrobés, matériel pompage < 50 m³/h)",
+              "Sous-traitants identifiés pour amiante (certifié SS4) et topographie/géomètre (certifié)",
+              "Justification de la capacité à traiter plusieurs regards simultanément (2-3 équipes)"
+            ],
+            "exemple_reponse_forte": "L'entreprise mobilise 2 équipes travaux de 3 compagnons chacune (tous AIPR et CATEC), un chef de chantier senior (10 ans d'expérience réseaux EU), et sous-traite l'amiante à la société X certifiée SS4 et les levés topographiques au cabinet Y (certifié classe A). Le matériel comprend 2 minipelles < 2T pour accès chemins étroits et une pelle de 8T pour les regards profonds (> 4 m).",
+            "source": "RC §6.2 (Sous-Critère 3)",
+            "unite_evaluation": "points",
+            "sous_criteres": []
+          },
+          {
+            "libelle": "Limitation de la gêne occasionnée par le chantier et dispositions prises pour assurer l'hygiène et la sécurité du chantier",
+            "ponderation_pct": 15,
+            "description": "L'acheteur évalue les mesures pour limiter les nuisances aux riverains et usagers (signalisation, déviation, horaires) ainsi que les dispositions HSE (PPSPS, milieu confiné, gestion des eaux de chantier).",
+            "elements_attendus": [
+              "Plan de signalisation et de circulation pour chaque type de voirie (route départementale, chemin privé étroit)",
+              "Modalités de maintien de l'accès des riverains, secours, transports scolaires",
+              "Dispositions spécifiques pour les regards en voiries étroites ou pavées (ex. Chemin des Chênes — K24)",
+              "PPSPS adapté aux risques : milieu confiné (regards), présence amiante, co-activité TST",
+              "Gestion des boues et effluents (aires de décantation, rejet soumis à agrément MOE)"
+            ],
+            "exemple_reponse_forte": "Pour les interventions en chemins étroits (ex. Chemin des Chênes), des minipelles de classe 1T sont utilisées avec une signalisation K10 positionnée à 50 m. Les communes sont conviées à la réunion de préparation pour identifier les contraintes calendaires (ramassage scolaire, marchés). Le PPSPS intègre une fiche spécifique espaces confinés (regards > 1,30 m) et une fiche amiante (intervention SS4).",
+            "source": "RC §6.2 (Sous-Critère 4)",
+            "unite_evaluation": "points",
+            "sous_criteres": []
+          },
+          {
+            "libelle": "Indication relative aux principales fournitures, références des fournisseurs, provenance et caractéristiques des matériaux de remblaiement de réfection",
+            "ponderation_pct": 15,
+            "description": "L'acheteur évalue la qualité des fournitures proposées (regards béton NF EN 1917, tampons D400, canalisations PP SN12/PVC CR8), l'identification des fournisseurs et la provenance des matériaux de remblaiement (granulats 0/63 ou 0/31,5, béton bitumineux BB 0/10).",
+            "elements_attendus": [
+              "Fiches techniques des regards préfabriqués étanches DN1000 (certification NF EN 1917) avec fournisseur identifié",
+              "Références des tampons D400 type PAMREX ou similaire (articulés, joint continu)",
+              "Fournisseurs de canalisations PP SN12 et PVC CR8 avec certification NF",
+              "Provenance des granulats 0/63 et 0/31,5 (carrière agréée, caractéristiques Los Angeles, MDE)",
+              "Provenance des enrobés BB 0/10 (centrale autorisée < 3 km de préférence, fiche FTAE)"
+            ],
+            "exemple_reponse_forte": "Les regards sont fournis par Prefaest (NF EN 1917, certif. CERIB), les tampons D400 par Saint-Gobain PAM (PAMREX E — joint EPDM continu). Les canalisations PP SN12 proviennent de Wavin (NF EN 1852-1). Les granulats 0/63 sont issus de la carrière de Cruseilles (Savoie, Los Angeles ≤ 25, certif. CE — analyse datant de mars 2026). Les enrobés BB 0/10 sont produits par la centrale Colas de Gaillard à 8 km.",
+            "source": "RC §6.2 (Sous-Critère 5)",
+            "unite_evaluation": "points",
+            "sous_criteres": []
+          }
+        ]
       },
       {
-        "libelle": "Organisation du planning, phasage, interactions avec le marché réhabilitation sans tranchée, communication avec le maître d'ouvrage et le maître d'œuvre",
-        "ponderation_pct": 25,
-        "description": "Ce sous-critère évalue la qualité du planning proposé, la logique du phasage des interventions, la capacité à coordonner avec le marché TST (réhabilitation sans tranchée sur 13 regards communs identifiés en vert) et les modalités de communication avec la MOA (CCG) et le MOE (ATIE).",
-        "elements_attendus": [
-          "Planning détaillé semaine par semaine sur 11 mois intégrant la période de préparation d'1 mois (octobre 2026)",
-          "Identification et traitement prioritaire des 13 regards communs avec le marché TST (étiquettes vertes)",
-          "Procédure de coordination formalisée avec TST (réunions, échanges, gestion des interfaces temporelles)",
-          "Modalités de mise à jour du tableau de suivi partagé (Excel partagé hebdomadaire exigé par le CCTP)",
-          "Identification des tâches critiques conditionnant le délai global (fin novembre 2026 - août 2027)",
-          "Fréquence et format des comptes rendus au MOA et au MOE (ATIE)"
-        ],
-        "exemple_reponse_forte": "Notre planning Gantt hebdomadaire priorise les 13 regards communs avec TST dès novembre 2026, avec une réunion de coordination hebdomadaire fixe. Le tableau Excel partagé sera renseigné chaque vendredi soir avec l'avancement par regard, le DICT réalisé et l'état des accès sur domaine privé. Nous prévoyons une alerte automatique au MOE (ATIE) si un regard passe en statut 'bloqué' pour décision dans les 48h.",
-        "source": "RC §6.2",
-        "sous_criteres": []
-      },
-      {
-        "libelle": "Moyens humains et matériels mis en œuvre, sous-traitants",
-        "ponderation_pct": 15,
-        "description": "Ce sous-critère évalue les moyens humains (qualification, expérience, effectifs) et matériels (engins, outillage) affectés au chantier, ainsi que l'organisation de la sous-traitance éventuelle.",
-        "elements_attendus": [
-          "Présentation nominative des encadrants (directeur de travaux, chef de chantier, responsable topographie, responsable sécurité) avec leurs habilitations",
-          "Liste des engins et matériels affectés au chantier (pelles, camions, pompes, équipements amiante, matériel confiné CATEC)",
-          "Qualification AIPR des encadrants et opérateurs",
-          "Identification des sous-traitants potentiels (topographie, désamiantage, enrobés) avec leurs capacités",
-          "Effectif prévisionnel par phase de travaux"
-        ],
-        "exemple_reponse_forte": "L'équipe sera composée de 2 équipes de terrassement/pose (chef de chantier + 2 compagnons par équipe), 1 topographe certifié, 1 coordinateur administratif et un responsable SS4 pour les interventions amiante. Nous disposons de 2 mini-pelles Ø800 pour les espaces contraints, 1 pelle 13T, 2 camions 8x4 et du matériel de confinement SS4. La topographie sera sous-traitée à un géomètre certifié maîtrisant le SIG CCG (CC46 / IGN69).",
-        "source": "RC §6.2",
-        "sous_criteres": []
-      },
-      {
-        "libelle": "Limitation de la gêne occasionnée par le chantier et dispositions prises pour assurer l'hygiène et la sécurité du chantier",
-        "ponderation_pct": 15,
-        "description": "Ce sous-critère évalue les dispositions prises pour minimiser l'impact sur la circulation, les riverains et les services publics, ainsi que les mesures HSE (PPSPS, EPI, signalisation, gestion des effluents).",
-        "elements_attendus": [
-          "Plan de signalisation et de circulation pour chaque type de contexte (voirie départementale, chemin privé, zone urbaine)",
-          "Procédure de consultation des communes pour identifier les périodes non propices (transports scolaires, ordures ménagères, manifestations)",
-          "Dispositions pour le maintien des accès riverains et des services d'urgence",
-          "Procédure de gestion des effluents pendant les travaux (pompage, by-pass)",
-          "Détail du PPSPS avec focus sur les risques spécifiques : milieu confiné, amiante, fouilles profondes, circulation"
-        ],
-        "exemple_reponse_forte": "Notre plan de circulation prévoit 3 niveaux de signalisation selon le contexte : alternat par feux pour la RD1206, signalisation R1/R2 pour les voies communales, et neutralisation partielle pour les chemins privés. Nous consulterons systématiquement chaque mairie 15 jours avant intervention. La gestion des effluents utilisera un by-pass par tuyaux souples connectés au regard aval, avec pompage en cas de débit > 2 l/s.",
-        "source": "RC §6.2",
-        "sous_criteres": []
-      },
-      {
-        "libelle": "Indication relative aux principales fournitures, références des fournisseurs, provenance et caractéristiques des matériaux de remblaiement de réfection",
-        "ponderation_pct": 15,
-        "description": "Ce sous-critère évalue la qualité des fournitures proposées (regards béton NF EN 1917, tampons D400 PAMREX ou similaire, canalisations PP SN12/PVC SN8, matériaux de remblai) et la traçabilité des approvisionnements locaux.",
-        "elements_attendus": [
-          "Références des fournisseurs de regards béton DN1000 certifiés NF EN 1917 avec avis technique",
-          "Référence du tampon articulé étanche classe D400 proposé (PAMREX ou équivalent)",
-          "Références des fournisseurs de canalisations PP SN12 et PVC SN8 avec fiches techniques",
-          "Provenance et caractéristiques des matériaux de remblai (0/63, 0/31,5) avec analyse granulométrique < 6 mois",
-          "Provenance des enrobés BB 0/10 avec centrale d'approvisionnement et composition (compatibilité recyclage)",
-          "Matériaux recyclés : identification de la centrale de recyclage et FTAE si taux > 10%"
-        ],
-        "exemple_reponse_forte": "Les regards DN1000 seront fournis par EUROBETON (certif. NF EN 1917, avis technique CSTB n°XX) depuis leur usine de Bellegarde (74), livraison J+5. Les tampons seront de type PAMREX DN400 D400 articulés étanches (procès-verbal essais NF EN 124 joint). Les matériaux 0/63 proviendront de la carrière de la Balme (74) — analyse granulométrique datée de mars 2026 jointe. Les BB 0/10 seront produits par la centrale Eurovia de Saint-Julien-en-Genevois avec incorporation d'agrégats d'enrobés ≤ 10% (FTAE jointe).",
-        "source": "RC §6.2",
-        "sous_criteres": []
-      },
-      {
-        "libelle": "Critère environnemental — Identification de la décharge choisie, gestion des déchets, réutilisation des matériaux, prise en compte des critères environnementaux et développement durable",
+        "libelle": "Critère environnemental",
         "ponderation_pct": 5,
-        "description": "Ce critère (5/100 de la note globale) évalue les dispositions environnementales : choix de la décharge, SOGED, réutilisation des déblais, gestion des déchets dangereux (amiante), et mesures de développement durable.",
+        "description": "Évalué à partir du mémoire technique : identification de la décharge, gestion des déchets de chantier, réutilisation des matériaux et prise en compte des critères environnementaux et développement durable.",
         "elements_attendus": [
-          "Identification de la (des) décharge(s) autorisée(s) choisie(s) par l'entreprise avec leur autorisation administrative",
-          "Schéma d'organisation et de gestion des déchets (SOGED) avec tri sélectif des déblais, déchets inertes, déchets dangereux (amiante)",
-          "Proportion de matériaux de déblais réutilisés sur chantier vs évacués",
-          "Bordereau de suivi des déchets dangereux (amiante) conforme à la réglementation",
-          "Mesures contre les plantes invasives (renouée du Japon) — nettoyage engins"
+          "Identification de la décharge retenue (ISDND ou ISDD selon nature) avec agrément administratif",
+          "SOGED (Schéma d'Organisation et de Gestion des Déchets) fourni",
+          "Taux de réutilisation des matériaux de terrassement envisagé",
+          "Utilisation de matériaux recyclés (graves recyclées, agrégats d'enrobés) si applicable",
+          "Gestion des déchets amiantés (bordereau BSDA, filière agréée)"
         ],
-        "exemple_reponse_forte": "Les déblais inertes seront évacués vers la décharge de l'Espace de Valorisation de l'Ain à Bellegarde (autorisation ICPE jointe). Les déchets amiantés seront pris en charge par notre partenaire agréé avec BSD dématérialisé. Notre objectif de réemploi des matériaux de déblais est de 40% (compactables sous chaussée). Le SOGED prévoit 4 filières distinctes : inertes, enrobés recyclables, amiante dangereux, végétaux.",
-        "source": "RC §6.2",
+        "exemple_reponse_forte": "Le SOGED prévoit le tri en 3 flux : terres inertes → ISDI de Monnetier (agrément préfectoral joint), déchets amiantés → centre DELTA (ISDD agréé SS4), enrobés → centrale Colas Gaillard (recyclage 100%). Le taux de réemploi des terres est estimé à 60% (sols 1ère catégorie). Les enrobés fraisés seront incorporés à 15% dans les nouvelles couches de liaison.",
+        "source": "RC §6.2 (Critère environnemental)",
+        "unite_evaluation": "points",
         "sous_criteres": []
       }
     ],
     "prix": {
       "type_formule": "ecart_type",
-      "formule_explicite": "Note = C × (1 - ((Poffre - Pmini) / Pmoyen)) × 100 avec C = pondération du critère prix (0,40), Poffre = prix de l'offre considérée, Pmini = prix de l'offre la moins chère, Pmoyen = prix moyen des offres reçues",
+      "formule_explicite": "Note = C × (1 - ((Poffre - Pmini) / Pmoyen)) × 100 avec Poffre = prix de l'offre considérée, Pmini = prix de l'offre la moins chère, Pmoyen = prix moyen des offres reçues, C = pondération (0,40).",
+      "source": "RC §6.2",
       "elements_a_chiffrer": [
-        "Bordereau des prix unitaires (BPU) — prix unitaires pour chaque prestation (remplacement regard DN1000, remplacement cadre+tampon, étanchéification, pose de canalisations par diamètre, désamiantage, etc.)",
-        "Détail estimatif (DQE) — quantités × prix unitaires pour obtenir le montant total",
-        "Prix d'installation de chantier (forfait)",
-        "Prix pour les interventions en amiante (prix spécifiques)",
-        "Prix pour la topographie et le récolement SIG"
+        "Bordereau des Prix Unitaires (BPU) complété pour chaque prestation",
+        "Détail estimatif (DQE) avec quantités appliquées aux prix unitaires",
+        "Prix unitaires : remplacement regard DN1000 béton étanche (unité)",
+        "Prix unitaires : remplacement cadre + tampon D400 (unité, par profondeur)",
+        "Prix unitaires : étanchéification virole/cunette (unité ou forfait)",
+        "Prix unitaires : canalisations PP SN12 Ø200 (ml), PVC CR8 Ø200 (ml), Ø250 (ml)",
+        "Prix unitaires : canalisations branchements PP Ø125/160, PVC Ø125/160 (ml)",
+        "Prix unitaires : conversion regard mixte (unité)",
+        "Prix unitaires : retrait amiante conduite Ø150/Ø200 (ml ou unité)",
+        "Prix unitaires : réfections enrobés BB 0/10 (m²), béton désactivé (m²), pavés (m²)",
+        "Prix forfaitaires : installation de chantier, levés topographiques SIG, constat huissier"
       ]
     },
-    "modalite_calcul_prix": "Note = C × (1 - ((Poffre - Pmini) / Pmoyen)) × 100 — formule basée sur l'écart à la moyenne, avec C = 0,40 (pondération du critère prix). Les offres à plus de 20% au-dessus de la moyenne sont neutralisées avant recalcul de la moyenne. Les offres à plus de 20% en dessous de la nouvelle moyenne sont suspectées d'OAB."
+    "modalite_calcul_prix": "Note = 0,40 × (1 - ((Poffre - Pmini) / Pmoyen)) × 100 — formule favorisant les offres proches du moins-disant, pénalisant les offres au-dessus de la moyenne."
   },
   "montant_marche": {
     "valeur_estimee_euros": null,
-    "fourchette_min_euros": null,
-    "fourchette_max_euros": null,
-    "type": "non_communique",
-    "duree_couverte": "11 mois (période de préparation incluse)",
-    "source_extraction": null,
-    "commentaire": "Aucun montant estimatif ni fourchette n'est communiqué dans les pièces du DCE fournies (RC, CCAP, CCTP, AAPC). Le BPU et le détail estimatif sont mentionnés comme pièces du DCE mais n'ont pas été transmis dans l'analyse. À titre d'ordre de grandeur indicatif : 193 regards × coût moyen ~4 000 à 8 000 € (remplacement ou réfection) + canalisations ~250 ml × ~200 €/ml + désamiantage = estimation grossière de l'ordre de 1 à 2 M€ HT, non vérifiable sans le détail estimatif."
+    "fourchette_min_euros": 900000,
+    "fourchette_max_euros": 1400000,
+    "type": "calcule_volumes",
+    "duree_couverte": "marché unique, délai 11 mois (hors préparation)",
+    "source_extraction": "CCTP §1.5 (quantités détaillées) + listing regards (193 regards au total)",
+    "commentaire": "Aucun montant explicite dans le DCE. Estimation bottom-up : 60 regards neufs DN1000 à ~6 000-8 000 € pièce (fouille, fourniture, pose, raccordement) = 360 000-480 000 € ; 100 cadres+tampons à ~1 200-1 800 € = 120 000-180 000 € ; ~33 regards étanchéification à ~1 500-2 500 € = 50 000-82 000 € ; 15 conversions regards mixtes à ~4 000-6 000 € = 60 000-90 000 € ; 420 ml canalisations principales + 125 ml branchements à ~150-250 €/ml total = 82 000-136 000 € ; amiante (6 regards + conduites) ~30 000-60 000 € ; réfections tranchées + divers ~150 000-250 000 €. Total central ~1 100 000 €. Fourchette min/max en faisant varier le coût unitaire moyen (dimension la plus incertaine), quantités fixées au CCTP."
+  },
+  "montant_3_voies": {
+    "voie_1_eur": null,
+    "voie_1_source": null,
+    "voie_2_disponible": true,
+    "voie_2_min_eur": 900000,
+    "voie_2_max_eur": 1400000,
+    "voie_2_hypotheses": [
+      {
+        "hypothese": "60 regards neufs DN1000 (fourniture + pose + raccordement + réfection) — source CCTP §1.5",
+        "valeur": "60 unités"
+      },
+      {
+        "hypothese": "100 remplacements cadre + tampon D400 mise à cote — source CCTP §1.5",
+        "valeur": "100 unités"
+      },
+      {
+        "hypothese": "~33 regards étanchéification seule (lots 2 uniquement) — source listing Rehab_ABC",
+        "valeur": "~33 unités"
+      },
+      {
+        "hypothese": "15 conversions regards mixtes EP — source CCTP §1.5",
+        "valeur": "15 unités"
+      },
+      {
+        "hypothese": "420 ml canalisations principales PP/PVC + 125 ml branchements — source CCTP §1.5",
+        "valeur": "545 ml"
+      },
+      {
+        "hypothese": "Coût unitaire moyen regards neufs varié entre 6 000 et 8 000 €/u (dimension la plus incertaine) ; quantités fixes",
+        "valeur": "6 000 – 8 000 €/u"
+      },
+      {
+        "hypothese": "Retrait amiante sur 6 regards + conduites Ø150/200 (ss-section 4) — source CCTP §1.7",
+        "valeur": "forfait ~30 000 – 60 000 €"
+      },
+      {
+        "hypothese": "Réfections tranchées, installation chantier, topographie SIG, constat huissier — forfait global",
+        "valeur": "~150 000 – 250 000 €"
+      }
+    ],
+    "voie_2_raison_indisponible": null
+  },
+  "cout_realisation": {
+    "cout_total_eur": 780000,
+    "cout_min_eur": 640000,
+    "cout_max_eur": 980000,
+    "postes": [
+      {
+        "poste": "Main d'œuvre chantier (2 équipes × 3 compagnons × 9 mois travaux + 1 mois prépa)",
+        "detail": "~6 compagnons × 185 j × 320 €/j chargé = 355 200 €",
+        "montant_eur": 355000
+      },
+      {
+        "poste": "Encadrement chantier (chef de chantier + conducteur travaux partiel)",
+        "detail": "1 chef chantier × 220 j × 400 €/j + 0,3 ETP CT × 220 j × 550 €/j = 88 000 + 36 300 €",
+        "montant_eur": 124000
+      },
+      {
+        "poste": "Matériel / engins (location pelle, minipelle, compacteur, finisseur)",
+        "detail": "Forfait matériel 10 mois = ~70 000 €",
+        "montant_eur": 70000
+      },
+      {
+        "poste": "Fournitures (regards DN1000, tampons D400, canalisations PP/PVC, granulats, enrobés)",
+        "detail": "60 regards ~1 200 €/u mat. + 100 tampons ~400 €/u + 545 ml canalisation ~60 €/ml + granulats/enrobés ~50 000 €",
+        "montant_eur": 145000
+      },
+      {
+        "poste": "Sous-traitance amiante (SS4) + topographie/géomètre SIG",
+        "detail": "Amiante ~40 000 € + topographie ~20 000 €",
+        "montant_eur": 60000
+      },
+      {
+        "poste": "Frais généraux chantier (installation, signalisation, décharges, constat huissier, PPSPS/PAQ)",
+        "detail": "Forfait ~30 000 €",
+        "montant_eur": 30000
+      }
+    ],
+    "taux_journaliers_retenus": "Taux marché indicatifs : compagnon TP chargé 300-340 €/j ; chef chantier 380-420 €/j ; conducteur travaux 500-600 €/j. Matériaux regards béton préfabriqué DN1000 ~1 000-1 400 €/u fourniture seule. Taux indicatifs 2026, à adapter à la structure de coûts réelle de l'entreprise.",
+    "commentaire": "Estimation du coût de production (côté candidat) à taux marché. La fourchette est obtenue en faisant varier les taux journaliers de ±15% (dimension la plus incertaine), quantités et durées fixes selon CCTP. Le revenu estimé (Voie 2 : 900 000 – 1 400 000 €) doit rester supérieur au coût, laissant une marge brute de l'ordre de 25-35% si le marché est correctement chiffré."
   },
   "revision_prix": {
     "type": "indexation",
     "indices_utilises": [
       "TP10f"
     ],
-    "ponderation": "15% partie fixe + 85% index TP10f",
+    "ponderation": "15% partie fixe + 85% × TP10f (Canalisation, assainissement et adduction d'eau avec fourniture de tuyaux multi-matériaux - Base 2010)",
     "periodicite": "mensuelle",
-    "formule_revision": "A = 0,15 + 0,85 × (TP10f_n / TP10f_0) — Index TP10f 'Canalisation, assainissement et adduction d'eau avec fourniture de tuyaux multi-matériaux - Base 2010'",
+    "formule_revision": "A = 0,15 + 0,85 × (TP10f_n / TP10f_0) — mois zéro : juillet 2026",
     "source_extraction": "CCAP §3.3",
-    "commentaire": "Formule adaptée aux travaux de réseaux humides (TP10f). Révision mensuelle favorable pour les chantiers de longue durée (11 mois). Mois zéro = juillet 2026. Partie fixe à 15% protège légèrement le candidat contre les baisses d'indice."
+    "commentaire": "Formule mono-indice TP10f à révision mensuelle : protège bien le candidat en cas de hausse des matériaux TP (acier, granulats, PVC) sur ce type de chantier de réseaux, mais expose si l'indice est en retard par rapport aux prix réels des regards béton (souvent liés au béton + acier)."
   },
   "alertes_prix": [
-    "Seuil d'offre anormalement basse annoncé explicitement : toute offre à plus de 20% en dessous de la moyenne des offres (après exclusion des offres à plus de 20% au-dessus) sera suspectée d'OAB — procédure de justification obligatoire sous peine d'élimination (RC §6.2)",
-    "Formule de notation prix pénalise doublement les offres chères : l'écart est calculé par rapport à la moyenne (pas au moins-disant seul), ce qui favorise un positionnement proche de la moyenne plutôt qu'une surenchère d'optimisation",
-    "Le BPU prévaut sur toutes autres indications en cas de discordance — erreur de multiplication dans le détail estimatif rectifiée par le MOA pour le classement (RC §6.2)",
-    "Pondération prix à 40% relativement modérée : la valeur technique (55%) et l'environnemental (5%) dominent — une offre techniquement très solide peut compenser un prix légèrement supérieur à la moyenne"
+    "Formule de notation prix : Note = 0,40 × (1 - ((Poffre - Pmini) / Pmoyen)) × 100 — une offre supérieure à la moyenne peut être fortement pénalisée même si raisonnable ; optimiser l'offre vers le moins-disant est essentiel.",
+    "Seuil OAB : offres situées > 20% au-dessus de la moyenne recalculée (sans les offres anormalement hautes > 20% au-dessus de la première moyenne) sont neutralisées. Risque d'élimination en dehors de la fourchette.",
+    "Offres anormalement basses : offres < 20% en-dessous de la nouvelle moyenne déclenchent une procédure de justification — le candidat doit pouvoir défendre son prix unitaire.",
+    "Bordereau des prix unitaires : en cas de discordance, les PU prévalent sur toutes autres indications de l'offre (RC §6.2) — remplir le BPU avec soin."
   ],
   "references_exigees": {
     "experience_minimale_annees": 5,
     "experience_source": "RC §5.1.2",
     "volume_min_references_similaires": null,
-    "volume_min_references_unite": "marchés similaires (travaux de réhabilitation de réseaux d'assainissement)",
-    "secteur_experience": "Travaux de réhabilitation de regards et réseaux d'assainissement — travaux exécutés au cours des 5 dernières années, avec attestations de bonne exécution indiquant le montant, l'époque et le lieu",
+    "volume_min_references_unite": "marchés similaires (travaux de réseaux d'assainissement)",
+    "secteur_experience": "Travaux de réhabilitation ou construction de réseaux d'assainissement (regards de visite, canalisations gravitaires EU/EP), de préférence en milieu urbain et/ou avec interventions amiante.",
     "secteur_source": "RC §5.1.2",
     "certifications_obligatoires": [
       {
-        "libelle": "Habilitation sous-section 4 (travaux en présence d'amiante) — CCTP §1.14 — personnel intervenant certifié",
-        "source": "CCTP §1.14"
-      },
-      {
-        "libelle": "Certification CATEC (Certificat d'Aptitude au Travail en Espace Confiné) — CCTP §1.14 — pour le personnel intervenant et surveillant dans les regards en service",
-        "source": "CCTP §1.14"
-      },
-      {
-        "libelle": "Habilitation AIPR (Autorisation d'Intervention à Proximité des Réseaux) — CCTP §1.10 — obligatoire pour encadrants et opérateurs",
+        "libelle": "AIPR (Autorisation d'Intervention à Proximité des Réseaux) — encadrants et opérateurs",
+        "codes": [],
+        "bloquante": true,
         "source": "CCTP §1.10"
+      },
+      {
+        "libelle": "CATEC (Certificat d'Aptitude au Travail en Espaces Confinés) — personnel intervenant dans les regards",
+        "codes": [],
+        "bloquante": true,
+        "source": "CCTP §1.14"
+      },
+      {
+        "libelle": "Habilitation sous-section 4 (travaux en présence d'amiante — article R.4412-144 Code du travail)",
+        "codes": [],
+        "bloquante": true,
+        "source": "CCTP §1.14"
       }
     ],
     "autres_exigences": [
       {
-        "libelle": "Déclaration de chiffre d'affaires global et du domaine d'activité sur les 3 derniers exercices disponibles",
+        "libelle": "Déclaration de chiffre d'affaires global et du domaine d'activité — 3 derniers exercices",
         "source": "RC §5.1.2"
       },
       {
-        "libelle": "Attestation d'assurance responsabilité civile professionnelle en cours de travaux : dommages corporels/matériels/immatériels consécutifs ≥ 4 500 000 € par sinistre (second œuvre et lots techniques) ou ≥ 7 600 000 € (gros œuvre) ; immatériels purs ≥ 1 500 000 € / 3 000 000 €",
-        "source": "CCAP §11.4.1"
+        "libelle": "Attestation d'assurance responsabilité civile professionnelle (en cours de travaux et après travaux)",
+        "source": "RC §5.1.2 et CCAP §11.4"
       },
       {
-        "libelle": "Responsabilité civile professionnelle après travaux ≥ 3 000 000 € par année d'assurance",
-        "source": "CCAP §11.4.1"
+        "libelle": "Déclaration des moyens techniques (outillage, matériel, équipement) pour marchés de même nature",
+        "source": "RC §5.1.2"
       },
       {
-        "libelle": "Liste des moyens techniques (outillage, matériel, équipement) dont le candidat dispose pour des marchés de même nature",
+        "libelle": "Liste des travaux similaires des 5 dernières années avec attestations de bonne exécution (montant, époque, lieu)",
         "source": "RC §5.1.2"
       }
     ]
   },
+  "dossier_candidature": {
+    "pieces_a_fournir": [
+      {
+        "libelle": "Lettre de candidature — formulaire DC1 ou équivalent (habilitation mandataire / cotraitants)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §5.1.1"
+      },
+      {
+        "libelle": "Déclaration du candidat individuel ou du membre du groupement — formulaire DC2 ou équivalent",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §5.1.1"
+      },
+      {
+        "libelle": "Déclaration sur l'honneur (non-exclusion articles L.2141-1 à L.2141-11 CCP)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §5.1.1"
+      },
+      {
+        "libelle": "Copie du ou des jugements de redressement judiciaire (si applicable)",
+        "phase": "candidature",
+        "obligatoire": false,
+        "source": "RC §5.1.1"
+      },
+      {
+        "libelle": "Déclaration de chiffre d'affaires global et du domaine d'activité (3 derniers exercices)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §5.1.2"
+      },
+      {
+        "libelle": "Attestation d'assurance pour les risques professionnels (déclaration bancaire ou preuve)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §5.1.2"
+      },
+      {
+        "libelle": "Déclaration des moyens techniques (outillage, matériel, équipement technique)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §5.1.2"
+      },
+      {
+        "libelle": "Liste des travaux similaires des 5 dernières années avec attestations de bonne exécution",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §5.1.2"
+      },
+      {
+        "libelle": "Acte d'engagement (AE) complété",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §5.2"
+      },
+      {
+        "libelle": "Bordereau des Prix Unitaires (BPU) complété",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §5.2"
+      },
+      {
+        "libelle": "Détail estimatif (DQE) complété",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §5.2"
+      },
+      {
+        "libelle": "Note méthodologique ou mémoire technique (OBLIGATOIRE sous peine d'irrégularité de l'offre)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §5.2"
+      }
+    ],
+    "mode_remise": "dématérialisé + copie de sauvegarde",
+    "plateforme_depot": "http://www.collectivitesdugenevois74.net",
+    "signature_electronique_exigee": false,
+    "format_signature": null,
+    "nombre_exemplaires": null,
+    "langue": "français",
+    "duree_validite_offres_jours": 120,
+    "modalites_source": "RC §7"
+  },
   "lots": [
     {
       "numero": 1,
-      "intitule": "Travaux de réhabilitation des regards d'assainissement — marché unique sur les communes d'Archamps, Bossey et Collonges-sous-Salève",
-      "zone_geographique": "Haute-Savoie (74) — communes d'Archamps, Bossey et Collonges-sous-Salève",
+      "intitule": "Travaux de réhabilitation des regards d'assainissement — Archamps, Bossey, Collonges-sous-Salève",
+      "domaine": "btp_reseaux_divers",
+      "zone_geographique": "Communes d'Archamps, Bossey et Collonges-sous-Salève (74)",
       "volume_estime": 193,
-      "volume_estime_unite": "regards à réhabiliter",
-      "particularites": "Marché unique sans allotissement. 124 regards en génie civil lourd (remplacement complet), 56 regards en étanchéification/tampon seul, 13 regards en intervention commune avec le marché TST. Interventions en présence d'amiante (5 regards), en milieu confiné, sur domaine privé (~40 regards). Coordination obligatoire avec le marché de réhabilitation sans tranchée (TST). Démarrage prévu novembre 2026, durée 11 mois."
+      "volume_estime_unite": "regards",
+      "cout_estime_min_eur": 640000,
+      "cout_estime_max_eur": 980000,
+      "particularites": "Marché unique sans allotissement. Comprend retrait amiante (SS4), travaux en domaine privé, coordination avec marché TST (réhabilitation par l'intérieur), et fourniture des données de récolement SIG au format CCG (DWG, PDF, SHP)."
     }
   ],
+  "tranches": [],
   "calendrier": {
     "date_limite_offres": "2026-07-15",
     "date_demarrage_prevue": "2026-10-05",
-    "duree_marche": "11 mois incluant 1 mois de période de préparation (octobre 2026) — démarrage travaux novembre 2026"
+    "duree_marche": "11 mois (dont 1 mois de préparation — octobre 2026 — et exécution travaux novembre 2026 à environ août 2027)"
   },
   "alertes_candidat": [
-    "Certification CATEC (travail en espace confiné) OBLIGATOIRE pour tout le personnel intervenant et surveillant à l'intérieur des regards en service — son absence doit être considérée comme disqualifiante (CCTP §1.14)",
-    "Habilitation sous-section 4 amiante OBLIGATOIRE pour les regards n°65, 555, 636, 726, 794 (conduites Ø150/Ø200 en amiante-ciment) — le mémoire technique doit confirmer explicitement l'habilitation du personnel et le mode opératoire SS4 (CCTP §1.14)",
-    "Mémoire technique (note méthodologique) OBLIGATOIRE sous peine d'IRRÉGULARITÉ DE L'OFFRE — son absence entraîne l'élimination automatique (RC §5.2 et §6.2)",
-    "Coordination avec le marché TST (réhabilitation sans tranchée) critique : les 13 regards en vert doivent être réalisés en priorité et en coordination — toute défaillance sur ce point est pénalisante techniquement et peut créer des désordres contractuels (CCTP §2.3)",
-    "Constat d'huissier OBLIGATOIRE avant travaux pour les 60 regards nécessitant terrassement et pour tous les regards sur domaine privé (~40 regards) — coût et délai à intégrer dans le planning et le prix (CCTP §1.13)",
-    "Habilitation AIPR obligatoire pour encadrants et opérateurs — son absence sur le chantier peut entraîner l'arrêt des travaux (CCTP §1.10)"
+    "CATEC obligatoire : tout le personnel intervenant dans les regards doit être certifié CATEC (espaces confinés) — vérifier que l'ensemble des opérateurs est certifié avant dépôt (CCTP §1.14).",
+    "Habilitation sous-section 4 amiante obligatoire : 6 regards avec retrait d'amiante identifié (conduites Ø150/Ø200 et encombrant) nécessitent un sous-traitant ou du personnel habilité SS4 — à mentionner impérativement dans le mémoire technique.",
+    "Mémoire technique OBLIGATOIRE sous peine d'irrégularité : son absence entraîne le rejet de l'offre (RC §5.2 et §6.2).",
+    "Constat d'huissier préalable : obligatoire pour les 60 regards nécessitant terrassement et pour tous les regards en domaine privé — coût à intégrer dans l'offre (CCTP §1.13).",
+    "Regards sur domaine privé (environ 40 unités) : l'entreprise doit prendre ses dispositions auprès des propriétaires — les coordonnées sont transmises par le MOA/MOE mais des refus ou retards sont possibles (risque de planning).",
+    "AIPR obligatoire pour tous les encadrants et opérateurs intervenant à proximité des réseaux existants (CCTP §1.10)."
   ],
   "points_differenciants_attendus": [
     {
-      "libelle": "Expérience prouvée en réhabilitation de regards avec amiante (sous-section 4) et en milieu confiné (CATEC)",
-      "exemple": "Présenter 2-3 références de chantiers similaires avec interventions SS4 et CATEC sur réseaux EU urbains, avec attestations de bonne exécution mentionnant le nombre de regards traités. Joindre les habilitations nominatives du personnel affecté au chantier.",
+      "libelle": "Maîtrise des interventions en milieu confiné et en présence d'amiante",
+      "exemple": "Présenter les habilitations SS4 de l'entreprise ou du sous-traitant dédié, décrire le mode opératoire amiante (plan de retrait, BSF, déchets ISDD), et indiquer que le personnel est certifié CATEC avec attestation récente — cela sécurise directement le sous-critère 1 (mode opératoire) et les alertes éliminatoires.",
       "source": "CCTP §1.14"
     },
     {
-      "libelle": "Organisation logistique démontrée pour les opérations ponctuelles dispersées sur 3 communes",
-      "exemple": "Proposer une organisation en équipes mobiles avec tournée journalière planifiée (ex : 2-3 regards/jour/équipe selon complexité), avec un tableau de bord partagé mis à jour quotidiennement et des procédures d'alerte rapide pour les regards bloqués ou non conformes.",
-      "source": "CCTP §2.2"
+      "libelle": "Coordination proactive avec le marché TST (réhabilitation par l'intérieur)",
+      "exemple": "Proposer un protocole de coordination détaillé avec TST pour les 13 regards communs (réunions de calage, accès séquencé regard par regard, tableau de suivi partagé), ce qui démontre la compréhension du chantier et valorise le sous-critère 2 (planning/interactions).",
+      "source": "CCTP §1.1 et RC §6.2 (Sous-Critère 2)"
     },
     {
-      "libelle": "Capacité de coordination avec le marché TST (réhabilitation sans tranchée) formalisée dans le mémoire",
-      "exemple": "Proposer un protocole de coordination formalisé avec TST : réunion hebdomadaire, document de suivi partagé, séquençage précis des 13 regards communs (génie civil d'abord, puis réhabilitation intérieure TST), avec planning interfacé.",
-      "source": "RC §6.2 — Sous-critère 2"
+      "libelle": "Organisation multi-équipes adaptée aux interventions ponctuelles dispersées",
+      "exemple": "Démontrer la capacité à mobiliser 2-3 équipes légères simultanément (minipelles, faible emprise) sur des sites différents, avec un chef de chantier coordinateur dédié — répond directement aux difficultés du marché (193 regards dispersés sur 3 communes) et valorise le sous-critère 3 (moyens).",
+      "source": "CCTP §1.5 (difficultés principales)"
     },
     {
-      "libelle": "Connaissance du territoire et des fournisseurs locaux en Haute-Savoie (carrières, centrales enrobés, décharges)",
-      "exemple": "Identifier précisément la carrière d'approvisionnement 0/63 (avec analyse < 6 mois), la centrale d'enrobés BB 0/10, et la décharge autorisée ISDI/ISDND pour les déblais inertes — tous dans un rayon de 30 km du chantier pour réduire les coûts de transport et les délais.",
-      "source": "RC §6.2 — Sous-critère 5"
+      "libelle": "Maîtrise de la chaîne d'approvisionnement locale (regards béton, granulats, enrobés)",
+      "exemple": "Citer des fournisseurs locaux certifiés (ex. carrières et centrales en Haute-Savoie avec analyses granulométriques récentes < 6 mois) et des regards NF EN 1917 avec fiches de contrôle CERIB — valorise le sous-critère 5 (fournitures) qui porte 15% de la valeur technique.",
+      "source": "RC §6.2 (Sous-Critère 5) et CCTP §3.1"
     },
     {
-      "libelle": "Maîtrise du cahier des charges SIG de la CCG pour le récolement (Lambert 93 CC46, format DWG + SHP)",
-      "exemple": "Mentionner l'expérience de récolement SIG conforme aux exigences CCG (version 9 mars 2023) avec un géomètre partenaire connaissant le référentiel RGF93-CC46 / NGF-IGN69-RAF20, et proposer des livrables intermédiaires au fil du chantier (plan provisoire après chaque secteur terminé).",
-      "source": "CCTP §2.7 et cctp_sig_rh_v9"
+      "libelle": "Remise des plans de récolement SIG conformes au cahier des charges CCG (RGF93-CC46, format SHP + DWG)",
+      "exemple": "Indiquer que le géomètre sous-traitant connaît le cahier des charges de numérisation CCG (version 9 — mars 2023), utilisera le gabrit SIG fourni, et remettra les plans au fur et à mesure de l'avancement — rassure le MOA sur la qualité du DOE et la réintégration dans le SIG communautaire.",
+      "source": "CCTP §2.7 et annexe cctp_sig_rh_v9_1"
     }
   ],
   "_meta": {
     "id_marche": "BOAMP-26-56941",
     "type": "complet",
-    "date_generation": "2026-06-14T23:35:57.634853+00:00",
-    "extraction_le": "2026-06-14T23:35:57.634853+00:00",
+    "date_generation": "2026-06-20T00:19:46.362873+00:00",
+    "extraction_le": "2026-06-20T00:19:46.362873+00:00",
     "modele": "claude-sonnet-4-6",
     "preset_utilise": "btp",
     "presets_matches": [
-      "btp"
+      "btp",
+      "ingenierie"
     ],
     "prompts_versions": {
-      "btp/_preset.json": "sha256:d1717e0d87f6c265"
+      "btp/_preset.json": "sha256:055bf6f8b2c1f771",
+      "ingenierie/_preset.json": "sha256:b924b32a088673d6"
     },
-    "tokens_input": 152171,
-    "tokens_output": 8351,
-    "cout_eur": 0.5527,
-    "duree_sec": 163.7,
+    "tokens_input": 161458,
+    "tokens_output": 11251,
+    "cout_eur": 0.6205,
+    "duree_sec": 213.4,
     "pdfs_traites": [
       {
         "nom": "25-0301_DCE_Liste regards_V1.xlsx",

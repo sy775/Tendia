@@ -1,6 +1,6 @@
 # Brief — Maintenance des portes, portails, barrières, grilles automatiques et semi-automatiques pour le groupement régional constitué par les Cpam, un CES et d
 
-_Généré le 2026-06-15 20:45 par Claude claude-sonnet-4-6_
+_Généré le 2026-06-19 22:07 par Claude claude-sonnet-4-6_
 
 ## Identifiants
 - **ID Tendia** : `BOAMP-26-56547`
@@ -10,13 +10,13 @@ _Généré le 2026-06-15 20:45 par Claude claude-sonnet-4-6_
 - **DCE PLACE** : <https://www.marches-publics.gouv.fr/entreprise/consultation/3014934?orgAcronyme=s7h>
 
 ## Synthèse
-Marché de maintenance préventive et corrective des portes, portails, barrières, grilles automatiques et semi-automatiques pour un groupement régional de CPAM, CES et UIOSS de Bourgogne Franche-Comté. Le marché est structuré en 2 lots géographiques couvrant 7 départements, sous forme d'accords-cadres à bons de commande d'une durée maximale de 4 ans. Les prestations comprennent 2 visites préventives annuelles par équipement et des interventions correctives avec des délais contractuels stricts (4h urgents, 24h non urgents).
+Marché de services de maintenance préventive et corrective des portes, portails, barrières, grilles automatiques et semi-automatiques pour un groupement de 9 organismes de Sécurité Sociale de Bourgogne Franche-Comté (CPAM, CES, UIOSS). Le marché est structuré en 2 lots géographiques (Côte d'Or/Nièvre/Saône-et-Loire/Yonne pour le lot 1 ; Doubs/Jura/Haute-Saône pour le lot 2), chacun sous forme d'accord-cadre mono-attributaire à bons de commande, d'une durée de 4 ans maximum. Les montants maximaux sont de 270 000 € HT (lot 1) et 210 000 € HT (lot 2) sur toute la durée.
 
 ## 💶 Montant du marché
 - **Valeur estimée** : **215 000 €**
-  - sur Durée totale du marché (4 ans maximum, 1 an ferme + 3 reconductions)
-  - _source : RC article 3, CCAP article 1.4_
-- _Note_ : Montant estimatif total : 125 000 € HT (lot 1) + 90 000 € HT (lot 2) = 215 000 € HT sur 4 ans. Plafond maximum : 270 000 € HT (lot 1) + 210 000 € HT (lot 2) = 480 000 € HT sur la durée totale. Les montants estimatifs sont non contractuels.
+  - sur Durée totale du marché (4 ans maximum, 2027-2030)
+  - _source : RC article 3 et CCAP article 1.4_
+- _Note_ : Montants maximaux d'accord-cadre : 270 000 € HT lot 1 + 210 000 € HT lot 2 = 480 000 € HT (plafond total sur 4 ans). Montants estimatifs : 125 000 € HT lot 1 + 90 000 € HT lot 2 = 215 000 € HT sur 4 ans. La valeur estimée retenue est la valeur estimative totale (215 000 € HT).
 
 ## Barème de notation
 - **Valeur technique** : 50 %
@@ -24,38 +24,38 @@ Marché de maintenance préventive et corrective des portes, portails, barrière
 - **Sous-critères techniques** :
   - Valeur technique et méthodologique : 40 %
   - Démarche environnementale : 10 %
-- **Calcul du prix** : 50 × (Prix TTC de l'offre la moins chère / Prix TTC de l'offre du candidat). Note arrondie au centième inférieur si millième ∈ {0,1,2,3,4} et au centième supérieur si millième ∈ {5,6,7,8,9}.
+- **Calcul du prix** : 50 × (Prix TTC de l'offre la moins chère / Prix TTC de l'offre du candidat)
 
 ## Références et qualifications exigées
-- **Expérience minimale** : —
-- **Secteur d'expérience** : Maintenance de portes, portails, barrières, grilles automatiques et semi-automatiques (prestations similaires à celles demandées dans le marché)
+- **Expérience minimale** : 3 ans
+- **Secteur d'expérience** : Maintenance de portes, portails, barrières, grilles automatiques et semi-automatiques ou équipements similaires
+- **Certifications obligatoires** : Certificats de qualifications professionnelles ou preuve de compétence pour la maintenance de portes/portails/barrières automatiques (source=RC article 9.1)
 - **Autres exigences** :
-  - Présentation des principales références de prestations similaires réalisées au cours des 3 dernières années (montant, date, destinataire) — via DC2 (source=RC article 9.1)
-  - Déclaration du chiffre d'affaires global et du CA spécifique aux prestations de l'objet du marché sur les 3 derniers exercices disponibles (source=RC article 9.1)
+  - Déclaration du chiffre d'affaires global et du CA concernant les prestations objet du marché sur les 3 derniers exercices (source=RC article 9.1)
   - Déclaration des effectifs moyens annuels et du personnel d'encadrement sur les 3 dernières années (source=RC article 9.1)
-  - Certificats de qualifications professionnelles ou tout moyen de preuve équivalent attestant de la compétence à réaliser la prestation (certificats d'identité professionnelle, références attestant de la compétence) (source=RC article 9.1)
-  - Attestation de visite obligatoire signée pour chaque lot candidaté (visite à planifier avant le 24 juin 2026 à 12h00) (source=RC article 8)
+  - Attestation de visite obligatoire des sites signée (visite à planifier avant le 24/06/2026 à 12h00) (source=RC article 8)
+  - Engagement sur les clauses sociales d'insertion (annexe 3 à l'acte d'engagement) — 105h lot 1, 70h lot 2 — condition d'éligibilité : offre irrégulière si non rempli (source=RC article 4.8 et CCAP article 6.2)
 
 ## Lots
 - **Lot 1** — Maintenance des portes, portails, barrières, grilles automatiques et semi-automatiques situés dans les départements de la Côte d'Or, de la Nièvre, de la Saône-et-Loire et de l'Yonne
-  - Zone : Côte-d'Or (21), Nièvre (58), Saône-et-Loire (71), Yonne (89)
-  - Volume estimé : 125000 euros HT sur 4 ans (estimatif), plafond 270 000 € HT
-  - Couvre 6 organismes sur 11 sites : Cpam Côte-d'Or (Dijon, Beaune), Cpam Nièvre (Nevers siège, Nevers Baratte), Cpam Saône-et-Loire (Mâcon, Chalon, Le Creusot), Cpam Yonne (Foch, Paradis), Uioss Yonne (Fossy Auxerre), CES Auxerre. Dates de démarrage échelonnées selon les sites (01/01/2027 pour la majorité, certains en 2028). Environ 80+ équipements recensés. Réunion de démarrage le 23 novembre 2026 à Mâcon. Obligation d'insertion : 105 heures sur la durée totale.
+  - Zone : Côte d'Or (21), Nièvre (58), Saône-et-Loire (71), Yonne (89) — Bourgogne
+  - Volume estimé : 125000 euros HT sur 4 ans (estimatif)
+  - 11 sites concernés (Beaune, Dijon, Nevers x2, Mâcon, Chalon-sur-Saône, Le Creusot, Sens x2, Auxerre x2). Environ 80 équipements recensés (portes coulissantes, rideaux métalliques, portails, barrières, portes sectionnelles, portes basculantes). Démarrage échelonné : certains équipements démarrent le 01/01/2027, d'autres au 01/07/2027 voire 01/01/2028 ou 01/08/2028. Plafond accord-cadre : 270 000 € HT.
 - **Lot 2** — Maintenance des portes, portails, barrières, grilles automatiques et semi-automatiques situés dans les départements du Doubs, du Jura et de la Haute-Saône
-  - Zone : Doubs (25), Jura (39), Haute-Saône (70)
-  - Volume estimé : 90000 euros HT sur 4 ans (estimatif), plafond 210 000 € HT
-  - Couvre 3 organismes sur 6 sites : Uioss Doubs (Besançon, Montbéliard), Cpam Jura (Lons-le-Saunier, Dole, Champagnole), Uioss Haute-Saône (Vesoul). Plusieurs équipements sur Besançon/Montbéliard ne démarrent qu'au 01/01/2029 (engagements actuels en cours). Certains équipements anciens (1987-1997 à Vesoul, 1993 pour rideaux Javey). Réunion de démarrage le 25 novembre 2026 à Mâcon. Obligation d'insertion : 70 heures sur la durée totale.
+  - Zone : Doubs (25), Jura (39), Haute-Saône (70) — Franche-Comté
+  - Volume estimé : 90000 euros HT sur 4 ans (estimatif)
+  - 5 sites concernés (Besançon, Montbéliard, Lons-le-Saunier, Dole, Champagnole, Vesoul). Environ 45 équipements recensés. Plusieurs équipements Uioss Doubs démarrent seulement le 01/01/2029 (encore engagés avec prestataire actuel). Quelques équipements très anciens (portes basculantes Otis 1987, rideaux Javey 1993). Plafond accord-cadre : 210 000 € HT.
 
 ## ⚠ Alertes candidat
-- Visite obligatoire sur tous les sites pour chaque lot candidaté, à planifier impérativement avant le 24 juin 2026 à 12h00 — absence d'attestation de visite = offre irrégulière (RC article 8)
-- Clause sociale d'insertion obligatoire contractuelle : 105h pour le lot 1, 70h pour le lot 2 sur la durée totale du marché — une offre ne satisfaisant pas à cette condition est déclarée irrégulière (RC article 4.8, CCAP article 6.2)
-- Obligation de disposer en stock des pièces spécifiques citées au CCTP (bras moteur garage pour Montbard, barre palpeuse, batterie 12V et sandow pour Uioss Yonne) dès le démarrage du marché
-- Délais contractuels très courts sous pénalités immédiates (dès le 1er euro, sans mise en demeure) : 4h intervention urgente, 2h remise en service — nécessite une présence locale des techniciens sur chaque lot
-- Interdiction de sous-traiter la totalité du marché ; tout sous-traitant doit être déclaré et agréé — le titulaire reste responsable de l'exécution et de l'obligation d'insertion
+- VISITE OBLIGATOIRE — La visite préalable de l'ensemble des sites est obligatoire pour candidater, à planifier auprès de chaque organisme avant le 24/06/2026 à 12h00. L'attestation de visite signée est une pièce obligatoire de l'offre — son absence rend l'offre irrégulière.
+- CLAUSE SOCIALE D'INSERTION OBLIGATOIRE — Le candidat doit s'engager sur 105h d'insertion (lot 1) ou 70h (lot 2) sur la durée totale du marché. Une offre ne satisfaisant pas cette condition est déclarée irrégulière (RC article 4.8).
+- ACCORD-CADRE SANS MINIMUM — Aucune garantie de commande minimale n'est prévue. Le titulaire assume le risque de volume nul sur la maintenance corrective hors forfait. Le candidat doit dimensionner sa structure de coûts fixes en conséquence.
+- DÉMARRAGE ÉCHELONNÉ COMPLEXE — Les dates de démarrage varient par équipement (01/01/2027, 01/07/2027, 01/01/2028, 01/08/2028, 01/01/2029 pour certains équipements lot 2). Le candidat doit bien lire les annexes au CCAP et facturer uniquement sur la base des équipements effectivement pris en charge.
+- QUALIFICATIONS PROFESSIONNELLES — Le RC exige des certificats de qualifications professionnelles ou preuves de compétence sur les équipements concernés. Les candidats sans expérience documentée sur des marques multi-technologies (Record, Portalp, Came, Nice, Citec, etc.) seront pénalisés dans l'évaluation technique.
 
 ## 💡 Points différenciants attendus
-- Proposer des délais d'intervention inférieurs aux seuils contractuels maximaux (4h urgents, 24h non urgents) (exemple=Un candidat disposant de techniciens basés à proximité immédiate des sites (ex: technicien à Dijon pour la Côte-d'Or, technicien à Auxerre pour l'Yonne) peut proposer des délais garantis de 2h pour les urgences, valorisant fortement le sous-critère délais (15 points)., source=RC article 12.3, CCTP articles 2.3 et 3.3)
-- Sectorisation géographique fine des techniciens pour couvrir tous les départements du lot sans temps de trajet excessif (exemple=Présenter une carte de sectorisation avec un technicien dédié par zone (ex: nord Bourgogne / sud Bourgogne pour le lot 1) et indiquer les temps de trajet moyens vers chaque site renforce la crédibilité de l'organisation et marque positivement le sous-critère organisation/moyens humains (15 points)., source=RC article 12.3)
-- Flotte de véhicules à faible émission (électriques, hybrides, Crit'Air 1) avec indicateurs de suivi GES (exemple=Un candidat dont plus de 50% de sa flotte est électrique ou hybride, avec engagement contractuel d'atteindre 80% avant 2028 et reporting GES annuel, score significativement mieux sur le sous-critère environnemental déplacements (4 points) par rapport à un concurrent avec flotte diesel standard., source=RC article 12.3, CCTP article 7)
-- Stock de pièces spécifiques identifiées dans le CCTP prêt dès le démarrage du marché (exemple=Mentionner explicitement la présence en stock des pièces listées par le CCTP (bras moteur Montbard, barre palpeuse/batterie 12V/sandow Uioss Yonne) rassure l'acheteur sur la capacité à tenir le délai de 72h pour les réparations définitives et différencie sur le sous-critère gestion stocks (10 points)., source=CCTP article 2.3)
-- Outil numérique de suivi et de traçabilité des interventions mis à disposition des organismes (exemple=Proposer un accès en ligne (extranet ou GMAO) permettant à chaque organisme de consulter l'historique des interventions, les rapports et les plannings constitue un argument fort sur le sous-critère organisation/pilotage, notamment au regard de l'exigence de traçabilité du CCTP., source=CCTP articles 4.3, 4.4, 8.2)
+- Délais d'intervention inférieurs aux maxima contractuels (4h urgence, 24h non urgente) (exemple=Un candidat proposant une intervention urgente garantie en 2h et non urgente en 8h, grâce à des techniciens dédiés par zone BFC, scorera significativement mieux sur le sous-critère 1 (15 pts) qu'un candidat proposant exactement les délais contractuels., source=RC article 12.3 sous-critère 1 ; CCTP articles 2.3 et 3.3)
+- Présence de techniciens déjà implantés en Bourgogne Franche-Comté (exemple=Un candidat avec une agence ou des techniciens basés à Dijon/Mâcon (lot 1) ou Besançon/Lons-le-Saunier (lot 2) justifiera de délais crédibles et réduira ses coûts de déplacement, renforçant simultanément sa compétitivité prix et son score technique.)
+- Stock de pièces spécifiques aux équipements recensés dans le CCTP (exemple=Le CCTP liste explicitement des pièces à avoir en stock (bras moteur garage Montbard, barre palpeuse Uioss Yonne, batterie 12V, sandow). Un candidat confirmant disposer de ces pièces spécifiques + une gamme étendue couvrant les marques présentes (Record, Portalp, Came, Nice, Citec, Tormax, Dormakaba…) se différenciera nettement sur le sous-critère 3 (10 pts)., source=CCTP article 2.3, section gestion des pièces détachées)
+- Parc automobile avec véhicules à faible émission (électrique, hybride, Crit'Air 1) (exemple=Un candidat documentant 50%+ de véhicules hybrides ou électriques dans sa flotte dédiée au marché BFC, avec indicateurs de suivi des émissions GES, obtiendra le maximum sur le sous-critère environnemental déplacements (4 pts) et valorisera son image RSE., source=RC article 12.3 sous-critère 3.1 ; CCTP article 7)
+- Outil numérique de traçabilité et reporting accessible aux organismes (exemple=Un candidat proposant un portail client en ligne donnant accès en temps réel aux rapports d'intervention, aux historiques de maintenance par équipement et aux statistiques, réduira la charge administrative des 9 organismes bénéficiaires et se différenciera sur l'organisation et le pilotage (sous-critère 2, 15 pts)., source=CCTP article 8.2 ; CCAP article 4)

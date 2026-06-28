@@ -1,6 +1,6 @@
 # Brief — Assurance Dommage-Ouvrage (DO), Tous Risques Chantier (TRC), Responsabilité Civile du Maître d’Ouvrage (RCMO) et Contrat Collectif de Responsabilité D
 
-_Généré le 2026-06-12 15:49 par Claude claude-sonnet-4-6_
+_Généré le 2026-06-21 00:07 par Claude claude-sonnet-4-6_
 
 ## Identifiants
 - **ID Tendia** : `BOAMP-26-56270`
@@ -11,105 +11,54 @@ _Généré le 2026-06-12 15:49 par Claude claude-sonnet-4-6_
 - **DCE PLACE** : <https://www.marches-publics.gouv.fr/?page=Entreprise.EntrepriseDetailsConsultation&id=3014449&orgAcronyme=x7c>
 
 ## Synthèse
-Le GHPSO (Groupement Hospitalier Public du Sud de l'Oise) lance un appel d'offres ouvert pour la souscription de contrats d'assurance construction (DO, TRC, RCMO, CCRD) dans le cadre du projet ROTONDE : restructuration et extension des ailes C, C' et D de son site de Creil pour créer un nouvel accueil/admissions, une maison de la femme, un plateau de pédiatrie et trois plateaux d'hospitalisation. Le marché est décomposé en 4 lots distincts avec une durée de garantie de 10 ans à compter de la réception des travaux, dont la réception finale est prévue en janvier 2029.
-
-## 🏗 Chantier — caractéristiques BTP
-- **Description** : Restructuration et extension des ailes C, C' et D du site hospitalier de Creil (GHPSO) pour la mise en œuvre d'un nouvel accueil/admissions, d'une maison de la femme, d'un plateau de pédiatrie et de trois plateaux d'hospitalisation de médecine. Le projet se déroule en 3 phases : Phase 1 (créations extensions ailes C&C' RCH haut et R+1, réception prévue 20/08/2027), Phase 1Bis (locaux R+1 tertiaire médical, réception prévue 08/02/2028), Phase 2 (restructuration ailes C&C' niveaux 2 à 4, réception finale prévue 09/01/2029).
-- **Type d'ouvrage** : Établissement de santé public (hôpital) — restructuration et extension
-- **Site occupé pendant travaux** : oui
-- **Contraintes spécifiques** :
-  - Site hospitalier en activité pendant les travaux
-  - Phasage en 3 phases avec réceptions partielles et réception finale
-  - Présence d'existants à intégrer dans la restructuration
-  - Projet complexe multi-niveaux (RCH, R+1, niveaux 2 à 4)
-
-### Allotissement
-Marché décomposé en 4 lots distincts correspondant chacun à un type d'assurance construction
-- **Nombre de lots** : 4
-- **Lot 1** — Assurance DO – Dommages-Ouvrage
-  - Assurance Dommages-Ouvrage pour le projet ROTONDE. PSE associée : PSE 2 – Dommages immatériels consécutifs.
-- **Lot 2** — Assurance TRC – Tous Risques Chantier
-  - Assurance Tous Risques Chantier. PSE associée : PSE 3 – Dommages aux existants.
-- **Lot 3** — Assurance RCMO – Responsabilité Civile du Maître d'Ouvrage
-  - Assurance Responsabilité Civile du Maître d'Ouvrage. PSE associée : PSE 4 – Maintenance visite.
-- **Lot 4** — Assurance CCRD – Contrat Collectif de Responsabilité Décennale
-  - Contrat Collectif de Responsabilité Décennale (CPV 66516000-0). PSE associée : PSE 1 – Garantie de bon fonctionnement.
-
-### Qualifications BTP exigées
-Le marché s'adresse aux compagnies d'assurance (directement ou via agents généraux, courtiers ou sociétés de courtage). Aucune qualification type Qualibat ou RGE n'est requise.
-- **Autres exigences** :
-  - Agrément d'entreprise d'assurance (implicite via RC art. 2.1)
-  - Attestation de responsabilité civile en cours de validité (RC art. 7.1 pièce n°6)
-  - Pour les courtiers : assurance de responsabilité civile professionnelle du cabinet (RC art. 7.1 pièce n°6)
-
-## ⚡ Parc EnR — caractéristiques techniques
-### Volumes techniques
-- **Nombre de sites** : 1
-- **Durée du marché (mois)** : 120
-- **Note** : Marché d'assurance construction — les volumes sont exprimés en primes d'assurance, non en unités techniques. Durée de garantie DO : 10 ans à compter de chaque réception. Site unique : GHPSO Creil. 3 phases de travaux avec réceptions échelonnées jusqu'en janvier 2029.
-
-### Modalités d'exécution
-- **Sites d'exécution** : Creil (60100)
-
-## 🎯 Mission conseil
-- **Domaine d'expertise** : Assurance construction (DO, TRC, RCMO, CCRD)
-- **Durée de mission** : 10 ans (garantie décennale) ; couverture chantier jusqu'à réception finale prévue en janvier 2029
-- **Livrables attendus** :
-  - Contrat Dommages-Ouvrage (lot 1)
-  - Contrat Tous Risques Chantier (lot 2)
-  - Contrat Responsabilité Civile Maître d'Ouvrage (lot 3)
-  - Contrat Collectif Responsabilité Décennale (lot 4)
-  - Conditions générales et particulières de l'assureur
-  - DPGF complétée avec PSE chiffrées
-
-### Profils intervenants
-Équipe dédiée production et sinistre à préciser dans l'offre
-- **Chef de mission** : Interlocuteur dédié production et sinistre — CV exigé (RC art. 7.1 pièce n°8)
-- **Consultants** : Équipe dédiée production et sinistre — CV des interlocuteurs exigés (RC art. 7.1 pièce n°8)
-
-## 🎓 Formation / accompagnement
-### Publics cibles
-Non applicable — marché d'assurance construction, pas de public bénéficiaire de formation ou d'insertion.
-
-### Volumes
-- **Durée marché (mois)** : 120
-- **Note** : Durée du marché DO : 10 ans à compter de la réception. Durée TRC : durée du chantier jusqu'à réception finale (janvier 2029). Les primes sont forfaitaires.
-
-### Modalités
-- **Sites d'exécution** : Creil (60100)
+Le GHPSO (Groupement Hospitalier Public du Sud de l'Oise, site de Creil) lance un appel d'offres ouvert pour des prestations d'assurance construction liées au projet ROTONDE : restructuration et extension des ailes C, C' et D pour un montant de travaux de 24 202 000 € HT sur 30,5 mois. Le marché est décomposé en 4 lots distincts : Dommages-Ouvrage (DO), Tous Risques Chantier (TRC), Responsabilité Civile du Maître d'Ouvrage (RCMO) et Contrat Collectif de Responsabilité Décennale (CCRD), chacun assorti d'une PSE obligatoire à chiffrer. La durée de garantie est de 10 ans à compter de la réception des travaux (réception finale prévue janvier 2029).
 
 ## 💶 Montant du marché
-- _Montant non communiqué dans le DCE._
-  - Typique des accords-cadres à bons de commande : le volume dépend des commandes effectivement passées par l'acheteur sur la durée du marché.
-- _Note_ : Le DCE ne mentionne aucun montant estimé, plafond ou valeur indicative pour les primes d'assurance. Les montants dépendent des résultats de consultation et de la valeur des travaux de construction (non communiquée dans le DCE).
+- **Fourchette** : entre 150 000 € et 350 000 €
+  - sur 10 ans de garantie (réception prévue janvier 2029, garantie décennale jusqu'en 2039)
+  - _source : CCP Article 7 (coût total travaux 24 202 000 € HT ; total général 26 258 199 € HT) ; pratiques de marché assurance construction_
 
 ## Barème de notation
 - **Valeur technique** : 30 %
 - **Valeur prix** : 70 %
 - **Sous-critères techniques** :
   - Pertinence de l'offre technique : 30 %
-- **Calcul du prix** : Critère financier à 70% basé sur le montant total de l'offre (offre de base + PSE obligatoirement chiffrées). Offre économiquement la plus avantageuse selon critères pondérés (RC Article 10).
+- **Calcul du prix** : Assiette de prime = montant total de la construction TTC (travaux + honoraires + réemploi = 26 258 199 € HT environ). Taux (%) x assiette = prime unique forfaitaire. Ajustement à la réception définitive (au plus tard 6 mois après). Prix ferme et définitif.
 
 ## Références et qualifications exigées
 - **Expérience minimale** : —
-- **Secteur d'expérience** : Établissements de santé (public ou privé) — liste de références exigée avec année, montant, nombre d'employés, contact client
-- **Certifications obligatoires** : Agrément d'entreprise d'assurance (compagnie portant le risque) — le marché s'adresse aux compagnies d'assurance directement ou via intermédiaires (source=RC art. 2.1), Attestation de responsabilité civile professionnelle en cours de validité (pour les agents généraux, courtiers et sociétés de courtage) (source=RC art. 7.1 pièce n°6)
+- **Secteur d'expérience** : Prestations d'assurance construction (DO, TRC, RCMO, CCRD) en établissements de santé publics ou privés
+- **Certifications obligatoires** : Agrément d'exercice en tant que compagnie d'assurance, agent général, courtier ou société de courtage (obligation légale d'exercice de l'activité d'assurance) (bloquante=True, source=RC art.2.1 ; RC art.7.1), Attestation d'assurance Responsabilité Civile en cours de validité (pour la compagnie et/ou le cabinet de courtage) (bloquante=True, source=RC art.7.1 pièce n°6)
 - **Autres exigences** :
-  - Chiffre d'affaires global et CA spécifique assurance construction sur 3 derniers exercices — à renseigner DC2 (source=RC art. 7.1 pièce n°2)
-  - Effectifs moyens sur 3 derniers exercices avec effectifs d'encadrement (source=RC art. 7.1 pièce n°2)
-  - Attestations fiscales et sociales à jour au 31/12/2018 (mention d'année manifestement erronée dans le RC) (source=RC art. 7.1 pièce n°7)
-  - CV des interlocuteurs dédiés production et sinistre (source=RC art. 7.1 pièce n°8)
-  - Pour les courtiers/intermédiaires : dossier au nom de la compagnie portant le risque (ou attestation d'engagement à le produire si offre retenue) + dossier au nom du cabinet de courtage (source=RC art. 7.1)
+  - Liste des principales prestations effectuées en établissements de santé (public ou privé) avec année, montant, nombre d'employés et contact client (source=RC art.7.1 pièce n°2)
+  - Chiffre d'affaires global et CA relatif aux prestations objet du marché sur les 3 derniers exercices disponibles (source=RC art.7.1 pièce n°2)
+  - Équipe dédiée production et sinistre avec CV des interlocuteurs sur ce dossier (source=RC art.7.1 pièce n°8)
+  - Pour les intermédiaires (courtiers) : dossier double — un au nom de la compagnie portant le risque (ou attestation d'engagement à le produire si retenu), un au nom du cabinet de courtage (source=RC art.7.1)
+
+## Lots
+- **Lot 1** — Assurance DO « Dommages-Ouvrage »
+  - Zone : Creil (60100)
+  - Garantie obligatoire 10 ans. Assiette = coût total TTC de la construction. Prime unique avec ajustement au plus tard 6 mois après réception. PSE2 (dommages immatériels consécutifs) obligatoire à chiffrer. Indexation capitaux sur BT-01. Projet en 3 phases avec réceptions partielles.
+- **Lot 2** — Assurance TRC « Tous Risques Chantier »
+  - Zone : Creil (60100)
+  - Couvre travaux + matériaux/équipements sur site dès leur arrivée. Couvre tous intervenants y compris sous-traitants. PSE3 (dommages aux existants) obligatoire à chiffrer. Durée : 30,5 mois de travaux. Chantier en site occupé (ERP U1 en activité).
+- **Lot 3** — Assurance RCMO « Responsabilité Civile du Maître d'Ouvrage »
+  - Zone : Creil (60100)
+  - Couvre la RC du GHPSO en qualité de maître d'ouvrage pendant la réalisation des travaux. Étendue aux préposés, agents et biens sous garde. PSE4 (maintenance visite, 2 ans après réception) obligatoire à chiffrer.
+- **Lot 4** — Assurance CCRD « Contrat Collectif de Responsabilité Décennale »
+  - Zone : Creil (60100)
+  - Garantie décennale collective couvrant tous les constructeurs. Durée 10 ans à compter de chaque réception. PSE1 (garantie de bon fonctionnement) obligatoire à chiffrer. Point de départ après expiration GPA (1 an).
 
 ## ⚠ Alertes candidat
-- CHIFFRAGE PSE OBLIGATOIRE : les 4 PSE (PSE 1 à PSE 4) doivent être chiffrées dans la DPGF — à défaut, l'offre est déclarée IRRÉGULIÈRE (RC art. 2.2)
-- Les offres obtenant une note qualité strictement inférieure à 12/20 sont rejetées comme techniquement inacceptables (RC art. 10)
-- Les courtiers/intermédiaires doivent fournir DEUX dossiers distincts : un pour la compagnie portant le risque et un pour le cabinet de courtage (RC art. 7.1)
-- La signature électronique est obligatoire pour le dépôt dématérialisé — une signature manuscrite scannée n'a aucune valeur juridique (RC art. 8)
-- Le RC mentionne une date limite de dépôt incohérente (page 8 : '18 MAI 2026' vs page de garde : '26 JUIN 2026') — se référer à la date officielle du BOAMP : 26 juin 2026 à 12h00
+- Chiffrage obligatoire des 4 PSE (PSE1 à PSE4) dans la DPGF : toute omission entraîne l'irrégularité de l'offre et son rejet systématique (RC art.2.2 et CCP art.10)
+- Note technique minimale de 12/20 exigée : une offre en-deçà de ce seuil est déclarée techniquement inacceptable et rejetée, quelle que soit la valeur financière (RC art.10)
+- Les courtiers doivent fournir un double dossier : un pour la compagnie portant le risque (ou attestation d'engagement) ET un pour le cabinet de courtage — le dossier incomplet peut entraîner l'éviction
+- Incohérence dans le RC : la date de réception prévisionnelle est mentionnée 'en janvier 2019' (RC art.2.4) alors que le CCP et le planning EGIS indiquent janvier 2029 — se fier au CCP et au planning pour la tarification
+- Marché passé en appel d'offres ouvert MAIS le RC prévoit une possible négociation (RC art.9) — prévoir une marge dans l'offre initiale et rester disponible pour des échanges post-remise
 
 ## 💡 Points différenciants attendus
-- Expérience spécifique en établissements de santé publics (exemple=Présenter un portefeuille de références DO/TRC/RCMO/CCRD en milieu hospitalier public (CHU, CH, GHT) avec contacts client vérifiables, démontrant la maîtrise des spécificités réglementaires et techniques des constructions sanitaires., source=RC art. 7.1 pièce n°2)
-- Couverture des dommages aux existants et des immatériels consécutifs (PSE) (exemple=Proposer une couverture étendue aux dommages aux existants (bâtiments hospitaliers en activité) et aux dommages immatériels consécutifs avec des plafonds adaptés à la valeur des ouvrages, en valorisant la protection du site occupé., source=RC art. 2.2)
-- Équipe dédiée avec interlocuteurs nommés et expérimentés (exemple=Désigner un gestionnaire de compte senior dédié avec au moins 5 ans d'expérience en assurance construction hospitalière, disponible en présentiel sur site si nécessaire, avec CV détaillé et références de sinistres gérés en milieu médical., source=RC art. 7.1 pièce n°8)
-- Délais d'intervention contractualisés et garanties de service (exemple=Proposer des délais d'intervention contractuellement engagés (prise en charge sinistre sous 24h, désignation expert sous 5 jours), avec pénalités en cas de non-respect, pour se démarquer sur les critères qualitatifs (30% de la note)., source=RC art. 10)
+- Prise en compte du phasage en 3 tranches avec réceptions partielles (exemple=Proposer une structure de prime adaptée à chaque réception partielle (08/2027, 02/2028, 01/2029) avec des capitaux assurés qui évoluent par tranche réceptionnée, et expliquer précisément le mécanisme d'ajustement de prime à chaque phase., source=CCP Article 2 §1 ; RC art.2.4)
+- Traitement spécifique des risques liés aux travaux en site hospitalier occupé (ERP U1 en activité) (exemple=Démontrer une expérience et une couverture adaptées aux contraintes d'un chantier dans un hôpital en fonctionnement : coexistence des équipes soignantes et des entreprises, risques liés aux fluides médicaux, désenfumage, sécurité incendie sous régime ERP de 1ère catégorie., source=CCP Article 12 ; rapport RICT RISK CONTROL)
+- Pertinence du descriptif des exclusions de chaque garantie (exemple=Fournir un tableau comparatif synthétique listant les exclusions couverture par couverture (DO, TRC, RCMO, CCRD), avec identification des points potentiellement sensibles pour ce projet (TNC, réemploi de matériaux, désamiantage) et propositions de couverture élargie., source=RC art.7.1 pièce n°11 ; RC Article 10)
+- Prise en compte du réemploi de matériaux (320 000 € HT estimé) (exemple=Clarifier dans le mémoire technique si et comment les matériaux en réemploi (châssis vitrés, luminaires, équipements CVC réemployés in-situ) sont couverts ou exclus des garanties DO, TRC et CCRD, conformément au rappel du contrôleur technique RISK CONTROL sur le hors-mission réemploi., source=CCP Article 7 (liste matériaux réemploi) ; rapport RICT RISK CONTROL §S2)
+- Qualité de l'équipe dédiée et délais d'intervention sinistres (exemple=Présenter des engagements contractuels chiffrés sur les délais (déclaration < 48h, désignation expert < 5 jours, provision urgence < 15 jours) et fournir les CV d'un binôge dédié souscripteur + gestionnaire sinistres avec des références ERP hospitaliers identifiables., source=RC art.7.1 pièce n°8 ; RC Article 10 (sous-critères délais et modalités d'intervention))

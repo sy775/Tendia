@@ -1,6 +1,6 @@
 # Brief — Etude et à réalisation de l’installation Kokochannel
 
-_Généré le 2026-06-14 23:19 par Claude claude-sonnet-4-6_
+_Généré le 2026-06-22 15:53 par Claude claude-sonnet-4-6_
 
 ## Identifiants
 - **ID Tendia** : `BOAMP-26-56053`
@@ -11,53 +11,53 @@ _Généré le 2026-06-14 23:19 par Claude claude-sonnet-4-6_
 - **DCE PLACE** : <https://www.marches-publics.gouv.fr/?page=Entreprise.EntrepriseAdvancedSearch&AllCons&id=3012999&orgAcronyme=d4t>
 
 ## Synthèse
-L'ASNR lance une consultation pour l'étude et la réalisation de l'installation expérimentale KoKoChannel (Condensation in a Containment Channel), destinée à étudier la condensation en paroi dans le cadre du projet PASTIS sur le site de Cadarache. La prestation comprend un Avant-Projet Détaillé, la fabrication/contrôle/recette en usine, la livraison et la remise du dossier constructeur (partie marché ordinaire), ainsi qu'une partie accord-cadre à bons de commande pour des prestations complémentaires de maintien en condition opérationnelle. Le marché est estimé à 265 000 € HT avec une part accord-cadre plafonnée à 25 000 € HT.
+L'ASNR (Autorité de Sûreté Nucléaire et de Radioprotection) lance un marché composite (partie marché ordinaire + accord-cadre à bons de commande) pour l'étude et la réalisation de l'installation expérimentale KoKoChannel, destinée à l'étude de la condensation en paroi dans le cadre du projet PASTIS. Le titulaire devra réaliser un Avant-Projet Détaillé, la fabrication/contrôle/montage, puis la livraison avec dossier constructeur sur le site de Cadarache. Le montant estimatif est de 265 000 € HT pour la partie forfaitaire, avec un accord-cadre plafonné à 25 000 € HT.
 
 ## 💶 Montant du marché
 - **Valeur estimée** : **265 000 €**
-  - sur Durée totale du marché : notification jusqu'à expiration de la garantie 12 mois après réception sur site (soit environ 22-23 mois au total). Partie ordinaire : 10,5 mois. Accord-cadre : 12 mois après réception, plafond 25 000 € HT.
-  - _source : RC Article 2 §6 page 4_
-- _Note_ : Montant estimatif global de 265 000 € HT donné à titre indicatif sans valeur contractuelle. La partie accord-cadre est plafonnée à 25 000 € HT sur la durée totale. La partie marché ordinaire (DPGF postes 1+2+3) représente donc environ 240 000 € HT.
+  - sur Durée totale du marché (partie ordinaire ~10,5 mois + garantie 12 mois), dont accord-cadre plafonné à 25 000 € HT
+  - _source : RC article 2 §6 page 4 : 'Le montant estimatif du marché est de 265 000 € HT'_
+- _Note_ : Montant estimatif explicite de 265 000 € HT pour la partie marché ordinaire (DPGF postes 1-3). L'accord-cadre à bons de commande est plafonné séparément à 25 000 € HT. Montant total toutes parties : ~290 000 € HT.
 
 ## Barème de notation
-- **Valeur technique** : 55 %
+- **Valeur technique** : 60 %
 - **Valeur prix** : 40 %
 - **Sous-critères techniques** :
-  - Pertinence et Adéquation de la solution technique proposée : 15 %
-  - Respect du planning maximal : 5 %
-  - Maîtrise de la réalisation des fournitures, dont complétude du plan qualité de réalisation préliminaire : 70 %
-  - Qualité de l'organisation et du pilotage du projet : 10 %
+  - Technique : 55 %
   - Développement durable : 5 %
-- **Calcul du prix** : Note prix = Pondération × (offre la moins élevée / offre analysée), appréciée au regard du montant total de la DPGF et du montant du DQE.
+- **Calcul du prix** : Note prix = Pondération × (offre la moins élevée / offre analysée), base = montant total DPGF + montant DQE.
 
 ## Références et qualifications exigées
-- **Expérience minimale** : 3 ans
-- **Secteur d'expérience** : Fabrication et réalisation d'installations expérimentales ou d'équipements mécaniques complexes, notamment dans le secteur de l'énergie. Projets similaires réalisés ces 3 dernières années, avec montants comparables et niveau de personnalisation (délais courts).
-- **Certifications obligatoires** : Certification ISO 9001 v2015 (ou système de management qualité équivalent) (source=CDC §3 (Exigences Qualité) et RC Article 4 §C), Qualification des soudeurs selon normes applicables (cahiers de soudage) (source=CDC §5.2), Soupape de sécurité marquée CE selon Directive 2014/68/UE (équipements sous pression) (source=CDC §2.1.3)
+- **Expérience minimale** : —
+- **Secteur d'expérience** : Projets réalisés dans le secteur de l'énergie ou domaine proche (fabrication d'installations expérimentales, équipements de laboratoire, tuyauteries inox sur mesure, équipements scientifiques), appréciés sur les 3 dernières années.
+- **Certifications obligatoires** : Certification ISO 9001 v2015 ou système de management qualité équivalent – exigée par le cahier des charges pour la réalisation des prestations (bloquante=True, source=Cahier des charges §3 / RC article 4 §4.C), Certificats de qualification professionnelle des soudeurs (qualification soudage inox selon normes applicables, cahiers de soudage) (bloquante=True, source=Cahier des charges §5.2 / RC article 4 §4.C)
 - **Autres exigences** :
-  - Déclaration du chiffre d'affaires global et du CA dans le domaine d'activité sur les 3 derniers exercices (source=RC Article 4 §B)
-  - Bilans ou extraits de bilan des 2 dernières années (source=RC Article 4 §B)
-  - Preuve d'une assurance couvrant les risques pertinents (source=RC Article 4 §B)
-  - Description de l'outillage, matériel et équipement technique disponible pour la réalisation (atelier de montage) (source=RC Article 4 §C)
-  - Certificat de visite obligatoire du site de Cadarache dûment signé, à joindre à l'offre sous peine de rejet (source=RC Article 3 §6)
-  - Indication des techniciens et organismes techniques responsables du contrôle qualité (source=RC Article 4 §C)
+  - Déclaration de chiffre d'affaires global et du domaine sur les 3 derniers exercices disponibles (source=RC article 4 §4.B)
+  - Bilans ou extraits de bilan des 2 dernières années (pour les entreprises soumises à obligation légale) (source=RC article 4 §4.B)
+  - Preuve d'assurance couvrant les risques pertinents (source=RC article 4 §4.B)
+  - Liste des principales livraisons/services fournis au cours des 3 dernières années (source=RC article 4 §4.C)
+  - Déclaration des effectifs moyens annuels et importance du personnel d'encadrement sur 3 ans (source=RC article 4 §4.C)
+  - Indication des techniciens/organismes responsables du contrôle qualité (source=RC article 4 §4.C)
+  - Description de l'outillage, matériel et équipement technique disponible pour le marché (source=RC article 4 §4.C)
+  - Description de l'équipement technique et mesures qualité / moyens d'étude et de recherche (source=RC article 4 §4.C)
+  - Indication des systèmes de gestion et de suivi de la chaîne d'approvisionnement (source=RC article 4 §4.C)
+  - Certificat(s) de qualification professionnelle établis par organismes indépendants (source=RC article 4 §4.C)
 
 ## Lots
-- **Lot 1** — Lot unique – Étude et réalisation de l'installation KoKoChannel
-  - Zone : Site ASNR de Cadarache (13115 Saint-Paul-Lez-Durance) – Bâtiment 327, local Dofin
-  - Volume estimé : 265000 euros HT (estimation indicative)
-  - Lot unique non alloti : la responsabilité de conception unifiée est justifiée par la complexité des interfaces techniques entre sous-systèmes. Fabrication principalement en atelier du titulaire, avec 2 visites site + livraison finale à Cadarache. Procédure restreinte : seuls les 5 meilleurs candidats de la phase candidature sont invités à remettre une offre.
+- **Lot 1** — Étude et réalisation de l'installation KoKoChannel (lot unique)
+  - Zone : Cadarache (13115 Saint-Paul-Lez-Durance) – livraison sur site ASNR
+  - Marché composite : partie forfaitaire (DPGF postes 1-3, ~265 k€ HT estimés) + accord-cadre à bons de commande plafonné à 25 000 € HT. Visite de site obligatoire (site ASNR Cadarache, accès réglementé). Installation expérimentale complexe nécessitant des verres de précision, inox 316L, traitement d'anodisation noire et qualification des soudeurs. Fabrication principalement en atelier du titulaire, 2 visites site + livraison finale.
 
 ## ⚠ Alertes candidat
-- VISITE DE SITE OBLIGATOIRE à Cadarache : le certificat de visite doit être joint à l'offre sous peine de rejet. Prise de contact obligatoire avec Claire HENRIROUX (04 42 19 94 92) au moins 2 jours ouvrés avant la visite.
-- Procédure restreinte en 2 phases : seules les 5 meilleures candidatures sont admises en phase offres. Soigner particulièrement le dossier de candidature (capacités techniques sur projets similaires dans le secteur de l'énergie, moyens techniques atelier).
-- ISO 9001 v2015 exigée pour l'exécution des prestations : absence de certification ou équivalent insuffisant peut pénaliser fortement la candidature.
-- Qualification des soudeurs obligatoire avec cahiers de soudage : preuve à fournir dès la phase candidature via les références de projets similaires.
-- Prix forfaitaires fermes sur la DPGF (~240 000 € HT) avec interfaces complexes (paroi refroidie existante, verres épaulés avec coplanarité ±0,5 mm) : risque de dépassement important si le chiffrage n'intègre pas les tolérances dimensionnelles contraignantes et les allers-retours de validation ASNR.
+- Visite de site OBLIGATOIRE préalable à la remise d'offre : le certificat de visite doit être joint à l'offre à peine de REJET. Contact : Claire HENRIROUX (04 42 19 94 92), demande d'accès 2 jours ouvrés minimum avant la visite, maximum 2 personnes par candidat.
+- Seules les 5 MEILLEURES CANDIDATURES (phase candidature) sont admises à la phase offres : la sélection sur dossier de candidature est éliminatoire — soigner particulièrement les références projets similaires et les moyens techniques (critère technique 60% de la sélection candidature).
+- Certification ISO 9001 v2015 (ou équivalent) et qualifications soudeurs inox EXIGÉES par le cahier des charges pour l'exécution : leur absence constitue une non-conformité rédhibitoire à l'exécution.
+- La partie marché ordinaire est à PRIX FORFAITAIRE FERME (pas de révision) : tout dépassement de coût matières/main-d'œuvre sur la durée des 10,5 mois d'exécution est à la charge du titulaire.
+- Accès au site de Cadarache (INB/ASNR) : le personnel devra être agréé ASNR et un Plan de Prévention établi au plus tard 1 semaine avant la première intervention sur site — anticiper les délais d'habilitation.
 
 ## 💡 Points différenciants attendus
-- Complétude et qualité du Plan Qualité de Réalisation (LOFC) préliminaire (exemple=Un candidat qui soumet dès l'offre un LOFC préliminaire détaillé avec points d'arrêt clairement identifiés (sablage, anodisation, test d'étanchéité, recette usine) et des exemples de PV issus de projets antérieurs obtiendra 70% de la note technique sur ce seul critère., source=RC Article 5 §2.B – pondération 70% du critère technique)
-- Expérience démontrable en fabrication d'équipements expérimentaux pour le secteur de l'énergie / nucléaire (exemple=Présenter 2-3 références de projets similaires (installations expérimentales avec tuyauteries inox, sections de test, recettes usine) réalisés pour des laboratoires de recherche en énergie ou des industriels du nucléaire, avec montants comparables (200-400 k€) et délais courts., source=RC Article 4 §5 (critères de sélection des candidatures, 60% capacités techniques))
-- Capacité d'usinage de pièces complexes à haute précision dimensionnelle (exemple=Démontrer la maîtrise de la fabrication de la section d'essai avec verres épaulés (coplanarité surfaces intérieures ±0,5-1 mm) et du collecteur aval (section carrée 100×100 mm avec gouttières de séparation) en proposant la méthode de fabrication et les moyens de contrôle associés., source=CDC §4.3 et §5.1)
-- Maîtrise du traitement de surface : sablage corindon blanc F120 + anodisation noire (exemple=Un candidat disposant en propre ou via un sous-traitant qualifié de la capacité d'anodisation noire et de sablage au corindon blanc F120 sur des sections intérieures de section carrée différencie son offre par la fiabilité du planning et la maîtrise des interfaces qualité., source=CDC §4.3 et §5.2)
-- Proposition d'un délai d'exécution inférieur à 10,5 mois (devient contractuel) (exemple=Un planning à 9 mois bien justifié (avec jalons APD à T+3, fabrication à T+5, livraison à T+7) valorise le sous-critère 'Respect du planning' (5% de la note technique) et envoie un signal fort sur la maîtrise industrielle., source=CCAP §6.3 et RC Article 5 §2.B)
+- Complétude et qualité du Plan de Qualité de Réalisation préliminaire joint à l'offre (exemple=Un candidat qui fournit dès l'offre un LOFC (Liste des Opérations de Fabrication et de Contrôle) structuré avec 20+ opérations identifiées, points d'arrêt ASNR explicitement placés (fin APD, sablage, anodisation, test étanchéité, recette usine) et procédures de contrôle référencées au cahier des charges, se distingue fortement sur le sous-critère dominant (70% du critère technique)., source=RC article 5 §2 Chapitre 1 / Cahier des charges §3 et §5.2)
+- Expérience démontrée dans la fabrication d'installations expérimentales pour laboratoires (nucléaire, CEA, universités) dans le secteur de l'énergie (exemple=Références de 2-3 installations thermohydrauliques ou équipements de laboratoire livrés à des organismes de recherche (CEA, universités, CNRS) dans les 3 dernières années, avec montants comparables (100-300 k€), documentées par attestations clients et PV de recette., source=RC article 4 §5 – sous-critère technique candidature 60%)
+- Proposition d'un délai d'exécution inférieur à 10,5 mois avec planning crédible et gestion des risques (exemple=Un planning à 9 mois qui anticipe les approvisionnements longues délais (verres épaulés sur mesure, soupape CE certifiée) dès le début de l'APD, et qui intègre explicitement les délais de validation ASNR et la disponibilité de la paroi refroidie pour la recette usine, sera valorisé sur le critère 'Respect du planning maximal'., source=RC article 5 §2 – sous-critère 5% / CCAP §6.1 (délai contractuel si offre < maximum))
+- Démonstration de capacités d'usinage de précision (pièces métalliques complexes, section 100×100 mm, tolérances géométriques, anodisation noire) (exemple=Photos d'ateliers, fiches techniques de pièces usinées similaires (sections carrées en alliage d'aluminium ou inox, pièces avec hublots de précision), et certificats de traitement de surface (sablage + anodisation) avec PV de contrôle visuel et mesure de rugosité., source=RC article 5 §2 Chapitre 1 / Cahier des charges §4.3 et §5.2)
+- Maîtrise de la gestion documentaire selon les référentiels ASNR/SIPR (SolidWorks, LOMC, guide PSN-SIPR-GUI-036) (exemple=Un candidat ayant déjà travaillé selon des référentiels qualité de laboratoire nucléaire (CEA, IRSN/ASNR) ou présentant une maîtrise explicite de SolidWorks 2024 et des formats de dossiers constructeurs exigés (PDF + DWG, PV, certificats 3.1) démontre une capacité à livrer sans non-conformités documentaires., source=Cahier des charges §7.3 et annexe 1 / RC article 5 §1)

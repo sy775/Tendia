@@ -1,6 +1,6 @@
 # Brief — Création d'un plateau technique de formation du Sdis 46
 
-_Généré le 2026-06-15 01:56 par Claude claude-sonnet-4-6_
+_Généré le 2026-06-20 05:30 par Claude claude-sonnet-4-6_
 
 ## Identifiants
 - **ID Tendia** : `BOAMP-26-57187`
@@ -10,72 +10,72 @@ _Généré le 2026-06-15 01:56 par Claude claude-sonnet-4-6_
 - **DCE PLACE** : <https://www.marches-publics.info/mpiaws/index.cfm?fuseaction=dematent.login&type=Dce&Idm=1833794>
 
 ## Synthèse
-Le SDIS 46 (Service Départemental d'Incendie et de Secours du Lot) lance un marché de travaux en 2 lots pour la création d'un plateau technique de formation sur la commune de Francoulès (46090). Le lot 1 concerne la fourniture, le transport et l'installation de bâtiments modulaires préfabriqués (salles de formation, vestiaires et sanitaires), neufs ou d'occasion. Le lot 2 concerne l'isolation thermique par l'extérieur et le bardage de ces bâtiments modulaires.
+Le SDIS du Lot (46) lance un marché de travaux alloti en 2 lots pour la création d'un plateau technique de formation à Francoulès (46090) : Lot 1 — fourniture et installation de bâtiments modulaires préfabriqués (salles de formation, vestiaires/sanitaires), Lot 2 — isolation thermique par l'extérieur et bardage de ces bâtiments. Le marché est passé en procédure adaptée ouverte avec possibilité de négociation, sans maîtrise d'œuvre dédiée, financé sur ressources propres du SDIS.
 
 ## 🏗 Chantier — caractéristiques BTP
-- **Description** : Création d'un plateau technique de formation pour les sapeurs-pompiers du Lot : fourniture, transport et installation de 2 bâtiments modulaires à usage de salles de formation (20-30 m² chacun) et de 1 à 2 bâtiments vestiaires/sanitaires (14-25 m² chacun), puis isolation thermique par l'extérieur et bardage imitation bois de l'ensemble des façades. Le maître d'ouvrage réalise les plots béton, les réseaux (eau, électricité, assainissement) et les raccordements.
-- **Type d'ouvrage** : Bâtiments modulaires préfabriqués permanents à usage de formation (salles de cours, vestiaires, sanitaires) — terrain nu sur site de 6 hectares
-- **Surface / volume** : 2 salles de formation de 20 à 30 m² chacune + 1 ou 2 bâtiments vestiaires/sanitaires de 14 à 25 m² chacun (surfaces utiles minimales)
-- **Site occupé pendant travaux** : false — terrain nu sur parcelles E n°620 et 635, commune de Francoulès, accessible par voie en castine carrossable pour poids lourds (largeur 3 m)
-- **Corps d'état mobilisés** : Construction et installation de bâtiments modulaires préfabriqués (lot 1), Équipements intérieurs (plomberie, CVC, électricité, revêtements de sol) inclus dans le lot 1, Isolation thermique par l'extérieur (lot 2), Bardage extérieur imitation bois (lot 2)
+- **Description** : Fourniture, transport, installation et mise en service de bâtiments modulaires préfabriqués permanents (2 salles de formation de 20-30 m² chacune + vestiaires/sanitaires hommes et femmes de 14-25 m² chacun), puis réalisation de l'isolation thermique par l'extérieur (90 mm) et bardage imitation bois sur l'ensemble des façades. Le maître d'ouvrage réalise les plots béton, les raccordements réseaux (eau, électricité, assainissement) et les voiries d'accès.
+- **Type d'ouvrage** : Bâtiments modulaires préfabriqués permanents à usage de formation (SDIS) — construction hors ERP (usage code du travail uniquement)
+- **Surface / volume** : Lot 1 : 2 salles de formation 20-30 m² chacune + 2 locaux vestiaires/sanitaires 14-25 m² chacun, soit environ 68-110 m² utiles total. Lot 2 : isolation et bardage sur l'ensemble des façades des 2 à 4 bâtiments (surface à préciser à la notification)
+- **Site occupé pendant travaux** : false — site vierge en création, commune de Francoulès, parcelles E n°620 et 635, accès par voie en castine 3 m de large pour poids lourds
+- **Corps d'état mobilisés** : Construction modulaire préfabriquée (Lot 1), Plomberie / sanitaires (Lot 1), Électricité courants forts (Lot 1), Climatisation réversible / chauffage (Lot 1), Isolation thermique par l'extérieur (Lot 2), Bardage extérieur imitation bois (Lot 2), Finitions et points singuliers bardage (Lot 2)
 - **Contraintes spécifiques** :
-  - Accès par voie en castine de 3 mètres de largeur — vérification nécessaire pour véhicules de livraison et de levage
-  - Les plots béton sont réalisés par le maître d'ouvrage sur la base des prescriptions fournies par le titulaire du lot 1 dans les 30 jours suivant la notification
-  - Les raccordements aux réseaux (eau, électricité, assainissement) sont à la charge du maître d'ouvrage ; les arrivées sont en attente au pied des modules
-  - Visite de site recommandée (non obligatoire) — en cas de refus, aucune réclamation liée à la méconnaissance du site n'est recevable
-  - Bâtiments soumis au code du travail (pas ERP), conformité aux normes applicables aux constructions modulaires
-  - Coordination entre les deux lots indispensable : le lot 2 intervient après installation des bâtiments du lot 1
-  - Bâtiments neufs ou d'occasion acceptés (lot 1) — les bâtiments d'occasion doivent être entièrement reconditionnés et conformes aux normes en vigueur
+  - Accès chantier limité : voie en castine 3 m de large carrossable pour poids lourds — vérification obligatoire par le candidat
+  - Le titulaire du Lot 1 doit fournir les prescriptions techniques des plots dans les 30 jours suivant la notification
+  - Les plots béton sont réalisés par le MO 30 jours avant la date d'installation — coordination impérative
+  - Raccordements réseaux réalisés par le MO : travaux séquencés entre Lot 1 et MO
+  - Visite sur site recommandée mais non obligatoire — refus de visite = acceptation des contraintes du site
+  - Bâtiments conformes au code du travail (pas ERP) — pas de normes PMR ERP applicables
+  - Lot 2 dépend de la livraison du Lot 1 — coordination inter-lots gérée par le MO sans maître d'œuvre dédié
+  - Site sur 6 ha, commune de Francoulès (46090), parcelles cadastrées E n°620 et 635
 
 ### Allotissement
-Marché alloti en 2 lots distincts, chacun faisant l'objet d'un marché séparé. Un candidat peut répondre à l'un ou aux deux lots.
+Marché alloti en 2 lots distincts, chacun faisant l'objet d'un acte d'engagement séparé. Un candidat peut répondre aux 2 lots. Durée globale 8 mois : Lot 1 ≤ 5 mois, Lot 2 ≤ 3 mois (exécutés consécutivement avec 1 mois de préparation inclus).
 - **Nombre de lots** : 2
 - **Lot 1** — Construction de bâtiments modulaires pour le plateau technique de formation du SDIS 46
-  - Corps d'état : Construction et installation de bâtiments modulaires préfabriqués (structure acier galvanisé, équipements intérieurs plomberie/CVC/électricité, revêtements de sol)
-  - Fourniture, transport, installation et mise en service de 2 bâtiments modulaires salles de formation (20-30 m²) et de 1 à 2 bâtiments vestiaires/sanitaires (14-25 m²), neufs ou d'occasion reconditionnés. Délai maximum 5 mois.
+  - Corps d'état : Construction modulaire préfabriquée, plomberie, électricité, CVC
+  - Conception, fabrication, transport, installation et mise en service de 2 bâtiments modulaires salles de formation (20-30 m² chacun) et de 1 ou 2 bâtiments vestiaires/sanitaires (14-25 m² chacun), neufs ou d'occasion entièrement reconditionnés
 - **Lot 2** — Isolation par l'extérieur et bardage de bâtiments modulaires pour le plateau technique de formation du SDIS 46
-  - Corps d'état : Isolation thermique par l'extérieur (laine de roche HD ou fibre de bois rigide, 90 mm) + bardage ventilé imitation bois (composite bois-polymère ou PVC texturé)
-  - Préparation des supports, ossature primaire et secondaire, isolation 90 mm, pare-pluie HPV, lame d'air ventilée, bardage imitation bois sur l'ensemble des façades, traitement des points singuliers. Délai maximum 3 mois.
+  - Corps d'état : Isolation thermique par l'extérieur, bardage imitation bois
+  - Réalisation des travaux d'isolation thermique par l'extérieur (laine de roche HD ou fibre de bois rigide, 90 mm) et pose d'un bardage imitation bois (composite bois-polymère ou PVC texturé) sur l'ensemble des façades des bâtiments modulaires
 
 ### Qualifications BTP exigées
-Le RC ne mentionne aucune qualification Qualibat ou certification ISO obligatoire. Seules des attestations d'assurance RC professionnelle et décennale sont exigées.
+Le RC ne mentionne pas de qualifications Qualibat ou certifications exigées à peine d'irrecevabilité. Les candidats doivent fournir attestations d'assurance RC professionnelle et garantie décennale, ainsi que justificatifs de capacité (CA sur 3 ans, DC1/DC2).
 - **MASE** : non
 
 ## 💶 Montant du marché
 - _Montant non communiqué dans le DCE._
   - Typique des accords-cadres à bons de commande : le volume dépend des commandes effectivement passées par l'acheteur sur la durée du marché.
-- _Note_ : Aucun montant estimé n'est communiqué dans les pièces du DCE (ni dans l'AAPC, ni dans le RC, ni dans le CCAP). Les champs 'Estimé €HT' de l'avis BOAMP par lot sont vides. L'acte d'engagement prévoit des prix unitaires et forfaitaires à renseigner par le candidat sans fourchette indicative.
+- _Note_ : Aucun montant estimé publié ni dans l'avis BOAMP ni dans le RC ou le CCAP. Les tableaux de prix de l'AE sont vierges (à remplir par les candidats). Voir estimation bottom-up dans montant_3_voies.
 
 ## Barème de notation
-- **Valeur technique** : 40 %
+- **Valeur technique** : 50 %
 - **Valeur prix** : 50 %
 - **Sous-critères techniques** :
-  - Critère n°2 : Qualité des produits et matériaux proposés (Lot 1) : 40 %
-  - Critère n°2 : Qualité des produits et matériaux proposés (Lot 2) : 40 %
-  - Critère n°3 : Délai de livraison (Lot 1) : 10 %
-  - Critère n°3 : Délai d'exécution (Lot 2) : 10 %
-- **Calcul du prix** : Note attribuée au candidat étudié = 50 × montant de l'offre la moins-disante / montant de l'offre étudiée (RC §7.1.1 et §7.1.2)
+  - Qualité des produits et matériaux proposés : 40 %
+  - Délai de livraison : 10 %
+- **Calcul du prix** : Note attribuée au candidat étudié = 50 × montant de l'offre la moins-disante / montant de l'offre étudiée
 
 ## Références et qualifications exigées
 - **Expérience minimale** : —
-- **Secteur d'expérience** : Construction, fourniture et installation de bâtiments modulaires préfabriqués (lot 1) ; isolation thermique par l'extérieur et bardage ventilé (lot 2)
-- **Certifications obligatoires** : Attestation d'assurance responsabilité civile professionnelle (source=RC §6.1), Attestation d'assurance au titre de la garantie décennale (source=RC §6.2 et CCAP article 14)
+- **Secteur d'expérience** : Le RC ne fixe pas de volume minimum ni de nombre de références similaires. Les capacités sont appréciées via le chiffre d'affaires sur 3 ans et le mémoire technique.
+- **Certifications obligatoires** : Attestation d'assurance responsabilité civile professionnelle (bloquante=True, source=RC §6.1), Attestation d'assurance au titre de la garantie décennale (articles 1792 et suivants du Code civil) (bloquante=True, source=RC §6.2 et CCAP article 14)
 - **Autres exigences** :
-  - Déclaration de chiffre d'affaires global portant sur les 3 derniers exercices disponibles (source=RC §6.1)
-  - Kbis datant de moins de 3 mois ou délégation de pouvoir de signature (source=RC §6.1)
-  - Pour les bâtiments d'occasion (lot 1) : photographies récentes, année de fabrication, descriptif des opérations de reconditionnement, garanties proposées, fiches techniques et certificats de conformité (source=RC §2.3)
+  - Déclaration du chiffre d'affaires global et du CA du domaine d'activité faisant l'objet du marché sur les 3 derniers exercices disponibles (source=RC §6.1)
+  - Extrait KBIS ou équivalent datant de moins de 3 mois (exigé de l'attributaire) (source=RC §6.2)
+  - Attestation de régularité fiscale à jour (attributaire) (source=RC §6.2)
+  - Déclaration URSSAF datant de moins de 6 mois (attributaire) (source=RC §6.2)
+  - Pouvoir de signature de la personne habilitée à engager la société (Kbis < 3 mois ou délégation de pouvoir) (source=RC §6.1)
 
 ## ⚠ Alertes candidat
-- IMPÉRATIF : Le délai d'exécution DOIT être renseigné dans l'acte d'engagement sous peine d'offre irrégulière et irrecevable (AE lot 1 et lot 2).
-- IMPÉRATIF : La durée de garantie DOIT être renseignée dans l'acte d'engagement sous peine d'offre irrégulière (AE lot 1 et lot 2).
-- Lot 2 : les dimensions exactes des façades ne sont communiquées qu'à la notification du marché — le candidat doit chiffrer au m² sans connaître précisément les surfaces totales à la date de remise des offres.
-- Attestations d'assurance RC professionnelle ET décennale exigées au plus tard à l'attribution (dérogation à l'article 8.1.3 du CCAG Travaux) — possibilité de les fournir dès le dépôt.
-- Dépôt exclusivement dématérialisé via la plateforme AWS Solutions (marches-publics.info) — copie de sauvegarde papier possible mais dépôt électronique obligatoire. Signature de l'acte d'engagement exigée lors du dépôt.
-- Pour les bâtiments d'occasion (lot 1) : dossier complet obligatoire (photos, année fabrication, descriptif reconditionnement, garanties, fiches techniques) — une offre incomplète sur ces éléments sera pénalisée à l'évaluation qualité.
+- Délai d'exécution à renseigner OBLIGATOIREMENT dans l'AE (≤ 5 mois Lot 1, ≤ 3 mois Lot 2) : si non rempli, offre irrégulière et irrecevable — RC §4.2 et AE
+- Durée de garantie à renseigner OBLIGATOIREMENT dans l'AE : idem, offre irrecevable si absent
+- Attestation d'assurance garantie décennale obligatoire au plus tard au stade attribution (CCAP article 14) — la préparer dès le dépôt de l'offre est recommandé
+- Surface exacte des façades (Lot 2) non communiquée avant notification : le candidat chiffre sans connaître précisément le linéaire — visite de site fortement recommandée pour éviter sous-évaluation
+- Acte d'engagement à signer électroniquement lors du dépôt (RC §8.3) — prévoir certificat eIDAS qualifié valide ; sans signature de l'AE, offre irrecevable
 
 ## 💡 Points différenciants attendus
-- Durée de garantie supérieure aux minimums légaux sur les bâtiments modulaires (exemple=Un candidat lot 1 proposant une garantie fabricant de 10 ans sur la structure et 5 ans sur les équipements (au-delà de la garantie de parfait achèvement 1 an) se distinguera nettement sur le sous-critère 'qualité constructive et durabilité' noté sur 15 points., source=RC §7.1.1)
-- Délai d'exécution significativement inférieur au plafond réglementaire (exemple=Pour le lot 1, un délai de 3 mois au lieu du maximum de 5 mois obtient la note maximale de 10 points sur le critère délai ; pour le lot 2, viser 2 mois sur 3 maximum. Le planning détaillé doit être crédible et justifier ce délai., source=RC §7.1.1 et §7.1.2)
-- Qualité du dossier technique pour les bâtiments d'occasion (lot 1) (exemple=Un candidat proposant des modules d'occasion fournit un rapport de reconditionnement complet avec photos avant/après, test d'étanchéité, certificat de conformité aux normes actuelles et photos récentes datées : cela répond directement aux exigences du RC et lève les doutes sur la qualité., source=RC §2.3)
-- Choix du bardage imitation bois avec ATec reconnu et garantie longue durée (lot 2) (exemple=Proposer un bardage composite bois-polymère bénéficiant d'un ATec en cours de validité avec garantie fabricant 25 ans et classement réaction au feu B-s1,d0 répond précisément aux 3 sous-critères techniques du lot 2 (étanchéité/imputrescibilité, résistance globale, performances)., source=CCTP lot 2)
-- Intégration paysagère cohérente avec l'environnement rural du site (exemple=Un candidat lot 2 proposant une teinte bardage 'bois naturel clair' avec des profils d'angle et accessoires assortis, et fournissant des échantillons physiques dans son offre, anticipe les exigences de validation du MO et démontre son soin pour l'intégration paysagère., source=CCTP lot 2)
+- Durée de garantie proposée supérieure au minimum réglementaire (exemple=Un candidat proposant 36 mois de garantie sur les bâtiments (contre 12 mois minimum légaux) capitalise sur les 15 points 'qualité constructive et durabilité' — valeur perçue forte par un SDIS qui veut minimiser la maintenance., source=RC §7.1.1 — sous-critère qualité constructive 15 points)
+- Délai d'exécution significativement inférieur au plafond (exemple=Proposer 3 mois sur le Lot 1 (plafond 5 mois) en justifiant par un stock disponible de modules en entrepôt et un planning Gantt détaillé maximise les 10 points délai, tout en rassurant sur la réalisme de l'offre., source=RC §7.1.1 critère n°3)
+- Bâtiments d'occasion entièrement reconditionnés avec dossier de traçabilité complet (exemple=Une offre d'occasion 30-40% moins chère, accompagnée de photos récentes, attestation de reconditionnement, certificats de conformité et garanties fabricant, peut dominer sur le critère prix (50%) sans perdre de points sur la qualité si la documentation est irréprochable., source=RC §2.3 et CCTP Lot 1)
+- Mémoire technique dense avec fiches techniques chiffrées et Avis Techniques pour Lot 2 (exemple=Joindre les ATec ou DTA du système d'isolation et du bardage, les valeurs R chiffrées, les essais de réaction au feu et un nuancier avec échantillons physiques permet de scorer haut sur les 10 points 'performances thermiques et acoustiques' et de rassurer sur la conformité réglementaire., source=RC §7.1.2 et CCTP Lot 2)
+- Réponse multi-lots cohérente avec planning inter-lots coordonné (exemple=Un candidat répondant aux 2 lots avec un planning coordonné montrant l'enchaînement Lot 1 (installation modules) → Lot 2 (bardage) en maîtrisant le séquençage avec le MO (plots, raccordements) se positionne comme partenaire unique et fiable — avantage organisationnel notable en l'absence de maître d'œuvre., source=CCAP article 10.1 et RC §2.3)

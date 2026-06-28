@@ -1,6 +1,6 @@
 # Brief — Numérisation de documents patrimoniaux
 
-_Généré le 2026-06-12 15:49 par Claude claude-sonnet-4-6_
+_Généré le 2026-06-20 01:12 par Claude claude-sonnet-4-6_
 
 ## Identifiants
 - **ID Tendia** : `BOAMP-26-56763`
@@ -10,96 +10,45 @@ _Généré le 2026-06-12 15:49 par Claude claude-sonnet-4-6_
 - **DCE PLACE** : <https://www.marches-publics.gouv.fr/entreprise/consultation/3015164?orgAcronyme=d4t>
 
 ## Synthèse
-L'École nationale des ponts et chaussées (ENPC) lance un accord-cadre mono-attributaire pour la numérisation de ses documents patrimoniaux (collections de l'ENPC). Les documents numérisés seront livrés à la fois à l'ENPC pour conservation et à la BnF pour intégration dans Gallica. Le marché est conclu pour une durée initiale d'un an, renouvelable 3 fois, pour un plafond de 25 000 € HT annuel.
-
-## 🏗 Chantier — caractéristiques BTP
-- **Description** : Numérisation de documents patrimoniaux issus des collections de l'ENPC. Livraison des fichiers numériques à l'ENPC pour conservation et à la BnF pour intégration dans Gallica. Les prestations comprennent la prise de vue (y compris grands formats), le traitement OCR, les contrôles qualité et la production des fichiers numériques.
-- **Contraintes spécifiques** :
-  - Manipulation de documents patrimoniaux fragiles
-  - Prise de vue adaptée aux grands formats
-  - Gestion des flux de documents patrimoniaux
-  - Livraison des fichiers selon les standards BnF/Gallica
-  - Mesures de préservation matérielle des documents
-
-### Allotissement
-Marché composé d'un lot unique
-- **Nombre de lots** : 1
-- **Lot 1** — Numérisation de documents patrimoniaux
-  - Montant estimé : 25 000 €
-  - Numérisation de l'ensemble des documents patrimoniaux des collections de l'ENPC, livraison à l'ENPC et à la BnF pour intégration dans Gallica.
-
-### Qualifications BTP exigées
-Capacités professionnelles, techniques et financières évaluées sur références équivalentes, moyens humains/techniques et chiffre d'affaires.
-
-## ⚡ Parc EnR — caractéristiques techniques
-### Volumes techniques
-- **Durée du marché (mois)** : 48
-- **Note** : Accord-cadre avec plafond annuel de 25 000 € HT (soit 100 000 € HT sur 4 ans). Les quantités exactes de documents à numériser sont fournies à titre indicatif dans le DQE, sans engagement de l'ENPC.
-
-### Modalités d'exécution
-- **Sites d'exécution** : Champs-sur-Marne (77)
-
-## 🎯 Mission conseil
-- **Typologie de mission** : prestation de numérisation et production de fichiers numériques
-- **Domaine d'expertise** : numérisation patrimoniale, gestion documentaire, OCR, photographie de documents
-- **Durée de mission** : 12 mois reconductibles (4 ans maximum)
-- **Livrables attendus** :
-  - Fichiers numériques des documents patrimoniaux numérisés livrés à l'ENPC
-  - Fichiers conformes aux standards BnF pour intégration dans Gallica
-  - Rapports de contrôle qualité de production
-  - Planning prévisionnel de réalisation
-
-### Profils intervenants
-Profils requis pour l'exécution de la numérisation patrimoniale
-- **Chef de mission** : Chef de projet / responsable commercial avec qualifications et références en numérisation patrimoniale
-- **Consultants** : Opérateurs de numérisation (photographes, techniciens OCR), nombre et fonctions des ETP dédiés à préciser en fonction du DQE
-
-## 💻 Système d'information / IT
-- **Technologies mentionnées** : OCR (logiciels de reconnaissance optique de caractères), base de suivi de production, appareils de prise de vue
-
-## 🎓 Formation / accompagnement
-### Publics cibles
-Pas de public cible (marché de prestation de numérisation, pas de formation ou d'insertion)
-
-### Volumes
-- **Durée marché (mois)** : 48
-- **Note** : Accord-cadre à bons de commande, quantités indicatives dans le DQE, sans engagement de l'ENPC. Montant maximum 25 000 € HT/an.
-
-### Modalités
-- **Sites d'exécution** : Champs-sur-Marne, Marne-la-Vallée (77)
+L'École nationale des ponts et chaussées (ENPC) lance un accord-cadre mono-attributaire pour la numérisation de ses documents patrimoniaux (imprimés anciens, photographies, dessins, cartes, manuscrits, documents transparents) issus de ses collections. Les documents numérisés seront livrés à l'ENPC pour conservation et à la BnF pour intégration dans Gallica. Le marché est conclu pour 1 an renouvelable 3 fois, avec un plafond annuel de 25 000 € HT et un plafond global de 100 000 € HT sur 4 ans.
 
 ## 💶 Montant du marché
-- **Plafond accord-cadre** : **100 000 €**
-  - sur 4 ans (1 an ferme + 3 reconductions)
-  - _source : RC article I.3 page 3_
-- _Note_ : Plafond annuel de 25 000 € HT, identique en cas de reconduction. Sur la durée totale maximale de 4 ans, le plafond global est de 100 000 € HT. Pas de montant minimum garanti (accord-cadre sans minimum).
+- **Plafond accord-cadre** : **25 000 €**
+  - sur 25 000 € HT/an (plafond annuel) ; 100 000 € HT sur 4 ans (plafond global toutes reconductions comprises)
+  - _source : RC §I.3 page 3 ; CCP article 1er page 5_
+- _Note_ : Accord-cadre sans montant minimum, avec plafond annuel de 25 000 € HT reconductible 3 fois. Plafond global de 100 000 € HT sur 4 ans. Les commandes réelles dépendront des bons de commande émis ; le volume réel peut être très inférieur au plafond.
 
 ## Barème de notation
 - **Valeur technique** : 65 %
 - **Valeur prix** : 35 %
 - **Sous-critères techniques** :
   - Valeur technique de l'offre : 65 %
-- **Calcul du prix** : Montant total HT renseigné dans le DQE, résultant des prix inscrits dans le Bordereau des Prix (BP). 35 points attribués sur la base de ce montant total.
+- **Calcul du prix** : Apprécié au regard du montant total HT renseigné dans le DQE, résultant des prix inscrits dans le BP. Noté sur 35 points.
 
 ## Références et qualifications exigées
-- **Expérience minimale** : —
-- **Secteur d'expérience** : Numérisation de documents patrimoniaux (bibliothèques, archives, musées)
+- **Expérience minimale** : 3 ans
+- **Secteur d'expérience** : Numérisation de documents patrimoniaux (imprimés anciens, photographies, manuscrits, documents transparents) avec livraison selon référentiels BnF ou équivalent
 - **Autres exigences** :
-  - Déclaration de chiffre d'affaires global et relatif aux prestations objet du marché sur les 3 derniers exercices disponibles (source=RC article III.1.1)
-  - Déclaration appropriée de banques ou preuve d'une assurance pour les risques professionnels (source=RC article III.1.1)
-  - Présentation des prestations équivalentes réalisées au cours des 3 dernières années (références avec date, montant, destinataire public ou privé) (source=RC article III.1.1)
-  - Description des effectifs moyens sur 3 dernières années et des moyens techniques (matériel, équipements) pour des prestations de même nature (source=RC article III.1.1)
+  - Déclaration du chiffre d'affaires global et du chiffre d'affaires relatif aux prestations objet du marché au cours des 3 derniers exercices disponibles (source=RC §III.1.1)
+  - Déclaration appropriée de banques ou preuve d'une assurance pour les risques professionnels (source=RC §III.1.1)
+  - Déclaration des effectifs moyens et des moyens techniques (matériel, équipement) pour la réalisation de prestations de numérisation patrimoniale (source=RC §III.1.1)
+  - Présentation des prestations équivalentes réalisées au cours des 3 dernières années (date, montant, destinataire public ou privé), prouvées par attestations du destinataire ou déclaration du candidat (source=RC §III.1.1)
+
+## Lots
+- **Lot 1** — Lot unique – Numérisation de documents patrimoniaux
+  - Zone : Champs-sur-Marne (77) – École nationale des ponts et chaussées
+  - Marché lot unique. Comprend la numérisation de 7 types de documents (imprimés fonds ancien, imprimés contemporains, photographies, dessins, cartes, documents transparents, manuscrits/archives) selon les référentiels BnF. Livraison à l'ENPC sur disque dur et à la BnF via SFTP pour intégration dans Gallica. Numérisation réalisée chez le prestataire sauf cas exceptionnels (documents trop fragiles à numériser sur place avec l'équipement ENPC Copibook cobalt).
 
 ## ⚠ Alertes candidat
-- Le mémoire technique (Cadre de Réponse Technique) est contractuel et sert de base à l'analyse des offres — un dossier incomplet entraîne l'irrecevabilité.
-- La clause d'insertion professionnelle (publics en difficulté) est une exigence du CCP avec 4 points au barème — vérifier les modalités dans le CCP non fourni.
-- Les fiches techniques du matériel de numérisation (scanners, appareils) doivent obligatoirement être jointes au mémoire technique.
-- Le DQE doit être complété en totalité (commande fictive) pour permettre l'évaluation du planning et du prix — tout dossier incomplet peut être rejeté.
-- L'accord-cadre ne comportant pas de montant minimum garanti, le titulaire ne peut prétendre à aucune indemnité en cas de non-consommation ou de non-reconduction.
+- Aucune certification obligatoire formellement exigée à peine d'irrecevabilité, mais les capacités techniques à démontrer sont très spécifiques : maîtrise des référentiels BnF (JPEG2000, ALTO OCR, METS) — sans ces compétences démontrées, la candidature sera éliminée au stade de la sélection.
+- La clause d'insertion professionnelle (CCP article 11) est une CONDITION D'EXÉCUTION OBLIGATOIRE et non une simple clause de bonne conduite — le candidat doit décrire précisément ses actions d'insertion dans le cadre de réponse technique, sous peine de pénaliser son score RSE (4 points sur 15).
+- Le marché est sans montant minimum garanti : le candidat ne peut exiger aucune commande et doit absorber les coûts fixes (phase de test obligatoire, démarrage) sans garantie de volume. Évaluer soigneusement le seuil de rentabilité.
+- Les pénalités sont cumulables et applicables dès le premier euro (dérogation à l'article 14.1.3 CCAG-FCS), avec une pénalité de 1% par anomalie par vue à la clôture — le prestataire doit sécuriser ses contrôles qualité internes.
+- La phase de test (obligatoire en début de marché) génère des coûts non facturés séparément : les prix du BP doivent les intégrer implicitement.
 
 ## 💡 Points différenciants attendus
-- Expérience prouvée en numérisation patrimoniale pour des institutions publiques (BnF, Archives nationales, bibliothèques régionales) (exemple=Présenter 3 références de marchés de numérisation patrimoniale réalisés pour des établissements publics (dont au moins 1 pour la BnF ou un établissement intégrant dans Gallica), avec attestations du destinataire et volumes numérisés., source=RC article III.1.1 et IV.1)
-- Capacité de prise de vue de grands formats avec matériel adapté et productivité élevée (exemple=Présenter les fiches techniques d'un banc de reproduction grand format (A1+) avec productivité horaire documentée, accompagnées de photos de réalisations similaires, pour démontrer la maîtrise des contraintes spécifiques aux grands formats patrimoniaux., source=RC article IV.2 - Sous-critère n°1, point 2) et Sous-critère n°2)
-- Conformité aux standards BnF (référentiel de numérisation Gallica) et maîtrise des formats de livraison (exemple=Détailler explicitement la conformité aux spécifications techniques BnF (résolutions, formats TIFF/JPEG, nommage, métadonnées Dublin Core ou EAD), en illustrant avec un exemple de livraison réalisée pour Gallica ou un projet similaire., source=RC article I.2 et IV.2 - Sous-critère n°2)
-- Organisation de la clause d'insertion avec partenariat structuré avec des SIAE locales (exemple=Produire une lettre d'intention d'un GEIQ ou d'une SIAE partenaire sur le secteur de Champs-sur-Marne/Marne-la-Vallée, précisant les postes proposés et le volume d'heures d'insertion prévu., source=RC article IV.2 - Critère n°3, point B/3))
-- Planning réaliste et détaillé basé sur la commande fictive du DQE, démontrant la maîtrise des délais (exemple=Fournir un planning Gantt détaillé par type de document (reliés, grands formats, documents fragiles), avec productivité journalière justifiée par les fiches techniques du matériel, et conformité explicite aux délais maximums du CCP., source=RC article IV.2 - Sous-critère n°1, point 3))
+- Maîtrise avancée des référentiels BnF et de la chaîne Gallica (exemple=Un candidat qui a déjà livré des documents à la BnF via la chaîne d'entrée Gallica (format METS/JPEG2000, serveur SFTP, bordereaux BC/BCAT) peut le démontrer par des références chiffrées (nombre de documents intégrés dans Gallica) et des extraits de bordereau de contrôle positifs — ce que ne peuvent pas faire des numériseurs sans expérience BnF., source=CCP article 7, article 9.4)
+- Capacité à traiter l'intégralité des typologies documentaires avec des équipements adaptés (exemple=Disposer à la fois d'un scanner overhead pour reliures fragiles à ouverture réduite (jusqu'à A1 fermé), d'un scanner de transparents pour plaques de verre et négatifs, et d'un scanner haute cadence pour documents contemporains massicotables représente un avantage décisif par rapport à un candidat monospécialisé., source=CCP article 7.2 ; RC §III.1.2 sous-critère B)
+- Expérience prouvée en manipulation de documents patrimoniaux fragiles (exemple=Des références auprès de bibliothèques patrimoniales reconnues (BnF, bibliothèques municipales classées, Archives nationales) avec des attestations clients détaillant les types de documents traités et les précautions de manipulation donneront une forte crédibilité face à des généralistes de la numérisation de masse., source=RC §III.1.1 ; CCP article 5 et 6.4)
+- Proposition d'un dispositif d'insertion professionnelle structuré et crédible (exemple=Un prestataire disposant déjà d'une convention active avec une structure IAE (EI, ETTI, AI) spécialisée dans des activités manuelles de précision (conditionnement, archivage) peut valoriser des heures d'insertion réelles plutôt qu'une vague déclaration d'intention, scorant mieux sur les 4 points RSE dédiés., source=RC §IV.2 – Critère N°3 / point 3 ; CCP article 11)
+- Système de suivi de production transparent et partagé avec l'ENPC (exemple=Proposer un accès en temps réel à une base de suivi de production (tableau de bord web ou fichier de récolement partagé) permettant à l'ENPC de visualiser l'état d'avancement document par document différencie fortement un candidat structuré d'un artisan de la numérisation., source=RC §III.1.2 sous-critère B ; CCP article 9.3)

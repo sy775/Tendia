@@ -1,6 +1,6 @@
 # Brief — PRESTATIONS DE PROPRETE ENTRETIEN HORTICOLE ET ELAGAGE DES EQUIPEMENTS TRANSFERES DE LA MAIRIE DES 11EME ET 12EME ARRONDISSEMENT
 
-_Généré le 2026-06-12 15:49 par Claude claude-sonnet-4-6_
+_Généré le 2026-06-19 21:47 par Claude claude-sonnet-4-6_
 
 ## Identifiants
 - **ID Tendia** : `BOAMP-26-56527`
@@ -11,47 +11,12 @@ _Généré le 2026-06-12 15:49 par Claude claude-sonnet-4-6_
 - **DCE PLACE** : <https://mpe.mairie-marseille.fr/entreprise/consultation/525131?orgAcronyme=a2z>
 
 ## Synthèse
-La Ville de Marseille (Mairie des arrondissements 11 et 12) lance un appel d'offres ouvert pour des prestations de propreté, d'entretien horticole et d'élagage des équipements transférés des 11ème et 12ème arrondissements. Le marché est décomposé en 3 lots : propreté/entretien du 11ème, propreté/entretien du 12ème, et abattage/élagage/reboisement d'arbres du 6ème secteur. Les pièces disponibles se limitent au DUME (formulaire de candidature), sans RC ni CCTP détaillés fournis.
-
-## 🏗 Chantier — caractéristiques BTP
-- **Description** : Prestations de propreté et d'entretien horticole des équipements publics transférés à la Mairie des 11ème et 12ème arrondissements de Marseille, incluant l'abattage, l'élagage et le reboisement d'arbres sur les équipements du 6ème secteur.
-- **Type d'ouvrage** : Équipements municipaux transférés (nature exacte non précisée dans les pièces disponibles — DUME uniquement)
-- **Corps d'état mobilisés** : Propreté / nettoyage d'équipements, Entretien horticole, Abattage et élagage d'arbres, Reboisement
-- **Contraintes spécifiques** :
-  - Équipements 'transférés' — nature et localisation précises non renseignées dans les pièces disponibles
-  - Intervention sur espaces publics en milieu urbain (Marseille 11ème, 12ème arrondissements et 6ème secteur)
-
-### Allotissement
-Marché alloti en 3 lots distincts par périmètre géographique et nature de prestations
-- **Nombre de lots** : 3
-- **Lot 1** — Propreté et entretien des équipements transférés du 11ème arrondissement
-  - Corps d'état : Propreté, entretien horticole
-  - Prestations de propreté et d'entretien horticole sur les équipements transférés relevant du 11ème arrondissement de Marseille
-- **Lot 2** — Propreté et entretien des équipements transférés du 12ème arrondissement
-  - Corps d'état : Propreté, entretien horticole
-  - Prestations de propreté et d'entretien horticole sur les équipements transférés relevant du 12ème arrondissement de Marseille
-- **Lot 3** — Abattage, élagage et reboisement d'arbres des équipements transférés de la Mairie du 6ème secteur
-  - Corps d'état : Arboriculture, élagage, abattage, reboisement
-  - Prestations d'abattage, d'élagage et de reboisement d'arbres sur les équipements relevant du 6ème secteur (11ème et 12ème arrondissements)
-
-### Qualifications BTP exigées
-Non renseigné dans les pièces disponibles (DUME uniquement, sans RC ni CCTP)
-
-## ⚡ Parc EnR — caractéristiques techniques
-### Volumes techniques
-- **Note** : Aucune information volumétrique disponible dans les pièces fournies (DUME uniquement)
-
-### Modalités d'exécution
-- **Sites d'exécution** : Marseille — 11ème arrondissement, Marseille — 12ème arrondissement, Marseille — 6ème secteur
-
-## 🎓 Formation / accompagnement
-### Modalités
-- **Sites d'exécution** : Marseille — 11ème arrondissement, Marseille — 12ème arrondissement, Marseille — 6ème secteur
+Marché public de la Ville de Marseille portant sur des prestations de propreté, entretien horticole et élagage des équipements transférés des mairies des 11ème et 12ème arrondissements, structuré en 3 lots : propreté/entretien espaces verts du 11ème, propreté/entretien espaces verts du 12ème, et abattage/élagage/reboisement d'arbres pour le 6ème secteur. Le DCE fourni est très incomplet (seul un guide de dématérialisation et un DUME vierge sont présents), sans RC, CCTP ni BPU détaillant les critères d'attribution et les volumes. La durée de chaque lot est de 6 mois.
 
 ## 💶 Montant du marché
 - _Montant non communiqué dans le DCE._
   - Typique des accords-cadres à bons de commande : le volume dépend des commandes effectivement passées par l'acheteur sur la durée du marché.
-- _Note_ : Aucun montant, prix unitaire ou enveloppe budgétaire mentionné dans les pièces disponibles (DUME uniquement, sans RC, CCTP, BPU ni CCAP)
+- _Note_ : Le DCE fourni ne contient ni RC, ni CCTP, ni BPU, ni avis BOAMP avec estimation. Aucune valeur estimée n'est donc disponible. Seule la durée de 6 mois par lot est mentionnée dans les données BOAMP. La publication au BOAMP en procédure ouverte européenne indique un montant total vraisemblablement supérieur au seuil de 214 000 € HT (seuils 2024-2025 pour les marchés de services des collectivités territoriales).
 
 ## Barème de notation
 - **Valeur technique** : —
@@ -60,13 +25,26 @@ Non renseigné dans les pièces disponibles (DUME uniquement, sans RC ni CCTP)
 ## Références et qualifications exigées
 - **Expérience minimale** : —
 
+## Lots
+- **Lot 1** — PROPRETÉ ET ENTRETIEN DES ÉQUIPEMENTS TRANSFÈRES DU 11ème ARRONDISSEMENT
+  - Zone : Marseille 11ème arrondissement
+  - Durée de 6 mois. Couvre les équipements transférés de la mairie du 11ème arrondissement de Marseille. Mélange propreté des locaux/équipements et entretien des espaces verts.
+- **Lot 2** — PROPRETÉ ET ENTRETIEN DES ÉQUIPEMENTS TRANSFÈRES DU 12ème ARRONDISSEMENT
+  - Zone : Marseille 12ème arrondissement
+  - Durée de 6 mois. Même périmètre que le lot 1 mais pour le 12ème arrondissement.
+- **Lot 3** — ABATTAGE ÉLAGAGE ET REBOISEMENT D'ARBRES DES ÉQUIPEMENTS TRANSFÉRÉS DE LA MAIRIE DU 6ème SECTEUR
+  - Zone : Marseille 6ème secteur (11ème et 12ème arrondissements)
+  - Durée de 6 mois. Prestations arboricoles spécialisées (abattage, élagage, reboisement). Nécessite du matériel spécifique (nacelle, broyeur, équipements de sécurité arboricole) et du personnel qualifié. CPV 77310000 (plantation et entretien d'espaces verts) en secondaire.
+
 ## ⚠ Alertes candidat
-- DCE très incomplet transmis : seul le DUME est disponible, sans RC, CCTP, CCAP ni BPU — impossible d'évaluer les critères d'attribution, les exigences techniques et les conditions financières avant téléchargement complet du dossier sur la plateforme
-- Lot 3 (élagage/abattage) requiert des compétences et équipements spécialisés en arboriculture — vérifier la compatibilité de votre activité avec ce lot avant de candidater
-- Date limite de dépôt des offres : 9 juillet 2026 — délai court à vérifier selon la date de retrait effectif du dossier complet
-- Marché de la Ville de Marseille portant sur des 'équipements transférés' : nature précise des sites (espaces verts, équipements sportifs, bâtiments ?) non précisée dans les pièces disponibles — nécessite lecture du CCTP complet
+- Le DCE fourni est très incomplet : absence du Règlement de Consultation (RC), du CCTP et du BPU — le candidat doit impérativement télécharger le dossier complet sur la plateforme marchespublics.mairie-marseille.fr avant de candidater.
+- Lot 3 (élagage/abattage) : des certifications professionnelles spécialisées peuvent être exigées pour les travaux arboricoles en hauteur (CS Arboriste-Grimpeur, formation tronçonnage CNPF, etc.) — à vérifier dans le RC complet.
+- Procédure ouverte européenne avec publication au BOAMP et JOUE : forte concurrence internationale possible, délais de réponse courts (dépôt au 09/07/2026 soit moins d'un mois après publication du 10/06/2026).
+- Dépôt obligatoirement dématérialisé sur marchespublics.mairie-marseille.fr — anticiper la création de compte et les tests de configuration de poste avant la date limite.
+- La signature électronique de l'acte d'engagement n'est requise qu'auprès de l'attributaire pressenti (pas au stade du dépôt), mais le candidat doit disposer d'un certificat qualifié eIDAS en cas d'attribution.
 
 ## 💡 Points différenciants attendus
-- Connaissance du territoire marseillais et des arrondissements concernés (exemple=Présence d'une agence ou d'un dépôt logistique sur Marseille ou sa proche banlieue, permettant des interventions réactives sur les 11ème et 12ème arrondissements avec des équipes dédiées.)
-- Capacité à intervenir sur les 3 lots simultanément (propreté + élagage) (exemple=Structure multi-compétences ou groupement momentané d'entreprises couvrant à la fois les prestations de propreté et les travaux arboricoles (élagage, abattage, reboisement).)
-- Références sur des marchés similaires avec des collectivités (mairies d'arrondissement, communes) (exemple=Présentation de 2-3 références récentes de marchés de propreté/entretien horticole pour des communes ou établissements publics en milieu urbain dense.)
+- Capacité à intervenir sur des équipements transférés d'arrondissements spécifiques de Marseille avec connaissance du terrain local (exemple=Un prestataire disposant déjà d'une implantation ou d'une expérience sur les 11ème/12ème arrondissements ou dans le 6ème secteur pourra valoriser sa connaissance du tissu urbain, des accès et des contraintes locales dans son mémoire technique.)
+- Capacités techniques et matérielles pour le lot élagage/abattage (lot 3) (exemple=Justifier de la détention ou de l'accès à du matériel spécialisé (nacelle, broyeur, équipements de sécurité) et d'arboristes qualifiés (CS arboriste-grimpeur) permettra de se démarquer et de rassurer l'acheteur sur la faisabilité technique.)
+- Organisation et réactivité pour des prestations récurrentes sur 6 mois (exemple=Présenter un planning d'intervention hebdomadaire détaillé, un organigramme de chantier et un dispositif de remplacement en cas d'absence d'agents permettrait de démontrer la fiabilité opérationnelle sur la durée du marché.)
+- Démarche environnementale et sociale (clauses RSE probables en marchés de collectivité locale) (exemple=Valoriser l'utilisation de matériel thermique à faibles émissions ou électrique, la gestion éco-responsable des déchets verts (compostage, broyage sur site), ainsi que le recours à des clauses d'insertion sociale pour les lots propreté/entretien.)

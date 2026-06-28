@@ -1,6 +1,6 @@
 # Brief — Marché de prestations d'agence de voyage pour les élus et agents de la Communauté de communes de Petite Terre.
 
-_Généré le 2026-06-12 15:49 par Claude claude-sonnet-4-6_
+_Généré le 2026-06-19 21:35 par Claude claude-sonnet-4-6_
 
 ## Identifiants
 - **ID Tendia** : `BOAMP-26-56510`
@@ -11,79 +11,46 @@ _Généré le 2026-06-12 15:49 par Claude claude-sonnet-4-6_
 - **DCE PLACE** : <https://www.marches-publics.gouv.fr/?page=Entreprise.EntrepriseDetailsConsultation&id=3009639&orgAcronyme=x7c>
 
 ## Synthèse
-Ce DCE concerne la fourniture, l'installation et la mise en service de cabines d'audiométrie pour le service de consultation ORL du CHU Caen Normandie. Le marché est global (non alloti), inclut une tranche optionnelle (1 cabine grand enfant) et deux PSE relatives au raccordement au réseau de ventilation. La date limite de remise des offres est le 17 juillet 2026.
-
-## 🏗 Chantier — caractéristiques BTP
-- **Description** : Fourniture, installation et mise en service de cabines d'audiométrie pour le service de consultation ORL du CHU Caen Normandie, dans un nouveau bâtiment en cours de construction et d'aménagement (bâtiment LPA). Le marché comprend une tranche ferme (cabines audiométrie) et une tranche optionnelle (1 cabine grand enfant), ainsi que deux PSE facultatives pour le raccordement au réseau de ventilation.
-- **Type d'ouvrage** : Établissement public de santé — service ORL en construction (bâtiment LPA, CHU Caen)
-- **Site occupé pendant travaux** : Non précisé explicitement ; le bâtiment est en cours de construction
-- **Corps d'état mobilisés** : Équipements biomédicaux, Installation technique (ventilation si PSE levée)
-- **Contraintes spécifiques** :
-  - Visite de site obligatoire le 24 juin 2026 à 14h (bâtiment LPA) — certificat de visite obligatoire sous peine de rejet
-  - Nouveau bâtiment en cours de construction et d'aménagement
-  - Intégration fonctionnelle dans le service ORL avec exigences de cohérence et continuité de soins
-  - PSE de raccordement au réseau de ventilation du CHU (tranche ferme et optionnelle)
-  - Tranche optionnelle : 1 cabine d'audiométrie grand enfant
-
-### Allotissement
-Marché global sans allotissement. La personne publique a justifié l'absence d'allotissement par les contraintes de compatibilité technique, coordination des interventions et responsabilité unique du titulaire.
-- **Nombre de lots** : 1
-- **Lot 1** — Fourniture, installation, mise en service de cabines d'audiométrie
-  - Corps d'état : Équipements biomédicaux audiométriques
-  - Tranche ferme : cabines d'audiométrie pour le service ORL. Tranche optionnelle : 1 cabine d'audiométrie grand enfant. PSE 1 : raccordement tranche ferme au réseau de ventilation. PSE 2 : raccordement tranche optionnelle au réseau de ventilation.
-
-### Qualifications BTP exigées
-Aucun niveau minimal spécifique exigé en capacité économique/financière ni en capacités techniques et professionnelles, selon le RC.
-- **Autres exigences** :
-  - Marquage CE-DM (dispositifs médicaux) — les éléments relatifs au marquage CE-DM doivent être joints à l'offre (RC §V.2)
-
-## ⚡ Parc EnR — caractéristiques techniques
-### Volumes techniques
-- **Durée du marché (mois)** : 24
-- **Note** : Le marché prend effet à la notification et expire à l'admission des équipements. Si la tranche optionnelle est affermie, le marché expire au terme de 24 mois. Notification prévue mi-septembre 2026.
-
-### Modalités d'exécution
-- **Sites d'exécution** : Caen (14033 Caen Cedex 9) — Magasins Généraux, Avenue de la Côte de Nacre
-
-## 🎓 Formation / accompagnement
-### Volumes
-- **Durée marché (mois)** : 24
-- **Note** : Marché de fourniture d'équipements — pas de notion de bénéficiaires. Durée maximale 24 mois si tranche optionnelle affermie.
-
-### Modalités
-- **Sites d'exécution** : Caen (14)
+Le CHU de Caen Normandie lance un appel d'offres ouvert pour la fourniture, l'installation et la mise en service de 4 cabines d'audiométrie (tranche ferme) pour son service de consultation ORL, avec une tranche optionnelle pour une 5e cabine. Le marché comprend des PSE de connexion au réseau de ventilation du CHU. Une visite obligatoire sur site était prévue le 24 juin 2026. Attention : le contexte BOAMP référencé correspond à un marché d'agence de voyage (BOAMP-26-56510) qui ne correspond pas au DCE analysé (BIO2026-065) — les pièces DCE priment ici.
 
 ## 💶 Montant du marché
-- _Montant non communiqué dans le DCE._
-  - Typique des accords-cadres à bons de commande : le volume dépend des commandes effectivement passées par l'acheteur sur la durée du marché.
-- _Note_ : Aucun montant estimé, plafond ou fourchette n'est mentionné dans les pièces du DCE fournies. Le CCTP et l'annexe financière (non fournis intégralement) pourraient contenir des indications de prix unitaires.
+- **Fourchette** : entre 350 000 € et 600 000 €
+  - sur Durée d'exécution jusqu'à admission (≤ 24 mois si tranche optionnelle affermie)
+  - _source : CCTP §2 (5 cabines) ; BPU (4 lignes tranche ferme + PSE + 1 tranche optionnelle) ; seuil BOAMP (marché européen)_
 
 ## Barème de notation
 - **Valeur technique** : 60 %
 - **Valeur prix** : 40 %
 - **Sous-critères techniques** :
-  - Performances annoncées : 42 %
-  - Ergonomie : 18 %
-- **Calcul du prix** : (Prix offre la plus basse / Prix offre analysée) × 20 puis pondérée — note calculée en euros TTC hors PSE (RC §IV.5.3)
+  - Valeur technique de l'offre : 60 %
+- **Calcul du prix** : (Prix de l'offre la plus basse / Prix de l'offre analysée) × 20, pondérée à 40%, calculé en euros TTC hors PSE.
 
 ## Références et qualifications exigées
 - **Expérience minimale** : —
-- **Secteur d'expérience** : Fourniture et installation de cabines d'audiométrie / équipements biomédicaux audiologiques
-- **Certifications obligatoires** : Marquage CE-DM (dispositifs médicaux) — les éléments relatifs au marquage CE-DM doivent être joints à l'offre (source=RC §V.2)
+- **Secteur d'expérience** : Fourniture et installation de cabines d'audiométrie ou équipements acoustiques médicaux en milieu hospitalier
+- **Certifications obligatoires** : Marquage CE — Dispositif médical classe I (auto-certification directive 93/42/CEE) (bloquante=True, source=CCTP §4 — Conformité), Attestation de visite obligatoire (certificat de visite du 24 juin 2026 signé par M. SCHWOB) (bloquante=True, source=RC §IV.2.3)
 - **Autres exigences** :
-  - Certificat de visite obligatoire daté du 24 juin 2026 — à joindre à l'offre, sous peine de rejet (source=RC §IV.2.3)
-  - Identification préalable à la visite (nom, prénom, qualification) au minimum 72h avant la visite, auprès de M. Schwob (source=RC §IV.2.3)
-  - Liste de références équivalentes à la présente consultation (cabines audiométriques ou équipements biomédicaux similaires) (source=RC §V.2)
+  - Questionnaire technique complété et joint à l'offre (précisant notamment le niveau de bruit extérieur au-delà duquel le bruit résiduel < 30 dB n'est plus garanti) (source=CCTP §3.1 ; RC §V.2)
+  - Fiches techniques détaillées des produits jointes à l'offre (source=RC §V.2)
+  - Éléments relatifs au marquage CE-DM joints à l'offre (source=RC §V.2)
+  - Références équivalentes à celles de la consultation (liste à produire dans DC2) (source=RC §V.2)
+
+## Lots
+- **Lot 1** — Fourniture, installation, mise en service de cabines d'audiométrie
+  - Zone : Caen (14) — CHU Caen Normandie
+  - Volume estimé : 5 cabines (4 TF + 1 optionnelle)
+  - Marché non alloti — lot unique. Tranche ferme (4 cabines) + tranche optionnelle (1 cabine). PSE ventilation pour chaque tranche. Visite obligatoire le 24 juin 2026. Prix forfaitaire ferme (tranche ferme) / actualisable (tranche optionnelle si délai > 3 mois).
 
 ## ⚠ Alertes candidat
-- VISITE OBLIGATOIRE le 24 juin 2026 à 14h (bâtiment LPA) — identification obligatoire 72h avant — certificat à joindre à l'offre — absence de certificat = rejet de l'offre (RC §IV.2.3)
-- L'offre doit être transmise EXCLUSIVEMENT par voie électronique sur marches-publics.gouv.fr — toute offre papier sera déclarée irrégulière (RC §V.4)
-- Marquage CE-DM obligatoire — les preuves de conformité doivent être jointes à l'offre (RC §V.2)
-- Toute note égale à zéro sur un critère (technique ou prix) entraîne l'élimination automatique de l'offre (RC §IV.5.3)
-- Attention : le DCE fourni en analyse est celui du CHU Caen Normandie (BIO2026-065 cabines audiométrie), et non le marché d'agence de voyage de la Communauté de Communes de Petite Terre mentionné dans les métadonnées — risque de confusion documentaire à vérifier
+- VISITE OBLIGATOIRE ET ÉLIMINATOIRE : la visite du 24 juin 2026 (14h, bâtiment LPA, M. SCHWOB) est impérative ; l'absence de certificat de visite entraîne le REJET DE L'OFFRE. Inscription 72h avant minimum.
+- PRIX FORFAITAIRE INTANGIBLE : le marché est traité à prix forfaitaire par tranche (CCAP §7.1) — toute erreur de chiffrage est définitive et non rectifiable après notification.
+- NOTE À ZÉRO ÉLIMINATOIRE : toute note égale à zéro sur un sous-critère (performances ou ergonomie) entraîne l'élimination de l'offre — ne pas négliger l'ergonomie même si mineure dans la pondération.
+- MARQUAGE CE-DM OBLIGATOIRE : les documents de conformité directive 93/42/CEE (classe I) doivent être joints à l'offre — leur absence peut rendre l'offre irrecevable ou inappropriée.
+- QUESTIONNAIRE TECHNIQUE SPÉCIFIQUE : le questionnaire technique fourni par le CHU doit être complété et joint — il conditionne notamment la notation des performances annoncées (bruit résiduel garanti en fonction du niveau sonore extérieur).
+- DÉPÔT DÉMATÉRIALISÉ EXCLUSIF : seul le dépôt via marches-publics.gouv.fr est accepté — les offres papier ou envoyées par d'autres voies sont déclarées irrégulières et écartées.
 
 ## 💡 Points différenciants attendus
-- Performances techniques supérieures aux exigences minimales du CCTP (isolation acoustique, gamme de fréquences, etc.) (exemple=Proposer des cabines dont les niveaux d'isolation phonique dépassent les seuils réglementaires (ex: atténuation ≥ 40 dB au-delà du minimum exigé), avec fiches techniques normées et résultats de mesures in situ sur des installations de référence., source=RC §IV.5.2)
-- Ergonomie différenciante (facilité d'utilisation pour praticiens et patients, dont enfants) (exemple=Mettre en avant une conception modulaire facilitant l'accès aux patients à mobilité réduite, un éclairage adapté aux examens ORL, et une interface de contrôle intuitive pour le praticien, avec photos et plans à l'appui., source=RC §IV.5.2)
-- Expérience dans les installations en milieu hospitalier en cours de construction (exemple=Citer des références récentes de pose de cabines audiométriques dans des services ORL de CHU ou hôpitaux, en particulier dans des bâtiments neufs, avec attestations de bonne fin.)
-- Calendrier détaillé et coordination avec le chantier en cours (exemple=Fournir un planning d'intervention détaillé tenant compte des contraintes du nouveau bâtiment LPA en cours de construction, avec identification des jalons critiques et des interfaces avec les corps d'état présents sur le chantier., source=RC §V.2)
+- Performances acoustiques documentées et chiffrées au-delà des minima exigés (exemple=Présenter des rapports de mesures indépendants (laboratoire accrédité COFRAC) attestant un bruit résiduel de 20-22 dB au lieu du seuil exigé de 30 dB, et un temps de réverbération de 0,15-0,18 s au lieu de 0,3 s — avec le niveau sonore extérieur limite garanti clairement renseigné dans le questionnaire technique., source=CCTP §3.1 ; RC §IV.5.2)
+- Solution d'intégration clé en main démontrant la maîtrise des contraintes spécifiques du site (exemple=Proposer des plans provisoires tenant compte des contraintes précises du CCTP (hauteur sous dalle 4 200 mm, vide sanitaire, gaines de ventilation sous la pièce adultes 2, absence de décaissé avec rampes fixes) pour chacune des 5 pièces, démontrant que la visite de site a été pleinement exploitée., source=CCTP §3.3 ; RC §IV.2.3)
+- Durée de garantie étendue incluant maintenance préventive et corrective complète (exemple=Proposer une garantie de 2-3 ans (vs le minimum d'1 an exigé) incluant toutes les opérations de maintenance corrective, préventive et contrôles qualité — avec une maintenance préventive de fin de garantie explicitement décrite, valorisant la continuité de fonctionnement du service ORL., source=CCTP §3.6 ; CCAP §11)
+- Ergonomie différenciante : accessibilité PMR bariatrique et commande déportée (exemple=Détailler les solutions d'éclairage LED à variateur commandé depuis le poste de travail extérieur, la dimension précise des ouvertures PMR (> 1 200 mm pour brancard bariatrique), et la disposition optimale du panneau de connexion encastré pour le flux de travail ORL quotidien., source=CCTP §3.2 ; RC §IV.5.2 (sous-critère Ergonomie 30%))

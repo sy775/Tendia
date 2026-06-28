@@ -1,6 +1,6 @@
 # Brief — Prise en charge et traitement des déchets type « résidus de chantier » sur les éco-centres gérés par le SYBERT
 
-_Généré le 2026-06-12 15:49 par Claude claude-sonnet-4-6_
+_Généré le 2026-06-19 22:16 par Claude claude-sonnet-4-6_
 
 ## Identifiants
 - **ID Tendia** : `BOAMP-26-56558`
@@ -11,96 +11,81 @@ _Généré le 2026-06-12 15:49 par Claude claude-sonnet-4-6_
 - **DCE PLACE** : <https://www.marches-publics.gouv.fr/?page=Entreprise.EntrepriseDetailsConsultation&id=2990158&orgAcronyme=a4n>
 
 ## Synthèse
-Ce marché concerne la fourniture et la livraison de denrées alimentaires (11 lots : boucherie, volaille, charcuterie, produits de la mer, fruits et légumes, fromages, boulangerie, épicerie, etc.) pour l'Hôtel des ministres et le restaurant de direction Le Cercle des ministères économiques et financiers. Il s'agit d'un accord-cadre à bons de commande, passé en appel d'offres ouvert, pour une durée maximale de 4 ans. Certains lots sont mono-attributaires, d'autres peuvent être attribués à 2 titulaires.
-
-## 🏗 Chantier — caractéristiques BTP
-### Allotissement
-Accord-cadre divisé en 11 lots autonomes portant chacun sur une famille de denrées alimentaires. Certains lots sont mono-attributaires, d'autres peuvent être conclus avec 2 titulaires.
-- **Nombre de lots** : 11
-- **Lot 1** — Boucherie
-  - Montant estimé : 510 000 €
-  - Fourniture et livraison de produits de boucherie — maximum 510 000 € HT sur 4 ans, 2 attributaires maximum
-- **Lot 2** — Volaille
-  - Montant estimé : 240 000 €
-  - Fourniture et livraison de volailles — maximum 240 000 € HT sur 4 ans, 2 attributaires maximum
-- **Lot 3** — Charcuterie
-  - Montant estimé : 200 000 €
-  - Fourniture et livraison de charcuterie — maximum 200 000 € HT sur 4 ans, 1 attributaire
-- **Lot 4** — Produits de la mer
-  - Montant estimé : 1,06 M€
-  - Fourniture et livraison de produits de la mer — maximum 1 060 000 € HT sur 4 ans, 2 attributaires maximum
-- **Lot 5** — Fruits et légumes
-  - Montant estimé : 1,77 M€
-  - Fourniture et livraison de fruits et légumes — maximum 1 770 000 € HT sur 4 ans, 2 attributaires maximum
-- **Lot 6** — Fromages affinés et crèmerie
-  - Montant estimé : 670 000 €
-  - Fourniture et livraison de fromages et produits de crèmerie — maximum 670 000 € HT sur 4 ans, 1 attributaire
-- **Lot 7** — Boulangerie
-  - Montant estimé : 520 000 €
-  - Fourniture et livraison de produits de boulangerie — maximum 520 000 € HT sur 4 ans, 1 attributaire. Seul lot avec BPU à remplir.
-- **Lot 8** — Epicerie généraliste
-  - Montant estimé : 530 000 €
-  - Fourniture et livraison d'épicerie généraliste — maximum 530 000 € HT sur 4 ans, 2 attributaires maximum
-- **Lot 9** — Epicerie spécialisée italienne
-  - Montant estimé : 90 000 €
-  - Fourniture et livraison d'épicerie spécialisée italienne — maximum 90 000 € HT sur 4 ans, 1 attributaire
-- **Lot 10** — Produits frais et surgelés de restauration
-  - Montant estimé : 360 000 €
-  - Fourniture et livraison de produits frais et surgelés — maximum 360 000 € HT sur 4 ans, 1 attributaire
-- **Lot 11** — Produits du terroir
-  - Montant estimé : 110 000 €
-  - Fourniture et livraison de produits du terroir — maximum 110 000 € HT sur 4 ans, 1 attributaire
-
-### Qualifications BTP exigées
-Pas de niveaux minimaux de capacité imposés explicitement. Les candidatures sans aptitude professionnelle manifeste peuvent être éliminées.
-
-## ⚡ Parc EnR — caractéristiques techniques
-### Volumes techniques
-- **Durée du marché (mois)** : 48
-- **Note** : Accord-cadre à bons de commande sans minimum de commande. Durée maximale 4 ans (2 ans ferme + 2 reconductions annuelles). Plafonds par lot de 90 000 € à 1 770 000 € HT sur 4 ans.
-
-### Modalités d'exécution
-- **Sites d'exécution** : Paris 12ème
-
-## 🎓 Formation / accompagnement
-### Volumes
-- **Durée marché (mois)** : 48
-- **Note** : Accord-cadre à bons de commande sans minimum. Montants maximum par lot sur 4 ans : lot 1 : 510 000 € HT, lot 2 : 240 000 € HT, lot 3 : 200 000 € HT, lot 4 : 1 060 000 € HT, lot 5 : 1 770 000 € HT, lot 6 : 670 000 € HT, lot 7 : 520 000 € HT, lot 8 : 530 000 € HT, lot 9 : 90 000 € HT, lot 10 : 360 000 € HT, lot 11 : 110 000 € HT. Total toutes plafonds : 6 060 000 € HT sur 4 ans.
-
-### Modalités
-- **Sites d'exécution** : Paris 12ème — Hôtel des ministres, restaurant Le Cercle, centre de conférences PMF
+Accord-cadre à bons de commande pour la fourniture et la livraison de denrées alimentaires (11 lots : boucherie, volaille, charcuterie, produits de la mer, fruits et légumes, fromages, boulangerie, épicerie généraliste et spécialisée, produits frais/surgelés, produits du terroir) destinées aux cuisines de l'Hôtel des ministres, du restaurant Le Cercle et du centre de conférences Pierre Mendès France des ministères économiques et financiers (MEF). Le marché est alloti, avec des lots mono ou multi-attributaires, exécuté par bons de commande sans minimum et avec un montant maximum par lot sur 4 ans (durée ferme 2 ans + 2 reconductions d'un an). Les pièces fournies au DCE correspondent à ce marché de denrées alimentaires (BAMAC-2026-352-alimentaire), et non au marché SYBERT de résidus de chantier mentionné en contexte BOAMP, qui semble être une erreur de contexte.
 
 ## 💶 Montant du marché
-- **Plafond accord-cadre** : **6,06 M€**
-  - sur 4 ans (durée maximale de l'accord-cadre)
-  - _source : RC article 3.2 — tableau des montants maximum par lot_
-- _Note_ : Le montant total est calculé en additionnant les plafonds de chaque lot : lot 1 (510 000) + lot 2 (240 000) + lot 3 (200 000) + lot 4 (1 060 000) + lot 5 (1 770 000) + lot 6 (670 000) + lot 7 (520 000) + lot 8 (530 000) + lot 9 (90 000) + lot 10 (360 000) + lot 11 (110 000) = 6 060 000 € HT sur 4 ans. Ce sont des plafonds, les commandes effectives peuvent être inférieures (pas de minimum garanti).
+- **Plafond accord-cadre** : **5,06 M€**
+  - sur 4 ans (2 ans ferme + 2 reconductions d'un an)
+  - _source : RC article 3.3 page 5 — tableau des montants maximum par lot_
+- _Note_ : Somme des montants maximum HT sur 4 ans de tous les lots : Lot1 510k + Lot2 240k + Lot3 200k + Lot4 1060k + Lot5 1770k + Lot6 670k + Lot7 520k + Lot8 530k + Lot9 90k + Lot10 360k + Lot11 110k = 6 060 000 € HT (montants maximum, non garantis). Note : le montant estimatif du contexte BOAMP (3 520 000 €) correspond au marché SYBERT (résidus de chantier) et non à ce marché de denrées alimentaires.
 
 ## Barème de notation
-- **Valeur technique** : —
-- **Valeur prix** : —
+- **Valeur technique** : 65 %
+- **Valeur prix** : 35 %
 - **Sous-critères techniques** :
-  - Critère environnemental : —
-- **Calcul du prix** : Note = (prix le plus bas / prix de l'offre examinée) × 5, pondérée par le coefficient du lot. Simulation réalisée sur le panier-type de commande.
+  - Qualité des échantillons : 35 %
+  - Modalités d'organisation et de suivi des prestations : 15 %
+  - Mesures environnementales : 15 %
+- **Calcul du prix** : Note = (prix le plus bas / prix de l'offre examinée) × 5, pondérée à 35%
 
 ## Références et qualifications exigées
-- **Expérience minimale** : —
-- **Secteur d'expérience** : Fourniture de denrées alimentaires comparables au lot concerné, au titre des 3 dernières années
+- **Expérience minimale** : 3 ans
+- **Secteur d'expérience** : Fourniture et livraison de denrées alimentaires de même type (boucherie, volaille, poissons, fruits et légumes, fromages, boulangerie, épicerie, produits surgelés) pour des structures de restauration de niveau professionnel
 - **Autres exigences** :
-  - Déclaration de chiffre d'affaires global et CA sur prestations similaires sur les 3 derniers exercices (source=RC art 5.7)
-  - Déclaration des effectifs moyens annuels et personnel d'encadrement sur les 3 dernières années (source=RC art 5.7)
-  - Description de l'outillage, matériel et équipement technique disponible pour l'exécution du marché (source=RC art 5.7)
-  - Dossier de références de prestations comparables au marché (même type, 3 dernières années) (source=RC art 5.7)
+  - Déclaration de chiffre d'affaires global et CA spécifique sur les 3 derniers exercices disponibles (source=RC article 5.7)
+  - Déclaration des effectifs moyens annuels et du personnel d'encadrement sur 3 ans (source=RC article 5.7)
+  - Description de l'outillage, du matériel et de l'équipement technique disponible (notamment véhicules réfrigérés de hauteur ≤ 2,30 m pour l'accès à l'allée technique du ministère) (source=RC article 5.7 ; CCTP article 6.1)
+  - Dossier de références de prestations comparables sur les 3 dernières années (source=RC article 5.7)
+  - Plan de maîtrise sanitaire (PMS) fondé sur la méthode HACCP à transmettre dans les 6 mois suivant la notification (source=CCTP article 10 ; CCAP article 7.9.6)
+  - Enquête de sécurité administrative pour tout personnel accédant à l'Hôtel des Ministres (diligentée par la préfecture de police) (source=CCAP article 7.3.4)
+  - Attestation d'assurance responsabilité civile en cours de validité, à fournir dans les 15 jours suivant la notification (source=CCAP article 9.4)
+  - Fourniture obligatoire d'échantillons physiques entre le 07/09 et le 18/09/2026 (toute offre sans échantillons est éliminée) (source=RC article 7.1)
+
+## Lots
+- **Lot 1** — Boucherie
+  - Zone : Paris 12ème
+  - 100% produits durables dont 20% bio. Viandes d'origine française (bœuf, veau, porc, agneau). Livraison quotidienne entre 7h et 8h. Multi-attributaire (2 titulaires maximum). Montant maximum 510 000 € HT sur 4 ans.
+- **Lot 2** — Volaille
+  - Zone : Paris 12ème
+  - 100% produits de volaille élevées en plein air dont 20% bio. Canard vacciné IAHP obligatoire. Livraison dans les 6 jours ouvrés après abattage. Multi-attributaire (2 max). Montant maximum 240 000 € HT sur 4 ans.
+- **Lot 3** — Charcuterie
+  - Zone : Paris 12ème
+  - 60% produits transformés durables dont 20% bio. Produits artisanaux respectant le savoir-faire gastronomique. Référentiel HACCP requis. Mono-attributaire. Montant maximum 200 000 € HT sur 4 ans.
+- **Lot 4** — Produits de la mer
+  - Zone : Paris 12ème
+  - 100% produits durables dont 20% bio. Livraison dans les 3 jours ouvrés après débarque. Prix révisables quotidiennement selon cotation RNM. Multi-attributaire (2 max). Montant maximum 1 060 000 € HT sur 4 ans.
+- **Lot 5** — Fruits et légumes
+  - Zone : Paris 12ème
+  - 60% fruits durables dont 20% bio + 40% légumes bio. Produits saisonniers, circuits courts, producteurs locaux. Prix révisables hebdomadairement. Multi-attributaire (2 max). Montant maximum 1 770 000 € HT sur 4 ans — lot le plus important.
+- **Lot 6** — Fromages affinés et crèmerie
+  - Zone : Paris 12ème
+  - 60% produits durables dont 20% bio. Large gamme de fromages AOC/AOP/IGP. Prestations de plateaux thématiques et animations cocktails. Mono-attributaire. Montant maximum 670 000 € HT sur 4 ans.
+- **Lot 7** — Boulangerie
+  - Zone : Paris 12ème
+  - Seul lot avec BPU à prix unitaires (annexe financière Excel obligatoire). Pains pré-cuits majoritairement. Viennoiseries crues surgelées (HDM) et cuites (PMF, jusqu'à 500 pièces par événement). Prix révisables annuellement. Mono-attributaire. Montant maximum 520 000 € HT sur 4 ans.
+- **Lot 8** — Epicerie généraliste
+  - Zone : Paris 12ème
+  - Épices, condiments, assaisonnements, produits de pâtisserie. Livraison 2 fois par mois. Multi-attributaire (2 max). Montant maximum 530 000 € HT sur 4 ans.
+- **Lot 9** — Epicerie spécialisée italienne
+  - Zone : Paris 12ème
+  - Produits italiens authentiques (producteurs et artisans établis en Italie). Livraison 1 fois par mois. Mono-attributaire. Montant maximum 90 000 € HT sur 4 ans — plus petit lot en valeur.
+- **Lot 10** — Produits frais et surgelés de restauration
+  - Zone : Paris 12ème
+  - 60% produits durables dont 20% bio. Produits BOF, viandes, poissons surgelés, boulangerie-pâtisserie surgelée. Livraison 1 fois par semaine. Mono-attributaire. Montant maximum 360 000 € HT sur 4 ans.
+- **Lot 11** — Produits du terroir
+  - Zone : Paris 12ème
+  - Exclusivement en circuit court et de saison : champignons sauvages (origine française prioritaire), foie gras de canard cru ou transformé exclusivement d'origine française (livraison sous papier, non sous vide). Délais ultra-courts entre abattage et livraison. Mono-attributaire. Montant maximum 110 000 € HT sur 4 ans.
 
 ## ⚠ Alertes candidat
-- La remise d'échantillons physiques est OBLIGATOIRE pour tous les lots (dépôt entre le 07/09 et le 18/09/2026) — toute offre sans échantillon conforme est éliminée d'office (RC art 7.1).
-- Le mémoire technique (cadre de réponse) ET le panier-type de commande sont obligatoires pour chaque lot — leur absence entraîne l'élimination.
-- Pour le lot n°7 uniquement, l'annexe financière (BPU) doit être remise au format Excel sans modification de son architecture — toute modification de structure est proscrite.
-- Les critères de jugement détaillés par lot sont dans l'annexe 2 du RC, non fournie dans ce DCE — le candidat doit impérativement se la procurer sur PLACE avant de construire son offre.
-- Délai de questions limité au 25/06/2026 et réponses transmises au plus tard le 02/07/2026 — anticipez les questions tôt pour adapter vos offres.
+- ÉLIMINATOIRE — Fourniture d'échantillons physiques obligatoire : toute offre non accompagnée des échantillons listés à l'Annexe 1 est éliminée d'office. Le dépôt des échantillons est prévu entre le 07/09 et le 18/09/2026 à l'Hôtel des ministres (RC article 7.1). Anticiper la logistique de livraison des échantillons dès la soumission de l'offre.
+- CONTRAINTE TECHNIQUE ABSOLUE — Les véhicules de livraison ne doivent pas dépasser 2,30 m de hauteur pour accéder à l'allée technique du ministère. Un véhicule non conforme sera refusé d'accès (CCTP article 6.1). Cette contrainte physique doit être vérifiée avant candidature.
+- SÉCURITÉ — Tout personnel accédant à l'Hôtel des Ministres est soumis à une enquête administrative de sécurité diligentée par la préfecture de police. L'avis rendu n'est pas motivé et peut être défavorable sans recours (CCAP article 7.3.4). Prévoir un délai d'obtention pouvant retarder le démarrage.
+- AUCUN MINIMUM GARANTI — L'accord-cadre est exécuté sans seuil minimum de commande. Le titulaire ne peut percevoir aucune indemnité si aucun bon de commande n'est émis. Les volumes sont indicatifs et les montants maximum peuvent ne pas être atteints.
+- EXIGENCES LOI EGALIM CONTRAIGNANTES — Pour plusieurs lots (1, 2, 4, 5, 6, 10), l'acheteur impose des taux de 60 à 100% de produits durables dont 20% de bio sur le montant annuel de commandes. Le non-respect peut constituer une offre irrégulière ou engager la responsabilité contractuelle du titulaire.
 
 ## 💡 Points différenciants attendus
-- Qualité gustative et technique des produits (jugement à l'aveugle par jury professionnel) (exemple=Les échantillons sont évalués par un jury de professionnels de la restauration à l'aveugle — un candidat doit proposer des produits de haute qualité gustative et présenter des fiches techniques détaillées (origine, process, DLC) pour chaque échantillon remis., source=RC art 6.3)
-- Démarche environnementale et développement durable (exemple=Le critère environnemental est à la fois critère d'attribution et condition d'exécution — mettre en avant des certifications bio, labels environnementaux, circuits courts, traçabilité carbone ou emballages éco-conçus valorisera fortement l'offre., source=RC art 3.8 et art 6.3)
-- Richesse et accessibilité du catalogue (mercuriale et panier-type) (exemple=Fournir une mercuriale exhaustive et à jour avec un panier-type compétitif démontre la capacité à répondre aux besoins d'un restaurant de direction haut de gamme — préciser les délais de livraison, la fréquence de mise à jour des prix et les conditions de remplacement en cas de rupture., source=RC art 6.1)
-- Expérience sur des prestations similaires en restauration gastronomique ou de direction (exemple=Fournir des références d'hôtels, restaurants gastronomiques ou grandes institutions (restaurants ministériels, parlements, grandes entreprises) témoigne d'une aptitude à servir ce type de clientèle exigeante., source=RC art 5.7)
+- Circuit court minimal (1 intermédiaire) valorisé dans le critère environnemental (exemple=Un boucher qui abat et découpe lui-même ses animaux (0 ou 1 intermédiaire entre l'éleveur et la cuisine) obtiendra la note maximale sur ce sous-critère. Mentionner dans le mémoire technique le nombre exact d'intermédiaires et la durée du circuit de la bête à l'assiette., source=RC Annexe 2 — Critère n°4 ; Cadres de réponse tableaux 7 et 8)
+- Démonstration de la qualité gustative par les échantillons (35% de la note) (exemple=Le critère échantillons représente 35% du score, autant que le prix. Investir dans la qualité des produits soumis (maturité optimale, fraîcheur, présentation) est aussi important que d'être compétitif sur les prix. Pour le lot 6 Fromages, présenter un plateau thématique d'exception avec fromages de terroir bien affinés., source=RC article 6.3 et Annexe 2)
+- Capacité à sécuriser les approvisionnements en cas de pénurie ou d'aléa climatique (exemple=Présenter un plan de continuité d'approvisionnement avec au moins 2 sources alternatives par famille de produits, des accords cadres avec des fournisseurs de substitution, et des stocks tampons permettant d'honorer les commandes sous 2 heures en cas de rejet., source=Cadres de réponse — Tableau 6 ; CCAP article 7.2.3)
+- Démarche anti-gaspillage formalisée et labellisée (exemple=Un candidat disposant d'un partenariat formalisé avec une association caritative (type Banque Alimentaire) pour la redistribution des invendus, accompagné de données chiffrées (% gaspillage, volume redistribué/an), obtiendra une note supérieure sur le critère environnemental par rapport à un candidat qui se contente d'une déclaration d'intention., source=RC Annexe 2 — Critère n°4 ; CCAP article 9.9)
+- Proportion de produits bio et signes de qualité supérieure aux seuils Egalim (exemple=Pour le lot 5 Fruits et légumes, l'acheteur impose 40% de légumes bio et 60% de fruits durables. Un candidat capable de proposer 50% de légumes bio et 70% de fruits durables se distinguera favorablement et renforcera la sécurité d'exécution du contrat vis-à-vis des obligations réglementaires., source=CCTP articles 5.1 à 5.11 ; CCAP article 7.5 (considération sociale) ; CCTP article 12)

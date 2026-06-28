@@ -1,51 +1,48 @@
 {
-  "synthese_marche": "Le Centre Hospitalier d'Uzès lance un marché de maîtrise d'œuvre pour le remplacement de son Système de Sécurité Incendie (SSI) de catégorie A par une centrale ouverte de marque ASD, avec regroupement des deux établissements (hôpital + maison de retraite) sous un unique ERP type U 3ème catégorie. La mission inclut également le remplacement du Tableau Général Basse Tension (TGBT), avec protection foudre et plan de comptage énergétique. Les travaux estimés à 990 000 € HT se dérouleront en site hospitalier occupé, avec maintien de la continuité des soins.",
+  "synthese_marche": "Marché public de maîtrise d'œuvre pour le remplacement du Système de Sécurité Incendie (SSI) de catégorie A et du Tableau Général Basse Tension (TGBT) du Centre Hospitalier d'Uzès. La mission couvre l'ensemble des phases DIAG à AOR, incluant la coordination SSI, l'OPC et la participation aux réunions avec le préventionniste, sur un site hospitalier occupé. Le montant estimatif des travaux est de 700 000 € HT pour le SSI et 290 000 € HT pour le TGBT, soit 990 000 € HT au total.",
   "domaines_metier": [
     {
-      "code": "ingenierie_fluides_climatique"
+      "code": "moe_architecte_urbanisme"
     }
   ],
-  "raison_classification": "Le marché porte exclusivement sur une mission de maîtrise d'œuvre (loi MOP) pour le remplacement d'un SSI (système de sécurité incendie) et d'un TGBT (tableau général basse tension), deux installations relevant des fluides/courants forts et faibles en milieu hospitalier. Le domaine ingénierie_fluides_climatique est le plus pertinent car il couvre les études techniques électriques et les équipements techniques de bâtiment (hors CVC pure). Le code btp_second_oeuvre aurait pu être envisagé mais le marché est une mission intellectuelle de MOE, pas des travaux.",
+  "raison_classification": "Il s'agit d'un marché de maîtrise d'œuvre (MOE complète DIAG→AOR) soumis à la loi MOP, portant sur des ouvrages techniques (SSI et TGBT) en réhabilitation d'un établissement hospitalier. Le CCAP intitulé 'Marché public de maîtrise d'œuvre' et les missions décrites (DIAG, APS, APD, PRO, ACT, VISA, DET, AOR, OPC, SSI) confirment ce classement. Le code `moe_architecte_urbanisme` est retenu par défaut pour la MOE bâtiment, bien que la mission soit à dominante technique (ingénierie fluides/électricité/SSI) ; aucun code `ingenierie_fluides_climatique` n'est applicable car la mission inclut l'exécution complète (DET, OPC) et non seulement des études.",
   "caracteristiques_techniques_chantier": {
-    "description": "Remplacement du SSI catégorie A (SDI + SMSI) de l'hôpital d'Uzès par une centrale ouverte de marque ASD, extension à l'ensemble du site (hôpital + maison de retraite Les Jardins de l'Escalette), regroupement des deux établissements en un unique ERP type U 3ème catégorie. Remplacement simultané du TGBT vétuste (20 ans), création d'un nouveau local électrique, mise en œuvre d'un suivi énergétique et d'une protection foudre. Remplacement de ~363 détecteurs optiques, 42 déclencheurs manuels, câblages, centralisateurs SMSI, DAS, AGS, grooms intelligents, etc.",
-    "typologie_ouvrage": "Centre hospitalier (ERP type U, 3ème catégorie) + maison de retraite EHPAD (ERP type U, 4ème catégorie) — site multi-bâtiments occupé, 3 niveaux + sous-sol",
+    "description": "Remplacement du SSI de catégorie A (centrale ouverte de marque ASD, extension du système installé en 2018 sur la maison de retraite) et du TGBT vétuste de l'hôpital, incluant protection foudre et plan de comptage énergétique. Les travaux incluent le remplacement de tous les ECS, DAI, câblages, déclencheurs manuels, indicateurs d'action, tableaux répétiteurs d'alarme, STT, modules déportés, câblages SMSI, grooms intelligents et flashs. Le TGBT est à créer dans un nouveau local électrique avec basculement fil à fil.",
+    "typologie_ouvrage": "Établissement de santé (hôpital + EHPAD/USLD) — ERP type U, 3ème catégorie après regroupement",
     "surface_volume": null,
-    "site_occupe": "true — site hospitalier occupé avec continuité des soins obligatoire, patients présents 24h/24 dont locaux à sommeil, contraintes strictes de phasage (pas de coupure détection la nuit, coupure électrique < 1h par zone)",
+    "site_occupe": "true — site hospitalier occupé avec continuité des soins ; patients présents ; aucune interruption de détection incendie la nuit n'est admise ; coupure électrique limitée à 1 heure par zone",
     "corps_etat": [
-      "Courants faibles — Système de Sécurité Incendie (SSI)",
-      "Courants forts — Tableau Général Basse Tension (TGBT)",
-      "Protection foudre",
-      "Plan de comptage énergétique",
-      "Coordination SSI"
+      "Système de Sécurité Incendie (SDI + SMSI)",
+      "Électricité basse tension (TGBT)",
+      "Protection foudre (parafoudres)",
+      "Comptage énergétique"
     ],
     "contraintes_specifiques": [
-      "Site hospitalier occupé — maintien de la continuité des soins obligatoire",
-      "Pas de coupure de détection incendie la nuit dans les locaux à sommeil",
-      "Remplacement boucle par boucle dans la journée (128 points max par boucle)",
-      "Coupures électriques < 1h par zone lors du remplacement TGBT",
-      "Présence de patients psychiatriques/Alzheimer — outils contendants interdits d'accès",
-      "Opération en site occupé avec maintien de l'accueil du public ERP",
-      "Regroupement de deux ERP en un seul nécessitant une demande d'autorisation de travaux",
-      "Coordination avec le SDIS 30 (directive REG 09) et le préventionniste",
-      "Conformité normes NFS 61-970, NFS 61-932 (versions déc. 2024), C15-100-1 (août 2024)",
-      "Centrale SSI ouverte, non propriétaire, marque ASD imposée"
+      "Site hospitalier occupé : présence de patients dont certains à pathologies spécifiques (psychiatrie, Alzheimer)",
+      "Aucun outillage accessible aux patients — surveillance permanente des intervenants",
+      "Remplacement du SSI sans interruption de détection incendie la nuit (bascule boucle par boucle dans la journée)",
+      "Coupure électrique limitée à 1 heure par zone pour le TGBT",
+      "Coordination avec le SDIS 30 et la commission de sécurité (DAT requise)",
+      "Regroupement de 2 établissements sous un seul ERP (reclassement en 3ème catégorie type U)",
+      "Phasage SSI et TGBT à mener simultanément",
+      "Visite obligatoire du site avant remise d'offre"
     ]
   },
   "allotissement": {
-    "description": "Marché non alloti — mission de maîtrise d'œuvre unique couvrant les deux opérations (remplacement SSI + remplacement TGBT). Justification : site occupé nécessitant une organisation unifiée de la MOE.",
+    "description": "Marché non alloti — mission MOE unique couvrant les deux opérations (SSI + TGBT) justifiée par la continuité d'exploitation et la sécurité en site occupé",
     "nb_lots": 1,
     "lots_detailles": [
       {
         "numero": 1,
-        "intitule": "Maîtrise d'œuvre — Remplacement SSI catégorie A et TGBT du Centre Hospitalier d'Uzès",
-        "corps_etat": "Courants faibles (SSI), Courants forts (TGBT), Coordination SSI, OPC",
+        "intitule": "Mission de maîtrise d'œuvre — Remplacement SSI catégorie A et TGBT",
+        "corps_etat": "Ingénierie SSI, électricité BT, coordination incendie, OPC",
         "montant_estime": null,
-        "description": "Mission MOE complète (DIAG, APS, APD, PRO, ACT, VISA, DET, AOR) + missions complémentaires (coordination SSI, OPC, participation réunions préventionniste) pour le remplacement du SSI (700 000 € HT de travaux estimés) et du TGBT (290 000 € HT de travaux estimés)"
+        "description": "Mission MOE complète (DIAG→AOR) incluant coordination SSI, OPC, participation aux réunions préventionniste, pour le remplacement du SSI (travaux estimés à 700 000 € HT) et du TGBT (travaux estimés à 290 000 € HT)"
       }
     ]
   },
   "qualifications_requises": {
-    "description": "Le RC ne mentionne pas explicitement de qualification Qualibat, RGE ou certification ISO obligatoire pour la candidature. Une assurance décennale est exigée de l'attributaire. Le RC demande des titres d'études et professionnels des responsables de prestations.",
+    "description": "Aucune qualification Qualibat ou RGE n'est explicitement exigée dans le RC pour ce marché de maîtrise d'œuvre. Les capacités techniques et professionnelles sont évaluées sur dossier (références, titres d'études, effectifs).",
     "qualibat": [],
     "rge": false,
     "rge_specialites": [],
@@ -54,9 +51,122 @@
     "iso_14001": false,
     "iso_45001": false,
     "opqibi": null,
-    "autres_certifications": [
-      "Assurance décennale (à produire par l'attributaire avant notification)"
-    ]
+    "autres_certifications": []
+  },
+  "caracteristiques_mission_moe": {
+    "typologie": "MOE complète incluant coordination SSI et OPC",
+    "phases_couvertes": [
+      "DIAG",
+      "APS",
+      "APD",
+      "PRO",
+      "ACT",
+      "VISA",
+      "DET",
+      "AOR"
+    ],
+    "typologie_ouvrage": "Établissement de santé — ERP type U (hôpital + maison de retraite) en réhabilitation technique",
+    "montant_travaux_estime": 990000,
+    "complexite_technique": "complexe",
+    "livrables_par_phase": [
+      {
+        "phase": "DIAG",
+        "livrables": [
+          "Diagnostic de l'installation existante SSI et TGBT"
+        ]
+      },
+      {
+        "phase": "APS",
+        "livrables": [
+          "Relevés existants",
+          "Avant-projet sommaire SSI et TGBT"
+        ]
+      },
+      {
+        "phase": "APD",
+        "livrables": [
+          "Avant-projet définitif",
+          "Assistance à la demande d'autorisation de travaux (DAT)",
+          "Coût prévisionnel définitif des travaux"
+        ]
+      },
+      {
+        "phase": "PRO",
+        "livrables": [
+          "Études de projet (PRO/DCE)"
+        ]
+      },
+      {
+        "phase": "ACT",
+        "livrables": [
+          "Rédaction des DCE",
+          "Analyse des candidatures et offres",
+          "Aide aux mises au point",
+          "Courriers de procédure (retenus/non retenus, convocations, comptes rendus)"
+        ]
+      },
+      {
+        "phase": "VISA",
+        "livrables": [
+          "Visa des études d'exécution"
+        ]
+      },
+      {
+        "phase": "DET",
+        "livrables": [
+          "Comptes rendus de réunions de chantier (hebdomadaires, délai 3 jours ouvrés)",
+          "Vérification projets de décomptes mensuels (délai 7 jours)",
+          "Vérification projet de décompte final (délai 15 jours)",
+          "Ordres de service préparés",
+          "Fiches de travaux modificatifs",
+          "Projet de décompte général"
+        ]
+      },
+      {
+        "phase": "AOR",
+        "livrables": [
+          "Assistance aux opérations de réception",
+          "Instruction des mémoires en réclamation (délai 15 jours)",
+          "DOE (Dossier des Ouvrages Exécutés)",
+          "Suivi GPA jusqu'à fin délai de garantie de parfait achèvement"
+        ]
+      }
+    ],
+    "taux_remuneration_moe_pct": null,
+    "indices_revision": [
+      "ING"
+    ],
+    "coordinations_associees": [
+      "SSI inclus — Coordination SSI assurée par le maître d'œuvre",
+      "OPC inclus — Ordonnancement Pilotage Coordination assuré par le maître d'œuvre",
+      "PRE inclus — Participation réunions avec le préventionniste (SSI uniquement)",
+      "SPS hors marché — Coordinateur SPS désigné ultérieurement",
+      "Contrôle technique hors marché — désigné ultérieurement"
+    ],
+    "organigramme_attendu": [
+      {
+        "profil": "Chef de projet MOE / responsable de la prestation",
+        "nombre": null,
+        "anciennete_min_annees": null
+      },
+      {
+        "profil": "Coordinateur SSI (normes NF S 61-931 à 61-939 et NF S 61-949)",
+        "nombre": null,
+        "anciennete_min_annees": null
+      },
+      {
+        "profil": "Ingénieur électricité BT / TGBT",
+        "nombre": null,
+        "anciennete_min_annees": null
+      }
+    ],
+    "bim_niveau": null
+  },
+  "qualifications_moe": {
+    "opqibi": [],
+    "opqcm": [],
+    "bim": null,
+    "autres": []
   },
   "bareme_notation": {
     "valeur_technique_pct": 60,
@@ -65,222 +175,409 @@
       {
         "libelle": "Prise en compte des objectifs et contraintes du maître d'ouvrage",
         "ponderation_pct": 10,
-        "description": "L'acheteur évalue la compréhension des enjeux spécifiques du projet : site hospitalier occupé, contraintes de continuité des soins, regroupement des établissements, spécificités techniques du SSI catégorie A et du TGBT à remplacer simultanément.",
+        "description": "Évaluation de la capacité du candidat à comprendre et intégrer les enjeux du projet : site hospitalier occupé, continuité des soins, regroupement des deux établissements sous un seul ERP, contraintes SSI et TGBT simultanées.",
         "elements_attendus": [
-          "Démonstration de la compréhension des contraintes du site occupé hospitalier (patients, continuité soins)",
-          "Prise en compte du phasage SSI boucle par boucle avec rétablissement dans la journée",
-          "Compréhension de l'enjeu du regroupement ERP et de la demande d'autorisation de travaux",
-          "Identification des risques liés à la simultanéité SSI + TGBT",
-          "Référence aux normes et réglementations applicables (NFS 61-970, NFS 61-932, arrêté U44/U45)"
+          "Compréhension des enjeux de continuité des soins et de sécurité incendie en site occupé",
+          "Prise en compte des contraintes de non-interruption de la détection incendie la nuit",
+          "Prise en compte de la limite de coupure électrique d'1h par zone pour le TGBT",
+          "Intégration du contexte réglementaire ERP type U 3ème catégorie et du regroupement",
+          "Prise en compte des exigences de la directive REG 09 du SDIS 30"
         ],
-        "exemple_reponse_forte": "Le candidat détaille les risques spécifiques liés à l'hôpital d'Uzès (locaux à sommeil, patients Alzheimer, interdiction de coupure détection nocturne) et propose un protocole de coordination avec le service sécurité incendie pour valider chaque bascule de boucle. Il identifie explicitement la nécessité de déposer une DAT pour le reclassement ERP commun.",
+        "exemple_reponse_forte": "L'équipe a analysé le contexte de regroupement des deux établissements et propose une organisation de chantier en phases courtes, zone par zone, garantissant la surveillance incendie permanente (agent de sécurité en backup) et des coupures électriques coordonnées avec chaque service. La gestion des zones Alzheimer fera l'objet d'une attention particulière avec des plages d'intervention en dehors des activités de soins.",
         "source": "RC §8.2",
+        "unite_evaluation": "points",
         "sous_criteres": []
       },
       {
         "libelle": "Méthodologie",
         "ponderation_pct": 15,
-        "description": "L'acheteur évalue la méthode détaillée de conduite du projet par mission (DIAG à AOR), la coordination entre les différentes missions, la fréquence et l'organisation des réunions, les outils de suivi proposés, le reporting au maître d'ouvrage et la méthodologie de travail en site hospitalier occupé.",
+        "description": "Analyse de la méthode détaillée de conduite du projet par mission, de la coordination entre les phases SSI et TGBT, de la fréquence des réunions, des outils de suivi proposés, du modèle de reporting et de la méthodologie de travail en site hospitalier occupé.",
         "elements_attendus": [
-          "Description de la conduite de chaque mission (DIAG, APS, APD, PRO, ACT, VISA, DET, AOR) avec livrables identifiés",
-          "Méthodologie spécifique de travail en site hospitalier occupé (gestion des coupures, sécurité patients)",
-          "Outils de suivi du chantier et de reporting au maître d'ouvrage",
-          "Fréquence et organisation des réunions de chantier (hebdomadaires imposées par le CCAP)",
-          "Protocole de coordination SSI / TGBT et avec les autres intervenants (coordonnateur SPS, contrôleur technique, SDIS)"
+          "Méthode détaillée par mission (DIAG, APS, APD, PRO, ACT, VISA, DET, AOR)",
+          "Organisation spécifique pour le travail en site hospitalier occupé",
+          "Coordination entre les deux opérations SSI et TGBT menées simultanément",
+          "Outils de suivi et modèle de reporting au maître d'ouvrage",
+          "Procédure de bascule SSI boucle par boucle avec plan de continuité",
+          "Plan de coordination avec le préventionniste et le contrôleur technique"
         ],
-        "exemple_reponse_forte": "Le candidat présente un tableau de bord de suivi hebdomadaire avec indicateurs (taux de remplacement boucles DAI, conformité DAS, avancement TGBT par zone), et décrit un protocole de réunion de chantier incluant les chefs de service hospitaliers concernés par les coupures. Il prévoit un plan de bascule TGBT fil à fil sur 15 jours calendaires avec fiches de coordination par service.",
-        "source": "RC §8.2 — RC §6.1",
+        "exemple_reponse_forte": "La méthodologie propose un pilotage unifié SSI+TGBT avec réunions hebdomadaires alternées et un tableau de bord mensuel au maître d'ouvrage. La bascule SSI est décrite zone par zone avec un protocole écrit de validation avant déconnexion de chaque boucle, et un agent de sécurité mobilisable en moins de 2h si la détection ne peut être rétablie dans la journée.",
+        "source": "RC §8.2",
+        "unite_evaluation": "points",
         "sous_criteres": []
       },
       {
         "libelle": "Composition et compétences de l'équipe",
         "ponderation_pct": 10,
-        "description": "L'acheteur évalue les profils et compétences des intervenants dédiés au projet, notamment leur expérience en SSI catégorie A, en TGBT hospitalier et en coordination SSI conforme aux normes NFS 61-931 à 61-939.",
+        "description": "Évaluation de l'adéquation de l'équipe proposée : profils, compétences techniques (SSI, électricité BT, coordination incendie, OPC), références et titres professionnels des intervenants.",
         "elements_attendus": [
-          "CV des intervenants clés (chef de projet, coordinateur SSI, ingénieur électricité courants forts)",
-          "Références d'opérations similaires (SSI catégorie A en ERP type U, TGBT en milieu hospitalier occupé)",
-          "Qualification/expérience en coordination SSI selon NFS 61-931 à 61-939 et NFS 61-949",
-          "Expérience en site occupé ERP type U santé",
-          "Capacité à assurer l'OPC en site occupé hospitalier"
+          "Présentation nominative des intervenants et de leurs rôles",
+          "Compétences en coordination SSI (normes NF S 61-931 à 61-939)",
+          "Compétences en ingénierie électricité BT (TGBT, protection foudre, comptage énergétique)",
+          "Références en milieu hospitalier ou ERP type U",
+          "Titres d'études et professionnels des responsables de mission"
         ],
-        "exemple_reponse_forte": "L'équipe proposée comprend un coordinateur SSI certifié justifiant de 5 références en remplacement SSI catégorie A en ERP type U (hôpitaux, EHPAD), un ingénieur courants forts spécialisé TGBT hospitalier et un chef de projet OPC ayant conduit des chantiers en site occupé hospitalier. Les CV présentent des missions récentes sur des opérations de montant et complexité comparables.",
-        "source": "RC §8.2 — RC §6.1",
+        "exemple_reponse_forte": "Le groupement associe un coordinateur SSI certifié avec 10 ans d'expérience sur des ERP type U (3 références hospitalières les 5 dernières années) et un bureau d'études électricité spécialisé TGBT/protection foudre. Le chef de projet assure la mission OPC avec une expérience de 5 chantiers en site occupé.",
+        "source": "RC §8.2",
+        "unite_evaluation": "points",
         "sous_criteres": []
       },
       {
         "libelle": "Délai d'exécution (cohérence du calendrier, capacité à tenir les échéances)",
         "ponderation_pct": 15,
-        "description": "L'acheteur évalue la cohérence du planning global prévisionnel proposé par mission, la réalité des délais annoncés pour chaque livrable et la capacité à tenir les échéances contractuelles dans un contexte de site occupé (SSI : 16 mois, TGBT : 13 mois de durée travaux).",
+        "description": "Évaluation de la cohérence du planning global prévisionnel proposé par le candidat pour chaque élément de mission, de la capacité à respecter les délais prévisionnels (16 mois SSI, 13 mois TGBT) et à coordonner les deux opérations.",
         "elements_attendus": [
-          "Planning global prévisionnel par mission avec jalons identifiés (DIAG, APS, APD, PRO, ACT, travaux, réception)",
-          "Respect des durées indicatives (SSI 16 mois / TGBT 13 mois)",
-          "Identification des phases critiques et des délais de validation maître d'ouvrage",
-          "Prise en compte des contraintes de phasage en site occupé (impact sur les délais)",
-          "Délais de remise de chaque livrable précisés dans l'acte d'engagement"
+          "Planning global prévisionnel détaillé par mission",
+          "Cohérence avec les délais prévisionnels : 16 mois SSI et 13 mois TGBT",
+          "Prise en compte des contraintes de phasage en site occupé",
+          "Identification des jalons critiques et des marges",
+          "Délais de remise des livrables pour chaque phase renseignés dans l'AE"
         ],
-        "exemple_reponse_forte": "Le candidat propose un planning Gantt détaillé sur 20 mois (début octobre 2026 à juin 2028) intégrant les deux opérations SSI et TGBT en parallèle, avec identification des chevauchements critiques, des périodes de validation maître d'ouvrage et des marges de sécurité pour les phases de chantier en site occupé. Les délais de remise de chaque livrable sont clairement chiffrés dans l'acte d'engagement.",
-        "source": "RC §8.2 — CCAP article 10",
+        "exemple_reponse_forte": "Le candidat propose un planning GANTT détaillé montrant les phases SSI et TGBT en parallèle sur 16 mois, avec identification des points de bascule critiques et des périodes de chevauchement. Les délais de chaque livrable sont précisés dans l'acte d'engagement et respectent les exigences de l'article 17 du CCAP.",
+        "source": "RC §8.2",
+        "unite_evaluation": "points",
         "sous_criteres": []
       },
       {
         "libelle": "Démarche environnementale/développement durable",
         "ponderation_pct": 10,
-        "description": "L'acheteur évalue les propositions concrètes intégrant les objectifs de développement durable : clauses environnementales pour les marchés de travaux, choix de matériels à faible impact, plan de gestion des déchets issus de la dépose, et pratiques écoresponsables pour les prestations de MOE.",
+        "description": "Évaluation des propositions environnementales et de développement durable du candidat : clauses environnementales pour les marchés de travaux, équipements à faible impact, plan de gestion des déchets, pratiques écoresponsables pour les prestations intellectuelles.",
         "elements_attendus": [
-          "Proposition de clause environnementale ou de développement durable à intégrer dans les marchés de travaux",
-          "Plan de gestion des déchets issus de la dépose de l'ancienne centrale SSI et de l'ancien TGBT",
-          "Proposition d'équipements conformes à des écolabels ou normes NF Environnement (ou équivalent)",
-          "Choix de matériels à faible impact environnemental (consommation énergétique réduite, absence de substances nocives)",
-          "Pratiques écoresponsables pour les prestations intellectuelles de MOE (déplacements, outils numériques, fournitures)"
+          "Proposition de clause environnementale ou de développement durable pour les marchés de travaux",
+          "Proposition d'équipements conformes à des écolabels ou normes NF Environnement",
+          "Choix de matériels à faible impact environnemental (consommation réduite, GES limités)",
+          "Plan de gestion des déchets : dépose de l'ancienne centrale, de l'ancien TGBT et installation des nouveaux équipements",
+          "Pratiques écoresponsables pour les prestations intellectuelles (déplacements, outils numériques, fournitures)",
+          "Prise en compte de la dimension sociale (conditions de travail des équipes en site hospitalier)"
         ],
-        "exemple_reponse_forte": "Le candidat propose une clause de performance environnementale à intégrer au DCE travaux incluant une exigence de traçabilité des déchets DEEE pour la dépose des centrales SSI et du TGBT, une préconisation de luminaires LED basse consommation pour les indicateurs d'action, et s'engage à utiliser des outils de réunion dématérialisés (visioconférence) pour les phases études afin de limiter les déplacements.",
-        "source": "RC §8.2 — RC §6.1 — CCAP article 18",
+        "exemple_reponse_forte": "Le mémoire propose une clause environnementale type pour les DCE travaux imposant la traçabilité des déchets DEEE (centrale SSI, câblages, armoires TGBT) avec bordereaux de suivi. Les prestations intellectuelles sont organisées en réunions hybrides pour limiter les déplacements, et les livrables sont produits en format numérique uniquement.",
+        "source": "RC §8.2",
+        "unite_evaluation": "points",
         "sous_criteres": []
       }
     ],
     "prix": {
-      "type_formule": "autre",
-      "formule_explicite": "Le RC ne précise pas la formule de calcul de la note prix. L'offre est jugée sur la valeur économiquement la plus avantageuse selon les critères pondérés (40 points sur 100 pour le prix). La rémunération est exprimée par un taux de rémunération appliqué au montant des travaux (prix global et forfaitaire).",
+      "type_formule": "moins_disant",
+      "formule_explicite": "Critère Prix noté sur 40 points. La formule exacte n'est pas précisée dans le RC — présumé proportionnel au prix le plus bas.",
+      "source": "RC §8.2",
       "elements_a_chiffrer": [
-        "Taux de rémunération pour le remplacement du SSI (en % du montant travaux estimé à 700 000 € HT)",
-        "Taux de rémunération pour le remplacement du TGBT (en % du montant travaux estimé à 290 000 € HT)",
-        "Forfait de rémunération global et forfaitaire SSI (en € HT)",
-        "Forfait de rémunération global et forfaitaire TGBT (en € HT)",
-        "Répartition par élément de mission (DIAG/APS, APD, PRO, ACT, VISA, DET, AOR) en pourcentage",
-        "Montants des missions complémentaires forfaitaires (SSI, PRE, OPC)",
-        "Coûts journaliers par nature d'intervenant (Direction, Chef de projet, Assistant-Technicien)"
+        "Taux de rémunération (%) appliqué au montant des travaux SSI (700 000 € HT estimés)",
+        "Taux de rémunération (%) appliqué au montant des travaux TGBT (290 000 € HT estimés)",
+        "Forfait missions complémentaires SSI (coordination SSI, participation réunions préventionniste)",
+        "Forfait OPC",
+        "Forfait global et forfaitaire total MOE (DPGF à renseigner par phase)",
+        "Coûts journaliers par profil d'intervenant (annexe 3 de l'AE)"
       ]
     },
-    "modalite_calcul_prix": "Prix global et forfaitaire basé sur un taux de rémunération appliqué à l'enveloppe financière travaux. Forfait provisoire = taux × enveloppe travaux. Forfait définitif fixé après APD selon formule F' = F - [t*(C-Co)]. Notation sur 40 points sans formule explicite publiée."
+    "modalite_calcul_prix": "Critère Prix pondéré à 40 points sur 100. Formule non explicitée dans le RC — présumé note proportionnelle au prix le plus bas (moins-disant). Le prix est exprimé en forfait global et forfaitaire décomposé par phase et par opération (DPGF SSI + DPGF TGBT)."
   },
   "montant_marche": {
     "valeur_estimee_euros": null,
     "fourchette_min_euros": null,
     "fourchette_max_euros": null,
     "type": "non_communique",
-    "duree_couverte": "Mission MOE : démarrage octobre 2026, durée prévisionnelle 16 mois (SSI) / 13 mois (TGBT) pour les travaux",
-    "source_extraction": "CCAP article 11.2",
-    "commentaire": "Le montant des honoraires MOE n'est pas communiqué explicitement. Seuls les montants estimatifs des travaux sont indiqués : SSI = 700 000 € HT et TGBT = 290 000 € HT (total travaux = 990 000 € HT). Les honoraires MOE seront calculés par application d'un taux de rémunération à chiffrer par le candidat sur ces enveloppes. Un taux indicatif de marché pour ce type de mission (SSI + TGBT en milieu hospitalier) se situe généralement entre 8% et 14%, soit une fourchette estimée entre 79 200 € HT et 138 600 € HT d'honoraires MOE, mais ce calcul reste indicatif."
+    "duree_couverte": "16 mois (durée prévisionnelle MOE + travaux SSI)",
+    "source_extraction": "CCAP article 11.2 — montants estimatifs des travaux : SSI 700 000 € HT, TGBT 290 000 € HT",
+    "commentaire": "Le montant des honoraires MOE n'est pas publié. Le CCAP indique les montants estimatifs des TRAVAUX (700 000 € HT SSI + 290 000 € HT TGBT = 990 000 € HT total). Le taux de rémunération est laissé à la proposition du candidat dans l'acte d'engagement."
+  },
+  "montant_3_voies": {
+    "voie_1_eur": null,
+    "voie_1_source": null,
+    "voie_2_disponible": true,
+    "voie_2_min_eur": 85000,
+    "voie_2_max_eur": 130000,
+    "voie_2_hypotheses": [
+      {
+        "hypothese": "Montant estimatif des travaux SSI (CCAP art 11.2)",
+        "valeur": "700 000 € HT"
+      },
+      {
+        "hypothese": "Montant estimatif des travaux TGBT (CCAP art 11.2)",
+        "valeur": "290 000 € HT"
+      },
+      {
+        "hypothese": "Total travaux estimés SSI + TGBT",
+        "valeur": "990 000 € HT"
+      },
+      {
+        "hypothese": "Taux de rémunération MOE applicable sur travaux complexes en ERP type U (SSI + TGBT) en site occupé — taux varié entre 8,5% et 13% (dimension la plus incertaine) ; quantité fixée à 990 000 € HT",
+        "valeur": "8,5% à 13% × 990 000 €"
+      },
+      {
+        "hypothese": "Missions complémentaires forfaitaires (SSI, OPC, PRE) estimées en sus du taux de base",
+        "valeur": "incluses dans la fourchette — non dissociées"
+      }
+    ],
+    "voie_2_raison_indisponible": null
+  },
+  "cout_realisation": {
+    "cout_total_eur": 65000,
+    "cout_min_eur": 50000,
+    "cout_max_eur": 80000,
+    "postes": [
+      {
+        "poste": "Phase études amont (DIAG, APS, APD) — ingénieur SSI + ingénieur électricité",
+        "detail": "2 profils × 15 j-h × 750 €/j = 22 500 €",
+        "montant_eur": 22500
+      },
+      {
+        "poste": "Phase PRO/DCE — ingénieur SSI + économiste",
+        "detail": "2 profils × 10 j-h × 750 €/j = 15 000 €",
+        "montant_eur": 15000
+      },
+      {
+        "poste": "Phase ACT — chef de projet + assistance administrative",
+        "detail": "2 profils × 5 j-h × 650 €/j = 6 500 €",
+        "montant_eur": 6500
+      },
+      {
+        "poste": "Phase DET (réunions hebdo 16 mois SSI / 13 mois TGBT) — chef de projet",
+        "detail": "Environ 60 réunions × 1,5 j-h × 750 €/j = 67 500 € — réduit ici à 1 j-h = 45 000 €",
+        "montant_eur": 45000
+      },
+      {
+        "poste": "VISA + AOR",
+        "detail": "Estimé global 5 j-h × 700 €/j = 3 500 €",
+        "montant_eur": 3500
+      },
+      {
+        "poste": "Coordination SSI (mission complémentaire)",
+        "detail": "Forfait spécifique estimé 8 j-h × 750 €/j = 6 000 €",
+        "montant_eur": 6000
+      },
+      {
+        "poste": "OPC (mission complémentaire)",
+        "detail": "Inclus dans le DET — non doublon",
+        "montant_eur": 0
+      },
+      {
+        "poste": "Déplacements et frais",
+        "detail": "Estimé forfaitaire",
+        "montant_eur": 3000
+      }
+    ],
+    "taux_journaliers_retenus": "Chef de projet / ingénieur senior SSI ou électricité : 700-800 €/j chargé (taux marché indicatif MOE technique) ; assistant technique : 550-650 €/j. Ces taux sont des références marché — la structure de coût réelle du candidat peut différer.",
+    "commentaire": "Estimation bottom-up du coût de production à taux marché indicatifs. La dimension la plus incertaine est le nombre de jours DET (réunions hebdo sur 16 mois = ~65 réunions, soit ~65-100 j-h selon trajet et préparation). Le revenu estimé (85 000-130 000 € honoraires) laisse une marge brute d'environ 20-50% selon le taux obtenu et la charge réelle DET. La cohérence est satisfaisante : coût < revenu sur un marché sain."
   },
   "revision_prix": {
     "type": "indexation",
     "indices_utilises": [
-      "ING — Index divers dans la construction - Ingénierie - Base 2010 (INSEE)"
+      "ING"
     ],
-    "ponderation": "15% partie fixe + 85% index ING",
+    "ponderation": "15% partie fixe + 85% index Ingénierie (ING)",
     "periodicite": "annuelle",
     "formule_revision": "Cn = 0,15 + (In/Io) × 0,85",
     "source_extraction": "CCAP article 11.3",
-    "commentaire": "Formule favorable au candidat en période d'inflation via l'index ING (ingénierie) publié par l'INSEE — la partie fixe de 15% limite légèrement la révision. Révision annuelle uniquement, sans variation provisoire, ce qui implique un décalage de trésorerie possible si l'index n'est pas encore publié."
+    "commentaire": "Formule classique pour les marchés de maîtrise d'œuvre avec index ING INSEE (Base 2010) — favorable en période d'inflation des coûts d'ingénierie ; révision annuelle uniquement (pas de révision infra-annuelle)."
   },
   "alertes_prix": [
-    "Le montant des honoraires MOE n'est pas communiqué : le candidat doit proposer son propre taux de rémunération appliqué aux enveloppes travaux (700k€ SSI + 290k€ TGBT). Un taux trop élevé pénalise sur les 40 points prix.",
-    "La formule F' = F - [t*(C-Co)] expose le MOE à une réduction de son forfait définitif si son coût prévisionnel travaux s'avère inférieur à l'enveloppe initiale : à bien anticiper dans le chiffrage.",
-    "Pénalités MOE si dépassement du coût de réalisation > seuil de tolérance de 3% : jusqu'à 15% de la rémunération des missions post-attribution travaux.",
-    "Pondération prix de 40% pour une mission de MOE technique complexe en milieu hospitalier — relativement élevée, ce qui favorise les candidats compétitifs sur le taux de rémunération."
+    "Le taux de rémunération MOE est libre (à proposer par le candidat) : une sous-estimation du taux pour gagner le critère prix (40 pts) peut compromettre la rentabilité sur 16 mois de mission intensive en site hospitalier occupé.",
+    "La pondération prix à 40% est élevée pour un marché de MOE complexe en site occupé — risque de pression tarifaire forte lors de la négociation avec les 2 premiers candidats.",
+    "L'acheteur se réserve la possibilité de négocier sur tous les éléments de l'offre : le prix initial n'est pas définitif si négociation.",
+    "Les pénalités de retard (1/3000e par jour, plafond 10%) et les pénalités spécifiques (100 €/absence réunion, 150 €/j retard documents, 50 €/j retard SSI) s'appliquent sans mise en demeure préalable — à intégrer dans le chiffrage du risque."
   ],
   "references_exigees": {
     "experience_minimale_annees": null,
     "experience_source": null,
     "volume_min_references_similaires": null,
     "volume_min_references_unite": "marchés similaires",
-    "secteur_experience": "Maîtrise d'œuvre pour installation ou remplacement de Systèmes de Sécurité Incendie (SSI) catégorie A en ERP, et/ou remplacement de TGBT en milieu hospitalier ou tertiaire occupé",
+    "secteur_experience": "Maîtrise d'œuvre en systèmes de sécurité incendie (SSI) et/ou électricité basse tension (TGBT), de préférence en établissements de santé ou ERP",
     "secteur_source": "RC §6.1",
-    "certifications_obligatoires": [
-      {
-        "libelle": "Assurance décennale (à produire par l'attributaire dans les 15 jours suivant la notification)",
-        "source": "RC §8.3 — CCAP article 22"
-      }
-    ],
+    "certifications_obligatoires": [],
     "autres_exigences": [
       {
-        "libelle": "Déclaration de chiffre d'affaires global et prestations similaires sur les 3 derniers exercices",
+        "libelle": "Déclaration de chiffre d'affaires global et concernant les prestations objet du contrat sur les 3 derniers exercices",
         "source": "RC §6.1"
       },
       {
-        "libelle": "Liste des principales prestations effectuées au cours des 3 dernières années (montant, date, destinataire) prouvées par attestations",
+        "libelle": "Déclaration des effectifs moyens annuels et personnel d'encadrement sur les 3 dernières années",
         "source": "RC §6.1"
       },
       {
-        "libelle": "Déclaration des effectifs moyens annuels et personnel d'encadrement sur 3 ans",
+        "libelle": "Liste des principales prestations des 3 dernières années avec montant, date et destinataire (attestations destinataires ou déclaration candidat)",
         "source": "RC §6.1"
       },
       {
-        "libelle": "Titres d'études et professionnels des responsables de prestation (chef de projet, coordinateur SSI, ingénieur électricité)",
+        "libelle": "Indication des titres d'études et professionnels de l'opérateur et/ou des cadres, notamment responsables de prestation de même nature",
         "source": "RC §6.1"
       },
       {
-        "libelle": "Visite obligatoire sur site — attestation de visite requise à peine d'irrégularité de l'offre",
-        "source": "RC §6.2"
+        "libelle": "Indication des mesures de gestion environnementale applicables lors de l'exécution du contrat",
+        "source": "RC §6.1"
+      },
+      {
+        "libelle": "Attestation d'assurance décennale à produire par l'attributaire dans les 10 jours suivant l'attribution",
+        "source": "RC §8.3"
       }
     ]
+  },
+  "dossier_candidature": {
+    "pieces_a_fournir": [
+      {
+        "libelle": "Lettre de candidature (DC1) — déclaration sur l'honneur de non-interdiction de soumissionner et régularité emploi travailleurs handicapés",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §6.1"
+      },
+      {
+        "libelle": "Déclaration du candidat individuel ou du membre du groupement (DC2)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §6.1"
+      },
+      {
+        "libelle": "Pouvoir de la personne habilitée à engager le candidat, cotraitants ou sous-traitants",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §6.1"
+      },
+      {
+        "libelle": "Relevé d'Identité Bancaire (RIB)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §6.1"
+      },
+      {
+        "libelle": "Déclaration sur l'honneur de non-exclusion au titre du Règlement n°22/576 du Conseil du 8 avril 2022 (contrats Russes)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §6.1"
+      },
+      {
+        "libelle": "Déclaration de chiffre d'affaires global et prestations objet du contrat sur 3 derniers exercices",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §6.1"
+      },
+      {
+        "libelle": "Déclaration des effectifs moyens annuels et personnel d'encadrement sur 3 dernières années",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §6.1"
+      },
+      {
+        "libelle": "Liste des principales prestations des 3 dernières années (montant, date, destinataire) avec attestations ou déclaration",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §6.1"
+      },
+      {
+        "libelle": "Indication des titres d'études et professionnels de l'opérateur et/ou cadres",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §6.1"
+      },
+      {
+        "libelle": "Indication des mesures de gestion environnementale applicables lors de l'exécution du contrat",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §6.1"
+      },
+      {
+        "libelle": "Acte d'engagement (AE) signé",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §6.1"
+      },
+      {
+        "libelle": "Décompositions du Prix Global Forfaitaire (DPGF) signées — SSI et TGBT",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §6.1"
+      },
+      {
+        "libelle": "Mémoire technique (méthodologie, composition et compétences de l'équipe, planning prévisionnel, mémoire justificatif développement durable)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §6.1"
+      },
+      {
+        "libelle": "Planning global prévisionnel annexé à l'acte d'engagement",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §6.1"
+      }
+    ],
+    "mode_remise": "dématérialisé",
+    "plateforme_depot": "marches-publics.info (AWS)",
+    "signature_electronique_exigee": false,
+    "format_signature": null,
+    "nombre_exemplaires": null,
+    "langue": "français",
+    "duree_validite_offres_jours": 150,
+    "modalites_source": "RC §7.1"
   },
   "lots": [
     {
       "numero": 1,
-      "intitule": "Maîtrise d'œuvre — Remplacement du SSI catégorie A et du TGBT du Centre Hospitalier d'Uzès",
-      "zone_geographique": "Uzès (30700) — Gard",
+      "intitule": "Mission de maîtrise d'œuvre — Remplacement SSI catégorie A et TGBT — Centre Hospitalier d'Uzès",
+      "domaine": "moe_architecte_urbanisme",
+      "zone_geographique": "Uzès (30700), Gard",
       "volume_estime": null,
-      "volume_estime_unite": "forfait global (taux de rémunération × montant travaux)",
-      "particularites": "Marché unique non alloti couvrant deux opérations techniques distinctes (SSI et TGBT) à conduire simultanément. Mission MOE complète loi MOP incluant coordination SSI et OPC. Site hospitalier occupé. Démarrage prévu le 19 octobre 2026."
+      "volume_estime_unite": null,
+      "cout_estime_min_eur": 50000,
+      "cout_estime_max_eur": 80000,
+      "particularites": "Marché unique non alloti. Inclut coordination SSI, OPC et participation réunions préventionniste. Visite obligatoire. Site hospitalier occupé."
     }
   ],
+  "tranches": [],
   "calendrier": {
     "date_limite_offres": "2026-07-10",
     "date_demarrage_prevue": "2026-10-19",
-    "duree_marche": "16 mois pour le SSI, 13 mois pour le TGBT (durée MOE + travaux) à compter de la notification"
+    "duree_marche": "16 mois (SSI) / 13 mois (TGBT) — durée prévisionnelle MOE + travaux"
   },
   "alertes_candidat": [
-    "Visite obligatoire sur site — toute offre sans attestation de visite sera déclarée irrégulière (contact : Mr Thierry SAVARIAS, 04 66 63 79 97). À planifier impérativement avant le 10 juillet 2026.",
-    "Assurance décennale exigée — l'attributaire doit la produire dans les 15 jours suivant la notification. Les candidats doivent vérifier que leur assurance couvre bien les installations SSI et TGBT en milieu hospitalier.",
-    "Mission de coordination SSI (normes NFS 61-931 à 61-939 et NFS 61-949) incluse dans le périmètre MOE — le candidat doit démontrer une compétence réelle en coordination SSI ou prévoir un sous-traitant agréé.",
-    "Le marché est soumis à la loi MOP avec engagement de maîtrise du coût prévisionnel (tolérance 3%) — un dépassement expose le MOE à des pénalités allant jusqu'à 15% de sa rémunération post-attribution travaux.",
-    "Centrale SSI de marque ASD imposée et non négociable — le candidat doit connaître et avoir travaillé avec cette technologie pour dimensionner correctement ses études et son accompagnement."
+    "VISITE OBLIGATOIRE : l'offre d'un candidat n'ayant pas effectué la visite du site sera déclarée irrégulière (contact : M. Thierry SAVARIAS, 04 66 63 79 97) — à planifier impérativement avant le 10 juillet 2026.",
+    "COMPÉTENCE SSI NORMATIVE IMPÉRATIVE : la coordination SSI est assurée par le maître d'œuvre ; la maîtrise des normes NF S 61-931 à 61-939 et NF S 61-949, ainsi que NF S 61-970 et NF S 61-932 (versions décembre 2024) est indispensable — à justifier dans le mémoire technique et le dossier de capacités.",
+    "EXPÉRIENCE EN MILIEU HOSPITALIER OCCUPÉ : la complexité du site (patients, continuité des soins, locaux à sommeil) est un critère de sélection implicite fort — les références en ERP type U ou établissements de santé seront déterminantes.",
+    "ASSURANCE DÉCENNALE : l'attestation doit être produite dans les 10 jours suivant la notification de l'attribution — s'assurer de sa disponibilité rapide pour ce type de mission technique.",
+    "PÉNALITÉS SANS MISE EN DEMEURE : les pénalités de retard (1/3000e/j) et les pénalités spécifiques (100 €/absence réunion, 150 €/j retard documents) sont applicables sans mise en demeure préalable — le planning et l'organisation interne doivent être robustes."
   ],
   "points_differenciants_attendus": [
     {
-      "libelle": "Expérience avérée en remplacement SSI catégorie A en ERP type U occupé (hôpital ou EHPAD)",
-      "exemple": "Le candidat présente 2 à 3 références récentes (< 5 ans) de remplacement SSI catégorie A en milieu hospitalier occupé, avec attestation du maître d'ouvrage précisant les montants travaux, le phasage réalisé et la continuité de service maintenue. Une référence sur centrale ASD sera particulièrement valorisante.",
-      "source": "RC §6.1 — RC §8.2"
+      "libelle": "Expertise SSI en milieu hospitalier ERP type U avec connaissance des normes NF S 61-970 et NF S 61-932 version 2024",
+      "exemple": "Citer des missions similaires de remplacement de SSI catégorie A sur des ERP type U, en précisant le nombre de points adressés, la gestion des bascules en site occupé et les relations avec les commissions de sécurité. Mentionner explicitement la maîtrise des nouvelles versions normatives (décembre 2024) et de la directive REG 09 SDIS 30.",
+      "source": "CCTP §4"
     },
     {
-      "libelle": "Maîtrise du protocole de phasage SSI en site occupé avec locaux à sommeil",
-      "exemple": "Le candidat décrit un protocole opérationnel précis pour la bascule de chaque boucle (128 points max) incluant: checklist de contrôle avant/après bascule, procédure d'alerte si rétablissement impossible dans la journée, et dispositif de garde humaine de nuit. Il cite des cas concrets de chantiers conduits selon ce protocole.",
+      "libelle": "Méthodologie de phasage en site hospitalier occupé (bascule SSI boucle par boucle, coupures TGBT < 1h/zone)",
+      "exemple": "Proposer un protocole détaillé de bascule boucle par boucle avec validation avant déconnexion, un plan de disponibilité d'agent de sécurité en backup, et un planning de coupures TGBT coordonné service par service avec le responsable sécurité incendie de l'hôpital.",
       "source": "CCTP §5.1"
     },
     {
-      "libelle": "Compétences combinées SSI + électricité courants forts (TGBT) au sein d'une même équipe ou d'un groupement bien structuré",
-      "exemple": "Un groupement solidaire MOE-SSI + bureau d'études électricité spécialisé TGBT hospitalier, avec mandataire clairement identifié et interfaces précisément définies, démontre une organisation optimale pour conduire simultanément les deux opérations. La répartition des missions et honoraires par cotraitant est présentée de façon transparente dans la DPGF.",
-      "source": "RC §2.2 — CCAP article 1.1"
+      "libelle": "Démarche environnementale concrète et plan de gestion des déchets DEEE",
+      "exemple": "Proposer une clause environnementale type pour les DCE travaux incluant la traçabilité des déchets (centrale SSI SIEMENS, câblages, armoires TGBT) avec bordereaux BSDD et filières valorisation identifiées, ainsi qu'un plan de réduction des déplacements pour les prestations intellectuelles.",
+      "source": "RC §8.2 + CCAP article 18"
     },
     {
-      "libelle": "Plan de gestion environnementale des déchets DEEE issus des déposés (centrale SSI ancienne + TGBT 20 ans)",
-      "exemple": "Le candidat propose un plan de gestion des déchets détaillant les filières de recyclage certifiées pour les équipements électriques (DEEE), les câblages, les batteries des AES, et estime les tonnages correspondants. Il propose d'inclure une clause de traçabilité DEEE dans le futur DCE travaux.",
-      "source": "RC §6.1 — CCAP article 18"
+      "libelle": "Proposition d'un calendrier global cohérent montrant la coordination des deux opérations simultanées (SSI 16 mois + TGBT 13 mois)",
+      "exemple": "Fournir un planning GANTT détaillé avec jalons critiques, en montrant comment les deux opérations s'articulent (début simultané, points de synchronisation commission de sécurité, réception unique en ERP regroupé), avec des marges explicitées et des délais de livrable renseignés dans l'AE.",
+      "source": "RC §8.2 + CCAP article 10"
     },
     {
-      "libelle": "Connaissance de la doctrine locale SDIS 30 (REG 09) sur les grooms intelligents",
-      "exemple": "Le candidat mentionne explicitement dans son mémoire la directive doctrinale REG 09 du SDIS 30 relative aux grooms intelligents sur portes de chambres, et propose une méthodologie de coordination avec le préventionniste pour valider le plan d'équipement avant la phase PRO.",
-      "source": "CCTP §4"
+      "libelle": "Connaissance du contexte réglementaire ERP type U et du processus de reclassement d'établissement (regroupement des deux ERP en un seul)",
+      "exemple": "Démontrer la maîtrise du processus de DAT (Demande d'Autorisation de Travaux) pour le reclassement de l'établissement en 3ème catégorie type U, des relations avec la sous-commission départementale de sécurité du Gard et de la fiche doctrinale de la Préfecture du Gard.",
+      "source": "CCTP §1 + CCTP annexe 4"
     }
   ],
   "_meta": {
     "id_marche": "BOAMP-26-57075",
     "type": "complet",
-    "date_generation": "2026-06-14T23:45:12.723722+00:00",
-    "extraction_le": "2026-06-14T23:45:12.723722+00:00",
+    "date_generation": "2026-06-20T02:56:45.956460+00:00",
+    "extraction_le": "2026-06-20T02:56:45.956460+00:00",
     "modele": "claude-sonnet-4-6",
     "preset_utilise": "btp",
     "presets_matches": [
-      "btp"
+      "btp",
+      "ingenierie"
     ],
     "prompts_versions": {
-      "btp/_preset.json": "sha256:d1717e0d87f6c265"
+      "btp/_preset.json": "sha256:055bf6f8b2c1f771",
+      "ingenierie/_preset.json": "sha256:b924b32a088673d6"
     },
-    "tokens_input": 48141,
-    "tokens_output": 7232,
-    "cout_eur": 0.2403,
-    "duree_sec": 135.7,
+    "tokens_input": 57446,
+    "tokens_output": 10255,
+    "cout_eur": 0.3099,
+    "duree_sec": 180.6,
     "pdfs_traites": [
       {
         "nom": "1. CCAP.pdf",

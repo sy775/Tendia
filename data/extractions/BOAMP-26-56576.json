@@ -1,0 +1,698 @@
+{
+  "synthese_marche": "Le SDIS de la Loire (SDIS42) lance un marché de travaux clef-en-main pour l'installation d'un générateur photovoltaïque sur les toitures de 3 bâtiments de son site de l'État-Major à Saint-Étienne (42), pour une puissance totale de 280 kWc environ. Le projet inclut la fourniture et la pose des modules, du système de fixation, des onduleurs, du câblage, du raccordement BT en autoconsommation collective, du monitoring et la maintenance durant la première année de parfait achèvement. La procédure est adaptée ouverte, lot unique, avec visite obligatoire.",
+  "domaines_metier": [
+    {
+      "code": "energie_pv_solaire"
+    }
+  ],
+  "raison_classification": "Le marché porte exclusivement sur la réalisation clef-en-main d'une centrale photovoltaïque en toiture (fourniture, pose, raccordement, mise en service, maintenance GPA), ce qui correspond exactement au domaine 'energie_pv_solaire'. Aucune autre technologie EnR ni activité distincte (formation, BTP hors PV) ne justifie un second domaine.",
+  "caracteristiques_techniques_enr": {
+    "description": "Installation d'un générateur photovoltaïque de ≥277 kWc (plan indicatif à 280 kWc) sur les toitures en bacs acier sandwich de 3 bâtiments du site de l'État-Major du SDIS42 à Saint-Étienne (42). Raccordement en autoconsommation BT individuelle + autoconsommation collective patrimoniale, avec vente du surplus hors appel d'offres simplifié. Shelters PV coupe-feu REI30 sur 3 côtés, système d'intégration sous ATec ou ETN, modules Si monocristallin RG3 minimum, onduleurs décentralisés triphasés, monitoring avec compteur bidirectionnel.",
+    "technologies_concernees": [
+      "photovoltaïque toiture"
+    ],
+    "type_de_sites": "Toitures en bacs acier sandwich (Arcelor Ondatherm 1040 TS et Joriside JI Roof PIR) de bâtiments industriels/tertiaires d'une caserne de pompiers en site occupé",
+    "criteres_eligibilite": [
+      {
+        "libelle": "Qualification QualiPV module Elec (Qualit'ENR), ou 5912 ENR Photovoltaïque (Qualibat), ou SPV2 (Qualifelec), ou AQPV (Certisolis), pour des centrales raccordées jusqu'à 250 kVA, en cours de validité",
+        "source": "RC §3"
+      },
+      {
+        "libelle": "Visite obligatoire du site (l'offre déposée sans attestation de visite sera déclarée irrégulière)",
+        "source": "RC §2"
+      },
+      {
+        "libelle": "Habilitations électriques et travail en hauteur obligatoires pour tous les employés",
+        "source": "RC §3"
+      },
+      {
+        "libelle": "Système d'intégration disposant d'un Avis Technique ou ETN valide pour les références de bacs acier existants et les modules PV prévus",
+        "source": "CCTP §2.2.10"
+      },
+      {
+        "libelle": "Système d'intégration disposant d'une certification Broof(t3) valable pour les panneaux solaires et les bacs aciers",
+        "source": "CCTP §2.2.10"
+      },
+      {
+        "libelle": "Modules PV certifiés dans l'ATec ou l'ETN du système d'intégration mis en œuvre",
+        "source": "CCTP §2.2.9"
+      },
+      {
+        "libelle": "Résistance à la grêle minimale de classe RG3 (APSAD D20 / HW35 selon IEC TS 63397) — rapport de test à joindre à l'offre",
+        "source": "CCTP §2.2.9"
+      },
+      {
+        "libelle": "Puissance crête installée égale ou supérieure à 277 kWc",
+        "source": "CCTP §1.2.1"
+      },
+      {
+        "libelle": "Puissance d'injection cumulée plafonnée à 250 kVA (raccordement BT, bridage des onduleurs si besoin)",
+        "source": "CCTP §1.2.2"
+      }
+    ],
+    "contraintes_site_signalees": [
+      "site occupé (caserne de pompiers en exploitation quotidienne)",
+      "travail en hauteur",
+      "bâtiments en charpente métallique avec renforcements nécessaires sur certaines zones",
+      "chéneaux à traiter avant travaux sur zones G et C",
+      "raccordement sur TGBT et réseau électrique existants",
+      "accès contrôlé (badge obligatoire)",
+      "respect des opérations de la caserne (bruit, poussière limités)"
+    ]
+  },
+  "volumes_techniques": {
+    "puissance_totale_kwc": 280,
+    "puissance_par_site_kwc": {
+      "Bâtiment Atelier CTMD": 218,
+      "Halle couverte": 22,
+      "Plateau technique": 40
+    },
+    "nb_sites": 3,
+    "surface_panneaux_m2": 1217,
+    "productible_annuel_estime_mwh": null,
+    "duree_marche_mois": 4,
+    "duree_maintenance_om_annees": 1,
+    "commentaire_volumes": "Puissance minimum exigée 277 kWc. Plan indicatif à 280,14 kWc avec 609 modules de 460 Wc. Délai total 4 mois décomposé en 1 mois études/approvisionnements + 2 mois travaux + 1 mois CONSUEL/mise en service. La maintenance couvre uniquement la GPA (1ère année). Le taux d'autoconsommation collective attendu est ~94%. Projet hors arrêté tarifaire S21."
+  },
+  "modalites_execution_chantier": {
+    "raccordement_reseau_inclus": true,
+    "etudes_techniques_incluses": true,
+    "calendrier_chantier_contraint": "Négociations éventuelles prévues semaine du 24-28 août ; travaux en site occupé (caserne opérationnelle en permanence) imposant balisage et cheminements provisoires",
+    "sites_execution": [
+      "Saint-Étienne (42)"
+    ],
+    "engagement_productible": null,
+    "engagement_disponibilite_om": null
+  },
+  "qualifications_enr": {
+    "qualipv": true,
+    "qualisol": false,
+    "qualipac": false,
+    "qualibois": false,
+    "autres_certifications": [
+      "Qualification 5912 ENR Photovoltaïque (Qualibat) — alternative à QualiPV",
+      "Qualification SPV2 (Qualifelec) — alternative à QualiPV",
+      "Qualification AQPV (Certisolis) — alternative à QualiPV"
+    ]
+  },
+  "bareme_notation": {
+    "valeur_technique_pct": 45,
+    "valeur_prix_pct": 55,
+    "sous_criteres_techniques": [
+      {
+        "libelle": "Qualité technique de l'offre",
+        "ponderation_pct": 40,
+        "description": "Évaluation globale de la qualité de l'offre technique sur 5 sous-critères couvrant la méthodologie, la lisibilité du mémoire, la qualité des produits proposés, les moyens affectés et les mesures de prévention SST.",
+        "elements_attendus": [
+          "Mémoire technique concordant avec les exigences du CCTP (méthodologie, planning, gestion site occupé, préconis. assurance, maintenance GPA)",
+          "Mémoire clair, lisible et exhaustif",
+          "Système d'intégration Broof(t3) sous ATec ou ETN compatible bacs aciers en place et modules proposés, shelters REI30 sur 3 faces",
+          "Moyens humains et matériels affectés au chantier détaillés",
+          "Mesures de prévention SST (notamment travail en hauteur)"
+        ],
+        "exemple_reponse_forte": "L'offre présente un planning détaillé phasé par bâtiment respectant les 4 mois contractuels, une méthodologie claire de pose sur bacs sandwich avec couplage dynamométrique documenté, la fiche du système Kogysun i+ avec ATec et certificat Broof(t3) pour les deux références de bacs, les fiches des modules avec rapport grêle RG3, un plan de balisage pour la caserne occupée, et un tableau nominatif des équipes avec habilitations.",
+        "source": "RC §4",
+        "unite_evaluation": "points",
+        "sous_criteres": [
+          {
+            "libelle": "Concordance du mémoire technique avec les exigences du CCTP",
+            "ponderation_pct": 10,
+            "description": "Évalue dans quelle mesure le mémoire technique répond aux exigences du CCTP : méthodologie, planning phasé par bâtiment, gestion du site occupé, respect des préconisations de l'assurance, maintenance durant la 1ère année GPA.",
+            "elements_attendus": [
+              "Planning détaillé avec phasage pour les 3 bâtiments",
+              "Méthodologie de pose conforme CCTP (ATec, couples de serrage, Broof(t3))",
+              "Gestion du site occupé (balisage, cheminements provisoires, PIC)",
+              "Respect des préconisations assurance (Guide APSAD D20, shelters REI30)",
+              "Description de la maintenance préventive GPA (supervision à distance + visite annuelle)"
+            ],
+            "exemple_reponse_forte": "Le mémoire inclut un planning Gantt par bâtiment, un Plan d'Installation de Chantier avec zones balisées pour le personnel SDIS, et détaille la visite de maintenance GPA annuelle avec thermographie et rapport de performance.",
+            "source": "RC §4",
+            "unite_evaluation": "points"
+          },
+          {
+            "libelle": "Qualité du mémoire technique",
+            "ponderation_pct": 10,
+            "description": "Évalue la compréhension du projet, la lisibilité et l'exhaustivité de la réponse technique indépendamment de sa concordance avec le CCTP.",
+            "elements_attendus": [
+              "Structuration claire du document (sommaire, chapitres)",
+              "Compréhension des enjeux (autoconsommation collective patrimoniale, site pompiers)",
+              "Exhaustivité (tous les postes du CCTP abordés)"
+            ],
+            "exemple_reponse_forte": "Mémoire structuré en chapitres calqués sur le CCTP, rédigé en français technique clair, sans redondances, avec un résumé exécutif d'une page et des schémas de principe lisibles.",
+            "source": "RC §4",
+            "unite_evaluation": "points"
+          },
+          {
+            "libelle": "Qualité des produits et solutions proposées",
+            "ponderation_pct": 10,
+            "description": "Évalue la qualité intrinsèque du matériel proposé : système d'intégration Broof(t3) sous ATec/ETN compatible bacs aciers et modules, shelters REI30 sur 3 côtés, onduleurs de marque reconnue.",
+            "elements_attendus": [
+              "ATec ou ETN du système d'intégration valide pour les 2 références de bacs aciers et les modules proposés",
+              "Certificat Broof(t3) du système d'intégration",
+              "Certificat de résistance à la grêle RG3 des modules",
+              "Caractéristiques des shelters REI30 sur 3 faces",
+              "Fiches techniques complètes modules + onduleurs"
+            ],
+            "exemple_reponse_forte": "L'offre joint l'ATec du système Kogysun i+ avec les notes de calcul fabricant validant les entraxes de pannes existants, le certificat Broof(t3) pour Ondatherm 1040 TS et JI Roof PIR, le rapport grêle HW35 des modules, et la fiche du shelter en acier galvanisé peint RAL 7043 avec protection coupe-feu 30 min sur 3 faces.",
+            "source": "RC §4",
+            "unite_evaluation": "points"
+          },
+          {
+            "libelle": "Moyens humains et matériels affectés au chantier",
+            "ponderation_pct": 5,
+            "description": "Évalue les ressources mobilisées : équipe nominative avec qualifications, matériel de levage, nacelles, outillage spécifique.",
+            "elements_attendus": [
+              "Organigramme de chantier nominatif avec habilitations (hauteur, électriques)",
+              "Matériel de levage prévu (grue mobile, nacelles)",
+              "Adéquation des effectifs au planning proposé"
+            ],
+            "exemple_reponse_forte": "L'offre présente une équipe de 4 à 6 compagnons avec chef de chantier habilité B2V, une nacelle ciseaux pour la pose sur toiture basse et une grue mobile 25T pour la halle couverte, planning de rotation des équipes entre les 3 bâtiments.",
+            "source": "RC §4",
+            "unite_evaluation": "points"
+          },
+          {
+            "libelle": "Mesures de prévention santé, sécurité (notamment travail en hauteur)",
+            "ponderation_pct": 5,
+            "description": "Évalue la qualité et l'exhaustivité des mesures SST prévues, particulièrement pour le travail en hauteur sur toitures en site occupé.",
+            "elements_attendus": [
+              "PPSPS adapté (liste des risques, EPI, procédures d'urgence)",
+              "Protections collectives en rives de toiture (garde-corps, filets)",
+              "Procédure d'accès sécurisé aux toitures",
+              "Gestion de la coactivité avec le personnel SDIS"
+            ],
+            "exemple_reponse_forte": "Le PPSPS décrit les 5 risques majeurs du chantier (chute hauteur, électrocution DC, levage, coactivité pompiers, intempéries) avec pour chacun la mesure préventive collective et individuelle retenue, les lignes de vie provisoires en rive et le protocole d'intervention en cas d'alarme incendie du site.",
+            "source": "RC §4",
+            "unite_evaluation": "points"
+          }
+        ]
+      },
+      {
+        "libelle": "Engagement et actions en faveur de l'environnement",
+        "ponderation_pct": 5,
+        "description": "Évalue les mesures concrètes de gestion des déchets et de respect de l'environnement durant le chantier.",
+        "elements_attendus": [
+          "Plan de tri sélectif des déchets de chantier",
+          "Bordereau de suivi des déchets dangereux éventuels",
+          "Valorisation des emballages (cartons, palettes)",
+          "Mesures de limitation des nuisances (bruit, poussière) pour le site"
+        ],
+        "exemple_reponse_forte": "L'offre prévoit 3 bennes triées (cartons/plastiques, métaux, DIB), un contrat avec un collecteur agréé pour les déchets d'équipements électriques, et un plan de nettoyage quotidien avec point de contrôle hebdomadaire documenté.",
+        "source": "RC §4",
+        "unite_evaluation": "points"
+      }
+    ],
+    "prix": {
+      "type_formule": "moins_disant",
+      "formule_explicite": "Le critère Prix est pondéré à 55%. Le RC indique que les erreurs de la DPGF seront rectifiées et que le montant rectifié est pris en compte pour le jugement.",
+      "source": "RC §4",
+      "elements_a_chiffrer": [
+        "2.2.1 Études d'exécution et documentation avant travaux",
+        "2.2.2 Hygiène et sécurité (PPSPS, PIC, VIC, sécurisation chantier)",
+        "2.2.3 Demande de raccordement auprès d'Enedis et suivi",
+        "2.2.4 Assistance à la mise en place de l'OAC patrimoniale",
+        "2.2.5 Assistance à la consultation d'agrégateur pour la vente du surplus",
+        "2.2.6 Attestations de conformité électrique et CONSUEL",
+        "2.2.7 État des lieux avant travaux",
+        "2.2.8 Base-vie, tri et évacuation des déchets, stockage et levage",
+        "2.2.9 Fourniture modules PV",
+        "2.2.10 Fourniture et pose système d'intégration + pose modules",
+        "2.2.11 Fourniture onduleurs",
+        "2.2.12 Fourniture coffrets AC PV",
+        "2.2.13 Locaux techniques PV (shelters PV)",
+        "2.2.14 Fourniture et pose câbles, connecteurs, chemins de câbles",
+        "2.2.15 Raccordements sur réseau électrique existant + disjoncteurs + bobines MN",
+        "2.2.16 Arrêts d'urgence et voyants de coupure",
+        "2.2.17 Système de monitoring avec datalogger + compteur bidirectionnel TGBT",
+        "2.2.18 Mises à la terre",
+        "2.2.19 Étiquetage et signalisation",
+        "2.2.22 Autocontrôles, paramétrage et mise en service",
+        "2.2.23 DOE",
+        "2.2.24 Formation du personnel SDIS42",
+        "2.2.25 Maintenance durant l'année de parfait achèvement"
+      ]
+    },
+    "modalite_calcul_prix": "Critère Prix pondéré à 55% — jugement sur la base de la DPGF complétée. Le mode de notation détaillé n'est pas précisé dans le RC au-delà de la pondération."
+  },
+  "montant_marche": {
+    "valeur_estimee_euros": 350000,
+    "fourchette_min_euros": null,
+    "fourchette_max_euros": null,
+    "type": "estime_explicite",
+    "duree_couverte": "Marché unique comprenant les travaux (4 mois) + GPA 1 an",
+    "source_extraction": "RICT n°1 §IV.3 — montant prévisionnel des travaux : 350 000 € HT",
+    "commentaire": "Le RICT indique explicitement un montant prévisionnel de 350 000 € HT. Ce montant couvre les travaux clef-en-main, le raccordement et la maintenance GPA."
+  },
+  "montant_3_voies": {
+    "voie_1_eur": 350000,
+    "voie_1_source": "RICT n°1 §IV.3 — 'Montant prévisionnel des travaux : 350 000 Euros HT'",
+    "voie_2_disponible": false,
+    "voie_2_min_eur": null,
+    "voie_2_max_eur": null,
+    "voie_2_hypotheses": [],
+    "voie_2_raison_indisponible": "Voie 1 disponible (montant publié explicitement dans le RICT à 350 000 € HT) : Voie 2 non requise."
+  },
+  "cout_realisation": {
+    "cout_total_eur": 265000,
+    "cout_min_eur": 240000,
+    "cout_max_eur": 295000,
+    "postes": [
+      {
+        "poste": "Modules PV (609 × 460 Wc)",
+        "detail": "609 modules à ~130-145 €/module (prix marché monocristallin cadre alu, 2025)",
+        "montant_eur": 82500
+      },
+      {
+        "poste": "Système d'intégration (fourniture + pose sur ~1217 m²)",
+        "detail": "1217 m² × ~28 €/m² fourni-posé (système ATec type Kogysun)",
+        "montant_eur": 34000
+      },
+      {
+        "poste": "Onduleurs (280 kWc / ~2,5 modules par MPPT, ~3 onduleurs centraux ou décentralisés)",
+        "detail": "Environ 5-8 onduleurs triphasés 30-50 kW à ~1 800-2 500 €/unité + installation",
+        "montant_eur": 18000
+      },
+      {
+        "poste": "Shelters PV (3 unités REI30 avec dalle béton)",
+        "detail": "3 shelters à ~4 000-6 000 € pièce fourni-posé avec dalle",
+        "montant_eur": 15000
+      },
+      {
+        "poste": "Coffrets AC PV + câblage DC/AC + chemins de câbles",
+        "detail": "Câblage DC toiture, descente façade, câblage AC shelter-TGBT, chemins de câbles capotés",
+        "montant_eur": 28000
+      },
+      {
+        "poste": "Raccordements électriques intérieurs + disjoncteurs + bobines MN + arrêts urgence",
+        "detail": "Interventions sur 3 TGBT existants, 3 × boîtier AU + 4 voyants + boucle AU",
+        "montant_eur": 12000
+      },
+      {
+        "poste": "Monitoring + compteur bidirectionnel",
+        "detail": "Datalogger 4G/5G + compteur tores + raccordement + paramétrage",
+        "montant_eur": 5000
+      },
+      {
+        "poste": "Main d'œuvre chantier (hors pose SI incluse ci-dessus)",
+        "detail": "~6 compagnons × 10 semaines × 5 j × 35 €/h × 8h = estimation encadrement + PIC + sécurité",
+        "montant_eur": 30000
+      },
+      {
+        "poste": "Études d'exécution, PPSPS, CONSUEL, démarches Enedis, OAC, DOE, formation",
+        "detail": "Prestations administratives et techniques amont/aval",
+        "montant_eur": 15000
+      },
+      {
+        "poste": "Maintenance GPA 1 an (supervision + visite préventive + thermographie)",
+        "detail": "Forfait maintenance 1 an sur 280 kWc",
+        "montant_eur": 5500
+      },
+      {
+        "poste": "Frais de chantier (base vie, bennes, levage, assurances RCD)",
+        "detail": "Installation de chantier, bennes tri sélectif, location nacelle/grue mobile, assurances",
+        "montant_eur": 20000
+      }
+    ],
+    "taux_journaliers_retenus": "Taux marché indicatifs 2025 : modules monocristallin cadre alu 460 Wc ~130-145 €/module ; système d'intégration sur bac acier ATec ~25-32 €/m² fourni-posé ; onduleur triphasé 30-50 kW ~1 800-2 500 € pièce ; shelter coupe-feu REI30 ~3 500-6 000 € unité ; câblage solaire DC + chemin de câble ~8-12 €/ml ; compagnon électricien PV ~35-42 €/h chargé.",
+    "commentaire": "Estimation à taux marché indicatifs. La fourchette est obtenue en faisant varier le ratio prix modules (dimension la plus incertaine) entre 120 et 150 €/module tout en maintenant les autres postes stables. La marge brute attendue sur 350 000 € de revenu serait d'environ 55 000 à 110 000 € (16-31%), cohérente avec un marché de pose PV tertiaire en procédure adaptée."
+  },
+  "revision_prix": {
+    "type": "actualisation",
+    "indices_utilises": [
+      "Index national 47 — Installation photovoltaïque et raccordement BT"
+    ],
+    "ponderation": "Application de l'index 47 à 100% pour l'actualisation si délai > 3 mois entre fixation du prix et début d'exécution",
+    "periodicite": null,
+    "formule_revision": "P = Po × I(M-3)/Io — où I(M-3) est l'index du mois M-3 à compter de la notification et Io est l'index du mois de remise de l'offre finale",
+    "source_extraction": "CCAP §5.1 — Variation des prix",
+    "commentaire": "Actualisation unique (non révision périodique) déclenchée uniquement si plus de 3 mois s'écoulent entre la date de l'offre finale et le début d'exécution. L'index 47 est spécifique au photovoltaïque/raccordement BT, favorablement adapté à la réalité des coûts du secteur."
+  },
+  "alertes_prix": [
+    "La DPGF comporte 23 postes distincts à chiffrer séparément en euros HT et en €/Wc : toute erreur arithmétique sera rectifiée par le SDIS, ce qui peut modifier le classement — vérifier les formules de calcul avant dépôt.",
+    "Pondération prix à 55% inhabituellement élevée pour un marché de travaux complexes : une offre très compétitive techniquement peut être déclassée par un écart de prix même faible.",
+    "Le montant prévisionnel RICT de 350 000 € HT sur 280 kWc représente ~1 250 €/kWc, cohérent avec le marché mais laissant peu de marge sur des renforcements charpente non inclus dans le marché.",
+    "Risque d'offre anormalement basse sur les postes études (2.2.1, 2.2.2, 2.2.6) souvent sous-estimés : le SDIS peut demander justification avant rejet."
+  ],
+  "references_exigees": {
+    "experience_minimale_annees": 5,
+    "experience_source": "RC §3 — 'Liste des travaux exécutés (5 dernières années)'",
+    "volume_min_references_similaires": null,
+    "volume_min_references_unite": "chantiers réalisés",
+    "secteur_experience": "Installation photovoltaïque (travaux EPC sur centrales PV en toiture)",
+    "secteur_source": "RC §3",
+    "certifications_obligatoires": [
+      {
+        "libelle": "QualiPV module Elec (Qualit'ENR) — ou qualification équivalente ci-dessous — pour des centrales raccordées jusqu'à 250 kVA, en cours de validité",
+        "codes": [],
+        "bloquante": true,
+        "source": "RC §3"
+      },
+      {
+        "libelle": "Qualification 5912 ENR Photovoltaïque (Qualibat) — alternative à QualiPV",
+        "codes": [
+          "5912"
+        ],
+        "bloquante": true,
+        "source": "RC §3"
+      },
+      {
+        "libelle": "Qualification SPV2 (Qualifelec) — alternative à QualiPV",
+        "codes": [],
+        "bloquante": true,
+        "source": "RC §3"
+      },
+      {
+        "libelle": "Qualification AQPV (Certisolis) — alternative à QualiPV",
+        "codes": [],
+        "bloquante": true,
+        "source": "RC §3"
+      }
+    ],
+    "autres_exigences": [
+      {
+        "libelle": "Déclaration concernant le chiffre d'affaires global et le CA relatif aux travaux objets du marché sur les 3 derniers exercices disponibles",
+        "source": "RC §3"
+      },
+      {
+        "libelle": "Attestation de présence à la visite obligatoire du site (feuille d'émargement signée)",
+        "source": "RC §2"
+      },
+      {
+        "libelle": "Habilitations des employés : travail en hauteur, habilitations électriques, CACES le cas échéant",
+        "source": "RC §3"
+      }
+    ]
+  },
+  "dossier_candidature": {
+    "pieces_a_fournir": [
+      {
+        "libelle": "Lettre de candidature DC1 (habilitation du mandataire par ses cotraitants)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §3"
+      },
+      {
+        "libelle": "Déclaration du candidat DC2",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §3"
+      },
+      {
+        "libelle": "Déclaration concernant le chiffre d'affaires global et le CA travaux sur 3 derniers exercices",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §3"
+      },
+      {
+        "libelle": "Liste des travaux exécutés (5 dernières années) avec attestations de bonne exécution pour les plus importants, montant, époque et lieu",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §3"
+      },
+      {
+        "libelle": "Qualifications professionnelles en cours de validité (QualiPV module Elec, ou 5912 Qualibat, ou SPV2 Qualifelec, ou AQPV Certisolis) pour des centrales jusqu'à 250 kVA",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §3"
+      },
+      {
+        "libelle": "Attestation de présence à la visite obligatoire (feuille d'émargement signée)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §2"
+      },
+      {
+        "libelle": "Acte d'engagement complété et signé valant acceptation de l'ensemble des documents de la consultation",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §3"
+      },
+      {
+        "libelle": "Mémoire technique signé (capacité technique, certifications, références similaires, méthodologie, planning phasé 3 bâtiments, modalités spécifiques, moyens humains/matériels, fiches techniques composants, ATec/ETN, Broof(t3), résistance grêle RG3, caractéristiques shelters, mesures SST, assurances RC et RCD)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §3"
+      },
+      {
+        "libelle": "CCTP signé",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §3"
+      },
+      {
+        "libelle": "DPGF dûment complétée en version Excel et signée sous format PDF",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §3"
+      }
+    ],
+    "mode_remise": "dématérialisé + copie de sauvegarde",
+    "plateforme_depot": "achatpublic.com — www.achatpublic.com",
+    "signature_electronique_exigee": false,
+    "format_signature": "PAdES recommandé (XAdES ou CAdES acceptés) — certificat conforme eIDAS n°910/2014/UE si signature électronique utilisée",
+    "nombre_exemplaires": null,
+    "langue": "français",
+    "duree_validite_offres_jours": 150,
+    "modalites_source": "RC §3"
+  },
+  "lots": [],
+  "tranches": [],
+  "calendrier": {
+    "date_limite_offres": "2026-07-15",
+    "date_demarrage_prevue": null,
+    "duree_marche": "4 mois (délai d'exécution) + 12 mois de garantie de parfait achèvement"
+  },
+  "alertes_candidat": [
+    "VISITE OBLIGATOIRE — toute offre déposée sans attestation de présence (feuille d'émargement signée lors des visites du 17/06 ou 24/06/2026) sera déclarée IRRÉGULIÈRE et non analysée. Prise de RDV préalable obligatoire au 04 77 91 08 36.",
+    "Qualification photovoltaïque OBLIGATOIRE en cours de validité (QualiPV Elec, 5912 Qualibat, SPV2 Qualifelec, ou AQPV Certisolis) pour des centrales jusqu'à 250 kVA — son absence entraîne l'élimination de la candidature.",
+    "Système d'intégration sous ATec ou ETN VALIDE pour les deux références de bacs acier existants (Arcelor Ondatherm 1040 TS ET Joriside JI Roof PIR) ET pour les modules PV proposés — une attestation partielle (un seul bac) est insuffisante.",
+    "Certification Broof(t3) du système d'intégration exigée par l'assureur — à joindre impérativement au mémoire technique avec les modules proposés.",
+    "La DPGF doit être remise en version Excel ET en PDF signé — une DPGF partiellement complétée ou sans les prix en €/Wc sera rectifiée par le SDIS, ce qui peut modifier le classement. Les négociations éventuelles pourraient se tenir fin août (semaine du 24-28/08) : prévoir disponibilité."
+  ],
+  "points_differenciants_attendus": [
+    {
+      "libelle": "Compatibilité démontrée du système d'intégration avec les deux références de bacs acier et les modules proposés",
+      "exemple": "Joindre les notes de calcul du fabricant du SI validant les entraxes de pannes mesurés sur site (2,31 m à 2,98 m selon les zones), les fiches ATec/ETN à jour et le certificat Broof(t3) couvrant explicitement les deux références Ondatherm 1040 TS et JI Roof PIR pour les modules retenus.",
+      "source": "CCTP §2.2.10"
+    },
+    {
+      "libelle": "Gestion détaillée de la coactivité avec la caserne de pompiers en exploitation",
+      "exemple": "Présenter un Plan d'Installation de Chantier avec zonage précis (aire de travaux, stockage, cheminements balisés), protocole de communication quotidien avec le SDIS, et procédure d'évacuation d'urgence adaptée aux interventions de pompiers.",
+      "source": "CCTP §1.5"
+    },
+    {
+      "libelle": "Prise en compte proactive des renforcements de charpente nécessaires selon les études BOST",
+      "exemple": "Le mémoire anticipe les renforcements de pannes sur zones F et G (profilés soudés en sous-face selon BOST) et l'assemblage déficitaire de la zone H, propose un planning de traitement intégré aux travaux PV et chiffre ces prestations éventuelles dans la DPGF en option.",
+      "source": "CCTP §1.3"
+    },
+    {
+      "libelle": "Qualité et réactivité de la maintenance GPA avec supervision à distance documentée",
+      "exemple": "Décrire le protocole de supervision à distance (fréquence des contrôles, seuils d'alarme paramètrés, délai de réponse aux alertes), le contenu de la visite préventive annuelle avec thermographie des coffrets, et le format du rapport annuel de performances transmis au SDIS.",
+      "source": "CCTP §2.2.23"
+    },
+    {
+      "libelle": "Démarches Enedis et assistance OAC patrimoniale structurées et calendrées",
+      "exemple": "Présenter le retro-planning des démarches Enedis (dépôt demande de raccordement dès notification + suivi étapes CACSI), le schéma de l'opération d'autoconsommation collective patrimoniale avec les casernes proches, et un exemple de mandat de représentation.",
+      "source": "CCTP §2.2.3"
+    }
+  ],
+  "_meta": {
+    "id_marche": "BOAMP-26-56576",
+    "type": "complet",
+    "date_generation": "2026-06-19T20:26:49.378550+00:00",
+    "extraction_le": "2026-06-19T20:26:49.378550+00:00",
+    "modele": "claude-sonnet-4-6",
+    "preset_utilise": "energie_renouvelable",
+    "presets_matches": [
+      "energie_renouvelable"
+    ],
+    "prompts_versions": {
+      "energie_renouvelable/_preset.json": "sha256:d5db6e4d3d386add"
+    },
+    "tokens_input": 163583,
+    "tokens_output": 10005,
+    "cout_eur": 0.6088,
+    "duree_sec": 187.6,
+    "pdfs_traites": [
+      {
+        "nom": "1.500.90 BS.pdf",
+        "hash": "006d84f17a9b183bf28c99729bb7b421",
+        "taille_chars": 0
+      },
+      {
+        "nom": "2. 260505_SDIS42_IMPLANTATION.pdf",
+        "hash": "da7f65b2757e605671d82816fdabbd9e",
+        "taille_chars": 931
+      },
+      {
+        "nom": "2024 09 13 SDIS42 VERIFICATION CHARPENTE METALLIQUE NDC DECARE-1 A.PDF",
+        "hash": "d1ddb2530865a134d33848f548beca5a",
+        "taille_chars": 0
+      },
+      {
+        "nom": "2425A-464-A - SDIS 42 à Saint-Etienne (42) - FAISA - Etude de faisabilité d'installation de PV en toiture.pdf",
+        "hash": "b923db67935dab048849e8b46cf8904e",
+        "taille_chars": 97720
+      },
+      {
+        "nom": "3. 260225_Préconisations assurance.pdf",
+        "hash": "52a744116a0dff4010817bdc24f70f8a",
+        "taille_chars": 1370
+      },
+      {
+        "nom": "3_ RC.pdf",
+        "hash": "6dc9065fc8b1cede05575d9be4961625",
+        "taille_chars": 25712
+      },
+      {
+        "nom": "5_ CCAP.pdf",
+        "hash": "652bfc895aff6a4a7bf0a55c3d1474eb",
+        "taille_chars": 52499
+      },
+      {
+        "nom": "6_ CCTP.pdf",
+        "hash": "445d7dc2078580fab85e5d1b5eeb4d6f",
+        "taille_chars": 73111
+      },
+      {
+        "nom": "7. Plan des réseaux enterrés.pdf",
+        "hash": "56c61bb3d33bbb50b7bef41234e20382",
+        "taille_chars": 0
+      },
+      {
+        "nom": "7_ DPGF.xlsx",
+        "hash": "c38f1160cde1fe1b7c046aa6c2c45f3c",
+        "taille_chars": 2977
+      },
+      {
+        "nom": "8 _ RICT n1.pdf",
+        "hash": "a4cf7b8e3622fbab15760889d2edd982",
+        "taille_chars": 31084
+      },
+      {
+        "nom": "8 _1 Suivi des avis n1 du 01_06_2026.pdf",
+        "hash": "9ae8713d3558282dbeabe88e6455d9e6",
+        "taille_chars": 2455
+      },
+      {
+        "nom": "8. Arrêté de DP 05-02-2026.pdf",
+        "hash": "3f46ccd98e3c0747e8cd5072462d73bf",
+        "taille_chars": 7586
+      },
+      {
+        "nom": "9 _ PGC 1.pdf",
+        "hash": "eb3a4c894fe4a7fd2cee9f55bcdb2015",
+        "taille_chars": 63933
+      },
+      {
+        "nom": "ARCELOR Ondatherm.pdf",
+        "hash": "0498c44fd39dbd78f675692be6f96035",
+        "taille_chars": 11455
+      },
+      {
+        "nom": "AT ondatherm 1040ts.pdf",
+        "hash": "5dcc3e917fe2d7171865ca83e1296499",
+        "taille_chars": 53704
+      },
+      {
+        "nom": "CMB - Bât.G Portique File 4 - Eurocode.pdf",
+        "hash": "9830062cfaa51eb78546ecce4e78970a",
+        "taille_chars": 0
+      },
+      {
+        "nom": "Coupe plateau technique avant extension.pdf",
+        "hash": "5fb0e59405a98d48cc71ec3dc160e411",
+        "taille_chars": 2863
+      },
+      {
+        "nom": "DC SDIS42 - A.pdf",
+        "hash": "6fd2e557a79ec31b56ccdf7dca8d7979",
+        "taille_chars": 0
+      },
+      {
+        "nom": "FREQUENCE 4.43 HA.pdf",
+        "hash": "9013ec9ad1cbb22ceee8796bcd4f7a95",
+        "taille_chars": 0
+      },
+      {
+        "nom": "FT Arval Ondatherm 1040TS.pdf",
+        "hash": "3999db0d0f4eb2be76239f0ca49e1570",
+        "taille_chars": 0
+      },
+      {
+        "nom": "FT Joriside JI Roof 1000 IPN.pdf",
+        "hash": "a71042cf23bbefb7292cddcf146ee0f9",
+        "taille_chars": 0
+      },
+      {
+        "nom": "FT-Rage-Ondatherm-T-version-3.pdf",
+        "hash": "c305f57564bd90dd2ca2bf4fe28545ab",
+        "taille_chars": 835
+      },
+      {
+        "nom": "Fiches techniques.pdf",
+        "hash": "a066160cd1307044e477fa8f1eaa22f4",
+        "taille_chars": 10464
+      },
+      {
+        "nom": "JORISIDE_JI Roof PIR.pdf",
+        "hash": "7cd202a966a6ea86dd2fe8ded9857dae",
+        "taille_chars": 0
+      },
+      {
+        "nom": "Lignon Métal - Portique File 4 - NC SDIS 42.pdf",
+        "hash": "b1100d2e38682aa0161d7820d086f4d3",
+        "taille_chars": 0
+      },
+      {
+        "nom": "NC  SDIS GRADIN Ind A.pdf",
+        "hash": "5fb351656c2d9d1d54a83ba4e93c7d74",
+        "taille_chars": 0
+      },
+      {
+        "nom": "NC SDIS 42.pdf",
+        "hash": "1204d150998689fa81ab2c8c82a36a65",
+        "taille_chars": 0
+      },
+      {
+        "nom": "ONDATHERM 1040 TS.pdf",
+        "hash": "dfe92d8211388c910eb34c50c330a8a6",
+        "taille_chars": 0
+      },
+      {
+        "nom": "PML60PC.pdf",
+        "hash": "076ee772f8d21130e965a233a6aee185",
+        "taille_chars": 5807
+      },
+      {
+        "nom": "Plancher Collaborant.pdf",
+        "hash": "d504dc4640c640cecfa31dde6fcf2892",
+        "taille_chars": 0
+      },
+      {
+        "nom": "SCHEMA - BATIMENT PRINCIPAL DE l'ETAT MAJOR.pdf",
+        "hash": "6950085938fbec76037cee4f7636906c",
+        "taille_chars": 87853
+      },
+      {
+        "nom": "SCHEMA - CTMD.pdf",
+        "hash": "2bb6a3f287f87d27774e9df02b5e59d6",
+        "taille_chars": 17307
+      },
+      {
+        "nom": "SCHEMA - PLATEAU TECHNIQUE.pdf",
+        "hash": "9010d6a37d6e41f3b7fd862284295042",
+        "taille_chars": 12762
+      },
+      {
+        "nom": "details toiture ext PT.pdf",
+        "hash": "a12b6b031d537aebd293cfe5e62c80fd",
+        "taille_chars": 0
+      },
+      {
+        "nom": "détail toiture halle couverte.pdf",
+        "hash": "6bef683735a246e95872f8eef1490c91",
+        "taille_chars": 1200
+      }
+    ]
+  }
+}

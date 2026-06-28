@@ -1,6 +1,6 @@
 # Brief — ACCORD-CADRE MIXTE - MISSIONS D'ASSISTANCE A MAITRISE D'OUVRAGE POUR LE SUIVI DU CONTRAT CONCESSION DES SERVICES PUBLICS DE L'EAU POTABLE ET DE l'ASSA
 
-_Généré le 2026-06-14 22:21 par Claude claude-sonnet-4-6_
+_Généré le 2026-06-19 21:27 par Claude claude-sonnet-4-6_
 
 ## Identifiants
 - **ID Tendia** : `BOAMP-26-56494`
@@ -10,68 +10,66 @@ _Généré le 2026-06-14 22:21 par Claude claude-sonnet-4-6_
 - **DCE PLACE** : <https://siaepa-bonnetan.e-marchespublics.com/pack/annonce_marche_public_26647_1165318.html>
 
 ## Synthèse
-Le SIAEPA de la région de Bonnetan recherche un prestataire pour assurer des missions d'assistance à maîtrise d'ouvrage relatives au suivi des contrats de concession de service public de l'eau potable et de l'assainissement collectif délégués à la société SAUR. Les missions récurrentes comprennent la visite annuelle des installations, l'établissement des RPQS et l'expertise technique et comptable de la gestion du service. L'accord-cadre mixte (bons de commande + marchés subséquents) est conclu pour 4 ans maximum (1 an renouvelable 3 fois), sans montant minimum ni maximum.
+Accord-cadre mono-attributaire mixte (bons de commande + marchés subséquents) portant sur des missions d'assistance à maîtrise d'ouvrage pour le suivi des contrats de concession de service public de l'eau potable et de l'assainissement collectif du SIAEPA de la région de Bonnetan (Gironde), délégués à SAUR. Les missions comprennent des visites annuelles d'installations, l'établissement des RPQS, l'expertise technique et comptable de la gestion, ainsi que des expertises ponctuelles (juridiques, comptables, économiques). Le marché est conclu pour 1 an, reconductible 3 fois, soit 4 ans maximum.
 
 ## 🎯 Mission conseil
-- **Typologie de mission** : AMO, expertise, audit
-- **Domaine d'expertise** : gestion déléguée services publics eau potable et assainissement collectif, contrôle de concession, expertise technique et comptable, juridique
-- **Durée de mission** : 48 mois maximum (4 ans)
-- **Méthodologie attendue** : Missions récurrentes annuelles par bons de commande (visite terrain, analyse du rapport annuel du délégataire, contrôle financier et contractuel, rédaction des RPQS et rapports d'expertise) + missions ponctuelles par marchés subséquents (assistance juridique, comptable, économique et technique, négociation d'avenants, assistance fin de contrat). Présentation des livrables en comité syndical.
+- **Typologie de mission** : AMO
+- **Domaine d'expertise** : eau potable, assainissement collectif, gestion de contrats de concession (DSP), expertise technique et comptable
+- **Durée de mission** : 48 mois (1 an ferme + 3 reconductions annuelles)
+- **Méthodologie attendue** : Visites annuelles d'installations en présence du SIAEPA et du régisseur ; analyse critique du rapport annuel du délégataire (RAD) ; vérification des engagements contractuels (formule de révision, bordereau des prix, reversements surtaxe, pénalités/intéressements) ; rédaction des RPQS conformément à la réglementation ; présentation en comité syndical ; assistance aux réunions ; expertises ponctuelles sur marchés subséquents.
 - **Livrables attendus** :
-  - Rapport de visite annuelle des installations (eau potable et assainissement)
-  - Rapport annuel sur le prix et la qualité du service (RPQS) eau potable
-  - RPQS assainissement collectif (contrats Créon/Bonnetan et Sadirac)
-  - Note de synthèse sur le respect des engagements contractuels
-  - Rapport d'expertise annuel sur la gestion du service (exercice N-1)
+  - Rapport de visite annuelle des installations eau potable (avec rapport photographique)
+  - Rapport de visite annuelle des installations assainissement collectif
+  - RPQS Eau potable (projet de rapport annuel sur le prix et la qualité du service)
+  - RPQS Assainissement collectif – Contrat Créon et Bonnetan
+  - RPQS Assainissement collectif – Contrat Sadirac
+  - Note de synthèse sur le respect des engagements contractuels du délégataire
+  - Rapport d'expertise annuel (expertise technique et comptable de la gestion)
+  - Projet de courrier à destination du délégataire
   - Projet de délibération
-  - Projet de courrier au délégataire
-  - Synthèse PowerPoint pour communication
-  - Saisie des données sur le portail services.eaufrance.fr
+  - Synthèse power point des RPQS
+  - Renseignement du portail services.eaufrance.fr
   - Comptes-rendus de réunion
 - **Livrables par phase** :
-  - **Second semestre — Visite annuelle des installations** :
-    - Rapport de visite avec descriptif détaillé des ouvrages, état, travaux à effectuer
-    - Rapport photographique
-    - Synthèse des actions à mener (collectivité et délégataire)
-  - **Avant le 15 juillet — RPQS et expertise contractuelle** :
-    - Projet de RPQS eau potable
-    - Projet de RPQS assainissement collectif (Créon/Bonnetan)
-    - Projet de RPQS assainissement collectif (Sadirac)
-    - Note de synthèse sur les engagements contractuels et calcul de la rémunération du délégataire
+  - **Annuelle – 2e semestre (visites)** :
+    - Rapport de visite annuelle installations eau potable (avant le 31 décembre)
+    - Rapport de visite annuelle installations assainissement collectif (avant le 31 décembre)
+  - **Annuelle – avant le 15 juillet** :
+    - RPQS Eau potable
+    - RPQS Assainissement collectif (Créon/Bonnetan)
+    - RPQS Assainissement collectif (Sadirac)
+    - Note de synthèse expertise gestion
     - Projet de délibération
-    - Projet de courrier au délégataire
-    - Synthèse PowerPoint
-    - Saisie sur portail national
-  - **Avant le 31 août — Rapport d'expertise annuel** :
-    - Rapport d'expertise complet (analyse financière, bilan engagements contractuels, propositions d'amélioration)
-  - **Marchés subséquents ponctuels** :
-    - Assistance à la négociation d'avenants
-    - Assistance à la fusion/évolution des statuts
-    - Assistance à la passation des marchés en fin de contrat
+    - Synthèse power point
+  - **Annuelle – avant le 31 août** :
+    - Rapport d'expertise annuel (exercice N-1)
+  - **Missions ponctuelles (marchés subséquents)** :
+    - Offres détaillées sur demande
+    - Livrables spécifiques à chaque marché subséquent (assistance négociation avenant, assistance fusion, renouvellement de contrat, etc.)
 - **Jours-consultant par profil** :
   - Directeur d'études / Négociateur
   - Ingénieur spécialiste en gestion des services d'eau potable
   - Technicien spécialiste en gestion des services d'eau potable
   - Contrôleur de gestion
   - Juriste
-  - Assistant technique ou administratif
+  - Autre (assistant technique ou administratif)
 
 ### Profils intervenants
-L'équipe doit couvrir les compétences techniques (ingénierie eau/assainissement), financières (contrôle de gestion, expertise comptable des comptes de la concession), juridiques (droit des concessions, droit de l'eau) et de pilotage (négociation, direction d'études). Les responsables d'affaires doivent être nommément cités avec CV dans le mémoire technique.
+L'équipe doit couvrir des compétences pluridisciplinaires : ingénierie des services d'eau et d'assainissement, contrôle de gestion/expertise comptable des contrats de DSP, droit des délégations de service public, et assistance technique/administrative. Le BPU liste 6 profils tarifés.
 - **Chef de mission** :
-  - secteur : gestion déléguée des services publics d'eau potable et d'assainissement collectif, suivi de contrats de concession
+  - secteur : gestion des services publics d'eau potable et d'assainissement collectif, suivi de contrats de concession/délégation de service public
 - **Consultants** :
   - Directeur d'études / Négociateur
   - Ingénieur spécialiste en gestion des services d'eau potable
   - Technicien spécialiste en gestion des services d'eau potable
   - Contrôleur de gestion
   - Juriste
-  - Assistant technique ou administratif
+  - Autre (assistant technique ou administratif)
 
 ## 💶 Montant du marché
 - _Montant non communiqué dans le DCE._
   - Typique des accords-cadres à bons de commande : le volume dépend des commandes effectivement passées par l'acheteur sur la durée du marché.
-- _Note_ : L'accord-cadre est explicitement défini sans montant minimum et sans montant maximum. Le DQE (non contractuel) fourni dans le DCE permettrait une estimation mais n'est pas reproduit dans les pièces analysées. Le BPU liste les postes (forfaits annuels + demi-journées d'expertises ponctuelles) mais sans quantités ni tarifs remplis.
+- _Note_ : Le DCE ne mentionne aucun montant estimé, ni minimum ni maximum. L'accord-cadre est passé sans montant minimum et sans montant maximum (mentions explicites dans l'AE et le CCAP). Voir montant_3_voies pour l'estimation bottom-up.
 
 ## Barème de notation
 - **Valeur technique** : 70 %
@@ -80,27 +78,23 @@ L'équipe doit couvrir les compétences techniques (ingénierie eau/assainisseme
   - Les moyens humains : 50 %
   - La méthodologie : 40 %
   - Les références de suivi de contrats de concession similaires : 10 %
-- **Calcul du prix** : Note (sur 10) = 14,5 - (4,5 × Mn / Mbasse). Montant total issu de l'application des prix BPU aux quantités du DQE (non contractuel). La note finale prix est pondérée à 30%.
+- **Calcul du prix** : Note (sur 10) = 14,5 - (4,5 × Mn / Mbasse). L'offre la plus basse obtient 10. Note minimale = 1. Pondération prix : 30%.
 
 ## Références et qualifications exigées
 - **Expérience minimale** : —
-- **Secteur d'expérience** : suivi de contrats de concession de service public d'eau potable et/ou d'assainissement collectif
+- **Secteur d'expérience** : suivi de contrats de concession de service public d'eau potable et/ou d'assainissement collectif similaires
 - **Autres exigences** :
-  - Liste des principaux services effectués au cours des 3 dernières années en rapport avec l'objet du marché (déclaration DC2) (source=RC article 5 — Présentation des offres)
-  - Déclaration concernant le chiffre d'affaires global et le CA concernant les services objet du contrat sur les 3 derniers exercices disponibles (source=RC article 5 — Présentation des offres)
-  - Déclaration des effectifs moyens annuels et de l'importance du personnel d'encadrement sur les 3 dernières années (source=RC article 5 — Présentation des offres)
+  - Déclaration sur l'honneur attestant de l'absence d'exclusion de la procédure (articles L.2141-1 à L.2141-5 et L.2141-7 à L.2141-11 CCP), incluant le respect des obligations AGEFIPH (source=RC §5 — Pièces de la candidature)
 
 ## ⚠ Alertes candidat
-- Offre incomplète = élimination automatique : l'acte d'engagement doit obligatoirement être accompagné du BPU renseigné ET du mémoire technique (RC article 7.2).
-- Note méthodologique limitée à 15 pages avec pénalité de 1 point par tranche de 5 pages supplémentaires : respecter strictement la contrainte de volume (RC Annexe 1, Chapitre 2).
-- Obligation de répondre aux marchés subséquents : le titulaire est tenu de remettre une offre cohérente pour tout marché subséquent sous peine d'une pénalité de 1 000 €/jour de retard et de résiliation aux torts aux torts du titulaire (CCAP article 1.2).
-- Aucune variante autorisée : toute offre avec variante sera écartée (RC article 2.3).
-- En cas de groupement conjoint, le mandataire doit être solidaire (RC article 2.2).
-- La note méthodologique doit être spécifique aux prestations décrites (eau potable ET assainissement collectif, avec les 3 contrats distincts : SAUR eau potable, SAUR assainissement Créon/Bonnetan, SAUR assainissement Sadirac) et ne pas être générique.
+- L'offre est immédiatement éliminée si l'acte d'engagement n'est pas accompagné du BPU et du mémoire technique (RC §7.2 : 'toute offre incomplète sera immédiatement écartée').
+- Le mémoire technique méthodologique est limité à 15 pages : toute page supplémentaire par tranche de 5 pages entraîne une pénalité de 1 point sur la note (RC Annexe 1 §Chapitre 2).
+- Le titulaire a l'obligation de remettre une offre pour tout marché subséquent : le refus ou le dépassement du délai de réponse expose à une pénalité de 1 000 €/jour calendaire de retard (CCAP §1.2).
+- Les prix BPU constituent des plafonds insusceptibles d'être dépassés pour les marchés subséquents (RC §1.2) : une sous-estimation initiale des TJM sera bloquante sur toute la durée du contrat (4 ans).
+- Le titulaire ne peut refuser la reconduction : engagement sur 4 ans avec reconduction tacite si absence de décision contraire 3 mois avant la fin de chaque période (CCAP §1.4).
 
 ## 💡 Points différenciants attendus
-- Connaissance approfondie des contrats de concession SAUR et du contexte spécifique du SIAEPA de Bonnetan (exemple=Un candidat qui démontre avoir analysé les RPQS fournis en annexe, identifie les enjeux précis (rendement réseau eau potable < objectif contractuel 75,80%, non-conformité STEP Créon, intégration récente de Sadirac) et adapte sa méthodologie en conséquence se distinguera nettement., source=CCTP §3.1.3 et annexes RPQS)
-- Expérience de suivi de DSP multi-contrats pour une même collectivité (eau + assainissement, plusieurs périmètres) (exemple=Présenter une référence où le cabinet a géré simultanément le suivi de plusieurs contrats de concession pour un même maître d'ouvrage, avec des délégataires ou périmètres différents, valorise directement la configuration particulière du SIAEPA (3 contrats distincts)., source=RC Annexe 1, Chapitre 3)
-- Capacité à mobiliser un juriste spécialisé droit de l'eau et un contrôleur de gestion en plus des ingénieurs (exemple=L'équipe inclut nominalement un juriste spécialisé en droit des services publics de l'eau et un contrôleur de gestion expert en finances des DSP, distincts des ingénieurs, pour couvrir les expertises ponctuelles de négociation d'avenants et d'analyse financière du contrat., source=BPU prix 7 et 8 ; CCTP §3.1)
-- Présentation de la méthodologie d'assistance à la fin de contrat (échéance 2029) (exemple=Le CCTP précise que 2 ans avant la fin des contrats (soit dès 2027), le titulaire assistera la collectivité dans la définition du mode de gestion et la passation des nouveaux marchés. Décrire une méthodologie éprouvée de 'fin de DSP' (audit de patrimoine, définition du mode de gestion, DCE) valorise significativement l'offre., source=CCTP §3.1)
-- Disponibilité et réactivité démontrées pour les missions ponctuelles (bons de commande et marchés subséquents) (exemple=Mentionner la capacité à mobiliser des demi-journées d'expertise dans des délais courts (< 5 jours ouvrés) et la disponibilité pour assister aux conseils syndicaux et réunions avec le délégataire renforce la crédibilité opérationnelle de l'offre., source=CCTP §6.2)
+- Connaissance précise du délégataire SAUR et de ses contrats de concession en Gironde (exemple=Mentionner des références de missions de suivi de contrats SAUR (notamment en Gironde ou Nouvelle-Aquitaine), démontrer la maîtrise des indicateurs spécifiques aux contrats SAUR (formules de révision, RAD type, indicateurs de performance contractuels), ce qui sécurise la collectivité sur la capacité à vérifier immédiatement le respect des engagements du régisseur., source=CCTP §3.1.3)
+- Capacité à gérer simultanément plusieurs périmètres d'assainissement (3 contrats distincts : eau SIAEPA, assainissement Créon/Bonnetan, assainissement Sadirac transféré en 2024) (exemple=L'offre doit montrer comment l'équipe absorbe 8 forfaits annuels (3a à 3c, 2a à 2c, 1a, 1b) avec des délais différents (15 juillet pour RPQS, 31 août pour expertise, 31 décembre pour visites) sans conflit de planning, notamment avec un planning-type annuel sur 4 ans incluant la spécificité Sadirac (nouveau périmètre 2024)., source=CCTP §2 et §3.1)
+- Expertise sur la préparation de fin de contrat de délégation (échéance SAUR eau : décembre 2029, assainissement : décembre 2029 / juin 2029) (exemple=Le CCTP précise qu'un marché subséquent spécifique sera passé pour l'assistance à la fin de contrat (2 ans avant l'échéance, donc ~2027-2028). Valoriser dans le mémoire des références de missions d'assistance à la remise en fin de concession, de définition du futur mode de gestion et de passation des nouveaux marchés., source=CCTP §3.1)
+- Nomination d'une équipe stable et pérenne avec un interlocuteur unique dédié (exemple=Avec 50% de la note technique sur les moyens humains, nommer nominativement le directeur d'études/chef de mission et garantir sa continuité sur 4 ans est un facteur de différenciation fort. Justifier une organisation de backup (suppléant désigné) pour chaque profil clé., source=RC Annexe 1 §Chapitre 1)

@@ -1,0 +1,682 @@
+{
+  "synthese_marche": "Île-de-France Mobilités (IDFM) lance un accord-cadre à bons de commande de 4 ans (2+1+1) pour une mission d'AMO visant le contrôle et le suivi de la bonne exécution des prestations de maintenance réalisées par les exploitants sur son patrimoine immobilier et infrastructurel. Le marché est alloti en deux lots : Lot 1 pour le patrimoine Bus (COB, gares routières, sites propres, ouvrages d'art) avec un plafond de 2,4 M€ HT sur 4 ans, et Lot 2 pour les transports guidés (tramway, tram-train, câble, SMR, ateliers Transilien) avec un plafond de 1,75 M€ HT sur 4 ans. Le titulaire doit être un Bureau d'Études Techniques (BET) spécialisé en AMO maintenance et exploitation d'infrastructures de transport public.",
+  "domaines_metier": [
+    {
+      "code": "ingenierie_structure_genie_civil",
+      "poids": 0.6,
+      "lots_concernes": [
+        "LOT-0001",
+        "LOT-0002"
+      ]
+    },
+    {
+      "code": "conseil_strategie_organisation",
+      "poids": 0.4,
+      "lots_concernes": [
+        "LOT-0001",
+        "LOT-0002"
+      ]
+    }
+  ],
+  "raison_classification": "Le marché porte sur une mission d'AMO intellectuelle (prestations d'assistance, contrôle, audit, inspection technique et conseil stratégique) sur des infrastructures de transport public. Les missions incluent des études techniques (diagnostic, audit réglementaire, analyse patrimoniale OPEX/CAPEX) relevant de l'ingénierie, et un volet conseil/stratégie (optimisation des plans de maintenance, recommandations). Le code `ingenierie_structure_genie_civil` est dominant car les CPV sont 71000000-8 (services d'ingénierie et d'inspection) et 71631300-3 (contrôle technique de bâtiments). Le code `conseil_strategie_organisation` reflète la mission 4 (analyse stratégique de maintenance, schémas directeurs patrimoniaux).",
+  "caracteristiques_mission_it": {
+    "typologie_mission": "Assistance à Maîtrise d'Ouvrage (AMO) — contrôle technique, audit réglementaire, inspection de terrain, conseil patrimonial",
+    "typologie_systeme": "autre",
+    "cloud_ou_on_premise": null,
+    "niveau_securite": "données personnelles RGPD, données confidentielles d'exploitation",
+    "technologies_attendues": [
+      "GMAO",
+      "PowerBI",
+      "Excel avancé",
+      "tableaux de bord / dataviz",
+      "outil collaboratif de gestion documentaire (ISO 27001 recommandé)",
+      "AutoCAD"
+    ],
+    "modele_prestation": "accord-cadre à bons de commande",
+    "volumetrie": "Lot 1 : ~75 sites Bus (COB, gares routières, sites propres, ouvrages d'art) ; Lot 2 : ~35 sites transports guidés (SMR tramway, ateliers Transilien, lignes, gares, ouvrages d'art)",
+    "jours_homme_estimes": null,
+    "sla_attendus": "Délai de remise des livrables documentaires : 30 jours après notification du bon de commande (avec transmission 5 jours ouvrés avant visite) ; délai de remise des livrables issus de visite : 15 jours calendaires après dernière visite ; délai de proposition d'intervention (Mission 5) : 5 jours ouvrés",
+    "livrables_par_phase": [
+      {
+        "phase": "Mission 1.1 — Contrôle et suivi des prestations de maintenance",
+        "livrables": [
+          "Tableau de conformité documentaire (GMAO, DEM, DOE, DIUO)",
+          "Tableau d'analyse des indicateurs de performance",
+          "Grille d'analyse structurée par site",
+          "Rapport photographique des constats",
+          "Tableau des écarts avec indicateurs de performance",
+          "Rapport de synthèse (anomalies, actions correctives, risques, propositions)"
+        ]
+      },
+      {
+        "phase": "Mission 1.2 — Vérifications fonctionnelles approfondies",
+        "livrables": [
+          "Note de cadrage technique préparatoire",
+          "Livrables techniques détaillés (tests, mesures, observations)",
+          "Rapport de synthèse avec dysfonctionnements, causes, risques, actions correctives"
+        ]
+      },
+      {
+        "phase": "Mission 2.1 — Audit des contrôles périodiques réglementaires",
+        "livrables": [
+          "Tableau de conformité documentaire des contrôles obligatoires",
+          "Alerte sur réserves et contrôles critiques manquants",
+          "Grille d'analyse structurée",
+          "Rapport photographique",
+          "Tableau des écarts terrain / documents réglementaires",
+          "Rapport de synthèse (conformité DSP, risques)"
+        ]
+      },
+      {
+        "phase": "Mission 2.2 — Vérifications fonctionnelles approfondies (audit réglementaire)",
+        "livrables": [
+          "Note de cadrage technique préparatoire",
+          "Livrables techniques détaillés",
+          "Rapport de synthèse"
+        ]
+      },
+      {
+        "phase": "Mission 3 — Bilan annuel",
+        "livrables": [
+          "Tableau de synthèse annuel Excel (indicateurs de suivi, comparatifs sites/opérateurs)",
+          "Rapport annuel (tendances, cartographie des risques, recommandations)"
+        ]
+      },
+      {
+        "phase": "Mission 4 — Suivi patrimonial",
+        "livrables": [
+          "Tableau d'analyse des équipements (état, OPEX, CAPEX, durée de vie résiduelle)",
+          "Note de synthèse de stratégie de maintenance"
+        ]
+      },
+      {
+        "phase": "Mission 5 — Assistance technique complémentaire",
+        "livrables": [
+          "Proposition détaillée (dans 5 jours ouvrés)",
+          "Livrables techniques ou d'expertise selon note de cadrage",
+          "Compte rendu final d'intervention"
+        ]
+      },
+      {
+        "phase": "Mission 6 — Visite de site supplémentaire",
+        "livrables": [
+          "Compte rendu ou note synthétique"
+        ]
+      },
+      {
+        "phase": "Mission 7 — Assistance en réunion",
+        "livrables": [
+          "Note synthétique ou compte rendu de réunion"
+        ]
+      },
+      {
+        "phase": "Mission 8 — Outil collaboratif (Lot 1 uniquement)",
+        "livrables": [
+          "Note de présentation fonctionnelle et technique de l'outil",
+          "Outil configuré et opérationnel",
+          "Documentation d'utilisation et d'administration"
+        ]
+      }
+    ],
+    "profils_attendus": [
+      {
+        "profil": "Responsable de mission / Interlocuteur unique (chef de projet senior)",
+        "nombre": 1,
+        "anciennete_min_annees": 3,
+        "certifs_requises": []
+      },
+      {
+        "profil": "Expert bâtimentaire (CVC, électricité, plomberie, clos-couvert, incendie)",
+        "nombre": null,
+        "anciennete_min_annees": 3,
+        "certifs_requises": [
+          "Habilitations électriques (NFC 18-510)",
+          "CACES si applicable"
+        ]
+      },
+      {
+        "profil": "Expert équipements industriels (levage, air comprimé, stations carburant, IRVE)",
+        "nombre": null,
+        "anciennete_min_annees": 3,
+        "certifs_requises": []
+      },
+      {
+        "profil": "Expert infrastructure / ouvrages d'art (VRD, OA, voie ferrée — Lot 2)",
+        "nombre": null,
+        "anciennete_min_annees": 3,
+        "certifs_requises": []
+      },
+      {
+        "profil": "Expert GMAO / data / analyse patrimoniale",
+        "nombre": null,
+        "anciennete_min_annees": null,
+        "certifs_requises": []
+      },
+      {
+        "profil": "Expert réglementaire / sécurité incendie / ICPE / hygiène",
+        "nombre": null,
+        "anciennete_min_annees": null,
+        "certifs_requises": []
+      }
+    ],
+    "exigences_securite": [
+      "RGPD (traitement de données personnelles)",
+      "Engagement de confidentialité individuel signé",
+      "ISO 27001 recommandé pour hébergement de l'outil collaboratif",
+      "Recommandations ANSSI pour hébergement cloud"
+    ],
+    "reversibilite": "À l'issue du marché, IDFM doit pouvoir récupérer l'ensemble des données de l'outil collaboratif dans un format exploitable permettant leur réutilisation. Le titulaire supprime les données de ses environnements après restitution complète. Modalités conformes aux recommandations ANSSI sur la portabilité des données."
+  },
+  "qualifications_it": {
+    "iso_27001": false,
+    "hds": false,
+    "secnumcloud": false,
+    "rgs": false,
+    "referencement_anssi": false,
+    "certifications_securite": [],
+    "certifications_technologiques": [],
+    "autres": [
+      "Bureau de contrôle associé : fortement apprécié (CCTP §3)",
+      "Habilitations électriques du personnel intervenant requises (NFC 18-510)"
+    ]
+  },
+  "bareme_notation": {
+    "valeur_technique_pct": 70,
+    "valeur_prix_pct": 30,
+    "sous_criteres_techniques": [
+      {
+        "libelle": "Valeur Technique",
+        "ponderation_pct": 60,
+        "description": "Évaluation de la compréhension des enjeux, de la méthodologie de contrôle, des moyens techniques, du reporting et de la qualité des livrables à travers quatre sous-critères distincts totalisant 60 points.",
+        "elements_attendus": [],
+        "exemple_reponse_forte": "—",
+        "source": "RC §10.2",
+        "unite_evaluation": "points",
+        "sous_criteres": [
+          {
+            "libelle": "Compréhension et Méthodologie",
+            "ponderation_pct": 20,
+            "description": "Compréhension des enjeux spécifiques à l'Île-de-France et aux différents types de sites (centres bus, SMR, technicentres ferroviaires) et méthodologie de contrôle documentaire et terrain. Évaluation de la capacité à proposer des actions correctives réalistes et à s'adapter aux aléas.",
+            "elements_attendus": [
+              "Démonstration de la connaissance du réseau IDFM et des spécificités de chaque type de site (COB, SMR, ateliers Transilien, ouvrages d'art)",
+              "Méthodologie détaillée d'analyse documentaire (GMAO, DEM, DOE, DIUO) et d'inspection terrain",
+              "Processus de qualification des écarts (mineur/majeur/critique) et de suivi des actions correctives",
+              "Capacité à proposer des actions correctives réalistes et documentées",
+              "Gestion des aléas d'exploitation (accès nocturne, multi-sites simultanés, urgences)"
+            ],
+            "exemple_reponse_forte": "Notre méthodologie distingue trois phases systématiques : analyse documentaire initiale (extraction GMAO, confrontation DEM/DIUO, scoring des indicateurs contractuels D7), visite terrain structurée par domaine technique (électricité NFC 18-510, incendie, levage, ICPE), et restitution hiérarchisée selon notre grille de criticité testée sur 15 sites IDFM analogues. En cas d'aléa d'exploitation, notre pool de 12 experts certifiés en Île-de-France permet une réorientation sous 24h.",
+            "source": "RC §10.2 — Sous-critère 1",
+            "unite_evaluation": "points"
+          },
+          {
+            "libelle": "Moyens techniques affectés à la mission",
+            "ponderation_pct": 5,
+            "description": "Évaluation du détail de la planification des missions, des outils d'audit (tablettes, logiciels, grilles d'analyse) et de la couverture territoriale permettant d'intervenir rapidement sur tout le réseau IDF.",
+            "elements_attendus": [
+              "Liste des équipements de contrôle disponibles (caméras thermiques, drones, appareils de mesure électrique, tachéomètres, bancs de test)",
+              "Outils numériques d'audit terrain (tablettes, logiciels de grilles d'analyse structurées)",
+              "Capacité de couverture géographique IDF (délais d'intervention, implantation d'agences/équipes)",
+              "Planning type de déploiement et capacité à gérer plusieurs bons de commande simultanés"
+            ],
+            "exemple_reponse_forte": "Notre équipe disposera de 4 tablettes de terrain avec l'application d'audit propriétaire synchronisée, de 2 caméras thermiques FLIR, d'un drone DGAC-certifié pour inspection des toitures/OA et d'appareils de mesure électrique étalonnés ISO 17025. Deux agences à Paris et Saint-Denis garantissent une intervention en moins de 2h sur tout le réseau IDF.",
+            "source": "RC §10.2 — Sous-critère 2",
+            "unite_evaluation": "points"
+          },
+          {
+            "libelle": "Reporting, suivi et alertes",
+            "ponderation_pct": 10,
+            "description": "Évaluation des outils de reporting proposés (formats, fréquence, outils type PowerBI, dashboards), des KPI proposés pour suivre la qualité de la maintenance, et de la capacité à produire des alertes rapides en cas de non-conformités critiques.",
+            "elements_attendus": [
+              "Description des formats de livrables et de leur fréquence (tableaux Excel structurés, PowerBI, dashboards dataviz)",
+              "Liste des KPI proposés pour mesurer la performance de la maintenance (ratio préventif/correctif, taux de levée des actions, MTBF…)",
+              "Mécanisme d'alerte rapide pour non-conformités critiques (circuit de remontée, délai cible)",
+              "Outil collaboratif de traçabilité des missions (description de la solution proposée pour Mission 8)"
+            ],
+            "exemple_reponse_forte": "Nous proposons un dashboard PowerBI actualisé hebdomadairement, accessible à IDFM, regroupant 12 KPI contractuels (taux de conformité documentaire, taux de levée d'actions, top 5 équipements défaillants). Toute non-conformité critique (niveau C) déclenche une alerte email sous 2h au chef de projet IDFM, avec fiche de signalement normalisée jointe.",
+            "source": "RC §10.2 — Sous-critère 3",
+            "unite_evaluation": "points"
+          },
+          {
+            "libelle": "Exemple de rapport",
+            "ponderation_pct": 25,
+            "description": "Appréciation de la capacité du soumissionnaire à produire des livrables opérationnels conformes aux exigences du CCTP, à travers la fourniture d'un exemple de rapport selon la mission 1.1 de chaque lot.",
+            "elements_attendus": [
+              "Fourniture d'un exemple de rapport mission 1.1 pour le lot soumissionné",
+              "Rapport structuré avec tableau de conformité documentaire, tableau des écarts, rapport photographique et tableau des actions correctives",
+              "Niveau de conformité aux annexes D7 (gammes minimales de maintenance) clairement illustré",
+              "Classification des anomalies (mineur/majeur/critique) et risques associés",
+              "Qualité rédactionnelle, lisibilité et exploitabilité opérationnelle du livrable"
+            ],
+            "exemple_reponse_forte": "L'exemple de rapport joint porte sur un COB de 3 200 m² (Groupe 2) audité en 2024 : il comprend 48 équipements contrôlés, un tableau de conformité D7 sur 120 gammes minimales, 23 écarts classifiés (15 mineurs, 7 majeurs, 1 critique sur installation électrique NFC 15-100), un rapport photographique de 35 constats et un tableau de suivi des 8 actions correctives notifiées à l'exploitant.",
+            "source": "RC §10.2 — Sous-critère 4",
+            "unite_evaluation": "points"
+          }
+        ]
+      },
+      {
+        "libelle": "Organisation et pertinence des moyens humains dédiés à l'exécution",
+        "ponderation_pct": 10,
+        "description": "Évaluation de l'organisation des moyens humains affectés à la mission, des effectifs dédiés (ETP) par mission et des profils des intervenants (expériences).",
+        "elements_attendus": [
+          "Organigramme de l'équipe dédiée avec rôles et responsabilités par mission",
+          "Effectifs en ETP par mission (missions 1 à 8)",
+          "CV des profils clés avec expérience minimale de 3 ans en AMO maintenance/exploitation d'infrastructures de transport public",
+          "Désignation d'un interlocuteur unique pour la gestion du contrat",
+          "Plan de continuité (remplacement, back-up, montée en charge)"
+        ],
+        "exemple_reponse_forte": "L'équipe projet comprend 1 chef de mission (10 ans AMO transport, référent contrat IDFM), 3 ingénieurs bâtimentaires seniors, 2 experts ouvrages d'art, 1 expert ICPE/réglementaire et 1 data analyst GMAO, soit 6,5 ETP cumulés. Chaque profil clé dispose d'un doublon identifié pour garantir la continuité en cas d'absence.",
+        "source": "RC §10.2 — Critère 2",
+        "unite_evaluation": "points"
+      }
+    ],
+    "prix": {
+      "type_formule": "moins_disant",
+      "formule_explicite": "Note critère 3 = 30 × (prix de l'offre la moins disante / prix de l'offre analysée)",
+      "source": "RC §10.2 — Critère 3",
+      "elements_a_chiffrer": [
+        "Prix unitaires par mission et par typologie de site dans le BPU (Missions 1.1, 1.2, 2.1, 2.2 : forfait par catégorie de surface/site)",
+        "Prix forfaitaire Mission 3 — Bilan annuel",
+        "Prix forfaitaire par site Mission 4 — Suivi patrimonial",
+        "Prix forfaitaire Mission 5 — Assistance technique complémentaire",
+        "Prix forfaitaire Mission 6 — Visite de site supplémentaire",
+        "Prix forfaitaire Mission 7 — Assistance en réunion",
+        "Prix forfaitaire Mission 8 — Déploiement outil collaboratif (Lot 1 uniquement)",
+        "Total DQE TTC sur la durée du marché (2+1+1 ans) selon les quantités estimatives"
+      ]
+    },
+    "modalite_calcul_prix": "Note prix = 30 × (prix de l'offre la moins disante TTC / prix de l'offre analysée TTC), calculé sur le montant total TTC du DQE sur la durée du marché (2+1+1 ans)."
+  },
+  "montant_marche": {
+    "valeur_estimee_euros": 4150000,
+    "fourchette_min_euros": 3900000,
+    "fourchette_max_euros": 4150000,
+    "type": "plafond",
+    "duree_couverte": "Durée totale maximale 48 mois (24 mois fermes + 2 reconductions de 12 mois) — tous lots confondus",
+    "source_extraction": "AE §4 — Tableau montants maximums ; RC §3",
+    "commentaire": "Lot 1 : 1 200 000 € HT × 1 période initiale + 600 000 € HT × 2 reconductions = 2 400 000 € HT max. Lot 2 : 700 000 € HT + 350 000 € HT × 2 = 1 400 000 € HT max. Total toutes taxes à 20% : Lot 1 = 2 880 000 € TTC max, Lot 2 = 1 680 000 € TTC max. La valeur ci-dessus est le plafond HT tous lots (3,8 M€ HT) avec une estimation à environ 4,15 M€ TTC. Les montants sont des plafonds sans minimum garanti (accord-cadre)."
+  },
+  "montant_3_voies": {
+    "voie_1_eur": 3800000,
+    "voie_1_source": "AE §4 (Tableau montants maximums) et RC §3 : Lot 1 = 1 200 000 € HT/24 mois + 600 000 € HT/reconduction × 2 = 2 400 000 € HT ; Lot 2 = 700 000 € HT/24 mois + 350 000 € HT × 2 = 1 400 000 € HT. Total HT 4 ans = 3 800 000 € HT.",
+    "voie_2_disponible": false,
+    "voie_2_min_eur": null,
+    "voie_2_max_eur": null,
+    "voie_2_hypotheses": [],
+    "voie_2_raison_indisponible": "La Voie 1 (montant publié explicitement dans l'AE) est disponible — la Voie 2 n'est pas nécessaire."
+  },
+  "cout_realisation": {
+    "cout_total_eur": 2660000,
+    "cout_min_eur": 2280000,
+    "cout_max_eur": 3040000,
+    "postes": [
+      {
+        "poste": "Lot 1 — Main d'œuvre d'inspection et d'audit (visites terrain + analyse documentaire)",
+        "detail": "Lot 1 : ~75 sites/an × 1 journée d'inspection + ~75 audits documentaires × 0,5j = ~112 j/an. Sur 4 ans = 448 j. À 650 €/j chargé ingénieur senior → 291 200 €",
+        "montant_eur": 291200
+      },
+      {
+        "poste": "Lot 1 — Rédaction des livrables et reporting (Missions 1 à 4)",
+        "detail": "Environ 0,5 j de rédaction par site par mission principale × 75 sites × 2 missions/an = 75 j/an. Sur 4 ans = 300 j × 700 €/j → 210 000 €",
+        "montant_eur": 210000
+      },
+      {
+        "poste": "Lot 1 — Coordination et management de mission (chef de projet)",
+        "detail": "1 ETP × 20% du temps dédié, soit ~40 j/an × 4 ans = 160 j × 900 €/j → 144 000 €",
+        "montant_eur": 144000
+      },
+      {
+        "poste": "Lot 1 — Missions ponctuelles (M5 assistance, M6 visites sup, M7 réunions, M8 outil)",
+        "detail": "Estimé à 10% du chiffre d'affaires Lot 1 soit env. 240 000 € × 40% marge de contribution → coût ~150 000 €",
+        "montant_eur": 150000
+      },
+      {
+        "poste": "Lot 1 — Équipements, déplacements, licences outil collaboratif",
+        "detail": "Amortissement matériel + véhicules + licences SaaS outil : estimé 50 000 €/an × 4 ans = 200 000 €",
+        "montant_eur": 200000
+      },
+      {
+        "poste": "Lot 2 — Main d'œuvre d'inspection et d'audit (transports guidés)",
+        "detail": "Lot 2 : ~35 sites/an × 1,5 j/site (sites plus complexes, ferroviaire) = 52,5 j/an. Sur 4 ans = 210 j × 750 €/j expert ferroviaire → 157 500 €",
+        "montant_eur": 157500
+      },
+      {
+        "poste": "Lot 2 — Rédaction des livrables et reporting",
+        "detail": "0,75 j par site × 35 sites × 2 missions/an = 52 j/an × 4 ans = 210 j × 700 €/j → 147 000 €",
+        "montant_eur": 147000
+      },
+      {
+        "poste": "Lot 2 — Coordination et management de mission",
+        "detail": "1 ETP × 20% × 40 j/an × 4 ans = 160 j × 900 €/j → 144 000 €",
+        "montant_eur": 144000
+      },
+      {
+        "poste": "Lot 2 — Missions ponctuelles et déplacements",
+        "detail": "Missions 5/6/7 + déplacements sur lignes de tramway et ateliers : ~120 000 €",
+        "montant_eur": 120000
+      },
+      {
+        "poste": "Frais généraux et encadrement transverse (15% des coûts directs)",
+        "detail": "15% × 1 323 700 € directs → 198 555 €",
+        "montant_eur": 198555
+      }
+    ],
+    "taux_journaliers_retenus": "Ingénieur bâtimentaire senior : 650 €/j chargé ; Expert ferroviaire/infrastructure : 750 €/j ; Chef de projet senior AMO : 900 €/j ; Analyste/rédacteur technique : 600 €/j. Ces taux sont des taux marché indicatifs pour des BET spécialisés en AMO transport en Île-de-France (source : référentiel interne).",
+    "commentaire": "Le coût de réalisation est estimé à ~2,66 M€ sur 4 ans (tous lots), soit ~70% des plafonds de revenus (3,8 M€ HT). La fourchette fait varier le taux journalier (600-800 €/j ingénieur, 700-900 €/j expert) avec les volumes fixés. L'accord-cadre étant sans minimum, le revenu réel peut être inférieur aux plafonds — le candidat doit calibrer ses équipes en conséquence. La Mission 8 (outil collaboratif, Lot 1 uniquement) représente un coût de mise en œuvre spécifique (licences, paramétrage, hébergement) estimé inclus dans les frais généraux."
+  },
+  "revision_prix": {
+    "type": "indexation",
+    "indices_utilises": [
+      "ING (Ingénierie, base 2010, INSEE/Moniteur)"
+    ],
+    "ponderation": "85% partie variable indexée ING + 15% partie fixe",
+    "periodicite": "annuelle",
+    "formule_revision": "Pn = P0 × {0,15 + 0,85 (In / I0)}",
+    "source_extraction": "CCAP §14.2",
+    "commentaire": "Formule simple à indice unique ING : favorable pour les BET en période de hausse des salaires d'ingénierie. Les prix sont fermes pendant la 1ère année d'exécution puis révisés annuellement à la date anniversaire de notification."
+  },
+  "alertes_prix": [
+    "Accord-cadre SANS MINIMUM garanti : le candidat peut ne percevoir aucun revenu malgré l'attribution — calibrer les équipes mobiles et non dédiées exclusivement.",
+    "Le DQE est NON CONTRACTUEL mais sert de base au classement prix (formule moins-disante sur le total TTC du DQE) : toute erreur de remplissage ou cellule vide rend l'offre irrégulière selon RC §10.3.",
+    "Pondération prix à 30% seulement (vs 70% technique + RH) : la compétition se joue principalement sur la qualité technique — tirer excessivement les prix au risque de marge négative n'est pas optimal.",
+    "La révision de prix (indice ING) ne s'applique qu'à partir de la 2ème année : la 1ère année est à prix ferme, ce qui expose le candidat à une hausse des coûts salariaux non compensée."
+  ],
+  "references_exigees": {
+    "experience_minimale_annees": 3,
+    "experience_source": "CCTP §3 — Expertise Technique",
+    "volume_min_references_similaires": null,
+    "volume_min_references_unite": "marchés similaires en AMO maintenance/exploitation d'infrastructures de transport public",
+    "secteur_experience": "Assistance et conseil AMO en exploitation et maintenance d'infrastructures de transport public (COB, SMR, ateliers, ouvrages d'art) ; maîtrise des coûts en exploitation et maintenance",
+    "secteur_source": "CCTP §3",
+    "certifications_obligatoires": [
+      {
+        "libelle": "Bureau d'Études Techniques (BET) spécialisé en AMO maintenance et exploitation d'infrastructures de transport public — statut de BET requis explicitement",
+        "codes": [],
+        "bloquante": true,
+        "source": "CCTP §3"
+      },
+      {
+        "libelle": "Personnel disposant de qualifications et compétences pour l'ensemble des corps d'état nécessaires (habilitations électriques NFC 18-510, CACES si applicable, etc.)",
+        "codes": [],
+        "bloquante": true,
+        "source": "CCTP §3"
+      },
+      {
+        "libelle": "Compétences obligatoires : AMO en exploitation ET en maintenance (les deux simultanément) + maîtrise des coûts en exploitation et maintenance",
+        "codes": [],
+        "bloquante": true,
+        "source": "CCTP §3 — Compétences"
+      }
+    ],
+    "autres_exigences": [
+      {
+        "libelle": "Déclaration de chiffre d'affaires global et du CA dans le domaine d'activité sur les 3 derniers exercices",
+        "source": "RC §9.1.3"
+      },
+      {
+        "libelle": "Liste des principales fournitures ou services effectués au cours des 3 dernières années avec montant, date et destinataire (attestations du destinataire ou déclaration de l'opérateur)",
+        "source": "RC §9.1.3"
+      },
+      {
+        "libelle": "Déclaration des effectifs moyens annuels et du personnel d'encadrement sur les 3 dernières années",
+        "source": "RC §9.1.3"
+      },
+      {
+        "libelle": "Déclaration de l'outillage, matériel et équipement technique disponible (notamment équipements de contrôle réglementairement calibrés)",
+        "source": "RC §9.1.3"
+      },
+      {
+        "libelle": "Attestation d'assurance pour risques professionnels",
+        "source": "RC §9.1.3"
+      },
+      {
+        "libelle": "Indépendance vis-à-vis des opérateurs de transport, constructeurs et mainteneurs de matériel roulant ferroviaire — déclaration obligatoire",
+        "source": "RC §5.2.4"
+      }
+    ]
+  },
+  "dossier_candidature": {
+    "pieces_a_fournir": [
+      {
+        "libelle": "DUME (Document Unique de Marché Européen) complété intégralement y compris partie IV, OU DC1 (lettre de candidature) + DC2 (déclaration du candidat) + déclaration sur l'honneur",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §9.1.1 et §9.1.2"
+      },
+      {
+        "libelle": "Déclaration sur l'honneur justifiant l'absence de cas d'interdiction de soumissionner (articles L.2141-1 à L.2141-11 CCP)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §9.1.2"
+      },
+      {
+        "libelle": "Déclaration de chiffre d'affaires global et du CA dans le domaine d'activité sur les 3 derniers exercices",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §9.1.3"
+      },
+      {
+        "libelle": "Attestation d'assurance pour les risques professionnels",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §9.1.3"
+      },
+      {
+        "libelle": "Déclaration des effectifs moyens annuels et du personnel d'encadrement sur les 3 dernières années",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §9.1.3"
+      },
+      {
+        "libelle": "Liste des principales fournitures ou services sur les 3 dernières années (montant, date, destinataire + attestation ou déclaration)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §9.1.3"
+      },
+      {
+        "libelle": "Déclaration de l'outillage, matériel et équipement technique disponible",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §9.1.3"
+      },
+      {
+        "libelle": "Acte d'Engagement (AE) complété par lot soumissionné",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §9.2"
+      },
+      {
+        "libelle": "Bordereau des Prix Unitaires (BPU) complété dans son intégralité — version Excel ET PDF — pour chaque lot",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §9.2"
+      },
+      {
+        "libelle": "Détail Quantitatif Estimatif (DQE) complété dans son intégralité — version Excel ET PDF — pour chaque lot",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §9.2"
+      },
+      {
+        "libelle": "Mémoire technique selon le cadre de réponse défini en Annexe 4 du RC (incluant exemple de rapport mission 1.1 par lot)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §9.2 et Annexe 4"
+      },
+      {
+        "libelle": "CV des membres de l'équipe affectés au projet (profils clés avec expérience minimale 3 ans)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "CCTP §3 — Expertise Technique"
+      },
+      {
+        "libelle": "Déclaration de sous-traitance DC4 (si applicable) — Annexe 2 de l'AE",
+        "phase": "offre",
+        "obligatoire": false,
+        "source": "RC §5.3 et AE Annexe 2"
+      },
+      {
+        "libelle": "Engagement individuel de confidentialité — Annexe 3 de l'AE",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "AE Annexe 3"
+      }
+    ],
+    "mode_remise": "dématérialisé + copie de sauvegarde",
+    "plateforme_depot": "https://idfm.achatpublic.com",
+    "signature_electronique_exigee": false,
+    "format_signature": "XAdES, CAdES ou PAdES — certificat qualifié eIDAS ou RGS** (requis uniquement pour l'attributaire avant attribution)",
+    "nombre_exemplaires": null,
+    "langue": "français",
+    "duree_validite_offres_jours": 240,
+    "modalites_source": "RC §8.2 et §5.4"
+  },
+  "lots": [
+    {
+      "numero": 1,
+      "intitule": "Lot 1 — PATRIMOINE AFFECTE AU MODE BUS : LES CENTRES OPERATIONNELS BUS (COB), GARES ROUTIERES, SITES PROPRES BUS, OUVRAGES D'ART, ET TOUT OUVRAGE DE PROPRIETE IDFM",
+      "domaine": "ingenierie_structure_genie_civil",
+      "zone_geographique": "Île-de-France (FR101)",
+      "volume_estime": null,
+      "volume_estime_unite": "sites (environ 75 à 100 sites : ~80 COB + 20 remisages + 7 sites propres bus + gares routières + ouvrages d'art)",
+      "cout_estime_min_eur": 680000,
+      "cout_estime_max_eur": 960000,
+      "particularites": "Inclut la Mission 8 (déploiement d'un outil collaboratif de gestion et de traçabilité, utilisé aussi par le titulaire du Lot 2). Le titulaire du Lot 1 est gestionnaire et coordinateur global de l'outil. Plafond : 2 400 000 € HT sur 4 ans. Périmètre très large : 3 catégories de taille de sites (< 1 200 m², 1 200–8 000 m², > 8 000 m²) + sites propres bus + gares routières + ouvrages d'art."
+    },
+    {
+      "numero": 2,
+      "intitule": "Lot 2 — PATRIMOINE AFFECTE AUX TRANSPORTS GUIDES (TRAMWAY, TRAM-TRAIN, CABLE) : LES SITES DE MAINTENANCE ET REMISAGE TRAMWAYS (SMR), LES ATELIERS (TRANSILIEN), LES INFRASTRUCTURES, OUVRAGES D'ART, ET TOUT OUVRAGE DE PROPRIETE IDFM",
+      "domaine": "ingenierie_structure_genie_civil",
+      "zone_geographique": "Île-de-France (FR101)",
+      "volume_estime": null,
+      "volume_estime_unite": "sites (environ 35 sites : 3 SMR tram-train + 3-11 SMR tramway + 2 ateliers Transilien + 5-8 lignes tramway + 1 câble + 3-16 gares GPE + ouvrages d'art ferroviaires)",
+      "cout_estime_min_eur": 430000,
+      "cout_estime_max_eur": 580000,
+      "particularites": "Nécessite une expertise ferroviaire spécifique (voie, caténaire, signalisation ERTMS/BAL, STRMTG/EPSF). Utilise l'outil collaboratif mis en place par le titulaire du Lot 1. Périmètre fortement évolutif (de 3 SMR en 2026 à 11 en 2030, de 5 à 8 lignes tramway, et jusqu'à 16 gares GPE d'ici fin 2027). Plafond : 1 400 000 € HT sur 4 ans. Pas de Mission 8."
+    }
+  ],
+  "tranches": [],
+  "calendrier": {
+    "date_limite_offres": "2026-08-14",
+    "date_demarrage_prevue": null,
+    "duree_marche": "24 mois fermes reconductibles 2 fois 12 mois (48 mois maximum)"
+  },
+  "alertes_candidat": [
+    "INDÉPENDANCE OBLIGATOIRE : les opérateurs de transport, constructeurs et mainteneurs de matériel roulant ferroviaire (et leurs filiales) sont EXCLUS de la candidature — déclaration d'indépendance à fournir obligatoirement (RC §5.2.4). L'attributaire ne pourra pas répondre aux CSP ou marchés d'acquisition de trains IDFM.",
+    "BPU ENTIÈREMENT REMPLI EXIGÉ : toute case de prix unitaire vide rend l'offre irrégulière et entraîne l'élimination (RC §10.3). Vérifier que chaque ligne de prix est renseignée avant dépôt.",
+    "EXEMPLE DE RAPPORT mission 1.1 OBLIGATOIRE : le sous-critère 4 (25 points sur 60) est évalué sur un exemple de rapport fourni par le candidat — son absence ou sa mauvaise qualité fait perdre jusqu'à 25% de la note technique (RC §10.2).",
+    "PATRIMOINE ÉVOLUTIF : le périmètre du Lot 2 est en forte croissance (3 SMR → 11, 5 lignes → 8, 0 → 16 gares GPE d'ici 2027). Le candidat doit prévoir dans son offre la capacité à absorber cette croissance sans rémunération complémentaire au titre des missions en cours.",
+    "ACCORD-CADRE SANS MINIMUM : aucun bon de commande minimum n'est garanti. L'accord-cadre peut théoriquement être notifié sans générer de revenu. Le candidat doit évaluer le risque de sous-activation avant de mobiliser des équipes dédiées."
+  ],
+  "points_differenciants_attendus": [
+    {
+      "libelle": "Qualité et opérationnalité de l'exemple de rapport mission 1.1",
+      "exemple": "Fournir un exemple de rapport issu d'une mission réelle sur un COB (Lot 1) ou un SMR/atelier Transilien (Lot 2), avec classification des anomalies, tableau des écarts D7, rapport photographique et tableau de suivi des actions correctives. Un rapport générique ou fictif sera pénalisé face à un vrai rapport terrain.",
+      "source": "RC §10.2 — Sous-critère 4 (25 points)"
+    },
+    {
+      "libelle": "Connaissance spécifique du réseau IDFM et de la réglementation DSP/D7",
+      "exemple": "Démontrer sa connaissance des contrats DSP d'IDFM et de l'Annexe D7 (gammes minimales de maintenance COB, sites propres, tramways) dans la méthodologie. Citer des exemples d'opérateurs (RATP, Transdev, Keolis) et de sites IDFM réels ou comparables audités.",
+      "source": "RC §10.2 — Sous-critère 1 ; CCTP §2 et Annexes D7"
+    },
+    {
+      "libelle": "Proposition d'un outil collaboratif robuste et sécurisé (Lot 1)",
+      "exemple": "Proposer une solution concrète avec hébergement souverain (ISO 27001, recommandations ANSSI), gestion des droits d'accès, traçabilité des versions, et export des données en format ouvert — en garantissant la réversibilité totale à la fin du marché. Un outil déjà déployé chez d'autres MOA transport sera valorisé.",
+      "source": "CCTP §4 — Mission 8"
+    },
+    {
+      "libelle": "Couverture géographique IDF et réactivité d'intervention",
+      "exemple": "Justifier d'une présence terrain en Île-de-France (agences, équipes locales) permettant des délais d'intervention courts sur l'ensemble du réseau, y compris interventions nocturnes ou urgentes (Mission 6 : moins de 10 jours). Un candidat avec une seule agence nationale sera moins bien noté qu'un acteur avec une implantation IDF démontrée.",
+      "source": "RC §10.2 — Sous-critère 2 ; CCTP §4 — Mission 6"
+    },
+    {
+      "libelle": "Expertise ferroviaire démontrée (Lot 2) — voie, caténaire, signalisation",
+      "exemple": "Pour le Lot 2, démontrer une expertise sur les infrastructures guidées (voie ferrée, caténaires EN 50119, signalisation ERTMS, référentiels STRMTG/EPSF 2023-2024) avec des CV d'experts justifiant d'interventions sur SMR ou ateliers ferroviaires. Un BET sans expérience ferroviaire sera fortement pénalisé.",
+      "source": "CCTP §4 — LOT 2, Mission 2.1 ; CCTP §3"
+    }
+  ],
+  "_meta": {
+    "id_marche": "BOAMP-26-56734",
+    "type": "complet",
+    "date_generation": "2026-06-19T22:39:08.474045+00:00",
+    "extraction_le": "2026-06-19T22:39:08.474045+00:00",
+    "modele": "claude-sonnet-4-6",
+    "preset_utilise": "it",
+    "presets_matches": [
+      "it"
+    ],
+    "prompts_versions": {
+      "it/_preset.json": "sha256:0113727ecb269e98"
+    },
+    "tokens_input": 147700,
+    "tokens_output": 12157,
+    "cout_eur": 0.5942,
+    "duree_sec": 217.4,
+    "pdfs_traites": [
+      {
+        "nom": "2025-060 - BPU Lot 1.xlsx",
+        "hash": "0f848da3d55742e89ac6e061f530dac4",
+        "taille_chars": 3034
+      },
+      {
+        "nom": "2025-060 - BPU Lot 2 .xlsx",
+        "hash": "682c9994606f8e54ad952efe52860704",
+        "taille_chars": 2815
+      },
+      {
+        "nom": "2025-060 - DQE Lot 1.xlsx",
+        "hash": "45d33392d6ff4ad41a48203889ec0280",
+        "taille_chars": 3728
+      },
+      {
+        "nom": "2025-060 - DQE Lot 2.xlsx",
+        "hash": "ef0000c3c755c07b518f49f2f4499771",
+        "taille_chars": 3602
+      },
+      {
+        "nom": "2025-060 AE VF.docx",
+        "hash": "e18cc486f9a1af05d600146b8db10bf2",
+        "taille_chars": 23402
+      },
+      {
+        "nom": "2025-060 CCAP VF.pdf",
+        "hash": "548300ff9141a3c34f73e24e879ed38d",
+        "taille_chars": 114338
+      },
+      {
+        "nom": "2025-060 CCTP VF.pdf",
+        "hash": "c0e9deb8a31d3f5f45de39587e802f8c",
+        "taille_chars": 148596
+      },
+      {
+        "nom": "2025-060 RC VF.pdf",
+        "hash": "d91a96915124d2c389ef3ce67e0e84dd",
+        "taille_chars": 62828
+      },
+      {
+        "nom": "ANNEXE_D7-1_Gammes minimales de maintenance_COB.pdf",
+        "hash": "4d5ac966e50dd95882a982de5dbe0420",
+        "taille_chars": 89922
+      },
+      {
+        "nom": "ANNEXE_D7-1_Gammes minimales de maintenance_Tramway.pdf",
+        "hash": "4f07ecf789de0f5ef717147659d445e0",
+        "taille_chars": 15200
+      },
+      {
+        "nom": "ANNEXE_D7-1_Gammes minimales de maintenance_site propre bus.pdf",
+        "hash": "3ab08f7f06e31936cd89388e5fe3807b",
+        "taille_chars": 14391
+      },
+      {
+        "nom": "ANNEXE_D7_Programme d'exploitation maintenance.pdf",
+        "hash": "779a97b9b010110c4d5eba5d9a2583e8",
+        "taille_chars": 44335
+      },
+      {
+        "nom": "Annexe au RC - Cadre de réponse des candidats.pdf",
+        "hash": "91251048e126e825cc796d54ae0aa39f",
+        "taille_chars": 16319
+      }
+    ]
+  }
+}

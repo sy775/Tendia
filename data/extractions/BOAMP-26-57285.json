@@ -1,103 +1,72 @@
 {
-  "synthese_marche": "La Région Auvergne-Rhône-Alpes lance un marché de travaux en procédure adaptée pour la construction d'un bâtiment neuf (salle de classe + vestiaires élèves) sur le site du Chariol, annexe du lycée agricole de Brioude-Bonnefond (43). Le marché est alloti en 8 lots couvrant l'ensemble des corps d'état, du gros œuvre à l'électricité, pour une durée d'exécution de 8 mois (début prévu T3 2026). Le site est en zone rurale, sur un domaine agricole en exploitation.",
+  "synthese_marche": "Construction d'un bâtiment neuf à ossature bois sur le site Chariol de l'EPLEFPA de Brioude-Bonnefont (43 - Frugières-le-Pin), composé de vestiaires élèves et d'une salle de classe. Le marché est alloti en 4 lots couvrant le gros œuvre/maçonnerie, la charpente bois/couverture, les menuiseries aluminium et la plâtrerie/peinture. Le maître d'ouvrage est la Région Auvergne-Rhône-Alpes.",
   "domaines_metier": [
     {
       "code": "btp_gros_oeuvre"
     }
   ],
-  "raison_classification": "Le marché porte sur la construction neuve d'un bâtiment (fondations, maçonnerie, charpente bois, couverture, second œuvre, fluides, électricité) sur un terrain vierge en zone rurale. Le lot 1 Maçonnerie constitue le lot principal (fondations, terrassement, dallages, réseaux) ; les autres lots couvrent le second œuvre. La dominante est la construction neuve multi-corps d'état, rattachée à `btp_gros_oeuvre`.",
+  "raison_classification": "Le marché porte sur la construction neuve d'un bâtiment (fondations, structure bois, couverture, second œuvre) sur un établissement d'enseignement agricole. La dominante est le gros œuvre/construction neuve avec des lots de second œuvre (charpente bois, menuiseries, plâtrerie), tous relevant du BTP. La classification btp_gros_oeuvre est retenue pour la dominante construction neuve.",
   "caracteristiques_techniques_chantier": {
-    "description": "Construction d'un bâtiment neuf RDC d'environ 220 m² comprenant une salle de classe de 24 élèves, un bureau, des vestiaires filles et garçons avec douches et sanitaires. Le bâtiment est à ossature bois (murs OSB), couverture bac acier, bardage bois, assainissement non collectif par filière compacte agréée. Fondations superficielles sur arènes granitiques à 1,5 m de profondeur. Présence de réseaux aériens en limite de propriété et d'un bâtiment mitoyen Nord en pisé présentant des désordres.",
-    "typologie_ouvrage": "Bâtiment scolaire neuf RDC — salle de classe et vestiaires élèves pour lycée agricole",
-    "surface_volume": "Surface au sol environ 220 m²",
-    "site_occupe": "true — site du Domaine du Chariol en exploitation agricole active pendant les travaux ; maintien des accès au domaine et des circulations sur la D191",
+    "description": "Construction d'un bâtiment de plain-pied à ossature bois comprenant des vestiaires élèves (filles et garçons), un bureau, une salle de classe, des sanitaires et locaux annexes. Structure : fondations sur puits béton et longrines, ossature MOB 145 mm, charpente traditionnelle lamellé-collé, couverture bac acier pente 37%, bardage mélèze classe 4, assainissement non collectif par filtre compact 4 EH. Surface environ 143 m² (dallage porté).",
+    "typologie_ouvrage": "Bâtiment neuf d'enseignement agricole (ERP 5e catégorie) — EPLEFPA",
+    "surface_volume": "Environ 143 à 169 m² (dallage 143 m², film anti-radon 169 m²)",
+    "site_occupe": "true — site de lycée agricole en fonctionnement (présence d'élèves et de bâtiments existants à proximité immédiate, distance 4,34 m du bâtiment lycée existant)",
     "corps_etat": [
-      "Maçonnerie / Gros œuvre / VRD / Assainissement non collectif",
-      "Charpente bois et couverture métallique (bac acier)",
-      "Menuiseries aluminium laqué",
-      "Plâtrerie Peinture",
-      "Menuiserie intérieure",
-      "Carrelage Faïence",
-      "Chauffage Ventilation Plomberie (PAC, VMC double flux, ventilo-convecteurs)",
-      "Electricité courants forts et faibles"
+      "Maçonnerie / gros œuvre",
+      "Charpente bois / couverture métallique",
+      "Menuiseries aluminium laquées",
+      "Plâtrerie / peinture"
     ],
     "contraintes_specifiques": [
-      "Site en exploitation agricole active : maintien des accès au domaine du Chariol et à la D191",
-      "Zone rurale, sismicité faible (zone 2), potentiel radon catégorie 2, retrait-gonflement des argiles fort",
-      "Fondations superficielles à 1,5 m minimum sur arènes granitiques : volumes de gros béton à prévoir",
-      "Présence d'un bâtiment mitoyen Nord en pisé fissuré : règle 3H/2V à respecter pour les fondations",
-      "Assainissement non collectif obligatoire (zone ANC) : filière compacte agréée à installer",
-      "Réseaux aériens électrique et télécom en limite de propriété",
-      "Construction parasismique zone 2 selon Eurocode 8",
-      "Risque présence de remblais et anciennes structures enterrées sur l'emprise",
-      "Période d'intempéries prévisibles : 15 jours ouvrés (station météo Brioude)",
-      "Chantier en zone rurale accessible par la D191 (voie bidirectionnelle de faible largeur)"
+      "Site en zone sismique 2, catégorie d'importance III",
+      "Étude géotechnique G2 AVP disponible : fondations sur puits béton à 1,5 m/TN",
+      "Assainissement non collectif obligatoire (filtre compact 4 EH, rapport GEO SOL 2025)",
+      "Distance de 4,34 m avec le bâtiment lycée existant — application article CO8 §2",
+      "Présence de radon : film anti-radon sous dallage requis",
+      "Drainage périphérique obligatoire",
+      "Bâtiment classé ERP 5e catégorie — réglementation incendie PE applicable",
+      "Accessibilité PMR requise",
+      "Câbles électriques C1 (Euroclass C-s2,d2,a2) obligatoires selon rapport Apave",
+      "Coordination SPS de niveau 2 (PPSPS et PGCSPS applicables)",
+      "Présence de consoles décoratives bois classe 4 autoclave en façade (57 unités)"
     ]
   },
   "allotissement": {
-    "description": "Marché alloti en 8 lots couvrant l'ensemble des corps d'état de la construction neuve",
-    "nb_lots": 8,
+    "description": "Marché alloti en 4 lots séparés, chaque lot faisant l'objet d'un CCTP et d'une DPGF distincts.",
+    "nb_lots": 4,
     "lots_detailles": [
       {
         "numero": 1,
-        "intitule": "Maçonnerie",
-        "corps_etat": "Gros œuvre, terrassement, VRD, assainissement non collectif, fondations, dallages",
+        "intitule": "Lot N°01 MAÇONNERIE",
+        "corps_etat": "gros oeuvre / maçonnerie",
         "montant_estime": null,
-        "description": "Installation de chantier, terrassement pleine masse, filière de traitement ANC (filtre compact), réseaux extérieurs et intérieurs, fondations, isolation et drainage, gabion, dallages, revêtements PMR, implantation générale. Lot principal responsable du plan d'installation de chantier et de la base vie."
+        "description": "Terrassement, fondations (puits béton + longrines), assainissement non collectif (filtre compact 4 EH), réseaux extérieurs EP, dallage porté béton armé, isolation et drainage périphérique, gabions, place PMR"
       },
       {
         "numero": 2,
-        "intitule": "Charpente bois - Couverture métallique",
-        "corps_etat": "Charpente bois, couverture, bardage",
+        "intitule": "Lot N°02 CHARPENTE BOIS - COUVERTURE MÉTALLIQUE",
+        "corps_etat": "charpente bois / couverture",
         "montant_estime": null,
-        "description": "Murs à ossature bois, charpente traditionnelle, couverture bac acier, gouttières et descentes zinc, bardage bois, caillebotis bois, doublage acoustique intérieur."
+        "description": "Murs à ossature bois (MOB 145 mm), charpente traditionnelle lamellé-collé, couverture bac acier RAL 7022, gouttières et descentes zinc, bardage mélèze classe 4, caillebotis bois, doublage acoustique intérieur OSB"
       },
       {
         "numero": 3,
-        "intitule": "Menuiserie aluminium",
-        "corps_etat": "Menuiseries extérieures aluminium",
+        "intitule": "Lot N°03 MENUISERIES EN ALUMINIUM LAQUÉ",
+        "corps_etat": "menuiseries extérieures aluminium",
         "montant_estime": null,
-        "description": "Châssis ouvrants aluminium laqué, volets roulants."
+        "description": "Châssis ouvrants aluminium à rupture de pont thermique (Uw < 1,80 W/m².K, Rw+Ctr 30 dB), volets roulants motorisés"
       },
       {
         "numero": 4,
-        "intitule": "Plâtrerie Peinture",
-        "corps_etat": "Plâtrerie, peinture intérieure",
+        "intitule": "Lot N°04 PLÂTRERIE PEINTURE",
+        "corps_etat": "plâtrerie / peinture",
         "montant_estime": null,
-        "description": "Cloisons plâtre, doublages, peinture intérieure, nettoyage de fin de chantier."
-      },
-      {
-        "numero": 5,
-        "intitule": "Menuiserie intérieure",
-        "corps_etat": "Menuiserie intérieure",
-        "montant_estime": null,
-        "description": "Portes de distribution intérieures, bancs vestiaires, plan vasques."
-      },
-      {
-        "numero": 6,
-        "intitule": "Carrelage Faïence",
-        "corps_etat": "Carrelage, faïence, étanchéité sous carrelage",
-        "montant_estime": null,
-        "description": "Feutre acoustique sous chape, chape ciment, étanchéité, pose de carrelage et faïence."
-      },
-      {
-        "numero": 7,
-        "intitule": "Chauffage Ventilation Plomberie",
-        "corps_etat": "CVC, plomberie sanitaire",
-        "montant_estime": null,
-        "description": "Pompe à chaleur, ventilo-convecteurs muraux à eau, régulation, distribution, centrale double flux VMC, réseaux aérauliques, production ECS, appareils sanitaires (douches, lavabos, WC, vidoir, lave-bottes)."
-      },
-      {
-        "numero": 8,
-        "intitule": "Electricité",
-        "corps_etat": "Electricité courants forts et faibles",
-        "montant_estime": null,
-        "description": "Installation électrique de chantier (coffret, éclairage, vérification), courants forts, courants faibles."
+        "description": "Isolation rampant (R≥10 m².K/W), pare-vapeur, doublages sur MOB, cloisons distribution (CF 1H), gaines techniques, plafonds (rampant acoustique, milieu humide, CF), peinture"
       }
     ]
   },
   "qualifications_requises": {
-    "description": "Aucune qualification Qualibat spécifique n'est explicitement exigée dans les pièces fournies. Le RC demande des références similaires et des attestations de capacité technique et financière.",
+    "description": "Aucune qualification Qualibat ou autre certification n'est explicitement exigée dans les pièces du DCE fournies (CCTP, DPGF). Le RC n'est pas présent dans les pièces analysées.",
     "qualibat": [],
     "rge": false,
     "rge_specialites": [],
@@ -105,252 +74,395 @@
     "iso_9001": false,
     "iso_14001": false,
     "iso_45001": false,
-    "opqibi": false,
+    "opqibi": null,
     "autres_certifications": []
   },
   "bareme_notation": {
-    "valeur_technique_pct": 50,
-    "valeur_prix_pct": 50,
-    "sous_criteres_techniques": [
-      {
-        "libelle": "Mode opératoire proposé pour le déroulement de l'opération",
-        "ponderation_pct": 25,
-        "description": "L'acheteur évalue la méthode proposée par le candidat pour organiser et dérouler l'opération. Ce critère est renseigné dans le cadre de mémoire technique fourni par la Région.",
-        "elements_attendus": [
-          "Description de la méthode d'intervention et de la phasage des travaux pour le lot concerné",
-          "Gestion des interfaces avec les autres corps d'état en site occupé (domaine agricole en activité)",
-          "Organisation et phasage du chantier (période de préparation, enchaînement des tâches)",
-          "Prise en compte des contraintes spécifiques au site (accès D191, maintien activité agricole, mitoyenneté)",
-          "Gestion des approvisionnements et des livraisons sur site rural"
-        ],
-        "exemple_reponse_forte": "Le candidat présente un phasage détaillé en 4 étapes (préparation, hors d'eau/hors d'air, second œuvre, finitions) avec un calendrier hebdomadaire précisant les interfaces entre lots. Il détaille comment maintenir l'accès au domaine agricole durant les terrassements et la phase fondations, avec une signalisation spécifique sur la D191.",
-        "source": "RC §4.2.2.1",
-        "sous_criteres": []
-      },
-      {
-        "libelle": "Moyens humains et matériels affectés à l'opération",
-        "ponderation_pct": 25,
-        "description": "L'acheteur évalue les ressources humaines et matérielles que le candidat prévoit de mobiliser spécifiquement pour cette opération, renseignées dans le cadre de mémoire technique.",
-        "elements_attendus": [
-          "Organigramme de l'équipe affectée au chantier avec qualifications et rôles",
-          "Effectifs prévisionnels par phase (effectif moyen attendu : 3 à 4 personnes par lot)",
-          "Liste des matériels et engins prévus pour l'exécution (en cohérence avec le lot concerné)",
-          "Capacité à mobiliser rapidement les ressources (début prévu T3 2026)",
-          "Sous-traitants éventuels identifiés et leurs qualifications"
-        ],
-        "exemple_reponse_forte": "Pour le lot Maçonnerie, le candidat présente une équipe de 3 compagnons maçons qualifiés + 1 chef de chantier, avec une pelle mécanique 8 tonnes pour les terrassements et un camion-benne pour évacuation des déblais. Il précise les CACES détenus et mentionne un géotechnicien partenaire pour la supervision des fouilles.",
-        "source": "RC §4.2.2.1",
-        "sous_criteres": []
-      }
-    ],
+    "valeur_technique_pct": null,
+    "valeur_prix_pct": null,
+    "sous_criteres_techniques": [],
     "prix": {
-      "type_formule": "moins_disant",
-      "formule_explicite": "Note prix = (offre la moins disante / offre du candidat) × 10 — le moins-disant obtient la note maximale",
+      "type_formule": "autre",
+      "formule_explicite": "Non précisé dans les pièces du DCE fournies (RC absent)",
+      "source": null,
       "elements_a_chiffrer": [
-        "DPGF (Décomposition du Prix Global et Forfaitaire) spécifique pour chaque lot, fournie au format .xls",
-        "Quantités renseignées par le candidat dans le cadre DPGF fourni par la Région",
-        "Tableau des produits avec fiches techniques pour les lots 7 et 8",
-        "Prix forfaitaire global par lot incluant installations de chantier, sécurité collective (PGC) et prestations techniques"
+        "DPGF Lot N°01 MAÇONNERIE (prix unitaires par poste : terrassement, fondations, réseaux, dallage, etc.)",
+        "DPGF Lot N°02 CHARPENTE BOIS - COUVERTURE MÉTALLIQUE (prix unitaires MOB, charpente, couverture, bardage, caillebotis, doublage)",
+        "DPGF Lot N°03 MENUISERIES EN ALUMINIUM LAQUÉ (prix unitaires châssis et volets roulants)",
+        "DPGF Lot N°04 PLÂTRERIE PEINTURE (prix unitaires isolation, doublages, cloisons, plafonds, peinture)"
       ]
     },
-    "modalite_calcul_prix": "offre la moins disante × 10 / offre du candidat — le moins-disant obtient 10/10"
+    "modalite_calcul_prix": "Non précisé dans les pièces du DCE fournies (RC absent)"
   },
   "montant_marche": {
-    "valeur_estimee_euros": null,
+    "valeur_estimee_euros": 240000,
     "fourchette_min_euros": null,
     "fourchette_max_euros": null,
-    "type": "non_communique",
-    "duree_couverte": "8 mois (durée initiale du contrat incluant la période de préparation d'1 mois)",
-    "source_extraction": "CCAP article 1.1.3 et RC §1.2",
-    "commentaire": "Aucun montant estimatif global ni par lot n'est communiqué dans les pièces du DCE fournies. La DPGF est fournie en cadre vierge à remplir par les candidats. À titre indicatif, pour un bâtiment neuf de 220 m² en ossature bois avec fluides et électricité en zone rurale Haute-Loire, le coût TCE se situe généralement entre 600 et 900 k€ HT (estimation de marché non issue du DCE)."
+    "type": "estime_explicite",
+    "duree_couverte": "Opération unique — durée prévisionnelle 8 mois",
+    "source_extraction": "Rapport Apave C24068649 §1.1 : 'Montant prévu des travaux : 240 000 € HT'",
+    "commentaire": "Montant TCE publié dans le rapport de contrôle technique Apave pour l'opération. Ce montant de 240 000 € HT correspond à l'ensemble des 4 lots."
+  },
+  "montant_3_voies": {
+    "voie_1_eur": 240000,
+    "voie_1_source": "Rapport contrôle technique Apave C24068649 §1.1 : 'Montant prévu des travaux : 240 000 € HT'",
+    "voie_2_disponible": false,
+    "voie_2_min_eur": null,
+    "voie_2_max_eur": null,
+    "voie_2_hypotheses": [],
+    "voie_2_raison_indisponible": "Voie 1 disponible : montant de 240 000 € HT publié dans le rapport Apave. Voie 2 non nécessaire."
+  },
+  "cout_realisation": {
+    "cout_total_eur": 162000,
+    "cout_min_eur": 148000,
+    "cout_max_eur": 180000,
+    "postes": [
+      {
+        "poste": "Lot 01 - Maçonnerie / gros œuvre (terrassement, fondations, réseaux, dallage, assainissement)",
+        "detail": "Estimation basée sur quantités DPGF : 185 m³ terrassement, 31 m³ gros béton, 143 m² dallage, assainissement complet. Ratio ~450-550 €/m² SHON équivalent",
+        "montant_eur": 62000
+      },
+      {
+        "poste": "Lot 02 - Charpente bois / couverture métallique",
+        "detail": "209 m² MOB façade, 237 m² couverture bac acier, 214 m² bardage mélèze, 75 m² caillebotis. Ratio main d'œuvre + matériaux charpente bois élevé (bois classe 4, 57 consoles, pannes rabotées)",
+        "montant_eur": 58000
+      },
+      {
+        "poste": "Lot 03 - Menuiseries aluminium laquées",
+        "detail": "20 unités châssis + 8 volets roulants motorisés. Ratio marché menuiserie aluminium RPT : 800-1200 € HT/unité fourni-posé (moyenne)",
+        "montant_eur": 20000
+      },
+      {
+        "poste": "Lot 04 - Plâtrerie / peinture",
+        "detail": "155 m² isolation rampant, 104 m² doublage façade, 121 m² cloisons, 134 m² plafonds, 63 m² peinture. Corps d'état plâtrerie complet.",
+        "montant_eur": 22000
+      }
+    ],
+    "taux_journaliers_retenus": "Ratios indicatifs marché : maçonnerie/GO 400-550 €/m² (fondations incluses) ; charpente bois CLT/lamellé 250-350 €/m² posé ; menuiseries aluminium RPT 900-1200 €/unité posé ; plâtrerie BA13 40-55 €/m² ; ces taux sont des références marché indicatives et ne reflètent pas la structure de coût réelle du candidat.",
+    "commentaire": "Estimation du coût de production au candidat sur la base des quantités DPGF et de ratios marché BTP Auvergne. Le rapport max/min est de 1,22. La marge brute attendue (prix - coût) est estimée à 78 000 € soit ~32% sur un marché à 240 000 € HT, ce qui est cohérent avec la norme BTP neuf (25-35% de marge brute entreprise pour couvrir frais généraux + bénéfice)."
   },
   "revision_prix": {
-    "type": "indexation",
-    "indices_utilises": [
-      "BT03",
-      "BT49",
-      "BT54",
-      "BT27",
-      "BT08",
-      "BT46",
-      "BT18a",
-      "BT09",
-      "BT40",
-      "BT38",
-      "BT41",
-      "BT47"
-    ],
-    "ponderation": "Par lot : Lot 1 Maçonnerie: BT03 100% ; Lot 2 Charpente/Couverture: BT49×20% + BT54×80% ; Lot 3 Menuiserie alu: BT27 100% ; Lot 4 Plâtrerie Peinture: BT08×50% + BT46×50% ; Lot 5 Menuiserie intérieure: BT18a 100% ; Lot 6 Carrelage Faïence: BT09 100% ; Lot 7 CVP: BT40×50% + BT38×25% + BT41×25% ; Lot 8 Electricité: BT47 100%",
-    "periodicite": "mensuelle",
-    "formule_revision": "Pr = Po × Cr ; Cr = [0,15 + (1-0,15) × (Ir/Io)] ; k=0,15 ; Ir = valeur de l'indice au mois de réalisation des travaux - 3 mois ; Io = indice du mois précédant de 3 mois le mois M0 de l'acte d'engagement",
-    "source_extraction": "CCAP article 2.3.2 et 2.3.3",
-    "commentaire": "Formule classique de révision BTP avec partie fixe de 15% et révision mensuelle à l'acompte — favorable en période inflationniste ; le décalage de 3 mois sur l'indice Ir limite le risque de volatilité court terme pour le candidat."
+    "type": "non_communique",
+    "indices_utilises": [],
+    "ponderation": null,
+    "periodicite": null,
+    "formule_revision": null,
+    "source_extraction": null,
+    "commentaire": "Le CCAP n'est pas fourni dans les pièces analysées (seule l'annexe MPC/CSPS du CCAP est présente). Aucune clause de révision des prix n'a pu être identifiée. À vérifier dans le CCAP complet disponible sur la plateforme de dépôt."
   },
   "alertes_prix": [
-    "Aucun montant estimatif communiqué : le candidat chiffre sans plancher ni plafond de référence — risque d'écart significatif entre lots sur la DPGF",
-    "La DPGF est remise en format .xls (non pdf) : les quantités sont librement renseignées par le candidat — attention aux erreurs de saisie ou aux oublis de postes qui feront le prix forfaitaire",
-    "Pénalités pour retard à 1/1000 du montant initial par jour calendaire, sans plafond ni exonération (dérogation CCAG) : impact significatif sur la trésorerie en cas de dérive de planning",
-    "Lot 7 et 8 : tableau des produits avec fiches techniques obligatoire à remettre avec l'offre — le défaut de production peut fragiliser l'analyse de l'offre"
+    "Le montant estimé de 240 000 € HT (source Apave) est relativement modeste pour 4 lots TCE incluant une charpente bois lamellé-collé avec 57 consoles et un assainissement non collectif complet — risque de sous-estimation à vérifier au regard des quantités DPGF.",
+    "La DPGF est structurée avec des quantités proposées par le MOE : tout écart de métrés non détecté avant remise sera à la charge de l'entreprise (marché à prix global et forfaitaire).",
+    "Présence d'un filtre compact 4 EH et d'un assainissement non collectif complet (fosse, bac dégraisseur, épandage, regard) : coût souvent sous-évalué dans les estimations initiales.",
+    "57 consoles décoratives bois autoclave classe 4 taillées à 1,40 ml au lot 02 : poste main d'œuvre intensif souvent mal anticipé dans les prix unitaires forfaitaires."
   ],
   "references_exigees": {
-    "experience_minimale_annees": 5,
-    "experience_source": "RC §3.2.1",
+    "experience_minimale_annees": null,
+    "experience_source": null,
     "volume_min_references_similaires": null,
-    "volume_min_references_unite": "chantiers réalisés",
-    "secteur_experience": "Travaux similaires au lot soumissionné, exécutés au cours des 5 dernières années, assortis d'attestations de bonne exécution pour les plus importants",
-    "secteur_source": "RC §3.2.1",
-    "certifications_obligatoires": [],
+    "volume_min_references_unite": null,
+    "secteur_experience": null,
+    "secteur_source": null,
+    "certifications_obligatoires": [
+      {
+        "libelle": "Certification de l'entreprise fabricant les éléments lamellé-collé : Acerbois Glulam ou plan de contrôle conforme NF P21-370 (EN 386) (Lot 02)",
+        "codes": [],
+        "bloquante": true,
+        "source": "CCTP Lot 02 - CHARPENTE BOIS §général"
+      },
+      {
+        "libelle": "Bois massif traité avec produit insecticide/fongicide ayant reçu un classement CTB — PV de traitement exigé (Lot 02)",
+        "codes": [],
+        "bloquante": true,
+        "source": "CCTP Lot 02 - CHARPENTE BOIS §général"
+      },
+      {
+        "libelle": "Bardage bois : autoclave classe 4 avec PV de classement feu M2 sur OSB (vernis) fourni (Lot 02)",
+        "codes": [],
+        "bloquante": false,
+        "source": "CCTP Lot 02 §7.5"
+      }
+    ],
     "autres_exigences": [
       {
-        "libelle": "Attestation d'assurance responsabilité civile professionnelle en cours de validité (dommages corporels min 7,5 M€/sinistre, matériels 3 M€/sinistre, immatériels non consécutifs 500 k€/sinistre)",
-        "source": "RC §3.2.1 et CCAP article 1.7.1"
+        "libelle": "Menuiseries aluminium laquées : gamme bénéficiant d'un avis technique favorable CSTB et certificat de suivi de marquage CSTBat — classement AEV A*4 E*7B V*A3 (Lot 03)",
+        "source": "CCTP Lot 03 §1"
       },
       {
-        "libelle": "Assurance responsabilité civile décennale couvrant les activités correspondant à l'objet du lot, avec extension aux ouvrages existants si applicable",
-        "source": "RC §3.2.3.1 et CCAP article 1.7.2"
+        "libelle": "Bac acier couverture : visé par Avis Technique (Lot 02)",
+        "source": "CCTP Lot 02 §3"
       },
       {
-        "libelle": "Chiffre d'affaires global et du domaine d'activité sur les 3 derniers exercices (formulaire DC2 ou équivalent)",
-        "source": "RC §3.2.1"
+        "libelle": "Volets roulants : avis technique favorable CSTB avec PV d'essais (Lot 03)",
+        "source": "CCTP Lot 03 §2"
       },
       {
-        "libelle": "Déclaration des effectifs de l'année en cours",
-        "source": "RC §3.2.1"
-      },
-      {
-        "libelle": "Port visible de la carte d'identification professionnelle (CIP) obligatoire pour tout intervenant sur le chantier",
-        "source": "CCAP article 4.5.6"
+        "libelle": "Câbles courant fort et courant faible : type C1 Euroclass C-s2,d2,a2 (ERP 5e catégorie) — mentionné comme avis défavorable Apave sur CCTP Lot électricité existant",
+        "source": "Rapport Apave C24068649 §5.3 N°E25-1"
       }
     ]
+  },
+  "dossier_candidature": {
+    "pieces_a_fournir": [
+      {
+        "libelle": "DPGF Lot N°01 MAÇONNERIE complétée avec prix unitaires",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "DPGF Lot 01"
+      },
+      {
+        "libelle": "DPGF Lot N°02 CHARPENTE BOIS - COUVERTURE MÉTALLIQUE complétée avec prix unitaires",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "DPGF Lot 02"
+      },
+      {
+        "libelle": "DPGF Lot N°03 MENUISERIES EN ALUMINIUM LAQUÉ complétée avec prix unitaires",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "DPGF Lot 03"
+      },
+      {
+        "libelle": "DPGF Lot N°04 PLÂTRERIE PEINTURE complétée avec prix unitaires",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "DPGF Lot 04"
+      },
+      {
+        "libelle": "Plan d'installation de chantier (établi sur la base du projet de PIC joint au PGC/PGCSPS)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "ANX_MPCCSPS §3.2.3"
+      },
+      {
+        "libelle": "PPSPS (Plan Particulier de Sécurité et de Protection de la Santé) — en deux exemplaires dont un format numérique pour le lot gros œuvre ou lot principal",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "ANX_MPCCSPS §3.2.3"
+      }
+    ],
+    "mode_remise": null,
+    "plateforme_depot": null,
+    "signature_electronique_exigee": null,
+    "format_signature": null,
+    "nombre_exemplaires": null,
+    "langue": "français",
+    "duree_validite_offres_jours": null,
+    "modalites_source": null
   },
   "lots": [
     {
       "numero": 1,
-      "intitule": "Maçonnerie",
-      "zone_geographique": "Frugières-le-Pin (43)",
+      "intitule": "Lot N°01 MAÇONNERIE",
+      "domaine": "btp_gros_oeuvre",
+      "zone_geographique": "43 - Frugières-le-Pin (Haute-Loire)",
       "volume_estime": null,
       "volume_estime_unite": null,
-      "particularites": "Lot principal : responsable du plan d'installation de chantier, de la base vie, de la clôture de chantier, de l'implantation générale et du trait de niveau. Comprend l'assainissement non collectif (filière compacte agréée 4 EH), les fondations superficielles sur arènes granitiques à 1,5 m min, terrassements avec possible BRH sur substratum granitique. Index de révision BT03."
+      "cout_estime_min_eur": 55000,
+      "cout_estime_max_eur": 70000,
+      "particularites": "Inclut l'assainissement non collectif complet (fosse 3000L + filtre compact 4 EH + épandage 32 ml), les gabions (11,35 ml), le drainage périphérique et la place PMR. Fondations sur puits béton à 1,5 m/TN selon étude géotechnique G2 AVP. Film anti-radon requis."
     },
     {
       "numero": 2,
-      "intitule": "Charpente bois - Couverture métallique",
-      "zone_geographique": "Frugières-le-Pin (43)",
+      "intitule": "Lot N°02 CHARPENTE BOIS - COUVERTURE MÉTALLIQUE",
+      "domaine": "btp_second_oeuvre",
+      "zone_geographique": "43 - Frugières-le-Pin (Haute-Loire)",
       "volume_estime": null,
       "volume_estime_unite": null,
-      "particularites": "Structure principale : murs à ossature bois, charpente traditionnelle, couverture bac acier, bardage bois. Risques chutes de hauteur lors de la mise en place de la charpente et couverture. Index de révision BT49×20% + BT54×80%."
+      "cout_estime_min_eur": 50000,
+      "cout_estime_max_eur": 67000,
+      "particularites": "Charpente lamellé-collé GL24h à GL28h avec certification Acerbois Glulam obligatoire. 57 consoles décoratives bois classe 4 autoclave. Bardage mélèze 28 mm pose verticale. Caillebotis bois 75 m². Couverture bac acier RAL 7022 pente 37%. Doublage acoustique OSB intérieur avec vernis M2."
     },
     {
       "numero": 3,
-      "intitule": "Menuiserie aluminium",
-      "zone_geographique": "Frugières-le-Pin (43)",
-      "volume_estime": null,
-      "volume_estime_unite": null,
-      "particularites": "Châssis ouvrants et volets roulants aluminium laqué. Index de révision BT27."
+      "intitule": "Lot N°03 MENUISERIES EN ALUMINIUM LAQUÉ",
+      "domaine": "btp_second_oeuvre",
+      "zone_geographique": "43 - Frugières-le-Pin (Haute-Loire)",
+      "volume_estime": 20,
+      "volume_estime_unite": "unités",
+      "cout_estime_min_eur": 16000,
+      "cout_estime_max_eur": 24000,
+      "particularites": "20 châssis aluminium laqués à RPT (Uw < 1,80, Rw+Ctr 30 dB, classement AEV A*4E*7BV*A3) + 8 volets roulants motorisés SOMFY ou équivalent. Vitrage granité dans sanitaires et vestiaires. Avis technique CSTB obligatoire."
     },
     {
       "numero": 4,
-      "intitule": "Plâtrerie Peinture",
-      "zone_geographique": "Frugières-le-Pin (43)",
+      "intitule": "Lot N°04 PLÂTRERIE PEINTURE",
+      "domaine": "btp_second_oeuvre",
+      "zone_geographique": "43 - Frugières-le-Pin (Haute-Loire)",
       "volume_estime": null,
       "volume_estime_unite": null,
-      "particularites": "Implantation des cloisons et huisseries à la charge de ce lot. Nettoyages intérieurs avant réception également à charge. Index de révision BT08×50% + BT46×50%."
-    },
-    {
-      "numero": 5,
-      "intitule": "Menuiserie intérieure",
-      "zone_geographique": "Frugières-le-Pin (43)",
-      "volume_estime": null,
-      "volume_estime_unite": null,
-      "particularites": "Portes intérieures, bancs vestiaires, plan vasques. Index de révision BT18a."
-    },
-    {
-      "numero": 6,
-      "intitule": "Carrelage Faïence",
-      "zone_geographique": "Frugières-le-Pin (43)",
-      "volume_estime": null,
-      "volume_estime_unite": null,
-      "particularites": "Inclut étanchéité sous carrelage (zones humides vestiaires). Index de révision BT09."
-    },
-    {
-      "numero": 7,
-      "intitule": "Chauffage Ventilation Plomberie",
-      "zone_geographique": "Frugières-le-Pin (43)",
-      "volume_estime": null,
-      "volume_estime_unite": null,
-      "particularites": "Tableau des produits avec fiches techniques obligatoire à l'offre. PAC + VMC double flux + ventilo-convecteurs + sanitaires complets (vestiaires : douches, lavabos, WC, vidoir, lave-bottes). Index de révision BT40×50% + BT38×25% + BT41×25%."
-    },
-    {
-      "numero": 8,
-      "intitule": "Electricité",
-      "zone_geographique": "Frugières-le-Pin (43)",
-      "volume_estime": null,
-      "volume_estime_unite": null,
-      "particularites": "Tableau des produits avec fiches techniques obligatoire à l'offre. Coffrets de chantier à fournir (installation électrique de chantier à charge). Courants forts + courants faibles. Index de révision BT47."
+      "cout_estime_min_eur": 18000,
+      "cout_estime_max_eur": 26000,
+      "particularites": "Isolation rampant R≥10 m².K/W en 2 couches laine de roche (155 m²), pare-vapeur Sd≥200m, doublages BA18 sur MOB, cloisons CF 1H (RA≥50 dB), plafonds rampants acoustiques décoratifs salle de cours + dalles minérales milieu humide, peinture satin. Nombreux locaux humides (vestiaires, douches, WC)."
     }
   ],
+  "tranches": [],
   "calendrier": {
     "date_limite_offres": "2026-07-10",
-    "date_demarrage_prevue": "2026-10-01",
-    "duree_marche": "8 mois non reconductibles (dont 1 mois de période de préparation)"
+    "date_demarrage_prevue": "2026-04-28",
+    "duree_marche": "8 mois"
   },
   "alertes_candidat": [
-    "Assurance décennale obligatoire avec couverture spécifique à l'activité du lot : l'acheteur n'a pas souscrit de CCRD ni de police dommages-ouvrage — chaque entreprise doit avoir sa propre D&O en cours de validité à la date d'ouverture du chantier (CCAP art 1.7.2)",
-    "La DPGF doit impérativement être remise en format .xls (non PDF) — un format incorrect peut empêcher le dépôt de l'offre sur le profil acheteur",
-    "Lots 7 et 8 : tableau des produits avec fiches techniques obligatoire à joindre à l'offre — son absence fragilise l'offre lors de l'analyse",
-    "Port de la CIP (carte d'identification professionnelle) obligatoire pour tout intervenant : pénalité de 100 €/jour/personne en infraction dès première constatation ; inexistence de CIP entraîne signalement à la DREETS (CCAP art 4.5.6)",
-    "Présence d'un bâtiment mitoyen Nord en pisé fissuré : le lot Maçonnerie devra respecter la règle 3H/2V entre nouvelles fondations et fondations existantes — sujétion technique à prendre en compte dans le chiffrage",
-    "Procédure avec négociation possible : l'acheteur se réserve le droit de négocier les offres les mieux classées — préparer des marges de manœuvre sur le prix et le mémoire technique"
+    "Rapport de contrôle technique Apave signale un AVIS DÉFAVORABLE sur les câbles électriques : le CCTP Électricité prévoit des câbles U100R2V (type C2) alors que la réglementation ERP exige des câbles C1 (Euroclass C-s2,d2,a2) — le lot électricité (non présent dans ce DCE analysé) doit intégrer cette correction, mais tout lot interférant avec le câblage doit en tenir compte.",
+    "Bâtiment en zone sismique 2, catégorie d'importance III : les calculs de structure doivent intégrer l'Eurocode 8 — le BET structure ISBF est mandaté mais les entreprises devront soumettre leurs plans d'exécution à validation bureau de contrôle + BET structure (délai à anticiper en période de préparation).",
+    "Assainissement non collectif soumis à rapport d'étude GEO SOL (dossier n°2025-6-0012) : l'entreprise lot 01 doit concevoir et réaliser le filtre compact 4 EH strictement conformément à ce rapport — toute variante est à soumettre à accord préalable.",
+    "PPSPS obligatoire à remettre avant toute intervention sur site, avec inspection commune coordonnateur SPS ; absence = refus d'accès au chantier (MPC CCAP §3.2.2).",
+    "OSB apparent classé M3 par défaut (arrêté du 21/11/2022) : le CCTP lot 02 exige un vernis classement M2 sur tous les OSB apparents (108 m²) avec PV de classement feu fourni — poste à ne pas omettre dans le chiffrage."
   ],
   "points_differenciants_attendus": [
     {
-      "libelle": "Phasage détaillé prenant en compte la coactivité avec le domaine agricole en exploitation",
-      "exemple": "Le candidat décrit précisément les plages horaires de travaux bruyants concertées avec le maître d'ouvrage, les dispositifs de balisage pour maintenir les accès agricoles et la gestion des livraisons pour ne pas bloquer la D191 bidirectionnelle.",
-      "source": "CCTP lot 00 §2.3 et PGC §3.2.1"
+      "libelle": "Maîtrise des travaux en bois lamellé-collé avec certification Acerbois Glulam",
+      "exemple": "Un candidat au lot 02 présentant sa certification Acerbois Glulam active, ses références de charpentes lamellé-collé GL24h/GL28h en Auvergne et son mode opératoire de contrôle de fabrication sera immédiatement conforme aux exigences rédhibitoires du CCTP.",
+      "source": "CCTP Lot 02 §général"
     },
     {
-      "libelle": "Expérience sur chantiers en ossature bois ou bâtiments similaires en zone rurale",
-      "exemple": "Le candidat (lot 2) produit des références de constructions à ossature bois en milieu rural, avec attestations de bonne exécution et photos de réalisations similaires (école, vestiaires agricoles, bâtiment ERP de plain-pied).",
-      "source": "RC §3.2.1"
+      "libelle": "Expérience prouvée en construction bois MOB sur site ERP en fonctionnement",
+      "exemple": "Présenter 2 à 3 références de bâtiments scolaires ou sportifs (ERP) en construction bois ossature bois avec charpente traditionnelle réalisés dans les 5 dernières années, avec coordonnées du maître d'ouvrage vérifiable — rassure sur la gestion des contraintes ERP et SPS.",
+      "source": null
     },
     {
-      "libelle": "Maîtrise des contraintes géotechniques spécifiques (fondations sur arènes granitiques, mitoyenneté pisé fissuré)",
-      "exemple": "Le candidat du lot 1 décrit sa méthode de réception des fouilles en coordination avec le géotechnicien, intègre dans son chiffrage les volumes de purge et gros béton de rattrapage, et mentionne les précautions anti-vibration au droit du bâtiment mitoyen.",
-      "source": "CCTP lot 00 §3.1 et étude géotechnique G2 AVP §4.2"
+      "libelle": "Plan d'organisation SPS et installation de chantier adapté à la coactivité",
+      "exemple": "Proposer un plan d'installation de chantier détaillé avec zonage des aires de stockage, cheminements PMR préservés, accès aux bâtiments existants du lycée maintenus, et planning d'intervention par corps d'état cohérent avec les 8 mois — valorisé par le coordonnateur SPS et le maître d'œuvre.",
+      "source": "ANX_MPCCSPS §3.2.3"
     },
     {
-      "libelle": "Compétence en assainissement non collectif (filière compacte agréée)",
-      "exemple": "Le candidat du lot 1 justifie d'une expérience sur la mise en œuvre de filières compactes ANC agréées et propose une méthodologie de mise en œuvre conforme à l'étude de sol (pente terrain, pompe de relevage éventuelle, distances réglementaires).",
-      "source": "PGC §2.1 et étude ANC"
-    },
-    {
-      "libelle": "Moyens humains identifiés et CACES adaptés aux travaux de terrassement et levage",
-      "exemple": "Pour le lot 1, le candidat présente les CACES de ses conducteurs d'engins, le VGP à jour de la pelle mécanique prévue, et désigne nommément le chef de chantier responsable de la coordination SPS.",
-      "source": "RC §3.1.2 et PGC §4"
+      "libelle": "Anticipation des contraintes acoustiques et incendie du lot plâtrerie",
+      "exemple": "Pour le lot 04, détailler la procédure d'obtention des PV de résistance au feu (EI60) pour les cloisons et gaines techniques CF 1H, et préciser les fournisseurs retenus (Knauf/Placo) avec les AT correspondants — démontre la maîtrise réglementaire ERP.",
+      "source": "CCTP Lot 04 §1.3.1.1 et §1.4.1.2"
     }
   ],
   "_meta": {
     "id_marche": "BOAMP-26-57285",
     "type": "complet",
-    "date_generation": "2026-06-15T00:11:02.505317+00:00",
-    "extraction_le": "2026-06-15T00:11:02.505317+00:00",
+    "date_generation": "2026-06-20T04:07:11.232128+00:00",
+    "extraction_le": "2026-06-20T04:07:11.232128+00:00",
     "modele": "claude-sonnet-4-6",
     "preset_utilise": "btp",
     "presets_matches": [
       "btp"
     ],
     "prompts_versions": {
-      "btp/_preset.json": "sha256:d1717e0d87f6c265"
+      "btp/_preset.json": "sha256:055bf6f8b2c1f771"
     },
-    "tokens_input": 153332,
-    "tokens_output": 7206,
-    "cout_eur": 0.5397,
-    "duree_sec": 132.6,
+    "tokens_input": 204022,
+    "tokens_output": 6213,
+    "cout_eur": 0.67,
+    "duree_sec": 128.1,
     "pdfs_traites": [
+      {
+        "nom": "1-Proj-Situat_Masse_Assainissement(a).pdf",
+        "hash": "af062e31bc49ac6422c86b37ee97bfb7",
+        "taille_chars": 421
+      },
       {
         "nom": "178_CCAP Travaux_ ANX_MPCCSPS.pdf",
         "hash": "e1b19248e0c9b83ded0d8e8e75fcdae8",
         "taille_chars": 47131
+      },
+      {
+        "nom": "2-Projet-Plan(plain-pied)A1-b.pdf",
+        "hash": "a3e92a5a382157e41c4048c7407dbcee",
+        "taille_chars": 0
+      },
+      {
+        "nom": "24F22 CHARIOL Lycée Vestiaire et salle de cours.DCE01.Coffrage DCE.A1.pdf",
+        "hash": "426d3a8ea00ee3a0cd975557c5ff3458",
+        "taille_chars": 4778
+      },
+      {
+        "nom": "260323-APAVE-C24068649-1-RI_2_1.pdf",
+        "hash": "60be3e104ea1412c31f9ad8d1a3d9b7d",
+        "taille_chars": 27239
+      },
+      {
+        "nom": "260325-APAVE-C24068649-1-RE_3_1.pdf",
+        "hash": "9df0d2db8e770136c62410b024226e27",
+        "taille_chars": 2802
+      },
+      {
+        "nom": "260326-APAVE-C24068649-1-RE_4_1.pdf",
+        "hash": "432e8f0b92dc25a42872084e68bad3aa",
+        "taille_chars": 5536
+      },
+      {
+        "nom": "26M0225001_CCTP.pdf",
+        "hash": "b137a9840fc8d3b4735c6d740a586ab0",
+        "taille_chars": 22196
+      },
+      {
+        "nom": "26M0225001_DPGF Lot N°01 MACONNERIE.xlsx",
+        "hash": "068e6fedd25d4ac2ee6fda049f6d109e",
+        "taille_chars": 121746
+      },
+      {
+        "nom": "26M0225002_CCTP.pdf",
+        "hash": "ef3d692cb615b6b8f1947619b0cc42d8",
+        "taille_chars": 17869
+      },
+      {
+        "nom": "26M0225002_DPGF Lot N°02 CHARPENTE BOIS -COUVERTURE METALLIQUE.xlsx",
+        "hash": "74897ace62914ccb3acb3f4d4534066d",
+        "taille_chars": 78479
+      },
+      {
+        "nom": "26M0225003_CCTP Lot N°03 MENUISERIES EN ALUMINIUM LAQUE.pdf",
+        "hash": "7e2b35046fa2e90d820c1bcaf5a9ab7f",
+        "taille_chars": 6373
+      },
+      {
+        "nom": "26M0225003_DPGF Lot N°03 MENUISERIES EN ALUMINIUM LAQUE.xlsx",
+        "hash": "ccaa8e599469c77aa094ded254e7d393",
+        "taille_chars": 21749
+      },
+      {
+        "nom": "26M0225004_CCTP Lot N°04 PLATRERIE PEINTURE.pdf",
+        "hash": "e96542381ea50f1a865d45e7d1e2bb1d",
+        "taille_chars": 14021
+      },
+      {
+        "nom": "26M0225004_DPGF Lot N°04 PLATRERIE PEINTURE.xlsx",
+        "hash": "7bc008bf12fa64205c1f31180f9db7eb",
+        "taille_chars": 50803
+      },
+      {
+        "nom": "26M0225005_CCTP Lot N°05 MENUISERIE INTERIEURE.pdf",
+        "hash": "486bc9d7cd5d8aaad1194567b3cf1b77",
+        "taille_chars": 6087
+      },
+      {
+        "nom": "26M0225005_DPGF Lot N°05 MENUISERIE INTERIEURE.xlsx",
+        "hash": "0c4bdc51c22a6fd0acb1b14dbe0b037c",
+        "taille_chars": 33366
+      },
+      {
+        "nom": "26M0225006_CCTP Lot N°6 CARRELAGE.pdf",
+        "hash": "891307094ab1af686a6d9571ab3ae365",
+        "taille_chars": 8981
+      },
+      {
+        "nom": "26M0225006_DPGF Lot N°06 CARRELAGE - FAIENCE.xlsx",
+        "hash": "6f3133671e7e915de8f35baa1446b28b",
+        "taille_chars": 44898
+      },
+      {
+        "nom": "26M0225007_CCTP&DPGF.pdf",
+        "hash": "5968b8d8663a5c90b4f38bfb600262d0",
+        "taille_chars": 256729
+      },
+      {
+        "nom": "26M0225007_DPGF.xlsx",
+        "hash": "3fb26191f23b3e82a44d4df4eb8cb9aa",
+        "taille_chars": 54214
+      },
+      {
+        "nom": "26M0225008_CCTP&DPGF.pdf",
+        "hash": "5f4b9f0b1948144a147379862cc0d44f",
+        "taille_chars": 83241
+      },
+      {
+        "nom": "26M0225008_DPGF EXCEL.xlsx",
+        "hash": "945d4a27c0582a70370a4e012b7ab698",
+        "taille_chars": 37253
       },
       {
         "nom": "26M0225_CCAP.pdf",
@@ -363,6 +475,11 @@
         "taille_chars": 54934
       },
       {
+        "nom": "3-Projet-CoupesAA&BB-façades_b.pdf",
+        "hash": "2eecc526776212b0cb817ddb428214b6",
+        "taille_chars": 0
+      },
+      {
         "nom": "Annexe dématérialisation.pdf",
         "hash": "e36efeecccfefa54ae66d7b3cde5e2e6",
         "taille_chars": 8175
@@ -373,6 +490,11 @@
         "taille_chars": 24060
       },
       {
+        "nom": "DCE LOT 7 - CVC&PBS - PLANS.pdf",
+        "hash": "00fd96f0c6ccd7f5a0fcd768cfcefe99",
+        "taille_chars": 4373
+      },
+      {
         "nom": "Etude assainissement non collectuf_FRUGIERES-LES-PINS.pdf",
         "hash": "b01f1c5bb2f29ab7a04fb99625509aa1",
         "taille_chars": 44664
@@ -381,6 +503,11 @@
         "nom": "Etude géotechnique rapport G2 AVP FRUGIERES LE PIN.pdf",
         "hash": "2b2605f8d1db9d2bb26c7debe10b0ed5",
         "taille_chars": 98050
+      },
+      {
+        "nom": "LOT 8 - ELECTRICITE - PLANS.pdf",
+        "hash": "7ffcdf654fc3586c1ddf8c81a0424912",
+        "taille_chars": 2359
       },
       {
         "nom": "PGC.pdf",

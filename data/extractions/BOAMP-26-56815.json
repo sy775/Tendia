@@ -1,35 +1,77 @@
 {
-  "synthese_marche": "Le Conseil Départemental des Bouches-du-Rhône lance une consultation pour une prestation intellectuelle visant à définir les besoins et modalités d'une dépollution localisée sur le terrain du champ de tir de la Sainte-Victoire, situé à Beaurecueil (13100). La mission comprend l'analyse des cartographies de risques, des visites de terrain, la définition des zones à dépolluer et des modalités techniques d'intervention avec coûts prévisionnels. Il s'agit d'un marché à prix global forfaitaire, passé en procédure adaptée ouverte, sans allotissement.",
+  "synthese_marche": "Le Conseil Départemental des Bouches-du-Rhône (gestionnaire de la Réserve Naturelle de Sainte-Victoire) lance une étude de prestations intellectuelles pour définir les besoins en dépollution pyrotechnique localisée sur le terrain militaire du Champ de tir de Roques-Hautes (748 ha, commune de Beaurecueil), en cours de cession par le ministère des Armées. L'étude, structurée en 4 phases (cartographie, terrain, investigation des engins, définition des modalités), doit fournir un programme opérationnel chiffré permettant d'arbitrer entre scénarios de dépollution compatibles avec les usages futurs de la réserve naturelle (gestion SDIS, écologie, paléontologie). Marché de prestation intellectuelle à prix global forfaitaire, sans allotissement, en procédure adaptée.",
   "domaines_metier": [
     {
       "code": "ingenierie_environnementale"
     }
   ],
-  "raison_classification": "Le marché porte explicitement sur une étude d'ingénierie environnementale : analyse des risques de dépollution, définition des zones à traiter, caractérisation des opérations techniques et coûts prévisionnels sur un site potentiellement pollué (champ de tir). Les codes CPV retenus (71313000-5 : services de conseil en ingénierie de l'environnement, 71351730-9 : services de prospection géologique) confirment ce positionnement.",
+  "raison_classification": "Le marché porte sur une étude d'ingénierie environnementale spécialisée : analyse de risque pyrotechnique, investigations de terrain, qualification des niveaux de pollution (engins de guerre), définition de scénarios de dépollution sur un site naturel protégé (réserve naturelle, Natura 2000, site classé). Les CPV retenus (71313000-5 'Services de conseil en ingénierie de l'environnement', 71300000-1 'Services d'ingénierie') confirment ce positionnement. Il ne s'agit pas de travaux de dépollution (BTP), mais d'une mission d'étude préalable à ceux-ci.",
   "caracteristiques_mission_moe": {
-    "typologie": "Étude d'impact / AMO technique / diagnostic environnemental",
+    "typologie": "Étude / AMO technique environnementale (prestations intellectuelles)",
     "phases_couvertes": [],
-    "typologie_ouvrage": "Site potentiellement pollué — champ de tir en zone naturelle protégée (Réserve naturelle nationale de la Sainte-Victoire)",
+    "typologie_ouvrage": "Site naturel protégé militaire reconverti — Réserve Naturelle Nationale, terrain pyrotechnique",
     "montant_travaux_estime": null,
-    "complexite_technique": "complexe",
+    "complexite_technique": "expert",
     "livrables_par_phase": [
       {
-        "phase": "DIAG / ÉTUDE",
+        "phase": "Phase cartographique",
         "livrables": [
-          "Analyse des cartographies de risques et de besoins en intervention",
-          "Rapport de visite de terrain avec localisation des zones et usages envisagés",
-          "Définition par zone du besoin de dépollution et caractéristiques des opérations",
-          "Définition des modalités techniques d'intervention par zone",
-          "Coûts prévisionnels associés par zone"
+          "Analyse croisée des cartographies existantes (risques pyrotechniques MDA + besoins gestionnaire)",
+          "Cartographie SIG exploitable",
+          "Note méthodologique de hiérarchisation des zones à enjeux",
+          "Compte-rendu détaillé"
+        ]
+      },
+      {
+        "phase": "Phase de terrain",
+        "livrables": [
+          "Compte-rendu détaillé des investigations terrain",
+          "Affinage du pré-zonage",
+          "Précision des surfaces concernées, contraintes d'accès et modalités d'intervention"
+        ]
+      },
+      {
+        "phase": "Phase d'investigation des engins",
+        "livrables": [
+          "Compte-rendu détaillé",
+          "Réunion de restitution (avec ministère des Armées)",
+          "Qualification du risque pyrotechnique par zone",
+          "Résultats des sondages éventuels",
+          "Hiérarchisation des besoins de dépollution"
+        ]
+      },
+      {
+        "phase": "Phase de définition des besoins",
+        "livrables": [
+          "Compte-rendu détaillé",
+          "Réunion de restitution (avec ministère des Armées)",
+          "Rapport complet final avec cartographie SIG, hiérarchisation des zones, fiches par zone, présentation comparative des scénarios (≥3), programme opérationnel avec phasage et chiffrage détaillé"
         ]
       }
     ],
     "taux_remuneration_moe_pct": null,
-    "indices_revision": [],
+    "indices_revision": [
+      "ING — Index divers dans la construction - Ingénierie - Base 2010 (Identifiant 001711010)"
+    ],
     "coordinations_associees": [],
     "organigramme_attendu": [
       {
-        "profil": "Expert dépollution / ingénieur sites et sols pollués",
+        "profil": "Expert en gestion des risques pyrotechniques",
+        "nombre": null,
+        "anciennete_min_annees": null
+      },
+      {
+        "profil": "Écologue / expert gestion d'espaces naturels protégés",
+        "nombre": null,
+        "anciennete_min_annees": null
+      },
+      {
+        "profil": "Cartographe SIG",
+        "nombre": null,
+        "anciennete_min_annees": null
+      },
+      {
+        "profil": "Ingénieur environnemental",
         "nombre": null,
         "anciennete_min_annees": null
       }
@@ -38,48 +80,65 @@
   },
   "qualifications_moe": {
     "opqibi": [],
-    "opqcm": null,
+    "opqcm": [],
     "bim": null,
     "autres": []
   },
-  "caracteristiques_techniques_chantier": {
-    "description": "Étude de définition des besoins et modalités d'une dépollution localisée sur le terrain du champ de tir de la Sainte-Victoire (commune de Beaurecueil, 13100), dans le périmètre d'extension de la Réserve naturelle nationale. La mission s'appuie sur une Analyse Quantitative de Risques (AQR) existante et une carte du projet d'extension de la réserve.",
+  "caracteristiques_techniques_enr": {
+    "description": null,
     "technologies_concernees": [],
-    "type_de_sites": "Site naturel protégé (Réserve naturelle nationale), ancien champ de tir militaire potentiellement pollué par munitions ou résidus de tirs",
+    "type_de_sites": null,
     "criteres_eligibilite": [
       {
-        "libelle": "Capacité économique et financière : déclaration concernant le chiffre d'affaires global et le CA concernant les prestations objet du contrat sur les trois derniers exercices",
-        "source": "RC §6.1"
+        "libelle": "Compétences en gestion des risques pyrotechniques justifiées par des références récentes et comparables",
+        "source": "CCTP §4.1"
       },
       {
-        "libelle": "Capacités techniques et professionnelles : effectifs moyens annuels, titres d'études et professionnels des intervenants, liste des principales prestations similaires sur les trois dernières années (montant, année, destinataire)",
-        "source": "RC §6.1"
+        "libelle": "Compétences en écologie et gestion d'espaces naturels protégés",
+        "source": "CCTP §4.1"
       },
       {
-        "libelle": "Obligation de confidentialité et mesures de sécurité particulières à respecter pour l'exécution des prestations",
-        "source": "RC §4.3"
+        "libelle": "Compétences en analyse cartographique et SIG",
+        "source": "CCTP §4.1"
+      },
+      {
+        "libelle": "Compétences en ingénierie environnementale",
+        "source": "CCTP §4.1"
+      },
+      {
+        "libelle": "Obtention d'une autorisation préalable du ministère des Armées avant toute visite sur le terrain",
+        "source": "CCTP §4.3"
+      },
+      {
+        "libelle": "Respect des contraintes d'accès saisonnières (arrêté préfectoral période estivale, massif forestier)",
+        "source": "CCTP §4.4"
       }
     ],
     "contraintes_site_signalees": [
-      "Site en zone naturelle protégée (Réserve naturelle nationale de la Sainte-Victoire)",
-      "Obligations de confidentialité et mesures de sécurité particulières",
-      "Ancien champ de tir : risque potentiel munitions non explosées"
+      "terrain militaire accès restreint",
+      "risque pyrotechnique en surface et en profondeur",
+      "site naturel protégé (Réserve Naturelle Nationale)",
+      "Natura 2000 ZSC et ZPS",
+      "site classé Sainte-Victoire",
+      "période estivale interdite (risque incendie)",
+      "patrimoine paléontologique exceptionnel (œufs de dinosaures)",
+      "obligation confidentialité et mesures de sécurité"
     ]
   },
   "volumes_techniques": {
     "puissance_totale_kwc": null,
     "puissance_par_site_kwc": null,
-    "nb_sites": 1,
+    "nb_sites": null,
     "surface_panneaux_m2": null,
     "productible_annuel_estime_mwh": null,
-    "duree_marche_mois": null,
+    "duree_marche_mois": 6,
     "duree_maintenance_om_annees": null,
-    "commentaire_volumes": "Marché de prestation intellectuelle (étude) portant sur un site unique (champ de tir de la Sainte-Victoire, Beaurecueil). La durée d'exécution est fixée au CCAP (non fourni dans le DCE transmis). Pas de volume chiffré en surface ou en tonnes disponible dans le RC."
+    "commentaire_volumes": "Terrain militaire de 748 583 m² (≈75 ha). Étude en 4 phases séquentielles sur 6 mois au total (15 jours ouvrés + 1 mois + 2 mois + 1 mois). Périmètre : zones ciblées pour interventions SDIS et équipe réserve naturelle, pas dépollution totale du site."
   },
   "modalites_execution_chantier": {
     "raccordement_reseau_inclus": null,
-    "etudes_techniques_incluses": true,
-    "calendrier_chantier_contraint": null,
+    "etudes_techniques_incluses": null,
+    "calendrier_chantier_contraint": "Accès au massif forestier soumis à arrêté préfectoral en période estivale (risque incendie) — les visites de terrain devront être planifiées hors période de restriction. Autorisation préalable ministère des Armées requise pour chaque visite.",
     "sites_execution": [
       "Beaurecueil",
       "13100",
@@ -88,154 +147,378 @@
     "engagement_productible": null,
     "engagement_disponibilite_om": null
   },
+  "qualifications_enr": {
+    "qualipv": false,
+    "qualisol": false,
+    "qualipac": false,
+    "qualibois": false,
+    "autres_certifications": []
+  },
   "bareme_notation": {
     "valeur_technique_pct": 60,
     "valeur_prix_pct": 40,
     "sous_criteres_techniques": [
       {
-        "libelle": "SC 1 : qualité de l'équipe dédiée à la réalisation de la mission",
-        "ponderation_pct": 50,
-        "description": "L'acheteur évalue la qualité des CV des intervenants dédiés à la mission (expérience), l'organisation de l'équipe et l'adéquation avec le plan de charge associé. Les CVs détaillés sont explicitement demandés.",
+        "libelle": "Qualité de l'équipe dédiée à la réalisation de la mission",
+        "ponderation_pct": 30,
+        "description": "L'acheteur évalue la qualité de l'équipe proposée : CVs détaillés des intervenants, expérience spécifique, organisation de l'équipe et adéquation avec le plan de charge associé à la mission.",
         "elements_attendus": [
-          "CVs détaillés des intervenants avec expériences pertinentes en dépollution de sites et sols pollués",
-          "Présentation de l'organisation de l'équipe et des rôles de chacun",
-          "Plan de charge prévisionnel avec allocation des jours par profil",
-          "Adéquation entre les profils mobilisés et les spécificités du site (champ de tir, zone naturelle protégée)",
-          "Références personnelles des intervenants sur des missions similaires"
+          "CVs détaillés de chaque intervenant mobilisé sur la mission",
+          "Démonstration de l'expérience en risques pyrotechniques (références missions similaires)",
+          "Expérience en écologie / gestion espaces naturels protégés",
+          "Organisation de l'équipe (rôles, responsabilités, chef de projet)",
+          "Plan de charge (% ETP) de chaque intervenant par phase",
+          "Références récentes et comparables justifiant les compétences revendiquées"
         ],
-        "exemple_reponse_forte": "L'équipe est composée d'un chef de projet expert en sites et sols pollués (15 ans d'expérience sur munitions et terrains militaires) et d'un ingénieur environnementaliste spécialisé en zones naturelles sensibles. Le plan de charge détaillé prévoit 45 jours-homme répartis sur 4 mois, avec une organisation claire entre les phases de bureau et les visites de terrain, démontrant une parfaite adéquation avec les livrables attendus.",
+        "exemple_reponse_forte": "L'équipe mobilisée comprend un expert pyrotechnicien (15 ans expérience, 3 missions EHTPP similaires sur anciens terrains militaires en réserves naturelles), un écologue spécialisé milieux méditerranéens protégés (référent Natura 2000), et un cartographe SIG. Le plan de charge détaille 45 j-h répartis sur 6 mois avec 80% de disponibilité du chef de projet en phase investigation des engins.",
         "source": "RC §8.3",
+        "unite_evaluation": "points",
         "sous_criteres": []
       },
       {
-        "libelle": "SC2 : Pertinence de la méthodologie et du planning prévisionnel proposés pour la réalisation des prestations",
-        "ponderation_pct": 50,
-        "description": "L'acheteur évalue la pertinence de la méthodologie proposée pour réaliser les prestations (analyse des cartographies, visites terrain, définition des zones, coûts prévisionnels) ainsi que la cohérence et le réalisme du planning prévisionnel.",
+        "libelle": "Pertinence de la méthodologie et du planning prévisionnel proposés",
+        "ponderation_pct": 30,
+        "description": "L'acheteur évalue la pertinence de la méthodologie proposée pour réaliser les 4 phases de l'étude et la cohérence du planning prévisionnel avec les contraintes du site (saisonnalité, autorisations, validations MOA).",
         "elements_attendus": [
-          "Méthodologie d'analyse des cartographies de risques et d'exploitation de l'Analyse Quantitative de Risques (AQR) fournie",
-          "Protocole de visite de terrain adapté aux contraintes du site (zone naturelle protégée, champ de tir)",
-          "Approche structurée par zone pour définir le besoin de dépollution et les caractéristiques techniques",
-          "Méthode de chiffrage des coûts prévisionnels par zone et type d'intervention",
-          "Planning prévisionnel réaliste avec jalons clairement identifiés et livrables associés"
+          "Description détaillée de la méthode d'analyse croisée des cartographies (phase 1)",
+          "Protocole de visite terrain adapté aux contraintes pyrotechniques et réglementaires",
+          "Méthode d'investigation des engins (technologies, normes, profondeur d'investigation)",
+          "Approche de définition des scénarios de dépollution (≥3 scénarios, analyse multicritère)",
+          "Planning prévisionnel intégrant les contraintes saisonnières (risque incendie) et délais d'autorisation MDA",
+          "Modalités de validation intermédiaire par phase et de coordination avec le MOA et le ministère des Armées"
         ],
-        "exemple_reponse_forte": "La méthodologie proposée s'articule en trois phases : (1) analyse croisée de l'AQR fournie et des cartographies existantes avec identification préliminaire des zones prioritaires ; (2) visite de terrain structurée par zones avec grille d'évaluation normalisée (BRGM/ADEME) ; (3) rédaction du rapport final avec définition technique par zone et coûts prévisionnels selon les référentiels DREAL PACA. Le planning de 16 semaines intègre des points de validation intermédiaires avec le maître d'ouvrage.",
+        "exemple_reponse_forte": "La méthodologie s'appuie sur le croisement SIG de la cartographie EHTPP 2024 avec les besoins fonctionnels du gestionnaire (SDIS, équipe réserve), débouchant sur 5 zones prioritaires hiérarchisées. Les investigations terrain (géoradar et détection EM) sont planifiées en septembre-octobre pour éviter la fermeture estivale, avec 3 semaines de délai d'autorisation MDA anticipées dans le planning. Trois scénarios (minimal/intermédiaire/élargi) seront comparés sur coût, impact environnemental et faisabilité technique.",
         "source": "RC §8.3",
+        "unite_evaluation": "points",
         "sous_criteres": []
       }
     ],
     "prix": {
       "type_formule": "moins_disant",
-      "formule_explicite": "Note du candidat = 100 × (montant de l'offre la moins disante / montant de l'offre du candidat). Le montant de l'offre est le montant total de la DPGF.",
+      "formule_explicite": "Note prix = 100 × (montant de l'offre la moins disante / montant de l'offre du candidat) ; le montant est le montant total de la DPGF",
+      "source": "RC §8.3",
       "elements_a_chiffrer": [
-        "Montant total de la Décomposition du Prix Global Forfaitaire (DPGF)",
-        "Analyse des cartographies de risques et des besoins en intervention",
-        "Visites de terrain (déplacements, temps passé)",
-        "Définition par zone du besoin de dépollution et caractéristiques des opérations",
-        "Définition des modalités techniques d'intervention et coûts prévisionnels"
+        "Phase cartographique : analyse croisée des cartographies (10% du forfait)",
+        "Phase de terrain : visite de terrain (10% du forfait)",
+        "Phase d'investigation des engins : investigations et qualification du risque pyrotechnique (40% du forfait)",
+        "Phase de définition des besoins de dépollution et des modalités d'intervention (40% du forfait)",
+        "Total forfaitaire DPGF (montant HT et TTC)"
       ]
     },
-    "modalite_calcul_prix": "Note du candidat = 100 × (montant de l'offre la moins disante / montant de l'offre du candidat). Le montant de l'offre est le montant total de la DPGF. Pondération 40%."
+    "modalite_calcul_prix": "Note prix = 100 × (offre la moins disante / offre du candidat) ; pondération 40%"
   },
   "montant_marche": {
     "valeur_estimee_euros": null,
     "fourchette_min_euros": null,
     "fourchette_max_euros": null,
     "type": "non_communique",
-    "duree_couverte": null,
+    "duree_couverte": "6 mois",
     "source_extraction": null,
-    "commentaire": "Aucun montant estimé, plafond ou enveloppe budgétaire n'est mentionné dans le RC fourni. Le CCAP et la DPGF (non fournis dans les pièces transmises) pourraient contenir des éléments de chiffrage."
+    "commentaire": "Aucun montant estimatif explicite communiqué dans le DCE. La DPGF est à compléter par le candidat. Voir montant_3_voies pour estimation bottom-up."
+  },
+  "montant_3_voies": {
+    "voie_1_eur": null,
+    "voie_1_source": null,
+    "voie_2_disponible": true,
+    "voie_2_min_eur": 90000,
+    "voie_2_max_eur": 140000,
+    "voie_2_hypotheses": [
+      {
+        "hypothese": "Durée globale de la mission : 6 mois (CCAP §5.1 + Annexe délais)",
+        "valeur": "6 mois"
+      },
+      {
+        "hypothese": "Charge estimée en jours-homme pour une prestation intellectuelle de cette complexité (expert pyrotechnie + écologue + SIG + chef de projet + rédaction) : 70 à 110 j-h au total — la charge est la dimension variée",
+        "valeur": "70-110 j-h"
+      },
+      {
+        "hypothese": "Taux journalier moyen d'un groupement expert (ingénierie environnementale spécialisée pyrotechnie) fixé à sa valeur centrale de 1 250 €/j HT (ratio marché ingénierie spécialisée)",
+        "valeur": "1 250 €/j HT (valeur centrale fixe)"
+      },
+      {
+        "hypothese": "Frais terrain (déplacements, investigations géophysiques ciblées, sondages éventuels) : forfait estimé 5 000 à 10 000 € HT",
+        "valeur": "5 000-10 000 €"
+      },
+      {
+        "hypothese": "Calcul : 70 j-h × 1 250 €/j + 5 000 € frais = 92 500 € (borne basse) ; 110 j-h × 1 250 €/j + 10 000 € = 147 500 € (borne haute) — arrondi 90 000 / 140 000 €",
+        "valeur": "90 000 – 140 000 € HT"
+      }
+    ],
+    "voie_2_raison_indisponible": null
+  },
+  "cout_realisation": {
+    "cout_total_eur": 75000,
+    "cout_min_eur": 58000,
+    "cout_max_eur": 95000,
+    "postes": [
+      {
+        "poste": "Expert pyrotechnicien (phase 3 dominante + phases 1-2-4)",
+        "detail": "30 j-h × 900 €/j (taux coût chargé candidat estimé)",
+        "montant_eur": 27000
+      },
+      {
+        "poste": "Chef de projet / coordinateur (toutes phases + réunions MOA + rapport final)",
+        "detail": "20 j-h × 850 €/j",
+        "montant_eur": 17000
+      },
+      {
+        "poste": "Écologue / expert espaces naturels protégés (phase 2 et 4)",
+        "detail": "12 j-h × 750 €/j",
+        "montant_eur": 9000
+      },
+      {
+        "poste": "Cartographe SIG (phase 1 et livrables finaux)",
+        "detail": "8 j-h × 650 €/j",
+        "montant_eur": 5200
+      },
+      {
+        "poste": "Frais terrain (déplacements Beaurecueil depuis agence, EPI, matériel détection)",
+        "detail": "Forfait estimé",
+        "montant_eur": 6000
+      },
+      {
+        "poste": "Sous-traitance éventuelle investigations géophysiques (géoradar, EM)",
+        "detail": "Forfait partiel si externalisé (optionnel selon organisation candidat)",
+        "montant_eur": 8000
+      },
+      {
+        "poste": "Frais généraux et encadrement (structure)",
+        "detail": "Estimation 15% des honoraires directs",
+        "montant_eur": 3800
+      }
+    ],
+    "taux_journaliers_retenus": "Taux marché indicatifs (coût chargé candidat) : expert pyrotechnicien senior 900 €/j, chef de projet ingénierie environnementale 850 €/j, écologue expert 750 €/j, cartographe SIG 650 €/j. La dimension variée est la charge (j-h) : borne basse 60 j-h, borne haute 90 j-h au taux moyen de 800 €/j + frais.",
+    "commentaire": "Coût de production estimé à taux marché indicatifs. La fourchette fait varier la charge totale (60 j-h = 58 k€ vs 90 j-h + frais élevés = 95 k€), le taux journalier moyen restant fixe à ~800 €/j. Le coût est cohérent avec le revenu estimé (90-140 k€) : marge brute indicative ~20-40% selon organisation. Rapport max/min ≈ 1,64 reflétant l'incertitude sur la profondeur des investigations de terrain et la sous-traitance géophysique."
   },
   "revision_prix": {
-    "type": "non_communique",
-    "indices_utilises": [],
-    "ponderation": null,
-    "periodicite": null,
-    "formule_revision": null,
-    "source_extraction": null,
-    "commentaire": "Le CCAP n'a pas été fourni dans les pièces du DCE transmises. Aucune information sur la révision des prix n'est disponible dans le RC."
+    "type": "indexation",
+    "indices_utilises": [
+      "ING — Index divers dans la construction - Ingénierie - Base 2010 (Identifiant 001711010)"
+    ],
+    "ponderation": "85% index ING + 15% partie fixe (formule : Cn = 0,15 + 0,85 × (In/Io))",
+    "periodicite": "mensuelle",
+    "formule_revision": "Cn = 0,15 + 0,85 × (In/Io) ; Io = valeur de l'index au mois d'établissement des prix (mois zéro = mois de la date limite de remise des offres) ; In = valeur de l'index au mois de réalisation des prestations",
+    "source_extraction": "CCAP §6.2",
+    "commentaire": "Formule standard ingénierie avec 15% de partie fixe et 85% indexé sur l'ING. Marché court (6 mois) : impact de la révision limité mais à anticiper si l'indice ING évolue significativement. Révision définitive sur dernière valeur connue, sans variation provisoire."
   },
   "alertes_prix": [
-    "Pondération prix à 40% — relativement élevée pour une prestation intellectuelle, le prix sera un levier fort de différenciation.",
-    "Formule prix classique 'moins-disant' : un candidat proposant 50% de plus que le moins-disant ne récupère que 67 points sur 100 pour ce critère, soit une perte de 13,3 points pondérés.",
-    "La DPGF est le seul élément de chiffrage : une erreur arithmétique dans la décomposition peut être corrigée par l'acheteur (seul le total fait foi), mais le candidat devra rectifier si pressenti attributaire.",
-    "Aucun montant estimatif communiqué — difficulté à se positionner prix sans benchmark ; risque d'offre anormalement basse ou surévaluée."
+    "Pondération prix 40% relativement élevée pour une prestation intellectuelle complexe et spécialisée (expert pyrotechnie + écologie) : risque de dumping tarifaire, surveiller les offres anormalement basses.",
+    "DPGF structurée en 4 phases avec répartition fixe en % (10%/10%/40%/40%) : le candidat ne peut pas redistribuer les poids entre phases, ce qui contraint la ventilation des coûts.",
+    "Aucun montant estimatif publié : impossible de calibrer une offre par rapport à un budget connu — risque d'écart important entre candidats sans référentiel commun.",
+    "Négociation possible avec les 3 premiers candidats : le prix initial n'est pas définitif, il faut prévoir une marge de négociation tout en restant au-dessus du seuil de rentabilité."
   ],
   "references_exigees": {
     "experience_minimale_annees": null,
     "experience_source": null,
     "volume_min_references_similaires": null,
     "volume_min_references_unite": "marchés similaires",
-    "secteur_experience": "Prestations similaires à l'objet du marché (études de dépollution, études environnementales sur sites pollués), réalisées au cours des 3 dernières années, avec indication du maître d'ouvrage, de la nature exacte des prestations, du lieu, du montant et de l'année.",
-    "secteur_source": "RC §6.1",
+    "secteur_experience": "Gestion des risques pyrotechniques, écologie et gestion d'espaces naturels protégés, analyse cartographique SIG, ingénierie environnementale",
+    "secteur_source": "CCTP §4.1",
     "certifications_obligatoires": [],
     "autres_exigences": [
       {
-        "libelle": "Déclaration de chiffre d'affaires global et CA sur les prestations objet du contrat sur les 3 derniers exercices disponibles",
+        "libelle": "Déclaration concernant le chiffre d'affaires global et le chiffre d'affaires concernant les prestations objet du contrat, réalisées au cours des trois derniers exercices disponibles",
         "source": "RC §6.1"
       },
       {
-        "libelle": "Déclaration des effectifs moyens annuels et de l'importance du personnel d'encadrement sur les 3 dernières années",
+        "libelle": "Déclaration indiquant les effectifs moyens annuels du candidat et l'importance du personnel d'encadrement au cours des trois dernières années",
         "source": "RC §6.1"
       },
       {
-        "libelle": "Titres d'études et professionnels des opérateurs économiques et/ou des cadres, notamment des responsables de prestation",
+        "libelle": "Indication des titres d'études et professionnels de l'opérateur économique et/ou des cadres de l'entreprise, notamment des responsables de prestation de même nature",
         "source": "RC §6.1"
       },
       {
-        "libelle": "Respect des obligations de confidentialité et des mesures de sécurité particulières prévues au CCAP",
-        "source": "RC §4.3"
+        "libelle": "Liste des principales prestations effectuées au cours des trois dernières années, indiquant le montant, l'année et le destinataire",
+        "source": "RC §6.1"
+      },
+      {
+        "libelle": "Compétences démontrées par des références récentes et comparables en gestion des risques pyrotechniques, écologie, SIG et ingénierie environnementale",
+        "source": "CCTP §4.1"
       }
     ]
   },
+  "dossier_candidature": {
+    "pieces_a_fournir": [
+      {
+        "libelle": "Formulaire DC1 (lettre de candidature) ou Document Unique de Marché Européen (DUME)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §6.1"
+      },
+      {
+        "libelle": "Formulaire DC2 (déclaration du candidat) ou Document Unique de Marché Européen (DUME)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §6.1"
+      },
+      {
+        "libelle": "Déclaration concernant le chiffre d'affaires global et le CA concernant les prestations objet du contrat sur les 3 derniers exercices",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §6.1"
+      },
+      {
+        "libelle": "Déclaration indiquant les effectifs moyens annuels et l'importance du personnel d'encadrement sur 3 ans",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §6.1"
+      },
+      {
+        "libelle": "Indication des titres d'études et professionnels des responsables et cadres de l'entreprise",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §6.1"
+      },
+      {
+        "libelle": "Liste des principales prestations effectuées au cours des 3 dernières années (montant, année, destinataire)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §6.1"
+      },
+      {
+        "libelle": "Décomposition du prix global et forfaitaire (DPGF) dûment complétée",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §6.1"
+      },
+      {
+        "libelle": "Mémoire justificatif des dispositions que l'entreprise se propose d'adopter pour l'exécution du contrat",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §6.1"
+      },
+      {
+        "libelle": "Formulaire DC4 (déclaration de sous-traitance) dûment complété, en cas de sous-traitance",
+        "phase": "offre",
+        "obligatoire": false,
+        "source": "RC §6.1"
+      }
+    ],
+    "mode_remise": "dématérialisé",
+    "plateforme_depot": "https://marches.departement13.fr",
+    "signature_electronique_exigee": false,
+    "format_signature": null,
+    "nombre_exemplaires": null,
+    "langue": "français",
+    "duree_validite_offres_jours": 180,
+    "modalites_source": "RC §7.1"
+  },
   "lots": [],
+  "tranches": [],
   "calendrier": {
     "date_limite_offres": "2026-07-06",
     "date_demarrage_prevue": null,
-    "duree_marche": "Fixée au CCAP (non fourni)"
+    "duree_marche": "6 mois"
   },
   "alertes_candidat": [
-    "Le marché impose des obligations de confidentialité et des mesures de sécurité particulières (CCAP) : tout candidat ne respectant pas ces conditions verra son offre déclarée irrégulière.",
-    "La transmission des plis est obligatoirement électronique via https://marches.departement13.fr — aucune transmission papier n'est autorisée.",
-    "Le mémoire justificatif est obligatoire mais son absence ou incomplétude n'entraîne pas l'irrégularité ; en revanche, elle peut entraîner une note nulle sur la valeur technique (60% de la note totale), éliminant de facto la candidature en classement.",
-    "Le site est en zone de Réserve naturelle nationale : les intervenants devront probablement obtenir des autorisations spécifiques pour les visites de terrain — à anticiper dans la méthodologie et le planning.",
-    "Pas de variante autorisée — toute offre avec variante sera déclarée irrégulière. Seule la solution de base est attendue."
+    "Accès au terrain militaire subordonné à une autorisation préalable du ministère des Armées : le candidat doit anticiper les délais d'obtention dans son planning prévisionnel — à démontrer dans le mémoire technique.",
+    "Contraintes saisonnières strictes : l'accès au massif forestier de Sainte-Victoire est interdit par arrêté préfectoral en période estivale (risque incendie) ; les phases de terrain devront être planifiées hors de cette période, ce qui peut contraindre fortement le planning sur 6 mois.",
+    "Compétence pyrotechnique spécialisée impérative : le prestataire doit démontrer des références récentes en gestion des risques pyrotechniques (EHTPP, ESP, sondages pyrotechniques) — domaine très spécialisé avec peu d'acteurs qualifiés.",
+    "Obligation de confidentialité et mesures de sécurité spécifiques (CCAP §4) : le prestataire et ses sous-traitants sont soumis aux dispositions de l'article 5.1 et 5.3 du CCAG-PI ; toute violation peut entraîner résiliation.",
+    "Site classé, Natura 2000 (ZSC + ZPS) et réserve naturelle nationale : toute intervention sur le terrain (sondages invasifs, visites) doit être strictement conforme aux réglementations environnementales et patrimoniales — le mémoire doit démontrer la connaissance de ces contraintes."
   ],
   "points_differenciants_attendus": [
     {
-      "libelle": "Expérience spécifique en dépollution de champs de tir ou sites militaires",
-      "exemple": "Un candidat ayant conduit des études similaires sur d'anciens sites militaires (plombs de chasse, munitions, résidus pyrotechniques) pourra valoriser ces références dans ses CV et présentation d'équipe pour se démarquer sur le SC1.",
-      "source": "RC §8.3"
+      "libelle": "Expertise pyrotechnique démontrée par des références récentes sur terrains militaires reconvertis",
+      "exemple": "Le candidat cite 2-3 missions d'EHTPP ou ESP réalisées pour des collectivités ou l'État sur d'anciens champs de tir ou terrains militaires en cours de cession, avec indication du commanditaire, de la superficie et des conclusions opérationnelles produites.",
+      "source": "CCTP §4.1"
     },
     {
-      "libelle": "Connaissance des contraintes réglementaires liées aux réserves naturelles nationales",
-      "exemple": "Mentionner la maîtrise du régime juridique des RNN (Loi du 10 juillet 1976, décret constitutif de la RNN Sainte-Victoire fourni au DCE) et l'expérience de coordination avec gestionnaires de réserves dans la méthodologie.",
-      "source": null
+      "libelle": "Maîtrise des contraintes réglementaires et patrimoniales du site (réserve naturelle, Natura 2000, paléontologie)",
+      "exemple": "Le mémoire décrit une approche d'investigation pyrotechnique 'à faible impact' adaptée à la présence d'affleurements paléontologiques (œufs de dinosaures) et de micro-habitats d'espèces protégées dans les ouvrages militaires, en proposant des méthodes non invasives en priorité (géoradar, EM) et un protocole de concertation avec le conservateur de la réserve avant chaque intervention de terrain.",
+      "source": "CCTP §4.2"
     },
     {
-      "libelle": "Méthodologie structurée d'exploitation de l'Analyse Quantitative de Risques (AQR) fournie",
-      "exemple": "Présenter une approche explicite d'exploitation croisée de l'AQR fournie avec les cartographies de risques pour prioriser les zones d'intervention, démontrant une compréhension approfondie du contexte documentaire existant.",
-      "source": "RC §1.1"
+      "libelle": "Planning intégrant les contraintes opérationnelles spécifiques (autorisations MDA, fermetures saisonnières)",
+      "exemple": "Le planning prévisionnel articule la phase cartographique (15 j ouvrés, réalisable hors terrain) immédiatement après notification, les visites terrain planifiées en septembre-novembre pour éviter la fermeture estivale, avec un délai de 4 semaines pour obtenir les autorisations MDA anticipé en amont du démarrage.",
+      "source": "CCTP §4.3 et §4.4"
     },
     {
-      "libelle": "Planning réaliste intégrant les contraintes d'accès au site naturel protégé",
-      "exemple": "Proposer un planning qui anticipe les périodes favorables aux visites de terrain en réserve naturelle (saison, autorisations, météo), avec jalons de validation intermédiaires, pour démontrer la maîtrise des risques opérationnels spécifiques au site.",
-      "source": "RC §8.3"
+      "libelle": "Expérience en production de scénarios de dépollution comparatifs (outil d'aide à la décision MOA)",
+      "exemple": "Le candidat présente une référence similaire où il a produit plusieurs scénarios de dépollution comparés par analyse multicritère (coût/efficacité/impact environnemental) à destination d'un maître d'ouvrage public, avec un programme opérationnel directement mobilisable pour une phase travaux ultérieure.",
+      "source": "CCTP §3.1"
+    },
+    {
+      "libelle": "Capacité de coordination avec les partenaires institutionnels (ministère des Armées, services de l'État)",
+      "exemple": "Le mémoire décrit le mode de coordination proposé avec la SID (Service d'Infrastructure de la Défense) et les services de l'État pour les réunions de restitution co-présidées avec le MOA, en s'appuyant sur une expérience préalable de travail avec des entités du ministère des Armées.",
+      "source": "CCTP §4.6"
     }
   ],
   "_meta": {
     "id_marche": "BOAMP-26-56815",
     "type": "complet",
-    "extraction_le": "2026-06-12T13:07:37.463646+00:00",
+    "date_generation": "2026-06-19T23:46:37.305858+00:00",
+    "extraction_le": "2026-06-19T23:46:37.305858+00:00",
     "modele": "claude-sonnet-4-6",
-    "tokens_input": 23272,
-    "tokens_output": 4573,
-    "cout_eur": 0.1315,
-    "duree_sec": 86.0,
+    "preset_utilise": "ingenierie",
+    "presets_matches": [
+      "ingenierie",
+      "energie_renouvelable"
+    ],
+    "prompts_versions": {
+      "ingenierie/_preset.json": "sha256:b924b32a088673d6",
+      "energie_renouvelable/_preset.json": "sha256:d5db6e4d3d386add"
+    },
+    "tokens_input": 85036,
+    "tokens_output": 8063,
+    "cout_eur": 0.3573,
+    "duree_sec": 145.3,
     "pdfs_traites": [
+      {
+        "nom": "2 - DPGF étude dépollutionVD.docx",
+        "hash": "c05e5a56b8028dbc3d92af25283dbaed",
+        "taille_chars": 1126
+      },
+      {
+        "nom": "Analyse Quantitative de Risque.pdf",
+        "hash": "2489c79f591b4a98cbae0a6cd80949dc",
+        "taille_chars": 18128
+      },
+      {
+        "nom": "Annexe 1 au RC Procédure réponse électronique 20251217.pdf",
+        "hash": "2939890b54629ef9d44eb7e4226f3a00",
+        "taille_chars": 16097
+      },
+      {
+        "nom": "Annexe au CCAP Décompostion délai.pdf",
+        "hash": "c566c801b97b88b7296c6e61956dda93",
+        "taille_chars": 1248
+      },
+      {
+        "nom": "CCAP Dépollution Sainte Victoire.pdf",
+        "hash": "e5d8c66fdb84c032cb85ac1fc39aee24",
+        "taille_chars": 39803
+      },
+      {
+        "nom": "CCTP Etude dépollution.pdf",
+        "hash": "0a9dc1f8042aabf9fd1aa388daed9ebf",
+        "taille_chars": 29278
+      },
+      {
+        "nom": "Carte projet d'extension.pdf",
+        "hash": "46e602c165c4d0bf0266f9d534cfac3d",
+        "taille_chars": 0
+      },
+      {
+        "nom": "DC4_2023_Duree_contrat_sous_traitance.docx",
+        "hash": "d98f911b2b851992e826a7713fb3eff4",
+        "taille_chars": 15957
+      },
       {
         "nom": "RC DÃ©pollution Sainte Victoire.pdf",
         "hash": "d0207ec732fefd0fb3028043b5c09627",
         "taille_chars": 32976
+      },
+      {
+        "nom": "RC Dépollution Sainte Victoire.pdf",
+        "hash": "27e8489dcf78d4ebf74a57f17ac1d2a1",
+        "taille_chars": 32976
+      },
+      {
+        "nom": "decret-RNNSV.pdf",
+        "hash": "4f214412c149006687b57acba985f893",
+        "taille_chars": 10841
       }
     ]
   }

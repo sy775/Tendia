@@ -1,11 +1,11 @@
 {
-  "synthese_marche": "Marché de maîtrise d'œuvre complète pour la réhabilitation de l'ancienne pharmacie du Centre Hospitalier de Villefranche-sur-Saône (HNOV) afin d'accueillir un service de cuisine satellite d'allotissement (1 200 repas/jour). Le projet comprend également le curage de l'ancienne cuisine de production et la démolition d'un local technique pour créer des places de stationnement ambulance. L'enveloppe travaux est estimée à 2 400 000 € HT, en site occupé (hôpital en activité).",
+  "synthese_marche": "Marché de maîtrise d'œuvre complète (APS à AOR) pour la réhabilitation de l'ancienne pharmacie du Centre Hospitalier de Villefranche-sur-Saône afin d'y créer une cuisine satellite d'allotissement hospitalière (liaison froide, ~1 200 repas/jour). L'opération comprend également le curage de l'ancienne cuisine de production et la démolition d'un local technique. Le marché est passé en procédure négociée avec sélection de 3 candidats maximum, pour une enveloppe travaux estimée à 2 400 000 € HT.",
   "domaines_metier": [
     {
       "code": "moe_architecte_urbanisme"
     }
   ],
-  "raison_classification": "Le marché porte explicitement sur une mission complète de maîtrise d'œuvre (APS à AOR) pour la réhabilitation d'un bâtiment hospitalier, avec architecte mandataire obligatoire et groupement pluridisciplinaire. Le CPV principal est 71000000 (services d'architecture) et le RC impose la compétence 'Architecture' comme condition sine qua non. Le projet ne porte pas sur des travaux de construction mais sur des études et la direction des travaux.",
+  "raison_classification": "Le marché porte exclusivement sur une mission complète de maîtrise d'œuvre architecturale et technique de bâtiment (réhabilitation d'un local hospitalier existant), avec des phases APS, APD, PRO, AMT, EXE, VISA, DET, AOR, et exige la présence d'un architecte mandataire inscrit à l'ordre. Le code moe_architecte_urbanisme est le plus pertinent, la spécialité restauration collective étant une contrainte programmatique et non un domaine métier distinct.",
   "caracteristiques_mission_moe": {
     "typologie": "MOE complète",
     "phases_couvertes": [
@@ -18,72 +18,71 @@
       "DET",
       "AOR"
     ],
-    "typologie_ouvrage": "Réhabilitation de bâtiment hospitalier existant (ancienne pharmacie) pour création d'une cuisine satellite d'allotissement, en site occupé",
+    "typologie_ouvrage": "Réhabilitation de bâtiment existant en site hospitalier occupé (cuisine satellite d'allotissement en milieu hospitalier)",
     "montant_travaux_estime": 2400000,
     "complexite_technique": "complexe",
     "livrables_par_phase": [
       {
         "phase": "APS",
         "livrables": [
-          "Dossier APS complet (format informatique PDF, Autocad)",
-          "Estimation prévisionnelle des travaux C(apd)"
+          "Étude d'avant-projet sommaire",
+          "Estimation prévisionnelle des travaux C(apd)",
+          "Documents au format informatique (pdf, autocad)"
         ]
       },
       {
         "phase": "APD",
         "livrables": [
-          "Dossier APD complet (format informatique PDF, Autocad)",
-          "Coût prévisionnel des travaux C(apd)",
-          "Dossier d'autorisation administrative le cas échéant"
+          "Étude d'avant-projet définitif",
+          "Estimation prévisionnelle des travaux C(apd)'",
+          "Dossier d'autorisation administrative",
+          "Documents au format informatique"
         ]
       },
       {
         "phase": "PRO",
         "livrables": [
-          "Dossier PRO complet (format informatique PDF, Autocad)",
+          "Études de projet",
           "Coût de référence des travaux C(ref)",
-          "Dossier d'autorisation administrative"
+          "Documents au format informatique"
         ]
       },
       {
         "phase": "ACT",
         "livrables": [
-          "Pièces techniques pour la consultation des entreprises (DCE travaux)",
-          "Dossier de Consultation des Entreprises (DCE)"
+          "Assistance au maître d'ouvrage pour la passation des marchés de travaux (AMT)",
+          "Pièces techniques DCE",
+          "Analyse des offres entreprises"
         ]
       },
       {
         "phase": "EXE",
         "livrables": [
-          "Plans d'exécution",
           "Devis quantitatif détaillé (DQE)",
+          "Plans d'exécution",
           "Études de synthèse (SYN)",
-          "Calendrier détaillé d'exécution"
-        ]
-      },
-      {
-        "phase": "VISA",
-        "livrables": [
-          "Visa des plans d'exécution réalisés par les entreprises"
+          "Calendrier détaillé d'exécution",
+          "Visa des plans d'exécution réalisés par les entreprises (VISA)"
         ]
       },
       {
         "phase": "DET",
         "livrables": [
-          "Comptes-rendus de réunions de chantier",
-          "États d'acomptes mensuels entreprises",
-          "FTM (fiches de travaux modificatifs)",
-          "Carnet des écarts mensuel"
+          "Direction de l'exécution des marchés publics de travaux",
+          "États d'acomptes mensuels",
+          "Fiches modificatives de travaux (FTM)",
+          "Carnet des écarts mensuel",
+          "Décompte général"
         ]
       },
       {
         "phase": "AOR",
         "livrables": [
+          "Assistance aux opérations de réception",
           "Procès-verbal des opérations préalables à la réception",
-          "DOE (Dossier des Ouvrages Exécutés)",
+          "Dossier des ouvrages exécutés (DOE)",
           "Dossier de maintenance",
-          "Levée des réserves",
-          "Instruction des mémoires de réclamation"
+          "Suivi levée des réserves durant GPA"
         ]
       }
     ],
@@ -92,24 +91,20 @@
       "ING Ingénierie"
     ],
     "coordinations_associees": [
-      "OPC inclus dans la mission de base",
-      "SPS hors marché (prestataire distinct)",
-      "CSSI hors marché (prestataire distinct)",
-      "Contrôle technique hors marché (prestataire distinct)"
+      "OPC non mentionné comme inclus ou exclu — non précisé dans les pièces disponibles",
+      "SPS hors marché (coordonnateur SPS mentionné comme tiers)",
+      "SSI hors marché (coordonnateur SSI mentionné comme tiers)",
+      "Contrôle technique hors marché (contrôleur technique agréé mentionné comme tiers)",
+      "Mission Désamiantage — mission complémentaire incluse"
     ],
     "organigramme_attendu": [
       {
-        "profil": "Architecte (mandataire du groupement, obligatoirement inscrit à l'Ordre des Architectes)",
-        "nombre": null,
+        "profil": "Architecte mandataire (inscrit à l'Ordre des architectes)",
+        "nombre": 1,
         "anciennete_min_annees": null
       },
       {
-        "profil": "OPC - Ordonnancement Pilotage Coordination",
-        "nombre": null,
-        "anciennete_min_annees": null
-      },
-      {
-        "profil": "Ingénieur restauration collective / cuisine hospitalière",
+        "profil": "Ingénieur restauration collective (spécialiste cuisine collective en établissement de santé)",
         "nombre": null,
         "anciennete_min_annees": null
       },
@@ -132,6 +127,11 @@
         "profil": "Économiste de la construction",
         "nombre": null,
         "anciennete_min_annees": null
+      },
+      {
+        "profil": "Responsable OPC (Ordonnancement Pilotage Coordination)",
+        "nombre": null,
+        "anciennete_min_annees": null
       }
     ],
     "bim_niveau": null
@@ -141,7 +141,7 @@
     "opqcm": [],
     "bim": null,
     "autres": [
-      "Inscription à l'Ordre des Architectes obligatoire pour le mandataire architecte"
+      "Inscription à l'Ordre des architectes obligatoire pour le membre portant la compétence Architecture"
     ]
   },
   "bareme_notation": {
@@ -149,176 +149,374 @@
     "valeur_prix_pct": 40,
     "sous_criteres_techniques": [
       {
-        "libelle": "Qualité et pertinence de la méthodologie proposée pour la conduite du projet, dans ses trois composantes de phase d'études, de chantier et de réception",
-        "ponderation_pct": 35,
-        "description": "L'acheteur évalue la qualité et la pertinence de la méthodologie proposée pour conduire le projet dans ses trois composantes : phase d'études, phase de chantier et phase de réception. Il s'agit de démontrer la maîtrise des enjeux spécifiques de ce projet (cuisine hospitalière en site occupé, marche en avant, contraintes DDPP).",
-        "elements_attendus": [
-          "Méthodologie détaillée pour la phase d'études (APS à PRO) intégrant les contraintes de cuisine hospitalière et les normes HACCP/marche en avant",
-          "Organisation du chantier en site occupé avec maintien de l'activité hospitalière : phasage, mesures de sécurité sanitaire et incendie (ERP type U)",
-          "Méthodologie de réception des travaux incluant les essais SSI, les réceptions DDPP et EPRI",
-          "Prise en compte de la résiliation du précédent marché à l'issue de l'APD (redéfinition des besoins, reprise de projet)",
-          "Coordination avec les intervenants : CSSI, contrôleur technique, CSPS, service EPRI de l'hôpital",
-          "Planification des phases et jalons contractuels avec calendrier prévisionnel réaliste"
-        ],
-        "exemple_reponse_forte": "Le groupement proposera une méthodologie en deux temps : une phase d'études structurée autour de réunions hebdomadaires avec le DPTM et le service restauration pour valider la marche en avant et les flux propres/sales, suivie d'une phase chantier organisée en zones géographiques successives pour maintenir l'accès aux services adjacents. La réception intégrera une procédure spécifique avec présentation à la commission de sécurité (ERP type U 1ère catégorie) et validation par la DDPP avant mise en service.",
-        "source": "RC article 7",
-        "sous_criteres": []
-      },
-      {
-        "libelle": "Qualité et pertinence des moyens humains personnels et répartition des temps et des rôles affectés",
-        "ponderation_pct": 20,
-        "description": "L'acheteur évalue la composition de l'équipe, les qualifications professionnelles des personnes physiques désignées pour l'exécution du marché, ainsi que la répartition des temps et des rôles entre les différents membres du groupement.",
-        "elements_attendus": [
-          "Identification nominative des personnes physiques chargées de l'exécution, avec CV et titres professionnels",
-          "Répartition claire des temps et des rôles entre architecte, BET fluides, ingénierie restauration collective, structures, CFo/CFa, économiste et OPC",
-          "Expérience démontrée en cuisine collective hospitalière et en réhabilitation en site occupé",
-          "Disponibilité des personnes clés sur la durée du marché (24 mois)"
-        ],
-        "exemple_reponse_forte": "L'équipe sera conduite par un architecte chef de projet avec 10 ans d'expérience en réhabilitation hospitalière, secondé par un ingénieur spécialisé en ingénierie de restauration collective ayant réalisé 3 cuisines hospitalières en établissements de santé. Le tableau de répartition des temps par phase (APS à AOR) montrera l'implication de chaque compétence aux moments clés, notamment l'ingénieur restauration en phase APS-APD pour la définition des flux.",
-        "source": "RC article 7",
-        "sous_criteres": []
-      },
-      {
-        "libelle": "Pertinence et qualité de la démarche développement durable et environnementale",
-        "ponderation_pct": 5,
-        "description": "L'acheteur évalue la démarche développement durable et environnementale proposée par le candidat dans le cadre de l'opération.",
-        "elements_attendus": [
-          "Démarche de réduction des consommations d'eau et d'énergie dans la conception de la cuisine",
-          "Choix de matériaux durables et prise en compte de la gestion des déchets de chantier",
-          "Récupération d'énergie (frigories, calories) dans les équipements frigorifiques et CVC"
-        ],
-        "exemple_reponse_forte": "Le groupement proposera une démarche DD intégrant la récupération de chaleur des condenseurs frigorifiques pour préchauffer l'eau chaude sanitaire, le choix de revêtements à faible entretien chimique et un plan de gestion des déchets de curage distinguant les fractions réemployables des déchets dangereux (amiante).",
-        "source": "RC article 7",
-        "sous_criteres": []
+        "libelle": "Note technique",
+        "ponderation_pct": 60,
+        "description": "Évaluation globale de la proposition technique du soumissionnaire selon 3 sous-critères : méthodologie de conduite du projet, moyens humains affectés, et démarche développement durable et environnementale.",
+        "elements_attendus": [],
+        "exemple_reponse_forte": "—",
+        "source": "RC Article 7",
+        "unite_evaluation": "points",
+        "sous_criteres": [
+          {
+            "libelle": "Qualité et pertinence de la méthodologie proposée pour la conduite du projet, dans ses trois composantes de phase d'études, de chantier et de réception",
+            "ponderation_pct": 35,
+            "description": "L'acheteur évalue la méthodologie proposée par le candidat pour la conduite du projet dans ses trois dimensions : phase d'études (APS à PRO), phase chantier (EXE, VISA, DET) et phase de réception (AOR). La pertinence de l'approche au regard des contraintes spécifiques du projet (site occupé, hygiène alimentaire, DDPP, CSSI, désamiantage) est attendue.",
+            "elements_attendus": [
+              "Description de la méthodologie de conception : intégration dès APS des contraintes de marche en avant, HACCP, normes DDPP",
+              "Organisation de chantier en site hospitalier occupé : phasage, zones d'intervention, maintien de l'activité",
+              "Coordination avec les tiers (CSSI, SPS, contrôleur technique) à chaque phase",
+              "Processus de validation et de réception : OPR, levée de réserves, GPA",
+              "Gestion des contraintes de désamiantage en phase conception et exécution",
+              "Planning détaillé cohérent avec le calendrier prévisionnel (conception déc. 2026 → travaux oct. 2027)"
+            ],
+            "exemple_reponse_forte": "Notre méthodologie s'appuie sur une approche en site occupé hospitalisé : dès l'APS, nous intégrons la marche en avant validée par le service EPRI et la DDPP, avec une simulation des flux en BIM. En phase chantier, le phasage s'organise en deux séquences successives (pharmacie / curage / démolition) pour garantir la continuité du service de restauration temporaire actuel, avec des réunions CSSI hebdomadaires et des analyses IOP croisées.",
+            "source": "RC Article 7, sous-critère 1.1",
+            "unite_evaluation": "points",
+            "sous_criteres": []
+          },
+          {
+            "libelle": "Qualité et pertinence des moyens humains personnels et répartition des temps et des rôles affectés",
+            "ponderation_pct": 20,
+            "description": "L'acheteur évalue la composition de l'équipe mobilisée sur le marché, la répartition des temps entre les intervenants et la pertinence de l'affectation des rôles au regard des compétences exigées (architecture, OPC, restauration collective, structures, fluides, CVC, CF, économie).",
+            "elements_attendus": [
+              "Organigramme nominatif de l'équipe avec CV des intervenants clés",
+              "Répartition des jours-homme par phase et par compétence",
+              "Identification claire du chef de projet / coordinateur de l'équipe MOE",
+              "Engagement de disponibilité des personnels nommés à l'offre",
+              "Adéquation des profils aux spécificités : ingénieur restauration collective hospitalière, maîtrise des normes ERP type U"
+            ],
+            "exemple_reponse_forte": "L'équipe mobilise 6 intervenants nominatifs : un architecte chef de projet (200 h), un ingénieur restauration collective hospitalière (120 h), un BET structure (80 h), un BET fluides-CVC (100 h), un BET CF/CFA (80 h) et un économiste (60 h). La répartition par phase est détaillée dans le tableau joint, avec engagement de non-substitution des personnes désignées sans accord préalable du MOA.",
+            "source": "RC Article 7, sous-critère 1.2",
+            "unite_evaluation": "points",
+            "sous_criteres": []
+          },
+          {
+            "libelle": "Pertinence et qualité de la démarche développement durable et environnementale",
+            "ponderation_pct": 5,
+            "description": "L'acheteur évalue la démarche développement durable et environnementale proposée par le candidat dans le cadre de l'opération, notamment en lien avec les objectifs fixés dans la note d'intention programmatique (réduction consommation eau/énergie, gestion des déchets, matériaux durables, gestion de chantier).",
+            "elements_attendus": [
+              "Engagement sur la réduction de la consommation d'eau et d'énergie (récupération d'énergie sur équipements frigorifiques)",
+              "Choix de matériaux durables adaptés aux contraintes alimentaires (hygiène, entretien)",
+              "Plan de gestion des déchets de chantier (désamiantage, curage)",
+              "Optimisation des déplacements de l'équipe MOE (visioconférences en phase études)"
+            ],
+            "exemple_reponse_forte": "Notre démarche DD prévoit la récupération de chaleur fatale des groupes froids pour le préchauffage de l'ECS, le choix de matériaux biosourcés compatibles normes HACCP, et un plan de gestion des déchets de désamiantage et curage intégré dès la phase APS. En phase études, nous privilégions les réunions en visioconférence conformément aux exigences du CCAP.",
+            "source": "RC Article 7, sous-critère 1.3",
+            "unite_evaluation": "points",
+            "sous_criteres": []
+          }
+        ]
       }
     ],
     "prix": {
       "type_formule": "autre",
-      "formule_explicite": "Le RC ne précise pas la formule de notation du prix. Le prix des prestations est pondéré à 40% du total.",
+      "formule_explicite": "Le critère Prix représente 40% de la note globale. La formule exacte de notation n'est pas précisée dans les documents phase candidature disponibles — elle sera détaillée dans le DCE phase offre (DPGF).",
+      "source": "RC Article 7",
       "elements_a_chiffrer": [
-        "Décomposition du Prix Global et Forfaitaire (DPGF) par phase de mission (APS, APD, PRO, ACT/AMT, EXE/SYN, VISA, DET, AOR)",
-        "Bordereau de Prix Unitaires (BPU) avec prix de journée par catégorie de personnel",
-        "Mission complémentaire désamiantage",
-        "Prix forfaitaire global de la mission de maîtrise d'œuvre"
+        "Décomposition du prix global et forfaitaire (DPGF) par phase de mission (APS, APD, PRO, AMT, EXE/SYN, VISA, DET, AOR)",
+        "Bordereau des prix unitaires (BPU) — prix de journée par catégorie de personnel",
+        "Mission complémentaire Désamiantage (chiffrée séparément)"
       ]
     },
-    "modalite_calcul_prix": "Prix des prestations pondéré à 40%. La formule exacte de notation n'est pas précisée dans les documents de candidature ; elle sera détaillée dans le DCE phase offres."
+    "modalite_calcul_prix": "Critère prix pondéré à 40%. Formule exacte non communiquée en phase candidature — sera précisée dans le DCE phase offre. Le marché est à prix global et forfaitaire provisoire transformé en forfait définitif après APD."
   },
   "montant_marche": {
     "valeur_estimee_euros": null,
-    "fourchette_min_euros": null,
-    "fourchette_max_euros": null,
-    "type": "non_communique",
-    "duree_couverte": "24 mois ferme (6 mois études + 6 mois travaux + 12 mois GPA)",
-    "source_extraction": "RC article 2.2 page 6 ; taux de rémunération MOE non communiqué dans les pièces de candidature",
-    "commentaire": "Le montant des honoraires MOE n'est pas communiqué à ce stade (phase candidature). L'enveloppe travaux est de 2 400 000 € HT (RC article 1.1). La DPGF et le BPU seront fournis aux candidats sélectionnés dans le DCE phase offres. À titre d'ordre de grandeur, pour un taux MOE de 10-12% sur réhabilitation hospitalière complexe, les honoraires se situeraient entre 240 000 et 288 000 € HT."
+    "fourchette_min_euros": 192000,
+    "fourchette_max_euros": 288000,
+    "type": "calcule_volumes",
+    "duree_couverte": "24 mois (6 mois études + 6 mois travaux + 12 mois GPA)",
+    "source_extraction": "RC art. 1.1 (enveloppe travaux 2 400 000 € HT) + taux MOE estimé 8-12% selon complexité",
+    "commentaire": "Le taux de rémunération MOE n'est pas explicitement mentionné dans les pièces phase candidature. Estimation calculée sur la base de l'enveloppe travaux de 2 400 000 € HT × un taux MOE estimé entre 8% (240 000 €) et 12% (288 000 €) pour une réhabilitation complexe en site hospitalier occupé avec compétences multiples. Borne basse retenue à 192 000 € (8% × 2 400 000 €) et borne haute à 288 000 € (12% × 2 400 000 €). Valeur centrale : ~240 000 €."
+  },
+  "montant_3_voies": {
+    "voie_1_eur": null,
+    "voie_1_source": null,
+    "voie_2_disponible": true,
+    "voie_2_min_eur": 192000,
+    "voie_2_max_eur": 288000,
+    "voie_2_hypotheses": [
+      {
+        "hypothese": "Enveloppe travaux fixée par le MOA",
+        "valeur": "2 400 000 € HT (RC art. 1.1)"
+      },
+      {
+        "hypothese": "Taux MOE appliqué — dimension variée (la plus incertaine) ; charge fixée à enveloppe travaux 2 400 000 €",
+        "valeur": "Taux variant de 8% à 12% selon complexité (réhabilitation hospitalière multi-compétences en site occupé, OPC inclus, désamiantage)"
+      },
+      {
+        "hypothese": "Borne basse : taux 8% × 2 400 000 €",
+        "valeur": "192 000 €"
+      },
+      {
+        "hypothese": "Borne haute : taux 12% × 2 400 000 €",
+        "valeur": "288 000 €"
+      },
+      {
+        "hypothese": "Valeur centrale estimée : taux 10%",
+        "valeur": "240 000 €"
+      }
+    ],
+    "voie_2_raison_indisponible": null
+  },
+  "cout_realisation": {
+    "cout_total_eur": 162000,
+    "cout_min_eur": 132000,
+    "cout_max_eur": 192000,
+    "postes": [
+      {
+        "poste": "Architecte mandataire (conception + suivi)",
+        "detail": "250 j-h × 650 €/j (taux marché architecte MOE bâtiment)",
+        "montant_eur": 162500
+      },
+      {
+        "poste": "Ingénieur restauration collective hospitalière",
+        "detail": "80 j-h × 700 €/j (spécialiste rare, taux majoré)",
+        "montant_eur": 56000
+      },
+      {
+        "poste": "BET structures",
+        "detail": "50 j-h × 600 €/j",
+        "montant_eur": 30000
+      },
+      {
+        "poste": "BET fluides / CVC / plomberie",
+        "detail": "70 j-h × 600 €/j",
+        "montant_eur": 42000
+      },
+      {
+        "poste": "BET courants forts et courants faibles",
+        "detail": "50 j-h × 580 €/j",
+        "montant_eur": 29000
+      },
+      {
+        "poste": "OPC",
+        "detail": "40 j-h × 550 €/j",
+        "montant_eur": 22000
+      },
+      {
+        "poste": "Économiste de la construction",
+        "detail": "40 j-h × 550 €/j",
+        "montant_eur": 22000
+      },
+      {
+        "poste": "Frais de déplacements et frais généraux",
+        "detail": "Forfait estimé (visites site, réunions chantier, reprographies)",
+        "montant_eur": 8000
+      }
+    ],
+    "taux_journaliers_retenus": "Architecte MOE : 650 €/j ; Ingénieur restauration collective hospitalière : 700 €/j ; Ingénieur BET structure/fluides/CF : 580-600 €/j ; OPC/Économiste : 550 €/j. Taux marché indicatifs, structure de coût réelle du candidat non connue.",
+    "commentaire": "Estimation bottom-up du coût de production du groupement MOE. Charges totales estimées à ~371 500 € (somme des postes), à comparer à un revenu estimé de 192 000 € à 288 000 €. ATTENTION : le coût de production estimé ci-dessus (371 500 €) dépasse le revenu estimé du marché (240 000 €), ce qui suggère soit une surestimation des charges (les taux journaliers réels du groupement peuvent être inférieurs aux taux marché, ou la charge réelle moindre), soit que le taux MOE réel négocié sera supérieur à 10-12%. Un groupement structuré avec des taux moyens de 350-400 €/j et une charge totale de 450 j-h environ peut atteindre une marge satisfaisante. La charge globale de 450 j-h × 350 €/j de coût moyen chargé = ~157 500 € de coût réel, pour un revenu de 240 000 € soit une marge brute d'environ 34%."
   },
   "revision_prix": {
     "type": "indexation",
     "indices_utilises": [
       "ING Ingénierie"
     ],
-    "ponderation": "Révision intégrale sur l'index ING Ingénierie (coefficient C = In/Io, sans partie fixe mentionnée)",
-    "periodicite": "autre",
-    "formule_revision": "Cn = (In/Io) — In et Io sont les valeurs de l'index ING Ingénierie au mois n et au mois zéro (mois de remise des offres). Arrondi au millième supérieur.",
+    "ponderation": "Révision 100% sur l'index ING Ingénierie (pas de partie fixe mentionnée)",
+    "periodicite": null,
+    "formule_revision": "Cn = (In/Io) — où Io et In sont les valeurs de l'index ING Ingénierie au mois zéro et au mois n",
     "source_extraction": "CCAP article 4.3.1.2",
-    "commentaire": "Révision 100% sur l'index ING Ingénierie (publié au Moniteur des Travaux Publics) : favorable pour le candidat en période d'inflation des coûts de prestations intellectuelles, mais formule sans partie fixe — attention au risque de sous-évaluation si l'index baisse."
+    "commentaire": "Formule simple basée sur l'index ING Ingénierie publié au Moniteur des Travaux Publics. Index unique sans partie fixe, ce qui expose le titulaire à la volatilité de cet index mais lui permet de bénéficier pleinement de l'inflation des coûts d'ingénierie."
   },
   "alertes_prix": [
-    "Le taux de rémunération MOE n'est pas communiqué en phase candidature : impossible de chiffrer les honoraires sans les documents de la phase offres (DPGF/BPU).",
-    "Le marché fait suite à une résiliation d'un précédent marché à l'issue de l'APD : risque de redéfinition du programme en cours d'exécution avec impact sur le forfait (clause de réexamen article 4.4 CCAP).",
-    "Engagements contractuels forts sur le respect des coûts travaux avec pénalités pouvant atteindre 15% de la rémunération DET+AOR en cas de dépassement du coût constaté C(dgd) > C(tx)'×1,03 (CCAP article 4.5.6).",
-    "Prime de 10 000 € HT versée à chaque soumissionnaire ayant remis une offre conforme — à intégrer dans la stratégie de prix (déduite du forfait pour l'attributaire)."
+    "Pondération prix de 40% élevée pour un marché de MOE bâtiment (typiquement 20-30%) : le prix sera déterminant dans la sélection finale.",
+    "Le taux de rémunération MOE n'est pas publié — risque de positionnement prix sans référence ; le candidat doit estimer précisément ses charges pour ne pas sous-évaluer.",
+    "Le marché est à prix provisoire converti en forfait définitif après APD : engagement fort sur le respect de l'enveloppe travaux de 2 400 000 € HT avec pénalités financières en cas de dépassement (articles 4.5.3 à 4.5.6 du CCAP).",
+    "Pénalités de retard : 150 €/j pour retard sur livrables APS/APD/PRO/DCE ; 200 €/j pour retard notification OS — à intégrer dans le chiffrage du risque."
   ],
   "references_exigees": {
     "experience_minimale_annees": null,
     "experience_source": null,
     "volume_min_references_similaires": 3,
     "volume_min_references_unite": "références par compétence",
-    "secteur_experience": "Réhabilitation ou restructuration dans le domaine de la cuisine collective, de la cuisine collective hospitalière ou du tertiaire, pour une surface d'au moins 1 000 m², en site occupé (selon la compétence concernée). Pour la compétence 'Ingénierie restauration collective' : cuisine collective en établissement de santé obligatoirement.",
-    "secteur_source": "RC article 4.2 §11 et tableau des références types",
+    "secteur_experience": "Réhabilitation ou restructuration dans le domaine de la cuisine collective, de la cuisine collective hospitalière ou du tertiaire, pour une surface d'au moins 1 000 m², en site occupé (critères variables selon la compétence concernée). Pour la compétence ingénierie restauration collective : obligatoirement en établissement de santé.",
+    "secteur_source": "RC art. 4.2, tableau 'Référence type' et art. 5.1",
     "certifications_obligatoires": [
       {
-        "libelle": "Inscription à l'Ordre des Architectes (obligatoire pour le mandataire architecte)",
-        "source": "RC article 4.1 et article 4.2 §7"
+        "libelle": "Inscription à l'Ordre des architectes (pour le membre portant la compétence Architecture)",
+        "codes": [],
+        "bloquante": true,
+        "source": "RC art. 4.1 et art. 4.2 §7"
       }
     ],
     "autres_exigences": [
       {
-        "libelle": "Chiffre d'affaires annuel minimum de l'équipe candidate (somme des membres) sur le dernier exercice disponible : 400 000 € HT",
-        "source": "RC article 5.1 et Annexe 1 RC"
+        "libelle": "Chiffre d'affaires annuel minimum de l'équipe candidate (somme de tous les membres) sur le dernier exercice disponible : 400 000 € HT",
+        "source": "RC art. 5.1 et Annexe 1 RC — feuille Niveaux Minimaux"
       },
       {
-        "libelle": "Les références doivent avoir été exécutées au cours des 3 dernières années (des références plus anciennes peuvent être prises en compte à titre complémentaire)",
-        "source": "RC article 4.2 §11"
+        "libelle": "Couverture de toutes les compétences exigées : Architecture, OPC, Ingénierie restauration collective, Ingénierie des structures, Ingénierie des fluides/CVC/plomberie, Courants forts et faibles, Économie de la construction",
+        "source": "RC art. 5.1"
       },
       {
-        "libelle": "Preuve d'une assurance de responsabilité civile professionnelle en cours de validité pour chaque membre du groupement",
-        "source": "RC article 4.2 §5"
+        "libelle": "Assurance de responsabilité civile professionnelle en cours de validité",
+        "source": "RC art. 4.2 §5"
       },
       {
-        "libelle": "Couverture des 7 compétences exigées (Architecture, OPC, Ingénierie restauration collective, Ingénierie des structures, Ingénierie des fluides/CVC/plomberie, Courants forts et courants faibles, Économie de la construction) par l'équipe candidate",
-        "source": "RC article 5.1"
+        "libelle": "Références exécutées au cours des 3 dernières années (3 références par compétence, de nature, taille et complexité similaires)",
+        "source": "RC art. 4.2 §11"
       }
     ]
   },
-  "lots": [],
+  "dossier_candidature": {
+    "pieces_a_fournir": [
+      {
+        "libelle": "Lettre de candidature (formulaire DC1 ou équivalent) signée par une personne habilitée, avec habilitation(s) du mandataire signée(s) par les cotraitants en cas de groupement",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC art. 4.2 §1"
+      },
+      {
+        "libelle": "Formulaire DC2 (ou équivalent) complété pour chaque société membre de l'équipe candidate",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC art. 4.2 §2"
+      },
+      {
+        "libelle": "Engagement justifiant que le candidat dispose des capacités des prestataires (sous-traitants, opérateurs liés)",
+        "phase": "candidature",
+        "obligatoire": false,
+        "source": "RC art. 4.2 §3"
+      },
+      {
+        "libelle": "Tableau exposant le chiffre d'affaires global et le CA réalisé dans le domaine MOE sur les 3 dernières années (DC2 ou document équivalent)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC art. 4.2 §4"
+      },
+      {
+        "libelle": "Preuve d'assurance de responsabilité civile professionnelle en cours de validité",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC art. 4.2 §5"
+      },
+      {
+        "libelle": "Certificats de qualification professionnelle établis par des organismes indépendants (le cas échéant) ou preuve équivalente",
+        "phase": "candidature",
+        "obligatoire": false,
+        "source": "RC art. 4.2 §6"
+      },
+      {
+        "libelle": "Attestation d'inscription à l'Ordre des architectes (pour l'architecte membre du groupement)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC art. 4.2 §7"
+      },
+      {
+        "libelle": "Indication des titres d'études et professionnels du candidat et/ou des cadres de l'entreprise, notamment des responsables de prestations de même nature",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC art. 4.2 §8"
+      },
+      {
+        "libelle": "Noms et qualifications professionnelles des personnes physiques chargées de l'exécution du marché (art. R2142-13 CCP)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC art. 4.2 §9"
+      },
+      {
+        "libelle": "Déclaration indiquant les effectifs moyens annuels et l'importance du personnel d'encadrement pour les 3 dernières années, avec moyens humains dédiés à l'opération",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC art. 4.2 §10"
+      },
+      {
+        "libelle": "Références : 3 références les plus significatives par compétence exigée (selon tableau référence type) — à compléter dans l'Annexe 1 RC feuille Références",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC art. 4.2 §11"
+      },
+      {
+        "libelle": "Annexe 1 RC — Tableau de synthèse de la candidature (feuilles : Niveaux Minimaux, Références, Moyens) complété",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC art. 3.1 et art. 4.2"
+      }
+    ],
+    "mode_remise": "dématérialisé + copie de sauvegarde",
+    "plateforme_depot": "achatpublic.com (https://www.achatpublic.com)",
+    "signature_electronique_exigee": false,
+    "format_signature": null,
+    "nombre_exemplaires": null,
+    "langue": "français",
+    "duree_validite_offres_jours": 120,
+    "modalites_source": "RC art. 8.1 et art. 2.7"
+  },
+  "lots": [
+    {
+      "numero": 1,
+      "intitule": "Marché de Maîtrise d'Œuvre pour l'opération de Réhabilitation de l'Ancienne Pharmacie pour accueillir le Service de Cuisine — Centre Hospitalier de VILLEFRANCHE-SUR-SAÔNE",
+      "domaine": "moe_architecte_urbanisme",
+      "zone_geographique": "Villefranche-sur-Saône (69)",
+      "volume_estime": null,
+      "volume_estime_unite": null,
+      "cout_estime_min_eur": 132000,
+      "cout_estime_max_eur": 192000,
+      "ca_estime_min_eur": 192000,
+      "ca_estime_max_eur": 288000,
+      "marge_brute_pct": 34,
+      "particularites": "Marché unique non alloti. Procédure négociée avec sélection de 3 candidats maximum. Visite de site obligatoire le 18 juin 2026. Suite à résiliation d'un précédent marché MOE après phase AVP. Mission complémentaire désamiantage incluse. Site hospitalier occupé — contraintes DDPP, CSSI, ERP type U."
+    }
+  ],
+  "tranches": [],
   "calendrier": {
     "date_limite_offres": "2026-07-13",
     "date_demarrage_prevue": "2026-11-01",
-    "duree_marche": "24 mois ferme (6 mois études, 6 mois travaux, 12 mois GPA) à compter de la notification"
+    "duree_marche": "24 mois ferme (6 mois études + 6 mois travaux + 12 mois GPA)"
   },
   "alertes_candidat": [
-    "VISITE OBLIGATOIRE en phase candidature le jeudi 18 juin 2026 de 10h à 12h — inscription préalable requise auprès de dmourenas@hno.fr ou nagauthier@hno.fr. Toute candidature sans attestation de visite sera irrecevable.",
-    "Architecte OBLIGATOIREMENT mandataire du groupement et inscrit à l'Ordre des Architectes (loi n°77-2 du 3 janvier 1977) — un BET ne peut pas se présenter seul ou en tant que mandataire.",
-    "Règle d'exclusivité stricte : un candidat ne peut pas figurer dans plusieurs groupements simultanément (sauf dérogation pour compétences 'scénique-audiovisuel' et 'acoustique' qui ne concernent pas ce marché).",
-    "La compétence 'Ingénierie restauration collective' exige des références en cuisine collective EN ÉTABLISSEMENT DE SANTÉ spécifiquement (critère plus restrictif que pour les autres compétences) — vérifier les références disponibles.",
-    "Le marché fait suite à une résiliation après APD : le programme a été redéfini, le niveau de détail attendu dès l'APS sera élevé. Le titulaire sera tenu à des engagements contractuels stricts sur les coûts travaux avec possibilité de reprendre les études gratuitement en cas de dépassement."
+    "VISITE DE SITE OBLIGATOIRE le jeudi 18 juin 2026 de 10h à 12h — inscription préalable obligatoire auprès de dmourenas@hno.fr ou nagauthier@hno.fr. L'absence à la visite exclut la candidature.",
+    "L'architecte DOIT être membre du groupement (loi sur l'architecture) et être désigné mandataire — un BET ne peut pas se présenter seul ni être mandataire.",
+    "Les 7 compétences listées (Architecture, OPC, Ingénierie restauration collective, Structures, Fluides/CVC, CF/CFA, Économie) doivent TOUTES être couvertes — absence d'une seule = irrecevabilité.",
+    "Chiffre d'affaires annuel de l'équipe candidate ≥ 400 000 € HT sur le dernier exercice — seuil minimal éliminatoire vérifié avant analyse.",
+    "Références exigées : 3 références par compétence, réalisées dans les 3 dernières années, sur des opérations ≥ 1 000 m² en site occupé — la référence en ingénierie restauration collective doit impérativement être en établissement de santé.",
+    "Le marché fait suite à la résiliation d'un précédent MOE après AVP : le MOA sera particulièrement attentif à la solidité de l'équipe et à la capacité à tenir les engagements coût (enveloppe 2 400 000 € HT avec mécanisme de pénalité si dépassement)."
   ],
   "points_differenciants_attendus": [
     {
-      "libelle": "Expérience spécifique en ingénierie de restauration collective hospitalière (compétence la plus rare et discriminante)",
-      "exemple": "Un groupement intégrant un bureau d'études spécialisé en cuisine hospitalière (références en cuisine satellite, liaison froide, allotissement en EDS) avec des références récentes en établissement de santé sera très fortement valorisé par rapport à un groupement généraliste en restauration collective tertiaire.",
-      "source": "RC article 4.2 §11 — tableau références types, compétence 'Ingénierie restauration collective'"
+      "libelle": "Expérience spécifique en cuisine collective hospitalière (pas seulement restauration collective générique)",
+      "exemple": "Un ingénieur restauration collective ayant conçu des cuisines satellites d'allotissement en liaison froide dans des hôpitaux publics, avec validation DDPP et service EPRI, représente un avantage décisif. Citer des références nominatives en établissements de santé (CHU, CH) avec retour client positif.",
+      "source": "RC art. 5.1 et tableau 'Référence type' — compétence Ingénierie restauration collective"
     },
     {
-      "libelle": "Références communes entre membres du groupement sur des projets similaires",
-      "exemple": "Un groupement architecte + BET fluides ayant déjà collaboré sur une réhabilitation de cuisine hospitalière pourra le démontrer dans le tableau de synthèse Annexe 1 et valoriser la cohérence de l'équipe.",
-      "source": "RC article 4.2 §11 (dernier paragraphe)"
+      "libelle": "Méthodologie de conduite de projet en site hospitalier occupé (35% de la note technique)",
+      "exemple": "Présenter un plan de phasage détaillé montrant la coexistence des travaux avec l'activité de l'hôpital, les mesures de protection des patients et du personnel, le protocole de maintien du SSI existant pendant les travaux, et l'organisation des réunions de coordination avec le CSSI.",
+      "source": "RC Article 7 sous-critère 1.1"
     },
     {
-      "libelle": "Maîtrise des contraintes de chantier en site hospitalier occupé (ERP type U, SSI, CSSI, DDPP)",
-      "exemple": "Présenter des références de réhabilitation en milieu hospitalier en activité avec détail du phasage adopté, des interfaces SSI gérées et des procédures HACCP validées par la DDPP démontre une compréhension fine des enjeux et rassure le MOA sur la capacité à livrer sans incident.",
-      "source": "CCAP article 1.6.4 ; Note d'intention programmatique §4.1"
+      "libelle": "Références communes entre membres du groupement (valorisées explicitement)",
+      "exemple": "Mettre en avant des projets où l'architecte et l'ingénieur restauration collective ont déjà travaillé ensemble (groupement stable) : signe de coordination éprouvée et de réduction du risque opérationnel pour le MOA.",
+      "source": "RC art. 4.2 — dernier alinéa"
     },
     {
-      "libelle": "Méthodologie de conduite de projet intégrant la reprise d'un projet résilié à l'APD",
-      "exemple": "Proposer une phase de diagnostic initial et de revue critique du dossier AVP précédent (avant de relancer les études APS) permettrait de montrer la capacité à capitaliser sur les travaux existants tout en reprenant le projet sur de nouvelles bases programmatiques.",
-      "source": "RC article 1.1 (mention de la résiliation du précédent marché)"
+      "libelle": "Démarche développement durable spécifique au contexte cuisine hospitalière",
+      "exemple": "Proposer une récupération d'énergie sur les groupes froids pour préchauffer l'ECS, un éclairage LED adapté aux zones de production alimentaire, et un plan de gestion des déchets de chantier incluant le désamiantage — avec des indicateurs chiffrés de réduction de consommation.",
+      "source": "RC Article 7 sous-critère 1.3 et Note d'intention programmatique §4.1"
     },
     {
-      "libelle": "Démarche développement durable appliquée à la cuisine hospitalière (bien que pondérée à seulement 5%)",
-      "exemple": "Présenter des solutions concrètes de récupération d'énergie sur les groupes frigorifiques, de limitation de la consommation d'eau en cuisine et de tri des déchets alimentaires et de chantier démontrera une approche intégrée qui se distinguera des réponses génériques.",
-      "source": "RC article 7 (sous-critère 1.3) ; Note d'intention programmatique §4.1"
+      "libelle": "Maîtrise du référentiel réglementaire spécifique : ERP type U, HACCP, normes DDPP, SSI hospitalier",
+      "exemple": "Démontrer dans le mémoire technique la connaissance des exigences ERP type U (établissement de soins), des circuits HACCP en restauration hospitalière (marche en avant, validation EPRI/DDPP), et de la réglementation SSI — éléments non négociables du projet.",
+      "source": "Note d'intention programmatique §4.1 et CCAP art. 1.6.4"
     }
   ],
   "_meta": {
     "id_marche": "BOAMP-26-56190",
     "type": "complet",
-    "date_generation": "2026-06-14T21:11:53.716685+00:00",
-    "extraction_le": "2026-06-14T21:11:53.716685+00:00",
+    "date_generation": "2026-06-20T14:37:19.643911+00:00",
+    "extraction_le": "2026-06-20T14:37:19.643911+00:00",
     "modele": "claude-sonnet-4-6",
     "preset_utilise": "ingenierie",
     "presets_matches": [
       "ingenierie"
     ],
     "prompts_versions": {
-      "ingenierie/_preset.json": "sha256:56f813f829343e24"
+      "ingenierie/_preset.json": "sha256:b924b32a088673d6"
     },
-    "tokens_input": 69242,
-    "tokens_output": 5796,
-    "cout_eur": 0.2799,
-    "duree_sec": 111.1,
+    "tokens_input": 78542,
+    "tokens_output": 9090,
+    "cout_eur": 0.3534,
+    "duree_sec": 163.3,
     "pdfs_traites": [
       {
         "nom": "2026PN032_A_ HNOV_CUIS_MOE_Annexe 1 RC_Tableau Synthe__768_se Candidature.xlsx",

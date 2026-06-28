@@ -1,6 +1,6 @@
 # Brief — Travaux d'aménagement et d'extension des locaux de la direction du cycle de l'eau (8 lots)
 
-_Généré le 2026-06-15 01:53 par Claude claude-sonnet-4-6_
+_Généré le 2026-06-20 05:27 par Claude claude-sonnet-4-6_
 
 ## Identifiants
 - **ID Tendia** : `BOAMP-26-57186`
@@ -10,87 +10,85 @@ _Généré le 2026-06-15 01:53 par Claude claude-sonnet-4-6_
 - **DCE PLACE** : <https://www.marches-publics.info/mpiaws/index.cfm?fuseaction=dematent.login&type=Dce&Idm=1833677>
 
 ## Synthèse
-Travaux d'aménagement et d'extension des locaux de la Direction du Cycle de l'Eau d'Orléans Métropole situés à La Chapelle-Saint-Mesmin (45), organisés en 8 lots séparés. Le marché comprend une tranche ferme (rénovation du bâtiment bureaux existant de 1993) et une tranche optionnelle (création de nouveaux bureaux, réfectoires et locaux techniques dans le hangar). Les travaux couvrent l'enveloppe extérieure, les fluides, l'électricité et les aménagements intérieurs sur un site occupé.
+Marché de travaux en 8 lots pour le réaménagement et l'extension des locaux de la Direction du Cycle de l'Eau d'Orléans Métropole, situés à La Chapelle-Saint-Mesmin (45). Les travaux portent sur la rénovation thermique et architecturale des bâtiments existants (bureaux 1993 + extension 2013 + hangar 1993), avec une tranche ferme de rénovation des bureaux existants et une tranche optionnelle de création de nouveaux bureaux, réfectoires et locaux techniques dans le hangar. Le marché est alloti en 8 corps d'état distincts, chacun pouvant être soumissionné indépendamment.
 
 ## 🏗 Chantier — caractéristiques BTP
-- **Description** : Réaménagement des locaux de la Direction du Cycle de l'Eau : remplacement du bardage métallique avec ITE (165mm laine de roche), renforcement structurel des arbalétriers et pannes en charpente métallique, remplacement de l'étanchéité en toiture (R≥4,50 m².K/W), remplacement des menuiseries extérieures aluminium double vitrage, travaux de plâtrerie/cloisons, revêtements intérieurs, chauffage-ventilation-plomberie-GTB et électricité CFO/CFA. La tranche optionnelle prévoit la création de bureaux dans le hangar, création de locaux techniques, réfectoire et aménagements paysagers.
-- **Type d'ouvrage** : Bâtiment tertiaire / industriel (bureaux administratifs + hangar de type industriel appartenant à une collectivité — direction du cycle de l'eau)
-- **Surface / volume** : Bâtiment Hangar : ~4 300 m² ; Bâtiment Bureaux d'origine : ~550 m² ; Bâtiment Bureaux extension : ~432 m²
-- **Site occupé pendant travaux** : true — site occupé pendant les travaux (maintien en activité des agents de la direction du cycle de l'eau mentionné dans les prescriptions communes CCTP §0)
-- **Corps d'état mobilisés** : Espaces extérieurs (VRD, terrassements, voirie), Charpente métallique – Bardage – Serrurerie (y compris gros œuvre béton en tranche optionnelle), Étanchéité, Menuiseries extérieures, Plâtrerie – Cloisons – Isolation – Menuiseries intérieures, Revêtements intérieurs – Peinture – Sols souples, Chauffage – Ventilation – Plomberie – GTB, Électricité – CFO – CFA
+- **Description** : Réaménagement d'un ensemble de 3 bâtiments contigus (bureaux 1993 ~550m², extension 2013 ~432m², hangar 1993 ~4300m²) : remplacement complet du bardage et complexe de façade avec ITE (165mm laine de roche), remplacement de l'étanchéité en toiture (R≥4,50 m².K/W), remplacement de toutes les menuiseries extérieures aluminium RPT double vitrage, réfection complète des aménagements intérieurs (cloisons, faux-plafonds, revêtements, peinture), mise à niveau CVC/GTB et électricité, et en tranche optionnelle création de bureaux/réfectoire/locaux techniques dans le hangar avec renforcements structurels (renforts charpente IPE, murs coupe-feu, fondations).
+- **Type d'ouvrage** : Bâtiments tertiaires / industriels existants — bureaux administratifs et hangar de type industriel
+- **Surface / volume** : Tranche ferme : ~550m² bureaux d'origine + façades bâtiment hangar (menuiseries). Tranche optionnelle : ~4300m² hangar avec création d'espaces intérieurs. Surface totale ensemble : ~5282m²
+- **Site occupé pendant travaux** : true — site occupé, la Direction du Cycle de l'Eau occupe les locaux pendant les travaux ; le CCTP §0.4 prévoit explicitement des contraintes d'organisation en milieu occupé, maintien des accès, protection des utilisateurs
+- **Corps d'état mobilisés** : Espaces extérieurs / VRD, Charpente métallique - Bardage - Serrurerie, Etanchéité, Menuiseries extérieures aluminium, Plâtrerie - Cloisons - Isolation - Menuiseries intérieures, Revêtements intérieurs - Peinture - Sols souples, Chauffage - Ventilation - Plomberie - GTB, Electricité - CFO - CFA
 - **Contraintes spécifiques** :
-  - Site occupé pendant les travaux : maintien en activité des agents
-  - Renforcement structurel des arbalétriers et pannes obligatoire avant remplacement des bacs acier (taux de travail dépassés à 160% ELU pour les bureaux et 121% pour le hangar)
-  - Étude d'exécution structure à charge de l'entreprise lot 2
-  - Présence d'amiante et de plomb (diagnostics joints en annexe)
-  - Phasage par zone obligatoire pour les travaux d'étanchéité
-  - Site classé ERP type W (bureaux) et ERT (hangar)
-  - Grue nécessaire pour levage et installation base vie
-  - Qualification RGE exigée pour les lots ayant des prestations thermiques
-  - Tranche optionnelle avec délai d'affermissement de 36 mois
+  - Site occupé pendant les travaux (activité maintenue)
+  - Renforcements structurels nécessaires (charpente sollicitée à >100% sous charges projet — note calcul structure jointe)
+  - Présence possible d'amiante et plomb (diagnostics joints en annexe CCTP)
+  - Travaux en tranches (TF exécutée, TO affermissable sous 36 mois)
+  - Qualification RGE exigée pour les prestations thermiques
+  - Visite de site obligatoire préalablement à toute soumission (CCTP §0.4.5)
+  - Chantier en lots séparés avec compte prorata géré par le lot 2
 
 ### Allotissement
-Marché décomposé en 8 lots séparés avec une tranche ferme et une tranche optionnelle pour chaque lot
+Marché décomposé en 8 lots distincts, chacun avec une tranche ferme (rénovation bâtiment bureaux existant) et une tranche optionnelle (création nouveaux bureaux/réfectoire/locaux techniques dans le hangar). L'entreprise du lot 2 gère les installations communes de chantier et le compte prorata.
 - **Nombre de lots** : 8
 - **Lot 1** — Espaces extérieurs
-  - Corps d'état : VRD / espaces extérieurs
-  - Nettoyage des revêtements du patio, dépose/repose jardinières (TF) ; terrassements, aménagements paysagers, bordures, voirie enrobée, marquage au sol (TO)
+  - Corps d'état : VRD - espaces extérieurs
+  - Nettoyage des revêtements du patio, dépose/repose des jardinières (TF), terrassements, aménagements paysagers, bordures, revêtements voirie enrobée, marquage au sol (TO hangar)
 - **Lot 2** — Charpente métallique – Bardage – Serrurerie
-  - Corps d'état : Charpente métallique / bardage / serrurerie / gros œuvre béton
-  - Dépose et remplacement du bardage avec ITE, renforcement structurel des arbalétriers et pannes, marquise d'entrée, blocs-portes, installations communes de chantier. En TO : maçonnerie, fondations, murs coupe-feu, création de bureaux dans le hangar, local serrurerie.
-- **Lot 3** — Étanchéité
-  - Corps d'état : Étanchéité
-  - Remplacement du complexe d'étanchéité en toiture (bâtiment bureaux d'origine) bicouche élastomère R≥4,50 m².K/W, relevés, costières, couvertines. En TO : révision étanchéité hangar, nettoyage polycarbonates.
+  - Corps d'état : Charpente métallique, bardage, serrurerie, gros œuvre maçonnerie (TO)
+  - Remplacement complet du bardage métallique double peau avec ITE 165mm, renfort structurel des arbalétriers (IPE140 zone bureaux, IPE500 zone hangar), blocs-portes aluminium, marquise d'entrée, murs coupe-feu et fondations (TO), installations communes de chantier et compte prorata
+- **Lot 3** — Etanchéité
+  - Corps d'état : Etanchéité toiture
+  - Remplacement du complexe d'étanchéité bicouche bitumineuse R≥4,50 m².K/W sur support bac acier, relevés, couvertines aluminium, potelets de sécurité (TF bureaux), révision/nettoyage de l'étanchéité hangar et polycarbonates (TO)
 - **Lot 4** — Menuiseries extérieures
-  - Corps d'état : Menuiseries extérieures aluminium
-  - Remplacement de l'ensemble des menuiseries extérieures aluminium à RPT double vitrage feuilleté, stores extérieurs mécanisés et stores intérieurs. En TO : nouvelles menuiseries dans le hangar.
+  - Corps d'état : Menuiseries extérieures aluminium RPT
+  - Remplacement de toutes les menuiseries extérieures aluminium à rupture de pont thermique (Uw≤1,9 W/m².K), double vitrage feuilleté argon, stores extérieurs mécanisés et intérieurs (TF bureaux), menuiseries nouvelles hangar (TF et TO)
 - **Lot 5** — Plâtrerie – Cloisons – Isolation – Menuiseries intérieures
-  - Corps d'état : Plâtrerie / cloisons / isolation / menuiseries intérieures
-  - Cloisons de distribution, plafonds coupe-feu isolés, faux-plafonds démontables, menuiseries intérieures. En TO : aménagements intérieurs hangar et local archives.
+  - Corps d'état : Plâtrerie, cloisons, isolation, menuiseries intérieures
+  - Travaux de cloisons de distribution, faux-plafonds isolés coupe-feu, isolation intérieure, menuiseries intérieures (TF bureaux existants, TO hangar et archives)
 - **Lot 6** — Revêtements intérieurs – Peinture – Sols souples
-  - Corps d'état : Revêtements intérieurs / peinture / sols souples
-  - Revêtements de sol souples et durs, peintures, carrelages, finitions intérieures. En TO : aménagements hangar et archives.
+  - Corps d'état : Revêtements, peinture, sols souples
+  - Revêtements de sols (carrelage, sols souples acoustiques Taralay Premium), peinture, crédences carrelées, revêtements muraux (TF bureaux existants, TO hangar et archives)
 - **Lot 7** — Chauffage – Ventilation – Plomberie – GTB
-  - Corps d'état : CVC / plomberie / GTB
-  - Installations de chauffage, ventilation, plomberie sanitaire, gestion technique du bâtiment. Qualification RGE requise.
-- **Lot 8** — Électricité – CFO – CFA
-  - Corps d'état : Électricité courants forts et courants faibles
-  - Installations électriques CFO (distribution, éclairage, prises) et CFA (courants faibles, alarme, communication). En TO : extension dans le hangar.
+  - Corps d'état : CVC, plomberie, GTB
+  - Travaux de chauffage, ventilation, plomberie sanitaire et Gestion Technique du Bâtiment (TF bureaux existants et TO hangar)
+- **Lot 8** — Electricité – CFO – CFA
+  - Corps d'état : Electricité courants forts et faibles
+  - Travaux d'électricité courants forts (CFO) et courants faibles (CFA) sur l'ensemble des bâtiments (TF bureaux existants, hangar, TO extension)
 
 ### Qualifications BTP exigées
-Qualification RGE exigée pour les lots ayant des prestations thermiques. Aucune qualification Qualibat spécifique n'est mentionnée explicitement dans les pièces transmises.
+Qualification RGE exigée pour les entreprises ayant des prestations thermiques dans leurs lots (CCTP §0.4.13). Les certifications spécifiques par corps d'état ne sont pas listées explicitement dans le RC disponible.
 - **RGE** : True
 - **MASE** : non
 
 ## 💶 Montant du marché
 - _Montant non communiqué dans le DCE._
   - Typique des accords-cadres à bons de commande : le volume dépend des commandes effectivement passées par l'acheteur sur la durée du marché.
-- _Note_ : Aucun montant estimé, plafond ou fourchette n'est mentionné dans les pièces transmises (CCAP, CCTP, AE). Le RC complet n'a pas été fourni. Les DPGF chiffrées permettront de définir le montant lors de la remise des offres.
+- _Note_ : Aucun montant estimé global n'est mentionné dans les pièces du DCE fournies (pas de RC, pas de DPGF chiffrée). Estimation bottom-up disponible en Voie 2.
 
 ## Barème de notation
 - **Valeur technique** : —
 - **Valeur prix** : —
-- **Calcul du prix** : Prix forfaitaires sur base DPGF — le RC complet n'est pas disponible dans les pièces transmises, la formule de notation n'est pas identifiable.
+- **Calcul du prix** : Prix forfaitaire sur base DPGF. Les quantités figurant à la DPGF ont un caractère indicatif (CCAP §3.1). L'entreprise est responsable de la vérification des quantités avant remise de l'offre.
 
 ## Références et qualifications exigées
 - **Expérience minimale** : —
-- **Secteur d'expérience** : Travaux de réhabilitation de bâtiments tertiaires/industriels : charpente métallique, bardage, étanchéité, menuiseries extérieures, fluides, électricité
-- **Certifications obligatoires** : Qualification RGE pour les entreprises et sous-traitants ayant des prestations thermiques dans leurs lots (source=CCTP §0.4.13)
+- **Secteur d'expérience** : Travaux de réhabilitation de bâtiments tertiaires / industriels — corps d'état selon lot candidaté
+- **Certifications obligatoires** : Qualification RGE (Reconnu Garant de l'Environnement) pour les entreprises ayant des prestations thermiques dans leurs lots (isolation, CVC, étanchéité, menuiseries) (bloquante=True, source=CCTP §0.4.13)
 - **Autres exigences** :
-  - Visite du site obligatoire préalablement à toute soumission — l'entreprise est réputée avoir une connaissance parfaite des lieux (source=CCTP §0.4.5)
-  - Personnel formé AIPR obligatoire pour les travaux à proximité de réseaux (lot 1 TO) (source=CCTP §1.3.1.1)
+  - Visite du site obligatoire préalablement à toute soumission — l'entreprise est réputée avoir une parfaite connaissance des lieux (source=CCTP §0.4.5)
+  - Fourniture du certificat attestant de la qualification RGE dans le dossier de réponse à l'appel d'offre (source=CCTP §0.4.13)
 
 ## ⚠ Alertes candidat
-- Qualification RGE obligatoire pour les entreprises et sous-traitants ayant des prestations thermiques (lots 2, 3, 4, 5, 7) — à fournir dans le dossier de candidature (CCTP §0.4.13)
-- Visite de site OBLIGATOIRE avant soumission — le candidat qui ne l'effectue pas ne peut pas invoquer une méconnaissance du site pour justifier un supplément (CCTP §0.4.5)
-- Renforcement structurel obligatoire avant tout remplacement des bacs acier (lot 2) : les calculs justifient des taux de travail dépassés à 160% ELU pour les bureaux — l'entreprise doit intégrer une étude d'exécution structure dans son offre (Note structure Alterea + CCTP §2.7.4 et §2.8.4)
-- Présence d'amiante et de plomb signalée (diagnostics en annexe CCTP §0.2.2) — à prendre en compte dans l'organisation du chantier et les modes opératoires
-- Garantie à première demande obligatoire pour déblocage de l'avance (caution personnelle et solidaire non acceptée) — les entreprises sans accès au crédit bancaire ne pourront pas percevoir l'avance de 10% (CCAP §5.5)
-- Pénalités de retard de 500€/jour/élément non livré sans mise en demeure préalable, plafonnées à 10% du montant HT de la tranche (CCAP §6.10.1)
+- Qualification RGE OBLIGATOIRE pour tout lot comprenant des prestations thermiques (isolation, CVC, étanchéité, menuiseries) — à fournir dans le dossier de réponse sous peine d'irrecevabilité (CCTP §0.4.13)
+- Visite du site OBLIGATOIRE avant toute soumission — sans visite, l'offre risque d'être non-conforme ; aucune réclamation ultérieure admise pour méconnaissance du site (CCTP §0.4.5)
+- Marché à prix GLOBAL ET FORFAITAIRE avec responsabilité totale du candidat sur les quantités — toute erreur de quantitatif est à la charge de l'entreprise, sans possibilité de réclamation après signature (CCAP §3.1, §5.1)
+- Le lot 2 supporte la GESTION DES INSTALLATIONS COMMUNES (installations de chantier, grue, échafaudage partagé, compte prorata, panneau de chantier, nettoyage fin de chantier) — coût à intégrer dans l'offre du lot 2 (CCTP §0.3)
+- Garantie à première demande OBLIGATOIRE pour le versement de l'avance (10%) — la caution personnelle et solidaire n'est pas acceptée ; vérifier la capacité bancaire à constituer cette garantie (CCAP §5.5)
+- Travaux EN SITE OCCUPÉ : la direction du cycle de l'eau reste en activité — phasage et coordination avec l'exploitant obligatoires, modes opératoires à définir pour maintien des activités (CCTP §0.2 et §0.4.1)
 
 ## 💡 Points différenciants attendus
-- Méthodologie de phasage en site occupé avec maintien en activité des agents (exemple=Proposer un planning de travaux par phases garantissant l'accès aux locaux en permanence, avec des séquences de travaux nocturnes ou de week-end pour les opérations les plus bruyantes ou poussiéreuses, accompagné d'un plan de communication aux occupants., source=CCTP §0.3 et §0.4.12)
-- Maîtrise des renforts structurels sur charpente métallique existante (exemple=Présenter une méthodologie précise pour la mise en oeuvre des plats soudés sur âme IPE140 et le moisage UPN260 sur IPE500 en site occupé, avec les études d'exécution réalisées par un BET structure référencé, et les procédures de contrôle en cours de soudage., source=Note structure Alterea + CCTP §2.7.4, §2.8.4)
-- Expérience en remplacement de bardage métallique avec ITE sur bâtiment industriel en activité (exemple=Référencer des chantiers similaires de remplacement de bardage double peau avec isolation thermique par l'extérieur sur bâtiments industriels/tertiaires occupés, en précisant les surfaces réalisées et les techniques d'étanchéité provisoire entre dépose et repose., source=CCTP §2.7.2)
-- Organisation des installations communes de chantier (lot 2 uniquement) (exemple=Présenter un plan d'installation de chantier détaillé avec positionnement de la grue, zone de base vie en Nord-Est de la parcelle, accès sécurisés depuis la rue Jacques Dufrasne, et convention d'utilisation de l'échafaudage partagé avec les lots 3 et 4., source=CCTP §0.3.2 et §2.2)
-- Gestion du tri et recyclage des déchets de bardage existant (exemple=Identifier une filière de recyclage certifiée pour les panneaux de bardage métallique déposés (désolidarisation des matières, attestation de recyclage), conformément à l'exigence explicite du CCTP, ce qui constitue un engagement de développement durable valorisable., source=CCTP §2.7.1.1 et §2.8.1.2)
+- Méthodologie d'intervention en site occupé (exemple=Proposer un phasage détaillé par zone minimisant les nuisances pour les agents en activité, avec des plages d'intervention définies, un accès aux services de secours maintenu à tout moment, et un plan de communication aux occupants., source=CCTP §0.3 et §0.4.1)
+- Gestion des renforts structurels (lot 2) et études EXE intégrées (exemple=Pour le lot 2, présenter une méthodologie de renforcement des arbalétriers IPE140 et IPE500 avec référence à des chantiers similaires de renforcement de charpente métallique sous charge, et proposer un bureau d'études structure nommé avec expérience prouvée en Eurocode 3., source=CCTP §2.6, Notice structure PRO)
+- Qualifications RGE et compétence en rénovation thermique de l'enveloppe (exemple=Pour les lots 2/3/4/5/7, mettre en avant des références de chantiers d'ITE sous bardage métallique double peau (isolation laine de roche 165mm) et de remplacement de menuiseries RPT en milieu occupé, avec les performances atteintes (Uw, R)., source=CCTP §0.4.13, §2.7.2, §3.2)
+- Capacité à gérer le compte prorata et coordonner tous les corps d'état (lot 2 uniquement) (exemple=Pour le lot 2, démontrer une expérience de gestion d'installations communes de chantier multi-lots (grue, base vie, échafaudage partagé) avec un organigramme dédié à la coordination, et présenter des références de chantiers similaires en qualité de lot coordinateur., source=CCTP §0.3.1)
+- Traçabilité et recyclage des déchets de bardage / étanchéité (exemple=Proposer une filière de recyclage des panneaux de bardage existants déposés (obligation CCTP §2.7.1.1), avec engagement écrit d'un recycleur agréé et fiche matière identifiant les composants (tôle acier galvanisé, isolant laine de verre) — point différenciant sur la clause environnementale., source=CCTP §2.7.1.1, CCAP §3.5)

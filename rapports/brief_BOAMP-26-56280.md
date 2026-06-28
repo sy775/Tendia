@@ -1,6 +1,6 @@
 # Brief — Assistance à maitrise d'ouvrage dans la mise en oeuvre du pilotage stratégique et opérationnel et du suivi des SAD
 
-_Généré le 2026-06-15 02:26 par Claude claude-sonnet-4-6_
+_Généré le 2026-06-21 00:14 par Claude claude-sonnet-4-6_
 
 ## Identifiants
 - **ID Tendia** : `BOAMP-26-56280`
@@ -11,77 +11,71 @@ _Généré le 2026-06-15 02:26 par Claude claude-sonnet-4-6_
 - **DCE PLACE** : <https://www.marches-publics.info/mpiaws/index.cfm?fuseaction=dematEnt.login&amp;type=DCE&amp;IDM=1819516>
 
 ## Synthèse
-Le Département de l'Isère recherche des prestataires pour une assistance à maîtrise d'ouvrage en 3 lots distincts portant sur les Services Autonomie à Domicile (SAD) : pilotage stratégique et ingénierie de projets (lot 1), analyses financières et audits financiers/organisationnels (lot 2), et accompagnement en tant que personnes qualifiées pour le contrôle réglementaire (lot 3). Le marché est structuré en accord-cadre à bons de commande, d'une durée initiale d'1 an reconductible 3 fois, pour un maximum total de 808 000 € HT sur 4 ans. L'acheteur est la Direction de l'autonomie du Département de l'Isère, ciblant spécifiquement les expertises secteur médico-social aide à domicile.
+Le Département de l'Isère lance un accord-cadre à bons de commande en 3 lots pour s'adjoindre une AMO spécialisée dans la gouvernance des Services Autonomie à Domicile (SAD) : lot 1 (pilotage stratégique et ingénierie, max 296 k€/4 ans), lot 2 (analyses financières et audits organisationnels des SAD, max 400 k€/4 ans), lot 3 (accompagnement en tant que personnes qualifiées lors des contrôles réglementaires, max 112 k€/4 ans). Chaque lot est attribué à un opérateur unique, durée initiale 1 an reconductible 3 fois (4 ans maximum), pour un plafond global de 808 k€ HT.
 
 ## 🎯 Mission conseil
-- **Typologie de mission** : AMO, audit, accompagnement, expertise
-- **Domaine d'expertise** : médico-social, aide à domicile, finances, organisation, contrôle réglementaire
+- **Typologie de mission** : AMO, audit, expertise réglementaire
+- **Domaine d'expertise** : Services autonomie à domicile (SAD), secteur médico-social, finances, organisation, contrôle réglementaire
 - **Durée de mission** : 12 mois reconductibles 3 fois (4 ans maximum)
-- **Méthodologie attendue** : Lot 1 : veille trimestrielle + analyse des réformes + ingénierie AAP/AMI + cadrage et animation des dialogues de gestion + assistance à la conclusion de CPOM + prestations ponctuelles d'assistance juridique/stratégique. Lot 2 : collecte et analyse de données financières mensuelles (balances, bilans, CA) sur 15 SAD identifiés + audit sur site (≥ 1/2 journée) + analyse hors site + plan d'actions + suivi trimestriel sur 1 an. Lot 3 : préparation du contrôle (liste documents, plan d'entretien) + présence sur site lors du contrôle + analyse hors site + rapport de la personne qualifiée.
-- **Accompagnement post-livraison** : Lot 2 : suivi du plan d'actions sur 1 an avec points d'étape trimestriels avec le SAD et le service APSD.
+- **Méthodologie attendue** : Lot 1 : veille réglementaire trimestrielle + appui ingénierie sur projets stratégiques (AAP/AAC/AMI) + cadrage et assistance aux dialogues de gestion annuels + assistance ponctuelle en distanciel (réponse sous 72h). Lot 2 : récupération mensuelle des documents financiers des SAD + analyse sur balances/comptes certifiés + audit sur site (demi-journée minimum) + rédaction plan d'actions + suivi trimestriel. Lot 3 : préparation du contrôle avec le service APSD + présence sur site + analyse hors site + rédaction rapport.
+- **Accompagnement post-livraison** : Lot 2 : suivi trimestriel du plan d'actions pendant 1 an post-audit. Lot 1 : assistance continue par bons de commande sur toute la durée de l'accord-cadre.
 - **Livrables attendus** :
-  - Veille trimestrielle (synthèse écrite 3 pages max) — lot 1
-  - Analyses et préconisations pour projets stratégiques (note, PPT, demi-journée de restitution) — lot 1
-  - Appui à la rédaction d'AAP/AAC/AMI et candidatures — lot 1
-  - Cadrage méthodologique des dialogues de gestion + note finale — lot 1
-  - Assistance aux dialogues de gestion (1/2 journée par DG) + synthèse — lot 1
-  - Accompagnement à la rédaction des CPOM — lot 1
-  - Rapport d'analyse financière (3 à 10 pages, ratios normalisés) par SAD — lot 2
-  - Rapport d'audit financier et organisationnel — lot 2
-  - Plan d'actions opérationnel + suivi trimestriel sur 1 an — lot 2
-  - Présentation du rapport et plan d'action au SAD — lot 2
-  - Rapport de la personne qualifiée (écarts réglementaires, constats) — lot 3
-  - Appui sur site lors du contrôle (recueil de documents, interviews) — lot 3
+  - Lot 1 — Veille trimestrielle (synthèse 3 pages max)
+  - Lot 1 — Analyses et préconisations pour chaque projet stratégique (note, PowerPoint, présentations)
+  - Lot 1 — Scénarios financiers et analyse pour révisions tarifaires
+  - Lot 1 — Note de cadrage des dialogues de gestion, synthèse d'évaluation
+  - Lot 1 — Outils CPOM, méthodes et cadres d'évaluation
+  - Lot 1 — Réponses écrites pour assistance ponctuelle (Word, réutilisable)
+  - Lot 2 — Rapport d'analyse financière par SAD (3-10 pages, 2 pages de synthèse minimum)
+  - Lot 2 — Rapport d'audit financier et organisationnel
+  - Lot 2 — Plan d'actions opérationnel
+  - Lot 2 — Suivi trimestriel du plan d'actions (1 an)
+  - Lot 3 — Rapport de la personne qualifiée (constats, non-conformités, expertises techniques)
+  - Lot 3 — Présence physique sur site lors des contrôles
 - **Livrables par phase** :
-  - **Phase AMO projets stratégiques (lot 1 - partie A)** :
-    - Synthèse veille trimestrielle (3 pages max)
-    - Analyse d'AAP/AAC/AMI + note de synthèse pour service APSD
-    - Appui à la rédaction de la candidature du Département
-    - Appui à la rédaction d'AAP/AAC/AMI à destination des SAD
-    - Analyse des candidatures SAD + préconisations
-    - Assistance à la mise en œuvre d'une réforme nationale
-    - Scénarios financiers pour révision des tarifs
-  - **Phase cadrage dialogues de gestion et CPOM (lot 1 - partie B)** :
-    - Note finale de la session annuelle des dialogues de gestion
-    - Synthèse retour d'expérience sur les DG (1/2 journée)
-    - Outils et méthodes de suivi des CPOM
-    - Accompagnement à l'élaboration des CPOM
-  - **Phase analyses financières mensuelles (lot 2 - partie A)** :
-    - Récupération mensuelle des éléments financiers (15 SAD)
-    - Analyse mensuelle des balances dans le fichier modèle
-    - Synthèse mensuelle avec indicateurs
-    - Suivi du plan d'actions issu de l'audit
-  - **Phase audit financier et organisationnel (lot 2 - partie B)** :
-    - Rapport d'audit (bilan, compte de résultat, trésorerie, KPI, procédures, partenariats)
-    - Plan d'actions opérationnel (avec plan de retour à l'équilibre si nécessaire)
-    - Présentation du rapport et plan au SAD en présence du service APSD
-  - **Phase suivi post-audit (lot 2)** :
-    - Points d'étape trimestriels sur 1 an avec le SAD et le service APSD
-  - **Phase contrôle en tant que personne qualifiée (lot 3)** :
-    - Préparation du contrôle (liste documents, plan d'entretien, répartition des tâches)
-    - Appui sur site lors du contrôle (recueil documents, interviews)
-    - Rapport de la personne qualifiée (écarts réglementaires, qualification des faits)
+  - **Lot 1 — Veille et analyses stratégiques** :
+    - Synthèse trimestrielle réformes nationales (3 pages max)
+    - Analyse d'AAP/AAC/AMI
+    - Appui à la rédaction de candidature
+    - Analyse des candidatures SAD
+    - Scénarios financiers pour révision tarifaire
+  - **Lot 1 — Dialogues de gestion et CPOM** :
+    - Note de cadrage annuelle DG
+    - Synthèse par dialogue de gestion assisté
+    - Bilan d'évaluation des DG
+    - Outils et méthodes CPOM
+  - **Lot 1 — Assistance ponctuelle** :
+    - Réponse écrite aux requêtes (Word, sous 72h)
+  - **Lot 2 — Analyses financières** :
+    - Rapport d'analyse financière mensuel par SAD (3-10 pages)
+    - Synthèse mensuelle indicateurs
+  - **Lot 2 — Audits organisationnels et financiers** :
+    - Rapport d'audit (bilan, KPI, procédures, SIG)
+    - Plan d'actions opérationnel
+    - Présentation au SAD
+    - Points de suivi trimestriels (1 an)
+  - **Lot 3 — Contrôle en tant que personne qualifiée** :
+    - Document de préparation (plan d'entretien, liste documents)
+    - Présence physique sur site
+    - Rapport de la personne qualifiée (constats, non-conformités réglementaires)
 - **Jours-consultant par profil** :
-  - Référent / chef de mission (lot 1 - partie A)
-  - Équipe lot 1 (min 2, max 5 personnes)
-  - Analyste / auditeur (lot 2)
-  - Personne qualifiée (lot 3)
+  - Référent / chef de mission (lots 1, 2, 3)
+  - Consultants / analystes (équipe 2-5 personnes par lot)
 
 ### Profils intervenants
-Chaque lot exige un référent désigné et un référent suppléant. Les équipes comptent entre 2 et 5 personnes. Les expériences minimales varient selon le lot.
+Chaque lot requiert un référent senior (5 ans minimum d'expérience dans les SAD) et un référent suppléant, coordonnant une équipe de 2 à 5 personnes.
 - **Chef de mission** :
   - ≥ 5 ans d'expérience
-  - secteur : Services autonomie à domicile (SAD) / maintien à domicile / secteur médico-social
+  - secteur : Services autonomie à domicile (SAD), secteur médico-social, maintien à domicile
 - **Consultants** :
-  - Consultant / professionnel expérimenté (lots 1 et 3) ≥3 ans
-  - Analyste ou auditeur (lot 2 - analyses financières) ≥2 ans
-  - Auditeur (lot 2 - audits) ≥3 ans
+  - Consultant / analyste (lots 1, 2, 3) ×2 ≥3 ans
+  - Analyste financier / auditeur (lot 2 spécifiquement) ≥2 ans
 
 ## 💶 Montant du marché
-- **Plafond accord-cadre** : **808 000 €**
-  - sur 4 ans (période initiale 1 an + 3 reconductions)
-  - _source : Avis AAPC / AE lots 1, 2, 3_
-- _Note_ : Maximum total tous lots confondus sur 4 ans : 808 000 € HT (lot 1 max 296 000 €, lot 2 max 400 000 €, lot 3 max 112 000 €). Minimum total sur 4 ans : 148 000 € HT (lot 1 min 48 000 €, lot 2 min 84 000 €, lot 3 min 16 000 €). Les montants périodiques (annuels) sont : lot 1 min 12 000 € / max 74 000 €, lot 2 min 21 000 € / max 100 000 €, lot 3 min 4 000 € / max 28 000 €.
+- **Valeur estimée** : **808 000 €**
+  - sur 4 ans toutes périodes confondues (1 an ferme + 3 reconductions tacites)
+  - _source : AAPC §II.2 — montants minimum et maximum par lot ; avis rectificatif BOAMP 08/06/26_
+- _Note_ : Plafond global 808 000 € HT (lot 1 : min 48 000 / max 296 000 ; lot 2 : min 84 000 / max 400 000 ; lot 3 : min 16 000 / max 112 000). Le minimum garanti sur 4 ans est de 148 000 € HT tous lots (48+84+16). Le volume réel dépend des bons de commande émis.
 
 ## Barème de notation
 - **Valeur technique** : 40 %
@@ -90,42 +84,38 @@ Chaque lot exige un référent désigné et un référent suppléant. Les équip
   - Pertinence de la méthodologie pour la réalisation des missions : 10 %
   - Connaissance des enjeux des Services Autonomie à domicile (SAD) : 15 %
   - Pertinence des moyens humains affectés à la réalisation des missions : 15 %
-- **Calcul du prix** : La simulation de commande complétée par le candidat sert de base à l'analyse du critère prix (60%). Le BPU prévaut sur la simulation en cas d'erreur matérielle.
+- **Calcul du prix** : Note prix basée sur la simulation de commande (quantités × prix unitaires BPU). Pondération 60%. Le BPU prévaut sur la simulation en cas d'erreur matérielle.
 
 ## Références et qualifications exigées
 - **Expérience minimale** : 3 ans
-- **Secteur d'expérience** : Services autonomie à domicile (SAD), maintien à domicile, ESMS, secteur médico-social
+- **Secteur d'expérience** : Services autonomie à domicile (SAD), aide et accompagnement à domicile, établissements et services médico-sociaux (ESMS), politiques départementales d'autonomie
 - **Autres exigences** :
-  - Référent avec expérience ≥ 5 ans dans le domaine des SAD (lots 1, 2 et 3) (source=CCTP article A6 (lot 1), B6 (lot 2), E (lot 3))
-  - Équipe de 2 à 5 personnes avec un référent et un référent suppléant désignés (lots 1, 2, 3) (source=CCTP article A6, B5, C5 (lot 1) / A5, B5 (lot 2) / E (lot 3))
-  - Lot 2 audits : auditeurs avec expérience ≥ 2 ans dans le domaine des SAD et référent senior ≥ 5 ans avec connaissance approfondie des SAD ou du secteur médico-social (source=CCTP article B6 (lot 2))
-  - Lot 3 : présentation d'une équipe de 2 personnes (référent et suppléant) avec expérience > 5 ans dans le contrôle des SAD (source=CCTP article E (lot 3))
-  - Signature d'un contrat d'engagement RGPD obligatoire (pièce contractuelle) (source=RC §5.1 / CCAP article 3)
+  - Déclaration sur l'honneur pour justifier que le candidat n'entre dans aucun des cas d'interdiction de soumissionner (articles L.2141-1 à L.2141-14 CCP) (source=RC §5.1 + AE)
+  - Équipe de 2 à 5 personnes par lot (incluant un référent et un référent suppléant) (source=CCTP (lots 1, 2, 3))
+  - Référent coordonnateur avec expérience ≥ 5 ans dans le domaine des SAD (lots 1 et 3) ou ≥ 4 ans (lot 2) (source=CCTP (A6 lot 1, A6 lot 2, E lot 3))
+  - Contrat d'engagement RGPD signé (accès à des données à caractère personnel, dont données sensibles médico-sociales) (source=CCAP §3 + contrat RGPD DCE)
 
 ## Lots
 - **Lot 1** — Mission d'assistance à maîtrise d'ouvrage et accompagnement sur de l'ingénierie relative à la conduite de projets stratégiques et leur mise en œuvre opérationnelle.
-  - Zone : Isère (38) — Grenoble
-  - Volume estimé : 296000 euros HT maximum sur 4 ans
-  - 3 sous-missions : AMO projets stratégiques (veille, ingénierie AAP/AMI, tarification), cadrage et assistance aux dialogues de gestion et CPOM, assistance ponctuelle (juridique, stratégique). Minimum garanti 48 000 € HT sur 4 ans. Délai de traitement des demandes ponctuelles : prise en charge < 24h, traitement < 72h.
+  - Zone : Isère (38)
+  - Minimum garanti 48 000 € HT / maximum 296 000 € HT sur 4 ans. Comprend 3 volets : AMO projets stratégiques (veille, AAP/AAC, tarification), dialogues de gestion et CPOM, assistance ponctuelle (juridique/stratégique). Référent senior ≥ 5 ans SAD exigé. Disponibilité en distanciel principalement, présentiel pour restitutions DG.
 - **Lot 2** — Missions d'analyses financières, d'audits financiers et organisationnels
-  - Zone : Isère (38) — Grenoble
-  - Volume estimé : 400000 euros HT maximum sur 4 ans
-  - 2 sous-missions : analyses financières mensuelles (15 SAD identifiés, ratios normalisés, 3 à 10 pages par rapport) et audits financiers/organisationnels (1 à 5 audits/an, visite sur site obligatoire, plan d'actions, suivi trimestriel sur 1 an). Annexe 2 (plan du livrable rapport d'audit) fournie. Minimum garanti 84 000 € HT sur 4 ans.
+  - Zone : Isère (38)
+  - Minimum garanti 84 000 € HT / maximum 400 000 € HT sur 4 ans. Le lot le plus volumineux. Comprend : analyses financières mensuelles de 15 SAD identifiés (sur balances/comptes certifiés) + audits organisationnels et financiers (1 à 5/an) avec plan d'actions et suivi trimestriel 1 an. Rapport d'audit selon plan de livrable en annexe 2. Déplacements sur site en Isère requis.
 - **Lot 3** — Mission d'accompagnement en tant que personnes qualifiées
-  - Zone : Isère (38) — Grenoble
-  - Volume estimé : 112000 euros HT maximum sur 4 ans
-  - Mission de contrôle réglementaire : les intervenants assistent les agents départementaux habilités lors des contrôles de SAD au titre du CASF et du CSP (instruction DGCS N°2024/33 du 10 juillet 2024). Nécessite un arrêté de désignation pris par le Département. Délai de prévenance minimum 1 mois (2 semaines en urgence). 1 à 5 missions/an. Minimum garanti 16 000 € HT sur 4 ans.
+  - Zone : Isère (38)
+  - Minimum garanti 16 000 € HT / maximum 112 000 € HT sur 4 ans. Rôle de 'personne qualifiée' au sens du CASF (art. L313-13 et suivants) : présence physique lors des contrôles de SAD aux côtés des agents départementaux, habilités par arrêté de désignation. Expérience ≥ 5 ans en contrôle SAD exigée. Équipe 2 personnes (référent + suppléant). Préavis minimum 1 mois (urgent : 2 semaines).
 
 ## ⚠ Alertes candidat
-- Lot 3 — statut de 'personne qualifiée' au sens du CASF et CSP : les intervenants doivent pouvoir être désignés par arrêté du Département conformément à l'instruction ministérielle DGCS 2024/33 du 10 juillet 2024 — vérifier la compatibilité du statut juridique et des compétences des intervenants avec ce cadre réglementaire avant de candidater
-- Expérience sectorielle SAD obligatoire : le référent doit justifier d'au moins 5 ans d'expérience dans le domaine des SAD — une expérience généraliste médico-social sans expertise aide à domicile risque d'être insuffisante au regard des critères 3 et 4
-- Contrat d'engagement RGPD à signer obligatoirement avant notification — le candidat doit désigner nommément son DPO et son RSSI dans le document fourni
-- Signature électronique qualifiée eIDAS obligatoire sur l'acte d'engagement — le scan d'une signature manuscrite est explicitement interdit et entraîne la non-conformité
-- Cohérence obligatoire entre BPU et simulation de commande — toute erreur matérielle conduit à rectification par le Département et en cas de refus du candidat à élimination de l'offre
+- Expérience sectorielle SAD obligatoire : le référent doit justifier d'au moins 5 ans d'expérience dans le domaine des SAD (lot 1 et 3) ou 4 ans (lot 2) — c'est un prérequis explicite du CCTP, l'absence de profil adéquat est éliminatoire sur la qualité de l'offre.
+- Lot 3 — Statut de 'personne qualifiée' CASF : le prestataire doit présenter des intervenants pouvant être désignés par arrêté comme 'personnes qualifiées' au sens du code de l'action sociale et des familles, avec ≥ 5 ans d'expérience en contrôle de SAD — profil très rare, à vérifier en amont.
+- Contrat d'engagement RGPD obligatoire : les intervenants accéderont à des données sensibles (santé, financières) des bénéficiaires SAD et des structures — pièce contractuelle à signer et joindre à l'offre, son absence rend l'offre irrecevable.
+- Simulation de commande sert de base au critère prix (60%) : toute erreur de calcul entre BPU et simulation est corrigée par le BPU — vérifier la cohérence rigoureusement avant dépôt.
+- Délai de dépôt strict : 22 juin 2026 à 17h00 (avis rectificatif du 08/06/26 — la date initiale était le 15 juin). Dépôt 100% dématérialisé sur AWS, signature PAdES eIDAS qualifié requise sur l'AE.
 
 ## 💡 Points différenciants attendus
-- Connaissance opérationnelle approfondie du secteur SAD et des CPOM (exemple=Un candidat ayant accompagné plusieurs Départements dans la mise en œuvre du décret 2022-735 (dotation complémentaire, contractualisation CPOM) et connaissant les spécificités des SAD prestataires sous autorisation se différenciera nettement. Mentionner des missions similaires avec noms des Départements, volumes de SAD concernés et livrables produits., source=RC §7.2 critère 3 / CCTP article A1)
-- Exemples concrets de livrables produits dans des contextes similaires (exemple=Joindre en annexe un exemple anonymisé de veille stratégique trimestrielle (lot 1), un rapport d'analyse financière de SAD (lot 2) ou une grille d'interview de contrôle (lot 3) — le cadre de mémoire technique l'exige explicitement pour scorer haut sur le critère méthodologie., source=LOT1_Cadre de mémoire technique AMO SAD lot 1 / LOT2_Cadre de mémoire technique AMO SAD lot 2 / LOT3_Cadre de mémoire technique AMO SAD lot 3)
-- Réactivité et disponibilité de l'équipe (délais contraints lot 1 partie C) (exemple=La mission d'assistance ponctuelle (lot 1-C) impose une prise en charge < 24h et un traitement < 72h. Le candidat peut valoriser une organisation dédiée (référent joignable, procédure de backup documentée, outil de ticketing) pour démontrer cette réactivité., source=CCTP article C8)
-- Expérience en contrôle réglementaire des SAD (lot 3) (exemple=Pour le lot 3, valoriser des expériences de contrôle en tant que personne qualifiée ou en appui à des agents habilités dans des ESMS ou SAD, avec connaissance du cahier des charges national (décret 13 juillet 2023) et des référentiels réglementaires (CASF, CSP, droit de la consommation, droit du travail applicable aux SAD)., source=CCTP article B (lot 3) / RC §7.2 critère 4.2 lot 3)
-- Couverture multi-lots par groupement complémentaire (exemple=Un cabinet spécialisé AMO/stratégie peut constituer un groupement avec un cabinet d'audit financier médico-social pour répondre aux 3 lots et démontrer une offre cohérente avec des profils complémentaires — le RC autorise explicitement un même candidat à se voir attribuer les 3 lots., source=RC §1.4)
+- Connaissance opérationnelle approfondie de la réglementation SAD (décret 2022-735, cahier des charges national, instruction DGCS 2024) (exemple=Un candidat qui démontre avoir accompagné plusieurs Départements dans la mise en œuvre concrète des réformes SAD (passage SAAD → SAD mixtes, contractualisation CPOM avec dotation complémentaire) marque nettement les critères 3.1 (10%) et 3.2 (5%) du lot 1, qui totalisent 15% de la note finale., source=RC §7.2 (critères 3.1 et 3.2 lots 1 et 2) + CCTP §A1)
+- Références de missions d'audit financier de SAD ou ESMS avec plan d'actions suivi (exemple=Pour le lot 2, un cabinet présentant 3 audits financiers complets de SAD (bilans, SIG, plan d'actions, suivi trimestriel) pour le compte d'un Département ou d'une ARS se différencie nettement sur les critères 4.2 (audit/analyse financière, 10%) et méthodologie (15%)., source=RC §7.2 (critères lot 2) + CCTP lot 2 §B)
+- Expérience concrète comme 'personne qualifiée' lors de contrôles de SAD ou ESMS (exemple=Pour le lot 3, un expert ayant déjà été désigné par arrêté comme 'personne qualifiée' pour des contrôles de SAD ou EHPAD, avec références produisant des rapports de non-conformité, bénéficie d'un avantage décisif sur les 20% de critères humains (lot 3)., source=RC §7.2 (critères lot 3) + CCTP lot 3 §E)
+- Présentation d'outils concrets (grille DG, fichier modèle analyse financière, plan de contrôle type) (exemple=Le mémoire technique qui joint des exemples anonymisés de grilles de dialogue de gestion, de fichiers modèles de balances analytiques ou de rapports d'audit SAD démontre une maîtrise opérationnelle immédiate, valorisée sur le critère méthodologie (10-15% selon les lots)., source=Cadres de mémoire technique lots 1, 2 et 3)
+- Disponibilité et réactivité (délai de réponse ponctuelle ≤ 72h, préavis 48h pour interventions) (exemple=Un candidat qui décrit précisément son organisation interne garantissant une prise en charge des demandes en moins de 24h (accusé de réception) et un livrable en 72h, avec backup nominé disponible, répond à une exigence opérationnelle forte du CCTP lot 1 partie C., source=CCTP §C8 (lot 1))

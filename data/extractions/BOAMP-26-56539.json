@@ -1,402 +1,859 @@
 {
-  "synthese_marche": "Marché de travaux de rénovation intérieure portant sur l'aménagement des niveaux 1 à 3 du siège de la CPAM d'Indre-et-Loire à Tours (36 rue Édouard Vaillant), décomposé en 8 lots allant de la démolition au câblage VDI. Le marché est structuré en tranche ferme (niveaux 1, 2 et 3 sud) et tranche conditionnelle (niveaux 2 et 3 nord), pour une durée globale de 24 mois. Le site reste occupé pendant les travaux, le personnel de la CPAM étant en télétravail au maximum.",
+  "synthese_marche": "Marché de travaux de rénovation intérieure portant sur l'aménagement des niveaux 1 à 3 du siège de la CPAM d'Indre-et-Loire à Tours, alloti en 8 lots (démolition, cloisonnement/menuiseries, faux-plafonds, revêtements de sols, revêtements muraux, électricité, plomberie, câblage VDI). Le marché est structuré en une tranche ferme (niveaux 1, 2 et 3 Sud) et une tranche conditionnelle (niveaux 2 et 3 Nord), avec exécution en site occupé (bureaux de la CPAM en activité). La durée globale est de 24 mois, pour une enveloppe estimée à environ 1 680 000 € TTC selon le PGC.",
   "domaines_metier": [
     {
-      "code": "btp_second_oeuvre"
+      "code": "btp_second_oeuvre",
+      "poids": 0.7,
+      "lots_concernes": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    {
+      "code": "btp_demolition",
+      "poids": 0.15,
+      "lots_concernes": [
+        1
+      ]
+    },
+    {
+      "code": "btp_reseaux_divers",
+      "poids": 0.15,
+      "lots_concernes": [
+        8
+      ]
     }
   ],
-  "raison_classification": "Le marché porte exclusivement sur des travaux d'aménagement intérieur d'un bâtiment de bureaux existant : démolitions légères, cloisonnements, menuiseries intérieures, faux-plafonds, revêtements de sols et muraux, électricité, plomberie et câblage VDI. Il s'agit d'une réhabilitation intérieure à dominante second œuvre, sans travaux de gros œuvre structurel ni de VRD. Le code CPV principal retenu dans le RC est 45000000-7 avec le complément IA40-6 'Rénovation'.",
+  "raison_classification": "Le marché est à dominante second œuvre (cloisons, faux-plafonds, revêtements, électricité, plomberie) avec un lot de démolition et un lot câblage VDI (réseaux secs). Ces trois codes couvrent l'intégralité des 8 lots. La majorité du volume (lots 2 à 7) relève du second œuvre bâtiment.",
   "caracteristiques_techniques_chantier": {
-    "description": "Réaménagement complet des niveaux R+1 à R+3 d'un immeuble de bureaux occupé par la CPAM d'Indre-et-Loire : démolitions intérieures, installation de chantier, cloisonnements et menuiseries intérieures, faux-plafonds suspendus, revêtements de sols et carrelages, revêtements muraux, électricité courant fort/faible, plomberie sanitaire et câblage VDI. Les travaux sont phasés en tranche ferme (phases 1 et 3 : niveaux 2 et 3 sud + niveau 1 sud) et tranche conditionnelle (phase 2 : niveaux 2 et 3 nord). Le bâtiment date d'avant 1997 (amiante investigué : absence ; plomb détecté à faibles valeurs entre 0,01 et 0,3 mg/cm²).",
-    "typologie_ouvrage": "Immeuble de bureaux (siège administratif CPAM)",
-    "surface_volume": null,
-    "site_occupe": "Oui — le bâtiment reste en exploitation pendant toute la durée du chantier ; le personnel de la CPAM sera en télétravail au maximum pendant la période de travaux ; chantier accessible de 08h00 à 18h00 les jours ouvrés.",
+    "description": "Aménagement intérieur des niveaux 1, 2 et 3 d'un immeuble de bureaux (siège CPAM Tours) : démolitions de cloisons et faux-plafonds existants, création de nouveaux cloisonnements (plaques de plâtre, cloisons modulaires aluminium), faux-plafonds minéraux, revêtements de sols (moquette, PVC, carrelage), peintures et revêtements muraux, installations électriques courants forts/faibles/SSI, plomberie sanitaire et câblage VDI. Travaux réalisés en site entièrement occupé, en horaires décalés pour les travaux bruyants (6h-9h et 17h-21h).",
+    "typologie_ouvrage": "Immeuble de bureaux (ERP type W 1ère catégorie) — réhabilitation intérieure de niveaux de bureaux administratifs en activité",
+    "surface_volume": "Environ 2 267 m² (tranche ferme : ~1 467 m² de sols souples déposés Niv.1+2+3 Sud ; tranche optionnelle : ~800 m²) — surface totale estimée ~2 300 m² de plancher traité",
+    "site_occupe": "true — locaux de la CPAM demeurant en activité pendant toute la durée des travaux ; continuité de service public maintenue ; travaux bruyants obligatoirement en horaires décalés 6h-9h et 17h-21h ou samedi",
     "corps_etat": [
-      "Démolitions",
-      "Installations de chantier",
-      "Cloisonnements et menuiseries intérieures",
-      "Faux-plafonds suspendus",
-      "Revêtements de sols et carrelages",
-      "Revêtements muraux",
-      "Électricité courant fort/faible",
+      "Démolition",
+      "Cloisons / menuiseries intérieures (plaque de plâtre, modulaires aluminium, portes CF)",
+      "Faux-plafonds suspendus (dalles minérales)",
+      "Revêtements de sols (moquette, PVC, carrelage)",
+      "Revêtements muraux (peinture, vitrophanie, faïence)",
+      "Électricité courants forts et faibles (SSI, contrôle d'accès, éclairage LED)",
       "Plomberie sanitaire",
-      "Câblage VDI (réseau informatique)"
+      "Câblage VDI (cuivre catégorie 6A et fibre optique)"
     ],
     "contraintes_specifiques": [
-      "Site occupé pendant toute la durée des travaux : coordination renforcée avec l'exploitant, horaires stricts 08h-18h",
-      "Présence de plomb dans les peintures (valeurs entre 0,01 et 0,3 mg/cm²) — mesures de protection obligatoires",
-      "Bâtiment antérieur à 1997 : diagnostic amiante réalisé (absence confirmée) et plomb diagnostiqué",
-      "Phasage en tranche ferme (phases 1+3) et tranche conditionnelle (phase 2) — la tranche conditionnelle n'est pas garantie",
-      "Coactivité multi-lots simultanée ou successive à gérer — PGC APAVE rédigé",
-      "Travaux menés parallèlement à une opération de remplacement des menuiseries extérieures par l'UIOSS37 (tiers)",
-      "Coordination SSI obligatoire (MBO Consulting désigné)",
-      "Confidentialité renforcée (engagement de confidentialité + livret PSSI à signer)",
-      "Visite obligatoire sur site avant remise des offres (attestation de présence à joindre à l'offre)"
+      "Site totalement occupé pendant les travaux : CPAM en activité, continuité de service public imposée",
+      "Travaux bruyants (démolitions) uniquement en horaires décalés 6h-9h et 17h-21h ou le samedi",
+      "Accès chantier exclusivement par rue Flemming ; ascenseur C réservé pour les travaux",
+      "Marché à tranches : tranche conditionnelle (niveaux 2 et 3 Nord) affermie sous condition d'obtention de fonds nationaux, au plus tard 10 mois après notification TF",
+      "Coordination SSI obligatoire avec coordinateur MBO Consulting ; SSI de catégorie A (marque DEF CASSIOPEE FORTE S) à maintenir opérationnel",
+      "Présence de plomb dans les peintures (rapport APAVE) : mesures de protection adaptées requises",
+      "Absence d'amiante confirmée (rapport APAVE)",
+      "Phasage séquencé niveau par niveau (N3 Sud → N2 Sud → N1 Sud pour TF ; N3 Nord → N2 Nord pour TC)",
+      "Engagement de confidentialité et livret SSI à signer par tous les titulaires",
+      "Coactivité avec chantier UIOSS37 de remplacement des menuiseries extérieures"
     ]
   },
   "allotissement": {
-    "description": "Marché alloti en 8 lots distincts, avec possibilité de candidater à plusieurs lots. Lot 8 (câblage VDI) fait l'objet d'un CCTP et d'une DPGF séparés.",
+    "description": "Marché alloti en 8 lots distincts, chacun constituant un marché à part entière avec acte d'engagement séparé. Les lots 1 à 7 partagent un CCTP commun ; le lot 8 (VDI) dispose de son propre CCTP et CCTG VDI v2.0.",
     "nb_lots": 8,
     "lots_detailles": [
       {
         "numero": 1,
         "intitule": "Démolitions",
-        "corps_etat": "Démolition intérieure",
+        "corps_etat": "démolition",
         "montant_estime": null,
-        "description": "Travaux de démolition intérieure préalables aux aménagements"
+        "description": "Dépose de faux-plafonds minéraux et plâtre, démolition de cloisons (716 m² TF + 728 m² TC), dépose de sols souples (~2 267 m²), dépose de portes bois et grilles aluminium. Tri et évacuation des gravats en bennes."
       },
       {
         "numero": 2,
         "intitule": "Installations de chantier - Cloisonnements - Menuiseries bois",
-        "corps_etat": "Installation de chantier / Cloisonnement / Menuiserie intérieure",
+        "corps_etat": "cloisons / menuiseries intérieures",
         "montant_estime": null,
-        "description": "Installation et gestion du chantier commun, réalisation des cloisons et menuiseries intérieures bois"
+        "description": "Installation et entretien du chantier (base vie, clôtures, sanitaires, protections) pendant 13 mois (TF) + 11 mois (TC). Création de cloisons EI60, cloisons sèches, cloisons modulaires aluminium (383 m² TF + 107 m² TC), blocs-portes CF (E30/EI30), châssis vitrés EI60, cylindres, plinthes bois."
       },
       {
         "numero": 3,
-        "intitule": "Faux-Plafonds",
-        "corps_etat": "Faux-plafonds suspendus",
+        "intitule": "Faux-plafonds",
+        "corps_etat": "faux-plafonds suspendus",
         "montant_estime": null,
-        "description": "Mise en place de plafonds suspendus"
+        "description": "Fourniture et pose de faux-plafonds minéraux neufs (1 398 m² TF + 809 m² TC), remplacement de dalles sur structure existante ou neuve, jouées mélaminées et plâtre en circulations et périphéries."
       },
       {
         "numero": 4,
         "intitule": "Revêtements de sols - Carrelages",
-        "corps_etat": "Revêtements de sols / Carrelage",
+        "corps_etat": "revêtements de sols",
         "montant_estime": null,
-        "description": "Pose de revêtements de sols souples et carrelages"
+        "description": "Préparation des supports, ragréage. Pose de moquette (964 m² TF + 652 m² TC), moquette acoustique (365 m² TF + 158 m² TC), sol PVC (42 m² TF), carrelage (20 m² TF), revêtement mural faïencé (88 m² TF) dans les sanitaires."
       },
       {
         "numero": 5,
         "intitule": "Revêtements muraux",
-        "corps_etat": "Revêtements muraux",
+        "corps_etat": "peinture / revêtements muraux",
         "montant_estime": null,
-        "description": "Pose de revêtements muraux et papiers peints"
+        "description": "Dépose des anciens revêtements muraux, peinture murale (1 695 m² TF + 551 m² TC), peinture sur portes, tablettes, meneaux, plinthes, vitrophanie sur vitrages des cloisons modulaires, nettoyage final des locaux."
       },
       {
         "numero": 6,
         "intitule": "Électricité",
-        "corps_etat": "Électricité courant fort/faible",
+        "corps_etat": "électricité courants forts et faibles",
         "montant_estime": null,
-        "description": "Travaux d'équipement électrique (courant fort et courant faible hors VDI)"
+        "description": "Installations électriques de chantier, modification des tableaux existants, équipements d'éclairage LED (dalles 600×600, spots, luminaires), détecteurs de présence DALI, prises de courant, points de consolidation courant fort (62+43 U), postes de travail (172+103 U), goulottes, SSI (dépose/repose/ajout détecteurs DEF, diffuseurs, ventouses CF), contrôle d'accès, CONSUEL obligatoire."
       },
       {
         "numero": 7,
         "intitule": "Plomberie",
-        "corps_etat": "Plomberie sanitaire",
+        "corps_etat": "plomberie sanitaire",
         "montant_estime": null,
-        "description": "Travaux de plomberie sanitaire"
+        "description": "Distribution EF/ECS en cuivre, réseaux EU/EV PVC, cuvettes WC PMR et suspendues (6 U), lave-mains, plan de vasques double, vidoir, ballons ECS 15L, barres d'appui PMR, miroirs, dépose d'un split existant. Uniquement tranche ferme."
       },
       {
         "numero": 8,
         "intitule": "Câblage VDI",
-        "corps_etat": "Câblage réseau informatique (VDI)",
+        "corps_etat": "câblage VDI (courants faibles data/télécom)",
         "montant_estime": null,
-        "description": "Installation d'infrastructures de câblage réseau (voix-données-images), avec opération préalable de détournement du câblage 3e étage Nord vers coffret provisoire"
+        "description": "Câblage capillaire cuivre cat. 6A et fibre optique, garantie système 25 ans constructeur. Opération préalable de détournement du câblage 3e étage Nord vers coffret provisoire. Recette Re-Embedded PL2/PL3 obligatoire. CCTG VDI v2.0 CNAM applicable. Conformité RGPD/confidentialité renforcée."
       }
     ]
   },
   "qualifications_requises": {
-    "description": "Le RC exige des certificats de qualifications professionnelles adaptés aux prestations à réaliser, sans en préciser les indices Qualibat spécifiques. Les candidats peuvent également prouver leur capacité par tout moyen équivalent.",
-    "qualibat": "Non précisé dans les pièces fournies — le RC mentionne 'certificats de qualifications professionnelles adaptés aux prestations à réaliser ou preuve de la capacité du candidat par tout moyen' (RC art. 17)",
-    "rge": "Non mentionné",
-    "opqibi": "Non applicable",
-    "autres_certifications": [
-      "Pour le lot 8 : certifications constructeur des techniciens sur la solution VDI proposée (exigée dans le mémoire technique)",
-      "Pour le lot 8 : garantie système 25 ans cuivre et fibre (attestation constructeur requise)",
-      "Assurance décennale exigée pour les lots concernés (RC art. 19 et art. 28)"
-    ]
+    "description": "Le RC demande des certificats de qualifications professionnelles adaptés ou preuves de capacité par tout moyen, sans imposer de codes Qualibat spécifiques. Assurance décennale exigée pour les lots concernés.",
+    "qualibat": [],
+    "rge": false,
+    "rge_specialites": [],
+    "mase": false,
+    "iso_9001": false,
+    "iso_14001": false,
+    "iso_45001": false,
+    "opqibi": false,
+    "autres_certifications": []
   },
   "bareme_notation": {
-    "valeur_technique_pct": 50,
+    "valeur_technique_pct": 60,
     "valeur_prix_pct": 40,
     "sous_criteres_techniques": [
       {
         "libelle": "Moyens humains mis en œuvre sur le chantier dont encadrement",
         "ponderation_pct": 15,
-        "description": "Évaluation des effectifs affectés à l'exécution du marché, de leurs qualifications et de leur sensibilisation (sécurité, santé). Noté sur la base du mémoire technique (lots 1 à 7).",
+        "description": "Évaluation des effectifs affectés à l'exécution du marché, des qualifications du personnel et de la sensibilisation aux enjeux sécurité/santé. Applicable aux lots 1 à 7.",
         "elements_attendus": [
-          "Désignation nominative d'un chef de projet/conducteur de travaux interlocuteur unique",
-          "Identité et qualifications du chef de projet/conducteur de travaux",
-          "Composition et qualifications de l'équipe intervenante",
-          "Effectifs affectés par phase ou par tâche",
-          "Sensibilisation du personnel à la sécurité et à la santé sur chantier occupé"
+          "Désignation nominative du chef de projet / conducteur de travaux (identité + qualifications)",
+          "Composition détaillée de l'équipe intervenant sur le chantier (effectifs, qualifications)",
+          "Sensibilisation du personnel aux enjeux sécurité et santé sur site occupé",
+          "Présence minimale hebdomadaire du conducteur de travaux sur site garantie"
         ],
-        "exemple_reponse_forte": "Le candidat désigne M. X, conducteur de travaux certifié (habilitations électriques, CACES nacelle), comme interlocuteur unique tout au long du marché, appuyé par 2 chefs d'équipe et 6 compagnons. Une fiche de sensibilisation HSE spécifique au site occupé (CPAM en activité) sera remise à chaque intervenant dès l'accueil chantier.",
-        "source": "RC art. 25",
+        "exemple_reponse_forte": "L'équipe sera dirigée par M. X, conducteur de travaux avec 12 ans d'expérience en réhabilitation tertiaire en site occupé (CV joint). L'équipe opérationnelle comprendra 4 compagnons qualifiés en cloisonnement CF et menuiseries bois, tous titulaires d'une habilitation SST et formés aux consignes SSI du site. Une présence minimum du conducteur chaque lundi sera contractualisée.",
+        "source": "RC article 25",
+        "unite_evaluation": "points",
         "sous_criteres": []
       },
       {
         "libelle": "Qualité et méthodologie des moyens techniques",
         "ponderation_pct": 20,
-        "description": "Évaluation de l'organisation des travaux, de la méthodologie mise en place, des moyens matériels et de l'analyse des fiches techniques des matériaux et matériels proposés par rapport aux prescriptions du CCTP (lots 1 à 7).",
+        "description": "Organisation des travaux, méthodologie mise en place, moyens matériels déployés, analyse des fiches techniques des matériaux et matériels proposés au regard des prescriptions du CCTP.",
         "elements_attendus": [
-          "Organisation détaillée des travaux par lot et par phase (tranche ferme / tranche conditionnelle)",
-          "Méthodologie spécifique au chantier occupé (gestion des nuisances, accès, coactivité)",
-          "Moyens matériels affectés (équipements, outillage, engins)",
-          "Analyse comparative des fiches techniques des matériaux/matériels proposés vs prescriptions CCTP",
-          "Gestion des interfaces avec les autres lots et avec le chantier menuiseries extérieures UIOSS37",
-          "Nature et origine des matériaux et équipements proposés"
+          "Méthodologie détaillée d'exécution par phase (phasage Sud/Nord, séquençage niveau par niveau)",
+          "Moyens matériels spécifiques au site occupé (protection des zones en activité, gestion poussières)",
+          "Analyse des fiches techniques des principaux matériaux proposés (conformité CCTP)",
+          "Mesures prises pour assurer la sécurité sur le chantier (travaux en horaires décalés, balisage)",
+          "Gestion de la coactivité avec les autres lots et avec le chantier UIOSS37"
         ],
-        "exemple_reponse_forte": "Le candidat décrit sa méthodologie en trois phases correspondant au phasage contractuel, précise les mesures de confinement phonique pendant les heures de travail, joint les fiches techniques des matériaux avec tableau comparatif article par article vs CCTP, et détaille les interfaces avec le lot électricité et le lot câblage VDI pour la réservation des cheminements.",
-        "source": "RC art. 25",
+        "exemple_reponse_forte": "Notre méthodologie prévoit une exécution séquencée par demi-niveau, avec cloisonnement provisoire étanche à la poussière (polyane + ossature) séparant les zones en travaux des zones occupées. Les dalles de faux-plafond seront protégées individuellement avant dépose. Les fiches techniques des matériaux retenus (Placoplatre PLACOFLAM BA18, faux-plafond TONGA A Eurocoustic, moquette DESSO Arcade) sont jointes et répondent point par point aux exigences du CCTP.",
+        "source": "RC article 25",
+        "unite_evaluation": "points",
         "sous_criteres": []
       },
       {
         "libelle": "Planning détaillé dédié à l'opération",
         "ponderation_pct": 15,
-        "description": "Évaluation du planning détaillé avec prise en compte des phasages contractuels (tranche ferme / conditionnelle, phases 1/2/3) et du respect des délais (lots 1 à 7).",
+        "description": "Planning détaillé par tâche, intégrant les phasages Sud/Nord et le respect des délais contractuels (24 mois global, TF et TC distincts).",
         "elements_attendus": [
-          "Planning détaillé par tâche et par niveau d'intervention",
-          "Intégration du phasage en tranche ferme (phases 1+3) et tranche conditionnelle (phase 2)",
-          "Respect du délai global de 24 mois et des délais propres à chaque tranche",
-          "Prise en compte des contraintes de site occupé et des horaires de chantier",
-          "Gestion de la coactivité avec les autres lots"
+          "Planning détaillé par tâche (Gantt ou équivalent), cohérent avec le planning prévisionnel du DCE",
+          "Prise en compte explicite des phasages (Niv.3 Sud → Niv.2 Sud → Niv.1 Sud pour TF)",
+          "Intégration des contraintes d'horaires décalés pour les travaux bruyants",
+          "Jalons de réception partielle par tranche clairement identifiés",
+          "Respect du délai global de 24 mois"
         ],
-        "exemple_reponse_forte": "Le candidat produit un diagramme de Gantt au niveau tâche, intégrant les 3 phases (3e+2e Sud / 1er Sud / 3e+2e Nord), les interfaces entre lots, les séquences de déménagement/relogement du personnel CPAM et les jalons de réception partielle par zone.",
-        "source": "RC art. 25",
+        "exemple_reponse_forte": "Le planning détaillé (Gantt joint) articule les interventions en 3 séquences : N3 Sud (semaines 1-10), N2 Sud (semaines 8-18), N1 Sud (semaines 15-26) avec chevauchements maîtrisés, en réservant les créneaux 6h-9h et 17h-21h pour les démolitions. Les réceptions partielles sont prévues à la fin de chaque niveau, conformément au CCAP.",
+        "source": "RC article 25",
+        "unite_evaluation": "points",
         "sous_criteres": []
       },
       {
-        "libelle": "RSO : Démarches environnementales",
+        "libelle": "Démarches environnementales",
         "ponderation_pct": 5,
-        "description": "Évaluation des mesures prises sur la globalité de la prestation pour le respect de l'environnement : déplacements sur site, provenance des produits, gestion des déchets et autres prestations (lots 1 à 7).",
+        "description": "Mesures prises sur la globalité de la prestation pour le respect de l'environnement : déplacements sur site, provenance des produits, gestion des déchets et autres prestations.",
         "elements_attendus": [
-          "Plan de gestion des déchets de chantier avec tri et filières de valorisation",
-          "Mesures de réduction des déplacements (mutualisation, modes doux)",
-          "Provenance et traçabilité des matériaux (circuit court, labels environnementaux)",
-          "Mesures de réduction des nuisances phoniques et des émissions de poussières"
+          "Plan de gestion des déchets avec tri sélectif (catégories : bois, plâtre, métaux, verre, plastiques)",
+          "Provenance des matériaux et circuits courts",
+          "Optimisation des déplacements sur site pour réduire l'empreinte carbone",
+          "Propositions de réemploi/valorisation des matériaux déposés (dalles FP, portes bois)"
         ],
-        "exemple_reponse_forte": "Le candidat s'engage à trier 100% des déchets sur 5 flux (bois, plâtre, métaux, inertes, DIB) avec bordereau de suivi, à privilégier des matériaux sourcés en région Centre-Val de Loire et à utiliser des engins électriques pour les manutentions en étage afin de limiter les émissions.",
-        "source": "RC art. 25",
+        "exemple_reponse_forte": "Nous mettrons en place 5 bennes de tri dès le démarrage (inerte, bois, métal, plâtre, plastique). Les dalles de faux-plafond déposées seront stockées pour réemploi partiel (lot 3). Les moquettes seront évacuées vers une filière de valorisation certifiée. Nos fournisseurs principaux sont localisés dans un rayon de 150 km.",
+        "source": "RC article 25",
+        "unite_evaluation": "points",
         "sous_criteres": []
       },
       {
-        "libelle": "RSO : Considérations sociales",
+        "libelle": "Considérations sociales",
         "ponderation_pct": 5,
-        "description": "Évaluation du recours à l'insertion sociale pour la réalisation des prestations : alternants, apprentis, personnes en situation de handicap (lots 1 à 7).",
+        "description": "Recours à l'insertion sociale pour la réalisation des prestations : alternants, apprentis, personnes en situation de handicap.",
         "elements_attendus": [
-          "Engagement chiffré sur le recours à des alternants, apprentis ou personnes en insertion",
-          "Identification des organismes partenaires d'insertion (structures IAE, ESAT, etc.)",
-          "Part de la masse salariale ou nombre d'heures dédiées à l'insertion"
+          "Engagement chiffré d'heures d'insertion (alternants, apprentis, personnes handicapées)",
+          "Description du dispositif d'insertion mis en œuvre",
+          "Partenariats avec structures d'insertion identifiées"
         ],
-        "exemple_reponse_forte": "Le candidat s'engage à affecter 2 apprentis en CAP Peintre/Menuisier sur la durée du chantier, en partenariat avec le CFA de Tours, représentant 10% de l'équipe d'exécution, et à recourir à une entreprise adaptée pour les travaux de manutention.",
-        "source": "RC art. 25",
+        "exemple_reponse_forte": "Nous nous engageons à réserver 5 % des heures travaillées sur le chantier à des personnes en insertion (contrat d'apprentissage ou contrat aidé), en partenariat avec la Mission locale de Tours. Un apprenti sera présent à temps plein pour les travaux de peinture et de revêtements muraux.",
+        "source": "RC article 25",
+        "unite_evaluation": "points",
         "sous_criteres": []
       }
     ],
     "prix": {
       "type_formule": "moins_disant",
-      "formule_explicite": "Note prix = 40 × (prix le plus bas / prix proposé par l'entreprise) — pour les lots 1 à 7. Pour le lot 8 : Note prix = 40 × (Montant le moins-disant / Montant du candidat).",
+      "formule_explicite": "Note prix = 40 × (prix le plus bas / prix proposé par l'entreprise)",
+      "source": "RC article 25",
       "elements_a_chiffrer": [
-        "DPGF par lot (lots 1 à 7 : un document multi-onglets)",
-        "DPGF lot 8 (document séparé pour le câblage VDI)",
-        "Montant total HT figurant à l'acte d'engagement pour chaque lot soumissionné",
-        "Tranche ferme et tranche conditionnelle détaillées dans la DPGF"
+        "Montant total HT par lot (DPGF complétée sans modification du cadre)",
+        "Tranche ferme (niveaux 1+2+3 Sud) — sous-total HT",
+        "Tranche optionnelle (niveaux 2+3 Nord) — sous-total HT",
+        "Prix unitaires renseignés dans la DPGF pour chaque poste (m², U, ml, ens)"
       ]
     },
-    "modalite_calcul_prix": "Pour les lots 1 à 7 : 40 × (prix le plus bas / prix proposé par l'entreprise). Pour le lot 8 : 40 × (Montant le moins-disant / Montant du candidat). Formule identique dans les deux cas."
+    "modalite_calcul_prix": "Note prix = 40 × (prix le plus bas / prix proposé par l'entreprise)"
   },
   "montant_marche": {
-    "valeur_estimee_euros": 1680000,
-    "fourchette_min_euros": null,
-    "fourchette_max_euros": null,
-    "type": "estime_explicite",
-    "duree_couverte": "Tranche ferme + tranche conditionnelle (22 mois de travaux)",
-    "source_extraction": "PGC APAVE — section 'Descriptif de l'opération' : Phase 1 : 615 000 € TDC, Phase 2 : 615 000 € TDC, Phase 3 : 450 000 € TDC",
-    "commentaire": "Le PGC APAVE indique une estimation du PRECI : Phase 1 (3e+2e SUD) = 615 000 € TDC + Phase 2 (3e+2e NORD, tranche conditionnelle) = 615 000 € TDC + Phase 3 (1er SUD) = 450 000 € TDC, soit un total estimatif de 1 680 000 € TDC toutes phases confondues (TDC = Toutes Dépenses Confondues, incluant travaux + honoraires + divers). Le montant des seuls travaux est probablement inférieur."
+    "valeur_estimee_euros": 1400000,
+    "fourchette_min_euros": 1200000,
+    "fourchette_max_euros": 1680000,
+    "type": "calcule_volumes",
+    "duree_couverte": "24 mois (tranche ferme + tranche conditionnelle)",
+    "source_extraction": "PGC §RENSEIGNEMENTS GENERAUX : 'PHASE 1 – 615 000 € TDC pour les aménagements 3ème et 2ème étage SUD ; PHASE 2 – 615 000 € TDC pour les aménagements 3ème et 2ème étage NORD ; PHASE 3 – 450 000 € TDC pour l'aménagement 1er étage SUD'",
+    "commentaire": "Le PGC indique une estimation de 615 000 € TDC pour la Phase 1 (N3+N2 Sud), 615 000 € TDC pour la Phase 2 (N3+N2 Nord = tranche conditionnelle) et 450 000 € TDC pour la Phase 3 (N1 Sud), soit 1 680 000 € TDC total toutes tranches. Le marché CPAM (lots 1 à 8) est estimé à environ 1 400 000 € HT hors travaux UIOSS37 (menuiseries extérieures, chauffage, ventilation non inclus dans ces lots). TVA 20% applicable."
+  },
+  "montant_3_voies": {
+    "voie_1_eur": 1680000,
+    "voie_1_source": "PGC §RENSEIGNEMENTS GENERAUX DE L'OPERATION — estimation totale TDC : Phase 1 (615 000) + Phase 2 (615 000) + Phase 3 (450 000) = 1 680 000 € TDC",
+    "voie_2_disponible": false,
+    "voie_2_min_eur": null,
+    "voie_2_max_eur": null,
+    "voie_2_hypotheses": [],
+    "voie_2_raison_indisponible": "Voie 1 disponible (montant publié dans le PGC)"
+  },
+  "cout_realisation": {
+    "cout_total_eur": 1050000,
+    "cout_min_eur": 900000,
+    "cout_max_eur": 1200000,
+    "postes": [
+      {
+        "poste": "Lot 1 — Démolitions",
+        "detail": "Main d'œuvre démolition + bennes + évacuations. ~1 500 m² de cloisons + 2 267 m² de sols + 2 268 m² de FP déposés. Coût production estimé.",
+        "montant_eur": 90000
+      },
+      {
+        "poste": "Lot 2 — Installations de chantier + Cloisonnements + Menuiseries",
+        "detail": "Base vie 24 mois + 490 m² cloisons EI60 + 490 m² cloisons modulaires + ~60 blocs-portes CF. Poste majeur du marché.",
+        "montant_eur": 300000
+      },
+      {
+        "poste": "Lot 3 — Faux-plafonds",
+        "detail": "2 207 m² de FP minéraux neufs + jouées. Ratio production ~40 €/m² main d'œuvre + matériaux.",
+        "montant_eur": 130000
+      },
+      {
+        "poste": "Lot 4 — Revêtements de sols / carrelages",
+        "detail": "~2 057 m² de moquette + PVC + carrelage + préparation supports. Ratio ~35-45 €/m² production.",
+        "montant_eur": 110000
+      },
+      {
+        "poste": "Lot 5 — Revêtements muraux",
+        "detail": "~2 246 m² de peinture murale + 223 m² vitrophanie + nettoyage final. Ratio ~20 €/m².",
+        "montant_eur": 70000
+      },
+      {
+        "poste": "Lot 6 — Électricité",
+        "detail": "Modification tableaux, 275 luminaires LED, 210 points de consolidation, 275 postes de travail courant fort, SSI, contrôle d'accès, goulottes.",
+        "montant_eur": 220000
+      },
+      {
+        "poste": "Lot 7 — Plomberie",
+        "detail": "Sanitaires complets (6 WC + 4 lavabos + vidoir + 2 BEC), réseaux EF/ECS/EU/EV, dépose split.",
+        "montant_eur": 55000
+      },
+      {
+        "poste": "Lot 8 — Câblage VDI",
+        "detail": "Câblage cuivre cat. 6A + fibre, baies de brassage, recette Re-Embedded, garantie 25 ans.",
+        "montant_eur": 75000
+      }
+    ],
+    "taux_journaliers_retenus": "Main d'œuvre qualifiée BTP : 45-55 €/h chargé ; conducteur de travaux : 600-700 €/j. Ratios matériaux-pose : cloisons plaque de plâtre 80-120 €/m², faux-plafond 50-70 €/m², moquette 35-50 €/m², électricité tertiaire 80-120 €/point. Taux indicatifs marché — la structure de coût réelle est propre à chaque candidat.",
+    "commentaire": "Estimation bottom-up à partir des quantités DPGF (surfaces, unités) et des ratios marché BTP tertiaire. La tranche conditionnelle représente ~36% du volume (lots 2 Nord, 3 Nord, 4 Nord, 5 Nord, 6 Nord, 8 Nord) : le coût de production pour le seul TF est estimé à ~630 000-720 000 €. L'incertitude principale porte sur le lot 6 (électricité) dont le périmètre SSI peut varier. Cohérence : revenu estimé 1 400 000 € HT vs coût estimé 1 050 000 € → marge brute ~25%, raisonnable pour du second œuvre tertiaire en site occupé."
   },
   "revision_prix": {
-    "type": "non_communique",
-    "indices_utilises": [],
-    "ponderation": null,
-    "periodicite": null,
-    "formule_revision": null,
-    "source_extraction": null,
-    "commentaire": "Le CCAP n'est pas fourni dans les pièces analysées. Aucune clause de révision de prix n'est donc identifiable à ce stade."
+    "type": "indexation",
+    "indices_utilises": [
+      "BT01",
+      "BT47"
+    ],
+    "ponderation": "Partie fixe 15% + partie variable 85% indexée sur l'indice BT01 (lots 1-5 et 7) ou BT47 (lots 6 et 8). Formule : Pr = P0 × (0,15 + 0,85 × IN/IN0)",
+    "periodicite": "annuelle",
+    "formule_revision": "Pr = P0 × (0,15 + (0,85 × (IN/IN0)))",
+    "source_extraction": "CCAP article 9",
+    "commentaire": "Prix fermes la première année, puis révision annuelle à date anniversaire. La partie fixe de 15% limite l'impact de l'inflation mais la pondération variable à 85% est favorable au candidat en cas de hausse des coûts matériaux BTP. Les indices BT01 et BT47 (INSEE) sont bien adaptés au second œuvre et à l'électricité."
   },
   "alertes_prix": [
-    "Le montant estimatif de 1 680 000 € TDC (toutes phases) inclut les honoraires de maîtrise d'ouvrage déléguée et de contrôle — le montant pur travaux est probablement sensiblement inférieur.",
-    "La tranche conditionnelle (Phase 2, ~615 000 € TDC) n'est pas garantie : le chiffrage doit être réalisé mais son affermissement reste à la discrétion de la CPAM.",
-    "Pondération prix de 40% pour les lots 1 à 7, et également 40% pour le lot 8 : poids significatif du prix, le candidat doit être compétitif tout en préservant sa marge sur un chantier site occupé à forte contrainte.",
-    "Délai de validité des offres de 120 jours : exposition aux variations de coût des matériaux sur une durée longue entre dépôt (juillet 2026) et notification (fin septembre 2026)."
+    "Pondération prix de 40% pour les lots 1 à 7 et de 40% pour le lot 8 : forte pression concurrentielle sur le prix, la valeur technique pesant 60%.",
+    "Formule moins-disante pure (40 × prix_min/prix_candidat) : toute sur-marge pénalise directement la note prix sans plancher.",
+    "Prix global et forfaitaire : toute sous-évaluation des quantités de la DPGF (données à titre informatif) reste à la charge du titulaire — visite obligatoire.",
+    "Tranche conditionnelle non garantie : si elle n'est pas affermie dans les 10 mois, aucune indemnité de dédit — le chiffrage de la TC doit intégrer ce risque commercial.",
+    "Pénalités de retard à 1/3000 du montant HT par jour calendaire (plafond 10% HT) et retenues provisoires de 150 €/jour — surveiller le chiffrage des risques de planning."
   ],
   "references_exigees": {
     "experience_minimale_annees": 5,
-    "experience_source": "RC art. 17",
+    "experience_source": "RC article 17 — 'liste descriptive des travaux similaires exécutés au cours des cinq dernières années'",
     "volume_min_references_similaires": null,
-    "volume_min_references_unite": "marchés similaires",
-    "secteur_experience": "Travaux similaires à ceux du lot concerné, exécutés et menés à bonne fin au cours des cinq dernières années (date, lieu d'exécution, montant requis pour chaque référence)",
-    "secteur_source": "RC art. 17",
+    "volume_min_references_unite": "marchés similaires (références chantiers réalisés avec date, lieu, montant)",
+    "secteur_experience": "Travaux similaires correspondant au lot soumissionné (réhabilitation intérieure de bureaux en site occupé, cloisonnements CF, faux-plafonds, revêtements, électricité tertiaire, plomberie, VDI selon le lot)",
+    "secteur_source": "RC article 17",
     "certifications_obligatoires": [
       {
-        "libelle": "Certificats de qualifications professionnelles adaptés aux prestations à réaliser, ou preuve de capacité par tout moyen équivalent",
-        "source": "RC art. 17"
+        "libelle": "Attestation d'assurance responsabilité civile professionnelle en cours de validité",
+        "codes": [],
+        "bloquante": true,
+        "source": "RC article 28 et CCAP article 37"
       },
       {
-        "libelle": "Assurance décennale en cours de validité pour les lots concernés (couvrant les responsabilités articles 1792 et suivants du Code civil)",
-        "source": "RC art. 19 et art. 28"
+        "libelle": "Attestation d'assurance décennale pour les lots concernés (articles 1792 et suivants Code civil)",
+        "codes": [],
+        "bloquante": true,
+        "source": "RC articles 19 et 28 et CCAP article 37"
       },
       {
-        "libelle": "Pour le lot 8 : certifications constructeur des techniciens sur la solution VDI proposée",
-        "source": "RC art. 19"
+        "libelle": "Attestation CONSUEL pour le lot 6 (Électricité) — condition de réception des travaux",
+        "codes": [],
+        "bloquante": false,
+        "source": "CCAP article 8 et RC article 4 CPV lot 6"
       },
       {
-        "libelle": "Pour le lot 8 : attestation constructeur d'éligibilité de la solution à la garantie système 25 ans cuivre et fibre",
-        "source": "RC art. 19"
+        "libelle": "Attestation de visite du site obligatoire (remise lors de la visite aux dates fixées)",
+        "codes": [],
+        "bloquante": true,
+        "source": "RC article 10 et article 19"
       }
     ],
     "autres_exigences": [
       {
-        "libelle": "Déclaration du chiffre d'affaires global réalisé au cours des trois derniers exercices disponibles, sur des prestations similaires",
-        "source": "RC art. 17"
-      },
-      {
-        "libelle": "Déclaration des effectifs moyens annuels sur les trois dernières années",
-        "source": "RC art. 17"
-      },
-      {
-        "libelle": "Description de l'outillage, du matériel et de l'équipement technique disponible",
-        "source": "RC art. 17"
-      },
-      {
         "libelle": "Extrait K-bis datant de moins de 3 mois",
-        "source": "RC art. 17"
+        "source": "RC article 17"
       },
       {
-        "libelle": "Attestation de visite obligatoire sur site (sans laquelle l'offre peut être rejetée)",
-        "source": "RC art. 10 et art. 19"
+        "libelle": "Déclaration de chiffre d'affaires global réalisé sur les 3 derniers exercices disponibles sur des prestations similaires",
+        "source": "RC article 17"
       },
       {
-        "libelle": "Pour le lot 8 : engagement de confidentialité (livret PSSI de la CPAM à signer)",
-        "source": "RC art. 30"
+        "libelle": "Déclaration des effectifs moyens annuels sur les 3 dernières années",
+        "source": "RC article 17"
+      },
+      {
+        "libelle": "Description de l'outillage, du matériel et de l'équipement technique",
+        "source": "RC article 17"
+      },
+      {
+        "libelle": "Certificats de qualifications professionnelles adaptés aux prestations ou preuve de capacité par tout moyen",
+        "source": "RC article 17"
       }
     ]
+  },
+  "dossier_candidature": {
+    "pieces_a_fournir": [
+      {
+        "libelle": "Lettre de candidature (formulaire DC1 ou équivalent) avec déclaration sur l'honneur",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC article 17"
+      },
+      {
+        "libelle": "Déclaration du candidat (formulaire DC2 ou équivalent) avec extrait K-bis < 3 mois et pouvoirs",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC article 17"
+      },
+      {
+        "libelle": "Liste descriptive des travaux similaires exécutés au cours des 5 dernières années (date, lieu, montant)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC article 17"
+      },
+      {
+        "libelle": "Déclaration des effectifs moyens annuels sur les 3 dernières années",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC article 17"
+      },
+      {
+        "libelle": "Description de l'outillage, du matériel et de l'équipement technique",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC article 17"
+      },
+      {
+        "libelle": "Certificats de qualifications professionnelles ou preuves équivalentes",
+        "phase": "candidature",
+        "obligatoire": false,
+        "source": "RC article 17"
+      },
+      {
+        "libelle": "Acte d'engagement (AE ou ATTRI1) complété et signé pour le lot concerné",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC article 19"
+      },
+      {
+        "libelle": "Décomposition du Prix Global et Forfaitaire (DPGF) correspondant au lot concerné, complétée sans modification du cadre",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC article 19"
+      },
+      {
+        "libelle": "Mémoire technique détaillant méthodologie, moyens humains/matériels, planning, fiches techniques matériaux (lots 1 à 7) ou mémoire technique VDI structuré en 9 sections (lot 8)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC article 19"
+      },
+      {
+        "libelle": "Planning détaillé d'exécution des travaux par tâche",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC article 19"
+      },
+      {
+        "libelle": "Dispositions relatives à la gestion des déchets issus du chantier",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC article 19"
+      },
+      {
+        "libelle": "Mesures envisagées pour limiter les nuisances phoniques du chantier",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC article 19"
+      },
+      {
+        "libelle": "Attestation de visite du site (remise lors de la visite obligatoire)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC article 10"
+      },
+      {
+        "libelle": "Attestation d'assurance décennale (pour les lots concernés)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC article 19"
+      },
+      {
+        "libelle": "Document listant les composants câblages proposés pour la solution VDI complété (lot 8 uniquement)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC article 12 et article 19"
+      },
+      {
+        "libelle": "Fiches techniques constructeur et fiches PEP (ou équivalent EPD) pour tous composants VDI (lot 8)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC article 19"
+      },
+      {
+        "libelle": "Attestation constructeur d'éligibilité à la garantie système 25 ans cuivre et fibre (lot 8)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC article 19"
+      },
+      {
+        "libelle": "CCAP et CCTP (accusé de prise de connaissance)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC article 19"
+      },
+      {
+        "libelle": "DC4 ou équivalent pour chaque sous-traitant connu",
+        "phase": "offre",
+        "obligatoire": false,
+        "source": "RC article 16"
+      }
+    ],
+    "mode_remise": "dématérialisé + copie de sauvegarde",
+    "plateforme_depot": "PLACE — marches-publics.gouv.fr",
+    "signature_electronique_exigee": true,
+    "format_signature": "XAdES, CAdES ou PAdES",
+    "nombre_exemplaires": null,
+    "langue": "français",
+    "duree_validite_offres_jours": 120,
+    "modalites_source": "RC articles 21 et 22"
   },
   "lots": [
     {
       "numero": 1,
       "intitule": "Démolitions",
-      "zone_geographique": "Tours (37000)",
-      "volume_estime": null,
-      "volume_estime_unite": null,
-      "particularites": "Lot responsable de la mise en sécurité initiale du chantier, de la signalisation et des installations provisoires de chantier selon le PGC. Travaux à réaliser en dehors de la présence des autres entreprises. Présence de plomb dans les peintures (0,01 à 0,3 mg/cm²) : mesures de protection obligatoires."
+      "domaine": "btp_demolition",
+      "zone_geographique": "Tours (37)",
+      "volume_estime": 2268,
+      "volume_estime_unite": "m² (sols souples déposés TF + TC)",
+      "cout_estime_min_eur": 70000,
+      "cout_estime_max_eur": 110000,
+      "particularites": "Démolitions obligatoirement en horaires décalés (6h-9h et 17h-21h ou samedi). Tri sélectif obligatoire. Stockage soigné des dalles FP pour réemploi. Ponçage des colles après dépose sols souples."
     },
     {
       "numero": 2,
       "intitule": "Installations de chantier - Cloisonnements - Menuiseries bois",
-      "zone_geographique": "Tours (37000)",
-      "volume_estime": null,
-      "volume_estime_unite": null,
-      "particularites": "Lot pilote pour les installations de chantier communes (cantonnement, bennes, signalisation). Poussières de bois : travaux à réaliser principalement en atelier, ajustages sur site uniquement. Outillage avec aspiration à la source obligatoire."
+      "domaine": "btp_second_oeuvre",
+      "zone_geographique": "Tours (37)",
+      "volume_estime": 490,
+      "volume_estime_unite": "m² de cloisons (EI60 + sèches TF+TC)",
+      "cout_estime_min_eur": 250000,
+      "cout_estime_max_eur": 350000,
+      "particularites": "Lot pilote pour les installations de chantier (base vie, clôtures, sanitaires, panneau de chantier). Présent pendant toute la durée des travaux (13 mois TF + 11 mois TC). Coordination SSI pour les portes DAS et ventouses CF. Cloisons modulaires aluminium avec options acoustiques."
     },
     {
       "numero": 3,
-      "intitule": "Faux-Plafonds",
-      "zone_geographique": "Tours (37000)",
-      "volume_estime": null,
-      "volume_estime_unite": null,
-      "particularites": "Intervention coordonnée avec les lots électricité (lot 6) et câblage VDI (lot 8) pour les réservations et passages de réseaux."
+      "intitule": "Faux-plafonds",
+      "domaine": "btp_second_oeuvre",
+      "zone_geographique": "Tours (37)",
+      "volume_estime": 2207,
+      "volume_estime_unite": "m²",
+      "cout_estime_min_eur": 110000,
+      "cout_estime_max_eur": 155000,
+      "particularites": "Dalles Euroclass A1 obligatoires. Réemploi des dalles déposées par lot 1 sur certaines zones. Jouées mélaminées en circulations centrales. Coordination avec lot 6 (luminaires encastrés)."
     },
     {
       "numero": 4,
       "intitule": "Revêtements de sols - Carrelages",
-      "zone_geographique": "Tours (37000)",
-      "volume_estime": null,
-      "volume_estime_unite": null,
-      "particularites": "Coordination avec le lot électricité pour les réseaux maintenus en service pendant les travaux. CPV double : carrelage (45431000-7) et revêtements de sols (45432100-5)."
+      "domaine": "btp_second_oeuvre",
+      "zone_geographique": "Tours (37)",
+      "volume_estime": 2057,
+      "volume_estime_unite": "m²",
+      "cout_estime_min_eur": 90000,
+      "cout_estime_max_eur": 130000,
+      "particularites": "Moquette acoustique en salles de réunion (Delta Lw 28 dB). Carrelage UPEC U4P4 dans sanitaires. Coloris différenciés par niveau au choix du MO. Faïence murale dans sanitaires incluse au lot 4."
     },
     {
       "numero": 5,
       "intitule": "Revêtements muraux",
-      "zone_geographique": "Tours (37000)",
-      "volume_estime": null,
-      "volume_estime_unite": null,
-      "particularites": "Présence possible de plomb dans les peintures existantes — diagnostic joint au DCE à consulter impérativement."
+      "domaine": "btp_second_oeuvre",
+      "zone_geographique": "Tours (37)",
+      "volume_estime": 2246,
+      "volume_estime_unite": "m² de peinture murale (TF+TC)",
+      "cout_estime_min_eur": 55000,
+      "cout_estime_max_eur": 85000,
+      "particularites": "Nettoyage final de l'ensemble des locaux à la charge de ce lot. Vitrophanie sur toutes les cloisons modulaires vitrées. Teintes par niveau au choix du MO. Traitement des plinthes bois, meneaux, tablettes, allèges."
     },
     {
       "numero": 6,
       "intitule": "Électricité",
-      "zone_geographique": "Tours (37000)",
+      "domaine": "btp_second_oeuvre",
+      "zone_geographique": "Tours (37)",
       "volume_estime": null,
       "volume_estime_unite": null,
-      "particularites": "Lot responsable de l'alimentation électrique du chantier (armoire générale, coffrets divisionnaires, éclairage des circulations). Consignation préalable des réseaux existants obligatoire avec attestation. Coordination avec le SSI (MBO Consulting)."
+      "cout_estime_min_eur": 180000,
+      "cout_estime_max_eur": 260000,
+      "particularites": "CONSUEL obligatoire pour réception. Périmètre SSI étendu (dépose/repose détecteurs DEF adressables, reprogrammation ECS/CMSI, ventouses DAS). Câbles Cca-s2,d2,a2 obligatoires. Éclairage DALI avec détecteurs de présence. Indice de révision BT47."
     },
     {
       "numero": 7,
       "intitule": "Plomberie",
-      "zone_geographique": "Tours (37000)",
+      "domaine": "btp_second_oeuvre",
+      "zone_geographique": "Tours (37)",
       "volume_estime": null,
       "volume_estime_unite": null,
-      "particularites": "Lot responsable de l'alimentation en eau du chantier (zone de cantonnement et zone de travaux). Consignation préalable des réseaux fluides existants obligatoire."
+      "cout_estime_min_eur": 40000,
+      "cout_estime_max_eur": 70000,
+      "particularites": "Uniquement tranche ferme (sanitaires N1 Sud). Accessibilité PMR obligatoire (WC PMR, lave-mains PMR, barres d'appui). Dépose d'un mono-split avec collecte et bordereau de suivi des gaz frigorigènes."
     },
     {
       "numero": 8,
       "intitule": "Câblage VDI",
-      "zone_geographique": "Tours (37000)",
+      "domaine": "btp_reseaux_divers",
+      "zone_geographique": "Tours (37)",
       "volume_estime": null,
       "volume_estime_unite": null,
-      "particularites": "Lot faisant l'objet d'un CCTP et d'une DPGF séparés, et d'une grille de notation spécifique (valeur technique 60%, prix 40%). Opération préalable obligatoire de détournement du câblage cuivre du 3e étage Nord vers coffret provisoire 15U dans pièce 308. Conformité CCTG VDI v2.0 exigée. Garantie système 25 ans cuivre et fibre requise. AMO informatique Dataconseil et référent CNAM/DDSI/DR à coordonner. Visites sur site possibles à d'autres dates que le 19/06 sur accord CPAM."
+      "cout_estime_min_eur": 60000,
+      "cout_estime_max_eur": 90000,
+      "particularites": "CCTG VDI v2.0 CNAM applicable (réf. 410DO001 v2.00). Garantie système 25 ans cuivre et fibre obligatoire. Opération préalable de détournement câblage 3e étage Nord vers coffret provisoire. Recette Re-Embedded PL2/PL3. Fiches PEP ou EPD ISO 14025 exigées. Critères techniques 60% / prix 40%. AMOA Dataconseil pour validation de paiements. Pénalités spécifiques contre-recette (15 € TTC/test + 300 € TTC/déplacement)."
+    }
+  ],
+  "tranches": [
+    {
+      "type": "ferme",
+      "numero": "TF",
+      "intitule": "Tranche ferme",
+      "objet": "Aménagement des niveaux 1, 2 et 3 SUD — travaux réalisés en 2026-2027.",
+      "montant_estime_eur": 1065000,
+      "condition_affermissement": null,
+      "source": "CCAP article 5 ; RC article 7"
+    },
+    {
+      "type": "conditionnelle",
+      "numero": "TC",
+      "intitule": "Tranche conditionnelle",
+      "objet": "Aménagement des niveaux 2 et 3 NORD — travaux prévus en 2028, sous réserve d'obtention de fonds nationaux.",
+      "montant_estime_eur": 615000,
+      "condition_affermissement": "Affermissement par ordre de service au plus tard 10 mois après notification de la tranche ferme, sous réserve d'obtention de fonds nationaux. Sans affermissement dans ce délai, le marché est considéré achevé sans indemnité.",
+      "source": "CCAP article 5 ; RC article 7"
     }
   ],
   "calendrier": {
     "date_limite_offres": "2026-07-06",
     "date_demarrage_prevue": "2027-01-01",
-    "duree_marche": "24 mois (incluant période de préparation de chantier novembre-décembre 2026 et exécution janvier 2027 à novembre 2028 si tranche conditionnelle affermie)"
+    "duree_marche": "24 mois incluant préparation (1,5 mois) et exécution, du démarrage à la fin du délai de garantie de parfait achèvement"
   },
   "alertes_candidat": [
-    "Visite sur site OBLIGATOIRE avec attestation de présence à joindre à l'offre — sans cette attestation, l'offre risque d'être rejetée. Dates imposées : 18/06/2026 (lots 1-2-3 à 9h30, lots 4-5 à 13h30) et 19/06/2026 (lots 6-7-8 à 9h30). Inscription par mail à sgcpam37@assurance-maladie.fr avant la veille 16h.",
-    "Site occupé en permanence : toute plus-value due à une mauvaise reconnaissance des lieux sera refusée à l'exécution — la visite obligatoire est le seul moyen de chiffrer correctement les contraintes réelles.",
-    "Présence de plomb dans les peintures existantes (0,01 à 0,3 mg/cm²) : des mesures de protection spécifiques et un PPSPS sont obligatoires avant tout commencement de travaux. Le PPSPS doit être communiqué au coordonnateur SPS avant l'inspection commune.",
-    "Pour le lot 8 : exigences techniques très spécifiques (CCTG VDI v2.0, fiches PEP environnementales, garantie 25 ans constructeur, opération préalable de détournement câblage 3e étage Nord) — un candidat généraliste sans expérience VDI tertiaire structuré risque de scorer très faiblement sur le critère technique (60%).",
-    "Tranche conditionnelle non garantie (~615 000 € TDC) : le chiffrage doit être intégré à l'offre mais son exécution reste à la discrétion de la CPAM, avec risque d'immobilisation de ressources sans suite."
+    "Visite de site OBLIGATOIRE aux dates imposées (18/06 pour lots 1-5, 19/06 pour lots 6-8) avec attestation de présence à joindre impérativement à l'offre — absence = irrecevabilité pratique.",
+    "Site entièrement occupé : les travaux bruyants (démolitions, percements) doivent être strictement planifiés en horaires décalés 6h-9h et 17h-21h — nécessite une dérogation mairie et une organisation spécifique à chiffrer.",
+    "Lot 8 (VDI) : CCTG VDI v2.0 CNAM d'application stricte, garantie système 25 ans constructeur et fiches PEP (ou EPD ISO 14025) obligatoires — vérifier la disponibilité de ces documents chez les fournisseurs avant de soumissionner.",
+    "Tranche conditionnelle représentant ~36% du volume : aucune indemnité si non affermie — le candidat doit mobiliser des ressources pour la TC sans garantie de chiffre d'affaires.",
+    "Engagement de confidentialité et livret SSI CPAM à signer dès la réunion de lancement — prévoir l'adhésion formelle de tout le personnel et des sous-traitants."
   ],
   "points_differenciants_attendus": [
     {
-      "libelle": "Méthodologie spécifique chantier en site occupé avec gestion de la coactivité",
-      "exemple": "Un candidat qui décrit précisément les séquences de travaux par zone (avec plans de phasage), les mesures de confinement phonique et anti-poussières lors des démolitions, et le dispositif de communication avec les occupants de la CPAM (calendrier des interventions bruyantes communiqué à l'avance) se démarquera nettement.",
-      "source": "RC art. 25 — sous-critère 'Qualité et méthodologie des moyens techniques'"
+      "libelle": "Expérience documentée en réhabilitation tertiaire en site occupé (bureaux/ERP en activité)",
+      "exemple": "Présenter 2-3 références similaires (surfaces > 500 m² en bureaux occupés) avec témoignages de maîtres d'ouvrage, planning respecté et gestion des nuisances, pour démontrer la maîtrise des contraintes spécifiques à la CPAM.",
+      "source": "RC article 17 et article 25"
     },
     {
-      "libelle": "Planning détaillé intégrant les trois phases et les interfaces entre lots",
-      "exemple": "Un Gantt détaillé au niveau tâche, distinguant phase 1 (3e+2e Sud), phase 3 (1er Sud) en tranche ferme et phase 2 (3e+2e Nord) en tranche conditionnelle, avec jalons de réception partielle et interfaces explicites avec le chantier menuiseries extérieures UIOSS37, constituera un point fort.",
-      "source": "RC art. 25 — sous-critère 'Planning détaillé dédié à l'opération'"
+      "libelle": "Qualité du planning détaillé intégrant les horaires décalés et le phasage par demi-niveau",
+      "exemple": "Fournir un Gantt au niveau tâche avec créneaux 6h-9h/17h-21h identifiés pour les démolitions, les jalons de réception partielle par niveau, et la gestion des interfaces avec le chantier UIOSS37 (menuiseries extérieures).",
+      "source": "RC article 25 — sous-critère Planning 15 points"
     },
     {
-      "libelle": "Pour le lot 8 : robustesse du protocole de détournement câblage 3e étage Nord avec continuité de service",
-      "exemple": "Un candidat qui fournit un schéma de bascule détaillé avec durée d'interruption de service nulle ou inférieure à 30 minutes, dimensionnement justifié du coffret provisoire (15U ou autre), et plan de communication aux utilisateurs impactés obtiendra la note maximale sur ce sous-critère.",
-      "source": "RC art. 25 — critère lot 8, sous-critère 1.2"
+      "libelle": "Méthodologie de protection des zones occupées et gestion des poussières/nuisances",
+      "exemple": "Décrire en détail le dispositif de cloisonnement provisoire étanche à la poussière, les procédures de nettoyage quotidien, et les mesures de protection du personnel de la CPAM, avec plan de circulation dédié chantier.",
+      "source": "CCTP §0.9 et §0.14 ; RC article 25 — sous-critère Valeur technique 20 points"
     },
     {
-      "libelle": "Démarche RSO concrète et chiffrée (insertion + environnement)",
-      "exemple": "Un engagement quantifié sur le recours à des apprentis (ex: 2 apprentis sur toute la durée), associé à un plan de gestion des déchets avec taux de valorisation cible et noms des filières partenaires, permet de maximiser les 10 points RSO des lots 1 à 7.",
-      "source": "RC art. 25 — critère RSO"
+      "libelle": "Pour le lot 8 : solution VDI complète avec garantie 25 ans constructeur et fiches PEP documentées",
+      "exemple": "Présenter la solution câblage homogène (constructeur unique ou validé) avec attestation 25 ans, fiches PEP ou EPD ISO 14025 pour chaque composant, et protocole détaillé de l'opération de détournement du câblage 3e étage Nord avec durée garantie et maintien de service.",
+      "source": "RC article 19 et article 25 — lot 8 critère technique 60 points"
     },
     {
-      "libelle": "Pour le lot 8 : solution VDI homogène avec fiches PEP et garantie constructeur 25 ans documentées",
-      "exemple": "Un candidat qui produit une solution mono-constructeur validée, avec fiches PEP (ou EPD ISO 14025) pour tous les composants et attestation constructeur de garantie système 25 ans, répond exactement aux attentes des sous-critères 1.4 et 1.5 du lot 8.",
-      "source": "RC art. 25 — critères lot 8, sous-critères 1.4 et 1.5"
+      "libelle": "Engagements RSE concrets et chiffrés (insertion + déchets)",
+      "exemple": "Chiffrer le nombre d'heures d'insertion (ex : 3 alternants sur 13 mois) et le plan de gestion des déchets par catégorie (bois, plâtre, moquette via filière certifiée), en identifiant les partenaires locaux de valorisation à Tours.",
+      "source": "RC article 25 — critères RSE 5+5 points"
     }
   ],
   "_meta": {
     "id_marche": "BOAMP-26-56539",
     "type": "complet",
-    "extraction_le": "2026-06-12T13:38:00.771034+00:00",
+    "date_generation": "2026-06-19T19:57:21.137851+00:00",
+    "extraction_le": "2026-06-19T19:57:21.137851+00:00",
     "modele": "claude-sonnet-4-6",
-    "tokens_input": 62248,
-    "tokens_output": 8405,
-    "cout_eur": 0.2972,
-    "duree_sec": 149.6,
+    "preset_utilise": "btp",
+    "presets_matches": [
+      "btp"
+    ],
+    "prompts_versions": {
+      "btp/_preset.json": "sha256:055bf6f8b2c1f771"
+    },
+    "tokens_input": 163536,
+    "tokens_output": 12945,
+    "cout_eur": 0.6505,
+    "duree_sec": 230.9,
     "pdfs_traites": [
+      {
+        "nom": "00-DCE-CCAP-MARCHE 02-2026.pdf",
+        "hash": "163ff24bf1d672030e2c3a9e267ea984",
+        "taille_chars": 62490
+      },
       {
         "nom": "00-DCE-RC-MARCHE 02-2026 V2.pdf",
         "hash": "17f58971f82558e2fe7047fff6bfb3b9",
         "taille_chars": 42047
       },
       {
+        "nom": "01-CCTP_Lots1a7_19-05-2026_Ind2.pdf",
+        "hash": "7fa27c047371eb283a1cd35e289dff65",
+        "taille_chars": 120434
+      },
+      {
+        "nom": "02-01_INSTAL_CHANTIER.pdf",
+        "hash": "4ab162763e187e7e4371cd26ab48c027",
+        "taille_chars": 1684
+      },
+      {
+        "nom": "02-02_DEMOL_Niv1_4.pdf",
+        "hash": "dd96d54062e934cffe41d2b47beaf324",
+        "taille_chars": 4237
+      },
+      {
+        "nom": "02-03_DEMOL_Niv2_3.pdf",
+        "hash": "272cd0dc8d968193f8e930867732e96a",
+        "taille_chars": 5657
+      },
+      {
+        "nom": "02-04_CLOISON_Niv1_4.pdf",
+        "hash": "0e161fa9c74d0550f8a62022b49d4a51",
+        "taille_chars": 5322
+      },
+      {
+        "nom": "02-05_CLOISON_Niv2_3.pdf",
+        "hash": "9e5acb7b9099a467ae5c195eff6b3cea",
+        "taille_chars": 7114
+      },
+      {
+        "nom": "02-06_PLAFOND_Niv1_4.pdf",
+        "hash": "0133405683ab7ef95bfebdecf7142502",
+        "taille_chars": 4351
+      },
+      {
+        "nom": "02-07_PLAFOND_Niv2_3.pdf",
+        "hash": "e43dd8e2c177848cf9a8f13398334d23",
+        "taille_chars": 5705
+      },
+      {
+        "nom": "02-08_REVETMTS_Niv1_4.pdf",
+        "hash": "7b8308ee32673aa4162b06fd1584c989",
+        "taille_chars": 4400
+      },
+      {
+        "nom": "02-09_REVETMTS_Niv2_3.pdf",
+        "hash": "ebe22d16a095b9652cfd4845a3ea49c0",
+        "taille_chars": 5519
+      },
+      {
+        "nom": "02-10_ELEC_Niv1_4.pdf",
+        "hash": "222891e5b4ef614651b3bef505808366",
+        "taille_chars": 6232
+      },
+      {
+        "nom": "02-11_ELEC_Niv2_3.pdf",
+        "hash": "18dda26b5a3a117f8b1deb4059039902",
+        "taille_chars": 10141
+      },
+      {
+        "nom": "02-12_COUPES.pdf",
+        "hash": "98efccf6f2596e0234e540c5ed7643d5",
+        "taille_chars": 1532
+      },
+      {
+        "nom": "02-13_DETAILS.pdf",
+        "hash": "989e5bc73cf9fd59e2b15bf2bc8e5a25",
+        "taille_chars": 1012
+      },
+      {
+        "nom": "02-14_COMPART_INCENDIE.pdf",
+        "hash": "3309c92a4ec20fe99dd767abac3bff56",
+        "taille_chars": 7660
+      },
+      {
+        "nom": "03-PLANNING_Lots1a8_19-05-2026.pdf",
+        "hash": "407c46271bf9d1f6a8401a91fc895e3c",
+        "taille_chars": 2367
+      },
+      {
+        "nom": "04-DPGF_Lots1a7_19-05-2026_Ind1.XLSX",
+        "hash": "619f05b69071ef93291cc6d3ca618c08",
+        "taille_chars": 15283
+      },
+      {
         "nom": "05-DCE-PGC 20260610.pdf",
         "hash": "8518ec290f0449a4a28f70204b05f9a4",
         "taille_chars": 107276
+      },
+      {
+        "nom": "18122025_COSSI_MBO_CPAM_NIVEAUX_1_a_3_V1.1.pdf",
+        "hash": "6942f54d7bc1e665c5eccef18e241f70",
+        "taille_chars": 64781
+      },
+      {
+        "nom": "251218-APAVE-C25102699-1-RICT.pdf",
+        "hash": "5d946bb2abe57bf49e5a8ed6f2f8ffbc",
+        "taille_chars": 14838
+      },
+      {
+        "nom": "251218-APAVE-C25102699-1-SYDA_3_1.pdf",
+        "hash": "18e4b19d963159389982bebd1009db2b",
+        "taille_chars": 3307
+      },
+      {
+        "nom": "410DO001_CCTG_VDI_Assurance Maladie_(V2.0).pdf",
+        "hash": "8715247f81106f3bd5fdbea51311bcd5",
+        "taille_chars": 243686
+      },
+      {
+        "nom": "Annexe au CCTP_CFA_CPAM_Indre_et_Loire -v4.xlsx",
+        "hash": "140e0d6e3c4026212ce3d0febed8abd0",
+        "taille_chars": 1932
+      },
+      {
+        "nom": "CCTP_VDI_CPAM_Tours - v4.pdf",
+        "hash": "56c991bfa14ff3e680bf5a22f83bb1b4",
+        "taille_chars": 84405
+      },
+      {
+        "nom": "CPAM37-DataConseil Etage 1.pdf",
+        "hash": "2751fcd91b7f0a2fab02cfb9ad65d956",
+        "taille_chars": 4476
+      },
+      {
+        "nom": "CPAM37-DataConseil Etage 2.pdf",
+        "hash": "a9e754ce363b98ae382e332eec870de8",
+        "taille_chars": 4085
+      },
+      {
+        "nom": "CPAM37-DataConseil Etage 3.pdf",
+        "hash": "5078cea95898e5f91b928b19554213d8",
+        "taille_chars": 4080
+      },
+      {
+        "nom": "Composants cablage.xlsx",
+        "hash": "51af04641823952334da4298f32087b0",
+        "taille_chars": 1746
+      },
+      {
+        "nom": "DIAG_Amiante_OpGlobale_APAVE_03072025.pdf",
+        "hash": "cd0eacbd96b8dac0634843df9c7a357e",
+        "taille_chars": 156357
+      },
+      {
+        "nom": "DIAG_PEMD_OpGobale_APAVE_11072025.pdf",
+        "hash": "e19c60db7e709bf7e70b9b8812036de6",
+        "taille_chars": 33268
+      },
+      {
+        "nom": "DIAG_Plomb_OpGlobale_APAVE_03072025.pdf",
+        "hash": "78c8c069fce5234feb465f3591a3300d",
+        "taille_chars": 164229
+      },
+      {
+        "nom": "DPGF_CFA_CPAM_Indre_et_Loire - v4.xlsx",
+        "hash": "6b9c8955875f1b2a9ff2a7de4b866e28",
+        "taille_chars": 21624
+      },
+      {
+        "nom": "Engagement de confidentialite - marche v1.1.docx",
+        "hash": "d6eb79755c927924174c58c7990ac35b",
+        "taille_chars": 5347
+      },
+      {
+        "nom": "Futur Local SRI - DataConseil-Plan d'implantation.pdf",
+        "hash": "45db47078d5595bc97d3b3f777720a1d",
+        "taille_chars": 342
+      },
+      {
+        "nom": "Plan ZDA-ZDM -1er etage - CPAM  Indre et loire (3).pdf",
+        "hash": "e5a6c77e88c1a34143a5d20323fd83d0",
+        "taille_chars": 3034
+      },
+      {
+        "nom": "Plan ZDA-ZDM -2-3 etage - CPAM  Indre et loire (2).pdf",
+        "hash": "3fe2f933efbeaa981ae86110c1b4df7a",
+        "taille_chars": 5755
+      },
+      {
+        "nom": "livret SSI prestataire.pdf",
+        "hash": "6cc20bda36565573ce7ec488b595f7a4",
+        "taille_chars": 5492
       }
     ]
   }

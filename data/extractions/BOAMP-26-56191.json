@@ -1,0 +1,465 @@
+{
+  "synthese_marche": "Marché public de services portant sur le transport de produits sanguins labiles (PSL) et de prélèvements biologiques pour le GHT du Dunkerquois et de l'Audomarois (CH Dunkerque, Hôpital Maritime de Zuydcoote, CH Région de Saint-Omer), structuré en 4 lots géographiques avec navettes régulières et urgences 24h/24 365j/an. Accord-cadre mono-attributaire à bons de commande, d'une durée initiale d'un an renouvelable 3 fois (4 ans maximum), démarrage prévu au 01/10/2026. Montant estimé total 662 000 € HT sur 4 ans.",
+  "domaines_metier": [
+    {
+      "code": "transport_logistique_vehicules"
+    }
+  ],
+  "raison_classification": "Le marché porte exclusivement sur des prestations de transport routier (transport de PSL et prélèvements biologiques entre sites hospitaliers et EFS), relevant directement du code `transport_logistique_vehicules`. Il ne s'agit ni de services médicaux ni de logistique hospitalière interne, mais d'un service de transport externe avec véhicules dédiés, traçabilité thermique et habilitations ADR.",
+  "caracteristiques_metier": {
+    "description": "Transport de produits sanguins labiles (concentrés de globules rouges, plaquettes, plasmas frais congelés) et de prélèvements biologiques entre l'EFS de Lille et les établissements du GHT (CH Dunkerque, Hôpital Maritime Zuydcoote, CHRSO Saint-Omer), avec navettes régulières et interventions urgentes 24h/24, 365j/an. Exigences strictes de maintien en température (conteneurs isothermes qualifiés, eutectiques), traçabilité COFRAC, formation ADR du personnel, protocoles hygiène traçés et géolocalisation des véhicules.",
+    "criteres_eligibilite": [
+      "Capacité à assurer un transport de produits biologiques sous température contrôlée 24h/24 365j/an",
+      "Personnel formé aux bonnes pratiques de transport des PSL et à la réglementation ADR",
+      "Véhicules sérigraphiés, équipés climatisation zone chargement (20-24°C), verrouillage, géolocalisation, système traçabilité thermique en temps réel",
+      "Équipements de transport qualifiés (conteneurs isothermes TARABOX, eutectiques étalonnés COFRAC)",
+      "Assurance RC couvrant le transport de ces produits"
+    ]
+  },
+  "bareme_notation": {
+    "valeur_technique_pct": 50,
+    "valeur_prix_pct": 50,
+    "sous_criteres_techniques": [
+      {
+        "libelle": "Présentation des modalités de transport (en urgence et en régulier)",
+        "ponderation_pct": 20,
+        "description": "Évaluation des modalités opérationnelles de transport : délai maximum de transport et délai de prise en charge, pour les tournées régulières et les interventions urgentes, sur la base du mémoire technique.",
+        "elements_attendus": [
+          "Temps de transport maximum Lille–CHRSO (≤ 1h30) et Lille–CHD (≤ 1h30)",
+          "Délai de prise en charge depuis l'appel (≤ 1h pour enlèvement à l'EFS)",
+          "Organisation des tournées régulières (14h du lundi au vendredi)",
+          "Procédure d'intervention urgente week-end/nuit/jours fériés",
+          "Logigramme précisant la procédure depuis la demande jusqu'à la remise en main propre"
+        ],
+        "exemple_reponse_forte": "Notre plateforme de régulation disponible 24h/24 garantit une prise en charge en moins de 30 minutes après appel avec un délai d'enlèvement à l'EFS de Lille inférieur à 45 minutes. Un logigramme détaillé présente chaque étape de la chaîne depuis la réception de l'appel téléphonique jusqu'à la remise des PSL au dépôt de sang, avec les procédures dégradées (véhicule relais, doublon chauffeur) pour les urgences nocturnes.",
+        "source": "RC §7.2",
+        "unite_evaluation": "points",
+        "sous_criteres": [
+          {
+            "libelle": "Temps de transport maximum",
+            "ponderation_pct": 12,
+            "description": "Notation du temps de transport maximum annoncé entre l'EFS de Lille et les établissements destinataires.",
+            "elements_attendus": [
+              "Temps maximum Lille–CHRSO ≤ 1h30",
+              "Temps maximum Lille–CHD ≤ 1h30",
+              "Temps maximum Lille–Hôpital Maritime ≤ 1h30"
+            ],
+            "exemple_reponse_forte": "Notre engagement contractuel est un temps de transport EFS Lille – dépôt de sang CHRSO inférieur à 1h10 en conditions normales, avec un délai de retrait EFS inférieur à 20 minutes.",
+            "source": "RC §7.2",
+            "unite_evaluation": "delai_jours"
+          },
+          {
+            "libelle": "Description du délai de prise en charge",
+            "ponderation_pct": 8,
+            "description": "Évaluation du délai entre la demande du Centre Hospitalier et la prise en charge effective du transport (enlèvement à l'EFS ou au dépôt de sang).",
+            "elements_attendus": [
+              "Délai de prise en charge depuis appel ≤ 1 heure",
+              "Procédure d'alerte et de confirmation de disponibilité chauffeur",
+              "Moyens mis en œuvre en cas de non-disponibilité (véhicule relais, astreinte)"
+            ],
+            "exemple_reponse_forte": "Dès réception de l'appel téléphonique et du fax de confirmation, notre régulateur déclenche l'alerte au chauffeur d'astreinte avec confirmation de prise en charge en moins de 15 minutes ; le départ vers l'EFS intervient dans les 30 minutes.",
+            "source": "RC §7.2",
+            "unite_evaluation": "delai_jours"
+          }
+        ]
+      },
+      {
+        "libelle": "Formation des agents",
+        "ponderation_pct": 15,
+        "description": "Évaluation sur la base des attestations de formation des effectifs roulants et personnels affectés : formations bonnes pratiques PSL, ADR, hygiène, conduite à tenir en cas d'AES.",
+        "elements_attendus": [
+          "Attestations de formation 'bonnes pratiques de transport des PSL' délivrées par un organisme habilité",
+          "Attestations de formation ADR (transport marchandises dangereuses) à jour",
+          "Formation sur les règles d'hygiène et utilisation des matériels",
+          "Consignes écrites AES remises au personnel",
+          "Précision du statut contractuel de chaque convoyeur (salarié/intérimaire/auto-entrepreneur)"
+        ],
+        "exemple_reponse_forte": "L'ensemble de nos 4 convoyeurs dédiés au marché sont salariés CDI titulaires de l'attestation 'bonnes pratiques de transport PSL' (organisme agréé X, validité 2025) et de la formation ADR classe 6.2 (certificat n° XXXX). Les fiches de formation individuelles sont jointes en annexe, précisant l'ancienneté et l'expérience hospitalière de chaque agent.",
+        "source": "RC §7.2",
+        "unite_evaluation": "points",
+        "sous_criteres": []
+      },
+      {
+        "libelle": "Modalités de traçabilité et protocoles d'hygiène",
+        "ponderation_pct": 10,
+        "description": "Évaluation des modalités de traçabilité des températures (enregistrement continu, transfert quotidien, étalonnage COFRAC) et des protocoles d'hygiène des véhicules et conteneurs.",
+        "elements_attendus": [
+          "Système d'enregistrement continu des températures en temps réel (données fournies quotidiennement)",
+          "Certificats d'étalonnage COFRAC des dispositifs de mesure (annuels)",
+          "Protocole de nettoyage/désinfection des véhicules avec traçabilité",
+          "Protocole de nettoyage quotidien des conteneurs et eutectiques",
+          "Mode opératoire soumis au donneur d'ordre"
+        ],
+        "exemple_reponse_forte": "Nos véhicules sont équipés de data loggers ELPRO étalonnés COFRAC (certificat annuel joint) enregistrant la température toutes les 5 minutes avec transfert automatique au laboratoire destinataire via application dédiée. Le protocole de désinfection quotidienne des conteneurs par produit détergent-désinfectant de surface (fiche produit jointe) est tracé sur carnet de bord consultable à tout moment.",
+        "source": "RC §7.2",
+        "unite_evaluation": "points",
+        "sous_criteres": [
+          {
+            "libelle": "Modalité de traçabilité des températures",
+            "ponderation_pct": 5,
+            "description": "Qualité du système d'enregistrement continu des températures, étalonnage COFRAC, et modalités de transfert quotidien des données.",
+            "elements_attendus": [
+              "Enregistrement continu en temps réel",
+              "Transfert quotidien des données au destinataire",
+              "Étalonnage COFRAC annuel des dispositifs"
+            ],
+            "exemple_reponse_forte": "Data loggers ELPRO ECOLOG TP1 étalonnés COFRAC (certificat annuel joint), enregistrement toutes les 5 min, transfert automatique par Bluetooth au technicien de laboratoire à chaque livraison.",
+            "source": "RC §7.2",
+            "unite_evaluation": "points"
+          },
+          {
+            "libelle": "Protocole d'hygiène du véhicule et protocoles d'hygiène des containers",
+            "ponderation_pct": 5,
+            "description": "Qualité des protocoles d'hygiène et de désinfection des véhicules (2,5 pts) et des conteneurs (2,5 pts), avec modes opératoires tracés soumis au donneur d'ordre.",
+            "elements_attendus": [
+              "Protocole de nettoyage zone de chargement du véhicule avec traçabilité",
+              "Protocole de nettoyage quotidien des conteneurs et eutectiques",
+              "Produit détergent-désinfectant référencé avec fiche de données de sécurité",
+              "Fiche de traçabilité consultable à tout moment"
+            ],
+            "exemple_reponse_forte": "Nettoyage quotidien de la zone de chargement avec Surfa'Safe Premium (bactéricide, virucide EN 14476) tracé sur registre de bord. Désinfection des conteneurs TARABOX et eutectiques chaque soir selon protocole écrit validé (mode opératoire joint), avec fiche de traçabilité archivée.",
+            "source": "RC §7.2",
+            "unite_evaluation": "points"
+          }
+        ]
+      },
+      {
+        "libelle": "Performances en matière de protection de l'environnement",
+        "ponderation_pct": 5,
+        "description": "Évaluation des mesures mises en œuvre pour réduire l'empreinte carbone : composition de la flotte (véhicules électriques/hybrides/Crit'Air 0-1), optimisation des tournées, formation à l'éco-conduite.",
+        "elements_attendus": [
+          "Proportion de véhicules électriques, hybrides ou Crit'Air 0/1 dans la flotte dédiée au marché",
+          "Plan de réduction de l'empreinte carbone (optimisation des tournées)",
+          "Programme de formation à l'éco-conduite des chauffeurs",
+          "Indicateurs de suivi de l'empreinte carbone liée aux prestations"
+        ],
+        "exemple_reponse_forte": "100% de la flotte dédiée à ce marché est composée de véhicules électriques (Renault Kangoo E-Tech) classés Crit'Air 0, réduisant les émissions CO2 à zéro en usage. Un logiciel d'optimisation des tournées (Via Route) permet de minimiser les distances parcourues, et tous nos chauffeurs ont suivi une formation éco-conduite en 2024 (attestations jointes).",
+        "source": "RC §7.2",
+        "unite_evaluation": "points",
+        "sous_criteres": []
+      }
+    ],
+    "prix": {
+      "type_formule": "moins_disant",
+      "formule_explicite": "Montant total estimatif annuel en € TTC pour chacun des lots, pondéré à 50 points. L'offre la moins disante obtient le score le plus élevé.",
+      "source": "RC §7.2",
+      "elements_a_chiffrer": [
+        "Prix unitaire transport régulier de jour semaine (lundi-vendredi)",
+        "Prix unitaire transport urgent de jour semaine (hors tournée régulière)",
+        "Prix unitaire transport de nuit semaine (21h-6h)",
+        "Prix unitaire transport samedi, dimanche et jours fériés (jour et nuit)",
+        "Quantités estimatives sur 12 mois selon BPU par lot"
+      ]
+    },
+    "modalite_calcul_prix": "Montant total estimatif annuel en € TTC calculé à partir du BPU (prix unitaires × quantités estimatives sur 12 mois). L'offre la moins disante sur chaque lot obtient le score maximum de 50 points."
+  },
+  "montant_marche": {
+    "valeur_estimee_euros": 662000,
+    "fourchette_min_euros": null,
+    "fourchette_max_euros": null,
+    "type": "estime_explicite",
+    "duree_couverte": "4 ans (durée totale marché, 1 an + 3 reconductions)",
+    "source_extraction": "AAPC rubrique 'Quantité ou étendue' + RC §1.3",
+    "commentaire": "Valeur estimée totale publiée à 662 000 € HT (lot 1 : 120 000 € + lot 2 : 388 000 € + lot 3 : 2 000 € + lot 4 : 152 000 €) sur 4 ans. Les montants maximum (plafonds) par lot sont respectivement 240 000 €, 776 000 €, 4 000 € et 304 000 € HT sur 4 ans."
+  },
+  "montant_3_voies": {
+    "voie_1_eur": 662000,
+    "voie_1_source": "AAPC rubrique 'Quantité ou étendue' : 'Valeur estimée hors TVA : 662 000,00 €' + RC §1.3 détail par lot",
+    "voie_2_disponible": false,
+    "voie_2_min_eur": null,
+    "voie_2_max_eur": null,
+    "voie_2_hypotheses": [],
+    "voie_2_raison_indisponible": "Voie 1 disponible avec montant explicite publié — estimation bottom-up non requise."
+  },
+  "cout_realisation": {
+    "cout_total_eur": 530000,
+    "cout_min_eur": 480000,
+    "cout_max_eur": 580000,
+    "postes": [
+      {
+        "poste": "Lot 1 — Transport PSL CH Dunkerque (coût de production)",
+        "detail": "Navettes régulières + urgences, 1-2 chauffeurs dédiés partiellement, véhicule dédié, carburant/entretien, amortissement matériel isotherme",
+        "montant_eur": 90000
+      },
+      {
+        "poste": "Lot 2 — Transport PSL + prélèvements CHRSO Saint-Omer (coût de production)",
+        "detail": "Navette régulière quotidienne 14h + urgences 24h/7j, 1,5 ETP chauffeur, véhicule dédié, matériel traçabilité, frais fixes",
+        "montant_eur": 320000
+      },
+      {
+        "poste": "Lot 3 — Transport PSL Hôpital Maritime Zuydcoote (coût de production)",
+        "detail": "Interventions ponctuelles uniquement, pas de navette régulière, coût variable très faible",
+        "montant_eur": 1600
+      },
+      {
+        "poste": "Lot 4 — Transport prélèvements biologiques CH Dunkerque (coût de production)",
+        "detail": "Collectes quotidiennes + urgences, 1 ETP chauffeur partiel, véhicule, matériel triple emballage et traçabilité thermique",
+        "montant_eur": 118000
+      }
+    ],
+    "taux_journaliers_retenus": "Taux marché indicatifs secteur transport médical spécialisé : chauffeur coursier médical ~35 000-42 000 €/an charges comprises ; véhicule utilitaire léger dédié ~8 000-12 000 €/an (leasing + entretien + carburant) ; matériel isotherme/traçabilité ~2 000-4 000 €/an amortissement. Marge brute sectorielle services transport spécialisé : 8-15%.",
+    "commentaire": "Estimation bottom-up basée sur le volume de navettes (quotidiennes pour lot 2, ponctuelles pour lot 3) et les effectifs roulants déduits du CCP. Le coût inclut main d'œuvre (60-65%), véhicules/carburant (25%), matériel isotherme/traçabilité (5%), frais fixes/encadrement (5%). Lot 3 : coût marginal car prestations très ponctuelles (500 €/an estimé acheteur)."
+  },
+  "revision_prix": {
+    "type": "indexation",
+    "indices_utilises": [
+      "CNR VUL personnel de conduite",
+      "CNR Gazole professionnel",
+      "CNR Energie Electricité",
+      "CNR VUL Entretien et réparations"
+    ],
+    "ponderation": "15% partie fixe + 85% × [45% indice CNR Salaires + 24,5% indice CNR Gazole + 10,5% indice CNR Electricité + 20% indice CNR Entretien]",
+    "periodicite": "trimestrielle",
+    "formule_revision": "Cn = 0,15 + 0,85 × [0,45 × Sn/S0 + 0,245 × Gn/G0 + 0,105 × En/E0 + 0,20 × In/I0] ; P = P0 × Cn",
+    "source_extraction": "CCP §5.2 page 5-6",
+    "commentaire": "Formule CNR transports bien adaptée au secteur, prenant en compte les postes réels de coût (salaires, gazole, électricité pour flottes mixtes, entretien). Révision trimestrielle à la demande du titulaire ; la clause butoir à +3% par période limite l'exposition de l'acheteur mais protège aussi le titulaire contre les glissements tarifaires."
+  },
+  "alertes_prix": [
+    "Clause butoir à +3% maximum par période de révision (CCP §5.3) : au-delà, l'acheteur peut résilier sans indemnité — risque commercial significatif en cas de forte inflation des coûts transport.",
+    "Marché sans minimum garanti (accord-cadre à bons de commande) : le CA réel peut être nettement inférieur aux estimations publiées si les volumes de prélèvements/PSL diminuent.",
+    "Lot 3 (Hôpital Maritime Zuydcoote) estimé à seulement 500 €/an HT — risque d'offre anormalement basse si ce lot est candidaté isolément ; n'est viable qu'en complément des autres lots.",
+    "Pondération prix à 50% : très élevée pour un transport médical spécialisé avec contraintes fortes — la concurrence sur le prix sera intense, risque de sous-tarification des urgences nocturnes.",
+    "Pénalité de 300 € par incident de retard > 30 min non justifié et 300 €/tranche de 30 min pour urgences vitales (CCP §11) : à intégrer dans le calcul du risque financier lié aux aléas de circulation."
+  ],
+  "references_exigees": {
+    "experience_minimale_annees": null,
+    "experience_source": null,
+    "volume_min_references_similaires": null,
+    "volume_min_references_unite": null,
+    "secteur_experience": "Transport de produits sanguins labiles et/ou prélèvements biologiques pour établissements de santé",
+    "secteur_source": "CCP §9.1.1",
+    "certifications_obligatoires": [
+      {
+        "libelle": "Formation 'bonnes pratiques de transport des PSL' délivrée par un organisme habilité (personnel roulant affecté)",
+        "codes": [],
+        "bloquante": true,
+        "source": "CCP §9.1.1"
+      },
+      {
+        "libelle": "Formation ADR — transport de marchandises dangereuses (réglementation ADR, organisme agréé)",
+        "codes": [],
+        "bloquante": true,
+        "source": "CCP §9.1.1"
+      },
+      {
+        "libelle": "Étalonnage COFRAC des dispositifs d'enregistrement des températures (certificats annuels à fournir)",
+        "codes": [],
+        "bloquante": false,
+        "source": "CCP §9.1.3 et §9.2.1"
+      },
+      {
+        "libelle": "Assurance RC couvrant le transport de produits sanguins labiles et prélèvements biologiques",
+        "codes": [],
+        "bloquante": true,
+        "source": "CCP §13"
+      }
+    ],
+    "autres_exigences": [
+      {
+        "libelle": "Véhicules sérigraphiés aux couleurs de la société, équipés d'un système de climatisation zone chargement (20-24°C), verrouillage portes zone chargement, géolocalisation, système de traçabilité thermique en temps réel",
+        "source": "CCP §9.1.1"
+      },
+      {
+        "libelle": "Personnel identifiable par tenue ou badge indiquant la raison sociale de la société",
+        "source": "CCP §9.1.1"
+      },
+      {
+        "libelle": "Carnet d'entretien et de suivi des désinfections dans chaque véhicule, kit AES disponible à tout instant",
+        "source": "CCP §9.1.1"
+      }
+    ]
+  },
+  "dossier_candidature": {
+    "pieces_a_fournir": [
+      {
+        "libelle": "Lettre de candidature (imprimé DC1) dans sa version actualisée",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §5.1"
+      },
+      {
+        "libelle": "Déclaration du candidat individuel ou du membre du groupement (imprimé DC2)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §5.1"
+      },
+      {
+        "libelle": "En cas de redressement judiciaire : copie du ou des jugements prononcés",
+        "phase": "candidature",
+        "obligatoire": false,
+        "source": "RC §5.1"
+      },
+      {
+        "libelle": "OU Document Unique de Marché Européen (DUME) en remplacement des DC1/DC2",
+        "phase": "candidature",
+        "obligatoire": false,
+        "source": "RC §5.1"
+      },
+      {
+        "libelle": "Acte d'engagement (ATTRI1) dûment complété",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §5.1"
+      },
+      {
+        "libelle": "Bordereau des prix unitaires (BPU) — un onglet par lot — dûment complété",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §5.1"
+      },
+      {
+        "libelle": "Mémoire technique (protocoles hygiène véhicule/conteneurs, traçabilité températures, modalités transport régulier et urgences, organigramme, détail effectifs et formations, logigramme déroulement prestation, procédure dysfonctionnement, moyens techniques, matériel transport et traçabilité)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §5.1"
+      }
+    ],
+    "mode_remise": "dématérialisé",
+    "plateforme_depot": "marches-publics.info (https://www.marches-publics.info)",
+    "signature_electronique_exigee": false,
+    "format_signature": "XADES, CADES, PADES (formats acceptés si signature exigée sur certains documents)",
+    "nombre_exemplaires": null,
+    "langue": "français",
+    "duree_validite_offres_jours": 180,
+    "modalites_source": "RC §6.1 et §2.1"
+  },
+  "lots": [
+    {
+      "numero": 1,
+      "intitule": "Transport des produits sanguins labiles de l'Hôpital Alexandra Lepève",
+      "domaine": "transport_logistique_vehicules",
+      "zone_geographique": "Dunkerque (59) — Lille (EFS) vers CH Dunkerque",
+      "volume_estime": null,
+      "volume_estime_unite": null,
+      "cout_estime_min_eur": 80000,
+      "cout_estime_max_eur": 100000,
+      "ca_estime_min_eur": 100000,
+      "ca_estime_max_eur": 140000,
+      "marge_brute_pct": 14,
+      "particularites": "Navettes urgentes EFS Lille → CHD uniquement (PSL). Délai maximum 1h30 depuis appel. Montant estimé 30 000 €/an HT, plafond 240 000 € HT sur 4 ans."
+    },
+    {
+      "numero": 2,
+      "intitule": "Transport des produits sanguins labiles et des prélèvements biologiques du Centre Hospitalier de la Région de Saint-Omer",
+      "domaine": "transport_logistique_vehicules",
+      "zone_geographique": "Saint-Omer (62) — navette Lille (EFS) ↔ CHRSO + points satellites (Aire-sur-la-Lys, USMP Longuenesse, CSAPA, HCL Lyon)",
+      "volume_estime": null,
+      "volume_estime_unite": null,
+      "cout_estime_min_eur": 290000,
+      "cout_estime_max_eur": 350000,
+      "ca_estime_min_eur": 350000,
+      "ca_estime_max_eur": 426000,
+      "marge_brute_pct": 13,
+      "particularites": "Lot le plus volumineux (388 000 € HT sur 4 ans, plafond 776 000 €). Inclut navette régulière quotidienne 14h (lundi-vendredi), urgences 24h/7j, transport retour prélèvements, collectes EHPAD Aire-sur-la-Lys, USMP, pharmacie chimiothérapie. Traçabilité quotidienne COFRAC exigée."
+    },
+    {
+      "numero": 3,
+      "intitule": "Transport des produits sanguins labiles pour l'hôpital Maritime de Zuydcoote",
+      "domaine": "transport_logistique_vehicules",
+      "zone_geographique": "Zuydcoote (59) — Lille (EFS) vers Hôpital Maritime Vancauwenberghe",
+      "volume_estime": null,
+      "volume_estime_unite": null,
+      "cout_estime_min_eur": 1400,
+      "cout_estime_max_eur": 1800,
+      "ca_estime_min_eur": 1700,
+      "ca_estime_max_eur": 2300,
+      "marge_brute_pct": 14,
+      "particularites": "Lot très marginal (500 €/an, 2 000 € estimés sur 4 ans, plafond 4 000 €). Interventions ponctuelles uniquement sur appel. Délai maximum 1h30 depuis appel. À candidater en complément des autres lots pour amortir les coûts fixes."
+    },
+    {
+      "numero": 4,
+      "intitule": "Transport des prélèvements biologiques de l'Hôpital Alexandra LEPEVE",
+      "domaine": "transport_logistique_vehicules",
+      "zone_geographique": "Dunkerque (59) — collectes multisites vers laboratoire CH Dunkerque",
+      "volume_estime": null,
+      "volume_estime_unite": null,
+      "cout_estime_min_eur": 110000,
+      "cout_estime_max_eur": 130000,
+      "ca_estime_min_eur": 135000,
+      "ca_estime_max_eur": 169000,
+      "marge_brute_pct": 13,
+      "particularites": "Transport prélèvements biologiques en triple emballage avec traçabilité thermique (15-25°C), étalonnage COFRAC annuel, remise mensuelle relevés température (ISO 15189). Peut inclure transports d'organes et personnels médicaux ponctuels. Montant estimé 38 000 €/an HT, plafond 304 000 € sur 4 ans."
+    }
+  ],
+  "tranches": [],
+  "calendrier": {
+    "date_limite_offres": "2026-07-10",
+    "date_demarrage_prevue": "2026-10-01",
+    "duree_marche": "1 an renouvelable 3 fois (4 ans maximum)"
+  },
+  "alertes_candidat": [
+    "Formation ADR obligatoire pour tout le personnel roulant affecté, délivrée par un organisme agréé : attestations à fournir dans le mémoire technique sous peine de score nul sur le critère 'Formation' (15 pts).",
+    "Absence de chiffrage ou chiffrage incomplet du BPU entraîne l'irrégularité automatique de l'offre — remplir TOUS les onglets (un par lot candidaté) avec prix unitaires ET quantités estimatives.",
+    "Équipements qualifiés exigés : conteneurs isothermes TARABOX, eutectiques et dispositifs d'enregistrement des températures doivent être étalonnés COFRAC (certificats à fournir annuellement) — sans ces équipements, le candidat ne peut pas exécuter le marché.",
+    "Prestations 24h/24 365j/an obligatoires : le prestataire doit démontrer une organisation d'astreinte opérationnelle pour les urgences nocturnes, week-ends et jours fériés pour tous les lots candidatés.",
+    "Pénalités financières sévères (300 €/incident, 300 €/30 min d'urgence vitale) avec possibilité de résiliation après 2 courriers de pénalités pour même motif : la qualité opérationnelle doit être sans défaut."
+  ],
+  "points_differenciants_attendus": [
+    {
+      "libelle": "Démonstration d'une flotte électrique ou hybride dédiée au marché",
+      "exemple": "Un candidat disposant de véhicules 100% électriques (ex: Renault Kangoo E-Tech) pour les tournées dédiées, avec données télémétriques montrant l'autonomie suffisante pour les trajets Lille–Saint-Omer, maximisera les 5 points environnementaux tout en valorisant ses tournées optimisées.",
+      "source": "RC §7.2 critère 5"
+    },
+    {
+      "libelle": "Temps de transport annoncés nettement inférieurs aux seuils maximaux du CCP",
+      "exemple": "Annoncer un délai Lille–CHRSO de 1h05 au lieu de 1h30 maximum, avec historique de courses géolocalisées à l'appui, permet de se démarquer sur les 12 points du sous-critère 'Temps de transport maximum'.",
+      "source": "RC §7.2 critère 2.1 ; CCP §9.1.3"
+    },
+    {
+      "libelle": "Équipes formées et expérimentées en milieu hospitalier avec références vérifiables",
+      "exemple": "Présenter des attestations de formation PSL et ADR récentes (< 3 ans) pour TOUS les chauffeurs affectés, avec indication de leur ancienneté dans le transport médical et des références d'établissements hospitaliers clients, maximise les 15 points du critère 'Formation des agents'.",
+      "source": "RC §7.2 critère 3 ; CCP §9.1.1"
+    },
+    {
+      "libelle": "Système de traçabilité thermique en temps réel avec transfert automatique au laboratoire",
+      "exemple": "Un système IoT de type data logger avec application mobile permettant au technicien de laboratoire de visualiser en temps réel la courbe de température avant même l'arrivée du véhicule dépasse les exigences du CCP et marque significativement sur les 5 points de traçabilité.",
+      "source": "RC §7.2 critère 4.1 ; CCP §9.2.1"
+    },
+    {
+      "libelle": "Offre multi-lots cohérente permettant une organisation mutualisée",
+      "exemple": "Candidater aux 4 lots en proposant des synergies logistiques (même chauffeur assurant lots 1 et 4 depuis Dunkerque, lot 3 en extension du lot 1) peut permettre de proposer des prix unitaires compétitifs sur le lot 3 (très marginal) sans risque de perte, tout en sécurisant le lot 2 le plus volumineux.",
+      "source": null
+    }
+  ],
+  "_meta": {
+    "id_marche": "BOAMP-26-56191",
+    "type": "complet",
+    "date_generation": "2026-06-20T14:40:11.123142+00:00",
+    "extraction_le": "2026-06-20T14:40:11.123142+00:00",
+    "modele": "claude-sonnet-4-6",
+    "preset_utilise": null,
+    "presets_matches": [],
+    "prompts_versions": {},
+    "tokens_input": 75146,
+    "tokens_output": 9388,
+    "cout_eur": 0.3479,
+    "duree_sec": 168.7,
+    "pdfs_traites": [
+      {
+        "nom": "AWS-MPI-1828728-RC.pdf",
+        "hash": "ae2a056a6f15559293df5be6586aa429",
+        "taille_chars": 42751
+      },
+      {
+        "nom": "CCP.pdf",
+        "hash": "0d494ae9692d935d079f9c6cbd2ed8a6",
+        "taille_chars": 63097
+      },
+      {
+        "nom": "Formulaire_DC4.docx",
+        "hash": "79f58451aa50317b16f2cb11ff28e26d",
+        "taille_chars": 15958
+      },
+      {
+        "nom": "MPI1828728_AAPC.pdf",
+        "hash": "3484c1b23179c4a3be81ffd6a0fe9cda",
+        "taille_chars": 5788
+      },
+      {
+        "nom": "RC.pdf",
+        "hash": "ae2a056a6f15559293df5be6586aa429",
+        "taille_chars": 42751
+      }
+    ]
+  }
+}

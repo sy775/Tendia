@@ -1,6 +1,6 @@
 # Brief — Nomination d'un commissaire aux comptes
 
-_Généré le 2026-06-15 02:21 par Claude claude-sonnet-4-6_
+_Généré le 2026-06-20 23:56 par Claude claude-sonnet-4-6_
 
 ## Identifiants
 - **ID Tendia** : `BOAMP-26-56261`
@@ -11,29 +11,30 @@ _Généré le 2026-06-15 02:21 par Claude claude-sonnet-4-6_
 - **DCE PLACE** : <https://www.marches-publics.gouv.fr/?page=Entreprise.EntrepriseAdvancedSearch&AllCons&id=2990823&orgAcronyme=s7h>
 
 ## Synthèse
-La Caisse Autonome Nationale de la Sécurité Sociale dans les Mines (CANSSM / Filieris) lance un appel d'offres pour la nomination d'un commissaire aux comptes chargé de certifier ses comptes annuels. La mission consiste en l'audit et la certification des comptes du régime minier, institution de prévoyance régie par le code de la sécurité sociale, avec des spécificités liées à la gestion sous mandats multiples (CDC, CNAM, ANGDM). Le marché est référencé AO26CA0019, publié au BOAMP sous la référence 26-56261.
+Marché public de nomination d'un commissaire aux comptes (CAC) pour la certification des comptes annuels de la Caisse Autonome Nationale de la Sécurité Sociale dans les Mines (CANSSM), institution de prévoyance gérant l'offre de santé Filieris et le régime spécial de protection sociale des mineurs. Le mandat porte sur 6 exercices (CPV 79212300), avec des comptes complexes incluant des mandats de gestion confiés à la CDC, la CNAM et l'ANGDM, et un bilan total de 654 M€ en 2024. Le marché est attribué selon une procédure ouverte européenne avec critères sociaux et environnementaux.
 
 ## 🎯 Mission conseil
 - **Typologie de mission** : audit
-- **Domaine d'expertise** : audit légal, certification des comptes, organismes de sécurité sociale
-- **Durée de mission** : Non précisée explicitement — mission annuelle renouvelable (mandat CAC)
-- **Méthodologie attendue** : Prise de connaissance de l'entité et de son environnement, rédaction de la lettre de mission, contrôle intérimaire, examen des comptes annuels selon les normes d'exercice professionnel applicables en France (NEP), élaboration des rapports, pilotage, participation aux instances. Adaptation spécifique à la structure organisationnelle de la CANSSM (gestion directe + mandats de gestion CDC, CNAM, ANGDM).
+- **Domaine d'expertise** : audit financier, commissariat aux comptes, organismes de sécurité sociale
+- **Durée de mission** : 6 exercices (durée du mandat de CAC, soit ~6 ans)
+- **Méthodologie attendue** : Prise de connaissance de l'entité + rédaction de la lettre de mission + contrôle intérimaire + examen des comptes annuels + élaboration des rapports + pilotage + participation aux instances du conseil d'administration. Adaptation spécifique à l'organisation interne de la CANSSM et à la part importante réalisée sous mandat de gestion (CDC, CNAM, ANGDM).
 - **Livrables attendus** :
-  - Rapport du commissaire aux comptes sur les comptes annuels
+  - Rapport du commissaire aux comptes sur les comptes annuels (certification ou refus)
   - Lettre de mission
-  - Rapport sur les vérifications spécifiques prévues par les textes légaux
-  - Participation aux instances (conseil d'administration)
+  - Rapport d'audit intermédiaire (contrôle intérimaire)
+  - Participation aux instances (conseil d'administration, commission de gestion)
 - **Livrables par phase** :
-  - **Prise de connaissance** :
-    - Documentation sur l'organisation interne de la CANSSM
+  - **Phase 1 — Prise de connaissance** :
     - Lettre de mission
-  - **Contrôle intérimaire** :
-    - Rapport intérimaire ou points d'étape
-  - **Examen des comptes annuels** :
+    - Documentation de prise de connaissance
+  - **Phase 2 — Contrôle intérimaire** :
+    - Rapport intérimaire
+    - Points de contrôle interne
+  - **Phase 3 — Examen des comptes annuels** :
+    - Dossier d'audit des comptes annuels
+  - **Phase 4 — Rapports et instances** :
     - Rapport du commissaire aux comptes sur les comptes annuels
-    - Rapport sur les vérifications spécifiques
-  - **Participation aux instances** :
-    - Présentation au conseil d'administration
+    - Participation au conseil d'administration
 - **Jours-consultant par profil** :
   - Associé
   - Expert
@@ -42,10 +43,10 @@ La Caisse Autonome Nationale de la Sécurité Sociale dans les Mines (CANSSM / F
   - Junior
 
 ### Profils intervenants
-Équipe pluridisciplinaire avec un associé signataire, des experts, managers, seniors et juniors. Le cadre de réponse technique (Annexe 3) prévoit explicitement des profils Associé, Expert, Manager, Senior, Junior avec description des diplômes/expériences et compétences liées au domaine.
+Équipe dédiée avec profils Associé, Expert, Manager, Senior et Junior selon le cadre de réponse technique (CRT). Les profils doivent justifier de diplômes et expériences liés au périmètre de la prestation (commissariat aux comptes, organismes de sécurité sociale).
 - **Chef de mission** :
-  - secteur : Commissariat aux comptes, organismes de sécurité sociale ou institutions de prévoyance
-  - certifications : Inscription sur la liste des commissaires aux comptes (H3C)
+  - secteur : commissariat aux comptes, organismes de sécurité sociale ou institutions de prévoyance
+  - certifications : Inscription sur la liste des commissaires aux comptes
 - **Consultants** :
   - Expert
   - Manager
@@ -55,32 +56,36 @@ La Caisse Autonome Nationale de la Sécurité Sociale dans les Mines (CANSSM / F
 ## 💶 Montant du marché
 - _Montant non communiqué dans le DCE._
   - Typique des accords-cadres à bons de commande : le volume dépend des commandes effectivement passées par l'acheteur sur la durée du marché.
-- _Note_ : Aucun montant estimatif, plafond ou fourchette n'est mentionné dans les pièces du DCE fournies (pas de RC, pas de CCAP, pas de BPU avec TJM ni de mention d'enveloppe budgétaire). Le DCE ne comprend que les annexes CCTP (rapports CAC 2024 et 2025), le rapport annuel d'activité 2024 et le cadre de réponse technique.
+- _Note_ : Aucun montant estimé ni enveloppe budgétaire n'est mentionné dans les pièces du DCE analysées. Le marché porte sur 6 exercices annuels de certification des comptes.
 
 ## Barème de notation
 - **Valeur technique** : 50 %
-- **Valeur prix** : —
+- **Valeur prix** : 50 %
 - **Sous-critères techniques** :
   - La méthodologie proposée : 25 %
   - Composition de l'équipe dédiée et profil des intervenants : 20 %
   - Démarche environnementale : 5 %
-- **Calcul du prix** : Non précisée explicitement dans les pièces fournies. La décomposition s'effectue via le tableau de charge du CRT (Annexe 3) croisant profils et phases de mission.
+- **Calcul du prix** : Critère prix à 50% — formule moins-disante ou proportionnelle, non détaillée dans les pièces fournies.
 
 ## Références et qualifications exigées
 - **Expérience minimale** : —
-- **Secteur d'expérience** : Commissariat aux comptes d'organismes de sécurité sociale, institutions de prévoyance ou régimes spéciaux — inféré du périmètre de la mission (PCUOSS, mandats de gestion, provisions techniques OSS)
-- **Certifications obligatoires** : Inscription sur la liste des commissaires aux comptes auprès de la Haute Autorité de l'Audit (H3C) — condition légale d'exercice de la mission de commissariat aux comptes (source=Inféré de la nature du marché (nomination d'un CAC) et des articles L.821-53 et R.821-180 du code de commerce cités dans les rapports CAC fournis en annexe)
+- **Secteur d'expérience** : Commissariat aux comptes d'organismes de sécurité sociale, institutions de prévoyance ou organismes publics de grande taille avec comptes complexes et mandats de gestion
+- **Certifications obligatoires** : Inscription sur la liste officielle des commissaires aux comptes (H3C / Compagnie nationale des commissaires aux comptes) — condition légale et réglementaire pour exercer la mission (bloquante=True, source=Code de commerce art. L.821-1 et suivants — exigence légale inhérente à la mission)
+
+## Lots
+- **Lot 1** — Nomination d'un Commissaire aux Comptes pour la certification des comptes annuels de la Caisse Autonome Nationale de la Sécurité Sociale dans les Mines (CANSSM)
+  - Zone : FR101 (Île-de-France — siège CANSSM Paris 75017)
+  - Comptes annuels complexes intégrant des mandats de gestion confiés à la CDC (retraite), la CNAM (maladie/AT-MP) et l'ANGDM (ASS individuelle). Bilan 2024 : 654 M€ ; charges : 2,4 Md€. Comptes certifiés sans réserve par Forvis Mazars pour les exercices 2024 et 2025. Le PCUOSS (Plan Comptable Unique des Organismes de Sécurité Sociale) est le référentiel comptable applicable. Continuité d'exploitation assurée par financements PUMA, subvention État, emprunts ACOSS.
 
 ## ⚠ Alertes candidat
-- Inscription obligatoire à la H3C (Haute Autorité de l'Audit) en qualité de commissaire aux comptes : condition légale d'exercice, l'absence d'inscription entraîne l'irrecevabilité de la candidature.
-- Règles d'indépendance strictes : tout lien professionnel ou financier avec la CANSSM, ses mandataires (CDC, CNAM, ANGDM) ou ses filiales peut entraîner une incompatibilité légale.
-- Complexité technique spécifique : la CANSSM applique le PCUOSS (Plan Comptable Unique des Organismes de Sécurité Sociale) avec des mandats de gestion imbriqués (CDC-RDM, CNAM/CPAM, ANGDM) — une méconnaissance de ce référentiel fragilise la qualité de la réponse technique.
-- Délais de clôture raccourcis depuis 2023 : les comptes sont arrêtés début avril et la certification doit intervenir avant fin avril — le rétroplanning doit être réaliste et démontrer la capacité à tenir ce délai.
-- Le CRT exige un tableau de charge détaillé par profil ET par phase avec nombre de jours — une réponse incomplète ou incohérente sur ce tableau sera pénalisée sur le critère 'équipe'.
+- Inscription obligatoire sur la liste officielle des commissaires aux comptes (H3C) — condition légale sine qua non, vérifier que le signataire désigné est bien inscrit et non en situation d'incompatibilité
+- Risque d'INCOMPATIBILITÉ si le cabinet ou un associé a réalisé des missions de conseil ou d'expertise comptable pour la CANSSM — vérifier les règles d'indépendance du Code de déontologie CAC avant toute candidature
+- Connaissance spécialisée du PCUOSS (Plan Comptable Unique des Organismes de Sécurité Sociale) et des normes CSS exigée de fait pour auditer des comptes d'une telle complexité — un cabinet sans expérience sur ce référentiel aura un désavantage significatif
+- Les mandats de gestion multiples (CDC, CNAM, ANGDM) impliquent une coordination avec des tiers mandataires sur des volumes importants (CDC : 1,07 Md€ de pensions ; CNAM : gestion assurantielle) — la méthodologie doit en tenir compte explicitement sous peine de notation faible
+- La pondération prix à 50% impose un positionnement tarifaire compétitif — un cabinet qui calibre ses honoraires sur les standards Big Four risque d'être éliminé sur le prix même avec une offre technique excellente
 
 ## 💡 Points différenciants attendus
-- Expertise avérée en audit d'organismes de sécurité sociale avec connaissance du PCUOSS (exemple=Un cabinet justifiant de références récentes en certification de comptes d'OSS (CPAM, CARSAT, régimes spéciaux) et maîtrisant le PCUOSS, les provisions techniques (article L.114-5 CSS) et les compensations inter-régimes se distinguera fortement sur le critère méthodologique., source=Annexe_3_AE_CRT.docx)
-- Compréhension démontrée de la structure complexe CANSSM (siège + CARMI + 3 mandats de gestion) (exemple=Le candidat qui démontre dans son mémoire technique avoir compris que l'activité directement gérée par la CANSSM est minoritaire par rapport aux opérations sous mandat (CDC vieillesse, CNAM maladie/AT-MP, ANGDM ASS) et qui propose une méthodologie de coordination avec ces tiers sera valorisé sur le sous-critère 'adaptation à l'organisation interne'., source=Annexe_3_AE_CRT.docx)
-- Rétroplanning crédible intégrant les contraintes de délai de certification raccourci (exemple=Proposer un rétroplanning qui démontre la faisabilité de la certification avant fin avril (comptes arrêtés début avril) avec des jalons précis pour la réception des données CDC-RDM et CNAM est un axe différenciant explicitement scoré dans le CRT., source=Annexe_3_AE_CRT.docx)
-- Politique RSE documentée avec engagements concrets sur la limitation des déplacements et l'insertion (exemple=Un cabinet présentant une politique formalisée de recours prioritaire aux visioconférences, une charte de remboursement limitée aux transports en commun et des actions d'insertion professionnelle mesurables (nombre d'alternants, partenariats écoles) maximise les 5 points RSE du barème., source=Annexe_3_AE_CRT.docx)
-- Continuité par rapport au CAC sortant (Forvis Mazars) — connaissance du dossier (exemple=Si le marché est ouvert à la concurrence après le mandat de Forvis Mazars, un candidat ayant une connaissance préalable de la CANSSM ou d'entités similaires (régimes spéciaux miniers, CDC-RDM) peut valoriser cet avantage informationnel dans sa proposition de rétroplanning et dans l'estimation du temps de prise de connaissance.)
+- Expérience spécifique sur les organismes de sécurité sociale appliquant le PCUOSS (exemple=Citer explicitement des missions de certification de caisses de retraite, CPAM ou institutions de prévoyance régie par le Code de la sécurité sociale, avec mention du référentiel PCUOSS et des normes OSS — l'offre sortante Forvis Mazars a certifié les exercices 2024 et 2025 sans réserve, la concurrence doit montrer un niveau d'expertise équivalent., source=Annexe_1_CCTP_rapport_CAC_2024.pdf)
+- Connaissance de la structure de mandats de gestion et capacité à auditer des tiers mandataires (exemple=Décrire une méthodologie de revue des balances transmises par la CDC-RDM, la CPAM de l'Artois et l'ANGDM, avec des procédures d'audit spécifiques aux opérations sous mandat (retraitements de neutralisation, gestions CDC/GR/GC) — cet aspect est explicitement valorisé dans le CRT., source=Annexe_3_AE_CRT.docx)
+- Rétroplanning serré et adapté aux délais raccourcis de la CANSSM (exemple=Mettre en avant la capacité à émettre le rapport de certification fin avril (délai raccourci depuis 2023 selon le rapport d'activité 2024) avec un calendrier détaillé montrant les jalons de coordination avec l'agence comptable, la direction financière et les mandataires., source=Annexe_2_CCTP_rapport_activite_2024.pdf)
+- Démarche environnementale concrète et mesurable (exemple=Proposer un ratio de réunions en visioconférence ≥ 80% avec un bilan carbone estimé de la mission, une politique de remboursement exclusivement sur transports en commun et un engagement chiffré sur l'insertion professionnelle (ex: 1 alternant sur la mission) — le CRT attribue 5 points sur 50 à ce critère, soit 10% du score technique., source=Annexe_3_AE_CRT.docx)

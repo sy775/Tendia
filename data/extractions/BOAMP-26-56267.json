@@ -1,283 +1,452 @@
 {
-  "synthese_marche": "Le CHU de Toulouse, coordonnateur du groupement de commandes hospitalier de la Haute-Garonne et du Tarn Ouest (GHT 31), lance un accord-cadre à bons de commande en 2 lots pour des prestations de contrôles et surveillance des eaux (Lot 1) et de qualification des zones à environnement maîtrisé (Lot 2). Le marché est conclu pour 12 mois renouvelables 3 fois (durée totale maximale 48 mois), avec un montant maximum de 360 000 € HT par lot pour la durée totale.",
+  "synthese_marche": "Accord-cadre à bons de commande, mono-attributaire, passé en procédure ouverte par le CHU de Toulouse (coordonnateur du GHT Haute-Garonne et Tarn Ouest) pour des prestations de contrôle et surveillance des eaux (Lot 1) et de qualification des zones à environnement maîtrisé (Lot 2). Périmètre étendu à l'ensemble des établissements du GHT : CHU Toulouse (sites Purpan, Rangueil, Larrey, La Grave, Hôtel-Dieu, Chapitre, Logipharma), IUCT-Oncopole, CH Gérard Marchant, CHCP Saint-Gaudens, Hôpitaux de Luchon, CH Muret, CH Lavaur. Durée initiale 12 mois à compter du 15/11/2026, reconductible 3 fois, montant maximum 360 000 € HT par lot (720 000 € HT au total).",
   "domaines_metier": [
     {
       "code": "services_environnement_analyses",
       "poids": 0.7,
       "lots_concernes": [
-        "Lot 1 - Contrôles et surveillance des eaux"
+        1
       ]
     },
     {
       "code": "services_sante_medical",
       "poids": 0.3,
       "lots_concernes": [
-        "Lot 2 - Qualification des zones à environnement maîtrisé"
+        2
       ]
     }
   ],
-  "raison_classification": "Le Lot 1 porte explicitement sur des contrôles physico-chimiques et microbiologiques des eaux (potabilité, légionelles, AEP) dans des établissements hospitaliers, ce qui relève de 'services_environnement_analyses'. Le Lot 2 concerne la qualification de zones à environnement maîtrisé (salles blanches/salles propres en milieu hospitalier), ce qui est une forme de contrôle qualité environnemental spécifique au secteur médical, justifiant une part 'services_sante_medical'. Le CPV 90714500-0 ('Services de contrôle de la qualité environnementale') conforte la classification principale sur les analyses environnementales.",
-  "caracteristiques_techniques_chantier": {
-    "description": "Prestations analytiques et de contrôle réparties en deux lots : Lot 1 = contrôles et surveillance des eaux (potabilité, eaux AEP, recherche légionelles) sur l'ensemble des sites du GHT 31 ; Lot 2 = qualification des zones à environnement maîtrisé (salles propres, blocs opératoires, zones stériles hospitalières). Les annexes du DCE précisent les listes de prélèvements potabilité CHU, prélèvements légionelles CH Marchant, et les surfaces des zones maîtrisées (CHCP & HDL).",
-    "technologies_concernees": [],
-    "type_de_sites": "Établissements hospitaliers publics (CHU, CH) du GHT Haute-Garonne et Tarn Ouest",
+  "raison_classification": "Le Lot 1 porte sur des analyses physico-chimiques et microbiologiques de l'eau (potabilité, légionelles, eaux de rejet, TAR, micropolluants) avec accréditation COFRAC obligatoire — classification principale `services_environnement_analyses`. Le Lot 2 porte sur la qualification des zones à environnement maîtrisé (blocs opératoires, réanimations, salles propres) selon NF S90-351 et NF EN ISO 14644 dans un contexte hospitalier, ce qui relève d'un contrôle qualité environnemental spécifique aux établissements de santé, rattaché à `services_sante_medical` pour la dimension hospitalière spécialisée. Les deux lots étant de poids sensiblement équivalents (360 k€ chacun), deux domaines sont justifiés.",
+  "caracteristiques_metier": {
+    "description": "Lot 1 : prélèvements et analyses COFRAC des eaux de consommation humaine (potabilité D1, légionelles, AEP, eaux pour soins, eau adoucie/osmosée/piscine), eaux de rejet (bilan pollution 24h, radioéléments, micropolluants DERU II), eaux de tours aéroréfrigérantes (TAR), endoscopes et LDE, sur l'ensemble des sites du GHT. Lot 2 : qualification et surveillance de routine de 530 zones à environnement maîtrisé (ZEM) du CHU et membres du GHT, classées CR2 à CR4, selon normes NF S90-351, NF EN ISO 14644-1/2/3, 14698-1/2, BPF, BPPH, BPP, incluant comptage particulaire, contrôle microbiologique air et surfaces, paramètres aérauliques, test d'intégrité des filtres.",
     "criteres_eligibilite": [
-      {
-        "libelle": "Accréditations et certifications COFRAC relatives à l'intégralité des contrôles concernés par le(s) lot(s) pour le(s)quel(s) la société se porte candidate – ou tout équivalent",
-        "source": "RC article 9"
-      },
-      {
-        "libelle": "Déclaration concernant le chiffre d'affaires global et, le cas échéant, du domaine d'activité faisant l'objet de l'accord-cadre, portant au maximum sur les trois derniers exercices disponibles",
-        "source": "RC article 9"
-      },
-      {
-        "libelle": "Preuve d'une assurance des risques professionnels pertinents",
-        "source": "RC article 9"
-      },
-      {
-        "libelle": "Déclaration indiquant les effectifs moyens annuels et l'importance du personnel d'encadrement pendant les trois dernières années",
-        "source": "RC article 9"
-      }
-    ],
-    "contraintes_site_signalees": [
-      "milieu hospitalier en activité",
-      "accès sites multiples GHT 31"
+      "Accréditation COFRAC pour l'ensemble des contrôles des lots concernés (ou équivalent)",
+      "Capacité économique et financière : chiffre d'affaires global sur 3 derniers exercices",
+      "Effectifs moyens annuels et encadrement sur 3 dernières années",
+      "Assurance des risques professionnels pertinents"
     ]
   },
-  "volumes_techniques": {
-    "puissance_totale_kwc": null,
-    "puissance_par_site_kwc": null,
-    "nb_sites": null,
-    "surface_panneaux_m2": null,
-    "productible_annuel_estime_mwh": null,
-    "duree_marche_mois": 48,
-    "duree_maintenance_om_annees": null,
-    "commentaire_volumes": "Accord-cadre sans montant minimum, avec montant maximum de 360 000 € HT par lot pour la durée totale de 48 mois (12 mois + 3 reconductions). Le nombre de sites est précisé en annexe du CCAP (liste GHT 31). Les annexes techniques (listes de prélèvements, surfaces zones maîtrisées) ne sont pas intégralement reproduites dans le RC."
-  },
-  "modalites_execution_chantier": {
-    "raccordement_reseau_inclus": null,
-    "etudes_techniques_incluses": null,
-    "calendrier_chantier_contraint": null,
-    "sites_execution": [
-      "Haute-Garonne (31)",
-      "Tarn Ouest"
-    ],
-    "engagement_productible": null,
-    "engagement_disponibilite_om": null
-  },
-  "publics_cibles": {
-    "description": "Marché de prestations analytiques et de qualification pour établissements de santé publics membres du GHT de la Haute-Garonne et du Tarn Ouest. Il n'y a pas de 'public bénéficiaire' au sens formation/insertion.",
-    "criteres_eligibilite": [],
-    "publics_specifiques_signales": []
-  },
-  "volumes": {
-    "nb_beneficiaires_total": null,
-    "nb_beneficiaires_par_lot": null,
-    "duree_par_parcours_heures": null,
-    "duree_par_parcours_semaines": null,
-    "duree_marche_mois": 48,
-    "commentaire_volumes": "Marché de services analytiques, non applicable au sens formation. Durée totale maximale de 48 mois (période initiale 12 mois + 3 reconductions possibles)."
-  },
-  "modalites": {
-    "presentiel_obligatoire": null,
-    "distanciel_possible": null,
-    "synchrone_asynchrone": null,
-    "sites_execution": [
-      "Haute-Garonne (31)",
-      "Tarn Ouest"
-    ],
-    "amplitude_horaire": null
-  },
   "bareme_notation": {
-    "valeur_technique_pct": 40,
-    "valeur_prix_pct": 60,
+    "valeur_technique_pct": 60,
+    "valeur_prix_pct": 40,
     "sous_criteres_techniques": [
       {
-        "libelle": "Pertinence et qualité de la méthodologie et de l'organisation mise en place dans l'exécution des missions pour garantir le respect du planning d'intervention ; qualité de l'organisation mise en place pour le traitement des contrôles",
-        "ponderation_pct": 40,
-        "description": "L'acheteur évalue la pertinence de la méthodologie proposée pour l'exécution des missions et le respect du planning d'intervention, ainsi que l'organisation mise en place pour le traitement des contrôles (flux, délais de rendu, organisation interne).",
+        "libelle": "Valeur technique",
+        "ponderation_pct": 60,
+        "description": "Évaluation sur la base du mémoire technique (cadre de réponse technique propre à chaque lot) démontrant la méthodologie, les moyens humains et matériels, les références et la capacité à répondre aux exigences du CCTP.",
         "elements_attendus": [
-          "Description précise du processus d'intervention sur les sites hospitaliers (prise de contact, planification, fréquences d'intervention)",
-          "Organigramme ou schéma d'organisation dédié au GHT 31",
-          "Procédure de gestion des urgences et des dépassements de planning",
-          "Délais de rendu des résultats d'analyses et modalités de transmission",
-          "Description du traitement des non-conformités et alertes sanitaires"
+          "Description détaillée de la méthodologie de prélèvement et d'analyse conforme aux normes citées au CCTP",
+          "Présentation des accréditations COFRAC (LAB GTA 05, LAB GTA 23, LAB GTA 29 pour le lot 1 ; COFRAC analyses microbiologiques pour le lot 2)",
+          "Moyens humains dédiés (préleveurs formés, biologistes signataires, qualificateurs ZEM)",
+          "Organisation pour respecter les délais de rendu des résultats (5 à 10 jours ouvrés)",
+          "Gestion des non-conformités et protocole d'intervention en urgence (24h)",
+          "Références similaires dans les établissements de santé"
         ],
-        "exemple_reponse_forte": "Le candidat présente un planning annuel type précisant les fréquences de prélèvement par site et par paramètre, un outil de gestion des tournées intégrant les contraintes hospitalières (zones de soins, horaires), et une procédure formalisée de transmission des résultats sous 48h pour les paramètres critiques (légionelles, indicateurs microbiologiques). Un référent unique est désigné pour le GHT 31 avec astreinte téléphonique.",
-        "source": "RC §13.2",
-        "sous_criteres": []
-      },
-      {
-        "libelle": "Qualité des CV des intervenants identifiés nominativement pour réaliser les missions",
-        "ponderation_pct": 30,
-        "description": "L'acheteur évalue les CV des intervenants nommément désignés pour réaliser les missions, en vérifiant les missions similaires réalisées, les formations et qualifications propres à chaque intervenant.",
-        "elements_attendus": [
-          "CV nominatifs des techniciens et responsables techniques dédiés au marché",
-          "Mention explicite de missions similaires réalisées en milieu hospitalier ou sur des périmètres comparables (eau, zones à environnement maîtrisé)",
-          "Formations et habilitations des intervenants (qualifications COFRAC, formations hygiène hospitalière, etc.)",
-          "Niveau d'études et ancienneté dans le domaine analytique"
-        ],
-        "exemple_reponse_forte": "Le dossier présente les CV de 3 techniciens préleveurs et d'un responsable technique, chacun justifiant d'au moins 3 ans d'expérience en analyses des eaux hospitalières et/ou qualification de zones à environnement maîtrisé en établissement de santé. Les qualifications COFRAC et les formations spécifiques (légionelles, microbiologie des eaux) sont détaillées pour chaque intervenant.",
-        "source": "RC §13.2",
-        "sous_criteres": []
-      },
-      {
-        "libelle": "Qualité des moyens matériels et équipements utilisés dans la réalisation des missions",
-        "ponderation_pct": 25,
-        "description": "L'acheteur évalue la qualité et l'adéquation des moyens matériels et équipements mobilisés pour la réalisation des contrôles et prélèvements.",
-        "elements_attendus": [
-          "Inventaire des équipements de prélèvement et de mesure sur site",
-          "Présentation du laboratoire d'analyse (accréditations, équipements analytiques)",
-          "Capacité de traçabilité des échantillons (chaîne du froid, étiquetage, LIMS)",
-          "Moyens logistiques pour la collecte et le transport des prélèvements vers le laboratoire"
-        ],
-        "exemple_reponse_forte": "Le candidat décrit son laboratoire accrédité COFRAC avec les équipements spécifiques pour la recherche de légionelles (PCR, culture) et les analyses microbiologiques des eaux, accompagné d'un système de gestion d'échantillons (LIMS) permettant la traçabilité complète. Les véhicules frigorifiques dédiés assurent le transport des prélèvements dans les délais réglementaires.",
-        "source": "RC §13.2",
-        "sous_criteres": []
-      },
-      {
-        "libelle": "Qualité de la gestion des déchets et produits utilisés dans le cadre du contrat",
-        "ponderation_pct": 5,
-        "description": "L'acheteur évalue la politique de gestion des déchets générés par les activités de prélèvement et d'analyse, ainsi que la gestion des produits utilisés.",
-        "elements_attendus": [
-          "Description de la filière d'élimination des déchets d'activités de soins à risques infectieux (DASRI) ou assimilés générés lors des prélèvements",
-          "Politique de gestion des réactifs et produits chimiques utilisés",
-          "Engagements environnementaux du candidat"
-        ],
-        "exemple_reponse_forte": "Le candidat précise les filières de traitement des déchets issus des prélèvements (DASRI, déchets chimiques de laboratoire) avec les prestataires agréés, et présente une politique de réduction des emballages et de recyclage des consommables analytiques conforme à la réglementation.",
-        "source": "RC §13.2",
+        "exemple_reponse_forte": "Le candidat présente ses portées COFRAC actualisées pour les LAB GTA 05, 23 et 29, détaille son protocole de prélèvement par type d'eau (ECS après purge selon arrêté du 1er février 2010, potabilité D1 selon arrêté du 21 janvier 2010), décrit l'organisation de son laboratoire accrédité, liste ses qualificateurs ZEM certifiés avec CV, et fournit 3 références de marchés similaires en CHU dans les 3 dernières années incluant la qualification de blocs opératoires.",
+        "source": "RC §11.3",
+        "unite_evaluation": "points",
         "sous_criteres": []
       }
     ],
     "prix": {
       "type_formule": "moins_disant",
-      "formule_explicite": "Note prix calculée au regard du montant total TTC du DQE (Détail Quantitatif Estimatif). Pondération 60%.",
+      "formule_explicite": "Évaluation sur la base du DQE (Détail Quantitatif Estimatif) complété — le sous-total annuel estimatif est calculé par la multiplication des quantités estimatives par les prix unitaires proposés. Attribution au meilleur rapport qualité/prix.",
+      "source": "RC §13.2",
       "elements_a_chiffrer": [
-        "Prix unitaires par analyse/prélèvement au BPU (lot 1 : potabilité, légionelles, AEP)",
-        "Prix unitaires par type de qualification de zone à environnement maîtrisé au BPU (lot 2)",
-        "Montant total TTC du DQE servant à la comparaison"
+        "Prix unitaires HT par analyse du BPU Lot 1 (potabilité D1, légionelles ECS/EF, AEP P1, eaux rejet, TAR, eau adoucie/osmosée, micropolluants, endoscopes, LDE)",
+        "Prix unitaires HT par opération du BPU Lot 2 (qualification complète CR2/3/4, surveillance de routine CR2/3/4, prestations unitaires particulaires/microbiologiques/aérauliques, test intégrité filtres, mise à blanc)",
+        "Frais de déplacement (tranches kilométriques Lot 2)",
+        "Coûts horaires journée/nuit et suppléments urgence Lot 2",
+        "DQE Lot 1 complet (3 feuilles : CHU, CHCP, HDL)",
+        "DQE Lot 2 avec quantités estimatives"
       ]
     },
-    "modalite_calcul_prix": "Classement au regard du montant total euro TTC du DQE. En cas de discordance entre BPU et DQE, les prix unitaires du BPU prévalent. Pondération 60%."
+    "modalite_calcul_prix": "Meilleur rapport qualité/prix : technique 60% / prix 40%. Prix évalué sur DQE (quantités estimatives × prix unitaires BPU). Seuls les prix unitaires ont valeur contractuelle en exécution."
   },
   "montant_marche": {
-    "valeur_estimee_euros": null,
-    "fourchette_min_euros": null,
+    "valeur_estimee_euros": 720000,
+    "fourchette_min_euros": 360000,
     "fourchette_max_euros": 720000,
     "type": "plafond",
-    "duree_couverte": "Durée totale de l'accord-cadre (période initiale 12 mois + 3 reconductions possibles, soit 48 mois maximum)",
-    "source_extraction": "RC article 4.1 page 5-6",
-    "commentaire": "Montant maximum de 360 000 € HT par lot × 2 lots = 720 000 € HT au total pour la durée totale de l'accord-cadre (48 mois). L'accord-cadre est conclu sans montant minimum. Ces montants ne constituent pas des engagements contractuels de la part des établissements du GHT."
+    "duree_couverte": "Durée totale de l'accord-cadre (période initiale 12 mois + 3 reconductions possibles = 48 mois maximum)",
+    "source_extraction": "CCAP tableau page de garde et RC §4.1 : LOT 1 max 360 000 € HT, LOT 2 max 360 000 € HT",
+    "commentaire": "Montant maximum explicite par lot : 360 000 € HT chacun, soit 720 000 € HT au total pour les 2 lots. Ces plafonds couvrent la durée totale de l'accord-cadre (jusqu'à 48 mois). Aucun minimum garanti (accord-cadre sans minimum). Le volume annuel estimé peut être déduit des DQE mais les montants unitaires ne sont pas renseignés dans les pièces fournies (BPU à compléter par le candidat)."
+  },
+  "montant_3_voies": {
+    "voie_1_eur": 720000,
+    "voie_1_source": "RC §4.1 et CCAP tableau des montants maximums : LOT 1 = 360 000 € HT, LOT 2 = 360 000 € HT, durée totale accord-cadre",
+    "voie_2_disponible": false,
+    "voie_2_min_eur": null,
+    "voie_2_max_eur": null,
+    "voie_2_hypotheses": [],
+    "voie_2_raison_indisponible": "Montant publié explicitement (Voie 1 disponible) : plafond total 720 000 € HT pour les 2 lots sur la durée totale de l'accord-cadre. Pas de Voie 2 nécessaire."
+  },
+  "cout_realisation": {
+    "cout_total_eur": 390000,
+    "cout_min_eur": 340000,
+    "cout_max_eur": 440000,
+    "postes": [
+      {
+        "poste": "Lot 1 — Main d'œuvre prélèvements (techniciens préleveurs accrédités)",
+        "detail": "Estimation ~200 déplacements/prélèvements annuels × 4h × 60 €/h × 4 ans = env. 192 k€ sur durée totale ; mais marché sur plafond 360 k€/lot donc base annuelle ~90 k€",
+        "montant_eur": 180000
+      },
+      {
+        "poste": "Lot 1 — Analyses laboratoire (sous-traitance ou coût interne labo COFRAC)",
+        "detail": "Analyses physico-chimiques et microbiologiques : ~300 analyses/an × 80-150 €/analyse × 4 ans",
+        "montant_eur": 120000
+      },
+      {
+        "poste": "Lot 1 — Flaconnage, consommables, transport isotherme",
+        "detail": "Matériels de prélèvement, glacières, flacons stériles neutralisés",
+        "montant_eur": 20000
+      },
+      {
+        "poste": "Lot 2 — Main d'œuvre qualificateurs ZEM (techniciens spécialisés)",
+        "detail": "210 ZEM/an (30 CR4 + 60 CR3 + 120 CR2) × ~1,5 j × 500 €/j charge = ~157 k€/an × durée partielle",
+        "montant_eur": 190000
+      },
+      {
+        "poste": "Lot 2 — Matériels (compteurs particulaires, impacteurs microbiologiques, étalonnages)",
+        "detail": "Amortissement appareils de mesure sur durée contrat + consommables boites gélose",
+        "montant_eur": 30000
+      },
+      {
+        "poste": "Encadrement, gestion de contrat, frais généraux et déplacements",
+        "detail": "Coordination, rédaction rapports, déplacements hors zone (<50 km majoritairement, quelques sites HDL >100 km)",
+        "montant_eur": 40000
+      }
+    ],
+    "taux_journaliers_retenus": "Technicien préleveur accrédité : 60-70 €/h chargé (480-560 €/j) ; qualificateur ZEM spécialisé : 450-600 €/j chargé ; analyses sous-traitées labo COFRAC : 80-150 €/analyse selon type. Ces taux sont des taux marché indicatifs.",
+    "commentaire": "Estimation de coût de production sur la durée totale de l'accord-cadre (jusqu'à 48 mois, plafond 720 k€ CA total). La marge brute globale estimée est de ~45% (720 k€ CA plafond vs ~390 k€ coût central), cohérente avec un marché de services d'analyse/contrôle technique. Attention : le CA réel dépend du volume commandé (accord-cadre sans minimum garanti)."
   },
   "revision_prix": {
-    "type": "non_communique",
-    "indices_utilises": [],
-    "ponderation": null,
-    "periodicite": null,
-    "formule_revision": null,
-    "source_extraction": null,
-    "commentaire": "Le RC ne mentionne pas de clause de révision des prix. Le CCAP (non reproduit intégralement dans les pièces analysées) pourrait contenir cette information."
+    "type": "indexation",
+    "indices_utilises": [
+      "Activité de contrôle et analyses techniques — Indice de production dans les services NAF rév. 2 groupe 71.2 (INSEE)"
+    ],
+    "ponderation": "P = Po × (0,20 + 0,80 × I/Io) — 80% variable indexé sur l'indice de production services contrôle et analyses techniques (NAF 71.2), 20% partie fixe",
+    "periodicite": "annuelle",
+    "formule_revision": "P = Po × 0,20 + 0,80 × (I / Io) — avec I = indice publié au moment de la demande de révision pour l'année N, Io = indice du mois anniversaire de notification de l'accord-cadre de l'année N-1",
+    "source_extraction": "CCAP §14.3 — Variation des prix",
+    "commentaire": "Révision annuelle à la date anniversaire sur demande d'une partie (délai 2 mois avant terme). Indice INSEE NAF 71.2 spécifique aux services de contrôle et analyses techniques, pertinent pour ce type de marché. La partie fixe (20%) protège l'acheteur contre une révision trop forte mais limite l'indexation côté titulaire."
   },
   "alertes_prix": [
-    "Pondération prix de 60% très élevée pour ce type de marché analytique hospitalier : la compétitivité tarifaire est déterminante dans l'attribution",
-    "Accord-cadre sans montant minimum : le titulaire ne peut pas garantir de volume de commandes ; le DQE est indicatif et sert uniquement à la comparaison des offres",
-    "En cas de discordance BPU/DQE, les prix unitaires du BPU prévalent : une erreur dans le BPU peut invalider toute l'offre financière",
-    "Lots incomplets non pris en compte : l'absence d'un prix pour un seul article du lot entraîne l'élimination de l'offre pour ce lot"
+    "Accord-cadre sans montant minimum garanti : le titulaire peut n'avoir aucun bon de commande passé (revenu zéro garanti) — risque commercial élevé sur un contrat à 4 ans.",
+    "Le plafond de 360 000 € HT par lot couvre la DURÉE TOTALE (jusqu'à 48 mois) : le montant annuel moyen est donc de 90 000 € HT/lot maximum, ce qui est modeste pour le périmètre (GHT entier, ~530 ZEM + analyse eaux multi-sites).",
+    "Tous les montants unitaires du BPU sont à 0 dans les pièces fournies : le candidat doit impérativement chiffrer l'intégralité des lignes du BPU et du DQE — un BPU incomplet entraîne le rejet du lot.",
+    "Formule de révision basée sur un indice INSEE spécifique (NAF 71.2) peu connu : vérifier sa disponibilité et sa cohérence avec les coûts réels avant de signer.",
+    "Pénalité de retard de 250 €/jour calendaire dès le 1er euro, sans plafond sectoriel — risque significatif sur des prestations dépendantes de l'accès aux locaux hospitaliers."
   ],
   "references_exigees": {
     "experience_minimale_annees": null,
     "experience_source": null,
     "volume_min_references_similaires": null,
-    "volume_min_references_unite": null,
-    "secteur_experience": "Contrôles et surveillance des eaux hospitalières et/ou qualification de zones à environnement maîtrisé en milieu de santé",
-    "secteur_source": "RC article 9",
+    "volume_min_references_unite": "marchés similaires",
+    "secteur_experience": "Analyses microbiologiques et physico-chimiques de l'eau en établissements de santé et/ou qualification de zones à environnement maîtrisé (blocs opératoires, salles propres hospitalières)",
+    "secteur_source": "RC §9 et CCTP LOT 1 et LOT 2",
     "certifications_obligatoires": [
       {
-        "libelle": "Accréditations et certifications COFRAC relatives à l'intégralité des contrôles concernés par le(s) lot(s) pour le(s)quel(s) la société se porte candidate – ou tout équivalent",
-        "source": "RC article 9"
+        "libelle": "Accréditation COFRAC pour l'échantillonnage d'eau en vue d'analyses physico-chimiques — LAB GTA 29 (ou équivalent)",
+        "codes": [],
+        "bloquante": true,
+        "source": "RC §9 et CCTP LOT 1"
+      },
+      {
+        "libelle": "Accréditation COFRAC pour les analyses physico-chimiques des eaux — LAB GTA 05 (ou équivalent)",
+        "codes": [],
+        "bloquante": true,
+        "source": "CCTP LOT 1"
+      },
+      {
+        "libelle": "Accréditation COFRAC pour les analyses microbiologiques et biologiques des eaux — LAB GTA 23 (ou équivalent)",
+        "codes": [],
+        "bloquante": true,
+        "source": "CCTP LOT 1"
+      },
+      {
+        "libelle": "Accréditation COFRAC pour les analyses microbiologiques de l'air et des surfaces (aérobiocontamination, levures, moisissures) — Lot 2",
+        "codes": [],
+        "bloquante": true,
+        "source": "CCTP LOT 2 §4"
       }
     ],
     "autres_exigences": [
       {
-        "libelle": "Chiffre d'affaires global sur les 3 derniers exercices (déclaration obligatoire)",
-        "source": "RC article 9"
+        "libelle": "Déclaration de chiffre d'affaires global sur les 3 derniers exercices disponibles",
+        "source": "RC §9a"
+      },
+      {
+        "libelle": "Preuve d'une assurance des risques professionnels pertinents",
+        "source": "RC §9a"
+      },
+      {
+        "libelle": "Déclaration des effectifs moyens annuels et du personnel d'encadrement sur les 3 dernières années",
+        "source": "RC §9b"
+      },
+      {
+        "libelle": "Accréditations et certifications COFRAC relatives à l'intégralité des contrôles concernés par le(s) lot(s) pour le(s)quel(s) la société se porte candidate",
+        "source": "RC §9c"
+      },
+      {
+        "libelle": "Accès possible aux unités hébergeant des détenus (UHSI) : fournir préalablement noms, pièces d'identité et immatriculations véhicules des intervenants à l'Administration Pénitentiaire",
+        "source": "CCTP LOT 1 §8"
+      }
+    ]
+  },
+  "dossier_candidature": {
+    "pieces_a_fournir": [
+      {
+        "libelle": "DC1 — Lettre de candidature et habilitation du mandataire par ses cotraitants (ou DUME)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §9"
+      },
+      {
+        "libelle": "DC2 — Déclaration du candidat individuel ou du membre du groupement (ou DUME)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §9"
+      },
+      {
+        "libelle": "Accréditations et certifications COFRAC relatives aux contrôles des lots concernés (ou équivalent)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §9c"
+      },
+      {
+        "libelle": "Déclaration de chiffre d'affaires global sur 3 derniers exercices",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §9a"
       },
       {
         "libelle": "Preuve d'assurance des risques professionnels pertinents",
-        "source": "RC article 9"
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §9a"
       },
       {
-        "libelle": "Déclaration des effectifs moyens annuels et du personnel d'encadrement sur 3 ans",
-        "source": "RC article 9"
+        "libelle": "Déclaration des effectifs moyens annuels et personnel d'encadrement sur 3 ans",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §9b"
       },
       {
-        "libelle": "Attestation sur l'honneur d'absence de liens avec la Russie (règlement UE 2022/576) à fournir par l'attributaire pressenti",
-        "source": "RC article 17.1"
+        "libelle": "CCAP valant acte d'engagement, dûment complété et signé",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §11.3"
+      },
+      {
+        "libelle": "Annexe financière BPU (Bordereau des Prix Unitaires) complétée — propre à chaque lot",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §11.3"
+      },
+      {
+        "libelle": "DQE (Détail Quantitatif Estimatif) complété — propre à chaque lot",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §11.3"
+      },
+      {
+        "libelle": "Cadre de réponse au mémoire technique (cadre de réponse technique propre à chaque lot)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §11.3"
+      },
+      {
+        "libelle": "DC4 — Déclaration de sous-traitance (si sous-traitant présenté au dépôt de l'offre)",
+        "phase": "offre",
+        "obligatoire": false,
+        "source": "RC §10.2"
+      },
+      {
+        "libelle": "Attestation sur l'honneur d'absence de lien avec la Russie (Règlement UE 2022/576)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §7.1"
       }
-    ]
+    ],
+    "mode_remise": "dématérialisé",
+    "plateforme_depot": "PLACE — marches-publics.gouv.fr",
+    "signature_electronique_exigee": false,
+    "format_signature": "PAdES, CAdES ou XAdES ; certificat conforme RGS** ou règlement eIDAS n°910/2014 (requis pour la signature du contrat à l'attribution)",
+    "nombre_exemplaires": null,
+    "langue": "français",
+    "duree_validite_offres_jours": 180,
+    "modalites_source": "RC §12.1, §12.2, §8"
   },
   "lots": [
     {
       "numero": 1,
-      "intitule": "Lot 1 - Prestations de contrôles et de surveillance des eaux",
-      "zone_geographique": "Haute-Garonne (31) et Tarn Ouest — tous les sites du GHT",
-      "volume_estime": 360000,
-      "volume_estime_unite": "€ HT maximum pour la durée totale de l'accord-cadre",
-      "particularites": "Contrôles potabilité, surveillance AEP, recherche légionelles. Annexes spécifiques : liste zones potabilité CHU, prélèvements potabilité CH Marchant, prélèvements légionelles CH Marchant."
+      "intitule": "Prestations de contrôles et de surveillance des eaux",
+      "domaine": "services_environnement_analyses",
+      "zone_geographique": "Haute-Garonne (31) — Toulouse et agglomération, Saint-Gaudens, Luchon",
+      "volume_estime": null,
+      "volume_estime_unite": "analyses/prélèvements",
+      "cout_estime_min_eur": 160000,
+      "cout_estime_max_eur": 220000,
+      "ca_estime_min_eur": 220000,
+      "ca_estime_max_eur": 320000,
+      "marge_brute_pct": 29,
+      "particularites": "Plafond 360 000 € HT sur durée totale (jusqu'à 48 mois). Prestations COFRAC obligatoires (LAB GTA 05, 23, 29). Sites multiples dont UHSI (accès réglementé par Administration Pénitentiaire). Inclut analyses radioéléments (spectrométrie gamma), micropolluants DERU II, TAR (Rangueil 5 TAR + Larrey 2-3 TAR), eaux piscine (HDL), endoscopes et LDE (IUCT-O). Sites distants : Luchon (~130 km de Toulouse), Saint-Gaudens (~90 km), Salies du Salat (~70 km)."
     },
     {
       "numero": 2,
-      "intitule": "Lot 2 - Qualification des zones à environnement maîtrisé",
-      "zone_geographique": "Haute-Garonne (31) et Tarn Ouest — tous les sites du GHT",
-      "volume_estime": 360000,
-      "volume_estime_unite": "€ HT maximum pour la durée totale de l'accord-cadre",
-      "particularites": "Qualification de salles propres, blocs opératoires et zones à atmosphère contrôlée. Annexe spécifique : liste zones environnement maîtrisé CHU, présentation surfaces CHCP & HDL."
+      "intitule": "Qualification des zones à environnement maîtrisé",
+      "domaine": "services_sante_medical",
+      "zone_geographique": "Haute-Garonne (31) — principalement Toulouse (CHU), sites GHT",
+      "volume_estime": 530,
+      "volume_estime_unite": "zones à environnement maîtrisé (ZEM)",
+      "cout_estime_min_eur": 180000,
+      "cout_estime_max_eur": 220000,
+      "ca_estime_min_eur": 280000,
+      "ca_estime_max_eur": 360000,
+      "marge_brute_pct": 34,
+      "particularites": "Plafond 360 000 € HT sur durée totale. 530 ZEM listées (50 CR4, 145 CR3, 335 CR2). Interventions de nuit (21h-6h) et week-ends principalement. Délai d'intervention en urgence : journée même ou 24h. Includes UMFA (BPF), Stérilisation (BPPH), Banque des tissus, Labo P3, Radiopharmacie — référentiels spécifiques non NF S90-351. Test d'intégrité filtres (Emery) et mise à blanc en prestations complémentaires."
     }
   ],
+  "tranches": [],
   "calendrier": {
     "date_limite_offres": "2026-07-15",
     "date_demarrage_prevue": "2026-11-15",
     "duree_marche": "12 mois reconductibles 3 fois (48 mois maximum)"
   },
   "alertes_candidat": [
-    "Accréditation COFRAC obligatoire pour l'intégralité des contrôles du ou des lots concernés : l'absence de cette accréditation (ou d'un équivalent justifié) entraîne l'élimination de la candidature",
-    "Les lots incomplets sont éliminés : chaque article du lot doit impérativement être chiffré dans le BPU/DQE",
-    "Signature électronique qualifiée (RGS** ou eIDAS) obligatoire pour le candidat retenu à l'attribution ; délai d'obtention de 15 à 21 jours à anticiper",
-    "Les questions à l'acheteur doivent parvenir au plus tard 10 jours avant la date limite, soit avant le 5 juillet 2026",
-    "L'accord-cadre est sans minimum garanti : le titulaire doit calibrer son offre sans certitude de volume de commandes"
+    "Accréditations COFRAC multiples obligatoires (LAB GTA 05, 23, 29 pour Lot 1 ; microbiologie air/surfaces pour Lot 2) : leur absence entraîne l'irrecevabilité de la candidature — vérifier la portée exacte des portées COFRAC avant soumission (RC §9c).",
+    "Interventions sur sites hébergeant des détenus (UHSI Rangueil, UHSI Purpan) : obligation de transmettre préalablement les identités, copies pièces d'identité et immatriculations véhicules à l'Administration Pénitentiaire — délai administratif à anticiper (CCTP LOT 1 §8).",
+    "Lot 2 — Interventions quasi-exclusivement de nuit (21h-6h) et week-ends dans des blocs opératoires et réanimations en activité : contrainte opérationnelle forte sur la planification et les coûts RH (supplément nuit prévu au BPU).",
+    "BPU entièrement à zéro dans les pièces fournies : le candidat doit chiffrer l'intégralité des ~227 lignes du Lot 1 et 26 lignes du Lot 2 — un lot incomplet est irrecevable (RC §11.2).",
+    "Sites distants jusqu'à 130 km (Luchon) : les frais de déplacement doivent être intégrés dans les prix unitaires ou dans les lignes déplacement du BPU — risque de sous-évaluation si l'implantation de l'agence titulaire est éloignée du GHT."
   ],
   "points_differenciants_attendus": [
     {
-      "libelle": "Expérience démontrée en milieu hospitalier sur des périmètres multi-sites",
-      "exemple": "Présenter des références nominatives de marchés similaires sur des GHT ou CHU, avec indication du nombre de sites couverts, des paramètres surveillés et des volumes annuels d'analyses réalisées.",
-      "source": "RC §13.2 (sous-critère 1 et 2)"
+      "libelle": "Étendue et profondeur des portées COFRAC présentées",
+      "exemple": "Un candidat disposant de portées COFRAC couvrant simultanément les analyses physico-chimiques (LAB GTA 05), microbiologiques (LAB GTA 23) ET l'échantillonnage (LAB GTA 29) en interne (sans sous-traitance) pourra proposer des délais plus courts et une organisation simplifiée, ce qui renforce son mémoire technique et sa crédibilité opérationnelle.",
+      "source": "RC §9c et CCTP LOT 1"
     },
     {
-      "libelle": "Accréditation COFRAC couvrant l'intégralité des paramètres des deux lots",
-      "exemple": "Joindre le certificat d'accréditation COFRAC avec la portée exacte couvrant les analyses d'eaux hospitalières (légionelles, potabilité) ET la qualification de zones à environnement maîtrisé, pour éviter tout risque d'élimination.",
-      "source": "RC article 9"
+      "libelle": "Expérience spécifique en établissements de santé de grande taille (CHU) avec gestion multi-sites",
+      "exemple": "Fournir 3 références de marchés comparables en CHU (périmètre multi-sites, TAR, zones sécurisées UHSI, ZEM de bloc opératoire) avec les volumes réalisés, les non-conformités gérées et les bilans annuels transmis renforce significativement le dossier technique.",
+      "source": "CCTP LOT 1 et LOT 2"
     },
     {
-      "libelle": "Organisation dédiée avec référent unique et réactivité sur les alertes sanitaires",
-      "exemple": "Décrire un interlocuteur unique pour le GHT 31 disponible en astreinte, avec des délais de rendu garantis pour les paramètres critiques (ex: résultats légionelles sous 10 jours, alerte téléphonique immédiate en cas de dépassement de seuil).",
-      "source": "RC §13.2 (sous-critère 1)"
+      "libelle": "Capacité d'intervention en urgence (24h) avec planning dédié et outil de traçabilité GMAO",
+      "exemple": "Proposer un système de planification interfaçable avec la GMAO du CHU (identifiants GMAO présents dans les annexes) et une cellule d'astreinte 24h/24 pour les demandes urgentes (légionelles, non-conformités bloc) différencie fortement des concurrents sans cette capacité.",
+      "source": "CCTP LOT 1 §5 et CCTP LOT 2 §6"
     },
     {
-      "libelle": "Qualité et nommage des intervenants avec missions similaires documentées",
-      "exemple": "Fournir des CV nominatifs détaillant les analyses réalisées en milieu hospitalier, avec indicateurs quantifiés (nombre de prélèvements/an, types de zones qualifiées), pour maximiser la note sur le sous-critère 2 pondéré à 30%.",
-      "source": "RC §13.2 (sous-critère 2)"
+      "libelle": "Organisation des interventions Lot 2 minimisant l'impact sur l'activité hospitalière",
+      "exemple": "Présenter un planning type de qualification groupée par zone (toutes ZEM d'un même CTA qualifiées en une seule nuit) avec coordination démontrée avec les services biomédicaux et les blocs opératoires, en précisant les délais de rapport (10 jours après travaux, 15 jours pour requalifications).",
+      "source": "CCTP LOT 2 §7"
+    },
+    {
+      "libelle": "Maîtrise des référentiels spécifiques hors NF S90-351 (BPF, BPPH, BPP, labo P3, banque de tissus)",
+      "exemple": "Démontrer une expérience sur les pharmacotechnies hospitalières (UMFA, radiopharmacie), les laboratoires P3 et les banques de tissus — référentiels BPF/ANSM — permet de répondre aux 50 ZEM de CR4 les plus exigeantes du CHU Toulouse, souvent éliminatoires pour les candidats sans qualification spécialisée.",
+      "source": "CCTP LOT 2 §5"
     }
   ],
   "_meta": {
     "id_marche": "BOAMP-26-56267",
     "type": "complet",
-    "extraction_le": "2026-06-11T20:23:00.363377+00:00",
+    "date_generation": "2026-06-20T22:05:03.140457+00:00",
+    "extraction_le": "2026-06-20T22:05:03.140457+00:00",
     "modele": "claude-sonnet-4-6",
-    "tokens_input": 28543,
-    "tokens_output": 5646,
-    "cout_eur": 0.1618,
-    "duree_sec": 102.9,
+    "preset_utilise": null,
+    "presets_matches": [],
+    "prompts_versions": {},
+    "tokens_input": 187515,
+    "tokens_output": 8023,
+    "cout_eur": 0.6487,
+    "duree_sec": 161.6,
     "pdfs_traites": [
+      {
+        "nom": "0. Attestation Sanctions Russie.docx",
+        "hash": "75ae9fcf652ef2144115f3b09ebcdcc4",
+        "taille_chars": 3224
+      },
+      {
+        "nom": "0. DC1.docx",
+        "hash": "c48cac7acad44919309f583e073a605b",
+        "taille_chars": 8675
+      },
+      {
+        "nom": "0. DC2.docx",
+        "hash": "fc8417fb2c10e804cdc302ff7803867e",
+        "taille_chars": 18414
+      },
+      {
+        "nom": "0. DC4.docx",
+        "hash": "f230ed63af9156f59734009b90c5b4d8",
+        "taille_chars": 15958
+      },
+      {
+        "nom": "Annexe 1_potabilite et AEP CHU_Lot 1.xlsx",
+        "hash": "ae436f64a15344ff9b5eafa31b021c57",
+        "taille_chars": 9148
+      },
+      {
+        "nom": "Annexe 2_liste zones environnement maitrise CHU_Lot 2.xlsx",
+        "hash": "56c5884719c6e43460d5b6c138affb32",
+        "taille_chars": 79436
+      },
+      {
+        "nom": "Annexe 3_prelevement potabilite_CH Marchant_Lot 1.docx",
+        "hash": "a977bd6d248047c2e62755c14d7deff5",
+        "taille_chars": 1171
+      },
+      {
+        "nom": "Annexe 4_prelevement legionnelle_CH Marchant_Lot 1.docx",
+        "hash": "3b3f3e910a05e78a8f74746fe3befa4b",
+        "taille_chars": 2293
+      },
+      {
+        "nom": "Annexe 5_Presentation surfaces CHCP - HDL.docx",
+        "hash": "753d7837f9ecb95f42a278eae6a4ccd4",
+        "taille_chars": 1804
+      },
+      {
+        "nom": "Annexe financiere_lot 1.xlsx",
+        "hash": "89f774c1081ca63fdf46dcbbfa567d9b",
+        "taille_chars": 35500
+      },
+      {
+        "nom": "Annexe financiere_lot 2.xlsx",
+        "hash": "62675214df9484ea739a5539866dea3f",
+        "taille_chars": 1928
+      },
+      {
+        "nom": "CCAP.docx",
+        "hash": "7bcb2f8e2c3fc534c637e538ef0e5530",
+        "taille_chars": 82965
+      },
+      {
+        "nom": "CCTP LOT 1.docx",
+        "hash": "927ef3a8f97637fab2fec4f2a47cad3a",
+        "taille_chars": 51450
+      },
+      {
+        "nom": "CCTP LOT 2.docx",
+        "hash": "91c7b44782087bf112d751199ac751d2",
+        "taille_chars": 19480
+      },
+      {
+        "nom": "Cadre de reponse technique.xlsx",
+        "hash": "598627fe4464b62660d7ee4fdd4482e6",
+        "taille_chars": 4120
+      },
+      {
+        "nom": "DQE_LOT 1.xlsx",
+        "hash": "a08e9ab4c1dc79c52aeae452518ba604",
+        "taille_chars": 46008
+      },
+      {
+        "nom": "DQE_LOT 2.xlsx",
+        "hash": "d19d2617a77c077a82ab5a748d8a14ec",
+        "taille_chars": 2580
+      },
       {
         "nom": "RC.pdf",
         "hash": "59daf6600bad3fbd7360a8e4ae619920",

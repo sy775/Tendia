@@ -1,37 +1,50 @@
 {
-  "synthese_marche": "Marché de travaux alloti en 5 lots pour l'aménagement des garages de service de la caserne Deflandre à Dijon (21), avec création d'une zone vestiaire en bâtiment modulaire préfabriqué de 160 m² avec mezzanine. Les travaux comprennent la maçonnerie, la construction modulaire, la serrurerie, l'électricité et la plomberie, réalisés en site occupé (enceinte militaire de la Gendarmerie nationale). Le marché est passé en procédure adaptée à prix global et forfaitaire par lot, avec des tranches optionnelles pour chaque lot.",
+  "synthese_marche": "Marché de travaux alloti à prix global et forfaitaire portant sur l'aménagement des garages de service de la caserne Deflandre (Dijon, 21) avec création d'une zone vestiaire en modules préfabriqués de 160 m² avec mezzanine, au profit d'une unité spéciale de la Gendarmerie nationale. Le marché comprend 5 lots (maçonnerie, construction modulaire, serrurerie, électricité, plomberie), chacun avec une tranche ferme et une tranche optionnelle, pour un montant total estimé à 440 000 € HT (prestations similaires incluses). Les travaux se déroulent en site occupé (enceinte militaire) avec des contraintes de sécurité et de confidentialité renforcées.",
   "domaines_metier": [
     {
-      "code": "btp_second_oeuvre"
+      "code": "btp_second_oeuvre",
+      "poids": 0.55,
+      "lots_concernes": [
+        "Lot 2 Construction modulaire",
+        "Lot 3 Serrurerie",
+        "Lot 4 Electricité",
+        "Lot 5 Plomberie"
+      ]
+    },
+    {
+      "code": "btp_gros_oeuvre",
+      "poids": 0.45,
+      "lots_concernes": [
+        "Lot 1 Maçonnerie"
+      ]
     }
   ],
-  "raison_classification": "Le marché porte sur la création d'un vestiaire en bâtiment modulaire préfabriqué (160 m²) avec second œuvre complet : cloisons/maçonnerie, serrurerie, électricité courant fort/faible, plomberie sanitaire. La dominante est le second œuvre et la construction modulaire légère plutôt que le gros œuvre structurel lourd. Le lot 1 Maçonnerie est accessoire (mur de séparation), le cœur du marché étant le bâtiment modulaire et ses équipements techniques.",
+  "raison_classification": "Le marché combine des travaux de maçonnerie (mur de séparation, bouchage) relevant du gros œuvre et des travaux de second œuvre (construction modulaire préfabriquée, serrurerie, électricité courant fort/faible, plomberie sanitaire). La dominante volumique et financière est partagée entre ces deux domaines BTP, le lot 2 modulaire étant le lot principal en termes de complexité et de durée.",
   "caracteristiques_techniques_chantier": {
-    "description": "Aménagement des garages de service avec création d'une zone vestiaire pour une unité spéciale de la Gendarmerie nationale : construction d'un bâtiment modulaire préfabriqué de 160 m² avec mezzanine à l'intérieur d'un garage existant (6 alvéoles), réalisation d'un mur de séparation en maçonnerie, remplacement de portes sectionnelles, installation électrique complète (éclairage LED, VMC, alarme intrusion, BAES, chauffage), plomberie sanitaire et équipements de vestiaire (casiers métalliques).",
-    "typologie_ouvrage": "Bâtiment modulaire préfabriqué implanté dans un garage militaire existant — vestiaire opérationnel pour unité spéciale AGIGN",
-    "surface_volume": "160 m² de surface modulaire avec mezzanine sur toute la longueur",
-    "site_occupe": "true — enceinte militaire de la caserne Deflandre occupée pendant toute la durée des travaux, avec mesures de sécurité renforcées, contrôle d'accès du personnel, vérification des pièces d'identité 24h avant, confidentialité obligatoire",
+    "description": "Création d'une zone vestiaire de 160 m² avec mezzanine dans un bâtiment modulaire préfabriqué installé dans les garages de la caserne Deflandre, avec réalisation d'un mur de séparation en maçonnerie, installation électrique courant fort/faible, plomberie sanitaire, serrurerie (portes sectionnelles, garde-corps, escalier, casiers métalliques). Diagnostic amiante négatif réalisé.",
+    "typologie_ouvrage": "Bâtiment modulaire préfabriqué neuf (vestiaire avec mezzanine) au sein d'un garage existant sur site militaire",
+    "surface_volume": "160 m² de surface modulaire, hauteur sous plafond 2,50 m, mezzanine sur toute la longueur",
+    "site_occupe": "true — enceinte militaire (caserne Deflandre) restant en activité pendant toute la durée du chantier, avec circulation de véhicules et de piétons ; mesures de sécurité renforcées requises",
     "corps_etat": [
-      "Maçonnerie (mur de séparation en agglos, bouchage porte)",
-      "Construction modulaire préfabriquée (bâtiment 160 m² + mezzanine)",
-      "Serrurerie (portes sectionnelles, garde-corps, escalier métallique, casiers, barreaudage, exutoires)",
-      "Électricité courant fort et courant faible (tableau, éclairage LED, VMC, chauffage électrique, alarme intrusion, BAES, prise VE, SSI optionnel)",
-      "Plomberie sanitaire (lavabo collectif inox, réseau EF/EC/EU, ballon ECS)"
+      "Maçonnerie (mur de séparation, bouchage)",
+      "Construction modulaire préfabriquée",
+      "Serrurerie (portes sectionnelles, garde-corps, escalier, casiers, barreaudage, exutoires)",
+      "Électricité courant fort et courant faible (tableau, éclairage LED, prises, VMC, chauffage électrique, détection intrusion, BAES, SSI optionnel)",
+      "Plomberie sanitaire (branchement eau, lavabo collectif inox, ECS, réseau EU)"
     ],
     "contraintes_specifiques": [
-      "Site militaire occupé avec contrôle d'accès strict : liste du personnel avec pièces d'identité minimum 48h à l'avance",
-      "Obligation de confidentialité renforcée (zone sensible/protégée)",
+      "Site militaire occupé : obligation de visite préalable, liste du personnel transmise au MOA 2 semaines avant démarrage, contrôle d'accès quotidien",
+      "Confidentialité obligatoire (enceinte de gendarmerie, unité spéciale)",
+      "Diagnostic amiante réalisé (résultat négatif) — rapport joint au DCE",
       "Lot 1 Maçonnerie préalable à tous les autres lots",
-      "Présence de portes sectionnelles existantes à ne pas entraver",
-      "Dalle béton de garage existante : vérification de planéité et portance obligatoire",
-      "Diagnostic amiante réalisé (résultat négatif — pas d'amiante détecté)",
-      "Bâtiment antérieur à 1994 (risque plomb signalé dans le PGC)",
-      "Visite de site obligatoire avec attestation à joindre à l'offre",
-      "Chantier en zone occupée avec interférences activités militaires (interdictions momentanées possibles)"
+      "Coordination entre lots obligatoire (interfaces nombreuses : mezzanine, sas, passages de câbles)",
+      "Phasage avec tranches fermes et tranches optionnelles (affermissement dans les 12 mois)",
+      "Présence de portes sectionnelles existantes à maintenir fonctionnelles",
+      "Chantier en site occupé : interdiction d'utiliser des engins thermiques en intérieur"
     ]
   },
   "allotissement": {
-    "description": "Marché alloti en 5 lots distincts, chacun avec une tranche ferme et (sauf lot 5) une tranche optionnelle. Les lots sont interdépendants : le lot 1 est préalable à tous les autres.",
+    "description": "Marché alloti en 5 lots à prix global et forfaitaire, chacun avec tranche ferme et tranche optionnelle (sauf lot 5 sans tranche optionnelle)",
     "nb_lots": 5,
     "lots_detailles": [
       {
@@ -39,40 +52,40 @@
         "intitule": "Maçonnerie",
         "corps_etat": "Maçonnerie",
         "montant_estime": null,
-        "description": "Réalisation d'un mur de séparation en blocs béton creux 20×20×50 cm sur toute la largeur du garage (TF) + création d'une ouverture pour bloc-porte H2,20m × l0,90m avec linteau BA (TO)"
+        "description": "Création d'un mur de séparation en agglos (20×20×50 cm) sur toute la largeur du garage, bouchage d'une porte existante. Tranche optionnelle : création d'une ouverture pour bloc-porte (H 2,20 m × L 0,90 m) avec linteau BA."
       },
       {
         "numero": 2,
         "intitule": "Construction d'un bâtiment modulaire",
         "corps_etat": "Construction modulaire préfabriquée",
         "montant_estime": null,
-        "description": "Création d'une zone vestiaire en modules préfabriqués de 160 m² avec mezzanine, châssis porteur, panneaux sandwich, menuiseries coulissantes façade avant, revêtement PVC, plafond bac acier, toiture bac acier (TF) + menuiseries extérieures portes façade arrière + sas de liaison (TO)"
+        "description": "Fourniture et pose d'un bâtiment modulaire préfabriqué de 160 m² avec mezzanine, châssis porteur, panneaux sandwich, menuiseries aluminium (6 portes coulissantes façade avant), revêtement PVC, plafond métallique, toiture bac acier. Tranche optionnelle : menuiseries extérieures façade arrière et sas de liaison."
       },
       {
         "numero": 3,
         "intitule": "Serrurerie",
-        "corps_etat": "Serrurerie métallerie",
+        "corps_etat": "Serrurerie / Métallerie",
         "montant_estime": null,
-        "description": "Remplacement 2 portes sectionnelles avec portillons intégrés, garde-corps mezzanine, escalier métallique, 50 casiers métalliques, barreaudage anti-intrusion 3 fenêtres, exutoires de fumées (TF) + porte métallique 2100×900mm (TO)"
+        "description": "Remplacement de 2 portes sectionnelles isolantes avec portillon intégré, garde-corps mezzanine, escalier métallique, 50 casiers métalliques (190×120×240 cm), barreaudage anti-intrusion (3 fenêtres), 2 exutoires de fumées. Tranche optionnelle : porte métallique (H 2 100 × L 900 mm)."
       },
       {
         "numero": 4,
         "intitule": "Électricité",
         "corps_etat": "Électricité courant fort et courant faible",
         "montant_estime": null,
-        "description": "Installation électrique complète : tableau électrique, éclairage LED bâtiment garage + modulaire, prises de courant, prise recharge VE, chauffage électrique, alarme intrusion, BAES, VMC (TF) + centrale SSI catégorie B + extension alarme porte arrière (TO)"
+        "description": "Installation électrique complète (tableau principal, éclairage LED garage + modulaire avec détecteurs de présence, 8 blocs de 4 prises 16A, 1 prise VE type 2, radiateurs électriques, VMC autoréglable, système détection intrusion, BAES, branchement chantier). Tranche optionnelle : centrale SSI catégorie B + extension alarme porte arrière."
       },
       {
         "numero": 5,
         "intitule": "Plomberie",
         "corps_etat": "Plomberie sanitaire",
         "montant_estime": null,
-        "description": "Branchement réseau eau existant, robinet d'arrêt, lavabo collectif inox 1 200×400 mm avec mitigeur, ballon ECS, réseau EU PVC — tranche ferme uniquement, pas de tranche optionnelle"
+        "description": "Branchement sur réseau EF existant, réseau EF/EU apparent avec isolation antigel, robinet d'arrêt 1/4 de tour, lavabo collectif inox auge (L ~1 200 mm), mitigeur, ballon ECS, réseau EU DN40. Pas de tranche optionnelle."
       }
     ]
   },
   "qualifications_requises": {
-    "description": "Le RC exige le respect des NF-DTU et Eurocodes comme niveau de qualification minimum, sans codes Qualibat spécifiques listés. Les CCTP détaillent les normes applicables par lot.",
+    "description": "Le RC exige le respect des normes NF-DTU et Eurocodes pour chaque lot. Aucun indice Qualibat spécifique n'est explicitement exigé mais des qualifications NF-DTU et Eurocode sont mentionnées comme niveau minimum requis.",
     "qualibat": [],
     "rge": false,
     "rge_specialites": [],
@@ -80,12 +93,10 @@
     "iso_9001": false,
     "iso_14001": false,
     "iso_45001": false,
-    "opqibi": null,
+    "opqibi": false,
     "autres_certifications": [
-      "NF-DTU (Normes Françaises – Documents Techniques Unifiés) — référence qualification RC §3.4",
-      "Eurocode — référence qualification RC §3.4",
-      "Habilitations électriques NF C 18-510 (B2V/BR/BC/BE) pour lot 4 — CCTP Lot 4 §3",
-      "Marquage CE NF EN 13241+A2 pour portes sectionnelles — CCTP Lot 3 §2.2"
+      "Habilitations électriques B2V/BR, BC, BE pour lot 4 (NF C 18-510)",
+      "Certification amiante pour les travaux en présence de matériaux suspects (non applicable ici — diagnostic négatif)"
     ]
   },
   "bareme_notation": {
@@ -95,144 +106,89 @@
       {
         "libelle": "Valeur technique de l'offre",
         "ponderation_pct": 30,
-        "description": "Évaluation des moyens humains et matériels affectés à l'opération, ainsi que la qualité des matériaux et des installations envisagées. Le mémoire doit démontrer le savoir-faire de l'entreprise et sa bonne prise en compte des sujétions techniques.",
+        "description": "Évaluation de la méthodologie d'intervention, des moyens humains et matériels affectés, ainsi que de la qualité des matériaux proposés. Le mémoire technique doit démontrer la bonne prise en compte des sujétions techniques du marché.",
         "elements_attendus": [
-          "CV des moyens humains affectés avec qualifications précises",
-          "Détail des moyens techniques et matériels (thermique/électrique/filaire/batterie)",
+          "Moyens humains affectés avec CV nominatifs",
+          "Moyens techniques et matériels (liste et caractéristiques)",
+          "Type de matériel (thermique, électrique, filaire ou batterie)",
           "Type de véhicules et engins avec empattement et poids",
-          "Description des installations envisagées avec fiches techniques produits",
-          "Plans et schémas illustrant la solution proposée",
-          "Prise en compte explicite des sujétions du site militaire occupé"
+          "Description des installations proposées avec fiches techniques et plans",
+          "Démonstration de la prise en compte des sujétions techniques (site militaire occupé, interfaces inter-lots)"
         ],
-        "exemple_reponse_forte": "Le candidat présente les CV de son chef de chantier (10 ans d'expérience en construction modulaire) et de son conducteur de travaux, liste ses nacelles élévatrices électriques (compatibles enceinte intérieure), et joint les fiches techniques des panneaux sandwich retenus (Ud ≤ 0,30 W/m².K) avec plans d'exécution cotés. Il détaille les dispositions spécifiques pour intervenir en enceinte militaire occupée.",
+        "exemple_reponse_forte": "L'entreprise présente une équipe de 3 compagnons + 1 chef de chantier avec CV détaillés, liste le matériel électrique utilisé (outillage à batterie pour éviter les émissions en milieu confiné), précise les engins de levage (nacelle électrique 12 m, poids 4,2 t) et joint les fiches techniques des panneaux sandwich retenus avec attestation marquage CE.",
         "source": "RC §4.2.1",
+        "unite_evaluation": "points",
         "sous_criteres": [
           {
             "libelle": "Sous-critère n°1 : Typologie d'intervention / moyens",
             "ponderation_pct": 15,
-            "description": "Évaluation des moyens humains (CV), moyens techniques, matériels utilisés (thermique, électrique, filaire ou sur batterie) et types de véhicules/engins avec empattement et poids.",
+            "description": "Évaluation des moyens humains (avec CV), techniques et matériels affectés, type de matériel (thermique/électrique), type de véhicules et engins (empattement et poids).",
             "elements_attendus": [
-              "CV des personnels affectés avec niveaux de qualification",
-              "Liste des moyens techniques disponibles",
-              "Inventaire du matériel (préciser thermique/électrique/filaire/batterie)",
-              "Liste des véhicules et engins avec empattement et poids"
+              "Liste nominative des moyens humains avec CV",
+              "Inventaire des moyens techniques et matériels",
+              "Précision sur le type d'énergie des matériels (électrique préféré en milieu confiné)",
+              "Fiche des véhicules/engins avec empattement et poids"
             ],
-            "exemple_reponse_forte": "Le candidat fournit les CV du chef de chantier (habilitation électrique B2V, CACES R486) et du compagnon modulaire, liste 2 nacelles électriques compactes adaptées à l'enceinte garage, et précise que tous les engins thermiques sont exclus de l'intérieur des bâtiments conformément au PGC.",
-            "source": "RC §4.2.1"
+            "exemple_reponse_forte": "Équipe dédiée : 1 chef de chantier + 2 compagnons (CV joints), outillage électrique exclusivement pour les travaux intérieurs, nacelle électrique de 12 m (poids 4 200 kg, empattement 1,8 m) compatible avec la dalle béton existante.",
+            "source": "RC §4.2.1",
+            "unite_evaluation": "points"
           },
           {
             "libelle": "Sous-critère n°2 : Qualité / matériaux",
             "ponderation_pct": 15,
-            "description": "Présentation des installations envisagées de manière claire et exhaustive pour apprécier le savoir-faire et la prise en compte des sujétions techniques. Le mémoire doit être commenté, agrémenté de fiches techniques et plans, et ne pas être une simple redite du CCTP.",
+            "description": "Présentation des installations et solutions techniques envisagées, avec fiches techniques, plans et tout document permettant d'apprécier le savoir-faire et la bonne prise en compte des sujétions. Le mémoire doit commenter et ne pas être une simple redite du CCTP.",
             "elements_attendus": [
-              "Description commentée des installations envisagées (pas une redite du CCTP)",
-              "Fiches techniques des matériaux principaux avec performances certifiées",
-              "Plans ou schémas illustrant la solution",
-              "Justification des choix techniques au regard des sujétions du site",
-              "Références à des réalisations similaires"
+              "Description commentée des matériaux et équipements proposés (marque, références, caractéristiques techniques)",
+              "Fiches techniques des matériaux principaux (panneaux sandwich, revêtements, menuiseries)",
+              "Plans d'exécution ou d'implantation indicatifs",
+              "Justification du choix des matériaux par rapport aux sujétions du site",
+              "Prise en compte explicite des contraintes (site militaire, interfaces inter-lots)"
             ],
-            "exemple_reponse_forte": "Le candidat présente sa solution modulaire avec schémas de la structure porteuse, joints les fiches techniques des panneaux sandwich (NF EN 14509, Ud ≤ 0,28 W/m².K, réaction au feu B-s2,d0), et explique en quoi son choix de revêtement PVC UPEC U4P4E2C2 répond aux contraintes d'usage intensif d'une unité d'intervention.",
-            "source": "RC §4.2.1"
+            "exemple_reponse_forte": "Panneau sandwich façade : 80 mm PU, Ud paroi ≤ 0,28 W/m².K, classement B-s2,d0, marquage CE NF EN 14509, parement RAL 9010. Revêtement sol PVC U4P4E2C2, pose collée, coloris soumis à validation MOA. Le choix du bac acier nervuré DTU 43.4 pour la toiture est justifié par sa légèreté et sa compatibilité avec les charges de mezzanine calculées.",
+            "source": "RC §4.2.1",
+            "unite_evaluation": "points"
           }
         ]
       },
       {
         "libelle": "Planning, délais d'exécution",
         "ponderation_pct": 20,
-        "description": "Évaluation sur la base du planning détaillé d'intervention reprenant l'ensemble des tâches avec points critiques et hommes/jour en détaillant le niveau de chaque personne.",
+        "description": "Évaluation du planning détaillé reprenant l'ensemble des tâches avec points critiques et ressources humaines (hommes/jour par niveau de qualification) affectées.",
         "elements_attendus": [
-          "Planning détaillé avec toutes les tâches identifiées",
-          "Points critiques du planning clairement identifiés",
-          "Effectifs en hommes/jour par tâche avec niveau de qualification",
-          "Séquencement inter-lots respecté (lot 1 préalable aux autres)",
-          "Durées conformes aux maxima contractuels par lot"
+          "Planning détaillé avec toutes les tâches identifiées et jalonnées",
+          "Identification des points critiques et interfaces inter-lots",
+          "Quantification des ressources (hommes/jour) avec niveau de qualification",
+          "Respect de la contrainte de séquence (lot 1 préalable aux autres)",
+          "Prise en compte des délais contractuels par lot"
         ],
-        "exemple_reponse_forte": "Le candidat fournit un diagramme de Gantt à la semaine montrant la séquence lot 1 (2 semaines) → lot 2 (5 semaines en parallèle avec lots 3/4/5), avec pour chaque tâche le nombre de compagnons et leur niveau (N2/N3/chef de chantier), les points critiques identifiés (délai de préfabrication des modules en usine, coordination livraison/levage).",
+        "exemple_reponse_forte": "Planning Gantt détaillé sur 16 semaines : lot 1 (semaines 1-2), lots 2-3-4-5 en parallèle (semaines 3-8), avec jalons d'interface (réservations mezzanine semaine 4, passage câbles semaine 5). Ressources : chef de chantier compagnon N3 (5 j/semaine), 2 compagnons N2 (10 j/semaine totaux). Points critiques identifiés : livraison modules semaine 3, mise sous tension tableau semaine 7.",
         "source": "RC §4.2.1",
-        "sous_criteres": []
+        "unite_evaluation": "delai_jours"
       },
       {
         "libelle": "Valeur environnementale de l'offre",
         "ponderation_pct": 10,
-        "description": "Évaluation sur la base du cadre de réponse environnementale (CRE) couvrant 5 axes : gestion des nuisances en site occupé, réduction empreinte carbone, limitation eau/électricité, limitation emballages, élimination et traçabilité des déchets.",
+        "description": "Évaluation des mesures environnementales proposées dans le cadre de réponse environnemental (CRE) : nuisances en site occupé, empreinte carbone, consommation eau/électricité, emballages, élimination et traçabilité des déchets.",
         "elements_attendus": [
-          "Mesures pour atténuer les nuisances (poussières, bruits, odeurs, coupures eau/électricité) en site militaire occupé",
-          "Dispositions pour réduire l'empreinte carbone (optimisation livraisons, échanges dématérialisés)",
-          "Mesures de limitation consommation eau et électricité de chantier",
-          "Dispositions pour limiter les emballages",
-          "Plan de gestion des déchets avec quantités collectées et filières de traitement identifiées"
+          "Mesures contre les nuisances (poussières, bruits, odeurs, coupures d'eau/électricité, information des occupants)",
+          "Actions de réduction de l'empreinte carbone (optimisation livraisons, échanges dématérialisés)",
+          "Engagements sur la limitation de la consommation d'eau et d'électricité",
+          "Actions de réduction des emballages",
+          "Plan de gestion et de traçabilité des déchets (quantités, filières de traitement)"
         ],
-        "exemple_reponse_forte": "Le candidat s'engage à centraliser les livraisons en 3 rotations planifiées, à utiliser des outils électriques exclusivement à l'intérieur (réduction bruit/pollution), et présente sa convention avec un centre de tri agréé en précisant les tonnages estimés de déchets métalliques, bois OSB et emballages, avec bordereaux de suivi.",
+        "exemple_reponse_forte": "Cadre de réponse environnemental rempli avec : bâchage des zones de découpe pour limiter les poussières, horaires d'utilisation des équipements bruyants restreints à 8h-12h, livraisons groupées (2 rotations maximum par semaine), BSD joints pour évacuation des gravats en centre de tri agréé, estimation de 8 tonnes de déchets (6 t inertes, 2 t valorisables).",
         "source": "RC §4.2.1",
-        "sous_criteres": [
-          {
-            "libelle": "Gérer les nuisances diverses liées au chantier en site occupé",
-            "ponderation_pct": 2,
-            "description": "Mesures prises pour atténuer les nuisances : poussières, bruits, odeurs, gestion des coupures eau/électricité, information des occupants.",
-            "elements_attendus": [
-              "Plan d'information des occupants militaires",
-              "Dispositifs anti-poussières et anti-bruit",
-              "Procédure de coupures eau/électricité préalablement concertée"
-            ],
-            "exemple_reponse_forte": "Le candidat prévoit un écran anti-poussières étanche autour de la zone modulaire, une procédure de coupures électriques coordonnée avec le commandant de caserne avec préavis 48h, et un référent chantier joignable 24h/24 pour les occupants.",
-            "source": "RC §4.2.1"
-          },
-          {
-            "libelle": "Réduire l'empreinte carbone",
-            "ponderation_pct": 2,
-            "description": "Limitation et optimisation des livraisons, déplacements des collaborateurs, favorisation des échanges électroniques.",
-            "elements_attendus": [
-              "Plan de massification des livraisons",
-              "Covoiturage ou mutualisation des déplacements",
-              "Transmission dématérialisée des documents de chantier"
-            ],
-            "exemple_reponse_forte": "—",
-            "source": "RC §4.2.1"
-          },
-          {
-            "libelle": "Limiter la consommation d'eau et d'électricité",
-            "ponderation_pct": 1,
-            "description": "Mesures concrètes pour réduire la consommation d'eau et d'électricité pendant le chantier.",
-            "elements_attendus": [
-              "Suivi des consommations avec sous-compteur",
-              "Équipements à basse consommation"
-            ],
-            "exemple_reponse_forte": "—",
-            "source": "RC §4.2.1"
-          },
-          {
-            "libelle": "Limiter les emballages",
-            "ponderation_pct": 2,
-            "description": "Dispositions pour réduire les emballages des matériaux mis en œuvre.",
-            "elements_attendus": [
-              "Commandes en vrac ou grands conditionnements",
-              "Accord avec fournisseurs pour reprise emballages"
-            ],
-            "exemple_reponse_forte": "—",
-            "source": "RC §4.2.1"
-          },
-          {
-            "libelle": "Éliminer et tracer les déchets",
-            "ponderation_pct": 3,
-            "description": "Quantités collectées et filières de traitement de toutes natures de déchets générés par le chantier.",
-            "elements_attendus": [
-              "Estimation des quantités de déchets par nature (béton, métal, bois, emballages)",
-              "Identification des centres de tri/valorisation agréés",
-              "Procédure de traçabilité (bordereau de suivi des déchets)"
-            ],
-            "exemple_reponse_forte": "Le candidat estime 2 t de déchets béton/maçonnerie, 500 kg de métaux, 300 kg de bois OSB et 100 kg d'emballages, avec convention signée avec un centre de tri agréé de la zone Dijon, et s'engage à fournir les BSD pour chaque rotation.",
-            "source": "RC §4.2.1"
-          }
-        ]
+        "unite_evaluation": "points"
       }
     ],
     "prix": {
       "type_formule": "moins_disant",
       "formule_explicite": "Note = (prix de l'offre conforme la moins-disante / prix de l'offre jugée) × 40",
+      "source": "RC §4.2.2",
       "elements_a_chiffrer": [
-        "DPGF complétée par lot — prix global et forfaitaire tranche ferme",
-        "DPGF complétée par lot — prix global et forfaitaire tranche optionnelle",
-        "Montant total TTC de la DPGF (base de notation prix)"
+        "DPGF tranche ferme pour chaque lot candidaté",
+        "DPGF tranche optionnelle pour chaque lot candidaté",
+        "Montant total TTC toutes tranches confondues par lot"
       ]
     },
     "modalite_calcul_prix": "Note = (prix de l'offre conforme la moins-disante / prix de l'offre jugée) × 40"
@@ -242,170 +198,369 @@
     "fourchette_min_euros": null,
     "fourchette_max_euros": null,
     "type": "estime_explicite",
-    "duree_couverte": "Marché initial + prestations similaires éventuelles sur 3 ans",
-    "source_extraction": "CCAP §1.11 — 'La mise en concurrence du présent marché a pris en compte le montant total estimé des prestations, y compris celui des prestations similaires susceptibles d'être confiées ultérieurement, estimé à 440 000 € HT.'",
-    "commentaire": "Montant de 440 000 € HT intègre le marché initial (5 lots) et les prestations similaires éventuelles sur 3 ans. Le montant du seul marché initial (sans similaires) n'est pas précisé séparément."
+    "duree_couverte": "Durée du marché jusqu'au parfait achèvement, démarrage prévu octobre 2026, durée travaux ~3 mois",
+    "source_extraction": "CCAP §1.11 — 'montant total estimé des prestations, y compris celui des prestations similaires susceptibles d'être confiées ultérieurement, estimé à 440 000 € HT'",
+    "commentaire": "Montant de 440 000 € HT correspond à l'estimation globale incluant les prestations similaires ultérieures possibles. Le montant des seuls 5 lots du marché initial est vraisemblablement inférieur à ce plafond."
+  },
+  "montant_3_voies": {
+    "voie_1_eur": 440000,
+    "voie_1_source": "CCAP §1.11 — montant estimé prestations similaires incluses",
+    "voie_2_disponible": false,
+    "voie_2_min_eur": null,
+    "voie_2_max_eur": null,
+    "voie_2_hypotheses": [],
+    "voie_2_raison_indisponible": "Voie 1 disponible (montant explicite dans le CCAP)"
+  },
+  "cout_realisation": {
+    "cout_total_eur": 245000,
+    "cout_min_eur": 210000,
+    "cout_max_eur": 285000,
+    "postes": [
+      {
+        "poste": "Lot 1 — Maçonnerie (tranche ferme + optionnelle)",
+        "detail": "Mur agglos ~25 m² + bouchage porte + ouverture optionnelle. ~3 semaines compagnons + matériaux. 2 compagnons × 15 j × 350 €/j + matériaux 4 000 €",
+        "montant_eur": 14500
+      },
+      {
+        "poste": "Lot 2 — Construction modulaire (tranche ferme + optionnelle)",
+        "detail": "Bâtiment modulaire 160 m² préfabriqué + mezzanine. Fourniture modules ~700-900 €/m², pose et assemblage. 6 semaines chantier. Ratio tout compris : ~800-1 000 €/m² de surface modulaire.",
+        "montant_eur": 142000
+      },
+      {
+        "poste": "Lot 3 — Serrurerie (tranche ferme + optionnelle)",
+        "detail": "2 portes sectionnelles, garde-corps, escalier métal, 50 casiers, barreaudage, 2 exutoires, porte optionnelle. Fourniture + pose. Estimation forfaitaire.",
+        "montant_eur": 48000
+      },
+      {
+        "poste": "Lot 4 — Électricité (tranche ferme + optionnelle)",
+        "detail": "Tableau, éclairage LED, prises, VMC, radiateurs, intrusion, BAES, branchement chantier, SSI optionnel. 4 semaines × 2 électriciens × 350 €/j + fournitures ~18 000 €",
+        "montant_eur": 30000
+      },
+      {
+        "poste": "Lot 5 — Plomberie (tranche ferme)",
+        "detail": "Branchement EF, lavabo inox, ECS, réseau EU. 1 semaine × 1 plombier + fournitures. 5 j × 350 €/j + fournitures 7 000 €",
+        "montant_eur": 8750
+      },
+      {
+        "poste": "Encadrement / coordination inter-lots",
+        "detail": "Réunions de chantier, PPSPS, DOE, coordination SPS. Forfait estimatif.",
+        "montant_eur": 5000
+      }
+    ],
+    "taux_journaliers_retenus": "Taux marché indicatifs BTP Bourgogne 2025-2026 : compagnon maçon/serrurier 320-380 €/j chargé ; électricien habilité 330-400 €/j chargé ; plombier 300-370 €/j chargé. Modules préfabriqués : 700-1 000 €/m² fourni-posé selon équipement. Ces taux sont des références marché indicatives, la structure réelle de coût varie selon l'entreprise.",
+    "commentaire": "La dimension la plus incertaine est le coût du lot 2 modulaire (ratio €/m² très variable selon le fournisseur de modules). La fourchette a été construite en faisant varier uniquement ce ratio (700-1 000 €/m²) tout en gardant les autres lots à leur valeur centrale. Le montant du marché (440 k€ HT avec prestations similaires) laisse une marge brute confortable si l'entreprise se positionne à 60-70% du montant estimé."
   },
   "revision_prix": {
     "type": "indexation",
     "indices_utilises": [
-      "BT 03",
-      "BT 01",
-      "BT 42",
-      "BT 47",
-      "BT 38"
+      "BT03",
+      "BT01",
+      "BT42",
+      "BT47",
+      "BT38"
     ],
-    "ponderation": "15% fixe + 85% variable indexé sur l'indice BT du lot concerné : BT03 (lot 1 Maçonnerie), BT01 (lot 2 Modulaire), BT42 (lot 3 Serrurerie), BT47 (lot 4 Électricité), BT38 (lot 5 Plomberie)",
+    "ponderation": "Formule mixte : 15% partie fixe + 85% indexation sur l'indice BTP correspondant au lot (BT03 pour lot 1 Maçonnerie, BT01 pour lot 2 Modulaire, BT42 pour lot 3 Serrurerie, BT47 pour lot 4 Électricité, BT38 pour lot 5 Plomberie)",
     "periodicite": "mensuelle",
-    "formule_revision": "Pr = Po × [0,15 + 0,85 × (In-3/Io)] — où In-3 est la valeur de l'index du 3e mois précédant la réalisation des prestations et Io la valeur au mois zéro (date limite de remise de l'offre)",
+    "formule_revision": "Pr = Po × [0,15 + 0,85 × (In-3/Io)] où In-3 est la valeur de l'index du 3e mois précédant la réalisation des prestations",
     "source_extraction": "CCAP §7.2",
-    "commentaire": "Formule favorable en période d'inflation des coûts de construction (85% de partie variable indexée sur les indices BT sectoriels) ; l'index est décalé de 3 mois par rapport à la réalisation, ce qui lisse les variations mais peut sous-estimer un pic soudain."
+    "commentaire": "Formule favorable au titulaire en période d'inflation des matériaux BTP (part variable 85%). L'indice retenu au 3e mois précédent la réalisation lisse les variations brutales. À noter : l'index BT01 est utilisé pour le lot 2 modulaire alors que ce type d'ouvrage suit davantage BT02 ou BT06 — à vérifier selon le fournisseur."
   },
   "alertes_prix": [
-    "Montant global de 440 000 € HT pour 5 lots : le montant par lot n'est pas communiqué, risque de mauvaise estimation de la part de marché visée",
-    "Prix global et forfaitaire par lot : toute erreur de quantitatif dans la DPGF est à la charge du titulaire — la visite obligatoire est la seule protection",
-    "Les quantités dans les DPGF sont données à titre indicatif (mention explicite RC page 1) : l'entreprise doit impérativement les vérifier lors de la visite sous peine de forfait défavorable",
-    "Tranches optionnelles à chiffrer obligatoirement mais sans indemnité si non affermies : risque de mobilisation de ressources de chiffrage sans commande"
+    "Pondération prix de 40% : standard pour un marché de travaux BTP, vigilance sur le positionnement (offre moins-disante = note maximale, formule linéaire).",
+    "Le montant de 440 000 € HT inclut les prestations similaires futures : le seul marché initial est probablement inférieur à ce plafond, ce qui peut induire un risque de sous-estimation si on chiffre trop serré.",
+    "Les DPGF sont données 'à titre indicatif' selon le RC — les quantités doivent être vérifiées et corrigées lors de la visite obligatoire sous peine d'erreur de chiffrage.",
+    "Prix global et forfaitaire : aucune plus-value admise après signature du marché pour quelque raison que ce soit — le chiffrage doit intégrer toutes les sujétions du site militaire occupé."
   ],
   "references_exigees": {
     "experience_minimale_annees": 3,
-    "experience_source": "RC §3.4 — 'liste de références de travaux similaires effectués au cours des trois dernières années'",
+    "experience_source": "RC §3.4",
     "volume_min_references_similaires": null,
     "volume_min_references_unite": "marchés similaires",
-    "secteur_experience": "Travaux similaires au lot concerné (maçonnerie, construction modulaire, serrurerie métallerie, électricité, plomberie) réalisés au cours des 3 dernières années",
+    "secteur_experience": "Travaux similaires au lot candidaté réalisés au cours des trois dernières années",
     "secteur_source": "RC §3.4",
     "certifications_obligatoires": [
       {
-        "libelle": "NF-DTU (Normes Françaises – Documents Techniques Unifiés)",
-        "source": "RC §3.4"
+        "libelle": "Respect des NF-DTU applicable à chaque lot et Eurocodes",
+        "codes": [],
+        "bloquante": false,
+        "source": "RC §3.4 et CCTP de chaque lot"
       },
       {
-        "libelle": "Eurocode",
-        "source": "RC §3.4"
-      },
-      {
-        "libelle": "Habilitations électriques NF C 18-510 (B2V/BR, BC, BE) — obligatoire pour lot 4",
-        "source": "CCTP Lot 4 §3"
+        "libelle": "Habilitations électriques NF C 18-510 (B2V/BR, BC, BE) pour le lot 4 Électricité",
+        "codes": [],
+        "bloquante": true,
+        "source": "CCTP lot 4 §3"
       }
     ],
     "autres_exigences": [
       {
-        "libelle": "Attestation de visite du site obligatoire — signée par le représentant MOA, à joindre impérativement à l'offre",
+        "libelle": "Attestation de visite obligatoire signée par le représentant du MOA, à joindre à l'offre",
         "source": "RC §2.6"
       },
       {
-        "libelle": "Demande de visite au moins 8 jours calendaires avant la date limite de remise des offres",
-        "source": "RC §2.6"
+        "libelle": "Attestation d'assurance en responsabilité civile d'exploitation",
+        "source": "RC §3.2"
       },
       {
-        "libelle": "Copie des pièces d'identité de chaque représentant de l'entreprise à transmettre au moins 24h avant la visite",
-        "source": "RC §2.6"
+        "libelle": "Attestation d'assurance garantie décennale à fournir dans les 15 jours suivant notification",
+        "source": "CCAP §8.2.3"
+      },
+      {
+        "libelle": "Liste des employés amenés à accéder au site + copies des pièces d'identité, au minimum 2 semaines avant le début des travaux",
+        "source": "CCAP §5.8.2"
+      }
+    ]
+  },
+  "dossier_candidature": {
+    "pieces_a_fournir": [
+      {
+        "libelle": "Lettre de candidature et d'habilitation du mandataire (formulaire DC1)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §3.2"
+      },
+      {
+        "libelle": "Déclaration du candidat individuel ou membres du groupement (formulaire DC2)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §3.2"
+      },
+      {
+        "libelle": "Copie du pouvoir de la personne ayant la capacité à engager la société",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §3.2"
+      },
+      {
+        "libelle": "Copie du ou des jugements prononcés en cas de redressement judiciaire",
+        "phase": "candidature",
+        "obligatoire": false,
+        "source": "RC §3.2"
+      },
+      {
+        "libelle": "Attestation d'assurance en responsabilité civile d'exploitation",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §3.2"
+      },
+      {
+        "libelle": "Attestation de visite des locaux dûment complétée et signée",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §3.2"
+      },
+      {
+        "libelle": "Relevé d'identité bancaire (RIB)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": "RC §3.2"
       },
       {
         "libelle": "Formulaire d'engagement d'insertion par l'activité économique entièrement renseigné",
+        "phase": "candidature",
+        "obligatoire": true,
         "source": "RC §3.2"
+      },
+      {
+        "libelle": "Déclaration(s) de sous-traitance (formulaire DC4) le cas échéant",
+        "phase": "candidature",
+        "obligatoire": false,
+        "source": "RC §3.2"
+      },
+      {
+        "libelle": "Décomposition du prix global et forfaitaire (DPGF) complétée — tranche ferme et tranche optionnelle",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §3.3"
+      },
+      {
+        "libelle": "Cadre de réponse technique complété (CRT)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §3.3"
+      },
+      {
+        "libelle": "Cadre de réponse environnementale complété (CRE)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §3.3"
+      },
+      {
+        "libelle": "Planning détaillé d'intervention",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "RC §3.3"
       }
-    ]
+    ],
+    "mode_remise": "dématérialisé + copie de sauvegarde",
+    "plateforme_depot": "PLACE — marches-publics.gouv.fr",
+    "signature_electronique_exigee": false,
+    "format_signature": "Signature électronique fortement conseillée (certificat RGS** / eIDAS) — manuscrite acceptée en cas d'impossibilité technique",
+    "nombre_exemplaires": null,
+    "langue": "français",
+    "duree_validite_offres_jours": 180,
+    "modalites_source": "RC §2.1, §2.5, §2.7, §5.2"
   },
   "lots": [
     {
       "numero": 1,
       "intitule": "Maçonnerie",
+      "domaine": "btp_gros_oeuvre",
       "zone_geographique": "Dijon (21)",
       "volume_estime": null,
       "volume_estime_unite": null,
-      "particularites": "Lot préalable à tous les autres — doit être terminé avant démarrage des lots 2 à 5. TF : mur en agglos 20×20×50 cm + bouchage porte existante. TO : création ouverture pour bloc-porte H2,20m × l0,90m avec linteau BA dans mur porteur. Période préparation 4 sem + 2 sem travaux TF / 1 sem TO."
+      "cout_estime_min_eur": 12000,
+      "cout_estime_max_eur": 18000,
+      "particularites": "Lot préalable à tous les autres lots. Inclut mur de séparation en agglos 20×20×50 cm sur toute la hauteur du garage, bouchage de porte existante. Tranche optionnelle : création d'une ouverture avec linteau BA dans un mur porteur. Coordonnateur SPS : mission niveau 3."
     },
     {
       "numero": 2,
       "intitule": "Construction d'un bâtiment modulaire",
+      "domaine": "btp_second_oeuvre",
       "zone_geographique": "Dijon (21)",
       "volume_estime": 160,
       "volume_estime_unite": "m²",
-      "particularites": "Lot principal — bâtiment modulaire préfabriqué 160 m² avec mezzanine toute longueur, châssis métallique sur dalle existante, panneaux sandwich (Ud ≤ 0,30 W/m².K), 6 portes coulissantes aluminium façade avant RAL 7016, revêtement PVC UPEC U4P4E2C2, plafond bac acier RAL 9002. TO : menuiseries façade arrière + sas de liaison. Études de structure et thermique à la charge du titulaire. 50 casiers métalliques (fournis par lot 3) à prendre en compte dans les charges."
+      "cout_estime_min_eur": 120000,
+      "cout_estime_max_eur": 165000,
+      "particularites": "Lot principal. Bâtiment modulaire préfabriqué 160 m² avec mezzanine sur toute la longueur (250 kg/m²), châssis porteur fixé sur dalle existante, panneaux sandwich 80 mm, 6 portes coulissantes aluminium façade avant, plafond bac acier, revêtement PVC U4P4E2C2, toiture bac acier DTU 43.4. Durée prévisionnelle 4 à 6 semaines. Notes de calcul structure à la charge du titulaire. Tranche optionnelle : menuiseries façade arrière + sas de liaison."
     },
     {
       "numero": 3,
       "intitule": "Serrurerie",
+      "domaine": "btp_second_oeuvre",
       "zone_geographique": "Dijon (21)",
       "volume_estime": null,
       "volume_estime_unite": null,
-      "particularites": "TF : remplacement 2 portes sectionnelles polyuréthane avec portillons intégrés (dont 1 avec contrôle accès clavier + barre anti-panique), garde-corps mezzanine, escalier métallique caillebotis (surcharge 250 kg/m²), 50 casiers métalliques 190×120×240 cm maillage 40×40, barreaudage 3 fenêtres, 2 exutoires de fumées NF EN 12101-2. TO : porte métallique 2100×900mm coupe-feu 1h vers extérieur. Interface forte avec lot 2 (réservations mezzanine) et lot 4 (alarme porte)."
+      "cout_estime_min_eur": 38000,
+      "cout_estime_max_eur": 58000,
+      "particularites": "2 portes sectionnelles isolantes PU (remplacement, avec portillon intégré anti-panique + contrôle d'accès clavier codé sur l'une d'elles), garde-corps mezzanine (NF P01-012/013), escalier métallique galvanisé caillebotis, 50 casiers métalliques maillage 40×40 mm, barreaudage 3 fenêtres, 2 exutoires de fumées EN 12101-2. Tranche optionnelle : porte métallique coupe-feu 1h 2100×900."
     },
     {
       "numero": 4,
       "intitule": "Électricité",
+      "domaine": "btp_second_oeuvre",
       "zone_geographique": "Dijon (21)",
       "volume_estime": null,
       "volume_estime_unite": null,
-      "particularites": "Périmètre étendu : tableau électrique complet, éclairage LED IP54 4000K garage + dalle LED bâtiment modulaire avec détecteurs présence, 8 blocs de 4 prises 16A, prise recharge VE type 2, chauffage électrique, alarme intrusion (centrale 8 zones extensible, détecteurs magnétiques sans fil, sirènes, transmetteur GSM vers CORG), BAES NF C 71-800, VMC autoréglable. TO : centrale SSI catégorie B NF S 61-934 + extension alarme porte arrière. Habilitations électriques NF C 18-510 obligatoires."
+      "cout_estime_min_eur": 24000,
+      "cout_estime_max_eur": 36000,
+      "particularites": "Périmètre étendu : tableau principal, éclairage LED complet (garage + modulaire) avec détecteurs de présence, 8 blocs de 4 prises 16A, 1 prise VE type 2, radiateurs électriques (étude thermique à charge du titulaire), VMC autoréglable, système détection intrusion complet (centrale 8/32 zones, contacteurs magnétiques, volumétriques, sirènes, transmetteur GSM CORG), BAES. Habilitations NF C 18-510 requises. Tranche optionnelle : centrale SSI catégorie B (NF S 61-934/935/936)."
     },
     {
       "numero": 5,
       "intitule": "Plomberie",
+      "domaine": "btp_second_oeuvre",
       "zone_geographique": "Dijon (21)",
       "volume_estime": null,
       "volume_estime_unite": null,
-      "particularites": "Lot mineur — durée prévisionnelle 1 semaine. TF uniquement (pas de TO) : branchement réseau eau existant, robinet d'arrêt 1/4 tour, lavabo collectif inox 1200×400 mm avec mitigeur, ballon ECS, réseau EU PVC DN40 raccordé au collecteur existant. Isolation thermique obligatoire (garages non chauffés, risque gel). Réseau en apparent."
+      "cout_estime_min_eur": 7000,
+      "cout_estime_max_eur": 10500,
+      "particularites": "Lot de courte durée (1 semaine). Branchement EF avec isolation antigel (garages non chauffés), robinet d'arrêt 1/4 de tour, lavabo collectif inox auge ~1200 mm avec mitigeur, ballon ECS, réseau EU PVC DN40. Pas de tranche optionnelle."
+    }
+  ],
+  "tranches": [
+    {
+      "type": "ferme",
+      "numero": "TF",
+      "intitule": "Tranche ferme — tous lots",
+      "objet": "Réalisation principale : mur de séparation (lot 1), bâtiment modulaire 160 m² avec mezzanine (lot 2), serrurerie principale (lot 3), installation électrique complète (lot 4), plomberie (lot 5).",
+      "montant_estime_eur": null,
+      "condition_affermissement": null,
+      "source": "CCAP §1.5"
+    },
+    {
+      "type": "optionnelle",
+      "numero": "TO1-Lot1",
+      "intitule": "Tranche optionnelle Lot 1 — Création d'une ouverture pour bloc-porte",
+      "objet": "Création d'une ouverture H 2,20 m × L 0,90 m dans le mur existant avec linteau BA, pour réception d'un bloc-porte métallique fourni par le lot 3.",
+      "montant_estime_eur": null,
+      "condition_affermissement": "Sur décision de la personne publique dans les 12 mois suivant la notification du marché",
+      "source": "CCAP §1.5"
+    },
+    {
+      "type": "optionnelle",
+      "numero": "TO1-Lot2",
+      "intitule": "Tranche optionnelle Lot 2 — Menuiseries extérieures façade arrière et sas de liaison",
+      "objet": "Réalisation d'une ouverture en façade arrière (2 100 × 900 mm) et création d'un sas de liaison thermique et étanche entre le module et le bâtiment existant.",
+      "montant_estime_eur": null,
+      "condition_affermissement": "Sur décision de la personne publique dans les 12 mois suivant la notification du marché",
+      "source": "CCAP §1.5"
+    },
+    {
+      "type": "optionnelle",
+      "numero": "TO1-Lot3",
+      "intitule": "Tranche optionnelle Lot 3 — Fourniture et pose d'une porte métallique",
+      "objet": "Fourniture et pose d'une porte métallique coupe-feu 1h (2 100 × 900 mm) en façade arrière du garage, avec serrure cylindre européen, barre anti-panique et ferme-porte.",
+      "montant_estime_eur": null,
+      "condition_affermissement": "Sur décision de la personne publique dans les 12 mois suivant la notification du marché",
+      "source": "CCAP §1.5"
+    },
+    {
+      "type": "optionnelle",
+      "numero": "TO1-Lot4",
+      "intitule": "Tranche optionnelle Lot 4 — Centrale SSI + extension alarme porte arrière",
+      "objet": "Installation d'une centrale SSI catégorie B (CMSI type B, NF S 61-934 à 61-936) et raccordement du contacteur magnétique de la porte arrière au système d'intrusion.",
+      "montant_estime_eur": null,
+      "condition_affermissement": "Sur décision de la personne publique dans les 12 mois suivant la notification du marché ; l'extension porte arrière est subordonnée à l'affermissement conjoint de la TO lot 3",
+      "source": "CCAP §1.5, CCTP lot 4"
     }
   ],
   "calendrier": {
     "date_limite_offres": "2026-07-10",
     "date_demarrage_prevue": "2026-10-01",
-    "duree_marche": "Durée totale prévisionnelle ~3 mois de travaux (septembre-décembre 2026) + période de préparation 4 semaines par lot. Le marché court jusqu'au parfait achèvement."
+    "duree_marche": "Environ 3 mois de travaux (début prévu octobre 2026), jusqu'au parfait achèvement"
   },
   "alertes_candidat": [
-    "VISITE OBLIGATOIRE avec attestation signée à joindre à l'offre — toute offre sans attestation est irrecevable ; demande de visite au moins 8 jours avant la date limite, avec pièces d'identité 24h avant",
-    "SITE MILITAIRE SÉCURISÉ : liste nominative du personnel avec copies pièces d'identité à transmettre 2 semaines avant démarrage ; le MOA peut interdire l'accès à toute personne sans justification — impact sur organisation RH de chantier",
-    "CONFIDENTIALITÉ OBLIGATOIRE : obligation de discrétion renforcée sous peine de résiliation aux torts ; concerne également les sous-traitants",
-    "LOT 1 PRÉALABLE : le lot maçonnerie conditionne le démarrage de tous les autres lots — une défaillance sur le lot 1 bloque l'ensemble du chantier",
-    "DPGF À VÉRIFIER LORS DE LA VISITE : les quantités sont indicatives selon le RC — le prix est forfaitaire et toute erreur de quantitatif est à la charge du titulaire",
-    "HABILITATIONS ÉLECTRIQUES OBLIGATOIRES pour lot 4 : B2V/BR, BC, BE — à présenter avant démarrage sous peine de mise en demeure et pénalités"
+    "VISITE OBLIGATOIRE : l'attestation de visite signée par le représentant du MOA est obligatoire pour que l'offre soit recevable — toute demande de visite formulée moins de 8 jours calendaires avant la date limite ne sera pas prise en compte (délai à anticiper).",
+    "SITE MILITAIRE : accès conditionné à la communication de la liste nominative du personnel + copies des pièces d'identité au moins 2 semaines avant le début des travaux ; l'administration peut interdire l'accès ou demander le remplacement immédiat de tout employé sans motif ni indemnité.",
+    "HABILITATIONS ÉLECTRIQUES OBLIGATOIRES pour le lot 4 : B2V/BR, BC, BE (NF C 18-510) — l'absence de personnel habilité peut entraîner l'arrêt du chantier.",
+    "PRIX GLOBAL ET FORFAITAIRE : aucune plus-value ne sera admise après signature pour quelque raison que ce soit — les quantités DPGF sont indicatives et doivent être vérifiées lors de la visite obligatoire.",
+    "COORDINATION INTER-LOTS CONTRACTUELLE : le lot 2 modulaire est le lot central ; les autres lots (1, 3, 4, 5) ont de nombreuses interfaces à gérer contractuellement — une candidature multi-lots ou une coordination proactive est un avantage."
   ],
   "points_differenciants_attendus": [
     {
-      "libelle": "Maîtrise des contraintes d'un site militaire occupé et sensible",
-      "exemple": "Le candidat décrit une procédure spécifique de gestion des accréditations du personnel (constitution du dossier d'identité, procédure de remplacement d'urgence en 48h), un chef de chantier ayant déjà travaillé en enceinte gendarmerie/armée, et des dispositions de confidentialité des plans et documents.",
-      "source": "CCAP §5.8 et RC §2.6"
+      "libelle": "Expérience en construction modulaire préfabriquée avec mezzanine sur dalle existante",
+      "exemple": "Présenter des références de bâtiments modulaires similaires (vestiaires, salles techniques) avec calculs de structure sur dalle existante, idéalement en milieu industriel ou militaire occupé. Joindre photos et PV de réception.",
+      "source": "RC §3.4 et CCTP lot 2"
     },
     {
-      "libelle": "Expérience en construction modulaire préfabriquée avec mezzanine et interface multi-lots",
-      "exemple": "Le candidat (lot 2) joint des références de bâtiments modulaires préfabriqués de surface comparable (>100 m²) avec mezzanine, et présente son plan de coordination inter-lots (réservations pour lot 3 garde-corps/escalier, passages câbles lot 4/5) avec tableau d'interfaces clairement rempli.",
-      "source": "CCTP Lot 2 §2.1 et §7 Limites des prestations"
+      "libelle": "Maîtrise des contraintes de chantier en site militaire occupé",
+      "exemple": "Décrire dans le mémoire technique les procédures spécifiques mises en place pour les chantiers en enceintes sécurisées (gestion des badges, procédure de contrôle d'accès, plan de prévention adapté, référence à des chantiers similaires en base militaire ou gendarmerie).",
+      "source": "CCAP §5.8, CCTP lots 1-5"
     },
     {
-      "libelle": "Planning détaillé crédible avec séquençage inter-lots et gestion des délais de préfabrication",
-      "exemple": "Le candidat du lot 2 présente un planning distinguant la phase de préfabrication en usine (délai critique), le transport et l'assemblage sur site, avec jalons d'interface avec les lots 3, 4 et 5, et buffers identifiés pour les aléas de livraison.",
-      "source": "RC §4.2.1 — critère Planning 20%"
+      "libelle": "Qualité et exhaustivité du planning inter-lots avec points critiques identifiés",
+      "exemple": "Produire un planning Gantt avec chemin critique explicite, jalons d'interface entre lots (ex : réservations mezzanine semaine 4, essai VMC semaine 6), hommes/jour par qualification. Ce sous-critère vaut 20 points sur 100 — un planning sommaire pénalise fortement.",
+      "source": "RC §4.2.1"
     },
     {
-      "libelle": "Propositions concrètes de réduction de l'empreinte environnementale en site occupé",
-      "exemple": "Le candidat présente un tableau de bord environnemental chantier avec objectifs chiffrés : nombre de rotations de livraison optimisées, tonnage déchets par filière, mesures anti-poussières spécifiques (écrans étanches, aspiration à la source), et désigne un référent environnement identifié.",
-      "source": "RC §4.2.1 — critère Valeur environnementale 10%"
+      "libelle": "Approche environnementale concrète et chiffrée en site occupé",
+      "exemple": "Quantifier les déchets attendus par catégorie (inertes, valorisables, dangereux), nommer les filières de traitement retenues avec BSD, proposer des horaires de travaux bruyants restreints et une procédure d'information des occupants (affichage, courriel hebdomadaire au responsable du site).",
+      "source": "RC §4.2.1 — Valeur environnementale 10 points"
     },
     {
-      "libelle": "Qualité des fiches techniques et justification des choix matériaux par rapport aux normes exigées",
-      "exemple": "Le candidat joint les fiches techniques complètes des panneaux sandwich (certification NF EN 14509, valeur Ud calculée, classement réaction au feu), du revêtement PVC (classement UPEC U4P4E2C2, classement feu M1), et des menuiseries (NF EN 14351-1, rupture de pont thermique), en commentant pourquoi ces choix répondent aux exigences du CCTP.",
-      "source": "CCTP Lot 2 §3.3 à §3.5 et RC §4.2.1 sous-critère Qualité/matériaux"
+      "libelle": "Capacité à intégrer la totalité des interfaces techniques inter-lots dans une réponse cohérente",
+      "exemple": "Pour une entreprise candidate sur plusieurs lots, présenter un plan d'interfaces formalisé (tableau lot/lot avec responsabilités partagées) montrant la maîtrise de la séquence maçonnerie → module → serrurerie/électricité/plomberie. Valorise le savoir-faire en coordination BTP tous corps d'état.",
+      "source": "CCTP lot 3 §7 — tableau d'interfaces"
     }
   ],
   "_meta": {
     "id_marche": "BOAMP-26-57252",
     "type": "complet",
-    "date_generation": "2026-06-15T00:04:32.634039+00:00",
-    "extraction_le": "2026-06-15T00:04:32.634039+00:00",
+    "date_generation": "2026-06-20T03:51:03.276984+00:00",
+    "extraction_le": "2026-06-20T03:51:03.276984+00:00",
     "modele": "claude-sonnet-4-6",
     "preset_utilise": "btp",
     "presets_matches": [
       "btp"
     ],
     "prompts_versions": {
-      "btp/_preset.json": "sha256:d1717e0d87f6c265"
+      "btp/_preset.json": "sha256:055bf6f8b2c1f771"
     },
-    "tokens_input": 124785,
-    "tokens_output": 9066,
-    "cout_eur": 0.4848,
-    "duree_sec": 172.3,
+    "tokens_input": 132828,
+    "tokens_output": 11409,
+    "cout_eur": 0.5411,
+    "duree_sec": 205.9,
     "pdfs_traites": [
       {
         "nom": "2026SGAMI57015 - CCAP.pdf",

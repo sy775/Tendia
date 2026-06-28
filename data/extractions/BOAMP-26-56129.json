@@ -1,71 +1,103 @@
 {
-  "synthese_marche": "Le Département du Val-de-Marne lance un accord-cadre à bons de commande en 4 lots pour l'impression de documents de communication et la fabrication/pose/dépose de supports de signalétique. Le marché couvre : impression rotative (lot 1), impression feuilles ou numérique (lot 2), signalétique chantiers et équipements (lot 3), signalétique événements et campagnes (lot 4). La durée est d'un an reconductible tacitement jusqu'à 4 ans maximum.",
+  "synthese_marche": "Marché public d'impression de documents de communication et de supports de signalétique pour le Département du Val-de-Marne (94), structuré en 4 lots : impression rotative (lot 1), impression feuilles/numérique (lot 2), signalétique chantiers/équipements (lot 3) et signalétique événements/campagnes (lot 4). Accord-cadre à bons de commande, procédure ouverte, durée maximale 4 ans (reconduction tacite annuelle à partir du 1er janvier 2027). Montant maximum total tous lots : 1 800 000 € HT sur 4 ans.",
   "domaines_metier": [
     {
       "code": "autre"
     }
   ],
-  "raison_classification": "Ce marché porte exclusivement sur des prestations d'impression graphique et de fabrication/pose de signalétique physique (banderoles, panneaux, kakémonos, bâches, adhésifs, roll-up, etc.). Aucun des codes disponibles ne correspond à ce secteur industriel/artisanal d'imprimerie et signalétique ; le code 'autre' s'impose.",
-  "caracteristiques_mission": {
-    "typologie_mission": "fournitures courantes et services",
-    "domaine_expertise": "impression graphique, signalétique",
-    "livrables_attendus": [
-      "Documents imprimés sur presses rotatives (magazines, brochures, dépliants)",
-      "Documents imprimés en feuilles ou numérique (brochures, feuillets, affiches, chemises)",
-      "Supports de signalétique fabriqués (banderoles, panneaux, kakémonos, flèches, autocollants, drapeaux)",
-      "Pose et dépose de supports de signalétique chantiers et équipements",
-      "Pose et dépose de supports de signalétique événements et campagnes"
-    ],
-    "duree_mission": "1 an reconductible jusqu'à 4 ans",
-    "jours_consultant_estimes": null,
-    "methodologie_attendue": null,
-    "livrables_par_phase": [],
-    "jours_consultant_par_profil": [],
-    "accompagnement_apres": null
-  },
-  "profils_intervenants": {
-    "description": "Imprimeurs et prestataires signalétique disposant des équipements techniques requis (presses rotatives pour lot 1, machines impression feuilles/numérique pour lot 2, équipements impression grand format numérique et sérigraphie pour lots 3 et 4)",
-    "chef_de_mission": {
-      "anciennete_min_annees": null,
-      "secteur_experience": null,
-      "taux_dedie_pct": null,
-      "certifs_requises": []
-    },
-    "consultants": []
-  },
-  "qualifications_conseil": {
-    "opqcm": [],
-    "certifications_methodologiques": [],
-    "ordre_profession": null
+  "raison_classification": "Ce marché porte exclusivement sur des prestations d'impression offset/rotative/numérique et de fabrication/pose/dépose de supports de signalétique (banderoles, kakémonos, panneaux, adhésifs). Aucune des taxonomies disponibles ne couvre l'impression graphique ou la signalétique publicitaire. Le code 'conseil_communication' aurait pu être envisagé mais ne recouvre pas la fabrication physique. Classification 'autre' retenue.",
+  "caracteristiques_metier": {
+    "description": "Prestations d'impression sur machines rotatives et offset feuilles/numérique de documents de communication (magazines, brochures, dépliants, affiches) et impression, fabrication, pose et dépose de supports de signalétique (banderoles, panneaux grand format, kakémonos, adhésifs, drapeaux, flèches, roll-up) pour les besoins de communication institutionnelle et de signalisation des chantiers et équipements du Département du Val-de-Marne.",
+    "criteres_eligibilite": [
+      "Capacité technique en impression rotative (lot 1)",
+      "Capacité technique en impression offset feuilles ou numérique (lot 2)",
+      "Capacité en impression numérique et sérigraphique grand format, fabrication et pose/dépose de signalétique (lots 3 et 4)",
+      "Disponibilité annuelle totale, y compris périodes estivales et de fin d'année"
+    ]
   },
   "bareme_notation": {
-    "valeur_technique_pct": null,
-    "valeur_prix_pct": null,
-    "sous_criteres_techniques": [],
+    "valeur_technique_pct": 60,
+    "valeur_prix_pct": 40,
+    "sous_criteres_techniques": [
+      {
+        "libelle": "Qualité",
+        "ponderation_pct": 60,
+        "description": "Le critère qualité évalue la capacité du candidat à réaliser les prestations demandées dans les conditions requises par le marché (matériaux, procédés, délais, qualité d'exécution). Critère présent sur tous les lots.",
+        "elements_attendus": [
+          "Références de marchés similaires en impression offset/rotative ou signalétique",
+          "Description des équipements et machines disponibles",
+          "Présentation des procédés de fabrication et contrôle qualité",
+          "Capacité à respecter les délais d'impression et de livraison",
+          "Exemples de réalisations pour des collectivités territoriales"
+        ],
+        "exemple_reponse_forte": "Le candidat présente ses presses rotatives (capacité minimale 640 000 exemplaires/tirage), son parc machines numériques grand format, et les certifications qualité (ISO, labels environnementaux). Il joint 3 références de marchés similaires avec collectivités, incluant des témoignages acheteurs.",
+        "source": "Actes d'Engagement lots 1-4",
+        "unite_evaluation": "points",
+        "sous_criteres": []
+      }
+    ],
     "prix": {
-      "type_formule": "autre",
-      "formule_explicite": "Rémunération par application des prix figurant au bordereau des prix unitaires (BPU) aux quantités réellement exécutées ; tarifs unitaires HT avec majorations le cas échéant",
+      "type_formule": "moins_disant",
+      "formule_explicite": "Note prix calculée sur la base du DQE : prix le plus bas obtient la note maximale, les autres candidats sont notés proportionnellement.",
+      "source": "Actes d'Engagement lots 1-4",
       "elements_a_chiffrer": [
-        "Prix au m² selon support, matière et grammage (impression numérique et sérigraphique)",
-        "Prix à l'exemplaire pour formats spécifiques (flèches, jupes de tables, urnes)",
-        "Prix au mètre linéaire pour banderoles sérigraphiques",
-        "Pourcentages de majoration pour finitions spécifiques (antidérapant, anti-graffiti, classement feu M1, découpe, mise en volume, lamination)",
-        "Prix unitaires pour structures (panneaux grand format 4x3m, 3x2m, panneaux d'affichage, fourreaux)",
-        "Tarifs pose/dépose (horaire, demi-journée, journée)",
-        "Tarif location nacelle",
-        "Majoration intervention urgence (< 12h)"
+        "Prix au m² par support et matière (impression numérique et sérigraphique)",
+        "Prix à l'exemplaire par format et grammage (brochures, dépliants, magazines)",
+        "Prix forfaitaire panneaux grand format 4x3 et 3x2/3x3",
+        "Tarif horaire et forfaits pose/dépose (1/2 journée, journée)",
+        "Pourcentage de majoration pour finitions spécifiques (antidérapant, antigraffiti, M1)",
+        "Prix structures roll-up et beach flags",
+        "Majoration intervention urgence < 12h"
       ]
     },
-    "modalite_calcul_prix": "Bordereau des prix unitaires : prix unitaires HT appliqués aux quantités réellement commandées par bons de commande."
+    "modalite_calcul_prix": "DQE : application des prix unitaires du BPU aux quantités non contractuelles estimées par l'acheteur. Le total HT du DQE est la base de comparaison prix."
   },
   "montant_marche": {
-    "valeur_estimee_euros": 1800000,
+    "valeur_estimee_euros": 4081415,
     "fourchette_min_euros": null,
-    "fourchette_max_euros": 1800000,
-    "type": "plafond",
-    "duree_couverte": "Durée totale de l'accord-cadre (jusqu'à 4 ans)",
-    "source_extraction": "AE lot 1 art 3.3 (max 800 000 € HT), AE lot 2 art 3.3 (max 500 000 € HT), AE lot 3 art 3.3 (max 250 000 € HT), AE lot 4 art 3.3 (max 250 000 € HT)",
-    "commentaire": "Plafonds des accords-cadres sans montant minimum : lot 1 = 800 000 € HT, lot 2 = 500 000 € HT, lot 3 = 250 000 € HT, lot 4 = 250 000 € HT. Total toutes tranches = 1 800 000 € HT maximum sur la durée totale (jusqu'à 4 ans)."
+    "fourchette_max_euros": null,
+    "type": "estime_explicite",
+    "duree_couverte": "4 ans (1 an + 3 reconductions tacites)",
+    "source_extraction": "Actes d'Engagement lots 1-4 (montants maximum par lot)",
+    "commentaire": "Montants maximum sur 4 ans issus des AE : Lot 1 = 800 000 € HT × 4 ans = 3 200 000 € (mais AE précise 800 000 € comme max, durée 4 ans), Lot 2 = 500 000 € HT, Lot 3 = 250 000 € HT, Lot 4 = 250 000 € HT. Total maximum accord-cadre = 800 000 + 500 000 + 250 000 + 250 000 = 1 800 000 € HT. Les montants BOAMP (1 895 369 + 1 285 509 + 218 007 + 682 530 = 4 081 415 €) semblent être des estimations sur toute la durée et divergent des plafonds AE. On retient la valeur BOAMP comme estimé publié."
+  },
+  "montant_3_voies": {
+    "voie_1_eur": 4081415,
+    "voie_1_source": "Contexte BOAMP – montants estimés par lot (lot1: 1 895 369 €, lot2: 1 285 509 €, lot3: 218 007 €, lot4: 682 530 €)",
+    "voie_2_disponible": false,
+    "voie_2_min_eur": null,
+    "voie_2_max_eur": null,
+    "voie_2_hypotheses": [],
+    "voie_2_raison_indisponible": "Voie 1 disponible via montants BOAMP : estimation bottom-up non nécessaire."
+  },
+  "cout_realisation": {
+    "cout_total_eur": 3060000,
+    "cout_min_eur": 2856000,
+    "cout_max_eur": 3264000,
+    "postes": [
+      {
+        "poste": "Lot 1 – Coût de production rotative (papier, encres, façonnage, livraison)",
+        "detail": "Magazine 640 000 ex × 6 parutions + brochures. Coût variable d'impression rotative estimé à 60-65% du CA pour ce type de production industrielle.",
+        "montant_eur": 1137000
+      },
+      {
+        "poste": "Lot 2 – Coût de production offset/numérique (matières premières, façonnage)",
+        "detail": "Brochures, dépliants, affiches petits tirages. Coût variable estimé à 55-65% du CA.",
+        "montant_eur": 770000
+      },
+      {
+        "poste": "Lot 3 – Coût fabrication/pose signalétique chantiers",
+        "detail": "Matières premières (PVC, plastique alvéolé, vinyle), main d'œuvre pose/dépose, location nacelle. Coût estimé à 65-70% du CA.",
+        "montant_eur": 152000
+      },
+      {
+        "poste": "Lot 4 – Coût fabrication/pose signalétique événements",
+        "detail": "Matières premières, structures roll-up, beach flags, main d'œuvre. Coût estimé à 65-70% du CA.",
+        "montant_eur": 477000
+      }
+    ],
+    "taux_journaliers_retenus": "Taux marché indicatifs : impression rotative 60-65% de coût variable/CA ; impression offset/numérique 55-65% ; signalétique grand format 65-70% (matières + pose). Ratios sectoriels imprimerie industrielle.",
+    "commentaire": "Estimation basée sur des ratios de coût variable typiques du secteur imprimerie/signalétique. Le coût de réalisation représente environ 75% du CA global estimé. La marge brute moyenne attendue est de 25% environ, cohérente avec le secteur services d'impression/fabrication."
   },
   "revision_prix": {
     "type": "non_communique",
@@ -74,114 +106,195 @@
     "periodicite": null,
     "formule_revision": null,
     "source_extraction": null,
-    "commentaire": "Aucune clause de révision des prix n'est mentionnée dans les pièces du DCE fournies (AE et BPU uniquement). Le CCAP n'est pas fourni dans le dossier analysé."
+    "commentaire": "Aucune clause de révision des prix n'est mentionnée dans les pièces fournies (AE, BPU, DQE). Le CCAP n'est pas fourni dans ce DCE. À vérifier dans le CCAP avant remise d'offre, la durée de 4 ans rendant une clause d'indexation habituelle dans ce type de marché."
   },
   "alertes_prix": [
-    "Montant sans minimum garanti : les accords-cadres sont passés sans montant minimum, exposant le titulaire au risque de zéro commande",
-    "Lot 1 représente 44% du plafond total (800 k€) : lot attractif mais très concurrentiel pour l'impression rotative de masse (magazine 640 000 ex.)",
-    "Les prix unitaires s'appliquent aux quantités réellement commandées (pas de volume garanti) : le modèle économique doit intégrer des coûts fixes absorbables même en sous-régime",
-    "BPU très détaillé avec plus de 50 lignes par lot (lots 3 et 4) : risque d'erreur ou d'oubli dans le chiffrage — une case non remplie peut rendre l'offre irrégulière"
+    "Accord-cadre à bons de commande SANS montant minimum : le titulaire ne bénéficie d'aucune garantie de commande, tout le risque volume est supporté par le prestataire.",
+    "Bordereau des prix unitaires (BPU) très complexe : des dizaines de références par support/matière/surface avec tarification dégressives à 7 tranches de surface – risque d'erreur de saisie élevé.",
+    "Majoration d'urgence (< 12h) : s'assurer de tarifer correctement sans sous-évaluer le coût logistique.",
+    "Pondération prix 40% sur un marché industriel d'impression : concurrence prix vive, surtout sur le lot 1 (rotative) où les grands imprimeurs industriels ont des coûts fixes plus bas."
   ],
   "references_exigees": {
     "experience_minimale_annees": null,
     "experience_source": null,
     "volume_min_references_similaires": null,
     "volume_min_references_unite": null,
-    "secteur_experience": null,
+    "secteur_experience": "Impression offset, rotative ou numérique de documents de communication pour collectivités ; fabrication et pose de supports de signalétique grand format selon les lots.",
     "secteur_source": null,
     "certifications_obligatoires": [],
     "autres_exigences": []
+  },
+  "dossier_candidature": {
+    "pieces_a_fournir": [
+      {
+        "libelle": "Acte d'Engagement (AE) complété et signé (par lot soumissionné)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "AE lots 1-4"
+      },
+      {
+        "libelle": "Bordereau des Prix Unitaires (BPU) complété (par lot soumissionné)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "BPU lots 3-4"
+      },
+      {
+        "libelle": "Détail Quantitatif Estimatif (DQE) complété (par lot soumissionné)",
+        "phase": "offre",
+        "obligatoire": true,
+        "source": "DQE lots 1-4"
+      },
+      {
+        "libelle": "Lettre de candidature (DC1 ou équivalent)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": null
+      },
+      {
+        "libelle": "Déclaration du candidat (DC2 ou équivalent)",
+        "phase": "candidature",
+        "obligatoire": true,
+        "source": null
+      },
+      {
+        "libelle": "Désignation des co-traitants et répartition des prestations (Annexe 1 de l'AE) en cas de groupement",
+        "phase": "offre",
+        "obligatoire": false,
+        "source": "AE lots 1-4 Annexe 1"
+      },
+      {
+        "libelle": "Déclaration de sous-traitance le cas échéant",
+        "phase": "offre",
+        "obligatoire": false,
+        "source": "AE lots 1-4"
+      },
+      {
+        "libelle": "Certificat de signature électronique conforme RGS niveau II si signature dématérialisée",
+        "phase": "offre",
+        "obligatoire": false,
+        "source": "RC Annexe 1 §3.3"
+      }
+    ],
+    "mode_remise": "dématérialisé + copie de sauvegarde",
+    "plateforme_depot": "Plateforme Maximilien – marches.maximilien.fr",
+    "signature_electronique_exigee": false,
+    "format_signature": "XAdES, CAdES ou PAdES (si signature utilisée)",
+    "nombre_exemplaires": null,
+    "langue": "français",
+    "duree_validite_offres_jours": 210,
+    "modalites_source": "RC Annexe 1 §2 et §3"
   },
   "lots": [
     {
       "numero": 1,
       "intitule": "Impression rotative des documents de communication sur supports papier",
+      "domaine": "autre",
       "zone_geographique": "Val-de-Marne (94)",
-      "volume_estime": 800000,
-      "volume_estime_unite": "euros HT (plafond accord-cadre)",
-      "particularites": "Impression sur machines rotatives. Principaux documents : magazine départemental 36 pages 80g couché demi-mat 19x26 cm collé-rogné (6 × 640 000 ex.), brochures 8 pages à bons de commande (200 000 ex.), dépliants 4 pages 100% recyclé. Planning annuel prévisionnel fourni pour le magazine. Préavis 15 jours ouvrés avant BAT pour grandes quantités. Disponibilité annuelle totale exigée y compris été et fin d'année."
+      "volume_estime": null,
+      "volume_estime_unite": null,
+      "cout_estime_min_eur": 1080000,
+      "cout_estime_max_eur": 1230000,
+      "ca_estime_min_eur": 1706000,
+      "ca_estime_max_eur": 2085000,
+      "marge_brute_pct": 37,
+      "particularites": "Impression sur machines rotatives uniquement. Comprend le magazine départemental (640 000 ex, 36 pages, 6 parutions/an), brochures à forts tirages (200 000 ex), dépliants (100 000 ex). Montant maximum 800 000 € HT sur l'accord-cadre. Reconduction tacite annuelle, 4 ans max. BOAMP estime à 1 895 369 € sur 4 ans. Exige disponibilité totale y compris été et fin d'année."
     },
     {
       "numero": 2,
       "intitule": "Impression feuilles ou numérique des documents de communication sur supports papier et spéciaux",
+      "domaine": "autre",
       "zone_geographique": "Val-de-Marne (94)",
-      "volume_estime": 500000,
-      "volume_estime_unite": "euros HT (plafond accord-cadre)",
-      "particularites": "Impression feuilles ou numérique pour petites et moyennes séries : brochures formats spécifiques (8p + encart, 12p, 16p), feuillets (A6 à A4), affiches (40x60, 60x80, 120x176 cm), chemises pelliculées avec façonnage manuel. Façonnages inclus : pliage croisé, roulé, accordéon. Délais fixés par bon de commande."
+      "volume_estime": null,
+      "volume_estime_unite": null,
+      "cout_estime_min_eur": 707000,
+      "cout_estime_max_eur": 836000,
+      "ca_estime_min_eur": 1157000,
+      "ca_estime_max_eur": 1414000,
+      "marge_brute_pct": 37,
+      "particularites": "Impression offset feuilles ou numérique. Petits et moyens tirages : brochures spécifiques, feuillets, affiches, chemises avec pelliculage, suppléments pliage. Montant maximum 500 000 € HT. BOAMP estime à 1 285 509 € sur 4 ans."
     },
     {
       "numero": 3,
       "intitule": "Impression, fabrication, pose et dépose de supports de signalétique des chantiers et équipements départementaux",
-      "zone_geographique": "Val-de-Marne (94)",
-      "volume_estime": 250000,
-      "volume_estime_unite": "euros HT (plafond accord-cadre)",
-      "particularites": "Fabrication par impression numérique et sérigraphique (banderoles PVC, panneaux Dispa/akilux/Dibond/PVC, kakémonos, drapeaux, autocollants, flèches, jupes de table, urnes). Panneaux grand format réutilisables (4x3 m, 3x2 m). Finitions spécifiques (antidérapant, anti-graffiti, M1, découpe, lamination Velleda). Pose/dépose avec déplacement compris, possibilité nacelle. Intervention urgence < 12h majorée."
+      "domaine": "autre",
+      "zone_geographique": "Val-de-Marne (94) et zones limitrophes",
+      "volume_estime": null,
+      "volume_estime_unite": null,
+      "cout_estime_min_eur": 142000,
+      "cout_estime_max_eur": 163000,
+      "ca_estime_min_eur": 196000,
+      "ca_estime_max_eur": 240000,
+      "marge_brute_pct": 30,
+      "particularites": "Signalétique chantiers et équipements départementaux : panneaux 4x3 et 3x2 m réutilisables, kakémonos, banderoles, flèches, adhésifs, drapeaux. Pose et dépose avec déplacement inclus. Montant maximum 250 000 € HT. BOAMP estime à 218 007 € sur 4 ans. Les prestations (impression, fabrication, pose, dépose) sont indépendantes."
     },
     {
       "numero": 4,
       "intitule": "Impression, fabrication, pose et dépose de supports de signalétique des évènements et campagnes de communication",
-      "zone_geographique": "Val-de-Marne (94)",
-      "volume_estime": 250000,
-      "volume_estime_unite": "euros HT (plafond accord-cadre)",
-      "particularites": "Mêmes typologies de supports que le lot 3 mais orientés événements et campagnes de communication (roll-up, beach flags, panneaux d'affichage mobiles, adhésifs sur véhicules). Panneaux grand format réutilisables (4x3 m, 3x3 m). Pose distinctée en pose temporaire et pose définitive. Intervention urgence < 12h majorée."
+      "domaine": "autre",
+      "zone_geographique": "Val-de-Marne (94) et zones limitrophes",
+      "volume_estime": null,
+      "volume_estime_unite": null,
+      "cout_estime_min_eur": 444000,
+      "cout_estime_max_eur": 511000,
+      "ca_estime_min_eur": 614000,
+      "ca_estime_max_eur": 750000,
+      "marge_brute_pct": 30,
+      "particularites": "Signalétique événementielle et campagnes : banderoles, panneaux, kakémonos, roll-up, beach flags, jupes de tables, urnes, adhésifs sur véhicules. Pose et dépose. Montant maximum 250 000 € HT. BOAMP estime à 682 530 € sur 4 ans (valeur bien supérieure au plafond AE — incohérence à vérifier). Intervention urgente < 12h prévue au BPU."
     }
   ],
+  "tranches": [],
   "calendrier": {
     "date_limite_offres": "2026-07-15",
     "date_demarrage_prevue": "2027-01-01",
-    "duree_marche": "1 an à compter de notification (au plus tôt 1er janvier 2027), reconductible tacitement par période annuelle, durée totale maximale 4 ans"
+    "duree_marche": "1 an renouvelable 3 fois par tacite reconduction, durée totale maximale 4 ans"
   },
   "alertes_candidat": [
-    "Disponibilité annuelle totale exigée sans exception de période : le titulaire ne peut refuser la reconduction et doit livrer dans les délais y compris en été et en fin d'année — exigence de capacité de production continue à intégrer dans le mémoire technique",
-    "BPU très détaillé (plus de 50 références tarifaires pour les lots 3 et 4) : toute ligne non renseignée ou incohérente peut entraîner une irrégularité de l'offre — vérifier exhaustivité avant dépôt",
-    "La signature de l'acte d'engagement n'est exigée qu'à l'attribution : un candidat en groupement conjoint doit prévoir que le mandataire deviendra solidaire à la notification",
-    "Un candidat ne peut pas présenter plusieurs offres en qualité à la fois de candidat individuel et de membre d'un groupement, ni être membre de plusieurs groupements — risque d'exclusion automatique",
-    "Taille des fichiers limitée à 4 Go par pli et 1 Go par fichier sur la plateforme Maximilien : anticiper le volume des BPU et DQE complétés bien avant la date limite du 15 juillet 2026"
+    "Aucun montant minimum garanti : accord-cadre à bons de commande sans plancher — le prestataire peut ne recevoir aucune commande malgré l'attribution. Vérifier la cohérence de son offre avec ce risque volume.",
+    "Incohérence entre les montants maximum des Actes d'Engagement (lot 1 : 800 000 €, lot 2 : 500 000 €, lots 3 et 4 : 250 000 € chacun, total 1 800 000 €) et les estimations BOAMP (total 4 081 415 €) : clarifier avec l'acheteur avant remise, les plafonds AE s'imposent contractuellement.",
+    "BPU très complexe (lots 3 et 4) : des dizaines de références avec tarification dégressives à 7 tranches de surface, risque d'erreur ou d'oubli de ligne — vérifier l'exhaustivité du BPU avant dépôt.",
+    "Disponibilité annuelle totale exigée, y compris été et fin d'année : les délais sont fixés par bon de commande, la capacité à honorer les engagements en périodes chargées est un critère opérationnel clé.",
+    "Groupement conjoint possible mais mandataire devra être solidarisé après attribution : anticiper la clause de solidarité imposée par l'acheteur (article R2142-24 du Code de la commande publique mentionné dans chaque AE)."
   ],
   "points_differenciants_attendus": [
     {
-      "libelle": "Capacité à livrer dans les délais courts y compris hors saison standard",
-      "exemple": "Mentionner l'organisation en astreinte/permanence production (équipes, sous-traitants qualifiés) pour les périodes estivales et de fin d'année, avec engagement contractualisé sur les délais de livraison du magazine départemental selon le planning annuel prévisionnel.",
-      "source": "AE lot 1 art 6"
+      "libelle": "Parc machines dédié et capacité de tirage élevée (lot 1 rotative)",
+      "exemple": "Présenter les presses rotatives propres (nombre, format, vitesse), la capacité à produire 640 000 exemplaires en délai maîtrisé pour le magazine départemental, et les références de publications similaires pour des collectivités.",
+      "source": "AE lot 1"
     },
     {
-      "libelle": "Offre de prix compétitive sur les lignes à fort volume (magazine 640 000 ex.)",
-      "exemple": "Proposer un tarif unitaire optimisé pour le tirage de masse rotative en intégrant les économies d'échelle, et présenter le coût du 1 000 plus de manière transparente pour faciliter la comparaison.",
-      "source": "DQE lot 1"
+      "libelle": "Maîtrise des délais et réactivité (tous lots)",
+      "exemple": "Proposer un planning type de production pour le magazine (avec le planning prévisionnel annuel attendu par l'acheteur) et illustrer la capacité à répondre aux commandes urgentes (intervention < 12h prévue au BPU lot 4) avec un exemple concret.",
+      "source": "AE lots 1-4 §6"
     },
     {
-      "libelle": "Couverture complète des références BPU sans lacune",
-      "exemple": "Renseigner exhaustivement l'ensemble des 50+ lignes des BPU lots 3 et 4 en proposant des tarifs cohérents et compétitifs sur toutes les matières, grammages et formats demandés, y compris les finitions spécifiques (anti-graffiti, M1, découpe).",
-      "source": "BPU lot 3, BPU lot 4"
+      "libelle": "Offre environnementale : matériaux éco-responsables",
+      "exemple": "Valoriser l'utilisation de papiers recyclés (lot 1 : 100% recyclé déjà cité au DQE), de supports type 'Dispa' ou équivalent éco-responsable (lot 3 et 4 BPU), de certifications FSC/PEFC, et de processus de fabrication bas-carbone. Le critère BOAMP mentionne des critères environnementaux.",
+      "source": "Contexte BOAMP (criteres_attribution_boamp: environnementaux) ; BPU lots 3-4"
     },
     {
-      "libelle": "Réactivité pour les interventions urgentes (< 12h) de pose/dépose",
-      "exemple": "Justifier d'une organisation locale (équipes basées en Île-de-France, véhicules dédiés) permettant une intervention en moins de 12h sur le territoire du Val-de-Marne, avec un process d'astreinte formalisé.",
-      "source": "BPU lot 3 ligne P/D10, BPU lot 4 ligne P/D13"
+      "libelle": "Réseau de distribution et couverture territoriale (livraison sur le 94)",
+      "exemple": "Préciser les délais de livraison sur le territoire du Val-de-Marne, les points de livraison possibles, la gestion des livraisons en grande quantité (camion, conditionnement) pour les tirages du magazine à 640 000 exemplaires.",
+      "source": "AE lot 1 §6"
     },
     {
-      "libelle": "Matériaux éco-responsables proposés en alternative",
-      "exemple": "Valoriser les équivalents éco-responsables au 'Dispa' (panneaux recyclés/recyclables) et les papiers 100% recyclés déjà attendus sur certaines lignes du DQE, en précisant les certifications environnementales des fournisseurs.",
-      "source": "BPU lot 3 codes N7-N9, DQE lot 1"
+      "libelle": "Prix compétitif sur le DQE (déterminant à 40%)",
+      "exemple": "Analyser les quantités non-contractuelles du DQE et optimiser les prix sur les lignes à fort volume (magazine 640 000 ex × 6, panneaux 50×150 cm en grande quantité) pour maximiser la note prix sans sous-tarifer les lignes à faible volume.",
+      "source": "DQE lots 1-4"
     }
   ],
   "_meta": {
     "id_marche": "BOAMP-26-56129",
     "type": "complet",
-    "date_generation": "2026-06-15T00:12:22.956473+00:00",
-    "extraction_le": "2026-06-15T00:12:22.956473+00:00",
+    "date_generation": "2026-06-20T14:20:12.770330+00:00",
+    "extraction_le": "2026-06-20T14:20:12.770330+00:00",
     "modele": "claude-sonnet-4-6",
-    "preset_utilise": "conseil",
-    "presets_matches": [
-      "conseil"
-    ],
-    "prompts_versions": {
-      "conseil/_preset.json": "sha256:3d2714b04ff25c9b"
-    },
-    "tokens_input": 197831,
-    "tokens_output": 3959,
-    "cout_eur": 0.6202,
-    "duree_sec": 78.2,
+    "preset_utilise": null,
+    "presets_matches": [],
+    "prompts_versions": {},
+    "tokens_input": 206502,
+    "tokens_output": 6121,
+    "cout_eur": 0.6758,
+    "duree_sec": 110.5,
     "pdfs_traites": [
       {
         "nom": "00Page_de_garde_BPU_lot1.xlsx",
