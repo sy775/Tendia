@@ -183,8 +183,6 @@ Recherche `import analyse` / `analyse.` sur le dépôt (hors `venv`) :
 
 - `enrichir_complet.py:37` `import analyse` ; ligne 50 :
   `pertinents = analyse._ids_marches_pertinents()`.
-- `diagnostic_dce_pertinents.py:22` `import analyse` ; ligne 37 :
-  `pertinents_ids = analyse._ids_marches_pertinents()`.
 - `tendia_ui.py:419` (commentaire) : la collection `scores_matching` est « calculée
   par analyse.py » ; l'UI consomme donc les scores produits ici.
 - `bilan_briefs.py:163` et `nettoyer_attributions.py:202` : mentions de
@@ -204,9 +202,9 @@ fonction locale `analyser_marche`, sans rapport avec ce module.)
   `par_preset` et les totaux globaux (lignes 608-628).
 
 - **Appel externe sur une fonction privée** : `_ids_marches_pertinents()` (préfixe `_`,
-  donc privée par convention) est importée et appelée par `enrichir_complet.py` et
-  `diagnostic_dce_pertinents.py`. Renommer ou déplacer cette fonction casserait ces
-  appelants.
+  donc privée par convention) est importée et appelée par `enrichir_complet.py`.
+  Renommer ou déplacer cette fonction casserait cet appelant. (`diagnostic_dce_pertinents.py`,
+  autre appelant, a été supprimé au nettoyage 2026-06-27.)
 
 - **Tri potentiellement contre-intuitif** dans `marches_pertinents_pour_preset()`
   (lignes 598-599) : la clé est `(-score_brut, date)` ET `reverse=False`. Le score est
