@@ -20,13 +20,13 @@ from typing import Optional
 
 import dce_finder
 
-# Moteurs Atexo (marques blanches) où la recherche GET par référence est validée.
+# Moteurs Atexo (marques blanches + PLACE) où la recherche GET fonctionne.
 HOSTS_ATEXO_SEARCH = (
-    "megalis", "demat-ampa", "ternum", "maximilien", "596280", "marchespublics.eure",
-    "marchespublics.ain", "alsacemarchespublics", "marchespublics.aude",
-    "nantesmetropole", "adullact", "marches.rhone", "auvergnerhonealpes",
-    "muretain", "sictiam", "profilacheteur", "agglo-muretain", "ternum-bfc",
-    "marches.rennes",
+    "marches-publics.gouv", "megalis", "demat-ampa", "ternum", "maximilien",
+    "596280", "marchespublics.eure", "marchespublics.ain", "alsacemarchespublics",
+    "marchespublics.aude", "nantesmetropole", "adullact", "marches.rhone",
+    "auvergnerhonealpes", "muretain", "sictiam", "profilacheteur", "agglo-muretain",
+    "ternum-bfc", "marches.rennes",
 )
 
 # Le raw avis est une chaîne JSON échappée → on tolère le `\"`.
