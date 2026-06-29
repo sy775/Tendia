@@ -130,10 +130,14 @@ def _tenter_cle(reference, cle, dossier_destination, acheteur, timeout, verbose,
     s = _session()
     try:
         s.get(_BASE + "?module=recherche_consultations", timeout=timeout)
-        s.post(_BASE + "?module=consultation|script|selection_consultation_s",
-               data=_form_recherche(reference), timeout=timeout)
-        rd = s.get(_BASE + f"?module=consultation|details&cle_dce={cle}&version=",
-                   timeout=timeout)
+        rp = s.post(_BASE + "?module=consultation|script|selection_consultation_s",
+                    data=_form_recherche(reference), timeout=timeout,
+                    allow_redirects=True)
+        # Le lien de téléchargement anonyme n'est servi QUE si la page détail est
+        # demandée avec version=QR ET un Referer = la page liste de résultats
+        # (anti-hotlink). Session fraîche par cle = quirk « 1re visite » contourné.
+        rd = s.get(_BASE + f"?module=consultation|details&cle_dce={cle}&version=QR",
+                   timeout=timeout, headers={"Referer": rp.url})
         mt = _RE_TOKEN.search(rd.text)
         if not mt:
             return None
