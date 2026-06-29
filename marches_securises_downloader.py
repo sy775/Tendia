@@ -37,15 +37,8 @@ try:
 except Exception:
     pass
 
-# Charge .env / .env.txt à l'import : le connecteur DOIT voir TENDIA_PROXY_URL
-# (sinon il tape sur l'IP réelle, vite sur-quota → « token introuvable »). Couvre
-# le worker --un-marche lancé en sous-process, qui ne charge pas l'env autrement.
-try:
-    from dotenv import load_dotenv
-    load_dotenv(".env")
-    load_dotenv(".env.txt")
-except Exception:
-    pass
+# NB : le chargement de .env (TENDIA_PROXY_URL + flags TENDIA_PROXY_FOR_*) est fait
+# à l'import de http_humain (point central) → le proxy est vu même en sous-process.
 
 
 def _session():

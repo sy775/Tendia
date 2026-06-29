@@ -20,6 +20,17 @@ import uuid
 from datetime import datetime, time as dtime
 from typing import Optional
 
+# Charge .env / .env.txt à l'import : http_humain est le point central qui lit
+# TENDIA_PROXY_URL ET les flags TENDIA_PROXY_FOR_<PLATEFORME>. Sans ça, un process
+# qui ne charge pas l'env (worker, sous-process pipeline) ne voyait pas le proxy
+# (→ IP réelle) ni les désactivations par plateforme (→ proxy actif à tort).
+try:
+    from dotenv import load_dotenv
+    load_dotenv(".env")
+    load_dotenv(".env.txt")
+except Exception:
+    pass
+
 # Backend HTTP unifié (curl_cffi si dispo, sinon requests). Voir http_client.
 import http_client as http_lib
 
@@ -84,28 +95,39 @@ def _injecter_session_id(proxy_url: str, session_id: str) -> str:
     return urlunparse(parsed._replace(netloc=new_netloc))
 
 
+# Plateformes à ACCÈS ANONYME (pas de quota par IP, pas de ban connu) : le proxy
+# résidentiel (payant au Go) y est INUTILE et même nuisible (latence, troncatures,
+# coût). Proxy OFF par défaut pour elles — encodé en CODE (et pas seulement via
+# .env) pour rester correct en checkout frais / cron sans .env.
+# À l'inverse, proxy NÉCESSAIRE : aws_achat (ban historique), dematis (captcha/ban),
+# marches_securises (rotation d'IP = seul contournement du quota par IP).
+PLATEFORMES_SANS_PROXY = {"place", "boamp", "data_gouv", "atexo", "achatpublic"}
+
+
 def _proxy_pour_plateforme(plateforme: Optional[str]) -> bool:
     """
     Décide si le proxy résidentiel doit être utilisé pour une plateforme.
 
-    Politique : proxy ACTIVÉ par défaut (sécurité anti-ban). Désactivation
-    EXPLICITE uniquement via `TENDIA_PROXY_FOR_<PLATEFORME>=0` dans
-    l'environnement (.env). Plateformes confirmées sans ban à désactiver :
-    `place` (marches-publics.gouv.fr), `boamp`, `data_gouv` (DECP).
+    Politique : proxy ON par défaut (anti-ban), SAUF pour les plateformes à accès
+    anonyme listées dans PLATEFORMES_SANS_PROXY (proxy inutile). Surcharge possible
+    dans les deux sens via `TENDIA_PROXY_FOR_<PLATEFORME>=0/1` dans l'environnement.
 
     Args:
         plateforme: identifiant court (ex: "place", "dematis", "aws_achat").
             None → proxy activé (comportement historique).
 
     Returns:
-        True si le proxy doit être appliqué, False si désactivé pour cette plateforme.
+        True si le proxy doit être appliqué, False sinon.
     """
     if not plateforme:
         return True
     flag = os.environ.get(f"TENDIA_PROXY_FOR_{plateforme.upper()}")
-    if flag is not None and flag.strip() in ("0", "false", "False", "no", "off"):
-        return False
-    return True
+    if flag is not None:
+        if flag.strip() in ("0", "false", "False", "no", "off"):
+            return False
+        if flag.strip() in ("1", "true", "True", "yes", "on"):
+            return True
+    return plateforme.lower() not in PLATEFORMES_SANS_PROXY
 
 
 def creer_session_humaine(ua_fixe: Optional[str] = None,
