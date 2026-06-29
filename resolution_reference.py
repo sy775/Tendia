@@ -43,7 +43,10 @@ HOSTS_PLATEFORMES = HOSTS_ATEXO_SEARCH + (
 # Le raw avis est une chaîne JSON échappée → on tolère le `\"`.
 _RE_PROFIL = re.compile(r'urlProfilAch\\?"\s*:\s*\\?"([^"\\]+)')
 _RE_URI = re.compile(r'cbc:URI[^h]{0,40}(https?://[^"\\ ]+)', re.I)
-_RE_REF = re.compile(r'identifiantInterne\\?"\s*:\s*\\?"([^"\\]+)')
+# Référence acheteur : `identifiantInterne` (eForms) OU `renseignements.idMarche`
+# (BOAMP « Numéro de référence attribué par le pouvoir adjudicateur », section 11).
+# C'est CETTE référence que PLACE indexe → recherche keyWord exacte.
+_RE_REF = re.compile(r'(?:identifiantInterne|idMarche)\\?"\s*:\s*\\?"([^"\\]+)')
 _RE_URL = re.compile(r'https?://[A-Za-z0-9._~:/?#@!$&()*+,;=%-]+')
 _RE_CONSULT = re.compile(
     r'(consultation|detailconsultation|idm?=|fuseaction=dematent|refconsultation)', re.I)
@@ -107,14 +110,19 @@ def normaliser_base(base: str) -> str:
 
 
 def resoudre_url_via_reference(marche: dict) -> Optional[str]:
-    """Cherche l'url_dce d'un avis sans lien direct via plateforme + référence.
-    Phase 1 : moteurs Atexo uniquement (recherche GET prouvée)."""
+    """Cherche l'url_dce via plateforme + référence acheteur (identifiantInterne /
+    idMarche). Méthode prouvée : recherche keyWord=<référence> sur Atexo/PLACE →
+    on ne résout QUE si EXACTEMENT 1 résultat (la référence acheteur est unique sur
+    la plateforme → désambiguïsation exacte, zéro risque). Fallback : ancien moteur."""
     base, ref = extraire_plateforme_reference(marche)
     if not (base and ref and est_moteur_atexo(base)):
         return None
+    # SÉCURITÉ : on ne résout QUE si la référence renvoie EXACTEMENT 1 résultat.
+    # Sinon (réf générique « 10/26 » → plusieurs), on n'attache rien (zéro risque
+    # de mauvais DCE). Pas de fallback « 1er résultat » : trop risqué.
     try:
-        return dce_finder._chercher_url_dce_via_atexo(ref, normaliser_base(base),
-                                                      verbose=False)
+        res = _chercher_consultations(normaliser_base(base), ref)
+        return res[0] if len(res) == 1 else None
     except Exception:
         return None
 
