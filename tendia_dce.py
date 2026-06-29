@@ -73,6 +73,10 @@ PATTERNS_PIECES_CONTRACTUELLES = {
     "AAPC": [r"\baapc\b"],
     "CCP":  [r"\bccp[a-z]*\b", r"\bccatp[a-z]*\b",
              r"cahier.{0,5}des.{0,5}clauses.{0,5}particulieres"],
+    # DCE consolidé en UN document (certains acheteurs publient tout le dossier de
+    # consultation dans un seul PDF nommé « DCE… » / « Dossier de consultation »).
+    # Sans ce type, ce fichier ne matchait aucune pièce → faux « vide ».
+    "DCE":  [r"\bdce\b", r"dossier.{0,5}(de.{0,5})?consultation"],
 }
 
 # Pièces administratives non-DCE : ne comptent PAS comme contractuelles.
