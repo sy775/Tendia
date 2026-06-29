@@ -119,13 +119,23 @@ def resoudre_url_via_reference(marche: dict) -> Optional[str]:
         return None
 
 
+try:
+    import truststore as _truststore
+    _truststore.inject_into_ssl()
+except Exception:
+    pass
+
 _UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
        "(KHTML, like Gecko) Chrome/120.0 Safari/537.36")
+# Ancien format Atexo (Prado) et NOUVEAU format (PLACE v2 / marques blanches
+# récentes : /entreprise/consultation/<id>?orgAcronyme=<org>).
 _RE_DETAIL = re.compile(r"EntrepriseDetailsConsultation[^\"']*id=(\d+)[^\"']*orgAcronyme=(\w+)")
+_RE_DETAIL_NEW = re.compile(r"/entreprise/consultation/(\d+)\?orgAcronyme=(\w+)")
 
 
 def _chercher_consultations(base: str, keyword: str) -> list:
-    """Liste des URLs de consultation pour une recherche keyword (Atexo)."""
+    """Liste des URLs de consultation uniques pour une recherche keyword (Atexo /
+    PLACE). Gère l'ancien format Prado ET le nouveau /entreprise/consultation/."""
     base = base.rstrip("/")
     if not base.startswith("http"):
         base = "https://" + base
@@ -138,11 +148,14 @@ def _chercher_consultations(base: str, keyword: str) -> list:
         return []
     vus, out = set(), []
     for mid_, org in _RE_DETAIL.findall(h):
-        u = (f"{base}/?page=Entreprise.EntrepriseDetailsConsultation"
-             f"&id={mid_}&orgAcronyme={org}")
-        if u not in vus:
-            vus.add(u)
-            out.append(u)
+        if mid_ not in vus:
+            vus.add(mid_)
+            out.append(f"{base}/?page=Entreprise.EntrepriseDetailsConsultation"
+                       f"&id={mid_}&orgAcronyme={org}")
+    for mid_, org in _RE_DETAIL_NEW.findall(h):
+        if mid_ not in vus:
+            vus.add(mid_)
+            out.append(f"{base}/entreprise/consultation/{mid_}?orgAcronyme={org}")
     return out
 
 
@@ -155,12 +168,13 @@ def _mots_cles_objet(objet: str, n: int = 3) -> str:
 
 
 def resoudre_url_via_objet(marche: dict) -> Optional[str]:
-    """Fallback (UUID-only, pas de référence) : recherche par mots-clés d'OBJET
-    sur la plateforme Atexo. CONSERVATEUR : ne résout que si la recherche renvoie
-    UN SEUL résultat (haute confiance), pour éviter d'attacher un mauvais DCE."""
+    """Fallback recherche par mots-clés d'OBJET sur Atexo/PLACE. CONSERVATEUR :
+    ne résout que si la recherche renvoie UN SEUL résultat (haute confiance), pour
+    éviter d'attacher un mauvais DCE. Tenté même si une référence existe : sur
+    PLACE la recherche par référence échoue (réf BOAMP non indexée)."""
     base, ref = extraire_plateforme_reference(marche)
-    if ref or not (base and est_moteur_atexo(base)):
-        return None  # géré par la voie référence
+    if not (base and est_moteur_atexo(base)):
+        return None
     kw = _mots_cles_objet(marche.get("objet") or "")
     if len(kw) < 6:
         return None
