@@ -38,8 +38,10 @@ except Exception:
 
 
 def _session():
-    """Session proxifiée (IP résidentielle fraîche) — marches-securises throttle
-    vite les requêtes d'une même IP ; une IP par session contourne le blocage."""
+    """Session proxifiée (IP résidentielle, headers humains). NB : marches-securises
+    limite le service du token anonyme par VOLUME/fenêtre au niveau ASN — la
+    rotation d'IP NE contourne PAS le throttle (cf docstring du batch). Le proxy
+    sert surtout à ne pas exposer l'IP du serveur et à varier le fingerprint."""
     return http_humain.creer_session_humaine(session_id=uuid.uuid4().hex[:8],
                                               plateforme="marches_securises")
 
@@ -50,6 +52,8 @@ _UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
 
 _RE_CLE = re.compile(r"cle_dce=([A-Za-z0-9]+)")
 _RE_TOKEN = re.compile(r"dl_dc_s[^A-Za-z0-9]+token=([A-Za-z0-9]+)")
+_RE_TAG = re.compile(r"<[^>]+>")
+_RE_WS = re.compile(r"\s+")
 
 _GENERIQUES = {"communaute", "communes", "commune", "ville", "conseil", "syndicat",
                "departement", "departemental", "mairie", "pays", "region",
@@ -90,32 +94,44 @@ def telecharger_dce(reference: str, dossier_destination: str,
     if not reference:
         out["erreur"] = "référence absente"
         return out
-    cles = _chercher_cles(reference, timeout)
+    lignes = _lignes_consultations(reference, timeout)
     if verbose:
-        print(f"    [marches-securises] réf '{reference}' → {len(cles)} consultation(s)")
-    if not cles:
+        print(f"    [marches-securises] réf '{reference}' → {len(lignes)} consultation(s)")
+    if not lignes:
         out["erreur"] = "aucune consultation trouvée pour la référence"
         return out
 
+    # Désambiguïsation SUR LA LISTE (avant toute page détail) : chaque ligne de
+    # résultat contient la Référence + la zone géo de l'acheteur. On classe les
+    # cle_dce par correspondance acheteur et on ne tente QUE le(s) meilleur(s).
+    # → Réfs génériques (« 03/2026 » = 10 résultats) : 1 requête au lieu de 10,
+    #   ce qui évite le burst qui faisait throttler le batch entier.
+    cles = _ordonner_par_acheteur(lignes, acheteur, verbose)
+    if not cles:
+        out["erreur"] = (f"référence générique non résoluble "
+                         f"({len(lignes)} résultats, acheteur non apparié)")
+        return out
+
     # Quirk : le lien de téléchargement anonyme (avec token) n'apparaît qu'à la
-    # PREMIÈRE visite d'une page détail dans une session. Pour gérer plusieurs
-    # résultats (réf partagée par plusieurs acheteurs), on traite chaque cle_dce
+    # PREMIÈRE visite d'une page détail dans une session. On traite chaque cle_dce
     # dans une SESSION FRAÎCHE → chaque détail est une « première visite ».
-    # Désambiguïsation OBLIGATOIRE par acheteur (le nom de fichier le contient),
+    # 2e filet : désambiguïsation par nom de fichier (qui contient l'acheteur),
     # vérifiée AVANT d'écrire le corps : on n'attache jamais le mauvais DCE.
     vu_attachment = [False]
     for cle in cles:
-        # Retry par cle : le proxy résidentiel coupe parfois les gros fichiers
-        # (IncompleteRead) → on retente avec une IP fraîche (jusqu'à 3 fois).
+        # Retry par cle UNIQUEMENT sur échec réseau/download (proxy résidentiel qui
+        # coupe un gros fichier → IncompleteRead). « token absent » est STRUCTUREL
+        # (consultation restreinte / pas le bon acheteur) : inutile de retenter avec
+        # une IP fraîche, on passe au cle suivant → évite un burst de requêtes.
         for essai in range(1, 4):
             res = _tenter_cle(reference, cle, dossier_destination, acheteur,
                               timeout, verbose, vu_attachment)
-            if res is True:        # acheteur ne correspond pas → cle suivante
+            if res is True or res == "no_token":   # acheteur ≠ / pas de token → cle suivante
                 break
             if isinstance(res, dict) and res.get("ok"):
                 res["cle_dce"] = cle
                 return res
-            # None / échec download → retry IP fraîche
+            # None = échec réseau/download → retry IP fraîche
             if verbose and essai < 3:
                 print(f"    [marches-securises] retry download (IP fraîche) {essai+1}/3")
     out["erreur"] = ("acheteur non apparié parmi les résultats"
@@ -126,7 +142,8 @@ def telecharger_dce(reference: str, dossier_destination: str,
 def _tenter_cle(reference, cle, dossier_destination, acheteur, timeout, verbose,
                 vu_attachment):
     """Tente une consultation. Retourne dict(ok) si DCE écrit, True si l'acheteur
-    ne correspond pas (cle à abandonner), None si échec réseau (à retenter)."""
+    ne correspond pas (cle à abandonner), 'no_token' si pas de lien anonyme
+    (structurel, cle à abandonner), None si échec réseau (à retenter)."""
     s = _session()
     try:
         s.get(_BASE + "?module=recherche_consultations", timeout=timeout)
@@ -140,15 +157,19 @@ def _tenter_cle(reference, cle, dossier_destination, acheteur, timeout, verbose,
                    timeout=timeout, headers={"Referer": rp.url})
         mt = _RE_TOKEN.search(rd.text)
         if not mt:
-            return None
+            return "no_token"
         rz = s.get(_BASE + f"?module=script|dl_dc_s&token={mt.group(1)}",
                    timeout=timeout, stream=True, headers={"Referer": rd.url})
     except requests.RequestException:
         return None
     cd = rz.headers.get("content-disposition") or ""
     if "attachment" not in cd.lower():
+        # Token présent mais le serveur ne renvoie pas de fichier : DCE anonyme
+        # indisponible (consultation restreinte / token périmé) = STRUCTUREL.
+        # Pas de retry IP (sinon burst de requêtes qui throttle la recherche
+        # du marché suivant) → on abandonne ce cle.
         rz.close()
-        return None
+        return "no_token"
     vu_attachment[0] = True
     nom = (re.search(r'filename="?([^"\r\n;]+)', cd) or [None, ""])[1]
     if not _acheteur_correspond(acheteur, nom):
@@ -173,16 +194,63 @@ def _form_recherche(reference: str) -> dict:
             "date_cloture_type": "0", "date_cloture": ""}
 
 
-def _chercher_cles(reference: str, timeout: int = 60) -> list:
+def _lignes_consultations(reference: str, timeout: int = 60) -> list:
+    """Retourne [(cle_dce, contexte_texte)] — le contexte est le texte de la ligne
+    de résultat (Référence + zone géo + objet), servant à désambiguïser par
+    acheteur SANS visiter la page détail (donc sans requête supplémentaire)."""
     s = _session()
     try:
         s.get(_BASE + "?module=recherche_consultations", timeout=timeout)
         r = s.post(_BASE + "?module=consultation|script|selection_consultation_s",
                    data=_form_recherche(reference), timeout=timeout,
                    allow_redirects=True)
-        return list(dict.fromkeys(_RE_CLE.findall(r.text)))
+        h = r.text
     except requests.RequestException:
         return []
+    out, vus = [], set()
+    for m in _RE_CLE.finditer(h):
+        cle = m.group(1)
+        if cle in vus:
+            continue
+        vus.add(cle)
+        # Fenêtre AVANT le lien = la ligne de résultat (Référence, objet, zone géo).
+        seg = _RE_WS.sub(" ", _RE_TAG.sub(" ", h[max(0, m.start() - 1400):m.start()]))
+        out.append((cle, seg))
+    return out
+
+
+def _ordonner_par_acheteur(lignes: list, acheteur: str, verbose: bool) -> list:
+    """Classe les cle_dce par correspondance acheteur (tokens distinctifs présents
+    dans le contexte de la ligne). Si au moins une ligne matche, on ne renvoie QUE
+    les lignes qui matchent (best-first) → on évite de visiter les 10 résultats.
+    Sans acheteur ou sans match : ordre d'origine (filet aval = nom de fichier)."""
+    cles = [c for c, _ in lignes]
+    toks = _tokens_distinctifs(acheteur or "")
+    if not toks:
+        return cles
+    scores = []
+    for cle, ctx in lignes:
+        n = sum(1 for t in toks if t in _normaliser(ctx))
+        scores.append((n, cle))
+    matches = [c for n, c in sorted(scores, key=lambda x: -x[0]) if n > 0]
+    if matches:
+        if verbose:
+            print(f"    [marches-securises] acheteur apparié sur la liste "
+                  f"→ {len(matches)} cle(s) retenue(s) / {len(cles)}")
+        return matches
+    # Aucun appariement acheteur sur la liste.
+    #  • 1 seul résultat → on tente (l'acheteur peut juste être absent du libellé) ;
+    #    filet aval = nom de fichier. Coût : 1 vue.
+    #  • plusieurs résultats → réf trop générique : la vraie consultation n'est
+    #    pas identifiable et n'est probablement même pas dans la liste. On SKIPPE
+    #    (renvoie []) au lieu de griller des vues détail anonymes : ce quota (limité
+    #    par fenêtre/ASN, cf RATE_LIMIT_SEC) est réservé aux marchés résolubles.
+    if len(cles) == 1:
+        return cles
+    if verbose:
+        print(f"    [marches-securises] aucun acheteur apparié / {len(cles)} "
+              f"résultats (réf générique) → non résoluble, skip (quota préservé)")
+    return []
 
 
 def _ecrire_zip(resp, dossier_destination: str, out: dict, verbose: bool) -> dict:
