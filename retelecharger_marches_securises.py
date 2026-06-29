@@ -19,12 +19,15 @@ référence dans la donnée BOAMP, fallback recherche par OBJET — toujours sé
 par la désambiguïsation acheteur obligatoire. Pacing court (politesse) ; multi-
 passes pour les seuls échecs transitoires (réseau / quota épuisé sur N IP).
 
-Intégré au pipeline (tendia_pipeline, étape connecteurs DCE). In-process.
+Intégré au pipeline (tendia_pipeline, étape connecteurs DCE). 1 sous-process
+tuable par marché (timeout) : un download bloqué sur une IP proxy lente n'est pas
+interruptible in-process → le sous-process, lui, est tué proprement.
 
 Usage : python retelecharger_marches_securises.py [--oui] [--max N]
         python retelecharger_marches_securises.py --un-marche BOAMP-26-XXXXX
 """
 import argparse
+import subprocess
 import sys
 import time
 from collections import Counter
@@ -42,6 +45,10 @@ RATE_LIMIT_SEC = 6      # pacing inter-marchés (politesse) ; pas de throttle te
 #                         le quota par IP est battu par la rotation dans le connecteur.
 MAX_PASSES = 2          # 2e passe pour les échecs réseau / « quota épuisé » transitoires.
 PAUSE_PASSE = 30        # courte pause entre passes.
+WORKER_TIMEOUT = 360    # tue un marché qui dépasse (download bloqué sur IP lente :
+#                         une lecture réseau bloquée n'est pas interruptible
+#                         in-process → chaque marché tourne dans un sous-process
+#                         tuable). Le marché tué est retryable (autre IP / autre jour).
 
 # Codes de statut d'un marché (aussi code de sortie en mode --un-marche).
 EXIT_COMPLET = 0        # DCE téléchargé et qualifié complet → persisté
@@ -113,6 +120,18 @@ def traiter_un_marche(mid: str) -> int:
     return _traiter(mid, m)
 
 
+def _lancer_worker(mid: str) -> int:
+    """Lance le worker --un-marche en SOUS-PROCESS avec timeout. Un download bloqué
+    sur une IP proxy lente n'est pas interruptible in-process → le sous-process,
+    lui, est tuable. Timeout → EXIT_RETRYABLE (autre IP au prochain passage)."""
+    cmd = [sys.executable, __file__, "--un-marche", mid]
+    try:
+        return subprocess.run(cmd, timeout=WORKER_TIMEOUT).returncode
+    except subprocess.TimeoutExpired:
+        print(f"  {mid} : ⏱ tué après {WORKER_TIMEOUT}s (download bloqué) → retry")
+        return EXIT_RETRYABLE
+
+
 def orchestrer(max_n: int):
     cibles = _cibles(max_n)
     print("=== RE-TÉLÉCHARGEMENT MARCHES-SECURISES (référence + objet) ===")
@@ -122,19 +141,19 @@ def orchestrer(max_n: int):
         return
 
     # Le quota par IP est battu par la rotation DANS le connecteur (retry IP fraîche).
-    # Au niveau batch : multi-passes pour les échecs transitoires (réseau / quota
-    # épuisé sur N IP). Les échecs définitifs ne sont pas retentés (cf _traiter).
+    # 1 sous-process tuable par marché (timeout anti-download-bloqué). Multi-passes
+    # pour les échecs transitoires ; les échecs définitifs ne sont pas retentés.
     bilan = Counter()
     ok = 0
-    restants = list(cibles)
+    restants = [mid for mid, _ in cibles]
     for passe in range(1, MAX_PASSES + 1):
         if not restants:
             break
         print(f"\n──── PASSE {passe}/{MAX_PASSES} · {len(restants)} marché(s) ────")
         echecs = []
-        for i, (mid, m) in enumerate(restants, 1):
+        for i, mid in enumerate(restants, 1):
             print(f"  [P{passe} {i}/{len(restants)}] {mid} …")
-            code = _traiter(mid, m)
+            code = _lancer_worker(mid)
             if code == EXIT_COMPLET:
                 ok += 1
                 bilan["complet"] += 1
@@ -143,7 +162,7 @@ def orchestrer(max_n: int):
             elif code == EXIT_NON_RESOLUBLE:
                 bilan["non résoluble"] += 1
             else:
-                echecs.append((mid, m))
+                echecs.append(mid)
             if i < len(restants):
                 time.sleep(8 if code == EXIT_NON_RESOLUBLE else RATE_LIMIT_SEC)
         restants = echecs
