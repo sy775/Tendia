@@ -30,19 +30,65 @@ HOSTS_ATEXO_SEARCH = (
     "ternum-bfc", "marches.rennes",
 )
 
+# Hôtes de plateformes DCE connus (au-delà des moteurs Atexo) : sert à récupérer
+# la plateforme citée DANS LE CORPS de l'avis quand urlProfilAch est absent. La
+# plateforme est presque toujours mentionnée (URL en clair, section communication).
+HOSTS_PLATEFORMES = HOSTS_ATEXO_SEARCH + (
+    "marches-publics.info", "aws-achat", "e-marchespublics", "achatpublic",
+    "marches-securises", "klekoon", "safetender", "demat", "marchesonline",
+    "synapse-entreprises", "agysoft", "recia", "mpe7", "local-trust",
+    "centraledesmarches", "marchespublics.",
+)
+
 # Le raw avis est une chaîne JSON échappée → on tolère le `\"`.
 _RE_PROFIL = re.compile(r'urlProfilAch\\?"\s*:\s*\\?"([^"\\]+)')
 _RE_URI = re.compile(r'cbc:URI[^h]{0,40}(https?://[^"\\ ]+)', re.I)
 _RE_REF = re.compile(r'identifiantInterne\\?"\s*:\s*\\?"([^"\\]+)')
+_RE_URL = re.compile(r'https?://[A-Za-z0-9._~:/?#@!$&()*+,;=%-]+')
+_RE_CONSULT = re.compile(
+    r'(consultation|detailconsultation|idm?=|fuseaction=dematent|refconsultation)', re.I)
+_EXCLURE_URL = ("boamp", "journal-officiel", "data.gouv", "europa.eu")
+
+
+def _urls_plateforme(t: str):
+    """URLs de plateformes DCE connues présentes dans le raw (hors BOAMP/JO)."""
+    out = []
+    for u in _RE_URL.findall((t or "").replace("\\/", "/")):
+        u = u.rstrip('",\\')
+        ul = u.lower()
+        if any(x in ul for x in _EXCLURE_URL):
+            continue
+        if any(h in ul for h in HOSTS_PLATEFORMES):
+            out.append(u)
+    return out
+
+
+def extraire_url_consultation(marche: dict):
+    """URL de consultation DIRECTE (plateforme connue + motif consultation) citée
+    dans le raw de l'avis, utilisable telle quelle comme url_dce, ou None."""
+    brut = marche.get("donnees_boamp_brut")
+    t = brut if isinstance(brut, str) else json.dumps(brut, ensure_ascii=False)
+    for u in _urls_plateforme(t):
+        if _RE_CONSULT.search(u):
+            return u
+    return None
 
 
 def extraire_plateforme_reference(marche: dict):
-    """Retourne (base_plateforme, reference) depuis le raw avis, ou (None, None)."""
+    """Retourne (base_plateforme, reference) depuis le raw avis, ou (None, None).
+    Si `urlProfilAch`/`cbc:URI` sont absents, on retombe sur l'ORIGINE (scheme+host)
+    de la 1re URL de plateforme connue citée dans le corps de l'avis."""
+    from urllib.parse import urlsplit
     brut = marche.get("donnees_boamp_brut")
     t = brut if isinstance(brut, str) else json.dumps(brut, ensure_ascii=False)
     mp = _RE_PROFIL.search(t) or _RE_URI.search(t)
-    mr = _RE_REF.search(t)
     base = mp.group(1).rstrip("/") if mp else None
+    if not base:
+        urls = _urls_plateforme(t)
+        if urls:
+            sp = urlsplit(urls[0])
+            base = f"{sp.scheme}://{sp.netloc}" if sp.netloc else None
+    mr = _RE_REF.search(t)
     ref = (mr.group(1).strip() if mr else None) or None
     return base, ref
 
