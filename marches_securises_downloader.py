@@ -24,6 +24,7 @@ Interface :
 import os
 import re
 import sys
+import time
 import uuid
 import zipfile
 
@@ -70,6 +71,7 @@ _RE_WS = re.compile(r"\s+")
 _RE_QUOTA = re.compile(r"nombre maximum de t[ée]l[ée]chargement", re.I)
 
 MAX_ESSAIS_IP = 12   # nb d'IP fraîches à essayer pour trouver une IP sous quota
+DUREE_MAX_DL_SEC = 240   # abandon d'un download qui traîne (IP proxy lente) → retry
 
 _GENERIQUES = {"communaute", "communes", "commune", "ville", "conseil", "syndicat",
                "departement", "departemental", "mairie", "pays", "region",
@@ -200,9 +202,11 @@ def _tenter_cle(reference, cle, dossier_destination, acheteur, timeout, verbose,
         # du marché suivant) → on abandonne ce cle.
         rz.close()
         return "no_token"
-    vu_attachment[0] = True
     nom = (re.search(r'filename="?([^"\r\n;]+)', cd) or [None, ""])[1]
     if not _acheteur_correspond(acheteur, nom):
+        # On a bien un attachment mais l'acheteur ne correspond pas (réf/objet a
+        # ramené une autre consultation) → marqueur pour le message final.
+        vu_attachment[0] = True
         if verbose:
             print(f"    [marches-securises] ⊘ {nom[:40]} ≠ acheteur '{(acheteur or '')[:28]}'")
         rz.close()
@@ -210,11 +214,14 @@ def _tenter_cle(reference, cle, dossier_destination, acheteur, timeout, verbose,
     out = {"ok": False, "fichiers_telecharges": [], "taille_octets_total": 0,
            "erreur": None}
     try:
-        return _ecrire_zip(rz, dossier_destination, out, verbose)
+        res = _ecrire_zip(rz, dossier_destination, out, verbose)
     except Exception as e:        # IncompleteRead / ChunkedEncodingError…
         if verbose:
             print(f"    [marches-securises] download interrompu : {type(e).__name__}")
         return None
+    # Download abouti → succès ; échec download (trop long / trop petit) = réseau
+    # → None pour retenter avec une IP fraîche (potentiellement plus rapide).
+    return res if res.get("ok") else None
 
 
 def _form_recherche(reference: str) -> dict:
@@ -305,10 +312,22 @@ def _ecrire_zip(resp, dossier_destination: str, out: dict, verbose: bool) -> dic
     nom = (m.group(1).strip() if m else "dce_marches_securises.zip")
     chemin = os.path.join(dossier_destination, nom)
     taille = 0
+    # Garde-fou de DURÉE : une IP proxy lente peut faire traîner un gros DCE
+    # indéfiniment (le read-timeout par chunk ne déclenche pas si ça trickle) et
+    # bloquer tout le batch in-process. On abandonne au-delà de DUREE_MAX_DL_SEC →
+    # l'échec est réseau/retryable, le marché repassera (autre IP) ou un autre jour.
+    debut = time.monotonic()
     with open(chemin, "wb") as f:
         for chunk in resp.iter_content(8192):
             f.write(chunk)
             taille += len(chunk)
+            if time.monotonic() - debut > DUREE_MAX_DL_SEC:
+                resp.close()
+                out["erreur"] = (f"download trop long (>{DUREE_MAX_DL_SEC}s, "
+                                 f"{taille/1e6:.0f}Mo reçus) — IP lente")
+                if verbose:
+                    print(f"    [marches-securises] ⏱ {out['erreur']}")
+                return out
     out["taille_octets_total"] = taille
     if taille < 512:
         out["erreur"] = f"fichier trop petit ({taille}o)"
