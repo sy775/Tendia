@@ -138,21 +138,26 @@ def main():
         _print_etape(3, "Téléchargement DCE — PLACE / Atexo / achatpublic / e-marchespublics")
         _executer_script("tendia_telecharger_dce.py")
 
-    # === Étape 4 : Connecteurs DCE dédiés à captcha (AWS-Achat, Dematis) ===
-    # Intégration structurelle : ces plateformes exigent 2captcha + un pacing
-    # anti-ban (délais gaussiens, heures de bureau). Les batchs dédiés s'auto-
-    # limitent aux heures ouvrées (sauf --ignorer-heures) et au cap --max-dedies.
+    # === Étape 4 : Connecteurs DCE dédiés ===
+    # Deux familles :
+    #  • CAPTCHA (AWS-Achat, Dematis, xmarches) : exigent 2captcha + pacing anti-ban
+    #    (heures de bureau, cap --max-dedies).
+    #  • ANONYME (marches-securises) : pas de captcha ; recherche réf/objet +
+    #    désambiguïsation acheteur ; quota par IP battu par rotation proxy. Pas de
+    #    contrainte horaire, cap plus large (cibles ~30).
     if args.skip_dedies:
-        print("\n  [4/6]  Connecteurs DCE dédiés (captcha)  →  SKIPPÉ (--skip-dedies)")
+        print("\n  [4/6]  Connecteurs DCE dédiés  →  SKIPPÉ (--skip-dedies)")
     else:
-        _print_etape(4, "Connecteurs DCE dédiés à captcha (AWS-Achat, Dematis)")
+        _print_etape(4, "Connecteurs DCE dédiés (captcha : AWS/Dematis/xmarches ; anonyme : marches-securises)")
         extra = ["--oui", "--max", str(args.max_dedies)]
         if args.ignorer_heures:
             extra.append("--ignorer-heures")
         _executer_script("retelecharger_aws_achat_anti_ban.py", extra)
         _executer_script("retelecharger_dematis_anti_ban.py", extra)
         _executer_script("retelecharger_xmarches.py", ["--oui", "--max", str(args.max_dedies)])
-        _executer_script("retelecharger_marches_securises.py", ["--oui", "--max", str(args.max_dedies)])
+        # marches-securises : anonyme, cap dédié plus large (pas de coût captcha).
+        _executer_script("retelecharger_marches_securises.py",
+                         ["--oui", "--max", str(max(args.max_dedies, 40))])
 
     # === Étape 5 : Extraction LLM ===
     if args.skip_llm:

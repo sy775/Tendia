@@ -14,15 +14,17 @@ des IP fraîches jusqu'à en trouver une sous quota (MAX_ESSAIS_IP). PRÉREQUIS
 ABSOLU : `TENDIA_PROXY_URL` chargé (sinon on tape sur l'IP réelle, vite sur-quota
 → échec « token introuvable » trompeur ; c'était le vrai bug du batch).
 
-ARCHITECTURE « UN SOUS-PROCESS PAR MARCHÉ » (mode --un-marche) : isole les pannes
-et garantit un état de connexion propre par marché. Pacing court (politesse) — il
-n'y a PAS de throttle temporel, juste le quota par IP battu par la rotation.
+COUVERTURE : recherche par RÉFÉRENCE (haute confiance) ET, pour les avis sans
+référence dans la donnée BOAMP, fallback recherche par OBJET — toujours sécurisé
+par la désambiguïsation acheteur obligatoire. Pacing court (politesse) ; multi-
+passes pour les seuls échecs transitoires (réseau / quota épuisé sur N IP).
+
+Intégré au pipeline (tendia_pipeline, étape connecteurs DCE). In-process.
 
 Usage : python retelecharger_marches_securises.py [--oui] [--max N]
-        python retelecharger_marches_securises.py --un-marche BOAMP-26-XXXXX  (worker)
+        python retelecharger_marches_securises.py --un-marche BOAMP-26-XXXXX
 """
 import argparse
-import subprocess
 import sys
 import time
 from collections import Counter
@@ -41,11 +43,11 @@ RATE_LIMIT_SEC = 6      # pacing inter-marchés (politesse) ; pas de throttle te
 MAX_PASSES = 2          # 2e passe pour les échecs réseau / « quota épuisé » transitoires.
 PAUSE_PASSE = 30        # courte pause entre passes.
 
-# Codes de sortie du worker --un-marche (interprétés par l'orchestrateur).
+# Codes de statut d'un marché (aussi code de sortie en mode --un-marche).
 EXIT_COMPLET = 0        # DCE téléchargé et qualifié complet → persisté
 EXIT_PARTIEL = 2        # DCE téléchargé mais incomplet/candidature → persisté
-EXIT_NON_RESOLUBLE = 3  # réf générique / pas de DCE anonyme → définitif, pas de retry
-EXIT_RETRYABLE = 1      # échec réseau/throttle → à retenter
+EXIT_NON_RESOLUBLE = 3  # réf générique / restreinte / acheteur ≠ → définitif, pas de retry
+EXIT_RETRYABLE = 1      # échec réseau / quota IP épuisé → à retenter
 
 
 def _cibles(max_n: int):
@@ -72,15 +74,9 @@ def _cibles(max_n: int):
     return out[:max(0, max_n)]
 
 
-def traiter_un_marche(mid: str) -> int:
-    """WORKER : télécharge le DCE d'UN marché, qualifie, persiste. Process dédié
-    (appelé en sous-process) pour garantir un état de connexion frais → token
-    anonyme servi de façon fiable. Retourne un code de sortie EXIT_*."""
-    marches = stockage.charger("marches") or {}
-    m = marches.get(mid)
-    if not isinstance(m, dict):
-        print(f"  {mid} : introuvable en base")
-        return EXIT_NON_RESOLUBLE
+def _traiter(mid: str, m: dict) -> int:
+    """Télécharge le DCE d'UN marché (réf puis fallback objet), qualifie, persiste.
+    In-process. Retourne un code EXIT_* (COMPLET / PARTIEL / NON_RESOLUBLE / RETRYABLE)."""
     ancien = m.get("dce_contenu") or "?"
     dossier = str(T.REPERTOIRE_DCE / mid)
     try:
@@ -105,37 +101,40 @@ def traiter_un_marche(mid: str) -> int:
     # Retryable UNIQUEMENT : quota IP épuisé sur N IP, ou échec réseau (transitoire).
     definitifs = ("générique", "aucune consultation", "pas d'accès anonyme",
                   "acheteur non apparié")
-    if any(d in err for d in definitifs):
+    return EXIT_NON_RESOLUBLE if any(d in err for d in definitifs) else EXIT_RETRYABLE
+
+
+def traiter_un_marche(mid: str) -> int:
+    """Entrée CLI --un-marche : charge la base, traite le marché mid. Renvoie EXIT_*."""
+    m = (stockage.charger("marches") or {}).get(mid)
+    if not isinstance(m, dict):
+        print(f"  {mid} : introuvable en base")
         return EXIT_NON_RESOLUBLE
-    return EXIT_RETRYABLE
-
-
-def _lancer_worker(mid: str) -> int:
-    """Lance le worker --un-marche dans un sous-process FRAIS. Renvoie le code."""
-    cmd = [sys.executable, __file__, "--un-marche", mid]
-    r = subprocess.run(cmd)
-    return r.returncode
+    return _traiter(mid, m)
 
 
 def orchestrer(max_n: int):
     cibles = _cibles(max_n)
-    print("=== RE-TÉLÉCHARGEMENT MARCHES-SECURISES (1 sous-process / marché) ===")
-    print(f"Cibles (plateforme + référence) : {len(cibles)}\n")
+    print("=== RE-TÉLÉCHARGEMENT MARCHES-SECURISES (référence + objet) ===")
+    print(f"Cibles marches-securises récupérables : {len(cibles)}\n")
     if not cibles:
         print("Rien à faire.")
         return
 
+    # Le quota par IP est battu par la rotation DANS le connecteur (retry IP fraîche).
+    # Au niveau batch : multi-passes pour les échecs transitoires (réseau / quota
+    # épuisé sur N IP). Les échecs définitifs ne sont pas retentés (cf _traiter).
     bilan = Counter()
     ok = 0
-    restants = [mid for mid, _ in cibles]
+    restants = list(cibles)
     for passe in range(1, MAX_PASSES + 1):
         if not restants:
             break
         print(f"\n──── PASSE {passe}/{MAX_PASSES} · {len(restants)} marché(s) ────")
         echecs = []
-        for i, mid in enumerate(restants, 1):
+        for i, (mid, m) in enumerate(restants, 1):
             print(f"  [P{passe} {i}/{len(restants)}] {mid} …")
-            code = _lancer_worker(mid)
+            code = _traiter(mid, m)
             if code == EXIT_COMPLET:
                 ok += 1
                 bilan["complet"] += 1
@@ -144,9 +143,7 @@ def orchestrer(max_n: int):
             elif code == EXIT_NON_RESOLUBLE:
                 bilan["non résoluble"] += 1
             else:
-                echecs.append(mid)
-            # Non résoluble = 1 recherche, 0 vue détail → pacing court. Sinon une
-            # vue détail a été consommée → pacing long (rester sous le seuil débit).
+                echecs.append((mid, m))
             if i < len(restants):
                 time.sleep(8 if code == EXIT_NON_RESOLUBLE else RATE_LIMIT_SEC)
         restants = echecs
