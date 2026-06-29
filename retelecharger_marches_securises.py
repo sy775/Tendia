@@ -5,24 +5,18 @@ Batch : récupère le DCE sur marches-securises.fr pour les avis SANS DCE comple
 dont l'avis cite cette plateforme + une référence. Recherche anonyme par
 référence (arrêté du 22/03/2019) + désambiguïsation OBLIGATOIRE par acheteur.
 
-⚠️ LIMITE PLATEFORME — DÉBIT ANTI-BULK (constat après reverse-engineering poussé).
-marches-securises ne sert le lien de téléchargement anonyme qu'à CADENCE BASSE :
-le token apparaît tant que le VOLUME de requêtes sur une fenêtre glissante reste
-sous un seuil (~10-15 vues détail / quelques minutes, par ASN/pool résidentiel).
-Au-delà, le token disparaît pour TOUTES les requêtes jusqu'à ce que la fenêtre se
-vide (plusieurs minutes SANS aucune requête). Ce n'est PAS contournable par :
-  - la rotation d'IP (vérifié : 4 IPs distinctes, throttle identique) ;
-  - l'isolation en sous-process (le throttle est réseau/ASN, pas process) ;
-  - un simple pacing serré (60s entre marchés ne suffit pas si le volume monte).
-Un marché ISOLÉ après une période calme réussit toujours (token servi). D'où :
+MÉCANISME DU « throttle » (élucidé) — QUOTA DE TÉLÉCHARGEMENTS PAR IP.
+marches-securises sert le lien de DL anonyme (dl_dc_s&token=) tant que l'IP est
+SOUS un quota ; au-delà, la page affiche « Le nombre maximum de téléchargement a
+été atteint. Votre adresse IP est (…) » et le lien disparaît. C'est PAR IP → la
+ROTATION D'IP (proxy résidentiel) contourne le quota : le connecteur retente avec
+des IP fraîches jusqu'à en trouver une sous quota (MAX_ESSAIS_IP). PRÉREQUIS
+ABSOLU : `TENDIA_PROXY_URL` chargé (sinon on tape sur l'IP réelle, vite sur-quota
+→ échec « token introuvable » trompeur ; c'était le vrai bug du batch).
 
-ARCHITECTURE « UN SOUS-PROCESS PAR MARCHÉ » (mode --un-marche) :
-  - isole les pannes (un marché qui plante/hang ne tue pas le batch) ;
-  - garantit un état de connexion propre par marché ;
-  - n'élimine PAS la limite de débit → pacing LONG + cooldown inter-passe réel.
-Rendement réaliste : quelques DCE par fenêtre. Les runs quotidiens du pipeline
-accumulent les récupérations (un marché non pris aujourd'hui passe demain).
-Levier pour industrialiser : un proxy d'un AUTRE ASN (FAI distinct) par run.
+ARCHITECTURE « UN SOUS-PROCESS PAR MARCHÉ » (mode --un-marche) : isole les pannes
+et garantit un état de connexion propre par marché. Pacing court (politesse) — il
+n'y a PAS de throttle temporel, juste le quota par IP battu par la rotation.
 
 Usage : python retelecharger_marches_securises.py [--oui] [--max N]
         python retelecharger_marches_securises.py --un-marche BOAMP-26-XXXXX  (worker)
@@ -42,10 +36,10 @@ import resolution_reference as RR
 import marches_securises_downloader as MS
 import tendia_telecharger_dce as T
 
-RATE_LIMIT_SEC = 90     # pacing inter-marchés : rester sous le seuil de débit du
-#                         service de token anonyme (cadence quasi-humaine).
-MAX_PASSES = 3          # re-tente les throttlés après un vrai cooldown de fenêtre.
-PAUSE_PASSE = 300       # 5 min SANS requête pour vider la fenêtre glissante.
+RATE_LIMIT_SEC = 6      # pacing inter-marchés (politesse) ; pas de throttle temporel,
+#                         le quota par IP est battu par la rotation dans le connecteur.
+MAX_PASSES = 2          # 2e passe pour les échecs réseau / « quota épuisé » transitoires.
+PAUSE_PASSE = 30        # courte pause entre passes.
 
 # Codes de sortie du worker --un-marche (interprétés par l'orchestrateur).
 EXIT_COMPLET = 0        # DCE téléchargé et qualifié complet → persisté
@@ -96,7 +90,12 @@ def traiter_un_marche(mid: str) -> int:
         return EXIT_COMPLET if q["qualite"] == "complet" else EXIT_PARTIEL
     err = str(res.get("erreur") or "")
     print(f"  {mid} : échec ({err[:55]})")
-    if "générique" in err or "aucune consultation" in err:
+    # Définitifs (inutile de retenter) : réf générique introuvable, consultation
+    # restreinte (pas d'accès anonyme), acheteur non apparié (filet anti-erreur).
+    # Retryable UNIQUEMENT : quota IP épuisé sur N IP, ou échec réseau (transitoire).
+    definitifs = ("générique", "aucune consultation", "pas d'accès anonyme",
+                  "acheteur non apparié")
+    if any(d in err for d in definitifs):
         return EXIT_NON_RESOLUBLE
     return EXIT_RETRYABLE
 

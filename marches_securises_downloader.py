@@ -36,12 +36,23 @@ try:
 except Exception:
     pass
 
+# Charge .env / .env.txt à l'import : le connecteur DOIT voir TENDIA_PROXY_URL
+# (sinon il tape sur l'IP réelle, vite sur-quota → « token introuvable »). Couvre
+# le worker --un-marche lancé en sous-process, qui ne charge pas l'env autrement.
+try:
+    from dotenv import load_dotenv
+    load_dotenv(".env")
+    load_dotenv(".env.txt")
+except Exception:
+    pass
+
 
 def _session():
-    """Session proxifiée (IP résidentielle, headers humains). NB : marches-securises
-    limite le service du token anonyme par VOLUME/fenêtre au niveau ASN — la
-    rotation d'IP NE contourne PAS le throttle (cf docstring du batch). Le proxy
-    sert surtout à ne pas exposer l'IP du serveur et à varier le fingerprint."""
+    """Session proxifiée (IP résidentielle FRAÎCHE, headers humains). marches-securises
+    applique un QUOTA DE TÉLÉCHARGEMENTS PAR IP ; une IP fraîche est sous quota →
+    la rotation d'IP (proxy résidentiel) EST le moyen de contourner le quota.
+    ⚠️ Le proxy doit être chargé (TENDIA_PROXY_URL) sinon on tape sur l'IP réelle,
+    vite sur-quota (cf load_dotenv en tête de module)."""
     return http_humain.creer_session_humaine(session_id=uuid.uuid4().hex[:8],
                                               plateforme="marches_securises")
 
@@ -54,6 +65,11 @@ _RE_CLE = re.compile(r"cle_dce=([A-Za-z0-9]+)")
 _RE_TOKEN = re.compile(r"dl_dc_s[^A-Za-z0-9]+token=([A-Za-z0-9]+)")
 _RE_TAG = re.compile(r"<[^>]+>")
 _RE_WS = re.compile(r"\s+")
+# Page « quota IP atteint » : le lien de DL anonyme est remplacé par ce message.
+# C'est un quota PAR ADRESSE IP → une IP fraîche (proxy rotatif) est sous quota.
+_RE_QUOTA = re.compile(r"nombre maximum de t[ée]l[ée]chargement", re.I)
+
+MAX_ESSAIS_IP = 12   # nb d'IP fraîches à essayer pour trouver une IP sous quota
 
 _GENERIQUES = {"communaute", "communes", "commune", "ville", "conseil", "syndicat",
                "departement", "departemental", "mairie", "pays", "region",
@@ -117,33 +133,43 @@ def telecharger_dce(reference: str, dossier_destination: str,
     # dans une SESSION FRAÎCHE → chaque détail est une « première visite ».
     # 2e filet : désambiguïsation par nom de fichier (qui contient l'acheteur),
     # vérifiée AVANT d'écrire le corps : on n'attache jamais le mauvais DCE.
+    # marches-securises applique un QUOTA DE TÉLÉCHARGEMENTS PAR IP : sous le
+    # quota, le lien anonyme (dl_dc_s&token=) est servi ; au-dessus, il est
+    # remplacé par « Le nombre maximum de téléchargement a été atteint ». Le quota
+    # est PAR ADRESSE IP → on RETENTE avec des IP fraîches (proxy rotatif) jusqu'à
+    # tomber sur une IP sous quota. C'est le vrai levier (la rotation BAT le quota).
+    # « no_token » sans message de quota = pas d'accès anonyme (structurel) → stop.
     vu_attachment = [False]
+    quota_vu = [False]
     for cle in cles:
-        # Retry par cle UNIQUEMENT sur échec réseau/download (proxy résidentiel qui
-        # coupe un gros fichier → IncompleteRead). « token absent » est STRUCTUREL
-        # (consultation restreinte / pas le bon acheteur) : inutile de retenter avec
-        # une IP fraîche, on passe au cle suivant → évite un burst de requêtes.
-        for essai in range(1, 4):
+        for essai in range(1, MAX_ESSAIS_IP + 1):
             res = _tenter_cle(reference, cle, dossier_destination, acheteur,
-                              timeout, verbose, vu_attachment)
-            if res is True or res == "no_token":   # acheteur ≠ / pas de token → cle suivante
+                              timeout, verbose, vu_attachment, quota_vu)
+            if res is True or res == "no_token":   # acheteur ≠ / pas d'accès anonyme
                 break
             if isinstance(res, dict) and res.get("ok"):
                 res["cle_dce"] = cle
                 return res
-            # None = échec réseau/download → retry IP fraîche
-            if verbose and essai < 3:
-                print(f"    [marches-securises] retry download (IP fraîche) {essai+1}/3")
-    out["erreur"] = ("acheteur non apparié parmi les résultats"
-                     if vu_attachment[0] else "token de téléchargement introuvable")
+            # "quota" (IP sur quota) ou None (réseau) → retry IP fraîche
+            if verbose and essai < MAX_ESSAIS_IP:
+                motif = "IP sur quota" if res == "quota" else "échec réseau"
+                print(f"    [marches-securises] {motif} → IP fraîche "
+                      f"{essai+1}/{MAX_ESSAIS_IP}")
+    if vu_attachment[0]:
+        out["erreur"] = "acheteur non apparié parmi les résultats"
+    elif quota_vu[0]:
+        out["erreur"] = f"quota IP épuisé sur {MAX_ESSAIS_IP} IP (réessayer plus tard)"
+    else:
+        out["erreur"] = "pas d'accès anonyme (consultation restreinte ?)"
     return out
 
 
 def _tenter_cle(reference, cle, dossier_destination, acheteur, timeout, verbose,
-                vu_attachment):
-    """Tente une consultation. Retourne dict(ok) si DCE écrit, True si l'acheteur
-    ne correspond pas (cle à abandonner), 'no_token' si pas de lien anonyme
-    (structurel, cle à abandonner), None si échec réseau (à retenter)."""
+                vu_attachment, quota_vu):
+    """Tente une consultation sur une IP fraîche. Retourne dict(ok) si DCE écrit,
+    True si l'acheteur ne correspond pas (cle à abandonner), 'quota' si l'IP a
+    atteint son quota de téléchargements (retry IP fraîche), 'no_token' si pas
+    d'accès anonyme du tout (structurel), None si échec réseau (à retenter)."""
     s = _session()
     try:
         s.get(_BASE + "?module=recherche_consultations", timeout=timeout)
@@ -157,6 +183,10 @@ def _tenter_cle(reference, cle, dossier_destination, acheteur, timeout, verbose,
                    timeout=timeout, headers={"Referer": rp.url})
         mt = _RE_TOKEN.search(rd.text)
         if not mt:
+            # Quota IP atteint → retry IP fraîche ; sinon pas d'accès anonyme.
+            if _RE_QUOTA.search(rd.text):
+                quota_vu[0] = True
+                return "quota"
             return "no_token"
         rz = s.get(_BASE + f"?module=script|dl_dc_s&token={mt.group(1)}",
                    timeout=timeout, stream=True, headers={"Referer": rd.url})
