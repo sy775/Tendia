@@ -216,6 +216,11 @@ def telecharger_dce(id_atexo, org_acronyme: str, chemin_destination: str,
             value_m = re.search(r'value=["\']([^"\']+)["\']', inp)
             if name_m and value_m and value_m.group(1).lower() == "valider":
                 payload1[name_m.group(1)] = value_m.group(1)
+                # Prado ne déclenche l'event « Valider » (→ page de retrait) que si
+                # PRADO_POSTBACK_TARGET pointe le bouton (cf place_downloader). Sans
+                # ça la page se re-rend sans atteindre completeDownload.
+                payload1["PRADO_POSTBACK_TARGET"] = name_m.group(1)
+                payload1["PRADO_POSTBACK_PARAMETER"] = ""
                 break
 
         action_url = url_form
