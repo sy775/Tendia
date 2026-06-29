@@ -283,6 +283,21 @@ def _ordonner_par_acheteur(lignes: list, acheteur: str, verbose: bool) -> list:
     return []
 
 
+_STOP_OBJET = {"marche", "marché", "public", "publics", "prestation", "prestations",
+               "service", "services", "travaux", "fourniture", "fournitures",
+               "realisation", "réalisation", "pour", "des", "les", "aux", "relatifs",
+               "relatif", "mission", "accord", "cadre", "marche's", "consultation"}
+
+
+def _mots_cles_objet(objet: str, n: int = 3) -> str:
+    """Mots-clés distinctifs de l'objet pour une recherche marches-securises quand
+    l'avis n'a PAS de référence. La désambiguïsation par acheteur (obligatoire,
+    cf _ordonner_par_acheteur) sécurise le résultat malgré une recherche large."""
+    mots = [w for w in re.findall(r"[A-Za-zÀ-ÿ]{5,}", objet or "")
+            if w.lower() not in _STOP_OBJET]
+    return " ".join(mots[:n])
+
+
 def _ecrire_zip(resp, dossier_destination: str, out: dict, verbose: bool) -> dict:
     os.makedirs(dossier_destination, exist_ok=True)
     cd = resp.headers.get("content-disposition") or ""
@@ -315,14 +330,35 @@ def _ecrire_zip(resp, dossier_destination: str, out: dict, verbose: bool) -> dic
 
 def telecharger_dce_pour_marche(marche: dict, repertoire_dce: str,
                                 verbose: bool = True) -> dict:
+    """Télécharge le DCE d'un marché marches-securises. Cherche d'abord par
+    RÉFÉRENCE (haute confiance) ; à défaut (ou en cas d'échec non-réseau), bascule
+    sur une recherche par OBJET — sécurisée par la désambiguïsation acheteur
+    OBLIGATOIRE (on n'attache jamais un DCE dont l'acheteur ne correspond pas)."""
     import resolution_reference as RR
     _, reference = RR.extraire_plateforme_reference(marche)
     id_marche = marche.get("id", "?")
+    acheteur = marche.get("acheteur_nom")
     dossier = os.path.join(repertoire_dce, id_marche)
-    res = telecharger_dce(reference, dossier,
-                          acheteur=marche.get("acheteur_nom"), verbose=verbose)
+
+    res, mode = None, None
+    if reference:
+        res = telecharger_dce(reference, dossier, acheteur=acheteur, verbose=verbose)
+        mode = "reference"
+    # Fallback OBJET : pas de référence, ou référence non résoluble (générique /
+    # pas trouvée). On ne tente l'objet que si on a un acheteur (sécurité) et des
+    # mots-clés assez distinctifs.
+    if (res is None or not res.get("ok")):
+        kw = _mots_cles_objet(marche.get("objet") or "")
+        if acheteur and len(kw) >= 6:
+            if verbose:
+                print(f"    [marches-securises] fallback recherche par objet : '{kw}'")
+            res_obj = telecharger_dce(kw, dossier, acheteur=acheteur, verbose=verbose)
+            if res_obj.get("ok") or res is None:
+                res, mode = res_obj, "objet"
+
     res["id_marche"] = id_marche
     res["chemin"] = dossier
+    res["mode"] = mode
     res["taille_octets"] = res.get("taille_octets_total", 0)
     res["nb_fichiers"] = len(res.get("fichiers_telecharges") or [])
     return res

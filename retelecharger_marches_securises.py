@@ -49,7 +49,11 @@ EXIT_RETRYABLE = 1      # échec réseau/throttle → à retenter
 
 
 def _cibles(max_n: int):
-    """Avis ciblant marches-securises (plateforme + référence) sans DCE complet."""
+    """Avis marches-securises sans DCE complet, récupérables par recherche :
+      - avec RÉFÉRENCE (recherche par référence, haute confiance) ; OU
+      - SANS référence mais avec un OBJET distinctif ET sans lien direct (url_dce) —
+        recherche par objet + désambiguïsation acheteur (le lien direct, lui, est
+        géré par le pipeline DCE normal)."""
     marches = stockage.charger("marches") or {}
     out = []
     for mid, m in sorted(marches.items()):
@@ -57,7 +61,13 @@ def _cibles(max_n: int):
                 and m.get("dce_contenu") != "complet"):
             continue
         base, ref = RR.extraire_plateforme_reference(m)
-        if base and "marches-securises" in base.lower() and ref:
+        if not (base and "marches-securises" in base.lower()):
+            continue
+        if ref:
+            out.append((mid, m))
+        elif (not m.get("url_dce")
+              and len(MS._mots_cles_objet(m.get("objet") or "")) >= 6
+              and m.get("acheteur_nom")):
             out.append((mid, m))
     return out[:max(0, max_n)]
 
@@ -84,9 +94,9 @@ def traiter_un_marche(mid: str) -> int:
         m["dce_pieces_contractuelles"] = q["pieces_contractuelles"]
         m["dce_raison_contenu"] = q["raison"]
         m["dce_telecharge_le"] = datetime.now().isoformat()
-        m["url_dce_source"] = "marches_securises_reference"
+        m["url_dce_source"] = f"marches_securises_{res.get('mode') or 'reference'}"
         stockage.ecrire("marches", mid, m)
-        print(f"  {mid} : {ancien} → {q['qualite']}")
+        print(f"  {mid} : {ancien} → {q['qualite']} (via {res.get('mode')})")
         return EXIT_COMPLET if q["qualite"] == "complet" else EXIT_PARTIEL
     err = str(res.get("erreur") or "")
     print(f"  {mid} : échec ({err[:55]})")
