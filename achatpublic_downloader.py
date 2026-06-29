@@ -33,6 +33,8 @@ import tendia_logs
 URL_BASE_ACHATPUBLIC = "https://www.achatpublic.com"
 URL_DETAIL_PATH = "/sdm/ent/gen/ent_detail.do"
 URL_DOWNLOAD_PATH = "/sdm/ent2/gen/telechargerDCE.action"
+URL_RECHERCHE_PATH = "/sdm/ent/gen/ent_recherche.do"      # page formulaire (cookies)
+URL_RECHERCHE_ACTION = "/sdm/ent2/gen/rechercheCsl.action"  # POST recherche
 
 # Conservé pour compat. Le workflow utilise http_humain.creer_session_humaine().
 USER_AGENT = http_humain.USER_AGENTS_POOL[0]
@@ -44,6 +46,41 @@ def _construire_url_detail(pcslid: str) -> str:
 
 def _construire_url_download(pcslid: str, cyc_num: str = "0") -> str:
     return f"{URL_BASE_ACHATPUBLIC}{URL_DOWNLOAD_PATH}?PCSLID={pcslid}&cycNum={cyc_num}"
+
+
+def resoudre_pcslid_via_reference(reference: str, session=None) -> Optional[str]:
+    """Cherche la consultation achatpublic par référence acheteur et renvoie son
+    PCSLID, UNIQUEMENT si la recherche donne exactement 1 résultat (désambiguïsation
+    exacte, zéro risque de mauvais DCE). Flux validé via HAR DevTools :
+      GET ent_recherche.do (cookies) → POST rechercheCsl.action avec
+      searchCslBean.intitule=<ref> (le champ « intitulé » indexe la réf), initial=0,
+      procedure=-1 → la réponse HTML contient PCSLID=CSL_... pour chaque résultat.
+    NB : le champ ne fait PAS de full-text sur l'objet ; passer une RÉFÉRENCE."""
+    if not reference or not reference.strip():
+        return None
+    s = session or http_humain.creer_session_humaine(plateforme="achatpublic")
+    try:
+        s.get(URL_BASE_ACHATPUBLIC + URL_RECHERCHE_PATH, timeout=25)
+        r = s.post(URL_BASE_ACHATPUBLIC + URL_RECHERCHE_ACTION,
+                   data={"searchCslBean.initial": "0",
+                         "searchCslBean.intitule": reference.strip(),
+                         "searchCslBean.procedure": "-1"},
+                   timeout=30,
+                   headers={"Referer": URL_BASE_ACHATPUBLIC + URL_RECHERCHE_PATH})
+        pcs = list(dict.fromkeys(re.findall(r"PCSLID=(CSL_[A-Za-z0-9_]+)", r.text)))
+        return pcs[0] if len(pcs) == 1 else None
+    except Exception:
+        return None
+
+
+def resoudre_url_via_reference(marche: dict) -> Optional[str]:
+    """url_dce achatpublic depuis la référence acheteur du marché (idMarche /
+    identifiantInterne), via recherche exacte (1 seul résultat). None sinon."""
+    import resolution_reference as _RR
+    _, ref = _RR.extraire_plateforme_reference(marche)
+    ref = ref or marche.get("reference_ft")
+    pcslid = resoudre_pcslid_via_reference(ref) if ref else None
+    return _construire_url_detail(pcslid) if pcslid else None
 
 
 def _extraire_pcslid_depuis_url(url: str) -> Optional[str]:
