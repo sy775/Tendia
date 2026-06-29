@@ -26,6 +26,16 @@ except ImportError:
         "La lib 'requests' est requise. Lance : pip install requests"
     )
 
+# PLACE (marches-publics.gouv.fr) sert sa chaîne via une CA gouvernementale (RGS)
+# absente du bundle certifi → l'accès direct échoue en SSL CERTIFICATE_VERIFY_FAILED.
+# truststore délègue la vérif au magasin de certificats SYSTÈME (qui, lui, connaît
+# la CA gouv). Sans ça, GET étape 1 casse avant même le formulaire de retrait.
+try:
+    import truststore as _truststore
+    _truststore.inject_into_ssl()
+except Exception:
+    pass
+
 
 URL_BASE_PLACE = "https://www.marches-publics.gouv.fr"
 USER_AGENT = (
@@ -211,12 +221,29 @@ def telecharger_dce(
                         action_url = URL_BASE_PLACE + action_attr
                 break
 
+        # clientId du panel formulaire (Prado le réémet dans le POST réel) et base
+        # …$EntrepriseFormulaireDemande, déduits du groupe radio.
+        efd_base = grp.rsplit("$", 1)[0] if grp else \
+            "ctl0$CONTENU_PAGE$EntrepriseFormulaireDemande"
+        efd_client = efd_base.replace("$", "_")
+
         def _construire_payload(mode):
             p = _extraire_inputs_form(html1)
             if cb_cgu:
                 p[cb_cgu] = "on"
             if submit_field:
                 p[submit_field[0]] = submit_field[1]
+                # CLÉ : Prado n'exécute l'event « Valider cliqué » (→ page de retrait)
+                # que si PRADO_POSTBACK_TARGET pointe le bouton. Sans ça le POST ne
+                # progresse pas et la page se re-rend (faux « auth requise »).
+                p["PRADO_POSTBACK_TARGET"] = submit_field[0]
+                p["PRADO_POSTBACK_PARAMETER"] = ""
+            # Champs que le navigateur poste toujours (cf HAR) : identité de panel,
+            # établissement France + pays=0, sinon des validators bloquent.
+            p[efd_base + "$clientId"] = efd_client
+            p[efd_base + "$pays"] = "0"
+            if etab and val_fr:
+                p[etab] = val_fr
             if mode == "anonyme" and grp and val_anon:
                 p[grp] = val_anon
             elif mode == "identifie" and grp and val_dl:
