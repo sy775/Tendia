@@ -24,15 +24,24 @@ Interface :
 import os
 import re
 import sys
+import uuid
 import zipfile
 
 import requests
+import http_humain
 
 try:
     import truststore as _truststore
     _truststore.inject_into_ssl()
 except Exception:
     pass
+
+
+def _session():
+    """Session proxifiée (IP résidentielle fraîche) — marches-securises throttle
+    vite les requêtes d'une même IP ; une IP par session contourne le blocage."""
+    return http_humain.creer_session_humaine(session_id=uuid.uuid4().hex[:8],
+                                              plateforme="marches_securises")
 
 HOST_MS = "marches-securises.fr"
 _BASE = "https://www.marches-securises.fr/entreprise/"
@@ -94,41 +103,63 @@ def telecharger_dce(reference: str, dossier_destination: str,
     # dans une SESSION FRAÎCHE → chaque détail est une « première visite ».
     # Désambiguïsation OBLIGATOIRE par acheteur (le nom de fichier le contient),
     # vérifiée AVANT d'écrire le corps : on n'attache jamais le mauvais DCE.
-    vu_attachment = False
+    vu_attachment = [False]
     for cle in cles:
-        s = requests.Session()
-        s.headers.update({"User-Agent": _UA, "Accept-Language": "fr-FR,fr;q=0.9"})
-        try:
-            s.get(_BASE + "?module=recherche_consultations", timeout=timeout)
-            s.post(_BASE + "?module=consultation|script|selection_consultation_s",
-                   data=_form_recherche(reference), timeout=timeout)
-            rd = s.get(_BASE + f"?module=consultation|details&cle_dce={cle}&version=",
-                       timeout=timeout)
-            mt = _RE_TOKEN.search(rd.text)
-            if not mt:
-                continue
-            rz = s.get(_BASE + f"?module=script|dl_dc_s&token={mt.group(1)}",
-                       timeout=timeout, stream=True, headers={"Referer": rd.url})
-        except requests.RequestException:
-            continue
-        cd = rz.headers.get("content-disposition") or ""
-        if "attachment" not in cd.lower():
-            rz.close()
-            continue
-        vu_attachment = True
-        nom = (re.search(r'filename="?([^"\r\n;]+)', cd) or [None, ""])[1]
-        if not _acheteur_correspond(acheteur, nom):
-            if verbose:
-                print(f"    [marches-securises] ⊘ {nom[:40]} ≠ acheteur '{(acheteur or '')[:28]}'")
-            rz.close()
-            continue
-        res = _ecrire_zip(rz, dossier_destination, out, verbose)
-        if res.get("ok"):
-            res["cle_dce"] = cle
-            return res
+        # Retry par cle : le proxy résidentiel coupe parfois les gros fichiers
+        # (IncompleteRead) → on retente avec une IP fraîche (jusqu'à 3 fois).
+        for essai in range(1, 4):
+            res = _tenter_cle(reference, cle, dossier_destination, acheteur,
+                              timeout, verbose, vu_attachment)
+            if res is True:        # acheteur ne correspond pas → cle suivante
+                break
+            if isinstance(res, dict) and res.get("ok"):
+                res["cle_dce"] = cle
+                return res
+            # None / échec download → retry IP fraîche
+            if verbose and essai < 3:
+                print(f"    [marches-securises] retry download (IP fraîche) {essai+1}/3")
     out["erreur"] = ("acheteur non apparié parmi les résultats"
-                     if vu_attachment else "token de téléchargement introuvable")
+                     if vu_attachment[0] else "token de téléchargement introuvable")
     return out
+
+
+def _tenter_cle(reference, cle, dossier_destination, acheteur, timeout, verbose,
+                vu_attachment):
+    """Tente une consultation. Retourne dict(ok) si DCE écrit, True si l'acheteur
+    ne correspond pas (cle à abandonner), None si échec réseau (à retenter)."""
+    s = _session()
+    try:
+        s.get(_BASE + "?module=recherche_consultations", timeout=timeout)
+        s.post(_BASE + "?module=consultation|script|selection_consultation_s",
+               data=_form_recherche(reference), timeout=timeout)
+        rd = s.get(_BASE + f"?module=consultation|details&cle_dce={cle}&version=",
+                   timeout=timeout)
+        mt = _RE_TOKEN.search(rd.text)
+        if not mt:
+            return None
+        rz = s.get(_BASE + f"?module=script|dl_dc_s&token={mt.group(1)}",
+                   timeout=timeout, stream=True, headers={"Referer": rd.url})
+    except requests.RequestException:
+        return None
+    cd = rz.headers.get("content-disposition") or ""
+    if "attachment" not in cd.lower():
+        rz.close()
+        return None
+    vu_attachment[0] = True
+    nom = (re.search(r'filename="?([^"\r\n;]+)', cd) or [None, ""])[1]
+    if not _acheteur_correspond(acheteur, nom):
+        if verbose:
+            print(f"    [marches-securises] ⊘ {nom[:40]} ≠ acheteur '{(acheteur or '')[:28]}'")
+        rz.close()
+        return True
+    out = {"ok": False, "fichiers_telecharges": [], "taille_octets_total": 0,
+           "erreur": None}
+    try:
+        return _ecrire_zip(rz, dossier_destination, out, verbose)
+    except Exception as e:        # IncompleteRead / ChunkedEncodingError…
+        if verbose:
+            print(f"    [marches-securises] download interrompu : {type(e).__name__}")
+        return None
 
 
 def _form_recherche(reference: str) -> dict:
@@ -139,8 +170,7 @@ def _form_recherche(reference: str) -> dict:
 
 
 def _chercher_cles(reference: str, timeout: int = 60) -> list:
-    s = requests.Session()
-    s.headers.update({"User-Agent": _UA, "Accept-Language": "fr-FR"})
+    s = _session()
     try:
         s.get(_BASE + "?module=recherche_consultations", timeout=timeout)
         r = s.post(_BASE + "?module=consultation|script|selection_consultation_s",
