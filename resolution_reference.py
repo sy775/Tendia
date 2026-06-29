@@ -106,6 +106,10 @@ def normaliser_base(base: str) -> str:
     low = (base or "").lower()
     if "megalis" in low:               # www.megalis / megalisbretagne (sans point)…
         return "https://marches.megalis.bretagne.bzh"
+    # Force HTTPS : certains urlProfilAch sont en http:// → la requête part sur le
+    # port 80 et timeout (les plateformes DCE sont toutes en https).
+    if base and base.lower().startswith("http://"):
+        return "https://" + base[7:]
     return base
 
 
