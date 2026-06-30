@@ -842,12 +842,17 @@ def telecharger_dce_pour_marche(
         except Exception as e:
             res = {"ok": False, "erreur": f"{type(e).__name__}: {e}",
                    "etape_erreur": "exception"}
-        if res.get("etape_erreur") != "ban_detecte":
+        # Un CDN VIDE sur actDCE2 est un symptôme de ban (la page est servie mais
+        # sans les liens CDN signés) → on traite « cdn » comme un ban et on rote
+        # l'IP. Borné par max_retries_ban : si ça reste vide après N IP fraîches,
+        # c'est probablement une consultation réellement sans pièces.
+        if res.get("etape_erreur") not in ("ban_detecte", "cdn"):
             break  # succès ou erreur non-ban : on sort
     else:
-        # Boucle épuisée toujours en ban
+        # Boucle épuisée toujours en ban / CDN vide
         res["etape_erreur"] = "ban_persistant"
-        res["erreur"] = f"Ban persistant après {max_retries_ban} rotations d'IP"
+        res["erreur"] = (f"Ban/CDN vide persistant après {max_retries_ban} "
+                         f"rotations d'IP")
 
     out.update(res)
     out["id_marche"] = id_marche
