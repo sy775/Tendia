@@ -122,7 +122,10 @@ def main():
         print("\n  [1/6]  Récupération BOAMP/TED  →  SKIPPÉ (--skip-recup)")
     else:
         _print_etape(1, "Récupération avis BOAMP + TED")
-        _executer_script("tendia_recup.py")
+        # --large : ingestion SANS filtre acheteur (tous les avis, pas seulement
+        # France Travail/Pôle Emploi). Le filtre FT est un legacy du ciblage
+        # historique ; le pipeline capte désormais tout le BOAMP.
+        _executer_script("tendia_recup.py", ["--large"])
 
     # === Étape 2 : Résolution URLs DCE ===
     _print_etape(2, "Résolution URLs DCE (eForms + PLACE keyWord)")
