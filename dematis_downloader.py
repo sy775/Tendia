@@ -96,6 +96,13 @@ TWOCAPTCHA_MAX_TENTATIVES = 5      # captchas OCR parfois faux, on retente
 RATE_LIMIT_FICHIERS_SEC = 1
 DL_MAX_ESSAIS = 3
 
+# Détection anti-bot au niveau FICHIER : la plateforme sert un HTTP 200 dont le
+# corps est « Accès non autorisé » (~18 o) au lieu du fichier → c'est un ban de
+# l'IP courante, pas un vrai fichier. On le détecte pour (a) ne pas sauver le
+# refus comme fichier valide, (b) déclencher la rotation d'IP (etape ban_detecte).
+_RE_ACCES_REFUSE = re.compile(rb"acc[e\xe8\xe9]s\s+non\s+autoris", re.I)
+_TAILLE_REFUS_MAX = 512            # un refus fait ~18 o ; un vrai fichier est bien plus gros
+
 
 # ===========================================================================
 # Helpers purs (testables hors ligne)
@@ -492,6 +499,15 @@ def _telecharger_fichier(session, url: str, dossier: str, timeout: int,
                 derniere = "0 octet"
                 time.sleep(1)
                 continue
+            # Anti-bot : un fichier minuscule = potentiel « Accès non autorisé »
+            # (ban IP servi en 200). On le détecte → échec explicite (pas un faux
+            # succès), signalé pour rotation d'IP.
+            if taille <= _TAILLE_REFUS_MAX:
+                with open(chemin, "rb") as _f:
+                    debut_contenu = _f.read(_TAILLE_REFUS_MAX)
+                if _RE_ACCES_REFUSE.search(debut_contenu):
+                    os.remove(chemin)
+                    return False, None, 0, "acces_refuse"
             return True, chemin, taille, None
         except Exception as e:
             derniere = f"{type(e).__name__}: {e}"
@@ -771,8 +787,12 @@ def telecharger_dce(
             time.sleep(RATE_LIMIT_FICHIERS_SEC)
 
     if not fichiers:
+        # Si les pièces reviennent en « Accès non autorisé », c'est un ban de l'IP
+        # courante (bot détecté) → etape ban_detecte pour que le wrapper rote l'IP.
+        refus = sum(1 for e in erreurs_dl if "acces_refuse" in e)
+        etape = "ban_detecte" if refus and refus >= len(erreurs_dl) / 2 else "dl"
         out.update(erreur="Aucun fichier téléchargé : " + "; ".join(erreurs_dl[:3]),
-                   etape_erreur="dl", duree_secondes=round(time.time() - debut, 2))
+                   etape_erreur=etape, duree_secondes=round(time.time() - debut, 2))
         return out
 
     # ----- Étape 6 : décompression des ZIP imbriqués -----
