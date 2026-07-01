@@ -123,9 +123,10 @@ def main():
     else:
         _print_etape(1, "Récupération avis BOAMP + TED")
         # --large : ingestion SANS filtre acheteur (tous les avis, pas seulement
-        # France Travail/Pôle Emploi). Le filtre FT est un legacy du ciblage
-        # historique ; le pipeline capte désormais tout le BOAMP.
-        _executer_script("tendia_recup.py", ["--large"])
+        # France Travail/Pôle Emploi, legacy du ciblage historique).
+        # --differentiel : borne à la dernière date connue → on ne re-balaie pas
+        # les 6 mois complets à chaque passe (sinon 60k+ avis).
+        _executer_script("tendia_recup.py", ["--large", "--differentiel"])
 
     # === Étape 2 : Résolution URLs DCE ===
     _print_etape(2, "Résolution URLs DCE (eForms + PLACE keyWord)")

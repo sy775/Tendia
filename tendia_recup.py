@@ -329,6 +329,11 @@ def main():
                         help="Borne basse de dateparution (override). Ex. "
                              "--depuis 2026-06-26 cible les avis publiés ce "
                              "jour-là et après. Prioritaire sur le différentiel.")
+    parser.add_argument("--differentiel", action="store_true",
+                        help="Ne récupère que les avis publiés DEPUIS la dernière "
+                             "date connue en base (borne = max date_publication). "
+                             "Évite de re-balayer les --mois complets à chaque "
+                             "passe. Ignoré si --depuis est fourni.")
     parser.add_argument("--dry-run", action="store_true",
                         help="N'écrit rien en base.")
     parser.add_argument("--purge-source", default=None,
@@ -354,6 +359,7 @@ def main():
         limite_par_source=args.limite,
         mode_large=args.large,
         depuis=args.depuis,
+        differentiel=args.differentiel,
         dry_run=args.dry_run,
         verbose=True,
     )
