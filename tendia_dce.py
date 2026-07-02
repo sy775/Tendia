@@ -453,8 +453,14 @@ def traiter(filtre_actifs: bool = True,
 
         # Mise à jour du marché en base
         if not dry_run:
-            marche["url_dce"] = resultat.get("url_dce")
-            marche["reference_ft"] = resultat.get("reference_ft")
+            # NE PAS écraser une url_dce existante par None : une re-résolution qui
+            # échoue (lien direct expiré, recherche muette) ne doit pas effacer le
+            # lien d'un marché déjà résolu/complet. On n'écrit que si on a trouvé
+            # une nouvelle URL, ou s'il n'y en avait pas encore.
+            nouvelle_url = resultat.get("url_dce")
+            if nouvelle_url or not (marche.get("url_dce") or "").strip():
+                marche["url_dce"] = nouvelle_url
+            marche["reference_ft"] = resultat.get("reference_ft") or marche.get("reference_ft")
             marche["url_recherche_place"] = resultat.get("url_recherche")
             marche["dce_qualite"] = qualite
             marche["dce_recherche_le"] = horodatage
