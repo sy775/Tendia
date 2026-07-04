@@ -17,11 +17,27 @@ scripts réels.
 - Sauvegarde ciblée d'une collection (ex. avant re-extraction) :
   `python -c "import stockage,json; json.dump(stockage.charger('briefs_extraits'), open('backups/briefs_<date>.json','w'), ensure_ascii=False)"`.
 
+### Stockage des DCE (`data/dce`) sur 2e disque
+
+`data/dce` grossit vite (>100 Go). Il est déplaçable **sur un autre disque** via une
+**jonction Windows** — l'appli continue d'écrire dans `data/dce` sans changement de code
+(tous les chemins sont relatifs à `__file__`, aucune var d'env de chemin) :
+```cmd
+:: dans cmd.exe (PAS git-bash : robocopy/mklink y sont infiables), appli arrêtée
+robocopy "C:\...\Tendia\data\dce" "D:\tendia_dce\dce" /E /MOVE /MT:16
+mklink /J "C:\...\Tendia\data\dce" "D:\tendia_dce\dce"
+```
+`mklink /J` (jonction) ne demande pas les droits admin. ⚠️ **Disque plein = corruption
+DB** (« database or disk is full » → I/O error) : garder de la marge, purger les
+`data/dce/*.bak_*` (backups pré-op redondants) et vieux `data/tendia.db.bak_*`.
+
 ## Lancer le pipeline (par étape)
 
 ```bash
-python tendia_veille.py            # ingestion BOAMP/TED → marches
-python tendia_classification.py    # classification sectorielle → classifications_ia
+# ⚠️ PYTHONUTF8=1 REQUIS sous Windows (la console cp1252 crashe sur les caractères
+#    box-drawing du pipeline : UnicodeEncodeError).
+PYTHONUTF8=1 python tendia_recup.py --large --differentiel   # ingestion BOAMP TOUS acheteurs, bornée
+python tendia_classification.py    # classification sectorielle → classifications_ia (Haiku, ~0,006 €/avis)
 python tendia_dce.py               # résolution URL DCE (par défaut marchés actifs)
 # téléchargement DCE (batchs anti-ban, réseau) :
 python retelecharger_dematis_anti_ban.py --max 15 --oui [--ignorer-heures]
@@ -35,7 +51,33 @@ python analyse.py
 python tendia_matcher.py
 ```
 
+Pipeline complet en une commande : `PYTHONUTF8=1 python tendia_pipeline.py
+[--skip-llm] [--skip-dedies]`. Il passe `--large --differentiel` à la récup (tous
+acheteurs, borné à la dernière date en base ; sans `--large` le connecteur BOAMP
+filtre sur France Travail = legacy ; sans `--differentiel` il balaie 6 mois = ~62k avis).
+
 Lancer l'UI : `python tendia_ui.py` → http://localhost:5000.
+
+## Taux de complétion DCE (référence 2026-07)
+
+**Global : ~73 % de DCE complet** sur les « Avis de marché ». Sur du **frais** (avis du
+jour, 1 passe) : ~67 % ; après relances il tend vers ~77 % (cf juin). Le **download
+réussit à ~87 % des avis résolus** — le goulot est la **résolution** (~25 % sans lien).
+
+| Plateforme | Taux complet | Note |
+|---|---|---|
+| AWS-Achat, achatpublic, megalis, demat-ampa | 84-90 % | resolvers + downloaders solides |
+| PLACE | ~76 % | fix `PRADO_POSTBACK_TARGET` (cf downloaders.md) |
+| Atexo white-labels | ~65 % | résolvables via keyWord si réf présente |
+| **dematis** | ~56 % | **problème de RE-RUN** : le filtre de cibles du batch en skippe beaucoup ; le downloader marche sur avis frais. Levier : relancer `dematis_downloader.telecharger_dce_pour_marche` en boucle directe (vider le dossier avant). |
+| **marches-securises** | ~49 % | **problème de RÉSOLUTION** : réfs génériques → search multi-résultats bloqué. Levier : désambiguïsation par croisement acheteur + 2 tokens d'objet sur la page consultation. |
+| safetender, klekoon | 0-6 % | non gérés (pas de resolver dédié) |
+
+**Anti-mauvais-DCE (règle)** : ne persister une url_dce résolue par recherche que si
+(a) EXACTEMENT 1 résultat ET (b) token acheteur OU ≥2 tokens d'objet trouvés sur la
+page consultation (croisement). AWS/dematis **marchent sur avis frais** ; leurs échecs
+sont surtout des consultations retirées/closes (irrécupérables) ou un proxy saturé
+(ProxyError transitoire → réessayer).
 
 ## Batchs de téléchargement anti-ban
 

@@ -369,3 +369,29 @@ lignes 92-93) ; `TENDIA_PROXY_FOR_PLACE=0` est explicitement mentionné côté A
 - **achatpublic** : ZIP imbriqué (`DCE/DCE.zip`) à décompresser sinon le qualifier
   ne voit pas les pièces ; réponse HTML au lieu de ZIP = marché clos/restreint ;
   pas de captcha ni de rotation IP.
+
+### Fixes 2026-07 (débug coverage)
+
+- **PLACE (`place_downloader`, `atexo_downloader`)** : le POST 1 (CGU) doit poser
+  `PRADO_POSTBACK_TARGET = <bouton Valider>` sinon Prado ne déclenche pas l'event et
+  la page ne progresse pas (faux « page téléchargement non atteinte »). + injecter
+  `truststore.inject_into_ssl()` (CA gouv RGS absente de certifi → `CERTIFICATE_VERIFY_FAILED`).
+  Trouvé via HAR `HAR/www.marches-publics.gouv.fr.har`. NB : « Se connecter » est dans
+  le header de CHAQUE page PLACE → signal fiable de retrait = présence de `completeDownload`.
+- **AWS-Achat** : un `actDCE2` **sans lien CDN** (page générique servie) est un
+  symptôme de **ban** → traité comme `ban_detecte` → rotation d'IP (session-id frais).
+  AWS **marche sur avis frais** (le pool IPRoyal n'est PAS blacklisté ; les échecs =
+  vieux avis retirés/clos). Pas de resolver réf→IDM (besoin d'un HAR de la recherche).
+- **Dematis** : le fetch fichier peut renvoyer un **HTTP 200 « Accès non autorisé »
+  (~18 o)** au lieu du fichier (ban IP) → `_RE_ACCES_REFUSE` le détecte → échec +
+  rotation d'IP (avant : sauvait le stub en `ok=true`). **Marche sur avis frais** ;
+  ⚠️ le **filtre de cibles du batch (`_annonce_telechargeable`) est trop strict** et
+  en skippe beaucoup → pour tout rattraper, boucler en direct sur
+  `telecharger_dce_pour_marche` (vider le dossier avant).
+- **achatpublic** : `resoudre_pcslid_via_reference(ref)` résout l'url_dce depuis la
+  réf (POST `rechercheCsl.action`, `searchCslBean.intitule=<RÉF>` — champ « intitulé »
+  qui indexe la réf, PAS l'objet). Garde : 1 seul PCSLID.
+- **`dce_finder` / `tendia_dce`** : (1) le lien direct eForms peut être **périmé**
+  (id consultation change à la republication, réf stable) → fallback keyWord sur la
+  réf ; (2) la re-résolution ne doit **jamais écraser une url_dce existante par None**
+  (sinon des marchés `complet` perdent leur lien → « résolus » < « complet »).
