@@ -156,11 +156,11 @@ def main():
         extra = ["--oui", "--max", str(args.max_dedies)]
         if args.ignorer_heures:
             extra.append("--ignorer-heures")
-        _executer_script("retelecharger_aws_achat_anti_ban.py", extra)
-        _executer_script("retelecharger_dematis_anti_ban.py", extra)
-        _executer_script("retelecharger_xmarches.py", ["--oui", "--max", str(args.max_dedies)])
+        _executer_script("scripts/maintenance/retelecharger_aws_achat_anti_ban.py", extra)
+        _executer_script("scripts/maintenance/retelecharger_dematis_anti_ban.py", extra)
+        _executer_script("scripts/maintenance/retelecharger_xmarches.py", ["--oui", "--max", str(args.max_dedies)])
         # marches-securises : anonyme, cap dédié plus large (pas de coût captcha).
-        _executer_script("retelecharger_marches_securises.py",
+        _executer_script("scripts/maintenance/retelecharger_marches_securises.py",
                          ["--oui", "--max", str(max(args.max_dedies, 40))])
 
     # === Étape 5 : Extraction LLM ===
