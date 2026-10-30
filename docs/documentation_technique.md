@@ -272,20 +272,20 @@ Sortie : JSON structuré avec :
 
 Coût : ~0.15-0.30€/brief (variable selon taille DCE).
 
-**`enrichir_complet.py`** (~400 lignes) — Orchestrateur
+**`scripts/_archive/enrichir_complet.py`** (~400 lignes) — Orchestrateur
 
 CLI :
 ```bash
-python enrichir_complet.py                    # pertinents du preset actif
-python enrichir_complet.py --mutualise        # tous les marchés briefables (Sprint 2)
-python enrichir_complet.py --mutualise \
+python scripts/_archive/enrichir_complet.py                    # pertinents du preset actif
+python scripts/_archive/enrichir_complet.py --mutualise        # tous les marchés briefables (Sprint 2)
+python scripts/_archive/enrichir_complet.py --mutualise \
     --prioriser energie_renouvelable \
     --prioriser btp \
     --prioriser formation                     # priorisation par preset
-python enrichir_complet.py --id BOAMP-...     # 1 marché
-python enrichir_complet.py --dry-run          # simule sans appel LLM
-python enrichir_complet.py --force            # regénère même si existant
-python enrichir_complet.py --max-cout 20.0    # garde-fou coût €
+python scripts/_archive/enrichir_complet.py --id BOAMP-...     # 1 marché
+python scripts/_archive/enrichir_complet.py --dry-run          # simule sans appel LLM
+python scripts/_archive/enrichir_complet.py --force            # regénère même si existant
+python scripts/_archive/enrichir_complet.py --max-cout 20.0    # garde-fou coût €
 ```
 
 ⚠ **Bug connu Sprint 3c** : `--id` n'est pas honoré en bypass du filtre pertinent. Si le profil organisme ne considère plus le marché comme pertinent, il est skippé malgré `--force --id`. Patch trivial à appliquer (~10 min) — voir passation_claude.md.
@@ -349,13 +349,13 @@ Verdict par alerte : `OK` / `BLOQUANT` / `À VÉRIFIER`. Score global agrégé.
 
 **Mise à jour Sprint A+B** : le profil organisme est désormais multi-secteurs (socle commun + profils sectoriels par preset, voir 2.5(B)). Le matching organisme × marché est implémenté dans `matching.py` V2.1 (voir section 2.4(B)) avec détection automatique du format profil (legacy formation vs nouveau multi-secteurs) et routage. Le module `organisme.py` (~460 lignes) expose : `charger_actif()`, `profil_sectoriel(code)`, `schema_socle()`, `schema_sectoriel(code)`, `template_socle()`, `template_sectoriel(code)`, `valider_profil()` (validation maison sans jsonschema), `supprimer_profil()`. Backward compat legacy : `lire_profil()`, `schema_vide()`, `champs_remplis()`, `est_format_legacy()`, constantes `DR_FRANCE_TRAVAIL` et `PRESTATIONS_FRANCE_TRAVAIL`.
 
-CLI `init_profil.py` (~175 lignes) :
+CLI `scripts/maintenance/init_profil.py` (~175 lignes) :
 ```bash
-python init_profil.py                           # --status (par défaut)
-python init_profil.py --template btp            # génère un template vide BTP
-python init_profil.py --depuis fichier.json     # import
-python init_profil.py --purger --confirmer      # supprime
-python init_profil.py --force                   # écrase
+python scripts/maintenance/init_profil.py                           # --status (par défaut)
+python scripts/maintenance/init_profil.py --template btp            # génère un template vide BTP
+python scripts/maintenance/init_profil.py --depuis fichier.json     # import
+python scripts/maintenance/init_profil.py --purger --confirmer      # supprime
+python scripts/maintenance/init_profil.py --force                   # écrase
 ```
 
 ### 2.9 UI
@@ -420,7 +420,7 @@ La famille est déduite du préfixe (avant `_`) dans l'Explorer UI. Voir `_FAMIL
 
 Toutes les commandes Tendia sont **idempotentes** : on peut relancer sans risque, le cache empêche la duplication.
 - `tendia_classification.py` : skip si déjà classifié (sauf `--force`)
-- `enrichir_complet.py` : skip si brief existe (sauf `--force`)
+- `scripts/_archive/enrichir_complet.py` : skip si brief existe (sauf `--force`)
 - `analyse.py` : skip si score existe (sauf `--force`)
 
 ### 3.4 Gestion API key Anthropic
@@ -484,8 +484,8 @@ Backup recommandé : copie SQLite avant tout sprint lourd (déjà en place chez 
 ### 5.1 Pas de framework de tests automatisés
 
 Tendia n'a pas (encore) de pytest. Les "tests" sont des CLI utilitaires :
-- `tester_profils.py` — Crée des profils tests et bascule entre eux
-- `audit_classifications.py` — Audit des classifications LLM
+- `scripts/_archive/tester_profils.py` — Crée des profils tests et bascule entre eux
+- `scripts/audit/audit_classifications.py` — Audit des classifications LLM
 - `connecteurs/diagnostic_*.py` — Diagnostic des plateformes DCE
 
 À ajouter dans un sprint futur : `pytest` sur les fonctions pures (matching, classification logique).

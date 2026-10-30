@@ -229,7 +229,7 @@ session = http_humain.creer_session_humaine(session_id=session_id or pcslid,
   `TENDIA_PROXY_URL` et l'appel à `_proxy_pour_plateforme` ne se font que si
   `proxy_url is None` (ligne 149). Passer `proxy_url="http://..."` applique
   donc le proxy même pour une plateforme marquée `TENDIA_PROXY_FOR_*=0`.
-  (Comportement confirmé par `tests_proxy_par_plateforme.py`, cas « override ».)
+  (Comportement confirmé par `tests/test_proxy_par_plateforme.py`, cas « override ».)
 - **L'injection de session-id ne vaut que pour `brd.superproxy.io`**
   (ligne 152). Pour tout autre fournisseur de proxy, l'URL est utilisée telle
   quelle et `session_id` n'a aucun effet sur l'IP obtenue.

@@ -196,7 +196,7 @@ meta = preset.charger_actif()["preset"].get("meta", {})
 ### Scripts d'audit / tests — invalidation du cache
 
 ```python
-# identifier_briefs_pollues.py:36, relancer_extraction_chantier1.py:22, tests_*.py
+# scripts/_archive/identifier_briefs_pollues.py:36, tests/test_*.py
 preset.recharger()
 ```
 
@@ -208,7 +208,7 @@ preset.recharger()
   - `prompts_versions_pour_presets([]) → {}` (boucle vide, ligne 469).
   - `vocabulaire_llm_pour_presets([]) → vocabulaire_llm()` du preset actif (lignes 502-503).
 
-  Ces comportements asymétriques sont voulus (anti-pollution / hors-périmètre) et couverts par `tests_llm_extract_routage.py` (lignes 98-102) et `tests_briefs_versioning.py` (ligne 43). Côté appelant, llm_extract gère explicitement le cas `codes_presets` vide en n'injectant aucun bloc et en retombant sur des fallbacks neutres (llm_extract.py:267-293), donc il ne s'appuie PAS sur le fallback union de `_filtrer_presets` pour ces deux fonctions.
+  Ces comportements asymétriques sont voulus (anti-pollution / hors-périmètre) et couverts par `tests/test_llm_extract_routage.py` (lignes 98-102) et `tests/test_briefs_versioning.py` (ligne 43). Côté appelant, llm_extract gère explicitement le cas `codes_presets` vide en n'injectant aucun bloc et en retombant sur des fallbacks neutres (llm_extract.py:267-293), donc il ne s'appuie PAS sur le fallback union de `_filtrer_presets` pour ces deux fonctions.
 
 - **Le mapping domaine → presets est dérivé des fichiers, pas un dict statique.** `presets_pour_domaines` lit `veille.domaines_acceptes`/`domaines_optionnels` de chaque `_preset.json` (lignes 320-327). Ajouter/retirer un domaine se fait dans le JSON, pas dans le code.
 

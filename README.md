@@ -79,11 +79,17 @@ ui/templates/           Templates Jinja
 ui/static/              CSS (Tailwind compilé + utilitaires)
 data/                   Base SQLite + DCE téléchargés (gitignoré)
 docs/                   Documentation
+tests/                  Tests hors-ligne (python tests/test_<module>.py)
+scripts/maintenance/    Batchs de re-téléchargement / ré-extraction, outils de reprise
+scripts/audit/          Audits et rapports en lecture seule
+scripts/decp/           Scripts des sprints DECP
+scripts/memoire/        Génération de mémoires techniques
+scripts/_archive/       Legacy non maintenu (cf. son README)
 ```
 
 ## Conventions essentielles
 
 - **UTF-8** partout, `sys.stdout.reconfigure(encoding="utf-8")` en tête des scripts CLI.
 - Persistance via `stockage` (jamais d'accès SQLite direct dans le métier).
-- Tests hors-ligne : `python tests_<module>.py` (style maison `check()`, pas pytest).
+- Tests hors-ligne : `python tests/test_<module>.py` (depuis la racine) (style maison `check()`, pas pytest).
 - Cf [docs/conventions.md](docs/conventions.md).

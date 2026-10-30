@@ -115,7 +115,7 @@ Clé : `memoire__<id_marche>__lot_<numero>__<id_user>__<timestamp>`
 
 ### Génération complète
 ```bash
-python scripts/generer_memoire.py --id-marche BOAMP-26-56995 --numero-lot 2 --id-user demo_btp
+python scripts/memoire/generer_memoire.py --id-marche BOAMP-26-56995 --numero-lot 2 --id-user demo_btp
 ```
 Guards : `--dry-run` (estime le coût des 2 appels, aucun appel LLM),
 `--max-cout 6.00` (plafond € total, abort si l'estimation dépasse),
@@ -125,11 +125,11 @@ Guards : `--dry-run` (estime le coût des 2 appels, aucun appel LLM),
 > Le profil `--id-user` est résolu d'abord dans la collection `organisme`, puis
 > dans `data/profils_demo/<id_user>.json`.
 > Le **digest** du lot doit exister au préalable (sinon erreur avec la commande à lancer) :
-> `python scripts/generer_digest_memoire.py --id-marche <...> --numero-lot <n>`.
+> `python scripts/memoire/generer_digest_memoire.py --id-marche <...> --numero-lot <n>`.
 
 ### Régénération d'une section
 ```bash
-python scripts/regenerer_section.py \
+python scripts/memoire/regenerer_section.py \
   --memoire-id memoire__BOAMP-26-56995__lot_2__demo_btp__20260621T140000 \
   --section-id moyens_humains \
   --instruction "Insiste davantage sur notre expérience en zone urbaine dense"
@@ -141,7 +141,7 @@ Guards : `--dry-run`, `--max-cout`.
 
 ### Batch de validation (audit Younes)
 ```bash
-python scripts/generer_memoire.py --batch-validation
+python scripts/memoire/generer_memoire.py --batch-validation
 ```
 1. Backup SQLite (`data/tendia.db.bak_avant_memoire_<horod>`).
 2. Ingestion des 3 profils fictifs `data/profils_demo/*.json` → collection `organisme`.
@@ -192,8 +192,8 @@ carte **« 2. Mémoire technique »** : un bouton **✍ Générer** par lot.
 | `services/regeneration_section.py` | Régénération d'une section |
 | `prompts/extraction_contexte_memoire_v1.py` | Prompt appel 1 (v1) |
 | `prompts/redaction_memoire_v1.py` | Prompts appel 2 + régénération (v1) |
-| `scripts/generer_memoire.py` | Runner orchestrateur (unitaire / dry-run / batch) |
-| `scripts/regenerer_section.py` | Runner régénération section |
+| `scripts/memoire/generer_memoire.py` | Runner orchestrateur (unitaire / dry-run / batch) |
+| `scripts/memoire/regenerer_section.py` | Runner régénération section |
 | `data/profils_demo/` | 3 profils organisme fictifs (batch validation) |
 | `data/memoires/` | Sorties `.docx` |
 | `data/validation_memoires/` | Dumps JSON pour audit |

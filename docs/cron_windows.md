@@ -1,6 +1,6 @@
 # Planifier les téléchargements DCE anti-ban (Windows Task Scheduler)
 
-Le batch AWS-Achat (`retelecharger_aws_achat_anti_ban.py`) est volontairement
+Le batch AWS-Achat (`scripts/maintenance/retelecharger_aws_achat_anti_ban.py`) est volontairement
 **lent** (≈75 s entre marchés, pauses de 15-30 min toutes les 20 marchés, cap
 de 30 marchés/jour, uniquement aux heures de bureau). C'est ce qui le rend
 indistinguable d'un usage humain et évite le ban IP.
@@ -36,7 +36,7 @@ téléchargés et reprend les restants), il suffit de le relancer chaque jour.
    - Programme/script : `python.exe`
      (ou le chemin complet, ex. `C:\Users\sai-y\AppData\Local\Programs\Python\Python3xx\python.exe` ;
      pour le trouver : dans un terminal, `where python`)
-   - Ajouter des arguments : `retelecharger_aws_achat_anti_ban.py --oui`
+   - Ajouter des arguments : `scripts/maintenance/retelecharger_aws_achat_anti_ban.py --oui`
    - **Commencer dans (facultatif)** : `C:\Users\sai-y\Tendia`
      ⚠️ Ce champ est **indispensable** : le script lit `.env` et la base via des
      chemins relatifs. Sans lui, il échoue.
@@ -73,7 +73,7 @@ Le script étant idempotent, lancer 3 jours d'affilée suffit :
 ```powershell
 $py  = (Get-Command python).Source
 $dir = "C:\Users\sai-y\Tendia"
-$arg = "retelecharger_aws_achat_anti_ban.py --oui"
+$arg = "scripts/maintenance/retelecharger_aws_achat_anti_ban.py --oui"
 
 # Le /TR combine programme + arguments. On force le dossier de travail via cmd.
 foreach ($jour in @("MON","TUE","WED")) {
@@ -94,7 +94,7 @@ Supprimer : `schtasks /Delete /TN "Tendia DCE AWS MON" /F`
   préfère un jour ouvré, sinon le garde-fou « heures de bureau » coupe le run.)
 - **Logs** : le script écrit sa progression sur la sortie standard. Pour la
   conserver, change l'argument en :
-  `retelecharger_aws_achat_anti_ban.py --oui > data\log_aws_%date%.txt 2>&1`
+  `scripts/maintenance/retelecharger_aws_achat_anti_ban.py --oui > data\log_aws_%date%.txt 2>&1`
   (via une action `cmd /c`).
 - **Forcer hors heures de bureau** (tests uniquement) : ajouter `--ignorer-heures`.
 - **Limiter un run** : `--max 5` (utile pour la phase de validation à 5 marchés).
@@ -103,8 +103,8 @@ Supprimer : `schtasks /Delete /TN "Tendia DCE AWS MON" /F`
 
 ## Et les autres plateformes ?
 
-- **achatpublic** (`retelecharger_achatpublic.py`) et **Atexo**
-  (`retelecharger_incomplet.py`) n'ont jamais déclenché de ban. Ils utilisent un
+- **achatpublic** (`scripts/maintenance/retelecharger_achatpublic.py`) et **Atexo**
+  (`scripts/maintenance/retelecharger_incomplet.py`) n'ont jamais déclenché de ban. Ils utilisent un
   rate-limit randomisé léger (~10-15 s) sans contrainte d'heures ni cap. On peut
   les lancer à la main, ils tiennent en une session.
 - **e-marchespublics** (15 marchés) : une seule session suffira quand le

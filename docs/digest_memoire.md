@@ -39,7 +39,7 @@ grille interne), et on est **honnête** sur ce qui manque.
 - `prompts/digest_memoire_v1.py` — prompt système + gabarit utilisateur + `VERSION_PROMPT`.
 - `services/digest_memoire.py` — `generer_digest_memoire_lot(...)` (cœur, lazy, cache,
   filtrage CCTP par lot avec cap d'entrée 80k tokens).
-- `scripts/generer_digest_memoire.py` — CLI runner.
+- `scripts/memoire/generer_digest_memoire.py` — CLI runner.
 
 ## Filtrage CCTP par lot
 Les pièces du DCE (`data/dce/<id_marche>/`) sont filtrées par lot via heuristique sur le
@@ -51,19 +51,19 @@ alerte au-delà).
 
 ```bash
 # Unitaire
-python scripts/generer_digest_memoire.py --id-marche BOAMP-26-56326 --numero-lot 1
+python scripts/memoire/generer_digest_memoire.py --id-marche BOAMP-26-56326 --numero-lot 1
 
 # Dry-run (estimation coût, aucun appel LLM)
-python scripts/generer_digest_memoire.py --id-marche BOAMP-26-56326 --numero-lot 1 --dry-run
+python scripts/memoire/generer_digest_memoire.py --id-marche BOAMP-26-56326 --numero-lot 1 --dry-run
 
 # Forcer la régénération
-python scripts/generer_digest_memoire.py --id-marche BOAMP-26-56326 --numero-lot 1 --force
+python scripts/memoire/generer_digest_memoire.py --id-marche BOAMP-26-56326 --numero-lot 1 --force
 
 # Cap budget par digest
-python scripts/generer_digest_memoire.py --id-marche XXX --numero-lot 1 --max-cout 0.50
+python scripts/memoire/generer_digest_memoire.py --id-marche XXX --numero-lot 1 --max-cout 0.50
 
 # Batch de validation (5 digests stratifiés → data/validation_digests/)
-python scripts/generer_digest_memoire.py --batch-validation
+python scripts/memoire/generer_digest_memoire.py --batch-validation
 ```
 
 Guards CLI : `--dry-run`, `--force`, `--max-cout`, `--limite`, `--batch-validation`.

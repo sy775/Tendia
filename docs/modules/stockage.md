@@ -130,7 +130,7 @@ Aucune. Le module ne lit aucune variable d'environnement ; l'emplacement de la b
    stockage.ecrire(COLLECTION_BRIEFS, mid, brief)                  # analyse.py:766
    ```
 
-(De nombreux scripts d'audit/diagnostic utilisent aussi `stockage.charger("marches")`, `stockage.charger("scores_matching")`, etc. — voir `audit_classifications.py`, `bilan_briefs.py`, `backfill_dce_qualite.py`.)
+(De nombreux scripts d'audit/diagnostic utilisent aussi `stockage.charger("marches")`, `stockage.charger("scores_matching")`, etc. — voir `scripts/audit/audit_classifications.py`, `scripts/audit/bilan_briefs.py`, `scripts/_archive/backfill_dce_qualite.py`.)
 
 ## Pièges connus
 

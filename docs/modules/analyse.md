@@ -181,18 +181,18 @@ LLM et le kill-switch passent par les modules `budget` / `auto_brief` — non an
 
 Recherche `import analyse` / `analyse.` sur le dépôt (hors `venv`) :
 
-- `enrichir_complet.py:37` `import analyse` ; ligne 50 :
+- `scripts/_archive/enrichir_complet.py:37` `import analyse` ; ligne 50 :
   `pertinents = analyse._ids_marches_pertinents()`.
 - `tendia_ui.py:419` (commentaire) : la collection `scores_matching` est « calculée
   par analyse.py » ; l'UI consomme donc les scores produits ici.
-- `bilan_briefs.py:163` et `nettoyer_attributions.py:202` : mentions de
+- `scripts/audit/bilan_briefs.py:163` et `scripts/_archive/nettoyer_attributions.py:202` : mentions de
   `python analyse.py` dans des messages console (invocation CLI conseillée).
 
 Observation : les seuls appels Python externes effectifs portent sur la fonction
 **privée** `_ids_marches_pertinents()` (ligne 638). Aucun appel externe trouvé pour
 les fonctions publiques `matcher_preset_marche`, `analyser_marche`,
 `est_pertinent_strict`, `marches_pertinents_pour_preset`, `statistiques` — elles sont
-utilisées via la CLI ou en interne. (Note : `tester_sprint2bis.py` définit sa propre
+utilisées via la CLI ou en interne. (Note : `scripts/_archive/tester_sprint2bis.py` définit sa propre
 fonction locale `analyser_marche`, sans rapport avec ce module.)
 
 ## Pièges connus (observés dans le code)
@@ -202,7 +202,7 @@ fonction locale `analyser_marche`, sans rapport avec ce module.)
   `par_preset` et les totaux globaux (lignes 608-628).
 
 - **Appel externe sur une fonction privée** : `_ids_marches_pertinents()` (préfixe `_`,
-  donc privée par convention) est importée et appelée par `enrichir_complet.py`.
+  donc privée par convention) est importée et appelée par `scripts/_archive/enrichir_complet.py`.
   Renommer ou déplacer cette fonction casserait cet appelant. (`diagnostic_dce_pertinents.py`,
   autre appelant, a été supprimé au nettoyage 2026-06-27.)
 

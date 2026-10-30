@@ -50,7 +50,7 @@ Observées dans le repo (juin 2026). À respecter pour rester cohérent.
   plateforme proxy (`aws_achat`) — cf dette_technique.
 
 ## Tests
-- Style maison, **pas pytest** : `python tests_<module>.py`, compteur `ok/ko`,
+- Style maison, **pas pytest** : `python tests/test_<module>.py`, compteur `ok/ko`,
   helper `check(nom, cond)`, `sys.exit(1 if ko else 0)`.
 - Mocks via `FakeSession`/`FakeResponse` + monkeypatch des fonctions réseau.
 - Fixtures réelles depuis les HAR (ex. `dematis exemple/…har`).

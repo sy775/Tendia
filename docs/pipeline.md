@@ -5,7 +5,7 @@ Doc ancrée sur le code réel.
 
 ## Étape 1 — Ingestion des avis (BOAMP / TED)
 
-- **Module** : `connecteurs/boamp.py`, orchestré par `tendia_veille.py`.
+- **Module** : `connecteurs/boamp.py`, orchestré par `scripts/_archive/tendia_veille.py`.
 - **Entrée** : API BOAMP/TED (via `http_utils`, sans proxy).
 - **Sortie** : collection `marches` (1 objet par marché, clé `BOAMP-26-XXXXX`).
 - Champs : id, source, titre, objet, acheteur, dates, CPV, périmètre, etc.
@@ -40,13 +40,13 @@ Doc ancrée sur le code réel.
 - **Entrée** : `marche.url_dce`.
 - **Sortie** : `data/dce/<id>/` (PDF + ZIP décompressés) + maj `dce_contenu`.
 - Captcha résolu via 2captcha (Dematis/AWS). Proxy par plateforme (PLACE en direct).
-- **CLI** (batchs anti-ban) : `retelecharger_dematis_anti_ban.py`,
-  `retelecharger_aws_achat_anti_ban.py`, `relancer_dce_echecs.py`.
+- **CLI** (batchs anti-ban) : `scripts/maintenance/retelecharger_dematis_anti_ban.py`,
+  `scripts/maintenance/retelecharger_aws_achat_anti_ban.py`, `scripts/maintenance/relancer_dce_echecs.py`.
 - Cf [modules/downloaders.md](modules/downloaders.md).
 
 ## Étape 4bis — Qualification du contenu DCE
 
-- **Module** : `tendia_dce.qualifier_dce` (+ backfill `backfill_dce_qualite.py`).
+- **Module** : `tendia_dce.qualifier_dce` (+ backfill `scripts/_archive/backfill_dce_qualite.py`).
 - **Sortie** : `marche.dce_contenu` ∈ {`complet, incomplet, candidature, vide,
   auth_requise, erreur`} + `dce_pieces_contractuelles`. Lit aussi les ZIP imbriqués
   et archives .7z/.rar.
@@ -65,7 +65,7 @@ Doc ancrée sur le code réel.
   `data/extractions/<id>.json`. `_meta` porte le versioning preset
   (`preset_utilise`, `presets_matches`, `prompts_versions`).
 - **CLI** : `python tendia_extraire.py --marche <id>` ;
-  re-extraction de masse : `reextraire_briefs_complet.py`.
+  re-extraction de masse : `scripts/maintenance/reextraire_briefs_complet.py`.
 - Variante **light** (depuis l'avis seul, sans DCE) : `auto_brief.py`.
 - Cf [modules/tendia_extraire.md](modules/tendia_extraire.md),
   [modules/llm_extract.md](modules/llm_extract.md).
@@ -81,7 +81,7 @@ Doc ancrée sur le code réel.
   `non_pertinent` (ou non_pertinent dur si verrou go/no-go non satisfait).
 - `analyse.py` produit séparément le pré-filtrage `scores_matching` (booléen
   `matche` par preset, keyword/CPV/IA) — utilisé pour restreindre la liste.
-- **CLI** : `python tendia_matcher.py` / `python analyse.py`.
+- **CLI** : `python scripts/_archive/tendia_matcher.py` / `python analyse.py`.
 
 ## Étape 7 — Présentation (UI Flask)
 
@@ -97,7 +97,7 @@ Doc ancrée sur le code réel.
 
 ## Étapes annexes
 
-- **Calibration des montants** : `llm_calibration.py` / `calibrer_briefs.py`
+- **Calibration des montants** : `llm_calibration.py` / `scripts/maintenance/calibrer_briefs.py`
   (comparables DECP, écrits sur disque `data/extractions_calibrees/`).
 - **Concurrence / attributions** : `concurrence.py`, `tendia_decp*.py`,
   `marches_attribues.py` (DECP, titulaires historiques).

@@ -22,7 +22,7 @@ couche K/V maison (`stockage.py`), SDK `anthropic` (LLM), `2captcha-python` (cap
 ```
 ┌─────────────┐   connecteurs/boamp.py        ┌──────────────────────┐
 │ BOAMP / TED │ ───────────────────────────▶  │ collection: marches  │
-│   (API)     │   (tendia_veille.py)          └──────────┬───────────┘
+│   (API)     │   (scripts/_archive/tendia_veille.py)          └──────────┬───────────┘
 └─────────────┘                                          │
                           tendia_classification.py       │  (LLM Haiku : domaine sectoriel)
                           ───────────────────────────▶   ▼
@@ -102,7 +102,7 @@ Schéma des collections : [data_model.md](data_model.md).
 | Module | Rôle |
 |---|---|
 | `connecteurs/boamp.py` | Connecteur API BOAMP (récupération des avis) |
-| `tendia_veille.py` | Orchestration de la veille (ingestion marchés) |
+| `scripts/_archive/tendia_veille.py` | Orchestration de la veille (ingestion marchés) |
 | `tendia_classification.py` | Classification sectorielle LLM (Haiku) → `classifications_ia` |
 | `dce_finder.py` | Résolution de l'URL DCE depuis les champs eForms |
 | `tendia_dce.py` | Pipeline de recherche d'URL DCE + qualification `dce_contenu` |
@@ -122,7 +122,7 @@ Schéma des collections : [data_model.md](data_model.md).
 | `fiche_marche.py` | Helpers de présentation (verdict 90s, richesse, KPI) |
 | `organisme.py` | Profil organisme (CRUD, validation, schéma sectoriel) |
 | `profil_form.py` / `profil_widgets.py` | Formulaires/widgets d'édition de profil |
-| `llm_calibration.py` / `calibrer_briefs.py` | Calibration des montants (comparables DECP) |
+| `llm_calibration.py` / `scripts/maintenance/calibrer_briefs.py` | Calibration des montants (comparables DECP) |
 | `concurrence.py` / `tendia_decp*.py` | Analyse concurrentielle (DECP, attributaires) |
 
 ### Transverse

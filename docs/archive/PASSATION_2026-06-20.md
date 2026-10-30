@@ -20,7 +20,7 @@ python relancer_extraction_v3.py        # Python SYSTÈME (Python312), PAS le ve
 C'est **resumable automatiquement** : le script sélectionne les marchés `dce_contenu==complet`
 + DCE sur disque dont le brief n'est **pas** au SHA courant. Les 31 déjà faits sont skippés.
 Coût restant estimé ~**80 €** (DCE sur disque → 0 € proxy/captcha). Durée ~1,5–2 h.
-Log : `data/reextraction_v3.log`. Rapport final : `RAPPORT_REEXTRACTION_V3.md`.
+Log : `data/reextraction_v3.log`. Rapport final : `docs/archive/RAPPORT_REEXTRACTION_V3.md`.
 
 > Tant que la réextraction n'est pas finie : les fiches des marchés **déjà** réextraits
 > affichent le modèle complet (coût + CA + comment c'est calculé) ; les autres affichent

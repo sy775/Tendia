@@ -2,19 +2,13 @@
 REM ==========================================================
 REM   Tendia — Lanceur complet
 REM
-REM   1. Active le venv Python
-REM   2. Lance le pipeline complet (recup BOAMP/TED + DCE + LLM)
-REM   3. Demarre le serveur web
-REM   4. Ouvre le navigateur sur l'UI
-REM
-REM   IMPORTANT : adapter le chemin ci-dessous selon l'emplacement
-REM   reel du dossier Tendia sur ta machine.
+REM   1. Lance le pipeline complet (recup BOAMP/TED + DCE + LLM)
+REM   2. Demarre le serveur web
+REM   3. Ouvre le navigateur sur l'UI
 REM ==========================================================
 
-cd /d C:\Users\sai-y\Tendia
-
-REM Active le venv
-call venv\Scripts\activate.bat
+REM Se place dans le dossier du .bat (Python systeme, pas de venv)
+cd /d "%~dp0"
 
 REM ----- Etape 1 : Pipeline (recuperation + telechargement + extraction LLM)
 echo.

@@ -220,19 +220,12 @@ Variables d'environnement : aucune lue directement dans ce fichier. La clé API
 
 ## Exemples d'usage (appelants réels)
 
-### `reextraire_briefs_complet.py`
+### `scripts/maintenance/reextraire_briefs_complet.py`
 
 Importe `tendia_extraire` (ligne 33). Appelle
 `tendia_extraire._scanner_dossiers_dce(force=True, verbose=False)` (ligne 75)
 puis `tendia_extraire.traiter_marche(mid, _dossier_scan, pdfs, ...)` (ligne 106),
 et ré-ouvre ensuite le brief que `traiter_marche` a stocké en base.
-
-### `relancer_extraction_chantier1.py`
-
-Importe `stockage, preset, tendia_extraire, pdf_extract` (ligne 21). Appelle
-`tendia_extraire._dezipper_dossier(dossier, verbose=False)` (ligne 136) puis
-`tendia_extraire.traiter_marche(mid, dossier, pdfs, dry_run=False,
-verbose=False)` (ligne 140).
 
 ### En ligne de commande
 
@@ -243,10 +236,9 @@ python tendia_extraire.py --force          # re-extraire même si déjà fait
 python tendia_extraire.py --dry-run        # pas d'appel API, juste scan
 ```
 
-Autres modules du dépôt référençant `tendia_extraire` (par `grep`) : `auto_brief.py`,
-`diag_gros_dce.py`, `enrichir_complet.py`, `regenerer_briefs_md.py`,
-`regenerer_md.py`, `tendia_briefs_auto.py`, `tendia_pipeline.py`,
-`tendia_reextraire_batch.py`, `tendia_telecharger_dce.py`, `tendia_veille.py`
+Autres modules du dépôt référençant `tendia_extraire` (par `grep`) : `auto_brief.py`, `scripts/_archive/enrichir_complet.py`, `scripts/maintenance/regenerer_briefs_md.py`,
+`scripts/_archive/tendia_briefs_auto.py`, `tendia_pipeline.py`,
+`scripts/maintenance/tendia_reextraire_batch.py`, `tendia_telecharger_dce.py`, `scripts/_archive/tendia_veille.py`
 (usages non détaillés ici).
 
 ## Pièges connus
@@ -254,13 +246,13 @@ Autres modules du dépôt référençant `tendia_extraire` (par `grep`) : `auto_
 - **`_scanner_dossiers_dce(force=True)` re-décompresse et ré-extrait TOUS les
   dossiers de `data/dce`** : il itère sur l'ensemble des sous-dossiers, appelle
   `_dezipper_dossier` puis `pdf_extract.extraire_dossier` pour chacun, avant de
-  filtrer par signature. Avec `force=True` (cas de `reextraire_briefs_complet.py`),
+  filtrer par signature. Avec `force=True` (cas de `scripts/maintenance/reextraire_briefs_complet.py`),
   le filtre de signature est court-circuité et **tous** les marchés sont remis à
   traiter — lent sur de gros DCE.
 
 - **`_meta` porte deux horodatages redondants** : `date_generation` (canonique)
   et `extraction_le` (alias rétro-compat utilisé par
-  `identifier_briefs_pollues.py`), tous deux égaux (lignes 340-341).
+  `scripts/_archive/identifier_briefs_pollues.py`), tous deux égaux (lignes 340-341).
 
 - **Champs de routage ajoutés à `_meta`** : `preset_utilise` (premier preset),
   `presets_matches` (tous les presets ciblés) et `prompts_versions` (versions de

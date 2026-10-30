@@ -97,29 +97,29 @@ python tendia_classification.py --id BOAMP-26-XXXXX --force --modele sonnet
 python analyse.py --force
 
 # Briefer les marchés pertinents du preset actif
-python enrichir_complet.py
+python scripts/_archive/enrichir_complet.py
 
 # Briefer TOUS les marchés briefables (mode mutualisé multi-clients)
-python enrichir_complet.py --mutualise --max-cout 20.0
+python scripts/_archive/enrichir_complet.py --mutualise --max-cout 20.0
 
 # Briefer en priorisant certains presets en premier
-python enrichir_complet.py --mutualise --max-cout 20.0 `
+python scripts/_archive/enrichir_complet.py --mutualise --max-cout 20.0 `
     --prioriser energie_renouvelable `
     --prioriser btp `
     --prioriser formation
 
 # Dry-run pour estimer le coût
-python enrichir_complet.py --mutualise --dry-run
+python scripts/_archive/enrichir_complet.py --mutualise --dry-run
 
 # Briefer 1 marché spécifique
-python enrichir_complet.py --id BOAMP-26-XXXXX
+python scripts/_archive/enrichir_complet.py --id BOAMP-26-XXXXX
 ```
 
 ### Audit et debug
 
 ```bash
 # Audit complet des classifications
-python audit_classifications.py
+python scripts/audit/audit_classifications.py
 
 # Switcher de preset actif
 python -c "import preset; preset.basculer_preset('btp')"
@@ -133,19 +133,19 @@ python connecteurs/diagnostic_plateformes.py
 
 ```bash
 # Statut du profil actif
-python init_profil.py
+python scripts/maintenance/init_profil.py
 
 # Créer un template vide pour un preset (ex: BTP)
-python init_profil.py --template btp
+python scripts/maintenance/init_profil.py --template btp
 
 # Importer un profil depuis un fichier JSON
-python init_profil.py --depuis data/exemples/profil_btp_demo.json
+python scripts/maintenance/init_profil.py --depuis data/exemples/profil_btp_demo.json
 
 # Vérifier la validité du profil et son taux de remplissage
 python organisme.py --check
 
 # Supprimer le profil actif
-python init_profil.py --purger --confirmer
+python scripts/maintenance/init_profil.py --purger --confirmer
 ```
 
 Profil multi-secteurs depuis Sprint A : socle commun + profils sectoriels par preset. Format JSON. Validation par `valider_profil()` dans `organisme.py`. Backward compat avec format legacy formation.
@@ -154,10 +154,10 @@ Profil multi-secteurs depuis Sprint A : socle commun + profils sectoriels par pr
 
 ```bash
 # Tester le matching V2 sur tous les marchés en base
-python tester_matching.py --top 15
+python scripts/_archive/tester_matching.py --top 15
 
 # Détails d'un marché spécifique
-python tester_matching.py --details BOAMP-26-XXXXX
+python scripts/_archive/tester_matching.py --details BOAMP-26-XXXXX
 ```
 
 ### UI web
@@ -179,51 +179,37 @@ python tendia_ui.py
 
 ```
 Tendia/
-├── tendia_sourcing.py       # Sourcing BOAMP/DECP
-├── tendia_classification.py # Classification IA Haiku (Sprint 2)
-├── tendia_extraire.py       # Pipeline brief LLM avec sync classif (Sprint 2bis)
-├── tendia_ui.py             # Serveur Flask
-├── analyse.py               # Matching marché × preset
-├── matching.py              # Matching organisme × marché V2 (Sprint B)
-├── tester_matching.py       # Démo matching V2
-├── enrichir_complet.py      # Orchestrateur briefs LLM
+├── tendia_ui.py             # Serveur Flask (point d'entrée UI)
+├── tendia_pipeline.py       # Orchestrateur du pipeline (point d'entrée batch)
+├── tendia_recup.py          # Ingestion BOAMP/TED
+├── tendia_classification.py # Classification IA (Haiku)
+├── tendia_dce.py            # Résolution des URLs DCE
+├── tendia_telecharger_dce.py# Téléchargement DCE
+├── tendia_extraire.py       # Extraction LLM DCE → brief
 ├── llm_extract.py           # Brief LLM + routage classif + filtre anti-hallucination
-├── llm_calibration.py       # Calibrage prix (Sonnet 4.6)
-├── matching_exigences.py    # Qualification d'éligibilité (legacy formation)
-├── organisme.py             # Profil organisme socle+sectoriel (Sprint A)
-├── init_profil.py           # CLI profil
-├── preset.py                # Gestion presets sectoriels
-├── budget.py                # Module budget LLM (Sprint 3)
-├── stockage.py              # Couche SQLite kv_storage (Sprint 3)
-├── identifier_briefs_pollues.py # Détection briefs pré-Sprint 2bis
-├── regenerer_md.py          # Régénération des MD depuis briefs en base
-├── connecteurs/
-│   ├── boamp.py             # Connecteur BOAMP
-│   └── decp_consolidee.py   # Connecteur DECP
-├── presets/                # Presets sectoriels
-│   ├── _taxonomie_domaines.json
-│   ├── formation/_preset.json
-│   ├── energie_renouvelable/_preset.json
-│   ├── btp/_preset.json
-│   ├── it/_preset.json
-│   ├── conseil/_preset.json
-│   └── ingenierie/_preset.json
-├── ui/templates/           # Templates Jinja
-│   ├── base.html
-│   ├── dashboard.html
-│   ├── explorer.html
-│   ├── marche.html
-│   └── profil.html
-├── data/
-│   ├── tendia.db           # Base SQLite principale
-│   ├── dce_archives/       # DCE téléchargés
-│   └── extractions_calibrees/ # Calibrations sourcées
+├── llm_calibration.py       # Calibrage prix
+├── matching.py              # Matching organisme × marché
+├── matching_exigences.py    # Qualification d'éligibilité
+├── organisme.py             # Profil organisme socle + sectoriel
+├── preset.py                # Presets sectoriels
+├── stockage.py              # Couche SQLite kv_storage
+├── *_downloader.py          # Téléchargeurs DCE par plateforme
+├── …                        # autres modules du cœur (importés par l'UI ou le pipeline)
+├── connecteurs/             # Connecteurs BOAMP, DECP consolidée
+├── decp/                    # Package DECP (acquisition, classification, matching)
+├── services/  prompts/      # Mémoire technique
+├── presets/                 # Presets sectoriels (_taxonomie_domaines.json, <code>/_preset.json)
+├── ui/                      # Templates Jinja + CSS
+├── tests/                   # Tests hors-ligne : python tests/test_<module>.py
+├── scripts/
+│   ├── maintenance/         # Batchs de re-téléchargement / ré-extraction, outils de reprise
+│   ├── audit/               # Audits et rapports en lecture seule
+│   ├── decp/                # Scripts des sprints DECP
+│   ├── memoire/             # Génération de mémoires techniques
+│   └── _archive/            # Legacy non maintenu (cf. son README)
+├── data/                    # tendia.db, dce/, extractions/ … (en grande partie gitignoré)
 ├── docs/
-│   ├── cadrage_strategique.md
-│   ├── documentation_technique.md
-│   ├── passation_claude.md
-│   └── journal.txt
-└── .env                    # ANTHROPIC_API_KEY
+└── .env                     # ANTHROPIC_API_KEY, TWOCAPTCHA_API_KEY, TENDIA_PROXY_URL
 ```
 
 ---

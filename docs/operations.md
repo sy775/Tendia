@@ -40,15 +40,15 @@ PYTHONUTF8=1 python tendia_recup.py --large --differentiel   # ingestion BOAMP T
 python tendia_classification.py    # classification sectorielle → classifications_ia (Haiku, ~0,006 €/avis)
 python tendia_dce.py               # résolution URL DCE (par défaut marchés actifs)
 # téléchargement DCE (batchs anti-ban, réseau) :
-python retelecharger_dematis_anti_ban.py --max 15 --oui [--ignorer-heures]
-python retelecharger_aws_achat_anti_ban.py [...]
-python relancer_dce_echecs.py [...]
+python scripts/maintenance/retelecharger_dematis_anti_ban.py --max 15 --oui [--ignorer-heures]
+python scripts/maintenance/retelecharger_aws_achat_anti_ban.py [...]
+python scripts/maintenance/relancer_dce_echecs.py [...]
 # extraction brief complet :
 python tendia_extraire.py --marche <id>
-python reextraire_briefs_complet.py --oui [--limite N]
+python scripts/maintenance/reextraire_briefs_complet.py --oui [--limite N]
 # matching / analyse :
 python analyse.py
-python tendia_matcher.py
+python scripts/_archive/tendia_matcher.py
 ```
 
 Pipeline complet en une commande : `PYTHONUTF8=1 python tendia_pipeline.py
@@ -89,22 +89,19 @@ sont surtout des consultations retirées/closes (irrécupérables) ou un proxy s
 
 ## Re-extraction des briefs (LLM)
 
-- `reextraire_briefs_complet.py --oui [--limite N]` : re-extrait les marchés `complet`
+- `scripts/maintenance/reextraire_briefs_complet.py --oui [--limite N]` : re-extrait les marchés `complet`
   pas encore marqués `genere_avec_dce_complet`. ⚠️ fait un scan global des dossiers DCE
   (lent : re-décompresse tout, y compris gros DCE).
-- Pour une re-extraction priorisée/plafonnée : `relancer_extraction_chantier1.py
-  --plafond-eur 30 --oui` (1/preset garanti, priorisé par gisement, géants > 500 Mo
-  écartés, log flushé `logs/chantier1_1g_*.jsonl`).
 - **Toujours** backup `briefs_extraits` avant.
 
 ## Monitoring
 
 - **Logs JSONL** : `logs/<downloader>_<date>.jsonl` (1 ligne/événement). Tail pour
   suivre un batch en direct (flushé par événement, contrairement à stdout bufferisé).
-- **Budget LLM** : `python tendia_monitoring.py` / `budget.py` (compteur jour,
+- **Budget LLM** : `python scripts/audit/tendia_monitoring.py` / `budget.py` (compteur jour,
   coût cumulé, journal `llm_appels`).
-- **Stats pipeline** : `python stats_pipeline_dce.py`, `python bilan_briefs.py`,
-  `python audit_classifications.py`.
+- **Stats pipeline** : `python scripts/audit/stats_pipeline_dce.py`, `python scripts/audit/bilan_briefs.py`,
+  `python scripts/audit/audit_classifications.py`.
 - **Suivi d'un batch via la base** (quand stdout est bufferisé) :
   ```bash
   python -c "import stockage; from collections import Counter; m=stockage.charger('marches'); \

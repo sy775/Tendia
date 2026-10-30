@@ -10,7 +10,7 @@ Industrialisation v2 (13/06/2026).
 
 ```
             ┌─────────────────────────────────────────────┐
- cron  ───▶ │ retelecharger_aws_achat_anti_ban.py (batch)  │
+ cron  ───▶ │ scripts/maintenance/retelecharger_aws_achat_anti_ban.py (batch)  │
             │  · cap /run, heures bureau, pauses, coûts     │
             └───────────────┬───────────────────────────────┘
                             │ telecharger_dce_pour_marche
@@ -79,7 +79,7 @@ Si `curl_cffi` ne s'installe pas, **tout continue de fonctionner** en fallback
 ## 3. Cron Windows Task Scheduler
 
 Voir `docs/cron_windows.md` (procédure complète GUI + `schtasks`). Principe :
-3 matinées lun-mar-mer, `retelecharger_aws_achat_anti_ban.py --oui`, script
+3 matinées lun-mar-mer, `scripts/maintenance/retelecharger_aws_achat_anti_ban.py --oui`, script
 idempotent → 30 marchés/jour × 3 ≥ les ~70 marchés AWS restants.
 
 ---
@@ -88,7 +88,7 @@ idempotent → 30 marchés/jour × 3 ≥ les ~70 marchés AWS restants.
 
 Après chaque batch :
 ```powershell
-python tendia_monitoring.py
+python scripts/audit/tendia_monitoring.py
 ```
 Affiche : couverture DCE de la base, derniers batchs (logs JSONL), coûts du mois
 (bande passante × $8/GB + captchas), marchés en échec à reprendre.
@@ -117,7 +117,7 @@ Les logs bruts sont dans `logs/<downloader>_<YYYY-MM-DD>.jsonl` (gitignorés).
 - **2captcha** : ~$5/mois (seul AWS-Achat consomme des captchas, ~$0.001 pièce).
 - **Total infra** : ~$10-20/mois. Le coût LLM (briefs) est suivi à part.
 
-`tendia_monitoring.py` recalcule ces coûts depuis les logs réels chaque mois.
+`scripts/audit/tendia_monitoring.py` recalcule ces coûts depuis les logs réels chaque mois.
 
 ---
 

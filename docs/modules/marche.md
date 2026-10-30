@@ -124,7 +124,7 @@ _À dérouler sans interruption une fois la SECTION 1 validée :_
 2. **Patch `connecteurs/boamp.py`** : helpers d'extraction des 30 champs +
    câblage dans `_normaliser`. Parse PCSLID depuis `cbc:EndpointID`. Note B12 dans
    `dette_technique.md`.
-3. **Backfill** : `scripts/backfill_enrichissement_boamp.py` (re-fetch des 422 avis
+3. **Backfill** : `scripts/maintenance/backfill_enrichissement_boamp.py` (re-fetch des 422 avis
    via `www.boamp.fr`, MAJ des marchés, log couverture par champ — dont
    `montant_estime_eur > 0`). 0 € LLM.
 4. **Schéma** : aucune table relationnelle (KV JSON) ; mise à jour matching DECP
@@ -152,7 +152,7 @@ de découverte de l'URL**, PAS la complétude. La re-extraction cible `dce_conte
 `tendia_telecharger_dce.telecharger_pieces_dce` est un wrapper : tente
 `url_consultation_dce_directe` (avec PCSLID) **en priorité**, repli sur `url_dce` reconstruite
 si absente ou échec. Ajoute `url_utilisee`/`url_source` au résultat. Re-download :
-`scripts/retenter_download_dce.py` (parallèle 5 workers, écriture mono-thread).
+`scripts/maintenance/retenter_download_dce.py` (parallèle 5 workers, écriture mono-thread).
 
 ### Montant en 3 voies (`montant_3_voies` + aplatissement)
 
@@ -188,5 +188,5 @@ flags critères BOAMP, lots) → le prompt v2 l'exploite pour cohérence/complé
 
 `prompt_version_sha` (SHA-256 des règles v2) + `version_extraction_llm='2'` par brief. Le brief
 v1 est sauvegardé dans `brief_v1_backup` (rollback 30 j, cf. dette B14). Re-extraction :
-`scripts/reextraire_briefs_v2.py` (parallèle 8 workers, `BudgetTracker` thread-safe `try_reserve`,
+`scripts/maintenance/reextraire_briefs_v2.py` (parallèle 8 workers, `BudgetTracker` thread-safe `try_reserve`,
 écriture mono-thread anti-lock, cap € dur). Cap d'appels/jour relevé automatiquement.
