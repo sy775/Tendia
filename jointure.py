@@ -28,8 +28,6 @@ Usage côté pipeline :
     jointure.synchroniser_tous_decp(marches_decp_dict)
     stats = jointure.stats()
     print(stats)
-
-Pour initialisation rétroactive : `python jointure_init.py`
 """
 
 import json

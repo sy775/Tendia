@@ -14,8 +14,6 @@ Suite au ban IP du 13/06/2026 (rythme fixe 3 s + UA unique = pattern bot
 Le User-Agent tournant et les délais inter-étapes sont gérés en amont par
 aws_downloader (via http_humain). Idempotent : skip les marchés déjà OK.
 
-L'ancien retelecharger_aws_achat.py est conservé (compat / rythme rapide).
-
 Usage : python retelecharger_aws_achat_anti_ban.py [--oui] [--max N]
                                                    [--ignorer-heures]
 """
