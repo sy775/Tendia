@@ -69,6 +69,11 @@ CREATE TABLE IF NOT EXISTS marche_attribution_link (
 );
 CREATE INDEX IF NOT EXISTS idx_link_tendia ON marche_attribution_link(marche_tendia_id);
 CREATE INDEX IF NOT EXISTS idx_link_decp ON marche_attribution_link(decp_id);
+-- Sprint DECP-R : seuls les liens confirmés par l'objet sont exploitables (UI, compagnon).
+-- Les liens 'auto_a_verifier' (scorer_match sans comparaison d'objet, ~1 sur 2 faux) restent
+-- en base mais ne doivent pas être lus ailleurs que par cette vue.
+CREATE VIEW IF NOT EXISTS v_attributions_exploitables AS
+    SELECT * FROM marche_attribution_link WHERE statut = 'auto_confirme_objet';
 
 CREATE TABLE IF NOT EXISTS decp_classification (
     decp_id         TEXT PRIMARY KEY,
