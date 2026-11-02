@@ -150,6 +150,8 @@ def _criteres_publies_texte(bareme: dict) -> str:
 
 def _appeler_llm(user_msg: str):
     """Appel Sonnet 4.6 (streaming). Retourne (data_json, usage)."""
+    import budget
+    budget.verifier_kill_switch("digest")
     client = Anthropic()
     debut = time.time()
     with client.messages.stream(

@@ -143,6 +143,8 @@ def appeler_llm(system_prompt: str, user_msg: str, max_tokens: int) -> Tuple[str
     usage = {tokens_entree, tokens_sortie, duree_s, stop_reason}. Le nettoyage
     se limite au retrait d'un éventuel fence markdown ```json … ```. AUCUNE
     réparation de JSON (cf. guardrails) — le parsing est laissé à l'appelant."""
+    import budget
+    budget.verifier_kill_switch("memoire")
     client = Anthropic()
     debut = time.time()
     with client.messages.stream(

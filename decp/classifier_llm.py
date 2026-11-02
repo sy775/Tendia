@@ -90,6 +90,8 @@ def _cout_eur(usage) -> float:
 
 def classer_llm(marche: dict, retries: int = 2) -> dict:
     """Retourne {preset, confiance, cout_eur, ok, erreur}."""
+    import budget
+    budget.verifier_kill_switch("decp")
     client = _get_client()
     derniere = None
     for tentative in range(1, retries + 1):

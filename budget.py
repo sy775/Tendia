@@ -76,8 +76,9 @@ FICHIER_BUDGET = RACINE / "data" / "budget.json"
 
 COLLECTION_APPELS = "llm_appels"
 
-# Types d'appels LLM connus (pour validation)
-TYPES_VALIDES = {"extraction", "calibration"}
+# Types d'appels LLM connus (pour validation). Sprint DECP-R : tous les appels LLM
+# de Tendia ont un type (classification, decp, memoire, digest en plus).
+TYPES_VALIDES = {"extraction", "calibration", "classification", "decp", "memoire", "digest"}
 
 # Valeurs par défaut conservatrices : 100 appels/jour de chaque type,
 # alerte mensuelle à 50 €, kill-switch désactivé.
@@ -85,7 +86,17 @@ DEFAUT_BUDGET = {
     "actif": True,
     "extraction_max_par_jour": 100,
     "calibration_max_par_jour": 100,
+    "classification_max_par_jour": 2000,
+    "decp_max_par_jour": 20000,
+    "memoire_max_par_jour": 50,
+    "digest_max_par_jour": 50,
     "alerte_seuil_eur_mois": 50.0,
+    # Plafond DUR mensuel (tous types journalisés dans llm_appels) : au-delà, tout appel
+    # est refusé (décision Younes, Sprint DECP-R : 100 €/mois, alerte à 50 €).
+    "plafond_global_eur_mois": 100.0,
+    # Enveloppes de sprint (plafond dur sur les appels taggés de l'enveloppe).
+    "enveloppes": {"decp_reprise": {"total_eur": 10.0, "claude_eur": 1.0},
+                   "decp_hebdo": {"total_eur": 2.0, "claude_eur": 0.0, "mensuel": True}},
     "kill_switch_global": False,
     "_commentaire": (
         "Édite ce fichier à la main pour changer les limites. "
@@ -165,6 +176,16 @@ def peut_appeler_llm(type_appel: str,
                    "Édite data/budget.json pour réactiver.",
         )
 
+    # Plafond dur mensuel global (appliqué même si actif=false : c'est un garde-fou)
+    plafond_mois = config.get("plafond_global_eur_mois")
+    if plafond_mois is not None:
+        cout_mois = _cout_mois()
+        if cout_mois >= float(plafond_mois):
+            return DecisionAppel(
+                autorise=False,
+                raison=(f"Plafond mensuel global atteint : {cout_mois:.2f} € ≥ "
+                        f"{float(plafond_mois):.2f} € (plafond_global_eur_mois)."))
+
     # Si actif=false, on laisse passer sans vérifier les compteurs
     if not config.get("actif", True):
         return DecisionAppel(autorise=True,
@@ -187,6 +208,67 @@ def peut_appeler_llm(type_appel: str,
     return DecisionAppel(autorise=True,
                           compteur_jour=n_jour,
                           plafond_jour=plafond)
+
+
+def verifier_kill_switch(type_appel: str) -> None:
+    """Garde minimale à placer AVANT tout appel LLM qui ne passe pas par
+    peut_appeler_llm (classification, calibration, mémoires, digest) :
+        import budget
+        budget.verifier_kill_switch("memoire")
+    Lève BudgetDepasseError si kill_switch_global=true ou si le plafond mensuel global
+    est atteint. Ne consomme aucun quota (ces appels ne sont pas comptés par jour)."""
+    config = lire_config()
+    if config.get("kill_switch_global"):
+        raise BudgetDepasseError(
+            f"Appel LLM « {type_appel} » bloqué : kill_switch_global=true (data/budget.json).")
+    plafond_mois = config.get("plafond_global_eur_mois")
+    if plafond_mois is not None and _cout_mois() >= float(plafond_mois):
+        raise BudgetDepasseError(
+            f"Appel LLM « {type_appel} » bloqué : plafond mensuel global "
+            f"{float(plafond_mois):.2f} € atteint.")
+
+
+def _cout_mois(mois: Optional[str] = None) -> float:
+    mois = mois or _mois_iso()
+    return sum(float(a.get("cout_eur") or 0) for a in stockage.charger(COLLECTION_APPELS).values()
+               if a.get("mois") == mois)
+
+
+def depense_enveloppe(enveloppe: str) -> dict:
+    """Dépense d'une enveloppe : {total_eur, claude_eur, n}. Cumulée, ou limitée au mois
+    courant si l'enveloppe est déclarée "mensuel": true (ex. mise à jour hebdomadaire DECP)."""
+    env = (lire_config().get("enveloppes") or {}).get(enveloppe) or {}
+    mois = _mois_iso() if env.get("mensuel") else None
+    tot = claude = 0.0
+    n = 0
+    for a in stockage.charger(COLLECTION_APPELS).values():
+        if a.get("enveloppe") == enveloppe and (mois is None or a.get("mois") == mois):
+            c = float(a.get("cout_eur") or 0)
+            tot += c
+            n += 1
+            if str(a.get("modele") or "").startswith("claude"):
+                claude += c
+    return {"total_eur": round(tot, 4), "claude_eur": round(claude, 4), "n": n}
+
+
+def peut_depenser(enveloppe: str, cout_estime_eur: float, fournisseur: str = "") -> DecisionAppel:
+    """Autorise une dépense ESTIMÉE dans une enveloppe de sprint (plafond dur). À appeler
+    avant chaque lot : refuse si dépense + estimation dépasse le plafond total, ou le
+    plafond Claude quand fournisseur == 'claude'. Respecte aussi le kill switch."""
+    config = lire_config()
+    if config.get("kill_switch_global"):
+        return DecisionAppel(False, "Kill-switch budget activé (kill_switch_global=true).")
+    env = (config.get("enveloppes") or {}).get(enveloppe)
+    if not env:
+        return DecisionAppel(False, f"Enveloppe inconnue : {enveloppe!r} (data/budget.json).")
+    dep = depense_enveloppe(enveloppe)
+    if dep["total_eur"] + cout_estime_eur > float(env.get("total_eur", 0)):
+        return DecisionAppel(False, (f"Enveloppe {enveloppe} : {dep['total_eur']:.4f} € dépensés + "
+                                     f"{cout_estime_eur:.4f} € estimés > {env.get('total_eur')} €."))
+    if fournisseur == "claude" and dep["claude_eur"] + cout_estime_eur > float(env.get("claude_eur", 0)):
+        return DecisionAppel(False, (f"Enveloppe {enveloppe} (Claude) : {dep['claude_eur']:.4f} € + "
+                                     f"{cout_estime_eur:.4f} € > {env.get('claude_eur')} €."))
+    return DecisionAppel(True, f"reste {float(env['total_eur']) - dep['total_eur']:.4f} €")
 
 
 # ---------------------------------------------------------------------------
@@ -216,7 +298,9 @@ def enregistrer_appel(type_appel: str,
                         tokens_output: Optional[int] = None,
                         duree_ms: Optional[int] = None,
                         modele: Optional[str] = None,
-                        erreur: Optional[str] = None) -> str:
+                        erreur: Optional[str] = None,
+                        enveloppe: Optional[str] = None,
+                        extra: Optional[dict] = None) -> str:
     """
     Enregistre un appel LLM dans la collection 'llm_appels' pour audit
     et calcul des compteurs. Retourne l'id généré de l'appel.
@@ -241,7 +325,17 @@ def enregistrer_appel(type_appel: str,
         "jour": _jour_iso(),
         "mois": _mois_iso(),
     }
+    if enveloppe:
+        entree["enveloppe"] = enveloppe
+    if extra:
+        entree["extra"] = extra
     stockage.ecrire(COLLECTION_APPELS, appel_id, entree)
+    # stockage.charger met la collection en cache par processus : on l'invalide pour que
+    # les compteurs (jour, mois, enveloppes) voient l'appel qui vient d'être journalisé.
+    try:
+        stockage.invalider_cache(COLLECTION_APPELS)
+    except Exception:
+        pass
     return appel_id
 
 

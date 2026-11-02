@@ -346,6 +346,8 @@ def classifier(marche: dict,
     prompt_sys = _prompt_systeme()
     prompt_user = _prompt_utilisateur(marche)
 
+    import budget
+    budget.verifier_kill_switch("classification")
     debut = time.time()
     for tentative in range(1, max_retries + 1):
         try:

@@ -34,16 +34,38 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--n", type=int, default=800, help="taille échantillon")
     ap.add_argument("--seed", type=int, default=42)
+    # Sprint DECP-R : sans option = configuration prod (DC.CONFIG_DEFAUT) ; les options
+    # permettent de mesurer d'autres configurations.
+    ap.add_argument("--colonne-montant", default=DC.CONFIG_DEFAUT["colonne_montant"],
+                    choices=["montant_eur", "montant_rationalise", "montant_initial"])
+    ap.add_argument("--exclure-accords-cadres", action=argparse.BooleanOptionalAction,
+                    default=DC.CONFIG_DEFAUT["exclure_accords_cadres"])
+    ap.add_argument("--exclure-anomalies", action=argparse.BooleanOptionalAction,
+                    default=DC.CONFIG_DEFAUT["exclure_anomalies"])
+    ap.add_argument("--univers-complet", action="store_true",
+                    help="tire l'échantillon dans tous les contrats, même ceux exclus des comparables")
+    ap.add_argument("--sortie-json", default=None)
     args = ap.parse_args()
+    config = {"colonne_montant": args.colonne_montant,
+              "exclure_accords_cadres": args.exclure_accords_cadres,
+              "exclure_anomalies": args.exclure_anomalies}
+    col = args.colonne_montant
 
     conn = stockage._conn()
     # Échantillon aléatoire reproductible de marchés DECP avec montant + CPV.
     rng = random.Random(args.seed)
-    total = conn.execute("SELECT COUNT(*) FROM decp_marches WHERE montant_eur > 0").fetchone()[0]
+    cols = {r[1] for r in conn.execute("PRAGMA table_info(decp_marches)")}
+    cle = "uid" if "uid" in cols else "id"          # v2 (Sprint DECP-R) : clé uid
+    filtre = " AND doublon_de IS NULL" if "doublon_de" in cols else ""
+    if args.exclure_accords_cadres and not args.univers_complet:
+        filtre += " AND id_accord_cadre IS NULL AND COALESCE(UPPER(nature), '') NOT LIKE 'ACCORD%CADRE%'"
+    if args.exclure_anomalies and not args.univers_complet:
+        filtre += " AND montant_anomalie IS NULL"
+    total = conn.execute(f"SELECT COUNT(*) FROM decp_marches WHERE {col} > 0{filtre}").fetchone()[0]
     # On tire des offsets aléatoires (la table n'a pas d'id séquentiel exploitable simplement).
     ids = conn.execute(
-        "SELECT id, cpv_principal, departement, montant_eur FROM decp_marches "
-        "WHERE montant_eur > 0 AND cpv_principal IS NOT NULL").fetchall()
+        f"SELECT {cle}, cpv_principal, departement, {col} FROM decp_marches "
+        f"WHERE {col} > 0 AND cpv_principal IS NOT NULL{filtre}").fetchall()
     print(f"Univers : {len(ids)} marchés DECP avec montant+CPV (sur {total} avec montant).")
     echantillon = rng.sample(ids, min(args.n, len(ids)))
 
@@ -58,7 +80,7 @@ def main():
                   "perimetre_geographique": (f"Dept {dept}" if dept else "")}
         preset = presets.get(did)
         # mappe le preset DECP en preset Tendia attendu par comparables (inverse du map interne)
-        res = DC.comparables_pour_marche(pseudo, _preset_tendia(preset), exclure_id=did)
+        res = DC.comparables_pour_marche(pseudo, _preset_tendia(preset), exclure_id=did, config=config)
         if not res.get("disponible"):
             globaux["indispo"] += 1
             continue
@@ -92,6 +114,17 @@ def main():
     for s in ordre:
         if s in par_strat:
             print(_ligne(s, par_strat[s]))
+
+    if args.sortie_json:
+        import json
+
+        def _d(b):
+            return ({"n": b["n"], "mdape": round(statistics.median(b["ape"]) * 100, 1),
+                     "couv_iqr": round(100 * b["iqr"] / b["n"], 1),
+                     "biais": round(statistics.median(b["signed"]) * 100, 1)} if b["n"] else {"n": 0})
+        json.dump({"config": config, "univers_complet": args.univers_complet, "global": {**_d(globaux), "indispo": globaux["indispo"]},
+                   "par_strategie": {s: _d(b) for s, b in par_strat.items()}},
+                  open(args.sortie_json, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
 
     print("\nLecture : MdAPE = erreur médiane |pred−vrai|/vrai. Couv.IQR idéale ≈ 50% "
           "(si <50%, fourchette trop étroite ; si >50%, trop large).")

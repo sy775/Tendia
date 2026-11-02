@@ -9,6 +9,12 @@
 **État système** : stable et productif. Verdicts `pertinent`+ end-to-end sur 2 profils démo : BTP IDF (57070/56539/56378) et Ingénierie IDF (56588 `tres_pertinent`, 56774/55964/56096 `pertinent`). Fiche marché et gestion de profils désormais utilisables par un commercial.
 **Repo sous git depuis le 12 juin** (init pendant Sprint P) : `data/`, `.env`, sidecars WAL gitignorés. Commit avant chaque sprint, working tree propre.
 
+> **Mise à jour du 02/11/2026 — Sprint DECP-R (reprise des DECP)** : branche `feat/decp-reprise`,
+> validée par Younes le 02/11/2026, à fusionner dans `feat/decp-sprint-3` (prod) une fois les tests
+> passés. Voir §3 « Sprint DECP-R », les pièges 9 à 12
+> et `docs/rapport_sprint_decp_reprise.md`. État réel du code et de la base : 
+> `docs/architecture_actuelle_2026-11_partie{1,2,3}.md` (plus récent que ce document pour tout le reste).
+
 ---
 
 ## 1. Qui est Younes
@@ -436,11 +442,62 @@ tree, non commité** — à regrouper en commits propres (« Refonte fiche march
   mock) → à corriger (mocker `_session_sans_proxy` ou injecter la session).
 - Mismatch `aws-achat` (log) vs `aws_achat` (proxy) ; schéma `_meta` light vs complet.
 
+### Sprint DECP-R — reprise des DECP et rapprochements (02/11/2026) ✅
+
+Objectif : préparer le compagnon de réponse aux AO BTP (historique par SIREN, renouvellements,
+attributions, prix). Rapport complet : `docs/rapport_sprint_decp_reprise.md`.
+
+- **DECP v2** : `decp_marches` clé `uid` (l'ancien `id` est le numéro interne à l'acheteur, non
+  unique : la v1 perdait ~35 % des contrats et fusionnait les titulaires). 1 254 035 contrats
+  notifiés depuis le 01/01/2022 (version actuelle + infos de la version initiale), source
+  `decp.csv` (data.gouv) puis API. Tables v1 conservées : `decp_marches_v1_id`,
+  `decp_classification_v1_id`. Modules : `decp/parser_v2.py`, `decp/staging.py`,
+  `decp/ingest_v2.py`, CLI `python -m decp.cli v2-migrer | v2-staging | v2-api --depuis …`.
+- **Doublons** : `doublon_de` / `doublon_regle` (R1-R4 validées, 108 937 contrats, rejouable :
+  `scripts/decp/reprise_doublons_regle.py --appliquer`) ; `doublon_possible` = indicateur seul.
+- **`decp_titulaires`** (SIRET/SIREN normalisés, nom, NAF, rôle) et **`sirene_unites_legales`**
+  (stock Sirene 01/10/2026, 863 413 unités : titulaires, acheteurs, personnes publiques, BTP actives).
+- **`decp.historique.historique_decp(siren)`** : marchés + agrégats (< 3 ms).
+- **Classification DECP** (`decp/classif_ia.py`, `decp/classif_batch.py`) : Gemini 3.1 Flash-Lite
+  via API Batch, prompt v2, 50 contrats/appel ; domaine `btp_maintenance_exploitation` **propre à la
+  DECP** (pas encore dans `presets/_taxonomie_domaines.json` : impacterait la classification de nos
+  marchés, les briefs, le preset BTP et le formulaire de profil — à faire au Sprint 1).
+  2024-2026 classés par IA ; 2022-2023 surtout en famille CPV (plafond de 10 € atteint).
+- **Voie 3** (`decp_comparables.py`) : jointure `uid`, doublons exclus, familles = presets
+  officiels. Config prod (`CONFIG_DEFAUT`, validée 02/11) : accords-cadres et `montant_anomalie`
+  exclus des comparables ; `ORDER BY date_notification DESC, uid` avant le `LIMIT 4000`
+  (déterministe, plus récents d'abord). Backtest : `scripts/audit/backtest_voie3.py` (sans option =
+  config prod). Propositions P1 (ancienneté) / P2 (indexation BT01) NON appliquées.
+- **Attributions** (`scripts/decp/attributions.py`) : `acheteur_siren` complété (+521, avec
+  `acheteur_siren_source`), 428 liens `marche_attribution_link`. **Seuls les liens
+  `auto_confirme_objet` (195 liens, 43 avis) sont exploitables** (UI, futur compagnon) : lire la vue
+  `v_attributions_exploitables`, jamais la table. Les `auto_a_verifier` (~1 sur 2 faux) restent en base.
+  **Prochain sprint : `decp/matching.py::scorer_match` doit intégrer une comparaison d'objet**
+  (aujourd'hui CPV + acheteur + période + montant seulement ; le contrôle d'objet est fait après
+  coup dans `attributions.py`, ≥ 3 mots d'objet communs).
+- **Budget** : `budget.py` / `data/budget.json` couvrent les 6 types d'appels ; plafond mensuel global
+  100 € ; enveloppes (`decp_reprise` 10 € épuisée, `decp_hebdo` 2 €/mois) ; garde
+  `budget.verifier_kill_switch(type)` ajoutée avant chaque appel LLM hors extraction.
+- `llm_router.py` + `config_llm.yaml` récupérés de `exp/gemini-batiment` pour la DECP uniquement
+  (pas branchés sur le reste de la prod : Sprint 1).
+- **Hebdomadaire** : `scripts/decp/maj_hebdo.py` (à planifier par Younes, commande `schtasks` dans
+  le rapport de fin de sprint).
+
 ---
 
 ## 3bis. Sprint en cours / Prochain sprint
 
 **Aucun sprint actif au moment de cette passation.** Le système est dans un état stable et productif. Plusieurs chantiers possibles selon les priorités :
+
+### Suites du Sprint DECP-R (décidées le 02/11/2026)
+
+- **`scorer_match` + comparaison d'objet** (prochain sprint) : intégrer la similarité d'objet au
+  score, pour que les liens soient fiables sans contrôle a posteriori.
+- Classification IA du reste de 2022-2023 (~5,3 €) : reportée, nouvelle enveloppe à ouvrir avec
+  l'accord de Younes.
+- Domaine `btp_maintenance_exploitation` dans la taxonomie partagée (Sprint 1).
+- Voie 3 : P1 (ancienneté) et P2 (BT01) non appliquées, à rediscuter.
+- Supprimer `data/tendia.db.bak_avant_decp_reprise_20261102` à partir du 16/11/2026.
 
 ### Lancer le batch Atexo (réseau, par Younes) — PRIORITAIRE
 
@@ -557,6 +614,29 @@ Apptia utilisait `_domaine.json`. Tendia utilise `_preset.json`. Le code lit les
 ### Piège 6 — Younes lance les commandes manuellement
 
 Tendia n'a pas (encore) de pipeline automatique. Younes lance chaque commande à la main. **Ne pas supposer que les choses tournent en cron.**
+
+### Piège 9 — DECP : `id` n'est PAS un identifiant (Sprint DECP-R)
+
+Dans la DECP consolidée, `id` est le numéro interne de l'acheteur (« 2025 », « 202601 »). Clé unique :
+`uid` (acheteur + id + _CPV). Toute jointure sur `decp_marches` se fait sur `uid` ; `decp_classification.decp_id`
+et `decp_titulaires.decp_id` contiennent l'`uid`. `decp_comparables.lister_decp/get_decp` renvoient l'uid
+sous le nom `id` pour l'UI.
+
+### Piège 10 — DECP : dates et versions
+
+La `dateNotification` d'une ligne de modification est la date de la MODIFICATION. `decp_marches.date_notification`
+= notification du contrat initial ; `montant_eur` = montant actuel (`montant_initial` à part). Ne jamais
+refiltrer sur `modification_id = 0` (exclut les contrats modifiés).
+
+### Piège 11 — DECP : doublons et écritures
+
+Exclure `doublon_de IS NOT NULL` dans toute statistique ; `doublon_possible` n'exclut rien. Les écritures
+source passent par UPSERT (`decp/db.upsert_contrats`) : jamais `INSERT OR REPLACE` (perdrait les colonnes dérivées).
+
+### Piège 12 — Gemini Batch : quota de tokens simultanés
+
+Tier 1 : 10 M tokens en cours par modèle (~4 lots de 15 000 contrats). `python -m decp.classif_batch piloter`
+attend et reprend tout seul ; un 429 n'est pas une erreur de budget.
 
 ### Piège 7 — La base SQLite est mutualisée mais pas multi-utilisateur
 
