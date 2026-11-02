@@ -27,12 +27,21 @@ LIMITE_SQL = 4000   # garde-fou sur les requêtes larges
 BANDE_MONTANT = (0.5, 2.0)  # bande [×0,5 ; ×2] autour du montant d'ancrage (pairs même taille)
 SEUIL_BOAMP_EUR = 90_000    # seuil légal de publicité obligatoire au BOAMP (HT)
 
-# Tendia preset → preset_principal DECP (decp_classification)
+# Tendia preset → preset_principal DECP (decp_classification v2 = famille = preset officiel,
+# cf. decp/classif_ia.py). Table de correspondance des anciens codes DECP v1 (conseil_rd,
+# enr), encore envoyés par l'UI (/decp?preset=…).
 _PRESET_VERS_DECP = {
-    "energie_renouvelable": "enr", "enr": "enr",
-    "conseil": "conseil_rd", "conseil_rd": "conseil_rd",
+    "energie_renouvelable": "energie_renouvelable", "enr": "energie_renouvelable",
+    "conseil": "conseil", "conseil_rd": "conseil",
     "btp": "btp", "ingenierie": "ingenierie", "it": "it", "formation": "formation",
 }
+
+# Configurations de calcul (Sprint DECP-R, backtest) — la configuration par défaut est
+# celle de la prod (validée 02/11/2026 : accords-cadres et montant_anomalie exclus,
+# MdAPE 70 % vs 76 %) ; les autres ne servent qu'à mesurer leur effet.
+CONFIG_DEFAUT = {"colonne_montant": "montant_eur", "exclure_accords_cadres": True,
+                 "exclure_anomalies": True}
+_COLONNES_MONTANT = {"montant_eur", "montant_rationalise", "montant_initial"}
 
 
 def _dept_de(marche: dict) -> Optional[str]:
@@ -113,7 +122,8 @@ def _strategies(marche: dict, preset_decp: Optional[str]):
 
 def comparables_pour_marche(marche: dict, preset: Optional[str] = None,
                             exclure_id: Optional[str] = None,
-                            montant_ancre: Optional[float] = None) -> dict:
+                            montant_ancre: Optional[float] = None,
+                            config: Optional[dict] = None) -> dict:
     """Renvoie l'estimation Voie 3 + l'échantillon de comparables DECP, ou {disponible: False}.
 
     exclure_id : écarte ce marché DECP des comparables (backtest = ne pas se prédire soi-même).
@@ -126,23 +136,34 @@ def comparables_pour_marche(marche: dict, preset: Optional[str] = None,
         sinon estimation Voie 2.
     """
     conn = stockage._conn()
+    cfg = {**CONFIG_DEFAUT, **(config or {})}
+    col = cfg["colonne_montant"] if cfg["colonne_montant"] in _COLONNES_MONTANT else "montant_eur"
     preset_decp = _PRESET_VERS_DECP.get((preset or "").lower())
+    # Doublons marqués (decp_marches.doublon_de) toujours ignorés.
+    filtres = " AND m.doublon_de IS NULL"
+    if cfg["exclure_accords_cadres"]:
+        filtres += (" AND m.id_accord_cadre IS NULL AND COALESCE(UPPER(m.nature), '') "
+                    "NOT LIKE 'ACCORD%CADRE%'")
+    if cfg["exclure_anomalies"]:
+        filtres += " AND m.montant_anomalie IS NULL"
     bande_sql, bande_p = "", []
     if montant_ancre and montant_ancre > 0:
-        bande_sql = " AND m.montant_eur BETWEEN ? AND ?"
+        bande_sql = f" AND m.{col} BETWEEN ? AND ?"
         bande_p = [montant_ancre * BANDE_MONTANT[0], montant_ancre * BANDE_MONTANT[1]]
 
     meilleur = None
     for libelle, where, params, join_classif in _strategies(marche, preset_decp):
         # NB : decp_marches n'a pas de colonne nom titulaire (titulaires_json = SIRET).
         # On remonte le SIRET ; l'enrichissement nom (SIRENE) est un chantier séparé.
-        base = ("SELECT m.montant_eur, m.titulaire_siret, m.objet, m.date_notification, "
+        base = (f"SELECT m.{col}, m.titulaire_siret, m.objet, m.date_notification, "
                 "m.acheteur_siret, m.duree_mois FROM decp_marches m ")
         if join_classif:
-            base += "JOIN decp_classification c ON c.decp_id = m.id "
-        excl = " AND m.id != ?" if exclure_id else ""
+            base += "JOIN decp_classification c ON c.decp_id = m.uid "
+        excl = " AND m.uid != ?" if exclure_id else ""
         p = list(params) + ([exclure_id] if exclure_id else []) + bande_p
-        sql = base + f"WHERE {where} AND m.montant_eur > 0{excl}{bande_sql} LIMIT {LIMITE_SQL}"
+        # ORDER BY avant LIMIT : résultat déterministe, les plus récents d'abord (Sprint DECP-R)
+        sql = base + (f"WHERE {where} AND m.{col} > 0{filtres}{excl}{bande_sql} "
+                      f"ORDER BY m.date_notification DESC, m.uid LIMIT {LIMITE_SQL}")
         try:
             rows = conn.execute(sql, p).fetchall()
         except Exception:
@@ -210,12 +231,12 @@ def lister_decp(q=None, preset=None, dept=None, montant_min=None, montant_max=No
                 page=1, par_page=50) -> dict:
     """Liste paginée des marchés DECP (filtres : recherche, preset, dépt, montant)."""
     conn = stockage._conn()
-    where = ["m.montant_eur > 0"]
+    where = ["m.montant_eur > 0", "m.doublon_de IS NULL"]
     params = []
     join = ""
     if preset:
         pdecp = _PRESET_VERS_DECP.get(str(preset).lower(), preset)
-        join = "JOIN decp_classification c ON c.decp_id = m.id "
+        join = "JOIN decp_classification c ON c.decp_id = m.uid "
         where.append("c.preset_principal = ?")
         params.append(pdecp)
     if dept:
@@ -238,7 +259,8 @@ def lister_decp(q=None, preset=None, dept=None, montant_min=None, montant_max=No
         return {"items": [], "total": 0, "page": 1, "pages": 0, "par_page": par_page}
     page = max(1, int(page))
     off = (page - 1) * par_page
-    sel = ("m.id, m.objet, m.acheteur_nom, m.titulaire_siret, m.montant_eur, "
+    # uid renvoyé sous le nom « id » : les liens de l'UI (/marche-notifie/<id>) restent inchangés.
+    sel = ("m.uid, m.objet, m.acheteur_nom, m.titulaire_siret, m.montant_eur, "
            "m.date_notification, m.cpv_principal, m.departement, m.duree_mois")
     rows = conn.execute(
         f"SELECT {sel} FROM decp_marches m {join} WHERE {wsql} "
@@ -262,12 +284,18 @@ def get_decp(id_decp: str) -> Optional[dict]:
     """Charge un marché DECP complet (decp_marches + sa classification preset)."""
     conn = stockage._conn()
     cols = [c[1] for c in conn.execute("PRAGMA table_info(decp_marches)").fetchall()]
-    row = conn.execute("SELECT * FROM decp_marches WHERE id = ?", [id_decp]).fetchone()
+    row = conn.execute("SELECT * FROM decp_marches WHERE uid = ?", [id_decp]).fetchone()
+    if not row:
+        # Compat anciens liens (id DECP v1, non unique) : premier contrat portant cet id.
+        row = conn.execute("SELECT * FROM decp_marches WHERE id = ? ORDER BY date_notification DESC "
+                           "LIMIT 1", [id_decp]).fetchone()
     if not row:
         return None
     d = dict(zip(cols, tuple(row)))
+    d["id_acheteur"] = d.get("id")   # numéro interne à l'acheteur
+    d["id"] = d.get("uid")           # identifiant unique (lien UI)
     cl = conn.execute("SELECT preset_principal FROM decp_classification WHERE decp_id = ?",
-                      [id_decp]).fetchone()
+                      [d["uid"]]).fetchone()
     d["preset"] = cl[0] if cl else None
     return d
 
