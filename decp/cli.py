@@ -95,6 +95,28 @@ def cmd_audit(args):
     print(auditer())
 
 
+def cmd_v2_migrer(args):
+    print(decp_db.migrer_v2())
+
+
+def cmd_v2_staging(args):
+    from decp.ingest_v2 import ingerer_staging
+    res = ingerer_staging(args.staging, dry_run=args.dry_run, limite=args.limite,
+                          journal_rejets=args.journal_rejets)
+    print(res)
+
+
+def cmd_v2_api(args):
+    """Rattrapage / mise à jour : toutes versions depuis --depuis, UPSERT idempotent."""
+    from decp.ingest_v2 import ingerer_lignes_api
+    r = telecharger.fetch_toutes_versions(args.depuis)
+    if r["pages_en_echec_final"]:
+        print(f"⚠ {len(r['pages_en_echec_final'])} pages toujours en échec : lignes manquantes "
+              f"(relancer plus tard — l'UPSERT est idempotent).")
+    lignes = r["lignes"][:args.limite] if args.limite else r["lignes"]
+    print(ingerer_lignes_api(lignes, dry_run=args.dry_run))
+
+
 def main():
     ap = argparse.ArgumentParser(prog="decp.cli")
     sub = ap.add_subparsers(dest="cmd", required=True)
@@ -112,6 +134,22 @@ def main():
     pa.add_argument("--dry-run", action="store_true")
     pa.add_argument("--limite", type=int, default=None)
     pa.set_defaults(func=cmd_ingest_annee)
+
+    pm = sub.add_parser("v2-migrer", help="renomme les tables v1 (conservées) + schéma v2 (uid)")
+    pm.set_defaults(func=cmd_v2_migrer)
+
+    ps = sub.add_parser("v2-staging", help="ingestion v2 depuis le staging (decp.csv)")
+    ps.add_argument("--staging", default="data/decp_reprise/staging.db")
+    ps.add_argument("--dry-run", action="store_true")
+    ps.add_argument("--limite", type=int, default=None)
+    ps.add_argument("--journal-rejets", default="data/decp_reprise/titulaires_rejets.tsv")
+    ps.set_defaults(func=cmd_v2_staging)
+
+    pv = sub.add_parser("v2-api", help="ingestion v2 depuis l'API (toutes versions, relances)")
+    pv.add_argument("--depuis", required=True, help="AAAA-MM-JJ (dateNotification ≥)")
+    pv.add_argument("--dry-run", action="store_true")
+    pv.add_argument("--limite", type=int, default=None)
+    pv.set_defaults(func=cmd_v2_api)
 
     pau = sub.add_parser("audit", help="audit qualité de la base DECP")
     pau.set_defaults(func=cmd_audit)
