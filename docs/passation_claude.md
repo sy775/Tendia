@@ -464,9 +464,10 @@ attributions, prix). Rapport complet : `docs/rapport_sprint_decp_reprise.md`.
   marchés, les briefs, le preset BTP et le formulaire de profil — à faire au Sprint 1).
   2024-2026 classés par IA ; 2022-2023 surtout en famille CPV (plafond de 10 € atteint).
 - **Voie 3** (`decp_comparables.py`) : jointure `uid`, doublons exclus, familles = presets
-  officiels. Config prod (`CONFIG_DEFAUT`, validée 02/11) : accords-cadres et `montant_anomalie`
-  exclus des comparables ; `ORDER BY date_notification DESC, uid` avant le `LIMIT 4000`
-  (déterministe, plus récents d'abord). Backtest : `scripts/audit/backtest_voie3.py` (sans option =
+  officiels. Config prod (`CONFIG_DEFAUT`) : aucune exclusion supplémentaire (l'exclusion des
+  accords-cadres / `montant_anomalie` a été testée puis retirée le 02/11 : aucun gain à échantillon
+  égal) ; `ORDER BY date_notification DESC, uid` avant le `LIMIT 4000` (déterministe, plus
+  récents d'abord). Backtest prod : MdAPE 76 %. Backtest : `scripts/audit/backtest_voie3.py` (sans option =
   config prod). Propositions P1 (ancienneté) / P2 (indexation BT01) NON appliquées.
 - **Attributions** (`scripts/decp/attributions.py`) : `acheteur_siren` complété (+521, avec
   `acheteur_siren_source`), 428 liens `marche_attribution_link`. **Seuls les liens

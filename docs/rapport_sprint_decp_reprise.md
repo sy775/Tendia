@@ -136,8 +136,13 @@ anomalies, et `ORDER BY date_notification DESC` avant le LIMIT (à valider).
 
 ### 7bis. Configuration prod finale (validée le 02/11/2026)
 
-Appliqué : exclusion des accords-cadres et des `montant_anomalie` (`CONFIG_DEFAUT`),
-`ORDER BY date_notification DESC, uid` avant le `LIMIT 4000`. P1 et P2 non appliquées.
+Appliqué : `ORDER BY date_notification DESC, uid` avant le `LIMIT 4000`. L'exclusion des
+accords-cadres et des `montant_anomalie` a été appliquée puis **retirée** (voir la correction
+ci-dessous) : `CONFIG_DEFAUT` les garde. P1 et P2 non appliquées. Backtest de confirmation
+(config prod finale, tous contrats) : **MdAPE 76 %**, couverture IQR 42 %, biais -5 %.
+**20 briefs, config prod finale** (`data/decp_reprise/voie3_final_v2.json`) : 17/20 à ±15 % ;
+écarts > 15 % : 56464 -19 %, 57058 -22 %, 55979 +50 % (explications du tableau ci-dessus ;
+57070 passe à +14 % grâce au tri). Le paragraphe suivant porte sur la version avec exclusion.
 
 **20 briefs, avant (v1) → final** : 17/20 à ±15 %. Écarts > 15 % : 56464 -19 %, 56633 -16 %,
 57058 -22 % ; tous trois avec 53 à 67 % de comparables antérieurs à 2025, notifiés à des prix
@@ -148,10 +153,10 @@ d'avant l'inflation. 57070 revient à -7 % (troncature réglée) et 55979 à +7 
 
 | Échantillon testé | Comparables | MdAPE | Couv. IQR | Biais |
 |---|---|---:|---:|---:|
-| hors accords-cadres et anomalies | config prod (exclusions) | 70 % | 43 % | -4 % |
-| hors accords-cadres et anomalies | sans exclusions | 70 % | 45 % | +0 % |
-| tous contrats | config prod (exclusions) | 78 % | 38 % | -9 % |
-| tous contrats | sans exclusions | 76 % | 42 % | -5 % |
+| hors accords-cadres et anomalies | avec exclusions | 70 % | 43 % | -4 % |
+| hors accords-cadres et anomalies | sans exclusions (prod finale) | 70 % | 45 % | +0 % |
+| tous contrats | avec exclusions | 78 % | 38 % | -9 % |
+| tous contrats | sans exclusions (prod finale) | 76 % | 42 % | -5 % |
 
 ⚠ **Correction** : le gain affiché plus haut (76 → 70 %) venait surtout de l'échantillon : retirer les
 accords-cadres des contrats testés retire des cas difficiles à prédire. À échantillon égal,

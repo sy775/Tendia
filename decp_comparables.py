@@ -37,10 +37,11 @@ _PRESET_VERS_DECP = {
 }
 
 # Configurations de calcul (Sprint DECP-R, backtest) — la configuration par défaut est
-# celle de la prod (validée 02/11/2026 : accords-cadres et montant_anomalie exclus,
-# MdAPE 70 % vs 76 %) ; les autres ne servent qu'à mesurer leur effet.
-CONFIG_DEFAUT = {"colonne_montant": "montant_eur", "exclure_accords_cadres": True,
-                 "exclure_anomalies": True}
+# celle de la prod ; les autres ne servent qu'à mesurer leur effet. L'exclusion des
+# accords-cadres et des montant_anomalie a été testée puis retirée (02/11/2026) : à échantillon
+# égal, aucun gain (70 % vs 70 %) et légèrement moins bien sur tous les contrats (78 % vs 76 %).
+CONFIG_DEFAUT = {"colonne_montant": "montant_eur", "exclure_accords_cadres": False,
+                 "exclure_anomalies": False}
 _COLONNES_MONTANT = {"montant_eur", "montant_rationalise", "montant_initial"}
 
 
