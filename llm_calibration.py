@@ -642,6 +642,8 @@ def calibrer(brief: dict,
         comparables_synthese=_synthese_comparables(top_comparables, marches_notifies),
     )
 
+    import budget
+    budget.verifier_kill_switch("calibration")
     debut = time.time()
     for tentative in range(1, max_retries + 1):
         try:
@@ -845,6 +847,8 @@ def calibrer_bottom_up_seul(brief: dict,
 
     prompt = _construire_prompt_bottom_up_seul(_synthese_brief(brief))
 
+    import budget
+    budget.verifier_kill_switch("calibration")
     debut = time.time()
     for tentative in range(1, max_retries + 1):
         try:
