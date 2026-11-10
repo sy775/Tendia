@@ -191,3 +191,11 @@ Réécriture `import X` → `from tendia.<agent> import X` (alias conservés), r
 - Docstrings d'en-tête et textes d'usage encore à l'ancien nom (`tendia_extraire.py`, `python tendia_recup.py`...) dans plusieurs modules : non modifiés (seules les docstrings de localisation étaient autorisées, je ne les ai pas réécrites en masse).
 - `scripts/_archive/` : 26 scripts aux imports pré-0b, non exécutables en l'état.
 - Aucun test pour les modules de `core/`, `analyse/`, `eligibilite/` touchés par 0b au-delà des tests existants (règle « tout module touché reçoit un test ») : 0b n'a changé que des imports et des chemins  ; `core/chemins.py` a reçu `tests/test_chemins.py` (constantes, modules dépendants, indépendance du répertoire courant).
+
+## Suite de l'audit (archive/AUDIT_0b.md, verdict « livrable acceptable », aucun bloquant)
+
+Corrigé dans `fix(scripts)` après l'audit :
+- `retelecharger_aws_achat_anti_ban.py`, `retelecharger_dematis_anti_ban.py`, `retelecharger_vide_atexo.py` : `Path("data/dce")` → `DATA / "dce"`. Le pipeline les lançant désormais par chemin absolu, un lancement hors de la racine aurait écrit dans `<cwd>/data/dce`.
+- CLAUDE.md : « `python tests/lancer_tous.py` tout vert (hors échecs connus) » rétablit l'exigence de réussite que ma reformulation avait perdue.
+
+Non corrigé (majeur ou mineur, à arbitrer) : tests manquants pour les modules de `analyse/` et `eligibilite/` touchés (seulement par leurs chemins) ; `--max-cost` de la grille non appliqué ; alias de racine morts (`REPERTOIRE_BASE`, `RACINE`, `_BASE_DIR`, gardés car `exp_gemini` et des scripts peuvent les lire) ; `load_dotenv()` sans chemin dans `aws_downloader` et `dematis_downloader` (comportement identique : recherche ascendante jusqu'à la racine) ; `package-data` absent de `pyproject.toml` (sans effet en installation éditable) ; 6 scripts qui recomposent `DATA` ou `PRESETS` à partir de `RACINE_DEPOT` ; numéros de ligne de la dette décalés de 1 à 2 après le retrait des imports ; docs/01_ARCHITECTURE.md §3-4 : deux phrases périmées. Le rapport omettait aussi, au paragraphe « En bref », les modifications de `.claude/`, `01_ARCHITECTURE`, `04_CONVENTIONS` et `requirements.txt` (détaillées dans les commits `beb5294` et `f2d75ad`).
