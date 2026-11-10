@@ -2146,11 +2146,6 @@ def page_404(e):
 # ---------------------------------------------------------------------------
 
 if __name__ == "__main__":
-    print("=" * 70)
-    print("  Tendia UI — Veille marchés publics France Travail")
-    print("=" * 70)
-    print()
-    print(f"  Serveur démarré sur : http://localhost:5000")
-    print(f"  Pour arrêter        : Ctrl+C")
-    print()
-    app.run(host="127.0.0.1", port=5000, debug=False, threaded=True)
+    # Point d'entrée : python -m tendia.ui (ou le shim racine tendia_ui.py)
+    from tendia.ui.__main__ import main
+    main()
