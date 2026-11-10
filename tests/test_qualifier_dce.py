@@ -16,7 +16,7 @@ import zipfile
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
-import tendia_dce as T
+from tendia.dce import resolution as T
 
 
 def _dossier(fichiers: dict, zips: dict = None):

@@ -12,7 +12,7 @@ quand l'UI l'appelle dans un thread de fond.
 import time
 from datetime import datetime, timezone
 
-import stockage
+from tendia.core import stockage
 from services import _memoire_commun as commun
 from services import extraction_contexte_memoire as appel1
 from services import redaction_memoire as appel2

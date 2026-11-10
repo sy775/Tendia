@@ -29,7 +29,8 @@ import uuid
 import zipfile
 
 import requests
-import http_humain
+from tendia.core.chemins import DATA
+from tendia.core import http_humain
 
 try:
     import truststore as _truststore
@@ -346,7 +347,7 @@ def telecharger_dce_pour_marche(marche: dict, repertoire_dce: str,
     RÉFÉRENCE (haute confiance) ; à défaut (ou en cas d'échec non-réseau), bascule
     sur une recherche par OBJET — sécurisée par la désambiguïsation acheteur
     OBLIGATOIRE (on n'attache jamais un DCE dont l'acheteur ne correspond pas)."""
-    import resolution_reference as RR
+    from tendia.dce import resolution_reference as RR
     _, reference = RR.extraire_plateforme_reference(marche)
     id_marche = marche.get("id", "?")
     acheteur = marche.get("acheteur_nom")
@@ -379,4 +380,4 @@ def telecharger_dce_pour_marche(marche: dict, repertoire_dce: str,
 if __name__ == "__main__":
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")
     ref = sys.argv[1] if len(sys.argv) > 1 else "202607"
-    print(telecharger_dce(ref, "data/test_ms", verbose=True))
+    print(telecharger_dce(ref, str(DATA / "test_ms"), verbose=True))

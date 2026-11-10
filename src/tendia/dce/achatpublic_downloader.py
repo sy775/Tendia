@@ -25,9 +25,10 @@ import zipfile
 from typing import Optional
 from urllib.parse import urlparse, parse_qs
 
-import http_client as http_lib   # backend curl_cffi (TLS Chrome) ou requests
-import http_humain
-import tendia_logs
+from tendia.core import http_client as http_lib   # backend curl_cffi (TLS Chrome) ou requests
+from tendia.core.chemins import DATA
+from tendia.core import http_humain
+from tendia.core import logs as tendia_logs
 
 
 URL_BASE_ACHATPUBLIC = "https://www.achatpublic.com"
@@ -76,7 +77,7 @@ def resoudre_pcslid_via_reference(reference: str, session=None) -> Optional[str]
 def resoudre_url_via_reference(marche: dict) -> Optional[str]:
     """url_dce achatpublic depuis la référence acheteur du marché (idMarche /
     identifiantInterne), via recherche exacte (1 seul résultat). None sinon."""
-    import resolution_reference as _RR
+    from tendia.dce import resolution_reference as _RR
     _, ref = _RR.extraire_plateforme_reference(marche)
     ref = ref or marche.get("reference_ft")
     pcslid = resoudre_pcslid_via_reference(ref) if ref else None
@@ -391,7 +392,7 @@ if __name__ == "__main__":
         print("Usage : python achatpublic_downloader.py <pcslid> [chemin_zip]")
         sys.exit(1)
     pcslid_arg = sys.argv[1]
-    chemin = sys.argv[2] if len(sys.argv) > 2 else f"data/test_dce_{pcslid_arg}.zip"
+    chemin = sys.argv[2] if len(sys.argv) > 2 else str(DATA / f"test_dce_{pcslid_arg}.zip")
     print(f"Test téléchargement DCE :")
     print(f"  pcslid      = {pcslid_arg}")
     print(f"  destination = {chemin}")

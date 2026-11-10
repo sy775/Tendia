@@ -25,8 +25,8 @@ import time
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 
-import budget
-import stockage
+from tendia.core import budget
+from tendia.core import stockage
 from decp import classif_ia as C
 from decp.mapping_cpv import classer_par_cpv
 

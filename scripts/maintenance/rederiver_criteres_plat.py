@@ -16,7 +16,7 @@ from collections import Counter
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 
-import stockage
+from tendia.core import stockage
 import llm_extract as L
 
 

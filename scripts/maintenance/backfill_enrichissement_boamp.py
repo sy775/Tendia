@@ -25,8 +25,8 @@ import truststore
 truststore.inject_into_ssl()  # SSL Windows (convention Tendia)
 import requests
 
-import stockage
-from connecteurs.boamp import extraire_champs_enrichissement, _CHAMPS_SUIVIS
+from tendia.core import stockage
+from tendia.veille.connecteurs.boamp import extraire_champs_enrichissement, _CHAMPS_SUIVIS
 
 DATA = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), "data")
 API = "https://www.boamp.fr/api/explore/v2.1/catalog/datasets/boamp/records"

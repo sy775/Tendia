@@ -72,9 +72,11 @@ if sys.stdout.encoding and sys.stdout.encoding.lower() != "utf-8":
 # Configuration
 # ---------------------------------------------------------------------------
 
-REPERTOIRE_BASE = Path(__file__).parent
-FICHIER_MARCHES = REPERTOIRE_BASE / "data" / "marches.json"
-REPERTOIRE_DCE = REPERTOIRE_BASE / "data" / "dce"
+from tendia.core.chemins import DATA, RACINE_DEPOT
+
+REPERTOIRE_BASE = RACINE_DEPOT
+FICHIER_MARCHES = DATA / "marches.json"
+REPERTOIRE_DCE = DATA / "dce"
 
 USER_AGENT = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
               "AppleWebKit/537.36 (KHTML, like Gecko) "
@@ -564,7 +566,7 @@ def _telecharger_marche(marche: dict, session, force=False,
                     + list(dossier.glob('*.doc*')) + list(dossier.glob('*.xls*')))
         if fichiers:
             try:
-                import tendia_dce
+                from tendia.dce import resolution as tendia_dce
                 deja_complet = tendia_dce.qualifier_dce(str(dossier)).get('qualite') == 'complet'
             except Exception:
                 deja_complet = True  # prudence : on ne re-télécharge pas en cas de doute
@@ -817,7 +819,7 @@ def _telecharger_marche(marche: dict, session, force=False,
 
 def _charger_marches() -> dict:
     """Charge tous les marchés depuis le stockage (SQLite Sprint 3)."""
-    import stockage
+    from tendia.core import stockage
     return stockage.charger("marches")
 
 
@@ -852,7 +854,7 @@ def _pieces_depuis_html(html: str, base_url: str) -> list:
     type_detecte ∈ {RC, CCAP, CCTP, DPGF, ..., ZIP_GLOBAL, autre}.
     """
     from bs4 import BeautifulSoup
-    import tendia_dce
+    from tendia.dce import resolution as tendia_dce
     soup = BeautifulSoup(html or "", "html.parser")
     pieces = []
     vus = set()
@@ -915,7 +917,7 @@ class ParseurAtexo(ParseurDCE):
     """
     @classmethod
     def reconnait(cls, url_dce):
-        import atexo_downloader
+        from tendia.dce import atexo_downloader
         return atexo_downloader._detecter_url_base(url_dce) is not None
 
     def lister_pieces(self, session, url_dce):
@@ -968,7 +970,7 @@ PARSEURS = [ParseurAtexo, ParseurAchatpublic, ParseurAWS, ParseurEMarchesPublics
 
 def trouver_parseur(url_dce: str):
     """1er parseur reconnaissant l'URL, sinon générique (hors plateformes auth)."""
-    import tendia_dce
+    from tendia.dce import resolution as tendia_dce
     if not url_dce:
         return None
     for cls in PARSEURS:
@@ -1095,7 +1097,7 @@ def _telecharger_pieces_dce_impl(marche: dict, dossier_destination: str, session
 
     if "achatpublic.com" in url_dce and "PCSLID=" in url_dce:
         try:
-            import achatpublic_downloader as _ap
+            from tendia.dce import achatpublic_downloader as _ap
             parent = (os.path.dirname(dossier_destination)
                       if os.path.basename(dossier_destination) else dossier_destination)
             return _res_zip(_ap.telecharger_dce_pour_marche({**marche, "url_dce": url_dce},
@@ -1105,7 +1107,7 @@ def _telecharger_pieces_dce_impl(marche: dict, dossier_destination: str, session
                     "raison": f"achatpublic échec : {type(e).__name__}: {e}",
                     "duree_secondes": (datetime.now() - debut).total_seconds()}
     try:
-        import atexo_downloader as _ad
+        from tendia.dce import atexo_downloader as _ad
         if _ad._detecter_url_base(url_dce):
             # On délègue au wrapper robuste telecharger_dce_pour_marche (proxy +
             # rotation IP + retry), pas au telecharger_dce brut : ce dernier
@@ -1142,7 +1144,7 @@ def _telecharger_pieces_dce_impl(marche: dict, dossier_destination: str, session
     # Cas Atexo : marqueur ZIP_GLOBAL_ATEXO -> workflow 2-POST atexo_downloader
     # (téléchargement direct du ZIP dans le dossier du marché, pas de href).
     if pieces and pieces[0].get("type_detecte") == "ZIP_GLOBAL_ATEXO":
-        import atexo_downloader as _ad
+        from tendia.dce import atexo_downloader as _ad
         url_base = _ad._detecter_url_base(url_dce)
         id_atexo, org = _ad._extraire_id_org_depuis_url(url_dce)
         if url_base and id_atexo and org:
@@ -1168,7 +1170,7 @@ def _telecharger_pieces_dce_impl(marche: dict, dossier_destination: str, session
     # achatpublic_downloader (téléchargement direct du ZIP + décompression
     # automatique du ZIP imbriqué).
     if pieces and pieces[0].get("type_detecte") == "ZIP_GLOBAL_ACHATPUBLIC":
-        import achatpublic_downloader as _ap
+        from tendia.dce import achatpublic_downloader as _ap
         res = _ap.telecharger_dce_pour_marche(marche, os.path.dirname(dossier_destination)
                                                 if os.path.basename(dossier_destination)
                                                 else dossier_destination,
@@ -1193,7 +1195,7 @@ def _telecharger_pieces_dce_impl(marche: dict, dossier_destination: str, session
     # (session CFID/CFTOKEN + captcha 2captcha + tous les lots), téléchargement
     # multi-fichiers direct dans le dossier du marché + décompression auto.
     if pieces and pieces[0].get("type_detecte") == "ZIP_GLOBAL_AWS":
-        import aws_downloader as _aws
+        from tendia.dce import aws_downloader as _aws
         api_key = os.environ.get("TWOCAPTCHA_API_KEY")
         res = _aws.telecharger_dce_pour_marche(
             marche,
@@ -1258,7 +1260,7 @@ def _sauver_marches(marches: dict):
     stockage.ecrire(id, marche) au lieu de réécrire toute la collection,
     mais sauver() est atomique et reste rapide (transactions).
     """
-    import stockage
+    from tendia.core import stockage
     stockage.sauver("marches", marches)
 
 
@@ -1384,7 +1386,7 @@ def main():
             # (dette B15.a). Aligné sur ce que font les `retelecharger_*`.
             if statut in ('ok', 'skip_deja_fait'):
                 try:
-                    import tendia_dce
+                    from tendia.dce import resolution as tendia_dce
                     qual = tendia_dce.qualifier_dce(str(REPERTOIRE_DCE / id_m))
                     marche['dce_contenu'] = qual.get('qualite')
                     marche['dce_pieces_contractuelles'] = qual.get('pieces_contractuelles')

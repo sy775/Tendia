@@ -33,7 +33,7 @@ import sys
 # "I/O operation on closed file" en cascade d'imports sous Windows.
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
-import stockage
+from tendia.core import stockage
 import tendia_extraire
 
 

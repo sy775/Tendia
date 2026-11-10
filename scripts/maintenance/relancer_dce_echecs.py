@@ -33,8 +33,8 @@ if sys.stdout.encoding and sys.stdout.encoding.lower() != "utf-8":
 
 import requests
 
-import stockage
-import tendia_telecharger_dce as tdce
+from tendia.core import stockage
+from tendia.dce import telecharger as tdce
 
 
 # Murs connus à exclure par défaut (pour éviter de re-tenter inutilement).

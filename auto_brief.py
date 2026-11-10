@@ -168,7 +168,7 @@ def generer_brief_light(marche: dict,
     marche_id = marche.get("id")
 
     # === Garde-fou budget (Sprint 3) ===
-    import budget as _budget
+    from tendia.core import budget as _budget
     decision = _budget.peut_appeler_llm("extraction", marche_id=marche_id)
     if not decision.autorise:
         if verbose:

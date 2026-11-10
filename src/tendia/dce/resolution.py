@@ -27,17 +27,14 @@ import time
 from collections import Counter
 from datetime import date, datetime, timezone
 
-import stockage
-import dce_finder
+from tendia.core import stockage
+from tendia.core.chemins import DATA, RAPPORTS
+from tendia.dce import dce_finder
 
 
 COLLECTION_MARCHES = "marches"
-REPERTOIRE_RAPPORTS = os.path.join(
-    os.path.dirname(os.path.abspath(__file__)), "rapports"
-)
-REPERTOIRE_DCE = os.path.join(
-    os.path.dirname(os.path.abspath(__file__)), "data", "dce"
-)
+REPERTOIRE_RAPPORTS = str(RAPPORTS)
+REPERTOIRE_DCE = os.path.join(DATA, "dce")
 
 
 # ===========================================================================

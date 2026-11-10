@@ -318,7 +318,7 @@ def widget_domaines_couverts(presets_couverts, selection) -> list:
     fin `domaines_couverts` : seuls les domaines des presets cochés sont proposés (+ tout
     domaine déjà sélectionné hors périmètre, pour robustesse)."""
     import llm_extract
-    import preset as _preset
+    from tendia.veille import preset as _preset
     tax = (llm_extract._charger_taxonomie() or {}).get("domaines", {})
     sel = set(selection or [])
     groupes, vus = [], set()

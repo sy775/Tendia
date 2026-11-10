@@ -46,7 +46,7 @@ def _log(msg, f):
 
 def _date_reprise(etat):
     import sqlite3
-    import stockage
+    from tendia.core import stockage
     ref = etat.get("derniere_date_source")
     if not ref:
         con = sqlite3.connect(f"file:{stockage.chemin_db()}?mode=ro", uri=True)
@@ -69,7 +69,7 @@ def main():
     journal = open(os.path.join(DOSSIER, f"maj_{date.today().isoformat()}.log"), "a", encoding="utf-8")
     resume = {"debut": datetime.now(timezone.utc).isoformat(timespec="seconds")}
     try:
-        import budget
+        from tendia.core import budget
         from decp import classif_batch as B
         from decp import telecharger
         from decp.ingest_v2 import ingerer_lignes_api

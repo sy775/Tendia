@@ -38,7 +38,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspa
 
 import pdf_extract
 import tendia_extraire
-import stockage
+from tendia.core import stockage
 from llm_extract import MODELE, _check_anthropic
 from anthropic import Anthropic
 

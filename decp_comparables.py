@@ -18,7 +18,7 @@ import re
 import statistics
 from typing import Optional
 
-import stockage
+from tendia.core import stockage
 
 N_MIN = 8           # comparables minimum pour une estimation crédible
 N_VISE = 30         # au-delà, inutile d'élargir davantage

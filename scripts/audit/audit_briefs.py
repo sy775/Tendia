@@ -17,7 +17,7 @@ import sys
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
-import stockage
+from tendia.core import stockage
 
 
 def main():

@@ -14,8 +14,8 @@ import time
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 
-import stockage
-import tendia_classification as tc
+from tendia.core import stockage
+from tendia.veille import classification as tc
 
 # Charge la clé API depuis .env.txt si présente (convention projet).
 try:

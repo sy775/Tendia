@@ -113,7 +113,7 @@ def _obtenir_cle_api() -> Optional[str]:
 # l'instant figé sur le schéma de sortie formation_ft ; son externalisation
 # est prévue en Sprint 2 (chantier "schéma de sortie LLM par domaine").
 
-import preset as _preset
+from tendia.veille import preset as _preset
 
 
 # ---------------------------------------------------------------------------
@@ -1274,7 +1274,7 @@ def _resoudre_presets_pour_marche(marche_id: Optional[str]) -> list:
         return out
 
     try:
-        import stockage as _stockage
+        from tendia.core import stockage as _stockage
         codes_domaines = []
         # Source 1 : classification IA (pré-classifieur Haiku).
         classifs = _stockage.charger("classifications_ia") or {}
@@ -1321,7 +1321,7 @@ def extraire_via_llm(texte: str, contexte: dict,
                                        (kill-switch ou max_par_jour).
     """
     # === Garde-fou budget (Sprint 3) ===
-    import budget as _budget
+    from tendia.core import budget as _budget
     marche_id = contexte.get("id") if contexte else None
     decision = _budget.peut_appeler_llm("extraction", marche_id=marche_id)
     if not decision.autorise:

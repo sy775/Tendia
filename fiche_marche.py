@@ -19,7 +19,7 @@ Tous les helpers sont purs (zéro effet de bord) et idempotents.
 
 import re
 
-import preset as _preset
+from tendia.veille import preset as _preset
 
 
 # Libellés UX (exception assumée au "pas de hardcoding" : pure présentation).

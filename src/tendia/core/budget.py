@@ -31,7 +31,7 @@ d'appels continue pour audit).
 
 USAGE
 =====
-    import budget
+    from tendia.core import budget
 
     # Avant chaque appel LLM
     decision = budget.peut_appeler_llm("extraction", marche_id="M1")
@@ -64,15 +64,17 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Optional
 
-import stockage
+from tendia.core import stockage
 
 
 # ---------------------------------------------------------------------------
 # Constantes
 # ---------------------------------------------------------------------------
 
-RACINE = Path(__file__).resolve().parent
-FICHIER_BUDGET = RACINE / "data" / "budget.json"
+from tendia.core.chemins import DATA, RACINE_DEPOT
+
+RACINE = RACINE_DEPOT
+FICHIER_BUDGET = DATA / "budget.json"
 
 COLLECTION_APPELS = "llm_appels"
 
@@ -213,7 +215,7 @@ def peut_appeler_llm(type_appel: str,
 def verifier_kill_switch(type_appel: str) -> None:
     """Garde minimale à placer AVANT tout appel LLM qui ne passe pas par
     peut_appeler_llm (classification, calibration, mémoires, digest) :
-        import budget
+        from tendia.core import budget
         budget.verifier_kill_switch("memoire")
     Lève BudgetDepasseError si kill_switch_global=true ou si le plafond mensuel global
     est atteint. Ne consomme aucun quota (ces appels ne sont pas comptés par jour)."""

@@ -38,7 +38,7 @@ dans `_REGISTRE`. Le reste du code ne change pas.
 
 from urllib.parse import urlparse
 
-from connecteurs import boamp
+from tendia.veille.connecteurs import boamp
 
 
 # Registre des connecteurs. L'ordre n'a pas d'importance.

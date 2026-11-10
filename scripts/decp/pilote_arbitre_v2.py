@@ -21,7 +21,7 @@ sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
-import budget
+from tendia.core import budget
 import llm_router
 from decp import classif_ia as C
 from pilote_arbitre import ARBITRE, SENSIBLES, appel_arbitre, large

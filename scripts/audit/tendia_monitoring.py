@@ -20,8 +20,8 @@ from datetime import datetime
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
-import stockage
-import tendia_logs
+from tendia.core import stockage
+from tendia.core import logs as tendia_logs
 
 # Tarifs (cohérents avec retelecharger_aws_achat_anti_ban).
 COUT_BRIGHTDATA_USD_PAR_GB = 8.0

@@ -18,8 +18,8 @@ import time
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
-import stockage
-import resolution_reference as RR
+from tendia.core import stockage
+from tendia.dce import resolution_reference as RR
 
 RATE_LIMIT_SEC = 1.5
 

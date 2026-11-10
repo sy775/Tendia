@@ -31,7 +31,7 @@ from pathlib import Path
 if sys.stdout.encoding and sys.stdout.encoding.lower() != "utf-8":
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
-import stockage
+from tendia.core import stockage
 import llm_calibration
 
 
@@ -220,7 +220,7 @@ def main():
     print("=" * 78)
 
     # Charge tout
-    import preset
+    from tendia.veille import preset
     marches = stockage.charger("marches") or {}
     briefs = _charger_briefs()
     scores = stockage.charger("scores_matching") or {}

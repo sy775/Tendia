@@ -22,7 +22,7 @@ import sys
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
-import dce_finder as D
+from tendia.dce import dce_finder as D
 
 ok = 0
 ko = 0

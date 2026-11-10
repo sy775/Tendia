@@ -23,8 +23,8 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspa
 from collections import Counter, defaultdict
 from urllib.parse import urlparse
 
-import stockage
-import tendia_telecharger_dce as ttd
+from tendia.core import stockage
+from tendia.dce import telecharger as ttd
 
 
 def famille_plateforme(url: str) -> str:

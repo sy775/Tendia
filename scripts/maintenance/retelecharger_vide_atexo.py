@@ -26,9 +26,9 @@ from pathlib import Path
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
-import stockage
-import tendia_dce
-import atexo_downloader as A
+from tendia.core import stockage
+from tendia.dce import resolution as tendia_dce
+from tendia.dce import atexo_downloader as A
 
 REPERTOIRE_DCE = Path("data/dce")
 RATE_LIMIT_SEC = 2

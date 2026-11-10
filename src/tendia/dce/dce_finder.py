@@ -26,7 +26,7 @@ from typing import Optional, List, Dict
 
 import requests
 
-from http_utils import get_json, post_json
+from tendia.core.http_utils import get_json, post_json
 
 
 URL_PLACE_RECHERCHE = (
@@ -736,7 +736,7 @@ def trouver_urls_dce(marche: dict, verbose: bool = False) -> Dict:
     # Journalise les incidents d'URL côté agent (un par ligne JSONL).
     if base["incidents"]:
         try:
-            import tendia_logs
+            from tendia.core import logs as tendia_logs
             mid = marche.get("id") or ref
             for inc in base["incidents"]:
                 tendia_logs.logger_evenement_marche("dce-finder", mid, {

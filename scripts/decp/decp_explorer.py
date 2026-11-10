@@ -27,7 +27,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspa
 import truststore  # noqa: E402
 truststore.inject_into_ssl()  # SSL via magasin système Windows (convention Tendia)
 
-from http_utils import get_json  # noqa: E402
+from tendia.core.http_utils import get_json  # noqa: E402
 
 RESSOURCE_ID = "22847056-61df-452d-837d-8b8ceadbfc52"
 API = f"https://tabular-api.data.gouv.fr/api/resources/{RESSOURCE_ID}/data/"

@@ -15,11 +15,11 @@ import time
 from datetime import datetime, timezone
 from typing import Optional
 
-import stockage
+from tendia.core import stockage
 import pdf_extract
 import tendia_extraire
 import llm_extract
-import budget
+from tendia.core import budget
 from anthropic import Anthropic
 
 from prompts.digest_memoire_v1 import (
@@ -150,7 +150,7 @@ def _criteres_publies_texte(bareme: dict) -> str:
 
 def _appeler_llm(user_msg: str):
     """Appel Sonnet 4.6 (streaming). Retourne (data_json, usage)."""
-    import budget
+    from tendia.core import budget
     budget.verifier_kill_switch("digest")
     client = Anthropic()
     debut = time.time()

@@ -36,7 +36,8 @@ try:
 except Exception:
     pass
 
-from aws_downloader import _resoudre_captcha_2captcha
+from tendia.core.chemins import DATA
+from tendia.dce.aws_downloader import _resoudre_captcha_2captcha
 
 HOST_XMARCHES = "xmarches.fr"
 _UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
@@ -190,5 +191,5 @@ if __name__ == "__main__":
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")
     u = sys.argv[1] if len(sys.argv) > 1 else \
         "https://www.xmarches.fr/entreprise/detailConsultation.php?key=40675"
-    d = sys.argv[2] if len(sys.argv) > 2 else "data/test_xmarches"
+    d = sys.argv[2] if len(sys.argv) > 2 else str(DATA / "test_xmarches")
     print(telecharger_dce(u, d, verbose=True))

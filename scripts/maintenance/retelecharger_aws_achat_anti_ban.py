@@ -30,10 +30,10 @@ from pathlib import Path
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
-import stockage
-import tendia_dce
-import http_humain
-import aws_downloader as A
+from tendia.core import stockage
+from tendia.dce import resolution as tendia_dce
+from tendia.core import http_humain
+from tendia.dce import aws_downloader as A
 
 REPERTOIRE_DCE = Path("data/dce")
 

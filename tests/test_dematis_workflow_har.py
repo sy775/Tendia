@@ -33,7 +33,7 @@ from urllib.parse import urljoin, urlparse, parse_qs
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
-import dematis_downloader as D
+from tendia.dce import dematis_downloader as D
 
 ok = 0
 ko = 0

@@ -57,7 +57,7 @@ import json
 from pathlib import Path
 from typing import Optional, List, Any
 
-import stockage
+from tendia.core import stockage
 
 
 COLLECTION = "organisme"

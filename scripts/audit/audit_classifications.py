@@ -32,7 +32,7 @@ from pathlib import Path
 if sys.stdout.encoding and sys.stdout.encoding.lower() != "utf-8":
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
-import stockage
+from tendia.core import stockage
 
 
 REPERTOIRE_BASE = Path(__file__).resolve().parents[2]

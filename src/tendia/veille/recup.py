@@ -25,8 +25,8 @@ import time
 from datetime import datetime, timezone
 from collections import Counter
 
-import stockage
-import connecteurs
+from tendia.core import stockage
+from tendia.veille import connecteurs
 
 
 COLLECTION = "marches"

@@ -59,8 +59,8 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Optional
 
-import preset
-import stockage
+from tendia.veille import preset
+from tendia.core import stockage
 
 
 COLLECTION_SCORES = "scores_matching"
@@ -664,7 +664,7 @@ def enrichir_marches_pertinents(limite: Optional[int] = None,
         dict stats : { traites, enrichis_nouveaux, deja_en_cache, echecs,
                         bloques_budget, cout_total_eur, dry_run }
     """
-    import budget as _budget  # import tardif pour éviter cycle au load
+    from tendia.core import budget as _budget  # import tardif pour éviter cycle au load
 
     marches = stockage.charger("marches")
     briefs_existants = stockage.charger(COLLECTION_BRIEFS)

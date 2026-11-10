@@ -21,7 +21,7 @@ import sys
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
-from connecteurs import boamp
+from tendia.veille.connecteurs import boamp
 
 ok = 0
 ko = 0

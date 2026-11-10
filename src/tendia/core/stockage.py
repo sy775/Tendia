@@ -45,8 +45,10 @@ from datetime import datetime, timezone
 from typing import Optional
 
 
-_BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-DATA_DIR = os.path.join(_BASE_DIR, "data")
+from tendia.core.chemins import DATA, RACINE_DEPOT
+
+_BASE_DIR = str(RACINE_DEPOT)
+DATA_DIR = str(DATA)
 DB_FILENAME = "tendia.db"
 
 # Collections connues — utilisé pour la validation et la migration depuis JSON.

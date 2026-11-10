@@ -32,7 +32,7 @@ API publique :
 from datetime import datetime, timezone
 from typing import Optional
 
-import stockage
+from tendia.core import stockage
 
 
 COLLECTION = "marches_tendia_attribues"

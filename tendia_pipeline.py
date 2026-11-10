@@ -36,8 +36,10 @@ import time
 from datetime import date, datetime
 from pathlib import Path
 
-REPERTOIRE_BASE = Path(__file__).parent
-REPERTOIRE_DCE = REPERTOIRE_BASE / "data" / "dce"
+from tendia.core.chemins import DATA, RACINE_DEPOT
+
+REPERTOIRE_BASE = RACINE_DEPOT
+REPERTOIRE_DCE = DATA / "dce"
 
 
 def _est_actif(marche: dict, fenetre_jours: int = 60) -> bool:
@@ -126,11 +128,11 @@ def main():
         # France Travail/Pôle Emploi, legacy du ciblage historique).
         # --differentiel : borne à la dernière date connue → on ne re-balaie pas
         # les 6 mois complets à chaque passe (sinon 60k+ avis).
-        _executer_script("tendia_recup.py", ["--large", "--differentiel"])
+        _executer_script(str(RACINE_DEPOT / "src/tendia/veille/recup.py"), ["--large", "--differentiel"])
 
     # === Étape 2 : Résolution URLs DCE ===
     _print_etape(2, "Résolution URLs DCE (eForms + PLACE keyWord)")
-    _executer_script("tendia_dce.py", ["--jours", str(args.jours)])
+    _executer_script(str(RACINE_DEPOT / "src/tendia/dce/resolution.py"), ["--jours", str(args.jours)])
 
     # === Étape 3 : Téléchargement DCE — connecteurs anonymes (sans captcha) ===
     # Couvre PLACE, Atexo (+ marques blanches), achatpublic, e-marchespublics via
@@ -140,7 +142,7 @@ def main():
         print("\n  [3/6]  Téléchargement DCE (anonyme)  →  SKIPPÉ (--skip-download)")
     else:
         _print_etape(3, "Téléchargement DCE — PLACE / Atexo / achatpublic / e-marchespublics")
-        _executer_script("tendia_telecharger_dce.py")
+        _executer_script(str(RACINE_DEPOT / "src/tendia/dce/telecharger.py"))
 
     # === Étape 4 : Connecteurs DCE dédiés ===
     # Deux familles :
@@ -156,11 +158,11 @@ def main():
         extra = ["--oui", "--max", str(args.max_dedies)]
         if args.ignorer_heures:
             extra.append("--ignorer-heures")
-        _executer_script("scripts/maintenance/retelecharger_aws_achat_anti_ban.py", extra)
-        _executer_script("scripts/maintenance/retelecharger_dematis_anti_ban.py", extra)
-        _executer_script("scripts/maintenance/retelecharger_xmarches.py", ["--oui", "--max", str(args.max_dedies)])
+        _executer_script(str(RACINE_DEPOT / "scripts/maintenance/retelecharger_aws_achat_anti_ban.py"), extra)
+        _executer_script(str(RACINE_DEPOT / "scripts/maintenance/retelecharger_dematis_anti_ban.py"), extra)
+        _executer_script(str(RACINE_DEPOT / "scripts/maintenance/retelecharger_xmarches.py"), ["--oui", "--max", str(args.max_dedies)])
         # marches-securises : anonyme, cap dédié plus large (pas de coût captcha).
-        _executer_script("scripts/maintenance/retelecharger_marches_securises.py",
+        _executer_script(str(RACINE_DEPOT / "scripts/maintenance/retelecharger_marches_securises.py"),
                          ["--oui", "--max", str(max(args.max_dedies, 40))])
 
     # === Étape 5 : Extraction LLM ===
@@ -173,7 +175,7 @@ def main():
 
     # === Étape 6 : Rapport final ===
     _print_etape(6, "Génération du rapport final")
-    _executer_script("tendia_dce.py", ["--jours", str(args.jours),
+    _executer_script(str(RACINE_DEPOT / "src/tendia/dce/resolution.py"), ["--jours", str(args.jours),
                                          "--rapport-seul"])
 
     duree_totale = round(time.time() - debut_global, 1)
@@ -194,8 +196,8 @@ def main():
 def _telecharger_dce_marches_actifs(fenetre_jours: int):
     """Télécharge le zip DCE pour chaque marché actif avec URL résolue."""
     try:
-        import stockage
-        import atexo_downloader
+        from tendia.core import stockage
+        from tendia.dce import atexo_downloader
     except ImportError as e:
         print(f"\n  ❌ Modules manquants : {e}")
         return

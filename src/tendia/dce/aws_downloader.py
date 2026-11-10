@@ -39,9 +39,10 @@ from urllib.parse import urlparse, parse_qs, urljoin
 
 import uuid
 
-import http_client as http_lib   # backend curl_cffi (TLS Chrome) ou requests
-import http_humain
-import tendia_logs
+from tendia.core import http_client as http_lib   # backend curl_cffi (TLS Chrome) ou requests
+from tendia.core.chemins import DATA
+from tendia.core import http_humain
+from tendia.core import logs as tendia_logs
 
 # python-dotenv : lecture transparente de la clé 2captcha depuis .env.
 try:
@@ -342,7 +343,7 @@ def _resoudre_captcha_2captcha(image_bytes: bytes, api_key: str,
 def _decompresser_zip_imbrique(chemin_zip: str, dossier_dest: str,
                                  verbose: bool = False) -> dict:
     """Délègue à achatpublic_downloader._decompresser_zip_imbrique (DRY)."""
-    import achatpublic_downloader as _ap
+    from tendia.dce import achatpublic_downloader as _ap
     return _ap._decompresser_zip_imbrique(chemin_zip, dossier_dest, verbose=verbose)
 
 
@@ -757,7 +758,7 @@ def _session_sans_proxy(session_source):
     99% des couts. Le CDN ne ban pas les IPs (sinon les vrais utilisateurs seraient
     bloques).
     """
-    import http_client as _http
+    from tendia.core import http_client as _http
     s = _http.Session()
     # Copier les headers de la session source (UA, Accept, etc.)
     try:
@@ -878,7 +879,7 @@ if __name__ == "__main__":
         print("Usage : python aws_downloader.py <IDM> [dossier_destination]")
         sys.exit(1)
     idm_arg = sys.argv[1]
-    dossier = sys.argv[2] if len(sys.argv) > 2 else f"data/test_aws_{idm_arg}"
+    dossier = sys.argv[2] if len(sys.argv) > 2 else str(DATA / f"test_aws_{idm_arg}")
     print(f"Test téléchargement DCE AWS-Achat :")
     print(f"  IDM         = {idm_arg}")
     print(f"  destination = {dossier}")

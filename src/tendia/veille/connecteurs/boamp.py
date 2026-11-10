@@ -24,7 +24,7 @@ import sys
 from datetime import date, timedelta
 from typing import Optional
 
-from http_utils import get_json
+from tendia.core.http_utils import get_json
 
 
 SOURCE = "BOAMP"

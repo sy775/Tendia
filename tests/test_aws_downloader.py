@@ -15,7 +15,7 @@ import sys
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
-import aws_downloader as A
+from tendia.dce import aws_downloader as A
 
 ok = 0
 ko = 0

@@ -57,13 +57,14 @@ import uuid
 from typing import Optional
 from urllib.parse import urljoin, urlparse
 
-import http_humain
-import tendia_logs
+from tendia.core.chemins import DATA
+from tendia.core import http_humain
+from tendia.core import logs as tendia_logs
 
 # Réutilisation DRY des briques éprouvées d'aws_downloader (import = pas de
 # modification du module). Solveur 2captcha, helpers noms de fichiers,
 # retry réseau, décompression ZIP imbriqué (qui délègue à achatpublic).
-from aws_downloader import (
+from tendia.dce.aws_downloader import (
     ErreurSolde2Captcha,
     _resoudre_captcha_2captcha,
     _nom_fichier_depuis_headers,
@@ -910,7 +911,7 @@ if __name__ == "__main__":
         print("Usage : python dematis_downloader.py <url_dce> [dossier_destination] [--no-verify-ssl]")
         sys.exit(1)
     url_arg = args[0]
-    dossier = args[1] if len(args) > 1 else "data/test_dematis"
+    dossier = args[1] if len(args) > 1 else str(DATA / "test_dematis")
     r = telecharger_dce(url_arg, dossier, verbose=True, verify_ssl=verify_ssl)
     print("\nRésultat :", {k: v for k, v in r.items() if k != "fichiers_telecharges"})
     for f in r.get("fichiers_telecharges", []):

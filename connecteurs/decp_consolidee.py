@@ -32,10 +32,10 @@ from collections import Counter
 from datetime import date, timedelta
 from typing import Optional
 
-from http_utils import get_json
+from tendia.core.http_utils import get_json
 
 # Reprise des règles de classification depuis BOAMP pour cohérence
-from connecteurs.boamp import (
+from tendia.veille.connecteurs.boamp import (
     MOTS_CLES_FORMATION, MOTS_CLES_INSERTION, MOTS_CLES_NEGATIFS,
 )
 

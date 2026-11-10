@@ -29,9 +29,9 @@ from datetime import datetime, timezone
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
-import budget
+from tendia.core import budget
 import llm_router
-import stockage
+from tendia.core import stockage
 from decp import classif_ia as C
 from decp import db as decp_db
 from decp.mapping_cpv import classer_par_cpv

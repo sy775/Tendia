@@ -17,7 +17,7 @@ import sys
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
-import http_humain as H
+from tendia.core import http_humain as H
 
 ok = 0
 ko = 0

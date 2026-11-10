@@ -15,7 +15,7 @@ from collections import Counter
 from datetime import date
 from typing import Optional
 
-import stockage
+from tendia.core import stockage
 
 
 def _ajouter_mois(d: str, mois: Optional[int]) -> Optional[str]:

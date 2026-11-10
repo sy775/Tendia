@@ -21,7 +21,7 @@ BUSY_TIMEOUT_MS = 30_000
 
 def _resoudre(db_path) -> str:
     if db_path is None:
-        import stockage
+        from tendia.core import stockage
         return stockage.chemin_db()
     return str(db_path)
 

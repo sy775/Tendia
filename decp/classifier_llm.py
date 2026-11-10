@@ -90,7 +90,7 @@ def _cout_eur(usage) -> float:
 
 def classer_llm(marche: dict, retries: int = 2) -> dict:
     """Retourne {preset, confiance, cout_eur, ok, erreur}."""
-    import budget
+    from tendia.core import budget
     budget.verifier_kill_switch("decp")
     client = _get_client()
     derniere = None

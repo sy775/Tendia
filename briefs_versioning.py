@@ -32,10 +32,10 @@ def lister_briefs_obsoletes(briefs: Optional[dict] = None,
     Returns: liste triée de marche_ids.
     """
     if briefs is None:
-        import stockage
+        from tendia.core import stockage
         briefs = stockage.charger("briefs_extraits") or {}
     if hashes_courants is None:
-        import preset
+        from tendia.veille import preset
         hashes_courants = preset.hashes_presets_installes()
 
     obsoletes = []

@@ -30,7 +30,7 @@ import re
 import unicodedata
 from typing import Optional, List
 
-import preset as _preset
+from tendia.veille import preset as _preset
 
 
 VERDICTS = ("tres_pertinent", "pertinent", "a_verifier", "non_pertinent")

@@ -19,7 +19,7 @@ import re
 from typing import Optional
 
 import requests
-import dce_finder
+from tendia.dce import dce_finder
 
 # Moteurs Atexo (marques blanches + PLACE) où la recherche GET fonctionne.
 HOSTS_ATEXO_SEARCH = (

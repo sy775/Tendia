@@ -48,15 +48,17 @@ from typing import Optional
 if sys.stdout.encoding and sys.stdout.encoding.lower() != "utf-8":
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
-import stockage
+from tendia.core import stockage
 
 
 # ---------------------------------------------------------------------------
 # Configuration
 # ---------------------------------------------------------------------------
 
-REPERTOIRE_BASE = Path(__file__).parent
-CHEMIN_TAXONOMIE = REPERTOIRE_BASE / "presets" / "_taxonomie_domaines.json"
+from tendia.core.chemins import PRESETS, RACINE_DEPOT
+
+REPERTOIRE_BASE = RACINE_DEPOT
+CHEMIN_TAXONOMIE = PRESETS / "_taxonomie_domaines.json"
 COLLECTION_CLASSIFICATIONS = "classifications_ia"
 
 # Modèles supportés
@@ -346,7 +348,7 @@ def classifier(marche: dict,
     prompt_sys = _prompt_systeme()
     prompt_user = _prompt_utilisateur(marche)
 
-    import budget
+    from tendia.core import budget
     budget.verifier_kill_switch("classification")
     debut = time.time()
     for tentative in range(1, max_retries + 1):

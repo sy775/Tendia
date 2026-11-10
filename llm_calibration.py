@@ -43,7 +43,7 @@ N_COMPARABLES_MAX = 12     # limiter l'input pour économiser tokens
 SEUIL_SIMILARITE_MIN = 0.35
 
 
-import preset as _preset
+from tendia.veille import preset as _preset
 
 
 def _construire_prompt_systeme() -> str:
@@ -642,7 +642,7 @@ def calibrer(brief: dict,
         comparables_synthese=_synthese_comparables(top_comparables, marches_notifies),
     )
 
-    import budget
+    from tendia.core import budget
     budget.verifier_kill_switch("calibration")
     debut = time.time()
     for tentative in range(1, max_retries + 1):
@@ -847,7 +847,7 @@ def calibrer_bottom_up_seul(brief: dict,
 
     prompt = _construire_prompt_bottom_up_seul(_synthese_brief(brief))
 
-    import budget
+    from tendia.core import budget
     budget.verifier_kill_switch("calibration")
     debut = time.time()
     for tentative in range(1, max_retries + 1):
@@ -1067,7 +1067,7 @@ def invalider_cache(id_marche: str) -> bool:
 
 if __name__ == "__main__":
     import argparse
-    import stockage
+    from tendia.core import stockage
     import concurrence
     import organisme
 

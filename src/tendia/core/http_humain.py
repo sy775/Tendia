@@ -26,13 +26,14 @@ from typing import Optional
 # (→ IP réelle) ni les désactivations par plateforme (→ proxy actif à tort).
 try:
     from dotenv import load_dotenv
-    load_dotenv(".env")
-    load_dotenv(".env.txt")
+    from tendia.core.chemins import RACINE_DEPOT
+    load_dotenv(RACINE_DEPOT / ".env")
+    load_dotenv(RACINE_DEPOT / ".env.txt")
 except Exception:
     pass
 
 # Backend HTTP unifié (curl_cffi si dispo, sinon requests). Voir http_client.
-import http_client as http_lib
+from tendia.core import http_client as http_lib
 
 # Pool de User-Agents Chrome/Firefox/Edge/Safari récents (mi-2026).
 # Mélange Windows / macOS pour varier le fingerprint d'en-tête.

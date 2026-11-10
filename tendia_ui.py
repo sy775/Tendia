@@ -39,7 +39,7 @@ import profil_widgets
 import fiche_marche
 import matching
 import concurrence
-import stockage
+from tendia.core import stockage
 
 
 REPERTOIRE_BASE = Path(__file__).parent
@@ -77,7 +77,7 @@ def _injecter_preset_actif():
     pas faire planter l'UI.
     """
     try:
-        import preset
+        from tendia.veille import preset
         meta = preset.charger_actif()["preset"].get("meta", {})
         return {
             "preset_etiquette": preset.etiquette_courte(),
@@ -709,7 +709,7 @@ def explorer():
         ?zone=texte
         ?recherche=texte_libre
     """
-    import stockage
+    from tendia.core import stockage
     marches = stockage.charger("marches") or {}
     classifs_ia = stockage.charger("classifications_ia") or {}
     briefs = stockage.charger("briefs_extraits") or {}
@@ -1769,14 +1769,14 @@ def retenter_dce(id_marche):
     marche = marches.get(id_marche)
     if not marche:
         abort(404)
-    import tendia_dce
+    from tendia.dce import resolution as tendia_dce
     if tendia_dce.url_est_auth_requise(marche.get("url_dce") or ""):
         flash("Plateforme à authentification : téléchargement automatique impossible. "
               "Connecte-toi via l'avis BOAMP.", "erreur")
         return redirect(url_for("detail_marche", id_marche=id_marche))
     try:
         import requests
-        import tendia_telecharger_dce as tdce
+        from tendia.dce import telecharger as tdce
         log = tdce._telecharger_marche(marche, session=requests.Session(),
                                        force=True, dry_run=False, verbose=False)
     except Exception as e:
@@ -1811,8 +1811,8 @@ def retenter_pieces_manquantes(id_marche):
         flash("Aucune pièce manquante à retenter.", "succes")
         return redirect(url_for("detail_marche", id_marche=id_marche))
     import requests
-    import tendia_dce
-    import tendia_telecharger_dce as tdce
+    from tendia.dce import resolution as tendia_dce
+    from tendia.dce import telecharger as tdce
     session = requests.Session()
     session.headers.update({"User-Agent": tdce.USER_AGENT,
                             "Accept-Language": "fr-FR,fr;q=0.9"})

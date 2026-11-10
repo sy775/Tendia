@@ -39,11 +39,11 @@ from datetime import datetime
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
-import stockage
-import tendia_dce
-import resolution_reference as RR
-import marches_securises_downloader as MS
-import tendia_telecharger_dce as T
+from tendia.core import stockage
+from tendia.dce import resolution as tendia_dce
+from tendia.dce import resolution_reference as RR
+from tendia.dce import marches_securises_downloader as MS
+from tendia.dce import telecharger as T
 
 RATE_LIMIT_SEC = 6      # pacing inter-marchés (politesse) ; pas de throttle temporel,
 #                         le quota par IP est battu par la rotation dans le connecteur.

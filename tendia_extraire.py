@@ -27,10 +27,10 @@ import sys
 import zipfile
 from datetime import datetime, timezone
 
-import stockage
+from tendia.core import stockage
 import pdf_extract
 import llm_extract
-import preset
+from tendia.veille import preset
 
 
 REPERTOIRE_BASE = os.path.dirname(os.path.abspath(__file__))

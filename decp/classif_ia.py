@@ -79,7 +79,7 @@ def taxonomie() -> list:
 def famille_de(code: str) -> str:
     if code in DOMAINES_DECP:
         return DOMAINES_DECP[code]["famille"]
-    import preset
+    from tendia.veille import preset
     p = (preset.presets_pour_domaines([code]) or [None])[0]
     return p or "hors_perimetre"
 
@@ -118,7 +118,7 @@ REGLES_V2 = """## RÈGLES COMPLÉMENTAIRES (données DECP)
 def _frontieres() -> str:
     """Section « FRONTIÈRES PIÉGEUSES » du prompt de prod (tendia_classification),
     réutilisée telle quelle pour garder la même sémantique que nos marchés."""
-    import tendia_classification as tc
+    from tendia.veille import classification as tc
     p = tc._prompt_systeme()
     i = p.find("## FRONTIÈRES")
     if i < 0:

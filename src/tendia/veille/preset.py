@@ -47,7 +47,7 @@ INTERFACE PUBLIQUE
 
 USAGE
 =====
-    import preset
+    from tendia.veille import preset
     voc = preset.vocabulaire_llm()
     prompt = PROMPT_TEMPLATE.format(secteur=voc["secteur_libelle"], ...)
 """
@@ -59,9 +59,11 @@ import unicodedata
 from pathlib import Path
 from typing import Optional
 
-# Racine du projet (le module est à la racine, comme matching.py)
-RACINE = Path(__file__).resolve().parent
-PRESETS_DIR = RACINE / "presets"
+# Racine du dépôt et presets : voir tendia.core.chemins
+from tendia.core.chemins import PRESETS, RACINE_DEPOT
+
+RACINE = RACINE_DEPOT
+PRESETS_DIR = PRESETS
 FICHIER_ACTIF = PRESETS_DIR / "_actif.json"
 
 # Cache en mémoire pour éviter les relectures

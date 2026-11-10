@@ -20,9 +20,9 @@ import sys
 import traceback
 from pathlib import Path
 
-import stockage
-import dce_finder
-import tendia_telecharger_dce as tdl
+from tendia.core import stockage
+from tendia.dce import dce_finder
+from tendia.dce import telecharger as tdl
 import pdf_extract
 import tendia_extraire
 
@@ -124,7 +124,7 @@ def traiter_un(mid: str) -> dict:
 def main():
     proxy = _proxy()
     if proxy:
-        import http_utils
+        from tendia.core import http_utils
         http_utils._session.proxies = {"http": proxy, "https": proxy}
         print(f"  Proxy actif : {proxy[:22]}...")
 

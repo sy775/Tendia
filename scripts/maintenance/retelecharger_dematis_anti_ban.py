@@ -29,10 +29,10 @@ from pathlib import Path
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
-import stockage
-import tendia_dce
-import http_humain
-import dematis_downloader as D
+from tendia.core import stockage
+from tendia.dce import resolution as tendia_dce
+from tendia.core import http_humain
+from tendia.dce import dematis_downloader as D
 
 REPERTOIRE_DCE = Path("data/dce")
 

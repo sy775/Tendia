@@ -24,7 +24,7 @@ from collections import Counter, defaultdict
 from typing import Optional
 
 import marches_attribues
-import stockage
+from tendia.core import stockage
 
 
 # Seuil minimum d'observations pour publier une médiane par segment

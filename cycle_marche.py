@@ -22,7 +22,7 @@ Le statut + l'historique des transitions sont stockés dans
 from datetime import datetime, timezone
 from typing import Optional
 
-import stockage
+from tendia.core import stockage
 
 
 # -----------------------------------------------------------------------------

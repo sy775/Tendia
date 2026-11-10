@@ -35,7 +35,7 @@ except Exception:
     pass
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 
-import stockage  # noqa: E402
+from tendia.core import stockage  # noqa: E402
 from services import _memoire_commun as commun  # noqa: E402
 # Orchestration mutualisée CLI + UI (source unique).
 from services.pipeline_memoire import (  # noqa: E402

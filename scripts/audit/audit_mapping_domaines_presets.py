@@ -28,7 +28,7 @@ from pathlib import Path
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
-import preset as preset_mod
+from tendia.veille import preset as preset_mod
 import audit_classifications as AC
 
 BASE = Path(__file__).resolve().parents[2]

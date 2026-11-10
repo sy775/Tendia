@@ -28,9 +28,9 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspa
 import truststore
 truststore.inject_into_ssl()
 
-import stockage
-import tendia_dce
-import tendia_telecharger_dce as T
+from tendia.core import stockage
+from tendia.dce import resolution as tendia_dce
+from tendia.dce import telecharger as T
 import tendia_extraire as TE
 
 STAGGER_SEC = 0.2        # anti-burst entre lancements de threads

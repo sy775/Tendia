@@ -15,7 +15,9 @@ import os
 from datetime import datetime
 from pathlib import Path
 
-LOG_DIR = Path("logs")
+from tendia.core.chemins import LOGS
+
+LOG_DIR = LOGS
 
 
 def _aujourdhui() -> str:

@@ -26,9 +26,9 @@ import time
 from typing import Optional
 from urllib.parse import urlparse
 
-import http_client as http_lib   # backend curl_cffi (TLS Chrome) ou requests
-import http_humain
-import tendia_logs
+from tendia.core import http_client as http_lib   # backend curl_cffi (TLS Chrome) ou requests
+from tendia.core import http_humain
+from tendia.core import logs as tendia_logs
 
 
 # Conservé pour compat (scripts diagnostic lisant atexo_downloader.USER_AGENT).
