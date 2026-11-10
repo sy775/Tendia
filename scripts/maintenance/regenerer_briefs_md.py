@@ -14,9 +14,9 @@ Usage :
     python regenerer_briefs_md.py --dry-run          # sans écrire
 """
 
+from tendia.core.chemins import RACINE_DEPOT
 import os
 import sys
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 
 import argparse
 import io
@@ -32,7 +32,7 @@ from tendia.core import stockage
 from tendia.analyse import extraire as tendia_extraire
 
 
-REPERTOIRE_BASE = Path(__file__).resolve().parents[2]
+REPERTOIRE_BASE = RACINE_DEPOT
 REPERTOIRE_RAPPORTS = REPERTOIRE_BASE / "rapports"
 REPERTOIRE_EXTRACTIONS = REPERTOIRE_BASE / "data" / "extractions"
 

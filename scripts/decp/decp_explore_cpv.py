@@ -7,17 +7,17 @@ Base du mapping CPV→preset (Étape 1). 0 LLM, lecture seule.
 Produit `data/decp_cpv_distribution.csv` + un résumé console / Markdown.
 Usage : python scripts/decp_explore_cpv.py
 """
+from tendia.core.chemins import RACINE_DEPOT
 import csv
 import os
 import sys
 from collections import Counter
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 
 from tendia.prix.decp.db import connexion
 
-CSV_OUT = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))),
+CSV_OUT = os.path.join(str(RACINE_DEPOT),
                        "data", "decp_cpv_distribution.csv")
 
 # Libellés des divisions CPV (2 chiffres) — suffisant pour l'analyse stratégique.

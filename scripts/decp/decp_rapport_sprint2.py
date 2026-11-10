@@ -7,16 +7,16 @@ complétée séparément (decp_valider_classif.py + revue Younes).
 
 Usage : python scripts/decp_rapport_sprint2.py [--cout-llm 6.8]
 """
+from tendia.core.chemins import RACINE_DEPOT
 import argparse
 import os
 import sys
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 
 from tendia.prix.decp.db import connexion
 
-RAPPORT = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))),
+RAPPORT = os.path.join(str(RACINE_DEPOT),
                        "RAPPORT_DECP_SPRINT2.md")
 PRESETS = ["btp", "ingenierie", "it", "conseil_rd", "formation", "enr"]
 # Distribution CPV brute de l'audit Sprint 1 (référence de cohérence).

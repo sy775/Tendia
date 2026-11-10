@@ -17,9 +17,9 @@ Usage :
     python calibrer_briefs.py --dry-run                # liste sans appeler le LLM
 """
 
+from tendia.core.chemins import RACINE_DEPOT
 import os
 import sys
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 
 import argparse
 import io
@@ -35,7 +35,7 @@ from tendia.core import stockage
 from tendia.analyse import llm_calibration
 
 
-REPERTOIRE_BASE = Path(__file__).resolve().parents[2]
+REPERTOIRE_BASE = RACINE_DEPOT
 REPERTOIRE_EXTRACTIONS = REPERTOIRE_BASE / "data" / "extractions"
 REPERTOIRE_CALIBRATIONS = REPERTOIRE_BASE / "data" / "extractions_calibrees"
 

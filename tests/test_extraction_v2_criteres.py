@@ -8,7 +8,6 @@ import os
 import sys
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from tendia.analyse.llm_extract import (deriver_criteres_attribution_plat, valider_criteres_plat,
                          _famille_depuis_unite, post_traiter_extraction_v2)

@@ -8,16 +8,16 @@ Produit `audit_presets_extraction.md`. Sous-chantier 1A.1.
 Usage : python audit_presets_extraction.py
 """
 
+from tendia.core.chemins import RACINE_DEPOT
 import os
 import sys
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 import json
 import sys
 from pathlib import Path
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
-BASE = Path(__file__).resolve().parents[2] / "presets"
+BASE = RACINE_DEPOT / "presets"
 GABARIT = "btp"  # preset de référence (le plus complet)
 SORTIE = "audit_presets_extraction.md"
 

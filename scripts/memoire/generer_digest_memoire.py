@@ -31,7 +31,6 @@ try:
     sys.stderr.reconfigure(encoding="utf-8")
 except Exception:
     pass
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 
 from tendia.core import stockage  # noqa: E402
 from tendia.memoire.services import digest_memoire  # noqa: E402

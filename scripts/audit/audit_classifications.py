@@ -18,9 +18,9 @@ Usage :
     python audit_classifications.py --preset formation  # focus 1 preset
 """
 
+from tendia.core.chemins import RACINE_DEPOT
 import os
 import sys
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 
 import argparse
 import io
@@ -35,7 +35,7 @@ if sys.stdout.encoding and sys.stdout.encoding.lower() != "utf-8":
 from tendia.core import stockage
 
 
-REPERTOIRE_BASE = Path(__file__).resolve().parents[2]
+REPERTOIRE_BASE = RACINE_DEPOT
 REPERTOIRE_EXTRACTIONS = REPERTOIRE_BASE / "data" / "extractions"
 
 

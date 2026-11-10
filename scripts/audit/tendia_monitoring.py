@@ -12,7 +12,6 @@ Usage : python tendia_monitoring.py [--jours N]
 
 import os
 import sys
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 import argparse
 import sys
 from collections import Counter, defaultdict

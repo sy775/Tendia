@@ -17,7 +17,6 @@ from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timezone
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 
 from tendia.prix.decp.db import connexion
 from tendia.prix.decp.classifier_llm import classer_llm, BudgetTracker

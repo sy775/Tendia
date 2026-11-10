@@ -24,7 +24,6 @@ Usage : python reextraire_briefs_complet.py [--oui] [--limite N]
 
 import os
 import sys
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 import argparse
 import os
 import sys

@@ -19,7 +19,6 @@ Usage : python retelecharger_dematis_anti_ban.py [--oui] [--max N] [--ignorer-he
 
 import os
 import sys
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 import argparse
 import os
 import shutil

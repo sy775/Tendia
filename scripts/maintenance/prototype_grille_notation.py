@@ -34,7 +34,6 @@ import os
 import re
 import unicodedata
 
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 
 from tendia.analyse import pdf_extract
 from tendia.analyse import extraire as tendia_extraire

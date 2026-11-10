@@ -15,6 +15,7 @@ Modes : --dump (CSV + affichage) ou interactif (o/n/?). Déterministe (ORDER BY 
 
 Usage : python scripts/decp_valider_classif_v2.py --n 30 --focus-fixes [--dump]
 """
+from tendia.core.chemins import RACINE_DEPOT
 import argparse
 import csv
 import glob
@@ -24,11 +25,10 @@ from collections import Counter, defaultdict
 from datetime import datetime
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 
 from tendia.prix.decp.db import connexion
 
-DATA = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), "data")
+DATA = os.path.join(str(RACINE_DEPOT), "data")
 PRESETS = ["btp", "it", "ingenierie", "conseil_rd", "formation", "enr"]
 SEL = ("SELECT m.id, m.objet, m.cpv_principal, m.acheteur_nom, c.preset_principal, "
        "c.source, c.confiance FROM decp_classification c "

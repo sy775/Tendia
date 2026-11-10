@@ -7,15 +7,15 @@ raffinement → erreurs déjà corrigées) ou s'il reste un bug (audit POST-raff
 
 Usage : python scripts/decp_verifier_raffinement.py
 """
+from tendia.core.chemins import RACINE_DEPOT
 import os
 import sys
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 
 from tendia.prix.decp.db import connexion
 
-OUT = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))),
+OUT = os.path.join(str(RACINE_DEPOT),
                    "data", "verification_raffinement_v1.txt")
 
 # IDs problématiques (audit Younes) → (preset attendu post-raffinement, libellé)

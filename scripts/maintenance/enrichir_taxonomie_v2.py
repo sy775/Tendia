@@ -7,13 +7,14 @@ réseaux BTP) et recentre 4 descriptions de fourre-tout. Idempotent.
 
 Usage : python scripts/enrichir_taxonomie_v2.py
 """
+from tendia.core.chemins import RACINE_DEPOT
 import json
 import os
 import sys
 from pathlib import Path
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
-RACINE = Path(__file__).resolve().parents[2]
+RACINE = RACINE_DEPOT
 TAXO = RACINE / "presets" / "_taxonomie_domaines.json"
 
 # --- Nouveaux domaines (libellé, description, exemples) ---

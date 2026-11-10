@@ -18,7 +18,6 @@ Usage : python audit_plateformes_dce.py
 
 import os
 import sys
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 
 from collections import Counter, defaultdict
 from urllib.parse import urlparse

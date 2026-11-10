@@ -33,7 +33,6 @@ if sys.stdout.encoding and sys.stdout.encoding.lower() != "utf-8":
 
 import requests
 
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 from tendia.dce import telecharger as t
 
 

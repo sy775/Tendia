@@ -7,17 +7,17 @@ RAPPORT_REFONTE_PIPELINE_V2.md. Lecture seule, 0 €.
 
 Usage : python scripts/audit_couverture_v2.py
 """
+from tendia.core.chemins import RACINE_DEPOT
 import os
 import sys
 from collections import Counter
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 
 from tendia.core import stockage
 from tendia.prix.decp.classifier_cpv import classer_marche_cpv
 
-RAPPORT = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))),
+RAPPORT = os.path.join(str(RACINE_DEPOT),
                        "RAPPORT_REFONTE_PIPELINE_V2.md")
 
 

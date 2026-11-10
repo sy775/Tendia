@@ -10,7 +10,6 @@ Pour chaque brief stocké en collection 'briefs_extraits' avec _meta.type=comple
 
 import os
 import sys
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 
 import io
 import sys

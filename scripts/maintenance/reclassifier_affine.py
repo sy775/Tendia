@@ -7,12 +7,12 @@ presets, aux marchés sans brief et au dashboard. Haiku (économe).
 
 Usage : python scripts/reclassifier_affine.py [--limit N] [--only-ingenierie-energie]
 """
+from tendia.core.chemins import RACINE_DEPOT
 import os
 import sys
 import time
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 
 from tendia.core import stockage
 from tendia.veille import classification as tc
@@ -20,7 +20,7 @@ from tendia.veille import classification as tc
 # Charge la clé API depuis .env.txt si présente (convention projet).
 try:
     from pathlib import Path
-    env = Path(__file__).resolve().parents[2] / ".env.txt"
+    env = RACINE_DEPOT / ".env.txt"
     if env.exists():
         for ligne in env.read_text(encoding="utf-8").splitlines():
             if "=" in ligne and not ligne.strip().startswith("#"):

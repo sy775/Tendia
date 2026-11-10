@@ -15,6 +15,7 @@ Un verrou (fichier) empêche deux exécutions simultanées. Journal : data/decp_
 
 Lancement manuel : python scripts/decp/maj_hebdo.py [--sans-ia] [--dry-run]
 """
+from tendia.core.chemins import RACINE_DEPOT
 import argparse
 import contextlib
 import io
@@ -24,9 +25,8 @@ import sys
 import time
 from datetime import date, datetime, timedelta, timezone
 
-RACINE = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+RACINE = str(RACINE_DEPOT)
 os.chdir(RACINE)                      # lancé par le Planificateur de tâches : cwd quelconque
-sys.path.insert(0, RACINE)
 sys.path.insert(0, os.path.join(RACINE, "scripts", "decp"))
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
