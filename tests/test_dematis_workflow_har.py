@@ -2,7 +2,8 @@
 tests_dematis_workflow_har.py
 -----------------------------
 Tests HORS-LIGNE du workflow Dematis, MOCKÉS À PARTIR DU HAR de référence
-(BOAMP-26-57070, `dematis exemple/hautsdeseine-habitat.e-marchespublics.com.har`).
+(BOAMP-26-57070, HAR archivé dans `archive/dematis exemple/` ; corps acces_dce
+figé dans `tests/fixtures/dematis_acces_dce.html`).
 
 Le HAR fige la vérité terrain du chemin anonyme :
   1. page annonce : 2 liens anonymes (token 32 hex LEURRE + token 40 hex BON)
@@ -23,7 +24,6 @@ Lancement : python tests_dematis_workflow_har.py
 import os
 import sys
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-import json
 import os
 import re
 import shutil
@@ -89,23 +89,20 @@ HTML_CAPTCHA = f"""<html><body>
 HTML_ACCUEIL = "<html><body><h1>Bienvenue</h1></body></html>"
 
 
-def _charger_acces_dce_depuis_har():
-    """Corps réel de la page acces_dce extrait du HAR (liste des 17 getfile.php)."""
-    har_path = os.path.join("dematis exemple",
-                            "hautsdeseine-habitat.e-marchespublics.com.har")
-    if not os.path.exists(har_path):
+FIXTURE_ACCES_DCE = os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                                 "fixtures", "dematis_acces_dce.html")
+
+
+def _charger_acces_dce_depuis_fixture():
+    """Corps réel de la page acces_dce (liste des 17 getfile.php), extrait du HAR
+    de référence dans tests/fixtures/dematis_acces_dce.html."""
+    if not os.path.exists(FIXTURE_ACCES_DCE):
         return None
-    har = json.load(open(har_path, encoding="utf-8"))
-    for e in har["log"]["entries"]:
-        u = e["request"]["url"]
-        if "acces_dce_marche_public_anonyme" in u and e["request"]["method"] == "GET":
-            txt = e["response"].get("content", {}).get("text") or ""
-            if txt:
-                return txt
-    return None
+    with open(FIXTURE_ACCES_DCE, encoding="utf-8") as f:
+        return f.read() or None
 
 
-HTML_ACCES_DCE = _charger_acces_dce_depuis_har()
+HTML_ACCES_DCE = _charger_acces_dce_depuis_fixture()
 
 
 # ===========================================================================

@@ -13,13 +13,28 @@ CCTP/RC pour produire une grille d'ACTIONS pondérées :
 Isolé du prompt principal : ne change PAS PROMPT_V2_SHA, ne perturbe pas le batch.
 Patche le brief du marché ciblé (avec backup .bak_avant_grille).
 
-Usage :  python test_grille_notation.py BOAMP-26-56409
+Usage :  python scripts/maintenance/prototype_grille_notation.py --marche BOAMP-26-56409 --max-cost 2
+         (--repatch : re-patch sans LLM)
+--marche et --max-cost sont obligatoires ; sans eux, l'usage s'affiche et le script
+sort (code 2) avant d'importer anthropic. --max-cost n'est pas encore appliqué
+par la logique (chantier 0b : prototype déplacé, logique inchangée).
 """
+import argparse
+import sys
+
+if __name__ == "__main__":
+    _parseur = argparse.ArgumentParser(description="Prototype : grille de notation actionnable (appel LLM).")
+    _parseur.add_argument("--marche", required=True, help="id du marché, ex. BOAMP-26-56409")
+    _parseur.add_argument("--max-cost", type=float, required=True, help="plafond de coût en euros")
+    _parseur.add_argument("--repatch", action="store_true", help="re-patch depuis la grille brute, sans LLM")
+    ARGS = _parseur.parse_args()
+
 import json
 import os
 import re
-import sys
 import unicodedata
+
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 
 import pdf_extract
 import tendia_extraire
@@ -291,9 +306,8 @@ def repatcher(mid: str):
 
 
 if __name__ == "__main__":
-    args = [a for a in sys.argv[1:] if not a.startswith("--")]
-    mid = args[0] if args else "BOAMP-26-56409"
-    if "--repatch" in sys.argv:
+    mid = ARGS.marche
+    if ARGS.repatch:
         print(f"=== Re-patch grille (sans LLM) — {mid} ===")
         repatcher(mid)
     else:
