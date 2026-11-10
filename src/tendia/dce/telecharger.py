@@ -1252,6 +1252,35 @@ def _telecharger_pieces_dce_impl(marche: dict, dossier_destination: str, session
             "duree_secondes": (datetime.now() - debut).total_seconds()}
 
 
+def marquer_resultat_telechargement(marche: dict, id_m: str, result: dict,
+                                    verbose: bool = False) -> None:
+    """Reporte le résultat de _telecharger_marche dans le dict marché (sans écrire en
+    base) : statut, raison, date, nombre de fichiers et, après un téléchargement
+    réussi, la qualification `dce_contenu` (complet/incomplet/vide...)."""
+    statut = result['statut']
+    marche['dce_telechargement_statut'] = statut
+    marche['dce_telechargement_raison'] = result.get('raison', '')
+    marche['dce_telechargement_date'] = datetime.now(timezone.utc).isoformat()
+    marche['dce_telechargement_nb_fichiers'] = result.get('nb_fichiers', 0)
+    # Qualification : pose `dce_contenu` (complet/incomplet/vide) après un
+    # téléchargement réussi. Sans ça le batch de base laissait `dce_contenu`
+    # à None et les DCE bien récupérés étaient comptés comme non-couverts
+    # (dette B15.a). Aligné sur ce que font les `retelecharger_*`.
+    if statut in ('ok', 'skip_deja_fait'):
+        try:
+            from tendia.dce import resolution as tendia_dce
+            qual = tendia_dce.qualifier_dce(str(REPERTOIRE_DCE / id_m))
+            marche['dce_contenu'] = qual.get('qualite')
+            marche['dce_pieces_contractuelles'] = qual.get('pieces_contractuelles')
+            marche['dce_raison_contenu'] = qual.get('raison')
+            marche['dce_telecharge_le'] = marche['dce_telechargement_date']
+            if statut == 'ok':
+                print(f"             → qualité : {qual.get('qualite')}")
+        except Exception as e:
+            if verbose:
+                print(f"             ⚠ qualification échouée : {e}")
+
+
 def _sauver_marches(marches: dict):
     """Sauvegarde les marchés en base (SQLite Sprint 3).
     
@@ -1282,7 +1311,13 @@ def main():
                         help='Explore les pages sans télécharger.')
     parser.add_argument('--verbose', action='store_true',
                         help='Log HTTP détaillé.')
+    parser.add_argument('--ids-fichier', metavar='CHEMIN', default=None,
+                        help='Restreint aux id listés (un par ligne).')
     args = parser.parse_args()
+    ids_autorises = None
+    if args.ids_fichier:
+        with open(args.ids_fichier, encoding='utf-8') as f:
+            ids_autorises = {l.strip() for l in f if l.strip()}
 
     print("=" * 70)
     print("  Tendia · Téléchargement DCE depuis PLACE")
@@ -1303,6 +1338,8 @@ def main():
         nb_sans_url = 0
         nb_deja_fait = 0
         for id_m, m in marches.items():
+            if ids_autorises is not None and id_m not in ids_autorises:
+                continue
             if not m.get('url_dce'):
                 nb_sans_url += 1
                 continue
@@ -1375,27 +1412,7 @@ def main():
 
         # Met à jour les marques dans marches.json
         if not args.dry_run:
-            marche['dce_telechargement_statut'] = statut
-            marche['dce_telechargement_raison'] = raison
-            marche['dce_telechargement_date'] = datetime.now(timezone.utc).isoformat()
-            marche['dce_telechargement_nb_fichiers'] = nb_f
-            # Qualification : pose `dce_contenu` (complet/incomplet/vide) après un
-            # téléchargement réussi. Sans ça le batch de base laissait `dce_contenu`
-            # à None et les DCE bien récupérés étaient comptés comme non-couverts
-            # (dette B15.a). Aligné sur ce que font les `retelecharger_*`.
-            if statut in ('ok', 'skip_deja_fait'):
-                try:
-                    from tendia.dce import resolution as tendia_dce
-                    qual = tendia_dce.qualifier_dce(str(REPERTOIRE_DCE / id_m))
-                    marche['dce_contenu'] = qual.get('qualite')
-                    marche['dce_pieces_contractuelles'] = qual.get('pieces_contractuelles')
-                    marche['dce_raison_contenu'] = qual.get('raison')
-                    marche['dce_telecharge_le'] = marche['dce_telechargement_date']
-                    if statut == 'ok':
-                        print(f"             → qualité : {qual.get('qualite')}")
-                except Exception as e:
-                    if args.verbose:
-                        print(f"             ⚠ qualification échouée : {e}")
+            marquer_resultat_telechargement(marche, id_m, result, verbose=args.verbose)
 
     if not args.dry_run:
         _sauver_marches(marches)

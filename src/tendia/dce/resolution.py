@@ -389,13 +389,19 @@ def _est_actif(marche: dict, fenetre_jours_sans_date: int = 60) -> bool:
 def traiter(filtre_actifs: bool = True,
             fenetre_jours_sans_date: int = 60,
             dry_run: bool = False,
-            verbose: bool = True) -> dict:
+            verbose: bool = True,
+            ids=None) -> dict:
+    """Résout les URLs DCE. `ids` (itérable d'id de marchés) restreint la passe à ces
+    marchés, sans filtre d'activité (chantier 1 : rattrapage ciblé)."""
     marches = stockage.charger(COLLECTION_MARCHES)
     if not marches:
-        print("❌ Aucun marché en base. Lance d'abord : python tendia_recup.py")
+        print("❌ Aucun marché en base. Lance d'abord : python -m tendia.veille.recup")
         sys.exit(1)
 
-    if filtre_actifs:
+    if ids is not None:
+        ids = list(ids)
+        marches_a_traiter = {mid: marches[mid] for mid in ids if mid in marches}
+    elif filtre_actifs:
         marches_a_traiter = {
             mid: m for mid, m in marches.items()
             if _est_actif(m, fenetre_jours_sans_date)
@@ -663,7 +669,14 @@ def main():
     parser.add_argument("--rapport-seul", action="store_true",
                         help="Génère juste le rapport, sans relancer la "
                              "recherche d'URLs DCE.")
+    parser.add_argument("--ids-fichier", metavar="CHEMIN", default=None,
+                        help="Restreint la résolution aux id listés (un par ligne).")
     args = parser.parse_args()
+
+    ids = None
+    if args.ids_fichier:
+        with open(args.ids_fichier, encoding="utf-8") as f:
+            ids = [l.strip() for l in f if l.strip()]
 
     if not args.rapport_seul:
         traiter(
@@ -671,6 +684,7 @@ def main():
             fenetre_jours_sans_date=args.jours,
             dry_run=args.dry_run,
             verbose=True,
+            ids=ids,
         )
 
     # Génère le rapport

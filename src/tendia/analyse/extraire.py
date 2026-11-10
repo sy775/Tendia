@@ -28,6 +28,7 @@ import zipfile
 from datetime import datetime, timezone
 
 from tendia.core import stockage
+from tendia.core import logs as tendia_logs
 from tendia.analyse import pdf_extract
 from tendia.analyse import llm_extract
 from tendia.veille import preset
@@ -273,6 +274,17 @@ def _combiner_textes(pdfs: dict) -> str:
     for nom, info in pdfs.items():
         blocs.append(f"\n\n=== PIÈCE : {nom} ===\n\n{info['texte']}")
     return "".join(blocs)
+
+
+def cout_du_resultat(resultat: dict) -> float:
+    """Coût LLM (€) d'un résultat de traiter_marche, lu dans extraction._meta.cout_eur."""
+    extraction = (resultat or {}).get("extraction") or {}
+    return float((extraction.get("_meta") or {}).get("cout_eur") or 0.0)
+
+
+def plafond_atteint(cout_cumule: float, max_cout) -> bool:
+    """True si un plafond --max-cout est fixé et que le coût cumulé l'atteint."""
+    return max_cout is not None and cout_cumule >= float(max_cout)
 
 
 def traiter_marche(id_marche: str, dossier: str, pdfs: dict,
@@ -1212,6 +1224,9 @@ def main():
                         help="Re-extraire même si déjà fait")
     parser.add_argument("--dry-run", action="store_true",
                         help="N'appelle pas l'API LLM, juste scan + extraction texte")
+    parser.add_argument("--max-cout", type=float, default=None, metavar="EUR",
+                        help="Arrêt propre dès que le coût LLM cumulé de la passe "
+                             "atteint ce montant (coûts lus dans _meta.cout_eur).")
     args = parser.parse_args()
 
     print()
@@ -1266,12 +1281,22 @@ def main():
     # Traitement
     etat = _charger_etat()
     stats = {"ok": 0, "echec": 0}
+    cout_cumule = 0.0
 
     for id_marche, dossier, pdfs, raison in a_traiter:
+        if plafond_atteint(cout_cumule, args.max_cout):
+            print(f"\n  ⛔ Plafond --max-cout atteint : {cout_cumule:.3f} € ≥ "
+                  f"{args.max_cout:.2f} €. Arrêt propre avant {id_marche}.")
+            tendia_logs.logger_evenement_marche(
+                "extraction", id_marche,
+                {"evenement": "arret_plafond_max_cout",
+                 "cout_cumule_eur": round(cout_cumule, 4), "max_cout_eur": args.max_cout})
+            break
         resultat = traiter_marche(
             id_marche, dossier, pdfs,
             dry_run=args.dry_run, verbose=True,
         )
+        cout_cumule += cout_du_resultat(resultat)
         if resultat["ok"]:
             stats["ok"] += 1
             if not args.dry_run:
@@ -1291,6 +1316,7 @@ def main():
     print("─" * 78)
     print(f"  Succès : {stats['ok']}")
     print(f"  Échec  : {stats['echec']}")
+    print(f"  Coût LLM de la passe : {cout_cumule:.3f} €")
     print()
     if stats["ok"] > 0:
         print(f"  📄 Briefs disponibles dans : {REPERTOIRE_RAPPORTS}\\brief_*.md")
