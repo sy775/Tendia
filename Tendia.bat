@@ -20,6 +20,8 @@ echo Cette etape peut prendre 1 a 3 minutes selon le nombre de nouveaux marches.
 echo Tu peux la suivre en direct ci-dessous.
 echo.
 
+REM Proxy residentiel autorise pour les telechargements (coupe par defaut ailleurs)
+set TENDIA_PROXY_ACTIF=1
 python -m tendia
 
 REM ----- Etape 2 : Ouverture du navigateur (avec petit delai)

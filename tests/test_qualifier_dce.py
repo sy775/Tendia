@@ -5,7 +5,6 @@ Tests unitaires de tendia_dce.qualifier_dce sur des dossiers fabriqués.
 Lancement : python tests_qualifier_dce.py
 """
 
-import os
 import io
 import os
 import sys

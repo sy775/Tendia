@@ -27,6 +27,7 @@ Usage : python retelecharger_marches_securises.py [--oui] [--max N]
         python retelecharger_marches_securises.py --un-marche BOAMP-26-XXXXX
 """
 
+import os
 import argparse
 import subprocess
 import sys
@@ -181,6 +182,7 @@ def orchestrer(max_n: int):
 
 
 def main():
+    os.environ.setdefault("TENDIA_PROXY_ACTIF", "1")  # proxy résidentiel autorisé (lanceur de téléchargements)
     ap = argparse.ArgumentParser()
     ap.add_argument("--oui", action="store_true")
     ap.add_argument("--max", type=int, default=30)

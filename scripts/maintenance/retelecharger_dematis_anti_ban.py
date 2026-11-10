@@ -17,7 +17,6 @@ Réseau requis → à lancer par Younes. Idempotent (skip les marchés déjà OK
 Usage : python retelecharger_dematis_anti_ban.py [--oui] [--max N] [--ignorer-heures]
 """
 
-import os
 import argparse
 import os
 import shutil
@@ -46,6 +45,7 @@ COUT_2CAPTCHA_USD_PAR_CAPTCHA = 0.001
 
 
 def main():
+    os.environ.setdefault("TENDIA_PROXY_ACTIF", "1")  # proxy résidentiel autorisé (lanceur de téléchargements)
     ap = argparse.ArgumentParser()
     ap.add_argument("--oui", action="store_true", help="Pas de confirmation.")
     ap.add_argument("--max", type=int, default=MAX_MARCHES_PAR_RUN,

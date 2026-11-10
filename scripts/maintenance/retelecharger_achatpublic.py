@@ -13,6 +13,7 @@ Rate-limit 2 s entre marchés.
 Usage : python retelecharger_achatpublic.py
 """
 
+import os
 import io
 import sys
 import shutil
@@ -36,6 +37,7 @@ RATE_LIMIT_MAX_SEC = 30
 
 
 def main():
+    os.environ.setdefault("TENDIA_PROXY_ACTIF", "1")  # proxy résidentiel autorisé (lanceur de téléchargements)
     marches = stockage.charger("marches") or {}
     cibles = [
         (mid, m) for mid, m in marches.items()

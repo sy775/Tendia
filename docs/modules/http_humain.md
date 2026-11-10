@@ -73,11 +73,19 @@ Notes de comportement vérifiées dans le code :
   (lignes 116-117) décrit l'intention historique ; l'effet réel dépend du
   backend actif de `http_client` (voir Dépendances et Pièges connus).
 
-## _proxy_pour_plateforme(plateforme) : proxy ON par défaut, OFF si TENDIA_PROXY_FOR_<P>=0 ; plateformes désactivées : place, boamp, data_gouv
+## _proxy_pour_plateforme(plateforme) : coupé sans TENDIA_PROXY_ACTIF=1 ; sinon ON par défaut, OFF si TENDIA_PROXY_FOR_<P>=0 ou plateforme dans PLATEFORMES_SANS_PROXY
 
-Définie lignes 87-108. Décide si le proxy résidentiel doit être appliqué
-pour une plateforme.
+Décide si le proxy résidentiel doit être appliqué pour une plateforme.
 
+- **Interrupteur général (chantier 1)** : si `TENDIA_PROXY_ACTIF` n'est pas
+  `1`, `true` ou `on` (casse ignorée) → renvoie `False` avant toute autre
+  règle, quelle que soit la plateforme. La variable est posée
+  (`os.environ.setdefault`) par `python -m tendia` (`pipeline.main`),
+  `Tendia.bat`, `scripts/maintenance/retelecharger_*.py` et
+  `scripts/maintenance/rattrapage_btp_octobre.py`. L'UI, les tests et
+  `scripts/audit/` ne la posent pas : ils passent en direct même si `.env`
+  définit `TENDIA_PROXY_URL` (chargé à l'import depuis l'installation de
+  python-dotenv).
 - Si `plateforme` est falsy (`None` ou chaîne vide) → renvoie `True`
   (proxy ON, comportement historique ; lignes 103-104).
 - Sinon, lit la variable d'environnement
@@ -88,7 +96,7 @@ pour une plateforme.
   lignes 106-107).
 - Dans tous les autres cas → renvoie `True` (lignes 108).
 
-Donc : **proxy activé par défaut**, désactivation explicite uniquement.
+Donc, une fois `TENDIA_PROXY_ACTIF=1` posé : **proxy activé par défaut**, sauf plateformes de `PLATEFORMES_SANS_PROXY` ou désactivation explicite.
 La docstring (lignes 93-94) cite les plateformes confirmées sans ban à
 désactiver : `place` (marches-publics.gouv.fr), `boamp`, `data_gouv`
 (DECP). À noter : ces noms sont une convention documentaire ; le code ne

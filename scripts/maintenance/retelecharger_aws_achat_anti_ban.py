@@ -18,7 +18,6 @@ Usage : python retelecharger_aws_achat_anti_ban.py [--oui] [--max N]
                                                    [--ignorer-heures]
 """
 
-import os
 import argparse
 import os
 import sys
@@ -50,6 +49,7 @@ COUT_2CAPTCHA_USD_PAR_CAPTCHA = 0.001     # ~$1/1000 captchas normaux
 
 
 def main():
+    os.environ.setdefault("TENDIA_PROXY_ACTIF", "1")  # proxy résidentiel autorisé (lanceur de téléchargements)
     ap = argparse.ArgumentParser()
     ap.add_argument("--oui", action="store_true",
                     help="Pas de confirmation interactive.")

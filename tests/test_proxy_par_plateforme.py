@@ -6,10 +6,12 @@ Tests du proxy ciblé par plateforme (http_humain).
 - session simulée : proxy ON (Dematis) / OFF (PLACE) selon flags ;
 - test léger PLACE sans proxy : HEAD direct (best-effort, n'échoue pas hors-ligne).
 
-Lancement : python tests_proxy_par_plateforme.py
+Interrupteur général TENDIA_PROXY_ACTIF (chantier 1) : absent → proxy coupé partout ;
+les blocs historiques posent TENDIA_PROXY_ACTIF=1.
+
+Lancement : python tests/test_proxy_par_plateforme.py
 """
 
-import os
 import os
 import sys
 
@@ -45,8 +47,27 @@ def _set(env: dict):
 
 PROXY = "http://user:pass@geo.iproyal.com:12321"
 
-print("=== _proxy_pour_plateforme ===")
-old = _set({"TENDIA_PROXY_FOR_PLACE": "0", "TENDIA_PROXY_FOR_BOAMP": "0",
+print("=== interrupteur TENDIA_PROXY_ACTIF ===")
+old = _set({"TENDIA_PROXY_ACTIF": None, "TENDIA_PROXY_URL": PROXY,
+            "TENDIA_PROXY_FOR_DEMATIS": "1"})
+try:
+    check("variable absente → proxy OFF même pour dematis (flag=1)",
+          H._proxy_pour_plateforme("dematis") is False)
+    check("variable absente → proxy OFF pour plateforme None",
+          H._proxy_pour_plateforme(None) is False)
+    check("variable absente → session sans proxy (dematis)",
+          not H.creer_session_humaine(plateforme="dematis", session_id="t").proxies)
+    _set({"TENDIA_PROXY_ACTIF": "0"})
+    check("variable à 0 → proxy OFF", H._proxy_pour_plateforme("dematis") is False)
+    for v in ("1", "true", "on", "ON"):
+        _set({"TENDIA_PROXY_ACTIF": v})
+        check(f"variable à {v!r} → comportement actuel (dematis ON)",
+              H._proxy_pour_plateforme("dematis") is True)
+finally:
+    _set(old)
+
+print("\n=== _proxy_pour_plateforme (TENDIA_PROXY_ACTIF=1) ===")
+old = _set({"TENDIA_PROXY_ACTIF": "1", "TENDIA_PROXY_FOR_PLACE": "0", "TENDIA_PROXY_FOR_BOAMP": "0",
             "TENDIA_PROXY_FOR_DATA_GOUV": "0", "TENDIA_PROXY_FOR_DEMATIS": None,
             "TENDIA_PROXY_FOR_AWS_ACHAT": None})
 try:
@@ -67,8 +88,8 @@ finally:
     _set(old)
 
 print("\n=== creer_session_humaine : application du proxy ===")
-old = _set({"TENDIA_PROXY_URL": PROXY, "TENDIA_PROXY_FOR_PLACE": "0",
-            "TENDIA_PROXY_FOR_DEMATIS": None})
+old = _set({"TENDIA_PROXY_ACTIF": "1", "TENDIA_PROXY_URL": PROXY,
+            "TENDIA_PROXY_FOR_PLACE": "0", "TENDIA_PROXY_FOR_DEMATIS": None})
 try:
     s_dem = H.creer_session_humaine(plateforme="dematis", session_id="t")
     check("Dematis : session.proxies défini (IPRoyal)",
@@ -84,7 +105,8 @@ finally:
     _set(old)
 
 print("\n=== Test léger PLACE sans proxy (HEAD direct, best-effort) ===")
-old = _set({"TENDIA_PROXY_URL": PROXY, "TENDIA_PROXY_FOR_PLACE": "0"})
+old = _set({"TENDIA_PROXY_ACTIF": "1", "TENDIA_PROXY_URL": PROXY,
+            "TENDIA_PROXY_FOR_PLACE": "0"})
 try:
     s = H.creer_session_humaine(plateforme="place")
     check("session PLACE sans proxy (proxies vide)", not s.proxies)

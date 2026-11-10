@@ -5,7 +5,6 @@ Tests HORS-LIGNE du téléchargeur profond (parsing HTML mocké + fake session).
 Ne fait aucun appel réseau. Lancement : python tests_parseur_dce.py
 """
 
-import os
 import io
 import os
 import sys

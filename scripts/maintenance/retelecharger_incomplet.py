@@ -9,7 +9,6 @@ Nécessite réseau. Usage : python retelecharger_incomplet.py
 Rate-limit : 2 s entre marchés.
 """
 
-import os
 import io
 import os
 import shutil
@@ -33,6 +32,7 @@ RATE_LIMIT_MAX_SEC = 25
 
 
 def main():
+    os.environ.setdefault("TENDIA_PROXY_ACTIF", "1")  # proxy résidentiel autorisé (lanceur de téléchargements)
     marches = stockage.charger("marches") or {}
     cibles = [(mid, m) for mid, m in sorted(marches.items())
               if m.get("dce_contenu") == "incomplet"]

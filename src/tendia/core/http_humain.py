@@ -109,17 +109,25 @@ def _proxy_pour_plateforme(plateforme: Optional[str]) -> bool:
     """
     Décide si le proxy résidentiel doit être utilisé pour une plateforme.
 
-    Politique : proxy ON par défaut (anti-ban), SAUF pour les plateformes à accès
-    anonyme listées dans PLATEFORMES_SANS_PROXY (proxy inutile). Surcharge possible
-    dans les deux sens via `TENDIA_PROXY_FOR_<PLATEFORME>=0/1` dans l'environnement.
+    Interrupteur général (chantier 1) : sans `TENDIA_PROXY_ACTIF` à "1", "true" ou
+    "on" dans l'environnement, le proxy est COUPÉ, quelle que soit la plateforme.
+    Seuls les lanceurs de téléchargement le posent (`python -m tendia`, Tendia.bat,
+    scripts/maintenance/retelecharger_*.py, rattrapage_btp_octobre.py) : l'UI, les
+    tests et scripts/audit/ passent en direct, même si `.env` définit le proxy.
+
+    Ensuite, politique par plateforme : proxy ON par défaut (anti-ban), SAUF pour les
+    plateformes à accès anonyme listées dans PLATEFORMES_SANS_PROXY (proxy inutile).
+    Surcharge possible dans les deux sens via `TENDIA_PROXY_FOR_<PLATEFORME>=0/1`.
 
     Args:
         plateforme: identifiant court (ex: "place", "dematis", "aws_achat").
-            None → proxy activé (comportement historique).
+            None → proxy activé si l'interrupteur général l'est (comportement historique).
 
     Returns:
         True si le proxy doit être appliqué, False sinon.
     """
+    if (os.environ.get("TENDIA_PROXY_ACTIF") or "").strip().lower() not in ("1", "true", "on"):
+        return False
     if not plateforme:
         return True
     flag = os.environ.get(f"TENDIA_PROXY_FOR_{plateforme.upper()}")

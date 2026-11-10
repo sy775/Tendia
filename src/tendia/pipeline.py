@@ -28,6 +28,7 @@ Options :
     --jours N          : fenêtre marchés sans date limite (défaut: 60)
 """
 
+import os
 import argparse
 import subprocess
 import sys
@@ -85,6 +86,7 @@ def _executer_script(script_name: str, args: list[str] = None) -> bool:
 
 
 def main():
+    os.environ.setdefault("TENDIA_PROXY_ACTIF", "1")  # proxy résidentiel autorisé (lanceur de téléchargements)
     parser = argparse.ArgumentParser(
         description="Tendia — Pipeline complet automatique",
         formatter_class=argparse.RawDescriptionHelpFormatter,

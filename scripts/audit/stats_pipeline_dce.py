@@ -9,7 +9,6 @@ Usage :
   python stats_pipeline_dce.py --db data\tendia.db
 """
 
-import os
 
 import argparse
 import json
