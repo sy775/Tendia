@@ -59,6 +59,7 @@ USAGE
 
 import json
 import os
+import sys
 from dataclasses import dataclass
 from datetime import datetime, timezone
 from typing import Optional
@@ -338,6 +339,18 @@ def enregistrer_appel(type_appel: str,
     except Exception:
         pass
     return appel_id
+
+
+def journaliser_appel(type_appel: str, cout_eur: float, **kwargs) -> Optional[str]:
+    """enregistrer_appel qui ne lève jamais : à placer HORS du try qui relance un
+    appel LLM, pour qu'un échec d'écriture du journal ne déclenche pas un nouvel
+    appel payant. Un échec est signalé sur stderr ; retourne l'id ou None."""
+    try:
+        return enregistrer_appel(type_appel, cout_eur, **kwargs)
+    except Exception as e:
+        print(f"  ⚠ journal llm_appels non écrit ({type_appel}) : "
+              f"{type(e).__name__}: {e}", file=sys.stderr)
+        return None
 
 
 # ---------------------------------------------------------------------------

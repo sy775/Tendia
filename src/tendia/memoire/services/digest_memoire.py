@@ -149,20 +149,31 @@ def _criteres_publies_texte(bareme: dict) -> str:
     return "\n".join(lignes)
 
 
-def _appeler_llm(user_msg: str):
-    """Appel Sonnet 4.6 (streaming). Retourne (data_json, usage)."""
+def _appeler_llm(user_msg: str, marche_id: Optional[str] = None):
+    """Appel Sonnet 4.6 (streaming). Retourne (data_json, usage).
+    Chaque appel est journalisé dans llm_appels (type « digest »), erreurs comprises."""
     from tendia.core import budget
     budget.verifier_kill_switch("digest")
     client = Anthropic()
     debut = time.time()
-    with client.messages.stream(
-        model=MODELE,
-        max_tokens=MAX_TOKENS_REPONSE,
-        system=PROMPT_SYSTEME_DIGEST,
-        messages=[{"role": "user", "content": user_msg}],
-    ) as stream:
-        message = stream.get_final_message()
+    try:
+        with client.messages.stream(
+            model=MODELE,
+            max_tokens=MAX_TOKENS_REPONSE,
+            system=PROMPT_SYSTEME_DIGEST,
+            messages=[{"role": "user", "content": user_msg}],
+        ) as stream:
+            message = stream.get_final_message()
+    except Exception as e:
+        budget.journaliser_appel("digest", 0.0, statut="erreur", modele=MODELE,
+                                 marche_id=marche_id, erreur=f"{type(e).__name__}: {e}"[:300],
+                                 duree_ms=int((time.time() - debut) * 1000))
+        raise
     duree = time.time() - debut
+    budget.journaliser_appel(
+        "digest", budget.estimer_cout_eur(message.usage.input_tokens, message.usage.output_tokens),
+        modele=MODELE, marche_id=marche_id, tokens_input=message.usage.input_tokens,
+        tokens_output=message.usage.output_tokens, duree_ms=int(duree * 1000))
     texte = message.content[0].text if message.content else ""
     texte = texte.strip()
     if texte.startswith("```"):
@@ -254,7 +265,7 @@ def generer_digest_memoire_lot(
     llm_extract._check_anthropic()
     if verbose:
         print(f"  → Appel Sonnet 4.6 ({MODELE})… (≈ {tokens_in_est} tokens entrée)")
-    data, usage = _appeler_llm(user_msg)
+    data, usage = _appeler_llm(user_msg, marche_id=id_marche)
     if data is None:
         raise RuntimeError(f"Réponse LLM non parsable en JSON ({id_marche} lot {numero_lot}).")
 

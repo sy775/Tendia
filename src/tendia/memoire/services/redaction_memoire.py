@@ -91,7 +91,8 @@ def rediger_memoire(
     commun.llm_extract._check_anthropic()
     if verbose:
         print(f"  → Appel 2 / Sonnet 4.6 ({commun.MODELE})… (≈ {tokens_in_est} tokens entrée)")
-    texte, usage = commun.appeler_llm(PROMPT_SYSTEME, user_msg, MAX_TOKENS_REPONSE)
+    texte, usage = commun.appeler_llm(PROMPT_SYSTEME, user_msg, MAX_TOKENS_REPONSE,
+                                      marche_id=id_marche)
     if usage.get("stop_reason") == "max_tokens" and verbose:
         print("  ⚠ Appel 2 tronqué (max_tokens atteint) — la mémoire peut être incomplète ; "
               "le parsing JSON peut échouer (abort propre si c'est le cas).")

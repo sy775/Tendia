@@ -102,7 +102,8 @@ def regenerer_section(
     commun.llm_extract._check_anthropic()
     if verbose:
         print(f"  → Régénération '{section_id}' / Sonnet 4.6… (≈ {tokens_in_est} tokens entrée)")
-    texte, usage = commun.appeler_llm(PROMPT_SYSTEME, user_msg, MAX_TOKENS_REPONSE)
+    texte, usage = commun.appeler_llm(PROMPT_SYSTEME, user_msg, MAX_TOKENS_REPONSE,
+                                      marche_id=id_marche)
     if usage.get("stop_reason") == "max_tokens" and verbose:
         print("  ⚠ Régénération tronquée (max_tokens) — parsing possiblement en échec (abort propre).")
     data = commun.parser_json_strict(texte, f"régénération {section_id} / {memoire_id}")

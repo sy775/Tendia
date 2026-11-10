@@ -600,11 +600,20 @@ def _synthese_comparables(top_comparables: list,
 # Appel LLM
 # ---------------------------------------------------------------------------
 
+def _cout_eur_calibration(usage) -> float:
+    """Coût d'un appel de calibration (Sonnet : 3 $ / 15 $ par million de tokens,
+    même formule que l'affichage verbose), converti au taux de budget.TAUX_USD_EUR."""
+    from tendia.core import budget
+    cout_usd = (usage.input_tokens * 3 + usage.output_tokens * 15) / 1_000_000
+    return round(cout_usd * budget.TAUX_USD_EUR, 6)
+
+
 def calibrer(brief: dict,
               top_comparables: list,
               marches_notifies: dict,
               max_retries: int = 2,
-              verbose: bool = False) -> Optional[dict]:
+              verbose: bool = False,
+              marche_id: Optional[str] = None) -> Optional[dict]:
     """
     Effectue l'appel LLM de calibration.
 
@@ -648,6 +657,8 @@ def calibrer(brief: dict,
     budget.verifier_kill_switch("calibration")
     debut = time.time()
     for tentative in range(1, max_retries + 1):
+        appel_journalise = False
+        debut_appel = time.time()
         try:
             if verbose:
                 print(f"  → Calibration LLM tentative {tentative} "
@@ -658,6 +669,12 @@ def calibrer(brief: dict,
                 system=_construire_prompt_systeme(),
                 messages=[{"role": "user", "content": prompt}],
             )
+            budget.journaliser_appel(
+                "calibration", _cout_eur_calibration(message.usage), modele=MODELE,
+                marche_id=marche_id, tokens_input=message.usage.input_tokens,
+                tokens_output=message.usage.output_tokens,
+                duree_ms=int((time.time() - debut_appel) * 1000))
+            appel_journalise = True
             duree = time.time() - debut
             texte = message.content[0].text if message.content else ""
 
@@ -684,6 +701,11 @@ def calibrer(brief: dict,
                         print(f"    Début : {texte[:300]}")
                     return None
         except Exception as e:
+            if not appel_journalise:
+                budget.journaliser_appel(
+                    "calibration", 0.0, statut="erreur", modele=MODELE, marche_id=marche_id,
+                    erreur=f"{type(e).__name__}: {e}"[:300],
+                    duree_ms=int((time.time() - debut_appel) * 1000))
             if verbose:
                 print(f"  ⚠ Erreur API tentative {tentative} : {e}")
             if tentative >= max_retries:
@@ -823,7 +845,8 @@ Si le brief manque d'informations critiques pour faire un bottom-up
 
 def calibrer_bottom_up_seul(brief: dict,
                              max_retries: int = 2,
-                             verbose: bool = False) -> Optional[dict]:
+                             verbose: bool = False,
+                             marche_id: Optional[str] = None) -> Optional[dict]:
     """
     Calibration en mode DÉGRADÉ (bottom-up seul, sans comparables DECP).
 
@@ -853,6 +876,8 @@ def calibrer_bottom_up_seul(brief: dict,
     budget.verifier_kill_switch("calibration")
     debut = time.time()
     for tentative in range(1, max_retries + 1):
+        appel_journalise = False
+        debut_appel = time.time()
         try:
             if verbose:
                 print(f"  → Calibration bottom-up seul, tentative {tentative} "
@@ -863,6 +888,12 @@ def calibrer_bottom_up_seul(brief: dict,
                 system=_construire_prompt_systeme(),
                 messages=[{"role": "user", "content": prompt}],
             )
+            budget.journaliser_appel(
+                "calibration", _cout_eur_calibration(message.usage), modele=MODELE,
+                marche_id=marche_id, tokens_input=message.usage.input_tokens,
+                tokens_output=message.usage.output_tokens,
+                duree_ms=int((time.time() - debut_appel) * 1000))
+            appel_journalise = True
             duree = time.time() - debut
             texte = message.content[0].text if message.content else ""
 
@@ -898,6 +929,11 @@ def calibrer_bottom_up_seul(brief: dict,
             return resultat
 
         except Exception as e:
+            if not appel_journalise:
+                budget.journaliser_appel(
+                    "calibration", 0.0, statut="erreur", modele=MODELE, marche_id=marche_id,
+                    erreur=f"{type(e).__name__}: {e}"[:300],
+                    duree_ms=int((time.time() - debut_appel) * 1000))
             if verbose:
                 print(f"  ⚠ Erreur API tentative {tentative} : {e}")
             if tentative >= max_retries:
@@ -979,7 +1015,8 @@ def calibrer_et_cacher(id_marche: str,
               f"(comparables DECP : {len(top)})")
 
     if mode_effectif == "triangule":
-        resultat = calibrer(brief, top, marches_notifies, verbose=verbose)
+        resultat = calibrer(brief, top, marches_notifies, verbose=verbose,
+                            marche_id=id_marche)
         if resultat:
             from datetime import datetime, timezone
             resultat["_meta"] = {
@@ -992,7 +1029,7 @@ def calibrer_et_cacher(id_marche: str,
                 "ids_comparables": [c.get("id") for c in top],
             }
     else:  # bottom_up
-        resultat = calibrer_bottom_up_seul(brief, verbose=verbose)
+        resultat = calibrer_bottom_up_seul(brief, verbose=verbose, marche_id=id_marche)
         if resultat:
             from datetime import datetime, timezone
             resultat["_meta"] = {
@@ -1033,7 +1070,8 @@ def calibrer_et_cacher_legacy(id_marche: str,
     if not top:
         return None
 
-    resultat = calibrer(brief, top, marches_notifies, verbose=verbose)
+    resultat = calibrer(brief, top, marches_notifies, verbose=verbose,
+                        marche_id=id_marche)
     if resultat:
         from datetime import datetime, timezone
         resultat["_meta"] = {
