@@ -1,15 +1,14 @@
 # Rapport du chantier 1 : redémarrer la chaîne LLM (2026-11-10)
 
-Branche `chantier/1-chaine-llm` (depuis `main` = `f44727a`). **Rapport en cours de rédaction** : les sections des étapes 6 à 8 sont remplies au fil des runs.
+Branche `chantier/1-chaine-llm` (depuis `main` = `f44727a`), fusionnée dans `main` par `--no-ff`. Critères de fin : tous atteints (détail ci-dessous).
 
-## En bref (provisoire)
+## En bref
 
-- Étapes 1 à 5 faites et poussées : tests alignés sur le code (27/27 fichiers OK), proxy résidentiel conditionné à `TENDIA_PROXY_ACTIF=1`, tous les appels LLM journalisés dans `llm_appels`, classification en étape 2 du pipeline, script `rattrapage_btp_octobre.py`.
-- Plafond mensuel porté à 30 € (décision Younes en cours de chantier) : novembre portait déjà 10,00 € de DECP au 02/11, un plafond à 20 € n'aurait laissé que 10 € au chantier.
-- Pré-filtre de classification corrigé : les avis d'attribution BOAMP (`nature = "ATTRIBUTION"`) passaient au LLM (134 en octobre).
-- Étape 6 : 1 992 marchés d'octobre traités, 1 757 classés, 235 rejetés par le pré-filtre, 0 reste, 10,85 € (Haiku, 0 échec).
-- Étapes 7 et 8 : 534 cibles BTP d'octobre ; sur une passe de 60, 27 DCE complets ; **14 briefs BTP** à date limite ≥ 2026-12-09, 7,10 €.
-- **Coût réel du chantier : 17,95 €** (classification 10,85 €, extraction 7,10 €), lu dans `llm_appels`, sous le plafond de 20 €.
+- Chaîne LLM redémarrée : classification en étape 2 du pipeline, tous les appels LLM journalisés dans `llm_appels`, proxy résidentiel limité aux lanceurs (`TENDIA_PROXY_ACTIF=1`).
+- Octobre : 1 992 marchés, 1 757 classés (Haiku), 235 rejetés par le pré-filtre (corrigé : il laissait passer les 134 avis d'attribution), **0 reste**.
+- 534 cibles BTP d'octobre ; une passe de 60 donne 27 DCE complets ; **14 briefs BTP** à date limite ≥ 2026-12-09 (critère : 10 à ≥ 2026-11-17).
+- **Coût réel : 17,95 €** (classification 10,85 €, briefs 7,10 €, 0 erreur) ; plafond mensuel porté à 30 € avec accord, car novembre avait déjà 10 € de DECP.
+- Tests : 27/27 fichiers OK (23/25 avant) ; deux tests appelaient le réseau ou écrivaient en base de prod, corrigés et isolés.
 
 ## Points d'attention
 
@@ -22,7 +21,8 @@ Branche `chantier/1-chaine-llm` (depuis `main` = `f44727a`). **Rapport en cours 
 7. **Quotas journaliers non appliqués** aux types journalisés par `verifier_kill_switch` (classification, calibration, mémoire, digest, decp) : `classification_max_par_jour = 2500` n'a d'effet que via `peut_appeler_llm`, que la classification n'appelle pas. Seuls kill switch et plafond mensuel s'appliquent. Non modifié.
 8. **`llm_router` (Gemini, Opus) n'est pas journalisé** : hors périmètre (chantier 2). Les coûts DECP Gemini du 02/11 étaient journalisés par les scripts appelants.
 9. **Coût de classification réel ≈ 0,0062 €/marché**, le double de l'estimation affichée par le module (0,003 €) : le prompt système (taxonomie de 64 domaines) fait ~5 500 tokens d'entrée.
-10. **Restes de 0b nettoyés au passage** : 13 `import os` en double (amorce `sys.path`) retirés (`cd2ae16`).
+10. **Constats de `AUDIT_0b.md` traités à l'étape 1** : chemins des scripts anti-ban (`DATA / "dce"`) et `cwd=RACINE_DEPOT` dans `pipeline._executer_script` ; `test_chemins.py` étendu (37 vérifications) ; règle de fin de `CLAUDE.md` rétablie ; `prototype_grille_notation.py` archivé ; `load_dotenv(RACINE_DEPOT / ".env")` dans `aws_downloader` et `dematis_downloader` ; `package-data` de `tendia.ui` dans `pyproject.toml` ; `docs/modules/http_humain.md` à jour.
+11. **Restes de 0b nettoyés au passage** : 13 `import os` en double (amorce `sys.path`) retirés (`cd2ae16`).
 
 ## Hésitations
 
@@ -97,7 +97,7 @@ Branche `chantier/1-chaine-llm` (depuis `main` = `f44727a`). **Rapport en cours 
 | `_memoire_commun.appeler_llm` | memoire | `src/tendia/memoire/services/_memoire_commun.py:167` / `:162` | `budget.estimer_cout_eur` (Sonnet) |
 | `digest_memoire._appeler_llm` | digest | `src/tendia/memoire/services/digest_memoire.py:173` / `:168` | idem |
 | `prix/decp/classifier_llm.classer_llm` | decp | `src/tendia/prix/decp/classifier_llm.py:105` / `:125` | `_cout_eur` du module |
-| déjà journalisés avant le chantier | | | |
+| déjà journalisés avant le chantier (incomplètement, voir « Suite de l'audit ») | | | |
 | `llm_extract` (brief complet) | extraction | `src/tendia/analyse/llm_extract.py:1331`, `:1443`, `:1462`, `:1483` | module |
 | `auto_brief` (brief light) | extraction | `src/tendia/analyse/auto_brief.py:176`, `:248`, `:274`, `:291` | module |
 | `prix/decp/classif_batch` (batch DECP) | decp | `src/tendia/prix/decp/classif_batch.py:228`, `:240` | module |
@@ -120,7 +120,7 @@ Suivi du run (`python -m tendia.veille.classification --max-cout 13`, lancé à 
 | dont octobre 2026 | 1 992 | 1 757 | 235 (134 attributions, 101 dates limites dépassées) | 0 | |
 | dont hors octobre | 10 | 0 | 10 | 0 | |
 
-Contrôle « marchés publiés en 2026-10 ni classés ni rejetés par `pre_filtre_rejette` » : **0** (1 992 = 1 757 classés + 235 rejetés). Coût moyen 0,0062 €/marché, garde-fou `--max-cout 13` non atteint. Marchés d'octobre classés `btp_*` : 511. Dépense totale de novembre après l'étape 6 : 20,85 € (10,00 € DECP du 02/11 + 10,85 €).
+Contrôle « marchés publiés en 2026-10 ni classés ni rejetés par `pre_filtre_rejette` » : **0** (1 992 = 1 757 classés + 235 rejetés). Coût moyen 0,0062 €/marché, garde-fou `--max-cout 13` non atteint. Marchés d'octobre classés `btp_*` : 511 en fin d'étape 6, 509 après l'étape 8 (l'extraction d'un brief réécrit la classification d'après le DCE complet : 5 marchés reclassés, 2 sortis de `btp_*`). Dépense totale de novembre après l'étape 6 : 20,85 € (10,00 € DECP du 02/11 + 10,85 €).
 
 ### Étape 7 : DCE d'octobre par plateforme
 
@@ -226,3 +226,13 @@ Lu dans `llm_appels` (appels du 10/11 à partir de 19h UTC, soit la durée du ch
 | **Total chantier** | **1 771** | **0** | **17,9473** (≤ 20 €) |
 
 Dépense totale de novembre : 27,95 € (10,00 € DECP du 02/11 + 17,95 €), sous le plafond mensuel de 30 €.
+
+## Suite de l'audit (`archive/AUDIT_1.md` : livrable acceptable, 0 bloquant, 3 majeurs, 15 mineurs)
+
+Consigne du chantier : corriger les bloquants seulement. Aucun ; rien n'est corrigé dans le code. Rapport rectifié sur deux points (journalisation de `llm_extract`, 511 → 509). Majeurs à reprendre :
+
+1. **`llm_extract` n'est que partiellement journalisé** : une tentative payée puis relancée pour JSON invalide n'a ni entrée `llm_appels` ni coût dans `_meta.cout_eur` (les `--max-cout` d'`extraire` et du rattrapage ne la voient pas) ; son `enregistrer_appel` de succès est dans le `try` qui relance l'appel. À passer sur `budget.journaliser_appel` comme les autres modules. Les 14 briefs du chantier n'ont eu aucune erreur ni relance journalisée, mais une relance JSON non journalisée ne peut pas être exclue : le coût réel de l'étape 8 peut être légèrement supérieur à 7,10 €.
+2. Tests manquants pour la journalisation de `llm_calibration` et pour `extraire.plafond_atteint` / `cout_du_resultat`.
+3. `telecharger.main` réécrit toujours toute la collection `marches` en fin de run (`sauver` global) ; le rattrapage ne l'utilise pas.
+
+Mineurs notables : `--max-cout 0` désactive le plafond au lieu de tout bloquer ; estimation de classification restée à 0,003 €/marché ; `TENDIA_PROXY_ACTIF` posé dans `.env` contournerait l'interrupteur ; les tests écrivent encore dans `logs/` ; CLAUDE.md et plusieurs docs disent encore « classification hors pipeline », « 6 étapes ».
