@@ -103,8 +103,9 @@ def pre_filtre_rejette(marche: dict) -> tuple:
     if "ContractAwardNotice" in str(type_notice):
         return True, "ContractAwardNotice (avis d'attribution, marché déjà attribué)"
 
-    # Aussi : nature_marche indique attribution
-    nature = (marche.get("nature_marche") or "").lower()
+    # Aussi : la nature de l'avis indique une attribution. Les marchés BOAMP portent
+    # le champ `nature` ("ATTRIBUTION", "APPEL_OFFRE"...) ; `nature_marche` est l'ancien nom.
+    nature = (marche.get("nature_marche") or marche.get("nature") or "").lower()
     if "attribution" in nature or "award" in nature:
         return True, f"nature_marche = '{nature}'"
 

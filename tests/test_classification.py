@@ -127,6 +127,11 @@ n_avant = len(APPELS_API)
 check("rejeté sans appel API",
       C.classifier_un_marche("BOAMP-TEST-4", attribution)["statut"] == "rejeté"
       and len(APPELS_API) == n_avant)
+check("avis d'attribution au format BOAMP réel (nature=ATTRIBUTION) rejeté",
+      C.pre_filtre_rejette({"id": "X", "nature": "ATTRIBUTION", "notice_type": "10 | 6"})[0])
+check("appel d'offre (nature=APPEL_OFFRE, date future) non rejeté",
+      not C.pre_filtre_rejette({"id": "X", "nature": "APPEL_OFFRE",
+                                "date_limite_depot": "2099-01-01"})[0])
 check("date limite passée rejetée",
       C.pre_filtre_rejette(dict(MARCHE, date_limite_depot="2020-01-01"))[0])
 
