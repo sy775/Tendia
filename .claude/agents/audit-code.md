@@ -12,7 +12,7 @@ Méthode :
    - conformité à CLAUDE.md (interdits, règles, structure) ;
    - code mort, doublons, imports inutilisés, fonctions de plus de 80 lignes, modules de plus de 800 lignes ;
    - écritures en base : `sauver` global, `sqlite3.connect` direct, appel LLM sans plafond ni journal ;
-   - tests : chaque module touché de core/analyse/eligibilite a-t-il un test ? Les tests passent-ils ? (`python tests/test_*.py`)
+   - tests : chaque module touché de core/analyse/eligibilite a-t-il un test ? Les tests passent-ils ? (`python tests/lancer_tous.py`)
    - lisibilité : nommage français cohérent, docstrings, pas de chemin en dur.
 3. Vérifie que le rapport du chantier correspond au diff (rien d'annoncé qui n'a pas été fait, rien de fait qui n'est pas annoncé).
 

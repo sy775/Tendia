@@ -42,7 +42,6 @@ Fusion de `dette_technique.md` (juin), du rapport d'architecture du 2 novembre (
 - `tendia_ui.py` 2 154 lignes, `llm_extract.py` 1 525, `tendia_telecharger_dce.py` 1 423, `matching.py` 1 379 : candidats au découpage.
 - Modules critiques sans test : `matching`, `matching_exigences`, `preset`, `tendia_extraire`, `organisme`, `tendia_ui`.
 - Tests : style maison `check()`, pas de pytest, pas de CI. Après 0a : `test_dematis_workflow_har.py` cassé (fixture archivée), `test_grille_notation.py` n'est pas un test (prototype qui appelle l'API et écrit en base).
-- `place_downloader.py` : ancêtre d'`atexo_downloader`, encore importé par le pipeline.
 - Signatures `telecharger_dce(...)` différentes par plateforme ; seule `telecharger_dce_pour_marche(marche, repertoire, ...)` est homogène.
 - Dépendances absentes : `beautifulsoup4`, `curl_cffi`, `python-dotenv`.
 

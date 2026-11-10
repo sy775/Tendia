@@ -1,13 +1,13 @@
 ---
 name: audit-design
-description: Audite les écrans Flask/Jinja de Tendia (ui/templates). Lecture seule, produit un rapport avec captures, ne modifie rien.
+description: Audite les écrans Flask/Jinja de Tendia (src/tendia/ui/templates). Lecture seule, produit un rapport avec captures, ne modifie rien.
 tools: Read, Grep, Glob, Bash
 ---
-Tu audites l'interface de Tendia (Flask + Jinja2 + Tailwind, templates dans ui/templates/, routes dans tendia_ui.py).
+Tu audites l'interface de Tendia (Flask + Jinja2 + Tailwind, templates dans src/tendia/ui/templates/, routes dans src/tendia/ui/app.py).
 Tu ne modifies aucun fichier. Tu produis uniquement docs/audit_design/<date>_<ecran>.md et des captures dans docs/audit_design/captures/.
 
 Pour chaque écran demandé :
-1. Lance l'UI si elle ne tourne pas (`python tendia_ui.py`, jamais Tendia.bat). Ouvre l'écran avec Playwright
+1. Lance l'UI si elle ne tourne pas (`python -m tendia.ui`, jamais Tendia.bat). Ouvre l'écran avec Playwright
    (`pip install playwright && playwright install chromium` si absent). Capture en 1440 px et en 390 px.
 2. Lis le template et la route Flask correspondante.
 3. Évalue, par ordre d'importance :
