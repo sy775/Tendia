@@ -42,3 +42,20 @@ venv/
 
 # Sprint DECP-R : fichiers bruts (CSV DECP, stock Sirene), journaux, résultats (6 Go)
 data/decp_reprise/
+
+# --- Chantier 0a (2026-11-10) : venv, données et logs hors suivi ---
+venv/
+.venv/
+logs/
+# data/ hors suivi, sauf les exemples et profils de démo
+data/*
+!data/exemples/
+!data/profils_demo/
+*.har
+*.mp4
+*.db*
+*.log
+Thumbs.db
+.DS_Store
+__MACOSX/
+~$*
