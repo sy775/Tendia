@@ -7,7 +7,7 @@ Un chantier = une session Claude Code, un objectif, un critère de fin vérifiab
 | # | Chantier | État | Dépend de |
 |---|---|---|---|
 | 0a | Dépôt propre : git, archive, tests regroupés | **Terminé le 2026-11-10** (902 → 313 fichiers) | |
-| 0b | Structure `src/tendia/`, `CLAUDE.md`, branche `main`, 2 régressions de 0a | À faire | 0a |
+| 0b | Structure `src/tendia/`, `CLAUDE.md`, branche `main`, 2 régressions de 0a | **Terminé le 2026-11-10**, réserve : `test_aws_downloader` et `test_qualifier_dce` périmés (antérieurs à 0b), repris en étape 1 du chantier 1 | 0a |
 | 1 | Redémarrer la chaîne LLM : classification dans le pipeline, rattrapage BTP d'octobre | À faire | 0b |
 | 2 | Promouvoir le mode document en prod (lecture exhaustive des DCE) | À faire, **en attente d'une décision** (cf. questions ouvertes) | 1 |
 | 3 | Dossier manuel sur un marché BTP réel, puis agent d'assemblage | À faire | 2 |
@@ -30,6 +30,7 @@ Un chantier = une session Claude Code, un objectif, un critère de fin vérifiab
 - Critère de fin : tous les tests passent (`python tests/test_*.py`), l'UI démarre, `git ls-files | wc -l` stable, rapport `archive/RAPPORT_0b.md`.
 
 ### 1 : redémarrer la chaîne LLM
+- Étape 1 : aligner `test_aws_downloader` et `test_qualifier_dce` sur le comportement en prod ; proxy résidentiel conditionné à `TENDIA_PROXY_ACTIF=1` (pipeline seul) ; `prototype_grille_notation.py` archivé.
 - Intégrer `tendia_classification` comme étape du pipeline (après la récup, avant la résolution DCE), avec `--skip-llm` respecté.
 - Classifier les 1 992 marchés d'octobre (Haiku, ~12 €).
 - Sélectionner le BTP pertinent (preset `btp` + profil démo BTP) et ne lancer le brief que sur ceux dont le DCE est complet. Budget plafonné via `data/budget.json`.
@@ -40,6 +41,7 @@ Un chantier = une session Claude Code, un objectif, un critère de fin vérifiab
 - Promouvoir `exp_gemini/pieces.py` (inventaire récursif, conversion .doc/.xls/.odt/.rtf, pages) et `mode_document.py` dans `src/tendia/analyse/`.
 - Promouvoir `llm_router.py` comme client LLM unique (remplacer les 6 `Anthropic()` directs).
 - Décider du modèle d'analyse par défaut (cf. questions ouvertes).
+- `exp_gemini/ui_exp.py` : corriger ses deux imports (`tendia_ui` → `tendia.ui.app`) avant de promouvoir ou d'archiver.
 - Critère de fin : sur 5 DCE BTP de référence, 100 % des pièces lues, brief avec sources pièce + page, coût par DCE mesuré.
 
 ### 3 : le dossier
