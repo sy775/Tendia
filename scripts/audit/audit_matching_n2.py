@@ -28,7 +28,6 @@ Pre-requis (deja dans le repo) :
   - data/tendia.db avec collections : marches, briefs_extraits, scores_matching, organisme
 """
 
-import os
 
 import argparse
 import csv

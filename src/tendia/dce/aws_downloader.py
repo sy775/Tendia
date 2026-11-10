@@ -47,7 +47,8 @@ from tendia.core import logs as tendia_logs
 # python-dotenv : lecture transparente de la clé 2captcha depuis .env.
 try:
     from dotenv import load_dotenv
-    load_dotenv()
+    from tendia.core.chemins import RACINE_DEPOT
+    load_dotenv(RACINE_DEPOT / ".env")
 except ImportError:
     pass  # facultatif : on lira quand même os.environ si la lib est absente
 

@@ -13,6 +13,7 @@ Rate-limit 2 s entre marchés.
 Usage : python retelecharger_vide_atexo.py
 """
 
+import os
 import io
 import sys
 import shutil
@@ -31,6 +32,7 @@ RATE_LIMIT_SEC = 2
 
 
 def main():
+    os.environ.setdefault("TENDIA_PROXY_ACTIF", "1")  # proxy résidentiel autorisé (lanceur de téléchargements)
     marches = stockage.charger("marches") or {}
     cibles = []
     for mid, m in marches.items():

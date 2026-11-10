@@ -7,6 +7,9 @@ import types
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
+from base_temporaire import isoler_stockage
+isoler_stockage()  # classer_llm journalise dans llm_appels : jamais dans la base de prod
+
 from tendia.prix.decp import classifier_llm as cl
 from tendia.prix.decp.classifier_llm import BudgetTracker, prompt_user, _cout_eur
 
@@ -80,6 +83,12 @@ check("preset invalide → hors_perimetre", r3["preset"] == "hors_perimetre")
 _install("pas du json du tout")
 r4 = cl.classer_llm({"objet": "x", "cpv_principal": "99", "acheteur_nom": "X"})
 check("JSON absent → hors_perimetre (fallback)", r4["preset"] == "hors_perimetre")
+
+print("journal llm_appels (base temporaire)")
+from tendia.core import stockage
+appels = list(stockage.charger("llm_appels").values())
+check("4 appels journalisés, type decp", len(appels) == 4 and all(a["type"] == "decp" for a in appels))
+check("coût journalisé = coût calculé", all(abs(a["cout_eur"] - r["cout_eur"]) < 1e-9 for a in appels))
 
 print(f"\n=== {ok} OK / {ko} KO ===")
 sys.exit(1 if ko else 0)

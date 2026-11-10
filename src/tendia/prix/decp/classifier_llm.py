@@ -95,11 +95,18 @@ def classer_llm(marche: dict, retries: int = 2) -> dict:
     client = _get_client()
     derniere = None
     for tentative in range(1, retries + 1):
+        appel_journalise = False
+        debut_appel = time.time()
         try:
             rep = client.messages.create(
                 model=MODELE, max_tokens=50, system=PROMPT_SYSTEME,
                 messages=[{"role": "user", "content": prompt_user(marche)}])
             cout = _cout_eur(rep.usage)
+            budget.journaliser_appel(
+                "decp", cout, modele=MODELE, marche_id=marche.get("id"),
+                tokens_input=rep.usage.input_tokens, tokens_output=rep.usage.output_tokens,
+                duree_ms=int((time.time() - debut_appel) * 1000))
+            appel_journalise = True
             txt = "".join(b.text for b in rep.content if getattr(b, "type", "") == "text")
             m = re.search(r"\{.*\}", txt, re.S)
             data = json.loads(m.group(0)) if m else {}
@@ -114,6 +121,11 @@ def classer_llm(marche: dict, retries: int = 2) -> dict:
                     "cout_eur": cout, "ok": True, "erreur": None}
         except Exception as e:
             derniere = e
+            if not appel_journalise:
+                budget.journaliser_appel(
+                    "decp", 0.0, statut="erreur", modele=MODELE, marche_id=marche.get("id"),
+                    erreur=f"{type(e).__name__}: {e}"[:300],
+                    duree_ms=int((time.time() - debut_appel) * 1000))
             if tentative < retries:
                 time.sleep(1.0 * tentative)
     return {"preset": None, "confiance": None, "cout_eur": 0.0, "ok": False,

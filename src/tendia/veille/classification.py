@@ -103,8 +103,9 @@ def pre_filtre_rejette(marche: dict) -> tuple:
     if "ContractAwardNotice" in str(type_notice):
         return True, "ContractAwardNotice (avis d'attribution, marché déjà attribué)"
 
-    # Aussi : nature_marche indique attribution
-    nature = (marche.get("nature_marche") or "").lower()
+    # Aussi : la nature de l'avis indique une attribution. Les marchés BOAMP portent
+    # le champ `nature` ("ATTRIBUTION", "APPEL_OFFRE"...) ; `nature_marche` est l'ancien nom.
+    nature = (marche.get("nature_marche") or marche.get("nature") or "").lower()
     if "attribution" in nature or "award" in nature:
         return True, f"nature_marche = '{nature}'"
 
@@ -351,6 +352,8 @@ def classifier(marche: dict,
     budget.verifier_kill_switch("classification")
     debut = time.time()
     for tentative in range(1, max_retries + 1):
+        appel_journalise = False
+        debut_appel = time.time()
         try:
             if verbose:
                 print(f"  → API {modele_id} tentative {tentative}")
@@ -368,6 +371,11 @@ def classifier(marche: dict,
             pricing = PRICING.get(modele_id, PRICING[MODELES["haiku"]])
             cout_usd = (in_t * pricing["input"] + out_t * pricing["output"]) / 1_000_000
             cout_eur = cout_usd * 0.92  # taux indicatif USD→EUR
+            budget.journaliser_appel(
+                "classification", cout_eur, modele=modele_id, marche_id=marche.get("id"),
+                tokens_input=in_t, tokens_output=out_t,
+                duree_ms=int((time.time() - debut_appel) * 1000))
+            appel_journalise = True
             if verbose:
                 print(f"  ← {duree:.1f}s · {in_t}+{out_t} tokens · {cout_eur:.4f} €")
 
@@ -417,6 +425,11 @@ def classifier(marche: dict,
             return resultat
 
         except Exception as e:
+            if not appel_journalise:
+                budget.journaliser_appel(
+                    "classification", 0.0, statut="erreur", modele=modele_id,
+                    marche_id=marche.get("id"), erreur=f"{type(e).__name__}: {e}"[:300],
+                    duree_ms=int((time.time() - debut_appel) * 1000))
             if verbose:
                 print(f"  ⚠ Erreur tentative {tentative} : {type(e).__name__}: {e}")
             if tentative >= max_retries:
@@ -434,18 +447,13 @@ def charger_classifications() -> dict:
 
 
 def sauver_classification(marche_id: str, classification: dict) -> None:
-    """Persiste une classification."""
-    classifs = charger_classifications()
-    classifs[marche_id] = classification
-    stockage.sauver(COLLECTION_CLASSIFICATIONS, classifs)
+    """Persiste une classification (écriture unitaire, règle 9 : jamais de sauver global)."""
+    stockage.ecrire(COLLECTION_CLASSIFICATIONS, marche_id, classification)
 
 
 def supprimer_classification(marche_id: str) -> None:
-    """Supprime la classification d'un marché."""
-    classifs = charger_classifications()
-    if marche_id in classifs:
-        del classifs[marche_id]
-        stockage.sauver(COLLECTION_CLASSIFICATIONS, classifs)
+    """Supprime la classification d'un marché (suppression unitaire)."""
+    stockage.supprimer(COLLECTION_CLASSIFICATIONS, marche_id)
 
 
 # ---------------------------------------------------------------------------

@@ -11,3 +11,6 @@ requires-python = ">=3.12"
 
 [tool.setuptools.packages.find]
 where = ["src"]
+
+[tool.setuptools.package-data]
+"tendia.ui" = ["templates/**/*", "static/*"]

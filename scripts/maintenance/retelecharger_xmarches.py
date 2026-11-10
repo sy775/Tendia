@@ -8,7 +8,6 @@ télécharge via xmarches_downloader, re-qualifie et persiste dce_contenu.
 Usage : python retelecharger_xmarches.py [--oui] [--max N]
 """
 
-import os
 import argparse
 import os
 import sys
@@ -59,6 +58,7 @@ def _traiter(mid, marche, api_key):
 
 
 def main():
+    os.environ.setdefault("TENDIA_PROXY_ACTIF", "1")  # proxy résidentiel autorisé (lanceur de téléchargements)
     ap = argparse.ArgumentParser()
     ap.add_argument("--oui", action="store_true", help="Pas de confirmation.")
     ap.add_argument("--max", type=int, default=MAX_MARCHES_PAR_RUN)

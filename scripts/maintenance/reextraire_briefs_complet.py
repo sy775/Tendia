@@ -22,7 +22,6 @@ Nécessite réseau + API (coût LLM ~0,05 €/brief). Confirmation interactive.
 Usage : python reextraire_briefs_complet.py [--oui] [--limite N]
 """
 
-import os
 import argparse
 import os
 import sys

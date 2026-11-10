@@ -138,24 +138,36 @@ def grille_redaction_lot(brief: dict, lot: dict) -> str:
 # Appel LLM (Sonnet 4.6, streaming — pas de timeout, cf. préférence Younes)
 # ---------------------------------------------------------------------------
 
-def appeler_llm(system_prompt: str, user_msg: str, max_tokens: int) -> Tuple[str, dict]:
+def appeler_llm(system_prompt: str, user_msg: str, max_tokens: int,
+                marche_id: Optional[str] = None) -> Tuple[str, dict]:
     """Appel Sonnet 4.6 en streaming. Retourne (texte_brut_nettoye, usage).
 
     usage = {tokens_entree, tokens_sortie, duree_s, stop_reason}. Le nettoyage
     se limite au retrait d'un éventuel fence markdown ```json … ```. AUCUNE
-    réparation de JSON (cf. guardrails) — le parsing est laissé à l'appelant."""
+    réparation de JSON (cf. guardrails) — le parsing est laissé à l'appelant.
+    Chaque appel est journalisé dans llm_appels (type « memoire »), erreurs comprises."""
     from tendia.core import budget
     budget.verifier_kill_switch("memoire")
     client = Anthropic()
     debut = time.time()
-    with client.messages.stream(
-        model=MODELE,
-        max_tokens=max_tokens,
-        system=system_prompt,
-        messages=[{"role": "user", "content": user_msg}],
-    ) as stream:
-        message = stream.get_final_message()
+    try:
+        with client.messages.stream(
+            model=MODELE,
+            max_tokens=max_tokens,
+            system=system_prompt,
+            messages=[{"role": "user", "content": user_msg}],
+        ) as stream:
+            message = stream.get_final_message()
+    except Exception as e:
+        budget.journaliser_appel("memoire", 0.0, statut="erreur", modele=MODELE,
+                                 marche_id=marche_id, erreur=f"{type(e).__name__}: {e}"[:300],
+                                 duree_ms=int((time.time() - debut) * 1000))
+        raise
     duree = time.time() - debut
+    budget.journaliser_appel(
+        "memoire", budget.estimer_cout_eur(message.usage.input_tokens, message.usage.output_tokens),
+        modele=MODELE, marche_id=marche_id, tokens_input=message.usage.input_tokens,
+        tokens_output=message.usage.output_tokens, duree_ms=int(duree * 1000))
     texte = message.content[0].text if message.content else ""
     texte = texte.strip()
     if texte.startswith("```"):

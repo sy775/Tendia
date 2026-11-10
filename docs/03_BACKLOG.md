@@ -8,7 +8,7 @@ Un chantier = une session Claude Code, un objectif, un critère de fin vérifiab
 |---|---|---|---|
 | 0a | Dépôt propre : git, archive, tests regroupés | **Terminé le 2026-11-10** (902 → 313 fichiers) | |
 | 0b | Structure `src/tendia/`, `CLAUDE.md`, branche `main`, 2 régressions de 0a | **Terminé le 2026-11-10**, réserve : `test_aws_downloader` et `test_qualifier_dce` périmés (antérieurs à 0b), repris en étape 1 du chantier 1 | 0a |
-| 1 | Redémarrer la chaîne LLM : classification dans le pipeline, rattrapage BTP d'octobre | À faire | 0b |
+| 1 | Redémarrer la chaîne LLM : classification dans le pipeline, rattrapage BTP d'octobre | **Terminé le 2026-11-11**, coût réel 17,95 € | 0b |
 | 2 | Promouvoir le mode document en prod (lecture exhaustive des DCE) | À faire, **en attente d'une décision** (cf. questions ouvertes) | 1 |
 | 3 | Dossier manuel sur un marché BTP réel, puis agent d'assemblage | À faire | 2 |
 | 4 | Coffre-fort entreprise | À faire | 3 |
@@ -30,12 +30,16 @@ Un chantier = une session Claude Code, un objectif, un critère de fin vérifiab
 - Critère de fin : tous les tests passent (`python tests/test_*.py`), l'UI démarre, `git ls-files | wc -l` stable, rapport `archive/RAPPORT_0b.md`.
 
 ### 1 : redémarrer la chaîne LLM
-- Étape 1 : aligner `test_aws_downloader` et `test_qualifier_dce` sur le comportement en prod ; proxy résidentiel conditionné à `TENDIA_PROXY_ACTIF=1` (pipeline seul) ; `prototype_grille_notation.py` archivé.
+- Étape 1 : aligner `test_aws_downloader` et `test_qualifier_dce` sur le comportement en prod ; constats majeurs de `AUDIT_0b.md` (chemins des scripts anti-ban, `test_chemins.py` étendu, règle tests de `CLAUDE.md` rétablie) ; `prototype_grille_notation.py` archivé.
+- Proxy résidentiel conditionné à `TENDIA_PROXY_ACTIF=1`, posé par `python -m tendia`, `Tendia.bat` et les scripts `retelecharger_*` ; UI, tests et audits en direct.
+- `classification.sauver_classification` en `stockage.ecrire` (règle 9).
+- Reporté au chantier 7 : alias morts de 0b, numéros de ligne du rapport 0b, deux phrases de `01_ARCHITECTURE.md` (constats mineurs de `AUDIT_0b.md`).
 - Intégrer `tendia_classification` comme étape du pipeline (après la récup, avant la résolution DCE), avec `--skip-llm` respecté.
 - Classifier les 1 992 marchés d'octobre (Haiku, ~12 €).
 - Sélectionner le BTP pertinent (preset `btp` + profil démo BTP) et ne lancer le brief que sur ceux dont le DCE est complet. Budget plafonné via `data/budget.json`.
 - Journaliser tous les appels LLM dans `llm_appels` (classification, mémoire, calibration), pas seulement l'extraction.
 - Critère de fin : 0 marché BTP d'octobre sans classification ; N briefs BTP récents disponibles pour les démos ; coût réel dans le rapport.
+- Résultat : 1 757 marchés classés, 235 rejetés, 14 briefs BTP, coût 17,95 € (voir archive/RAPPORT_1.md).
 
 ### 2 : lecture exhaustive des DCE
 - Promouvoir `exp_gemini/pieces.py` (inventaire récursif, conversion .doc/.xls/.odt/.rtf, pages) et `mode_document.py` dans `src/tendia/analyse/`.

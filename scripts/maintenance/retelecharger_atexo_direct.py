@@ -13,6 +13,7 @@ qualifiés via le chemin profond completeDownload.
 Usage : python retelecharger_atexo_direct.py [--oui] [--max N]
 """
 
+import os
 import argparse
 import sys
 from datetime import datetime
@@ -43,6 +44,7 @@ def _cibles(max_n: int):
 
 
 def main():
+    os.environ.setdefault("TENDIA_PROXY_ACTIF", "1")  # proxy résidentiel autorisé (lanceur de téléchargements)
     ap = argparse.ArgumentParser()
     ap.add_argument("--oui", action="store_true")
     ap.add_argument("--max", type=int, default=50)

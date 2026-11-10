@@ -17,7 +17,6 @@ Usage :
     python tendia_reextraire_batch.py --dry-run   # liste seulement, n'extrait rien
 """
 
-import os
 
 import argparse
 import os
