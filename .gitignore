@@ -60,10 +60,11 @@ Thumbs.db
 __MACOSX/
 ~$*
 
-# archive/ : fichiers mis de côté (chantier 0a), seuls le README et le rapport sont suivis
+# archive/ : fichiers mis de côté, seuls le README, les rapports et les audits de chantier sont suivis
 archive/*
 !archive/README.md
-!archive/RAPPORT_0a.md
+!archive/RAPPORT_*.md
+!archive/AUDIT_*.md
 
 # Briefs générés par tendia_extraire.py (sorties, pas du code)
 rapports/brief_*.md
