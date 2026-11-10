@@ -177,7 +177,7 @@ def _appeler_llm(client, bareme_txt, dce, scope):
 
 def generer_grille(mid: str) -> dict:
     _check_anthropic()
-    import fiche_marche
+    from tendia.ui import fiche_marche
     brief = stockage.lire("briefs_extraits", mid)
     if not brief:
         raise SystemExit(f"Pas de brief pour {mid}")

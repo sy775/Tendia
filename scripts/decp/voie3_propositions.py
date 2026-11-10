@@ -113,7 +113,7 @@ def main():
     bt01, dernier = charger_bt01()
     auj = date.today()
     ref = json.load(open("data/decp_reprise/voie3_avant.json", encoding="utf-8"))["resultats"]
-    import fiche_marche
+    from tendia.ui import fiche_marche
     print(f"BT01 : {len(bt01)} mois, dernier {dernier} = {bt01[dernier]}")
     print(f"\n(a) 20 briefs — médiane prod actuelle vs propositions")
     out_b = []

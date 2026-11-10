@@ -34,23 +34,25 @@ from flask import (Flask, abort, flash, redirect, render_template, request,
                    send_file, send_from_directory, url_for)
 
 from tendia.eligibilite import organisme
-import profil_form
-import profil_widgets
-import fiche_marche
+from tendia.ui import profil_form
+from tendia.ui import profil_widgets
+from tendia.ui import fiche_marche
 from tendia.eligibilite import matching
-import concurrence
+from tendia.ui import concurrence
 from tendia.core import stockage
 
 
-REPERTOIRE_BASE = Path(__file__).parent
-REPERTOIRE_DATA = REPERTOIRE_BASE / "data"
+from tendia.core.chemins import DATA, PRESETS, RACINE_DEPOT
+
+REPERTOIRE_BASE = RACINE_DEPOT
+REPERTOIRE_DATA = DATA
 REPERTOIRE_EXTRACTIONS = REPERTOIRE_DATA / "extractions"
 REPERTOIRE_DCE = REPERTOIRE_DATA / "dce"
 
 app = Flask(
     __name__,
-    template_folder=str(REPERTOIRE_BASE / "ui" / "templates"),
-    static_folder=str(REPERTOIRE_BASE / "ui" / "static"),
+    template_folder=str(Path(__file__).parent / "templates"),
+    static_folder=str(Path(__file__).parent / "static"),
 )
 # Clé pour flash() — POC local mono-utilisateur, pas de session sensible.
 app.secret_key = "tendia-poc-local-secret-key-profils"
@@ -95,7 +97,7 @@ def _injecter_preset_actif():
 @app.template_filter("enum_label")
 def _enum_label_filter(valeur):
     """Libellé lisible d'une valeur d'enum (pour les selects/checkboxes)."""
-    import profil_widgets
+    from tendia.ui import profil_widgets
     return profil_widgets._label(valeur)
 
 
@@ -454,7 +456,7 @@ def dashboard():
 
     # Évalue chaque marché actif contre le profil
     from tendia.eligibilite import matching_exigences
-    import cycle_marche
+    from tendia.ui import cycle_marche
     enriched = []
     for m in actifs:
         evaluation = _evaluer_marche(profil, m) if profil else None
@@ -736,7 +738,7 @@ def explorer():
     # Charge taxonomie pour les libellés
     import json
     try:
-        chemin_tax = Path(__file__).parent / "presets" / "_taxonomie_domaines.json"
+        chemin_tax = PRESETS / "_taxonomie_domaines.json"
         taxonomie = json.loads(chemin_tax.read_text(encoding="utf-8"))
         domaines_def = taxonomie.get("domaines", {})
     except Exception:
@@ -965,7 +967,7 @@ def changer_cycle(id_marche):
     Body form-encoded: statut=<nouveau_statut> [, note=<texte>]
     Redirige vers la fiche ou le dashboard selon l'origine.
     """
-    import cycle_marche
+    from tendia.ui import cycle_marche
     from flask import request, redirect, url_for, flash
     nouveau = request.form.get("statut", "").strip()
     note = request.form.get("note", "").strip()
@@ -1413,7 +1415,7 @@ def detail_marche(id_marche):
 
     # Matching exigences alertes ↔ profil organisme
     from tendia.eligibilite import matching_exigences
-    import cycle_marche
+    from tendia.ui import cycle_marche
     alertes_evaluees = matching_exigences.evaluer_alertes(
         (brief or {}).get("alertes_candidat") or [], profil or {}
     )
@@ -2113,7 +2115,7 @@ def repondre_exigence():
 @app.route("/concurrence")
 def page_concurrence():
     """Page Veille concurrentielle : exploration DECP brut + base interne Tendia."""
-    import veille_concurrence
+    from tendia.ui import veille_concurrence
     profil = organisme.lire_profil()
     try:
         marches_notifies = stockage.charger("marches_notifies")

@@ -1070,7 +1070,7 @@ def invalider_cache(id_marche: str) -> bool:
 if __name__ == "__main__":
     import argparse
     from tendia.core import stockage
-    import concurrence
+    from tendia.ui import concurrence
     from tendia.eligibilite import organisme
 
     parser = argparse.ArgumentParser(

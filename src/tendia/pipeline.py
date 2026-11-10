@@ -171,7 +171,7 @@ def main():
     else:
         _print_etape(5, "Extraction LLM des DCE (Claude Sonnet 4.6)")
         args_extract = ["--force"] if args.force else []
-        _executer_script("tendia_extraire.py", args_extract)
+        _executer_script(str(RACINE_DEPOT / "src/tendia/analyse/extraire.py"), args_extract)
 
     # === Étape 6 : Rapport final ===
     _print_etape(6, "Génération du rapport final")

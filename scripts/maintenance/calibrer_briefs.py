@@ -286,7 +286,7 @@ def main():
         except Exception:
             pass
 
-    import concurrence
+    from tendia.ui import concurrence
 
     try:
         for id_m, brief in sorted(a_traiter.items()):

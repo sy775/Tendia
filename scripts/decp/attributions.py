@@ -146,7 +146,7 @@ def cmd_acheteurs(args):
 
 # ------------------------------------------------------------------ rapprocher
 def cmd_rapprocher(args):
-    import fiche_marche
+    from tendia.ui import fiche_marche
     con = _ro()
     marches = _marches(con)
     avis = {mid: m for mid, m in marches.items()

@@ -27,6 +27,8 @@ import subprocess
 import sys
 from pathlib import Path
 
+from tendia.core.chemins import DATA, RACINE_DEPOT
+
 # stdout/stderr en UTF-8 (évite les plantages cp1252 sur caractères spéciaux).
 try:
     sys.stdout.reconfigure(encoding="utf-8")
@@ -35,8 +37,8 @@ except Exception:
     pass
 
 
-_BASE_DIR = Path(__file__).resolve().parents[2]
-REPERTOIRE_DCE = _BASE_DIR / "data" / "dce"
+_BASE_DIR = RACINE_DEPOT
+REPERTOIRE_DCE = DATA / "dce"
 
 
 def lister_marches_avec_dce() -> list:
@@ -110,7 +112,7 @@ def main():
         print("─" * 78)
         try:
             r = subprocess.run(
-                [sys.executable, "tendia_extraire.py", "--marche", mid, "--force"],
+                [sys.executable, str(RACINE_DEPOT / "src/tendia/analyse/extraire.py"), "--marche", mid, "--force"],
                 check=False,
             )
             if r.returncode == 0:
