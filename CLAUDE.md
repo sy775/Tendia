@@ -46,7 +46,7 @@ Chemins vers `data/`, `logs/`, `presets/`, `rapports/`, `archive/` : toujours vi
 - Tout module touché dans `core/`, `analyse/`, `eligibilite/` reçoit au moins un test hors ligne.
 - Un module au-delà de 800 lignes se découpe.
 - Racine : fichiers de config et les deux shims `tendia_ui.py`, `tendia_pipeline.py`, rien d'autre en `.py`.
-- Avant de terminer : `python tests/lancer_tous.py`, l'UI démarre, puis sous-agent `audit-code`.
+- Avant de terminer : `python tests/lancer_tous.py` tout vert (hors échecs connus listés ci-dessous), l'UI démarre, puis sous-agent `audit-code`.
 
 ## Pièges connus
 - `stockage.charger` lit toute la collection ; cache mémoire par processus (UI et scripts peuvent diverger).

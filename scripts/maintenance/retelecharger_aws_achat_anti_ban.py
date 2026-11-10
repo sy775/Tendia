@@ -24,16 +24,16 @@ import os
 import sys
 import shutil
 from datetime import datetime
-from pathlib import Path
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
 from tendia.core import stockage
+from tendia.core.chemins import DATA
 from tendia.dce import resolution as tendia_dce
 from tendia.core import http_humain
 from tendia.dce import aws_downloader as A
 
-REPERTOIRE_DCE = Path("data/dce")
+REPERTOIRE_DCE = DATA / "dce"
 
 # --- Paramètres anti-ban ---
 RATE_LIMIT_MOYEN_SEC = 75       # délai moyen entre marchés (gaussien)
