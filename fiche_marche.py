@@ -192,7 +192,7 @@ def montant_estime(brief):
 def calibration_marche(id_marche):
     """Charge la calibration bottom-up disque si elle existe, sinon None."""
     try:
-        import llm_calibration
+        from tendia.analyse import llm_calibration
         return llm_calibration.charger_si_existe(id_marche)
     except Exception:
         return None
@@ -479,7 +479,7 @@ def _texte_motif(m):
 def _libelle_domaine_court(code):
     """Libellé lisible d'un code domaine via la taxonomie, sinon prettify."""
     try:
-        import llm_extract
+        from tendia.analyse import llm_extract
         taxo = (llm_extract._charger_taxonomie() or {}).get("domaines", {})
         d = taxo.get(code)
         if isinstance(d, dict) and d.get("libelle"):
@@ -1151,7 +1151,7 @@ def _lot_domaine_depuis_marche(intit, corps, desc, brief):
     if len(doms) == 1:
         return doms[0]
     try:
-        import llm_extract
+        from tendia.analyse import llm_extract
         tax = (llm_extract._charger_taxonomie() or {}).get("domaines", {})
     except Exception:
         tax = {}
@@ -1301,7 +1301,7 @@ def calculer_richesse_brief(brief, presets, marche=None):
     # DCE complet (15)
     complet = False
     try:
-        import auto_brief
+        from tendia.analyse import auto_brief
         complet = auto_brief.est_brief_complet(brief)
     except Exception:
         complet = _non_vide(brief.get("caracteristiques_techniques_chantier")) or \

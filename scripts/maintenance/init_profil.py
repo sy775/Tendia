@@ -30,7 +30,7 @@ from pathlib import Path
 # Force UTF-8 stdout pour compat cp1252 PowerShell
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
-import organisme
+from tendia.eligibilite import organisme
 
 
 def cmd_status():

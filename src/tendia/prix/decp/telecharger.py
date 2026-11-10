@@ -19,7 +19,7 @@ import truststore
 truststore.inject_into_ssl()
 import requests
 
-from connecteurs.decp_consolidee import RESSOURCE_ID, URL_BASE  # réutilisation
+from tendia.prix.decp.decp_consolidee import RESSOURCE_ID, URL_BASE  # réutilisation
 
 PAGE_SIZE = 100          # plafond dur de l'API tabulaire
 WORKERS_DEFAUT = 12

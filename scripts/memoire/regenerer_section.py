@@ -27,7 +27,7 @@ except Exception:
     pass
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 
-from services import regeneration_section  # noqa: E402
+from tendia.memoire.services import regeneration_section  # noqa: E402
 
 
 def main():

@@ -257,7 +257,7 @@ def recuperer_tout(fenetre_mois: int = 6,
     # Idempotent : ne dégrade rien si relancé.
     if not dry_run:
         try:
-            import jointure
+            from tendia.prix import jointure
             marches_actuels = stockage.charger(COLLECTION)
             stats_join = jointure.synchroniser_tous_boamp(marches_actuels,
                                                             verbose=False)

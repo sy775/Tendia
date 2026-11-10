@@ -22,8 +22,8 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspa
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 from tendia.core import budget
-import llm_router
-from decp import classif_ia as C
+from tendia.analyse import llm_router
+from tendia.prix.decp import classif_ia as C
 from pilote_arbitre import ARBITRE, SENSIBLES, appel_arbitre, large
 
 DOSSIER = "data/decp_reprise/pilote"

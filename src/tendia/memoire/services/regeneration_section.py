@@ -14,14 +14,14 @@ MAX_TOKENS_REPONSE = 16000 (une seule section). Coût loggé dans
 import json
 from datetime import datetime, timezone
 
-from services import _memoire_commun as commun
-from services import assemblage_docx
-from prompts.redaction_memoire_v1 import (
+from tendia.memoire.services import _memoire_commun as commun
+from tendia.memoire.services import assemblage_docx
+from tendia.memoire.prompts.redaction_memoire_v1 import (
     PROMPT_SYSTEME,
     PROMPT_UTILISATEUR_REGENERATION,
     VERSION_PROMPT,
 )
-from prompts.redaction_memoire_v1 import VERSION_PROMPT as VERSION_REDACTION  # noqa: F401
+from tendia.memoire.prompts.redaction_memoire_v1 import VERSION_PROMPT as VERSION_REDACTION  # noqa: F401
 
 MAX_TOKENS_REPONSE = 16000
 EST_TOKENS_SORTIE = 6000

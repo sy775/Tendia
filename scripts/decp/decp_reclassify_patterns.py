@@ -25,9 +25,9 @@ from collections import Counter
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 
-from decp.db import connexion
-from decp.classifier_cpv import classer_marche_cpv
-from decp.mapping_cpv import _digits
+from tendia.prix.decp.db import connexion
+from tendia.prix.decp.classifier_cpv import classer_marche_cpv
+from tendia.prix.decp.mapping_cpv import _digits
 
 PRESETS_ALL = ["btp", "ingenierie", "it", "conseil_rd", "formation", "enr", "hors_perimetre"]
 MAJEURS = ["btp", "ingenierie", "hors_perimetre"]

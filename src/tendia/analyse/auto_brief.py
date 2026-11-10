@@ -29,7 +29,7 @@ except ImportError:
 
 # Réutilise la logique de clé API éprouvée de llm_extract.py
 # (gère le BOM UTF-8 Notepad, fallback .env.txt sous Windows)
-from llm_extract import _obtenir_cle_api
+from tendia.analyse.llm_extract import _obtenir_cle_api
 
 
 # Sonnet 4.6 — qualité maximale pour un brief décisionnel
@@ -339,9 +339,9 @@ if __name__ == "__main__":
         print("        (charge data/marches.json et génère le brief)")
         sys.exit(1)
 
-    from pathlib import Path
-    REPERTOIRE_BASE = Path(__file__).parent
-    chemin = REPERTOIRE_BASE / "data" / "marches.json"
+    from tendia.core.chemins import DATA, RACINE_DEPOT
+    REPERTOIRE_BASE = RACINE_DEPOT
+    chemin = DATA / "marches.json"
     marches = json.load(open(chemin, encoding="utf-8"))
     id_m = sys.argv[1]
     if id_m not in marches:

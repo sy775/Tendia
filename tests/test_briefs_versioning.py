@@ -14,7 +14,7 @@ import sys
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
 from tendia.veille import preset
-import briefs_versioning as BV
+from tendia.analyse import briefs_versioning as BV
 
 preset.recharger()
 

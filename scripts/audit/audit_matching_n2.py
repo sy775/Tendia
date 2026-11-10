@@ -104,7 +104,7 @@ def evaluer_base(profil, marches, briefs, presets_n1, injection_n1):
     """Lance matching.evaluer sur tous les marches.
     injection_n1=True -> passe les presets via argument presets_marche.
     """
-    import matching  # import tardif pour eviter erreur si script lance hors du repo
+    from tendia.eligibilite import matching  # import tardif pour eviter erreur si script lance hors du repo
 
     resultats = []
     for m_id, m in marches.items():
@@ -277,7 +277,7 @@ def main():
 
     # Sanity check : V1 ou V2 ?
     try:
-        import matching
+        from tendia.eligibilite import matching
         if matching._est_format_legacy_formation(profil):
             print("[WARN] Profil detecte au format legacy V1 (formation Apptia).")
             print("[WARN] Le matching sera route via _evaluer_legacy, pas V2.")

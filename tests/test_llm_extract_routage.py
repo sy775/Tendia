@@ -21,7 +21,7 @@ import sys
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
 from tendia.veille import preset
-import llm_extract as L
+from tendia.analyse import llm_extract as L
 
 preset.recharger()
 

@@ -20,8 +20,10 @@ import re
 import unicodedata
 from pathlib import Path
 
-RACINE = Path(__file__).resolve().parent.parent
-CHEMIN_TAXONOMIE = RACINE / "presets" / "_taxonomie_domaines.json"
+from tendia.core.chemins import PRESETS, RACINE_DEPOT
+
+RACINE = RACINE_DEPOT
+CHEMIN_TAXONOMIE = PRESETS / "_taxonomie_domaines.json"
 ENVELOPPE = "decp_reprise"
 
 # Anciens codes de decp_classification v1 → famille (preset officiel)

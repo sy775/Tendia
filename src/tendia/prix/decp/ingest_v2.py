@@ -16,8 +16,8 @@ import json
 import sqlite3
 import time
 
-from decp import db as decp_db
-from decp.parser_v2 import contrat_versionne
+from tendia.prix.decp import db as decp_db
+from tendia.prix.decp.parser_v2 import contrat_versionne
 
 LOT = 5000
 

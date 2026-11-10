@@ -15,7 +15,7 @@ sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 
 from tendia.core import stockage
-from decp.classifier_cpv import classer_marche_cpv
+from tendia.prix.decp.classifier_cpv import classer_marche_cpv
 
 RAPPORT = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))),
                        "RAPPORT_REFONTE_PIPELINE_V2.md")

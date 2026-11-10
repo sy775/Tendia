@@ -27,11 +27,13 @@ from typing import Optional
 
 # On délègue la mécanique de clé API à llm_extract (qui a déjà tout le code
 # pour charger .env, vérifier le SDK, etc.) — pas de duplication.
-import llm_extract
+from tendia.analyse import llm_extract
 
 
-REPERTOIRE_BASE = Path(__file__).parent
-REPERTOIRE_CALIBRATIONS = REPERTOIRE_BASE / "data" / "extractions_calibrees"
+from tendia.core.chemins import DATA, RACINE_DEPOT
+
+REPERTOIRE_BASE = RACINE_DEPOT
+REPERTOIRE_CALIBRATIONS = DATA / "extractions_calibrees"
 REPERTOIRE_CALIBRATIONS.mkdir(parents=True, exist_ok=True)
 
 MODELE = "claude-sonnet-4-6"
@@ -1069,7 +1071,7 @@ if __name__ == "__main__":
     import argparse
     from tendia.core import stockage
     import concurrence
-    import organisme
+    from tendia.eligibilite import organisme
 
     parser = argparse.ArgumentParser(
         description="Calibre une estimation pour un marché donné.")
@@ -1086,7 +1088,7 @@ if __name__ == "__main__":
         print(f"  ❌ Marché {args.id_marche} introuvable")
         raise SystemExit(1)
 
-    brief_path = (Path("data/extractions") / f"{args.id_marche}.json")
+    brief_path = (DATA / "extractions" / f"{args.id_marche}.json")
     if not brief_path.exists():
         print(f"  ❌ Brief LLM introuvable : {brief_path}")
         raise SystemExit(1)

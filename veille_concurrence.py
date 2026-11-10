@@ -23,7 +23,7 @@ import statistics
 from collections import Counter, defaultdict
 from typing import Optional
 
-import marches_attribues
+from tendia.prix import marches_attribues
 from tendia.core import stockage
 
 

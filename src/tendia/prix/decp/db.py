@@ -323,10 +323,10 @@ def migrer_v2(db_path=DB_PATH_DEFAUT) -> dict:
 
 def upsert_contrats(con, contrats: list) -> int:
     """UPSERT decp_marches v2 limité aux colonnes source (parser_v2.COLS_MARCHE)."""
-    from decp.parser_v2 import COLS_MARCHE
+    from tendia.prix.decp.parser_v2 import COLS_MARCHE
     if not contrats:
         return 0
-    from decp.parser_v2 import COLS_INITIALES
+    from tendia.prix.decp.parser_v2 import COLS_INITIALES
     maj = ",".join((f"{c}=COALESCE(excluded.{c}, decp_marches.{c})" if c in COLS_INITIALES
                     else f"{c}=excluded.{c}") for c in COLS_MARCHE if c != "uid")
     con.executemany(
@@ -340,7 +340,7 @@ def upsert_titulaires(con, titulaires: list) -> int:
     """UPSERT decp_titulaires sur (decp_id, rang). Les rangs au-delà du nombre actuel de
     titulaires d'un contrat (titulaire retiré à la source) sont supprimés : ce sont des
     données source, pas des données dérivées."""
-    from decp.parser_v2 import COLS_TITULAIRE
+    from tendia.prix.decp.parser_v2 import COLS_TITULAIRE
     if not titulaires:
         return 0
     maj = ",".join(f"{c}=excluded.{c}" for c in COLS_TITULAIRE if c not in ("decp_id", "rang"))

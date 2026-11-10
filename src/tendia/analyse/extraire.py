@@ -28,15 +28,17 @@ import zipfile
 from datetime import datetime, timezone
 
 from tendia.core import stockage
-import pdf_extract
-import llm_extract
+from tendia.analyse import pdf_extract
+from tendia.analyse import llm_extract
 from tendia.veille import preset
 
 
-REPERTOIRE_BASE = os.path.dirname(os.path.abspath(__file__))
-REPERTOIRE_DCE = os.path.join(REPERTOIRE_BASE, "data", "dce")
-REPERTOIRE_EXTRACTIONS = os.path.join(REPERTOIRE_BASE, "data", "extractions")
-REPERTOIRE_RAPPORTS = os.path.join(REPERTOIRE_BASE, "rapports")
+from tendia.core.chemins import DATA, RACINE_DEPOT, RAPPORTS
+
+REPERTOIRE_BASE = str(RACINE_DEPOT)
+REPERTOIRE_DCE = os.path.join(DATA, "dce")
+REPERTOIRE_EXTRACTIONS = os.path.join(DATA, "extractions")
+REPERTOIRE_RAPPORTS = str(RAPPORTS)
 FICHIER_ETAT = os.path.join(REPERTOIRE_EXTRACTIONS, "_etat.json")
 
 COLLECTION_MARCHES = "marches"

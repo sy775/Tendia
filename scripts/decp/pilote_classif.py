@@ -27,8 +27,8 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspa
 
 from tendia.core import budget
 from tendia.core import stockage
-from decp import classif_ia as C
-from decp.mapping_cpv import classer_par_cpv
+from tendia.prix.decp import classif_ia as C
+from tendia.prix.decp.mapping_cpv import classer_par_cpv
 
 DOSSIER = "data/decp_reprise/pilote"
 ECH = f"{DOSSIER}/echantillon.json"
@@ -114,14 +114,14 @@ def _systeme(variante):
 
 
 def _estimer(sys_prompt, lot, fournisseur, modele):
-    import llm_router
+    from tendia.analyse import llm_router
     tin = (len(sys_prompt) + len(C.prompt_utilisateur(lot))) // 3
     tout = 14 * len(lot) + 20
     return llm_router.estimer_cout_eur(modele, tin, tout) or 0.0, tin, tout
 
 
 def _appel_gemini(modele, systeme, user, max_out):
-    import llm_router
+    from tendia.analyse import llm_router
     from google.genai import types
     llm_router.charger_env()
     client = llm_router._client_gemini()
@@ -144,7 +144,7 @@ def _appel_gemini(modele, systeme, user, max_out):
 
 
 def _appel_claude(modele, systeme, user, max_out):
-    import llm_extract
+    from tendia.analyse import llm_extract
     from anthropic import Anthropic
     cle = llm_extract._obtenir_cle_api()
     if not cle:
@@ -159,7 +159,7 @@ def _appel_claude(modele, systeme, user, max_out):
 
 def classer_lot(lot, fournisseur, modele, systeme, etiquette):
     """Un appel ; journalisé dans llm_appels (type decp, enveloppe decp_reprise)."""
-    import llm_router
+    from tendia.analyse import llm_router
     est, _, _ = _estimer(systeme, lot, fournisseur, modele)
     d = budget.peut_depenser(C.ENVELOPPE, est, fournisseur)
     if not d.autorise:

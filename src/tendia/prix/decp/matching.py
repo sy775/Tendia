@@ -164,7 +164,7 @@ def scorer_match(marche_tendia: dict, attribution_decp: dict) -> dict:
 def verifier_marche_tendia_existe(id_kv: str, db_path=None) -> bool:
     """Vérifie qu'un marché Tendia (collection KV 'marches') existe avant tout
     insert dans marche_attribution_link (évite les liens orphelins)."""
-    from decp.db import connexion, DB_PATH_DEFAUT
+    from tendia.prix.decp.db import connexion, DB_PATH_DEFAUT
     con = connexion(db_path or DB_PATH_DEFAUT)
     try:
         row = con.execute(

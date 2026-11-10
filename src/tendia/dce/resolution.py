@@ -488,7 +488,7 @@ def traiter(filtre_actifs: bool = True,
 def _verdict_pour_profil(marche: dict, profil: dict) -> dict:
     """Calcule le verdict matching pour un marché contre un profil."""
     try:
-        import matching
+        from tendia.eligibilite import matching
         # Sprint B : brief passe au matching pour scoring sectoriel.
         brief = stockage.lire("briefs_extraits", marche.get("id"))
         return matching.evaluer(profil, marche, brief=brief)
@@ -515,7 +515,7 @@ def generer_rapport(filtre_actifs: bool = True,
 
     # Charge le profil actif pour matcher
     try:
-        import organisme
+        from tendia.eligibilite import organisme
         profil = organisme.lire_profil()
     except Exception:
         profil = None

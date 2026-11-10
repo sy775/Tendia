@@ -31,7 +31,7 @@ truststore.inject_into_ssl()
 from tendia.core import stockage
 from tendia.dce import resolution as tendia_dce
 from tendia.dce import telecharger as T
-import tendia_extraire as TE
+from tendia.analyse import extraire as TE
 
 STAGGER_SEC = 0.2        # anti-burst entre lancements de threads
 RETRIES = 3

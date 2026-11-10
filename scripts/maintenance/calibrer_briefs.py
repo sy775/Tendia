@@ -32,7 +32,7 @@ if sys.stdout.encoding and sys.stdout.encoding.lower() != "utf-8":
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
 from tendia.core import stockage
-import llm_calibration
+from tendia.analyse import llm_calibration
 
 
 REPERTOIRE_BASE = Path(__file__).resolve().parents[2]
@@ -281,7 +281,7 @@ def main():
     profil = None
     if has_decp and args.mode != "bottom_up":
         try:
-            import organisme
+            from tendia.eligibilite import organisme
             profil = organisme.lire_profil()
         except Exception:
             pass

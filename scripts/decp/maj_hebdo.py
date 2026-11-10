@@ -70,9 +70,9 @@ def main():
     resume = {"debut": datetime.now(timezone.utc).isoformat(timespec="seconds")}
     try:
         from tendia.core import budget
-        from decp import classif_batch as B
-        from decp import telecharger
-        from decp.ingest_v2 import ingerer_lignes_api
+        from tendia.prix.decp import classif_batch as B
+        from tendia.prix.decp import telecharger
+        from tendia.prix.decp.ingest_v2 import ingerer_lignes_api
         B.ENV = ENVELOPPE_HEBDO
 
         class A:   # arguments factices pour les commandes de classif_batch

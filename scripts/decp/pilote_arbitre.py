@@ -20,8 +20,8 @@ sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 
 from tendia.core import budget
-import llm_router
-from decp import classif_ia as C
+from tendia.analyse import llm_router
+from tendia.prix.decp import classif_ia as C
 
 DOSSIER = "data/decp_reprise/pilote"
 ARBITRE = "gemini-4-argon"

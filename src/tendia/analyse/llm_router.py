@@ -48,7 +48,9 @@ try:
 except Exception:
     pass
 
-RACINE = Path(__file__).resolve().parent
+from tendia.core.chemins import RACINE_DEPOT
+
+RACINE = RACINE_DEPOT
 CHEMIN_CONFIG = RACINE / "config_llm.yaml"
 
 TACHES = ("classif", "analyse")
@@ -406,7 +408,7 @@ def _appel_gemini(res: LLMResult, prompt: str, system: Optional[str], documents:
 def _appel_claude(res: LLMResult, prompt: str, system: Optional[str], documents: list,
                   max_tokens: int, json_mode: bool, timeout_s: int, verbose: bool,
                   budget_tokens_entree: Optional[int] = None, reflexion: Optional[dict] = None) -> None:
-    import llm_extract
+    from tendia.analyse import llm_extract
     llm_extract._check_anthropic()
     from anthropic import Anthropic
     client = Anthropic(timeout=timeout_s, max_retries=0)

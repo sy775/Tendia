@@ -305,7 +305,7 @@ def _prompt_utilisateur(marche: dict) -> str:
 def _check_anthropic():
     """Délègue à llm_extract qui gère .env, .env.txt et BOM UTF-8."""
     try:
-        import llm_extract
+        from tendia.analyse import llm_extract
         llm_extract._check_anthropic()
     except ImportError:
         # Fallback minimal si llm_extract indisponible

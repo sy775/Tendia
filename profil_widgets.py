@@ -16,7 +16,7 @@ sectorielle (cf Décision 4 : templates explicites, pas de méta-schéma).
 Source du mapping département → région : matching.DEPARTEMENT_VERS_REGION.
 """
 
-import matching
+from tendia.eligibilite import matching
 
 
 # ===========================================================================
@@ -287,7 +287,7 @@ def widget_zones_intervention(valeurs_actuelles) -> list:
 
 def options_enum(code_preset: str, propriete: str) -> list:
     """Liste brute des valeurs enum d'une propriété array d'un schéma sectoriel."""
-    import organisme
+    from tendia.eligibilite import organisme
     sch = organisme.schema_sectoriel(code_preset) or {}
     spec = (sch.get("properties") or {}).get(propriete) or {}
     if spec.get("type") == "array":
@@ -317,7 +317,7 @@ def widget_domaines_couverts(presets_couverts, selection) -> list:
     Retourne [{"famille", "options": [{"value","label","checked"}]}]. Pilote le matching
     fin `domaines_couverts` : seuls les domaines des presets cochés sont proposés (+ tout
     domaine déjà sélectionné hors périmètre, pour robustesse)."""
-    import llm_extract
+    from tendia.analyse import llm_extract
     from tendia.veille import preset as _preset
     tax = (llm_extract._charger_taxonomie() or {}).get("domaines", {})
     sel = set(selection or [])

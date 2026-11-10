@@ -21,7 +21,7 @@ import time
 import unicodedata
 import zipfile
 
-from decp import db as decp_db
+from tendia.prix.decp import db as decp_db
 
 csv.field_size_limit(2**31 - 1)
 

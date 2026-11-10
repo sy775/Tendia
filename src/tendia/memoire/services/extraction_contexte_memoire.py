@@ -14,9 +14,9 @@ import json
 import os
 import unicodedata
 
-import pdf_extract
-from services import _memoire_commun as commun
-from prompts.extraction_contexte_memoire_v1 import (
+from tendia.analyse import pdf_extract
+from tendia.memoire.services import _memoire_commun as commun
+from tendia.memoire.prompts.extraction_contexte_memoire_v1 import (
     PROMPT_SYSTEME,
     PROMPT_UTILISATEUR,
     VERSION_PROMPT,

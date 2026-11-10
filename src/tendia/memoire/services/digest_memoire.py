@@ -16,13 +16,14 @@ from datetime import datetime, timezone
 from typing import Optional
 
 from tendia.core import stockage
-import pdf_extract
-import tendia_extraire
-import llm_extract
+from tendia.analyse import pdf_extract
+from tendia.analyse import extraire as tendia_extraire
+from tendia.analyse import llm_extract
 from tendia.core import budget
+from tendia.core.chemins import DATA
 from anthropic import Anthropic
 
-from prompts.digest_memoire_v1 import (
+from tendia.memoire.prompts.digest_memoire_v1 import (
     PROMPT_SYSTEME_DIGEST,
     PROMPT_UTILISATEUR_DIGEST,
     VERSION_PROMPT,
@@ -34,7 +35,7 @@ MODELE = llm_extract.MODELE                  # claude-sonnet-4-6
 MAX_TOKENS_REPONSE = 24000                   # le digest est structuré mais détaillé (relevé : IT tronqué à 16k)
 MAX_TOKENS_CONTEXTE_CCTP = 80_000            # cap d'entrée CCTP (≈ 320k chars)
 EST_TOKENS_SORTIE = 6000                     # estimation pour dry-run / garde-fou coût
-REPERTOIRE_DCE = os.path.join("data", "dce")
+REPERTOIRE_DCE = os.path.join(DATA, "dce")
 
 
 def cle_digest(id_marche: str, numero_lot) -> str:

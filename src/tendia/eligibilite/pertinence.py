@@ -373,7 +373,8 @@ def _charger_tous_les_presets() -> dict:
     Charge tous les presets installés depuis le disque.
     Retourne {code: preset_def}.
     """
-    racine = Path(__file__).resolve().parent / "presets"
+    from tendia.core.chemins import PRESETS
+    racine = PRESETS
     if not racine.is_dir():
         return {}
     import json
@@ -698,7 +699,7 @@ def enrichir_marches_pertinents(limite: Optional[int] = None,
 
     # Import tardif pour éviter cycle imports
     if not dry_run:
-        import auto_brief
+        from tendia.analyse import auto_brief
 
     for i, mid in enumerate(pertinents_ids, 1):
         if limite and stats["enrichis_nouveaux"] + stats["echecs"] >= limite:

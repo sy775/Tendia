@@ -20,17 +20,18 @@ import time
 from typing import Optional, Tuple
 
 from tendia.core import stockage
-import llm_extract
+from tendia.analyse import llm_extract
 from tendia.core import budget
+from tendia.core.chemins import DATA
 from anthropic import Anthropic
 
-from services import digest_memoire  # réutilisation lecture seule (Sprint A)
+from tendia.memoire.services import digest_memoire  # réutilisation lecture seule (Sprint A)
 
 MODELE = llm_extract.MODELE                       # claude-sonnet-4-6
 COLLECTION_MEMOIRES = "memoires_techniques"
 COLLECTION_DIGESTS = digest_memoire.COLLECTION    # "digests_memoire"
 REPERTOIRE_DCE = digest_memoire.REPERTOIRE_DCE    # data/dce
-REPERTOIRE_PROFILS_DEMO = os.path.join("data", "profils_demo")
+REPERTOIRE_PROFILS_DEMO = os.path.join(DATA, "profils_demo")
 
 
 # ---------------------------------------------------------------------------

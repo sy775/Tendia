@@ -23,7 +23,7 @@ Architecture :
 - Idempotent : `synchroniser_*()` peuvent être appelés N fois sans dégrader.
 
 Usage côté pipeline :
-    import jointure
+    from tendia.prix import jointure
     jointure.synchroniser_tous_boamp(marches_boamp_dict)
     jointure.synchroniser_tous_decp(marches_decp_dict)
     stats = jointure.stats()
@@ -37,8 +37,10 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Optional
 
-REPERTOIRE_BASE = Path(__file__).parent
-FICHIER_JOINTURE = REPERTOIRE_BASE / "data" / "jointure.json"
+from tendia.core.chemins import DATA, RACINE_DEPOT
+
+REPERTOIRE_BASE = RACINE_DEPOT
+FICHIER_JOINTURE = DATA / "jointure.json"
 
 
 # ---------------------------------------------------------------------------

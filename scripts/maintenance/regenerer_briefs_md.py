@@ -29,7 +29,7 @@ if sys.stdout.encoding and sys.stdout.encoding.lower() != "utf-8":
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
 from tendia.core import stockage
-import tendia_extraire
+from tendia.analyse import extraire as tendia_extraire
 
 
 REPERTOIRE_BASE = Path(__file__).resolve().parents[2]

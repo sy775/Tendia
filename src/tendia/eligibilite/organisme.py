@@ -58,6 +58,7 @@ from pathlib import Path
 from typing import Optional, List, Any
 
 from tendia.core import stockage
+from tendia.core.chemins import DATA, PRESETS
 
 
 COLLECTION = "organisme"
@@ -68,7 +69,7 @@ PRESETS_CONNUS = ["btp", "ingenierie", "conseil", "it",
                   "energie_renouvelable", "formation"]
 
 # Chemin vers le dossier presets racine
-_PRESETS_DIR = Path(__file__).parent / "presets"
+_PRESETS_DIR = PRESETS
 
 
 # ---------------------------------------------------------------------------
@@ -495,7 +496,7 @@ PRESTATIONS_FRANCE_TRAVAIL = [
 # "principal" comme le fait `ecrire_profil`, conservé pour le flux CLI).
 
 COLLECTION_BIBLIOTHEQUE = "profils_bibliotheque"
-_DOSSIER_EXEMPLES = Path(__file__).parent / "data" / "exemples"
+_DOSSIER_EXEMPLES = DATA / "exemples"
 
 
 def _slugify(s: str) -> str:

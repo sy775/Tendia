@@ -23,7 +23,8 @@ from docx.oxml import OxmlElement
 from docx.oxml.ns import qn
 from docx.text.paragraph import Paragraph
 
-import pdf_extract
+from tendia.analyse import pdf_extract
+from tendia.core.chemins import DATA
 
 # Charte Tendia
 NAVY = RGBColor(0x0F, 0x1B, 0x3D)
@@ -36,7 +37,7 @@ POLICE_TITRES = "Cambria"
 POLICE_CORPS = "Calibri"
 
 ENCADRE_FILL = "FBF3DD"         # crème clair pour les encadrés « engagement »
-REPERTOIRE_MEMOIRES = os.path.join("data", "memoires")
+REPERTOIRE_MEMOIRES = os.path.join(DATA, "memoires")
 RE_COMPLETER = re.compile(r"\[À COMPLÉTER\s*:.*?\]", re.IGNORECASE | re.DOTALL)
 RE_GRAS = re.compile(r"\*\*(.+?)\*\*", re.DOTALL)
 RE_TABLE_LIGNE = re.compile(r"^\s*\|.*\|\s*$")

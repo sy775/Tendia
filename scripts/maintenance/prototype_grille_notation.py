@@ -36,10 +36,10 @@ import unicodedata
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 
-import pdf_extract
-import tendia_extraire
+from tendia.analyse import pdf_extract
+from tendia.analyse import extraire as tendia_extraire
 from tendia.core import stockage
-from llm_extract import MODELE, _check_anthropic
+from tendia.analyse.llm_extract import MODELE, _check_anthropic
 from anthropic import Anthropic
 
 SYSTEME = (

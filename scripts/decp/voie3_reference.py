@@ -30,7 +30,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspa
 
 from tendia.core import stockage
 import fiche_marche
-import decp_comparables
+from tendia.prix import decp_comparables
 
 N_BRIEFS = 20
 # Strates de montant d'ancrage (€ HT) : 4 briefs par strate

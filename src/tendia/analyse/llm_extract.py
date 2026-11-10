@@ -62,7 +62,8 @@ def _charger_cle_depuis_env_file() -> Optional[str]:
     Cherche aussi .env.txt (cas Notepad qui ajoute .txt sous Windows).
     Gère le BOM UTF-8 ajouté par Notepad.
     """
-    racine = Path(__file__).parent
+    from tendia.core.chemins import RACINE_DEPOT
+    racine = RACINE_DEPOT
     # Cherche .env ou .env.txt (fallback Windows)
     candidats = [racine / ".env", racine / ".env.txt"]
     for chemin_env in candidats:
@@ -128,7 +129,8 @@ def _charger_taxonomie() -> dict:
     global _TAXONOMIE_CACHE
     if _TAXONOMIE_CACHE is not None:
         return _TAXONOMIE_CACHE
-    chemin = Path(__file__).parent / "presets" / "_taxonomie_domaines.json"
+    from tendia.core.chemins import PRESETS
+    chemin = PRESETS / "_taxonomie_domaines.json"
     if not chemin.is_file():
         _TAXONOMIE_CACHE = {"domaines": {}}
         return _TAXONOMIE_CACHE

@@ -33,11 +33,11 @@ except Exception:
 from flask import (Flask, abort, flash, redirect, render_template, request,
                    send_file, send_from_directory, url_for)
 
-import organisme
+from tendia.eligibilite import organisme
 import profil_form
 import profil_widgets
 import fiche_marche
-import matching
+from tendia.eligibilite import matching
 import concurrence
 from tendia.core import stockage
 
@@ -347,7 +347,7 @@ def _zone_prix_marche(profil: dict | None, brief: dict | None,
         return None
     # Charger la base interne (vide tant qu'on n'a pas peuplé la collection)
     try:
-        import marches_attribues
+        from tendia.prix import marches_attribues
         marches_tendia = marches_attribues.lister_pour_knn()
     except Exception as e:
         print(f"⚠ Erreur chargement marches_tendia_attribues : {e}")
@@ -453,7 +453,7 @@ def dashboard():
         briefs_sqlite = {}
 
     # Évalue chaque marché actif contre le profil
-    import matching_exigences
+    from tendia.eligibilite import matching_exigences
     import cycle_marche
     enriched = []
     for m in actifs:
@@ -647,7 +647,7 @@ def _libelle_domaine(code: str) -> str:
     global _TAXO_DOMAINES_CACHE
     if _TAXO_DOMAINES_CACHE is None:
         try:
-            import llm_extract
+            from tendia.analyse import llm_extract
             _TAXO_DOMAINES_CACHE = (llm_extract._charger_taxonomie() or {}).get("domaines", {})
         except Exception:
             _TAXO_DOMAINES_CACHE = {}
@@ -730,7 +730,7 @@ def explorer():
     except (TypeError, ValueError):
         filtre_score_min = 0
     # Profil actif → évaluation matching (verdict/score/éligibilité) à la volée.
-    import matching_exigences
+    from tendia.eligibilite import matching_exigences
     profil_actif = organisme.lire_profil()
 
     # Charge taxonomie pour les libellés
@@ -999,7 +999,7 @@ def detail_marche_notifie(id_marche):
         # Repli sur la table SQL decp_marches (142k contrats réels) — source de vérité
         # de la donnée DECP (marches_notifies n'est pas peuplée). On mappe vers la forme
         # attendue par le template (titulaire sans nom → SIRET).
-        import decp_comparables
+        from tendia.prix import decp_comparables
         d = decp_comparables.get_decp(id_marche)
         if not d:
             abort(404)
@@ -1053,7 +1053,7 @@ def liste_decp():
     (preset), département, fourchette de montant. Lecture directe sur la table SQL
     decp_marches (indexée), 0 LLM.
     """
-    import decp_comparables
+    from tendia.prix import decp_comparables
     q = (request.args.get("q") or "").strip() or None
     preset = (request.args.get("preset") or "").strip() or None
     dept = (request.args.get("dept") or "").strip() or None
@@ -1346,7 +1346,7 @@ def detail_marche(id_marche):
     brief_type = None
     if brief:
         try:
-            import auto_brief
+            from tendia.analyse import auto_brief
             if auto_brief.est_brief_light(brief):
                 brief_type = "light"
             elif auto_brief.est_brief_complet(brief):
@@ -1412,7 +1412,7 @@ def detail_marche(id_marche):
     _distinguer_variantes(docs_analyses)
 
     # Matching exigences alertes ↔ profil organisme
-    import matching_exigences
+    from tendia.eligibilite import matching_exigences
     import cycle_marche
     alertes_evaluees = matching_exigences.evaluer_alertes(
         (brief or {}).get("alertes_candidat") or [], profil or {}
@@ -1449,7 +1449,7 @@ def detail_marche(id_marche):
     verdict_eligibilite = matching_exigences.verdict_eligibilite(alertes_verifiables)
 
     # Fourchette montant total : 3 scénarios (bas / réaliste / haut)
-    import fourchette_scenarios
+    from tendia.prix import fourchette_scenarios
     scenarios_montant = fourchette_scenarios.construire_scenarios(
         calibration, brief
     )
@@ -1484,7 +1484,7 @@ def detail_marche(id_marche):
     # Calculé au rendu (quelques requêtes SQL indexées, pas de LLM). Sert à ancrer le
     # Revenu estimé sur des données réelles quand le DCE ne publie pas de montant.
     try:
-        import decp_comparables
+        from tendia.prix import decp_comparables
         _preset_v3 = presets_resolus[0] if presets_resolus else None
         if isinstance(_preset_v3, (list, tuple)):
             _preset_v3 = _preset_v3[0]
@@ -1561,7 +1561,7 @@ def calibrer_marche(id_marche):
         flash("Aucun brief à calibrer pour ce marché.", "erreur")
         return redirect(url_for("detail_marche", id_marche=id_marche))
     try:
-        import llm_calibration
+        from tendia.analyse import llm_calibration
         res = llm_calibration.calibrer_et_cacher(
             id_marche, brief, None, {}, force=True, verbose=False, mode="bottom_up")
         if res:
@@ -1577,7 +1577,7 @@ def calibrer_marche(id_marche):
 # Mémoire technique (.docx) — génération asynchrone par lot (Sprint B)
 # ---------------------------------------------------------------------------
 import threading as _threading  # noqa: E402
-from services import pipeline_memoire as _pipeline_memoire  # noqa: E402
+from tendia.memoire.services import pipeline_memoire as _pipeline_memoire  # noqa: E402
 
 # Registre des générations en cours (thread de fond). Clé = id_marche|lot|user.
 _MEMOIRE_JOBS = {}
@@ -1629,7 +1629,7 @@ def _job_generer_memoire(id_marche, numero_lot, id_user, profil, force, complete
         maj(etat="en_cours", etape="digest", progress=0.06,
             message=("Régénération en cours…" if completer
                      else _ETAPE_LIBELLE["digest"]))
-        from services import digest_memoire
+        from tendia.memoire.services import digest_memoire
         digest_memoire.generer_digest_memoire_lot(id_marche, numero_lot, force=False, verbose=False)
         # 2. Plan + rédaction parallèle + assemblage (ou complétion mutualisée).
         memoire = _pipeline_memoire.generer_memoire(

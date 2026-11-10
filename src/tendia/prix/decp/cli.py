@@ -15,9 +15,10 @@ from datetime import date
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
-from decp import db as decp_db
-from decp import telecharger
-from decp.parser import parser_marche, agreger_multi_titulaires
+from tendia.prix.decp import db as decp_db
+from tendia.prix.decp import telecharger
+from tendia.core.chemins import DATA
+from tendia.prix.decp.parser import parser_marche, agreger_multi_titulaires
 
 
 def _12_mois_avant() -> str:
@@ -91,7 +92,7 @@ def cmd_ingest_annee(args):
 
 
 def cmd_audit(args):
-    from decp.audit import auditer
+    from tendia.prix.decp.audit import auditer
     print(auditer())
 
 
@@ -100,7 +101,7 @@ def cmd_v2_migrer(args):
 
 
 def cmd_v2_staging(args):
-    from decp.ingest_v2 import ingerer_staging
+    from tendia.prix.decp.ingest_v2 import ingerer_staging
     res = ingerer_staging(args.staging, dry_run=args.dry_run, limite=args.limite,
                           journal_rejets=args.journal_rejets)
     print(res)
@@ -108,7 +109,7 @@ def cmd_v2_staging(args):
 
 def cmd_v2_api(args):
     """Rattrapage / mise à jour : toutes versions depuis --depuis, UPSERT idempotent."""
-    from decp.ingest_v2 import ingerer_lignes_api
+    from tendia.prix.decp.ingest_v2 import ingerer_lignes_api
     r = telecharger.fetch_toutes_versions(args.depuis)
     if r["pages_en_echec_final"]:
         print(f"⚠ {len(r['pages_en_echec_final'])} pages toujours en échec : lignes manquantes "
@@ -139,10 +140,10 @@ def main():
     pm.set_defaults(func=cmd_v2_migrer)
 
     ps = sub.add_parser("v2-staging", help="ingestion v2 depuis le staging (decp.csv)")
-    ps.add_argument("--staging", default="data/decp_reprise/staging.db")
+    ps.add_argument("--staging", default=str(DATA / "decp_reprise" / "staging.db"))
     ps.add_argument("--dry-run", action="store_true")
     ps.add_argument("--limite", type=int, default=None)
-    ps.add_argument("--journal-rejets", default="data/decp_reprise/titulaires_rejets.tsv")
+    ps.add_argument("--journal-rejets", default=str(DATA / "decp_reprise" / "titulaires_rejets.tsv"))
     ps.set_defaults(func=cmd_v2_staging)
 
     pv = sub.add_parser("v2-api", help="ingestion v2 depuis l'API (toutes versions, relances)")

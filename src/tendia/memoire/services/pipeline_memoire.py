@@ -13,10 +13,10 @@ import time
 from datetime import datetime, timezone
 
 from tendia.core import stockage
-from services import _memoire_commun as commun
-from services import extraction_contexte_memoire as appel1
-from services import redaction_memoire as appel2
-from services import assemblage_docx
+from tendia.memoire.services import _memoire_commun as commun
+from tendia.memoire.services import extraction_contexte_memoire as appel1
+from tendia.memoire.services import redaction_memoire as appel2
+from tendia.memoire.services import assemblage_docx
 
 
 def cle_memoire_existante(id_marche, numero_lot, id_user):

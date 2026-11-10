@@ -14,8 +14,8 @@ import concurrent.futures
 import json
 import time
 
-from services import _memoire_commun as commun
-from prompts.redaction_memoire_v1 import (
+from tendia.memoire.services import _memoire_commun as commun
+from tendia.memoire.prompts.redaction_memoire_v1 import (
     PROMPT_SYSTEME,
     PROMPT_UTILISATEUR,
     PROMPT_UTILISATEUR_SECTION,

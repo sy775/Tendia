@@ -24,10 +24,10 @@ sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 
 from tendia.core import stockage
-import pdf_extract
+from tendia.analyse import pdf_extract
 from tendia.veille import preset
-import llm_extract
-import tendia_extraire as TE
+from tendia.analyse import llm_extract
+from tendia.analyse import extraire as TE
 
 COUT_ESTIME = 0.40   # € par brief (prompt v2, majoré)
 

@@ -17,10 +17,10 @@ sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 
 from tendia.core import stockage
-from decp.db import connexion, inserer_lien
-from decp.matching import (scorer_match, verifier_marche_tendia_existe,
+from tendia.prix.decp.db import connexion, inserer_lien
+from tendia.prix.decp.matching import (scorer_match, verifier_marche_tendia_existe,
                            SEUIL_CANDIDAT, SEUIL_FORT, _normaliser_nom)
-from decp.audit import auditer
+from tendia.prix.decp.audit import auditer
 
 RAPPORT = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))),
                        "RAPPORT_DECP_SPRINT1.md")

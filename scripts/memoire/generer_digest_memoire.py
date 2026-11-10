@@ -34,7 +34,7 @@ except Exception:
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 
 from tendia.core import stockage  # noqa: E402
-from services import digest_memoire  # noqa: E402
+from tendia.memoire.services import digest_memoire  # noqa: E402
 
 REPERTOIRE_VALIDATION = os.path.join("data", "validation_digests")
 

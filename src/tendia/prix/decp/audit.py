@@ -7,8 +7,8 @@ intégré dans RAPPORT_DECP_SPRINT1.md.
 import time
 from collections import Counter
 
-from decp.db import connexion, DB_PATH_DEFAUT
-from decp.parser import valider_siret
+from tendia.prix.decp.db import connexion, DB_PATH_DEFAUT
+from tendia.prix.decp.parser import valider_siret
 
 
 def _pct(n, d):

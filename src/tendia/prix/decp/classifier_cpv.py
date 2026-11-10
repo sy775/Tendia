@@ -8,7 +8,7 @@ au LLM (niveau 2).
 import re
 from datetime import datetime, timezone
 
-from decp.mapping_cpv import classer_par_cpv, _digits
+from tendia.prix.decp.mapping_cpv import classer_par_cpv, _digits
 
 CONFIANCE = {
     "cpv_exact": 1.0,

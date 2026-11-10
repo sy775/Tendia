@@ -512,8 +512,8 @@ def calculer_verdict_pour_marche(id_marche: str, profil: dict) -> Optional[dict]
     import os
     if not profil:
         return None
-    chemin = os.path.join(os.path.dirname(os.path.abspath(__file__)),
-                          "data", "extractions", f"{id_marche}.json")
+    from tendia.core.chemins import DATA
+    chemin = os.path.join(DATA, "extractions", f"{id_marche}.json")
     if not os.path.exists(chemin):
         return None
     try:

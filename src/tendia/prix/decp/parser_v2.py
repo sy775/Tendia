@@ -18,7 +18,7 @@ import re
 from datetime import datetime, timezone
 from typing import Optional
 
-from decp.parser import (MONTANT_MAX, normaliser_cpv, valider_siret,
+from tendia.prix.decp.parser import (MONTANT_MAX, normaliser_cpv, valider_siret,
                          _dept_normalise)
 
 # Colonnes SOURCE de decp_marches v2 (l'UPSERT ne met à jour que celles-ci ; les

@@ -30,18 +30,19 @@ from datetime import datetime, timezone
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
 from tendia.core import budget
-import llm_router
+from tendia.analyse import llm_router
 from tendia.core import stockage
-from decp import classif_ia as C
-from decp import db as decp_db
-from decp.mapping_cpv import classer_par_cpv
+from tendia.prix.decp import classif_ia as C
+from tendia.prix.decp import db as decp_db
+from tendia.core.chemins import DATA
+from tendia.prix.decp.mapping_cpv import classer_par_cpv
 
 MODELE = "gemini-3.1-flash-lite"
 TAILLE_LOT = 50
 REQUETES_PAR_JOB = 300          # ~22 Ko par requête → ~6,6 Mo par job (limite inline 20 Mo)
 REMISE_BATCH = 0.5
 PRIORITE_ANNEES = ["2026", "2025", "2024", "2023", "2022"]
-DOSSIER = "data/decp_reprise/batch"
+DOSSIER = (DATA / "decp_reprise" / "batch").as_posix()
 ETAT = f"{DOSSIER}/etat.json"
 SOURCE_IA = "ia_flash_lite_v2"
 ENV = C.ENVELOPPE   # enveloppe budget (decp_reprise pendant le sprint ; decp_hebdo ensuite)

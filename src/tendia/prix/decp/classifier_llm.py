@@ -69,7 +69,7 @@ def _get_client() -> Anthropic:
         with _client_lock:
             if _client is None:
                 if not os.environ.get("ANTHROPIC_API_KEY"):
-                    import llm_extract
+                    from tendia.analyse import llm_extract
                     k = llm_extract._charger_cle_depuis_env_file()
                     if k:
                         os.environ["ANTHROPIC_API_KEY"] = k
