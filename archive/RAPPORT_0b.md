@@ -1,6 +1,6 @@
 # Rapport du chantier 0b : structure et outillage (2026-11-10)
 
-Branche `chantier/0b-structure` (depuis `main` = `46377a8`), 12 commits avant ce rapport, fusionnée dans `main` par `--no-ff`.
+Branche `chantier/0b-structure` (depuis `main` = `46377a8`), 13 commits avant ce rapport, fusionnée dans `main` par `--no-ff`.
 
 ## En bref
 
