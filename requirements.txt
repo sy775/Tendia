@@ -12,6 +12,15 @@ truststore>=0.9
 # 2captcha-python : solveur de captcha image (downloaders DCE anonymes).
 2captcha-python>=1.2.0
 
+# Parsing HTML (pages DCE : tendia_telecharger_dce._pieces_depuis_html)
+beautifulsoup4>=4.12
+# Lecture de .env (clé 2captcha, proxy par plateforme) par http_humain et les downloaders.
+# Une fois installé, .env est chargé à l'import de ces modules (UI comprise).
+python-dotenv>=1.0
+# curl_cffi (optionnel, non installé) : empreinte TLS de navigateur. http_client force
+# aujourd'hui le repli requests (curl_cffi désactivé : plantage sur pages ISO-8859-1).
+# curl_cffi>=0.7
+
 # UI web
 flask>=3.0.0
 
