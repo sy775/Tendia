@@ -4,7 +4,6 @@ tests/test_downloader_dce_directe.py — Lancement : python tests/test_downloade
 Couvre le wrapper de priorité d'URL DCE (Étape 2 refonte v2) : url_consultation_dce_directe
 prioritaire, repli sur url_dce reconstruite. Monkeypatch de l'impl → 0 réseau.
 """
-import os
 import sys
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")

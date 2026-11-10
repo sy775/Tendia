@@ -61,7 +61,6 @@ import json
 import os
 from dataclasses import dataclass
 from datetime import datetime, timezone
-from pathlib import Path
 from typing import Optional
 
 from tendia.core import stockage

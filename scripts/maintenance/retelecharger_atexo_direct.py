@@ -13,8 +13,6 @@ qualifiés via le chemin profond completeDownload.
 Usage : python retelecharger_atexo_direct.py [--oui] [--max N]
 """
 
-import os
-import sys
 import argparse
 import sys
 from datetime import datetime

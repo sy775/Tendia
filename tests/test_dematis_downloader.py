@@ -8,7 +8,6 @@ Lancement : python tests_dematis_downloader.py
 """
 
 import os
-import sys
 import os
 import shutil
 import sys

@@ -29,7 +29,6 @@ Pre-requis (deja dans le repo) :
 """
 
 import os
-import sys
 
 import argparse
 import csv

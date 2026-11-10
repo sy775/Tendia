@@ -10,7 +10,6 @@ Lancement : python tests_proxy_par_plateforme.py
 """
 
 import os
-import sys
 import os
 import sys
 

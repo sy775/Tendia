@@ -8,7 +8,6 @@ Lancement : python tests_aws_downloader.py
 """
 
 import os
-import sys
 import io
 import sys
 

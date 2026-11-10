@@ -10,7 +10,6 @@ Rate-limit : 2 s entre marchés.
 """
 
 import os
-import sys
 import io
 import os
 import shutil

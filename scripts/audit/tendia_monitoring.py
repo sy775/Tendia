@@ -10,8 +10,6 @@ marchés en échec à reprendre. Pas de Flask, juste la console.
 Usage : python tendia_monitoring.py [--jours N]
 """
 
-import os
-import sys
 import argparse
 import sys
 from collections import Counter, defaultdict

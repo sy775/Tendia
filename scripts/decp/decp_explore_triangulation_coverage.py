@@ -11,7 +11,6 @@ matching réaliste est donc le CPV (8→5→3) + la géo (dept→région→natio
 
 Usage : python scripts/decp_explore_triangulation_coverage.py
 """
-import os
 import re
 import sys
 from collections import Counter

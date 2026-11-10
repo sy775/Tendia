@@ -19,12 +19,9 @@ Usage : python audit_mapping_domaines_presets.py
 """
 
 from tendia.core.chemins import RACINE_DEPOT
-import os
-import sys
 import json
 import sys
 from collections import Counter, defaultdict
-from pathlib import Path
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 

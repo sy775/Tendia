@@ -13,7 +13,6 @@ Usage : python scripts/decp/reprise_formats_perte.py [--sortie data/decp_reprise
 import argparse
 import collections
 import json
-import os
 import sqlite3
 import sys
 

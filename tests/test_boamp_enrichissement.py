@@ -5,7 +5,6 @@ Couvre l'extraction des ~31 champs d'enrichissement v2 (cf. docs/modules/marche.
 SECTION 1) sur des avis synthétiques eForms et legacy. 0 réseau.
 """
 import json
-import os
 import sys
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")

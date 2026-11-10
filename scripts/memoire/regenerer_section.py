@@ -16,7 +16,6 @@ Exemple :
     --instruction "..." --dry-run
 """
 import argparse
-import os
 import sys
 
 # --- Standards Tendia : stdout UTF-8 forcé + racine projet importable ---

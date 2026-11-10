@@ -4,7 +4,6 @@ tests/test_parallelisation.py — Lancement : python tests/test_parallelisation.
 Couvre le BudgetTracker thread-safe (réservation atomique) et le pattern producteur/
 consommateur (workers parallèles, écriture mono-thread) du runner v2.
 """
-import os
 import sys
 import threading
 from concurrent.futures import ThreadPoolExecutor

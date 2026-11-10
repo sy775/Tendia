@@ -18,7 +18,6 @@ import hashlib
 import json
 import re
 import unicodedata
-from pathlib import Path
 
 from tendia.core.chemins import PRESETS, RACINE_DEPOT
 

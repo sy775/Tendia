@@ -6,7 +6,6 @@ Ne fait aucun appel réseau. Lancement : python tests_parseur_dce.py
 """
 
 import os
-import sys
 import io
 import os
 import sys

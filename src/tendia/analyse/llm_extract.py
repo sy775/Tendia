@@ -19,7 +19,6 @@ import os
 import re
 import sys
 import time
-from pathlib import Path
 from typing import Optional
 
 # SSL : sur ce poste, certifi ne peut pas bâtir la chaîne (interception TLS) →

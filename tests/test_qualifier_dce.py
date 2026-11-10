@@ -6,7 +6,6 @@ Lancement : python tests_qualifier_dce.py
 """
 
 import os
-import sys
 import io
 import os
 import sys

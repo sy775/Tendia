@@ -17,7 +17,6 @@ Métriques :
 Usage : python scripts/backtest_voie3.py [--n 800] [--seed 42]
 """
 import argparse
-import os
 import random
 import statistics
 import sys

@@ -9,8 +9,6 @@ Usage : python audit_presets_extraction.py
 """
 
 from tendia.core.chemins import RACINE_DEPOT
-import os
-import sys
 import json
 import sys
 from pathlib import Path

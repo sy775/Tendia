@@ -2,7 +2,6 @@
 tests/test_decp_classifier_llm.py — Lancement : python tests/test_decp_classifier_llm.py
 Teste BudgetTracker + parsing/coût/validation SANS appel réseau (faux client).
 """
-import os
 import sys
 import types
 

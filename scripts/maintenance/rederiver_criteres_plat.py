@@ -9,7 +9,6 @@ sous-critères ne sont pas pondérés). Mesure les alertes somme/pas_de_prix ava
 Usage : python scripts/rederiver_criteres_plat.py [--dry-run]
 """
 import argparse
-import os
 import sys
 from collections import Counter
 

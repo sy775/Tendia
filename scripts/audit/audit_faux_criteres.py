@@ -12,7 +12,6 @@ mot-clé attendu n'apparaît pas comme un vrai mot dans l'alerte (= faux positif
 
 Usage : python scripts/audit_faux_criteres.py
 """
-import os
 import re
 import sys
 from collections import Counter, defaultdict

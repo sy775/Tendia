@@ -13,8 +13,6 @@ Vérifie :
 Lancement : python tests_llm_extract_routage.py
 """
 
-import os
-import sys
 import sys
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")

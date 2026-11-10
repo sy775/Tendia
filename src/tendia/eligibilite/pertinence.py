@@ -56,7 +56,6 @@ import re
 import sys
 import unicodedata
 from datetime import datetime, timezone
-from pathlib import Path
 from typing import Optional
 
 from tendia.veille import preset

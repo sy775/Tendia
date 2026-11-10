@@ -18,8 +18,6 @@ Usage typique après le patch Phase 2a :
     python relancer_dce_echecs.py                       # tous les échecs hors murs
 """
 
-import os
-import sys
 
 import argparse
 import io

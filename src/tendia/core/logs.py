@@ -11,7 +11,6 @@ Conçu pour ne JAMAIS faire planter un downloader : toute erreur d'écriture est
 silencieusement ignorée (le log est secondaire vs le téléchargement).
 """
 import json
-import os
 from datetime import datetime
 from pathlib import Path
 

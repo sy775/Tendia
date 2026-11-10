@@ -19,7 +19,6 @@ from tendia.veille import classification as tc
 
 # Charge la clé API depuis .env.txt si présente (convention projet).
 try:
-    from pathlib import Path
     env = RACINE_DEPOT / ".env.txt"
     if env.exists():
         for ligne in env.read_text(encoding="utf-8").splitlines():

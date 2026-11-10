@@ -27,8 +27,6 @@ Usage : python retelecharger_marches_securises.py [--oui] [--max N]
         python retelecharger_marches_securises.py --un-marche BOAMP-26-XXXXX
 """
 
-import os
-import sys
 import argparse
 import subprocess
 import sys

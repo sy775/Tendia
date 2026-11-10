@@ -5,8 +5,6 @@ Tests HORS-LIGNE du versioning des prompts (Chantier 1E).
 Lancement : python tests_briefs_versioning.py
 """
 
-import os
-import sys
 import re
 import sys
 

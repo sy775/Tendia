@@ -5,8 +5,6 @@ Tests HORS-LIGNE des helpers purs de atexo_downloader (aucun réseau).
 Lancement : python tests_atexo_downloader.py
 """
 
-import os
-import sys
 import io
 import sys
 

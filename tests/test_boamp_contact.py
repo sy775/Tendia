@@ -13,8 +13,6 @@ plus cas limites (aucun contact, email dans le champ nom).
 Lancement : python tests_boamp_contact.py
 """
 
-import os
-import sys
 import json
 import sys
 

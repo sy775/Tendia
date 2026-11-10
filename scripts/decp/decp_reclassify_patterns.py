@@ -18,7 +18,6 @@ hors_perimetre) bouge de plus de 3 points.
 Usage : python scripts/decp_reclassify_patterns.py [--dry-run] [--force]
 """
 import argparse
-import os
 import sys
 from collections import Counter
 

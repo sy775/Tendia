@@ -3,7 +3,6 @@ tests/test_extraction_v2_montants.py — Lancement : python tests/test_extractio
 
 Couvre l'aplatissement + validation des 3 voies de montant par post_traiter_extraction_v2.
 """
-import os
 import sys
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")

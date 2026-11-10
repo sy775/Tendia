@@ -5,8 +5,6 @@ Tests HORS-LIGNE de http_humain (aucun réseau, time.sleep et random mockés).
 Lancement : python tests_http_humain.py
 """
 
-import os
-import sys
 import sys
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")

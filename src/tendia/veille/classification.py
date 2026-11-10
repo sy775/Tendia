@@ -42,7 +42,6 @@ import re
 import sys
 import time
 from datetime import datetime, timezone
-from pathlib import Path
 from typing import Optional
 
 if sys.stdout.encoding and sys.stdout.encoding.lower() != "utf-8":

@@ -42,7 +42,6 @@ import sys
 import time
 from datetime import datetime, timezone
 from html.parser import HTMLParser
-from pathlib import Path
 from typing import Optional
 from urllib.parse import unquote, urljoin, urlparse
 

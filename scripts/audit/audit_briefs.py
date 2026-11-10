@@ -8,8 +8,6 @@ Pour chaque brief stocké en collection 'briefs_extraits' avec _meta.type=comple
 - Verdict : utile / partiel / vide
 """
 
-import os
-import sys
 
 import io
 import sys

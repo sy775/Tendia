@@ -21,7 +21,6 @@ pour analyse hors-ligne.
 
 import argparse
 import io
-import os
 import re
 import sys
 from datetime import datetime

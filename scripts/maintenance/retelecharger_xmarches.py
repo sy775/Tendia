@@ -9,7 +9,6 @@ Usage : python retelecharger_xmarches.py [--oui] [--max N]
 """
 
 import os
-import sys
 import argparse
 import os
 import sys

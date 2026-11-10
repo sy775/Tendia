@@ -17,8 +17,6 @@ Workflow typique :
          python organisme.py --check
 """
 
-import os
-import sys
 
 import argparse
 import io

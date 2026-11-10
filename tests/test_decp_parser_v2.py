@@ -1,7 +1,6 @@
 """
 tests/test_decp_parser_v2.py — Lancement : python tests/test_decp_parser_v2.py (hors ligne)
 """
-import os
 import sys
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")

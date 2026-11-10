@@ -54,7 +54,6 @@ USAGE
 
 import hashlib
 import json
-import os
 import unicodedata
 from pathlib import Path
 from typing import Optional

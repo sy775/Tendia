@@ -18,7 +18,6 @@ Usage : python scripts/decp/reprise_doublons.py [--sortie data/decp_reprise/arre
 import argparse
 import collections
 import json
-import os
 import random
 import re
 import sqlite3

@@ -15,7 +15,6 @@ Usage : python scripts/backtest_objet.py [--n 600] [--seed 42] [--topk 25]
 """
 import argparse
 import math
-import os
 import random
 import re
 import statistics

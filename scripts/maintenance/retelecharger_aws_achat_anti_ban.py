@@ -19,7 +19,6 @@ Usage : python retelecharger_aws_achat_anti_ban.py [--oui] [--max N]
 """
 
 import os
-import sys
 import argparse
 import os
 import sys

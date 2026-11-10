@@ -54,7 +54,6 @@ Backward compat :
 """
 
 import json
-from pathlib import Path
 from typing import Optional, List, Any
 
 from tendia.core import stockage

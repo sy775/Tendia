@@ -22,7 +22,6 @@ Lancement : python tests_dematis_workflow_har.py
 """
 
 import os
-import sys
 import os
 import re
 import shutil

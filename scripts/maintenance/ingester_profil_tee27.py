@@ -8,7 +8,6 @@ Le profil actif précédent (Tridyne) reste en bibliothèque (profil_ingenierie_
 
 Usage : python scripts/ingester_profil_tee27.py
 """
-import os
 import sys
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")

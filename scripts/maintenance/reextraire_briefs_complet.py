@@ -23,7 +23,6 @@ Usage : python reextraire_briefs_complet.py [--oui] [--limite N]
 """
 
 import os
-import sys
 import argparse
 import os
 import sys

@@ -9,7 +9,6 @@ Usage : python scripts/decp_classify_llm.py --plafond 50.0 [--limite N] [--dry-r
 Pattern progressif : --dry-run → --limite 100 → --limite 1000 → complet.
 """
 import argparse
-import os
 import sys
 import time
 from collections import Counter

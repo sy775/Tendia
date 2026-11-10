@@ -13,10 +13,7 @@ Rate-limit 2 s entre marchés.
 Usage : python retelecharger_achatpublic.py
 """
 
-import os
-import sys
 import io
-import os
 import sys
 import shutil
 import time

@@ -13,11 +13,8 @@ Rate-limit 2 s entre marchés.
 Usage : python retelecharger_vide_atexo.py
 """
 
-import os
-import sys
 import io
 import sys
-import os
 import shutil
 import time
 from datetime import datetime

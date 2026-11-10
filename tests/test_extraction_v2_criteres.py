@@ -4,7 +4,6 @@ tests/test_extraction_v2_criteres.py — Lancement : python tests/test_extractio
 Couvre la dérivation du schéma plat critères + classification prix/valeur_technique via
 unite_evaluation (résout le bug RSE €/CO2) + validation post-LLM (somme=100, ≥1 prix>0).
 """
-import os
 import sys
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")

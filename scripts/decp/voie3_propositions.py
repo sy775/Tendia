@@ -15,7 +15,6 @@ Usage : python scripts/decp/voie3_propositions.py [--n-backtest 400]
 """
 import argparse
 import json
-import os
 import random
 import re
 import statistics

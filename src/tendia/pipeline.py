@@ -29,12 +29,10 @@ Options :
 """
 
 import argparse
-import os
 import subprocess
 import sys
 import time
 from datetime import date, datetime
-from pathlib import Path
 
 from tendia.core.chemins import DATA, RACINE_DEPOT
 

@@ -18,13 +18,11 @@ Usage :
 """
 
 import os
-import sys
 
 import argparse
 import os
 import subprocess
 import sys
-from pathlib import Path
 
 from tendia.core.chemins import DATA, RACINE_DEPOT
 

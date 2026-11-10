@@ -9,8 +9,6 @@ téléchargeables par le pipeline DCE normal.
 Usage : python resoudre_dce_par_reference.py [--limite N] [--dry-run]
 """
 
-import os
-import sys
 import argparse
 import sys
 import time

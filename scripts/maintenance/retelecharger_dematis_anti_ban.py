@@ -18,7 +18,6 @@ Usage : python retelecharger_dematis_anti_ban.py [--oui] [--max N] [--ignorer-he
 """
 
 import os
-import sys
 import argparse
 import os
 import shutil
