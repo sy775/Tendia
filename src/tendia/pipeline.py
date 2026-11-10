@@ -70,7 +70,7 @@ def _executer_script(script_name: str, args: list[str] = None) -> bool:
     print()
     debut = time.time()
     try:
-        result = subprocess.run(cmd, check=False)
+        result = subprocess.run(cmd, check=False, cwd=RACINE_DEPOT)
         duree = round(time.time() - debut, 1)
         if result.returncode == 0:
             print(f"\n  ✅ {script_name} terminé en {duree}s")

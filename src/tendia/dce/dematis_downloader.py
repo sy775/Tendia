@@ -75,7 +75,8 @@ from tendia.dce.aws_downloader import (
 
 try:
     from dotenv import load_dotenv
-    load_dotenv()
+    from tendia.core.chemins import RACINE_DEPOT
+    load_dotenv(RACINE_DEPOT / ".env")
 except ImportError:
     pass
 

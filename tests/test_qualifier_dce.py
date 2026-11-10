@@ -69,7 +69,7 @@ verif("noms longs FR (RC + CCAP)",
       "complet", ["RC", "CCAP"])
 verif("ZIP contenant RC + CCTP",
       _dossier({}, zips={"DCE.zip": ["RC.pdf", "CCTP.pdf"]}),
-      "complet", ["RC", "CCTP"])
+      "complet", ["CCTP", "DCE", "RC"])  # le nom du zip compte comme DCE consolidé
 verif("erreur reseau (log)", _dossier({"RC.pdf": PDF}), "erreur",
       log={"statut": "erreur", "raison": "HTTP 503"})
 verif("EntrepriseDetailsConsultation html",

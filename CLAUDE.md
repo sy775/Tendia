@@ -46,7 +46,7 @@ Chemins vers `data/`, `logs/`, `presets/`, `rapports/`, `archive/` : toujours vi
 - Tout module touché dans `core/`, `analyse/`, `eligibilite/` reçoit au moins un test hors ligne.
 - Un module au-delà de 800 lignes se découpe.
 - Racine : fichiers de config et les deux shims `tendia_ui.py`, `tendia_pipeline.py`, rien d'autre en `.py`.
-- Avant de terminer : `python tests/lancer_tous.py` tout vert (hors échecs connus listés ci-dessous), l'UI démarre, puis sous-agent `audit-code`.
+- Avant de terminer : `python tests/lancer_tous.py` passe (échecs connus listés dans Pièges connus), l'UI démarre, puis sous-agent `audit-code`.
 
 ## Pièges connus
 - `stockage.charger` lit toute la collection ; cache mémoire par processus (UI et scripts peuvent diverger).
@@ -55,7 +55,7 @@ Chemins vers `data/`, `logs/`, `presets/`, `rapports/`, `archive/` : toujours vi
 - `python-dotenv` installé : `http_humain`, `aws_downloader`, `dematis_downloader` chargent `.env` à l'import (proxy résidentiel `TENDIA_PROXY_*` compris). `curl_cffi` absent : `http_client` force `requests`.
 - Le pipeline lance ses étapes comme fichiers (`src/tendia/veille/recup.py`, ...) : déplacer un de ces modules impose de corriger `src/tendia/pipeline.py`.
 - `exp_gemini/ui_exp.py` importe encore `stockage` et `tendia_ui` à l'ancienne : cassé depuis 0b (non touché).
-- Tests en échec connus (antérieurs à 0b, attentes en retard sur le code) : `test_aws_downloader.py` (1 ✗), `test_qualifier_dce.py` (1 ✗).
+- Tests en échec connus : aucun (les attentes de `test_aws_downloader` et `test_qualifier_dce` ont été alignées sur le code au chantier 1).
 - Branche de travail : `main` (branche par défaut sur GitHub). Branches de chantier `chantier/<n>-<slug>`.
 
 ## Commandes utiles

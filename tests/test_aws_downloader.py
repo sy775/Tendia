@@ -223,6 +223,11 @@ class FakeSession:
             return FakeResponse(200, content=b"\x89PNG\r\n fake image bytes", url=url)
         if "dce.veriflotsdce" in low:
             return FakeResponse(200, text=HTML_1LOT, url=url)
+        if "fuseaction=dce.tdoc" in low:   # AAPC, servi par le site (pas le CDN)
+            return FakeResponse(
+                200, content=b"%PDF-1.4 AAPC " + b"0" * 200,
+                headers={"Content-Disposition": 'attachment; fileName="AAPC.pdf"'},
+                url=url)
         if "downloads.awsolutions.fr" in low:
             return FakeResponse(
                 200, content=ZIP_MAGIQUE,
@@ -252,6 +257,10 @@ _orig_session = A.http_humain.creer_session_humaine
 _orig_attente = A.http_humain.attendre_inter_etapes
 _orig_captcha = A._resoudre_captcha_2captcha
 _orig_decomp = A._decompresser_zip_imbrique
+# Le CDN est téléchargé par une session HTTP réelle sans proxy (_session_sans_proxy,
+# patch cdn_bypass du 15/06) : sans ce remplacement, le test appelait le vrai CDN.
+_orig_sans_proxy = A._session_sans_proxy
+A._session_sans_proxy = lambda session_source: session_source
 A.http_humain.creer_session_humaine = lambda *a, **k: FakeSession()
 A.http_humain.attendre_inter_etapes = lambda *a, **k: 0.0
 A._resoudre_captcha_2captcha = lambda image_bytes, api_key, verbose=True: "ABC123"
@@ -264,8 +273,8 @@ try:
                             api_key_2captcha="FAKEKEY", verbose=False)
     check("workflow ok=True", res.get("ok") is True)
     check("1 captcha résolu", res.get("nb_captcha_resolus") == 1)
-    check("fichiers téléchargés (DCE + LOT-1, CGU filtrée)",
-          len(res.get("fichiers_telecharges", [])) == 2)
+    check("fichiers téléchargés (DCE + LOT-1 + AAPC, CGU filtrée)",
+          len(res.get("fichiers_telecharges", [])) == 3)
     check("taille_octets_total > 0", res.get("taille_octets_total", 0) > 0)
     check("pas d'étape_erreur", res.get("etape_erreur") is None)
 finally:
@@ -273,6 +282,7 @@ finally:
     A.http_humain.attendre_inter_etapes = _orig_attente
     A._resoudre_captcha_2captcha = _orig_captcha
     A._decompresser_zip_imbrique = _orig_decomp
+    A._session_sans_proxy = _orig_sans_proxy
 
 
 # Workflow : captcha toujours refusé (200 sur cnxAnonyme) -> échec propre
@@ -348,6 +358,7 @@ def _session_factory_ban_puis_ok(*a, **k):
 
 
 _orig_logs = A.tendia_logs.logger_evenement_marche
+A._session_sans_proxy = lambda session_source: session_source
 A.http_humain.creer_session_humaine = _session_factory_ban_puis_ok
 A.http_humain.attendre_inter_etapes = lambda *a, **k: 0.0
 A._resoudre_captcha_2captcha = lambda image_bytes, api_key, verbose=True: "ABC123"
@@ -368,6 +379,7 @@ finally:
     A.http_humain.attendre_inter_etapes = _orig_attente
     A._resoudre_captcha_2captcha = _orig_captcha
     A._decompresser_zip_imbrique = _orig_decomp
+    A._session_sans_proxy = _orig_sans_proxy
     A.tendia_logs.logger_evenement_marche = _orig_logs
 
 
