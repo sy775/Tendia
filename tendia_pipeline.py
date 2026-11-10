@@ -195,7 +195,7 @@ def _telecharger_dce_marches_actifs(fenetre_jours: int):
     """Télécharge le zip DCE pour chaque marché actif avec URL résolue."""
     try:
         import stockage
-        import place_downloader
+        import atexo_downloader
     except ImportError as e:
         print(f"\n  ❌ Modules manquants : {e}")
         return
@@ -221,7 +221,7 @@ def _telecharger_dce_marches_actifs(fenetre_jours: int):
     print()
     stats = {"ok": 0, "skip": 0, "echec": 0}
     for marche in actifs_avec_url:
-        resultat = place_downloader.telecharger_dce_pour_marche(
+        resultat = atexo_downloader.telecharger_dce_pour_marche(
             marche, str(REPERTOIRE_DCE), verbose=True
         )
         if resultat.get("ok"):
