@@ -13,35 +13,35 @@ Source : dépôt GitHub `sy775/Tendia`, branche `feat/decp-sprint-3` (313 fichie
 | LLM exp | `llm_router.py` + `config_llm.yaml` : Claude / Gemini (argon, flash-lite) / Opus 5.5, retries, coûts. **Importé uniquement par l'expérimentation** |
 | Captcha / proxy | 2captcha ; proxy résidentiel activable par plateforme (`http_humain.py`) |
 | Hébergement | Poste Windows local. Aucune tâche planifiée, aucun serveur distant, aucun mail |
-| Dépendances manquantes | `beautifulsoup4` (importé par `tendia_telecharger_dce.py:854`), `curl_cffi` (repli `requests`), `python-dotenv` |
+| Dépendances | `requirements.txt` (dont `beautifulsoup4`, `python-dotenv` depuis 0b) ; `curl_cffi` absent (repli `requests` forcé). Paquet `tendia` installé par `pip install -e .` (`pyproject.toml`) |
 
 ## 2. Points d'entrée
 
 | Commande | Rôle |
 |---|---|
 | `Tendia.bat` | Pipeline complet puis UI. **Lance des téléchargements et des appels LLM payants** : ne jamais l'exécuter pour « vérifier que ça marche » |
-| `python tendia_pipeline.py [--skip-llm] [--skip-download] ...` | 6 étapes : récup BOAMP → résolution URL DCE → téléchargement anonyme → re-téléchargements anti-ban → extraction LLM → rapport |
-| `python tendia_ui.py` | UI Flask, lecture seule côté données sauf cycle/exigences/mémoires |
-| `python tendia_classification.py` | Classification Haiku. **Hors pipeline** : à lancer à la main |
-| `python tendia_extraire.py [--marche ID]` | Brief LLM d'un dossier `data/dce/<id>/` |
-| `python -m decp.cli ingest` | Ingestion DECP data.gouv → tables SQL |
+| `python -m tendia [--skip-llm] [--skip-download] ...` (shim : `python tendia_pipeline.py`) | 6 étapes : récup BOAMP → résolution URL DCE → téléchargement anonyme → re-téléchargements anti-ban → extraction LLM → rapport |
+| `python -m tendia.ui` (shim : `python tendia_ui.py`) | UI Flask, lecture seule côté données sauf cycle/exigences/mémoires |
+| `python -m tendia.veille.classification` | Classification Haiku. **Hors pipeline** : à lancer à la main |
+| `python -m tendia.analyse.extraire [--marche ID]` | Brief LLM d'un dossier `data/dce/<id>/` |
+| `python -m tendia.prix.decp.cli ingest` | Ingestion DECP data.gouv → tables SQL |
 | `python scripts/memoire/generer_memoire.py` | Mémoire technique (aussi depuis l'UI) |
-| `python tests/test_<module>.py` | Tests hors ligne, style maison `check()`, sans pytest |
+| `python tests/lancer_tous.py` ou `python tests/test_<module>.py` | Tests hors ligne, style maison `check()`, sans pytest |
 
 ## 3. Arborescence et correspondance avec la chaîne d'agents
 
-Racine : 44 modules Python (26 500 lignes). Le chantier 0b les range sous `src/tendia/<agent>/`. Correspondance cible :
+Depuis le chantier 0b, les 44 anciens modules racine (26 500 lignes) sont sous `src/tendia/<agent>/` (table origine → destination : `archive/RAPPORT_0b.md`). Correspondance :
 
 | Dossier cible | Modules actuels | Rôle |
 |---|---|---|
-| `core/` | `stockage` (66 imports : le cœur), `tendia_logs`, `http_client`, `http_utils`, `http_humain`, `budget` | Persistance, HTTP, anti-ban, garde-fou LLM |
-| `veille/` | `tendia_recup`, `connecteurs/boamp`, `tendia_classification`, `preset` | Ingestion BOAMP, classification, presets sectoriels |
-| `dce/` | `dce_finder`, `resolution_reference`, `tendia_dce`, `tendia_telecharger_dce`, `aws_downloader`, `atexo_downloader`, `dematis_downloader`, `achatpublic_downloader`, `marches_securises_downloader`, `xmarches_downloader`, `place_downloader` (doublon d'atexo, encore importé par le pipeline) | Trouver et télécharger le DCE |
-| `analyse/` | `llm_extract`, `llm_router`, `llm_calibration`, `pdf_extract`, `tendia_extraire`, `auto_brief`, `exp_gemini/*` (pieces, mode_document) | Lire le DCE, produire le brief |
-| `prix/` | `decp/` (17 modules), `marches_attribues`, `decp_comparables`, `fourchette_scenarios`, `jointure` | Comparables DECP, estimation |
+| `core/` | `stockage` (66 imports : le cœur), `chemins`, `logs`, `http_client`, `http_utils`, `http_humain`, `budget` | Persistance, HTTP, anti-ban, garde-fou LLM |
+| `veille/` | `recup`, `connecteurs/boamp`, `classification`, `preset` | Ingestion BOAMP, classification, presets sectoriels |
+| `dce/` | `dce_finder`, `resolution_reference`, `resolution`, `telecharger`, `aws_downloader`, `atexo_downloader`, `dematis_downloader`, `achatpublic_downloader`, `marches_securises_downloader`, `xmarches_downloader` | Trouver et télécharger le DCE |
+| `analyse/` | `llm_extract`, `llm_router`, `llm_calibration`, `pdf_extract`, `extraire`, `auto_brief`, `briefs_versioning` ; à venir : `exp_gemini/*` (pieces, mode_document) | Lire le DCE, produire le brief |
+| `prix/` | `decp/` (17 modules + `decp_consolidee`), `marches_attribues`, `decp_comparables`, `fourchette_scenarios`, `jointure` | Comparables DECP, estimation |
 | `memoire/` | `services/` (digest, extraction contexte, rédaction, assemblage docx, pipeline, régénération), `prompts/` | Mémoire technique |
-| `eligibilite/` | `matching`, `matching_exigences`, `organisme`, `analyse` | Profil entreprise × marché → verdict |
-| `ui/` | `tendia_ui` (2 154 lignes, toutes les routes), `fiche_marche`, `profil_form`, `profil_widgets`, `cycle_marche`, `concurrence`, `veille_concurrence`, `ui/templates`, `ui/static` | Flask |
+| `eligibilite/` | `matching`, `matching_exigences`, `organisme`, `pertinence` (ex-`analyse.py`) | Profil entreprise × marché → verdict |
+| `ui/` | `app` (2 150 lignes, toutes les routes), `fiche_marche`, `profil_form`, `profil_widgets`, `cycle_marche`, `concurrence`, `veille_concurrence`, `templates/`, `static/` | Flask |
 | `dossier/`, `coffre/` | rien | À créer (chantiers 3 et 4) |
 
 Autres dossiers : `presets/` (14 presets, socle profil, taxonomie 64 domaines), `scripts/{audit,maintenance,decp,memoire,_archive}`, `tests/` (25 scripts), `docs/`, `archive/` (hors git sauf README et rapport), `data/` (hors git sauf `exemples/` et `profils_demo/`), `logs/` (hors git).
@@ -70,9 +70,9 @@ Collections déclarées mais absentes (lues par l'UI, reviennent vides) : `march
 
 - `charger(collection)` lit **toute** la collection et la parse en Python ; le filtrage se fait en Python. Pas d'index JSON utilisé.
 - Cache mémoire **par processus** : l'UI Flask peut servir des données périmées si un script écrit à côté.
-- `ecrire` = last-write-wins sur l'objet entier, sans verrou. `sauver(collection)` = DELETE + réinsertion de toute la collection : encore utilisé sur `marches` (58 Mo) par `tendia_telecharger_dce.py` et `cycle_marche.py`. **À ne plus jamais utiliser pour une écriture unitaire.**
+- `ecrire` = last-write-wins sur l'objet entier, sans verrou. `sauver(collection)` = DELETE + réinsertion de toute la collection : encore utilisé sur `marches` (58 Mo) par `tendia.dce.telecharger` et `tendia.ui.cycle_marche`. **À ne plus jamais utiliser pour une écriture unitaire.**
 - Aucun versioning : les versions sont des suffixes de clé faits à la main.
-- `decp/db.py` code le chemin de la base en dur et crée ses tables lui-même.
+- `src/tendia/prix/decp/db.py` code le chemin de la base en dur et crée ses tables lui-même.
 
 ### 4.4 Données sur disque
 
@@ -96,4 +96,4 @@ Le flux est **arrêté à l'étape LLM depuis le 22/06/2026** : aucun brief ni c
 
 ## 6. Branches git
 
-Historique linéaire sans merge. La branche de travail réelle et poussée est `feat/decp-sprint-3`. `origin/HEAD` pointe encore sur `feat/decp-sprint-1` (191 commits de retard) et `master` est à juin. Décision à prendre au chantier 0b : créer `main` depuis `feat/decp-sprint-3`, la définir comme branche par défaut sur GitHub, ne plus nommer les branches par sprint.
+Historique linéaire sans merge. La branche de travail réelle et poussée est `feat/decp-sprint-3`. `origin/HEAD` pointe encore sur `feat/decp-sprint-1` (191 commits de retard) et `master` est à juin. Depuis le chantier 0b : `main` (créée depuis `feat/decp-sprint-3`) est la branche par défaut sur GitHub ; les branches ne sont plus nommées par sprint (`chantier/<n>-<slug>`).

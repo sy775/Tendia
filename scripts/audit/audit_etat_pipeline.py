@@ -10,16 +10,16 @@ code la MÉTHODE de découverte d'URL (directe/via_keyword/racine/absente), pas 
 
 Usage : python scripts/audit_etat_pipeline.py
 """
+from tendia.core.chemins import RACINE_DEPOT
 import os
 import sys
 from collections import Counter
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 
-import stockage
+from tendia.core import stockage
 
-RAPPORT = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))),
+RAPPORT = os.path.join(str(RACINE_DEPOT),
                        "RAPPORT_REFONTE_PIPELINE_V2.md")
 COUT_FULL_MOY = 0.312    # € (mesuré sur 147 extractions full Sonnet 4.6)
 COUT_V2_MAJORE = 0.40    # € (prompt v2 plus long : contexte BOAMP + 3 voies)

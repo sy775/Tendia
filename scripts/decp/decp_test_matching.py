@@ -7,6 +7,7 @@ Génère RAPPORT_DECP_SPRINT1.md (exploration + audit + matching + go/no-go).
 
 Usage : python scripts/decp_test_matching.py [--n 50]
 """
+from tendia.core.chemins import RACINE_DEPOT
 import argparse
 import os
 import sys
@@ -14,15 +15,14 @@ from collections import Counter
 from datetime import date, timedelta
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 
-import stockage
-from decp.db import connexion, inserer_lien
-from decp.matching import (scorer_match, verifier_marche_tendia_existe,
+from tendia.core import stockage
+from tendia.prix.decp.db import connexion, inserer_lien
+from tendia.prix.decp.matching import (scorer_match, verifier_marche_tendia_existe,
                            SEUIL_CANDIDAT, SEUIL_FORT, _normaliser_nom)
-from decp.audit import auditer
+from tendia.prix.decp.audit import auditer
 
-RAPPORT = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))),
+RAPPORT = os.path.join(str(RACINE_DEPOT),
                        "RAPPORT_DECP_SPRINT1.md")
 CPV_PRESET = {"45": "btp", "71": "ingenierie", "72": "it", "73": "conseil_rd",
               "80": "formation", "09": "enr"}

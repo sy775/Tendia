@@ -18,10 +18,9 @@ from collections import Counter
 from datetime import datetime
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 
-import stockage
-import tendia_extraire as TE
+from tendia.core import stockage
+from tendia.analyse import extraire as TE
 
 EXT_DCE = {".pdf", ".docx", ".doc", ".xlsx", ".xls"}
 MOTS_NON_DCE = ("guide", "dume", "aide", "notice_depot", "manuel", "tuto")

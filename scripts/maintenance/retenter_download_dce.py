@@ -23,15 +23,14 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 
 import truststore
 truststore.inject_into_ssl()
 
-import stockage
-import tendia_dce
-import tendia_telecharger_dce as T
-import tendia_extraire as TE
+from tendia.core import stockage
+from tendia.dce import resolution as tendia_dce
+from tendia.dce import telecharger as T
+from tendia.analyse import extraire as TE
 
 STAGGER_SEC = 0.2        # anti-burst entre lancements de threads
 RETRIES = 3

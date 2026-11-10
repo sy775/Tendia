@@ -5,15 +5,12 @@ Tests HORS-LIGNE des helpers purs de atexo_downloader (aucun réseau).
 Lancement : python tests_atexo_downloader.py
 """
 
-import os
-import sys
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import io
 import sys
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
-import atexo_downloader as A
+from tendia.dce import atexo_downloader as A
 
 ok = 0
 ko = 0

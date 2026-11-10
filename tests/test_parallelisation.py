@@ -4,14 +4,13 @@ tests/test_parallelisation.py — Lancement : python tests/test_parallelisation.
 Couvre le BudgetTracker thread-safe (réservation atomique) et le pattern producteur/
 consommateur (workers parallèles, écriture mono-thread) du runner v2.
 """
-import os
 import sys
 import threading
 from concurrent.futures import ThreadPoolExecutor
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "scripts"))
+from tendia.core.chemins import RACINE_DEPOT
+sys.path.insert(0, str(RACINE_DEPOT / "scripts" / "maintenance"))
 
 from reextraire_briefs_v2 import BudgetTracker
 

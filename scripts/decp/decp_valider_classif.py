@@ -13,6 +13,7 @@ Stratification (assouplissement conseil_rd quasi absent du CPV) :
 
 Usage : python scripts/decp_valider_classif.py [--dump]
 """
+from tendia.core.chemins import RACINE_DEPOT
 import argparse
 import csv
 import os
@@ -21,11 +22,10 @@ from collections import defaultdict
 from datetime import datetime
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 
-from decp.db import connexion
+from tendia.prix.decp.db import connexion
 
-DATA = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), "data")
+DATA = os.path.join(str(RACINE_DEPOT), "data")
 QUOTAS = {"btp": 7, "ingenierie": 7, "it": 7, "conseil_rd": 7,
           "formation": 7, "enr": 7, "hors_perimetre": 5, "non_classifie_budget": 3}
 

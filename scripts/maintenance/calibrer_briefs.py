@@ -17,25 +17,22 @@ Usage :
     python calibrer_briefs.py --dry-run                # liste sans appeler le LLM
 """
 
-import os
-import sys
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
+from tendia.core.chemins import RACINE_DEPOT
 
 import argparse
 import io
 import json
 import sys
 import time
-from pathlib import Path
 
 if sys.stdout.encoding and sys.stdout.encoding.lower() != "utf-8":
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
-import stockage
-import llm_calibration
+from tendia.core import stockage
+from tendia.analyse import llm_calibration
 
 
-REPERTOIRE_BASE = Path(__file__).resolve().parents[2]
+REPERTOIRE_BASE = RACINE_DEPOT
 REPERTOIRE_EXTRACTIONS = REPERTOIRE_BASE / "data" / "extractions"
 REPERTOIRE_CALIBRATIONS = REPERTOIRE_BASE / "data" / "extractions_calibrees"
 
@@ -220,7 +217,7 @@ def main():
     print("=" * 78)
 
     # Charge tout
-    import preset
+    from tendia.veille import preset
     marches = stockage.charger("marches") or {}
     briefs = _charger_briefs()
     scores = stockage.charger("scores_matching") or {}
@@ -281,12 +278,12 @@ def main():
     profil = None
     if has_decp and args.mode != "bottom_up":
         try:
-            import organisme
+            from tendia.eligibilite import organisme
             profil = organisme.lire_profil()
         except Exception:
             pass
 
-    import concurrence
+    from tendia.ui import concurrence
 
     try:
         for id_m, brief in sorted(a_traiter.items()):

@@ -18,23 +18,20 @@ Usage :
     python dump_brief.py --type COMPLET --resume      # tous les COMPLET
 """
 
-import os
-import sys
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
+from tendia.core.chemins import RACINE_DEPOT
 
 import argparse
 import io
 import json
 import sys
-from pathlib import Path
 
 if sys.stdout.encoding and sys.stdout.encoding.lower() != "utf-8":
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
-import stockage
+from tendia.core import stockage
 
 
-REPERTOIRE_BASE = Path(__file__).resolve().parents[2]
+REPERTOIRE_BASE = RACINE_DEPOT
 REPERTOIRE_EXTRACTIONS = REPERTOIRE_BASE / "data" / "extractions"
 
 

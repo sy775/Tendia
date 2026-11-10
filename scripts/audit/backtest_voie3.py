@@ -17,17 +17,15 @@ Métriques :
 Usage : python scripts/backtest_voie3.py [--n 800] [--seed 42]
 """
 import argparse
-import os
 import random
 import statistics
 import sys
 from collections import defaultdict
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 
-import stockage
-import decp_comparables as DC
+from tendia.core import stockage
+from tendia.prix import decp_comparables as DC
 
 
 def main():

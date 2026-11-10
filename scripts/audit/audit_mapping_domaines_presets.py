@@ -18,20 +18,17 @@ Mesure :
 Usage : python audit_mapping_domaines_presets.py
 """
 
-import os
-import sys
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
+from tendia.core.chemins import RACINE_DEPOT
 import json
 import sys
 from collections import Counter, defaultdict
-from pathlib import Path
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
-import preset as preset_mod
+from tendia.veille import preset as preset_mod
 import audit_classifications as AC
 
-BASE = Path(__file__).resolve().parents[2]
+BASE = RACINE_DEPOT
 SORTIE_MD = "audit_mapping_domaines_presets.md"
 
 # --- Proposition de resserrement (voir justification dans le rapport) ---

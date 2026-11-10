@@ -13,12 +13,8 @@ Rate-limit 2 s entre marchés.
 Usage : python retelecharger_vide_atexo.py
 """
 
-import os
-import sys
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 import io
 import sys
-import os
 import shutil
 import time
 from datetime import datetime
@@ -26,9 +22,9 @@ from pathlib import Path
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
-import stockage
-import tendia_dce
-import atexo_downloader as A
+from tendia.core import stockage
+from tendia.dce import resolution as tendia_dce
+from tendia.dce import atexo_downloader as A
 
 REPERTOIRE_DCE = Path("data/dce")
 RATE_LIMIT_SEC = 2

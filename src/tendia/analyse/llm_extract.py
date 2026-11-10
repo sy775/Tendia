@@ -1,0 +1,1526 @@
+"""
+llm_extract.py
+--------------
+Extraction structurée du contenu d'un DCE via Claude API.
+
+Prend en entrée le texte combiné du RC + CCTP (+ autres pièces), retourne
+un dict JSON avec les champs structurés clés pour décider de candidater.
+
+Modèle : claude-sonnet-4-6 (équilibre qualité/coût pour extraction structurée).
+
+API key : variable d'environnement ANTHROPIC_API_KEY.
+
+API :
+    extraire_via_llm(texte, contexte) -> dict
+"""
+
+import json
+import os
+import re
+import sys
+import time
+from typing import Optional
+
+# SSL : sur ce poste, certifi ne peut pas bâtir la chaîne (interception TLS) →
+# l'appel HTTPS du SDK anthropic échoue en "Connection error". truststore fait
+# utiliser le magasin de certificats système. Injecté ici car le SDK anthropic
+# n'importe PAS http_client (où truststore est aussi injecté). Idempotent.
+try:
+    import truststore as _truststore
+    _truststore.inject_into_ssl()
+except Exception:
+    pass
+
+try:
+    from anthropic import Anthropic
+except ImportError:
+    Anthropic = None
+
+
+MODELE = "claude-sonnet-4-6"  # Sonnet 4.6 — canonical ID
+MAX_TOKENS_REPONSE = 32000     # Sonnet 4.6 supporte bien au-delà ; les gros DCE multi-lots
+                               # dépassaient 16000 → JSON tronqué → echec_llm. Streaming requis
+                               # à ce niveau (cf. extraire_via_llm) pour éviter le timeout requête.
+MAX_CHARS_INPUT = 400_000
+SEUIL_PUBLICITE_BOAMP_EUR = 90_000  # seuil légal de publicité obligatoire au BOAMP (HT) :
+                                    # plancher de cohérence d'un revenu estimé (cf. plancher BOAMP)
+
+
+# ---------------------------------------------------------------------------
+# Chargement de la clé API depuis .env si la variable d'env n'est pas définie
+# ---------------------------------------------------------------------------
+
+def _charger_cle_depuis_env_file() -> Optional[str]:
+    """
+    Cherche un fichier .env à la racine du projet et y lit ANTHROPIC_API_KEY.
+
+    Le fichier .env doit contenir une ligne du type :
+        ANTHROPIC_API_KEY=sk-ant-XXXXXXXX
+    (avec ou sans guillemets, avec ou sans espaces autour du =)
+
+    Cherche aussi .env.txt (cas Notepad qui ajoute .txt sous Windows).
+    Gère le BOM UTF-8 ajouté par Notepad.
+    """
+    from tendia.core.chemins import RACINE_DEPOT
+    racine = RACINE_DEPOT
+    # Cherche .env ou .env.txt (fallback Windows)
+    candidats = [racine / ".env", racine / ".env.txt"]
+    for chemin_env in candidats:
+        if not chemin_env.is_file():
+            continue
+        try:
+            # encoding="utf-8-sig" gère automatiquement le BOM ajouté par Notepad
+            with open(chemin_env, encoding="utf-8-sig") as f:
+                for ligne in f:
+                    ligne = ligne.strip()
+                    if not ligne or ligne.startswith("#"):
+                        continue
+                    if "=" not in ligne:
+                        continue
+                    cle, _, valeur = ligne.partition("=")
+                    cle = cle.strip()
+                    valeur = valeur.strip().strip('"').strip("'")
+                    if cle == "ANTHROPIC_API_KEY" and valeur:
+                        return valeur
+        except Exception:
+            continue
+    return None
+
+
+def _obtenir_cle_api() -> Optional[str]:
+    """
+    Récupère la clé API selon priorité :
+    1. Variable d'environnement ANTHROPIC_API_KEY
+    2. Fichier .env à la racine du projet
+    """
+    cle = os.environ.get("ANTHROPIC_API_KEY")
+    if cle:
+        return cle.strip()
+    cle = _charger_cle_depuis_env_file()
+    if cle:
+        # Injecte dans l'env pour que le SDK Anthropic la trouve
+        os.environ["ANTHROPIC_API_KEY"] = cle
+        return cle
+    return None
+
+
+# ---------------------------------------------------------------------------
+# Prompt structuré
+# ---------------------------------------------------------------------------
+#
+# Le PROMPT_SYSTEME est désormais généré dynamiquement à partir du domaine
+# actif (voir domaine.py). Le PROMPT_UTILISATEUR_TEMPLATE reste pour
+# l'instant figé sur le schéma de sortie formation_ft ; son externalisation
+# est prévue en Sprint 2 (chantier "schéma de sortie LLM par domaine").
+
+from tendia.veille import preset as _preset
+
+
+# ---------------------------------------------------------------------------
+# Taxonomie domaines métier (chargée lazy au premier usage)
+# ---------------------------------------------------------------------------
+
+_TAXONOMIE_CACHE: Optional[dict] = None
+
+
+def _charger_taxonomie() -> dict:
+    """Charge presets/_taxonomie_domaines.json (cached)."""
+    global _TAXONOMIE_CACHE
+    if _TAXONOMIE_CACHE is not None:
+        return _TAXONOMIE_CACHE
+    from tendia.core.chemins import PRESETS
+    chemin = PRESETS / "_taxonomie_domaines.json"
+    if not chemin.is_file():
+        _TAXONOMIE_CACHE = {"domaines": {}}
+        return _TAXONOMIE_CACHE
+    try:
+        _TAXONOMIE_CACHE = json.loads(chemin.read_text(encoding="utf-8"))
+    except Exception:
+        _TAXONOMIE_CACHE = {"domaines": {}}
+    return _TAXONOMIE_CACHE
+
+
+def _section_taxonomie_prompt() -> str:
+    """
+    Construit la section taxonomie à injecter dans le prompt système.
+    Compact : code + libellé + 1 ligne description.
+    Inclut les règles de classification et exemples de frontières piégeuses.
+    """
+    tax = _charger_taxonomie()
+    domaines = tax.get("domaines", {})
+    if not domaines:
+        return ""
+
+    lignes = [
+        "",
+        "## RÈGLES DE CLASSIFICATION DOMAINE MÉTIER",
+        "",
+        "Tu DOIS classer le marché dans la taxonomie suivante (champ `domaines_metier`).",
+        "",
+        "Format :",
+        "- **1 seul domaine** par défaut (cas majoritaire ~80%) : `[{\"code\": \"xxx\"}]` sans poids.",
+        "- **2-3 domaines avec poids** UNIQUEMENT si marché multi-lots avec lots de métiers différents,",
+        "  OU si marché unique mixe explicitement plusieurs métiers (ex: construction + formation opérateurs).",
+        "  Poids ∈ [0.05, 1.0], somme strictement = 1.0.",
+        "- JAMAIS plus de 3 domaines. Au-delà = surclassification.",
+        "- Si vraiment hors taxonomie : un seul domaine = `autre`.",
+        "- **CODES EXACTS — RÈGLE STRICTE** : recopie le `code` caractère pour caractère "
+        "depuis la liste ci-dessous (vaut aussi pour `lots[].domaine`). N'invente AUCUNE "
+        "variante orthographique (écris `energie_...`, JAMAIS `energia_...` ni `energy_...`), "
+        "ne traduis pas, n'abrège pas, ne change pas accents/underscores. Tout code hors "
+        "liste est INVALIDE.",
+        "",
+        "Liste des codes disponibles :",
+        "",
+    ]
+    for code, info in domaines.items():
+        libelle = info.get("libelle", code)
+        desc = info.get("description", "")
+        # Compact : 1 phrase de description (tronquée à ~120 chars)
+        desc_court = desc.split('.')[0][:120] if desc else ""
+        lignes.append(f"- `{code}` — {libelle}. {desc_court}.")
+
+    lignes.extend([
+        "",
+        "## FRONTIÈRES PIÉGEUSES — ATTENTION PARTICULIÈRE",
+        "",
+        "- \"qualification\" : `formation_pro_continue` si qualification professionnelle ; "
+        "`services_environnement_analyses` si qualification de zones (salles propres, environnement maîtrisé) ; "
+        "`btp_renovation_rehabilitation` si requalification fonctionnelle d'espaces.",
+        "- \"accompagnement\" : `formation_pro_continue` ou `insertion_professionnelle` si vers l'emploi ; "
+        "`conseil_juridique` si juridique ; `conseil_strategie_organisation` si conseil stratégique ; "
+        "`insertion_sociale_mediation` si action sociale.",
+        "- \"rénovation\" : `energie_renovation_thermique` si dominante isolation/thermique ; "
+        "`btp_renovation_rehabilitation` si rénovation patrimoniale sans dimension énergétique forte.",
+        "- \"AMO\" : `energie_amo_etudes` si AMO énergétique ; `moe_architecte_urbanisme` si programmation/MOE ; "
+        "`ingenierie_structure_genie_civil` si ingénierie technique pure.",
+        "- \"analyses\" : `services_environnement_analyses` pour eau/air/sols/salles propres ; "
+        "`services_sante_medical` pour biologie médicale HUMAINE uniquement.",
+        "- \"médiation\" : `insertion_sociale_mediation` (action sociale) ; "
+        "JAMAIS confondre avec formation.",
+        "- \"chèques d'accompagnement / cartes cadeau\" : `prestations_speciales_titres_cheques` "
+        "(et non insertion sociale ou formation).",
+        "- \"gardiennage\" : `securite_gardiennage` même si le bâtiment fait l'objet de rénovation énergétique.",
+        "- \"restauration\" : `restauration_collective_prestations` si prestation déléguée ; "
+        "`restauration_fournitures_alimentaires` si achat de denrées en gros sans prestation.",
+        "- \"espaces verts\" : `amenagement_paysager_creation` si création/aménagement ; "
+        "`amenagement_paysager_entretien` si entretien courant (tonte, taille, etc.).",
+        "- **TRAVAUX vs ÉTUDES (distinction structurante)** : un lot/marché de RÉALISATION "
+        "de travaux techniques (installation/pose de CVC, électricité, plomberie, courants "
+        "faibles, fluides, génie climatique) relève du **BTP** (corps d'état second œuvre / "
+        "génie technique), PAS d'un code `ingenierie_*` ni `moe_*`. Les codes `ingenierie_*` "
+        "et `moe_*` sont RÉSERVÉS aux MISSIONS D'ÉTUDES / CONCEPTION (maîtrise d'œuvre, bureau "
+        "d'études, AMO études) SANS exécution de travaux. Ex : « lot CVC — fourniture et pose » "
+        "= BTP ; « mission de BET fluides pour la conception » = `ingenierie_fluides_climatique`. "
+        "Un marché de travaux multi-corps d'état où un lot est technique reste classé BTP "
+        "(éventuellement avec un 2e domaine BTP), pas en ingénierie.",
+        "- **ÉNERGIE — projet/AMO vs fourniture vs rénovation** : `energie_amo_developpement` "
+        "(AMO/montage/faisabilité/développement de projet ENR), `energie_amo_etudes` (études "
+        "techniques pures), `energie_pv_solaire`/`energie_eolien`/… (réalisation/installation). "
+        "Une FOURNITURE pure d'électricité ou de gaz (même « verte ») N'EST PAS un projet ENR → "
+        "`fourniture_*` ou `autre`. La rénovation énergétique de bâtiment (travaux) = "
+        "`energie_renovation_thermique` ; sa MAÎTRISE D'ŒUVRE = `moe_energetique_batiment`.",
+        "- **MOE — quel type ?** : dimension ÉNERGÉTIQUE dominante (rénovation thermique, "
+        "bâtiment performant/bas-carbone, CPE, audit énergétique) → `moe_energetique_batiment` ; "
+        "URBANISME/PLU/SCOT/programmation urbaine → `moe_urbanisme_amenagement` ; "
+        "INFRASTRUCTURE/VRD/ouvrage d'art → `moe_infrastructure_vrd` ; MOE architecturale de "
+        "bâtiment classique → `moe_architecte_urbanisme`.",
+        "- **INGÉNIERIE environnementale — affiner** : EAU/assainissement/hydraulique/GEMAPI → "
+        "`ingenierie_eau_milieux` ; FAUNE-FLORE/biodiversité/Natura 2000/mesures ERC → "
+        "`ingenierie_ecologie_biodiversite` ; étude d'IMPACT globale/ICPE/sites pollués/bilan "
+        "carbone → `ingenierie_environnementale`.",
+        "- **BTP réseaux** : travaux de réseaux HUMIDES (eau/assainissement) ou SECS "
+        "(élec/télécom/éclairage public/fibre) → `btp_reseaux_divers` ; voirie/chaussées/"
+        "terrassement de surface → `btp_voirie_reseaux`.",
+        "- **CONSEIL énergie** : conseil/stratégie/planification énergétique territoriale "
+        "(PCAET, schéma directeur énergie, stratégie bas-carbone) → `conseil_transition_energetique` ; "
+        "AMO de projet ENR concret → `energie_amo_developpement` ; conseil en organisation "
+        "sans dimension énergie → `conseil_strategie_organisation`.",
+        "",
+        "Si le marché ne te paraît pas correspondre à un domaine, JUSTIFIE par le champ `raison_classification`.",
+    ])
+    return "\n".join(lignes)
+
+
+def _construire_prompt_systeme(codes_presets: Optional[list] = None) -> str:
+    """
+    Construit le prompt système, adapté aux presets pertinents pour le marché
+    analysé (déduits de la classification IA).
+
+    - Si codes_presets = [un_seul_preset] : prompt orienté sur ce secteur
+      (vocabulaire dédié du preset).
+    - Si codes_presets = plusieurs presets : prompt neutre multi-secteurs.
+    - Si codes_presets = None ou [] : fallback sur le vocabulaire du preset
+      actif (comportement legacy).
+    """
+    voc = _preset.vocabulaire_llm_pour_presets(codes_presets)
+    secteur = voc.get("secteur_libelle", "marchés publics français")
+    pieces = voc.get(
+        "type_pieces_dce_typiques",
+        "Règlement de Consultation (RC) et Cahier des Clauses Techniques Particulières (CCTP)",
+    )
+    repondant = voc.get("type_repondant", "candidat aux marchés publics")
+
+    return (
+        f"Tu es un expert en analyse de marchés publics français, "
+        f"spécialisé dans les {secteur}.\n\n"
+        f"Tu analyses des Dossiers de Consultation des Entreprises (DCE) "
+        f"composés typiquement {pieces}.\n\n"
+        f"Ta mission : extraire les informations structurées qui permettent "
+        f"à un {repondant} de décider rapidement s'il peut et doit "
+        f"candidater.\n\n"
+        f"Réponds UNIQUEMENT en JSON valide, sans préambule, sans bloc "
+        f"markdown, sans commentaire. Le JSON doit suivre exactement le "
+        f"schéma demandé."
+        + _section_taxonomie_prompt()
+    )
+
+
+# Backward compat : exposé comme constante évaluée à l'import (preset actif).
+# Pour un prompt vraiment sectoriellement ciblé, appeler
+# _construire_prompt_systeme(codes_presets=[...]) à chaque appel LLM.
+PROMPT_SYSTEME = _construire_prompt_systeme()
+
+
+def _construire_prompt_utilisateur(contexte_str: str, texte: str,
+                                   codes_presets: Optional[list] = None) -> str:
+    """
+    Compose le prompt utilisateur final en injectant les blocs schéma des
+    presets passés en argument.
+
+    Routage par classification IA (Sprint 2bis) :
+    - codes_presets = [...] (issus de presets_pour_domaines(classif_ia)) :
+      seuls les blocs sectoriels pertinents pour ce marché sont injectés.
+      → résout la collision de clés JSON et concentre le LLM.
+    - codes_presets = None ou [] : fallback sur l'union complète de tous
+      les presets installés (comportement legacy).
+
+    Avantages du routage ciblé :
+    - prompt 3-5x plus court (1-2k au lieu de 5-6k chars sur les blocs)
+    - pas de collision `caracteristiques_techniques_chantier` entre BTP et
+      énergie_renouvelable
+    - plus de pollution lexicale formation (publics_cibles, parcours,
+      bénéficiaires) pour un brief BTP/IT
+
+    Fallbacks neutres si aucun preset ne fournit de bloc (cas dev/test ou
+    marché classifié `autre`/hors-mapping).
+    """
+    # Sélection ciblée si on a une classif. HORS-PÉRIMÈTRE (codes_presets vide) :
+    # on n'injecte AUCUN bloc sectoriel (les fallbacks neutres ci-dessous
+    # produisent un schéma générique `caracteristiques_metier`). NE PLUS injecter
+    # l'union complète (qui polluait ~50% des marchés avec tous les blocs).
+    if codes_presets is None or len(codes_presets) == 0:
+        union_schema = ""
+        union_exemples = ""
+        union_hints = ""
+        union_regles = ""
+        union_few_shot = ""
+    else:
+        # Mode ciblé : seuls les blocs des presets pertinents
+        union_schema = _preset.schema_pour_presets(codes_presets)
+        union_exemples = _preset.exemples_elements_a_chiffrer_pour_presets(codes_presets)
+        union_hints = _preset.hints_calcul_montant_pour_presets(codes_presets)
+        union_regles = _preset.regles_specifiques_pour_presets(codes_presets)
+        union_few_shot = _preset.few_shot_examples_pour_presets(codes_presets)
+
+    # Fallbacks neutres si aucun preset n'a fourni de bloc (marché classifié
+    # `autre`, ou aucun preset installé en dev/test)
+    if not union_schema.strip():
+        union_schema = (
+            '  "caracteristiques_metier": {\n'
+            '    "description": "Description précise du sujet du marché.",\n'
+            '    "criteres_eligibilite": []\n'
+            '  }'
+        )
+    if not union_exemples.strip():
+        union_exemples = (
+            '"Prix unitaire de la prestation principale",\n'
+            '        "Frais annexes"'
+        )
+    if not union_hints.strip():
+        union_hints = (
+            "Si tu trouves un prix unitaire et un volume plausible → CALCULE : "
+            "`valeur_estimee_euros = volume × prix_unitaire` et mets "
+            "`type: \"calcule_volumes\"`. Dans `commentaire`, EXPLIQUE le calcul."
+        )
+
+    # regles_specifiques / few_shot : formatage avec lignes blanches si non-vide
+    rs_formate = f"\n{union_regles}\n" if union_regles.strip() else ""
+    fs_formate = (f"\nEXEMPLES D'EXTRACTION (few-shot, à suivre comme modèle) :\n"
+                  f"{union_few_shot}\n" if union_few_shot.strip() else "")
+
+    return PROMPT_UTILISATEUR_TEMPLATE.format(
+        contexte=contexte_str,
+        texte=texte,
+        bloc_schema_specifique=union_schema,
+        exemples_elements_a_chiffrer=union_exemples,
+        hints_calcul_montant=union_hints,
+        few_shot_examples=fs_formate,
+        regles_specifiques=rs_formate,
+        regles_v2=REGLES_V2,
+    )
+
+
+PROMPT_UTILISATEUR_TEMPLATE = """Voici le contenu d'un DCE pour un marché public.
+
+CONTEXTE DU MARCHÉ :
+{contexte}
+
+CONTENU DES PIÈCES DU DCE (RC, CCTP, etc.) :
+---
+{texte}
+---
+
+Extrais les informations dans ce schéma JSON :
+
+{{
+  "synthese_marche": "Résumé du marché en 2-3 phrases.",
+  "domaines_metier": [
+    {{
+      "code": "code_domaine_principal",
+      "_commentaire_omettre_si_un_seul_domaine": "Si UN SEUL domaine (cas majoritaire ~80%) : juste {{\\"code\\": \\"xxx\\"}}, sans champ poids ni lots_concernes. Voir 'RÈGLES DE CLASSIFICATION DOMAINE MÉTIER' dans le system prompt.",
+      "poids": null,
+      "lots_concernes": null
+    }}
+  ],
+  "raison_classification": "1-2 phrases expliquant pourquoi tu as choisi ce(s) domaine(s). Mentionne les éléments du DCE qui ont guidé ta décision (objet, lots, vocabulaire spécifique). Utile pour debug.",
+{bloc_schema_specifique},
+  "bareme_notation": {{
+    "valeur_technique_pct": null,
+    "valeur_prix_pct": null,
+    "sous_criteres_techniques": [
+      {{
+        "libelle": "Intitulé exact du sous-critère tel qu'écrit dans le RC",
+        "ponderation_pct": 50,
+        "description": "1-2 phrases factuelles depuis le RC expliquant CE que l'acheteur évalue précisément sur ce sous-critère.",
+        "elements_attendus": [
+          "Liste de 3-6 points concrets que la réponse doit contenir pour scorer haut",
+          "Reformule textuellement les attendus explicites du RC",
+          "Si absent du RC, mets [] vide — n'invente rien"
+        ],
+        "exemple_reponse_forte": "Court paragraphe (2-3 phrases) illustrant le type de contenu attendu d'une réponse qui scorerait haut sur ce sous-critère. Doit être plausible vis-à-vis du RC.",
+        "source": "Référence vers le document où le sous-critère est décrit : 'RC §5.2', 'RC article 6 page 12'. Si pas localisable précisément : 'RC' ou null.",
+        "unite_evaluation": "Unité D'ÉVALUATION du sous-critère (v2) : EXACTEMENT 'euro' si le sous-critère est noté sur une grandeur MONÉTAIRE (coût, prix, €/tonne CO2, coût global, pénalités chiffrées), 'delai_jours' si noté sur un délai en jours/semaines, sinon 'points' (mémoire technique, RSE notée en points, références, qualité). Détermine la famille prix/technique. Présent à TOUS les niveaux de sous-critères.",
+        "sous_criteres": [
+          {{
+            "libelle": "Intitulé du sous-sous-critère",
+            "ponderation_pct": 30,
+            "description": "Sous-niveau imbriqué : présent UNIQUEMENT si le RC structure réellement le critère parent en sous-rubriques chiffrées.",
+            "elements_attendus": ["..."],
+            "exemple_reponse_forte": "...",
+            "source": "RC §5.2.1",
+            "grille_actions": [
+              {{"action": "Action concrète à mener dans le mémoire pour scorer sur CE critère feuille (verbe + livrable/argument)", "type": "livrable", "poids_pct": 60, "source": "CCTP §3.2"}},
+              {{"action": "Levier différenciant vs concurrence (au-delà du minimum exigé)", "type": "levier", "poids_pct": 40, "source": "estimé"}}
+            ]
+          }},
+          {{
+            "libelle": "Intitulé d'un autre sous-sous-critère",
+            "ponderation_pct": 20,
+            "description": "...",
+            "elements_attendus": [],
+            "exemple_reponse_forte": null,
+            "source": "RC §5.2.2"
+          }}
+        ]
+      }}
+    ],
+    "prix": {{
+      "type_formule": "moins_disant",
+      "formule_explicite": "Ex: 'Note prix = (prix_le_plus_bas / prix_candidat) × 30' — si la formule exacte est dans le RC, recopier-la ; sinon décrire le mécanisme en 1 phrase",
+      "source": "Référence RC du critère prix et de sa pondération : 'RC §5.3', 'RC article 6 page 14'. Si non localisable précisément : 'RC' ou null.",
+      "elements_a_chiffrer": [
+        {exemples_elements_a_chiffrer}
+      ]
+    }},
+    "modalite_calcul_prix": "Ex libre — gardé pour rétro-compat. Recopier la formule prix telle qu'écrite dans le RC."
+  }},
+  "montant_marche": {{
+    "valeur_estimee_euros": null,
+    "fourchette_min_euros": null,
+    "fourchette_max_euros": null,
+    "type": "non_communique",
+    "duree_couverte": null,
+    "source_extraction": null,
+    "commentaire": null
+  }},
+  "montant_3_voies": {{
+    "voie_1_eur": null,
+    "voie_1_source": null,
+    "voie_2_disponible": false,
+    "voie_2_min_eur": null,
+    "voie_2_max_eur": null,
+    "voie_2_hypotheses": [
+      {{"hypothese": "Hypothèse retenue avec sa source DCE (ex: 'Surface 1200m² (CCTP p.4)')", "valeur": "1200 m²"}}
+    ],
+    "voie_2_raison_indisponible": null
+  }},
+  "cout_realisation": {{
+    "cout_total_eur": null,
+    "cout_min_eur": null,
+    "cout_max_eur": null,
+    "postes": [
+      {{"poste": "Poste de coût côté CANDIDAT (ex: 'Ingénierie MOE', 'Main d'œuvre chantier', 'Matériel/fournitures', 'Sous-traitance', 'Encadrement/coordination')", "detail": "Décomposition chiffrée (ex: '90 j-h × 650 €/j')", "montant_eur": null}}
+    ],
+    "taux_journaliers_retenus": "Taux/ratios de référence marché utilisés (ex: 'architecte 750 €/j, ingénieur 600 €/j' ; 'maçonnerie 45 €/h chargé'). Indique que ce sont des taux marché indicatifs.",
+    "commentaire": "Hypothèses de chiffrage du COÛT DE PRODUCTION pour le candidat (distinct du prix du marché). null si non chiffrable."
+  }},
+  "revision_prix": {{
+    "type": "indexation",
+    "indices_utilises": ["SYNTEC", "ILC"],
+    "ponderation": "Description en clair de la formule de pondération entre indices, recopiée du CCAP (ex selon secteur : '65% SYNTEC + 15% ILC + 20% partie fixe' pour services intellectuels ; '60% BT01 + 40% partie fixe' pour BTP ; etc.)",
+    "periodicite": "semestrielle",
+    "formule_revision": "Recopie de la formule du CCAP si présente (ex: 'Pn = P0 × (0.65 × SYNTECn/SYNTEC0 + 0.15 × ILCn/ILC0 + 0.20)')",
+    "source_extraction": "Ex: 'CCAP article 5.3 page 12'",
+    "commentaire": "Analyse courte de l'impact pour le candidat (favorable en inflation, complexe à anticiper, etc.)"
+  }},
+  "alertes_prix": [
+    "Liste de 2-4 signaux contextuels liés au prix : ex 'Seuil d'OAB (offre anormalement basse) annoncé à 80% de l'estimation', 'Le marché précise un plafond budgétaire de 250 k€ par lot', 'Pondération prix de 40% inhabituellement élevée pour ce type de marché'. Mets [] vide si rien de notable."
+  ],
+  "references_exigees": {{
+    "experience_minimale_annees": null,
+    "experience_source": "Référence vers le doc qui mentionne l'expérience minimale : 'RC art 8.1' ou null",
+    "volume_min_references_similaires": null,
+    "volume_min_references_unite": "Unité du volume minimal de références exigées. À adapter au secteur du marché : 'marchés similaires', 'chantiers réalisés', 'm² rénovés', 'MWc installés', 'utilisateurs équipés', 'jours de mission', 'sites équipés', 'bénéficiaires accompagnés', etc. Si non précisé, null.",
+    "secteur_experience": "Domaine d'expérience attendu, formulé fidèlement au RC (ex selon secteur du marché : 'réhabilitation d'ouvrage d'art en béton précontraint', 'installation PV tertiaire', 'TMA progiciel SI RH secteur public', 'audit organisationnel collectivité', 'insertion professionnelle public éloigné de l'emploi').",
+    "secteur_source": "Référence ou null",
+    "certifications_obligatoires": [
+      {{
+        "libelle": "Certification ou qualification requise, recopiée fidèlement du RC. Adapter au secteur : Qualibat XXXX pour BTP, ISO 27001/HDS pour IT, OPQIBI pour ingénierie, Qualiopi pour formation, RGE pour énergie, ordre professionnel pour conseil juridique, etc.",
+        "codes": "Liste des CODES NORMALISÉS à 4 chiffres si la qualification en a un (Qualibat, OPQIBI, OPQCM), ex: [\\"5413\\", \\"5414\\"]. [] si la certif n'a pas de code chiffré (ISO, RGE, Qualiopi…).",
+        "bloquante": "true si la certif est exigée À PEINE D'IRRECEVABILITÉ / d'élimination (condition d'admission de la candidature), false si simplement valorisée/notée. null si non précisé.",
+        "source": "Ex: 'RC art 4.1' ou 'CCAP art 2'"
+      }}
+    ],
+    "autres_exigences": [
+      {{
+        "libelle": "Ex: 'Chiffre d'affaires annuel moyen sur 3 derniers exercices ≥ 86 100 €'",
+        "source": "Ex: 'RC art 4.3.2' ou null"
+      }}
+    ]
+  }},
+  "dossier_candidature": {{
+    "pieces_a_fournir": [
+      {{
+        "libelle": "Pièce exacte EXIGÉE par le RC, recopiée fidèlement (ex: 'Lettre de candidature DC1', 'Déclaration du candidat DC2', 'Acte d'engagement (ATTRI1) complété et signé', 'Bordereau des prix unitaires (BPU)', 'Mémoire technique', 'Attestation d'assurance décennale', 'Extrait Kbis < 3 mois').",
+        "phase": "'candidature' (capacités/admission) ou 'offre' (proposition technique+prix). Si le RC ne distingue pas, mets 'offre'.",
+        "obligatoire": "true si la pièce est exigée (absence = irrecevabilité), false si seulement recommandée/conditionnelle. null si non précisé.",
+        "source": "Référence RC : 'RC art 3.2' ou null"
+      }}
+    ],
+    "mode_remise": "Mode de remise des plis : 'dématérialisé' (dépôt en ligne), 'papier', ou 'dématérialisé + copie de sauvegarde'. null si non précisé.",
+    "plateforme_depot": "Nom/URL de la plateforme de dépôt si dématérialisé (ex: 'PLACE — marches-publics.gouv.fr', 'AWS', 'e-marchespublics'). null sinon.",
+    "signature_electronique_exigee": "true si une signature électronique est requise au dépôt, false si non, null si non précisé.",
+    "format_signature": "Format/niveau de signature exigé si précisé (ex: 'PAdES', 'XAdES', 'certificat RGS**', 'eIDAS qualifié'). null sinon.",
+    "nombre_exemplaires": "Nombre d'exemplaires papier exigés (entier), uniquement si remise papier. null si dématérialisé/non précisé.",
+    "langue": "Langue exigée des plis (ex: 'français'). null si non précisé.",
+    "duree_validite_offres_jours": "Durée de validité des offres en jours (ex: 90, 120). null si non précisé.",
+    "modalites_source": "Référence RC des MODALITÉS de remise/dépôt/signature/délai de validité (ex: 'RC §3.1', 'RC art 7.2'). C'est la source des champs mode_remise, plateforme_depot, signature, exemplaires, validité. null si non localisable."
+  }},
+  "lots": [
+    {{
+      "numero": 1,
+      "intitule": "Intitulé exact du lot tel qu'écrit dans le RC",
+      "domaine": "Code taxonomie du métier DOMINANT de CE lot précis (MÊME taxonomie que `domaines_metier`, ex: 'btp_gros_oeuvre', 'energie_pv_solaire', 'btp_reseaux_divers'). Permet de savoir quel lot relève de quel métier → matching candidat par lot. null si indéterminable.",
+      "zone_geographique": "Zone si le lot est géographiquement défini, ex: code région (NAQ, IDF), département, ville. null sinon.",
+      "volume_estime": null,
+      "volume_estime_unite": "Unité du volume de ce lot, adaptée au secteur : 'm²', 'kWc', 'jours-homme', 'utilisateurs', 'bénéficiaires', 'tonnes', etc. Si non précisé, null.",
+      "cout_estime_min_eur": null,
+      "cout_estime_max_eur": null,
+      "ca_estime_min_eur": null,
+      "ca_estime_max_eur": null,
+      "marge_brute_pct": null,
+      "particularites": "Texte libre"
+    }}
+  ],
+  "tranches": [
+    {{
+      "type": "'ferme' (tranche ferme, exécutée d'office), 'optionnelle' ou 'conditionnelle' (affermie sous condition).",
+      "numero": "Numéro/identifiant de la tranche si le DCE en donne un (ex: 'TF', 'TO1', 1, 2). null sinon.",
+      "intitule": "Intitulé court de la tranche tel qu'écrit au DCE.",
+      "objet": "1 phrase décrivant ce que couvre cette tranche.",
+      "montant_estime_eur": "Montant estimé de la tranche si chiffrable (côté marché), sinon null.",
+      "condition_affermissement": "Condition de déclenchement pour une tranche optionnelle/conditionnelle (ex: 'sur décision du MOA dans les 12 mois', 'sous réserve de financement'). null pour une tranche ferme.",
+      "source": "Référence DCE (CCAP/AE art X) ou null"
+    }}
+  ],
+  "calendrier": {{
+    "date_limite_offres": "YYYY-MM-DD si trouvée",
+    "date_demarrage_prevue": "YYYY-MM-DD si trouvée",
+    "duree_marche": "ex: '24 mois reconductibles'"
+  }},
+  "alertes_candidat": [
+    "Liste de 3-5 points qui peuvent disqualifier un candidat ou demander attention particulière, formulés concrètement à partir du DCE. Adapter au secteur (ex BTP : 'qualification Qualibat XXXX exigée à peine d'irrecevabilité' ; IT : 'hébergement HDS obligatoire' ; ingénierie : 'référence d'ouvrage d'art béton précontraint des 5 dernières années requise' ; formation : 'Qualiopi exigé')."
+  ],
+  "points_differenciants_attendus": [
+    {{
+      "libelle": "Axe différenciant — courte description, ancrée dans le RC ou le contexte du marché.",
+      "exemple": "Exemple concret (1-2 phrases) montrant comment un candidat peut s'en servir dans sa réponse. Doit être plausible vis-à-vis du marché analysé (pas un exemple générique).",
+      "source": "Si l'axe est explicitement valorisé par un passage du RC/CCTP : 'CCTP §4.2'. Si tu l'infères du contexte du marché sans citation explicite : null."
+    }}
+  ]
+}}
+
+RÈGLES IMPORTANTES :
+- **RESPECT STRICT DU SCHÉMA** : tu produis EXACTEMENT les champs définis ci-dessus, ni plus ni moins. N'ajoute AUCUN bloc sectoriel qui n'est pas listé (par exemple : si le schéma ne contient pas `publics_cibles`, `caracteristiques_si`, `allotissement`, ou tout autre bloc, NE LE PRODUIS PAS). Tout champ hors-schéma sera supprimé du JSON final. Si tu juges que le marché ne correspond pas au domaine ciblé par le schéma, indique-le dans `raison_classification` et dans `domaines_metier` (code `autre` si nécessaire), mais NE FABRIQUE PAS de champs alternatifs hors du schéma fourni.
+- Si une information n'est pas trouvée dans le texte, mets `null` (jamais "inconnu" ou texte libre).
+- Pour les pourcentages, mets des NOMBRES (pas "30%"), donc 30 et pas "30%".
+- Pour les listes, mets [] vide si rien.
+- Sois précis sur les volumes (ne pas inventer si pas clair).
+
+- **TRAÇABILITÉ DES SOURCES** : pour chaque assertion structurée du brief (critère d'éligibilité, sous-critère du barème, certification, exigence, point différenciant…), tu joins un champ `source` qui pointe vers le document du DCE et idéalement l'article ou le paragraphe.
+  - Format court préféré : `"CCTP §2.1"`, `"RC art 4.2"`, `"CCAP article 5 page 12"`, `"BPU ligne 3"`.
+  - Si tu ne peux pas localiser précisément l'article mais tu sais de quel document ça vient : mets le document seul, ex `"CCTP"`.
+  - Si vraiment impossible à sourcer (information inférée, non-explicite) : mets `null` plutôt qu'inventer une référence.
+  - Cite SEULEMENT les documents qui te sont effectivement fournis. Ne fabrique JAMAIS de référence à un document que tu n'as pas vu.
+  - Quand un même article du DCE couvre plusieurs items consécutifs, recopie la même source — c'est normal.
+  - Les sources sont la base de la confiance de l'utilisateur : prends-les au sérieux.
+
+- **SOUS-CRITÈRES ENRICHIS** : pour chaque sous-critère technique tu produis 5 champs OBLIGATOIRES + 1 OPTIONNEL :
+  - `libelle` : nom du sous-critère tel qu'écrit dans le RC
+  - `ponderation_pct` : sa pondération en nombre (sans %)
+  - `description` : 1-2 phrases factuelles tirées du RC sur CE que l'acheteur évalue (ne pas paraphraser de façon générique)
+  - `elements_attendus` : 3-6 points concrets QUE LA RÉPONSE DEVRA CONTENIR pour scorer haut. Reformule les attendus explicites du RC. Si le RC ne précise rien, mets [] vide — ne brode pas.
+  - `exemple_reponse_forte` : court paragraphe (2-3 phrases) qui illustre une réponse forte sur ce sous-critère. Doit être plausible vis-à-vis du contexte du marché. Si tu n'as pas matière, écris "—" (un simple tiret).
+  - `source` : référence vers le document du DCE où ce sous-critère est défini (ex: "RC §5.2"). null si non-localisable.
+
+- **HIÉRARCHIE DES SOUS-CRITÈRES — RÈGLE CRITIQUE** : un sous-critère peut lui-même se décomposer en sous-sous-critères chiffrés. C'est fréquent dans les RC de marchés publics structurés. Tu DOIS reproduire la hiérarchie réelle du RC, pas l'aplatir.
+
+  - Si le RC affiche un critère « Valeur technique 50% » qui se décompose en « Méthodologie 30% / Moyens humains 20% », tu produis UN sous-critère "Valeur technique" avec `ponderation_pct=50` ET un champ `sous_criteres` contenant les 2 enfants chiffrés. Tu N'aplatit PAS en 2 sous-critères de 30% et 20% au premier niveau.
+
+  - Si au contraire le RC liste directement plusieurs sous-critères de premier niveau sans regroupement parent (ex: Critère A 10%, Critère B 10%, Critère C 10%, Critère D 15%, …), tu les gardes plats — ne crée JAMAIS un faux regroupement parent qui n'existe pas dans le RC.
+
+  - La récursion est libre : un sous-sous-critère peut lui-même contenir `sous_criteres` si le RC va à 3 niveaux.
+
+  - Le champ `sous_criteres` est OPTIONNEL : omets-le complètement (ou mets `[]`) quand le sous-critère est terminal (feuille).
+
+- **GRILLE D'ACTIONS (`grille_actions`) — sur les critères FEUILLES uniquement** : pour CHAQUE
+  critère feuille (terminal, sans `sous_criteres`), croise sa définition avec les exigences du
+  CCTP/RC et produis 2 à 5 ACTIONS concrètes que le candidat doit mener dans son mémoire pour
+  scorer haut sur ce critère. NE mets PAS de `grille_actions` sur un critère qui a des
+  sous-critères (ses feuilles les portent) — sinon doublon.
+  Chaque action :
+  - `action` : formulation concrète et actionnable (un verbe + le livrable/argument), SPÉCIFIQUE
+    au métier et au marché (pas une généralité). Sur un marché alloti à métiers différents,
+    reste sur ce qui est COMMUN ; le détail par lot se gère ailleurs.
+  - `type` : "livrable" si élément/preuve EXIGÉ par le DCE (sans lui on perd des points) ;
+    "levier" si argument DIFFÉRENCIANT qui fait gagner des points vs concurrence.
+  - `poids_pct` : ENTIER, part estimée de cette action DANS la note du critère feuille ; la
+    somme des `poids_pct` des actions d'un même critère = EXACTEMENT 100. C'est une ESTIMATION
+    (le DCE chiffre rarement l'intérieur d'un critère) — fonde-la sur l'importance des attendus.
+  - `source` : référence précise ("CCTP §3.2", "RC art 5") si l'attendu est explicite, sinon "estimé".
+  Si le critère est trop générique pour des actions justes, produis-en moins mais pertinentes.
+
+- **COHÉRENCE DES PONDÉRATIONS** : à chaque niveau, la somme des `ponderation_pct` doit valoir le `ponderation_pct` du parent (ou 100 au niveau racine pour la partie technique). Si tu vois une incohérence (ex: 50% = 30% + 15% + 10% = 55%), c'est probablement que tu as mal lu le RC — relis ce passage spécifique. Si l'incohérence persiste après vérification, mentionne-la dans la `description` du parent ("le RC affiche un sous-total à 55% au lieu de 50%").
+
+- **CRITIQUE BARÈME** : `valeur_technique_pct` + `valeur_prix_pct` doit faire EXACTEMENT 100. Les critères RSE/environnementaux/sociaux sont presque toujours des SOUS-critères du technique (à ranger dans `sous_criteres_techniques`), pas un 3e critère principal. Ne crée jamais un troisième pourcentage qui ferait dépasser 100.
+
+- **BLOC PRIX STRUCTURÉ** dans `bareme_notation.prix` :
+  - `type_formule` : choisis EXACTEMENT une valeur parmi cette liste fermée :
+    `moins_disant` (note proportionnelle au prix le plus bas)
+    `lineaire` (note linéaire entre min et max)
+    `ecart_type` (note vs moyenne, pénalise les extrêmes)
+    `seuil` (note plein/zéro selon seuil)
+    `prix_reference` (l'offre la plus proche du prix de référence de l'acheteur obtient le maximum de points ; les offres trop hautes comme anormalement basses sont pénalisées)
+    `autre`
+    RÈGLE STRICTE — NE PAS sur-classer en `moins_disant` :
+    • `moins_disant` UNIQUEMENT si le RC donne EXPLICITEMENT une formule au prix le plus bas
+      (ex: "note = X × prix le plus bas / prix de l'offre", "l'offre la moins-disante obtient la note max").
+    • Si le RC ne précise PAS la formule de notation du prix (ou seulement « le prix est apprécié
+      sur le bordereau » sans formule), le DÉFAUT est `prix_reference` — JAMAIS `moins_disant`.
+    • Une simple mention d'un bordereau/BPU à remplir n'est PAS une formule au moins-disant.
+  - `formule_explicite` : recopie textuellement la formule du RC si elle est là (en LaTeX simplifié ou prose). Sinon 1 phrase descriptive.
+  - `source` : OÙ dans le RC se trouve le critère prix et sa pondération (ex: "RC art 5.3 page 14", "RC §6.2"). Si non localisable précisément : "RC". Si vraiment introuvable : null.
+  - `elements_a_chiffrer` : liste des postes/lignes à chiffrer dans le bordereau de prix (BPU, DPGF, etc.) selon le RC.
+
+- **MONTANT DU MARCHÉ** dans `montant_marche` :
+
+  C'est la question N°1 que se pose le candidat avant de répondre. Beaucoup de marchés publics (notamment les accords-cadres) ne donnent PAS de valeur explicite, mais il est presque toujours possible de **chiffrer une estimation** à partir des éléments présents. Tu dois TOUJOURS essayer dans cet ordre :
+
+  1. **Cherche un montant explicite** dans le RC, le CCAP ou l'avis BOAMP. Mots-clés à scanner : "estimé à", "montant prévisionnel", "valeur estimée", "plafond", "maximum", "enveloppe budgétaire", "valeur totale". Si trouvé → `type: "estime_explicite"` ou `"plafond"`.
+
+  2. **Sinon, cherche le prix unitaire** dans le BPU (Bordereau des Prix Unitaires), le CCAP ou le RC. {hints_calcul_montant}
+
+  3. **Sinon, cherche une fourchette** dans l'avis BOAMP (champs "valeur min/max") ou dans le RC. Si trouvée → remplis `fourchette_min_euros` et `fourchette_max_euros`, et `type: "estime_explicite"`.
+
+  4. **En tout dernier recours**, si AUCUN des 3 points ci-dessus ne donne rien après recherche approfondie, mets `type: "non_communique"` et toutes les valeurs à null. Mais c'est rare — il y a presque toujours un prix unitaire quelque part.
+
+  - `valeur_estimee_euros` : nombre en euros (pas string). Ex: 250000.
+  - `fourchette_min_euros` / `fourchette_max_euros` : nombres en euros si fourchette.
+  - `type` : EXACTEMENT parmi `estime_explicite`, `plafond`, `calcule_volumes`, `non_communique`.
+  - `duree_couverte` : période à laquelle s'applique le montant (ex: "période ferme 12 mois", "tranche 24 mois reconductible").
+  - `source_extraction` : OÙ tu as trouvé l'info (ex: "RC article 3.2 page 8", "BPU ligne 12", "avis BOAMP rubrique II.2.6").
+  - `commentaire` : si calculé, EXPLIQUE LE CALCUL clairement (ex: "200 bénéf × 1 250 € parcours = 250 000 € sur 12 mois"). Si plafond, précise (ex: "Plafond accord-cadre toutes tranches confondues").
+
+  ⚠️ ATTENTION — Ne PAS confondre :
+  - **Montant du marché** = ce que l'acheteur va payer au titulaire (= ce qu'on cherche ici).
+  - **CA minimum exigé du candidat** = critère d'éligibilité (ex: "le candidat doit justifier d'un CA annuel ≥ 86 100 €"). Ce n'est PAS le montant du marché. Range-le dans `references_exigees.autres_exigences`, pas dans `montant_marche`.
+  - **Honoraires d'expertise / frais accessoires** = composantes du prix, pas le montant total.
+
+- **RÉVISION DES PRIX** dans `revision_prix` — souvent dans le CCAP, pas le RC :
+  - `type` : choisis EXACTEMENT parmi cette liste fermée :
+    `indexation` (prix révisés périodiquement selon un ou plusieurs indices)
+    `actualisation` (prix actualisable une seule fois entre soumission et démarrage)
+    `ferme` (prix ferme et non révisable sur toute la durée)
+    `non_communique` (rien sur le sujet dans les pièces analysées)
+  - `indices_utilises` : liste des indices cités (ex: ["SYNTEC", "ILC", "INSEE BT01"]). Mets [] vide si type ≠ indexation.
+  - `ponderation` : description de la formule de pondération en clair (ex: "65% SYNTEC + 15% ILC + 20% partie fixe"). Recopie du CCAP si présent, sinon null.
+  - `periodicite` : trimestrielle / semestrielle / annuelle / autre / null
+  - `formule_revision` : recopie textuelle de la formule du CCAP si lisible (ex: "Pn = P0 × (0.65 × SYNTECn/SYNTEC0 + 0.15 × ILCn/ILC0 + 0.20)"). Sinon null.
+  - `source_extraction` : où c'est dans le DCE (ex: "CCAP article 5.3")
+  - `commentaire` : impact pour le candidat en 1 phrase (ex: "Formule mixte SYNTEC+ILC : favorable en inflation mais complexe à anticiper pour le chiffrage initial"). Sinon null.
+  - NE PAS INVENTER. Si tu n'as pas trouvé la révision des prix dans les pièces fournies, mets `type: "non_communique"` et le reste à null/vide. Ne suppose pas qu'il y a forcément du SYNTEC.
+
+- Pour `alertes_candidat`, identifie ce qui peut RÉELLEMENT bloquer une candidature (hors prix).
+- Pour `alertes_prix`, focus sur les signaux liés au prix : seuil OAB, plafond budgétaire, pondération atypique, bordereau complexe à risque d'erreur, etc.
+- Pour `points_differenciants_attendus`, ce qui distingue les bons dossiers selon le RC. Chaque item est un objet `{{libelle, exemple, source}}` :
+  - `libelle` : courte phrase nommant l'axe différenciant
+  - `exemple` : 1-2 phrases concrètes montrant comment un candidat peut s'en servir
+  - `source` : référence DCE si l'axe est valorisé explicitement par un passage ; null si tu l'infères du contexte sans citation
+{few_shot_examples}
+{regles_specifiques}
+{regles_v2}
+Réponds UNIQUEMENT avec le JSON, sans aucun texte autour."""
+
+
+# === Règles v2 (refonte pipeline) : 3 voies de montant + critères stricts + BOAMP ===
+REGLES_V2 = """
+=== VERSION v3 — grille d'actions (`grille_actions`) intégrée sur les critères feuilles ===
+
+=== RÈGLES v2 — MONTANT EN 3 VOIES (bloc `montant_3_voies`) ===
+
+Tu remplis `montant_3_voies` EN PLUS de `montant_marche` (rétro-compat).
+
+VOIE 1 — MONTANT PUBLIÉ (priorité absolue) :
+- Cherche dans le DCE (RC, AAPC, CCAP, DUME, BPU, formulaires) tout montant publié
+  explicitement : estimation HT, montant maximum d'accord-cadre, budget/enveloppe annoncé.
+- Si trouvé → `voie_1_eur` = nombre, `voie_1_source` = référence textuelle précise
+  (ex: "RC §3.2 page 8"). Sinon `voie_1_eur` = null.
+
+VOIE 2 — ESTIMATION BOTTOM-UP (UNIQUEMENT si Voie 1 absente) :
+- Si et seulement si `voie_1_eur` est null, tu PRODUIS une estimation à partir des
+  caractéristiques du projet présentes dans le DCE. NE te rabats PAS trop vite sur
+  l'indisponibilité : sur l'ingénierie, le conseil et les services, il y a presque
+  toujours un volume (jours-homme, ETP, durée, surface, nb d'unités) permettant un ordre
+  de grandeur. Tu n'écris `voie_2_disponible=false` qu'en DERNIER recours.
+- Règles : tu listes chaque hypothèse dans `voie_2_hypotheses` ({hypothese, valeur}) AVEC
+  sa source DCE ; tu appliques des ratios de référence métier explicites adaptés au secteur
+  du marché ; tu n'inventes AUCUN chiffre non justifiable depuis le DCE.
+- FOURCHETTE `voie_2_min_eur`/`voie_2_max_eur` (jamais une valeur unique) : tu ne fais varier
+  qu'UNE SEULE dimension à la fois — la PLUS incertaine (en général le prix/ratio unitaire OU
+  la quantité, pas les deux) — en gardant l'autre à sa valeur centrale. NE combine JAMAIS
+  min_quantité × min_prix puis max_quantité × max_prix : cela produit des fourchettes
+  irréalistes (rapport max/min > 2). Indique dans une hypothèse quelle dimension tu fais
+  varier (ex : « quantité fixée à 1200 m² ; ratio varié 2000-2400 €/m² »).
+- PRÉCISION (priorité) : c'est l'IA qui calibre ici, donc vise la fourchette la PLUS SERRÉE
+  que les données du DCE permettent. Plus tu exploites d'éléments chiffrés précis (surfaces,
+  quantités, durées, volumes du DCE), plus la fourchette doit être étroite : idéalement un
+  rapport max/min ≈ 1,2-1,4 ; ne va vers 1,8 QUE si l'incertitude est réellement forte
+  (donnée manquante au DCE). Une fourchette large = un aveu d'imprécision, à éviter quand
+  le DCE donne de quoi resserrer.
+- Si le DCE est vraiment trop pauvre (aucun volume chiffrable) → `voie_2_disponible=false`
+  + `voie_2_raison_indisponible` (raison précise). Ce cas doit rester rare.
+- PLANCHER BOAMP : ce marché est publié au BOAMP, donc son montant TOTAL est au-dessus du
+  seuil de publicité obligatoire (~90 000 € HT). Ton estimation (valeur centrale et borne
+  basse) ne doit donc PAS descendre sous ~90 000 € — SAUF s'il s'agit d'un LOT isolé d'un
+  marché multi-lots (un lot peut être plus petit), ou si le DCE donne explicitement un
+  montant publié inférieur. Si ton bottom-up tombe sous ce seuil sans raison de lot/officiel,
+  c'est probablement une sous-estimation : relis les volumes/durées (souvent un oubli de
+  reconductions, de tranches optionnelles ou de la durée totale de l'accord-cadre).
+- (Voie 3 = rapprochement DECP en aval, hors LLM : ne la calcule pas ici.)
+
+=== RÈGLES v2 — REVENU / COÛT / MARGE (bloc `cout_realisation`) ===
+
+L'utilisateur est un CANDIDAT qui veut savoir s'il gagnera de l'argent. Il faut donc
+distinguer DEUX grandeurs et ne JAMAIS les confondre :
+- REVENU = le PRIX DU MARCHÉ = ce que l'acheteur PAIE au titulaire. C'est `montant_marche` /
+  `montant_3_voies` (Voie 1 si publié, sinon estimation Voie 2). Pour 56929 (MOE) : les
+  honoraires = travaux × taux MOE = le revenu.
+- COÛT DE RÉALISATION (`cout_realisation`) = ce que ça COÛTE au candidat de PRODUIRE la
+  prestation (sa main d'œuvre, son matériel, sa sous-traitance, son encadrement). C'est
+  TOUJOURS inférieur au revenu sur un marché sain.
+
+Tu remplis `cout_realisation` par une estimation BOTTOM-UP du coût de production :
+- Décompose en `postes` (jours-homme × taux journalier marché, quantités × prix unitaire
+  fournitures, sous-traitance, encadrement…), chacun avec `montant_eur`.
+- Utilise des TAUX MARCHÉ INDICATIFS adaptés au secteur (renseigne-les dans
+  `taux_journaliers_retenus`) — tu n'as pas la structure de coût réelle du candidat, donc
+  c'est une estimation « à taux marché », dis-le.
+- `cout_total_eur` = somme des postes ; donne une fourchette `cout_min_eur`/`cout_max_eur`
+  en ne faisant varier qu'UNE dimension (le taux OU la charge), comme pour la Voie 2 — la
+  PLUS SERRÉE possible (rapport max/min ≈ 1,2-1,4 quand le DCE chiffre la charge).
+- La marge GLOBALE (revenu − coût) est dérivée côté code ; tu calcules en revanche la marge
+  brute PAR LOT (`lots[].marge_brute_pct`, voir section CA PAR LOT plus bas).
+- Si le marché est trop flou pour chiffrer un coût crédible → laisse `cout_total_eur=null`
+  et explique dans `commentaire`. Mais sur ingénierie/conseil/BTP/services il y a presque
+  toujours de quoi chiffrer une charge (jours-homme, quantités).
+- COHÉRENCE : si ton coût total dépasse le revenu estimé, re-vérifie (sauf marché
+  structurellement déficitaire, rare) — signale-le alors dans `commentaire`.
+
+=== RÈGLES v2 — CRITÈRES : champ `unite_evaluation` ===
+
+Pour CHAQUE sous-critère technique (à tous les niveaux), tu renseignes `unite_evaluation` :
+- "euro"        → le sous-critère est noté sur une grandeur MONÉTAIRE (coût, coût global,
+                  €/tonne CO2, pénalités chiffrées). ⚠️ Un critère environnemental CHIFFRÉ
+                  en euros est "euro" (→ famille prix), PAS "points".
+- "delai_jours" → noté sur un délai en jours/semaines.
+- "points"      → tout le reste (mémoire technique, méthodologie, RSE notée en points,
+                  références, qualité, performance).
+Le code dérive la famille prix/valeur_technique à partir de `unite_evaluation` ("euro"=prix).
+
+=== RÈGLES v2 — BARÈME : POIDS PRIX OBLIGATOIRE + MULTI-LOTS ===
+
+POIDS PRIX (`valeur_prix_pct`) — OBLIGATOIRE dès qu'un critère prix existe :
+- Quasi tous les marchés notent le prix ("Prix 30%", "Coût 40 points", formule
+  moins-disant pondérée…). Dans ce cas tu DOIS renseigner `valeur_prix_pct` avec ce
+  poids (nombre). NE le laisse JAMAIS à null quand un critère prix existe — c'est
+  l'erreur la plus fréquente. Le bloc `bareme_notation.prix` (la formule) ne REMPLACE
+  PAS `valeur_prix_pct` (le poids) : remplis LES DEUX.
+- `valeur_technique_pct` = somme des poids de TOUS les critères non-prix réunis
+  (technique, RSE, délai, qualité…). Et `valeur_technique_pct + valeur_prix_pct = 100`
+  EXACTEMENT.
+- AUTO-VÉRIFICATION : la somme des `ponderation_pct` de tes `sous_criteres_techniques`
+  (niveau racine) doit égaler `valeur_technique_pct`. Si tes sous-critères somment à 75
+  mais que tu allais écrire `valeur_technique_pct=60`, c'est le SCALAIRE qui est faux :
+  mets `valeur_technique_pct=75` (et donc `valeur_prix_pct=25`). Ne tronque jamais le
+  scalaire en-dessous de la somme réelle de tes sous-critères.
+
+MULTI-LOTS — UN SEUL barème par brief :
+- `bareme_notation` décrit UNE grille de notation cohérente sommant à 100. Ne répète
+  JAMAIS le même critère une fois par lot (ex: "Valeur technique — Lot 1" 65% +
+  "Valeur technique — Lot 2" 65% → FAUX, somme 130). C'est une erreur d'aplatissement.
+- Si tous les lots partagent la même grille → extrais-la UNE seule fois.
+- Si les lots ont des grilles DIFFÉRENTES → extrais celle du lot PRINCIPAL (ou la plus
+  représentative) et signale la variation dans `synthese_marche`. Les
+  `sous_criteres_techniques` sont la VRAIE décomposition du critère technique
+  (méthodologie, moyens humains, références, RSE…), PAS une liste de lots.
+
+COÛT PAR LOT (marché multi-lots) : pour CHAQUE lot de `lots[]`, estime son COÛT DE
+RÉALISATION (`cout_estime_min_eur`/`cout_estime_max_eur`) — c'est-à-dire ce que ça COÛTE au
+candidat de produire CE lot précis (main d'œuvre, matériel, sous-traitance propres au lot),
+comme `cout_realisation` mais ventilé par lot. ⚠️ C'est un COÛT, PAS le revenu/prix du lot.
+Appuie-toi sur la nature du lot (corps d'état, surface, quantités du CCTP/DPGF) et des ratios
+marché. Fourchette serrée (rapport max/min ≈ 1,2-1,5). Si un lot n'est pas chiffrable, laisse
+les deux à null.
+
+⚠️ ANCRAGE OBLIGATOIRE DÈS QU'IL Y A DES LOTS : tu estimes D'ABORD chaque lot, PUIS tu
+construis l'estimation GLOBALE `cout_realisation` À PARTIR de ces lots — pas l'inverse. Les
+deux sections affichées (« Prix & estimation » globale et « Détail par lot ») doivent montrer
+la MÊME fourchette, cohérente :
+- `cout_realisation.cout_min_eur` = Σ des `cout_estime_min_eur` des lots chiffrés ;
+  `cout_realisation.cout_max_eur` = Σ des `cout_estime_max_eur`.
+- `cout_realisation.cout_total_eur` = somme des valeurs centrales des lots.
+- Chaque lot devient idéalement un `poste` de `cout_realisation` (1 poste = 1 lot), pour que
+  la décomposition globale et le détail par lot racontent la même histoire.
+- Si certains lots ne sont pas chiffrables (null), dis-le dans `commentaire` et borne le
+  global sur les lots chiffrés (ne laisse pas un écart inexpliqué entre les deux sections).
+Objectif : la fourchette en gras est IDENTIQUE des deux côtés ; elle est cadrée par les lots.
+
+CA PAR LOT + MARGE BRUTE (le REVENU/lot, distinct du COÛT/lot) :
+- Pour CHAQUE lot, estime AUSSI son CA / prix marché (`ca_estime_min_eur`/`ca_estime_max_eur`)
+  = ce que l'ACHETEUR PAIERA pour ce lot. Base : quantités × prix marché (bordereau, €/unité
+  posée), ou % d'un budget de référence / TJM facturés selon le métier. C'est ≥ le coût du lot
+  (marge positive sur marché sain). Fourchette serrée (rapport max/min ≈ 1,2-1,5).
+- `marge_brute_pct` du lot = round((ca_centrale − cout_centrale) / ca_centrale × 100), où
+  ca_centrale = (ca_min+ca_max)/2 et cout_centrale = (cout_min+cout_max)/2. Calcule-le PAR LOT.
+- PLAUSIBILITÉ par nature du lot (GARDE-FOU, pas un taux imposé — tu te places dedans et
+  justifies) : marge brute typique — travaux/installation 10-25 % ; ingénierie/études/MOE/AMO
+  25-45 % ; conseil 25-50 % ; services techniques (labo, IT, contrôle) 15-35 % ; services
+  opérationnels (propreté, sécurité, restauration, transport) 5-15 % ; fournitures/négoce 5-15 %.
+  Si la marge d'un lot sort de sa bande (ou < 0), RE-VÉRIFIE le coût ET le CA du lot.
+- AGRÉGATION : `montant_3_voies.voie_2_min/max` (le CA GLOBAL) = Σ des `ca_estime` des lots —
+  exactement comme `cout_realisation` = Σ des coûts. Les DEUX totaux dérivent des lots.
+
+=== RÈGLES v2 — PASS DE COHÉRENCE FINALE (obligatoire avant de rendre le JSON) ===
+
+Avant de produire le JSON, RELIS-TOI et corrige toute incohérence chiffrée :
+1. Σ des `ca_estime` des lots == `montant_3_voies.voie_2_min/max` == `montant_marche.fourchette`
+   (le CA est UN seul nombre, raconté pareil partout). Aligne si ça diverge.
+2. Σ des `cout_estime` des lots == `cout_realisation.cout_min/max/total`. Aligne.
+3. Pour CHAQUE lot ET au global : CA ≥ coût, et marge brute dans la bande plausible de l'archétype.
+4. Si un PRIX est PUBLIÉ (Voie 1) : c'est LUI le CA de référence — réconcilie les CA des lots
+   pour qu'ils somment au prix publié (ajuste, ne laisse pas un écart muet).
+5. `voie_2_hypotheses` doit décrire les MÊMES montants que les lots — pas une 3e estimation
+   parallèle. Un seul récit chiffré : coût, CA et marge tiennent ensemble, total = Σ lots.
+
+=== RÈGLES v2 — DOSSIER DE CANDIDATURE (bloc `dossier_candidature`) ===
+
+Le RC liste TOUJOURS les pièces à remettre et les modalités de dépôt. Extrais-les
+fidèlement — ne te rabats PAS sur une liste générique (DC1/DC2…) si le RC précise sa
+propre liste.
+- `pieces_a_fournir` : UNE entrée par pièce réellement exigée, `libelle` recopié du RC,
+  `phase` = 'candidature' (capacités/admission) ou 'offre' (technique + prix), `obligatoire`
+  (true si son absence rend le pli irrecevable), `source` (réf RC). Couvre AU MOINS l'acte
+  d'engagement, le(s) bordereau(x) de prix (BPU/DPGF), le mémoire technique, les
+  DC1/DC2/DUME, et les attestations exigées. Si le RC ne détaille rien, mets [] (la fiche
+  affichera un repli générique).
+- `mode_remise`, `plateforme_depot`, `signature_electronique_exigee`, `format_signature`,
+  `nombre_exemplaires` (papier seulement), `langue`, `duree_validite_offres_jours` :
+  remplis ce que le RC précise, null sinon. Ne JAMAIS inventer une plateforme ou un format.
+  Renseigne `modalites_source` avec la RÉFÉRENCE RC de ces modalités (ex 'RC §3.1') — comme
+  pour les pièces, l'utilisateur doit pouvoir remonter à la source.
+
+=== RÈGLES v2 — TRANCHES (bloc `tranches`) ===
+
+UNIQUEMENT si le marché est structuré en TRANCHES (tranche ferme + tranches optionnelles/
+conditionnelles, au sens du CCP) — à NE PAS confondre avec les LOTS (découpage par métier/
+objet) ni avec les phases d'une mission. Si le marché n'a pas de tranches → `tranches: []`.
+- Une entrée par tranche : `type` (ferme/optionnelle/conditionnelle), `intitule`, `objet`,
+  `montant_estime_eur` (si chiffrable), `condition_affermissement` (pour les non-fermes),
+  `source`. La tranche ferme est exécutée d'office ; signale dans `synthese_marche` si une
+  large part du marché est en tranches optionnelles (risque commercial : volume non garanti).
+
+=== RÈGLES v2 — CERTIFICATIONS / QUALIFICATIONS EXIGÉES (durcissement) ===
+
+`references_exigees.certifications_obligatoires` doit lister TOUTE certification ou
+qualification dont l'absence entraîne l'IRRECEVABILITÉ ou l'élimination (condition d'admission).
+- Mets `bloquante: true` pour ces dernières, `bloquante: false` pour celles seulement
+  valorisées/notées. Ne te limite PAS aux 3-5 alertes de `alertes_candidat` : une certif
+  bloquante DOIT figurer ici même si elle n'est pas dans les alertes.
+- `codes` : dès qu'une qualification a un CODE NORMALISÉ à 4 chiffres (Qualibat, OPQIBI,
+  OPQCM), extrais-le en liste de codes (ex: ["5413"]). Ces codes pilotent les verrous
+  go/no-go côté matching — n'écris JAMAIS le code en texte libre noyé dans `libelle` sans
+  le reporter aussi dans `codes`.
+
+=== RÈGLES v2 — CONTEXTE BOAMP (bloc CONTEXTE DU MARCHÉ) ===
+
+Le contexte inclut des champs BOAMP issus de l'avis (indépendants du DCE) : `acheteur_siren`,
+`acheteur_nuts`, `nature`, `procedure_libelle`, `est_europeen`, `criteres_attribution_boamp`
+(flags ["sociaux","environnementaux"]), `nombre_lots`/`lots`. Tu les utilises pour :
+1. Vérifier la cohérence (si BOAMP annonce N lots et que tu n'en vois qu'un dans le DCE,
+   signale-le dans `synthese_marche`).
+2. Compléter ce que le DCE ne donne pas.
+3. Affiner la Voie 2 (un marché européen implique des seuils minimaux applicables).
+"""
+
+import hashlib as _hashlib
+# Version du prompt v2 (SHA-256 des règles ajoutées) — stockée par brief (prompt_version_sha).
+PROMPT_V2_SHA = _hashlib.sha256(REGLES_V2.encode("utf-8")).hexdigest()[:12]
+
+
+# ---------------------------------------------------------------------------
+# Appel API
+# ---------------------------------------------------------------------------
+
+def _check_anthropic():
+    if Anthropic is None:
+        raise RuntimeError(
+            "Le SDK anthropic n'est pas installé. Lance :\n"
+            "    pip install anthropic"
+        )
+    cle = _obtenir_cle_api()
+    if not cle:
+        raise RuntimeError(
+            "Clé API Anthropic introuvable.\n"
+            "Définis-la de l'une de ces 2 façons :\n"
+            "  1. Crée un fichier .env à la racine du projet contenant :\n"
+            "       ANTHROPIC_API_KEY=sk-ant-XXXXXXXX\n"
+            "  2. Ou définis la variable d'environnement ANTHROPIC_API_KEY"
+        )
+
+
+# Champs universels : présents dans tous les briefs quel que soit le secteur.
+# Le filtre anti-hallucination préserve ces clés en plus des blocs sectoriels
+# des presets ciblés. Tout autre top-level non-listé sera supprimé.
+_CHAMPS_UNIVERSELS_BRIEF = {
+    "synthese_marche",
+    "domaines_metier",
+    "raison_classification",
+    "bareme_notation",
+    "montant_marche",
+    "montant_3_voies",
+    "cout_realisation",
+    "revision_prix",
+    "alertes_prix",
+    "references_exigees",
+    "dossier_candidature",
+    "lots",
+    "tranches",
+    "calendrier",
+    "alertes_candidat",
+    "points_differenciants_attendus",
+    # Bloc neutre injecté pour les marchés HORS-PÉRIMÈTRE (aucun preset) — doit
+    # survivre au filtre anti-hallucination quand blocs_autorises est vide.
+    "caracteristiques_metier",
+    # Méta techniques (peuvent apparaître si réponse partielle)
+    "_appel_llm",
+    "_meta",
+}
+
+
+def _famille_depuis_unite(unite) -> str:
+    """unite_evaluation → famille critère (v2). 'euro' → prix (résout le bug RSE €/CO2)."""
+    u = (str(unite or "")).strip().lower()
+    if u == "euro":
+        return "prix"
+    if u in ("points", "delai_jours", "delai", ""):
+        return "valeur_technique"
+    return "valeur_technique"
+
+
+def _num(v):
+    """Float ou None (tolère les pondérations en string)."""
+    try:
+        return float(v)
+    except (TypeError, ValueError):
+        return None
+
+
+def deriver_criteres_attribution_plat(bareme: dict) -> list:
+    """Dérive le schéma PLAT `criteres_attribution_plat` depuis le bareme hiérarchique.
+
+    Entrée 'Prix' (valeur_prix_pct) + critères techniques NORMALISÉS pour sommer à
+    valeur_technique_pct (les pondérations de sous-critères sont tantôt en part-de-100,
+    tantôt en part-du-technique : on renormalise → la somme plat = prix_pct + tech_pct).
+    Famille par `unite_evaluation` (euro → prix : résout le bug RSE €/CO2). Si pas de
+    sous-critères, une entrée 'Valeur technique' globale (= valeur_technique_pct).
+    Format : [{libelle, famille, ponderation_pct, unite_evaluation, source_texte}].
+    """
+    bareme = bareme or {}
+    pct_prix = _num(bareme.get("valeur_prix_pct"))
+    pct_tech = _num(bareme.get("valeur_technique_pct"))
+    sous = [sc for sc in (bareme.get("sous_criteres_techniques") or []) if isinstance(sc, dict)]
+    plat = []
+
+    prix_part = pct_prix if (pct_prix and pct_prix > 0) else 0
+    if prix_part:
+        plat.append({"libelle": "Prix", "famille": "prix", "ponderation_pct": pct_prix,
+                     "unite_evaluation": "euro", "source_texte": (bareme.get("prix") or {}).get("source")})
+
+    raw = [_num(sc.get("ponderation_pct")) for sc in sous]
+    raw_sum = sum(r for r in raw if r) or 0
+
+    def _entrees_sous(scale):
+        """Construit les entrées plates des sous-critères. scale=None → poids bruts."""
+        out = []
+        for sc, r in zip(sous, raw):
+            p = round(r * scale, 1) if (scale is not None and r) else r
+            out.append({"libelle": sc.get("libelle"),
+                        "famille": _famille_depuis_unite(sc.get("unite_evaluation")),
+                        "ponderation_pct": p, "unite_evaluation": sc.get("unite_evaluation"),
+                        "source_texte": sc.get("source")})
+        return out
+
+    if sous and raw_sum > 0:
+        # D1 — les sous-critères encodent déjà des poids ABSOLUS (part-de-100) si
+        # `prix + Σsous ≈ 100`. Dans ce cas on les garde TELS QUELS : ne pas rescaler
+        # sur `valeur_technique_pct`, scalaire souvent sous-renseigné par le LLM (il
+        # met 60 alors que ses propres sous-critères somment à 75 = la vraie valeur).
+        if 98 <= prix_part + raw_sum <= 102:
+            plat.extend(_entrees_sous(None))
+        # Sinon, si un `valeur_technique_pct` fiable existe, les sous-critères sont
+        # exprimés en part-DU-technique → on les renormalise pour sommer à pct_tech.
+        elif pct_tech and pct_tech > 0:
+            plat.extend(_entrees_sous(pct_tech / raw_sum))
+        # Ni absolus ni rescalables : poids bruts (best effort, alerte possible).
+        else:
+            plat.extend(_entrees_sous(None))
+    elif pct_tech and pct_tech > 0:
+        # D2 — sous-critères absents OU tous non pondérés (raw_sum=0). La partie
+        # technique NE DOIT PAS s'évaporer (bug : scale=None → ponderation_pct=None →
+        # 60-70% techniques perdus). Repli : entrée unique « Valeur technique » = pct_tech.
+        plat.append({"libelle": "Valeur technique", "famille": "valeur_technique",
+                     "ponderation_pct": pct_tech, "unite_evaluation": "points", "source_texte": None})
+    else:
+        # Ni pct_tech ni poids de sous-critères : best effort (alerte légitime possible).
+        plat.extend(_entrees_sous(None))
+    return plat
+
+
+def valider_criteres_plat(plat: list) -> dict:
+    """Validation post-LLM du schéma plat. Retourne somme + flags d'alerte."""
+    pcts = [c.get("ponderation_pct") for c in plat
+            if isinstance(c.get("ponderation_pct"), (int, float))]
+    somme = round(sum(pcts), 1)
+    a_prix = any(c.get("famille") == "prix"
+                 and isinstance(c.get("ponderation_pct"), (int, float))
+                 and c["ponderation_pct"] > 0 for c in plat)
+    # D3 — flag vivant : un critère sans pondération exploitable (None) échappe à la
+    # somme et signale un barème mal extrait. (L'ancien test `famille=="non_classe"`
+    # était mort : `_famille_depuis_unite` ne renvoie jamais cette valeur.)
+    non_classe = any(c.get("ponderation_pct") is None
+                     or c.get("famille") == "non_classe" for c in plat)
+    return {
+        "criteres_somme_ponderations": somme,
+        "criteres_alerte_somme_incorrecte": not (98 <= somme <= 102),
+        "criteres_alerte_pas_de_prix": not a_prix,
+        "criteres_alerte_non_classes": non_classe,
+    }
+
+
+def post_traiter_extraction_v2(data: dict) -> dict:
+    """Post-traitement v2 (après extraire_via_llm) : dérive le plat, valide, versionne.
+
+    Ajoute `criteres_attribution_plat`, les flags `criteres_*`, `montant_voie_*` (aplatis
+    depuis `montant_3_voies`), `version_extraction_llm='2'`, `prompt_version_sha`,
+    `extraction_v2_a_verifier`. Non destructif (conserve le bareme hiérarchique).
+    """
+    if not isinstance(data, dict):
+        return data
+    plat = deriver_criteres_attribution_plat(data.get("bareme_notation") or {})
+    data["criteres_attribution_plat"] = plat
+    validation = valider_criteres_plat(plat)
+    data.update(validation)
+
+    m3 = data.get("montant_3_voies") or {}
+    v1 = m3.get("voie_1_eur")
+    v2_dispo = bool(m3.get("voie_2_disponible"))
+    vmin, vmax = m3.get("voie_2_min_eur"), m3.get("voie_2_max_eur")
+    hypos = m3.get("voie_2_hypotheses") or []
+    data["montant_voie_1_eur"] = v1
+    data["montant_voie_1_source"] = m3.get("voie_1_source")
+    data["montant_voie_2_disponible"] = v2_dispo
+    data["montant_au_moins_une_voie"] = bool(v1) or v2_dispo
+    alerte_v1 = bool(v1) != bool(m3.get("voie_1_source"))
+    alerte_v2 = v2_dispo and (
+        not hypos or not isinstance(vmin, (int, float)) or not isinstance(vmax, (int, float))
+        or vmin > vmax)
+    data["montant_alerte_coherence"] = alerte_v1 or alerte_v2
+
+    # SYNCHRO montant_marche ← montant_3_voies (l'UI lit encore montant_marche).
+    # Si le LLM a laissé montant_marche vide mais rempli une voie, on reporte la
+    # valeur/fourchette pour que la fiche affiche un montant. Non destructif : on ne
+    # touche pas un montant_marche déjà renseigné.
+    mm = dict(data.get("montant_marche") or {})
+    if not mm.get("valeur_estimee_euros") and not mm.get("fourchette_min_euros"):
+        if v1:
+            mm["valeur_estimee_euros"] = v1
+            mm["type"] = "estime_explicite"
+            mm["source_extraction"] = m3.get("voie_1_source") or mm.get("source_extraction")
+            mm.setdefault("commentaire", "Montant publié (Voie 1).")
+            data["montant_marche"] = mm
+        elif v2_dispo and isinstance(vmin, (int, float)) and isinstance(vmax, (int, float)):
+            mm["fourchette_min_euros"] = vmin
+            mm["fourchette_max_euros"] = vmax
+            mm["valeur_estimee_euros"] = round((vmin + vmax) / 2)
+            mm["type"] = "calcule_volumes"
+            mm["commentaire"] = ("Estimation bottom-up (Voie 2) : "
+                                 + " ; ".join(h.get("hypothese", "") for h in hypos[:2]))[:500]
+            data["montant_marche"] = mm
+
+    # Valeur centrale manquante mais fourchette présente : le LLM remplit parfois la
+    # fourchette de montant_marche SANS la valeur centrale → revenu/marge/ancre Voie 3
+    # tombaient à None (vu sur 56730 : MOE 178-218k mais revenu_eur=None). On dérive la
+    # centrale = milieu de fourchette.
+    mm_f = data.get("montant_marche") or {}
+    if not mm_f.get("valeur_estimee_euros"):
+        _fmin, _fmax = mm_f.get("fourchette_min_euros"), mm_f.get("fourchette_max_euros")
+        if (isinstance(_fmin, (int, float)) and isinstance(_fmax, (int, float))
+                and _fmax >= _fmin > 0):
+            mm_f = dict(mm_f)
+            mm_f["valeur_estimee_euros"] = round((_fmin + _fmax) / 2)
+            data["montant_marche"] = mm_f
+
+    # === REVENU / COÛT / MARGE (modèle candidat) ===
+    # Revenu = prix du marché (montant_marche, officiel Voie 1 ou estimé Voie 2).
+    # Coût = estimation bottom-up du coût de PRODUCTION côté candidat (cout_realisation).
+    # Marge = revenu − coût (calculée ICI, pas par le LLM).
+    mm_final = data.get("montant_marche") or {}
+    rev_c = mm_final.get("valeur_estimee_euros")
+    rev_min, rev_max = mm_final.get("fourchette_min_euros"), mm_final.get("fourchette_max_euros")
+    revenu_officiel = mm_final.get("type") in ("estime_explicite", "plafond")
+    data["revenu_eur"] = rev_c if isinstance(rev_c, (int, float)) else None
+    data["revenu_min_eur"] = rev_min if isinstance(rev_min, (int, float)) else None
+    data["revenu_max_eur"] = rev_max if isinstance(rev_max, (int, float)) else None
+    data["revenu_source"] = ("officiel" if revenu_officiel
+                             else ("estime_ia" if data["revenu_eur"] else None))
+
+    cr = data.get("cout_realisation") or {}
+    cout_total = cr.get("cout_total_eur")
+    cout_min, cout_max = cr.get("cout_min_eur"), cr.get("cout_max_eur")
+    if (not isinstance(cout_total, (int, float))
+            and isinstance(cout_min, (int, float)) and isinstance(cout_max, (int, float))):
+        cout_total = round((cout_min + cout_max) / 2)
+    data["cout_realisation_eur"] = cout_total if isinstance(cout_total, (int, float)) else None
+    data["cout_min_eur"] = cout_min if isinstance(cout_min, (int, float)) else None
+    data["cout_max_eur"] = cout_max if isinstance(cout_max, (int, float)) else None
+
+    marge = marge_pct = None
+    marge_alerte = False
+    rev, cout = data["revenu_eur"], data["cout_realisation_eur"]
+    if isinstance(rev, (int, float)) and rev > 0 and isinstance(cout, (int, float)):
+        marge = round(rev - cout)
+        marge_pct = round(100 * marge / rev, 1)
+        marge_alerte = cout > rev  # coût > revenu : incohérent (sauf marché déficitaire, rare)
+    data["marge_eur"] = marge
+    data["marge_pct"] = marge_pct
+    data["marge_alerte"] = marge_alerte
+
+    # PLANCHER BOAMP : un marché publié au BOAMP est au-dessus du seuil de publicité
+    # (~90 k€ HT). Un revenu ESTIMÉ (non officiel) sous ce seuil = probable sous-estimation
+    # (oubli de reconductions/tranches/durée totale), sauf lot isolé. On flague (sans clamper :
+    # un montant officiel publié peut légitimement être plus bas, et un lot aussi).
+    sous_seuil = (data.get("revenu_source") == "estime_ia"
+                  and isinstance(data.get("revenu_eur"), (int, float))
+                  and 0 < data["revenu_eur"] < SEUIL_PUBLICITE_BOAMP_EUR)
+    data["revenu_sous_seuil_boamp"] = sous_seuil
+
+    nb_alertes = sum([validation["criteres_alerte_somme_incorrecte"],
+                      validation["criteres_alerte_pas_de_prix"],
+                      validation["criteres_alerte_non_classes"],
+                      data["montant_alerte_coherence"],
+                      marge_alerte,
+                      sous_seuil])
+    data["extraction_v2_a_verifier"] = nb_alertes >= 2
+    data["version_extraction_llm"] = "2"
+    data["prompt_version_sha"] = PROMPT_V2_SHA
+    return data
+
+
+def _filtrer_hallucinations(data: dict,
+                            codes_presets: Optional[list],
+                            verbose: bool = False) -> dict:
+    """
+    Supprime de la sortie LLM les blocs sectoriels qui ne sont pas autorisés
+    pour les presets ciblés.
+
+    Le LLM peut halluciner des noms de blocs depuis son entraînement (vu sur
+    le 56164 où il a produit `caracteristiques_techniques_chantier`, `volumes`,
+    `publics_cibles` etc. alors que le schéma envoyé ne contenait que
+    `caracteristiques_si`/`qualifications_si`).
+
+    Args:
+        data : dict parsé de la réponse LLM.
+        codes_presets : liste des codes presets ciblés (None/[] = fallback
+                        union, on autorise tous les blocs sectoriels).
+        verbose : log les blocs supprimés.
+
+    Returns:
+        Le dict filtré (mutation in-place + retour pour chaînage).
+    """
+    if not isinstance(data, dict):
+        return data
+    blocs_autorises = set(_preset.blocs_sectoriels_pour_presets(codes_presets))
+    cles_autorisees = _CHAMPS_UNIVERSELS_BRIEF | blocs_autorises
+    cles_a_supprimer = [k for k in data.keys() if k not in cles_autorisees]
+    if cles_a_supprimer:
+        if verbose:
+            print(f"  🚫 Filtre anti-hallucination : "
+                  f"{len(cles_a_supprimer)} bloc(s) hors-schéma supprimé(s) : "
+                  f"{cles_a_supprimer}")
+        for k in cles_a_supprimer:
+            data.pop(k, None)
+    return data
+
+
+# Préfixes de typo fréquents produits par le LLM malgré la règle prompt.
+# Garde-fou de dernier recours : `energia_xxx` n'existe pas dans la taxonomie,
+# donc il est ignoré par le matching → on le ramène au préfixe canonique.
+_TYPO_PREFIXE_DOMAINE = {"energia": "energie", "energy": "energie"}
+
+
+def _normaliser_prefixe_code(code):
+    """Corrige le préfixe (avant le 1er '_') si c'est une typo connue. Renvoie
+    le code corrigé (inchangé si propre ou non-string)."""
+    if not code or not isinstance(code, str):
+        return code
+    prefixe, sep, reste = code.partition("_")
+    corrige = _TYPO_PREFIXE_DOMAINE.get(prefixe)
+    if corrige and corrige != prefixe:
+        return f"{corrige}{sep}{reste}" if sep else corrige
+    return code
+
+
+def _normaliser_codes_domaines(data: dict, verbose: bool = False) -> dict:
+    """Normalise les préfixes de codes domaine dans `domaines_metier[].code`
+    et `lots[].domaine`, en place. Idempotent."""
+    if not isinstance(data, dict):
+        return data
+    corriges = []
+    for d in (data.get("domaines_metier") or []):
+        if isinstance(d, dict) and d.get("code"):
+            nouveau = _normaliser_prefixe_code(d["code"])
+            if nouveau != d["code"]:
+                corriges.append((d["code"], nouveau))
+                d["code"] = nouveau
+    for lot in (data.get("lots") or []):
+        if isinstance(lot, dict) and lot.get("domaine"):
+            nouveau = _normaliser_prefixe_code(lot["domaine"])
+            if nouveau != lot["domaine"]:
+                corriges.append((lot["domaine"], nouveau))
+                lot["domaine"] = nouveau
+    if corriges and verbose:
+        print(f"  🔧 Codes domaine normalisés (typo) : {corriges}")
+    return data
+
+
+def _resoudre_presets_pour_marche(marche_id: Optional[str]) -> list:
+    """
+    Pour un marche_id donné, retourne la liste des codes presets pertinents
+    en lisant sa classification IA depuis la collection `classifications_ia`.
+
+    Retourne [] (déclenchera le fallback union complète côté builder) si :
+    - marche_id est None
+    - aucune classification IA n'existe pour ce marché
+    - les domaines classifiés ne mappent vers aucun preset installé
+      (cas typique : marché classifié `autre`, `fourniture_materiel`, etc.)
+
+    Cette fonction est silencieuse en cas d'erreur (import stockage,
+    collection manquante, JSON corrompu) : elle retourne [] et laisse le
+    fallback union prendre le relais. Pas de raise pour ne pas bloquer
+    l'extraction sur un détail d'environnement.
+    """
+    if not marche_id:
+        return []
+
+    def _codes_depuis(domaines):
+        out = []
+        for d in (domaines or []):
+            if isinstance(d, dict):
+                code = d.get("code")
+                if isinstance(code, str) and code:
+                    out.append(code)
+            elif isinstance(d, str) and d:
+                out.append(d)
+        return out
+
+    try:
+        from tendia.core import stockage as _stockage
+        codes_domaines = []
+        # Source 1 : classification IA (pré-classifieur Haiku).
+        classifs = _stockage.charger("classifications_ia") or {}
+        classif = classifs.get(marche_id)
+        if classif:
+            codes_domaines += _codes_depuis(classif.get("domaines_metier"))
+        # Source 2 (Axe 3) : UNION avec les domaines du brief existant, souvent plus
+        # riches que la classif initiale (le Sonnet a lu le DCE complet). Capte un
+        # 2e métier que la classif Haiku avait manqué → extraction multi-preset.
+        try:
+            briefs = _stockage.charger("briefs_extraits") or {}
+            brief = briefs.get(marche_id)
+            if brief:
+                codes_domaines += _codes_depuis(brief.get("domaines_metier"))
+        except Exception:
+            pass
+        if not codes_domaines:
+            return []
+        # Dédoublonne en préservant l'ordre, puis mappe vers les presets.
+        vus = set()
+        codes_uniques = [c for c in codes_domaines if not (c in vus or vus.add(c))]
+        return _preset.presets_pour_domaines(codes_uniques)
+    except Exception:
+        return []
+
+
+def extraire_via_llm(texte: str, contexte: dict,
+                       verbose: bool = True,
+                       max_retries: int = 2) -> Optional[dict]:
+    """
+    Envoie le texte d'un DCE à Claude et récupère les champs structurés.
+
+    Args:
+        texte: texte combiné du RC + CCTP + autres pièces.
+        contexte: dict avec id, titre, acheteur, source, etc. (méta du marché).
+        verbose: True pour afficher coût estimé et temps.
+        max_retries: relance en cas d'erreur API ou JSON invalide.
+
+    Returns:
+        dict JSON parsé, ou None si échec définitif.
+
+    Raises:
+        budget.BudgetDepasseError : si le quota budget LLM est atteint
+                                       (kill-switch ou max_par_jour).
+    """
+    # === Garde-fou budget (Sprint 3) ===
+    from tendia.core import budget as _budget
+    marche_id = contexte.get("id") if contexte else None
+    decision = _budget.peut_appeler_llm("extraction", marche_id=marche_id)
+    if not decision.autorise:
+        if verbose:
+            print(f"  ⛔ Budget : {decision.raison}")
+        _budget.enregistrer_appel(
+            type_appel="extraction",
+            cout_eur=0.0,
+            statut="bloque_budget",
+            marche_id=marche_id,
+            erreur=decision.raison,
+        )
+        raise _budget.BudgetDepasseError(decision.raison)
+
+    _check_anthropic()
+    if len(texte) > MAX_CHARS_INPUT:
+        if verbose:
+            print(f"  ⚠ Texte tronqué : {len(texte)} → {MAX_CHARS_INPUT} chars")
+        texte = texte[:MAX_CHARS_INPUT]
+
+    # === Routage par classification IA (Sprint 2bis) ===
+    # On résout les presets pertinents pour CE marché à partir de sa
+    # classification IA (si disponible). Les builders prompt système/utilisateur
+    # ne reçoivent que les blocs des presets concernés → résout la collision
+    # de clés et concentre le LLM. Fallback sur union complète si pas de
+    # classif disponible.
+    codes_presets = _resoudre_presets_pour_marche(marche_id)
+    if verbose and codes_presets:
+        print(f"  → Presets ciblés (via classif IA) : {codes_presets}")
+    elif verbose:
+        print(f"  → Pas de classif IA exploitable, fallback union complète")
+
+    contexte_str = json.dumps(contexte, ensure_ascii=False, indent=2)
+    prompt_user = _construire_prompt_utilisateur(contexte_str, texte, codes_presets)
+    prompt_systeme = _construire_prompt_systeme(codes_presets)
+    # Assainit les surrogates Unicode orphelins (U+D800-U+DFFF) issus d'extractions
+    # PDF bancales : ils font planter l'encodage UTF-8 de la requête API (vu sur de
+    # gros DCE → echec_llm silencieux). encode('ignore') les supprime proprement.
+    prompt_user = prompt_user.encode("utf-8", "ignore").decode("utf-8", "ignore")
+    prompt_systeme = prompt_systeme.encode("utf-8", "ignore").decode("utf-8", "ignore")
+
+    client = Anthropic()
+
+    debut = time.time()
+    derniere_erreur = None
+    for tentative in range(1, max_retries + 1):
+        try:
+            if verbose:
+                print(f"  → Appel Claude API (tentative {tentative})...")
+                print(f"    input ≈ {len(prompt_user)} chars "
+                      f"(≈ {len(prompt_user) // 4} tokens)")
+            # STREAMING (et non messages.create) : indispensable pour les gros DCE
+            # multi-lots dont la génération est longue. En non-streamé, l'appel heurte
+            # le timeout de requête du SDK avant la fin (cause des echec_llm sur les
+            # briefs lourds). Le streaming garde la connexion vivante tant que des
+            # tokens arrivent ; get_final_message() reconstitue le message complet.
+            with client.messages.stream(
+                model=MODELE,
+                max_tokens=MAX_TOKENS_REPONSE,
+                system=prompt_systeme,
+                messages=[{"role": "user", "content": prompt_user}],
+            ) as stream:
+                message = stream.get_final_message()
+            duree = time.time() - debut
+            reponse_text = message.content[0].text if message.content else ""
+
+            in_tokens = message.usage.input_tokens
+            out_tokens = message.usage.output_tokens
+            cout_usd = (in_tokens * 3 + out_tokens * 15) / 1_000_000
+            cout_eur = _budget.estimer_cout_eur(in_tokens, out_tokens)
+
+            if verbose:
+                print(f"  ← Réponse en {duree:.1f}s")
+                print(f"    tokens in/out : {in_tokens} / {out_tokens}")
+                print(f"    coût estimé   : {cout_usd:.4f} $ ({cout_eur:.3f} €)")
+
+            # Parser le JSON
+            data_parsee = None
+            try:
+                data_parsee = json.loads(reponse_text)
+            except json.JSONDecodeError:
+                # Le LLM a parfois mis du texte autour. Cherche le bloc {...}
+                m = re.search(r"\{.*\}", reponse_text, re.DOTALL)
+                if m:
+                    try:
+                        data_parsee = json.loads(m.group(0))
+                    except json.JSONDecodeError as e:
+                        if verbose:
+                            print(f"  ⚠ JSON parse échoue : {e}")
+
+            if data_parsee is not None:
+                # Filtre anti-hallucination (Sprint 2bis - Sujet 2b).
+                # Le LLM peut produire des blocs sectoriels hors-schéma
+                # (vus dans son entraînement). On supprime tout bloc sectoriel
+                # qui n'est pas autorisé pour les presets ciblés. Les champs
+                # universels (synthese_marche, bareme_notation, etc.) sont
+                # toujours conservés.
+                data_parsee = _filtrer_hallucinations(
+                    data_parsee, codes_presets, verbose=verbose
+                )
+                # Garde-fou typo : normalise les préfixes de codes domaine
+                # (energia→energie, energy→energie) AVANT persistance, pour
+                # qu'aucune faute de frappe LLM ne casse silencieusement le
+                # matching (cf. BOAMP-26-56995 : domaine dominant perdu).
+                _normaliser_codes_domaines(data_parsee, verbose=verbose)
+                # Attache les méta d'appel au dict retourné. Le caller
+                # (tendia_extraire ou autre) peut récupérer ces infos et
+                # les déplacer dans son propre _meta.
+                data_parsee["_appel_llm"] = {
+                    "modele": MODELE,
+                    "tokens_input": in_tokens,
+                    "tokens_output": out_tokens,
+                    "cout_eur": cout_eur,
+                    "duree_sec": round(duree, 1),
+                    "codes_presets": codes_presets,  # 1E : remonté pour le _meta
+                }
+                # Succès : on log l'appel
+                _budget.enregistrer_appel(
+                    type_appel="extraction",
+                    cout_eur=cout_eur,
+                    statut="ok",
+                    marche_id=marche_id,
+                    tokens_input=in_tokens,
+                    tokens_output=out_tokens,
+                    duree_ms=int(duree * 1000),
+                    modele=MODELE,
+                )
+                return data_parsee
+
+            # JSON invalide : on retente ou on abandonne
+            if tentative < max_retries:
+                continue
+            if verbose:
+                print(f"  ❌ Réponse non-JSON après {max_retries} tentatives")
+                print(f"    Début réponse : {reponse_text[:500]}")
+            # Log de l'échec JSON (on a quand même payé les tokens)
+            _budget.enregistrer_appel(
+                type_appel="extraction",
+                cout_eur=cout_eur,
+                statut="erreur",
+                marche_id=marche_id,
+                tokens_input=in_tokens,
+                tokens_output=out_tokens,
+                duree_ms=int(duree * 1000),
+                modele=MODELE,
+                erreur="reponse_non_json",
+            )
+            return None
+        except Exception as e:
+            derniere_erreur = e
+            if verbose:
+                print(f"  ⚠ Erreur API (tentative {tentative}) : {e}")
+            if tentative < max_retries:
+                time.sleep(2)
+                continue
+            # Échec définitif : log erreur sans coût (l'appel a probablement
+            # échoué côté réseau, pas de tokens facturés)
+            _budget.enregistrer_appel(
+                type_appel="extraction",
+                cout_eur=0.0,
+                statut="erreur",
+                marche_id=marche_id,
+                modele=MODELE,
+                erreur=f"{type(e).__name__}: {e}",
+            )
+            return None
+    return None
+
+
+if __name__ == "__main__":
+    # Test rapide : envoie un texte court à Claude
+    texte_test = """RÈGLEMENT DE CONSULTATION
+    
+    Article 1 - Objet : Le présent marché a pour objet la fourniture de \
+    prestations d'insertion professionnelle de type Activ Seniors auprès de \
+    1500 demandeurs d'emploi de plus de 45 ans en Nouvelle-Aquitaine.
+    
+    Article 2 - Durée : 24 mois, reconductibles 1 fois 12 mois.
+    
+    Article 3 - Critères d'attribution :
+    - Valeur technique : 70 points
+      - Méthodologie pédagogique : 30 points
+      - Qualité de l'équipe : 25 points
+      - Adéquation au public : 15 points
+    - Valeur prix : 30 points
+    
+    Article 4 - Les candidats doivent justifier de Qualiopi Actions de \
+    formation et d'au moins 3 ans d'expérience dans l'accompagnement de \
+    seniors demandeurs d'emploi."""
+    contexte = {
+        "id": "test",
+        "titre": "Marché Activ Seniors test",
+        "acheteur": "France Travail Nouvelle-Aquitaine",
+    }
+    print("Test d'extraction LLM...")
+    res = extraire_via_llm(texte_test, contexte, verbose=True)
+    if res:
+        print()
+        print(json.dumps(res, ensure_ascii=False, indent=2))
+    else:
+        print("Échec.")

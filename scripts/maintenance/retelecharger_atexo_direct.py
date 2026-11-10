@@ -13,19 +13,16 @@ qualifiés via le chemin profond completeDownload.
 Usage : python retelecharger_atexo_direct.py [--oui] [--max N]
 """
 
-import os
-import sys
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 import argparse
 import sys
 from datetime import datetime
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
-import stockage
-import tendia_dce
-import atexo_downloader
-import tendia_telecharger_dce as T
+from tendia.core import stockage
+from tendia.dce import resolution as tendia_dce
+from tendia.dce import atexo_downloader
+from tendia.dce import telecharger as T
 
 
 def _cibles(max_n: int):

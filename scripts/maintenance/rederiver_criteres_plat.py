@@ -9,15 +9,13 @@ sous-critères ne sont pas pondérés). Mesure les alertes somme/pas_de_prix ava
 Usage : python scripts/rederiver_criteres_plat.py [--dry-run]
 """
 import argparse
-import os
 import sys
 from collections import Counter
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 
-import stockage
-import llm_extract as L
+from tendia.core import stockage
+from tendia.analyse import llm_extract as L
 
 
 def _flags(b):

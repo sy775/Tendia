@@ -12,17 +12,15 @@ mot-clé attendu n'apparaît pas comme un vrai mot dans l'alerte (= faux positif
 
 Usage : python scripts/audit_faux_criteres.py
 """
-import os
 import re
 import sys
 from collections import Counter, defaultdict
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 
-import stockage
-import organisme
-import matching_exigences
+from tendia.core import stockage
+from tendia.eligibilite import organisme
+from tendia.eligibilite import matching_exigences
 
 # Pour chaque famille de clé : mots attendus (en frontière de mot) dans l'alerte.
 ATTENDUS = {

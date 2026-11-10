@@ -10,9 +10,6 @@ marchés en échec à reprendre. Pas de Flask, juste la console.
 Usage : python tendia_monitoring.py [--jours N]
 """
 
-import os
-import sys
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 import argparse
 import sys
 from collections import Counter, defaultdict
@@ -20,8 +17,8 @@ from datetime import datetime
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
-import stockage
-import tendia_logs
+from tendia.core import stockage
+from tendia.core import logs as tendia_logs
 
 # Tarifs (cohérents avec retelecharger_aws_achat_anti_ban).
 COUT_BRIGHTDATA_USD_PAR_GB = 8.0

@@ -18,9 +18,6 @@ Usage typique après le patch Phase 2a :
     python relancer_dce_echecs.py                       # tous les échecs hors murs
 """
 
-import os
-import sys
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 
 import argparse
 import io
@@ -33,8 +30,8 @@ if sys.stdout.encoding and sys.stdout.encoding.lower() != "utf-8":
 
 import requests
 
-import stockage
-import tendia_telecharger_dce as tdce
+from tendia.core import stockage
+from tendia.dce import telecharger as tdce
 
 
 # Murs connus à exclure par défaut (pour éviter de re-tenter inutilement).

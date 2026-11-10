@@ -14,15 +14,12 @@ Bug visé : le crawler capturait parfois une URL côté ACHETEUR (`/agent/` ou
 Lancement : python tests_dce_finder.py
 """
 
-import os
-import sys
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import json
 import sys
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
-import dce_finder as D
+from tendia.dce import dce_finder as D
 
 ok = 0
 ko = 0

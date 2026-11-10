@@ -13,15 +13,13 @@ Usage : python scripts/decp/reprise_formats_perte.py [--sortie data/decp_reprise
 import argparse
 import collections
 import json
-import os
 import sqlite3
 import sys
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 
-import stockage
-from decp.parser_v2 import contrat_depuis_lignes
+from tendia.core import stockage
+from tendia.prix.decp.parser_v2 import contrat_depuis_lignes
 
 STAGING = "data/decp_reprise/staging.db"
 SOURCE = "decp_csv"

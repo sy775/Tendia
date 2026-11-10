@@ -4,13 +4,11 @@ tests/test_decp_classifier_cpv.py — Lancement : python tests/test_decp_classif
 Couvre la règle texte MOE (raffinement pattern 3) : objet « maîtrise d'œuvre »
 + CPV travaux (45xxx) → ingenierie (override le mapping CPV).
 """
-import os
 import sys
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from decp.classifier_cpv import classer_marche_cpv
+from tendia.prix.decp.classifier_cpv import classer_marche_cpv
 
 ok = ko = 0
 

@@ -1,13 +1,11 @@
 """
 tests/test_decp_parser_v2.py — Lancement : python tests/test_decp_parser_v2.py (hors ligne)
 """
-import os
 import sys
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from decp.parser_v2 import contrat_depuis_lignes, normaliser_identifiant, valider_siren
+from tendia.prix.decp.parser_v2 import contrat_depuis_lignes, normaliser_identifiant, valider_siren
 
 ok = ko = 0
 

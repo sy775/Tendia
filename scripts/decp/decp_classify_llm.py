@@ -9,7 +9,6 @@ Usage : python scripts/decp_classify_llm.py --plafond 50.0 [--limite N] [--dry-r
 Pattern progressif : --dry-run → --limite 100 → --limite 1000 → complet.
 """
 import argparse
-import os
 import sys
 import time
 from collections import Counter
@@ -17,10 +16,9 @@ from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timezone
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 
-from decp.db import connexion
-from decp.classifier_llm import classer_llm, BudgetTracker
+from tendia.prix.decp.db import connexion
+from tendia.prix.decp.classifier_llm import classer_llm, BudgetTracker
 
 CHUNK = 200
 WORKERS = 10

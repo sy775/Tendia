@@ -8,8 +8,6 @@ Lancement : python tests_dematis_downloader.py
 """
 
 import os
-import sys
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import os
 import shutil
 import sys
@@ -17,7 +15,7 @@ import tempfile
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
-import dematis_downloader as D
+from tendia.dce import dematis_downloader as D
 
 ok = 0
 ko = 0

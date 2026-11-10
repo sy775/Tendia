@@ -14,6 +14,7 @@ Produit `RAPPORT_DECP_EXPLORATION.md` à la racine du repo.
 
 Usage : python scripts/decp_explorer.py [--mois AAAA-MM] [--echantillon N]
 """
+from tendia.core.chemins import RACINE_DEPOT
 import argparse
 import json
 import os
@@ -22,17 +23,16 @@ from collections import Counter
 from datetime import date
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 
 import truststore  # noqa: E402
 truststore.inject_into_ssl()  # SSL via magasin système Windows (convention Tendia)
 
-from http_utils import get_json  # noqa: E402
+from tendia.core.http_utils import get_json  # noqa: E402
 
 RESSOURCE_ID = "22847056-61df-452d-837d-8b8ceadbfc52"
 API = f"https://tabular-api.data.gouv.fr/api/resources/{RESSOURCE_ID}/data/"
 RES_META = f"https://tabular-api.data.gouv.fr/api/resources/{RESSOURCE_ID}/"
-RAPPORT = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))),
+RAPPORT = os.path.join(str(RACINE_DEPOT),
                        "RAPPORT_DECP_EXPLORATION.md")
 
 # CPV des 6 presets Tendia (préfiltrage grossier, cf prompt sprint)

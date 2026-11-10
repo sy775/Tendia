@@ -5,13 +5,11 @@ Couvre l'extraction des ~31 champs d'enrichissement v2 (cf. docs/modules/marche.
 SECTION 1) sur des avis synthétiques eForms et legacy. 0 réseau.
 """
 import json
-import os
 import sys
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from connecteurs.boamp import extraire_champs_enrichissement
+from tendia.veille.connecteurs.boamp import extraire_champs_enrichissement
 
 ok = ko = 0
 

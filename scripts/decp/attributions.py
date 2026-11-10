@@ -22,12 +22,11 @@ import sys
 from datetime import date, datetime, timezone
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 
-import stockage
-from decp import db as decp_db
-from decp.matching import SEUIL_CANDIDAT, SEUIL_FORT, scorer_match
-from decp.sirene import departement_de, normaliser_nom
+from tendia.core import stockage
+from tendia.prix.decp import db as decp_db
+from tendia.prix.decp.matching import SEUIL_CANDIDAT, SEUIL_FORT, scorer_match
+from tendia.prix.decp.sirene import departement_de, normaliser_nom
 
 DOSSIER = "data/decp_reprise"
 AUJ = date.today().isoformat()
@@ -56,7 +55,7 @@ def _dept_marche(m):
     d = departement_de(str(m.get("acheteur_code_postal") or ""), "")
     if d:
         return d
-    import decp_comparables
+    from tendia.prix import decp_comparables
     return decp_comparables._dept_de({"perimetre_geographique": m.get("perimetre_geographique")})
 
 
@@ -146,7 +145,7 @@ def cmd_acheteurs(args):
 
 # ------------------------------------------------------------------ rapprocher
 def cmd_rapprocher(args):
-    import fiche_marche
+    from tendia.ui import fiche_marche
     con = _ro()
     marches = _marches(con)
     avis = {mid: m for mid, m in marches.items()

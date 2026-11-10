@@ -9,6 +9,7 @@ Critère GO Sprint DECP 3 : précision globale ≥ 85 % (sur 4 questions × 20 b
 
 Usage : python scripts/valider_extraction_v2.py [--dump]
 """
+from tendia.core.chemins import RACINE_DEPOT
 import argparse
 import csv
 import os
@@ -17,12 +18,11 @@ from collections import defaultdict
 from datetime import datetime
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 
-import stockage
-import tendia_telecharger_dce as T
+from tendia.core import stockage
+from tendia.dce import telecharger as T
 
-DATA = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), "data")
+DATA = os.path.join(str(RACINE_DEPOT), "data")
 
 
 def _a_gagne_b12(mid):

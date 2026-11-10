@@ -9,8 +9,6 @@ Usage : python retelecharger_xmarches.py [--oui] [--max N]
 """
 
 import os
-import sys
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 import argparse
 import os
 import sys
@@ -26,10 +24,10 @@ try:
 except Exception:
     pass
 
-import stockage
-import tendia_dce
-import xmarches_downloader as X
-import tendia_telecharger_dce as T
+from tendia.core import stockage
+from tendia.dce import resolution as tendia_dce
+from tendia.dce import xmarches_downloader as X
+from tendia.dce import telecharger as T
 
 MAX_MARCHES_PAR_RUN = 30
 RATE_LIMIT_SEC = 4

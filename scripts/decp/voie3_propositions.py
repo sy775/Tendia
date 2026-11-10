@@ -15,7 +15,6 @@ Usage : python scripts/decp/voie3_propositions.py [--n-backtest 400]
 """
 import argparse
 import json
-import os
 import random
 import re
 import statistics
@@ -23,10 +22,9 @@ import sys
 from datetime import date
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 
-import decp_comparables as DC
-import stockage
+from tendia.prix import decp_comparables as DC
+from tendia.core import stockage
 
 DEMI_VIE_ANS = 2.0
 SERIE_BT01 = "data/decp_reprise/brut/insee/bt01_sdmx.xml"
@@ -113,7 +111,7 @@ def main():
     bt01, dernier = charger_bt01()
     auj = date.today()
     ref = json.load(open("data/decp_reprise/voie3_avant.json", encoding="utf-8"))["resultats"]
-    import fiche_marche
+    from tendia.ui import fiche_marche
     print(f"BT01 : {len(bt01)} mois, dernier {dernier} = {bt01[dernier]}")
     print(f"\n(a) 20 briefs — médiane prod actuelle vs propositions")
     out_b = []

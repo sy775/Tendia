@@ -13,15 +13,12 @@ plus cas limites (aucun contact, email dans le champ nom).
 Lancement : python tests_boamp_contact.py
 """
 
-import os
-import sys
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import json
 import sys
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
-from connecteurs import boamp
+from tendia.veille.connecteurs import boamp
 
 ok = 0
 ko = 0

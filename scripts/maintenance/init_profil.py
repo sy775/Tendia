@@ -17,9 +17,6 @@ Workflow typique :
          python organisme.py --check
 """
 
-import os
-import sys
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 
 import argparse
 import io
@@ -30,7 +27,7 @@ from pathlib import Path
 # Force UTF-8 stdout pour compat cp1252 PowerShell
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
-import organisme
+from tendia.eligibilite import organisme
 
 
 def cmd_status():

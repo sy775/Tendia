@@ -15,6 +15,7 @@ Un verrou (fichier) empêche deux exécutions simultanées. Journal : data/decp_
 
 Lancement manuel : python scripts/decp/maj_hebdo.py [--sans-ia] [--dry-run]
 """
+from tendia.core.chemins import RACINE_DEPOT
 import argparse
 import contextlib
 import io
@@ -24,9 +25,8 @@ import sys
 import time
 from datetime import date, datetime, timedelta, timezone
 
-RACINE = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+RACINE = str(RACINE_DEPOT)
 os.chdir(RACINE)                      # lancé par le Planificateur de tâches : cwd quelconque
-sys.path.insert(0, RACINE)
 sys.path.insert(0, os.path.join(RACINE, "scripts", "decp"))
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
@@ -46,7 +46,7 @@ def _log(msg, f):
 
 def _date_reprise(etat):
     import sqlite3
-    import stockage
+    from tendia.core import stockage
     ref = etat.get("derniere_date_source")
     if not ref:
         con = sqlite3.connect(f"file:{stockage.chemin_db()}?mode=ro", uri=True)
@@ -69,10 +69,10 @@ def main():
     journal = open(os.path.join(DOSSIER, f"maj_{date.today().isoformat()}.log"), "a", encoding="utf-8")
     resume = {"debut": datetime.now(timezone.utc).isoformat(timespec="seconds")}
     try:
-        import budget
-        from decp import classif_batch as B
-        from decp import telecharger
-        from decp.ingest_v2 import ingerer_lignes_api
+        from tendia.core import budget
+        from tendia.prix.decp import classif_batch as B
+        from tendia.prix.decp import telecharger
+        from tendia.prix.decp.ingest_v2 import ingerer_lignes_api
         B.ENV = ENVELOPPE_HEBDO
 
         class A:   # arguments factices pour les commandes de classif_batch

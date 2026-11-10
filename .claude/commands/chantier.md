@@ -1,6 +1,6 @@
 Tu démarres le chantier $ARGUMENTS du dépôt Tendia.
 
-1. Lis CLAUDE.md, puis la section de ce chantier dans docs/BACKLOG.md.
+1. Lis CLAUDE.md, puis la section de ce chantier dans docs/03_BACKLOG.md.
 2. Lis les fichiers concernés. Ne modifie rien.
 3. Propose un plan : étapes numérotées, fichiers touchés par étape, critère de fin, risques. Attends la validation.
 4. Après validation : une étape = un commit. Tests à chaque étape.

@@ -17,6 +17,7 @@ en hors_perimetre → anomalie signalée (revue Younes).
 
 Usage : python scripts/decp_reclassify_pattern4.py [--dry-run] [--limite N] [--plafond 10.0]
 """
+from tendia.core.chemins import RACINE_DEPOT
 import argparse
 import csv
 import os
@@ -27,12 +28,11 @@ from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timezone
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 
-from decp.db import connexion
-from decp.classifier_llm import classer_llm, BudgetTracker, PROMPT_VERSION
+from tendia.prix.decp.db import connexion
+from tendia.prix.decp.classifier_llm import classer_llm, BudgetTracker, PROMPT_VERSION
 
-DATA = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), "data")
+DATA = os.path.join(str(RACINE_DEPOT), "data")
 CHUNK = 200
 WORKERS = 10
 COUT_ESTIME = 0.0006  # nouveau prompt plus long (~550 tok)

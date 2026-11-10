@@ -8,16 +8,13 @@ Pour chaque brief stocké en collection 'briefs_extraits' avec _meta.type=comple
 - Verdict : utile / partiel / vide
 """
 
-import os
-import sys
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 
 import io
 import sys
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
-import stockage
+from tendia.core import stockage
 
 
 def main():

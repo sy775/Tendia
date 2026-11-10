@@ -23,8 +23,6 @@ Usage : python reextraire_briefs_complet.py [--oui] [--limite N]
 """
 
 import os
-import sys
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 import argparse
 import os
 import sys
@@ -33,8 +31,8 @@ import sys
 # "I/O operation on closed file" en cascade d'imports sous Windows.
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
-import stockage
-import tendia_extraire
+from tendia.core import stockage
+from tendia.analyse import extraire as tendia_extraire
 
 
 def main():

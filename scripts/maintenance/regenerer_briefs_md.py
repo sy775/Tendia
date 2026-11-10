@@ -14,25 +14,22 @@ Usage :
     python regenerer_briefs_md.py --dry-run          # sans écrire
 """
 
-import os
-import sys
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
+from tendia.core.chemins import RACINE_DEPOT
 
 import argparse
 import io
 import json
 import sys
 from datetime import datetime
-from pathlib import Path
 
 if sys.stdout.encoding and sys.stdout.encoding.lower() != "utf-8":
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
-import stockage
-import tendia_extraire
+from tendia.core import stockage
+from tendia.analyse import extraire as tendia_extraire
 
 
-REPERTOIRE_BASE = Path(__file__).resolve().parents[2]
+REPERTOIRE_BASE = RACINE_DEPOT
 REPERTOIRE_RAPPORTS = REPERTOIRE_BASE / "rapports"
 REPERTOIRE_EXTRACTIONS = REPERTOIRE_BASE / "data" / "extractions"
 

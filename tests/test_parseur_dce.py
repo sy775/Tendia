@@ -6,8 +6,6 @@ Ne fait aucun appel réseau. Lancement : python tests_parseur_dce.py
 """
 
 import os
-import sys
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import io
 import os
 import sys
@@ -15,7 +13,7 @@ import tempfile
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
-import tendia_telecharger_dce as T
+from tendia.dce import telecharger as T
 
 ok = 0
 ko = 0
@@ -147,7 +145,7 @@ finally:
     T.trouver_parseur = _orig
 
 print("\n=== telecharger_pieces_dce branche Atexo (mock réseau) ===")
-import atexo_downloader as _ad
+from tendia.dce import atexo_downloader as _ad
 _orig_dl = _ad.telecharger_dce
 try:
     # Cas succès simulé

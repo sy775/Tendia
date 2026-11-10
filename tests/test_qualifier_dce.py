@@ -6,8 +6,6 @@ Lancement : python tests_qualifier_dce.py
 """
 
 import os
-import sys
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import io
 import os
 import sys
@@ -16,7 +14,7 @@ import zipfile
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
-import tendia_dce as T
+from tendia.dce import resolution as T
 
 
 def _dossier(fichiers: dict, zips: dict = None):

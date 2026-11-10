@@ -10,8 +10,6 @@ Rate-limit : 2 s entre marchés.
 """
 
 import os
-import sys
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 import io
 import os
 import shutil
@@ -22,10 +20,10 @@ from datetime import datetime
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
-import stockage
-import tendia_dce
-import http_humain
-import tendia_telecharger_dce as T
+from tendia.core import stockage
+from tendia.dce import resolution as tendia_dce
+from tendia.core import http_humain
+from tendia.dce import telecharger as T
 
 # Rate-limit randomisé (anti-ban léger, uniformisation). Atexo n'a pas montré
 # de ban : ~10 s en moyenne.

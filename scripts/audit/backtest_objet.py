@@ -15,7 +15,6 @@ Usage : python scripts/backtest_objet.py [--n 600] [--seed 42] [--topk 25]
 """
 import argparse
 import math
-import os
 import random
 import re
 import statistics
@@ -23,10 +22,9 @@ import sys
 from collections import defaultdict
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 
-import stockage
-import decp_comparables as DC
+from tendia.core import stockage
+from tendia.prix import decp_comparables as DC
 
 _STOP = set("de la le les des du un une et en a au aux pour sur par dans avec ou "
             "marche marches prestation prestations service services travaux fourniture "

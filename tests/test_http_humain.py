@@ -5,14 +5,11 @@ Tests HORS-LIGNE de http_humain (aucun réseau, time.sleep et random mockés).
 Lancement : python tests_http_humain.py
 """
 
-import os
-import sys
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import sys
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
-import http_humain as H
+from tendia.core import http_humain as H
 
 ok = 0
 ko = 0

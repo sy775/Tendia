@@ -5,16 +5,13 @@ Tests HORS-LIGNE du versioning des prompts (Chantier 1E).
 Lancement : python tests_briefs_versioning.py
 """
 
-import os
-import sys
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import re
 import sys
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
-import preset
-import briefs_versioning as BV
+from tendia.veille import preset
+from tendia.analyse import briefs_versioning as BV
 
 preset.recharger()
 

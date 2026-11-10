@@ -21,7 +21,6 @@ pour analyse hors-ligne.
 
 import argparse
 import io
-import os
 import re
 import sys
 from datetime import datetime
@@ -33,8 +32,7 @@ if sys.stdout.encoding and sys.stdout.encoding.lower() != "utf-8":
 
 import requests
 
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
-import tendia_telecharger_dce as t
+from tendia.dce import telecharger as t
 
 
 USER_AGENT = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
