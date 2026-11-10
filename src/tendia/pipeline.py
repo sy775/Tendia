@@ -1,30 +1,34 @@
 """
-tendia_pipeline.py
-------------------
+tendia.pipeline
+---------------
 Orchestrateur du pipeline Tendia COMPLET et AUTOMATIQUE.
 
 Une seule commande :
-    python tendia_pipeline.py
+    python -m tendia            (shim : python tendia_pipeline.py)
 
-Enchainement :
-1. tendia_recup            : récupère les nouveaux avis BOAMP + TED
-2. tendia_dce              : résout les URLs DCE (eForms + PLACE keyWord)
-3. tendia_telecharger_dce  : DCE connecteurs anonymes (PLACE, Atexo, achatpublic,
+Enchainement (7 étapes) :
+1. veille/recup            : récupère les nouveaux avis BOAMP
+2. veille/classification   : classification Haiku des marchés non classés (pré-filtre
+                             gratuit d'abord), plafonnée par --max-cout-classification
+3. dce/resolution          : résout les URLs DCE (eForms + PLACE keyWord)
+4. dce/telecharger         : DCE connecteurs anonymes (PLACE, Atexo, achatpublic,
                              e-marchespublics) — dossier complet via chemin profond
-4. connecteurs dédiés      : AWS-Achat + Dematis (captcha 2captcha + anti-ban),
-                             auto-limités aux heures de bureau et au cap --max-dedies
-5. tendia_extraire         : auto-dézip + extraction LLM (Claude Sonnet 4.6)
-6. génération rapport final marches_actifs_<date>.md
+5. connecteurs dédiés      : AWS-Achat + Dematis + xmarches (captcha 2captcha + anti-ban),
+                             auto-limités aux heures de bureau et au cap --max-dedies ;
+                             marches-securises (anonyme)
+6. analyse/extraire        : auto-dézip + extraction LLM (Claude Sonnet 4.6)
+7. génération rapport final marches_actifs_<date>.md
 
-Aucune intervention humaine.
+Aucune intervention humaine. Le proxy résidentiel est autorisé (TENDIA_PROXY_ACTIF=1).
 
 Options :
     --skip-recup       : passe l'étape récupération (utilise la base actuelle)
+    --skip-llm         : passe les étapes LLM (2 classification et 6 extraction)
+    --max-cout-classification EUR : plafond de coût de l'étape 2 (défaut: 5.0)
     --skip-download    : passe l'étape téléchargement DCE anonyme
     --skip-dedies      : passe les connecteurs dédiés à captcha (AWS, Dematis)
     --max-dedies N     : cap de marchés par connecteur dédié captcha (défaut: 15)
     --ignorer-heures   : lance les dédiés hors heures de bureau (tests)
-    --skip-llm         : passe l'étape extraction LLM (économiser des appels API)
     --jours N          : fenêtre marchés sans date limite (défaut: 60)
 """
 
@@ -56,7 +60,7 @@ def _est_actif(marche: dict, fenetre_jours: int = 60) -> bool:
         return False
 
 
-def _print_etape(num: int, titre: str, total: int = 6):
+def _print_etape(num: int, titre: str, total: int = 7):
     print()
     print("─" * 78)
     print(f"  [{num}/{total}]  {titre}")
@@ -87,16 +91,23 @@ def _executer_script(script_name: str, args: list[str] = None) -> bool:
 
 def main():
     os.environ.setdefault("TENDIA_PROXY_ACTIF", "1")  # proxy résidentiel autorisé (lanceur de téléchargements)
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
     parser = argparse.ArgumentParser(
-        description="Tendia — Pipeline complet automatique",
+        prog="python -m tendia",
+        description="Tendia — Pipeline complet automatique (7 étapes : récup, classification, "
+                    "résolution DCE, téléchargement anonyme, connecteurs dédiés, extraction "
+                    "LLM, rapport).",
         formatter_class=argparse.RawDescriptionHelpFormatter,
     )
     parser.add_argument("--skip-recup", action="store_true",
-                        help="Passe l'étape récupération BOAMP/TED")
+                        help="Passe l'étape récupération BOAMP")
     parser.add_argument("--skip-download", action="store_true",
                         help="Passe l'étape téléchargement PLACE")
     parser.add_argument("--skip-llm", action="store_true",
-                        help="Passe l'étape extraction LLM")
+                        help="Passe les étapes LLM : 2 (classification) et 6 (extraction)")
+    parser.add_argument("--max-cout-classification", type=float, default=5.0, metavar="EUR",
+                        help="Plafond de coût de l'étape 2, transmis à classification "
+                             "--max-cout (défaut: 5.0)")
     parser.add_argument("--force", action="store_true",
                         help="Force la re-extraction LLM même si déjà fait")
     parser.add_argument("--jours", type=int, default=60,
@@ -119,32 +130,41 @@ def main():
     print()
     print("=" * 78)
 
-    # === Étape 1 : Récupération BOAMP + TED ===
+    # === Étape 1 : Récupération BOAMP ===
     if args.skip_recup:
-        print("\n  [1/6]  Récupération BOAMP/TED  →  SKIPPÉ (--skip-recup)")
+        print("\n  [1/7]  Récupération BOAMP  →  SKIPPÉ (--skip-recup)")
     else:
-        _print_etape(1, "Récupération avis BOAMP + TED")
+        _print_etape(1, "Récupération avis BOAMP")
         # --large : ingestion SANS filtre acheteur (tous les avis, pas seulement
         # France Travail/Pôle Emploi, legacy du ciblage historique).
         # --differentiel : borne à la dernière date connue → on ne re-balaie pas
         # les 6 mois complets à chaque passe (sinon 60k+ avis).
         _executer_script(str(RACINE_DEPOT / "src/tendia/veille/recup.py"), ["--large", "--differentiel"])
 
-    # === Étape 2 : Résolution URLs DCE ===
-    _print_etape(2, "Résolution URLs DCE (eForms + PLACE keyWord)")
+    # === Étape 2 : Classification (Haiku, plafonnée) ===
+    if args.skip_llm:
+        print("\n  [2/7]  Classification LLM  →  SKIPPÉ (--skip-llm)")
+    else:
+        _print_etape(2, f"Classification des marchés non classés (Haiku, plafond "
+                        f"{args.max_cout_classification:.2f} €)")
+        _executer_script(str(RACINE_DEPOT / "src/tendia/veille/classification.py"),
+                         ["--max-cout", str(args.max_cout_classification)])
+
+    # === Étape 3 : Résolution URLs DCE ===
+    _print_etape(3, "Résolution URLs DCE (eForms + PLACE keyWord)")
     _executer_script(str(RACINE_DEPOT / "src/tendia/dce/resolution.py"), ["--jours", str(args.jours)])
 
-    # === Étape 3 : Téléchargement DCE — connecteurs anonymes (sans captcha) ===
+    # === Étape 4 : Téléchargement DCE — connecteurs anonymes (sans captcha) ===
     # Couvre PLACE, Atexo (+ marques blanches), achatpublic, e-marchespublics via
     # le chemin profond (dossier complet en une passe). AWS/Dematis sont EXCLUS ici
-    # (captcha + pacing) → traités à l'étape 4.
+    # (captcha + pacing) → traités à l'étape 5.
     if args.skip_download:
-        print("\n  [3/6]  Téléchargement DCE (anonyme)  →  SKIPPÉ (--skip-download)")
+        print("\n  [4/7]  Téléchargement DCE (anonyme)  →  SKIPPÉ (--skip-download)")
     else:
-        _print_etape(3, "Téléchargement DCE — PLACE / Atexo / achatpublic / e-marchespublics")
+        _print_etape(4, "Téléchargement DCE — PLACE / Atexo / achatpublic / e-marchespublics")
         _executer_script(str(RACINE_DEPOT / "src/tendia/dce/telecharger.py"))
 
-    # === Étape 4 : Connecteurs DCE dédiés ===
+    # === Étape 5 : Connecteurs DCE dédiés ===
     # Deux familles :
     #  • CAPTCHA (AWS-Achat, Dematis, xmarches) : exigent 2captcha + pacing anti-ban
     #    (heures de bureau, cap --max-dedies).
@@ -152,9 +172,9 @@ def main():
     #    désambiguïsation acheteur ; quota par IP battu par rotation proxy. Pas de
     #    contrainte horaire, cap plus large (cibles ~30).
     if args.skip_dedies:
-        print("\n  [4/6]  Connecteurs DCE dédiés  →  SKIPPÉ (--skip-dedies)")
+        print("\n  [5/7]  Connecteurs DCE dédiés  →  SKIPPÉ (--skip-dedies)")
     else:
-        _print_etape(4, "Connecteurs DCE dédiés (captcha : AWS/Dematis/xmarches ; anonyme : marches-securises)")
+        _print_etape(5, "Connecteurs DCE dédiés (captcha : AWS/Dematis/xmarches ; anonyme : marches-securises)")
         extra = ["--oui", "--max", str(args.max_dedies)]
         if args.ignorer_heures:
             extra.append("--ignorer-heures")
@@ -165,16 +185,16 @@ def main():
         _executer_script(str(RACINE_DEPOT / "scripts/maintenance/retelecharger_marches_securises.py"),
                          ["--oui", "--max", str(max(args.max_dedies, 40))])
 
-    # === Étape 5 : Extraction LLM ===
+    # === Étape 6 : Extraction LLM ===
     if args.skip_llm:
-        print("\n  [5/6]  Extraction LLM  →  SKIPPÉ (--skip-llm)")
+        print("\n  [6/7]  Extraction LLM  →  SKIPPÉ (--skip-llm)")
     else:
-        _print_etape(5, "Extraction LLM des DCE (Claude Sonnet 4.6)")
+        _print_etape(6, "Extraction LLM des DCE (Claude Sonnet 4.6)")
         args_extract = ["--force"] if args.force else []
         _executer_script(str(RACINE_DEPOT / "src/tendia/analyse/extraire.py"), args_extract)
 
-    # === Étape 6 : Rapport final ===
-    _print_etape(6, "Génération du rapport final")
+    # === Étape 7 : Rapport final ===
+    _print_etape(7, "Génération du rapport final")
     _executer_script(str(RACINE_DEPOT / "src/tendia/dce/resolution.py"), ["--jours", str(args.jours),
                                          "--rapport-seul"])
 
