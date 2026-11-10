@@ -59,3 +59,11 @@ Thumbs.db
 .DS_Store
 __MACOSX/
 ~$*
+
+# archive/ : fichiers mis de côté (chantier 0a), seuls le README et le rapport sont suivis
+archive/*
+!archive/README.md
+!archive/RAPPORT_0a.md
+
+# Briefs générés par tendia_extraire.py (sorties, pas du code)
+rapports/brief_*.md
