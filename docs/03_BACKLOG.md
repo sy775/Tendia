@@ -8,7 +8,7 @@ Un chantier = une session Claude Code, un objectif, un critère de fin vérifiab
 |---|---|---|---|
 | 0a | Dépôt propre : git, archive, tests regroupés | **Terminé le 2026-11-10** (902 → 313 fichiers) | |
 | 0b | Structure `src/tendia/`, `CLAUDE.md`, branche `main`, 2 régressions de 0a | **Terminé le 2026-11-10**, réserve : `test_aws_downloader` et `test_qualifier_dce` périmés (antérieurs à 0b), repris en étape 1 du chantier 1 | 0a |
-| 1 | Redémarrer la chaîne LLM : classification dans le pipeline, rattrapage BTP d'octobre | **Terminé le 2026-11-11**, coût réel 17,95 € | 0b |
+| 1 | Redémarrer la chaîne LLM | **Terminé le 2026-11-10**, 17,95 € (classification 10,85, briefs 7,10) ; 14 briefs BTP d'octobre ; 3 majeurs de AUDIT_1 repris en étape 0 du chantier 2 | 0b |
 | 2 | Promouvoir le mode document en prod (lecture exhaustive des DCE) | À faire, **en attente d'une décision** (cf. questions ouvertes) | 1 |
 | 3 | Dossier manuel sur un marché BTP réel, puis agent d'assemblage | À faire | 2 |
 | 4 | Coffre-fort entreprise | À faire | 3 |
@@ -42,6 +42,10 @@ Un chantier = une session Claude Code, un objectif, un critère de fin vérifiab
 - Résultat : 1 757 marchés classés, 235 rejetés, 14 briefs BTP, coût 17,95 € (voir archive/RAPPORT_1.md).
 
 ### 2 : lecture exhaustive des DCE
+- Étape 0 (hygiène post-1) : `llm_extract` journalisé par `budget.journaliser_appel` y compris les relances JSON ; tests sur la journalisation de `llm_calibration` et sur `extraire.plafond_atteint` / `cout_du_resultat` ; `telecharger.main` en écriture unitaire ; `--max-cout 0` bloque au lieu de désactiver ; `TENDIA_PROXY_ACTIF` interdit dans `.env` (`.env.example`, CLAUDE.md) ; docs « 6 étapes » / « classification hors pipeline » corrigées ; tests sans écriture dans `logs/`.
+- Plafond mensuel novembre : 45 € (décision du 2026-11-11), retour à 30 € en décembre.
+- 5 DCE de référence : les 3 marchés sans PDF lisible du rapport 1 (102749, 104121, 103934) + 2 briefs réussis à comparer.
+- Reste du rattrapage BTP : 10 marchés à DCE complet sans brief, ~5 €, à lancer après la promotion du mode document.
 - Promouvoir `exp_gemini/pieces.py` (inventaire récursif, conversion .doc/.xls/.odt/.rtf, pages) et `mode_document.py` dans `src/tendia/analyse/`.
 - Promouvoir `llm_router.py` comme client LLM unique (remplacer les 6 `Anthropic()` directs).
 - Décider du modèle d'analyse par défaut (cf. questions ouvertes).
@@ -79,3 +83,4 @@ Un chantier = une session Claude Code, un objectif, un critère de fin vérifiab
 2. **`exp_gemini/`** : expérimentation à archiver ou code à promouvoir ? Le rapport d'architecture recommande la promotion de `pieces.py`, `mode_document.py` et `llm_router.py`.
 3. **Branche par défaut** : `main` créée depuis `feat/decp-sprint-3` ? (recommandé)
 4. **Hébergement** : rien n'est planifié ; le coffre-fort (chantier 4) suppose un serveur. Linux chez Hetzner comme pour BOTBILLET ?
+5. Avis `RECTIFICATIF` (121) et `ANNULATION` (3) : rejet au pré-filtre avec rattachement au marché d'origine, ou classification comme aujourd'hui (≈ 0,75 € par mois d'ingestion) ? Recommandation : rejet + rattachement, à faire au chantier 7 avec le suivi des attributions ; d'ici là, laisser classer.
