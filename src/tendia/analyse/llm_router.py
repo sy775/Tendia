@@ -1,29 +1,31 @@
 """
 llm_router.py
 -------------
-Couche d'abstraction des modèles LLM (expérimentation Gemini vs Claude).
+Client LLM unique de Tendia (Claude et Gemini).
 
-    call_llm(task, prompt, documents=None, model=None, system=..., ...) -> LLMResult
+    call_llm(task, prompt, documents=None, model=None, *, type_appel, marche_id=None,
+             system=..., ...) -> LLMResult
 
-- `task`      : "classif" | "analyse" (choisit le modèle par défaut + timeout).
-- `prompt`    : texte utilisateur (identique à celui du pipeline Claude).
-- `documents` : chemins de fichiers à joindre nativement (PDF). Gemini : upload
-                via la Files API ; Claude : blocs `document` base64.
-- `model`     : id complet ("gemini-…", "claude-…") ou alias "gemini"/"claude"
-                (résolu selon la tâche : GEMINI_MODEL_CLASSIF / GEMINI_MODEL_ANALYSE,
-                CLAUDE_MODEL_CLASSIF / CLAUDE_MODEL_ANALYSE).
+- `task`       : "classif" | "analyse" (modèle par défaut, timeout, max_tokens).
+- `type_appel` : type budgétaire (budget.TYPES_VALIDES) ; obligatoire.
+- `prompt`     : texte utilisateur.
+- `documents`  : chemins de PDF à joindre nativement (Gemini : Files API ;
+                 Claude : blocs `document` base64).
+- `model`      : id complet ("gemini-…", "claude-…") ou alias "gemini"/"claude"
+                 (résolu selon la tâche). Un id complet est respecté tel quel.
+
+Garde-fous, appliqués ici pour tous les appelants :
+- avant chaque tentative : budget.verifier_kill_switch(type_appel) ;
+- après chaque tentative : budget.journaliser_appel (llm_appels), coût compris ;
+- tâche "analyse" sans modèle explicite : repli sur `repli.analyse` de
+  config_llm.yaml (Sonnet 4.6) si le modèle par défaut échoue, statut « repli ».
 
 Configuration :
-- .env : GEMINI_API_KEY, GEMINI_MODEL_CLASSIF, GEMINI_MODEL_ANALYSE
-         (ANTHROPIC_API_KEY pour Claude, déjà présente).
-- config_llm.yaml : tarifs par modèle, rate limits, timeouts, retries.
-
-Le pipeline de production (tendia_classification, llm_extract) N'UTILISE PAS ce
-module : il reste strictement inchangé. Seuls les scripts d'expérimentation
-(batch_gemini_batiment.py, compare_models.py) passent par ici.
+- .env : GEMINI_API_KEY, ANTHROPIC_API_KEY, GEMINI_MODEL_CLASSIF, GEMINI_MODEL_ANALYSE.
+- config_llm.yaml : modèles par défaut, tarifs (datés), rate limits, timeouts, retries.
 
 CLI :
-    python llm_router.py --lister-modeles      # modèles Gemini disponibles via l'API
+    python -m tendia.analyse.llm_router --lister-modeles
 """
 
 import base64
@@ -35,6 +37,7 @@ import sys
 import threading
 import time
 from dataclasses import asdict, dataclass, field
+from datetime import date as _date, datetime, timezone
 from pathlib import Path
 from typing import Callable, Optional
 
@@ -48,6 +51,7 @@ try:
 except Exception:
     pass
 
+from tendia.core import budget
 from tendia.core.chemins import RACINE_DEPOT
 
 RACINE = RACINE_DEPOT
@@ -114,13 +118,40 @@ def fournisseur(modele: str) -> str:
     raise ValueError(f"Fournisseur inconnu pour le modèle {modele!r}")
 
 
-def estimer_cout_eur(modele: str, tokens_in: int, tokens_out: int) -> Optional[float]:
-    """Coût en EUR d'après config_llm.yaml (tokens_out inclut les tokens de réflexion).
+def _jour(date=None) -> _date:
+    """date, datetime ou chaîne ISO → date ; None → aujourd'hui (UTC)."""
+    if date is None:
+        return datetime.now(timezone.utc).date()
+    if isinstance(date, datetime):
+        return date.date()
+    if isinstance(date, _date):
+        return date
+    return _date.fromisoformat(str(date)[:10])
+
+
+def tarif_usd(modele: str, date=None) -> Optional[dict]:
+    """Tarif (USD par million) du modèle à la date de l'appel. `paliers_dates` :
+    liste de {a_partir_du: AAAA-MM-JJ, input, output, ...} ; le dernier palier
+    dont la date est atteinte remplace les valeurs de base."""
+    tarifs = (config().get("tarifs_usd_par_million") or {}).get(modele)
+    if not tarifs:
+        return None
+    effectif = {k: v for k, v in tarifs.items() if k != "paliers_dates"}
+    jour = _jour(date)
+    for palier in sorted(tarifs.get("paliers_dates") or [], key=lambda p: str(p["a_partir_du"])):
+        if jour >= _jour(palier["a_partir_du"]):
+            effectif.update({k: v for k, v in palier.items() if k != "a_partir_du"})
+    return effectif
+
+
+def estimer_cout_eur(modele: str, tokens_in: int, tokens_out: int, date=None) -> Optional[float]:
+    """Coût en EUR d'après config_llm.yaml (tokens_out inclut les tokens de réflexion),
+    au tarif en vigueur à `date` (défaut : aujourd'hui).
 
     Gère les tarifs par paliers (ex. Gemini Pro : prix plus élevé au-delà de
     `seuil_long_contexte` tokens d'entrée). None si le modèle n'a pas de tarif.
     """
-    tarifs = (config().get("tarifs_usd_par_million") or {}).get(modele)
+    tarifs = tarif_usd(modele, date)
     if not tarifs:
         return None
     long_ctx = tarifs.get("seuil_long_contexte")
@@ -159,6 +190,10 @@ class LLMResult:
     sortie_tronquee: bool = False          # arrêt sur la limite de tokens de sortie (≠ erreur du modèle)
     relance_reflexion_reduite: bool = False
     reflexion: Optional[str] = None        # réglage de réflexion appliqué (relance), ex. "budget=16000"
+    modele_demande: Optional[str] = None   # modèle initial (≠ modele après un repli)
+    repli: bool = False                    # True si la réponse vient du modèle de repli
+    cout_total_eur: float = 0.0            # somme de toutes les tentatives de cet appel call_llm
+    appels: list = field(default_factory=list)   # une entrée par tentative journalisée
 
     def to_dict(self) -> dict:
         d = asdict(self)
@@ -340,7 +375,8 @@ def _uploader_pdf_gemini(chemin: str, verbose: bool):
 
 def _appel_gemini(res: LLMResult, prompt: str, system: Optional[str], documents: list,
                   max_tokens: int, json_mode: bool, timeout_s: int, verbose: bool,
-                  budget_tokens_entree: Optional[int] = None, reflexion: Optional[dict] = None) -> None:
+                  budget_tokens_entree: Optional[int] = None, reflexion: Optional[dict] = None,
+                  options: Optional[dict] = None) -> None:
     from google.genai import types
     client = _client_gemini()
     fichiers = []
@@ -381,6 +417,7 @@ def _appel_gemini(res: LLMResult, prompt: str, system: Optional[str], documents:
             response_mime_type="application/json" if json_mode else None,
             http_options=types.HttpOptions(timeout=timeout_s * 1000),
             thinking_config=types.ThinkingConfig(**reflexion) if reflexion else None,
+            **(options or {}),
         )
         debut = time.time()
         rep = _avec_retries(lambda: client.models.generate_content(
@@ -403,16 +440,26 @@ def _appel_gemini(res: LLMResult, prompt: str, system: Optional[str], documents:
 
 
 # ---------------------------------------------------------------------------
-# Backend Claude (SDK anthropic) — pour symétrie ; le pipeline de prod ne l'utilise pas
+# Backend Claude (SDK anthropic)
 # ---------------------------------------------------------------------------
+
+def _client_claude(timeout_s: int):
+    """Seule instanciation du SDK Anthropic de Tendia."""
+    charger_env()
+    try:
+        from anthropic import Anthropic
+    except ImportError:
+        raise _ErreurNonRetentable("SDK anthropic absent (pip install anthropic)")
+    if not os.environ.get("ANTHROPIC_API_KEY"):
+        raise _ErreurNonRetentable("ANTHROPIC_API_KEY introuvable (.env)")
+    return Anthropic(timeout=timeout_s, max_retries=0)
+
 
 def _appel_claude(res: LLMResult, prompt: str, system: Optional[str], documents: list,
                   max_tokens: int, json_mode: bool, timeout_s: int, verbose: bool,
-                  budget_tokens_entree: Optional[int] = None, reflexion: Optional[dict] = None) -> None:
-    from tendia.analyse import llm_extract
-    llm_extract._check_anthropic()
-    from anthropic import Anthropic
-    client = Anthropic(timeout=timeout_s, max_retries=0)
+                  budget_tokens_entree: Optional[int] = None, reflexion: Optional[dict] = None,
+                  options: Optional[dict] = None) -> None:
+    client = _client_claude(timeout_s)
     contenu = []
     for chemin in documents or []:
         with open(chemin, "rb") as f:
@@ -426,6 +473,7 @@ def _appel_claude(res: LLMResult, prompt: str, system: Optional[str], documents:
     effort = (config().get("effort_claude") or {}).get(res.modele)
     if effort:
         extra["output_config"] = {"effort": effort}
+    extra.update(options or {})   # options de l'appelant transmises telles quelles
 
     def _go():
         with client.messages.stream(model=res.modele, max_tokens=max_tokens,
@@ -441,7 +489,6 @@ def _appel_claude(res: LLMResult, prompt: str, system: Optional[str], documents:
     res.finish_reason = msg.stop_reason
     res.texte = "".join(b.text for b in msg.content if getattr(b, "type", "") == "text")
     if msg.stop_reason == "refusal":
-        # Pas de fallback serveur : la comparaison doit rester sur le modèle demandé.
         det = getattr(msg, "stop_details", None)
         raise _ErreurNonRetentable(f"refus du modèle ({getattr(det, 'category', None)})")
 
@@ -450,36 +497,78 @@ def _appel_claude(res: LLMResult, prompt: str, system: Optional[str], documents:
 # Point d'entrée unique
 # ---------------------------------------------------------------------------
 
+RAPPEL_JSON = ("\n\nATTENTION : ta réponse précédente n'était pas un JSON "
+               "valide. Renvoie UNIQUEMENT un objet JSON strictement valide.")
+
+
+def modele_repli(task: str) -> Optional[str]:
+    """Modèle de repli de la tâche (config_llm.yaml › repli), ou None."""
+    return (config().get("repli") or {}).get(task)
+
+
+def _journaliser(res: LLMResult, type_appel: str, marche_id: Optional[str], statut: str) -> None:
+    """Une entrée llm_appels par tentative (ne lève jamais : budget.journaliser_appel)."""
+    extra = {k: v for k, v in (("task", res.task), ("prompt_version", res.prompt_version),
+                               ("tokens_reflexion", res.tokens_reflexion or None),
+                               ("reflexion", res.reflexion), ("finish_reason", res.finish_reason))
+             if v}
+    budget.journaliser_appel(
+        type_appel, res.cout_eur or 0.0, statut=statut, marche_id=marche_id,
+        tokens_input=res.tokens_in, tokens_output=res.tokens_out,
+        duree_ms=int((res.duree_s or 0) * 1000), modele=res.modele,
+        erreur=(res.erreur or None) and res.erreur[:300], extra=extra or None)
+
+
 def call_llm(task: str, prompt: str, documents: Optional[list] = None,
-             model: Optional[str] = None, *, system: Optional[str] = None,
+             model: Optional[str] = None, *, type_appel: str,
+             marche_id: Optional[str] = None, system=None,
              max_tokens: Optional[int] = None, json_mode: bool = True,
+             relance_json: Optional[bool] = None, options: Optional[dict] = None,
              prompt_version: Optional[str] = None,
              budget_tokens_entree: Optional[int] = None,
-             journal: Optional[Callable[[LLMResult], None]] = None,
              verbose: bool = False) -> LLMResult:
     """Appelle le modèle choisi et renvoie un LLMResult (jamais d'exception API :
     l'erreur est portée par `res.erreur`, `res.ok=False`).
 
-    Le JSON de la réponse est parsé (`res.json`) avec la même tolérance que le
-    pipeline Claude. `budget_tokens_entree` (Gemini + documents) : les derniers PDF sont
-    retirés tant que l'entrée dépasse ce nombre de tokens. `journal(res)` est appelé après chaque appel (succès ou échec).
-    """
-    modele = resoudre_modele(task, model)
-    prov = fournisseur(modele)
-    tcfg = (config().get("taches") or {}).get(task) or {}
-    max_tokens = max_tokens or int(tcfg.get(f"max_tokens_{prov}", tcfg.get("max_tokens", 8000)))
-    timeout_s = int(tcfg.get("timeout_s", 120))
+    Budget : `budget.verifier_kill_switch(type_appel)` avant chaque tentative (lève
+    budget.BudgetDepasseError) ; chaque tentative est journalisée dans llm_appels
+    (« ok », « erreur », ou « repli » pour l'appel de repli). `res.cout_total_eur`
+    cumule toutes les tentatives, `res.appels` les détaille.
 
-    def _tentative(reflexion=None) -> LLMResult:
+    `json_mode` : la réponse est parsée (`res.json`) ; si elle n'est pas un objet
+    JSON, une relance avec rappel de format quand `relance_json` (défaut : oui pour
+    "analyse", non pour "classif"). `options` : paramètres du fournisseur transmis
+    tels quels (température…) ; `system` peut être une liste de blocs (cache de prompt).
+    `budget_tokens_entree` (Gemini + documents) : les derniers PDF sont retirés tant
+    que l'entrée dépasse ce nombre de tokens.
+
+    Repli : tâche avec `repli.<task>` dans config_llm.yaml et modèle non explicite
+    (None ou alias) ; si le modèle par défaut finit en échec, un appel au modèle de
+    repli. `res.modele` est le modèle réellement utilisé.
+    """
+    if type_appel not in budget.TYPES_VALIDES:
+        raise ValueError(f"type_appel inconnu : {type_appel!r} (attendu : {sorted(budget.TYPES_VALIDES)})")
+    modele_explicite = model is not None and model.strip() not in ("gemini", "claude")
+    modele_initial = resoudre_modele(task, model)
+    tcfg = (config().get("taches") or {}).get(task) or {}
+    timeout_s = int(tcfg.get("timeout_s", 120))
+    if relance_json is None:
+        relance_json = task == "analyse"
+    historique = []
+
+    def _tentative(modele: str, texte_prompt: str, reflexion=None, statut_force=None) -> LLMResult:
+        budget.verifier_kill_switch(type_appel)
+        prov = fournisseur(modele)
+        plafond_sortie = max_tokens or int(tcfg.get(f"max_tokens_{prov}", tcfg.get("max_tokens", 8000)))
         res = LLMResult(ok=False, task=task, fournisseur=prov, modele=modele,
-                        prompt_version=prompt_version)
+                        prompt_version=prompt_version, modele_demande=modele_initial)
         if reflexion:
             res.reflexion = ",".join(f"{k}={v}" for k, v in reflexion.items())
         debut = time.time()
         try:
             backend = _appel_gemini if prov == "gemini" else _appel_claude
-            backend(res, prompt, system, documents or [], max_tokens, json_mode, timeout_s, verbose,
-                    budget_tokens_entree, reflexion)
+            backend(res, texte_prompt, system, documents or [], plafond_sortie, json_mode, timeout_s,
+                    verbose, budget_tokens_entree, reflexion, options)
             res.cout_eur = estimer_cout_eur(modele, res.tokens_in, res.tokens_out)
             res.sortie_tronquee = (res.finish_reason or "").upper() in ("MAX_TOKENS", "MAX_TOKENS_REACHED")
             if json_mode:
@@ -492,41 +581,57 @@ def call_llm(task: str, prompt: str, documents: Optional[list] = None,
             res.ok = res.erreur is None
         except Exception as e:
             res.erreur = f"{type(e).__name__}: {str(e)[:500]}"
-            res.duree_s = res.duree_s or round(time.time() - debut, 2)
             res.cout_eur = estimer_cout_eur(modele, res.tokens_in, res.tokens_out) or 0.0
+        res.duree_s = res.duree_s or round(time.time() - debut, 2)
         if verbose:
             etat = "✓" if res.ok else f"✗ {res.erreur}"
             cout = f"{res.cout_eur:.4f} €" if res.cout_eur is not None else "? €"
             print(f"    ← {modele} {res.duree_s:.1f}s · {res.tokens_in}+{res.tokens_out} tok · {cout} {etat}")
-        if journal:
-            try:
-                journal(res)
-            except Exception as e:
-                print(f"    ⚠ journalisation impossible : {e}")
+        statut = statut_force or ("ok" if res.ok else "erreur")
+        _journaliser(res, type_appel, marche_id, statut)
+        historique.append({"modele": modele, "statut": statut, "cout_eur": res.cout_eur or 0.0,
+                           "tokens_in": res.tokens_in, "tokens_out": res.tokens_out,
+                           "duree_s": res.duree_s, "erreur": res.erreur})
         return res
 
-    res = _tentative()
-    # Gemini arrêté sur la limite de sortie (souvent mangée par la réflexion) : UNE relance avec un
-    # budget de réflexion réduit pour laisser la place au JSON. Repli sur thinking_level=LOW si le
-    # modèle refuse thinking_budget.
-    if prov == "gemini" and res.sortie_tronquee and not res.ok:
-        budget = int((config().get("gemini_relance_max_tokens") or {}).get("thinking_budget", 16000))
-        # Toujours affiché : l'événement doit être visible même sans --verbose.
-        print(f"      ⚠ {modele} : sortie tronquée (MAX_TOKENS, {res.tokens_reflexion} tokens de réflexion) "
-              f"→ relance avec thinking_budget={budget}", flush=True)
-        r2 = _tentative({"thinking_budget": budget})
-        if not r2.ok and r2.erreur and "thinking" in r2.erreur.lower() and not r2.sortie_tronquee:
-            r2 = _tentative({"thinking_level": "LOW"})
-        r2.relance_reflexion_reduite = True
-        if not r2.ok and r2.sortie_tronquee:
-            r2.erreur = "sortie_tronquee_max_tokens (après relance à réflexion réduite)"
-        res = r2
+    def _serie(modele: str, statut_force=None) -> LLMResult:
+        """Une tentative, puis au plus une relance MAX_TOKENS (Gemini) ou une relance JSON."""
+        res = _tentative(modele, prompt, statut_force=statut_force)
+        # Gemini arrêté sur la limite de sortie (souvent mangée par la réflexion) : UNE relance avec un
+        # budget de réflexion réduit pour laisser la place au JSON. Repli sur thinking_level=LOW si le
+        # modèle refuse thinking_budget.
+        if fournisseur(modele) == "gemini" and res.sortie_tronquee and not res.ok:
+            budget_reflexion = int((config().get("gemini_relance_max_tokens") or {}).get("thinking_budget", 16000))
+            # Toujours affiché : l'événement doit être visible même sans --verbose.
+            print(f"      ⚠ {modele} : sortie tronquée (MAX_TOKENS, {res.tokens_reflexion} tokens de réflexion) "
+                  f"→ relance avec thinking_budget={budget_reflexion}", flush=True)
+            r2 = _tentative(modele, prompt, {"thinking_budget": budget_reflexion}, statut_force)
+            if not r2.ok and r2.erreur and "thinking" in r2.erreur.lower() and not r2.sortie_tronquee:
+                r2 = _tentative(modele, prompt, {"thinking_level": "LOW"}, statut_force)
+            r2.relance_reflexion_reduite = True
+            if not r2.ok and r2.sortie_tronquee:
+                r2.erreur = "sortie_tronquee_max_tokens (après relance à réflexion réduite)"
+            res = r2
+        elif (json_mode and relance_json and not res.ok
+              and (res.erreur or "").startswith("reponse_non_json")):
+            res = _tentative(modele, prompt + RAPPEL_JSON, statut_force=statut_force)
+        return res
+
+    res = _serie(modele_initial)
+    repli = None if modele_explicite else modele_repli(task)
+    if not res.ok and repli and repli != modele_initial:
+        print(f"      ⚠ {modele_initial} en échec ({(res.erreur or '')[:80]}) → repli sur {repli}", flush=True)
+        # UN seul appel de repli : ni relance JSON ni relance MAX_TOKENS.
+        res = _tentative(repli, prompt, statut_force="repli")
+        res.repli = True
+    res.appels = historique
+    res.cout_total_eur = round(sum(a["cout_eur"] for a in historique), 6)
     return res
 
 
 if __name__ == "__main__":
     import argparse
-    ap = argparse.ArgumentParser(description="Routeur LLM Claude/Gemini (expérimentation).")
+    ap = argparse.ArgumentParser(description="Routeur LLM Claude/Gemini.")
     ap.add_argument("--lister-modeles", action="store_true",
                     help="Liste les modèles Gemini disponibles pour la clé GEMINI_API_KEY.")
     args = ap.parse_args()

@@ -476,14 +476,27 @@ def statistiques_mois(mois: Optional[str] = None) -> dict:
 # Estimation de coût (préalable à un appel LLM)
 # ---------------------------------------------------------------------------
 #
-# Tarifs Anthropic Claude Sonnet 4 (à jour mi-2025) :
+# Tarifs Anthropic Claude Sonnet 4.6 :
 # - Input  : $3 / 1M tokens
 # - Output : $15 / 1M tokens
-# Convertit en EUR avec un taux de change conservateur 1 USD = 0.95 EUR.
+# Taux USD → EUR : source unique config_llm.yaml (taux_usd_eur), lu aussi par llm_router.
 
 PRIX_USD_PAR_1M_INPUT = 3.0
 PRIX_USD_PAR_1M_OUTPUT = 15.0
-TAUX_USD_EUR = 0.95
+TAUX_USD_EUR_DEFAUT = 0.92
+
+
+def taux_usd_eur() -> float:
+    """Taux de config_llm.yaml (clé taux_usd_eur) ; TAUX_USD_EUR_DEFAUT si illisible."""
+    try:
+        import yaml
+        with open(RACINE_DEPOT / "config_llm.yaml", encoding="utf-8") as f:
+            return float((yaml.safe_load(f) or {}).get("taux_usd_eur", TAUX_USD_EUR_DEFAUT))
+    except Exception:
+        return TAUX_USD_EUR_DEFAUT
+
+
+TAUX_USD_EUR = taux_usd_eur()
 
 
 def estimer_cout_eur(tokens_input: int, tokens_output: int) -> float:
