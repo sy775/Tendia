@@ -381,11 +381,23 @@ def lister_modeles_gemini() -> list:
     return out
 
 
+def _nom_ascii(nom: str) -> str:
+    """Nom de fichier réduit à l'ASCII : tout ce qui part dans un en-tête HTTP doit l'être."""
+    import unicodedata
+    ascii_ = unicodedata.normalize("NFKD", nom).encode("ascii", "ignore").decode("ascii")
+    return (re.sub(r"[^A-Za-z0-9 ._()-]+", "_", ascii_).strip() or "document.pdf")[:120]
+
+
 def _uploader_pdf_gemini(chemin: str, verbose: bool):
     from google.genai import types
     client = _client_gemini()
-    f = client.files.upload(file=chemin, config=types.UploadFileConfig(
-        mime_type="application/pdf", display_name=Path(chemin).name[:120]))
+    # Le fichier est envoyé par son contenu, pas par son chemin : le SDK met le nom du fichier
+    # dans un en-tête HTTP, et un nom accentué (« prévisionnel.pdf ») y lève UnicodeEncodeError.
+    import io
+    with open(chemin, "rb") as fh:
+        contenu = io.BytesIO(fh.read())
+    f = client.files.upload(file=contenu, config=types.UploadFileConfig(
+        mime_type="application/pdf", display_name=_nom_ascii(Path(chemin).name)))
     debut = time.time()
     while getattr(f.state, "name", str(f.state)) == "PROCESSING":
         if time.time() - debut > 300:

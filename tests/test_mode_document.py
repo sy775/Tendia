@@ -770,11 +770,21 @@ def test_construire_sources():
     a_rc_page_fausse = analyse("RC.pdf", "RC", nb_pages=2, infos={
         "criteres_attribution": info("40/60", [1], EX_CRIT), "date_limite_remise": info("2026-12-15", [7], EX_DATE)})
     s_faux = src({"_sources_modele": sm}, [a_rc_page_fausse])
-    check("analyse p. 1 au lieu de p. 2 → verifie False, page 1 affichée",
-          conforme(s_faux.get("criteres_ponderations"), "RC.pdf", 1, False), repr(s_faux.get("criteres_ponderations")))
-    check("analyse p. 7 (inexistante) → verifie False, sans exception",
-          isinstance(s_faux.get("date_limite"), dict) and s_faux["date_limite"].get("verifie") is False
-          and s_faux["date_limite"].get("piece") == "RC.pdf", repr(s_faux.get("date_limite")))
+    # Attente ajustée à l'étape 7 (constat sur les DCE réels : le modèle se trompe souvent d'une
+    # page) : un extrait absent de la page citée mais présent ailleurs dans la MÊME pièce voit
+    # sa page corrigée ; la page citée par le modèle est gardée dans "page_citee".
+    check("analyse p. 1 au lieu de p. 2 → page corrigée en 2, vérifiée, page citée conservée",
+          conforme(s_faux.get("criteres_ponderations"), "RC.pdf", 2, True)
+          and s_faux["criteres_ponderations"].get("page_citee") == 1, repr(s_faux.get("criteres_ponderations")))
+    check("analyse p. 7 (inexistante) → page corrigée en 2, sans exception",
+          conforme(s_faux.get("date_limite"), "RC.pdf", 2, True)
+          and s_faux["date_limite"].get("page_citee") == 7, repr(s_faux.get("date_limite")))
+    a_rc_invente = analyse("RC.pdf", "RC", nb_pages=2, infos={
+        "criteres_attribution": info("40/60", [1], "Les critères sont pondérés : prix 55 %, valeur technique 45 %.")})
+    s_inv = src({"_sources_modele": sm}, [a_rc_invente])
+    check("extrait absent de toute la pièce → verifie False, page citée affichée, pas de page_citee",
+          conforme(s_inv.get("criteres_ponderations"), "RC.pdf", 1, False)
+          and "page_citee" not in s_inv["criteres_ponderations"], repr(s_inv.get("criteres_ponderations")))
     check("les autres champs restent vérifiés", conforme(s.get("visite"), "RC.pdf", 2, True), repr(s.get("visite")))
 
     # mauvaise pièce citée : l'extrait du RC cherché dans le CCAP
@@ -883,8 +893,9 @@ def test_construire_sources():
     brief = {"_controle_completude": {
         "date_limite": {"statut": "trouve_par_relance", "piece": "RC.pdf", "pages": [1], "extrait": EX_DATE}}}
     s = src(brief, [])
-    check("trouve_par_relance avec une page fausse → verifie False",
-          conforme(s.get("date_limite"), "RC.pdf", 1, False), repr(s.get("date_limite")))
+    check("trouve_par_relance avec une page fausse → page corrigée dans la même pièce (étape 7)",
+          conforme(s.get("date_limite"), "RC.pdf", 2, True) and s["date_limite"].get("page_citee") == 1,
+          repr(s.get("date_limite")))
     check("fixtures intactes après construire_sources", empreinte(MIXTE) == EMPREINTE_MIXTE)
 
 

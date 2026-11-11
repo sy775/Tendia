@@ -351,6 +351,33 @@ ligne = SL.tableau_lecture({"pieces": [{"nom": "a.pdf", "type": "annexe", "nb_pa
 check("PDF lu en texte avec 2 pages images : signalé dans la ligne de lecture",
       ligne["statut"] == "lu" and ligne["pages_sans_texte"] == 2 and "2 page" in (ligne["detail"] or ""), ligne)
 
+print("=== citations condensées et pages décalées (constats de l'étape 7) ===")
+page = "Critère 1 : Prix des prestations 60 Points\nCritère 2 : Valeur technique 30 Points\nSous-critère 2.1 : méthodologie 20 Points"
+check("citation condensée par « / » : vérifiée fragment par fragment",
+      SL.verifier_extrait("Critère 1 : Prix des prestations 60 Points / Critère 2 : Valeur technique 30 Points", page))
+check("citation à ellipse « [...] » : vérifiée si tous les fragments sont dans la page",
+      SL.verifier_extrait("Critère 1 : Prix des prestations [...] Sous-critère 2.1 : méthodologie 20 Points", page))
+check("un seul fragment inventé suffit à ne pas vérifier",
+      not SL.verifier_extrait("Critère 1 : Prix des prestations 60 Points [...] Critère 3 : Délais 10 Points", page))
+check("ellipse seule ou fragments trop courts : non vérifié",
+      not SL.verifier_extrait("[...]", page) and not SL.verifier_extrait("60 / 30 / 20", page))
+check("fragments : coupes reconnues", SL.fragments_extrait("Début du texte […] milieu du texte ... fin du texte (…) dernier bout")
+      == ["début du texte", "milieu du texte", "fin du texte", "dernier bout"])
+check("pages citées en liste : « 5, 16-18 » → [5, 16, 17, 18]", SL._pages("5, 16-18") == [5, 16, 17, 18], SL._pages("5, 16-18"))
+check("plage seule « 16-18 » et liste Python", SL._pages("16-18") == [16, 17, 18] and SL._pages([2, "3"]) == [2, 3])
+check("nom de feuille conservé", SL._pages("BPU") == ["BPU"] and SL._pages(["DQE lot 1"]) == ["DQE lot 1"])
+source_dec = dce("decalage", {"RC.pdf": gen.pdf([["RÈGLEMENT DE LA CONSULTATION"] + gen.remplir(8),
+                                                 ["Article 9 : une attestation de visite signée doit être jointe à l'offre."] + gen.remplir(8)])})
+inv_dec = P.inventorier("DEC", str(source_dec), verbose=False)
+src_ = SL._source(inv_dec, "RC.pdf", [1], "une attestation de visite signée doit être jointe à l'offre")
+check("extrait sur une autre page de la même pièce : page corrigée, vérifiée, page citée conservée",
+      src_["page"] == 2 and src_["verifie"] is True and src_["page_citee"] == 1, src_)
+src_ = SL._source(inv_dec, "RC.pdf", [2], "une attestation de visite signée doit être jointe à l'offre")
+check("page citée juste : pas de page_citee", src_["page"] == 2 and src_["verifie"] and "page_citee" not in src_, src_)
+src_ = SL._source(inv_dec, "RC.pdf", [1], "une clause qui ne figure nulle part dans cette pièce")
+check("extrait absent de la pièce : non vérifié, page citée affichée", src_["page"] == 1 and src_["verifie"] is False, src_)
+check("pages_de : toutes les pages de la pièce, dans l'ordre", [c for c, _ in P.pages_de(inv_dec["pieces"][0])] == [1, 2])
+
 print("=== gel des prompts du mode document ===")
 # Les prompts sont repris de l'expérimentation (commit 3ba9a4b) sans modification : toute
 # retouche change cette empreinte et doit être une décision explicite.

@@ -57,14 +57,28 @@ def normaliser_extrait(s) -> str:
 LONGUEUR_MIN_EXTRAIT = 5      # caractères alphanumériques : « oui », « 1 », « le » ne prouvent rien
 
 
+# Coupes qu'un modèle met dans une citation condensée : « début [...] suite », « a / b / c ».
+_RE_COUPE = re.compile(r"\s*(?:\[\s*(?:\.\.\.|…)\s*\]|\(\s*(?:\.\.\.|…)\s*\)|\.\.\.|…|\s/\s)\s*")
+
+
+def fragments_extrait(extrait) -> list:
+    """Fragments d'un extrait normalisé, coupé aux ellipses et aux « / » de mise en liste.
+    Seuls les fragments d'au moins LONGUEUR_MIN_EXTRAIT caractères alphanumériques comptent."""
+    return [f.strip() for f in _RE_COUPE.split(normaliser_extrait(extrait))
+            if sum(c.isalnum() for c in f) >= LONGUEUR_MIN_EXTRAIT]
+
+
 def verifier_extrait(extrait, texte_page) -> bool:
     """True si l'extrait figure dans le texte de la page (formes normalisées). Sans LLM.
-    Un extrait de moins de LONGUEUR_MIN_EXTRAIT caractères alphanumériques n'est jamais
-    vérifié : on le trouverait sur n'importe quelle page."""
-    e = normaliser_extrait(extrait)
-    if sum(c.isalnum() for c in e) < LONGUEUR_MIN_EXTRAIT:
+    Une citation condensée (« début [...] suite ») est vérifiée fragment par fragment :
+    TOUS ses fragments doivent figurer dans la page. Un extrait (ou un fragment) de moins
+    de LONGUEUR_MIN_EXTRAIT caractères alphanumériques ne prouve rien : on le trouverait
+    sur n'importe quelle page."""
+    fragments = fragments_extrait(extrait)
+    if not fragments:
         return False
-    return e in normaliser_extrait(texte_page)
+    page = normaliser_extrait(texte_page)
+    return all(f in page for f in fragments)
 
 
 def _numero_page(page):
@@ -85,11 +99,24 @@ def _numero_page(page):
 
 
 def _pages(valeur) -> list:
+    """Pages citées, à plat : [2], "2", "p. 5, 16-35" → [5, 16, 17, …, 35] ; une feuille
+    reste un nom."""
     if valeur is None:
         return []
     if not isinstance(valeur, (list, tuple)):
         valeur = [valeur]
-    return [p for p in (_numero_page(v) for v in valeur) if p is not None]
+    pages = []
+    for v in valeur:
+        if isinstance(v, str) and re.fullmatch(r"\s*(?:p(?:ages?)?\.?\s*)?\d+(?:\s*[-–]\s*\d+)?(?:\s*[,;]\s*\d+(?:\s*[-–]\s*\d+)?)+\s*|"
+                                               r"\s*(?:p(?:ages?)?\.?\s*)?\d+\s*[-–]\s*\d+\s*", v, re.I):
+            for debut, fin in re.findall(r"(\d+)(?:\s*[-–]\s*(\d+))?", v):
+                a, b = int(debut), int(fin or debut)
+                pages.extend(range(a, min(b, a + 60) + 1) if b >= a else [a])
+            continue
+        p = _numero_page(v)
+        if p is not None:
+            pages.append(p)
+    return pages
 
 
 def _piece_par_nom(inv: dict, nom) -> Optional[dict]:
@@ -126,7 +153,10 @@ def _texte_extrait(valeur) -> Optional[str]:
 
 def _source(inv: dict, nom_piece, pages, extrait) -> Optional[dict]:
     """Une source vérifiée : l'extrait (≤ 200 caractères) est cherché dans chaque page
-    citée ; la page retenue est la première où il figure, sinon la première citée."""
+    citée ; la page retenue est la première où il figure. S'il n'est sur aucune page citée
+    mais figure ailleurs dans la MÊME pièce, la page est corrigée (la page citée par le
+    modèle est gardée dans "page_citee") : la citation affichée est alors exacte. Sinon la
+    source reste sur la première page citée, non vérifiée."""
     piece = _piece_par_nom(inv, nom_piece)
     nom = piece["nom"] if piece else (str(nom_piece) if nom_piece else None)
     if not nom:
@@ -134,12 +164,20 @@ def _source(inv: dict, nom_piece, pages, extrait) -> Optional[dict]:
     pages = _pages(pages)
     extrait = _texte_extrait(extrait)
     page, verifie = (pages[0] if pages else None), False
+    source = {"piece": nom, "page": page, "extrait": extrait, "verifie": False}
     if piece and extrait:
         for p in pages:
             if verifier_extrait(extrait, P.texte_page(piece, p)):
                 page, verifie = p, True
                 break
-    return {"piece": nom, "page": page, "extrait": extrait, "verifie": verifie}
+        if not verifie:
+            for cle, texte in P.pages_de(piece):
+                if cle not in pages and verifier_extrait(extrait, texte):
+                    source["page_citee"] = page
+                    page, verifie = cle, True
+                    break
+    source.update(page=page, verifie=verifie)
+    return source
 
 
 def _informations(analyses: list, nom_piece: str, questions: tuple) -> list:

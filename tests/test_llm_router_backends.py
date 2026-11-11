@@ -306,6 +306,50 @@ check("aucune erreur dans les threads", not erreurs, erreurs[:3])
 check("40 appels SDK, 40 entrées llm_appels", len(faux.appels) == 40 and entrees == 40,
       f"{len(faux.appels)} appels, {entrees} entrées")
 
+print("=== K. Gemini : PDF joint dont le nom porte des accents ===")
+# Constat de l'étape 7 du chantier 2 : « Cheminement prévisionnel….pdf » levait
+# UnicodeEncodeError à l'envoi (nom affiché dans un en-tête HTTP), d'où un repli Sonnet payant.
+import tempfile
+from pathlib import Path as _Path
+
+
+class FauxFichiersGemini:
+    def __init__(self):
+        self.envois = []
+
+    def upload(self, file=None, config=None):
+        config.display_name.encode("ascii")          # ce que fait la couche HTTP
+        if isinstance(file, (str, os.PathLike)):
+            os.path.basename(str(file)).encode("ascii")   # le SDK met aussi le nom du fichier en en-tête
+            contenu = open(file, "rb").read()
+        else:
+            getattr(file, "name", "").encode("ascii")
+            contenu = file.read()
+        self.envois.append((contenu, config.display_name))
+        return types.SimpleNamespace(name="files/abc", uri="https://exemple.invalid/files/abc",
+                                     state=types.SimpleNamespace(name="ACTIVE"))
+
+    def get(self, name=None):
+        return types.SimpleNamespace(name=name, uri="u", state=types.SimpleNamespace(name="ACTIVE"))
+
+    def delete(self, name=None):
+        return None
+
+
+fg = brancher_gemini(FauxGemini())
+fg.files = FauxFichiersGemini()
+pdf_accent = _Path(tempfile.mkdtemp(prefix="tendia_pdf_")) / "Cheminement prévisionnel entre nouveau PDL et poste PV – plan n°2.pdf"
+pdf_accent.write_bytes(b"%PDF-1.4 faux pdf de test")
+faux = brancher_claude(FauxClaude())
+res = R.call_llm("analyse", "lis ce scan", documents=[str(pdf_accent)], type_appel="extraction", marche_id="M-K")
+check("PDF au nom accentué : envoyé à Gemini sans erreur, pas de repli Sonnet",
+      res.ok and not res.repli and len(fg.files.envois) == 1 and not faux.appels, f"{res.erreur} {len(faux.appels)}")
+check("le contenu du PDF est bien celui du fichier", fg.files.envois and fg.files.envois[0][0] == b"%PDF-1.4 faux pdf de test")
+check("le nom affiché est en ASCII et reste reconnaissable",
+      fg.files.envois and fg.files.envois[0][1].isascii() and "Cheminement previsionnel" in fg.files.envois[0][1],
+      fg.files.envois)
+check("nom sans aucun caractère ASCII : nom de repli", R._nom_ascii("日本語.pdf").endswith(".pdf") and R._nom_ascii("日本語.pdf").isascii())
+
 print("=== exp_appels reste vide ===")
 check("rien dans exp_appels", not stockage.charger("exp_appels"))
 

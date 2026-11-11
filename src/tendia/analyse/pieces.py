@@ -739,6 +739,21 @@ def texte_piece(piece: dict) -> str:
 _RE_MARQUEUR = re.compile(r"\n\[\[(Page \d+|Feuille [^\]\n]+)\]\]\n")
 
 
+def pages_de(piece: dict) -> list:
+    """[(clé, texte)] de toutes les pages de la pièce : numéro (int) ou nom de feuille."""
+    if not piece or not piece.get("texte_fichier"):
+        return []
+    try:
+        morceaux = _RE_MARQUEUR.split(texte_piece(piece))
+    except OSError:
+        return []
+    resultat = []
+    for marqueur, contenu in zip(morceaux[1::2], morceaux[2::2]):
+        cle = int(marqueur[5:]) if marqueur.startswith("Page ") else marqueur[8:]
+        resultat.append((cle, contenu))
+    return resultat
+
+
 def texte_page(piece: dict, page) -> str:
     """Texte d'une page (numéro, int ou chaîne) ou d'une feuille (nom) de la pièce,
     d'après les marqueurs [[Page N]] / [[Feuille X]]. "" si la page n'existe pas."""
