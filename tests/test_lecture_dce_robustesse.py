@@ -398,6 +398,54 @@ src_ = SL._source(inv_dec, "RC.pdf", None, "une attestation de visite signée do
 check("aucune page citée : page trouvée, page_citee None", src_["page"] == 2 and src_["verifie"] and src_.get("page_citee") is None, src_)
 check("pages_de : toutes les pages de la pièce, dans l'ordre", [c for c, _ in P.pages_de(inv_dec["pieces"][0])] == [1, 2])
 
+print("=== garde-fous déterministes de la fusion (audit du chantier 2) ===")
+def note(piece, type_, **infos):
+    return {"piece": piece, "type": type_, "resultats": [{"partie": 1, "ok": True, "erreur": None, "json": {
+        "informations": {q: {"valeur": v, "pages": [1], "extrait": "x"} for q, v in infos.items()}}}]}
+b = {"montant_marche": {"valeur_estimee_euros": 320000, "fourchette_min_euros": 280000, "fourchette_max_euros": 360000,
+                        "type": "calcule_volumes", "commentaire": "estimation bottom-up"},
+     "calendrier": {"date_limite_offres": "2026-12-14"}}
+c = MD.fiabiliser_fusion(b, [note("RC.pdf", "RC", montant_estime=None, date_limite_remise="2026-12-14 12:00"),
+                            note("AE.pdf", "AE", montant="à compléter par le candidat")])
+check("montant absent de toutes les notes : valeur et fourchettes retirées, non communiqué",
+      b["montant_marche"]["valeur_estimee_euros"] is None and b["montant_marche"]["fourchette_max_euros"] is None
+      and b["montant_marche"]["type"] == "non_communique", b["montant_marche"])
+check("l'estimation retirée reste tracée (corrections, contrôle de complétude)",
+      c and c[0]["retire"]["valeur_estimee_euros"] == 320000
+      and b["_controle_completude"]["montant"]["statut"] == "retire_non_source", c)
+check("heure limite reprise de la note du RC", b["calendrier"]["date_limite_offres"] == "2026-12-14 12:00")
+b = {"montant_marche": {"valeur_estimee_euros": 1016667, "fourchette_min_euros": 1016667, "fourchette_max_euros": 2000000,
+                        "type": "estime_explicite"}}
+MD.fiabiliser_fusion(b, [note("RC.pdf", "RC", montant_estime="305 000 € TTC par an"),
+                         note("AE.pdf", "AE", montant={"maximum_annuel": "600 000 € TTC"})])
+check("montant dérivé (TTC/an → HT sur 4 ans) : retiré, montants publiés repris dans le commentaire",
+      b["montant_marche"]["valeur_estimee_euros"] is None and b["montant_marche"]["type"] == "publie_voir_commentaire"
+      and "305 000" in b["montant_marche"]["commentaire"], b["montant_marche"])
+b = {"montant_marche": {"valeur_estimee_euros": 305000, "fourchette_max_euros": 2000000, "type": "estime_explicite"}}
+MD.fiabiliser_fusion(b, [note("RC.pdf", "RC", montant_estime="Montant estimé : 305 000 € HT")])
+check("montant publié conservé, seule la fourchette inventée est retirée",
+      b["montant_marche"]["valeur_estimee_euros"] == 305000 and b["montant_marche"]["fourchette_max_euros"] is None
+      and b["montant_marche"]["type"] == "estime_explicite", b["montant_marche"])
+b = {"montant_marche": {"valeur_estimee_euros": 120000}, "calendrier": {"date_limite_offres": "2026-12-15 10:00"},
+     "_controle_completude": {"montant": {"statut": "trouve_par_relance", "extrait": "Montant estimé : 120.000 € HT"}}}
+c = MD.fiabiliser_fusion(b, [note("RC.pdf", "RC", date_limite_remise="2026-12-15 12:00")])
+check("montant trouvé par recherche ciblée (extrait) : conservé ; date avec heure : inchangée",
+      not c and b["montant_marche"]["valeur_estimee_euros"] == 120000 and b["calendrier"]["date_limite_offres"] == "2026-12-15 10:00", c)
+b = {"calendrier": {"date_limite_offres": "2026-12-14"}}
+MD.fiabiliser_fusion(b, [note("RC.pdf", "RC", date_limite_remise="2026-12-21 12:00"), note("AE.pdf", "AE", date_limite_remise="2026-12-14 16:00")])
+check("heure reprise seulement d'une note du RC à la même date", b["calendrier"]["date_limite_offres"] == "2026-12-14")
+b = {"montant_marche": {"valeur_estimee_euros": 1016667, "type": "estime_explicite"},
+     "montant_3_voies": {"voie_1_eur": 1016667, "voie_2_min_eur": 1016667},
+     "lots": [{"numero": 1, "ca_estime_min_eur": 1016667, "ca_estime_max_eur": 900}],
+     "allotissement": {"lots_detailles": [{"montant_estime": 1016667}]}}
+MD.fiabiliser_fusion(b, [note("RC.pdf", "RC", montant_estime="305 000 € TTC par an")])
+check("copies du montant retiré : voie 1 et lots vidés, voie 2 (estimation affichée comme telle) gardée",
+      b["montant_3_voies"]["voie_1_eur"] is None and b["montant_3_voies"]["voie_2_min_eur"] == 1016667
+      and b["lots"][0]["ca_estime_min_eur"] is None and b["lots"][0]["ca_estime_max_eur"] == 900
+      and b["allotissement"]["lots_detailles"][0]["montant_estime"] is None, b)
+check("nombres reconnus : espaces, points, sans séparateur ; petits nombres ignorés",
+      MD._nombres("305 000 € et 1.016.667 € et 600000 et 12 h et 2026") == {305000, 1016667, 600000, 2026})
+
 print("=== gel des prompts du mode document ===")
 # Les prompts sont repris de l'expérimentation (commit 3ba9a4b) sans modification : toute
 # retouche change cette empreinte et doit être une décision explicite.

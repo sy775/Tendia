@@ -26,6 +26,7 @@ Point d'entrée : lire_dce(marche_id, dossier_dce, contexte, codes_presets, ...)
 
 import hashlib
 import json
+import re
 import threading
 import time
 from concurrent.futures import ThreadPoolExecutor
@@ -482,7 +483,122 @@ def analyser_document(inv: dict, contexte: dict, codes_presets: list, suivi: Sui
             _appliquer(brief, champ, res)
     brief["_controle_completude"] = controle
     trace["controle"] = controle
+    garde_fous = fiabiliser_fusion(brief, analyses)
+    if garde_fous:
+        brief["_garde_fous_fusion"] = garde_fous
+        trace["garde_fous_fusion"] = garde_fous
     return brief, trace
+
+
+# ---------------------------------------------------------------------------
+# 3 bis. Garde-fous déterministes sur la fusion (le LLM extrait, il ne calcule pas)
+# ---------------------------------------------------------------------------
+
+_QUESTIONS_MONTANT = ("montant_estime", "montant", "montants_renseignes")
+_RE_NOMBRE = re.compile(r"\d{1,3}(?:[ \u00a0\u202f.]\d{3})+(?:,\d+)?|\d{4,}(?:[.,]\d+)?")
+_RE_DATE_HEURE = re.compile(r"^(\d{4}-\d{2}-\d{2})[ T](\d{1,2})[:h](\d{2})")
+
+
+def _nombres(texte) -> set:
+    """Montants (≥ 1 000) écrits dans un texte : « 305 000 € », « 1.016.667 », « 600000 »."""
+    trouves = set()
+    for brut in _RE_NOMBRE.findall(str(texte or "")):
+        chiffres = re.sub(r"[ \u00a0\u202f.]", "", brut.split(",")[0])
+        if chiffres.isdigit() and int(chiffres) >= 1000:
+            trouves.add(int(chiffres))
+    return trouves
+
+
+def _infos_notes(analyses: list, questions: tuple) -> list:
+    """[(pièce, type, valeur)] des réponses non nulles des notes par pièce."""
+    sortie = []
+    for a in analyses or []:
+        for r in a.get("resultats") or []:
+            infos = ((r.get("json") or {}).get("informations") or {}) if isinstance(r.get("json"), dict) else {}
+            for q in questions:
+                info = infos.get(q)
+                if isinstance(info, dict) and info.get("valeur") not in (None, "", [], {}):
+                    sortie.append((a.get("piece"), a.get("type"), info.get("valeur")))
+    return sortie
+
+
+def fiabiliser_fusion(brief: dict, analyses: list) -> list:
+    """Corrige, sans LLM, deux défauts constatés de la fusion (chantier 2, étape 7) :
+
+    - montant : une valeur structurée (`valeur_estimee_euros`, fourchettes) qui ne figure
+      dans AUCUNE note par pièce ni dans une recherche ciblée est une estimation du
+      modèle : elle est retirée (le champ passe à « non communiqué », ou « publié, voir
+      commentaire » si les pièces citent d'autres montants, repris dans le commentaire) ;
+    - date limite : si la date du brief n'a pas d'heure et que la note du RC donne la même
+      date avec une heure, l'heure est reprise.
+
+    Rend la liste des corrections faites (vide si aucune)."""
+    corrections = []
+    mm = brief.get("montant_marche")
+    if isinstance(mm, dict):
+        cles = ("valeur_estimee_euros", "fourchette_min_euros", "fourchette_max_euros")
+        notes = _infos_notes(analyses, _QUESTIONS_MONTANT)
+        relance = (brief.get("_controle_completude") or {}).get("montant") or {}
+        publies = set()
+        for _piece, _type, valeur in notes:
+            publies |= _nombres(json.dumps(valeur, ensure_ascii=False) if not isinstance(valeur, str) else valeur)
+        if relance.get("statut") == "trouve_par_relance":
+            publies |= _nombres(relance.get("extrait"))
+        retires = {k: mm.get(k) for k in cles
+                   if isinstance(mm.get(k), (int, float)) and not isinstance(mm.get(k), bool)
+                   and not any(abs(float(mm[k]) - p) <= 1 for p in publies)}
+        if retires:
+            for k in retires:
+                mm[k] = None
+            textes = [str(v) if isinstance(v, str) else json.dumps(v, ensure_ascii=False)
+                      for _p, _t, v in notes if _nombres(v if isinstance(v, str) else json.dumps(v, ensure_ascii=False))]
+            if any(mm.get(k) is not None for k in cles):
+                pass                                   # une valeur publiée reste : type inchangé
+            elif textes:
+                mm["type"] = "publie_voir_commentaire"
+            else:
+                mm["type"] = "non_communique"
+            note = ("Montants publiés dans le DCE : " + " ; ".join(t[:200] for t in textes[:3])) if textes \
+                else "Aucun montant publié dans les pièces du DCE."
+            mm["commentaire"] = (note + (" " + mm["commentaire"] if mm.get("commentaire") else "")).strip()
+            controle = brief.setdefault("_controle_completude", {})
+            controle["montant"] = {"statut": "retire_non_source", "valeurs_retirees": retires}
+            corrections.append({"champ": "montant", "retire": retires, "publies": sorted(publies)})
+    # Copies du montant retiré dans les champs qui doivent porter un montant publié ou en
+    # dérivent directement (voie 1 = montant explicite, lots). La voie 2 (estimation
+    # bottom-up du schéma de prod, affichée comme telle) n'est pas touchée.
+    deja = ((brief.get("_controle_completude") or {}).get("montant") or {}).get("valeurs_retirees") or {}
+    valeurs = {float(v) for v in deja.values() if isinstance(v, (int, float))}
+    if valeurs:
+        propages = []
+
+        def _retirer(conteneur, cle, chemin):
+            v = conteneur.get(cle) if isinstance(conteneur, dict) else None
+            if isinstance(v, (int, float)) and not isinstance(v, bool) and float(v) in valeurs:
+                conteneur[cle] = None
+                propages.append(chemin)
+
+        _retirer(brief.get("montant_3_voies"), "voie_1_eur", "montant_3_voies.voie_1_eur")
+        for i, lot in enumerate(brief.get("lots") or []):
+            for cle in ("ca_estime_min_eur", "ca_estime_max_eur", "montant_estime_eur"):
+                _retirer(lot, cle, f"lots[{i}].{cle}")
+        for i, lot in enumerate((brief.get("allotissement") or {}).get("lots_detailles") or []
+                                if isinstance(brief.get("allotissement"), dict) else []):
+            _retirer(lot, "montant_estime", f"allotissement.lots_detailles[{i}].montant_estime")
+        if propages:
+            corrections.append({"champ": "montant", "copies_retirees": propages})
+    cal = brief.get("calendrier")
+    if isinstance(cal, dict) and isinstance(cal.get("date_limite_offres"), str) \
+            and re.fullmatch(r"\d{4}-\d{2}-\d{2}", cal["date_limite_offres"].strip()):
+        jour = cal["date_limite_offres"].strip()
+        for piece, type_piece, valeur in _infos_notes(analyses, ("date_limite_remise",)):
+            m = _RE_DATE_HEURE.match(str(valeur).strip())
+            if type_piece == "RC" and m and m.group(1) == jour:
+                cal["date_limite_offres"] = f"{jour} {int(m.group(2)):02d}:{m.group(3)}"
+                corrections.append({"champ": "date_limite", "heure_reprise_de": piece,
+                                    "valeur": cal["date_limite_offres"]})
+                break
+    return corrections
 
 
 # ---------------------------------------------------------------------------

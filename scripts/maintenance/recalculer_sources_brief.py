@@ -2,7 +2,8 @@
 """
 scripts/maintenance/recalculer_sources_brief.py
 -----------------------------------------------
-Recalcule `_sources` et `_lecture` d'un brief du mode document, SANS appel LLM, à partir
+Recalcule `_sources` et `_lecture` d'un brief du mode document, et applique les garde-fous
+déterministes de la fusion (mode_document.fiabiliser_fusion), SANS appel LLM, à partir
 de ce qui est déjà sur le disque : data/pieces/<id>/_inventaire.json (pièces et textes
 par page) et data/pieces/<id>/_trace.json (analyses par pièce). Sert quand la
 vérification des sources (tendia.analyse.sources_lecture) a été corrigée : les briefs
@@ -25,6 +26,7 @@ from datetime import datetime, timezone
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
 from tendia.analyse import extraire
+from tendia.analyse import mode_document
 from tendia.analyse import pieces
 from tendia.analyse import sources_lecture
 from tendia.core import stockage
@@ -52,16 +54,21 @@ def recalculer(marche_id: str, dry_run: bool = False, force: bool = False) -> di
                 f"{len(pieces_brief - pieces_trace)} pièce(s) lue(s) du brief absente(s) de la trace"}
     compter = lambda s: sum(1 for v in (s or {}).values() if (v or {}).get("verifie"))
     avant = compter(brief.get("_sources"))
+    original = json.loads(json.dumps(brief))
+    corrections = mode_document.fiabiliser_fusion(brief, analyses)
+    if corrections:
+        brief["_garde_fous_fusion"] = corrections
     nouvelles = sources_lecture.construire_sources(brief, analyses, inv)
     lecture = sources_lecture.tableau_lecture(inv, analyses)
     resultat = {"id": marche_id, "avant": avant, "apres": compter(nouvelles), "ecrit": False,
-                "sources": nouvelles}
+                "sources": nouvelles, "corrections": corrections}
     lues_avant = (brief.get("_lecture") or {}).get("nb_lues") or 0
     if (resultat["apres"] < avant or (lecture.get("nb_lues") or 0) < lues_avant) and not force:
         resultat["refus"] = (f"recalcul défavorable (vérifiées {avant} → {resultat['apres']}, "
                              f"lues {lues_avant} → {lecture.get('nb_lues')}) : rien n'est écrit sans --force")
         return resultat
-    if dry_run or (nouvelles == brief.get("_sources") and lecture == brief.get("_lecture")):
+    if dry_run or (not corrections and nouvelles == original.get("_sources")
+                   and lecture == original.get("_lecture")):
         return resultat
     extraire.archiver_brief_existant(marche_id)
     brief["_sources"] = nouvelles
@@ -90,6 +97,8 @@ def main(argv=None):
             print(f"  {mid} : {r.get('erreur') or r.get('refus')}")
             if r.get("erreur"):
                 continue
+        for c in r.get("corrections") or []:
+            print(f"      garde-fou fusion : {json.dumps(c, ensure_ascii=False)}")
         print(f"  {mid} : sources vérifiées {r['avant']}/6 → {r['apres']}/6"
               f"{' (écrit)' if r['ecrit'] else ' (inchangé ou dry-run)'}")
         for champ, s in r["sources"].items():

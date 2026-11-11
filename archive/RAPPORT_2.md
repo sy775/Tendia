@@ -16,7 +16,7 @@ Arrêté à l'étape 8 : critère de l'étape 7 non atteint (fidélité 18/30 < 
 2. **Lecture du DCE.** Le mode document est le mode par défaut. Il lit tout le dossier : sous-dossiers, zips imbriqués ou tronqués, `.doc`, `.xls`, `.odt` et `.rtf` convertis par Office, scans lus visuellement. Il travaille sous `data/pieces/<id>` et ne fait que lire `data/dce`. Chaque fichier reçoit un statut et chaque champ critique une source pièce + page vérifiée sans LLM. La fiche marché affiche ces sources et le taux de lecture.
 3. **Résultats sur les 4 DCE lus.** 138 pièces de texte sur 138 sont lues (0 % non lu). Les 20 sources marquées vérifiées le sont à juste titre, selon les vérificateurs ; parmi les 18 champs exacts, 17 portent une source vérifiée. La fidélité est de 18/24 sur les 6 champs critiques, 18/30 en comptant le DCE non lu. Le défaut est systématique et vient de l'appel de fusion : il perd l'heure limite et fabrique ou dérive un montant que le DCE ne publie pas.
 4. **Coût.** Le chantier a coûté **6,43 €** en appels LLM (plafond 16 €). Par DCE, la moyenne est de 1,61 € au tarif argon actuel, 3,18 € au tarif du 01/12 et 2,39 € en équivalent Sonnet 4.6 sur les mêmes tokens. La dépense de novembre atteint 34,38 €, pour un plafond de 45 €.
-5. **Qualité.** Les étapes 1 à 6 ont été relues chacune par `relecteur-etape` : 2 bloquants et 23 majeurs relevés, tous corrigés, avec un commit de correctif par étape. Les tests passent de 30 fichiers et 765 vérifications à 49 fichiers et 2 308 vérifications, 100 % verts.
+5. **Qualité.** Les étapes 1 à 7 ont été relues chacune par `relecteur-etape` : 3 bloquants et 41 majeurs relevés, tous corrigés, avec un commit de correctif par étape. Les tests passent de 30 fichiers et 765 vérifications à 49 fichiers et 2 317 vérifications, 100 % verts.
 
 ## Points d'attention
 
@@ -87,8 +87,8 @@ Arrêté à l'étape 8 : critère de l'étape 7 non atteint (fidélité 18/30 < 
 | | Avant (main `9f4e6a2`) | Après |
 |---|---|---|
 | Fichiers | 30 / 30 OK | 49 / 49 OK |
-| Vérifications | 765 | 2 308 |
-| Nouveaux | – | `test_plafond_cout` (53), `test_classification_max_cout` (18), `test_rattrapage_max_cout_zero` (12), `test_env_proxy_actif` (51), `test_base_temporaire_logs` (21), `test_explorer_methode` (23), `test_telecharger_ecriture_unitaire` (33), `test_llm_calibration_journal` (24), `test_max_cout_zero_cli` (17), `test_llm_router` (265), `test_llm_router_backends` (41), `test_appels_migres` (33), `test_pieces` (165), `test_mode_document` (300), `test_lecture_dce_robustesse` (77), `test_extraire_mode_document` (226), `test_extraire_scan_document` (42), `test_ui_fiche_sources` (101), `test_recalcul_et_chemins_longs` (18) |
+| Vérifications | 765 | 2 317 |
+| Nouveaux | – | `test_plafond_cout` (53), `test_classification_max_cout` (18), `test_rattrapage_max_cout_zero` (12), `test_env_proxy_actif` (51), `test_base_temporaire_logs` (21), `test_explorer_methode` (23), `test_telecharger_ecriture_unitaire` (33), `test_llm_calibration_journal` (24), `test_max_cout_zero_cli` (17), `test_llm_router` (265), `test_llm_router_backends` (42), `test_appels_migres` (33), `test_pieces` (165), `test_mode_document` (300), `test_lecture_dce_robustesse` (93), `test_extraire_mode_document` (226), `test_extraire_scan_document` (42), `test_ui_fiche_sources` (101), `test_recalcul_et_chemins_longs` (18) |
 | Modifiés | – | `test_classification`, `test_decp_classifier_llm` (faux client branché sur le routeur ; taux DECP 0,95 → 0,92), `test_ui_routes` (62 → 77), 10 tests de downloaders (`isoler_logs`) |
 
 `logs/`, `data/extractions/_etat.json`, `data/dce` et `archive/data/briefs` sont inchangés par la suite (contrôlé avant et après).
@@ -122,7 +122,7 @@ Les lignes sont celles de l'état final ; aucun modèle n'a été changé.
 | `scripts/decp/pilote_classif.py:149` | branche Claude de `classer_lot` | modèle de la variante | decp (enveloppe `decp_reprise`) |
 | `src/tendia/analyse/mode_document.py:272` | `_appel_json` (nouveau) | Gemini 4 argon, repli Sonnet 4.6 | extraction |
 
-`grep -rn "Anthropic(" src/ scripts/` (hors `_archive`) : uniquement `src/tendia/analyse/llm_router.py:501`.
+`grep -rn "Anthropic(" src/ scripts/` (hors `_archive`) : uniquement `src/tendia/analyse/llm_router.py:508`.
 
 Appels Gemini batch directs laissés tels quels, journalisés par leurs modules : `src/tendia/prix/decp/classif_batch.py`, `scripts/decp/pilote_arbitre.py`, `scripts/decp/pilote_arbitre_v2.py`, branche Gemini de `scripts/decp/pilote_classif.py`.
 
@@ -226,3 +226,37 @@ Microsoft Office 16 (Word et Excel) en COM, piloté par PowerShell, avec macros 
 ### Commits
 
 `9782b62` prérequis et sous-agents · `4ebef39` + `627e4fe` étape 1 · `a6b150a` + `4a297dd` étape 2 · `93fa533` + `0e2152c` étape 3 · `8a294da` + `5c7df06` + `0e1f3da` étape 4 · `925350c` + `bada392` étape 5 · `9e99a0e` + `1b9f6e9` étape 6 · `ab87282` constats de l'étape 7 · étape 7 : ce rapport.
+
+## Suite de l'audit (archive/AUDIT_2.md)
+
+Verdict de l'audit : à reprendre, 2 bloquants, 3 majeurs, 11 mineurs. Contrôles de l'audit : suite 49/49, coûts conformes à `llm_appels`, aucune écriture dans `data/dce`, prompts identiques à 3ba9a4b.
+
+**Bloquant 1, corrigé.** La fusion écrivait des montants fabriqués ou dérivés et perdait l'heure limite, alors que le mode document est le défaut du pipeline payant.
+- Correctif déterministe, sans changement de prompt : `mode_document.fiabiliser_fusion`, appliqué après le contrôle de complétude.
+  - Une valeur de montant absente de toutes les notes par pièce et de toute recherche ciblée est retirée. Le champ passe à « non communiqué », ou à « publié, voir commentaire » avec les montants publiés repris.
+  - Les copies directes de cette valeur sont retirées : voie 1 explicite, `lots[].ca_estime_*`, `lots_detailles[].montant_estime`. La voie 2, estimation bottom-up du schéma de prod affichée comme telle, est conservée.
+  - L'heure limite est reprise de la note du RC.
+- Appliqué aux 4 briefs en base par `recalculer_sources_brief.py`, sans LLM, après copie dans `archive/data/briefs/` :
+  - montants retirés : 320 000, 370 000, 2 225 000 et 1 016 667 € ;
+  - heures reprises : 12:00, 12:00, 12:00 et 16:00.
+- Tests : 9 vérifications dans `test_lecture_dce_robustesse`.
+- La fidélité n'a pas été remesurée par les vérificateurs après ce correctif. D'après leurs constats, le montant et la date limite redeviennent conformes sur les 4 briefs (fidélité attendue 23/24, l'agrégat technique de 104292 restant inexact), mais ce n'est pas une mesure.
+
+**Bloquant 2, non corrigé : BOAMP-26-102749 non lu.**
+- Le corriger demande un nouveau téléchargement (réseau, proxy) et environ 4,6 € de lecture.
+- Choix prudent retenu : ne rien dépenser ; reporté (backlog, section 2).
+
+**Majeurs et mineurs : reportés** (règle : bloquants seulement), listés dans `AUDIT_2.md` :
+- la valeur affichée à côté d'une source vérifiée n'est pas elle-même contrôlée ;
+- le plafond par DCE ne borne que l'estimation ;
+- `plan_ignore` décidé sur le seul nom de fichier ;
+- `extraire.py` à 1 691 lignes ;
+- écritures restantes dans `data/dce` (`retenter_download_dce`, rattrapage en mode classique) ;
+- quota journalier incohérent entre les modes ;
+- code mort.
+
+Hors code, à valider par Younes :
+- les ajouts à CLAUDE.md (section « Sous-agents », interdits `Anthropic(` et `data/dce`) ;
+- le `model: claude-fable-5-2` ajouté à `audit-code.md` et `audit-design.md`.
+
+L'UI démarre (`python -m tendia.ui`) : la fiche réelle BOAMP-26-104121 répond 200 et affiche « 47/47 pièces lues » et ses sources.
