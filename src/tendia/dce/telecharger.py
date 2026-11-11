@@ -1402,7 +1402,10 @@ def main(argv=None):
 
         # Met à jour les marques dans marches.json
         # Écriture unitaire : un run interrompu garde les statuts déjà obtenus
+        # (le marché est relu juste avant : une modification faite ailleurs pendant un
+        # long run, cycle depuis l'UI par exemple, n'est pas écrasée)
         if not args.dry_run:
+            marche = stockage.lire("marches", id_m) or marche
             marquer_resultat_telechargement(marche, id_m, result, verbose=args.verbose)
             stockage.ecrire("marches", id_m, marche)
 

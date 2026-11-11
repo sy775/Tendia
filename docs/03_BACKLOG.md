@@ -8,7 +8,7 @@ Un chantier = une session Claude Code, un objectif, un critère de fin vérifiab
 |---|---|---|---|
 | 0a | Dépôt propre : git, archive, tests regroupés | **Terminé le 2026-11-10** (902 → 313 fichiers) | |
 | 0b | Structure `src/tendia/`, `CLAUDE.md`, branche `main`, 2 régressions de 0a | **Terminé le 2026-11-10**, réserve : `test_aws_downloader` et `test_qualifier_dce` périmés (antérieurs à 0b), repris en étape 1 du chantier 1 | 0a |
-| 1 | Redémarrer la chaîne LLM | **Terminé le 2026-11-11**, 17,95 € (classification 10,85, briefs 7,10) ; 14 briefs BTP d'octobre ; 3 majeurs de AUDIT_1 repris en étape 1 du chantier 2 | 0b |
+| 1 | Redémarrer la chaîne LLM | **Terminé le 2026-11-11**, 17,95 € (classification 10,85, briefs 7,10) ; 14 briefs BTP d'octobre ; majeurs de AUDIT_1 repris au chantier 2 (étape 1 : tests et `telecharger` ; étape 3 : journalisation de `llm_extract` par `llm_router`) | 0b |
 | 1b | UI démo : corrections bloquantes de l'audit design (profil, clos, pagination, non classé, bloc décision) | **Terminé le 2026-11-11** | 1 |
 | 2 | Promouvoir le mode document en prod (lecture exhaustive des DCE) | **En cours depuis le 2026-11-11**, plafond 16 € | 1 |
 | 3 | Dossier manuel sur un marché BTP réel, puis agent d'assemblage | À faire | 2 |
@@ -49,13 +49,14 @@ Un chantier = une session Claude Code, un objectif, un critère de fin vérifiab
 - Résultat : profil BTP enregistrable, marchés clos (définition unique `core.etat_marche`) hors des listes, `matching` qui lit `classifications_ia` (dashboard démo 0 → 145 marchés) avec verdict `non_classe`, bloc de décision en tête de fiche ; explorer 6 141 Ko / 2 794 cartes / 1,32 s → 204 Ko / 50 cartes / 0,45 s à chaud ; captures dans docs/audit_design/apres/ ; 6 majeurs de AUDIT_1b reportés (voir archive/RAPPORT_1b.md).
 
 ### 2 : lecture exhaustive des DCE
-- Étape 0 (hygiène post-1) : `llm_extract` journalisé par `budget.journaliser_appel` y compris les relances JSON ; tests sur la journalisation de `llm_calibration` et sur `extraire.plafond_atteint` / `cout_du_resultat` ; `telecharger.main` en écriture unitaire ; `--max-cout 0` bloque au lieu de désactiver ; `TENDIA_PROXY_ACTIF` interdit dans `.env` (`.env.example`, CLAUDE.md) ; docs « 6 étapes » / « classification hors pipeline » corrigées ; tests sans écriture dans `logs/`.
+- Étape 1 (hygiène post-1 et post-1b) : tests sur la journalisation de `llm_calibration` et sur `extraire.plafond_atteint` / `cout_du_resultat` ; `telecharger.main` en écriture unitaire ; `--max-cout 0` bloque au lieu de désactiver ; `TENDIA_PROXY_ACTIF` interdit dans `.env` (`.env.example`, CLAUDE.md) ; docs « 6 étapes » / « classification hors pipeline » corrigées ; tests sans écriture dans `logs/` ; `_method` inconnu → 400 sur l'explorer.
+- Étapes 2 et 3 : `llm_router` journalise et plafonne chaque tentative (relances JSON comprises) ; `llm_extract` et les autres appels directs passent par lui (majeur 1 de AUDIT_1).
 - Plafond mensuel novembre : 45 € (décision du 2026-11-11), retour à 30 € en décembre.
 - 5 DCE de référence : les 3 marchés sans PDF lisible du rapport 1 (102749, 104121, 103934) + 2 briefs réussis à comparer.
 - Reste du rattrapage BTP : 10 marchés à DCE complet sans brief, ~5 €, à lancer après la promotion du mode document.
 - Promouvoir `exp_gemini/pieces.py` (inventaire récursif, conversion .doc/.xls/.odt/.rtf, pages) et `mode_document.py` dans `src/tendia/analyse/`.
 - Promouvoir `llm_router.py` comme client LLM unique (remplacer les 6 `Anthropic()` directs).
-- Décider du modèle d'analyse par défaut (cf. questions ouvertes).
+- Modèle d'analyse par défaut : Gemini 4 argon, repli Sonnet 4.6 (décision du 2026-11-10).
 - `exp_gemini/ui_exp.py` : corriger ses deux imports (`tendia_ui` → `tendia.ui.app`) avant de promouvoir ou d'archiver.
 - Critère de fin : sur 5 DCE BTP de référence, 100 % des pièces lues, brief avec sources pièce + page, coût par DCE mesuré.
 
@@ -87,10 +88,11 @@ Un chantier = une session Claude Code, un objectif, un critère de fin vérifiab
   - « à classer » : un compteur et un lien vers l'explorer, hors de la liste du dashboard ;
   - `matching.evaluer` reçoit la classification de ses appelants (le repli par lecture en base est conservé) ;
   - `types_ouvrages` en `enum` dans `presets/btp/_schema.json`.
+- Majeurs de AUDIT_1b non traités au chantier 2 : `scripts/audit/audit_matching_n2.py` ignore le verdict `non_classe` ; le bloc de décision peut afficher des jours restants négatifs quand la date limite vient du brief ; `ui/app.py` (2 200 lignes) à découper.
 
 ## Questions ouvertes (à trancher par Younes)
 
-1. **Tranchée le 2026-11-10 : Gemini 4 argon via `llm_router`, repli Sonnet 4.6.** Modèle d'analyse par défaut en prod : Sonnet 4.6 (prod actuelle, incomplète), Gemini 4 argon (meilleur sur les données publiques selon les tests d'octobre, 2 $/10 $ par M jusqu'au 30/11 puis tarif doublé) ou Opus 5.5 (20 € pour 78 appels en exp). Le chantier 2 ne peut pas démarrer sans cette réponse.
+1. **Tranchée le 2026-11-10 : Gemini 4 argon via `llm_router`, repli Sonnet 4.6.** Modèle d'analyse par défaut en prod : Sonnet 4.6 (prod actuelle, incomplète), Gemini 4 argon (meilleur sur les données publiques selon les tests d'octobre, 2 $/10 $ par M jusqu'au 30/11 puis tarif doublé) ou Opus 5.5 (20 € pour 78 appels en exp).
 2. **Tranchée le 2026-11-10 : promotion de `pieces.py`, `mode_document.py` et `llm_router.py`.** `exp_gemini/` : expérimentation à archiver ou code à promouvoir ? Le rapport d'architecture recommande la promotion de `pieces.py`, `mode_document.py` et `llm_router.py`.
 3. **Tranchée au chantier 0b : `main` créée, branche de travail.** Branche par défaut : `main` créée depuis `feat/decp-sprint-3` ? (recommandé)
 4. **Hébergement** : rien n'est planifié ; le coffre-fort (chantier 4) suppose un serveur. Linux chez Hetzner comme pour BOTBILLET ?

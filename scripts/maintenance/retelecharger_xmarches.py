@@ -17,11 +17,9 @@ from datetime import datetime
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
-try:
-    from dotenv import load_dotenv
-    load_dotenv(".env"); load_dotenv(".env.txt")
-except Exception:
-    pass
+# .env chargé par http_humain (TENDIA_PROXY_ACTIF du fichier ignoré, chemins de la racine)
+from tendia.core import http_humain as _http_humain_env
+_http_humain_env.charger_env_fichier()
 
 from tendia.core import stockage
 from tendia.dce import resolution as tendia_dce

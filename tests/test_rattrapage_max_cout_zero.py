@@ -111,12 +111,23 @@ sortie, erreur = lancer(["briefs", "--max-cout", "0.0", "--max", "1"])
 check("0.0 bloque comme 0", erreur is None and APPELS_TRAITER == [],
       f"{erreur!r} {APPELS_TRAITER}")
 
-print("=== témoin (information, non compté) : --max-cout 5 ===")
-# Le chemin nominal dépend de la lecture des PDF du dossier DCE (vide ici) : on se
-# contente de signaler si l'espion est atteint, sans compter d'échec.
+print("=== témoin : avec des PDF lisibles, seul le plafond décide ===")
+# Lecture des PDF remplacée (ajout du relecteur d'étape) : sans cela les dossiers vides
+# n'atteignent jamais traiter_marche et le test passerait même sans la garde.
+from tendia.analyse import pdf_extract
+pdf_extract.extraire_dossier = lambda dossier, verbose=False: {"rc.pdf": "Règlement de consultation " * 50}
+E._dezipper_dossier = lambda dossier, verbose=True: 0
+
+sortie, erreur = lancer(["briefs", "--max-cout", "0", "--max", "5"])
+check("PDF lisibles, --max-cout 0 : traiter_marche jamais appelé",
+      erreur is None and APPELS_TRAITER == [], f"{erreur!r} {APPELS_TRAITER}")
 sortie, erreur = lancer(["briefs", "--max-cout", "5", "--max", "5"])
-print(f"    traiter_marche appelé {len(APPELS_TRAITER)} fois avec un plafond de 5 € "
-      f"(dossiers DCE sans PDF){' ; exception : ' + repr(erreur) if erreur else ''}")
+check("PDF lisibles, --max-cout 5 : traiter_marche appelé (le test distingue la garde)",
+      erreur is None and len(APPELS_TRAITER) == 3, f"{erreur!r} {APPELS_TRAITER}")
+APPELS_TRAITER.clear()
+sortie, erreur = lancer(["briefs", "--max-cout", "0.6", "--max", "5"])
+check("--max-cout 0.6 à 0,5 € le brief : arrêt après 2 briefs",
+      erreur is None and len(APPELS_TRAITER) == 2, f"{erreur!r} {APPELS_TRAITER}")
 
 print()
 print("=" * 60)

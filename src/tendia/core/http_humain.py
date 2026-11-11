@@ -47,7 +47,7 @@ def charger_env_fichier(chemins=None) -> list:
         return []
     if chemins is None:
         chemins = [RACINE_DEPOT / ".env", RACINE_DEPOT / ".env.txt"]
-    ignorees = []
+    ignorees, origines = [], []
     for chemin in chemins:
         try:
             if not os.path.isfile(chemin):
@@ -59,12 +59,13 @@ def charger_env_fichier(chemins=None) -> list:
             if cle in CLES_IGNOREES_DANS_ENV:
                 if cle not in ignorees:
                     ignorees.append(cle)
+                    origines.append(os.path.basename(str(chemin)))
                 continue
             if valeur is not None and cle not in os.environ:
                 os.environ[cle] = valeur
     if ignorees and not _AVERTISSEMENT_PROXY_EMIS:
         _AVERTISSEMENT_PROXY_EMIS = True
-        print(f"  ⚠ {', '.join(ignorees)} trouvé dans .env : valeur ignorée. Cet interrupteur "
+        print(f"  ⚠ {', '.join(ignorees)} trouvé dans {', '.join(origines)} : valeur ignorée. Cet interrupteur "
               f"est posé par les lanceurs (python -m tendia, retelecharger_*), jamais dans .env.",
               file=sys.stderr)
     return ignorees

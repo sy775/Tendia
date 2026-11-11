@@ -79,7 +79,7 @@ def _executer_script(script_name: str, args: list[str] = None) -> bool:
         return False
 
 
-def main():
+def main(argv=None):
     os.environ.setdefault("TENDIA_PROXY_ACTIF", "1")  # proxy résidentiel autorisé (lanceur de téléchargements)
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")
     parser = argparse.ArgumentParser(
@@ -98,6 +98,10 @@ def main():
     parser.add_argument("--max-cout-classification", type=float, default=5.0, metavar="EUR",
                         help="Plafond de coût de l'étape 2, transmis à classification "
                              "--max-cout (défaut: 5.0 ; 0 : aucun appel LLM)")
+    parser.add_argument("--max-cout-extraction", type=float, default=None, metavar="EUR",
+                        help="Plafond de coût de l'étape 6, transmis à extraire --max-cout "
+                             "(défaut : aucun plafond de passe, seul data/budget.json "
+                             "s'applique ; 0 : aucun appel LLM)")
     parser.add_argument("--force", action="store_true",
                         help="Force la re-extraction LLM même si déjà fait")
     parser.add_argument("--jours", type=int, default=60,
@@ -108,7 +112,7 @@ def main():
                         help="Cap de marchés par connecteur dédié captcha (défaut: 15)")
     parser.add_argument("--ignorer-heures", action="store_true",
                         help="Lance les connecteurs dédiés hors heures de bureau (tests)")
-    args = parser.parse_args()
+    args = parser.parse_args(argv)
 
     debut_global = time.time()
 
@@ -181,6 +185,8 @@ def main():
     else:
         _print_etape(6, "Extraction LLM des DCE (Claude Sonnet 4.6)")
         args_extract = ["--force"] if args.force else []
+        if args.max_cout_extraction is not None:
+            args_extract += ["--max-cout", str(args.max_cout_extraction)]
         _executer_script(str(RACINE_DEPOT / "src/tendia/analyse/extraire.py"), args_extract)
 
     # === Étape 7 : Rapport final ===
