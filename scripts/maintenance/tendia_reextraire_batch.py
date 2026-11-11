@@ -59,6 +59,9 @@ def main():
     )
     parser.add_argument("--oui", action="store_true",
                         help="Pas de prompt de confirmation (batch script).")
+    parser.add_argument("--max-cout", type=float, required=True, metavar="EUR",
+                        help="plafond de coût LLM de toute la passe (obligatoire). Chaque marché est "
+                             "lancé avec --max-cout-par-dce 2.5 : un DCE plus cher est sauté.")
     parser.add_argument("--dry-run", action="store_true",
                         help="Liste les marchés sans appeler l'API.")
     args = parser.parse_args()
@@ -81,9 +84,9 @@ def main():
 
     # Estimation très approximative
     print()
-    print(f"  Estimation coût : ~{0.05 * len(marches):.2f} $ "
-          f"(1 appel API Anthropic par marché, ~5¢ chacun)")
-    print(f"  Chaque extraction prend ~20-60 secondes.")
+    print(f"  Coût : mode document, de quelques dizaines de centimes à 2,50 € par DCE "
+          f"(estimé avant chaque lecture) ; plafond de la passe : {args.max_cout:.2f} €.")
+    print(f"  Chaque lecture prend de 1 à 10 minutes selon le nombre de pièces.")
 
     if args.dry_run:
         print()
@@ -102,13 +105,27 @@ def main():
     print("=" * 78)
     succes = 0
     echecs = 0
+    from datetime import datetime, timezone
+    from tendia.core import stockage
+    debut_passe = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%S")
     for i, (mid, _) in enumerate(marches, 1):
         print()
+        # Le coût réel est lu dans llm_appels (journal du routeur) : le plafond de la passe
+        # vaut pour l'ensemble des sous-processus.
+        stockage.invalider_cache("llm_appels")
+        depense = sum(float(a.get("cout_eur") or 0) for a in stockage.charger("llm_appels").values()
+                      if a.get("type") == "extraction" and (a.get("appele_le") or "") >= debut_passe)
+        reste = round(args.max_cout - depense, 4)
+        if reste <= 0:
+            print(f"\n  ⛔ Plafond --max-cout atteint ({depense:.2f} € ≥ {args.max_cout:.2f} €). "
+                  f"Arrêt avant {mid}.")
+            break
         print(f"  [{i}/{len(marches)}] Ré-extraction de {mid}")
         print("─" * 78)
         try:
             r = subprocess.run(
-                [sys.executable, str(RACINE_DEPOT / "src/tendia/analyse/extraire.py"), "--marche", mid, "--force"],
+                [sys.executable, str(RACINE_DEPOT / "src/tendia/analyse/extraire.py"), "--marche", mid, "--force",
+                 "--max-cout", str(reste)],
                 check=False,
             )
             if r.returncode == 0:

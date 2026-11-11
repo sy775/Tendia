@@ -953,7 +953,8 @@ def test_rattrapage():
         # Mode classique : il lui faut du texte de PDF ; lecture et dézippage remplacés.
         from tendia.analyse import pdf_extract
         extraire_dossier_reel, dezipper_reel = pdf_extract.extraire_dossier, E._dezipper_dossier
-        pdf_extract.extraire_dossier = lambda *a, **k: {"rc.pdf": "Règlement de consultation " * 50}
+        pdf_extract.extraire_dossier = lambda *a, **k: {"rc.pdf": {
+            "hash": "h-rat", "taille_chars": 1300, "texte": "Règlement de consultation " * 50}}   # forme réelle de pdf_extract
         E._dezipper_dossier = lambda *a, **k: 0
         try:
             APPELS_ESPION.clear()

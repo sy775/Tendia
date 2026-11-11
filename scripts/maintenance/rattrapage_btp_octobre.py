@@ -37,7 +37,7 @@ from collections import Counter, defaultdict
 from datetime import date
 from urllib.parse import urlparse
 
-from tendia.core import chemins, stockage
+from tendia.core import budget, chemins, stockage
 from tendia.core.etat_marche import est_attribution  # noqa: F401  (R.est_attribution dans les tests)
 
 MOIS_CIBLE = "2026-10"
@@ -305,12 +305,21 @@ def cmd_briefs(args):
                 lignes.append((mid, 0.0, "aucun PDF", "—"))
                 print(f"  {mid}  ⊘ aucun PDF exploitable")
                 continue
-        res = extraire.traiter_marche(mid, dossier, pdfs, dry_run=False, verbose=False,
-                                      mode=args.mode, max_cout_par_dce=args.max_cout_par_dce)
+        try:
+            res = extraire.traiter_marche(mid, dossier, pdfs, dry_run=False, verbose=False,
+                                          mode=args.mode, max_cout_par_dce=args.max_cout_par_dce)
+        except budget.BudgetDepasseError as e:
+            print(f"\n  ⛔ Budget : {e}. Arrêt avant {mid}.")
+            break
+        except Exception as e:
+            res = {"ok": False, "raison": f"erreur : {type(e).__name__}: {e}"[:160]}
         cout = extraire.cout_du_resultat(res)
         cout_cumule += cout
         if res.get("ok") and res.get("extraction"):
             etat[mid] = extraire.etat_apres_extraction(args.mode, dossier, pdfs)
+            extraire._sauver_etat(etat)
+        elif not res.get("ok") and args.mode == "document":
+            extraire.noter_echec(etat, mid, res.get("raison") or "echec", dossier, args.max_cout_par_dce)
             extraire._sauver_etat(etat)
         statut = "ok" if res.get("ok") else (res.get("raison") or res.get("erreur") or "échec")
         lecture = res.get("lecture") or {}
