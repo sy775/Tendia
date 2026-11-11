@@ -348,6 +348,17 @@ check("le contenu du PDF est bien celui du fichier", fg.files.envois and fg.file
 check("le nom affiché est en ASCII et reste reconnaissable",
       fg.files.envois and fg.files.envois[0][1].isascii() and "Cheminement previsionnel" in fg.files.envois[0][1],
       fg.files.envois)
+class FichiersEnPanne(FauxFichiersGemini):
+    def upload(self, file=None, config=None):
+        raise ValueError("refus de l'envoi (erreur non locale par son type)")
+
+
+fg = brancher_gemini(FauxGemini())
+fg.files = FichiersEnPanne()
+faux = brancher_claude(FauxClaude())
+res = R.call_llm("analyse", "lis ce scan", documents=[str(pdf_accent)], type_appel="extraction", marche_id="M-K2")
+check("envoi du PDF refusé (quel que soit le type d'erreur) : aucun repli Sonnet payant",
+      not res.ok and not res.repli and not faux.appels and not fg.appels, f"{res.erreur} {len(faux.appels)}")
 check("nom sans aucun caractère ASCII : nom de repli", R._nom_ascii("日本語.pdf").endswith(".pdf") and R._nom_ascii("日本語.pdf").isascii())
 
 print("=== exp_appels reste vide ===")

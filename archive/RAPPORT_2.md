@@ -2,15 +2,21 @@
 
 Branche `chantier/2-lecture-dce` (depuis `main` = `9f4e6a2`). Verdict : **à reprendre**. Le mode document est en prod et lit 100 % des pièces de texte des 4 DCE lus, mais le critère de fidélité n'est pas tenu (18/30 contre 28/30 exigés) et un DCE de référence n'a pas été lu. L'étape 8 n'a donc pas été lancée.
 
-Arrêté à l'étape 8 : critère de l'étape 7 non atteint (fidélité 18/30 < 28/30, BOAMP-26-102749 non lu), étape 8 sautée conformément au texte du chantier.
+Fidélité selon la règle appliquée aux 4 briefs :
+- 14/24 en règle stricte (heure limite exigée, agrégat technique égal au RC) ;
+- 18/24 en règle retenue (montant estimé non publié compté inexact) ;
+- 20/24 en règle souple (jour seul suffisant, agrégat lu au détail) ;
+- dans tous les cas, moins de 28/30.
+
+Arrêté à l'étape 8 : critère de l'étape 7 non atteint (fidélité 18/30 < 28/30, BOAMP-26-102749 non lu, 17/18 sources vérifiées sur les champs exacts), étape 8 sautée conformément au texte du chantier.
 
 ## En bref
 
 1. **Client LLM unique.** `llm_router` porte désormais tous les appels LLM de Tendia, avec kill switch et plafond avant chaque tentative et une entrée `llm_appels` après chaque tentative. Il n'existe plus aucun `Anthropic()` hors de lui. Aucun modèle ni aucun prompt n'a changé hors du brief.
 2. **Lecture du DCE.** Le mode document est le mode par défaut. Il lit tout le dossier : sous-dossiers, zips imbriqués ou tronqués, `.doc`, `.xls`, `.odt` et `.rtf` convertis par Office, scans lus visuellement. Il travaille sous `data/pieces/<id>` et ne fait que lire `data/dce`. Chaque fichier reçoit un statut et chaque champ critique une source pièce + page vérifiée sans LLM. La fiche marché affiche ces sources et le taux de lecture.
-3. **Résultats sur les 4 DCE lus.** 138 pièces de texte sur 138 sont lues (0 % non lu). 20 sources sur 20 marquées vérifiées le sont à juste titre, selon les vérificateurs. La fidélité est de 18/24 sur les 6 champs critiques, 18/30 en comptant le DCE non lu. Le défaut est systématique et vient de l'appel de fusion : il perd l'heure limite et fabrique ou dérive un montant que le DCE ne publie pas.
+3. **Résultats sur les 4 DCE lus.** 138 pièces de texte sur 138 sont lues (0 % non lu). Les 20 sources marquées vérifiées le sont à juste titre, selon les vérificateurs ; parmi les 18 champs exacts, 17 portent une source vérifiée. La fidélité est de 18/24 sur les 6 champs critiques, 18/30 en comptant le DCE non lu. Le défaut est systématique et vient de l'appel de fusion : il perd l'heure limite et fabrique ou dérive un montant que le DCE ne publie pas.
 4. **Coût.** Le chantier a coûté **6,43 €** en appels LLM (plafond 16 €). Par DCE, la moyenne est de 1,61 € au tarif argon actuel, 3,18 € au tarif du 01/12 et 2,39 € en équivalent Sonnet 4.6 sur les mêmes tokens. La dépense de novembre atteint 34,38 €, pour un plafond de 45 €.
-5. **Qualité.** Les étapes 1 à 6 ont été relues chacune par `relecteur-etape` : 2 bloquants et 23 majeurs relevés, tous corrigés, avec un commit de correctif par étape. Les tests passent de 30 fichiers et 765 vérifications à 48 fichiers et 2 282 vérifications, 100 % verts.
+5. **Qualité.** Les étapes 1 à 6 ont été relues chacune par `relecteur-etape` : 2 bloquants et 23 majeurs relevés, tous corrigés, avec un commit de correctif par étape. Les tests passent de 30 fichiers et 765 vérifications à 49 fichiers et 2 308 vérifications, 100 % verts.
 
 ## Points d'attention
 
@@ -26,7 +32,7 @@ Arrêté à l'étape 8 : critère de l'étape 7 non atteint (fidélité 18/30 < 
    - Choix le plus prudent retenu : ne pas relever le plafond. Il faut retélécharger le DCE puis relancer avec `--max-cout-par-dce 5`.
 3. **Les deux gros DCE prévus ont été remplacés.**
    - BOAMP-26-104234 était estimé à 10,26 € (185 pièces, 7 M de caractères) et BOAMP-26-103744 à 10,16 € (250 pièces dont 127 scans).
-   - Ils sont remplacés par les deux plus volumineux des briefs du chantier 1 qui tiennent sous 4 € : **BOAMP-26-104292** (2,19 €, 31 pièces) et **BOAMP-26-104768** (1,16 €, 19 pièces).
+   - Ils sont remplacés par les deux plus volumineux (en caractères) des briefs du chantier 1 qui tiennent sous 4 € : **BOAMP-26-104292** (2,19 €, 31 pièces) et **BOAMP-26-104768** (1,16 €, 19 pièces).
    - BOAMP-26-102932 (4,54 €) et BOAMP-26-105506 (5,30 €) dépassaient aussi 4 €.
    - Ids réellement utilisés : 102749 (sauté), 104121, 103934, 104292, 104768.
 4. **Incident de limite d'usage.**
@@ -36,15 +42,19 @@ Arrêté à l'étape 8 : critère de l'étape 7 non atteint (fidélité 18/30 < 
 5. **Un bug réel trouvé et corrigé pendant l'étape 7.**
    - Le SDK Gemini met le nom du fichier dans un en-tête HTTP : un PDF scanné au nom accentué levait `UnicodeEncodeError`, puis déclenchait un repli Sonnet payant (3 replis sur 104292).
    - Le fichier est désormais envoyé par son contenu, avec un nom ASCII. L'envoi a été vérifié en réel (Files API seule, gratuite, sur une fixture fictive).
+   - La reprise de 104292 (13h51) a eu lieu AVANT ce correctif : la pièce « Cheminement prévisionnel… » a de nouveau échoué sur argon et a été lue par le repli Sonnet (3 replis au total, 0,154 €). Le correctif n'a donc servi sur aucun brief réel ; il n'est couvert que par le faux SDK et par l'envoi réel de contrôle.
+   - Toute erreur survenue avant la génération (envoi du PDF compris, quel que soit son type) ne déclenche plus de repli payant (relecture de l'étape 7).
 6. **Vérification des sources affinée après le run.**
-   - Le modèle cite souvent des extraits condensés (« a [...] b », « a / b ») ou la page voisine. 7 sources sur 24 étaient marquées non vérifiées pour ces seules raisons.
-   - Désormais, l'extrait est vérifié fragment par fragment. S'il figure sur une autre page de la même pièce, la page est corrigée et l'ancienne gardée dans `page_citee`.
+   - Le modèle cite souvent des extraits condensés (« a [...] b », « a / b »). 9 sources sur 24 étaient marquées non vérifiées pour cette raison.
+   - Sources vérifiées avant et après recalcul : 104121 3 → 5, 103934 2 → 5, 104292 2 → 5, 104768 4 → 5 (11/24 → 20/24).
+   - Désormais, l'extrait est vérifié fragment par fragment, dans l'ordre. Tous les fragments, même courts (une pondération, une date), doivent figurer dans la page, et au moins un fragment doit porter 5 caractères alphanumériques. Ce durcissement fait suite à la relecture : un chiffre inventé ne passe plus. Il ne change aucune des 20 sources vérifiées.
+   - Si l'extrait figure sur une seule autre page de la même pièce et compte au moins 30 caractères alphanumériques, la page est corrigée et l'ancienne gardée dans `page_citee`. Cette correction n'a servi sur aucun des 4 briefs.
    - Les briefs déjà payés ont été recalculés sans LLM (`scripts/maintenance/recalculer_sources_brief.py`). Les anciens briefs ont été copiés dans `archive/data/briefs/` avant recalcul.
 7. **Le pipeline change de comportement.**
    - `python -m tendia` (étape 6) lit maintenant en mode document, plafonné à 5 € par passe et 2,5 € par DCE. Il écarte les marchés clos, absents de la base ou déjà briefés, et commence par la date limite la plus proche.
    - Au tarif du 01/12, le même plafond par DCE sautera environ deux fois plus de DCE.
 8. **Volume disque.**
-   - `data/pieces/` fait 4,4 Go, pour 19 inventaires dont 2 de plus de 1 Go (104234 et 103744, inventoriés à blanc).
+   - `data/pieces/` fait 4,4 Go, pour 17 dossiers dont 2 de plus de 1 Go (104234 et 103744, inventoriés à blanc).
    - Les anciens dossiers de travail sont déplacés dans `archive/data/pieces/` (1,3 Go) et jamais supprimés.
    - Par DCE, `data/pieces/<id>` pèse à peu près autant que `data/dce/<id>`. Une politique de purge des dossiers de travail des marchés clos est à décider ; c'est un changement de règle « rien n'est supprimé », non tranché ici.
 9. **Écarts connus au principe « rien n'est écrit dans data/dce ».** L'ancien dézippage à plat reste appelé par le mode `--mode classique` et par `memoire/services/digest_memoire.py`. La signature de dossier du mode document y est rendue insensible, mais `digest_memoire` devrait lire via `pieces.inventorier` (proposition).
@@ -58,7 +68,7 @@ Arrêté à l'étape 8 : critère de l'étape 7 non atteint (fidélité 18/30 < 
 | 102749 au-delà de 2,5 € | Sauté (choix prudent, ne dépense rien) | Relever son plafond à 5 € |
 | Remplaçants des deux gros DCE | Les deux plus volumineux sous 4 € parmi les briefs du chantier 1 (104292, 104768) | 102932 (4,54 €) ou 105506 (5,30 €), au-delà de 4 € |
 | Étape 8 | Sautée : critère non atteint | Lancer quand même les 10 briefs (~9 €) |
-| Reprise de 104292 après correction du bug d'envoi | Relance de la seule pièce en échec + fusion (0,31 €), grâce à la reprise sur trace | Brief laissé à 30/31 pièces lues |
+| Reprise de 104292 | Relance de la seule pièce en échec + fusion (0,31 €) grâce à la reprise sur trace ; la pièce a été lue par le repli Sonnet, le correctif d'envoi n'étant pas encore complet | Brief laissé à 30/31 pièces lues |
 | Sources après le run | Recalcul sans LLM avec la vérification affinée | Laisser les sources du run (moins de vérifiées, même contenu) |
 | Repli Sonnet | Un seul appel, sans relance JSON, jamais si le modèle est explicite ni sur une erreur locale | Relance JSON aussi sur le repli |
 | `rmtree` du dossier de travail (relecture 4) | Remplacé par un déplacement dans `archive/data/pieces/`, trace des analyses payées conservée | Supprimer un cache régénérable |
@@ -76,9 +86,9 @@ Arrêté à l'étape 8 : critère de l'étape 7 non atteint (fidélité 18/30 < 
 
 | | Avant (main `9f4e6a2`) | Après |
 |---|---|---|
-| Fichiers | 30 / 30 OK | 48 / 48 OK |
-| Vérifications | 765 | 2 282 |
-| Nouveaux | – | `test_plafond_cout` (53), `test_classification_max_cout` (18), `test_rattrapage_max_cout_zero` (12), `test_env_proxy_actif` (51), `test_base_temporaire_logs` (21), `test_explorer_methode` (23), `test_telecharger_ecriture_unitaire` (33), `test_llm_calibration_journal` (24), `test_max_cout_zero_cli` (17), `test_llm_router` (265), `test_llm_router_backends` (41), `test_appels_migres` (33), `test_pieces` (165), `test_mode_document` (300), `test_lecture_dce_robustesse` (77), `test_extraire_mode_document` (226), `test_extraire_scan_document` (42), `test_ui_fiche_sources` (101) |
+| Fichiers | 30 / 30 OK | 49 / 49 OK |
+| Vérifications | 765 | 2 308 |
+| Nouveaux | – | `test_plafond_cout` (53), `test_classification_max_cout` (18), `test_rattrapage_max_cout_zero` (12), `test_env_proxy_actif` (51), `test_base_temporaire_logs` (21), `test_explorer_methode` (23), `test_telecharger_ecriture_unitaire` (33), `test_llm_calibration_journal` (24), `test_max_cout_zero_cli` (17), `test_llm_router` (265), `test_llm_router_backends` (41), `test_appels_migres` (33), `test_pieces` (165), `test_mode_document` (300), `test_lecture_dce_robustesse` (77), `test_extraire_mode_document` (226), `test_extraire_scan_document` (42), `test_ui_fiche_sources` (101), `test_recalcul_et_chemins_longs` (18) |
 | Modifiés | – | `test_classification`, `test_decp_classifier_llm` (faux client branché sur le routeur ; taux DECP 0,95 → 0,92), `test_ui_routes` (62 → 77), 10 tests de downloaders (`isoler_logs`) |
 
 `logs/`, `data/extractions/_etat.json`, `data/dce` et `archive/data/briefs` sont inchangés par la suite (contrôlé avant et après).
@@ -93,6 +103,7 @@ Arrêté à l'étape 8 : critère de l'étape 7 non atteint (fidélité 18/30 < 
 | 4 Lecture en prod | `8a294da` | à reprendre | 1 bloquant (`rmtree` non borné), 9 majeurs (homonymes, zips écrasés, pièce vide « lue », alias à 0 €, inventaire périmé, fixtures abîmées par git, macros Office, tests de reprise) | `5c7df06`, `0e1f3da` |
 | 5 Branchement | `925350c` | à reprendre | 1 bloquant (231 briefs existants repayés au premier lancement), 6 majeurs (passe sans plafond, scripts de ré-extraction, échecs retentés, dézippage à plat, nouvelles pièces ignorées, archive vérifiée trop tard) | `bada392` |
 | 6 Fiche | `9e99a0e` | à reprendre | 0 bloquant, 4 majeurs (source de date sous la date de l'avis, critères invisibles au prix seul, montant mal placé, contraste) | `1b9f6e9` |
+| 7 Constats du run et rapport | `0e1f3da`, `ab87282`, `9721fde` | à reprendre | 1 bloquant (fragments courts écartés : pondération inventée « vérifiée »), 11 majeurs (correction de page trop lâche, garde-fous et test du recalcul, test des chemins longs, repli sur erreur avant envoi, rapport : 17/18, reprise de 104292 par Sonnet, fidélité à règle constante, CLAUDE.md, backlog non commité) | commit suivant |
 
 ### Appels migrés vers `llm_router` (étape 3)
 
@@ -121,7 +132,7 @@ Passe lancée à 13h19 UTC, plafonnée à 7 € (`--max-cout` = reste du plafond
 
 | DCE | Pièces trouvées | Texte | Lues | Plans ignorés | Non gérées | Échecs conv. | % non lu avant | % non lu après | Modèle (replis) | Coût réel € | Au tarif du 01/12 € | Équiv. Sonnet € | Durée | Fidélité | Sources vérifiées |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| 102749 | 43 (inventaire) | 41 | 0 | 1 | 1 (zip tronqué) | 0 | n/d (aucun brief : « pdfs_non_dce ») | non lu : sauté, estimation 4,58 € > 2,5 € | – | 0 | (9,17 estimé) | (6,88 estimé) | – | 0/6 | – |
+| 102749 | 42 (inventaire) | 41 | 0 | 1 | 1 (zip tronqué) | 0 | n/d (aucun brief : « pdfs_non_dce ») | non lu : sauté, estimation 4,58 € > 2,5 € | – | 0 | (9,17 estimé) | (6,88 estimé) | – | 0/6 | – |
 | 104121 | 204 | 47 | 47 | 157 | 0 | 0 | n/d (aucun brief) | 0,0 | argon (0) | 1,510 | 3,019 | 2,264 | 452 s | 5/6 | 5/6, toutes à juste titre |
 | 103934 | 336 | 41 | 41 | 295 | 0 | 0 | n/d (aucun brief) | 0,0 | argon (0) | 1,400 | 2,800 | 2,100 | 444 s | 4/6 | 5/6, toutes à juste titre |
 | 104292 | 37 | 31 | 31 | 6 | 0 | 0 | n/d (brief classique : seul le CETS lu après troncature) | 0,0 | argon (3 replis Sonnet, bug d'envoi corrigé) | 2,464 | 4,774 | 3,619 | 457 s + 256 s | 4/6 (5/6 selon le vérificateur) | 5/6, toutes à juste titre |
@@ -132,7 +143,7 @@ Coût moyen par DCE lu : 1,61 € au tarif actuel, 3,18 € au tarif argon du 01
 
 Écart entre l'estimation et le coût réel : 104121 1,51 € pour 2,18 € estimés, 103934 1,40 pour 1,94, 104292 2,46 pour 2,19, 104768 1,06 pour 1,16. L'estimation est un ordre de grandeur, pas un plafond.
 
-Volume : `data/pieces/` 4,4 Go (19 dossiers), dont 104121 392 Mo (DCE 344 Mo), 103934 543 Mo (494 Mo), 104292 38 Mo (65 Mo), 104768 17 Mo (26 Mo) ; `archive/data/pieces/` 1,3 Go.
+Volume : `data/pieces/` 4,4 Go (17 dossiers), dont 104121 392 Mo (DCE 344 Mo), 103934 543 Mo (494 Mo), 104292 38 Mo (65 Mo), 104768 17 Mo (26 Mo) ; `archive/data/pieces/` 1,3 Go.
 
 #### Causes des champs inexacts (vérificateurs)
 
@@ -180,7 +191,12 @@ Manques et déformations hors champs critiques les plus utiles (détail dans les
 
 ### Étape 8
 
-Non lancée : l'étape 7 ne donne ni 0 pièce de texte non lue sur les 5 DCE (102749 non lu), ni une fidélité ≥ 28/30 (18/30). La condition sur « 100 % de `verifie = true` sur les champs exacts » est en revanche tenue : 20 sources sur 20 marquées vérifiées le sont à juste titre.
+Non lancée. L'étape 7 ne tient aucune des trois conditions :
+- 0 pièce de texte non lue sur les 5 DCE : non, 102749 n'a pas été lu ;
+- fidélité ≥ 28/30 : non, 18/30 ;
+- 100 % de `verifie = true` sur les champs exacts : non, 17/18. Sur 104768, les critères sont exacts mais leur source cite la p. 8 alors que le barème est p. 9 à 11 ; elle est marquée non vérifiée à raison.
+
+À l'inverse, les 20 sources marquées vérifiées le sont à juste titre (20/20).
 
 ### Coût par type d'appel (chantier)
 

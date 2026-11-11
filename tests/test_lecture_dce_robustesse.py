@@ -361,6 +361,16 @@ check("un seul fragment inventé suffit à ne pas vérifier",
       not SL.verifier_extrait("Critère 1 : Prix des prestations 60 Points [...] Critère 3 : Délais 10 Points", page))
 check("ellipse seule ou fragments trop courts : non vérifié",
       not SL.verifier_extrait("[...]", page) and not SL.verifier_extrait("60 / 30 / 20", page))
+page_crit = "Critère prix : 60 %. Critère valeur technique : 40 %. Les offres sont remises avant le 15 janvier 2027."
+check("pondération inventée dans une citation condensée : non vérifiée (relecture étape 7)",
+      not SL.verifier_extrait("Critère prix [...] 70 % [...] valeur technique [...] 30 %", page_crit)
+      and not SL.verifier_extrait("Critère prix / 55 / valeur technique / 45", page_crit))
+check("date inventée dans une citation condensée : non vérifiée",
+      not SL.verifier_extrait("Les offres sont remises ... 2028", page_crit))
+check("bonne citation condensée avec ses chiffres : vérifiée",
+      SL.verifier_extrait("Critère prix [...] 60 % [...] valeur technique [...] 40 %", page_crit))
+check("fragments dans le désordre : non vérifiée",
+      not SL.verifier_extrait("valeur technique : 40 % [...] Critère prix : 60 %", page_crit))
 check("fragments : coupes reconnues", SL.fragments_extrait("Début du texte […] milieu du texte ... fin du texte (…) dernier bout")
       == ["début du texte", "milieu du texte", "fin du texte", "dernier bout"])
 check("pages citées en liste : « 5, 16-18 » → [5, 16, 17, 18]", SL._pages("5, 16-18") == [5, 16, 17, 18], SL._pages("5, 16-18"))
@@ -376,6 +386,16 @@ src_ = SL._source(inv_dec, "RC.pdf", [2], "une attestation de visite signée doi
 check("page citée juste : pas de page_citee", src_["page"] == 2 and src_["verifie"] and "page_citee" not in src_, src_)
 src_ = SL._source(inv_dec, "RC.pdf", [1], "une clause qui ne figure nulle part dans cette pièce")
 check("extrait absent de la pièce : non vérifié, page citée affichée", src_["page"] == 1 and src_["verifie"] is False, src_)
+src_ = SL._source(inv_dec, "RC.pdf", [1], "attestation de visite")
+check("extrait court absent de la page citée : pas de correction de page (seuil 30)", src_["page"] == 1 and not src_["verifie"], src_)
+source_rep = dce("repetition", {"RC.pdf": gen.pdf([["Une attestation de visite signée doit être jointe à l'offre du candidat."] + gen.remplir(8),
+                                                   ["Rappel : une attestation de visite signée doit être jointe à l'offre du candidat."] + gen.remplir(8),
+                                                   ["Page sans rapport."] + gen.remplir(8)])})
+inv_rep = P.inventorier("REPET", str(source_rep), verbose=False)
+src_ = SL._source(inv_rep, "RC.pdf", [3], "une attestation de visite signée doit être jointe à l'offre du candidat")
+check("extrait présent sur deux autres pages : pas de correction (page ambiguë)", src_["page"] == 3 and not src_["verifie"], src_)
+src_ = SL._source(inv_dec, "RC.pdf", None, "une attestation de visite signée doit être jointe à l'offre")
+check("aucune page citée : page trouvée, page_citee None", src_["page"] == 2 and src_["verifie"] and src_.get("page_citee") is None, src_)
 check("pages_de : toutes les pages de la pièce, dans l'ordre", [c for c, _ in P.pages_de(inv_dec["pieces"][0])] == [1, 2])
 
 print("=== gel des prompts du mode document ===")

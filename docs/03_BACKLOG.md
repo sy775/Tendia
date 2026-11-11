@@ -10,7 +10,7 @@ Un chantier = une session Claude Code, un objectif, un critère de fin vérifiab
 | 0b | Structure `src/tendia/`, `CLAUDE.md`, branche `main`, 2 régressions de 0a | **Terminé le 2026-11-10**, réserve : `test_aws_downloader` et `test_qualifier_dce` périmés (antérieurs à 0b), repris en étape 1 du chantier 1 | 0a |
 | 1 | Redémarrer la chaîne LLM | **Terminé le 2026-11-11**, 17,95 € (classification 10,85, briefs 7,10) ; 14 briefs BTP d'octobre ; majeurs de AUDIT_1 repris au chantier 2 (étape 1 : tests et `telecharger` ; étape 3 : journalisation de `llm_extract` par `llm_router`) | 0b |
 | 1b | UI démo : corrections bloquantes de l'audit design (profil, clos, pagination, non classé, bloc décision) | **Terminé le 2026-11-11** | 1 |
-| 2 | Promouvoir le mode document en prod (lecture exhaustive des DCE) | **En cours depuis le 2026-11-11**, plafond 16 € | 1 |
+| 2 | Promouvoir le mode document en prod (lecture exhaustive des DCE) | **À reprendre : fidélité 18/30 (< 28/30), la fusion perd l'heure limite et invente des montants ; BOAMP-26-102749 non lu (zip tronqué, 4,58 € estimés)** ; coût réel 6,43 € ; mode document en prod | 1 |
 | 3 | Dossier manuel sur un marché BTP réel, puis agent d'assemblage | À faire | 2 |
 | 4 | Coffre-fort entreprise | À faire | 3 |
 | 5 | Test Scrapling sur les 3 plateformes où le plus de DCE sont perdus | À faire | 0b |
@@ -59,6 +59,8 @@ Un chantier = une session Claude Code, un objectif, un critère de fin vérifiab
 - Modèle d'analyse par défaut : Gemini 4 argon, repli Sonnet 4.6 (décision du 2026-11-10).
 - `exp_gemini/ui_exp.py` : corriger ses deux imports (`tendia_ui` → `tendia.ui.app`) avant de promouvoir ou d'archiver.
 - Critère de fin : sur 5 DCE BTP de référence, 100 % des pièces lues, brief avec sources pièce + page, coût par DCE mesuré.
+- Résultat (2026-11-11, archive/RAPPORT_2.md) : 4 DCE lus sur 5 (104121, 103934, 104292, 104768 ; 102749 sauté, 104234 et 103744 remplacés car estimés à plus de 10 €), 138/138 pièces de texte lues, sources vérifiées à juste titre 20/20, fidélité 18/24 sur les DCE lus (18/30 au critère) ; coût moyen par DCE 1,61 € au tarif argon actuel, 3,18 € au tarif du 01/12, 2,39 € en équivalent Sonnet 4.6 ; 4 briefs produits, étape 8 (10 briefs BTP) non lancée.
+- À reprendre : post-traitement déterministe de la fusion (montant `non_communique` quand aucune note par pièce n'en porte, heure limite reprise de la note du RC, agrégat technique fidèle au RC) ou changement du prompt de fusion (décision Younes) ; retélécharger 102749 puis le lire (`--max-cout-par-dce 5`) ; puis l'étape 8.
 
 ### 3 : le dossier
 - D'abord à la main : prendre un marché BTP réel ouvert, faire tourner les modules existants, assembler le dossier avec Claude (chat), noter ce qui manque. Ce dossier sert de pièce de démo.
@@ -88,6 +90,9 @@ Un chantier = une session Claude Code, un objectif, un critère de fin vérifiab
   - « à classer » : un compteur et un lien vers l'explorer, hors de la liste du dashboard ;
   - `matching.evaluer` reçoit la classification de ses appelants (le repli par lecture en base est conservé) ;
   - `types_ouvrages` en `enum` dans `presets/btp/_schema.json`.
+- Modules à découper (règle des 800 lignes) : `analyse/extraire.py` (~1 700 l.), `analyse/llm_extract.py` (~1 500 l.).
+- `memoire/services/digest_memoire.py` dézippe encore à plat dans `data/dce` : le faire lire via `pieces.inventorier`.
+- Purge des dossiers de travail `data/pieces/<id>` des marchés clos (4,4 Go après le chantier 2) : décision à prendre, la règle actuelle est de ne rien supprimer.
 - Majeurs de AUDIT_1b non traités au chantier 2 : `scripts/audit/audit_matching_n2.py` ignore le verdict `non_classe` ; le bloc de décision peut afficher des jours restants négatifs quand la date limite vient du brief ; `ui/app.py` (2 200 lignes) à découper.
 
 ## Questions ouvertes (à trancher par Younes)

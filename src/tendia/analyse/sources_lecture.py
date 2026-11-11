@@ -61,24 +61,41 @@ LONGUEUR_MIN_EXTRAIT = 5      # caractères alphanumériques : « oui », « 1 �
 _RE_COUPE = re.compile(r"\s*(?:\[\s*(?:\.\.\.|…)\s*\]|\(\s*(?:\.\.\.|…)\s*\)|\.\.\.|…|\s/\s)\s*")
 
 
+LONGUEUR_MIN_CORRECTION_PAGE = 30   # alphanumériques exigés pour corriger une page citée
+
+
 def fragments_extrait(extrait) -> list:
     """Fragments d'un extrait normalisé, coupé aux ellipses et aux « / » de mise en liste.
-    Seuls les fragments d'au moins LONGUEUR_MIN_EXTRAIT caractères alphanumériques comptent."""
+    Tous les fragments qui portent au moins un caractère alphanumérique sont gardés : un
+    fragment court (« 70 % », « 2027 ») est une valeur, il doit figurer dans la page."""
     return [f.strip() for f in _RE_COUPE.split(normaliser_extrait(extrait))
-            if sum(c.isalnum() for c in f) >= LONGUEUR_MIN_EXTRAIT]
+            if any(c.isalnum() for c in f)]
+
+
+def _alnum(texte: str) -> int:
+    return sum(c.isalnum() for c in texte)
 
 
 def verifier_extrait(extrait, texte_page) -> bool:
     """True si l'extrait figure dans le texte de la page (formes normalisées). Sans LLM.
-    Une citation condensée (« début [...] suite ») est vérifiée fragment par fragment :
-    TOUS ses fragments doivent figurer dans la page. Un extrait (ou un fragment) de moins
-    de LONGUEUR_MIN_EXTRAIT caractères alphanumériques ne prouve rien : on le trouverait
-    sur n'importe quelle page."""
+
+    Une citation condensée (« début [...] suite », « a / b ») est vérifiée fragment par
+    fragment : TOUS ses fragments, même courts (une pondération, une date), doivent
+    figurer dans la page, DANS L'ORDRE de l'extrait. Au moins un fragment doit compter
+    LONGUEUR_MIN_EXTRAIT caractères alphanumériques : « 60 / 30 / 20 » ou « oui » se
+    trouveraient sur n'importe quelle page."""
     fragments = fragments_extrait(extrait)
-    if not fragments:
+    # au moins un fragment de texte (pas seulement des nombres ou des mots-outils)
+    if not fragments or max(_alnum(f) for f in fragments) < LONGUEUR_MIN_EXTRAIT:
         return False
     page = normaliser_extrait(texte_page)
-    return all(f in page for f in fragments)
+    position = 0
+    for fragment in fragments:
+        trouve = page.find(fragment, position)
+        if trouve < 0:
+            return False
+        position = trouve + len(fragment)
+    return True
 
 
 def _numero_page(page):
@@ -151,17 +168,30 @@ def _texte_extrait(valeur) -> Optional[str]:
     return s[:LONGUEUR_MAX_EXTRAIT] if s else None
 
 
+def _pages_piece(piece: Optional[dict], valeur) -> list:
+    """_pages, sauf pour un tableur : une feuille dont le nom ressemble à une plage
+    (« 2026-2027 », « 1-2 ») est d'abord prise comme nom de feuille."""
+    if piece and piece.get("unite") == "feuille":
+        brutes = valeur if isinstance(valeur, (list, tuple)) else [valeur]
+        noms = {cle for cle, _ in P.pages_de(piece)}
+        exactes = [str(v).strip() for v in brutes if v is not None and str(v).strip() in noms]
+        if exactes:
+            return exactes
+    return _pages(valeur)
+
+
 def _source(inv: dict, nom_piece, pages, extrait) -> Optional[dict]:
     """Une source vérifiée : l'extrait (≤ 200 caractères) est cherché dans chaque page
     citée ; la page retenue est la première où il figure. S'il n'est sur aucune page citée
-    mais figure ailleurs dans la MÊME pièce, la page est corrigée (la page citée par le
-    modèle est gardée dans "page_citee") : la citation affichée est alors exacte. Sinon la
-    source reste sur la première page citée, non vérifiée."""
+    mais figure sur UNE seule autre page de la MÊME pièce, et qu'il est assez long
+    (LONGUEUR_MIN_CORRECTION_PAGE), la page est corrigée (la page citée par le modèle est
+    gardée dans "page_citee"). Sinon la source reste sur la première page citée, non
+    vérifiée."""
     piece = _piece_par_nom(inv, nom_piece)
     nom = piece["nom"] if piece else (str(nom_piece) if nom_piece else None)
     if not nom:
         return None
-    pages = _pages(pages)
+    pages = _pages_piece(piece, pages)
     extrait = _texte_extrait(extrait)
     page, verifie = (pages[0] if pages else None), False
     source = {"piece": nom, "page": page, "extrait": extrait, "verifie": False}
@@ -170,12 +200,14 @@ def _source(inv: dict, nom_piece, pages, extrait) -> Optional[dict]:
             if verifier_extrait(extrait, P.texte_page(piece, p)):
                 page, verifie = p, True
                 break
-        if not verifie:
-            for cle, texte in P.pages_de(piece):
-                if cle not in pages and verifier_extrait(extrait, texte):
-                    source["page_citee"] = page
-                    page, verifie = cle, True
-                    break
+        if not verifie and _alnum(" ".join(fragments_extrait(extrait))) >= LONGUEUR_MIN_CORRECTION_PAGE:
+            # Correction de page seulement pour un extrait long, présent sur UNE seule autre
+            # page de la pièce : un extrait court ou répété ne désigne pas une page.
+            candidates = [cle for cle, texte in P.pages_de(piece)
+                          if cle not in pages and verifier_extrait(extrait, texte)]
+            if len(candidates) == 1:
+                source["page_citee"] = page
+                page, verifie = candidates[0], True
     source.update(page=page, verifie=verifie)
     return source
 

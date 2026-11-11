@@ -393,6 +393,8 @@ def _uploader_pdf_gemini(chemin: str, verbose: bool):
     client = _client_gemini()
     # Le fichier est envoyé par son contenu, pas par son chemin : le SDK met le nom du fichier
     # dans un en-tête HTTP, et un nom accentué (« prévisionnel.pdf ») y lève UnicodeEncodeError.
+    # Copie en mémoire (≤ 50 Mo) : un fichier ouvert expose son nom (accentué) au SDK, qui
+    # le met dans un en-tête HTTP ; le BytesIO n'en a pas. Envoi vérifié en réel le 2026-11-11.
     import io
     with open(chemin, "rb") as fh:
         contenu = io.BytesIO(fh.read())
@@ -419,11 +421,15 @@ def _appel_gemini(res: LLMResult, prompt: str, system: Optional[str], documents:
     client = _client_gemini()
     fichiers = []
     try:
-        for chemin in documents or []:
-            if os.path.getsize(chemin) > TAILLE_MAX_PDF_GEMINI:
-                raise _ErreurNonRetentable(f"PDF > 50 Mo : {Path(chemin).name}")
-            fichiers.append(_avec_retries(lambda c=chemin: _uploader_pdf_gemini(c, verbose),
-                                          res.modele, res, verbose))
+        try:
+            for chemin in documents or []:
+                if os.path.getsize(chemin) > TAILLE_MAX_PDF_GEMINI:
+                    raise _ErreurNonRetentable(f"PDF > 50 Mo : {Path(chemin).name}")
+                fichiers.append(_avec_retries(lambda c=chemin: _uploader_pdf_gemini(c, verbose),
+                                              res.modele, res, verbose))
+        except Exception:
+            res._echec_envoi = True     # échec avant la génération : rien n'est facturé
+            raise
         noms = [Path(c).name for c in documents or []]
 
         def _contenus():
@@ -458,6 +464,7 @@ def _appel_gemini(res: LLMResult, prompt: str, system: Optional[str], documents:
             **(options or {}),
         )
         debut = time.time()
+        res._generation_lancee = True        # au-delà, l'appel peut être facturé
         rep = _avec_retries(lambda: client.models.generate_content(
             model=res.modele, contents=contenus, config=cfg), res.modele, res, verbose, generation=True)
         res.duree_s = round(time.time() - debut, 2)
@@ -529,6 +536,7 @@ def _appel_claude(res: LLMResult, prompt: str, system: Optional[str], documents:
             return s.get_final_message()
 
     debut = time.time()
+    res._generation_lancee = True            # au-delà, l'appel peut être facturé
     msg = _avec_retries(_go, res.modele, res, verbose, generation=True)
     res.duree_s = round(time.time() - debut, 2)
     res.tokens_in = msg.usage.input_tokens
@@ -693,7 +701,12 @@ def call_llm(task: str, prompt: str, documents: Optional[list] = None,
             raise      # garde-fou relu entre deux essais internes : les essais échoués sont déjà journalisés
         except Exception as e:
             res.erreur = f"{type(e).__name__}: {str(e)[:500]}"
-            res.erreur_locale = isinstance(e, (_ErreurNonRetentable, OSError)) and not res.tokens_in
+            # Erreur avant tout appel de génération (clé absente, fichier illisible, envoi du
+            # PDF refusé, nom de fichier non encodable…) : rien n'a été facturé, et le même
+            # document ferait échouer le repli, ou le paierait pour rien.
+            res.erreur_locale = (not res.tokens_in
+                                 and (isinstance(e, (_ErreurNonRetentable, OSError, UnicodeError))
+                                      or getattr(res, "_echec_envoi", False)))
             res.cout_eur = _cout()
         except BaseException as e:
             # Interruption (Ctrl+C) pendant l'appel : la requête a pu être facturée.

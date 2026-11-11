@@ -33,7 +33,7 @@ Chemins vers `data/`, `logs/`, `presets/`, `rapports/`, `archive/` : toujours vi
 - Appel LLM sans plafond (`--max-cost` ou `data/budget.json`) et sans journalisation dans `llm_appels`.
 - `stockage.sauver(collection)` pour une écriture unitaire (réécrit toute la collection, 58 Mo sur `marches`). Utiliser `stockage.ecrire`.
 - `sqlite3.connect` dans le code métier : tout passe par `stockage`.
-- `Anthropic(` ou un SDK LLM hors de `analyse/llm_router.py` : tout appel passe par `call_llm` / `appeler_modele` (kill switch, plafond, journal `llm_appels`).
+- `Anthropic(` ou un SDK LLM hors de `analyse/llm_router.py` : tout appel passe par `call_llm` / `appeler_modele` (kill switch, plafond, journal `llm_appels`). Exception existante : les appels Gemini batch de la DECP (`prix/decp/classif_batch.py`, `scripts/decp/pilote_arbitre*.py`, branche Gemini de `pilote_classif.py`), journalisés par leurs modules.
 - Écrire dans `data/dce` : la lecture travaille dans `data/pieces/<id>`.
 - Supprimer un fichier : on déplace dans `archive/<chemin d'origine>`.
 - Script `diagnostic_*`, `debug_*`, `patch_*` à la racine.
