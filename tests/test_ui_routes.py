@@ -267,6 +267,47 @@ html = client.get("/").get_data(as_text=True)
 check("dashboard sans profil : pas de commande CLI", "python -m" not in html)
 organisme.activer_profil(ID_DEMO, "bibliotheque")
 
+# --- chantier 2, étape 6 : sources et taux de lecture sur la fiche (détail : test_ui_fiche_sources.py)
+print("=== fiche : sources et taux de lecture (brief du mode document) ===")
+marche_test("M-SOURCES", "Réfection de toiture", iso(30))
+classer("M-SOURCES", "btp_gros_oeuvre")
+stockage.ecrire("briefs_extraits", "M-SOURCES", {
+    "_meta": {"type": "complet", "mode": "document"}, "synthese_marche": "Réfection de la toiture de l'école.",
+    "domaines_metier": [{"code": "btp_gros_oeuvre", "poids": 1.0}],
+    "bareme_notation": {"valeur_technique_pct": 60, "valeur_prix_pct": 40},
+    "calendrier": {"date_limite_offres": "2026-12-15 12:00"},
+    "dossier_candidature": {"pieces_a_fournir": [{"libelle": "DC1", "phase": "candidature"}]},
+    "complements_dce": {"visite": {"obligatoire": True, "modalites": "sur rendez-vous"}},
+    "montant_marche": {"valeur_estimee_euros": 120000}, "allotissement": {"nb_lots": 2},
+    "_sources": {
+        "criteres_ponderations": {"piece": "RC.pdf", "page": 7, "extrait": "prix 40 %", "verifie": True},
+        "date_limite": {"piece": "RC.pdf", "page": 2, "extrait": "15 décembre 2026", "verifie": True},
+        "pieces_exigees": {"piece": "RC.pdf", "page": 5, "extrait": "DC1", "verifie": False},
+        "visite": {"piece": "CCTP.pdf", "page": 3, "extrait": "visite obligatoire", "verifie": True},
+        "montant": {"piece": "BPU.xlsx", "page": "BPU", "extrait": "total", "verifie": True},
+        "lots": None},
+    "_lecture": {"pieces": [
+        {"nom": "RC.pdf", "type": "RC", "statut": "lu", "pages": 9, "caracteres": 20000, "detail": None},
+        {"nom": "plan_masse.pdf", "type": None, "statut": "plan_ignore", "pages": None, "caracteres": None, "detail": "plan"},
+        {"nom": "annexes.rar", "type": None, "statut": "format_non_gere", "pages": None, "caracteres": None,
+         "detail": "archive .rar non décompressée"}],
+        "nb_pieces_texte": 2, "nb_lues": 1, "pct_non_lu": 50.0}})
+stockage.invalider_cache()
+rep = client.get("/marche/M-SOURCES")
+html = " ".join(rep.get_data(as_text=True).split())
+check("fiche avec _sources et _lecture : 200", rep.status_code == 200, rep.status_code)
+check("source des critères : « Source : RC.pdf p. 7 »", 'data-champ="criteres_ponderations"' in html and "Source : RC.pdf p. 7" in html)
+check("source non vérifiée signalée (pièces exigées)",
+      "non vérifiée" in html.split('data-champ="pieces_exigees"', 1)[-1].split("</div>", 1)[0])
+check("source vérifiée : pas de mention « non vérifiée »",
+      "non vérifiée" not in html.split('data-champ="date_limite"', 1)[-1].split("</div>", 1)[0])
+check("feuille de tableur : « feuille BPU »", "feuille BPU" in html.split('data-champ="montant"', 1)[-1].split("</div>", 1)[0])
+check("champ sans source : rien d'affiché (lots)", 'data-champ="lots"' not in html)
+check("taux de lecture en tête du brief : « 1/2 pièces lues »", "1/2 pièces lues" in html)
+check("pièce non lue listée avec son statut, plan ignoré non listé",
+      "annexes.rar" in html and "format non géré" in html
+      and "plan_masse.pdf" not in html.split('class="brief-lecture"', 1)[-1].split("</ul>", 1)[0])
+
 print()
 print("=" * 60)
 print(f"RÉSULTAT : {ok} OK, {ko} ÉCHEC(S)")

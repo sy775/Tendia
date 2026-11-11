@@ -588,6 +588,7 @@
 
 <!-- ============ Bloc de décision (chantier 1b) : avant tout le reste ============ -->
 {% include "_bloc_decision.html" %}
+{% from "_sources_brief.html" import source_champ, taux_lecture %}
 
 <!-- ============ Header : titre à gauche, score ring à droite ============ -->
 <div class="flex items-start justify-between gap-6 mb-5 fade-up" style="position: relative; z-index: 30;">
@@ -893,6 +894,8 @@
 
     {# Barre de navigation des sections — construite en JS depuis les .sec rendues #}
     <nav id="fiche-quicknav" class="fiche-quicknav" aria-label="Sections du brief"></nav>
+    {# Mode document : pièces lues / pièces de texte, et pièces non lues avec leur statut #}
+    {{ taux_lecture(brief) }}
 
     {# ===== Onglet par défaut : Résumé Tendia (KPIs compacts + résumé + à retenir) ===== #}
     {% if brief.synthese_marche or alertes_non_verifiables or kpi_cards %}
@@ -973,6 +976,7 @@
     {# ===== Onglet 1 : Barème technique (critères notés) — gaté : seulement si données ===== #}
     {% if brief.bareme_notation and (brief.bareme_notation.valeur_technique_pct or brief.bareme_notation.sous_criteres_techniques) %}
     {{ sec('Barème technique', ('Technique ' ~ pct_tech ~ '% · Prix ' ~ pct_prix ~ '%' if brief.bareme_notation.valeur_technique_pct else 'critères de notation'), 'violet', true, IC_CHART) }}
+      {{ source_champ(brief, 'criteres_ponderations') }}
       {# Répartition GLOBALE de la note (barème total : technique + prix) — bien visible #}
       <div style="margin-bottom: 18px; padding: 15px 18px; background: var(--apt-surface); border: 1px solid var(--apt-line-2); border-radius: 11px;">
         <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 10px;">
@@ -1104,6 +1108,7 @@
     {# ===== Onglet 2 : Prix & estimation (coeff prix + montant) ===== #}
     {{ sec('Prix & estimation', ('Coeff. prix ' ~ pct_prix ~ '%' if brief.bareme_notation.valeur_prix_pct else 'estimation du montant'), 'green', true, IC_EURO) }}
       <div>
+      {{ source_champ(brief, 'montant') }}
       {# Bandeau coeff prix : pondération + formule/source #}
       <div style="margin-top: 8px; display: flex; align-items: center; gap: 14px; padding: 11px 16px; background: var(--apt-bg); border: 1px solid var(--apt-line-2); border-left: 3px solid var(--apt-gold); border-radius: 9px;">
         <div style="flex-shrink: 0; text-align: center; min-width: 66px;" title="Le prix compte pour {{ pct_prix }} % de la note finale (barème de notation du RC).">
@@ -1867,6 +1872,7 @@
           <div style="font-size:15px; font-weight:700; color:{% if jours_restants is not none and jours_restants < 7 %}var(--c-rose){% elif jours_restants is not none and jours_restants < 21 %}var(--c-amber){% else %}var(--apt-ink){% endif %};">
             {{ fmt_date(marche.date_limite_depot) if marche.date_limite_depot else 'voir RC' }}{% if clos %} · clos{% elif jours_restants is not none %} · J−{{ jours_restants }}{% endif %}
           </div>
+          {{ source_champ(brief, 'date_limite') }}
         </div>
         <a href="{{ url_for('telecharger_dce_zip', id_marche=marche.id) }}" style="margin-left:auto; display:inline-flex; align-items:center; gap:8px; padding:9px 15px; background:var(--apt-accent); color:#fff; border-radius:8px; text-decoration:none; font-size:13px; font-weight:700;">⬇ DCE (ZIP)</a>
         {% if marche.url_dce %}<a href="{{ marche.url_dce }}" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:6px; padding:9px 13px; border:1px solid var(--apt-line); border-radius:8px; text-decoration:none; font-size:12.5px; color:var(--apt-ink-2); font-weight:600;">Plateforme ↗</a>{% endif %}
@@ -1894,12 +1900,27 @@
           {% if candidature_par_lot %}<strong style="color:var(--apt-ink);">Candidature par lot possible</strong> — vous pouvez ne déposer que sur vos lots.
           {% elif candidature_par_lot is false %}<strong style="color:var(--apt-ink);">Offre globale obligatoire</strong> — il faut couvrir l'ensemble du marché.
           {% else %}Vérifiez dans le RC si la candidature par lot est possible.{% endif %}
+          {{ source_champ(brief, 'lots') }}
         </div>
       </div>
+      {% else %}
+      {{ source_champ(brief, 'lots', 'Allotissement') }}
+      {% endif %}
+
+      {# Visite de site (brief du mode document) et sa source #}
+      {% set _visite = brief.complements_dce.visite if (brief.complements_dce is mapping and brief.complements_dce.visite is mapping) else none %}
+      {% if _visite and _visite.obligatoire is not none %}
+      <div class="brief-visite" style="margin-bottom:18px; font-size:12.5px; color:var(--apt-ink-2); line-height:1.5;">
+        <strong style="color:var(--apt-ink);">Visite de site {{ 'obligatoire' if _visite.obligatoire else 'non obligatoire' }}</strong>{% if _visite.modalites %} — {{ _visite.modalites }}{% endif %}
+        {{ source_champ(brief, 'visite') }}
+      </div>
+      {% else %}
+      {{ source_champ(brief, 'visite', 'Visite de site') }}
       {% endif %}
 
       {# 2. Le dossier à déposer — 3 volets #}
       <div style="font-size:11px; font-weight:700; color:var(--apt-ink-4); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:10px;">Le dossier à déposer</div>
+      {{ source_champ(brief, 'pieces_exigees') }}
       <div style="display:flex; flex-direction:column; gap:10px; margin-bottom:18px;">
         <div style="border:1px solid var(--apt-line-2); border-left:3px solid var(--c-blue); border-radius:9px; padding:11px 14px;">
           <div style="font-size:12.5px; font-weight:700; color:var(--apt-ink); margin-bottom:5px;"><span style="display:inline-flex; align-items:center; justify-content:center; width:18px; height:18px; border-radius:999px; background:var(--c-blue); color:#fff; font-size:10.5px; font-weight:700; margin-right:8px; vertical-align:middle;">1</span>Dossier de candidature</div>
