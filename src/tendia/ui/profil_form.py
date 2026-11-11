@@ -287,6 +287,19 @@ def _getlist(form, name) -> list:
     return v if isinstance(v, list) else ([v] if v else [])
 
 
+# Libellés des champs de référence, tels qu'affichés dans le formulaire.
+_LIBELLES_CHAMPS_REF = {
+    "annee": "Année", "client": "Client", "ouvrage": "Ouvrage", "projet": "Projet",
+    "type_ouvrage": "Type d'ouvrage", "montant_eur_ht": "Montant € HT",
+    "montant_travaux_eur_ht": "Montant travaux € HT", "honoraires_eur_ht": "Honoraires € HT",
+    "duree_mois": "Durée (mois)", "statut": "Statut", "notes": "Notes",
+}
+
+
+def _libelle_champ_ref(champ: str) -> str:
+    return _LIBELLES_CHAMPS_REF.get(champ, champ)
+
+
 def _parse_references(form, descr: dict, erreurs: dict) -> list:
     """
     Reconstruit une liste d'objets « références » depuis les champs indexés
@@ -320,7 +333,8 @@ def _parse_references(form, descr: dict, erreurs: dict) -> list:
                     obj[champ] = _to_int(brut_s) if typ == "int" else _to_num(brut_s)
                     vide = False
                 except (ValueError, TypeError):
-                    erreurs[base + champ] = f"Valeur numérique invalide : {brut_s!r}"
+                    erreurs[base + champ] = (f"Référence n°{len(refs) + 1} : « {_libelle_champ_ref(champ)} » "
+                                             f"doit être un nombre (saisi : {brut_s!r}).")
                     vide = False
             else:
                 obj[champ] = brut_s
@@ -335,7 +349,8 @@ def _parse_references(form, descr: dict, erreurs: dict) -> list:
             continue
         for r in descr["requis"]:
             if obj.get(r) in (None, "", []):
-                erreurs[base + r] = "Champ requis manquant dans cette référence."
+                erreurs[base + r] = (f"Référence n°{len(refs) + 1} : « {_libelle_champ_ref(r)} » "
+                                     "est obligatoire.")
         refs.append(obj)
     return refs
 

@@ -92,6 +92,9 @@
   {% if erreurs_champs %}
   <div class="pf-alert" style="border-left-color: var(--apt-amber); background: var(--apt-amber-soft);">
     <div class="apt-label" style="color: var(--apt-amber);">{{ erreurs_champs|length }} champ(s) invalide(s) — en rouge ci-dessous (toutes les sections sont dépliées)</div>
+    <ul class="mt-2 apt-fs-13" style="list-style: disc; padding-left: 20px;">
+      {% for nom, message in erreurs_champs.items() %}<li>{{ message }}</li>{% endfor %}
+    </ul>
   </div>
   {% endif %}
 
@@ -549,7 +552,8 @@
     renderSubnav('matching');
     panels.forEach(function (p) { p.style.display = ''; });
     groupBtns.forEach(function (b) { b.classList.toggle('active', b.getAttribute('data-group') === 'matching'); });
-    var firstErr = root.querySelector('input[style*="rose"], .pf-alert');
+    var firstErr = root.querySelector('input[style*="rose"], select[style*="rose"], .pf-alert');
+    if (firstErr) firstErr.scrollIntoView({block: 'center'});
   } else {
     selectGroup('matching');
   }
