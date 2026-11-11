@@ -97,6 +97,9 @@ al, lots = CC.lots_de("Lot 1 : Gros œuvre ; Lot 2 : Charpente ; Lot 3 : Couvert
 check("alloti : 3 lots numérotés", al is True and [l["numero"] for l in lots] == [1, 2, 3], lots)
 check("pièces : intitulés « … : » écartés, puces retirées",
       CC.liste_pieces("Hors dispositif DUME :\n- Lettre DC1\n2) Déclaration DC2") == ["Lettre DC1", "Déclaration DC2"])
+check("pièce numérotée suivie de sous-pièces gardée (DC2 de 103934)",
+      len(CC.liste_pieces(["3/ Une déclaration du candidat (DC2 ou équivalent) ou DUME accompagnée des pièces de capacité :",
+                           "- Attestation d'assurance"])) == 2)
 
 # =====================================================================================
 print("=== choix dans les notes, sources, contrôle des valeurs (inventaire réel) ===")

@@ -290,9 +290,20 @@ def liste_pieces(valeur) -> list:
         items = valeur.splitlines()
     else:
         return []
-    items = [re.sub(r"^\s*(?:[-•*–·]\s*|\d+\s*[).]\s*)", "", i).strip() for i in items]
-    # une ligne d'intitulé (« Hors dispositif DUME : ») n'est pas une pièce
-    return [i for i in items if sum(c.isalnum() for c in i) >= 3 and not i.endswith(":")]
+    sortie = []
+    for brut in items:
+        i = re.sub(r"^\s*(?:[-•*–·]\s*|\d+\s*[).]\s*)", "", brut).strip()
+        if sum(c.isalnum() for c in i) < 3:
+            continue
+        # une ligne d'intitulé (« Hors dispositif DUME : ») n'est pas une pièce ; une pièce
+        # numérotée suivie de ses sous-pièces (« 3/ Une déclaration du candidat (DC2) … : ») l'est
+        numerotee = re.match(r"^\s*(?:[-•*–·]|\d+\s*[).:/-]|[a-z]\))", brut)
+        nomme_piece = re.search(r"\bdc\d|declaration|attestation|lettre|certificat|formulaire|memoire|acte",
+                                _sans_accents(i))
+        if i.endswith(":") and not (numerotee and nomme_piece):
+            continue
+        sortie.append(i)
+    return sortie
 
 
 _RE_LOT = re.compile(r"\blot\s*(?:n\s*[°o]?\s*)?(\d+)\s*[:\-–.)]\s*([^;\n]+)", re.I)
@@ -521,7 +532,8 @@ def _appliquer_pieces(brief: dict, choisis: dict, sources: dict) -> None:
         if not retenu:
             continue
         for libelle in liste_pieces(retenu["valeur"]):
-            conditionnelle = re.search(r"le cas echeant|eventuel|si le candidat|s'il y a lieu|\bsi\b",
+            conditionnelle = re.search(r"^(?:le cas echeant|eventuel|en cas de|s'il y a lieu|si le candidat)"
+                                       r"|\ble cas echeant\b|\beventuelle?s?\b|\bs'il y a lieu\b",
                                        _sans_accents(libelle))
             liste.append({"libelle": libelle, "phase": phase, "obligatoire": not conditionnelle,
                           "source": _ref(sources.get(cle), retenu)})
@@ -662,6 +674,11 @@ def appliquer(brief: dict, analyses: list, inv: dict) -> dict:
             suivi[champ] = {"origine": "notes" if retenu else "absent", "statut": publie["statut"],
                             "piece": (retenu or {}).get("piece"), "type": (retenu or {}).get("type"),
                             "valeur_verifiee": verif, "valeur_fusion": fusion_avant}
+            cm = controle.get("montant") if isinstance(controle.get("montant"), dict) else None
+            if cm and cm.get("statut") == "retire_non_source" and publie["statut"] == "publie":
+                # le garde-fou de fusion lit le texte des notes ; une pièce scannée peut lui
+                # cacher un montant que la note retenue publie bien : c'est cette note qui fait foi
+                cm["remplace_par_note"] = {"piece": publie["piece"], "valeur_eur": publie["valeur_eur"]}
             if retenu and src:
                 sources[champ] = dict(src, valeur_verifiee=verif if verif is not None else bool(src.get("verifie")))
             elif not retenu:
