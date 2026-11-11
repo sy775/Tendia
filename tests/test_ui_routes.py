@@ -174,6 +174,35 @@ check("fiche : plus de « J−- »", "J−-" not in html)
 html = client.get("/marche/TEST-OUVERT-LOIN").get_data(as_text=True)
 check("fiche d'un ouvert : pas de bandeau clos", "bandeau-clos" not in html)
 
+print("=== étape 3 : pagination de l'explorer ===")
+for i in range(55):
+    marche_test(f"TEST-PAGE-{i:02d}", f"Marché pagination {i:02d}", iso(40 + i))
+    classer(f"TEST-PAGE-{i:02d}")
+stockage.invalider_cache()
+
+
+def cartes(html):
+    return html.count('class="marche-card')
+
+
+html = client.get("/explorer").get_data(as_text=True)
+check("50 cartes par page par défaut", cartes(html) == 50, cartes(html))
+check("total affiché (57 ouverts)", "<strong>57</strong> marchés" in html)
+check("lien vers la page 2", "page=2" in html)
+html = client.get("/explorer?page=2").get_data(as_text=True)
+check("page 2 : 7 cartes restantes", cartes(html) == 7, cartes(html))
+html = client.get("/explorer?page=99").get_data(as_text=True)
+check("page hors bornes ramenée à la dernière", cartes(html) == 7, cartes(html))
+html = client.get("/explorer?par_page=10&etat=tous&page=2").get_data(as_text=True)
+check("par_page=10 respecté", cartes(html) == 10, cartes(html))
+check("filtres conservés dans les liens de pagination",
+      re.search(r'href="[^"]*etat=tous[^"]*page=3|href="[^"]*page=3[^"]*etat=tous', html) is not None)
+html = client.get("/explorer?par_page=5000&etat=tous").get_data(as_text=True)
+check("par_page plafonné à 200 (59 marchés → 1 page)", cartes(html) == 59 and "page=2" not in html,
+      cartes(html))
+html = client.get("/explorer?par_page=abc&page=-4").get_data(as_text=True)
+check("paramètres invalides tolérés", cartes(html) == 50, cartes(html))
+
 print()
 print("=" * 60)
 print(f"RÉSULTAT : {ok} OK, {ko} ÉCHEC(S)")

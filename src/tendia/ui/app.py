@@ -683,6 +683,36 @@ def _extraire_codes_depts(zone_str):
     return codes
 
 
+EXPLORER_PAR_PAGE = 50
+EXPLORER_PAR_PAGE_MAX = 200
+
+
+def _entier(valeur, defaut: int) -> int:
+    try:
+        return int(valeur)
+    except (TypeError, ValueError):
+        return defaut
+
+
+def _paginer(total: int, args) -> dict:
+    """Bornes de la page demandée (?page=, ?par_page=) et URL des pages voisines,
+    filtres de la requête conservés. Page hors bornes → ramenée dans [1, nb_pages]."""
+    par_page = min(max(_entier(args.get("par_page"), EXPLORER_PAR_PAGE), 1), EXPLORER_PAR_PAGE_MAX)
+    nb_pages = max(1, -(-total // par_page))
+    page = min(max(_entier(args.get("page"), 1), 1), nb_pages)
+    debut = (page - 1) * par_page
+
+    def url_page(n: int) -> str:
+        params = args.to_dict(flat=False)
+        params["page"] = [str(n)]
+        return url_for("explorer", **params)
+
+    return {"page": page, "par_page": par_page, "nb_pages": nb_pages, "total": total,
+            "debut": debut, "fin": min(debut + par_page, total), "url_page": url_page,
+            "pages_affichees": sorted({p for p in (1, page - 2, page - 1, page, page + 1,
+                                                    page + 2, nb_pages) if 1 <= p <= nb_pages})}
+
+
 @app.route("/explorer")
 def explorer():
     """
@@ -885,6 +915,11 @@ def explorer():
             -x["richesse"]["score"],
         ))
 
+    # Pagination (chantier 1b) : ?page= (1..n) et ?par_page= (défaut 50, max 200).
+    # Le total filtré reste affiché ; les liens conservent tous les filtres.
+    pagination = _paginer(len(lignes), request.args)
+    lignes_page = lignes[pagination["debut"]:pagination["fin"]]
+
     # Stats agrégées POUR LES FILTRES (calculées sur TOUT le classifié, pas filtré)
     # → permet d'afficher "Familles: BTP (145), Énergie (12), ..."
     from collections import Counter
@@ -939,7 +974,9 @@ def explorer():
 
     return render_template(
         "explorer.html",
-        lignes=lignes,
+        lignes=lignes_page,
+        nb_resultats=len(lignes),
+        pagination=pagination,
         familles_triees=familles_triees,
         zones_disponibles=zones_disponibles,
         zone_libelle=(profil_widgets.DEPARTEMENT_LIBELLE.get(filtre_zone, filtre_zone)
