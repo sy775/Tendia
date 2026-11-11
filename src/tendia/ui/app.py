@@ -715,7 +715,8 @@ def _paginer(total: int, args) -> dict:
     debut = (page - 1) * par_page
 
     def url_page(n: int) -> str:
-        params = args.to_dict(flat=False)
+        # Paramètres réservés de url_for (_method, _anchor, _scheme, _external) écartés
+        params = {k: v for k, v in args.to_dict(flat=False).items() if not k.startswith("_")}
         params["page"] = [str(n)]
         return url_for("explorer", **params)
 
@@ -740,6 +741,11 @@ def explorer():
         ?zone=texte
         ?recherche=texte_libre
     """
+    # ?_method= est un paramètre réservé de url_for : une méthode que la route ne
+    # sert pas est une requête invalide (400), pas une erreur serveur.
+    methode = request.args.get("_method")
+    if methode is not None and methode.upper() not in ("GET", "HEAD", "OPTIONS"):
+        abort(400)
     from tendia.core import stockage
     marches = stockage.charger("marches") or {}
     classifs_ia = stockage.charger("classifications_ia") or {}

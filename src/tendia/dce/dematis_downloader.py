@@ -73,12 +73,9 @@ from tendia.dce.aws_downloader import (
     _decompresser_zip_imbrique,
 )
 
-try:
-    from dotenv import load_dotenv
-    from tendia.core.chemins import RACINE_DEPOT
-    load_dotenv(RACINE_DEPOT / ".env")
-except ImportError:
-    pass
+# Chargement unique par http_humain (TENDIA_PROXY_ACTIF du fichier ignoré).
+from tendia.core import http_humain as _http_humain_env
+_http_humain_env.charger_env_fichier()
 
 
 HOST_DEMATIS = "e-marchespublics.com"

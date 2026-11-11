@@ -273,6 +273,13 @@ def peut_depenser(enveloppe: str, cout_estime_eur: float, fournisseur: str = "")
     return DecisionAppel(True, f"reste {float(env['total_eur']) - dep['total_eur']:.4f} €")
 
 
+def plafond_atteint(cout_cumule: float, max_cout) -> bool:
+    """Garde-fou --max-cout d'une passe. None : pas de plafond. 0 : tout appel est
+    bloqué (le plafond est atteint avant le premier appel). Sinon : True dès que le
+    coût cumulé atteint le plafond."""
+    return max_cout is not None and float(cout_cumule or 0.0) >= float(max_cout)
+
+
 # ---------------------------------------------------------------------------
 # Logging des appels (table SQLite via stockage K/V)
 # ---------------------------------------------------------------------------

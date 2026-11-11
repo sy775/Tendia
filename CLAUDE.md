@@ -61,8 +61,8 @@ Chemins vers `data/`, `logs/`, `presets/`, `rapports/`, `archive/` : toujours vi
 ## Pièges connus
 - `stockage.charger` lit toute la collection ; cache mémoire par processus (UI et scripts peuvent diverger).
 - Lecture DCE prod : `.pdf/.docx/.xlsx` au 1er niveau seulement, troncature 400 000 caractères. Le code exhaustif est dans `exp_gemini/pieces.py` et `mode_document.py`.
-- `tendia.veille.classification` n'est pas dans le pipeline ; la chaîne LLM est arrêtée depuis le 22/06/2026.
-- `python-dotenv` installé : `http_humain`, `aws_downloader`, `dematis_downloader` chargent `.env` à l'import. Le proxy résidentiel ne s'applique que si `TENDIA_PROXY_ACTIF=1` (posé par `python -m tendia`, `Tendia.bat`, `retelecharger_*`, `rattrapage_btp_octobre`) ; UI, tests et audits passent en direct. `curl_cffi` absent : `http_client` force `requests`.
+- `tendia.veille.classification` est l'étape 2 du pipeline (7 étapes) depuis le chantier 1 : `python -m tendia` et `Tendia.bat` paient la classification (plafond `--max-cout-classification`, 5 € par défaut ; `--skip-llm` la saute). `--max-cout 0` bloque tout appel.
+- `python-dotenv` installé : `http_humain`, `aws_downloader`, `dematis_downloader` chargent `.env` à l'import. Le proxy résidentiel ne s'applique que si `TENDIA_PROXY_ACTIF=1` (posé par `python -m tendia`, `Tendia.bat`, `retelecharger_*`, `rattrapage_btp_octobre`) ; UI, tests et audits passent en direct. `TENDIA_PROXY_ACTIF` ne va jamais dans `.env` : `http_humain.charger_env_fichier` l'ignore avec un avertissement. `curl_cffi` absent : `http_client` force `requests`.
 - Le pipeline lance ses étapes comme fichiers (`src/tendia/veille/recup.py`, ...) : déplacer un de ces modules impose de corriger `src/tendia/pipeline.py`.
 - `exp_gemini/ui_exp.py` importe encore `stockage` et `tendia_ui` à l'ancienne : cassé depuis 0b (non touché).
 - Tests en échec connus : aucun (les attentes de `test_aws_downloader` et `test_qualifier_dce` ont été alignées sur le code au chantier 1).
@@ -77,6 +77,6 @@ python tests/lancer_tous.py               tous les tests
 python tests/test_<module>.py             un test
 python scripts/audit/stats_pipeline_dce.py   état du pipeline DCE
 python -m tendia.prix.decp.cli audit      état DECP
-python -m tendia.veille.classification    classification Haiku (hors pipeline, payant)
+python -m tendia.veille.classification    classification Haiku seule (étape 2 du pipeline, payant)
 python -m tendia.analyse.extraire --marche ID   brief LLM d'un marché (payant)
 ```

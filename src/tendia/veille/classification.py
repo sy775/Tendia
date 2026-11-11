@@ -47,7 +47,7 @@ from typing import Optional
 if sys.stdout.encoding and sys.stdout.encoding.lower() != "utf-8":
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
-from tendia.core import stockage
+from tendia.core import budget, stockage
 
 
 # ---------------------------------------------------------------------------
@@ -521,7 +521,7 @@ def _resume_classification(classif: dict) -> str:
 # CLI
 # ---------------------------------------------------------------------------
 
-def main():
+def main(argv=None):
     ap = argparse.ArgumentParser(
         description="Classification IA des marchés publics (Sprint 2 nouvelle archi)."
     )
@@ -545,7 +545,7 @@ def main():
                     help="Liste les cibles sans appeler le LLM.")
     ap.add_argument("--verbose", action="store_true",
                     help="Log détaillé par appel API.")
-    args = ap.parse_args()
+    args = ap.parse_args(argv)
 
     print("=" * 78)
     print("  Tendia · Classification IA des marchés")
@@ -590,8 +590,9 @@ def main():
     cout_unitaire_estime = 0.003 if args.modele == "haiku" else 0.01
     cout_max_estime = len(cibles) * cout_unitaire_estime
     print(f"\n  Coût estimé maximum   : {cout_max_estime:.2f} €")
-    if args.max_cout:
-        print(f"  Garde-fou             : stop à {args.max_cout:.2f} €")
+    if args.max_cout is not None:
+        print(f"  Garde-fou             : stop à {args.max_cout:.2f} €"
+              + (" (0 : aucun appel LLM)" if args.max_cout == 0 else ""))
 
     if args.dry_run:
         print(f"\n  ── Cibles (DRY-RUN) ──")
@@ -627,7 +628,7 @@ def main():
         titre = (m.get("titre") or "?")[:50]
 
         # Garde-fou coût
-        if args.max_cout and cout_cumule >= args.max_cout:
+        if budget.plafond_atteint(cout_cumule, args.max_cout):
             print(f"\n  ⚠ Garde-fou coût atteint ({cout_cumule:.2f} € >= "
                   f"{args.max_cout:.2f} €), arrêt.")
             break

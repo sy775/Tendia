@@ -97,7 +97,7 @@ def main():
                         help="Passe les étapes LLM : 2 (classification) et 6 (extraction)")
     parser.add_argument("--max-cout-classification", type=float, default=5.0, metavar="EUR",
                         help="Plafond de coût de l'étape 2, transmis à classification "
-                             "--max-cout (défaut: 5.0)")
+                             "--max-cout (défaut: 5.0 ; 0 : aucun appel LLM)")
     parser.add_argument("--force", action="store_true",
                         help="Force la re-extraction LLM même si déjà fait")
     parser.add_argument("--jours", type=int, default=60,

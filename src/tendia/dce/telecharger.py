@@ -1281,22 +1281,12 @@ def marquer_resultat_telechargement(marche: dict, id_m: str, result: dict,
                 print(f"             ⚠ qualification échouée : {e}")
 
 
-def _sauver_marches(marches: dict):
-    """Sauvegarde les marchés en base (SQLite Sprint 3).
-    
-    Note : avec SQLite, on pourrait faire des updates ciblés via
-    stockage.ecrire(id, marche) au lieu de réécrire toute la collection,
-    mais sauver() est atomique et reste rapide (transactions).
-    """
-    from tendia.core import stockage
-    stockage.sauver("marches", marches)
-
-
 # ---------------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------------
 
-def main():
+def main(argv=None):
+    from tendia.core import stockage
     parser = argparse.ArgumentParser(
         description="Téléchargement automatique des pièces DCE depuis PLACE.",
         formatter_class=argparse.RawDescriptionHelpFormatter,
@@ -1313,7 +1303,7 @@ def main():
                         help='Log HTTP détaillé.')
     parser.add_argument('--ids-fichier', metavar='CHEMIN', default=None,
                         help='Restreint aux id listés (un par ligne).')
-    args = parser.parse_args()
+    args = parser.parse_args(argv)
     ids_autorises = None
     if args.ids_fichier:
         with open(args.ids_fichier, encoding='utf-8') as f:
@@ -1411,11 +1401,10 @@ def main():
                     print(f"               · {d}")
 
         # Met à jour les marques dans marches.json
+        # Écriture unitaire : un run interrompu garde les statuts déjà obtenus
         if not args.dry_run:
             marquer_resultat_telechargement(marche, id_m, result, verbose=args.verbose)
-
-    if not args.dry_run:
-        _sauver_marches(marches)
+            stockage.ecrire("marches", id_m, marche)
 
     duree = time.time() - debut
 

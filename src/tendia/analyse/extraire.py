@@ -283,8 +283,10 @@ def cout_du_resultat(resultat: dict) -> float:
 
 
 def plafond_atteint(cout_cumule: float, max_cout) -> bool:
-    """True si un plafond --max-cout est fixé et que le coût cumulé l'atteint."""
-    return max_cout is not None and cout_cumule >= float(max_cout)
+    """True si un plafond --max-cout est fixé et que le coût cumulé l'atteint
+    (0 bloque tout appel). Définition unique : budget.plafond_atteint."""
+    from tendia.core import budget
+    return budget.plafond_atteint(cout_cumule, max_cout)
 
 
 def traiter_marche(id_marche: str, dossier: str, pdfs: dict,
@@ -1215,7 +1217,7 @@ def _generer_brief(marche: dict, extraction: dict) -> str:
 # Workflow principal
 # ---------------------------------------------------------------------------
 
-def main():
+def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__,
         formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--marche", type=str, default=None,
@@ -1226,8 +1228,9 @@ def main():
                         help="N'appelle pas l'API LLM, juste scan + extraction texte")
     parser.add_argument("--max-cout", type=float, default=None, metavar="EUR",
                         help="Arrêt propre dès que le coût LLM cumulé de la passe "
-                             "atteint ce montant (coûts lus dans _meta.cout_eur).")
-    args = parser.parse_args()
+                             "atteint ce montant (coûts lus dans _meta.cout_eur). "
+                             "0 : aucun appel.")
+    args = parser.parse_args(argv)
 
     print()
     print("=" * 78)

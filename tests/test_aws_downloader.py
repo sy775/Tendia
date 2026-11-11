@@ -13,6 +13,9 @@ import sys
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
+from base_temporaire import isoler_logs
+isoler_logs()  # journaux JSONL hors de logs/
+
 from tendia.dce import aws_downloader as A
 
 ok = 0

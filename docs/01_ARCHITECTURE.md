@@ -20,9 +20,9 @@ Source : dépôt GitHub `sy775/Tendia`, branche `feat/decp-sprint-3` (313 fichie
 | Commande | Rôle |
 |---|---|
 | `Tendia.bat` | Pipeline complet puis UI. **Lance des téléchargements et des appels LLM payants** : ne jamais l'exécuter pour « vérifier que ça marche » |
-| `python -m tendia [--skip-llm] [--skip-download] ...` (shim : `python tendia_pipeline.py`) | 6 étapes : récup BOAMP → résolution URL DCE → téléchargement anonyme → re-téléchargements anti-ban → extraction LLM → rapport |
+| `python -m tendia [--skip-llm] [--skip-download] ...` (shim : `python tendia_pipeline.py`) | 7 étapes : récup BOAMP → classification Haiku (plafonnée) → résolution URL DCE → téléchargement anonyme → connecteurs dédiés anti-ban → extraction LLM → rapport |
 | `python -m tendia.ui` (shim : `python tendia_ui.py`) | UI Flask, lecture seule côté données sauf cycle/exigences/mémoires |
-| `python -m tendia.veille.classification` | Classification Haiku. **Hors pipeline** : à lancer à la main |
+| `python -m tendia.veille.classification` | Classification Haiku seule (c'est aussi l'étape 2 du pipeline) ; `--max-cout 0` bloque tout appel |
 | `python -m tendia.analyse.extraire [--marche ID]` | Brief LLM d'un dossier `data/dce/<id>/` |
 | `python -m tendia.prix.decp.cli ingest` | Ingestion DECP data.gouv → tables SQL |
 | `python scripts/memoire/generer_memoire.py` | Mémoire technique (aussi depuis l'UI) |

@@ -73,7 +73,8 @@ def charger_env() -> None:
                 cle, _, valeur = ligne.partition("=")
                 cle = cle.strip()
                 valeur = valeur.split(" #")[0].strip().strip('"').strip("'")
-                if cle and valeur and cle not in os.environ:
+                # TENDIA_PROXY_ACTIF ne se lit jamais dans .env (voir core.http_humain)
+                if cle and valeur and cle != "TENDIA_PROXY_ACTIF" and cle not in os.environ:
                     os.environ[cle] = valeur
         return
 

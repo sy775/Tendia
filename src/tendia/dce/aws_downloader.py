@@ -45,12 +45,9 @@ from tendia.core import http_humain
 from tendia.core import logs as tendia_logs
 
 # python-dotenv : lecture transparente de la clé 2captcha depuis .env.
-try:
-    from dotenv import load_dotenv
-    from tendia.core.chemins import RACINE_DEPOT
-    load_dotenv(RACINE_DEPOT / ".env")
-except ImportError:
-    pass  # facultatif : on lira quand même os.environ si la lib est absente
+# Chargement unique par http_humain (TENDIA_PROXY_ACTIF du fichier ignoré).
+from tendia.core import http_humain as _http_humain_env
+_http_humain_env.charger_env_fichier()
 
 
 URL_BASE = "https://www.marches-publics.info"
