@@ -26,16 +26,17 @@ Point d'entrée : lire_dce(marche_id, dossier_dce, contexte, codes_presets, ...)
 
 import hashlib
 import json
-import re
 import threading
 import time
-import unicodedata
 from concurrent.futures import ThreadPoolExecutor
-from datetime import datetime, timezone
 from typing import Optional
 
 from tendia.analyse import llm_router
 from tendia.analyse import pieces as P
+# Sources vérifiées et taux de lecture (sans LLM) : module à part, réexporté ici.
+from tendia.analyse.sources_lecture import (  # noqa: F401
+    CHAMPS_SOURCES, LONGUEUR_MAX_EXTRAIT, construire_sources, normaliser_extrait,
+    tableau_lecture, verifier_extrait)
 from tendia.core import budget
 from tendia.core import logs as tendia_logs
 
@@ -191,10 +192,6 @@ CHAMPS_CRITIQUES = {
 }
 
 
-def _maintenant():
-    return datetime.now(timezone.utc).isoformat()
-
-
 def version_prompts() -> str:
     """Empreinte des prompts du mode document (traçabilité : extra.prompt_version)."""
     base = json.dumps([SYSTEME_PIECE, QUESTIONS, SUPPLEMENT_SOURCES, EN_TETE_NOTES,
@@ -239,7 +236,8 @@ def _cfg_doc() -> dict:
 
 
 def _modele_effectif(modele: Optional[str]) -> str:
-    return modele or llm_router.resoudre_modele("analyse", None)
+    """Id complet du modèle (None et les alias « gemini » / « claude » sont résolus)."""
+    return llm_router.resoudre_modele("analyse", modele)
 
 
 def _chars_par_token(modele: Optional[str]) -> float:
@@ -267,9 +265,6 @@ def decouper(texte: str, max_chars: int) -> list:
     return morceaux
 
 
-_decouper = decouper
-
-
 def _appel_json(user, documents, suivi: Suivi, version, max_tokens, system=None):
     """Un appel d'analyse. Comme en expérimentation, une réponse qui n'est pas un JSON
     exploitable est relancée une fois avec un rappel du format : cette relance (et le
@@ -277,7 +272,7 @@ def _appel_json(user, documents, suivi: Suivi, version, max_tokens, system=None)
     r = llm_router.call_llm("analyse", user, documents=documents, model=suivi.modele,
                             type_appel="extraction", marche_id=suivi.marche_id,
                             system=system or SYSTEME_PIECE, prompt_version=version,
-                            max_tokens=max_tokens)
+                            max_tokens=max_tokens, json_strict=True)
     suivi.noter(r)
     return r
 
@@ -291,7 +286,7 @@ def _morceaux_piece(piece: dict, max_chars: int) -> list:
     if piece.get("lecture_visuelle") and piece.get("parties_pdf"):
         return [("", [p]) for p in piece["parties_pdf"]]
     texte = P.texte_piece(piece)
-    return [(m, []) for m in (_decouper(texte, max_chars) if texte.strip() else [""])]
+    return [(m, []) for m in (decouper(texte, max_chars) if texte.strip() else [""])]
 
 
 # ---------------------------------------------------------------------------
@@ -309,7 +304,7 @@ def analyser_piece(piece: dict, contexte: dict, suivi: Suivi, version: str) -> d
              "guillemets intérieurs échappés, aucun commentaire.)")
     max_chars = int(int(_cfg_doc().get("max_tokens_entree_par_appel", 350000)) * _chars_par_token(suivi.modele))
     morceaux = _morceaux_piece(piece, max_chars)
-    resultats = []
+    resultats, cout = [], 0.0
     for i, (m, documents) in enumerate(morceaux, 1):
         partie = f" (partie {i}/{len(morceaux)})" if len(morceaux) > 1 else ""
         user = (f"PIÈCE : {piece['nom']}{partie} — type présumé : {piece['type']}\n"
@@ -319,8 +314,9 @@ def analyser_piece(piece: dict, contexte: dict, suivi: Suivi, version: str) -> d
         r = _appel_json(user, documents, suivi, version + ":piece",
                         _cfg_doc().get("max_tokens_piece", 16000))
         resultats.append({"partie": i, "ok": r.ok, "erreur": r.erreur, "json": r.json})
+        cout += float(getattr(r, "cout_total_eur", 0) or getattr(r, "cout_eur", 0) or 0)
     return {"piece": piece["nom"], "type": piece["type"], "nb_pages": piece["nb_pages"],
-            "resultats": resultats}
+            "empreinte": piece.get("empreinte"), "cout_eur": round(cout, 6), "resultats": resultats}
 
 
 # ---------------------------------------------------------------------------
@@ -424,17 +420,36 @@ def analyser_document(inv: dict, contexte: dict, codes_presets: list, suivi: Sui
     n_workers = int(_cfg_doc().get("pieces_en_parallele", 4))
     cache = {}
     if trace_precedente and trace_precedente.get("version") == version:
+        # Reprise par CONTENU : même nom et même empreinte du fichier (une pièce modifiée,
+        # ou un homonyme, est relue).
+        empreintes = {p["nom"]: p.get("empreinte") for p in inv["pieces"]}
         cache = {a["piece"]: a for a in trace_precedente.get("analyses_pieces") or []
-                 if all(r["ok"] for r in a["resultats"])}
+                 if a.get("resultats") and all(r["ok"] for r in a["resultats"])
+                 and a.get("empreinte") and a.get("empreinte") == empreintes.get(a.get("piece"))}
     a_faire = [p for p in inv["pieces"] if p["nom"] not in cache]
     if verbose:
         print(f"      mode document : {len(a_faire)} pièce(s) à analyser"
               + (f", {len(cache)} reprise(s) du run précédent" if cache else "")
               + f" ({n_workers} en parallèle)…", flush=True)
+    nouvelles = {}
     with ThreadPoolExecutor(n_workers) as ex:
-        nouvelles = {a["piece"]: a for a in ex.map(
-            lambda p: analyser_piece(p, contexte, suivi, version), a_faire)}
+        futurs = [ex.submit(analyser_piece, p, contexte, suivi, version) for p in a_faire]
+        erreur = None
+        for futur in futurs:
+            try:
+                a = futur.result()
+                nouvelles[a["piece"]] = a
+            except BaseException as e:      # kill switch, plafond, interruption
+                erreur = erreur or e
+    if erreur is not None:
+        # Les analyses terminées (et payées) sont rendues à l'appelant pour être tracées.
+        erreur.trace_partielle = {"version": version, "analyses_pieces":
+                                  list(cache.values()) + list(nouvelles.values()),
+                                  "interrompue": True}
+        raise erreur
     analyses = [cache.get(p["nom"]) or nouvelles[p["nom"]] for p in inv["pieces"]]
+    for a in analyses:
+        a["reprise"] = a["piece"] in cache
     echecs = [a["piece"] for a in analyses if not all(r["ok"] for r in a["resultats"])]
     trace = {"version": version, "analyses_pieces": analyses, "pieces_en_echec": echecs}
     if verbose and echecs:
@@ -471,218 +486,6 @@ def analyser_document(inv: dict, contexte: dict, codes_presets: list, suivi: Sui
 
 
 # ---------------------------------------------------------------------------
-# 4. Sources vérifiées et taux de lecture (sans LLM)
-# ---------------------------------------------------------------------------
-
-CHAMPS_SOURCES = ("criteres_ponderations", "date_limite", "pieces_exigees", "visite", "montant", "lots")
-LONGUEUR_MAX_EXTRAIT = 200
-
-# Champ critique → clé du bloc "_sources" rendu par le modèle, et questions par pièce qui le renseignent.
-_CHEMIN_MODELE = {
-    "criteres_ponderations": "bareme_notation",
-    "date_limite": "calendrier.date_limite_offres",
-    "pieces_exigees": "dossier_candidature.pieces_a_fournir",
-    "visite": "complements_dce.visite",
-    "montant": "montant_marche",
-    "lots": "lots",
-}
-_QUESTIONS_DU_CHAMP = {
-    "criteres_ponderations": ("criteres_attribution", "criteres_par_lot"),
-    "date_limite": ("date_limite_remise",),
-    "pieces_exigees": ("pieces_candidature", "pieces_offre"),
-    "visite": ("visite",),
-    "montant": ("montant_estime", "montant", "montants_renseignes"),
-    "lots": ("lots", "lot"),
-}
-
-_APOSTROPHES = str.maketrans({"’": "'", "‘": "'", "ʼ": "'", "`": "'", "´": "'", "«": '"', "»": '"',
-                              "“": '"', "”": '"', "–": "-", "—": "-", "‑": "-", " ": " ",
-                              " ": " ", " ": " ", "œ": "oe", "Œ": "OE", "æ": "ae", "Æ": "AE"})
-
-
-def normaliser_extrait(s) -> str:
-    """Forme de comparaison d'un extrait et d'une page : ligatures décomposées (ﬁ, ﬂ, œ),
-    apostrophes et tirets typographiques ramenés à l'ASCII, minuscules, toute suite
-    d'espaces ou de retours à la ligne réduite à une espace."""
-    if not s:
-        return ""
-    s = unicodedata.normalize("NFKC", str(s)).translate(_APOSTROPHES)
-    return re.sub(r"\s+", " ", s).strip().lower()
-
-
-def verifier_extrait(extrait, texte_page) -> bool:
-    """True si l'extrait figure dans le texte de la page (formes normalisées). Sans LLM."""
-    e = normaliser_extrait(extrait)
-    return bool(e) and e in normaliser_extrait(texte_page)
-
-
-def _numero_page(page):
-    """2, "2", "p. 2", "Page 2" → 2 ; un nom de feuille reste une chaîne ; None sinon."""
-    if page is None or isinstance(page, bool):
-        return None
-    if isinstance(page, int):
-        return page
-    if isinstance(page, float) and page.is_integer():
-        return int(page)
-    s = str(page).strip()
-    if not s:
-        return None
-    m = re.fullmatch(r"(?:p(?:age)?\.?\s*)?(\d+)", s, re.I)
-    if m:
-        return int(m.group(1))
-    return s[8:].strip() if s.lower().startswith("feuille ") else s
-
-
-def _pages(valeur) -> list:
-    if valeur is None:
-        return []
-    if not isinstance(valeur, (list, tuple)):
-        valeur = [valeur]
-    return [p for p in (_numero_page(v) for v in valeur) if p is not None]
-
-
-def _piece_par_nom(inv: dict, nom) -> Optional[dict]:
-    """Pièce de l'inventaire citée par le modèle (nom exact, puis casse, puis sans extension)."""
-    if not nom:
-        return None
-    pieces = (inv or {}).get("pieces") or []
-    cle = str(nom).strip()
-    for egal in (lambda p: p["nom"] == cle,
-                 lambda p: p["nom"].lower() == cle.lower(),
-                 lambda p: P._norm(p["nom"].rsplit(".", 1)[0]) == P._norm(cle.rsplit(".", 1)[0]),
-                 lambda p: P._norm(cle) and P._norm(cle) in P._norm(p["nom"])):
-        for p in pieces:
-            if egal(p):
-                return p
-    return None
-
-
-def _texte_extrait(valeur) -> Optional[str]:
-    if valeur is None:
-        return None
-    s = valeur if isinstance(valeur, str) else json.dumps(valeur, ensure_ascii=False)
-    s = s.strip()
-    return s[:LONGUEUR_MAX_EXTRAIT] if s else None
-
-
-def _source(inv: dict, nom_piece, pages, extrait) -> Optional[dict]:
-    """Une source vérifiée : l'extrait (≤ 200 caractères) est cherché dans chaque page
-    citée ; la page retenue est la première où il figure, sinon la première citée."""
-    piece = _piece_par_nom(inv, nom_piece)
-    nom = piece["nom"] if piece else (str(nom_piece) if nom_piece else None)
-    if not nom:
-        return None
-    pages = _pages(pages)
-    extrait = _texte_extrait(extrait)
-    page, verifie = (pages[0] if pages else None), False
-    if piece and extrait:
-        for p in pages:
-            if verifier_extrait(extrait, P.texte_page(piece, p)):
-                page, verifie = p, True
-                break
-    return {"piece": nom, "page": page, "extrait": extrait, "verifie": verifie}
-
-
-def _informations(analyses: list, nom_piece: str, questions: tuple) -> list:
-    """[(pages, extrait)] des réponses non nulles de cette pièce aux questions du champ."""
-    trouvees = []
-    for a in analyses or []:
-        if a.get("piece") != nom_piece:
-            continue
-        for r in a.get("resultats") or []:
-            infos = ((r.get("json") or {}).get("informations") or {}) if isinstance(r.get("json"), dict) else {}
-            for q in questions:
-                info = infos.get(q)
-                if isinstance(info, dict) and info.get("valeur") not in (None, "", [], {}):
-                    trouvees.append((_pages(info.get("pages")), info.get("extrait")))
-    return trouvees
-
-
-def _source_depuis_analyses(inv: dict, analyses: list, nom_piece: str, questions: tuple,
-                            page_citee=None) -> Optional[dict]:
-    infos = _informations(analyses, nom_piece, questions)
-    if not infos:
-        return None
-    # de préférence la réponse dont les pages contiennent la page citée par la fusion
-    infos.sort(key=lambda i: (page_citee not in i[0], not i[1]))
-    candidates = [_source(inv, nom_piece, pages or ([page_citee] if page_citee is not None else []), extrait)
-                  for pages, extrait in infos]
-    candidates = [c for c in candidates if c]
-    return next((c for c in candidates if c["verifie"]), candidates[0] if candidates else None)
-
-
-def construire_sources(brief: dict, analyses: list, inv: dict) -> dict:
-    """`_sources` du brief : pour chacun des 6 champs critiques, {"piece", "page",
-    "extrait" (≤ 200 caractères), "verifie"} ou None s'il n'y a pas de source.
-
-    Origine, dans l'ordre : (1) recherche ciblée du contrôle de complétude ; (2) pièce et
-    page citées par la fusion (`_sources_modele`), avec l'extrait relevé dans l'analyse de
-    cette pièce ; (3) première analyse de pièce qui renseigne le champ. `verifie` : l'extrait
-    figure dans le texte de la page citée (verifier_extrait, sans LLM)."""
-    brief = brief or {}
-    controle = brief.get("_controle_completude") or {}
-    sources_modele = brief.get("_sources_modele") or {}
-    resultat = {}
-    for champ in CHAMPS_SOURCES:
-        questions = _QUESTIONS_DU_CHAMP[champ]
-        source = None
-        relance = controle.get(champ) or {}
-        if relance.get("statut") == "trouve_par_relance":
-            source = _source(inv, relance.get("piece"), relance.get("pages"), relance.get("extrait"))
-        if source is None:
-            citees = sources_modele.get(_CHEMIN_MODELE[champ]) or []
-            if isinstance(citees, dict):
-                citees = [citees]
-            candidates = []
-            for citee in citees if isinstance(citees, list) else []:
-                if not isinstance(citee, dict):
-                    continue
-                piece = _piece_par_nom(inv, citee.get("document"))
-                page = _numero_page(citee.get("page"))
-                s = _source_depuis_analyses(inv, analyses, piece["nom"], questions, page) if piece else None
-                # pièce citée sans extrait relevé : la source reste citée, non vérifiée
-                candidates.append(s or _source(inv, citee.get("document"), [page], None))
-            candidates = [c for c in candidates if c]
-            source = next((c for c in candidates if c["verifie"]), candidates[0] if candidates else None)
-        if source is None:
-            for a in analyses or []:
-                source = _source_depuis_analyses(inv, analyses, a.get("piece"), questions)
-                if source:
-                    break
-        resultat[champ] = source
-    return resultat
-
-
-def tableau_lecture(inv: dict, analyses: list) -> dict:
-    """`_lecture` du brief : une ligne par pièce retenue et par fichier écarté (les doublons
-    n'ont pas de ligne), et `pct_non_lu`, calculé sans LLM.
-
-    Statut d'une pièce retenue : "lu" si toutes ses parties ont été analysées avec succès,
-    sinon "echec_lecture". Fichier écarté : plan_ignore, format_non_gere ou echec_conversion.
-    pct_non_lu = 100 × pièces de texte non lues / pièces de texte, une pièce de texte étant
-    toute ligne qui n'est pas plan_ignore."""
-    par_piece = {a.get("piece"): a for a in analyses or []}
-    lignes = []
-    for p in (inv or {}).get("pieces") or []:
-        a = par_piece.get(p["nom"])
-        resultats = (a or {}).get("resultats") or []
-        lu = bool(resultats) and all(r.get("ok") for r in resultats)
-        detail = None
-        if not lu:
-            detail = next((str(r.get("erreur"))[:200] for r in resultats if not r.get("ok") and r.get("erreur")),
-                          "pièce non analysée")
-        lignes.append({"nom": p["nom"], "type": p.get("type"), "statut": "lu" if lu else "echec_lecture",
-                       "pages": p.get("nb_pages"), "caracteres": p.get("chars"), "detail": detail})
-    for e in (inv or {}).get("ecartes") or []:
-        lignes.append({"nom": e.get("nom"), "type": None, "statut": e.get("statut"),
-                       "pages": None, "caracteres": None, "detail": e.get("detail")})
-    texte = [l for l in lignes if l["statut"] != "plan_ignore"]
-    lues = [l for l in texte if l["statut"] == "lu"]
-    pct = round(100.0 * (len(texte) - len(lues)) / len(texte), 1) if texte else 0.0
-    return {"pieces": lignes, "nb_pieces_texte": len(texte), "nb_lues": len(lues), "pct_non_lu": pct}
-
-
-# ---------------------------------------------------------------------------
 # 5. Estimation avant appel et point d'entrée
 # ---------------------------------------------------------------------------
 
@@ -696,7 +499,11 @@ TOKENS_SORTIE_FUSION = 15000
 def estimer_cout(inv: dict, modele: str = None, date=None) -> dict:
     """Coût estimé de la lecture AVANT tout appel : caractères / chars_par_token × tarif
     du modèle à `date` (défaut : aujourd'hui), plus les consignes, les sorties attendues
-    et la fusion. Les recherches ciblées éventuelles ne sont pas comptées. Aucun appel LLM."""
+    et la fusion. Aucun appel LLM.
+
+    C'est un ordre de grandeur, pas un plafond de dépense : les tokens de réflexion du
+    modèle, les recherches ciblées, les relances et un éventuel repli sur Sonnet (plus
+    cher) ne sont pas comptés, et les pièces reprises d'une trace ne sont pas déduites."""
     modele_effectif = _modele_effectif(modele)
     cpt = _chars_par_token(modele_effectif)
     max_chars = int(int(_cfg_doc().get("max_tokens_entree_par_appel", 350000)) * cpt)
@@ -712,13 +519,16 @@ def estimer_cout(inv: dict, modele: str = None, date=None) -> dict:
     tokens_entree = int(entree + appels * TOKENS_CONSIGNE_PIECE + sortie_pieces + TOKENS_PROMPT_FUSION)
     tokens_sortie = int(sortie_pieces + TOKENS_SORTIE_FUSION)
     cout = llm_router.estimer_cout_eur(modele_effectif, tokens_entree, tokens_sortie, date)
+    if cout is None:
+        raise ValueError(f"modèle sans tarif dans config_llm.yaml : {modele_effectif!r} "
+                         f"(estimation impossible, le plafond par DCE ne protégerait rien)")
     return {"modele": modele_effectif, "tokens_entree": tokens_entree, "tokens_sortie": tokens_sortie,
-            "nb_appels_pieces": appels, "cout_eur": round(cout or 0.0, 4)}
+            "nb_appels_pieces": appels, "cout_eur": round(cout, 4)}
 
 
 def lire_dce(marche_id: str, dossier_dce: str, contexte: dict, codes_presets: list,
              max_cout_par_dce: float = 2.5, dry_run: bool = False, verbose: bool = True,
-             modele: str = None, reprendre: bool = True) -> dict:
+             modele: str = None, reprendre: bool = True, force: bool = False) -> dict:
     """Lit tout le DCE et rend {"ok", "brief", "raison", "estimation", "inventaire",
     "lecture", "cout_eur", "modele", "appels", "duree_s"}.
 
@@ -726,16 +536,21 @@ def lire_dce(marche_id: str, dossier_dce: str, contexte: dict, codes_presets: li
       noté dans les journaux d'extraction, aucun appel LLM. Jamais de troncature.
     - `dry_run` : inventaire et estimation seulement (raison "dry_run").
     - `reprendre` : les pièces déjà analysées avec succès lors d'une lecture précédente
-      (même version de prompts, trace dans data/pieces/<id>/_trace.json) ne sont pas repayées.
+      (même version de prompts, même contenu de fichier, trace dans
+      data/pieces/<id>/_trace.json) ne sont pas repayées. "cout_eur" est le coût de cette
+      lecture, "cout_cumule_eur" y ajoute celui des pièces reprises.
+    - `force` : l'inventaire est reconstruit même si le dossier n'a pas changé (il l'est
+      de toute façon quand la signature du dossier source change).
     Lève budget.BudgetDepasseError si le kill switch ou le plafond mensuel bloque.
     """
     debut = time.time()
     resultat = {"ok": False, "brief": None, "raison": None, "estimation": None, "inventaire": None,
-                "lecture": None, "cout_eur": 0.0, "modele": None, "appels": None, "duree_s": 0.0}
+                "lecture": None, "cout_eur": 0.0, "cout_cumule_eur": 0.0, "nb_pieces_reprises": 0,
+                "modele": None, "appels": None, "duree_s": 0.0}
     if not dry_run:
         # Avant tout travail, et dans le thread principal (ouvre la base avant les threads).
         budget.verifier_kill_switch("extraction")
-    inv = P.inventorier(marche_id, dossier_dce, verbose=verbose)
+    inv = P.inventorier(marche_id, dossier_dce, verbose=verbose, force=force)
     resultat["inventaire"] = inv
     estimation = estimer_cout(inv, modele)
     resultat["estimation"] = estimation
@@ -769,17 +584,30 @@ def lire_dce(marche_id: str, dossier_dce: str, contexte: dict, codes_presets: li
             trace_precedente = json.loads(fichier_trace.read_text(encoding="utf-8"))
         except (OSError, ValueError):
             trace_precedente = None
-    brief, trace = analyser_document(inv, contexte, codes_presets, suivi=suivi, version=version,
-                                     verbose=verbose, trace_precedente=trace_precedente)
+    def _ecrire_trace(trace: dict) -> None:
+        try:
+            fichier_trace.parent.mkdir(parents=True, exist_ok=True)
+            fichier_trace.write_text(json.dumps(trace, ensure_ascii=False, default=str), encoding="utf-8")
+        except OSError:
+            pass
+
     try:
-        fichier_trace.parent.mkdir(parents=True, exist_ok=True)
-        fichier_trace.write_text(json.dumps(trace, ensure_ascii=False, default=str), encoding="utf-8")
-    except OSError:
-        pass
+        brief, trace = analyser_document(inv, contexte, codes_presets, suivi=suivi, version=version,
+                                         verbose=verbose, trace_precedente=trace_precedente)
+    except BaseException as e:
+        # Lecture interrompue (kill switch, plafond mensuel, Ctrl+C) : les pièces déjà
+        # analysées sont tracées pour ne pas être repayées à la reprise.
+        if getattr(e, "trace_partielle", None):
+            _ecrire_trace(e.trace_partielle)
+        raise
+    _ecrire_trace(trace)
     analyses = trace.get("analyses_pieces") or []
+    cout_repris = sum(float(a.get("cout_eur") or 0) for a in analyses if a.get("reprise"))
     resultat["lecture"] = tableau_lecture(inv, analyses)
     resultat["appels"] = suivi.bilan()
     resultat["cout_eur"] = round(suivi.cout_eur, 6)
+    resultat["cout_cumule_eur"] = round(suivi.cout_eur + cout_repris, 6)
+    resultat["nb_pieces_reprises"] = sum(1 for a in analyses if a.get("reprise"))
     resultat["modele"] = (trace.get("fusion") or {}).get("modele")
     resultat["duree_s"] = round(time.time() - debut, 1)
     if brief is None:

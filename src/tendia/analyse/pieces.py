@@ -21,8 +21,11 @@ Inventaire COMPLET des pièces d'un DCE pour le mode d'analyse « document »
 - typage : RC, CCAP, CCTP, BPU/DPGF/DQE, AE, annexe (nom de fichier, puis
   premières lignes du contenu).
 
-Le dossier de travail data/pieces/<id>/ est un cache régénérable (hors git) : il est
-reconstruit quand l'inventaire est absent ou que `force=True`.
+Le dossier de travail data/pieces/<id>/ (hors git) est reconstruit quand l'inventaire est
+absent, que le dossier source a changé (signature : chemins, tailles, dates) ou que
+`force=True`. Rien n'est supprimé : l'ancien contenu est déplacé dans
+archive/data/pieces/<id>_<horodatage>/ ; la trace des analyses déjà payées (_trace.json)
+reste en place.
 """
 
 import hashlib
@@ -36,28 +39,36 @@ import subprocess
 import unicodedata
 import zipfile
 import zlib
+from datetime import datetime, timezone
 from pathlib import Path
 
-from tendia.core.chemins import DATA
+from tendia.core.chemins import ARCHIVE, DATA
 
 DIR_PIECES = DATA / "pieces"
 
 # pypdf signale chaque police qu'il ne sait pas décoder : sans intérêt ici, des centaines de lignes par DCE.
 logging.getLogger("pypdf").setLevel(logging.ERROR)
 
-# Statuts de lecture d'un fichier du DCE (voir mode_document.tableau_lecture).
+# Statuts d'un fichier écarté (voir sources_lecture.tableau_lecture).
 STATUTS_ECARTES = ("plan_ignore", "format_non_gere", "echec_conversion")
+# Destination des anciens dossiers de travail. None : archive/data/pieces en prod, ou
+# DIR_PIECES / "_archive" quand DIR_PIECES est redirigé (tests) pour ne jamais écrire
+# dans la vraie archive depuis un test.
+DIR_ARCHIVE_PIECES = None
+FICHIERS_CONSERVES = ("_trace.json",)       # analyses déjà payées : jamais déplacées
 
 GRAPHIQUES = {".dwg", ".dxf", ".dgn", ".shx", ".plt", ".pc3", ".ifc", ".rvt", ".jpg", ".jpeg", ".png",
               ".tif", ".tiff", ".bmp", ".gif", ".svg", ".webp", ".heic", ".ttf", ".otf", ".db",
               ".ds_store", ".bak", ".dwf", ".dwfx", ".skp", ".3dm", ".stp", ".step", ".mp4", ".mov",
-              ".avi", ".lnk", ".ini", ".exe", ".dll", ".js", ".css", ".html", ".htm", ".xml", ".sig",
+              ".avi", ".lnk", ".ini", ".exe", ".dll", ".js", ".css", ".sig",
               ".p7s", ".jws", ".xades", ".tmp",
               # données cartographiques (SIG) accompagnant les plans
               ".shp", ".dbf", ".prj", ".cpg", ".qpj", ".sbn", ".sbx", ".gml", ".kml", ".kmz", ".gpkg"}
 WORD = {".doc", ".docx", ".odt", ".rtf", ".docm", ".dot", ".dotx"}
 EXCEL = {".xls", ".xlsm", ".ods", ".xlsb", ".slk"}
 ARCHIVES = {".zip"}
+HTML = {".html", ".htm"}
+TEXTE = {".txt", ".csv"}
 # PDF de plans / pièces graphiques (ignorés comme les fichiers CAO).
 RE_PLAN = re.compile(r"(^|[^a-z])(plans?|pln|coupes?|facades?|elevations?|implantation|plan de masse|"
                      r"plan de situation|nivellement|carroyage|photos?|reportage photo)([^a-z]|$)")
@@ -132,7 +143,10 @@ def _chemin_cible(dest: Path, nom: str):
     parties = [x for x in nom.replace("\\", "/").split("/") if x not in ("", ".")]
     if not parties or ".." in parties or ":" in parties[0]:
         return None
-    dossiers = [d[:30].rstrip(" .") or "_" for d in parties[:-1]]
+    # un dossier raccourci garde une empreinte de son nom complet : deux dossiers qui ne
+    # diffèrent qu'après le 30e caractère (« … - Lot 1 », « … - Lot 2 ») restent distincts
+    dossiers = [d if len(d) <= 30 else d[:30].rstrip(" .") + "~" + hashlib.sha1(d.encode("utf-8", "replace")).hexdigest()[:6]
+                for d in (x.rstrip(" .") or "_" for x in parties[:-1])]
     cible = dest.joinpath(*dossiers, parties[-1])
     if len(str(cible)) > LONGUEUR_MAX_CHEMIN:
         fichier = Path(parties[-1])
@@ -189,11 +203,17 @@ def _extraire_entree(dest: Path, nom: str, ecrire, zp: Path, profondeur: int) ->
     cible = _chemin_cible(dest, nom)
     if cible is None:
         return [f"{zp.name}: entrée ignorée (chemin hors archive) : {nom}"]
+    if cible.exists():
+        # deux entrées vers le même fichier (noms raccourcis, casse) : aucune n'écrase l'autre
+        cible = dest / "_long" / hashlib.sha1(nom.encode("utf-8", "replace")).hexdigest()[:10] / cible.name
+        if cible.exists():
+            return [f"{zp.name}: entrée en double ignorée : {nom}"]
     cible.parent.mkdir(parents=True, exist_ok=True)
     with open(cible, "wb") as d:
         ecrire(d)
     if cible.suffix.lower() in ARCHIVES:
-        sous = cible.with_name(cible.stem[:30].rstrip(" .") + "_zip")
+        empreinte = hashlib.sha1(nom.encode("utf-8", "replace")).hexdigest()[:6]
+        sous = cible.with_name(f"{cible.stem[:30].rstrip(' .')}~{empreinte}_zip")
         sous.mkdir(exist_ok=True)
         return _dezipper(cible, sous, profondeur + 1)
     return []
@@ -232,6 +252,8 @@ def _dezipper(zp: Path, dest: Path, profondeur=0) -> list:
     return erreurs
 
 
+# AutomationSecurity = 3 : macros désactivées (les DCE viennent d'internet). Le mot de passe
+# factice fait échouer l'ouverture d'un document protégé au lieu d'afficher une invite bloquante.
 _PS_CONVERSION = r"""
 $ErrorActionPreference = 'Continue'
 $jobs = Get-Content -Raw -Encoding UTF8 '{fichier}' | ConvertFrom-Json
@@ -239,11 +261,11 @@ $word = $null; $excel = $null
 foreach ($j in $jobs) {{
   try {{
     if ($j.app -eq 'word') {{
-      if (-not $word) {{ $word = New-Object -ComObject Word.Application; $word.Visible = $false; $word.DisplayAlerts = 0 }}
-      $d = $word.Documents.Open($j.src, $false, $true, $false); $d.SaveAs([ref]$j.dst, [ref]17); $d.Close($false)
+      if (-not $word) {{ $word = New-Object -ComObject Word.Application; $word.Visible = $false; $word.DisplayAlerts = 0; $word.AutomationSecurity = 3 }}
+      $d = $word.Documents.Open($j.src, $false, $true, $false, 'tendia'); $d.SaveAs([ref]$j.dst, [ref]17); $d.Close($false)
     }} else {{
-      if (-not $excel) {{ $excel = New-Object -ComObject Excel.Application; $excel.Visible = $false; $excel.DisplayAlerts = $false }}
-      $b = $excel.Workbooks.Open($j.src, 0, $true); $b.SaveAs($j.dst, 51); $b.Close($false)
+      if (-not $excel) {{ $excel = New-Object -ComObject Excel.Application; $excel.Visible = $false; $excel.DisplayAlerts = $false; $excel.AutomationSecurity = 3 }}
+      $b = $excel.Workbooks.Open($j.src, 0, $true, [Type]::Missing, 'tendia'); $b.SaveAs($j.dst, 51); $b.Close($false)
     }}
     Write-Output ("OK " + $j.dst)
   }} catch {{ Write-Output ("KO " + $j.src + " :: " + $_.Exception.Message) }}
@@ -419,27 +441,125 @@ def _texte_xlsx_feuilles(chemin: Path) -> list:
     return out
 
 
+def dossier_travail(mid: str) -> Path:
+    """DIR_PIECES / mid, après contrôle : l'identifiant doit désigner un sous-dossier direct
+    de DIR_PIECES (pas de « ../ », pas de chemin absolu, pas de séparateur)."""
+    if not isinstance(mid, str) or not mid.strip() or mid.startswith("_"):
+        raise ValueError(f"identifiant de marché invalide : {mid!r}")
+    racine = Path(DIR_PIECES).resolve()
+    travail = (racine / mid).resolve()
+    if travail.parent != racine or travail.name != mid:
+        raise ValueError(f"identifiant de marché invalide (hors de {racine}) : {mid!r}")
+    return travail
+
+
+def signature_source(dossier_dce) -> str:
+    """Empreinte du dossier source : chemins relatifs, tailles et dates de tous ses fichiers."""
+    racine = Path(dossier_dce)
+    if not racine.is_dir():
+        return ""
+    lignes = sorted(f"{f.relative_to(racine).as_posix()}|{f.stat().st_size}|{f.stat().st_mtime_ns}"
+                    for f in racine.rglob("*") if f.is_file())
+    return hashlib.sha1("\n".join(lignes).encode("utf-8")).hexdigest() if lignes else ""
+
+
+def _dir_archive() -> Path:
+    if DIR_ARCHIVE_PIECES is not None:
+        return Path(DIR_ARCHIVE_PIECES)
+    if Path(DIR_PIECES).resolve() == (DATA / "pieces").resolve():
+        return ARCHIVE / "data" / "pieces"
+    return Path(DIR_PIECES) / "_archive"
+
+
+def _archiver_travail(travail: Path) -> None:
+    """Déplace l'ancien contenu du dossier de travail dans l'archive (rien n'est supprimé).
+    Les fichiers de FICHIERS_CONSERVES restent en place."""
+    anciens = [f for f in travail.iterdir() if f.name not in FICHIERS_CONSERVES]
+    if not anciens:
+        return
+    base = _dir_archive() / f"{travail.name}_{datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%S%fZ')}"
+    cible, n = base, 1
+    while cible.exists():
+        n += 1
+        cible = base.with_name(f"{base.name}_{n}")
+    cible.mkdir(parents=True)
+    for f in anciens:
+        shutil.move(str(f), str(cible / f.name))
+
+
+def _noms_uniques(pieces: list, racines: list) -> None:
+    """Deux pièces de même nom (lot1/CCTP.pdf, lot2/CCTP.pdf) : le nom affiché, qui sert de
+    clé à l'analyse, reçoit le dossier parent qui les distingue."""
+    par_nom = {}
+    for p in pieces:
+        par_nom.setdefault(p["nom"], []).append(p)
+    for nom, groupe in par_nom.items():
+        if len(groupe) < 2:
+            continue
+        chemins = []
+        for p in groupe:
+            chemin = Path(p["chemin_original"])
+            for racine in racines:
+                try:
+                    chemin = chemin.relative_to(racine)
+                    break
+                except ValueError:
+                    continue
+            chemins.append(chemin.parts)
+        for profondeur in range(2, max(len(c) for c in chemins) + 1):
+            candidats = ["/".join(c[-profondeur:]) for c in chemins]
+            if len(set(candidats)) == len(candidats):
+                break
+        else:
+            candidats = [f"{nom} ({k})" for k in range(1, len(groupe) + 1)]
+        for p, candidat in zip(groupe, candidats):
+            p["nom"] = candidat
+
+
+def _texte_html(chemin: Path) -> str:
+    brut = chemin.read_bytes()
+    try:
+        from bs4 import BeautifulSoup
+        soupe = BeautifulSoup(brut, "html.parser")
+        for balise in soupe(["script", "style", "noscript"]):
+            balise.decompose()
+        texte = soupe.get_text("\n")
+    except Exception:
+        texte = re.sub(r"<[^>]+>", " ", brut.decode("utf-8", "replace"))
+    return re.sub(r"\n\s*\n+", "\n", texte).strip()
+
+
 def inventorier(mid: str, dossier_dce: str, verbose: bool = True, force: bool = False) -> dict:
     """Construit (ou relit) l'inventaire des pièces du DCE `mid`.
 
     Le dossier `dossier_dce` n'est que lu. Tout ce qui est produit (zips décompressés,
     conversions, parties de PDF, textes) va sous DIR_PIECES / mid. L'inventaire déjà
-    écrit est relu tel quel, sauf `force=True`.
+    écrit est relu tel quel tant que le dossier source n'a pas changé (signature_source),
+    sauf `force=True`.
 
-    Résultat : "pieces" (pièces retenues, texte extrait), "ecartes" (fichiers non lus :
-    {"nom", "statut", "detail"}, statut dans STATUTS_ECARTES), "doublons"
-    ({"nom", "doublon_de"}), "erreurs", "chars_total", "nb_pages_total".
+    Résultat : "pieces" (pièces retenues, texte extrait, noms uniques, "empreinte" du
+    fichier d'origine), "ecartes" (fichiers non lus : {"nom", "statut", "detail"}, statut
+    dans STATUTS_ECARTES), "doublons" ({"nom", "doublon_de"}), "erreurs", "chars_total",
+    "nb_pages_total", "signature_source".
     """
-    travail = DIR_PIECES / mid
+    travail = dossier_travail(mid)
+    source = Path(dossier_dce).resolve()
+    if travail == source or travail in source.parents or source in travail.parents:
+        raise ValueError(f"le dossier du DCE et le dossier de travail se recouvrent : {source}")
+    signature = signature_source(source)
     fichier = travail / "_inventaire.json"
     if fichier.exists() and not force:
-        return json.loads(fichier.read_text(encoding="utf-8"))
+        try:
+            inv = json.loads(fichier.read_text(encoding="utf-8"))
+        except (OSError, ValueError):
+            inv = None
+        if inv is not None and inv.get("signature_source") == signature:
+            return inv
     if travail.exists():
-        shutil.rmtree(travail)      # cache régénérable de ce marché, jamais data/dce
-    (travail / "_extrait").mkdir(parents=True)
-    (travail / "_converti").mkdir()
-    (travail / "_parties").mkdir()
-    source = Path(dossier_dce).resolve()
+        _archiver_travail(travail)      # jamais data/dce ; rien n'est supprimé
+    (travail / "_extrait").mkdir(parents=True, exist_ok=True)
+    (travail / "_converti").mkdir(exist_ok=True)
+    (travail / "_parties").mkdir(exist_ok=True)
     erreurs = []
 
     # 1. Tous les fichiers, zips décompressés récursivement
@@ -447,25 +567,37 @@ def inventorier(mid: str, dossier_dce: str, verbose: bool = True, force: bool = 
     # Les zips rangés dans _zip_archives/ par l'ancien dézippage à plat (extraire._dezipper_dossier)
     # sont relus eux aussi : ce dézippage ne gardait qu'un fichier par nom, deux pièces homonymes
     # de dossiers différents y perdaient l'une des deux. Les copies à plat sont dédoublonnées
-    # par empreinte (le tri ci-dessous garde le fichier le plus proche de la racine).
-    fichiers = [f for f in source.rglob("*") if f.is_file()]
+    # par empreinte (le tri ci-dessous garde le fichier de la source le plus proche de la racine).
+    fichiers = [f for f in source.rglob("*") if f.is_file()] if source.is_dir() else []
     for i, f in enumerate([f for f in fichiers if f.suffix.lower() in ARCHIVES]):
-        dest = travail / "_extrait" / f"{i:02d}_{f.stem[:40]}"
+        dest = travail / "_extrait" / f"{i:02d}_{f.stem[:40].rstrip(' .')}"
         dest.mkdir()
         erreurs_zip = _dezipper(f, dest)
         erreurs += erreurs_zip
         # Archive (ou archive imbriquée) non lue en entier : son contenu manque, on le dit.
         for e in erreurs_zip:
             nom_zip, _, detail = e.partition(": ")
-            if "entrée ignorée" in e or any(x["nom"] == nom_zip for x in ecartes):
+            if "entrée ignorée" in e or "entrée en double" in e or any(x["nom"] == nom_zip for x in ecartes):
                 continue
             ecartes.append({"nom": nom_zip, "statut": "format_non_gere",
                             "detail": f"archive non lue en entier : {detail[:160]}"})
-    fichiers += [f for f in (travail / "_extrait").rglob("*") if f.is_file()]
+    extraits = travail / "_extrait"
+    fichiers += [f for f in extraits.rglob("*") if f.is_file()]
+
+    def _ordre(p: Path) -> tuple:
+        """Fichiers de la source d'abord, puis par profondeur relative, puis par chemin :
+        le même ordre quel que soit l'emplacement du dépôt ou du dossier de travail."""
+        for rang, racine in enumerate((source, extraits)):
+            try:
+                rel = p.relative_to(racine)
+                return (rang, len(rel.parts), rel.as_posix())
+            except ValueError:
+                continue
+        return (2, len(p.parts), str(p))
 
     # 2. Tri + dédoublonnage
     vus, retenus, ignores, non_geres = {}, [], [], []
-    for f in sorted(fichiers, key=lambda p: (len(p.parts), str(p))):
+    for f in sorted(fichiers, key=_ordre):
         ext = f.suffix.lower()
         if ext in ARCHIVES:
             continue
@@ -483,7 +615,7 @@ def inventorier(mid: str, dossier_dce: str, verbose: bool = True, force: bool = 
             ecartes.append({"nom": f.name, "statut": "format_non_gere",
                             "detail": f"archive {ext} non décompressée"})
             continue
-        if ext not in {".pdf", ".xlsx"} | WORD | EXCEL | {".txt", ".csv"}:
+        if ext not in {".pdf", ".xlsx"} | WORD | EXCEL | TEXTE | HTML:
             non_geres.append(f"{f.name} (format {ext or '?'} non géré)")
             ecartes.append({"nom": f.name, "statut": "format_non_gere",
                             "detail": f"format {ext or '?'} non géré"})
@@ -493,11 +625,11 @@ def inventorier(mid: str, dossier_dce: str, verbose: bool = True, force: bool = 
             doublons.append({"nom": f.name, "doublon_de": vus[h].name})
             continue
         vus[h] = f
-        retenus.append(f)
+        retenus.append((f, h))
 
     # 3. Conversions bureautiques (pagination conservée)
     jobs = []
-    for i, f in enumerate(retenus):
+    for i, (f, _h) in enumerate(retenus):
         ext = f.suffix.lower()
         if ext in WORD:
             jobs.append({"app": "word", "src": str(f), "dst": str(travail / "_converti" / f"{i:03d}_{f.stem[:60]}.pdf")})
@@ -508,7 +640,7 @@ def inventorier(mid: str, dossier_dce: str, verbose: bool = True, force: bool = 
 
     # 4. Texte par page + typage
     pieces = []
-    for f in retenus:
+    for f, empreinte in retenus:
         ext = f.suffix.lower()
         lu = f
         if ext in WORD | EXCEL:
@@ -526,13 +658,23 @@ def inventorier(mid: str, dossier_dce: str, verbose: bool = True, force: bool = 
             pages = [t for _, t in feuilles]
             unite = "feuille"
             noms_feuilles = [n for n, _ in feuilles]
+        elif lu.suffix.lower() in HTML:
+            pages = [_texte_html(lu)]
         else:
             pages = [lu.read_text(encoding="utf-8", errors="replace")]
         chars = sum(len(p) for p in pages)
+        est_pdf = lu.suffix.lower() == ".pdf"
+        # Pièce dont on ne tire rien (PDF corrompu à 0 page, tableur illisible, fichier vide) :
+        # elle n'est pas « lue », et aucun appel LLM ne part sur du vide.
+        if not pages or (chars == 0 and not est_pdf):
+            raison = ("PDF illisible (aucune page)" if est_pdf else "aucun texte extrait du fichier")
+            non_geres.append(f"{f.name} ({raison})")
+            ecartes.append({"nom": f.name, "statut": "echec_conversion", "detail": raison})
+            continue
         # Lecture visuelle si le PDF est (majoritairement) scanné : ≥ 30 % de pages sans texte
         # exploitable, ou presque aucun texte. Les pages vides isolées sont seulement signalées.
-        pages_vides = [i + 1 for i, p in enumerate(pages) if len(p.strip()) < 50] if lu.suffix.lower() == ".pdf" else []
-        scan = (lu.suffix.lower() == ".pdf" and len(pages) > 0
+        pages_vides = [i + 1 for i, p in enumerate(pages) if len(p.strip()) < 50] if est_pdf else []
+        scan = (est_pdf and len(pages) > 0
                 and (len(pages_vides) >= 0.3 * len(pages) or chars < 200 * len(pages)))
         texte = "".join(
             f"\n[[{'Feuille ' + noms_feuilles[i] if unite == 'feuille' else 'Page ' + str(i + 1)}]]\n{p}"
@@ -541,6 +683,7 @@ def inventorier(mid: str, dossier_dce: str, verbose: bool = True, force: bool = 
             "nom": f.name,
             "chemin_original": str(f),
             "chemin_lu": str(lu),
+            "empreinte": empreinte,
             "type": typer_piece(f.name, texte),
             "unite": unite,
             "nb_pages": len(pages),
@@ -556,10 +699,12 @@ def inventorier(mid: str, dossier_dce: str, verbose: bool = True, force: bool = 
         ft.write_text(texte, encoding="utf-8")
         pieces[-1]["texte_fichier"] = str(ft)
 
+    _noms_uniques(pieces, [source, extraits])
     ordre = {t: i for i, t in enumerate(TYPES)}
     pieces.sort(key=lambda p: (ordre[p["type"]], p["nom"]))
     inv = {
         "marche_id": mid,
+        "signature_source": signature,
         "pieces": pieces,
         "ecartes": ecartes,
         "doublons": doublons,
