@@ -222,9 +222,14 @@ def lignes_montant(brief, voie3=None):
     if not brief:
         return None
     pub = montant_publie(brief)
+    mp = _get(brief, "montant_publie") if isinstance(_get(brief, "montant_publie"), dict) else {}
     if pub:
         v, taxe, plafond = pub
         publie = _fmt_eur(v) + (f" {taxe}" if taxe else "") + (" (plafond)" if plafond else "")
+    elif mp.get("statut") == "publie_par_lot" and mp.get("montants_par_lot"):
+        lots = mp["montants_par_lot"]
+        publie = ("par lot : " + " ; ".join(_fmt_eur(x) for x in lots[:4]) + (" …" if len(lots) > 4 else "")
+                  + (f" {mp['taxe']}" if mp.get("taxe") else ""))
     else:
         publie = "non communiqué"
     v3 = _get(brief, "montant_3_voies") or {}

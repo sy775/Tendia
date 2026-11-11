@@ -80,6 +80,31 @@ check("avis OJS typé RC : passe après le vrai RC",
       CC.choisir("montant", [{"piece": "2026-OJS206-0073-fr-ts.pdf", "type": "RC", "valeur": "35 000 000 EUR", "ordre": 0},
                              {"piece": "2026ACM013 RC.pdf", "type": "RC", "valeur": "12.6 M€ HT", "ordre": 1}])["piece"]
       == "2026ACM013 RC.pdf")
+# --- bloquants de AUDIT_2b
+check("B1 : « obligatoire ou facultatif … non précisés » ne tranche pas",
+      CC.visite_obligatoire("Visite prévue ; caractère obligatoire ou facultatif et dates non précisés") is None)
+check("B1 : annexe « Attestation de visite » typée RC après le RC",
+      CC.choisir("visite", [{"piece": "00_Annexe 1 RC_Attestation de visite.docx", "type": "RC",
+                             "valeur": "Visite facultative", "ordre": 0},
+                            {"piece": "00_RC_Extension.pdf", "type": "RC",
+                             "valeur": "Obligatoire pour l'ensemble des lots", "ordre": 1}])["piece"] == "00_RC_Extension.pdf")
+p = CC.montant_principal("Sans montant minimum. Montants maximums par lot : Lot 1 : 3 526 141,00 € HT ; "
+                         "Lot 2 : 5 957 336,00 € HT")
+check("B2 : montants par lot seulement → pas de montant du marché (aucune somme)", p is None, p)
+p = CC.montant_principal("Accord-cadre : minimum 10 000 € HT et maximum 200 000 € HT")
+check("B2 : minimum et maximum → plafond 200 000, minimum gardé à côté",
+      p and p["valeur"] == 200000 and p["plafond"] and p["minimum_eur"] == 10000, p)
+p = CC.montant_principal("Montant global estimé : 12.6 M€ HT (Lot 1 : 6.5 M€ HT ; Lot 2 : 2.5 M€ HT)")
+check("B2 : montant global estimé retenu, pas celui d'un lot", p and p["valeur"] == 12600000 and not p["plafond"], p)
+b5 = {"montant_marche": {}, "montant_3_voies": {"voie_1_eur": 3526141}, "_sources": {}}
+CC.appliquer(b5, [{"piece": "RC.pdf", "type": "RC", "resultats": [{"partie": 1, "ok": True, "json": {"informations": {
+    "montant_estime": {"valeur": "Montants maximums par lot : Lot 1 : 3 526 141 € HT ; Lot 2 : 5 957 336 € HT",
+                       "pages": [1], "extrait": "x"}}}}]}], {"pieces": []})
+check("B2 : brief « publié par lot » : ni montant du marché, ni voie 1",
+      b5["montant_publie"]["statut"] == "publie_par_lot" and b5["montant_marche"]["valeur_estimee_euros"] is None
+      and b5["montant_3_voies"]["voie_1_eur"] is None, b5["montant_publie"])
+check("B2 : fiche « par lot : … »", F.lignes_montant(b5)["publie"].startswith("par lot : 3 526 141 €"),
+      F.lignes_montant(b5))
 check("date et heure ISO", CC.date_heure("2026-12-14 12:00") == ((2026, 12, 14), (12, 0)))
 check("date en lettres, heure 16h", CC.date_heure("7 janvier 2027 à 16h") == ((2027, 1, 7), (16, 0)))
 check("date sans heure", CC.date_heure("2026-12-10") == ((2026, 12, 10), None))

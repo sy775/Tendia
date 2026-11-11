@@ -270,6 +270,10 @@ def visite_obligatoire(valeur) -> Optional[bool]:
     if isinstance(valeur, dict) and isinstance(valeur.get("obligatoire"), bool):
         return valeur["obligatoire"]
     t = _sans_accents(_texte(valeur))
+    # « obligatoire ou facultatif … non précisé » : la note ne tranche pas (audit 2b, 105600)
+    if re.search(r"obligatoire\s+ou\s+facultati|facultati\w*\s+ou\s+obligatoire|non\s+precise|"
+                 r"non\s+indique|non\s+mentionne|pas\s+precise", t):
+        return None
     if _RE_VISITE_NON.search(t):
         return False
     if "obligatoire" in t or "exigee" in t:
@@ -397,7 +401,13 @@ def priorite(c: dict) -> float:
     """RC > AE > CCAP > autres ; un avis de publication (OJS, BOAMP) typé RC par l'inventaire
     passe après le vrai RC de son rang (il résume le RC, il ne le remplace pas)."""
     rang = PRIORITE_TYPE.get(c.get("type"), 3)
-    return rang + (0.5 if _RE_AVIS.search(_sans_accents(c.get("piece") or "")) else 0)
+    nom = _sans_accents(c.get("piece") or "")
+    if _RE_AVIS.search(nom):
+        return rang + 0.5
+    # annexe typée RC (« Annexe 1 RC_Attestation de visite ») : après le RC lui-même
+    if c.get("type") == "RC" and re.search(r"annexe|attestation|modele|formulaire|cadre", nom):
+        return rang + 0.25
+    return rang
 
 
 def choisir(champ: str, cands: list) -> Optional[dict]:
@@ -481,11 +491,11 @@ def controler_valeur(champ: str, valeur, texte: str) -> Optional[bool]:
         norm = S.normaliser_extrait(texte)
         return bool(ponds) and all(_figure_nombre(p, norm) for p in ponds)
     if champ == "montant":
-        m = montants_euros(_texte(valeur))
-        if not m:
+        p = montant_principal(_texte(valeur))
+        if not p:
             return None
         dans_texte = nombres(texte) | {round(v) for v, _t, _p in montants_euros(texte)}
-        return abs(m[0][0] - min(dans_texte, key=lambda x: abs(x - m[0][0]), default=-10)) <= 1
+        return abs(p["valeur"] - min(dans_texte, key=lambda x: abs(x - p["valeur"]), default=-10)) <= 1
     return None
 
 
@@ -574,25 +584,72 @@ def _appliquer_lots(brief: dict, retenu: dict) -> None:
                          for l in lots]
 
 
+def montants_qualifies(texte: str) -> list:
+    """Montants d'une note avec leur contexte immédiat (le texte depuis le montant
+    précédent, 80 caractères au plus) : [{valeur, taxe, lot, minimum, maximum, estime}]."""
+    sortie, fin_prec = [], 0
+    for m in _RE_MONTANT.finditer(str(texte or "")):
+        trouve = montants_euros(m.group(0))
+        if trouve:
+            ctx = _sans_accents(texte[max(fin_prec, m.start() - 80):m.start()])
+            sortie.append({"valeur": trouve[0][0], "taxe": trouve[0][1],
+                           "lot": bool(re.search(r"\blots?\s*(?:n\s*[°o]?\s*)?\d", ctx)),
+                           "minimum": bool(re.search(r"minim", ctx)),
+                           "maximum": bool(re.search(r"maxim|plafond", ctx)),
+                           "estime": bool(re.search(r"estim", ctx))})
+        fin_prec = m.end()
+    return sortie
+
+
+def montant_principal(texte: str) -> Optional[dict]:
+    """Montant publié du MARCHÉ dans une note, sans calcul : le premier montant global
+    (ni d'un lot, ni un minimum), de préférence estimé. Un maximum global est un plafond ;
+    le minimum global éventuel est gardé à côté. Rend None si la note ne porte que des
+    montants par lot ou des minimums (« publie_par_lot » / « publie_partiel »)."""
+    ms = montants_qualifies(texte)
+    globaux = [m for m in ms if not m["lot"] and not m["minimum"]]
+    if not globaux:
+        return None
+    choisi = next((m for m in globaux if m["estime"] and not m["maximum"]), globaux[0])
+    minimum = next((m["valeur"] for m in ms if m["minimum"] and not m["lot"]), None)
+    return dict(choisi, plafond=choisi["maximum"] and not choisi["estime"], minimum_eur=minimum)
+
+
 def _appliquer_montant(brief: dict, retenu: Optional[dict], source: Optional[dict]) -> dict:
     """Montant PUBLIÉ seulement. Rend brief["montant_publie"]."""
     mm = brief.get("montant_marche") if isinstance(brief.get("montant_marche"), dict) else {}
     brief["montant_marche"] = mm
     v3 = brief.get("montant_3_voies") if isinstance(brief.get("montant_3_voies"), dict) else None
-    trouves = montants_euros(_texte(retenu["valeur"])) if retenu else []
-    if trouves:
-        valeur, taxe, pos = trouves[0]
-        texte = _texte(retenu["valeur"])
-        avant = _sans_accents(texte[max(0, pos - 60):pos])
-        plafond = bool(re.search(r"maxim|plafond", avant)) and not re.search(r"estim", avant)
+    texte = _texte(retenu["valeur"]) if retenu else ""
+    trouves = montants_euros(texte) if retenu else []
+    principal = montant_principal(texte) if trouves else None
+    if principal:
+        valeur, taxe, plafond = principal["valeur"], principal["taxe"], principal["plafond"]
         publie = {"statut": "publie", "valeur_eur": valeur, "taxe": taxe, "texte": texte[:400],
                   "piece": retenu.get("piece"), "page": (source or {}).get("page"),
+                  "minimum_eur": principal["minimum_eur"],
                   "montants_cites": sorted({v for v, _t, _p in trouves})}
-        mm.update(valeur_estimee_euros=valeur, fourchette_min_euros=None, fourchette_max_euros=None,
+        mm.update(valeur_estimee_euros=valeur, fourchette_min_euros=principal["minimum_eur"] if plafond else None,
+                  fourchette_max_euros=valeur if plafond and principal["minimum_eur"] else None,
                   type="plafond" if plafond else "estime_explicite", source_extraction=_ref(source, retenu),
                   commentaire="Montant publié : " + texte[:300])
         if v3 is not None:
             v3["voie_1_eur"] = valeur
+            v3["voie_1_source"] = _ref(source, retenu)
+    elif trouves:
+        # montants par lot (ou minimums) seulement : publiés, mais pas de montant du marché ;
+        # aucune somme n'est faite à la place de l'acheteur
+        par_lot = [m for m in montants_qualifies(texte) if m["lot"]]
+        publie = {"statut": "publie_par_lot" if par_lot else "publie_partiel", "valeur_eur": None,
+                  "taxe": (par_lot or [{}])[0].get("taxe"), "texte": texte[:400],
+                  "piece": retenu.get("piece"), "page": (source or {}).get("page"),
+                  "montants_par_lot": [m["valeur"] for m in par_lot],
+                  "montants_cites": sorted({v for v, _t, _p in trouves})}
+        mm.update(valeur_estimee_euros=None, fourchette_min_euros=None, fourchette_max_euros=None,
+                  type="non_communique", source_extraction=_ref(source, retenu),
+                  commentaire="Montants publiés par lot, pas de montant global : " + texte[:300])
+        if v3 is not None:
+            v3["voie_1_eur"] = None
             v3["voie_1_source"] = _ref(source, retenu)
     else:
         publie = {"statut": "non_communique", "valeur_eur": None, "taxe": None,
