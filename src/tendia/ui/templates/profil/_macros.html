@@ -108,6 +108,7 @@
   <input type="{{ type }}" name="{{ name }}" value="{{ '' if value is none else value }}"
     class="block w-full mt-0.5 px-2 py-1.5 apt-fs-12_5"
     style="background: var(--apt-pure); border: 1px solid {{ 'var(--apt-rose)' if erreurs_champs.get(name) else 'var(--apt-line)' }}; border-radius: 5px;">
+  {% if erreurs_champs.get(name) %}<div class="ref-erreur apt-fs-11_5 mt-1" style="color: var(--apt-rose);">{{ erreurs_champs[name] }}</div>{% endif %}
 </div>
 {% endmacro %}
 
@@ -121,6 +122,7 @@
     <option value="{{ opt }}" {% if opt == valeur %}selected{% endif %}>{{ opt|enum_label }}</option>
     {% endfor %}
   </select>
+  {% if erreurs_champs.get(name) %}<div class="ref-erreur apt-fs-11_5 mt-1" style="color: var(--apt-rose);">{{ erreurs_champs[name] }}</div>{% endif %}
 </div>
 {% endmacro %}
 

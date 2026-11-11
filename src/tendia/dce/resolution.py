@@ -25,10 +25,11 @@ import os
 import sys
 import time
 from collections import Counter
-from datetime import date, datetime, timezone
+from datetime import datetime, timezone
 
 from tendia.core import stockage
 from tendia.core.chemins import DATA, RAPPORTS
+from tendia.core.etat_marche import est_actif
 from tendia.dce import dce_finder
 
 
@@ -367,19 +368,8 @@ def qualifier_dce(dossier_dce_path: str, log_telechargement: dict = None) -> dic
 # Filtre marchés actifs
 # ---------------------------------------------------------------------------
 
-def _est_actif(marche: dict, fenetre_jours_sans_date: int = 60) -> bool:
-    date_lim = marche.get("date_limite_depot")
-    today = date.today().isoformat()
-    if date_lim and len(date_lim) >= 10:
-        return date_lim[:10] >= today
-    date_pub = marche.get("date_publication")
-    if not date_pub or len(date_pub) < 10:
-        return False
-    try:
-        d = date.fromisoformat(date_pub[:10])
-        return (date.today() - d).days <= fenetre_jours_sans_date
-    except ValueError:
-        return False
+# Marché actif : définition unique dans tendia.core.etat_marche (chantier 1b).
+_est_actif = est_actif
 
 
 # ---------------------------------------------------------------------------
@@ -530,13 +520,13 @@ def generer_rapport(filtre_actifs: bool = True,
     if profil:
         ordre_verdict = {
             "tres_pertinent": 0, "pertinent": 1,
-            "a_verifier": 2, "non_pertinent": 3,
+            "a_verifier": 2, "non_classe": 3, "non_pertinent": 4,
         }
         for m in marches_filtres:
             v = _verdict_pour_profil(m, profil)
             m["_eval"] = v
         marches_filtres.sort(key=lambda m: (
-            ordre_verdict.get((m.get("_eval") or {}).get("verdict"), 4),
+            ordre_verdict.get((m.get("_eval") or {}).get("verdict"), 5),
             -((m.get("_eval") or {}).get("score", 0)),
         ))
 
@@ -559,7 +549,7 @@ def generer_rapport(filtre_actifs: bool = True,
 
     verdict_emojis = {
         "tres_pertinent": "✅", "pertinent": "🟢",
-        "a_verifier": "🟡", "non_pertinent": "⚪",
+        "a_verifier": "🟡", "non_classe": "⏳", "non_pertinent": "⚪",
     }
 
     for marche in marches_filtres:

@@ -9,6 +9,7 @@ Un chantier = une session Claude Code, un objectif, un critère de fin vérifiab
 | 0a | Dépôt propre : git, archive, tests regroupés | **Terminé le 2026-11-10** (902 → 313 fichiers) | |
 | 0b | Structure `src/tendia/`, `CLAUDE.md`, branche `main`, 2 régressions de 0a | **Terminé le 2026-11-10**, réserve : `test_aws_downloader` et `test_qualifier_dce` périmés (antérieurs à 0b), repris en étape 1 du chantier 1 | 0a |
 | 1 | Redémarrer la chaîne LLM | **Terminé le 2026-11-10**, 17,95 € (classification 10,85, briefs 7,10) ; 14 briefs BTP d'octobre ; 3 majeurs de AUDIT_1 repris en étape 0 du chantier 2 | 0b |
+| 1b | UI démo : corrections bloquantes de l'audit design (profil, clos, pagination, non classé, bloc décision) | **Terminé le 2026-11-11** | 1 |
 | 2 | Promouvoir le mode document en prod (lecture exhaustive des DCE) | À faire, **en attente d'une décision** (cf. questions ouvertes) | 1 |
 | 3 | Dossier manuel sur un marché BTP réel, puis agent d'assemblage | À faire | 2 |
 | 4 | Coffre-fort entreprise | À faire | 3 |
@@ -40,6 +41,12 @@ Un chantier = une session Claude Code, un objectif, un critère de fin vérifiab
 - Journaliser tous les appels LLM dans `llm_appels` (classification, mémoire, calibration), pas seulement l'extraction.
 - Critère de fin : 0 marché BTP d'octobre sans classification ; N briefs BTP récents disponibles pour les démos ; coût réel dans le rapport.
 - Résultat : 1 757 marchés classés, 235 rejetés, 14 briefs BTP, coût 17,95 € (voir archive/RAPPORT_1.md).
+
+### 1b : UI démo
+- Source : docs/audit_design/2026-11-10_synthese.md (branche audit/design-2026-11 fusionnée dans main).
+- Décision du 2026-11-11 : état `non_classe` distinct de `non_pertinent` ; pas de pré-classement CPV.
+- Hors périmètre : mobile 390 px, refonte espace entreprise, build Tailwind (objectif 3, étapes 2-3 et 5).
+- Résultat : profil BTP enregistrable, marchés clos (définition unique `core.etat_marche`) hors des listes, `matching` qui lit `classifications_ia` (dashboard démo 0 → 145 marchés) avec verdict `non_classe`, bloc de décision en tête de fiche ; explorer 6 141 Ko / 2 794 cartes / 1,32 s → 204 Ko / 50 cartes / 0,45 s à chaud ; captures dans docs/audit_design/apres/ ; 6 majeurs de AUDIT_1b reportés (voir archive/RAPPORT_1b.md).
 
 ### 2 : lecture exhaustive des DCE
 - Étape 0 (hygiène post-1) : `llm_extract` journalisé par `budget.journaliser_appel` y compris les relances JSON ; tests sur la journalisation de `llm_calibration` et sur `extraire.plafond_atteint` / `cout_du_resultat` ; `telecharger.main` en écriture unitaire ; `--max-cout 0` bloque au lieu de désactiver ; `TENDIA_PROXY_ACTIF` interdit dans `.env` (`.env.example`, CLAUDE.md) ; docs « 6 étapes » / « classification hors pipeline » corrigées ; tests sans écriture dans `logs/`.

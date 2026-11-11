@@ -24,6 +24,7 @@ from datetime import date, datetime, timezone
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
 from tendia.core import stockage
+from tendia.core.etat_marche import est_attribution
 from tendia.prix.decp import db as decp_db
 from tendia.prix.decp.matching import SEUIL_CANDIDAT, SEUIL_FORT, scorer_match
 from tendia.prix.decp.sirene import departement_de, normaliser_nom
@@ -42,7 +43,7 @@ def _marches(con):
 
 
 def _est_avis(m):
-    return not (m.get("notice_type") or "").startswith("10") and m.get("nature") != "ATTRIBUTION"
+    return not est_attribution(m)
 
 
 def _travaux(m):

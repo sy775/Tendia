@@ -365,6 +365,7 @@
   .marche-card.va-pertinent      { --vc: var(--apt-leaf); }
   .marche-card.va-a_verifier     { --vc: var(--apt-gold-2); }
   .marche-card.va-non_pertinent  { --vc: var(--apt-ink-5); }
+  .marche-card.va-non_classe     { --vc: var(--apt-ink-4); }
   .marche-card .titre {
     font-size: 14px;
     font-weight: 500;
@@ -440,6 +441,11 @@
     color: var(--apt-ink-3);
   }
   .empty-state h3 { font-size: 18px; margin: 0 0 8px; color: var(--apt-ink-2); }
+  .pagination { display:flex; flex-wrap:wrap; gap:6px; align-items:center; justify-content:center; margin:26px 0 8px; font-size:13px; }
+  .pagination a, .pagination .courante { padding:5px 11px; border-radius:7px; border:1px solid var(--apt-line); color:var(--apt-ink-2); text-decoration:none; }
+  .pagination a:hover { border-color:var(--apt-ink-3); }
+  .pagination .courante { background:var(--apt-ink); color:var(--apt-pure); border-color:var(--apt-ink); font-weight:700; }
+  .pagination .ellipse { color:var(--apt-ink-3); }
 </style>
 
 {# Réémet TOUS les filtres actifs (sauf `sauf`) comme champs cachés → garantit
@@ -453,6 +459,7 @@
   {% if sauf != 'verdict' %}{% for v in filtres.verdicts %}<input type="hidden" name="verdict" value="{{ v }}">{% endfor %}{% endif %}
   {% if sauf != 'elig' %}{% for e in filtres.elig %}<input type="hidden" name="elig" value="{{ e }}">{% endfor %}{% endif %}
   {% if filtres.score_min and sauf != 'score_min' %}<input type="hidden" name="score_min" value="{{ filtres.score_min }}">{% endif %}
+  {% if filtres.etat and sauf != 'etat' %}<input type="hidden" name="etat" value="{{ filtres.etat }}">{% endif %}
 {%- endmacro -%}
 
 <div class="explorer-wrap">
@@ -483,6 +490,17 @@
   <div class="explorer-grid">
     {# ── SIDEBAR : familles + sous-domaines ── #}
     <aside class="explorer-sidebar">
+      {# État : ouverts (défaut) / clos / tous — définition unique core.etat_marche.est_clos #}
+      <details class="sidebar-section" open>
+        <summary class="sidebar-title">État</summary>
+        <div class="sidebar-body">
+        {% for opt, lbl in [('', 'Ouverts'), ('clos', 'Clos'), ('tous', 'Tous')] %}
+          <a href="{{ url_for('explorer', etat=(opt or none), famille=filtres.familles, domaine=filtres.domaines, zone=filtres.zone, recherche=filtres.recherche, brief=filtres.brief, verdict=filtres.verdicts, elig=filtres.elig, score_min=(filtres.score_min or none)) }}"
+             class="famille-item {% if (filtres.etat or '') == opt %}active{% endif %}">{{ lbl }}{% if opt == 'clos' %} <span class="compte">{{ nb_clos }}</span>{% endif %}</a>
+        {% endfor %}
+        </div>
+      </details>
+
       {# Recherche libre #}
       <details class="sidebar-section" open>
         <summary class="sidebar-title">Rechercher</summary>
@@ -521,7 +539,7 @@
           <details class="secteur-fold" data-fam="{{ fam.nom }}">
             <summary class="{% if fam_sel %}sel-row{% endif %}">
               <span class="secteur-chev"></span>
-              <a href="{{ url_for('explorer', famille=fam_new, domaine=filtres.domaines, recherche=filtres.recherche, zone=filtres.zone, brief=filtres.brief, verdict=filtres.verdicts, elig=filtres.elig, score_min=(filtres.score_min or none)) }}"
+              <a href="{{ url_for('explorer', famille=fam_new, domaine=filtres.domaines, recherche=filtres.recherche, zone=filtres.zone, brief=filtres.brief, verdict=filtres.verdicts, elig=filtres.elig, score_min=(filtres.score_min or none), etat=(filtres.etat or none)) }}"
                  class="secteur-name {% if fam_sel %}sel{% endif %}" onclick="event.stopPropagation()"
                  title="{% if fam_sel %}Retirer{% else %}Ajouter{% endif %} ce secteur du filtre">{{ fam.nom }}</a>
               <span class="secteur-count">{{ fam.total }}</span>
@@ -530,7 +548,7 @@
               {% for code, n, libelle in fam.domaines %}
                 {% set dom_sel = code in filtres.domaines %}
                 {% set dom_new = (filtres.domaines|reject('equalto', code)|list) if dom_sel else (filtres.domaines + [code]) %}
-                <a href="{{ url_for('explorer', domaine=dom_new, famille=filtres.familles, recherche=filtres.recherche, zone=filtres.zone, brief=filtres.brief, verdict=filtres.verdicts, elig=filtres.elig, score_min=(filtres.score_min or none)) }}"
+                <a href="{{ url_for('explorer', domaine=dom_new, famille=filtres.familles, recherche=filtres.recherche, zone=filtres.zone, brief=filtres.brief, verdict=filtres.verdicts, elig=filtres.elig, score_min=(filtres.score_min or none), etat=(filtres.etat or none)) }}"
                    class="sous-domaine-item {% if dom_sel %}active{% endif %}">
                   {{ libelle }}
                   <span class="compte">{{ n }}</span>
@@ -547,10 +565,10 @@
         <summary class="sidebar-title">Brief</summary>
         <div class="sidebar-body">
         {% for opt, lbl in [('', 'Tous'), ('complet', '◆ Complet'), ('partiel', '◆ Partiel'), ('light', '◆ Léger')] %}
-          <a href="{{ url_for('explorer', brief=opt, famille=filtres.familles, domaine=filtres.domaines, zone=filtres.zone, recherche=filtres.recherche, verdict=filtres.verdicts, elig=filtres.elig, score_min=(filtres.score_min or none)) }}"
+          <a href="{{ url_for('explorer', brief=opt, famille=filtres.familles, domaine=filtres.domaines, zone=filtres.zone, recherche=filtres.recherche, verdict=filtres.verdicts, elig=filtres.elig, score_min=(filtres.score_min or none), etat=(filtres.etat or none)) }}"
              class="famille-item {% if (filtres.brief or '') == opt %}active{% endif %}">{{ lbl }}</a>
         {% endfor %}
-        {% if filtres.familles or filtres.domaines or filtres.zone or filtres.recherche or filtres.brief or filtres.verdicts or filtres.elig or filtres.score_min %}
+        {% if filtres.familles or filtres.domaines or filtres.zone or filtres.recherche or filtres.brief or filtres.verdicts or filtres.elig or filtres.score_min or filtres.etat %}
           <a href="{{ url_for('explorer') }}" class="reset-filtres">↺ Effacer tous les filtres</a>
         {% endif %}
         </div>
@@ -566,6 +584,7 @@
         <input type="hidden" name="zone" value="{{ filtres.zone }}">
         <input type="hidden" name="recherche" value="{{ filtres.recherche }}">
         <input type="hidden" name="brief" value="{{ filtres.brief }}">
+        {% if filtres.etat %}<input type="hidden" name="etat" value="{{ filtres.etat }}">{% endif %}
         {% for val, lbl in [('tres_pertinent','Très pertinent'),('pertinent','Pertinent'),('a_verifier','À vérifier'),('non_pertinent','Non pertinent')] %}
           <label class="check-item">
             <input type="checkbox" name="verdict" value="{{ val }}" {% if val in filtres.verdicts %}checked{% endif %}>
@@ -601,10 +620,11 @@
            brief=('' if drop=='brief' else filtres.brief),
            verdict=(filtres.verdicts|reject('equalto', drop_val)|list if drop=='verdict' else filtres.verdicts),
            elig=(filtres.elig|reject('equalto', drop_val)|list if drop=='elig' else filtres.elig),
-           score_min=('' if drop=='score_min' else filtres.score_min)) }}
+           score_min=('' if drop=='score_min' else filtres.score_min),
+           etat=('' if drop=='etat' else filtres.etat)) }}
       {%- endmacro -%}
       <div class="explorer-stickytop">
-      {% if filtres.familles or filtres.domaines or filtres.zone or filtres.recherche or filtres.brief or filtres.verdicts or filtres.elig or filtres.score_min %}
+      {% if filtres.familles or filtres.domaines or filtres.zone or filtres.recherche or filtres.brief or filtres.verdicts or filtres.elig or filtres.score_min or filtres.etat %}
         <div class="filtres-actifs">
           <strong>Filtres actifs :</strong>
           {% for f in filtres.familles %}<a href="{{ lien_sans('famille', f) }}" class="badge badge-rm">{{ f }} <span class="rm">✕</span></a>{% endfor %}
@@ -615,13 +635,15 @@
           {% for v in filtres.verdicts %}<a href="{{ lien_sans('verdict', v) }}" class="badge badge-rm">{{ verdict_label.get(v, v) }} <span class="rm">✕</span></a>{% endfor %}
           {% for e in filtres.elig %}<a href="{{ lien_sans('elig', e) }}" class="badge badge-rm">élig : {{ e }} <span class="rm">✕</span></a>{% endfor %}
           {% if filtres.score_min %}<a href="{{ lien_sans('score_min') }}" class="badge badge-rm">score ≥ {{ filtres.score_min }} <span class="rm">✕</span></a>{% endif %}
+          {% if filtres.etat %}<a href="{{ lien_sans('etat') }}" class="badge badge-rm">{{ 'marchés clos' if filtres.etat == 'clos' else 'ouverts et clos' }} <span class="rm">✕</span></a>{% endif %}
           <a href="{{ url_for('explorer') }}" class="badge-clear-all">Tout effacer</a>
         </div>
       {% endif %}
 
       <p class="resultat-count">
-        <strong>{{ lignes|length }}</strong> marché{{ 's' if lignes|length > 1 else '' }}
-        {% if lignes|length != total_classifies %}sur {{ total_classifies }}{% endif %}
+        <strong>{{ nb_resultats }}</strong> marché{{ 's' if nb_resultats > 1 else '' }}
+        {% if nb_resultats != total_classifies %}sur {{ total_classifies }}{% endif %}
+        {% if pagination.nb_pages > 1 %}· {{ pagination.debut + 1 }}–{{ pagination.fin }} affichés{% endif %}
       </p>
       </div>{# /.explorer-stickytop #}
 
@@ -652,7 +674,7 @@
               <div class="badges">
                 {# Pertinence vs profil actif : verdict + score #}
                 {% if ligne.verdict %}
-                  {% set vclass = {'tres_pertinent':'apt-verdict-tres-pertinent','pertinent':'apt-verdict-pertinent','a_verifier':'apt-verdict-a-verifier','non_pertinent':'apt-verdict-non-pertinent'}[ligne.verdict] %}
+                  {% set vclass = {'tres_pertinent':'apt-verdict-tres-pertinent','pertinent':'apt-verdict-pertinent','a_verifier':'apt-verdict-a-verifier','non_pertinent':'apt-verdict-non-pertinent'}.get(ligne.verdict, 'apt-verdict-non-pertinent') %}
                   <span class="{{ vclass }}" style="font-size:10.5px; font-weight:700; padding:1px 9px; border-radius:999px;">{{ verdict_label.get(ligne.verdict, ligne.verdict) }}{% if ligne.score is not none %} · {{ ligne.score }}{% endif %}</span>
                 {% endif %}
                 {# Éligibilité #}
@@ -680,13 +702,26 @@
               <div style="line-height:1;"><span class="apt-score-n" style="font-size:23px;">{{ ligne.score }}</span><span style="font-size:10px; color:var(--apt-ink-5);">/100</span></div>
               {% endif %}
               <div class="echeance {% if ligne.jours_restants is not none and ligne.jours_restants < 7 %}urgent{% elif ligne.jours_restants is not none and ligne.jours_restants < 21 %}proche{% endif %}" style="margin-top:5px;">
-                {% if ligne.jours_restants is not none %}
-                  {% if ligne.jours_restants < 0 %}expiré{% else %}J−{{ ligne.jours_restants }}{% endif %}
+                {% if ligne.clos %}clos{% if ligne.date_cloture_fmt %} le {{ ligne.date_cloture_fmt }}{% endif %}
+                {% elif ligne.jours_restants is not none %}J−{{ ligne.jours_restants }}
                 {% else %}—{% endif %}
               </div>
             </div>
           </div>
         {% endfor %}
+        {% if pagination.nb_pages > 1 %}
+        <nav class="pagination" aria-label="Pages de résultats">
+          {% if pagination.page > 1 %}<a href="{{ pagination.url_page(pagination.page - 1) }}" rel="prev">← Précédente</a>{% endif %}
+          {% set ns_p = namespace(prec=0) %}
+          {% for p in pagination.pages_affichees %}
+            {% if p > ns_p.prec + 1 %}<span class="ellipse">…</span>{% endif %}
+            {% if p == pagination.page %}<span class="courante" aria-current="page">{{ p }}</span>
+            {% else %}<a href="{{ pagination.url_page(p) }}">{{ p }}</a>{% endif %}
+            {% set ns_p.prec = p %}
+          {% endfor %}
+          {% if pagination.page < pagination.nb_pages %}<a href="{{ pagination.url_page(pagination.page + 1) }}" rel="next">Suivante →</a>{% endif %}
+        </nav>
+        {% endif %}
       {% endif %}
     </main>
   </div>

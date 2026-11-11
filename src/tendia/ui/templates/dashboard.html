@@ -22,7 +22,7 @@
           {% if organisme %}
           Triés par pertinence pour
           <span style="color:var(--apt-ink); font-weight:600;">{{ organisme.identite.nom }}</span>
-          {% if kpis.filtre_preset_actif %}<span style="color:var(--apt-ink-4);"> · {{ kpis.nb_actifs_base }} marchés actifs au total</span>{% endif %}.
+          {% if kpis.filtre_preset_actif %}<span style="color:var(--apt-ink-4);"> · {{ kpis.nb_actifs_base }} marchés actifs au total</span>{% endif %}{% if kpis.nb_clos %}<span style="color:var(--apt-ink-4);"> · <a href="{{ url_for('explorer', etat='clos') }}" class="apt-link">{{ kpis.nb_clos }} clos</a></span>{% endif %}.
           {% else %}
           Aucun profil actif. <a href="/profil" class="apt-link">Configurer le profil</a> pour activer le scoring.
           {% endif %}
@@ -37,6 +37,7 @@
               (kpis.tres_pertinents, 'Très pertinents', 'var(--apt-accent)'),
               (kpis.pertinents, 'Pertinents', 'var(--apt-leaf)'),
               (kpis.a_verifier, 'À vérifier', 'var(--apt-gold-2)'),
+              (kpis.a_classer, 'À classer', 'var(--apt-ink-3)'),
               (kpis.avec_brief, 'Briefs LLM', 'var(--apt-ink-3)')
           ] %}
           <div style="flex:1; padding:15px 26px; text-align:center; {% if not loop.last %}border-right:1px solid var(--apt-line-2);{% endif %}">
@@ -84,7 +85,7 @@
         <h2 class="apt-display-md" style="font-size: 22px; color: var(--apt-ink);">
           Marchés à traiter
         </h2>
-        <span class="apt-meta">— triés par score de pertinence</span>
+        <span class="apt-meta">— triés par verdict puis date limite</span>
       </div>
       <div class="apt-label">{{ marches_enriched|length }} entrée{{ 's' if marches_enriched|length != 1 else '' }}</div>
     </div>
@@ -125,6 +126,11 @@
               <span class="apt-verdict apt-verdict-a-verifier">
                 <span class="dot"></span>
                 À vérifier
+              </span>
+            {% elif e.verdict == 'non_classe' %}
+              <span class="apt-verdict apt-verdict-non-pertinent" title="Classification en attente : le secteur du marché n'est pas encore déterminé.">
+                <span class="dot"></span>
+                À classer
               </span>
             {% else %}
               <span class="apt-verdict apt-verdict-non-pertinent">
@@ -271,13 +277,32 @@
     </div>
 
     {% else %}
+    {# État vide en 3 cas (audit design, point 3) : pas de commande CLI dans l'UI. #}
     <div class="apt-block-soft px-10 py-20 text-center">
+      {% if not organisme %}
       <p class="apt-display-md mb-3" style="font-size: 22px; color: var(--apt-ink-2);">
-        Aucun marché actif pour le moment.
+        Aucun profil d'entreprise actif.
       </p>
       <p class="apt-meta" style="font-size: 13px;">
-        Lance <code class="apt-chip-mono apt-chip">python -m tendia.veille.recup</code> pour récupérer les avis récents.
+        <a href="{{ url_for('page_profil') }}" class="apt-link">Choisir ou compléter votre profil</a> pour voir les marchés qui vous correspondent.
       </p>
+      {% elif kpis.nb_actifs_base == 0 %}
+      <p class="apt-display-md mb-3" style="font-size: 22px; color: var(--apt-ink-2);">
+        Aucun marché ouvert dans la base pour le moment.
+      </p>
+      <p class="apt-meta" style="font-size: 13px;">
+        La prochaine collecte des avis BOAMP les fera apparaître ici.
+      </p>
+      {% else %}
+      <p class="apt-display-md mb-3" style="font-size: 22px; color: var(--apt-ink-2);">
+        {{ kpis.nb_actifs_base }} marchés ouverts, aucun ne correspond encore à votre profil.
+      </p>
+      <p class="apt-meta" style="font-size: 13px;">
+        <a href="{{ url_for('explorer') }}" class="apt-link">Voir tous les marchés</a>
+        &nbsp;·&nbsp;
+        <a href="{{ url_for('page_profil') }}" class="apt-link">Compléter mon profil</a>
+      </p>
+      {% endif %}
     </div>
     {% endif %}
 

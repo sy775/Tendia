@@ -586,6 +586,9 @@
   Retour au dashboard
 </a>
 
+<!-- ============ Bloc de décision (chantier 1b) : avant tout le reste ============ -->
+{% include "_bloc_decision.html" %}
+
 <!-- ============ Header : titre à gauche, score ring à droite ============ -->
 <div class="flex items-start justify-between gap-6 mb-5 fade-up" style="position: relative; z-index: 30;">
   <div style="flex: 1; min-width: 0;">
@@ -611,7 +614,7 @@
       {% if marche.date_limite_depot %}<span class="sep">·</span><span>limite le <strong style="color:
           {% if jours_restants is not none and jours_restants < 7 %}var(--c-rose)
           {% elif jours_restants is not none and jours_restants < 21 %}var(--c-amber)
-          {% else %}var(--apt-ink-2){% endif %};">{{ fmt_date(marche.date_limite_depot) }}{% if jours_restants is not none %} · J−{{ jours_restants }}{% endif %}</strong></span>{% endif %}
+          {% else %}var(--apt-ink-2){% endif %};">{{ fmt_date(marche.date_limite_depot) }}{% if clos %} · clos{% elif jours_restants is not none %} · J−{{ jours_restants }}{% endif %}</strong></span>{% endif %}
       {% if marche.perimetre_geographique %}<span class="sep">·</span><span>{{ marche.perimetre_geographique }}</span>{% endif %}
       {# Secteur → déplacé en haut à droite de la section « Résumé Tendia ». #}
     </div>
@@ -682,7 +685,7 @@
     </div>
   </div>
 
-  {% if eval %}
+  {% if eval and eval.verdict != 'non_classe' %}
   {# Couleurs alignées sur le dashboard : très pertinent = navy, pertinent = vert,
      à vérifier = or, non pertinent = gris (mêmes teintes que les tags `.va-*`). #}
   {% set _vc = {'tres_pertinent': 'var(--apt-accent)', 'pertinent': 'var(--apt-leaf)', 'a_verifier': 'var(--apt-gold-2)', 'non_pertinent': 'var(--apt-ink-5)'} %}
@@ -925,7 +928,7 @@
       {% set kpis_aff = [] %}
       {# « Date limite » est ajoutée explicitement ci-dessous (format J−X) → on l'exclut ici pour éviter le doublon avec kpi_cards #}
       {% for k in kpi_cards %}{% if k.valeur and k.valeur not in ('—', '', none) and k.label != 'Date limite' %}{% set _ = kpis_aff.append({'label': k.label, 'valeur': k.valeur}) %}{% endif %}{% endfor %}
-      {% if marche.date_limite_depot %}{% set _ = kpis_aff.append({'label': 'Date limite', 'valeur': ('J−' ~ jours_restants) if jours_restants is not none else fmt_date(marche.date_limite_depot)}) %}{% endif %}
+      {% if marche.date_limite_depot %}{% set _ = kpis_aff.append({'label': 'Date limite', 'valeur': 'Clos' if clos else (('J−' ~ jours_restants) if jours_restants is not none else fmt_date(marche.date_limite_depot))}) %}{% endif %}
       {% if kpis_aff %}
       <div style="display: flex; flex-wrap: wrap; align-items: flex-end; row-gap: 12px; margin-bottom: 16px; padding-bottom: 15px; border-bottom: 1px solid var(--apt-line-2);">
         {% for k in kpis_aff %}
@@ -1862,7 +1865,7 @@
         <div>
           <div style="font-size:10.5px; color:var(--apt-ink-4); font-weight:600; text-transform:uppercase; letter-spacing:0.04em;">Remise des offres</div>
           <div style="font-size:15px; font-weight:700; color:{% if jours_restants is not none and jours_restants < 7 %}var(--c-rose){% elif jours_restants is not none and jours_restants < 21 %}var(--c-amber){% else %}var(--apt-ink){% endif %};">
-            {{ fmt_date(marche.date_limite_depot) if marche.date_limite_depot else 'voir RC' }}{% if jours_restants is not none %} · J−{{ jours_restants }}{% endif %}
+            {{ fmt_date(marche.date_limite_depot) if marche.date_limite_depot else 'voir RC' }}{% if clos %} · clos{% elif jours_restants is not none %} · J−{{ jours_restants }}{% endif %}
           </div>
         </div>
         <a href="{{ url_for('telecharger_dce_zip', id_marche=marche.id) }}" style="margin-left:auto; display:inline-flex; align-items:center; gap:8px; padding:9px 15px; background:var(--apt-accent); color:#fff; border-radius:8px; text-decoration:none; font-size:13px; font-weight:700;">⬇ DCE (ZIP)</a>

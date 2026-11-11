@@ -38,6 +38,7 @@ from datetime import date
 from urllib.parse import urlparse
 
 from tendia.core import chemins, stockage
+from tendia.core.etat_marche import est_attribution  # noqa: F401  (R.est_attribution dans les tests)
 
 MOIS_CIBLE = "2026-10"
 NOM_FICHIER_IDS = "rattrapage_btp_octobre_ids.txt"
@@ -51,13 +52,6 @@ SCRIPTS_DEDIES = ("retelecharger_aws_achat_anti_ban.py", "retelecharger_dematis_
 
 def fichier_ids():
     return chemins.DATA / NOM_FICHIER_IDS
-
-
-def est_attribution(marche: dict) -> bool:
-    """Avis d'attribution : nature ATTRIBUTION (format BOAMP) ou ContractAwardNotice."""
-    nature = (marche.get("nature") or marche.get("nature_marche") or "").lower()
-    return ("attribution" in nature or "award" in nature
-            or "ContractAwardNotice" in str(marche.get("notice_type") or ""))
 
 
 def est_btp(id_marche: str, marche: dict, classifs: dict) -> bool:

@@ -36,6 +36,7 @@ from flask import (Flask, abort, flash, redirect, render_template, request,
 from tendia.eligibilite import organisme
 from tendia.ui import profil_form
 from tendia.ui import profil_widgets
+from tendia.ui import bloc_decision
 from tendia.ui import fiche_marche
 from tendia.eligibilite import matching
 from tendia.ui import concurrence
@@ -43,6 +44,7 @@ from tendia.core import stockage
 
 
 from tendia.core.chemins import DATA, PRESETS, RACINE_DEPOT
+from tendia.core.etat_marche import date_cloture, est_actif, est_clos
 
 REPERTOIRE_BASE = RACINE_DEPOT
 REPERTOIRE_DATA = DATA
@@ -229,6 +231,7 @@ VERDICT_LABEL = {
     "tres_pertinent": "Très pertinent",
     "pertinent": "Pertinent",
     "a_verifier": "À vérifier",
+    "non_classe": "À classer",
     "non_pertinent": "Non pertinent",
 }
 
@@ -236,7 +239,8 @@ VERDICT_ORDRE = {
     "tres_pertinent": 0,
     "pertinent": 1,
     "a_verifier": 2,
-    "non_pertinent": 3,
+    "non_classe": 3,
+    "non_pertinent": 4,
 }
 
 # État du contenu DCE (champ `dce_contenu`, 5 niveaux : voir tendia_dce.py).
@@ -280,20 +284,8 @@ def _dce_badge(marche: dict) -> dict | None:
     return {**meta, "tooltip": tooltip or meta["label"]}
 
 
-def _est_actif(marche: dict, fenetre_jours: int = 60) -> bool:
-    """Marché toujours en lice : date limite future, ou publié récemment."""
-    date_lim = marche.get("date_limite_depot")
-    today = date.today().isoformat()
-    if date_lim and len(date_lim) >= 10:
-        return date_lim[:10] >= today
-    date_pub = marche.get("date_publication")
-    if not date_pub or len(date_pub) < 10:
-        return False
-    try:
-        d = date.fromisoformat(date_pub[:10])
-        return (date.today() - d).days <= fenetre_jours
-    except ValueError:
-        return False
+# Marché actif / clos : définition unique dans tendia.core.etat_marche (chantier 1b).
+_est_actif = est_actif
 
 
 def _charger_extraction_llm(id_marche: str) -> dict | None:
@@ -453,6 +445,12 @@ def dashboard():
         briefs_sqlite = stockage.charger("briefs_extraits")
     except Exception:
         briefs_sqlite = {}
+    # Classifications Haiku : chargées une fois, matching.evaluer les lit ensuite
+    # depuis le cache de stockage (verdict non_classe si absentes).
+    try:
+        stockage.charger("classifications_ia")
+    except Exception:
+        pass
 
     # Évalue chaque marché actif contre le profil
     from tendia.eligibilite import matching_exigences
@@ -548,25 +546,26 @@ def dashboard():
 
     # Tri : avec un profil actif → non pertinents en bas, puis par SCORE décroissant (le
     # score encode déjà la priorité du preset et la pénalité géo). Sans profil → legacy.
-    if profil:
-        enriched.sort(key=lambda x: (
-            1 if x["verdict"] == "non_pertinent" else 0,
-            -x["score"],
-            x["jours_restants"] if x["jours_restants"] is not None else 9999,
-        ))
-    else:
-        enriched.sort(key=lambda x: (
-            VERDICT_ORDRE.get(x["verdict"], 99),
-            -x["score"],
-        ))
+    # Tri (chantier 1b) : groupe de verdict, puis date limite croissante, puis score.
+    enriched.sort(key=lambda x: (
+        VERDICT_ORDRE.get(x["verdict"], 99),
+        x["jours_restants"] if x["jours_restants"] is not None else 9999,
+        -x["score"],
+    ))
 
     # KPIs — basés sur les marchés AFFICHÉS (pertinents pour le profil), pas tous les
     # actifs : sinon le pipeline « à évaluer » comptait les 419 actifs au lieu des affichés.
     ids_actifs = [e["marche"]["id"] for e in enriched]
     pipeline = cycle_marche.kpis_pipeline(marches, ids_actifs=ids_actifs)
+    nb_a_classer = sum(1 for e in enriched if e["verdict"] == "non_classe")
     kpis = {
-        "actifs_total": len(enriched),
+        # Titre : marchés pertinents affichés, hors « à classer » (compteur séparé).
+        "actifs_total": len(enriched) - nb_a_classer,
+        "a_classer": nb_a_classer,
         "nb_actifs_base": len(actifs),  # tous les actifs (avant filtre pertinence)
+        # Clos (date limite passée ou attribution) : hors liste, accessibles par
+        # le filtre « clos » de l'explorer.
+        "nb_clos": sum(1 for m in marches.values() if est_clos(m)),
         "tres_pertinents": sum(1 for e in enriched
                                   if e["verdict"] == "tres_pertinent"),
         "pertinents": sum(1 for e in enriched if e["verdict"] == "pertinent"),
@@ -696,6 +695,36 @@ def _extraire_codes_depts(zone_str):
     return codes
 
 
+EXPLORER_PAR_PAGE = 50
+EXPLORER_PAR_PAGE_MAX = 200
+
+
+def _entier(valeur, defaut: int) -> int:
+    try:
+        return int(valeur)
+    except (TypeError, ValueError):
+        return defaut
+
+
+def _paginer(total: int, args) -> dict:
+    """Bornes de la page demandée (?page=, ?par_page=) et URL des pages voisines,
+    filtres de la requête conservés. Page hors bornes → ramenée dans [1, nb_pages]."""
+    par_page = min(max(_entier(args.get("par_page"), EXPLORER_PAR_PAGE), 1), EXPLORER_PAR_PAGE_MAX)
+    nb_pages = max(1, -(-total // par_page))
+    page = min(max(_entier(args.get("page"), 1), 1), nb_pages)
+    debut = (page - 1) * par_page
+
+    def url_page(n: int) -> str:
+        params = args.to_dict(flat=False)
+        params["page"] = [str(n)]
+        return url_for("explorer", **params)
+
+    return {"page": page, "par_page": par_page, "nb_pages": nb_pages, "total": total,
+            "debut": debut, "fin": min(debut + par_page, total), "url_page": url_page,
+            "pages_affichees": sorted({p for p in (1, page - 2, page - 1, page, page + 1,
+                                                    page + 2, nb_pages) if 1 <= p <= nb_pages})}
+
+
 @app.route("/explorer")
 def explorer():
     """
@@ -731,6 +760,11 @@ def explorer():
         filtre_score_min = int(request.args.get("score_min") or 0)
     except (TypeError, ValueError):
         filtre_score_min = 0
+    # État : '' = ouverts (défaut, clos masqués), 'clos', 'tous'.
+    filtre_etat = (request.args.get("etat") or "").strip().lower()
+    if filtre_etat not in ("clos", "tous"):
+        filtre_etat = ""
+    nb_clos = 0
     # Profil actif → évaluation matching (verdict/score/éligibilité) à la volée.
     from tendia.eligibilite import matching_exigences
     profil_actif = organisme.lire_profil()
@@ -771,6 +805,12 @@ def explorer():
         code_principal = principal.get("code")
         famille = _famille_pour_domaine(code_principal)
 
+        # État clos (date limite passée ou avis d'attribution) : masqué par défaut.
+        clos_m = est_clos(marche)
+        nb_clos += clos_m
+        if (filtre_etat == "" and clos_m) or (filtre_etat == "clos" and not clos_m):
+            continue
+
         # Filtres (multi : on garde si le marché matche AU MOINS une des valeurs)
         if filtre_familles and famille not in filtre_familles:
             continue
@@ -803,7 +843,8 @@ def explorer():
         verdict_elig_l = None
         if profil_actif:
             try:
-                evaluation_l = matching.evaluer(profil_actif, marche, brief=brief)
+                evaluation_l = matching.evaluer(profil_actif, marche, brief=brief,
+                                                classification=classifs_ia.get(id_m))
             except Exception:
                 evaluation_l = None
             alertes_l = (brief or {}).get("alertes_candidat") or []
@@ -833,12 +874,14 @@ def explorer():
             "perimetre": marche.get("perimetre_geographique") or "",
             "date_limite_fmt": _fmt_date(marche.get("date_limite_depot")),
             "jours_restants": _jours_restants(marche.get("date_limite_depot")),
+            "clos": clos_m,
+            "date_cloture_fmt": (_date_fr_long(date_cloture(marche)) if clos_m else None),
             "domaine_principal": code_principal,
             "domaine_libelle": _libelle_domaine(code_principal),
             "famille": famille,
             "tous_domaines": valides,
-            "raison": classif.get("raison_classification", "")[:200],
-            "synthese": classif.get("synthese_courte") or classif.get("synthese_marche", "")[:200],
+            "raison": (classif.get("raison_classification") or "")[:200],
+            "synthese": classif.get("synthese_courte") or (classif.get("synthese_marche") or "")[:200],
             "source_classification": source,
             "a_brief_complet": source == "brief_complet",
         })
@@ -866,19 +909,29 @@ def explorer():
     # Tri : si un profil est actif, on remonte d'abord les marchés sur l'activité
     # PRIORITAIRE (preset principal avant secondaire/tertiaire avant hors-activités),
     # puis par score décroissant, puis urgence. Sans profil → richesse puis urgence.
-    if profil_actif:
-        # Non pertinents en bas, puis par SCORE décroissant (le score encode déjà la
-        # priorité du preset et la pénalité géo).
+    if filtre_etat == "clos":
+        # Clos : les plus récemment fermés d'abord.
+        lignes.sort(key=lambda x: x["marche"].get("date_limite_depot") or "", reverse=True)
+    elif profil_actif:
+        # Groupe de verdict (pertinents d'abord, non pertinents en bas), puis date
+        # limite croissante (chantier 1b), puis score décroissant ; clos en fin.
         lignes.sort(key=lambda x: (
-            1 if x.get("verdict") == "non_pertinent" else 0,
-            -(x.get("score") or 0),
+            1 if x["clos"] else 0,
+            VERDICT_ORDRE.get(x.get("verdict"), 99),
             x["jours_restants"] if x["jours_restants"] is not None else 9999,
+            -(x.get("score") or 0),
         ))
     else:
         lignes.sort(key=lambda x: (
-            -x["richesse"]["score"],
+            1 if x["clos"] else 0,
             x["jours_restants"] if x["jours_restants"] is not None else 9999,
+            -x["richesse"]["score"],
         ))
+
+    # Pagination (chantier 1b) : ?page= (1..n) et ?par_page= (défaut 50, max 200).
+    # Le total filtré reste affiché ; les liens conservent tous les filtres.
+    pagination = _paginer(len(lignes), request.args)
+    lignes_page = lignes[pagination["debut"]:pagination["fin"]]
 
     # Stats agrégées POUR LES FILTRES (calculées sur TOUT le classifié, pas filtré)
     # → permet d'afficher "Familles: BTP (145), Énergie (12), ..."
@@ -934,7 +987,9 @@ def explorer():
 
     return render_template(
         "explorer.html",
-        lignes=lignes,
+        lignes=lignes_page,
+        nb_resultats=len(lignes),
+        pagination=pagination,
         familles_triees=familles_triees,
         zones_disponibles=zones_disponibles,
         zone_libelle=(profil_widgets.DEPARTEMENT_LIBELLE.get(filtre_zone, filtre_zone)
@@ -952,7 +1007,9 @@ def explorer():
             "verdicts": filtre_verdicts,
             "elig": filtre_elig,
             "score_min": filtre_score_min,
+            "etat": filtre_etat,
         },
+        nb_clos=nb_clos,
         verdict_label=VERDICT_LABEL,
         a_profil=bool(profil_actif),
         organisme=organisme.lire_profil(),
@@ -1333,6 +1390,15 @@ def telecharger_grille_xlsx(id_marche):
         mimetype="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")
 
 
+def _url_profil_actif():
+    """Page d'édition du profil actif (sections ancrées #zones, #sect-btp...),
+    ou la liste des profils si l'actif n'est pas dans la bibliothèque."""
+    id_actif = organisme.id_profil_actif()
+    if id_actif and organisme.lire_profil_bibliotheque(id_actif) is not None:
+        return url_for("profil_edit", id=id_actif)
+    return url_for("page_profil") if organisme.lire_profil() else None
+
+
 @app.route("/marche/<id_marche>")
 def detail_marche(id_marche):
     """Page détail d'un marché."""
@@ -1549,6 +1615,8 @@ def detail_marche(id_marche):
         verdict_label=VERDICT_LABEL,
         jours_restants=_jours_restants(marche.get("date_limite_depot")),
         fmt_date=_fmt_date,
+        clos=est_clos(marche),
+        bloc_decision=bloc_decision.construire(marche, evaluation, brief, _url_profil_actif()),
     )
 
 

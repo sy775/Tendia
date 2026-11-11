@@ -16,6 +16,8 @@ sectorielle (cf Décision 4 : templates explicites, pas de méta-schéma).
 Source du mapping département → région : matching.DEPARTEMENT_VERS_REGION.
 """
 
+import re
+
 from tendia.eligibilite import matching
 
 
@@ -295,6 +297,43 @@ def options_enum(code_preset: str, propriete: str) -> list:
     return []
 
 
+_RE_VALEURS_DESCRIPTION = re.compile(r"Valeurs(?: typiques)?\s*:\s*([^.]+)", re.IGNORECASE)
+
+
+def valeurs_description(code_preset: str, propriete: str) -> list:
+    """Valeurs listées dans la description d'une propriété du schéma sectoriel
+    (« Valeurs typiques : a, b, c. »), quand le schéma ne porte pas d'enum."""
+    from tendia.eligibilite import organisme
+    sch = organisme.schema_sectoriel(code_preset) or {}
+    spec = (sch.get("properties") or {}).get(propriete) or {}
+    m = _RE_VALEURS_DESCRIPTION.search(spec.get("description") or "")
+    if not m:
+        return []
+    return [v.strip() for v in m.group(1).split(",")
+            if re.fullmatch(r"[a-z0-9_]+", v.strip())]
+
+
+def options_vocabulaire(code_preset: str, propriete: str, groupages: dict,
+                        valeurs_courantes=()) -> list:
+    """Liste des valeurs proposées pour un select de référence : enum du schéma,
+    sinon valeurs de sa description, complétées par les groupages des cases à
+    cocher de la même propriété et par les valeurs déjà enregistrées (pour
+    qu'une valeur inconnue reste présélectionnée). Ordre stable, sans doublon."""
+    out = []
+    for v in (options_enum(code_preset, propriete)
+              or valeurs_description(code_preset, propriete)):
+        if v not in out:
+            out.append(v)
+    for valeurs in groupages.values():
+        for v in valeurs:
+            if v not in out:
+                out.append(v)
+    for v in valeurs_courantes:
+        if v and v not in out:
+            out.append(v)
+    return out
+
+
 def options_select(valeurs, selection_courante=None) -> list:
     """[{value,label,selected}] pour un <select> simple depuis une liste enum."""
     return [{"value": v, "label": _label(v), "selected": v == selection_courante}
@@ -367,7 +406,10 @@ def contexte_widgets(profil: dict) -> dict:
             "types_clients_publics": widget_checkboxes_groupees(
                 b.get("types_clients_publics"), GROUPAGES_TYPES_CLIENTS_PUBLICS,
                 options_enum("btp", "types_clients_publics")),
-            "ref_types_ouvrages": options_enum("btp", "types_ouvrages"),
+            "ref_types_ouvrages": options_vocabulaire(
+                "btp", "types_ouvrages", GROUPAGES_BTP_TYPES_OUVRAGES,
+                [r.get("type_ouvrage") for r in (b.get("references_chantiers") or [])
+                 if isinstance(r, dict)]),
         }
 
     if "ingenierie" in presets:
@@ -385,7 +427,10 @@ def contexte_widgets(profil: dict) -> dict:
             "types_clients_publics": widget_checkboxes_groupees(
                 g.get("types_clients_publics"), GROUPAGES_TYPES_CLIENTS_PUBLICS,
                 options_enum("ingenierie", "types_clients_publics")),
-            "ref_types_ouvrages": options_enum("ingenierie", "types_ouvrages_etudies"),
+            "ref_types_ouvrages": options_vocabulaire(
+                "ingenierie", "types_ouvrages_etudies", GROUPAGES_ING_TYPES_OUVRAGES,
+                [r.get("type_ouvrage") for r in (g.get("references_etudes") or [])
+                 if isinstance(r, dict)]),
             "ref_typologies": options_enum("ingenierie", "typologies_couvertes"),
             "ref_competences": options_enum("ingenierie", "competences_specialisees"),
         }
