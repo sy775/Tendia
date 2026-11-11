@@ -109,6 +109,71 @@ r = client.post(f"/profil/bibliotheque/{ID_DEMO}/edit",
 check("montant non numérique : message nommant « Montant € HT »",
       "« Montant € HT » doit être un nombre" in r.get_data(as_text=True))
 
+print("=== étape 2 : marchés clos ===")
+AUJ = date.today()
+
+
+def iso(jours: int) -> str:
+    return (AUJ + timedelta(days=jours)).isoformat()
+
+
+def marche_test(id_m, titre, limite, **extra):
+    m = {"id": id_m, "titre": titre, "objet": titre, "acheteur_nom": "Commune de Test",
+         "date_publication": iso(-20), "date_limite_depot": limite,
+         "type_marche": "TRAVAUX", "nature": "APPEL_OFFRE", "notice_type": "5 | 1",
+         "perimetre_geographique": "Dept 75", "acheteur_code_postal": "75001",
+         "code_departement": ["75"], "cpv": ["45233140"]}
+    m.update(extra)
+    stockage.ecrire("marches", id_m, m)
+    return m
+
+
+def classer(id_m, code="btp_voirie_reseaux"):
+    stockage.ecrire("classifications_ia", id_m, {
+        "domaines_metier": [{"code": code, "poids": 1.0}],
+        "synthese_marche": f"Synthèse de test {id_m}", "raison_classification": None})
+
+
+marche_test("TEST-OUVERT-LOIN", "Réfection voirie test ouvert loin", iso(30))
+marche_test("TEST-OUVERT-PROCHE", "Réfection voirie test ouvert proche", iso(5))
+marche_test("TEST-CLOS-DATE", "Réfection voirie test clos par date", iso(-3))
+marche_test("TEST-CLOS-ATTRIB", "Réfection voirie test attribué", iso(10),
+            nature="ATTRIBUTION", notice_type="10 | 6")
+for i in ("TEST-OUVERT-LOIN", "TEST-OUVERT-PROCHE", "TEST-CLOS-DATE", "TEST-CLOS-ATTRIB"):
+    classer(i)
+stockage.invalider_cache()
+
+r = client.get("/explorer")
+html = r.get_data(as_text=True)
+check("GET /explorer → 200 (raison_classification None toléré)", r.status_code == 200, r.status_code)
+check("explorer par défaut : marché ouvert présent", "TEST-OUVERT-LOIN" in html)
+check("explorer par défaut : clos par date absent", "TEST-CLOS-DATE" not in html)
+check("explorer par défaut : avis d'attribution absent", "TEST-CLOS-ATTRIB" not in html)
+check("explorer : tri par date limite croissante (proche avant loin)",
+      0 <= html.find("TEST-OUVERT-PROCHE") < html.find("TEST-OUVERT-LOIN"))
+r = client.get("/explorer?etat=clos")
+html = r.get_data(as_text=True)
+check("explorer ?etat=clos : clos par date présent", "TEST-CLOS-DATE" in html)
+check("explorer ?etat=clos : attribution présente", "TEST-CLOS-ATTRIB" in html)
+check("explorer ?etat=clos : ouvert absent", "TEST-OUVERT-LOIN" not in html)
+check("explorer ?etat=clos : libellé « clos le … »", "clos le " in html)
+html = client.get("/explorer?etat=tous").get_data(as_text=True)
+check("explorer ?etat=tous : ouverts et clos", "TEST-OUVERT-LOIN" in html and "TEST-CLOS-DATE" in html)
+
+r = client.get("/")
+html = r.get_data(as_text=True)
+check("GET / → 200", r.status_code == 200, r.status_code)
+check("dashboard : aucun clos dans la liste", "TEST-CLOS-DATE" not in html and "TEST-CLOS-ATTRIB" not in html)
+check("dashboard : lien vers les clos de l'explorer", "etat=clos" in html)
+
+r = client.get("/marche/TEST-CLOS-DATE")
+html = r.get_data(as_text=True)
+check("fiche d'un clos → 200", r.status_code == 200, r.status_code)
+check("fiche : bandeau « Marché clos le … »", "Marché clos le " in html)
+check("fiche : plus de « J−- »", "J−-" not in html)
+html = client.get("/marche/TEST-OUVERT-LOIN").get_data(as_text=True)
+check("fiche d'un ouvert : pas de bandeau clos", "bandeau-clos" not in html)
+
 print()
 print("=" * 60)
 print(f"RÉSULTAT : {ok} OK, {ko} ÉCHEC(S)")

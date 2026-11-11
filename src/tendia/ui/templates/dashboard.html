@@ -22,7 +22,7 @@
           {% if organisme %}
           Triés par pertinence pour
           <span style="color:var(--apt-ink); font-weight:600;">{{ organisme.identite.nom }}</span>
-          {% if kpis.filtre_preset_actif %}<span style="color:var(--apt-ink-4);"> · {{ kpis.nb_actifs_base }} marchés actifs au total</span>{% endif %}.
+          {% if kpis.filtre_preset_actif %}<span style="color:var(--apt-ink-4);"> · {{ kpis.nb_actifs_base }} marchés actifs au total</span>{% endif %}{% if kpis.nb_clos %}<span style="color:var(--apt-ink-4);"> · <a href="{{ url_for('explorer', etat='clos') }}" class="apt-link">{{ kpis.nb_clos }} clos</a></span>{% endif %}.
           {% else %}
           Aucun profil actif. <a href="/profil" class="apt-link">Configurer le profil</a> pour activer le scoring.
           {% endif %}

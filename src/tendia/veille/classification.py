@@ -55,6 +55,7 @@ from tendia.core import stockage
 # ---------------------------------------------------------------------------
 
 from tendia.core.chemins import PRESETS, RACINE_DEPOT
+from tendia.core.etat_marche import est_attribution
 
 REPERTOIRE_BASE = RACINE_DEPOT
 CHEMIN_TAXONOMIE = PRESETS / "_taxonomie_domaines.json"
@@ -93,21 +94,12 @@ def pre_filtre_rejette(marche: dict) -> tuple:
     """
     # Règle 1 : avis d'attribution (ContractAwardNotice)
     # Ces marchés sont déjà attribués, aucun intérêt de candidater dessus
-    donnees = marche.get("donnees") or {}
-    if isinstance(donnees, str):
-        try:
-            donnees = json.loads(donnees)
-        except Exception:
-            donnees = {}
-    type_notice = donnees.get("notice_type") or marche.get("type_notice") or ""
-    if "ContractAwardNotice" in str(type_notice):
-        return True, "ContractAwardNotice (avis d'attribution, marché déjà attribué)"
-
-    # Aussi : la nature de l'avis indique une attribution. Les marchés BOAMP portent
-    # le champ `nature` ("ATTRIBUTION", "APPEL_OFFRE"...) ; `nature_marche` est l'ancien nom.
-    nature = (marche.get("nature_marche") or marche.get("nature") or "").lower()
-    if "attribution" in nature or "award" in nature:
-        return True, f"nature_marche = '{nature}'"
+    # Définition unique : tendia.core.etat_marche.est_attribution (chantier 1b).
+    if est_attribution(marche):
+        donnees = marche.get("donnees")
+        type_avis = (donnees.get("notice_type") if isinstance(donnees, dict) else None)             or marche.get("notice_type") or marche.get("type_notice") or ""
+        nature = marche.get("nature_marche") or marche.get("nature") or ""
+        return True, f"avis d'attribution (nature={nature!r}, type={type_avis!r})"
 
     # Règle 2 : date limite dépôt déjà passée
     date_limite = marche.get("date_limite_depot")

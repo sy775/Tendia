@@ -453,6 +453,7 @@
   {% if sauf != 'verdict' %}{% for v in filtres.verdicts %}<input type="hidden" name="verdict" value="{{ v }}">{% endfor %}{% endif %}
   {% if sauf != 'elig' %}{% for e in filtres.elig %}<input type="hidden" name="elig" value="{{ e }}">{% endfor %}{% endif %}
   {% if filtres.score_min and sauf != 'score_min' %}<input type="hidden" name="score_min" value="{{ filtres.score_min }}">{% endif %}
+  {% if filtres.etat and sauf != 'etat' %}<input type="hidden" name="etat" value="{{ filtres.etat }}">{% endif %}
 {%- endmacro -%}
 
 <div class="explorer-wrap">
@@ -483,6 +484,17 @@
   <div class="explorer-grid">
     {# ── SIDEBAR : familles + sous-domaines ── #}
     <aside class="explorer-sidebar">
+      {# État : ouverts (défaut) / clos / tous — définition unique core.etat_marche.est_clos #}
+      <details class="sidebar-section" open>
+        <summary class="sidebar-title">État</summary>
+        <div class="sidebar-body">
+        {% for opt, lbl in [('', 'Ouverts'), ('clos', 'Clos'), ('tous', 'Tous')] %}
+          <a href="{{ url_for('explorer', etat=(opt or none), famille=filtres.familles, domaine=filtres.domaines, zone=filtres.zone, recherche=filtres.recherche, brief=filtres.brief, verdict=filtres.verdicts, elig=filtres.elig, score_min=(filtres.score_min or none)) }}"
+             class="famille-item {% if (filtres.etat or '') == opt %}active{% endif %}">{{ lbl }}{% if opt == 'clos' %} <span class="compte">{{ nb_clos }}</span>{% endif %}</a>
+        {% endfor %}
+        </div>
+      </details>
+
       {# Recherche libre #}
       <details class="sidebar-section" open>
         <summary class="sidebar-title">Rechercher</summary>
@@ -521,7 +533,7 @@
           <details class="secteur-fold" data-fam="{{ fam.nom }}">
             <summary class="{% if fam_sel %}sel-row{% endif %}">
               <span class="secteur-chev"></span>
-              <a href="{{ url_for('explorer', famille=fam_new, domaine=filtres.domaines, recherche=filtres.recherche, zone=filtres.zone, brief=filtres.brief, verdict=filtres.verdicts, elig=filtres.elig, score_min=(filtres.score_min or none)) }}"
+              <a href="{{ url_for('explorer', famille=fam_new, domaine=filtres.domaines, recherche=filtres.recherche, zone=filtres.zone, brief=filtres.brief, verdict=filtres.verdicts, elig=filtres.elig, score_min=(filtres.score_min or none), etat=(filtres.etat or none)) }}"
                  class="secteur-name {% if fam_sel %}sel{% endif %}" onclick="event.stopPropagation()"
                  title="{% if fam_sel %}Retirer{% else %}Ajouter{% endif %} ce secteur du filtre">{{ fam.nom }}</a>
               <span class="secteur-count">{{ fam.total }}</span>
@@ -530,7 +542,7 @@
               {% for code, n, libelle in fam.domaines %}
                 {% set dom_sel = code in filtres.domaines %}
                 {% set dom_new = (filtres.domaines|reject('equalto', code)|list) if dom_sel else (filtres.domaines + [code]) %}
-                <a href="{{ url_for('explorer', domaine=dom_new, famille=filtres.familles, recherche=filtres.recherche, zone=filtres.zone, brief=filtres.brief, verdict=filtres.verdicts, elig=filtres.elig, score_min=(filtres.score_min or none)) }}"
+                <a href="{{ url_for('explorer', domaine=dom_new, famille=filtres.familles, recherche=filtres.recherche, zone=filtres.zone, brief=filtres.brief, verdict=filtres.verdicts, elig=filtres.elig, score_min=(filtres.score_min or none), etat=(filtres.etat or none)) }}"
                    class="sous-domaine-item {% if dom_sel %}active{% endif %}">
                   {{ libelle }}
                   <span class="compte">{{ n }}</span>
@@ -547,10 +559,10 @@
         <summary class="sidebar-title">Brief</summary>
         <div class="sidebar-body">
         {% for opt, lbl in [('', 'Tous'), ('complet', '◆ Complet'), ('partiel', '◆ Partiel'), ('light', '◆ Léger')] %}
-          <a href="{{ url_for('explorer', brief=opt, famille=filtres.familles, domaine=filtres.domaines, zone=filtres.zone, recherche=filtres.recherche, verdict=filtres.verdicts, elig=filtres.elig, score_min=(filtres.score_min or none)) }}"
+          <a href="{{ url_for('explorer', brief=opt, famille=filtres.familles, domaine=filtres.domaines, zone=filtres.zone, recherche=filtres.recherche, verdict=filtres.verdicts, elig=filtres.elig, score_min=(filtres.score_min or none), etat=(filtres.etat or none)) }}"
              class="famille-item {% if (filtres.brief or '') == opt %}active{% endif %}">{{ lbl }}</a>
         {% endfor %}
-        {% if filtres.familles or filtres.domaines or filtres.zone or filtres.recherche or filtres.brief or filtres.verdicts or filtres.elig or filtres.score_min %}
+        {% if filtres.familles or filtres.domaines or filtres.zone or filtres.recherche or filtres.brief or filtres.verdicts or filtres.elig or filtres.score_min or filtres.etat %}
           <a href="{{ url_for('explorer') }}" class="reset-filtres">↺ Effacer tous les filtres</a>
         {% endif %}
         </div>
@@ -566,6 +578,7 @@
         <input type="hidden" name="zone" value="{{ filtres.zone }}">
         <input type="hidden" name="recherche" value="{{ filtres.recherche }}">
         <input type="hidden" name="brief" value="{{ filtres.brief }}">
+        {% if filtres.etat %}<input type="hidden" name="etat" value="{{ filtres.etat }}">{% endif %}
         {% for val, lbl in [('tres_pertinent','Très pertinent'),('pertinent','Pertinent'),('a_verifier','À vérifier'),('non_pertinent','Non pertinent')] %}
           <label class="check-item">
             <input type="checkbox" name="verdict" value="{{ val }}" {% if val in filtres.verdicts %}checked{% endif %}>
@@ -601,10 +614,11 @@
            brief=('' if drop=='brief' else filtres.brief),
            verdict=(filtres.verdicts|reject('equalto', drop_val)|list if drop=='verdict' else filtres.verdicts),
            elig=(filtres.elig|reject('equalto', drop_val)|list if drop=='elig' else filtres.elig),
-           score_min=('' if drop=='score_min' else filtres.score_min)) }}
+           score_min=('' if drop=='score_min' else filtres.score_min),
+           etat=('' if drop=='etat' else filtres.etat)) }}
       {%- endmacro -%}
       <div class="explorer-stickytop">
-      {% if filtres.familles or filtres.domaines or filtres.zone or filtres.recherche or filtres.brief or filtres.verdicts or filtres.elig or filtres.score_min %}
+      {% if filtres.familles or filtres.domaines or filtres.zone or filtres.recherche or filtres.brief or filtres.verdicts or filtres.elig or filtres.score_min or filtres.etat %}
         <div class="filtres-actifs">
           <strong>Filtres actifs :</strong>
           {% for f in filtres.familles %}<a href="{{ lien_sans('famille', f) }}" class="badge badge-rm">{{ f }} <span class="rm">✕</span></a>{% endfor %}
@@ -615,6 +629,7 @@
           {% for v in filtres.verdicts %}<a href="{{ lien_sans('verdict', v) }}" class="badge badge-rm">{{ verdict_label.get(v, v) }} <span class="rm">✕</span></a>{% endfor %}
           {% for e in filtres.elig %}<a href="{{ lien_sans('elig', e) }}" class="badge badge-rm">élig : {{ e }} <span class="rm">✕</span></a>{% endfor %}
           {% if filtres.score_min %}<a href="{{ lien_sans('score_min') }}" class="badge badge-rm">score ≥ {{ filtres.score_min }} <span class="rm">✕</span></a>{% endif %}
+          {% if filtres.etat %}<a href="{{ lien_sans('etat') }}" class="badge badge-rm">{{ 'marchés clos' if filtres.etat == 'clos' else 'ouverts et clos' }} <span class="rm">✕</span></a>{% endif %}
           <a href="{{ url_for('explorer') }}" class="badge-clear-all">Tout effacer</a>
         </div>
       {% endif %}
@@ -680,8 +695,8 @@
               <div style="line-height:1;"><span class="apt-score-n" style="font-size:23px;">{{ ligne.score }}</span><span style="font-size:10px; color:var(--apt-ink-5);">/100</span></div>
               {% endif %}
               <div class="echeance {% if ligne.jours_restants is not none and ligne.jours_restants < 7 %}urgent{% elif ligne.jours_restants is not none and ligne.jours_restants < 21 %}proche{% endif %}" style="margin-top:5px;">
-                {% if ligne.jours_restants is not none %}
-                  {% if ligne.jours_restants < 0 %}expiré{% else %}J−{{ ligne.jours_restants }}{% endif %}
+                {% if ligne.clos %}clos{% if ligne.date_cloture_fmt %} le {{ ligne.date_cloture_fmt }}{% endif %}
+                {% elif ligne.jours_restants is not none %}J−{{ ligne.jours_restants }}
                 {% else %}—{% endif %}
               </div>
             </div>

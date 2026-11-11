@@ -40,24 +40,14 @@ import time
 from datetime import date, datetime
 
 from tendia.core.chemins import DATA, RACINE_DEPOT
+from tendia.core.etat_marche import est_actif
 
 REPERTOIRE_BASE = RACINE_DEPOT
 REPERTOIRE_DCE = DATA / "dce"
 
 
-def _est_actif(marche: dict, fenetre_jours: int = 60) -> bool:
-    date_lim = marche.get("date_limite_depot")
-    today = date.today().isoformat()
-    if date_lim and len(date_lim) >= 10:
-        return date_lim[:10] >= today
-    date_pub = marche.get("date_publication")
-    if not date_pub or len(date_pub) < 10:
-        return False
-    try:
-        d = date.fromisoformat(date_pub[:10])
-        return (date.today() - d).days <= fenetre_jours
-    except ValueError:
-        return False
+# Marché actif : définition unique dans tendia.core.etat_marche (chantier 1b).
+_est_actif = est_actif
 
 
 def _print_etape(num: int, titre: str, total: int = 7):

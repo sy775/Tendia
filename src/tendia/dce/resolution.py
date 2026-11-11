@@ -25,10 +25,11 @@ import os
 import sys
 import time
 from collections import Counter
-from datetime import date, datetime, timezone
+from datetime import datetime, timezone
 
 from tendia.core import stockage
 from tendia.core.chemins import DATA, RAPPORTS
+from tendia.core.etat_marche import est_actif
 from tendia.dce import dce_finder
 
 
@@ -367,19 +368,8 @@ def qualifier_dce(dossier_dce_path: str, log_telechargement: dict = None) -> dic
 # Filtre marchés actifs
 # ---------------------------------------------------------------------------
 
-def _est_actif(marche: dict, fenetre_jours_sans_date: int = 60) -> bool:
-    date_lim = marche.get("date_limite_depot")
-    today = date.today().isoformat()
-    if date_lim and len(date_lim) >= 10:
-        return date_lim[:10] >= today
-    date_pub = marche.get("date_publication")
-    if not date_pub or len(date_pub) < 10:
-        return False
-    try:
-        d = date.fromisoformat(date_pub[:10])
-        return (date.today() - d).days <= fenetre_jours_sans_date
-    except ValueError:
-        return False
+# Marché actif : définition unique dans tendia.core.etat_marche (chantier 1b).
+_est_actif = est_actif
 
 
 # ---------------------------------------------------------------------------
