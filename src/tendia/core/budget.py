@@ -314,7 +314,8 @@ def enregistrer_appel(type_appel: str,
     Enregistre un appel LLM dans la collection 'llm_appels' pour audit
     et calcul des compteurs. Retourne l'id généré de l'appel.
 
-    statut : 'ok' | 'erreur' | 'bloque_budget' | 'no_llm'
+    statut : 'ok' | 'erreur' | 'repli' (appel du modèle de repli par llm_router ; champ
+    erreur renseigné s'il échoue aussi) | 'bloque_budget' | 'no_llm'
     """
     maintenant = _maintenant_iso()
     appel_id = f"{_jour_iso()}-{type_appel}-{os.urandom(4).hex()}"
@@ -367,14 +368,16 @@ def journaliser_appel(type_appel: str, cout_eur: float, **kwargs) -> Optional[st
 def _compter_appels_jour(type_appel: str) -> int:
     """Nombre d'appels d'un type donné dans le jour courant (UTC).
     
-    Ne compte que les appels OK (pas les erreurs ni les blocages budget).
+    Ne compte que les appels réussis : « ok », et « repli » sans erreur (pas les
+    erreurs ni les blocages budget).
     """
     jour = _jour_iso()
     n = 0
     for appel in stockage.charger(COLLECTION_APPELS).values():
         if (appel.get("type") == type_appel
                 and appel.get("jour") == jour
-                and appel.get("statut") == "ok"):
+                and (appel.get("statut") == "ok"
+                     or (appel.get("statut") == "repli" and not appel.get("erreur")))):
             n += 1
     return n
 

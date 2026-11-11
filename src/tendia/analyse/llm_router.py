@@ -144,9 +144,13 @@ def tarif_usd(modele: str, date=None) -> Optional[dict]:
     return effectif
 
 
-def estimer_cout_eur(modele: str, tokens_in: int, tokens_out: int, date=None) -> Optional[float]:
+def estimer_cout_eur(modele: str, tokens_in: int, tokens_out: int, date=None,
+                     tokens_cache_ecriture: int = 0, tokens_cache_lecture: int = 0) -> Optional[float]:
     """Coût en EUR d'après config_llm.yaml (tokens_out inclut les tokens de réflexion),
     au tarif en vigueur à `date` (défaut : aujourd'hui).
+
+    Cache de prompt (Claude) : les tokens écrits et lus en cache sont facturés à part
+    (clés `cache_write` / `cache_read` du tarif, à défaut 1,25 × et 0,1 × l'entrée).
 
     Gère les tarifs par paliers (ex. Gemini Pro : prix plus élevé au-delà de
     `seuil_long_contexte` tokens d'entrée). None si le modèle n'a pas de tarif.
@@ -160,7 +164,9 @@ def estimer_cout_eur(modele: str, tokens_in: int, tokens_out: int, date=None) ->
         p_out = tarifs.get("output_long", tarifs["output"])
     else:
         p_in, p_out = tarifs["input"], tarifs["output"]
-    usd = (tokens_in * p_in + tokens_out * p_out) / 1_000_000
+    usd = (tokens_in * p_in + tokens_out * p_out
+           + (tokens_cache_ecriture or 0) * tarifs.get("cache_write", 1.25 * p_in)
+           + (tokens_cache_lecture or 0) * tarifs.get("cache_read", 0.1 * p_in)) / 1_000_000
     return round(usd * float(config().get("taux_usd_eur", 0.92)), 6)
 
 
@@ -190,6 +196,9 @@ class LLMResult:
     sortie_tronquee: bool = False          # arrêt sur la limite de tokens de sortie (≠ erreur du modèle)
     relance_reflexion_reduite: bool = False
     reflexion: Optional[str] = None        # réglage de réflexion appliqué (relance), ex. "budget=16000"
+    tokens_cache_ecriture: int = 0         # Claude : tokens écrits en cache de prompt
+    tokens_cache_lecture: int = 0          # Claude : tokens lus en cache de prompt
+    erreur_locale: bool = False            # échec avant tout envoi (clé absente, fichier, PDF trop gros)
     modele_demande: Optional[str] = None   # modèle initial (≠ modele après un repli)
     repli: bool = False                    # True si la réponse vient du modèle de repli
     cout_total_eur: float = 0.0            # somme de toutes les tentatives de cet appel call_llm
@@ -298,7 +307,16 @@ def _est_retentable(exc: Exception) -> tuple:
     return False, None
 
 
-def _avec_retries(fn: Callable, modele: str, res: LLMResult, verbose: bool):
+def _avec_retries(fn: Callable, modele: str, res: LLMResult, verbose: bool,
+                  generation: bool = False):
+    """Rejoue `fn` sur erreur retentable (429, 5xx, timeout, réseau).
+
+    `generation=True` (appel de génération, potentiellement facturé) : avant chaque
+    nouvel essai, le garde-fou budget posé par call_llm sur `res` est relu
+    (budget.BudgetDepasseError remonte) ; chaque essai échoué qui sera rejoué est
+    journalisé (un timeout ou un flux coupé peut avoir été facturé)."""
+    avant_essai = getattr(res, "_avant_essai", None) if generation else None
+    apres_echec = getattr(res, "_apres_echec", None) if generation else None
     rc = config().get("retries") or {}
     max_tentatives = int(rc.get("max_tentatives", 5))
     base = float(rc.get("backoff_base_s", 2.0))
@@ -306,6 +324,8 @@ def _avec_retries(fn: Callable, modele: str, res: LLMResult, verbose: bool):
     derniere = None
     for tentative in range(1, max_tentatives + 1):
         res.tentatives = tentative
+        if tentative > 1 and avant_essai:
+            avant_essai()          # hors du try : BudgetDepasseError n'est pas rejouée
         _respecter_rate_limit(modele)
         try:
             return fn()
@@ -316,6 +336,8 @@ def _avec_retries(fn: Callable, modele: str, res: LLMResult, verbose: bool):
             retentable, delai = _est_retentable(e)
             if not retentable or tentative >= max_tentatives:
                 raise
+            if apres_echec:
+                apres_echec(e, tentative)
             attente = delai if delai else min(plafond, base * 2 ** (tentative - 1))
             attente += random.uniform(0, attente * 0.25)
             if verbose:
@@ -421,7 +443,7 @@ def _appel_gemini(res: LLMResult, prompt: str, system: Optional[str], documents:
         )
         debut = time.time()
         rep = _avec_retries(lambda: client.models.generate_content(
-            model=res.modele, contents=contenus, config=cfg), res.modele, res, verbose)
+            model=res.modele, contents=contenus, config=cfg), res.modele, res, verbose, generation=True)
         res.duree_s = round(time.time() - debut, 2)
         u = rep.usage_metadata
         res.tokens_in = int(getattr(u, "prompt_token_count", 0) or 0)
@@ -482,10 +504,12 @@ def _appel_claude(res: LLMResult, prompt: str, system: Optional[str], documents:
             return s.get_final_message()
 
     debut = time.time()
-    msg = _avec_retries(_go, res.modele, res, verbose)
+    msg = _avec_retries(_go, res.modele, res, verbose, generation=True)
     res.duree_s = round(time.time() - debut, 2)
     res.tokens_in = msg.usage.input_tokens
     res.tokens_out = msg.usage.output_tokens
+    res.tokens_cache_ecriture = int(getattr(msg.usage, "cache_creation_input_tokens", 0) or 0)
+    res.tokens_cache_lecture = int(getattr(msg.usage, "cache_read_input_tokens", 0) or 0)
     res.finish_reason = msg.stop_reason
     res.texte = "".join(b.text for b in msg.content if getattr(b, "type", "") == "text")
     if msg.stop_reason == "refusal":
@@ -505,6 +529,11 @@ class ErreurLLM(RuntimeError):
         self.resultat = resultat
 
 
+# Paramètres déjà portés par call_llm : interdits dans `options` (valeur en double au SDK).
+OPTIONS_RESERVEES = frozenset({"model", "system", "messages", "max_tokens", "contents", "config",
+                               "max_output_tokens", "system_instruction", "response_mime_type",
+                               "thinking_config", "http_options"})
+
 RAPPEL_JSON = ("\n\nATTENTION : ta réponse précédente n'était pas un JSON "
                "valide. Renvoie UNIQUEMENT un objet JSON strictement valide.")
 
@@ -519,7 +548,9 @@ def _journaliser(res: LLMResult, type_appel: str, marche_id: Optional[str], stat
     """Une entrée llm_appels par tentative (ne lève jamais : budget.journaliser_appel)."""
     extra = {k: v for k, v in (("task", res.task), ("prompt_version", res.prompt_version),
                                ("tokens_reflexion", res.tokens_reflexion or None),
-                               ("reflexion", res.reflexion), ("finish_reason", res.finish_reason))
+                               ("reflexion", res.reflexion), ("finish_reason", res.finish_reason),
+                               ("tokens_cache_ecriture", res.tokens_cache_ecriture or None),
+                               ("tokens_cache_lecture", res.tokens_cache_lecture or None))
              if v}
     extra.update(extra_journal or {})
     budget.journaliser_appel(
@@ -556,13 +587,31 @@ def call_llm(task: str, prompt: str, documents: Optional[list] = None,
     recopiés dans l'entrée llm_appels (enveloppes de sprint, métadonnées de l'appelant).
 
     Repli : tâche avec `repli.<task>` dans config_llm.yaml et modèle non explicite
-    (None ou alias) ; si le modèle par défaut finit en échec, un appel au modèle de
-    repli. `res.modele` est le modèle réellement utilisé.
+    (None ou alias) ; si le modèle par défaut finit en échec (hors erreur locale), un
+    appel au modèle de repli, sans les `options` si le fournisseur change. `res.modele`
+    est le modèle réellement utilisé.
+
+    Lève ValueError avant tout appel : type_appel inconnu, modèle sans tarif, clé
+    réservée dans `options`.
+
+    Multi-thread : sûr (une entrée llm_appels par tentative). Le plafond mensuel est
+    relu avant chaque tentative sans réservation : avec N threads, il peut être
+    dépassé d'au plus N − 1 appels en cours.
     """
     if type_appel not in budget.TYPES_VALIDES:
         raise ValueError(f"type_appel inconnu : {type_appel!r} (attendu : {sorted(budget.TYPES_VALIDES)})")
+    reservees = set(options or {}) & OPTIONS_RESERVEES
+    if reservees:
+        raise ValueError(f"options réservées (paramètres de call_llm) : {sorted(reservees)}")
     modele_explicite = model is not None and model.strip() not in ("gemini", "claude")
     modele_initial = resoudre_modele(task, model)
+    repli = None if modele_explicite else modele_repli(task)
+    if repli == modele_initial:
+        repli = None
+    # Un modèle sans tarif serait journalisé à 0 € : le plafond mensuel ne le verrait pas.
+    for m in (modele_initial, repli):
+        if m and tarif_usd(m) is None:
+            raise ValueError(f"modèle sans tarif dans config_llm.yaml › tarifs_usd_par_million : {m!r}")
     tcfg = (config().get("taches") or {}).get(task) or {}
     timeout_s = int(tcfg.get("timeout_s", 120))
     if relance_json is None:
@@ -578,11 +627,33 @@ def call_llm(task: str, prompt: str, documents: Optional[list] = None,
         if reflexion:
             res.reflexion = ",".join(f"{k}={v}" for k, v in reflexion.items())
         debut = time.time()
+
+        def _cout() -> float:
+            return estimer_cout_eur(modele, res.tokens_in, res.tokens_out,
+                                    tokens_cache_ecriture=res.tokens_cache_ecriture,
+                                    tokens_cache_lecture=res.tokens_cache_lecture) or 0.0
+
+        def _essai_echoue(exc: Exception, essai: int) -> None:
+            """Essai interne échoué puis rejoué (_avec_retries) : journalisé à part."""
+            echec = LLMResult(ok=False, task=task, fournisseur=prov, modele=modele,
+                              prompt_version=prompt_version, cout_eur=0.0,
+                              erreur=f"{type(exc).__name__}: {str(exc)[:300]}",
+                              duree_s=round(time.time() - debut, 2))
+            _journaliser(echec, type_appel, marche_id, "erreur", enveloppe,
+                         {**(extra_journal or {}), "essai_interne": essai})
+            historique.append({"modele": modele, "statut": "erreur", "cout_eur": 0.0, "tokens_in": 0,
+                               "tokens_out": 0, "duree_s": echec.duree_s, "erreur": echec.erreur})
+
+        # Crochets lus par _avec_retries (attributs hors dataclass : absents de to_dict).
+        res._avant_essai = lambda: budget.verifier_kill_switch(type_appel)
+        res._apres_echec = _essai_echoue
+        # Les options sont propres à un fournisseur : elles ne suivent pas un repli vers l'autre.
+        options_backend = options if prov == fournisseur(modele_initial) else None
         try:
             backend = _appel_gemini if prov == "gemini" else _appel_claude
             backend(res, texte_prompt, system, documents or [], plafond_sortie, json_mode, timeout_s,
-                    verbose, budget_tokens_entree, reflexion, options)
-            res.cout_eur = estimer_cout_eur(modele, res.tokens_in, res.tokens_out)
+                    verbose, budget_tokens_entree, reflexion, options_backend)
+            res.cout_eur = _cout()
             res.sortie_tronquee = (res.finish_reason or "").upper() in ("MAX_TOKENS", "MAX_TOKENS_REACHED")
             if json_mode:
                 res.json = parser_json(res.texte)
@@ -592,9 +663,19 @@ def call_llm(task: str, prompt: str, documents: Optional[list] = None,
                                   f"reponse_non_json (finish={res.finish_reason}) "
                                   f"début={res.texte[:150]!r} fin={res.texte[-150:]!r}")
             res.ok = res.erreur is None
+        except budget.BudgetDepasseError:
+            raise      # garde-fou relu entre deux essais internes : les essais échoués sont déjà journalisés
         except Exception as e:
             res.erreur = f"{type(e).__name__}: {str(e)[:500]}"
-            res.cout_eur = estimer_cout_eur(modele, res.tokens_in, res.tokens_out) or 0.0
+            res.erreur_locale = isinstance(e, (_ErreurNonRetentable, OSError)) and not res.tokens_in
+            res.cout_eur = _cout()
+        except BaseException as e:
+            # Interruption (Ctrl+C) pendant l'appel : la requête a pu être facturée.
+            res.erreur = f"interrompu ({type(e).__name__})"
+            res.cout_eur = _cout()
+            res.duree_s = res.duree_s or round(time.time() - debut, 2)
+            _journaliser(res, type_appel, marche_id, "erreur", enveloppe, extra_journal)
+            raise
         res.duree_s = res.duree_s or round(time.time() - debut, 2)
         if verbose:
             etat = "✓" if res.ok else f"✗ {res.erreur}"
@@ -631,8 +712,8 @@ def call_llm(task: str, prompt: str, documents: Optional[list] = None,
         return res
 
     res = _serie(modele_initial)
-    repli = None if modele_explicite else modele_repli(task)
-    if not res.ok and repli and repli != modele_initial:
+    # Pas de repli payant sur une erreur locale (clé absente, fichier introuvable, PDF trop gros).
+    if not res.ok and repli and not res.erreur_locale:
         print(f"      ⚠ {modele_initial} en échec ({(res.erreur or '')[:80]}) → repli sur {repli}", flush=True)
         # UN seul appel de repli : ni relance JSON ni relance MAX_TOKENS.
         res = _tentative(repli, prompt, statut_force="repli")
