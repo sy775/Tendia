@@ -9,6 +9,9 @@ import threading
 from concurrent.futures import ThreadPoolExecutor
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+from base_temporaire import isoler_logs
+isoler_logs()  # journaux JSONL hors de logs/
+
 from tendia.core.chemins import RACINE_DEPOT
 sys.path.insert(0, str(RACINE_DEPOT / "scripts" / "maintenance"))
 

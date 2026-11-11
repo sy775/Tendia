@@ -1,8 +1,7 @@
-# Configuration de l'expérimentation multi-modèles (llm_router.py).
-# Le pipeline de production n'utilise PAS ce fichier.
+# Configuration du client LLM unique de Tendia (tendia.analyse.llm_router).
 #
 # Les modèles Gemini se choisissent dans .env (GEMINI_MODEL_CLASSIF,
-# GEMINI_MODEL_ANALYSE) ; les valeurs ci-dessous ne servent que de repli.
+# GEMINI_MODEL_ANALYSE) ; à défaut, les valeurs ci-dessous s'appliquent.
 
 modeles_par_defaut:
   CLAUDE_MODEL_CLASSIF: claude-haiku-4-5     # = tendia_classification (haiku)
@@ -11,7 +10,13 @@ modeles_par_defaut:
   GEMINI_MODEL_ANALYSE: gemini-4-argon          # surchargeable dans .env
   OPUS_MODEL: claude-opus-5-5
 
-taux_usd_eur: 0.92   # même taux indicatif que tendia_classification / budget
+# Modèle de repli par tâche : appelé une fois si le modèle par défaut de la tâche
+# échoue (après ses retries, ou JSON invalide après relance). Journalisé « repli ».
+repli:
+  analyse: claude-sonnet-4-6
+
+# Source unique du taux USD → EUR : lu par llm_router et par core.budget.
+taux_usd_eur: 0.92
 
 # Tarifs en USD par million de tokens. Les tokens de sortie incluent les tokens
 # de réflexion (« thinking ») pour Gemini, facturés au tarif de sortie.
@@ -25,14 +30,23 @@ tarifs_usd_par_million:
   # Sortie = réponse + tokens de réflexion.
   gemini-3.1-flash-lite: {input: 0.25, output: 1.50}
   gemini-3.5-flash-lite: {input: 0.30, output: 2.50}
-  # ⚠ gemini-4-argon : tarif valable jusqu'au 30/11/2026, DOUBLE à partir du 01/12/2026 (4.00 / 20.00).
-  gemini-4-argon: {input: 2.00, output: 10.00}
+  # gemini-4-argon : 2 / 10 jusqu'au 2026-11-30, 4 / 20 à partir du 2026-12-01.
+  # paliers_dates : le tarif appliqué est celui en vigueur à la date de l'appel.
+  gemini-4-argon:
+    input: 2.00
+    output: 10.00
+    paliers_dates:
+      - {a_partir_du: "2026-12-01", input: 4.00, output: 20.00}
   gemini-3.1-pro-preview: {input: 2.00, output: 12.00, seuil_long_contexte: 200000,
                            input_long: 4.00, output_long: 18.00}
 
 # Appels par minute maximum (intervalle minimal entre deux appels d'un même modèle).
 rate_limits_rpm:
   defaut: 60
+  # Appels unitaires courts lancés en parallèle (classification, DECP sur 10 threads) :
+  # pas de frein côté routeur en dessous du quota du compte.
+  claude-haiku-4-5: 3000
+  claude-sonnet-4-6: 600
 
 retries:
   max_tentatives: 5
@@ -46,7 +60,7 @@ taches:
     max_tokens_gemini: 8192      # marge pour les tokens de réflexion
   analyse:
     timeout_s: 900
-    max_tokens_claude: 64000     # (la prod Sonnet garde ses 32000 dans llm_extract)
+    max_tokens_claude: 64000     # llm_extract passe ses 32000 explicitement
     max_tokens_gemini: 32768     # réponse + réflexion — plafond API de gemini-4-argon (Models API)
 
 # Coûts annexes du téléchargement DCE.

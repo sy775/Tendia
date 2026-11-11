@@ -29,7 +29,7 @@ Le dépôt assisté (agent navigateur avec confirmation humaine écran par écra
 
 | Agent | Rôle | État au 2026-11-10 |
 |---|---|---|
-| Veille | BOAMP → classification sectorielle | En prod, mais la classification est hors pipeline et arrêtée depuis le 22/06 |
+| Veille | BOAMP → classification sectorielle | En prod ; la classification est l'étape 2 du pipeline depuis le chantier 1 (2026-11-10) |
 | Récupération DCE | Résolution d'URL + téléchargement sur 7 plateformes | En prod, ~80 % de couverture |
 | Analyse DCE | Lecture complète du dossier → brief structuré | Prod : lacunaire (jusqu'à 49 % du texte non lu). Expérimentation « mode document » (Gemini/Opus) : complète |
 | Prix | Estimation à partir des comparables DECP, déterministe | Partiel (comparables ok, rapprochement BOAMP↔DECP quasi nul) |

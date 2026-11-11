@@ -2,6 +2,7 @@
 name: audit-code
 description: Relit un livrable de chantier Tendia. Lecture seule, produit un rapport, ne modifie rien.
 tools: Read, Grep, Glob, Bash
+model: claude-fable-5-2
 ---
 Tu audites le dernier chantier du dépôt Tendia (voir CLAUDE.md et archive/RAPPORT_<n>.md du chantier).
 Tu ne modifies aucun fichier. Tu écris uniquement archive/AUDIT_<n>.md.

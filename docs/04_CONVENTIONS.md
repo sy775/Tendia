@@ -31,7 +31,8 @@ Même contenu que le `CLAUDE.md` du dépôt, en version longue. Si l'un change, 
 - Python 3.12, UTF-8 partout, `sys.stdout.reconfigure(encoding="utf-8")` en tête des scripts CLI (Windows).
 - Code, commentaires, docs et commits en français. Noms de fonctions en français (`telecharger_dce_pour_marche`), pas d'anglais mélangé.
 - Persistance uniquement via `stockage` ; aucun `sqlite3.connect` dans le métier (exception connue à résorber : `src/tendia/prix/decp/db.py`, `tendia.eligibilite.organisme._timestamps_bibliotheque`).
-- Appels LLM uniquement via `llm_router.call_llm` une fois le chantier 2 passé ; d'ici là, via `llm_extract` ou `budget`.
+- Appels LLM uniquement via `llm_router.call_llm` (ou `appeler_modele` pour un modèle fixé) : jamais de SDK direct (exception : batch Gemini de la DECP).
+- Rien n'est écrit dans `data/dce` : la lecture des DCE travaille dans `data/pieces/<id>`.
 - Un module = un rôle ; au-delà de 800 lignes, découper.
 - Pas de script `diagnostic_*`, `debug_*`, `patch_*` commis à la racine : `scripts/audit/` ou `scripts/maintenance/`, sinon `archive/`.
 

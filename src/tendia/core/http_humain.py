@@ -24,11 +24,55 @@ from typing import Optional
 # TENDIA_PROXY_URL ET les flags TENDIA_PROXY_FOR_<PLATEFORME>. Sans ça, un process
 # qui ne charge pas l'env (worker, sous-process pipeline) ne voyait pas le proxy
 # (→ IP réelle) ni les désactivations par plateforme (→ proxy actif à tort).
+#
+# TENDIA_PROXY_ACTIF ne se lit jamais dans .env : c'est l'interrupteur posé par les
+# lanceurs de téléchargement. Présent dans le fichier, il est ignoré (avertissement).
+import sys
+
+from tendia.core.chemins import RACINE_DEPOT
+
+CLES_IGNOREES_DANS_ENV = ("TENDIA_PROXY_ACTIF",)
+_AVERTISSEMENT_PROXY_EMIS = False
+
+
+def charger_env_fichier(chemins=None) -> list:
+    """Charge les fichiers .env (défaut : .env et .env.txt de la racine) dans os.environ
+    sans écraser l'existant. Les clés de CLES_IGNOREES_DANS_ENV présentes dans un fichier
+    ne sont jamais posées : seule la variable d'un lanceur (déjà dans os.environ) compte.
+    Renvoie les clés ignorées ; avertit une seule fois par processus sur stderr."""
+    global _AVERTISSEMENT_PROXY_EMIS
+    try:
+        from dotenv import dotenv_values
+    except ImportError:
+        return []
+    if chemins is None:
+        chemins = [RACINE_DEPOT / ".env", RACINE_DEPOT / ".env.txt"]
+    ignorees, origines = [], []
+    for chemin in chemins:
+        try:
+            if not os.path.isfile(chemin):
+                continue
+            valeurs = dotenv_values(chemin, encoding="utf-8-sig")
+        except Exception:
+            continue
+        for cle, valeur in valeurs.items():
+            if cle in CLES_IGNOREES_DANS_ENV:
+                if cle not in ignorees:
+                    ignorees.append(cle)
+                    origines.append(os.path.basename(str(chemin)))
+                continue
+            if valeur is not None and cle not in os.environ:
+                os.environ[cle] = valeur
+    if ignorees and not _AVERTISSEMENT_PROXY_EMIS:
+        _AVERTISSEMENT_PROXY_EMIS = True
+        print(f"  ⚠ {', '.join(ignorees)} trouvé dans {', '.join(origines)} : valeur ignorée. Cet interrupteur "
+              f"est posé par les lanceurs (python -m tendia, retelecharger_*), jamais dans .env.",
+              file=sys.stderr)
+    return ignorees
+
+
 try:
-    from dotenv import load_dotenv
-    from tendia.core.chemins import RACINE_DEPOT
-    load_dotenv(RACINE_DEPOT / ".env")
-    load_dotenv(RACINE_DEPOT / ".env.txt")
+    charger_env_fichier()
 except Exception:
     pass
 

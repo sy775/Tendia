@@ -142,18 +142,14 @@ def _appel_gemini(modele, systeme, user, max_out):
             raise
 
 
-def _appel_claude(modele, systeme, user, max_out):
-    from tendia.analyse import llm_extract
-    from anthropic import Anthropic
-    cle = llm_extract._obtenir_cle_api()
-    if not cle:
-        raise RuntimeError("ANTHROPIC_API_KEY absente")
-    t0 = time.time()
-    rep = Anthropic(api_key=cle).messages.create(model=modele, max_tokens=max_out,
-                                                 system=systeme,
-                                                 messages=[{"role": "user", "content": user}])
-    texte = "".join(b.text for b in rep.content if getattr(b, "type", "") == "text")
-    return texte, rep.usage.input_tokens, rep.usage.output_tokens, 0, round(time.time() - t0, 2), None
+def _appel_claude(modele, systeme, user, max_out, extra_journal=None):
+    """Appel Claude par le client unique : le routeur journalise l'appel dans llm_appels
+    (type decp, enveloppe du pilote) ; classer_lot ne le journalise donc pas une 2e fois."""
+    from tendia.analyse import llm_router
+    rep = llm_router.appeler_modele("classif", user, model=modele, type_appel="decp",
+                                    system=systeme, max_tokens=max_out,
+                                    enveloppe=C.ENVELOPPE, extra_journal=extra_journal)
+    return rep.texte, rep.tokens_in, rep.tokens_out, 0, rep.duree_s, None
 
 
 def classer_lot(lot, fournisseur, modele, systeme, etiquette):
@@ -165,20 +161,30 @@ def classer_lot(lot, fournisseur, modele, systeme, etiquette):
         raise budget.BudgetDepasseError(d.raison)
     budget.verifier_kill_switch("decp")
     max_out = 20 * len(lot) + 200
+    version = __import__("hashlib").sha256(systeme.encode("utf-8")).hexdigest()[:12]
     try:
-        texte, tin, tout, tth, duree, refl = (_appel_gemini if fournisseur == "gemini" else _appel_claude)(
-            modele, systeme, C.prompt_utilisateur(lot), max_out)
+        if fournisseur == "gemini":
+            texte, tin, tout, tth, duree, refl = _appel_gemini(
+                modele, systeme, C.prompt_utilisateur(lot), max_out)
+        else:
+            texte, tin, tout, tth, duree, refl = _appel_claude(
+                modele, systeme, C.prompt_utilisateur(lot), max_out,
+                extra_journal={"etiquette": etiquette, "prompt_version": version,
+                               "n_contrats": len(lot)})
         statut, err = "ok", None
+    except budget.BudgetDepasseError:
+        raise
     except Exception as e:
         texte, tin, tout, tth, duree, refl, statut, err = "", 0, 0, 0, 0, None, "erreur", str(e)[:300]
     cout = llm_router.estimer_cout_eur(modele, tin, tout) or 0.0
     meta = {"modele": modele, "tokens_in": tin, "tokens_out": tout, "tokens_reflexion": tth,
             "cout_eur": round(cout, 6), "duree_s": duree, "reflexion": refl, "etiquette": etiquette,
-            "prompt_version": __import__("hashlib").sha256(systeme.encode("utf-8")).hexdigest()[:12],
-            "n_contrats": len(lot)}
-    budget.enregistrer_appel("decp", cout, statut=statut, tokens_input=tin, tokens_output=tout,
-                             duree_ms=int(duree * 1000), modele=modele, erreur=err,
-                             enveloppe=C.ENVELOPPE, extra={"_meta": meta})
+            "prompt_version": version, "n_contrats": len(lot)}
+    # Claude : déjà journalisé par llm_router (succès comme erreur), pas de double comptage.
+    if fournisseur == "gemini":
+        budget.enregistrer_appel("decp", cout, statut=statut, tokens_input=tin, tokens_output=tout,
+                                 duree_ms=int(duree * 1000), modele=modele, erreur=err,
+                                 enveloppe=C.ENVELOPPE, extra={"_meta": meta})
     return C.parser_sortie(texte, len(lot)), meta, err
 
 

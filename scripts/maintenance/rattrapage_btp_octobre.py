@@ -37,7 +37,7 @@ from collections import Counter, defaultdict
 from datetime import date
 from urllib.parse import urlparse
 
-from tendia.core import chemins, stockage
+from tendia.core import budget, chemins, stockage
 from tendia.core.etat_marche import est_attribution  # noqa: F401  (R.est_attribution dans les tests)
 
 MOIS_CIBLE = "2026-10"
@@ -296,28 +296,42 @@ def cmd_briefs(args):
                   f"{args.max_cout:.2f} €. Arrêt avant {mid}.")
             break
         dossier = os.path.join(extraire.REPERTOIRE_DCE, mid)
-        extraire._dezipper_dossier(dossier, verbose=False)
-        pdfs = pdf_extract.extraire_dossier(dossier, verbose=False)
-        if not pdfs:
-            lignes.append((mid, 0.0, "aucun PDF"))
-            print(f"  {mid}  ⊘ aucun PDF exploitable")
-            continue
-        res = extraire.traiter_marche(mid, dossier, pdfs, dry_run=False, verbose=False)
+        pdfs = {}
+        if args.mode == "classique":
+            # ancien mode : dézippage à plat dans le dossier du DCE, PDF seulement
+            extraire._dezipper_dossier(dossier, verbose=False)
+            pdfs = pdf_extract.extraire_dossier(dossier, verbose=False)
+            if not pdfs:
+                lignes.append((mid, 0.0, "aucun PDF", "—"))
+                print(f"  {mid}  ⊘ aucun PDF exploitable")
+                continue
+        try:
+            res = extraire.traiter_marche(mid, dossier, pdfs, dry_run=False, verbose=False,
+                                          mode=args.mode, max_cout_par_dce=args.max_cout_par_dce)
+        except budget.BudgetDepasseError as e:
+            print(f"\n  ⛔ Budget : {e}. Arrêt avant {mid}.")
+            break
+        except Exception as e:
+            res = {"ok": False, "raison": f"erreur : {type(e).__name__}: {e}"[:160]}
         cout = extraire.cout_du_resultat(res)
         cout_cumule += cout
         if res.get("ok") and res.get("extraction"):
-            etat[mid] = {"signature_pdfs": extraire._signature_pdfs(pdfs),
-                         "extrait_le": time.strftime("%Y-%m-%dT%H:%M:%S"),
-                         "pdfs": list(pdfs.keys())}
+            etat[mid] = extraire.etat_apres_extraction(args.mode, dossier, pdfs)
+            extraire._sauver_etat(etat)
+        elif not res.get("ok") and args.mode == "document":
+            extraire.noter_echec(etat, mid, res.get("raison") or "echec", dossier, args.max_cout_par_dce)
             extraire._sauver_etat(etat)
         statut = "ok" if res.get("ok") else (res.get("raison") or res.get("erreur") or "échec")
-        lignes.append((mid, cout, statut))
-        print(f"  {mid}  {statut}  {cout:.3f} €  (cumul {cout_cumule:.3f} €)")
+        lecture = res.get("lecture") or {}
+        lues = (f"{lecture.get('nb_lues')}/{lecture.get('nb_pieces_texte')}"
+                if lecture.get("nb_pieces_texte") is not None else "—")
+        lignes.append((mid, cout, statut, lues))
+        print(f"  {mid}  {statut}  {cout:.3f} €  pièces lues {lues}  (cumul {cout_cumule:.3f} €)")
 
-    print(f"\n  {'id':<20}{'date limite':>12}  {'plateforme':<34}{'coût €':>8}  statut")
-    for mid, cout, statut in lignes:
+    print(f"\n  {'id':<20}{'date limite':>12}  {'plateforme':<34}{'pièces lues':>12}{'coût €':>8}  statut")
+    for mid, cout, statut, lues in lignes:
         m = marches.get(mid) or {}
-        print(f"  {mid:<20}{_date_limite(m):>12}  {plateforme(m)[:34]:<34}{cout:>8.3f}  {statut}")
+        print(f"  {mid:<20}{_date_limite(m):>12}  {plateforme(m)[:34]:<34}{lues:>12}{cout:>8.3f}  {statut}")
     print(f"\n  Coût de la passe : {cout_cumule:.3f} € ; briefs ok : "
           f"{sum(1 for l in lignes if l[2] == 'ok')}")
 
@@ -341,6 +355,10 @@ def main(argv=None):
     pb = sous.add_parser("briefs", help="extraction LLM des DCE complets")
     pb.add_argument("--max-cout", type=float, required=True, metavar="EUR")
     pb.add_argument("--max", type=int, required=True)
+    pb.add_argument("--mode", choices=("document", "classique"), default="document",
+                    help="document (défaut) : lecture exhaustive ; classique : PDF tronqués, Sonnet")
+    pb.add_argument("--max-cout-par-dce", type=float, default=2.5, metavar="EUR",
+                    help="mode document : DCE sauté si son coût estimé dépasse ce montant (défaut 2.5)")
     pb.add_argument("--dry-run", action="store_true")
     pb.set_defaults(func=cmd_briefs)
     args = ap.parse_args(argv)

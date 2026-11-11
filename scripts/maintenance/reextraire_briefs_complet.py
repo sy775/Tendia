@@ -38,6 +38,8 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--oui", action="store_true",
                     help="Pas de confirmation interactive.")
+    ap.add_argument("--max-cout", type=float, required=True, metavar="EUR",
+                    help="plafond de coût LLM de la passe (obligatoire ; 0 : aucun appel)")
     ap.add_argument("--limite", type=int, default=None,
                     help="Max de marchés à re-extraire.")
     args = ap.parse_args()
@@ -59,8 +61,9 @@ def main():
 
     print("=== RE-EXTRACTION (briefs depuis DCE complet, SANS re-téléchargement) ===")
     print(f"Cibles : {len(cibles)} marchés")
-    cout = len(cibles) * 0.05
-    print(f"Coût LLM estimé : ~{cout:.2f} €")
+    cout = len(cibles) * 0.5
+    print(f"Coût LLM estimé : ~{cout:.2f} € (≈ 0,50 € par brief classique mesuré au chantier 1), "
+          f"plafond --max-cout {args.max_cout:.2f} €")
     if not cibles:
         return
     if not args.oui:
@@ -82,7 +85,7 @@ def main():
     cout_total = 0.0
 
     for mid in cibles:
-        dossier = os.path.join("data", "dce", mid)
+        dossier = os.path.join(tendia_extraire.REPERTOIRE_DCE, mid)
 
         # Vérification disque : présent et non vide ?
         if not os.path.isdir(dossier) or not any(os.scandir(dossier)):
@@ -98,14 +101,18 @@ def main():
 
         _dossier_scan, pdfs = par_mid[mid]
 
-        # Backup de l'ancien brief
-        if mid in briefs:
-            stockage.ecrire("briefs_extraits", f"{mid}.bak_avant_complet", briefs[mid])
+        if tendia_extraire.plafond_atteint(cout_total, args.max_cout):
+            print(f"  ⛔ Plafond --max-cout atteint : {cout_total:.3f} € ≥ {args.max_cout:.2f} €. Arrêt avant {mid}.")
+            break
 
-        # Extraction LLM SEULE (pas de re-download)
+        # L'ancien brief est copié dans archive/data/briefs/ par traiter_marche avant
+        # écrasement (plus de clé « .bak » dans briefs_extraits).
+        # Extraction LLM SEULE (pas de re-download), mode classique explicite : ce script
+        # relit les PDF déjà dézippés ; pour une lecture exhaustive, utiliser
+        # python -m tendia.analyse.extraire --marche <id> --force (mode document).
         try:
             res = tendia_extraire.traiter_marche(mid, _dossier_scan, pdfs,
-                                                 dry_run=False, verbose=False)
+                                                 dry_run=False, verbose=False, mode="classique")
         except Exception as e:
             erreurs.append((mid, f"{type(e).__name__}: {e}"))
             print(f"  [{mid}] ❌ erreur extraction : {type(e).__name__}: {e}")
@@ -124,8 +131,7 @@ def main():
             nouveau["genere_avec_dce_complet"] = True
             stockage.ecrire("briefs_extraits", mid, nouveau)
             refait += 1
-            cout = ((res.get("extraction") or {}).get("_meta") or {}).get("cout_eur") or 0
-            cout_total += float(cout or 0)
+            cout_total += tendia_extraire.cout_du_resultat(res)
             print(f"  [{mid}] ✅ re-extrait (genere_avec_dce_complet=True)")
         else:
             erreurs.append((mid, "brief introuvable après extraction"))

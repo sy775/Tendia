@@ -17,7 +17,6 @@ Coût : ~3-5 cents par marché avec Sonnet 4.6.
 """
 
 import json
-import re
 import time
 from datetime import datetime, timezone
 from typing import Optional
@@ -214,48 +213,25 @@ def generer_brief_light(marche: dict,
         objet=objet,
     )
 
-    client = Anthropic()
+    from tendia.analyse import llm_router
     debut = time.time()
 
     try:
-        message = client.messages.create(
-            model=MODELE,
-            max_tokens=MAX_TOKENS_REPONSE,
-            system=PROMPT_SYSTEME,
-            messages=[{"role": "user", "content": prompt}],
-        )
-        reponse_text = message.content[0].text if message.content else ""
-        in_tokens = message.usage.input_tokens
-        out_tokens = message.usage.output_tokens
-        cout_eur = _budget.estimer_cout_eur(in_tokens, out_tokens)
+        # Client unique : journal llm_appels (ok, erreur, réponse non JSON) fait par le routeur.
+        rep = llm_router.appeler_modele(
+            "analyse", prompt, model=MODELE, type_appel="extraction", marche_id=marche_id,
+            system=PROMPT_SYSTEME, max_tokens=MAX_TOKENS_REPONSE, json_mode=True)
+        reponse_text = rep.texte
+        in_tokens = rep.tokens_in
+        out_tokens = rep.tokens_out
+        cout_eur = rep.cout_eur or 0.0
         duree = time.time() - debut
 
-        # Parse JSON
-        data = None
-        try:
-            data = json.loads(reponse_text)
-        except json.JSONDecodeError:
-            m = re.search(r"\{.*\}", reponse_text, re.DOTALL)
-            if m:
-                try:
-                    data = json.loads(m.group(0))
-                except json.JSONDecodeError:
-                    pass
+        data = rep.json
         if not data:
             if verbose:
                 print(f"    ⚠ JSON invalide")
                 print(f"    Début réponse : {reponse_text[:300]}")
-            _budget.enregistrer_appel(
-                type_appel="extraction",
-                cout_eur=cout_eur,
-                statut="erreur",
-                marche_id=marche_id,
-                tokens_input=in_tokens,
-                tokens_output=out_tokens,
-                duree_ms=int(duree * 1000),
-                modele=MODELE,
-                erreur="reponse_non_json",
-            )
             return None
 
         # Tag _meta : c'est ce qui distingue ce brief light d'un complet
@@ -270,17 +246,6 @@ def generer_brief_light(marche: dict,
             "source_avis_seulement": True,
         }
 
-        # Log appel OK pour audit budget
-        _budget.enregistrer_appel(
-            type_appel="extraction",
-            cout_eur=cout_eur,
-            statut="ok",
-            marche_id=marche_id,
-            tokens_input=in_tokens,
-            tokens_output=out_tokens,
-            duree_ms=int(duree * 1000),
-            modele=MODELE,
-        )
         return data
 
     except _budget.BudgetDepasseError:
@@ -288,14 +253,6 @@ def generer_brief_light(marche: dict,
     except Exception as e:
         if verbose:
             print(f"    ⚠ Erreur API : {e}")
-        _budget.enregistrer_appel(
-            type_appel="extraction",
-            cout_eur=0.0,
-            statut="erreur",
-            marche_id=marche_id,
-            modele=MODELE,
-            erreur=f"{type(e).__name__}: {e}",
-        )
         return None
 
 

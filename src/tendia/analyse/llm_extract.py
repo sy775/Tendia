@@ -16,7 +16,6 @@ API :
 
 import json
 import os
-import re
 import sys
 import time
 from typing import Optional
@@ -1364,54 +1363,43 @@ def extraire_via_llm(texte: str, contexte: dict,
     prompt_user = prompt_user.encode("utf-8", "ignore").decode("utf-8", "ignore")
     prompt_systeme = prompt_systeme.encode("utf-8", "ignore").decode("utf-8", "ignore")
 
-    client = Anthropic()
+    from tendia.analyse import llm_router
 
     debut = time.time()
     derniere_erreur = None
+    cout_cumule = 0.0   # toutes les tentatives payées de ce brief (relances JSON comprises)
+    tokens_in_cumules = tokens_out_cumules = 0
     for tentative in range(1, max_retries + 1):
         try:
             if verbose:
                 print(f"  → Appel Claude API (tentative {tentative})...")
                 print(f"    input ≈ {len(prompt_user)} chars "
                       f"(≈ {len(prompt_user) // 4} tokens)")
-            # STREAMING (et non messages.create) : indispensable pour les gros DCE
-            # multi-lots dont la génération est longue. En non-streamé, l'appel heurte
-            # le timeout de requête du SDK avant la fin (cause des echec_llm sur les
-            # briefs lourds). Le streaming garde la connexion vivante tant que des
-            # tokens arrivent ; get_final_message() reconstitue le message complet.
-            with client.messages.stream(
-                model=MODELE,
-                max_tokens=MAX_TOKENS_REPONSE,
-                system=prompt_systeme,
-                messages=[{"role": "user", "content": prompt_user}],
-            ) as stream:
-                message = stream.get_final_message()
+            # Client unique (llm_router, streaming) : kill switch avant l'appel, une entrée
+            # llm_appels par tentative, y compris la réponse non JSON relancée ci-dessous.
+            rep = llm_router.appeler_modele(
+                "analyse", prompt_user, model=MODELE, type_appel="extraction",
+                marche_id=marche_id, system=prompt_systeme, max_tokens=MAX_TOKENS_REPONSE,
+                json_mode=True)
             duree = time.time() - debut
-            reponse_text = message.content[0].text if message.content else ""
+            reponse_text = rep.texte
 
-            in_tokens = message.usage.input_tokens
-            out_tokens = message.usage.output_tokens
+            in_tokens = rep.tokens_in
+            out_tokens = rep.tokens_out
             cout_usd = (in_tokens * 3 + out_tokens * 15) / 1_000_000
-            cout_eur = _budget.estimer_cout_eur(in_tokens, out_tokens)
+            cout_eur = rep.cout_eur or 0.0
+            cout_cumule += cout_eur
+            tokens_in_cumules += in_tokens
+            tokens_out_cumules += out_tokens
 
             if verbose:
                 print(f"  ← Réponse en {duree:.1f}s")
                 print(f"    tokens in/out : {in_tokens} / {out_tokens}")
                 print(f"    coût estimé   : {cout_usd:.4f} $ ({cout_eur:.3f} €)")
 
-            # Parser le JSON
-            data_parsee = None
-            try:
-                data_parsee = json.loads(reponse_text)
-            except json.JSONDecodeError:
-                # Le LLM a parfois mis du texte autour. Cherche le bloc {...}
-                m = re.search(r"\{.*\}", reponse_text, re.DOTALL)
-                if m:
-                    try:
-                        data_parsee = json.loads(m.group(0))
-                    except json.JSONDecodeError as e:
-                        if verbose:
-                            print(f"  ⚠ JSON parse échoue : {e}")
+            data_parsee = rep.json
+            if data_parsee is None and verbose:
+                print(f"  ⚠ JSON parse échoue : {rep.erreur}")
 
             if data_parsee is not None:
                 # Filtre anti-hallucination (Sprint 2bis - Sujet 2b).
@@ -1433,23 +1421,13 @@ def extraire_via_llm(texte: str, contexte: dict,
                 # les déplacer dans son propre _meta.
                 data_parsee["_appel_llm"] = {
                     "modele": MODELE,
-                    "tokens_input": in_tokens,
-                    "tokens_output": out_tokens,
-                    "cout_eur": cout_eur,
+                    "tokens_input": tokens_in_cumules,
+                    "tokens_output": tokens_out_cumules,
+                    "nb_tentatives": tentative,
+                    "cout_eur": round(cout_cumule, 6),
                     "duree_sec": round(duree, 1),
                     "codes_presets": codes_presets,  # 1E : remonté pour le _meta
                 }
-                # Succès : on log l'appel
-                _budget.enregistrer_appel(
-                    type_appel="extraction",
-                    cout_eur=cout_eur,
-                    statut="ok",
-                    marche_id=marche_id,
-                    tokens_input=in_tokens,
-                    tokens_output=out_tokens,
-                    duree_ms=int(duree * 1000),
-                    modele=MODELE,
-                )
                 return data_parsee
 
             # JSON invalide : on retente ou on abandonne
@@ -1458,19 +1436,9 @@ def extraire_via_llm(texte: str, contexte: dict,
             if verbose:
                 print(f"  ❌ Réponse non-JSON après {max_retries} tentatives")
                 print(f"    Début réponse : {reponse_text[:500]}")
-            # Log de l'échec JSON (on a quand même payé les tokens)
-            _budget.enregistrer_appel(
-                type_appel="extraction",
-                cout_eur=cout_eur,
-                statut="erreur",
-                marche_id=marche_id,
-                tokens_input=in_tokens,
-                tokens_output=out_tokens,
-                duree_ms=int(duree * 1000),
-                modele=MODELE,
-                erreur="reponse_non_json",
-            )
             return None
+        except _budget.BudgetDepasseError:
+            raise
         except Exception as e:
             derniere_erreur = e
             if verbose:
@@ -1478,16 +1446,6 @@ def extraire_via_llm(texte: str, contexte: dict,
             if tentative < max_retries:
                 time.sleep(2)
                 continue
-            # Échec définitif : log erreur sans coût (l'appel a probablement
-            # échoué côté réseau, pas de tokens facturés)
-            _budget.enregistrer_appel(
-                type_appel="extraction",
-                cout_eur=0.0,
-                statut="erreur",
-                marche_id=marche_id,
-                modele=MODELE,
-                erreur=f"{type(e).__name__}: {e}",
-            )
             return None
     return None
 

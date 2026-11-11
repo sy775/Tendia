@@ -4,23 +4,19 @@ decp/classifier_llm.py — classification niveau 2 (LLM Haiku 4.5), Sprint DECP 
 Classe les marchés DECP ambigus/inconnus (preset_principal NULL après niveau 1)
 avec Claude Haiku 4.5. Budget tracker thread-safe + arrêt net à 50 €.
 
-Tarif Haiku 4.5 : 1 $/1M input, 5 $/1M output (×0.95 €/$). ~430 tok/marché ⇒ ~0,0005 €.
+Tarif Haiku 4.5 : 1 $/1M input, 5 $/1M output, taux de config_llm.yaml (0,92 €/$ ;
+0,95 avant le chantier 2). ~430 tok/marché ⇒ ~0,0005 €. Coût calculé par llm_router.
 """
 import hashlib
 import json
-import os
 import re
 import threading
 import time
 
 import truststore
 truststore.inject_into_ssl()  # SSL Windows (convention Tendia)
-from anthropic import Anthropic
 
-MODELE = "claude-haiku-4-5"
-PRIX_IN_USD_1M = 1.0
-PRIX_OUT_USD_1M = 5.0
-TAUX_USD_EUR = 0.95
+MODELE = "claude-haiku-4-5"   # tarif : config_llm.yaml (coût calculé par llm_router)
 PRESETS_VALIDES = {"btp", "it", "ingenierie", "conseil_rd", "formation", "enr", "hors_perimetre"}
 
 PROMPT_SYSTEME = (
@@ -59,23 +55,6 @@ PROMPT_SYSTEME = (
 # Version du prompt (traçabilité re-classification — cf. Chantier 1E).
 PROMPT_VERSION = hashlib.sha256(PROMPT_SYSTEME.encode("utf-8")).hexdigest()[:12]
 
-_client = None
-_client_lock = threading.Lock()
-
-
-def _get_client() -> Anthropic:
-    global _client
-    if _client is None:
-        with _client_lock:
-            if _client is None:
-                if not os.environ.get("ANTHROPIC_API_KEY"):
-                    from tendia.analyse import llm_extract
-                    k = llm_extract._charger_cle_depuis_env_file()
-                    if k:
-                        os.environ["ANTHROPIC_API_KEY"] = k
-                _client = Anthropic()
-    return _client
-
 
 def prompt_user(marche: dict) -> str:
     return (f"Objet : {(marche.get('objet') or '')[:600]}\n"
@@ -83,31 +62,19 @@ def prompt_user(marche: dict) -> str:
             f"Acheteur : {marche.get('acheteur_nom') or '—'}")
 
 
-def _cout_eur(usage) -> float:
-    return round((usage.input_tokens * PRIX_IN_USD_1M
-                 + usage.output_tokens * PRIX_OUT_USD_1M) / 1_000_000 * TAUX_USD_EUR, 6)
-
-
 def classer_llm(marche: dict, retries: int = 2) -> dict:
     """Retourne {preset, confiance, cout_eur, ok, erreur}."""
+    from tendia.analyse import llm_router
     from tendia.core import budget
-    budget.verifier_kill_switch("decp")
-    client = _get_client()
     derniere = None
     for tentative in range(1, retries + 1):
-        appel_journalise = False
-        debut_appel = time.time()
         try:
-            rep = client.messages.create(
-                model=MODELE, max_tokens=50, system=PROMPT_SYSTEME,
-                messages=[{"role": "user", "content": prompt_user(marche)}])
-            cout = _cout_eur(rep.usage)
-            budget.journaliser_appel(
-                "decp", cout, modele=MODELE, marche_id=marche.get("id"),
-                tokens_input=rep.usage.input_tokens, tokens_output=rep.usage.output_tokens,
-                duree_ms=int((time.time() - debut_appel) * 1000))
-            appel_journalise = True
-            txt = "".join(b.text for b in rep.content if getattr(b, "type", "") == "text")
+            # Client unique : kill switch et journal llm_appels faits par le routeur.
+            rep = llm_router.appeler_modele(
+                "classif", prompt_user(marche), model=MODELE, type_appel="decp",
+                marche_id=marche.get("id"), system=PROMPT_SYSTEME, max_tokens=50)
+            cout = rep.cout_eur or 0.0
+            txt = rep.texte
             m = re.search(r"\{.*\}", txt, re.S)
             data = json.loads(m.group(0)) if m else {}
             preset = str(data.get("preset") or "").strip()
@@ -119,13 +86,10 @@ def classer_llm(marche: dict, retries: int = 2) -> dict:
                 conf = 0.5
             return {"preset": preset, "confiance": max(0.0, min(1.0, conf)),
                     "cout_eur": cout, "ok": True, "erreur": None}
+        except budget.BudgetDepasseError:
+            raise
         except Exception as e:
             derniere = e
-            if not appel_journalise:
-                budget.journaliser_appel(
-                    "decp", 0.0, statut="erreur", modele=MODELE, marche_id=marche.get("id"),
-                    erreur=f"{type(e).__name__}: {e}"[:300],
-                    duree_ms=int((time.time() - debut_appel) * 1000))
             if tentative < retries:
                 time.sleep(1.0 * tentative)
     return {"preset": None, "confiance": None, "cout_eur": 0.0, "ok": False,

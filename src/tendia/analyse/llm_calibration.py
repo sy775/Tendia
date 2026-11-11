@@ -600,14 +600,6 @@ def _synthese_comparables(top_comparables: list,
 # Appel LLM
 # ---------------------------------------------------------------------------
 
-def _cout_eur_calibration(usage) -> float:
-    """Coût d'un appel de calibration (Sonnet : 3 $ / 15 $ par million de tokens,
-    même formule que l'affichage verbose), converti au taux de budget.TAUX_USD_EUR."""
-    from tendia.core import budget
-    cout_usd = (usage.input_tokens * 3 + usage.output_tokens * 15) / 1_000_000
-    return round(cout_usd * budget.TAUX_USD_EUR, 6)
-
-
 def calibrer(brief: dict,
               top_comparables: list,
               marches_notifies: dict,
@@ -644,8 +636,7 @@ def calibrer(brief: dict,
         }
 
     llm_extract._check_anthropic()
-    from anthropic import Anthropic
-    client = Anthropic()
+    from tendia.analyse import llm_router
 
     prompt = _construire_prompt_utilisateur(
         brief_synthese=_synthese_brief(brief),
@@ -657,30 +648,20 @@ def calibrer(brief: dict,
     budget.verifier_kill_switch("calibration")
     debut = time.time()
     for tentative in range(1, max_retries + 1):
-        appel_journalise = False
-        debut_appel = time.time()
         try:
             if verbose:
                 print(f"  → Calibration LLM tentative {tentative} "
                       f"({len(prompt)} chars input)")
-            message = client.messages.create(
-                model=MODELE,
-                max_tokens=MAX_TOKENS_REPONSE,
-                system=_construire_prompt_systeme(),
-                messages=[{"role": "user", "content": prompt}],
-            )
-            budget.journaliser_appel(
-                "calibration", _cout_eur_calibration(message.usage), modele=MODELE,
-                marche_id=marche_id, tokens_input=message.usage.input_tokens,
-                tokens_output=message.usage.output_tokens,
-                duree_ms=int((time.time() - debut_appel) * 1000))
-            appel_journalise = True
+            # Client unique : kill switch et journal llm_appels faits par le routeur.
+            rep = llm_router.appeler_modele(
+                "analyse", prompt, model=MODELE, type_appel="calibration", marche_id=marche_id,
+                system=_construire_prompt_systeme(), max_tokens=MAX_TOKENS_REPONSE)
             duree = time.time() - debut
-            texte = message.content[0].text if message.content else ""
+            texte = rep.texte
 
             if verbose:
-                in_t = message.usage.input_tokens
-                out_t = message.usage.output_tokens
+                in_t = rep.tokens_in
+                out_t = rep.tokens_out
                 cout = (in_t * 3 + out_t * 15) / 1_000_000
                 print(f"  ← Calibration {duree:.1f}s · {in_t}+{out_t} tokens · "
                       f"{cout:.4f} $")
@@ -700,12 +681,9 @@ def calibrer(brief: dict,
                         print(f"  ⚠ JSON malformé après {max_retries} essais")
                         print(f"    Début : {texte[:300]}")
                     return None
+        except budget.BudgetDepasseError:
+            raise
         except Exception as e:
-            if not appel_journalise:
-                budget.journaliser_appel(
-                    "calibration", 0.0, statut="erreur", modele=MODELE, marche_id=marche_id,
-                    erreur=f"{type(e).__name__}: {e}"[:300],
-                    duree_ms=int((time.time() - debut_appel) * 1000))
             if verbose:
                 print(f"  ⚠ Erreur API tentative {tentative} : {e}")
             if tentative >= max_retries:
@@ -867,8 +845,7 @@ def calibrer_bottom_up_seul(brief: dict,
         dict calibration (mode bottom-up seul) ou None si échec.
     """
     llm_extract._check_anthropic()
-    from anthropic import Anthropic
-    client = Anthropic()
+    from tendia.analyse import llm_router
 
     prompt = _construire_prompt_bottom_up_seul(_synthese_brief(brief))
 
@@ -876,30 +853,20 @@ def calibrer_bottom_up_seul(brief: dict,
     budget.verifier_kill_switch("calibration")
     debut = time.time()
     for tentative in range(1, max_retries + 1):
-        appel_journalise = False
-        debut_appel = time.time()
         try:
             if verbose:
                 print(f"  → Calibration bottom-up seul, tentative {tentative} "
                       f"({len(prompt)} chars input)")
-            message = client.messages.create(
-                model=MODELE,
-                max_tokens=MAX_TOKENS_REPONSE,
-                system=_construire_prompt_systeme(),
-                messages=[{"role": "user", "content": prompt}],
-            )
-            budget.journaliser_appel(
-                "calibration", _cout_eur_calibration(message.usage), modele=MODELE,
-                marche_id=marche_id, tokens_input=message.usage.input_tokens,
-                tokens_output=message.usage.output_tokens,
-                duree_ms=int((time.time() - debut_appel) * 1000))
-            appel_journalise = True
+            # Client unique : kill switch et journal llm_appels faits par le routeur.
+            rep = llm_router.appeler_modele(
+                "analyse", prompt, model=MODELE, type_appel="calibration", marche_id=marche_id,
+                system=_construire_prompt_systeme(), max_tokens=MAX_TOKENS_REPONSE)
             duree = time.time() - debut
-            texte = message.content[0].text if message.content else ""
+            texte = rep.texte
 
             if verbose:
-                in_t = message.usage.input_tokens
-                out_t = message.usage.output_tokens
+                in_t = rep.tokens_in
+                out_t = rep.tokens_out
                 cout = (in_t * 3 + out_t * 15) / 1_000_000
                 print(f"  ← Calibration {duree:.1f}s · {in_t}+{out_t} tokens · "
                       f"{cout:.4f} $")
@@ -928,12 +895,9 @@ def calibrer_bottom_up_seul(brief: dict,
                 resultat["_mode_calibration"] = "bottom_up_seul"
             return resultat
 
+        except budget.BudgetDepasseError:
+            raise
         except Exception as e:
-            if not appel_journalise:
-                budget.journaliser_appel(
-                    "calibration", 0.0, statut="erreur", modele=MODELE, marche_id=marche_id,
-                    erreur=f"{type(e).__name__}: {e}"[:300],
-                    duree_ms=int((time.time() - debut_appel) * 1000))
             if verbose:
                 print(f"  ⚠ Erreur API tentative {tentative} : {e}")
             if tentative >= max_retries:

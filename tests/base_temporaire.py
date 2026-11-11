@@ -2,8 +2,8 @@
 """
 tests/base_temporaire.py
 ------------------------
-Isolation des tests : redirige stockage (data/tendia.db) et budget (data/budget.json)
-vers un dossier temporaire, pour qu'aucun test n'écrive dans la base de production
+Isolation des tests : redirige stockage (data/tendia.db), budget (data/budget.json)
+et journaux (logs/) vers un dossier temporaire, pour qu'aucun test n'écrive dans la base de production
 (llm_appels, classifications_ia...). À appeler AVANT le premier accès à stockage.
 
     from base_temporaire import isoler_stockage
@@ -12,6 +12,7 @@ vers un dossier temporaire, pour qu'aucun test n'écrive dans la base de product
 """
 import json
 import tempfile
+import types
 from pathlib import Path
 
 
@@ -31,4 +32,49 @@ def isoler_stockage(config_budget: dict = None) -> Path:
     config = dict(budget.DEFAUT_BUDGET)
     config.update(config_budget or {})
     budget.FICHIER_BUDGET.write_text(json.dumps(config, ensure_ascii=False), encoding="utf-8")
+    isoler_logs(dossier / "logs")
     return dossier
+
+
+def isoler_logs(dossier_logs: Path = None) -> Path:
+    """Journaux JSONL (tendia.core.logs) redirigés vers un dossier temporaire : la
+    suite de tests n'écrit jamais dans logs/. Retourne le dossier utilisé."""
+    from tendia.core import logs
+
+    if dossier_logs is None:
+        dossier_logs = Path(tempfile.mkdtemp(prefix="tendia_test_logs_"))
+    dossier_logs.mkdir(parents=True, exist_ok=True)
+    logs.LOG_DIR = dossier_logs
+    return dossier_logs
+
+
+def brancher_faux_client_claude():
+    """Fait passer llm_router par le faux `anthropic.Anthropic` du test (lu à chaque
+    appel, donc remplaçable en cours de test). Les faux clients maison n'exposent que
+    `messages.create(**kw)` : le routeur appelle `messages.stream(**kw)`, redirigé ici
+    vers `create`. Aucun SDK réel, aucune clé, aucune attente de rate limit."""
+    import anthropic
+    from tendia.analyse import llm_router
+
+    class _Flux:
+        def __init__(self, message):
+            self.message = message
+
+        def __enter__(self):
+            return self
+
+        def __exit__(self, *exc):
+            return False
+
+        def get_final_message(self):
+            if not hasattr(self.message, "stop_reason"):
+                self.message.stop_reason = "end_turn"
+            return self.message
+
+    def _client(timeout_s):
+        messages = anthropic.Anthropic().messages
+        return types.SimpleNamespace(messages=types.SimpleNamespace(
+            stream=lambda **kw: _Flux(messages.create(**kw))))
+
+    llm_router._client_claude = _client
+    llm_router._respecter_rate_limit = lambda modele: None

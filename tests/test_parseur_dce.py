@@ -12,6 +12,9 @@ import tempfile
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
+from base_temporaire import isoler_logs
+isoler_logs()  # journaux JSONL hors de logs/
+
 from tendia.dce import telecharger as T
 
 ok = 0

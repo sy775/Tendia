@@ -30,6 +30,9 @@ from urllib.parse import urljoin, urlparse, parse_qs
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
+from base_temporaire import isoler_logs
+isoler_logs()  # journaux JSONL hors de logs/
+
 from tendia.dce import dematis_downloader as D
 
 ok = 0

@@ -23,7 +23,6 @@ from tendia.core import stockage
 from tendia.analyse import llm_extract
 from tendia.core import budget
 from tendia.core.chemins import DATA
-from anthropic import Anthropic
 
 from tendia.memoire.services import digest_memoire  # réutilisation lecture seule (Sprint A)
 
@@ -146,37 +145,23 @@ def appeler_llm(system_prompt: str, user_msg: str, max_tokens: int,
     se limite au retrait d'un éventuel fence markdown ```json … ```. AUCUNE
     réparation de JSON (cf. guardrails) — le parsing est laissé à l'appelant.
     Chaque appel est journalisé dans llm_appels (type « memoire »), erreurs comprises."""
-    from tendia.core import budget
-    budget.verifier_kill_switch("memoire")
-    client = Anthropic()
+    from tendia.analyse import llm_router
     debut = time.time()
-    try:
-        with client.messages.stream(
-            model=MODELE,
-            max_tokens=max_tokens,
-            system=system_prompt,
-            messages=[{"role": "user", "content": user_msg}],
-        ) as stream:
-            message = stream.get_final_message()
-    except Exception as e:
-        budget.journaliser_appel("memoire", 0.0, statut="erreur", modele=MODELE,
-                                 marche_id=marche_id, erreur=f"{type(e).__name__}: {e}"[:300],
-                                 duree_ms=int((time.time() - debut) * 1000))
-        raise
+    # Client unique (streaming) : kill switch et journal llm_appels faits par le routeur.
+    # Un échec d'appel lève llm_router.ErreurLLM (RuntimeError).
+    rep = llm_router.appeler_modele(
+        "analyse", user_msg, model=MODELE, type_appel="memoire", marche_id=marche_id,
+        system=system_prompt, max_tokens=max_tokens)
     duree = time.time() - debut
-    budget.journaliser_appel(
-        "memoire", budget.estimer_cout_eur(message.usage.input_tokens, message.usage.output_tokens),
-        modele=MODELE, marche_id=marche_id, tokens_input=message.usage.input_tokens,
-        tokens_output=message.usage.output_tokens, duree_ms=int(duree * 1000))
-    texte = message.content[0].text if message.content else ""
+    texte = rep.texte
     texte = texte.strip()
     if texte.startswith("```"):
         texte = texte.split("```", 2)[1].lstrip("json").strip().rstrip("`").strip()
     return texte, {
-        "tokens_entree": message.usage.input_tokens,
-        "tokens_sortie": message.usage.output_tokens,
+        "tokens_entree": rep.tokens_in,
+        "tokens_sortie": rep.tokens_out,
         "duree_s": round(duree, 1),
-        "stop_reason": message.stop_reason,
+        "stop_reason": rep.finish_reason,
     }
 
 

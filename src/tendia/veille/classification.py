@@ -47,7 +47,7 @@ from typing import Optional
 if sys.stdout.encoding and sys.stdout.encoding.lower() != "utf-8":
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
-from tendia.core import stockage
+from tendia.core import budget, stockage
 
 
 # ---------------------------------------------------------------------------
@@ -70,11 +70,7 @@ MODELES = {
 }
 MODELE_PAR_DEFAUT = "haiku"
 
-# Pricing en USD per million tokens (pour estimer le coût)
-PRICING = {
-    "claude-haiku-4-5": {"input": 1.0, "output": 5.0},
-    "claude-sonnet-4-6": {"input": 3.0, "output": 15.0},
-}
+# Tarifs : config_llm.yaml (le coût de chaque appel est calculé par llm_router).
 
 MAX_TOKENS_REPONSE = 800  # Largement suffisant pour la classification
 
@@ -332,10 +328,9 @@ def classifier(marche: dict,
         ou None si échec.
     """
     _check_anthropic()
-    from anthropic import Anthropic
+    from tendia.analyse import llm_router
 
     modele_id = MODELES.get(modele, MODELES[MODELE_PAR_DEFAUT])
-    client = Anthropic()
 
     prompt_sys = _prompt_systeme()
     prompt_user = _prompt_utilisateur(marche)
@@ -344,30 +339,18 @@ def classifier(marche: dict,
     budget.verifier_kill_switch("classification")
     debut = time.time()
     for tentative in range(1, max_retries + 1):
-        appel_journalise = False
-        debut_appel = time.time()
         try:
             if verbose:
                 print(f"  → API {modele_id} tentative {tentative}")
-            msg = client.messages.create(
-                model=modele_id,
-                max_tokens=MAX_TOKENS_REPONSE,
-                system=prompt_sys,
-                messages=[{"role": "user", "content": prompt_user}],
-            )
+            # Client unique : kill switch et journal llm_appels sont faits par le routeur.
+            rep = llm_router.appeler_modele(
+                "classif", prompt_user, model=modele_id, type_appel="classification",
+                marche_id=marche.get("id"), system=prompt_sys, max_tokens=MAX_TOKENS_REPONSE)
             duree = time.time() - debut
-            texte = msg.content[0].text if msg.content else ""
-
-            in_t = msg.usage.input_tokens
-            out_t = msg.usage.output_tokens
-            pricing = PRICING.get(modele_id, PRICING[MODELES["haiku"]])
-            cout_usd = (in_t * pricing["input"] + out_t * pricing["output"]) / 1_000_000
-            cout_eur = cout_usd * 0.92  # taux indicatif USD→EUR
-            budget.journaliser_appel(
-                "classification", cout_eur, modele=modele_id, marche_id=marche.get("id"),
-                tokens_input=in_t, tokens_output=out_t,
-                duree_ms=int((time.time() - debut_appel) * 1000))
-            appel_journalise = True
+            texte = rep.texte
+            in_t = rep.tokens_in
+            out_t = rep.tokens_out
+            cout_eur = rep.cout_eur or 0.0
             if verbose:
                 print(f"  ← {duree:.1f}s · {in_t}+{out_t} tokens · {cout_eur:.4f} €")
 
@@ -416,12 +399,9 @@ def classifier(marche: dict,
             }
             return resultat
 
+        except budget.BudgetDepasseError:
+            raise
         except Exception as e:
-            if not appel_journalise:
-                budget.journaliser_appel(
-                    "classification", 0.0, statut="erreur", modele=modele_id,
-                    marche_id=marche.get("id"), erreur=f"{type(e).__name__}: {e}"[:300],
-                    duree_ms=int((time.time() - debut_appel) * 1000))
             if verbose:
                 print(f"  ⚠ Erreur tentative {tentative} : {type(e).__name__}: {e}")
             if tentative >= max_retries:
@@ -521,7 +501,7 @@ def _resume_classification(classif: dict) -> str:
 # CLI
 # ---------------------------------------------------------------------------
 
-def main():
+def main(argv=None):
     ap = argparse.ArgumentParser(
         description="Classification IA des marchés publics (Sprint 2 nouvelle archi)."
     )
@@ -545,7 +525,7 @@ def main():
                     help="Liste les cibles sans appeler le LLM.")
     ap.add_argument("--verbose", action="store_true",
                     help="Log détaillé par appel API.")
-    args = ap.parse_args()
+    args = ap.parse_args(argv)
 
     print("=" * 78)
     print("  Tendia · Classification IA des marchés")
@@ -590,8 +570,9 @@ def main():
     cout_unitaire_estime = 0.003 if args.modele == "haiku" else 0.01
     cout_max_estime = len(cibles) * cout_unitaire_estime
     print(f"\n  Coût estimé maximum   : {cout_max_estime:.2f} €")
-    if args.max_cout:
-        print(f"  Garde-fou             : stop à {args.max_cout:.2f} €")
+    if args.max_cout is not None:
+        print(f"  Garde-fou             : stop à {args.max_cout:.2f} €"
+              + (" (0 : aucun appel LLM)" if args.max_cout == 0 else ""))
 
     if args.dry_run:
         print(f"\n  ── Cibles (DRY-RUN) ──")
@@ -627,7 +608,7 @@ def main():
         titre = (m.get("titre") or "?")[:50]
 
         # Garde-fou coût
-        if args.max_cout and cout_cumule >= args.max_cout:
+        if budget.plafond_atteint(cout_cumule, args.max_cout):
             print(f"\n  ⚠ Garde-fou coût atteint ({cout_cumule:.2f} € >= "
                   f"{args.max_cout:.2f} €), arrêt.")
             break

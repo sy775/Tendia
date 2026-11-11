@@ -14,7 +14,9 @@ DCE (docstring lignes 1-14). Concrètement il offre :
   réalistes, et application conditionnelle d'un proxy résidentiel selon la
   plateforme (`creer_session_humaine`, lignes 111-158) ;
 - une politique de proxy ciblée par plateforme (`_proxy_pour_plateforme`,
-  lignes 87-108) : proxy ON par défaut, OFF via variable d'environnement ;
+  lignes 87-108) : coupé sans `TENDIA_PROXY_ACTIF=1` posé par un lanceur (la clé
+  est ignorée si elle figure dans `.env`, voir `charger_env_fichier`) ; sinon ON
+  par défaut, OFF par plateforme via variable d'environnement ;
 - des helpers de temporisation aléatoire (`attendre_humain`,
   `attendre_inter_etapes`, `attendre_pause_cumulative`, `jitter`) ;
 - un garde-fou horaire (`heure_actuelle_est_bureau`) ;

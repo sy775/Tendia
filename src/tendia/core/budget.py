@@ -273,6 +273,13 @@ def peut_depenser(enveloppe: str, cout_estime_eur: float, fournisseur: str = "")
     return DecisionAppel(True, f"reste {float(env['total_eur']) - dep['total_eur']:.4f} €")
 
 
+def plafond_atteint(cout_cumule: float, max_cout) -> bool:
+    """Garde-fou --max-cout d'une passe. None : pas de plafond. 0 : tout appel est
+    bloqué (le plafond est atteint avant le premier appel). Sinon : True dès que le
+    coût cumulé atteint le plafond."""
+    return max_cout is not None and float(cout_cumule or 0.0) >= float(max_cout)
+
+
 # ---------------------------------------------------------------------------
 # Logging des appels (table SQLite via stockage K/V)
 # ---------------------------------------------------------------------------
@@ -307,7 +314,8 @@ def enregistrer_appel(type_appel: str,
     Enregistre un appel LLM dans la collection 'llm_appels' pour audit
     et calcul des compteurs. Retourne l'id généré de l'appel.
 
-    statut : 'ok' | 'erreur' | 'bloque_budget' | 'no_llm'
+    statut : 'ok' | 'erreur' | 'repli' (appel du modèle de repli par llm_router ; champ
+    erreur renseigné s'il échoue aussi) | 'bloque_budget' | 'no_llm'
     """
     maintenant = _maintenant_iso()
     appel_id = f"{_jour_iso()}-{type_appel}-{os.urandom(4).hex()}"
@@ -360,14 +368,16 @@ def journaliser_appel(type_appel: str, cout_eur: float, **kwargs) -> Optional[st
 def _compter_appels_jour(type_appel: str) -> int:
     """Nombre d'appels d'un type donné dans le jour courant (UTC).
     
-    Ne compte que les appels OK (pas les erreurs ni les blocages budget).
+    Ne compte que les appels réussis : « ok », et « repli » sans erreur (pas les
+    erreurs ni les blocages budget).
     """
     jour = _jour_iso()
     n = 0
     for appel in stockage.charger(COLLECTION_APPELS).values():
         if (appel.get("type") == type_appel
                 and appel.get("jour") == jour
-                and appel.get("statut") == "ok"):
+                and (appel.get("statut") == "ok"
+                     or (appel.get("statut") == "repli" and not appel.get("erreur")))):
             n += 1
     return n
 
@@ -469,14 +479,27 @@ def statistiques_mois(mois: Optional[str] = None) -> dict:
 # Estimation de coût (préalable à un appel LLM)
 # ---------------------------------------------------------------------------
 #
-# Tarifs Anthropic Claude Sonnet 4 (à jour mi-2025) :
+# Tarifs Anthropic Claude Sonnet 4.6 :
 # - Input  : $3 / 1M tokens
 # - Output : $15 / 1M tokens
-# Convertit en EUR avec un taux de change conservateur 1 USD = 0.95 EUR.
+# Taux USD → EUR : source unique config_llm.yaml (taux_usd_eur), lu aussi par llm_router.
 
 PRIX_USD_PAR_1M_INPUT = 3.0
 PRIX_USD_PAR_1M_OUTPUT = 15.0
-TAUX_USD_EUR = 0.95
+TAUX_USD_EUR_DEFAUT = 0.92
+
+
+def taux_usd_eur() -> float:
+    """Taux de config_llm.yaml (clé taux_usd_eur) ; TAUX_USD_EUR_DEFAUT si illisible."""
+    try:
+        import yaml
+        with open(RACINE_DEPOT / "config_llm.yaml", encoding="utf-8") as f:
+            return float((yaml.safe_load(f) or {}).get("taux_usd_eur", TAUX_USD_EUR_DEFAUT))
+    except Exception:
+        return TAUX_USD_EUR_DEFAUT
+
+
+TAUX_USD_EUR = taux_usd_eur()
 
 
 def estimer_cout_eur(tokens_input: int, tokens_output: int) -> float:
