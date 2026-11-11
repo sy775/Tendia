@@ -365,6 +365,7 @@
   .marche-card.va-pertinent      { --vc: var(--apt-leaf); }
   .marche-card.va-a_verifier     { --vc: var(--apt-gold-2); }
   .marche-card.va-non_pertinent  { --vc: var(--apt-ink-5); }
+  .marche-card.va-non_classe     { --vc: var(--apt-ink-4); }
   .marche-card .titre {
     font-size: 14px;
     font-weight: 500;
@@ -673,7 +674,7 @@
               <div class="badges">
                 {# Pertinence vs profil actif : verdict + score #}
                 {% if ligne.verdict %}
-                  {% set vclass = {'tres_pertinent':'apt-verdict-tres-pertinent','pertinent':'apt-verdict-pertinent','a_verifier':'apt-verdict-a-verifier','non_pertinent':'apt-verdict-non-pertinent'}[ligne.verdict] %}
+                  {% set vclass = {'tres_pertinent':'apt-verdict-tres-pertinent','pertinent':'apt-verdict-pertinent','a_verifier':'apt-verdict-a-verifier','non_pertinent':'apt-verdict-non-pertinent'}.get(ligne.verdict, 'apt-verdict-non-pertinent') %}
                   <span class="{{ vclass }}" style="font-size:10.5px; font-weight:700; padding:1px 9px; border-radius:999px;">{{ verdict_label.get(ligne.verdict, ligne.verdict) }}{% if ligne.score is not none %} · {{ ligne.score }}{% endif %}</span>
                 {% endif %}
                 {# Éligibilité #}

@@ -203,6 +203,35 @@ check("par_page plafonné à 200 (59 marchés → 1 page)", cartes(html) == 59 a
 html = client.get("/explorer?par_page=abc&page=-4").get_data(as_text=True)
 check("paramètres invalides tolérés", cartes(html) == 50, cartes(html))
 
+print("=== étape 4 : verdict non_classe ===")
+marche_test("TEST-NON-CLASSE", "Marché pas encore classé", iso(12))
+stockage.invalider_cache()
+r = client.get("/")
+html = r.get_data(as_text=True)
+check("GET / → 200", r.status_code == 200, r.status_code)
+check("dashboard : marché BTP classé visible", "TEST-OUVERT-PROCHE" in html)
+check("dashboard : marché non classé listé", "TEST-NON-CLASSE" in html)
+m = re.search(r'>(\d+)</div>\s*<div class="apt-label"[^>]*>À classer<', html)
+check("dashboard : compteur « À classer » séparé = 1", bool(m) and m.group(1) == "1",
+      m.group(1) if m else "absent")
+check("dashboard : badge « À classer » sur la ligne", "Classification en attente" in html)
+h1 = re.search(r'apt-display"[^>]*>\s*(\d+)<span', html)
+check("dashboard : le titre ne compte pas les « à classer »",
+      bool(h1) and int(h1.group(1)) == html.count('href="/marche/') - 1,
+      (h1.group(1) if h1 else None, html.count('href="/marche/')))
+
+html = client.get("/marche/TEST-NON-CLASSE").get_data(as_text=True)
+check("fiche non classée : bandeau « Classification en attente »", "bandeau-a-classer" in html)
+check("fiche non classée : pas d'anneau de score", '<div class="score-ring' not in html)
+html = client.get("/marche/TEST-OUVERT-PROCHE").get_data(as_text=True)
+check("fiche classée : pas de bandeau d'attente", "bandeau-a-classer" not in html)
+
+organisme.supprimer_profil()
+stockage.invalider_cache()
+html = client.get("/").get_data(as_text=True)
+check("dashboard sans profil : pas de commande CLI", "python -m" not in html)
+organisme.activer_profil(ID_DEMO, "bibliotheque")
+
 print()
 print("=" * 60)
 print(f"RÉSULTAT : {ok} OK, {ko} ÉCHEC(S)")

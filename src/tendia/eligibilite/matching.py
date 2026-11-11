@@ -30,6 +30,7 @@ import re
 import unicodedata
 from typing import Optional, List
 
+from tendia.core import stockage
 from tendia.veille import preset as _preset
 
 
@@ -312,7 +313,8 @@ def _est_format_legacy_formation(organisme: dict) -> bool:
 
 
 def _resoudre_presets_marche(marche: dict, brief: Optional[dict] = None,
-                              presets_marche: Optional[List[str]] = None) -> List[str]:
+                              presets_marche: Optional[List[str]] = None,
+                              classification: Optional[dict] = None) -> List[str]:
     if presets_marche:
         return list(presets_marche)
     for cle in ("preset_codes", "presets_cibles"):
@@ -322,6 +324,9 @@ def _resoudre_presets_marche(marche: dict, brief: Optional[dict] = None,
     sources = []
     if brief and brief.get("domaines_metier"):
         sources = brief["domaines_metier"]
+    elif classification and classification.get("domaines_metier"):
+        # Classification Haiku (collection classifications_ia, chantier 1b).
+        sources = classification["domaines_metier"]
     elif marche.get("domaines_metier"):
         sources = marche["domaines_metier"]
     if not sources:
@@ -1172,19 +1177,49 @@ def _calculer_verdict(score: int, motifs: list) -> str:
 # API PUBLIQUE
 # ===========================================================================
 
+COLLECTION_CLASSIFICATIONS = "classifications_ia"
+_A_LIRE = object()  # sentinelle : classification à lire dans stockage
+
+
+def est_classe(marche: dict, brief: Optional[dict] = None,
+               presets_marche: Optional[List[str]] = None,
+               classification: Optional[dict] = None) -> bool:
+    """Le marché porte une classification exploitable : entrée dans
+    classifications_ia, ou domaines issus d'un brief, ou presets/domaines posés
+    sur le marché. Sinon le verdict est `non_classe` (jamais non_pertinent par
+    défaut, chantier 1b)."""
+    return bool(classification
+                or presets_marche
+                or marche.get("preset_codes") or marche.get("presets_cibles")
+                or (brief and brief.get("domaines_metier"))
+                or marche.get("domaines_metier"))
+
+
 def evaluer(organisme: dict, marche: dict,
             brief: Optional[dict] = None,
-            presets_marche: Optional[List[str]] = None) -> dict:
-    """Evalue la pertinence d'un marche pour l'organisme."""
+            presets_marche: Optional[List[str]] = None,
+            classification=_A_LIRE) -> dict:
+    """Evalue la pertinence d'un marche pour l'organisme.
+
+    `classification` : entrée de classifications_ia du marché (dict ou None).
+    Non fournie : lue dans stockage (une requête) ; les boucles sur toute la
+    base passent la collection déjà chargée."""
     if _est_format_legacy_formation(organisme):
         return _evaluer_legacy(organisme, marche)
-    return _evaluer_v2(organisme, marche, brief, presets_marche)
+    if classification is _A_LIRE:
+        try:
+            classification = stockage.lire(COLLECTION_CLASSIFICATIONS, marche.get("id"))
+        except Exception:
+            classification = None
+    return _evaluer_v2(organisme, marche, brief, presets_marche, classification)
 
 
 def _evaluer_v2(organisme: dict, marche: dict,
                 brief: Optional[dict],
-                presets_marche: Optional[List[str]]) -> dict:
-    presets_marche = _resoudre_presets_marche(marche, brief, presets_marche)
+                presets_marche: Optional[List[str]],
+                classification: Optional[dict] = None) -> dict:
+    classe = est_classe(marche, brief, presets_marche, classification)
+    presets_marche = _resoudre_presets_marche(marche, brief, presets_marche, classification)
     presets_profil = organisme.get("presets_couverts") or []
     sectoriels = organisme.get("profils_sectoriels") or {}
 
@@ -1242,7 +1277,8 @@ def _evaluer_v2(organisme: dict, marche: dict,
 
     score_brut = sum(m["points"] for m in motifs)
     score = max(0, min(100, score_brut))
-    verdict = _calculer_verdict(score, motifs)
+    # Marché jamais classé : « à classer », distinct de « non pertinent ».
+    verdict = _calculer_verdict(score, motifs) if classe else "non_classe"
     return {
         "id_marche": marche.get("id", "?"),
         "score": score,

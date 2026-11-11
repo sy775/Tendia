@@ -608,6 +608,11 @@
       · {{ "avis d'attribution publié, le marché est déjà attribué" if clos_attribution else "date limite de dépôt dépassée" }}. Vous ne pouvez plus y répondre.
     </div>
     {% endif %}
+    {% if eval and eval.verdict == 'non_classe' and not clos %}
+    <div class="bandeau-a-classer" role="status" style="margin: -6px 0 16px; padding: 10px 14px; border-radius: 8px; border-left: 3px solid var(--apt-gold-2); background: var(--apt-gold-soft); color: var(--apt-ink-2); font-size: 14px;">
+      <strong>Classification en attente</strong> · le secteur de ce marché n'est pas encore déterminé ; sa pertinence pour votre profil sera calculée à la prochaine classification.
+    </div>
+    {% endif %}
     {# Résumé déplacé en encadré « En bref » sous le header (plus visible). #}
 
     {# ── Ligne meta consolidée : Secteur + Analyse + acheteur + dates (une seule ligne) ── #}
@@ -688,7 +693,7 @@
     </div>
   </div>
 
-  {% if eval %}
+  {% if eval and eval.verdict != 'non_classe' %}
   {# Couleurs alignées sur le dashboard : très pertinent = navy, pertinent = vert,
      à vérifier = or, non pertinent = gris (mêmes teintes que les tags `.va-*`). #}
   {% set _vc = {'tres_pertinent': 'var(--apt-accent)', 'pertinent': 'var(--apt-leaf)', 'a_verifier': 'var(--apt-gold-2)', 'non_pertinent': 'var(--apt-ink-5)'} %}

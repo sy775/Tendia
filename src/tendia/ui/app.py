@@ -230,6 +230,7 @@ VERDICT_LABEL = {
     "tres_pertinent": "Très pertinent",
     "pertinent": "Pertinent",
     "a_verifier": "À vérifier",
+    "non_classe": "À classer",
     "non_pertinent": "Non pertinent",
 }
 
@@ -237,7 +238,8 @@ VERDICT_ORDRE = {
     "tres_pertinent": 0,
     "pertinent": 1,
     "a_verifier": 2,
-    "non_pertinent": 3,
+    "non_classe": 3,
+    "non_pertinent": 4,
 }
 
 # État du contenu DCE (champ `dce_contenu`, 5 niveaux : voir tendia_dce.py).
@@ -442,6 +444,12 @@ def dashboard():
         briefs_sqlite = stockage.charger("briefs_extraits")
     except Exception:
         briefs_sqlite = {}
+    # Classifications Haiku : chargées une fois, matching.evaluer les lit ensuite
+    # depuis le cache de stockage (verdict non_classe si absentes).
+    try:
+        stockage.charger("classifications_ia")
+    except Exception:
+        pass
 
     # Évalue chaque marché actif contre le profil
     from tendia.eligibilite import matching_exigences
@@ -548,8 +556,11 @@ def dashboard():
     # actifs : sinon le pipeline « à évaluer » comptait les 419 actifs au lieu des affichés.
     ids_actifs = [e["marche"]["id"] for e in enriched]
     pipeline = cycle_marche.kpis_pipeline(marches, ids_actifs=ids_actifs)
+    nb_a_classer = sum(1 for e in enriched if e["verdict"] == "non_classe")
     kpis = {
-        "actifs_total": len(enriched),
+        # Titre : marchés pertinents affichés, hors « à classer » (compteur séparé).
+        "actifs_total": len(enriched) - nb_a_classer,
+        "a_classer": nb_a_classer,
         "nb_actifs_base": len(actifs),  # tous les actifs (avant filtre pertinence)
         # Clos (date limite passée ou attribution) : hors liste, accessibles par
         # le filtre « clos » de l'explorer.
@@ -831,7 +842,8 @@ def explorer():
         verdict_elig_l = None
         if profil_actif:
             try:
-                evaluation_l = matching.evaluer(profil_actif, marche, brief=brief)
+                evaluation_l = matching.evaluer(profil_actif, marche, brief=brief,
+                                                classification=classifs_ia.get(id_m))
             except Exception:
                 evaluation_l = None
             alertes_l = (brief or {}).get("alertes_candidat") or []

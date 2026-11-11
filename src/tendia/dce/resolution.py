@@ -520,13 +520,13 @@ def generer_rapport(filtre_actifs: bool = True,
     if profil:
         ordre_verdict = {
             "tres_pertinent": 0, "pertinent": 1,
-            "a_verifier": 2, "non_pertinent": 3,
+            "a_verifier": 2, "non_classe": 3, "non_pertinent": 4,
         }
         for m in marches_filtres:
             v = _verdict_pour_profil(m, profil)
             m["_eval"] = v
         marches_filtres.sort(key=lambda m: (
-            ordre_verdict.get((m.get("_eval") or {}).get("verdict"), 4),
+            ordre_verdict.get((m.get("_eval") or {}).get("verdict"), 5),
             -((m.get("_eval") or {}).get("score", 0)),
         ))
 
@@ -549,7 +549,7 @@ def generer_rapport(filtre_actifs: bool = True,
 
     verdict_emojis = {
         "tres_pertinent": "✅", "pertinent": "🟢",
-        "a_verifier": "🟡", "non_pertinent": "⚪",
+        "a_verifier": "🟡", "non_classe": "⏳", "non_pertinent": "⚪",
     }
 
     for marche in marches_filtres:
