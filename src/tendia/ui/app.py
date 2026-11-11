@@ -36,6 +36,7 @@ from flask import (Flask, abort, flash, redirect, render_template, request,
 from tendia.eligibilite import organisme
 from tendia.ui import profil_form
 from tendia.ui import profil_widgets
+from tendia.ui import bloc_decision
 from tendia.ui import fiche_marche
 from tendia.eligibilite import matching
 from tendia.ui import concurrence
@@ -43,7 +44,7 @@ from tendia.core import stockage
 
 
 from tendia.core.chemins import DATA, PRESETS, RACINE_DEPOT
-from tendia.core.etat_marche import date_cloture, est_actif, est_attribution, est_clos
+from tendia.core.etat_marche import date_cloture, est_actif, est_clos
 
 REPERTOIRE_BASE = RACINE_DEPOT
 REPERTOIRE_DATA = DATA
@@ -1389,6 +1390,15 @@ def telecharger_grille_xlsx(id_marche):
         mimetype="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")
 
 
+def _url_profil_actif():
+    """Page d'édition du profil actif (sections ancrées #zones, #sect-btp...),
+    ou la liste des profils si l'actif n'est pas dans la bibliothèque."""
+    id_actif = organisme.id_profil_actif()
+    if id_actif and organisme.lire_profil_bibliotheque(id_actif) is not None:
+        return url_for("profil_edit", id=id_actif)
+    return url_for("page_profil") if organisme.lire_profil() else None
+
+
 @app.route("/marche/<id_marche>")
 def detail_marche(id_marche):
     """Page détail d'un marché."""
@@ -1606,8 +1616,7 @@ def detail_marche(id_marche):
         jours_restants=_jours_restants(marche.get("date_limite_depot")),
         fmt_date=_fmt_date,
         clos=est_clos(marche),
-        clos_attribution=est_attribution(marche),
-        date_cloture_fmt=_date_fr_long(date_cloture(marche)),
+        bloc_decision=bloc_decision.construire(marche, evaluation, brief, _url_profil_actif()),
     )
 
 

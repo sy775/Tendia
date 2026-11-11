@@ -1,0 +1,79 @@
+{# Bloc de décision en tête de fiche (chantier 1b). Données : tendia.ui.bloc_decision.construire. #}
+{% set bd = bloc_decision %}
+<style>
+  .bloc-decision { display:grid; grid-template-columns: minmax(170px, 220px) minmax(0, 1fr) minmax(170px, 230px); gap:22px;
+    padding:18px 22px; margin-bottom:22px; border:1px solid var(--apt-line); border-radius:14px; background:var(--apt-pure);
+    border-left:4px solid var(--bd-c, var(--apt-ink-3)); }
+  .bloc-decision .bd-label { font-size:11px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:var(--apt-ink-3); margin-bottom:6px; }
+  .bloc-decision .bd-verdict { font-size:22px; font-weight:700; color:var(--bd-c, var(--apt-ink)); line-height:1.15; }
+  .bloc-decision .bd-score { font-size:14px; color:var(--apt-ink-2); margin-top:4px; }
+  .bloc-decision .bd-texte { font-size:13.5px; color:var(--apt-ink-2); line-height:1.45; }
+  .bloc-decision ul { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:7px; }
+  .bloc-decision li { font-size:13.5px; color:var(--apt-ink-2); line-height:1.4; }
+  .bloc-decision li strong { color:var(--apt-ink); }
+  .bloc-decision li .bd-detail { display:block; font-size:12px; color:var(--apt-ink-3); }
+  .bloc-decision a.bd-lien { font-size:12.5px; font-weight:600; color:var(--apt-accent); white-space:nowrap; }
+  .bloc-decision .bd-date { font-size:16px; font-weight:700; color:var(--apt-ink); }
+  .bloc-decision .bd-jours { font-size:13px; color:var(--apt-ink-2); margin-top:2px; }
+  .bloc-decision .bd-jours.urgent { color:var(--c-rose, #c14b6b); font-weight:700; }
+  .bloc-decision button[disabled] { margin-top:14px; width:100%; padding:9px 14px; border-radius:9px; border:1px solid var(--apt-line);
+    background:var(--apt-line-2); color:var(--apt-ink-3); font-weight:700; font-size:13.5px; cursor:not-allowed; }
+  .bloc-decision.bd-tres_pertinent { --bd-c: var(--apt-accent); }
+  .bloc-decision.bd-pertinent { --bd-c: var(--apt-leaf); }
+  .bloc-decision.bd-a_verifier { --bd-c: var(--apt-gold-deep, var(--apt-gold-2)); }
+  .bloc-decision.bd-non_pertinent, .bloc-decision.bd-clos { --bd-c: var(--apt-ink-2); }
+  .bloc-decision.bd-non_classe { --bd-c: var(--apt-gold-deep, var(--apt-gold-2)); }
+  @media (max-width: 900px) { .bloc-decision { grid-template-columns: 1fr; } }
+</style>
+<section class="bloc-decision bd-{{ bd.etat or 'aucun' }}" aria-label="Décision">
+  <div>
+    <div class="bd-label">Verdict</div>
+    <div class="bd-verdict">{{ bd.libelle }}</div>
+    {% if bd.score is not none %}<div class="bd-score">Score {{ bd.score }} / 100</div>{% endif %}
+  </div>
+
+  <div>
+    {% if bd.clos %}
+    <div class="bandeau-clos" role="status">
+      <div class="bd-label">Marché fermé</div>
+      <p class="bd-texte"><strong>Marché clos{% if bd.date_cloture %} le {{ bd.date_cloture }}{% endif %}</strong> :
+        {{ "avis d'attribution publié, le marché est déjà attribué" if bd.clos_attribution else "date limite de dépôt dépassée" }}. Vous ne pouvez plus y répondre.</p>
+    </div>
+    {% elif bd.etat == 'non_classe' %}
+    <div class="bandeau-a-classer" role="status">
+      <div class="bd-label">Classification en attente</div>
+      <p class="bd-texte">Le secteur de ce marché n'est pas encore déterminé ; sa pertinence pour votre profil sera calculée à la prochaine classification.</p>
+    </div>
+    {% elif bd.etat is none %}
+    <div class="bd-label">Ce qui vous manque</div>
+    <p class="bd-texte">Aucun profil d'entreprise actif. <a class="bd-lien" href="{{ url_for('page_profil') }}">Choisir mon profil →</a></p>
+    {% else %}
+    <div class="bd-label">Ce qui vous manque</div>
+    {% if bd.manques %}
+    <ul class="bd-manques">
+      {% for m in bd.manques %}
+      <li>
+        <strong>{{ m.manque }}</strong>{% if m.champ and m.url %} · <a class="bd-lien" href="{{ m.url }}">Renseigner « {{ m.champ }} » →</a>{% endif %}
+        {% if m.detail %}<span class="bd-detail">{{ m.detail[:160] }}{% if m.detail|length > 160 %}…{% endif %}</span>{% endif %}
+      </li>
+      {% endfor %}
+    </ul>
+    {% else %}
+    <p class="bd-texte">Rien de bloquant côté profil pour ce marché.</p>
+    {% endif %}
+    {% endif %}
+  </div>
+
+  <div>
+    <div class="bd-label">Date limite</div>
+    {% if bd.clos %}
+    <div class="bd-date">Clos{% if bd.date_cloture %} le {{ bd.date_cloture }}{% endif %}</div>
+    {% elif bd.date_limite %}
+    <div class="bd-date">{{ bd.date_limite }}</div>
+    {% if bd.jours_restants is not none %}<div class="bd-jours{% if bd.jours_restants < 7 %} urgent{% endif %}">{% if bd.jours_restants == 0 %}aujourd'hui{% else %}{{ bd.jours_restants }} jour{{ 's' if bd.jours_restants > 1 else '' }} restant{{ 's' if bd.jours_restants > 1 else '' }}{% endif %}</div>{% endif %}
+    {% else %}
+    <div class="bd-date">Non publiée</div>
+    {% endif %}
+    <button type="button" disabled title="Bientôt disponible (chantier 3)" aria-disabled="true">Préparer le dossier</button>
+  </div>
+</section>

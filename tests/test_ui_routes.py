@@ -226,6 +226,41 @@ check("fiche non classée : pas d'anneau de score", '<div class="score-ring' not
 html = client.get("/marche/TEST-OUVERT-PROCHE").get_data(as_text=True)
 check("fiche classée : pas de bandeau d'attente", "bandeau-a-classer" not in html)
 
+print("=== étape 5 : bloc de décision ===")
+from tendia.eligibilite import matching  # noqa: E402
+
+marche_test("TEST-HORS-ZONE", "Réfection voirie test hors zone", iso(20),
+            perimetre_geographique="Dept 13", acheteur_code_postal="13001", code_departement=["13"])
+classer("TEST-HORS-ZONE")
+stockage.invalider_cache()
+ev = matching.evaluer(organisme.lire_profil(), stockage.lire("marches", "TEST-OUVERT-PROCHE"))
+check("marché de test pertinent pour le profil démo",
+      ev["verdict"] in ("tres_pertinent", "pertinent", "a_verifier"), (ev["verdict"], ev["score"]))
+html = client.get("/marche/TEST-OUVERT-PROCHE").get_data(as_text=True)
+i_bloc, i_titre = html.find('class="bloc-decision'), html.find('class="fiche-title"')
+check("fiche pertinente : bloc de décision présent", i_bloc >= 0)
+check("bloc avant le titre (en tête de fiche)", 0 <= i_bloc < i_titre, (i_bloc, i_titre))
+libelle = {"tres_pertinent": "Très pertinent", "pertinent": "Pertinent", "a_verifier": "À vérifier"}[ev["verdict"]]
+check("bloc : verdict et score", f'bd-verdict">{libelle}<' in html and f"Score {ev['score']} / 100" in html)
+check("bloc : date limite et jours restants", "5 jours restants" in html)
+check("bloc : « Préparer le dossier » inactif, infobulle chantier 3",
+      re.search(r'<button[^>]*disabled[^>]*title="[^"]*chantier 3[^"]*"[^>]*>Préparer le dossier<', html) is not None)
+check("bloc : rubrique « Ce qui vous manque »", "Ce qui vous manque" in html)
+
+html = client.get("/marche/TEST-HORS-ZONE").get_data(as_text=True)
+check("hors zone : manque « Zone d'intervention »", "Zone d&#39;intervention" in html or "Zone d'intervention" in html)
+check("hors zone : lien vers la section zones du profil",
+      f'href="/profil/bibliotheque/{ID_DEMO}/edit#zones"' in html)
+
+html = client.get("/marche/TEST-NON-CLASSE").get_data(as_text=True)
+check("non classé : bandeau d'attente dans le bloc", 'class="bandeau-a-classer"' in html
+      and 'bd-verdict">À classer<' in html)
+html = client.get("/marche/TEST-CLOS-DATE").get_data(as_text=True)
+check("clos : verdict « Clos » prioritaire", 'bd-verdict">Clos<' in html and "Marché clos le " in html)
+html = client.get(f"/profil/bibliotheque/{ID_DEMO}/edit").get_data(as_text=True)
+check("profil : l'ancre #zones est gérée (data-section)", 'data-section="zones"' in html
+      and "location.hash" in html)
+
 organisme.supprimer_profil()
 stockage.invalider_cache()
 html = client.get("/").get_data(as_text=True)
