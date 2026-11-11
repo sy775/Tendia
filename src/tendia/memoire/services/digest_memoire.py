@@ -21,7 +21,6 @@ from tendia.analyse import extraire as tendia_extraire
 from tendia.analyse import llm_extract
 from tendia.core import budget
 from tendia.core.chemins import DATA
-from anthropic import Anthropic
 
 from tendia.memoire.prompts.digest_memoire_v1 import (
     PROMPT_SYSTEME_DIGEST,
@@ -152,29 +151,14 @@ def _criteres_publies_texte(bareme: dict) -> str:
 def _appeler_llm(user_msg: str, marche_id: Optional[str] = None):
     """Appel Sonnet 4.6 (streaming). Retourne (data_json, usage).
     Chaque appel est journalisé dans llm_appels (type « digest »), erreurs comprises."""
-    from tendia.core import budget
-    budget.verifier_kill_switch("digest")
-    client = Anthropic()
+    from tendia.analyse import llm_router
     debut = time.time()
-    try:
-        with client.messages.stream(
-            model=MODELE,
-            max_tokens=MAX_TOKENS_REPONSE,
-            system=PROMPT_SYSTEME_DIGEST,
-            messages=[{"role": "user", "content": user_msg}],
-        ) as stream:
-            message = stream.get_final_message()
-    except Exception as e:
-        budget.journaliser_appel("digest", 0.0, statut="erreur", modele=MODELE,
-                                 marche_id=marche_id, erreur=f"{type(e).__name__}: {e}"[:300],
-                                 duree_ms=int((time.time() - debut) * 1000))
-        raise
+    # Client unique (streaming) : kill switch et journal llm_appels faits par le routeur.
+    rep = llm_router.appeler_modele(
+        "analyse", user_msg, model=MODELE, type_appel="digest", marche_id=marche_id,
+        system=PROMPT_SYSTEME_DIGEST, max_tokens=MAX_TOKENS_REPONSE)
     duree = time.time() - debut
-    budget.journaliser_appel(
-        "digest", budget.estimer_cout_eur(message.usage.input_tokens, message.usage.output_tokens),
-        modele=MODELE, marche_id=marche_id, tokens_input=message.usage.input_tokens,
-        tokens_output=message.usage.output_tokens, duree_ms=int(duree * 1000))
-    texte = message.content[0].text if message.content else ""
+    texte = rep.texte
     texte = texte.strip()
     if texte.startswith("```"):
         texte = texte.split("```", 2)[1].lstrip("json").strip().rstrip("`").strip()
@@ -185,8 +169,8 @@ def _appeler_llm(user_msg: str, marche_id: Optional[str] = None):
         m = re.search(r"\{.*\}", texte, re.DOTALL)
         data = json.loads(m.group(0)) if m else None
     return data, {
-        "tokens_entree": message.usage.input_tokens,
-        "tokens_sortie": message.usage.output_tokens,
+        "tokens_entree": rep.tokens_in,
+        "tokens_sortie": rep.tokens_out,
         "duree_s": round(duree, 1),
     }
 

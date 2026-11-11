@@ -497,6 +497,14 @@ def _appel_claude(res: LLMResult, prompt: str, system: Optional[str], documents:
 # Point d'entrée unique
 # ---------------------------------------------------------------------------
 
+class ErreurLLM(RuntimeError):
+    """Échec d'un appel (API, réseau, clé absente). `resultat` porte le LLMResult."""
+
+    def __init__(self, resultat: "LLMResult"):
+        super().__init__(resultat.erreur or "échec de l'appel LLM")
+        self.resultat = resultat
+
+
 RAPPEL_JSON = ("\n\nATTENTION : ta réponse précédente n'était pas un JSON "
                "valide. Renvoie UNIQUEMENT un objet JSON strictement valide.")
 
@@ -506,17 +514,20 @@ def modele_repli(task: str) -> Optional[str]:
     return (config().get("repli") or {}).get(task)
 
 
-def _journaliser(res: LLMResult, type_appel: str, marche_id: Optional[str], statut: str) -> None:
+def _journaliser(res: LLMResult, type_appel: str, marche_id: Optional[str], statut: str,
+                 enveloppe: Optional[str] = None, extra_journal: Optional[dict] = None) -> None:
     """Une entrée llm_appels par tentative (ne lève jamais : budget.journaliser_appel)."""
     extra = {k: v for k, v in (("task", res.task), ("prompt_version", res.prompt_version),
                                ("tokens_reflexion", res.tokens_reflexion or None),
                                ("reflexion", res.reflexion), ("finish_reason", res.finish_reason))
              if v}
+    extra.update(extra_journal or {})
     budget.journaliser_appel(
         type_appel, res.cout_eur or 0.0, statut=statut, marche_id=marche_id,
         tokens_input=res.tokens_in, tokens_output=res.tokens_out,
         duree_ms=int((res.duree_s or 0) * 1000), modele=res.modele,
-        erreur=(res.erreur or None) and res.erreur[:300], extra=extra or None)
+        erreur=(res.erreur or None) and res.erreur[:300], enveloppe=enveloppe,
+        extra=extra or None)
 
 
 def call_llm(task: str, prompt: str, documents: Optional[list] = None,
@@ -526,6 +537,7 @@ def call_llm(task: str, prompt: str, documents: Optional[list] = None,
              relance_json: Optional[bool] = None, options: Optional[dict] = None,
              prompt_version: Optional[str] = None,
              budget_tokens_entree: Optional[int] = None,
+             enveloppe: Optional[str] = None, extra_journal: Optional[dict] = None,
              verbose: bool = False) -> LLMResult:
     """Appelle le modèle choisi et renvoie un LLMResult (jamais d'exception API :
     l'erreur est portée par `res.erreur`, `res.ok=False`).
@@ -540,7 +552,8 @@ def call_llm(task: str, prompt: str, documents: Optional[list] = None,
     "analyse", non pour "classif"). `options` : paramètres du fournisseur transmis
     tels quels (température…) ; `system` peut être une liste de blocs (cache de prompt).
     `budget_tokens_entree` (Gemini + documents) : les derniers PDF sont retirés tant
-    que l'entrée dépasse ce nombre de tokens.
+    que l'entrée dépasse ce nombre de tokens. `enveloppe` et `extra_journal` sont
+    recopiés dans l'entrée llm_appels (enveloppes de sprint, métadonnées de l'appelant).
 
     Repli : tâche avec `repli.<task>` dans config_llm.yaml et modèle non explicite
     (None ou alias) ; si le modèle par défaut finit en échec, un appel au modèle de
@@ -588,7 +601,7 @@ def call_llm(task: str, prompt: str, documents: Optional[list] = None,
             cout = f"{res.cout_eur:.4f} €" if res.cout_eur is not None else "? €"
             print(f"    ← {modele} {res.duree_s:.1f}s · {res.tokens_in}+{res.tokens_out} tok · {cout} {etat}")
         statut = statut_force or ("ok" if res.ok else "erreur")
-        _journaliser(res, type_appel, marche_id, statut)
+        _journaliser(res, type_appel, marche_id, statut, enveloppe, extra_journal)
         historique.append({"modele": modele, "statut": statut, "cout_eur": res.cout_eur or 0.0,
                            "tokens_in": res.tokens_in, "tokens_out": res.tokens_out,
                            "duree_s": res.duree_s, "erreur": res.erreur})
@@ -626,6 +639,25 @@ def call_llm(task: str, prompt: str, documents: Optional[list] = None,
         res.repli = True
     res.appels = historique
     res.cout_total_eur = round(sum(a["cout_eur"] for a in historique), 6)
+    return res
+
+
+def appeler_modele(task: str, prompt: str, *, model: str, type_appel: str,
+                   marche_id: Optional[str] = None, system=None,
+                   max_tokens: Optional[int] = None, json_mode: bool = False,
+                   options: Optional[dict] = None, enveloppe: Optional[str] = None,
+                   extra_journal: Optional[dict] = None, verbose: bool = False) -> LLMResult:
+    """call_llm pour les modules qui gardent leur modèle et leur propre boucle de
+    relance : modèle explicite (donc ni repli ni changement de modèle), aucune relance
+    JSON dans le routeur. Lève ErreurLLM si l'appel lui-même échoue (API, réseau, clé) ;
+    une réponse reçue mais non JSON (json_mode=True) est rendue avec res.json = None.
+    budget.BudgetDepasseError remonte telle quelle."""
+    res = call_llm(task, prompt, model=model, type_appel=type_appel, marche_id=marche_id,
+                   system=system, max_tokens=max_tokens, json_mode=json_mode,
+                   relance_json=False, options=options, enveloppe=enveloppe,
+                   extra_journal=extra_journal, verbose=verbose)
+    if not res.ok and not (res.erreur or "").startswith(("reponse_non_json", "sortie_tronquee")):
+        raise ErreurLLM(res)
     return res
 
 

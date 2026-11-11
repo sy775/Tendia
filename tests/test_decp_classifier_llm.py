@@ -7,11 +7,13 @@ import types
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
-from base_temporaire import isoler_stockage
+from base_temporaire import brancher_faux_client_claude, isoler_stockage
 isoler_stockage()  # classer_llm journalise dans llm_appels : jamais dans la base de prod
 
+import anthropic
+from tendia.analyse import llm_router
 from tendia.prix.decp import classifier_llm as cl
-from tendia.prix.decp.classifier_llm import BudgetTracker, prompt_user, _cout_eur
+from tendia.prix.decp.classifier_llm import BudgetTracker, prompt_user
 
 ok = ko = 0
 
@@ -41,7 +43,10 @@ class _FakeClient:
 
 
 def _install(text):
-    cl._client = _FakeClient(text)
+    anthropic.Anthropic = lambda *a, **k: _FakeClient(text)
+
+
+brancher_faux_client_claude()   # classer_llm passe par llm_router (chantier 2)
 
 
 print("BudgetTracker")
@@ -53,11 +58,9 @@ check("nb_appels = 2", t.nb_appels == 2)
 t.ajouter_cout(0.3)
 check("dépassement → stop", not t.peut_continuer())
 
-print("coût Haiku (1$/5$ ×0.95)")
-u = types.SimpleNamespace(input_tokens=1_000_000, output_tokens=0)
-check("1M input = 0.95 €", abs(_cout_eur(u) - 0.95) < 1e-6)
-u2 = types.SimpleNamespace(input_tokens=0, output_tokens=1_000_000)
-check("1M output = 4.75 €", abs(_cout_eur(u2) - 4.75) < 1e-6)
+print("coût Haiku (1 $ / 5 $ par million, taux de config_llm.yaml : tarif unique du routeur)")
+check("1M input = 0.92 €", abs(llm_router.estimer_cout_eur(cl.MODELE, 1_000_000, 0) - 0.92) < 1e-6)
+check("1M output = 4.60 €", abs(llm_router.estimer_cout_eur(cl.MODELE, 0, 1_000_000) - 4.60) < 1e-6)
 
 print("prompt_user")
 pu = prompt_user({"objet": "Maintenance des serveurs", "cpv_principal": "72514000",

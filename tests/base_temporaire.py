@@ -12,6 +12,7 @@ et journaux (logs/) vers un dossier temporaire, pour qu'aucun test n'écrive dan
 """
 import json
 import tempfile
+import types
 from pathlib import Path
 
 
@@ -45,3 +46,35 @@ def isoler_logs(dossier_logs: Path = None) -> Path:
     dossier_logs.mkdir(parents=True, exist_ok=True)
     logs.LOG_DIR = dossier_logs
     return dossier_logs
+
+
+def brancher_faux_client_claude():
+    """Fait passer llm_router par le faux `anthropic.Anthropic` du test (lu à chaque
+    appel, donc remplaçable en cours de test). Les faux clients maison n'exposent que
+    `messages.create(**kw)` : le routeur appelle `messages.stream(**kw)`, redirigé ici
+    vers `create`. Aucun SDK réel, aucune clé, aucune attente de rate limit."""
+    import anthropic
+    from tendia.analyse import llm_router
+
+    class _Flux:
+        def __init__(self, message):
+            self.message = message
+
+        def __enter__(self):
+            return self
+
+        def __exit__(self, *exc):
+            return False
+
+        def get_final_message(self):
+            if not hasattr(self.message, "stop_reason"):
+                self.message.stop_reason = "end_turn"
+            return self.message
+
+    def _client(timeout_s):
+        messages = anthropic.Anthropic().messages
+        return types.SimpleNamespace(messages=types.SimpleNamespace(
+            stream=lambda **kw: _Flux(messages.create(**kw))))
+
+    llm_router._client_claude = _client
+    llm_router._respecter_rate_limit = lambda modele: None

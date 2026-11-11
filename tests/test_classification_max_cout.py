@@ -62,6 +62,8 @@ class _FauxClient:
 
 anthropic.Anthropic = _FauxClient
 C._check_anthropic = lambda: None
+from base_temporaire import brancher_faux_client_claude
+brancher_faux_client_claude()   # les appels passent par llm_router (chantier 2)
 
 MARCHE = {"titre": "Travaux de gros oeuvre", "objet": "Construction",
           "cpv_principal": "45210000", "acheteur_nom": "Commune de Test",

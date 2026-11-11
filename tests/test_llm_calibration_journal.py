@@ -78,6 +78,8 @@ def _client_en_erreur(*a, **k):
 
 anthropic.Anthropic = _FauxClient
 llm_extract._check_anthropic = lambda: None
+from base_temporaire import brancher_faux_client_claude
+brancher_faux_client_claude()   # les appels passent par llm_router (chantier 2)
 
 BRIEF = {
     "synthese_marche": "Réfection de la voirie communale et des réseaux d'eaux pluviales.",
