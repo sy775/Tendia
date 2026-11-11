@@ -11,7 +11,7 @@ src/tendia/            paquet installé par pip install -e . (imports : from ten
   core/        stockage (persistance kv_storage SQLite), chemins (RACINE_DEPOT, DATA, ...), logs, http_*, budget LLM
   veille/      recup (ingestion BOAMP), classification, preset, connecteurs/
   dce/         resolution (URL DCE), telecharger, dce_finder, resolution_reference, *_downloader
-  analyse/     extraire (brief), llm_extract, llm_router, llm_calibration, pdf_extract, auto_brief
+  analyse/     extraire (brief), mode_document + pieces + sources_lecture (lecture exhaustive), llm_router (client LLM unique), llm_extract, llm_calibration, pdf_extract, auto_brief
   prix/        decp/ (DECP), decp_comparables, marches_attribues, fourchette_scenarios, jointure
   memoire/     services/ (digest, rédaction, docx), prompts/
   eligibilite/ matching, matching_exigences, organisme, pertinence
@@ -24,7 +24,7 @@ tests/         hors ligne, python tests/lancer_tous.py ; fixtures dans tests/fix
 presets/       14 presets, socle profil, taxonomie
 docs/          doc ; le rapport docs/architecture_actuelle_2026-11_* fait foi
 archive/       mis de côté, hors git ; jamais supprimé sans validation
-data/, logs/   hors git ; data/dce = 124 Go sur un 2e disque, jamais sauvegardé
+data/, logs/   hors git ; data/dce = 124 Go sur un 2e disque, jamais sauvegardé, en lecture seule pour le mode document ; data/pieces = dossiers de travail de la lecture (zips décompressés, conversions, textes)
 ```
 Chemins vers `data/`, `logs/`, `presets/`, `rapports/`, `archive/` : toujours via `tendia.core.chemins`, jamais de `os.path.dirname(__file__)` empilé ni de chemin relatif au répertoire courant.
 
@@ -33,6 +33,8 @@ Chemins vers `data/`, `logs/`, `presets/`, `rapports/`, `archive/` : toujours vi
 - Appel LLM sans plafond (`--max-cost` ou `data/budget.json`) et sans journalisation dans `llm_appels`.
 - `stockage.sauver(collection)` pour une écriture unitaire (réécrit toute la collection, 58 Mo sur `marches`). Utiliser `stockage.ecrire`.
 - `sqlite3.connect` dans le code métier : tout passe par `stockage`.
+- `Anthropic(` ou un SDK LLM hors de `analyse/llm_router.py` : tout appel passe par `call_llm` / `appeler_modele` (kill switch, plafond, journal `llm_appels`).
+- Écrire dans `data/dce` : la lecture travaille dans `data/pieces/<id>`.
 - Supprimer un fichier : on déplace dans `archive/<chemin d'origine>`.
 - Script `diagnostic_*`, `debug_*`, `patch_*` à la racine.
 - Modifier `data/tendia.db` en masse sans `.bak_<objet>_<date>` préalable dans `archive/`.
@@ -60,11 +62,12 @@ Chemins vers `data/`, `logs/`, `presets/`, `rapports/`, `archive/` : toujours vi
 
 ## Pièges connus
 - `stockage.charger` lit toute la collection ; cache mémoire par processus (UI et scripts peuvent diverger).
-- Lecture DCE prod : `.pdf/.docx/.xlsx` au 1er niveau seulement, troncature 400 000 caractères. Le code exhaustif est dans `exp_gemini/pieces.py` et `mode_document.py`.
+- Lecture DCE : mode document par défaut (`analyse/mode_document.py`, toutes les pièces, Gemini argon avec repli Sonnet 4.6, `--max-cout-par-dce` 2,5 € : un DCE plus cher est sauté, jamais tronqué). L'ancien mode (`--mode classique` : PDF du 1er niveau, 400 000 caractères, Sonnet) dézippe encore à plat dans `data/dce`, comme `memoire/services/digest_memoire.py`.
+- `extraire` en mode document ne reprend pas un marché clos, absent de la base ou déjà briefé (sauf `--marche` / `--force`) ; plafond de passe par défaut 5 €.
 - `tendia.veille.classification` est l'étape 2 du pipeline (7 étapes) depuis le chantier 1 : `python -m tendia` et `Tendia.bat` paient la classification (plafond `--max-cout-classification`, 5 € par défaut ; `--skip-llm` la saute). `--max-cout 0` bloque tout appel.
 - `python-dotenv` installé : `http_humain`, `aws_downloader`, `dematis_downloader` chargent `.env` à l'import. Le proxy résidentiel ne s'applique que si `TENDIA_PROXY_ACTIF=1` (posé par `python -m tendia`, `Tendia.bat`, `retelecharger_*`, `rattrapage_btp_octobre`) ; UI, tests et audits passent en direct. `TENDIA_PROXY_ACTIF` ne va jamais dans `.env` : `http_humain.charger_env_fichier` l'ignore avec un avertissement. `curl_cffi` absent : `http_client` force `requests`.
 - Le pipeline lance ses étapes comme fichiers (`src/tendia/veille/recup.py`, ...) : déplacer un de ces modules impose de corriger `src/tendia/pipeline.py`.
-- `exp_gemini/ui_exp.py` importe encore `stockage` et `tendia_ui` à l'ancienne : cassé depuis 0b (non touché).
+- `archive/exp_gemini/ui_exp.py` (hors git) importe encore `stockage` et `tendia_ui` à l'ancienne : cassé depuis 0b, archivé tel quel au chantier 2.
 - Tests en échec connus : aucun (les attentes de `test_aws_downloader` et `test_qualifier_dce` ont été alignées sur le code au chantier 1).
 - Branche de travail : `main` (branche par défaut sur GitHub). Branches de chantier `chantier/<n>-<slug>`.
 
@@ -78,5 +81,7 @@ python tests/test_<module>.py             un test
 python scripts/audit/stats_pipeline_dce.py   état du pipeline DCE
 python -m tendia.prix.decp.cli audit      état DECP
 python -m tendia.veille.classification    classification Haiku seule (étape 2 du pipeline, payant)
-python -m tendia.analyse.extraire --marche ID   brief LLM d'un marché (payant)
+python -m tendia.analyse.extraire --marche ID --dry-run   inventaire des pièces et coût estimé (gratuit)
+python -m tendia.analyse.extraire --marche ID --max-cout 3   brief LLM d'un marché, mode document (payant)
+python scripts/audit/rapport_lecture_dce.py ID   pièces lues, coût réel, sources d'un brief (lecture seule)
 ```

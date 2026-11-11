@@ -9,8 +9,8 @@ Source : dépôt GitHub `sy775/Tendia`, branche `feat/decp-sprint-3` (313 fichie
 | Langage | Python 3.12, Python système (pas de venv actif) |
 | Web | Flask 3.1, Jinja2, Tailwind compilé statique, JS inline. Serveur de dev sur `127.0.0.1:5000` |
 | Base | SQLite `data/tendia.db` (169 Mo, WAL). Une seule table métier `kv_storage` (clé/valeur JSON) + 3 tables SQL DECP |
-| LLM prod | SDK `anthropic` : Sonnet 4.6 (briefs, mémoires, calibration), Haiku 4.5 (classification, DECP). 6 instanciations `Anthropic()` directes, pas d'abstraction |
-| LLM exp | `llm_router.py` + `config_llm.yaml` : Claude / Gemini (argon, flash-lite) / Opus 5.5, retries, coûts. **Importé uniquement par l'expérimentation** |
+| LLM | Client unique `analyse/llm_router.py` + `config_llm.yaml` (depuis le chantier 2) : kill switch et plafond avant chaque tentative, journal `llm_appels` après, tarifs datés. Brief en mode document : Gemini 4 argon, repli Sonnet 4.6. Inchangés : Sonnet 4.6 (mémoires, digest, calibration, brief classique et light), Haiku 4.5 (classification, DECP) |
+| LLM batch | Appels Gemini batch directs, hors `call_llm`, journalisés par leurs modules : `prix/decp/classif_batch.py`, `scripts/decp/pilote_arbitre*.py`, branche Gemini de `scripts/decp/pilote_classif.py` |
 | Captcha / proxy | 2captcha ; proxy résidentiel activable par plateforme (`http_humain.py`) |
 | Hébergement | Poste Windows local. Aucune tâche planifiée, aucun serveur distant, aucun mail |
 | Dépendances | `requirements.txt` (dont `beautifulsoup4`, `python-dotenv` depuis 0b) ; `curl_cffi` absent (repli `requests` forcé). Paquet `tendia` installé par `pip install -e .` (`pyproject.toml`) |
@@ -23,7 +23,7 @@ Source : dépôt GitHub `sy775/Tendia`, branche `feat/decp-sprint-3` (313 fichie
 | `python -m tendia [--skip-llm] [--skip-download] ...` (shim : `python tendia_pipeline.py`) | 7 étapes : récup BOAMP → classification Haiku (plafonnée) → résolution URL DCE → téléchargement anonyme → connecteurs dédiés anti-ban → extraction LLM → rapport |
 | `python -m tendia.ui` (shim : `python tendia_ui.py`) | UI Flask, lecture seule côté données sauf cycle/exigences/mémoires |
 | `python -m tendia.veille.classification` | Classification Haiku seule (c'est aussi l'étape 2 du pipeline) ; `--max-cout 0` bloque tout appel |
-| `python -m tendia.analyse.extraire [--marche ID]` | Brief LLM d'un dossier `data/dce/<id>/` |
+| `python -m tendia.analyse.extraire [--marche ID] [--mode document\|classique] [--max-cout EUR] [--max-cout-par-dce EUR]` | Brief LLM d'un dossier `data/dce/<id>/` ; mode document par défaut (lecture exhaustive, travail sous `data/pieces/<id>/`) |
 | `python -m tendia.prix.decp.cli ingest` | Ingestion DECP data.gouv → tables SQL |
 | `python scripts/memoire/generer_memoire.py` | Mémoire technique (aussi depuis l'UI) |
 | `python tests/lancer_tous.py` ou `python tests/test_<module>.py` | Tests hors ligne, style maison `check()`, sans pytest |
@@ -37,7 +37,7 @@ Depuis le chantier 0b, les 44 anciens modules racine (26 500 lignes) sont sous `
 | `core/` | `stockage` (66 imports : le cœur), `chemins`, `logs`, `http_client`, `http_utils`, `http_humain`, `budget` | Persistance, HTTP, anti-ban, garde-fou LLM |
 | `veille/` | `recup`, `connecteurs/boamp`, `classification`, `preset` | Ingestion BOAMP, classification, presets sectoriels |
 | `dce/` | `dce_finder`, `resolution_reference`, `resolution`, `telecharger`, `aws_downloader`, `atexo_downloader`, `dematis_downloader`, `achatpublic_downloader`, `marches_securises_downloader`, `xmarches_downloader` | Trouver et télécharger le DCE |
-| `analyse/` | `llm_extract`, `llm_router`, `llm_calibration`, `pdf_extract`, `extraire`, `auto_brief`, `briefs_versioning` ; à venir : `exp_gemini/*` (pieces, mode_document) | Lire le DCE, produire le brief |
+| `analyse/` | `llm_extract`, `llm_router`, `llm_calibration`, `pdf_extract`, `extraire`, `mode_document`, `pieces`, `sources_lecture`, `auto_brief`, `briefs_versioning` | Lire le DCE en entier, produire le brief avec ses sources |
 | `prix/` | `decp/` (17 modules + `decp_consolidee`), `marches_attribues`, `decp_comparables`, `fourchette_scenarios`, `jointure` | Comparables DECP, estimation |
 | `memoire/` | `services/` (digest, extraction contexte, rédaction, assemblage docx, pipeline, régénération), `prompts/` | Mémoire technique |
 | `eligibilite/` | `matching`, `matching_exigences`, `organisme`, `pertinence` (ex-`analyse.py`) | Profil entreprise × marché → verdict |
@@ -76,7 +76,8 @@ Collections déclarées mais absentes (lues par l'UI, reviennent vides) : `march
 
 ### 4.4 Données sur disque
 
-- `data/dce/<id_marche>/` : 1 193 dossiers, 124 Go, jonction vers un 2ᵉ disque. **Jamais sauvegardé.** Lecture prod : `.pdf/.docx/.xlsx` au premier niveau seulement, troncature à 400 000 caractères. Non lus : `.doc` (922 fichiers), `.xls` (296), `.odt`, `.rtf`, scans, ~3 000 sous-dossiers.
+- `data/dce/<id_marche>/` : 1 193 dossiers, 124 Go, jonction vers un 2ᵉ disque. **Jamais sauvegardé.** En lecture seule pour le mode document (chantier 2), qui lit tout : sous-dossiers, zips imbriqués, `.doc`/`.xls`/`.odt`/`.rtf` convertis par Office, scans lus visuellement ; chaque fichier non lu porte un statut dans `_lecture`. L'ancien mode (`--mode classique`) ne lit que `.pdf/.docx/.xlsx` au premier niveau, tronqués à 400 000 caractères.
+- `data/pieces/<id_marche>/` : dossier de travail de la lecture (zips décompressés, conversions, textes par page, `_inventaire.json`, `_trace.json`). Hors git, régénérable ; une reconstruction déplace l'ancien contenu dans `archive/data/pieces/`.
 - `data/extractions/<id>.json` : copie disque des briefs.
 - `data/exp_gemini/` : base d'expérimentation `tendia_exp.db` (copie de prod + 14 collections `exp_*`), isolée par monkeypatch de `sqlite3.connect`.
 - Sauvegarde du 2026-11-10 : `D:\Projects\tendia_backup_2026-11-10.zip` (21,5 Go, sans `data/dce`).
@@ -87,7 +88,7 @@ Collections déclarées mais absentes (lues par l'UI, reviennent vides) : `march
 BOAMP (API ODS)  →  marches
                  →  [manuel] tendia_classification  →  classifications_ia
                  →  tendia_dce (url_dce, qualité)   →  downloaders par plateforme  →  data/dce/<id>/
-                 →  tendia_extraire (pdf_extract → llm_extract Sonnet)  →  briefs_extraits (+ rapports/brief_*.md)
+                 →  analyse/extraire (mode document : pieces → mode_document → llm_router ; mode classique : pdf_extract → llm_extract Sonnet)  →  briefs_extraits (+ rapports/brief_*.md)
 UI : matching.evaluer(profil, brief) calculé à la volée (déterministe, sans LLM) → verdict
 UI : services/pipeline_memoire (Sonnet ×2) → memoires_techniques → .docx
 ```

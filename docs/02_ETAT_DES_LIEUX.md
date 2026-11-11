@@ -31,7 +31,7 @@ Fusion de `dette_technique.md` (juin), du rapport d'architecture du 2 novembre (
 - Codes `conseil_rd` / `enr` dans `decp_classification` ≠ `conseil` / `energie_renouvelable` des presets.
 
 ### 3.2 Analyse et matching
-- 6 instanciations `Anthropic()` directes ; `llm_router` n'est pas en prod. Promouvoir `llm_router` et journaliser **tous** les appels dans `llm_appels` (aujourd'hui, seule l'extraction est tracée).
+- Fait au chantier 2 (2026-11-11) : `llm_router` est le client unique (plus d'`Anthropic()` direct), tous les appels sont journalisés dans `llm_appels`.
 - `post_traiter_extraction_v2` jamais appelé par `tendia_extraire`.
 - Le matching confond « inconnu » et « non détenu » : un profil minimal est pénalisé à tort.
 - Score instable (57/39/32 sur le même marché) : le moteur est déterministe mais lit des champs LLM variables (`synthese_marche` texte libre, montant lu dans un seul champ).
