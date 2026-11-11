@@ -136,10 +136,11 @@ def _nom_zip(info_nom: str, utf8: bool) -> str:
             return info_nom
 
 
-def _chemin_cible(dest: Path, nom: str):
+def _chemin_cible(dest: Path, nom: str, racine_longs: Path = None):
     """Chemin d'extraction d'une entrée de zip sous `dest`, ou None si l'entrée sortirait
     du dossier (« ../ »). Les dossiers intermédiaires sont raccourcis ; si le chemin reste
-    trop long pour Windows, le fichier est rangé dans `dest/_long/<empreinte>/` (nom conservé)."""
+    trop long pour Windows, le fichier est rangé dans `<racine_longs>/<empreinte>/` (nom
+    conservé ; racine_longs : dossier court du marché, à défaut `dest/_long`)."""
     parties = [x for x in nom.replace("\\", "/").split("/") if x not in ("", ".")]
     if not parties or ".." in parties or ":" in parties[0]:
         return None
@@ -149,9 +150,11 @@ def _chemin_cible(dest: Path, nom: str):
                 for d in (x.rstrip(" .") or "_" for x in parties[:-1])]
     cible = dest.joinpath(*dossiers, parties[-1])
     if len(str(cible)) > LONGUEUR_MAX_CHEMIN:
-        fichier = Path(parties[-1])
-        court = fichier.stem[:80] + fichier.suffix
-        cible = dest / "_long" / hashlib.sha1(nom.encode('utf-8', 'replace')).hexdigest()[:8] / court
+        fichier = Path(parties[-1].rstrip(" ."))
+        court = (fichier.stem[:80].rstrip(" .") or "_") + fichier.suffix
+        empreinte = hashlib.sha1(f"{dest}|{nom}".encode("utf-8", "replace")).hexdigest()[:10]
+        cible = (racine_longs or dest / "_long") / empreinte / court
+        return cible
     if dest.resolve() not in cible.resolve().parents:
         return None
     return cible
@@ -198,14 +201,15 @@ def _entrees_zip_tronque(zp: Path):
         pos = fin
 
 
-def _extraire_entree(dest: Path, nom: str, ecrire, zp: Path, profondeur: int) -> list:
+def _extraire_entree(dest: Path, nom: str, ecrire, zp: Path, profondeur: int, racine_longs: Path = None) -> list:
     """Écrit une entrée (ecrire(fichier_ouvert)) et décompresse un zip imbriqué. Rend les erreurs."""
-    cible = _chemin_cible(dest, nom)
+    cible = _chemin_cible(dest, nom, racine_longs)
     if cible is None:
         return [f"{zp.name}: entrée ignorée (chemin hors archive) : {nom}"]
     if cible.exists():
         # deux entrées vers le même fichier (noms raccourcis, casse) : aucune n'écrase l'autre
-        cible = dest / "_long" / hashlib.sha1(nom.encode("utf-8", "replace")).hexdigest()[:10] / cible.name
+        cible = ((racine_longs or dest / "_long")
+                 / hashlib.sha1(f"{dest}|{nom}|2".encode("utf-8", "replace")).hexdigest()[:10] / cible.name)
         if cible.exists():
             return [f"{zp.name}: entrée en double ignorée : {nom}"]
     cible.parent.mkdir(parents=True, exist_ok=True)
@@ -214,12 +218,15 @@ def _extraire_entree(dest: Path, nom: str, ecrire, zp: Path, profondeur: int) ->
     if cible.suffix.lower() in ARCHIVES:
         empreinte = hashlib.sha1(nom.encode("utf-8", "replace")).hexdigest()[:6]
         sous = cible.with_name(f"{cible.stem[:30].rstrip(' .')}~{empreinte}_zip")
-        sous.mkdir(exist_ok=True)
-        return _dezipper(cible, sous, profondeur + 1)
+        if racine_longs is not None and len(str(sous)) > LONGUEUR_MAX_CHEMIN - 60:
+            # zip imbriqué déjà profond : son contenu repart d'un dossier court
+            sous = racine_longs / f"{hashlib.sha1(str(cible).encode('utf-8', 'replace')).hexdigest()[:10]}_zip"
+        sous.mkdir(parents=True, exist_ok=True)
+        return _dezipper(cible, sous, profondeur + 1, racine_longs)
     return []
 
 
-def _dezipper(zp: Path, dest: Path, profondeur=0) -> list:
+def _dezipper(zp: Path, dest: Path, profondeur=0, racine_longs: Path = None) -> list:
     """Décompresse récursivement sous `dest` ; renvoie les erreurs éventuelles, chacune
     préfixée par « <nom du zip>: ». Un zip tronqué (sans répertoire central) est lu
     séquentiellement : ses premières pièces sont récupérées, la troncature est signalée."""
@@ -234,14 +241,15 @@ def _dezipper(zp: Path, dest: Path, profondeur=0) -> list:
                 nom = _nom_zip(info.filename, bool(info.flag_bits & 0x800))
                 try:
                     with z.open(info) as s:
-                        erreurs += _extraire_entree(dest, nom, lambda d: shutil.copyfileobj(s, d), zp, profondeur)
+                        erreurs += _extraire_entree(dest, nom, lambda d: shutil.copyfileobj(s, d), zp,
+                                                    profondeur, racine_longs)
                 except Exception as e:
                     erreurs.append(f"{zp.name}: {type(e).__name__} sur « {nom[-80:]} » : {str(e)[:120]}")
     except zipfile.BadZipFile as e:
         recuperes = 0
         try:
             for nom, contenu in _entrees_zip_tronque(zp):
-                erreurs += _extraire_entree(dest, nom, lambda d: d.write(contenu), zp, profondeur)
+                erreurs += _extraire_entree(dest, nom, lambda d: d.write(contenu), zp, profondeur, racine_longs)
                 recuperes += 1
         except Exception as e2:
             erreurs.append(f"{zp.name}: {type(e2).__name__}: {str(e2)[:120]}")
@@ -572,7 +580,7 @@ def inventorier(mid: str, dossier_dce: str, verbose: bool = True, force: bool = 
     for i, f in enumerate([f for f in fichiers if f.suffix.lower() in ARCHIVES]):
         dest = travail / "_extrait" / f"{i:02d}_{f.stem[:40].rstrip(' .')}"
         dest.mkdir()
-        erreurs_zip = _dezipper(f, dest)
+        erreurs_zip = _dezipper(f, dest, racine_longs=travail / "_extrait" / "_l")
         erreurs += erreurs_zip
         # Archive (ou archive imbriquée) non lue en entier : son contenu manque, on le dit.
         for e in erreurs_zip:
