@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Premier accès · Mon entreprise · Tendia (maquette)</title><style>
+:root{--bg:#F5F1E8;--bg2:#EBE5D7;--surface:#FAF7F2;--pure:#fff;--ink:#0F1B3D;--ink2:#2E3B5C;--ink3:#56607A;
+--bord:#8B92A4;--line2:rgba(15,27,61,.10);--accent:#1E2761;--accent2:#18214F;--tint:#DFE1EC;
+--gold:#C9A961;--gold-deep:#7A5E2C;--gold-soft:#F5EDD9;--leaf:#14512F;--leaf-soft:#E4EDE7;--rose:#9A3B2F;--rose-soft:#F3E0DC;
+--stone:#4B5563;--stone-soft:#ECE7E0}
+*{box-sizing:border-box}
+html{font-size:17px}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Segoe UI Variable",Roboto,Helvetica,Arial,sans-serif;line-height:1.5}
+a{color:var(--accent);text-underline-offset:3px}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible,label.choix:focus-within{outline:3px solid var(--accent);outline-offset:2px}
+.cote a:focus-visible{outline-color:var(--gold)}
+h1{font-size:1.9rem;line-height:1.15;margin:0 0 .4rem;letter-spacing:-.02em;text-wrap:balance}
+h2{font-size:1.25rem;margin:0 0 .6rem;letter-spacing:-.01em}
+h2.rubrique{font-size:1.45rem;margin:0 0 .5rem}
+h3{font-size:1.05rem;margin:0 0 .25rem}
+p{margin:0 0 .7rem}
+.petit{font-size:.88rem;color:var(--ink3)}
+.cache{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+.app{display:flex;min-height:100vh}
+.cote{width:240px;flex:none;background:linear-gradient(180deg,#0F1B3D,#18214F);color:#FAF7F2;padding:32px 16px;position:sticky;top:0;height:100vh}
+.marque{display:flex;align-items:center;gap:10px;font-size:1.4rem;font-weight:700;padding:0 12px 6px}
+.marque svg{flex:none}
+.sous-marque{font-size:.62rem;letter-spacing:.13em;text-transform:uppercase;color:var(--gold);padding:0 12px 22px;font-weight:600}
+.cote nav a{display:flex;align-items:center;color:#D5D8E0;text-decoration:none;padding:11px 12px;border-radius:9px;font-weight:600;font-size:.95rem;min-height:44px}
+.cote nav a.actif{background:rgba(255,255,255,.10);color:#fff;box-shadow:inset 3px 0 0 var(--gold)}
+.contenu{flex:1;min-width:0;padding:40px 48px 60px;max-width:1200px}
+.sur{font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink3);font-weight:700;margin-bottom:6px}
+.retour{display:inline-flex;align-items:center;min-height:44px;font-weight:700;margin-bottom:4px}
+.onglets{display:flex;gap:6px;flex-wrap:wrap;margin:22px 0 22px;border-bottom:1px solid var(--line2)}
+.onglets a{display:inline-flex;align-items:center;gap:6px;padding:11px 14px;text-decoration:none;color:var(--ink2);font-weight:600;border-bottom:3px solid transparent;min-height:46px;white-space:nowrap}
+.onglets a.actif{color:var(--ink);border-bottom-color:var(--gold-deep)}
+.compte{font-weight:700;font-size:.86rem;background:var(--stone-soft);border-radius:99px;padding:1px 9px}
+.compte.urgent{background:var(--rose-soft);color:var(--rose)}
+.carte{background:var(--pure);border:1px solid var(--line2);border-radius:14px;padding:22px 24px;margin-bottom:16px;box-shadow:0 1px 2px rgba(15,27,61,.04)}
+.carte.accent{border-left:5px solid var(--accent)}
+.carte.or{background:var(--gold-soft);border-color:#E2D2A6}
+.grille2{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);gap:20px;align-items:start}
+.grille-egale{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:46px;padding:10px 20px;border-radius:10px;border:1.5px solid var(--bord);background:var(--pure);color:var(--ink);font:inherit;font-weight:700;text-decoration:none;cursor:pointer}
+.btn.principal{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn.discret{border-color:transparent;background:transparent;text-decoration:underline;font-weight:600;padding-left:6px;padding-right:6px}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px;align-items:center}
+.etat{display:inline-flex;align-items:center;gap:7px;font-weight:700;font-size:.86rem;border-radius:99px;padding:4px 12px;white-space:nowrap}
+.etat::before{content:"";width:10px;height:10px;flex:none}
+.etat.ok{background:var(--leaf-soft);color:var(--leaf)}.etat.ok::before{border-radius:50%;background:var(--leaf)}
+.etat.bientot{background:var(--gold-soft);color:var(--gold-deep)}.etat.bientot::before{background:var(--gold-deep);clip-path:polygon(50% 0,100% 100%,0 100%)}
+.etat.expire{background:var(--rose-soft);color:var(--rose)}.etat.expire::before{background:var(--rose)}
+.etat.manque{background:var(--stone-soft);color:var(--stone)}.etat.manque::before{border-radius:50%;border:2px solid var(--stone)}
+.etat.info{background:var(--tint);color:var(--accent)}.etat.info::before{border-radius:2px;background:var(--accent);transform:rotate(45deg)}
+.etat.ecarte{background:var(--stone-soft);color:var(--stone)}.etat.ecarte::before{content:"×";width:auto;height:auto;font-size:1.05rem;line-height:.6}
+.ligne{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:14px 20px;padding:18px 0;border-top:1px solid var(--line2);align-items:start}
+.ligne:first-of-type{border-top:0;padding-top:4px}
+.ligne .droite{display:flex;flex-direction:column;align-items:flex-end;gap:10px}
+.debloque{font-weight:600;color:var(--ink2)}
+.debloque b{color:var(--ink)}
+.jauge{height:14px;background:var(--bg2);border-radius:99px;overflow:hidden;margin:10px 0 6px}
+.jauge i{display:block;height:100%;background:var(--accent);border-radius:99px}
+.etapes{list-style:none;margin:14px 0 0;padding:0}
+.etapes li{display:grid;grid-template-columns:34px minmax(0,1fr) auto;gap:12px;align-items:center;padding:13px 0;border-top:1px solid var(--line2)}
+.etapes li:first-child{border-top:0}
+.pastille{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font-weight:700;font-size:.85rem;background:var(--stone-soft);color:var(--stone)}
+.pastille.fait{background:var(--leaf);color:#fff}.pastille.cours{background:var(--gold);color:var(--ink)}
+.etapes a,.etapes strong{font-weight:700}
+.depot{border:2.5px dashed var(--bord);border-radius:16px;background:var(--surface);padding:30px 20px;text-align:center}
+.depot strong{display:block;font-size:1.2rem;margin-bottom:4px}
+.champ{display:block;font-weight:700;margin:12px 0 5px}
+.aide{display:block;font-weight:400;color:var(--ink3);font-size:.88rem}
+input[type=text],select{font:inherit;min-height:46px;padding:9px 12px;border:1.5px solid var(--bord);border-radius:9px;background:#fff;color:var(--ink);width:100%;max-width:420px}
+.erreur-champ{margin-top:10px;padding:12px 14px;border-radius:10px;background:var(--rose-soft);color:#6E271E;font-weight:600}
+.rang{display:flex;gap:10px;flex-wrap:wrap;align-items:end}
+.choix{position:relative;display:inline-flex;align-items:center;justify-content:center;min-width:92px;min-height:46px;border:1.5px solid var(--bord);border-radius:10px;font-weight:700;background:#fff;cursor:pointer;padding:0 14px}
+.choix input{position:absolute;opacity:0;inset:0}
+.choix.coche{background:var(--accent);border-color:var(--accent);color:#fff}
+.choix.coche::before{content:"✓";margin-right:7px}
+.question{padding:20px 0;border-top:1px solid var(--line2)}
+.question:first-of-type{border-top:0;padding-top:4px}
+.reponses{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+.effet{margin-top:10px;padding:10px 14px;border-radius:10px;background:var(--leaf-soft);color:var(--leaf);font-weight:600;font-size:.92rem}
+.effet.neutre{background:var(--stone-soft);color:var(--ink2);font-weight:400}
+.effet.neutre b{font-weight:700}
+.fichier{font-family:Consolas,Menlo,monospace;font-size:.84rem;color:var(--ink3);overflow-wrap:anywhere}
+.bandeau{border-radius:12px;padding:14px 18px;margin-bottom:14px;font-weight:600;display:flex;gap:12px;align-items:flex-start}
+.bandeau.rose{background:var(--rose-soft);color:#6E271E}.bandeau.or{background:var(--gold-soft);color:#5C4620}
+.bandeau .btn{margin-left:auto;flex:none}
+table{border-collapse:collapse;width:100%}
+th,td{text-align:left;padding:10px 12px;border-top:1px solid var(--line2);vertical-align:top}
+th{font-size:.86rem;color:var(--ink3);border-top:0}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+td .btn{min-height:40px;padding:6px 14px;margin:2px 4px 2px 0}
+details.plie>summary{list-style:none;cursor:pointer}
+details.plie>summary::-webkit-details-marker{display:none}
+.suite{display:flex;justify-content:flex-end;margin-top:8px}
+.pied{margin-top:30px;padding:14px 18px;border-radius:12px;background:var(--bg2);font-weight:600}
+.note-maquette{margin-top:14px;padding:12px 16px;border:1px dashed var(--bord);border-radius:10px;font-size:.82rem;color:var(--ink3)}
+.liste-simple{margin:.3rem 0 0;padding-left:1.2rem}.liste-simple li{margin:.3rem 0}
+.mobile{display:none}
+@media (max-width:820px){
+ html{font-size:16px}
+ .app{display:block}
+ .cote{width:auto;height:auto;position:static;padding:10px 14px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+ .marque{font-size:1.15rem;padding:0 6px 0 0}.sous-marque{display:none}
+ .cote nav{display:flex;gap:2px;margin-left:auto}
+ .cote nav a{padding:8px 10px;font-size:.84rem}
+ .contenu{padding:18px 16px 40px}
+ h1{font-size:1.35rem}
+ h2.rubrique{font-size:1.5rem}
+ .onglets{flex-wrap:nowrap;overflow-x:auto;margin:14px -16px 16px;padding:0 16px;scrollbar-width:thin;
+   -webkit-mask-image:linear-gradient(90deg,#000 82%,transparent);mask-image:linear-gradient(90deg,#000 82%,transparent)}
+ .onglets a.actif{order:-1}
+ .grille2,.grille-egale{grid-template-columns:minmax(0,1fr)}
+ .carte{padding:18px 16px}
+ .ligne{grid-template-columns:minmax(0,1fr)}
+ .ligne .droite{order:-1;align-items:flex-start}
+ .ligne .droite .btn{order:2}
+ .ligne.avec-actions{display:flex;flex-direction:column}
+ .ligne.avec-actions .droite{order:0;width:100%}
+ .ligne.avec-actions .etat{order:-2}
+ .etapes li{grid-template-columns:34px minmax(0,1fr)}
+ .etapes li .etat{grid-column:2;justify-self:start}
+ .bandeau{flex-direction:column}.bandeau .btn{margin-left:0}
+ .btn{width:100%}.btn.discret{width:auto;min-height:44px}
+ .reponses{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
+ .reponses .choix{min-width:0;padding:0 10px}
+ table.empile thead{display:none}
+ table.empile tr{display:block;padding:10px 0;border-top:1px solid var(--line2)}
+ table.empile td{display:flex;justify-content:space-between;gap:12px;border:0;padding:3px 0;text-align:right}
+ table.empile td::before{content:attr(data-l);font-weight:600;color:var(--ink3);text-align:left}
+ table.empile td.act{display:block;text-align:left;padding-top:8px}
+ table.empile td.act::before{content:none}
+ table.empile td.num{white-space:normal}
+ .bureau{display:none}.mobile{display:revert}
+}
+</style></head>
+<body><div class="app">
+<aside class="cote"><div><div class="marque"><svg width="28" height="28" viewBox="0 0 32 32" fill="none" aria-hidden="true"><circle cx="16" cy="16" r="13.5" stroke="#C9A961" stroke-width="1.4" opacity=".4"/><circle cx="16" cy="16" r="8" stroke="#C9A961" stroke-width="1.4" opacity=".72"/><circle cx="16" cy="16" r="2.6" fill="#C9A961"/><path d="M16 16 25.5 6.5" stroke="#C9A961" stroke-width="1.6" stroke-linecap="round"/></svg>Tendia</div><div class="sous-marque">Marchés publics de travaux</div></div>
+<nav aria-label="Menu principal"><a href="#">Accueil</a><a href="#">Marchés</a><a href="02_vue_ensemble.html" class="actif" aria-current="true">Mon entreprise</a></nav></aside>
+<main class="contenu"><div class="sur">Premier accès</div><h1>Bienvenue. Présentez votre entreprise une seule fois.</h1><p>Ensuite, Tendia prépare vos dossiers de candidature à votre place. Comptez une vingtaine de minutes. Chaque étape se valide par un bouton : vous pouvez vous arrêter entre deux étapes et reprendre plus tard, rien n'est perdu.</p><p class="petit mobile">Vos documents restent chez vous · Aide au 02 43 00 00 00</p><div class="grille2"><div>
+<section class="carte accent"><div class="sur">Étape 1 sur 3 · 1 minute</div><h2>Votre numéro SIRET</h2>
+<p>Tendia retrouve le nom, l'adresse et l'activité de votre entreprise dans l'annuaire public des entreprises. Vous n'avez rien d'autre à taper.</p>
+<label class="champ" for="siret">Numéro SIRET <span class="aide">14 chiffres. Il figure sur vos factures et sur votre Kbis.</span></label>
+<div class="rang"><input id="siret" type="text" inputmode="numeric" value="812 345 678 00021" autocomplete="off"><button type="button" class="btn">Retrouver mon entreprise</button></div>
+<div class="carte or" style="margin:18px 0 0"><h3>Bâti Confiance Construction (BCC)</h3>
+<p style="margin:0">SAS créée en 2004 · 14 rue des Bâtisseurs, 72000 Le Mans<br>Activité déclarée : construction de bâtiments · 50 à 99 salariés</p>
+<div class="actions"><a class="btn principal" href="03_depot_documents.html">Oui, c'est mon entreprise</a><button type="button" class="btn">Non, ce n'est pas elle</button></div></div>
+<p class="petit" style="margin-top:12px">Vous n'avez pas le numéro sous la main ? <a href="#">Chercher par le nom de l'entreprise</a></p>
+<details class="petit" open><summary><b>Si le numéro n'est pas reconnu</b> (illustration du message d'erreur)</summary>
+<div class="erreur-champ">Tendia ne trouve pas ce numéro. Vérifiez les 14 chiffres sur une facture, ou cherchez par le nom de l'entreprise.</div></details></section>
+
+<section class="carte"><div class="sur">Étape 2 sur 3 · 10 minutes</div><h2>Vos documents</h2>
+<p>Déposez en vrac ce que vous avez déjà. Tendia reconnaît chaque document, lit sa date de validité et vous prévient avant qu'il n'expire.</p>
+<p style="margin-bottom:6px"><b>Les quatre documents les plus demandés :</b></p>
+<ul class="liste-simple"><li>Attestation d'assurance responsabilité civile <span class="petit">· demandée dans 2 marchés de travaux sur 3</span></li><li>Attestation d'assurance décennale <span class="petit">· 4 marchés sur 10</span></li>
+<li>Certificat Qualibat, si vous en avez un <span class="petit">· 1 marché sur 5</span></li><li>Extrait Kbis de moins de 3 mois <span class="petit">· 1 marché sur 6</span></li></ul>
+<p class="petit" style="margin-top:10px">Il vous en manque ? Ce n'est pas bloquant : Tendia vous indiquera où les obtenir.</p></section>
+
+<section class="carte"><div class="sur">Étape 3 sur 3 · 10 minutes</div><h2>Quelques questions, vos chantiers, vos chiffres</h2>
+<p style="margin:0">Huit questions auxquelles on répond par oui ou par non, vos trois meilleurs chantiers des cinq dernières années, puis votre chiffre d'affaires, votre équipe et votre matériel.</p></section>
+</div>
+<aside><div class="carte"><h2>Ce que vous y gagnez</h2>
+<p><b style="font-size:1.6rem">509</b><br>marchés publics de travaux sont ouverts aujourd'hui en France.</p>
+<p>Une fois votre entreprise présentée, Tendia :</p><ul class="liste-simple"><li>vous montre ceux auxquels vous pouvez répondre ;</li><li>remplit les formulaires de candidature (la lettre de candidature, dite DC1, et la déclaration du candidat, dite DC2) ;</li><li>joint les bons documents, à jour.</li></ul></div>
+<div class="carte"><h2>Vos documents restent chez vous</h2><p style="margin:0">Ils restent sur l'ordinateur où Tendia est installé. Tendia ne les envoie à aucun acheteur : c'est vous qui déposez chaque dossier.</p></div></aside></div>
+<p class="pied">Besoin d'aide ? Appelez le 02 43 00 00 00, du lundi au vendredi. Nous pouvons remplir cette page avec vous par téléphone.</p>
+<p class="note-maquette">Maquette statique. Entreprise fictive (profil de démonstration « Bâti Confiance Construction »). Les proportions (« 2 marchés de travaux sur 3 ») viennent de <code>exigences_frequence.md</code>. Le nombre de 38 marchés correspondant à l'entreprise est fictif ; « environ N de vos 38 marchés » applique la proportion à ce nombre, en attendant le compte exact. </p>
+</main></div></body></html>
