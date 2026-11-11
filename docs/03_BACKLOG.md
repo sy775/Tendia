@@ -93,6 +93,7 @@ Un chantier = une session Claude Code, un objectif, un critère de fin vérifiab
 - Modules à découper (règle des 800 lignes) : `analyse/extraire.py` (~1 700 l.), `analyse/llm_extract.py` (~1 500 l.).
 - `memoire/services/digest_memoire.py` dézippe encore à plat dans `data/dce` : le faire lire via `pieces.inventorier`.
 - Purge des dossiers de travail `data/pieces/<id>` des marchés clos (4,4 Go après le chantier 2) : décision à prendre, la règle actuelle est de ne rien supprimer.
+- Majeurs reportés du chantier 2 : AUDIT_2 (valeur affichée à côté d'une source non contrôlée, plafond par DCE limité à l'estimation, `plan_ignore` sur le seul nom, quota journalier incohérent entre modes, écritures restantes dans `data/dce`) et audit design de la fiche (docs/audit_design/2026-11-11_fiche_sources.md : sources invisibles à l'arrivée, saut d'ancre `#sec-0`, heure limite, montant publié, visite obligatoire).
 - Majeurs de AUDIT_1b non traités au chantier 2 : `scripts/audit/audit_matching_n2.py` ignore le verdict `non_classe` ; le bloc de décision peut afficher des jours restants négatifs quand la date limite vient du brief ; `ui/app.py` (2 200 lignes) à découper.
 
 ## Questions ouvertes (à trancher par Younes)

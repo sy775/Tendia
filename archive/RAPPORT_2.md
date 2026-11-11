@@ -260,3 +260,17 @@ Hors code, à valider par Younes :
 - le `model: claude-fable-5-2` ajouté à `audit-code.md` et `audit-design.md`.
 
 L'UI démarre (`python -m tendia.ui`) : la fiche réelle BOAMP-26-104121 répond 200 et affiche « 47/47 pièces lues » et ses sources.
+
+## Audit design de la fiche (docs/audit_design/2026-11-11_fiche_sources.md)
+
+Verdict : aucun bloquant propre au chantier, 10 majeurs, 7 mineurs ; contraste et taille conformes. Rien n'est corrigé (règle : bloquants seulement). Majeurs reportés au prochain chantier UI :
+- le bandeau « n/n pièces lues » et les sources ne sont pas visibles à l'arrivée : le script d'onglets saute à l'ancre `#sec-0`, et 4 sources sur 6 sont dans le dernier onglet ;
+- l'heure limite n'apparaît qu'en ISO dans la ligne de source ;
+- la source du montant se lit comme celle de l'estimation IA (voie 2, conservée par le garde-fou) ;
+- le montant « publié, voir commentaire » s'affiche « non communiqué », avec un dictionnaire brut ;
+- « non vérifiée » et « lecture partielle » ne sont pas expliqués ;
+- « 47/47 pièces lues » ne dit pas que 157 plans ont été écartés ;
+- la visite obligatoire n'est pas mise en relief ;
+- l'allotissement est incohérent avec sa source.
+
+59 captures ont été ajoutées dans `docs/audit_design/captures/`, contacts masqués.
