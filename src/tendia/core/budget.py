@@ -179,7 +179,7 @@ def peut_appeler_llm(type_appel: str,
         )
 
     # Plafond dur mensuel global (appliqué même si actif=false : c'est un garde-fou)
-    plafond_mois = config.get("plafond_global_eur_mois")
+    plafond_mois = valeur_du_mois(config.get("plafond_global_eur_mois"))
     if plafond_mois is not None:
         cout_mois = _cout_mois()
         if cout_mois >= float(plafond_mois):
@@ -223,11 +223,30 @@ def verifier_kill_switch(type_appel: str) -> None:
     if config.get("kill_switch_global"):
         raise BudgetDepasseError(
             f"Appel LLM « {type_appel} » bloqué : kill_switch_global=true (data/budget.json).")
-    plafond_mois = config.get("plafond_global_eur_mois")
+    plafond_mois = valeur_du_mois(config.get("plafond_global_eur_mois"))
     if plafond_mois is not None and _cout_mois() >= float(plafond_mois):
         raise BudgetDepasseError(
             f"Appel LLM « {type_appel} » bloqué : plafond mensuel global "
             f"{float(plafond_mois):.2f} € atteint.")
+
+
+def valeur_du_mois(valeur, mois: Optional[str] = None) -> Optional[float]:
+    """Résout un plafond ou un seuil mensuel : un nombre, ou un dictionnaire daté
+    {"AAAA-MM": valeur, "defaut": valeur} lu pour le mois de l'appel (mois courant UTC).
+    None si absent ; un mois non listé sans « defaut » donne None (pas de plafond daté)."""
+    if valeur is None or isinstance(valeur, bool):
+        return None
+    if isinstance(valeur, dict):
+        mois = mois or _mois_iso()
+        valeur = valeur.get(mois, valeur.get("defaut"))
+        if valeur is None:
+            return None
+    return float(valeur)
+
+
+def plafond_mois(mois: Optional[str] = None) -> Optional[float]:
+    """Plafond dur mensuel résolu pour le mois (data/budget.json, plafond_global_eur_mois)."""
+    return valeur_du_mois(lire_config().get("plafond_global_eur_mois"), mois)
 
 
 def _cout_mois(mois: Optional[str] = None) -> float:
@@ -468,7 +487,8 @@ def statistiques_mois(mois: Optional[str] = None) -> dict:
 
     # Alerte si seuil mensuel dépassé
     config = lire_config()
-    seuil = float(config.get("alerte_seuil_eur_mois") or 50)
+    seuil = valeur_du_mois(config.get("alerte_seuil_eur_mois"), mois)
+    seuil = 50.0 if seuil is None else seuil
     stats["alerte_active"] = stats["cout_total_eur"] >= seuil
     stats["seuil_alerte"] = seuil
 

@@ -51,14 +51,15 @@ Chemins vers `data/`, `logs/`, `presets/`, `rapports/`, `archive/` : toujours vi
 - Avant de terminer : `python tests/lancer_tous.py` passe (échecs connus listés dans Pièges connus), l'UI démarre, puis sous-agent `audit-code`.
 
 ## Sous-agents
+Mode rapide (depuis le chantier 2b) :
 - `Explore` pour la lecture de début de chantier (résumé seulement).
-- `testeur` avant le code de chaque étape qui crée ou change un comportement.
-- `relecteur-etape` après chaque commit d'étape ; un bloquant se corrige avant l'étape suivante.
-- `verif-tests` pour lancer les tests.
-- `verificateur-brief` sur tout brief produit par un run.
-- Clôture par `audit-code`, plus `audit-design` en parallèle si `src/tendia/ui/` est touché.
+- Pas de `testeur` ni de `relecteur-etape` (archivés dans `archive/.claude/agents/`) : les tests utiles s'écrivent avec le code.
+- `verif-tests` (haiku) deux fois : après la dernière étape de code, et juste avant la fusion.
+- Un seul `audit-code` (claude-fable-5-2) en clôture ; on corrige ses bloquants seulement.
+- `verificateur-brief` (claude-fable-5-2) seulement quand un chantier produit des briefs, un par un (429 : attendre et relancer).
+- `audit-design` (opus) seulement quand le chantier le demande.
 - Jamais deux sous-agents qui écrivent dans le dépôt en parallèle.
-- Modèles : Fable pour écrire et vérifier, Haiku pour `verif-tests`.
+- Sorties courtes, pas de recopie de fichiers.
 
 ## Pièges connus
 - `stockage.charger` lit toute la collection ; cache mémoire par processus (UI et scripts peuvent diverger).

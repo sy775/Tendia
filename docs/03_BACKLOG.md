@@ -10,7 +10,8 @@ Un chantier = une session Claude Code, un objectif, un critère de fin vérifiab
 | 0b | Structure `src/tendia/`, `CLAUDE.md`, branche `main`, 2 régressions de 0a | **Terminé le 2026-11-10**, réserve : `test_aws_downloader` et `test_qualifier_dce` périmés (antérieurs à 0b), repris en étape 1 du chantier 1 | 0a |
 | 1 | Redémarrer la chaîne LLM | **Terminé le 2026-11-11**, 17,95 € (classification 10,85, briefs 7,10) ; 14 briefs BTP d'octobre ; majeurs de AUDIT_1 repris au chantier 2 (étape 1 : tests et `telecharger` ; étape 3 : journalisation de `llm_extract` par `llm_router`) | 0b |
 | 1b | UI démo : corrections bloquantes de l'audit design (profil, clos, pagination, non classé, bloc décision) | **Terminé le 2026-11-11** | 1 |
-| 2 | Promouvoir le mode document en prod (lecture exhaustive des DCE) | **À reprendre : fidélité 18/30 (< 28/30), la fusion perd l'heure limite et invente des montants ; BOAMP-26-102749 non lu (zip tronqué, 4,58 € estimés)** ; coût réel 6,43 € ; mode document en prod | 1 |
+| 2 | Promouvoir le mode document en prod (lecture exhaustive des DCE) | **À reprendre, voir 2b** (fidélité 18/30, fusion qui perd l'heure limite et invente des montants, BOAMP-26-102749 non lu) ; coût réel 6,43 € ; mode document en prod | 1 |
+| 2b | Fiabiliser la fusion (champs critiques sans LLM, montant publié / estimé séparés), finir la lecture, produire les briefs | **En cours, plafond 28 €** | 2 |
 | 3 | Dossier manuel sur un marché BTP réel, puis agent d'assemblage | À faire | 2 |
 | 4 | Coffre-fort entreprise | À faire | 3 |
 | 5 | Test Scrapling sur les 3 plateformes où le plus de DCE sont perdus | À faire | 0b |
