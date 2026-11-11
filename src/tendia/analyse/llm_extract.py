@@ -1368,6 +1368,7 @@ def extraire_via_llm(texte: str, contexte: dict,
     debut = time.time()
     derniere_erreur = None
     cout_cumule = 0.0   # toutes les tentatives payées de ce brief (relances JSON comprises)
+    tokens_in_cumules = tokens_out_cumules = 0
     for tentative in range(1, max_retries + 1):
         try:
             if verbose:
@@ -1388,6 +1389,8 @@ def extraire_via_llm(texte: str, contexte: dict,
             cout_usd = (in_tokens * 3 + out_tokens * 15) / 1_000_000
             cout_eur = rep.cout_eur or 0.0
             cout_cumule += cout_eur
+            tokens_in_cumules += in_tokens
+            tokens_out_cumules += out_tokens
 
             if verbose:
                 print(f"  ← Réponse en {duree:.1f}s")
@@ -1418,8 +1421,9 @@ def extraire_via_llm(texte: str, contexte: dict,
                 # les déplacer dans son propre _meta.
                 data_parsee["_appel_llm"] = {
                     "modele": MODELE,
-                    "tokens_input": in_tokens,
-                    "tokens_output": out_tokens,
+                    "tokens_input": tokens_in_cumules,
+                    "tokens_output": tokens_out_cumules,
+                    "nb_tentatives": tentative,
                     "cout_eur": round(cout_cumule, 6),
                     "duree_sec": round(duree, 1),
                     "codes_presets": codes_presets,  # 1E : remonté pour le _meta

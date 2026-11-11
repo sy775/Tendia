@@ -4,7 +4,8 @@ decp/classifier_llm.py — classification niveau 2 (LLM Haiku 4.5), Sprint DECP 
 Classe les marchés DECP ambigus/inconnus (preset_principal NULL après niveau 1)
 avec Claude Haiku 4.5. Budget tracker thread-safe + arrêt net à 50 €.
 
-Tarif Haiku 4.5 : 1 $/1M input, 5 $/1M output (×0.95 €/$). ~430 tok/marché ⇒ ~0,0005 €.
+Tarif Haiku 4.5 : 1 $/1M input, 5 $/1M output, taux de config_llm.yaml (0,92 €/$ ;
+0,95 avant le chantier 2). ~430 tok/marché ⇒ ~0,0005 €. Coût calculé par llm_router.
 """
 import hashlib
 import json

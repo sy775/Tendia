@@ -43,6 +43,10 @@ tarifs_usd_par_million:
 # Appels par minute maximum (intervalle minimal entre deux appels d'un même modèle).
 rate_limits_rpm:
   defaut: 60
+  # Appels unitaires courts lancés en parallèle (classification, DECP sur 10 threads) :
+  # pas de frein côté routeur en dessous du quota du compte.
+  claude-haiku-4-5: 3000
+  claude-sonnet-4-6: 600
 
 retries:
   max_tentatives: 5

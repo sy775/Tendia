@@ -245,16 +245,17 @@ def _reparer_json(t: str) -> str:
     return re.sub(r",\s*([}\]])", r"\1", r)
 
 
-def parser_json(texte: str) -> Optional[dict]:
+def parser_json(texte: str, reparer: bool = True) -> Optional[dict]:
     """json.loads tolérant : retire les fences markdown, sinon 1er bloc {...},
-    puis réparations sûres (_reparer_json)."""
+    puis réparations sûres (_reparer_json). `reparer=False` : aucune réparation
+    (un JSON élidé « ... » ou à virgule finale est rejeté)."""
     t = (texte or "").strip()
     if t.startswith("```"):
         t = re.sub(r"^```(?:json)?\s*\n", "", t)
         t = re.sub(r"\n```\s*$", "", t)
     m = re.search(r"\{.*\}", t, re.DOTALL)
     candidats = [t] + ([m.group(0)] if m else [])
-    for c in candidats + [_reparer_json(x) for x in candidats]:
+    for c in candidats + ([_reparer_json(x) for x in candidats] if reparer else []):
         try:
             v = json.loads(c)
             if isinstance(v, dict):
@@ -276,11 +277,14 @@ def _respecter_rate_limit(modele: str) -> None:
     rpm = ((config().get("rate_limits_rpm") or {}).get(modele)
            or (config().get("rate_limits_rpm") or {}).get("defaut") or 60)
     intervalle = 60.0 / float(rpm)
+    # Le créneau est réservé sous verrou, l'attente se fait hors verrou : les threads
+    # d'un même modèle s'échelonnent sans se bloquer les uns derrière les autres.
     with _VERROU_RL:
-        attente = _DERNIER_APPEL.get(modele, 0.0) + intervalle - time.monotonic()
-        if attente > 0:
-            time.sleep(attente)
-        _DERNIER_APPEL[modele] = time.monotonic()
+        maintenant = time.monotonic()
+        creneau = max(maintenant, _DERNIER_APPEL.get(modele, 0.0) + intervalle)
+        _DERNIER_APPEL[modele] = creneau
+    if creneau > maintenant:
+        time.sleep(creneau - maintenant)
 
 
 class _ErreurNonRetentable(Exception):
@@ -465,16 +469,25 @@ def _appel_gemini(res: LLMResult, prompt: str, system: Optional[str], documents:
 # Backend Claude (SDK anthropic)
 # ---------------------------------------------------------------------------
 
+_CLIENTS_CLAUDE: dict = {}
+_VERROU_CLIENTS = threading.Lock()
+
+
 def _client_claude(timeout_s: int):
-    """Seule instanciation du SDK Anthropic de Tendia."""
-    charger_env()
-    try:
-        from anthropic import Anthropic
-    except ImportError:
-        raise _ErreurNonRetentable("SDK anthropic absent (pip install anthropic)")
-    if not os.environ.get("ANTHROPIC_API_KEY"):
-        raise _ErreurNonRetentable("ANTHROPIC_API_KEY introuvable (.env)")
-    return Anthropic(timeout=timeout_s, max_retries=0)
+    """Seule instanciation du SDK Anthropic de Tendia (un client par timeout, partagé
+    entre threads : le client du SDK est sûr en multi-thread)."""
+    with _VERROU_CLIENTS:
+        client = _CLIENTS_CLAUDE.get(timeout_s)
+        if client is None:
+            charger_env()
+            try:
+                from anthropic import Anthropic
+            except ImportError:
+                raise _ErreurNonRetentable("SDK anthropic absent (pip install anthropic)")
+            if not os.environ.get("ANTHROPIC_API_KEY"):
+                raise _ErreurNonRetentable("ANTHROPIC_API_KEY introuvable (.env)")
+            client = _CLIENTS_CLAUDE[timeout_s] = Anthropic(timeout=timeout_s, max_retries=0)
+        return client
 
 
 def _appel_claude(res: LLMResult, prompt: str, system: Optional[str], documents: list,
@@ -565,8 +578,8 @@ def call_llm(task: str, prompt: str, documents: Optional[list] = None,
              model: Optional[str] = None, *, type_appel: str,
              marche_id: Optional[str] = None, system=None,
              max_tokens: Optional[int] = None, json_mode: bool = True,
-             relance_json: Optional[bool] = None, options: Optional[dict] = None,
-             prompt_version: Optional[str] = None,
+             relance_json: Optional[bool] = None, json_strict: bool = False,
+             options: Optional[dict] = None, prompt_version: Optional[str] = None,
              budget_tokens_entree: Optional[int] = None,
              enveloppe: Optional[str] = None, extra_journal: Optional[dict] = None,
              verbose: bool = False) -> LLMResult:
@@ -580,7 +593,8 @@ def call_llm(task: str, prompt: str, documents: Optional[list] = None,
 
     `json_mode` : la réponse est parsée (`res.json`) ; si elle n'est pas un objet
     JSON, une relance avec rappel de format quand `relance_json` (défaut : oui pour
-    "analyse", non pour "classif"). `options` : paramètres du fournisseur transmis
+    "analyse", non pour "classif"). `json_strict` : aucune réparation du JSON (une réponse
+    élidée ou tronquée est rejetée au lieu d'être complétée par des null). `options` : paramètres du fournisseur transmis
     tels quels (température…) ; `system` peut être une liste de blocs (cache de prompt).
     `budget_tokens_entree` (Gemini + documents) : les derniers PDF sont retirés tant
     que l'entrée dépasse ce nombre de tokens. `enveloppe` et `extra_journal` sont
@@ -656,7 +670,7 @@ def call_llm(task: str, prompt: str, documents: Optional[list] = None,
             res.cout_eur = _cout()
             res.sortie_tronquee = (res.finish_reason or "").upper() in ("MAX_TOKENS", "MAX_TOKENS_REACHED")
             if json_mode:
-                res.json = parser_json(res.texte)
+                res.json = parser_json(res.texte, reparer=not json_strict)
                 if res.json is None:
                     res.erreur = ((f"sortie_tronquee_max_tokens ({res.tokens_out} tokens dont "
                                    f"{res.tokens_reflexion} de réflexion)") if res.sortie_tronquee else
@@ -726,16 +740,18 @@ def call_llm(task: str, prompt: str, documents: Optional[list] = None,
 def appeler_modele(task: str, prompt: str, *, model: str, type_appel: str,
                    marche_id: Optional[str] = None, system=None,
                    max_tokens: Optional[int] = None, json_mode: bool = False,
+                   json_strict: bool = True,
                    options: Optional[dict] = None, enveloppe: Optional[str] = None,
                    extra_journal: Optional[dict] = None, verbose: bool = False) -> LLMResult:
     """call_llm pour les modules qui gardent leur modèle et leur propre boucle de
     relance : modèle explicite (donc ni repli ni changement de modèle), aucune relance
     JSON dans le routeur. Lève ErreurLLM si l'appel lui-même échoue (API, réseau, clé) ;
-    une réponse reçue mais non JSON (json_mode=True) est rendue avec res.json = None.
+    une réponse reçue mais non JSON (json_mode=True) est rendue avec res.json = None,
+    sans réparation du JSON par défaut (json_strict), comme le faisaient ces modules.
     budget.BudgetDepasseError remonte telle quelle."""
     res = call_llm(task, prompt, model=model, type_appel=type_appel, marche_id=marche_id,
                    system=system, max_tokens=max_tokens, json_mode=json_mode,
-                   relance_json=False, options=options, enveloppe=enveloppe,
+                   relance_json=False, json_strict=json_strict, options=options, enveloppe=enveloppe,
                    extra_journal=extra_journal, verbose=verbose)
     if not res.ok and not (res.erreur or "").startswith(("reponse_non_json", "sortie_tronquee")):
         raise ErreurLLM(res)

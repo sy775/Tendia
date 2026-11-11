@@ -172,6 +172,8 @@ def classer_lot(lot, fournisseur, modele, systeme, etiquette):
                 extra_journal={"etiquette": etiquette, "prompt_version": version,
                                "n_contrats": len(lot)})
         statut, err = "ok", None
+    except budget.BudgetDepasseError:
+        raise
     except Exception as e:
         texte, tin, tout, tth, duree, refl, statut, err = "", 0, 0, 0, 0, None, "erreur", str(e)[:300]
     cout = llm_router.estimer_cout_eur(modele, tin, tout) or 0.0
