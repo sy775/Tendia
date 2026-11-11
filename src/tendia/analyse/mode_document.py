@@ -32,6 +32,7 @@ import time
 from concurrent.futures import ThreadPoolExecutor
 from typing import Optional
 
+from tendia.analyse import champs_critiques
 from tendia.analyse import llm_router
 from tendia.analyse import pieces as P
 # Sources vérifiées et taux de lecture (sans LLM) : module à part, réexporté ici.
@@ -730,6 +731,8 @@ def lire_dce(marche_id: str, dossier_dce: str, contexte: dict, codes_presets: li
         resultat["raison"] = "echec_fusion : " + str((trace.get("fusion") or {}).get("erreur") or "?")[:200]
         return resultat
     brief["_sources"] = construire_sources(brief, analyses, inv)
+    # Les 6 champs critiques sont choisis par le code dans les notes par pièce (chantier 2b).
+    champs_critiques.appliquer(brief, analyses, inv)
     brief["_lecture"] = resultat["lecture"]
     resultat["ok"] = True
     resultat["brief"] = brief

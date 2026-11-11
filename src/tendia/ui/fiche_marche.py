@@ -189,6 +189,59 @@ def montant_estime(brief):
     return None
 
 
+def montant_publie(brief):
+    """(valeur €, taxe, est_plafond) du montant PUBLIÉ par l'acheteur, ou None.
+
+    Brief du mode document (chantier 2b) : brief["montant_publie"], choisi par le code dans
+    les notes du RC et de l'AE. Ancien brief : montant_marche de type estime_explicite ou
+    plafond, sinon voie 1. Une estimation (calcule_volumes, voie 2, voie 3) n'est jamais
+    un montant publié."""
+    mp = _get(brief, "montant_publie")
+    if isinstance(mp, dict):
+        v = mp.get("valeur_eur")
+        if mp.get("statut") == "publie" and isinstance(v, (int, float)) and v > 0:
+            mm = _get(brief, "montant_marche") or {}
+            return float(v), mp.get("taxe"), mm.get("type") == "plafond"
+        return None
+    mm = _get(brief, "montant_marche") or {}
+    v = mm.get("valeur_estimee_euros")
+    if mm.get("type") in ("estime_explicite", "plafond") and isinstance(v, (int, float)) and v > 0:
+        return float(v), None, mm.get("type") == "plafond"
+    v1 = (_get(brief, "montant_3_voies") or {}).get("voie_1_eur")
+    if isinstance(v1, (int, float)) and v1 > 0:
+        return float(v1), None, False
+    return None
+
+
+def lignes_montant(brief, voie3=None):
+    """Deux lignes distinctes pour la fiche : {publie, estimation_libelle, estimation,
+    estimation_detail}. « Montant publié : <valeur ou non communiqué> » ; « Estimation
+    Tendia : <fourchette> (<méthode>, <n comparables>) » d'après les comparables DECP
+    (voie 3) sinon l'estimation bottom-up (voie 2) ; sans estimation, « Estimation : non
+    calculée ». None sans brief."""
+    if not brief:
+        return None
+    pub = montant_publie(brief)
+    if pub:
+        v, taxe, plafond = pub
+        publie = _fmt_eur(v) + (f" {taxe}" if taxe else "") + (" (plafond)" if plafond else "")
+    else:
+        publie = "non communiqué"
+    v3 = _get(brief, "montant_3_voies") or {}
+    pos = lambda x: isinstance(x, (int, float)) and x > 0
+    if voie3 and voie3.get("disponible") and pos(voie3.get("montant_p25")) and pos(voie3.get("montant_p75")):
+        n = voie3.get("n") or 0
+        return {"publie": publie, "estimation_libelle": "Estimation Tendia",
+                "estimation": f"{_fmt_eur(voie3['montant_p25'])} – {_fmt_eur(voie3['montant_p75'])}",
+                "estimation_detail": f"comparables DECP, {n} comparable{'s' if n != 1 else ''}"}
+    if pos(v3.get("voie_2_min_eur")) and pos(v3.get("voie_2_max_eur")):
+        return {"publie": publie, "estimation_libelle": "Estimation Tendia",
+                "estimation": f"{_fmt_eur(v3['voie_2_min_eur'])} – {_fmt_eur(v3['voie_2_max_eur'])}",
+                "estimation_detail": "bottom-up sur les quantités du DCE, 0 comparable"}
+    return {"publie": publie, "estimation_libelle": "Estimation", "estimation": "non calculée",
+            "estimation_detail": None}
+
+
 def calibration_marche(id_marche):
     """Charge la calibration bottom-up disque si elle existe, sinon None."""
     try:
