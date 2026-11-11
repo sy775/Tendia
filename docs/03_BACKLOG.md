@@ -67,6 +67,7 @@ Un chantier = une session Claude Code, un objectif, un critère de fin vérifiab
 - D'abord à la main : prendre un marché BTP réel ouvert, faire tourner les modules existants, assembler le dossier avec Claude (chat), noter ce qui manque. Ce dossier sert de pièce de démo.
 - Puis l'agent d'assemblage : à partir du brief (`pieces_a_fournir`), du profil, du mémoire et de l'estimation, produire un zip nommé selon le RC + une fiche de dépôt (plateforme, lien, format, date limite). Formulaires DC1/DC2/AE pré-remplis à partir du profil (modèles officiels à ajouter au dépôt).
 - Critère de fin : un dossier généré en moins de 10 minutes sur un marché jamais vu, relu par Younes, jugé déposable.
+- Estimation du montant : le LLM extrait les quantités du DQE/BPU, le code calcule (règle 3) ; voie bottom-up actuelle à reprendre.
 
 ### 4 : coffre-fort entreprise
 - Table SQL `coffre_pieces` (type normalisé, date d'émission, validité, fichier, SHA-256), upload dans l'UI, lecture de la validité par LLM léger, référentiel de pièces avec liens d'obtention (URSSAF, impots.gouv, Kbis, Qualibat).

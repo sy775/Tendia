@@ -69,6 +69,17 @@ check("dict : prix 60, technique 30, environnement en autre critère (pas fondu 
 b = CC.bareme_depuis_criteres(CC.criteres_de("Prix : 12 points ; Valeur technique : 8 points"))
 check("points ramenés en % quand le total n'est pas 100 (12/8 → 60/40)",
       b["valeur_prix_pct"] == 60 and b["valeur_technique_pct"] == 40, b)
+cr = CC.criteres_de("Pour l'ensemble des lots, les deux critères principaux sont : 1. Valeur technique de "
+                    "l'offre : 65 points ; 2. Prix de l'offre : 35 points. Méthode B : Excellente = 100% des "
+                    "points ; Satisfaisant = 60% des points ; Non traité = 0% des points.")
+b = CC.bareme_depuis_criteres(cr)
+check("texte sur une ligne avec grille de notation : 65 / 35 seulement (constat 102749)",
+      [c["ponderation"] for c in cr] == [65, 35] and b["valeur_technique_pct"] == 65 and b["valeur_prix_pct"] == 35
+      and cr[0]["libelle"] == "Valeur technique de l'offre", cr)
+check("avis OJS typé RC : passe après le vrai RC",
+      CC.choisir("montant", [{"piece": "2026-OJS206-0073-fr-ts.pdf", "type": "RC", "valeur": "35 000 000 EUR", "ordre": 0},
+                             {"piece": "2026ACM013 RC.pdf", "type": "RC", "valeur": "12.6 M€ HT", "ordre": 1}])["piece"]
+      == "2026ACM013 RC.pdf")
 check("date et heure ISO", CC.date_heure("2026-12-14 12:00") == ((2026, 12, 14), (12, 0)))
 check("date en lettres, heure 16h", CC.date_heure("7 janvier 2027 à 16h") == ((2027, 1, 7), (16, 0)))
 check("date sans heure", CC.date_heure("2026-12-10") == ((2026, 12, 10), None))

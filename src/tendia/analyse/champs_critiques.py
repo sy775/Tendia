@@ -185,9 +185,13 @@ def _critere_de_dict(d: dict) -> Optional[dict]:
 
 def _critere_de_ligne(ligne: str) -> Optional[dict]:
     m = _RE_POND.search(ligne)
-    if not m:
-        return None
-    libelle = re.sub(r"^\s*(?:[-•*–·]\s*|\d+\s*[).:-]\s*)", "", ligne[:m.start()]).strip(" :(-–[")
+    if not m or re.search(r"[=x×*/]\s*$", ligne[:m.start()]) or re.match(r"\s*des\s+points", ligne[m.end():]):
+        return None          # grille de notation (« Excellente = 100 % des points »), formule
+    avant = ligne[:m.start()]
+    numerote = list(re.finditer(r"(?:^|[\s:;])\d+\s*[.)]\s+(?=\D)", avant))
+    if numerote:             # « … sont : 1. Valeur technique » → « Valeur technique »
+        avant = avant[numerote[-1].end():]
+    libelle = re.sub(r"^\s*(?:[-•*–·]\s*|\d+\s*[).:-]\s*)", "", avant).strip(" :(-–[")
     return {"libelle": libelle or ligne.strip()[:120], "ponderation": float(m.group(1).replace(",", ".")),
             "sous_criteres": []}
 
@@ -225,7 +229,7 @@ def criteres_de(valeur) -> list:
         lignes = [l for l in re.split(r"\s*;\s*|\s+/\s+", lignes[0]) if l.strip()]
     sortie = []
     for ligne in lignes:
-        if re.match(r"^\s*(?:formule|note\b|grille)", ligne, re.I):
+        if re.match(r"^\s*(?:formule|note\b|grille|m[eé]thode)", ligne, re.I):
             continue
         c = _critere_de_ligne(ligne)
         if not c:
@@ -233,6 +237,8 @@ def criteres_de(valeur) -> list:
         if _RE_SOUS.match(ligne) and sortie:
             sortie[-1]["sous_criteres"].append(c)
         elif not _RE_SOUS.match(ligne):
+            if sortie and abs(sum(x["ponderation"] for x in sortie) - 100) <= 0.5:
+                break        # les critères font déjà 100 : la suite est une méthode de notation
             sortie.append(c)
     return sortie
 
@@ -373,12 +379,22 @@ def explicite(champ: str, valeur) -> float:
     return 0
 
 
+_RE_AVIS = re.compile(r"avis|ojs|boamp|joue|(?:^|[^a-z])ts(?:[^a-z]|$)")
+
+
+def priorite(c: dict) -> float:
+    """RC > AE > CCAP > autres ; un avis de publication (OJS, BOAMP) typé RC par l'inventaire
+    passe après le vrai RC de son rang (il résume le RC, il ne le remplace pas)."""
+    rang = PRIORITE_TYPE.get(c.get("type"), 3)
+    return rang + (0.5 if _RE_AVIS.search(_sans_accents(c.get("piece") or "")) else 0)
+
+
 def choisir(champ: str, cands: list) -> Optional[dict]:
     """Note retenue : priorité RC > AE > CCAP > autres, puis la plus explicite, puis l'ordre."""
     utiles = [c for c in cands if explicite(champ, c["valeur"]) > 0] or cands
     if not utiles:
         return None
-    return min(utiles, key=lambda c: (PRIORITE_TYPE.get(c.get("type"), 3), -explicite(champ, c["valeur"]), c["ordre"]))
+    return min(utiles, key=lambda c: (priorite(c), -explicite(champ, c["valeur"]), c["ordre"]))
 
 
 def cle_comparaison(champ: str, valeur):
