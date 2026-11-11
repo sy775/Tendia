@@ -308,6 +308,40 @@ check("pièce non lue listée avec son statut, plan ignoré non listé",
       "annexes.rar" in html and "format non géré" in html
       and "plan_masse.pdf" not in html.split('class="brief-lecture"', 1)[-1].split("</ul>", 1)[0])
 
+# --- après la relecture de l'étape 6 : la source est lue avec la valeur qu'elle source
+bloc_date = html.split('data-champ="date_limite"', 1)[-1].split("</div>", 1)[0]
+check("date limite : la date lue dans le DCE est affichée avec sa source (celle du dessus vient de l'avis)",
+      "Date limite lue dans le DCE : 2026-12-15 12:00" in bloc_date and "Source : RC.pdf p. 2" in bloc_date, bloc_date)
+check("montant : la source porte son libellé (elle n'est pas lue comme celle du coefficient prix)",
+      "Montant estimé du marché" in html.split('data-champ="montant"', 1)[-1].split("</div>", 1)[0])
+
+brief_prix_seul = dict(stockage.lire("briefs_extraits", "M-SOURCES"))
+brief_prix_seul["bareme_notation"] = {"valeur_technique_pct": 0, "valeur_prix_pct": 100}
+brief_prix_seul["_sources"] = dict(brief_prix_seul["_sources"],
+                                   date_limite={"piece": "RC.pdf", "page": 3.0, "extrait": "x", "verifie": "false"})
+brief_prix_seul["_lecture"] = {"pieces": [
+    {"nom": "CCTP.pdf", "type": "CCTP", "statut": "lu", "pages": 40, "caracteres": 90000, "detail": None, "pages_sans_texte": 12},
+    {"nom": None, "type": None, "statut": None, "pages": None, "caracteres": None, "detail": None}],
+    "nb_pieces_texte": 1, "nb_lues": 1, "pct_non_lu": 0.0}
+marche_test("M-PRIX-SEUL", "Fourniture au prix seul", iso(-5))        # marché clos
+classer("M-PRIX-SEUL", "btp_gros_oeuvre")
+stockage.ecrire("briefs_extraits", "M-PRIX-SEUL", brief_prix_seul)
+stockage.invalider_cache()
+rep = client.get("/marche/M-PRIX-SEUL")
+html = " ".join(rep.get_data(as_text=True).split())
+bloc_criteres = html.split('data-champ="criteres_ponderations"', 1)[-1].split("</div>", 1)[0]
+check("marché clos, au prix seul (pas de section barème) : 200", rep.status_code == 200, rep.status_code)
+check("la source des critères reste affichée, avec son libellé",
+      html.count('data-champ="criteres_ponderations"') == 1 and "Critères de jugement" in bloc_criteres
+      and "Source : RC.pdf p. 7" in bloc_criteres, bloc_criteres)
+bloc_date = html.split('data-champ="date_limite"', 1)[-1].split("</div>", 1)[0]
+check("verifie « false » (chaîne) n'est pas pris pour une vérification ; page 3.0 affichée « p. 3 »",
+      "non vérifiée" in bloc_date and "p. 3 " in bloc_date + " " and "3.0" not in bloc_date, bloc_date)
+bloc_lecture = html.split('class="brief-lecture"', 1)[-1].split("</div>", 1)[0]
+check("pièce lue dont 12 pages sont des images : lecture partielle signalée",
+      "CCTP.pdf" in bloc_lecture and "lecture partielle : 12 pages sans texte" in bloc_lecture, bloc_lecture)
+check("pièce sans nom ignorée (pas de « None »)", "None" not in bloc_lecture, bloc_lecture)
+
 print()
 print("=" * 60)
 print(f"RÉSULTAT : {ok} OK, {ko} ÉCHEC(S)")

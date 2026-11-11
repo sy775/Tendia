@@ -15,12 +15,16 @@
 {%- set sources = brief['_sources'] if (brief and brief['_sources'] is mapping) else {} -%}
 {%- set s = sources.get(champ) -%}
 {%- if s is mapping and s.get('piece') %}
-<div class="brief-source" data-champ="{{ champ }}" style="font-size:11.5px; color:var(--apt-ink-4); margin:4px 0 10px; line-height:1.5;"
+<div class="brief-source" data-champ="{{ champ }}" style="font-size:12px; color:var(--apt-ink-3); margin:4px 0 10px; line-height:1.5;"
      {%- if s.get('extrait') %} title="« {{ s.get('extrait') }} »"{% endif %}>
-  {%- if libelle %}<span style="color:var(--apt-ink-3); font-weight:600;">{{ libelle }}</span> · {% endif -%}
+  {%- if libelle %}<span style="color:var(--apt-ink-2); font-weight:600;">{{ libelle }}</span> · {% endif -%}
   Source : {{ s.get('piece') }}
-  {%- if s.get('page') is not none %}{% if s.get('page') is number or (s.get('page')|string).isdigit() %} p. {{ s.get('page') }}{% else %} · feuille {{ s.get('page') }}{% endif %}{% endif -%}
-  {%- if not s.get('verifie') %} <span class="brief-source-non-verifiee" style="color:var(--c-amber); font-weight:600;">· non vérifiée</span>{% endif -%}
+  {%- set page = s.get('page') -%}
+  {%- if page is number and page is not boolean %} p. {{ page|int }}
+  {%- elif page is string and page.strip().isdigit() %} p. {{ page.strip() }}
+  {%- elif page is string and page.strip() %} · feuille {{ page.strip() }}{% endif -%}
+  {#- vérifiée seulement si verifie vaut exactement true -#}
+  {%- if s.get('verifie') is not true %} <span class="brief-source-non-verifiee" style="color:var(--apt-ink-2); font-weight:700;">· ⚠ non vérifiée</span>{% endif -%}
 </div>
 {%- endif -%}
 {%- endmacro %}
@@ -30,14 +34,24 @@
 {%- set lecture = brief['_lecture'] if (brief and brief['_lecture'] is mapping) else none -%}
 {%- if lecture and lecture.get('nb_pieces_texte') is not none %}
 {%- set toutes = lecture.get('pieces') if (lecture.get('pieces') is sequence and lecture.get('pieces') is not string) else [] %}
-{%- set non_lues = toutes | select('mapping') | rejectattr('statut', 'in', ['lu', 'plan_ignore']) | list %}
+{%- set nommees = toutes | select('mapping') | selectattr('nom') | list %}
+{%- set non_lues = nommees | rejectattr('statut', 'in', ['lu', 'plan_ignore']) | list %}
+{#- pièce « lue » en texte dont des pages sont des images : lecture partielle, signalée -#}
+{%- set partielles = nommees | selectattr('statut', 'equalto', 'lu') | selectattr('pages_sans_texte') | list %}
 <div class="brief-lecture" style="margin:0 0 14px; padding:9px 14px; background:var(--apt-surface); border:1px solid var(--apt-line-2); border-radius:9px; font-size:12.5px; color:var(--apt-ink-2);">
-  <strong class="brief-lecture-taux" style="color:{% if non_lues %}var(--c-amber){% else %}var(--apt-ink){% endif %}; font-variant-numeric:tabular-nums;">{{ lecture.get('nb_lues') }}/{{ lecture.get('nb_pieces_texte') }} pièces lues</strong>
+  <strong class="brief-lecture-taux" style="color:var(--apt-ink); font-variant-numeric:tabular-nums;">{{ lecture.get('nb_lues') if lecture.get('nb_lues') is not none else '?' }}/{{ lecture.get('nb_pieces_texte') }} pièces lues</strong>
   {%- if non_lues %}
-  <span style="color:var(--apt-ink-4);"> · {{ non_lues|length }} non lue{{ 's' if non_lues|length > 1 else '' }}</span>
+  <span style="color:var(--apt-ink-2); font-weight:600;"> · ⚠ {{ non_lues|length }} non lue{{ 's' if non_lues|length > 1 else '' }}</span>
   <ul class="brief-lecture-non-lues" style="margin:6px 0 0; padding-left:18px; font-size:12px; color:var(--apt-ink-3); line-height:1.6;">
     {%- for p in non_lues %}
-    <li{% if p.get('detail') %} title="{{ p.get('detail') }}"{% endif %}>{{ p.get('nom') }} <span style="color:var(--c-amber);">· {{ LIBELLES_STATUT_LECTURE.get(p.get('statut'), p.get('statut')) }}</span></li>
+    <li{% if p.get('detail') %} title="{{ p.get('detail') }}"{% endif %}>{{ p.get('nom') }} <span style="color:var(--apt-ink-2); font-weight:600;">· {{ LIBELLES_STATUT_LECTURE.get(p.get('statut'), 'non lue') }}</span></li>
+    {%- endfor %}
+  </ul>
+  {%- endif %}
+  {%- if partielles %}
+  <ul class="brief-lecture-partielles" style="margin:6px 0 0; padding-left:18px; font-size:12px; color:var(--apt-ink-3); line-height:1.6;">
+    {%- for p in partielles %}
+    <li>{{ p.get('nom') }} <span style="color:var(--apt-ink-2); font-weight:600;">· lecture partielle : {{ p.get('pages_sans_texte') }} page{{ 's' if p.get('pages_sans_texte') != 1 else '' }} sans texte (images)</span></li>
     {%- endfor %}
   </ul>
   {%- endif %}

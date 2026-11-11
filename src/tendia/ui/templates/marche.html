@@ -1108,7 +1108,11 @@
     {# ===== Onglet 2 : Prix & estimation (coeff prix + montant) ===== #}
     {{ sec('Prix & estimation', ('Coeff. prix ' ~ pct_prix ~ '%' if brief.bareme_notation.valeur_prix_pct else 'estimation du montant'), 'green', true, IC_EURO) }}
       <div>
-      {{ source_champ(brief, 'montant') }}
+      {# Section « Barème technique » absente (marché au prix seul) : la source des critères est portée ici #}
+      {% if not (brief.bareme_notation and (brief.bareme_notation.valeur_technique_pct or brief.bareme_notation.sous_criteres_techniques)) %}
+      {{ source_champ(brief, 'criteres_ponderations', 'Critères de jugement') }}
+      {% endif %}
+      {{ source_champ(brief, 'montant', 'Montant estimé du marché') }}
       {# Bandeau coeff prix : pondération + formule/source #}
       <div style="margin-top: 8px; display: flex; align-items: center; gap: 14px; padding: 11px 16px; background: var(--apt-bg); border: 1px solid var(--apt-line-2); border-left: 3px solid var(--apt-gold); border-radius: 9px;">
         <div style="flex-shrink: 0; text-align: center; min-width: 66px;" title="Le prix compte pour {{ pct_prix }} % de la note finale (barème de notation du RC).">
@@ -1860,7 +1864,7 @@
     {% endif %}
 
 
-    {% if brief and (brief.bareme_notation or brief.references_exigees or marche.date_limite_depot or brief.points_differenciants_attendus) %}
+    {% if brief and (brief.bareme_notation or brief.references_exigees or marche.date_limite_depot or brief.points_differenciants_attendus or brief['_sources']) %}
     {% set ptech = brief.bareme_notation.valeur_technique_pct if brief.bareme_notation else None %}
     {% set pprix = brief.bareme_notation.valeur_prix_pct if brief.bareme_notation else None %}
     {{ sec('Comment candidater ?', 'dossier à déposer · échéance', 'green', false, IC_CHECK) }}
@@ -1872,7 +1876,8 @@
           <div style="font-size:15px; font-weight:700; color:{% if jours_restants is not none and jours_restants < 7 %}var(--c-rose){% elif jours_restants is not none and jours_restants < 21 %}var(--c-amber){% else %}var(--apt-ink){% endif %};">
             {{ fmt_date(marche.date_limite_depot) if marche.date_limite_depot else 'voir RC' }}{% if clos %} · clos{% elif jours_restants is not none %} · J−{{ jours_restants }}{% endif %}
           </div>
-          {{ source_champ(brief, 'date_limite') }}
+          {% set _date_dce = brief.calendrier.date_limite_offres if (brief.calendrier is mapping) else none %}
+          {{ source_champ(brief, 'date_limite', ('Date limite lue dans le DCE : ' ~ _date_dce) if _date_dce else 'Date limite lue dans le DCE') }}
         </div>
         <a href="{{ url_for('telecharger_dce_zip', id_marche=marche.id) }}" style="margin-left:auto; display:inline-flex; align-items:center; gap:8px; padding:9px 15px; background:var(--apt-accent); color:#fff; border-radius:8px; text-decoration:none; font-size:13px; font-weight:700;">⬇ DCE (ZIP)</a>
         {% if marche.url_dce %}<a href="{{ marche.url_dce }}" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:6px; padding:9px 13px; border:1px solid var(--apt-line); border-radius:8px; text-decoration:none; font-size:12.5px; color:var(--apt-ink-2); font-weight:600;">Plateforme ↗</a>{% endif %}
