@@ -2,7 +2,7 @@
 name: audit-design
 description: Audite les écrans Flask/Jinja de Tendia (src/tendia/ui/templates). Lecture seule, produit un rapport avec captures, ne modifie rien.
 tools: Read, Grep, Glob, Bash
-model: claude-fable-5-2
+model: opus
 ---
 Tu audites l'interface de Tendia (Flask + Jinja2 + Tailwind, templates dans src/tendia/ui/templates/, routes dans src/tendia/ui/app.py).
 Tu ne modifies aucun fichier. Tu produis uniquement docs/audit_design/<date>_<ecran>.md et des captures dans docs/audit_design/captures/.

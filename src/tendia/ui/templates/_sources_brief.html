@@ -24,7 +24,19 @@
   {%- elif page is string and page.strip().isdigit() %} p. {{ page.strip() }}
   {%- elif page is string and page.strip() %} · feuille {{ page.strip() }}{% endif -%}
   {#- vérifiée seulement si verifie vaut exactement true -#}
-  {%- if s.get('verifie') is not true %} <span class="brief-source-non-verifiee" style="color:var(--apt-ink-2); font-weight:700;">· ⚠ non vérifiée</span>{% endif -%}
+  {%- if s.get('verifie') is not true %} <span class="brief-source-non-verifiee" style="color:var(--apt-ink-2); font-weight:700;">· ⚠ non vérifiée</span>
+  {%- elif s.get('valeur_verifiee') is false %} <span class="brief-valeur-a-verifier" style="color:var(--apt-ink-2); font-weight:700;" title="La valeur affichée n'a pas été retrouvée telle quelle dans l'extrait ou la page citée.">· ⚠ valeur à vérifier</span>{% endif -%}
+</div>
+{%- endif -%}
+{%- endmacro %}
+
+{# Deux lignes distinctes : le montant PUBLIÉ par l'acheteur et l'ESTIMATION Tendia.
+   lignes = fiche_marche.lignes_montant(brief, voie3). #}
+{% macro lignes_montant(lignes) -%}
+{%- if lignes %}
+<div class="brief-montants" style="margin:6px 0 12px; font-size:13px; color:var(--apt-ink-2); line-height:1.7;">
+  <div class="brief-montant-publie"><span style="color:var(--apt-ink-3); font-weight:600;">Montant publié :</span> <strong style="color:var(--apt-ink); font-variant-numeric:tabular-nums;">{{ lignes.publie }}</strong></div>
+  <div class="brief-montant-estime"><span style="color:var(--apt-ink-3); font-weight:600;">{{ lignes.estimation_libelle }} :</span> <strong style="color:var(--apt-ink); font-variant-numeric:tabular-nums;">{{ lignes.estimation }}</strong>{% if lignes.estimation_detail %} <span style="color:var(--apt-ink-3);">({{ lignes.estimation_detail }})</span>{% endif %}</div>
 </div>
 {%- endif -%}
 {%- endmacro %}

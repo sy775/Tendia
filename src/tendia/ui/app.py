@@ -1575,6 +1575,7 @@ def detail_marche(id_marche):
     return render_template(
         "marche.html",
         voie3=voie3,
+        lignes_montant=fiche_marche.lignes_montant(brief, voie3),
         marche=marche,
         eval=evaluation,
         brief=brief,

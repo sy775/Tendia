@@ -588,7 +588,7 @@
 
 <!-- ============ Bloc de décision (chantier 1b) : avant tout le reste ============ -->
 {% include "_bloc_decision.html" %}
-{% from "_sources_brief.html" import source_champ, taux_lecture %}
+{% from "_sources_brief.html" import source_champ, taux_lecture, lignes_montant as lignes_montant_macro %}
 
 <!-- ============ Header : titre à gauche, score ring à droite ============ -->
 <div class="flex items-start justify-between gap-6 mb-5 fade-up" style="position: relative; z-index: 30;">
@@ -1112,7 +1112,8 @@
       {% if not (brief.bareme_notation and (brief.bareme_notation.valeur_technique_pct or brief.bareme_notation.sous_criteres_techniques)) %}
       {{ source_champ(brief, 'criteres_ponderations', 'Critères de jugement') }}
       {% endif %}
-      {{ source_champ(brief, 'montant', 'Montant estimé du marché') }}
+      {{ lignes_montant_macro(lignes_montant) }}
+      {{ source_champ(brief, 'montant', 'Montant publié') }}
       {# Bandeau coeff prix : pondération + formule/source #}
       <div style="margin-top: 8px; display: flex; align-items: center; gap: 14px; padding: 11px 16px; background: var(--apt-bg); border: 1px solid var(--apt-line-2); border-left: 3px solid var(--apt-gold); border-radius: 9px;">
         <div style="flex-shrink: 0; text-align: center; min-width: 66px;" title="Le prix compte pour {{ pct_prix }} % de la note finale (barème de notation du RC).">

@@ -313,7 +313,9 @@ bloc_date = html.split('data-champ="date_limite"', 1)[-1].split("</div>", 1)[0]
 check("date limite : la date lue dans le DCE est affichée avec sa source (celle du dessus vient de l'avis)",
       "Date limite lue dans le DCE : 2026-12-15 12:00" in bloc_date and "Source : RC.pdf p. 2" in bloc_date, bloc_date)
 check("montant : la source porte son libellé (elle n'est pas lue comme celle du coefficient prix)",
-      "Montant estimé du marché" in html.split('data-champ="montant"', 1)[-1].split("</div>", 1)[0])
+      "Montant publié" in html.split('data-champ="montant"', 1)[-1].split("</div>", 1)[0])
+check("fiche : deux lignes « Montant publié » et estimation distinctes",
+      'class="brief-montant-publie"' in html and 'class="brief-montant-estime"' in html)
 
 brief_prix_seul = dict(stockage.lire("briefs_extraits", "M-SOURCES"))
 brief_prix_seul["bareme_notation"] = {"valeur_technique_pct": 0, "valeur_prix_pct": 100}

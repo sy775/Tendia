@@ -72,6 +72,7 @@ TEXTE = {".txt", ".csv"}
 # PDF de plans / pièces graphiques (ignorés comme les fichiers CAO).
 RE_PLAN = re.compile(r"(^|[^a-z])(plans?|pln|coupes?|facades?|elevations?|implantation|plan de masse|"
                      r"plan de situation|nivellement|carroyage|photos?|reportage photo)([^a-z]|$)")
+SEUIL_TEXTE_PLAN = 1500      # caractères par page en moyenne au-delà desquels un « plan » est lu
 PAGES_MAX_PARTIE = 100
 OCTETS_MAX_PARTIE = 20 * 1024 * 1024
 ARCHIVES_NON_GEREES = {".rar", ".7z"}
@@ -403,6 +404,12 @@ def _texte_pdf_pages(chemin: Path) -> list:
     return pages
 
 
+def _texte_moyen_par_page(chemin: Path) -> float:
+    """Caractères de texte par page en moyenne d'un PDF (0 si illisible ou sans page)."""
+    pages = _texte_pdf_pages(chemin)
+    return sum(len(p.strip()) for p in pages) / len(pages) if pages else 0.0
+
+
 def _parties_pdf(chemin: Path, dest: Path) -> list:
     """Découpe un PDF en parties ≤ PAGES_MAX_PARTIE pages et ≤ OCTETS_MAX_PARTIE (limites
     Claude : 600 pages / 32 Mo par requête ; Gemini : 1000 pages / 50 Mo par fichier)."""
@@ -615,9 +622,15 @@ def inventorier(mid: str, dossier_dce: str, verbose: bool = True, force: bool = 
                             "detail": f"fichier graphique ou technique ({ext or 'sans extension'})"})
             continue
         if ext == ".pdf" and RE_PLAN.search(_norm(f.stem)):
-            ignores.append(f"{f.name} (plan / pièce graphique)")
-            ecartes.append({"nom": f.name, "statut": "plan_ignore", "detail": "plan / pièce graphique"})
-            continue
+            # Un nom de plan ne suffit plus (PGC, plan de retrait amiante, rapport photos
+            # commenté…) : un « plan » qui porte du texte (moyenne > SEUIL_TEXTE_PLAN
+            # caractères par page) est lu comme une pièce.
+            moyenne = _texte_moyen_par_page(f)
+            if moyenne <= SEUIL_TEXTE_PLAN:
+                ignores.append(f"{f.name} (plan / pièce graphique)")
+                ecartes.append({"nom": f.name, "statut": "plan_ignore",
+                                "detail": f"plan / pièce graphique ({int(moyenne)} caractères par page en moyenne)"})
+                continue
         if ext in ARCHIVES_NON_GEREES:
             non_geres.append(f"{f.name} (archive {ext} non décompressée)")
             ecartes.append({"nom": f.name, "statut": "format_non_gere",

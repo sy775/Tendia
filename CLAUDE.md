@@ -51,18 +51,19 @@ Chemins vers `data/`, `logs/`, `presets/`, `rapports/`, `archive/` : toujours vi
 - Avant de terminer : `python tests/lancer_tous.py` passe (échecs connus listés dans Pièges connus), l'UI démarre, puis sous-agent `audit-code`.
 
 ## Sous-agents
+Mode rapide (depuis le chantier 2b) :
 - `Explore` pour la lecture de début de chantier (résumé seulement).
-- `testeur` avant le code de chaque étape qui crée ou change un comportement.
-- `relecteur-etape` après chaque commit d'étape ; un bloquant se corrige avant l'étape suivante.
-- `verif-tests` pour lancer les tests.
-- `verificateur-brief` sur tout brief produit par un run.
-- Clôture par `audit-code`, plus `audit-design` en parallèle si `src/tendia/ui/` est touché.
+- Pas de `testeur` ni de `relecteur-etape` (archivés dans `archive/.claude/agents/`) : les tests utiles s'écrivent avec le code.
+- `verif-tests` (haiku) deux fois : après la dernière étape de code, et juste avant la fusion.
+- Un seul `audit-code` (claude-fable-5-2) en clôture ; on corrige ses bloquants seulement.
+- `verificateur-brief` (claude-fable-5-2) seulement quand un chantier produit des briefs, un par un (429 : attendre et relancer).
+- `audit-design` (opus) seulement quand le chantier le demande.
 - Jamais deux sous-agents qui écrivent dans le dépôt en parallèle.
-- Modèles : Fable pour écrire et vérifier, Haiku pour `verif-tests`.
+- Sorties courtes, pas de recopie de fichiers.
 
 ## Pièges connus
 - `stockage.charger` lit toute la collection ; cache mémoire par processus (UI et scripts peuvent diverger).
-- Lecture DCE : mode document par défaut (`analyse/mode_document.py`, toutes les pièces, Gemini argon avec repli Sonnet 4.6, `--max-cout-par-dce` 2,5 € : un DCE plus cher est sauté, jamais tronqué). L'ancien mode (`--mode classique` : PDF du 1er niveau, 400 000 caractères, Sonnet) dézippe encore à plat dans `data/dce`, comme `memoire/services/digest_memoire.py`.
+- Lecture DCE : mode document par défaut (`analyse/mode_document.py`, toutes les pièces, Gemini argon avec repli Sonnet 4.6, `--max-cout-par-dce` 2,5 € : un DCE estimé plus cher est sauté, jamais tronqué ; le coût réel est aussi borné, au-delà plus d'appel et pas de brief, ou brief `_incomplet`). Les 6 champs critiques sont choisis par le code dans les notes par pièce (`analyse/champs_critiques.py`) ; `montant_publie` (RC / AE) n'est jamais rempli par une estimation. Un PDF nommé « plan » est lu au-delà de 1 500 caractères par page. L'ancien mode (`--mode classique` : PDF du 1er niveau, 400 000 caractères, Sonnet) et `digest_memoire` extraient les zips dans `data/pieces/<id>/_classique` ; seuls les téléchargeurs écrivent dans `data/dce`.
 - `extraire` en mode document ne reprend pas un marché clos, absent de la base ou déjà briefé (sauf `--marche` / `--force`) ; plafond de passe par défaut 5 €.
 - `tendia.veille.classification` est l'étape 2 du pipeline (7 étapes) depuis le chantier 1 : `python -m tendia` et `Tendia.bat` paient la classification (plafond `--max-cout-classification`, 5 € par défaut ; `--skip-llm` la saute). `--max-cout 0` bloque tout appel.
 - `python-dotenv` installé : `http_humain`, `aws_downloader`, `dematis_downloader` chargent `.env` à l'import. Le proxy résidentiel ne s'applique que si `TENDIA_PROXY_ACTIF=1` (posé par `python -m tendia`, `Tendia.bat`, `retelecharger_*`, `rattrapage_btp_octobre`) ; UI, tests et audits passent en direct. `TENDIA_PROXY_ACTIF` ne va jamais dans `.env` : `http_humain.charger_env_fichier` l'ignore avec un avertissement. `curl_cffi` absent : `http_client` force `requests`.

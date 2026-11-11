@@ -1093,8 +1093,10 @@ def test_lire_dce_nominal():
     check("_sources.lots : CCTP.pdf p. 1, vérifié", conforme("lots", "CCTP.pdf", 1, True), repr(sources.get("lots")))
     check("_sources.pieces_exigees : extrait inventé par le modèle → verifie False",
           conforme("pieces_exigees", "RC.pdf", 1, False), repr(sources.get("pieces_exigees")))
-    check("_sources.montant : extrait inventé par le modèle → verifie False",
-          conforme("montant", "CCAP.pdf", 1, False), repr(sources.get("montant")))
+    # chantier 2b : le montant publié vient des seules notes RC / AE ; une note du CCAP ne le source pas
+    check("_sources.montant : note du CCAP seule → pas de montant publié, pas de source",
+          sources.get("montant") is None and (brief.get("montant_publie") or {}).get("statut") == "non_communique",
+          repr(sources.get("montant")))
     check("_sources.date_limite : l'extrait est celui de l'analyse du RC",
           (sources.get("date_limite") or {}).get("extrait") == EX_DATE, repr(sources.get("date_limite")))
 

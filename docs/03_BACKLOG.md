@@ -10,7 +10,8 @@ Un chantier = une session Claude Code, un objectif, un critère de fin vérifiab
 | 0b | Structure `src/tendia/`, `CLAUDE.md`, branche `main`, 2 régressions de 0a | **Terminé le 2026-11-10**, réserve : `test_aws_downloader` et `test_qualifier_dce` périmés (antérieurs à 0b), repris en étape 1 du chantier 1 | 0a |
 | 1 | Redémarrer la chaîne LLM | **Terminé le 2026-11-11**, 17,95 € (classification 10,85, briefs 7,10) ; 14 briefs BTP d'octobre ; majeurs de AUDIT_1 repris au chantier 2 (étape 1 : tests et `telecharger` ; étape 3 : journalisation de `llm_extract` par `llm_router`) | 0b |
 | 1b | UI démo : corrections bloquantes de l'audit design (profil, clos, pagination, non classé, bloc décision) | **Terminé le 2026-11-11** | 1 |
-| 2 | Promouvoir le mode document en prod (lecture exhaustive des DCE) | **À reprendre : fidélité 18/30 (< 28/30), la fusion perd l'heure limite et invente des montants ; BOAMP-26-102749 non lu (zip tronqué, 4,58 € estimés)** ; coût réel 6,43 € ; mode document en prod | 1 |
+| 2 | Promouvoir le mode document en prod (lecture exhaustive des DCE) | **Repris par 2b** : fidélité 30/30 sur les 5 références (18/30 au chantier 2), 102749 lu ; coût réel 6,43 € ; mode document en prod | 1 |
+| 2b | Fiabiliser la fusion (champs critiques sans LLM, montant publié / estimé séparés), finir la lecture, produire les briefs | **À reprendre le 2026-11-11 : 6 briefs BTP sur 10** (4 sautés au plafond de 2,5 € par DCE) ; fidélité 30/30 ; 10,89 € ; archive/RAPPORT_2b.md | 2 |
 | 3 | Dossier manuel sur un marché BTP réel, puis agent d'assemblage | À faire | 2 |
 | 4 | Coffre-fort entreprise | À faire | 3 |
 | 5 | Test Scrapling sur les 3 plateformes où le plus de DCE sont perdus | À faire | 0b |
@@ -66,6 +67,7 @@ Un chantier = une session Claude Code, un objectif, un critère de fin vérifiab
 - D'abord à la main : prendre un marché BTP réel ouvert, faire tourner les modules existants, assembler le dossier avec Claude (chat), noter ce qui manque. Ce dossier sert de pièce de démo.
 - Puis l'agent d'assemblage : à partir du brief (`pieces_a_fournir`), du profil, du mémoire et de l'estimation, produire un zip nommé selon le RC + une fiche de dépôt (plateforme, lien, format, date limite). Formulaires DC1/DC2/AE pré-remplis à partir du profil (modèles officiels à ajouter au dépôt).
 - Critère de fin : un dossier généré en moins de 10 minutes sur un marché jamais vu, relu par Younes, jugé déposable.
+- Estimation du montant : le LLM extrait les quantités du DQE/BPU, le code calcule (règle 3) ; voie bottom-up actuelle à reprendre.
 
 ### 4 : coffre-fort entreprise
 - Table SQL `coffre_pieces` (type normalisé, date d'émission, validité, fichier, SHA-256), upload dans l'UI, lecture de la validité par LLM léger, référentiel de pièces avec liens d'obtention (URSSAF, impots.gouv, Kbis, Qualibat).
@@ -91,9 +93,11 @@ Un chantier = une session Claude Code, un objectif, un critère de fin vérifiab
   - `matching.evaluer` reçoit la classification de ses appelants (le repli par lecture en base est conservé) ;
   - `types_ouvrages` en `enum` dans `presets/btp/_schema.json`.
 - Modules à découper (règle des 800 lignes) : `analyse/extraire.py` (~1 700 l.), `analyse/llm_extract.py` (~1 500 l.).
-- `memoire/services/digest_memoire.py` dézippe encore à plat dans `data/dce` : le faire lire via `pieces.inventorier`.
+- `memoire/services/digest_memoire.py` lit désormais via `data/pieces/<id>/_classique` (chantier 2b) ; le faire lire via `pieces.inventorier`.
 - Purge des dossiers de travail `data/pieces/<id>` des marchés clos (4,4 Go après le chantier 2) : décision à prendre, la règle actuelle est de ne rien supprimer.
-- Majeurs reportés du chantier 2 : AUDIT_2 (valeur affichée à côté d'une source non contrôlée, plafond par DCE limité à l'estimation, `plan_ignore` sur le seul nom, quota journalier incohérent entre modes, écritures restantes dans `data/dce`) et audit design de la fiche (docs/audit_design/2026-11-11_fiche_sources.md : sources invisibles à l'arrivée, saut d'ancre `#sec-0`, heure limite, montant publié, visite obligatoire).
+- Briefs BTP restants du rattrapage d'octobre : 103662 (21,18 € estimés), 104289 (3,56 €), 105950 (3,16 €), 105174 (3,21 €), sautés au plafond de 2,5 € par DCE (chantier 2b).
+- Majeurs de AUDIT_2b (champs_critiques) : M1 clé `coefficient` non lue (104894 garde le barème de la fusion) ; M2 critères en liste à puces ou a) / b) perdus ; M3 « montant de l'offre » / « coût » non reconnus comme prix, « hors prix » compté comme prix ; M4 date hors ISO : la plus petite date et heure gagnent ; M5 « alloti en n lots … marché unique » lu non alloti et lots tronqués ; M6 `recalculer_sources_brief` : garde « pièces lues » neutralisée. Mineurs utiles : `_conflits` et `_incomplet` affichés nulle part, plafond par DCE dépassable de n appels en parallèle, `valeur_du_mois` sans `defaut` = aucun plafond.
+- Majeurs reportés du chantier 2 : AUDIT_2 (quota journalier incohérent entre modes ; corrigés au 2b : valeur à côté d'une source non contrôlée, plafond par DCE sur le coût réel, `plan_ignore` sur le seul nom, écritures dans `data/dce`) et audit design de la fiche (docs/audit_design/2026-11-11_fiche_sources.md : sources invisibles à l'arrivée, saut d'ancre `#sec-0`, heure limite, montant publié, visite obligatoire).
 - Majeurs de AUDIT_1b non traités au chantier 2 : `scripts/audit/audit_matching_n2.py` ignore le verdict `non_classe` ; le bloc de décision peut afficher des jours restants négatifs quand la date limite vient du brief ; `ui/app.py` (2 200 lignes) à découper.
 
 ## Questions ouvertes (à trancher par Younes)

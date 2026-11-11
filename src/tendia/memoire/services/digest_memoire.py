@@ -80,8 +80,9 @@ def charger_cctp_lot(id_marche: str, lot: dict, verbose: bool = True):
     if not os.path.isdir(dossier):
         return "", {"fichiers_utilises": [], "mode_filtre": "aucun_dce",
                     "tronque": False, "chars": 0}
-    tendia_extraire._dezipper_dossier(dossier, verbose=False)
-    pieces = pdf_extract.extraire_dossier(dossier, verbose=False)  # {nom: {texte,...}}
+    # zips extraits dans data/pieces/<id>/_classique : rien n'est écrit dans data/dce
+    pieces = tendia_extraire.extraire_dossiers(
+        tendia_extraire.dossiers_lecture_classique(dossier), verbose=False)  # {nom: {texte,...}}
     if not pieces:
         return "", {"fichiers_utilises": [], "mode_filtre": "aucun_texte",
                     "tronque": False, "chars": 0}
