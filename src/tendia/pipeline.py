@@ -16,7 +16,7 @@ Enchainement (7 étapes) :
 5. connecteurs dédiés      : AWS-Achat + Dematis + xmarches (captcha 2captcha + anti-ban),
                              auto-limités aux heures de bureau et au cap --max-dedies ;
                              marches-securises (anonyme)
-6. analyse/extraire        : auto-dézip + extraction LLM (Claude Sonnet 4.6)
+6. analyse/extraire        : lecture exhaustive des DCE (mode document), plafonnée
 7. génération rapport final marches_actifs_<date>.md
 
 Aucune intervention humaine. Le proxy résidentiel est autorisé (TENDIA_PROXY_ACTIF=1).
@@ -98,10 +98,9 @@ def main(argv=None):
     parser.add_argument("--max-cout-classification", type=float, default=5.0, metavar="EUR",
                         help="Plafond de coût de l'étape 2, transmis à classification "
                              "--max-cout (défaut: 5.0 ; 0 : aucun appel LLM)")
-    parser.add_argument("--max-cout-extraction", type=float, default=None, metavar="EUR",
+    parser.add_argument("--max-cout-extraction", type=float, default=5.0, metavar="EUR",
                         help="Plafond de coût de l'étape 6, transmis à extraire --max-cout "
-                             "(défaut : aucun plafond de passe, seul data/budget.json "
-                             "s'applique ; 0 : aucun appel LLM)")
+                             "(défaut: 5.0 ; 0 : aucun appel LLM)")
     parser.add_argument("--force", action="store_true",
                         help="Force la re-extraction LLM même si déjà fait")
     parser.add_argument("--jours", type=int, default=60,
@@ -183,10 +182,11 @@ def main(argv=None):
     if args.skip_llm:
         print("\n  [6/7]  Extraction LLM  →  SKIPPÉ (--skip-llm)")
     else:
-        _print_etape(6, "Extraction LLM des DCE (Claude Sonnet 4.6)")
+        _print_etape(6, f"Extraction LLM des DCE (mode document, plafond "
+                        f"{args.max_cout_extraction:.2f} €)")
+        # Mode par défaut de extraire (document) : lecture exhaustive, argon avec repli Sonnet.
         args_extract = ["--force"] if args.force else []
-        if args.max_cout_extraction is not None:
-            args_extract += ["--max-cout", str(args.max_cout_extraction)]
+        args_extract += ["--max-cout", str(args.max_cout_extraction)]
         _executer_script(str(RACINE_DEPOT / "src/tendia/analyse/extraire.py"), args_extract)
 
     # === Étape 7 : Rapport final ===

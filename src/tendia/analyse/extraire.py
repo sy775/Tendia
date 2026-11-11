@@ -1,46 +1,63 @@
 """
-tendia_extraire.py
-------------------
+tendia/analyse/extraire.py
+--------------------------
 Orchestrateur d'extraction LLM des DCE.
 
+Deux modes (--mode) :
+- document (défaut) : lecture exhaustive du dossier data/dce/<id>/ par
+  tendia.analyse.mode_document (toutes les pièces, zips imbriqués, formats Office,
+  scans ; modèle par défaut du routeur avec repli). Le dossier du DCE n'est que lu ;
+  un DCE dont le coût estimé dépasse --max-cout-par-dce est sauté et noté.
+- classique : texte des PDF du premier niveau, tronqué, envoyé à llm_extract (Sonnet).
+  Ce mode dézippe à plat dans le dossier du DCE (comportement historique).
+
 Workflow :
-1. Scrute data/dce/<id_marche>/ pour les PDFs déposés par l'utilisateur
-2. Pour chaque marché avec PDFs non encore traités (tracking via hash MD5) :
-   a. Extrait le texte des PDFs (pypdf)
-   b. Combine RC + CCTP + autres pièces
-   c. Envoie à Claude API avec prompt structuré
-   d. Stocke data/extractions/<id>.json
-   e. Génère brief markdown rapports/brief_<id>.md
-3. Met à jour data/extractions/_etat.json (tracking)
+1. Scrute data/dce/<id_marche>/
+2. Pour chaque marché non encore traité (suivi par signature dans _etat.json) :
+   lecture, brief JSON dans data/extractions/<id>.json et dans briefs_extraits,
+   brief markdown rapports/brief_<id>.md. Un brief existant est d'abord copié dans
+   archive/data/briefs/<id>_<horodatage>.json.
 
 Usage :
-    python tendia_extraire.py                  # tous les marchés avec PDFs
-    python tendia_extraire.py --marche <id>    # un marché spécifique
-    python tendia_extraire.py --force          # re-extraire même si déjà fait
-    python tendia_extraire.py --dry-run        # n'appelle pas l'API, juste scan
+    python -m tendia.analyse.extraire                      # tous les marchés à traiter
+    python -m tendia.analyse.extraire --marche <id>        # un marché
+    python -m tendia.analyse.extraire --force              # re-extraire même si déjà fait
+    python -m tendia.analyse.extraire --dry-run            # inventaire et estimation, aucun appel LLM
+    python -m tendia.analyse.extraire --mode classique     # ancien mode (PDF tronqués, Sonnet)
+    python -m tendia.analyse.extraire --max-cout 7 --max-cout-par-dce 2.5
 """
 
 import argparse
+import hashlib
 import json
 import os
 import sys
 import zipfile
 from datetime import datetime, timezone
+from pathlib import Path
+from typing import Optional
 
 from tendia.core import stockage
 from tendia.core import logs as tendia_logs
 from tendia.analyse import pdf_extract
 from tendia.analyse import llm_extract
+from tendia.analyse import mode_document
 from tendia.veille import preset
 
 
-from tendia.core.chemins import DATA, RACINE_DEPOT, RAPPORTS
+from tendia.core.chemins import ARCHIVE, DATA, RACINE_DEPOT, RAPPORTS
 
 REPERTOIRE_BASE = str(RACINE_DEPOT)
 REPERTOIRE_DCE = os.path.join(DATA, "dce")
 REPERTOIRE_EXTRACTIONS = os.path.join(DATA, "extractions")
 REPERTOIRE_RAPPORTS = str(RAPPORTS)
 FICHIER_ETAT = os.path.join(REPERTOIRE_EXTRACTIONS, "_etat.json")
+# Copie d'un brief avant écrasement (jamais de sauvegarde dans briefs_extraits).
+REPERTOIRE_ARCHIVE_BRIEFS = ARCHIVE / "data" / "briefs"
+
+MODES = ("document", "classique")
+MODE_DEFAUT = "document"
+MAX_COUT_PAR_DCE_DEFAUT = 2.5
 
 COLLECTION_MARCHES = "marches"
 
@@ -175,18 +192,85 @@ def _sauver_etat(etat: dict):
 
 def _signature_pdfs(pdfs: dict) -> str:
     """Signature unique pour un ensemble de PDFs (concat des hashs triés)."""
-    hashs = sorted(info["hash"] for info in pdfs.values())
+    hashs = sorted(info["hash"] if isinstance(info, dict) and info.get("hash")
+                   else hashlib.md5(str(info).encode("utf-8", "replace")).hexdigest()
+                   for info in pdfs.values())
     return "_".join(hashs)
+
+
+def signature_dossier(dossier: str) -> str:
+    """Empreinte de tous les fichiers du dossier d'un DCE, sous-dossiers compris (chemins
+    relatifs et tailles). "" si le dossier est vide ou absent. Lecture seule."""
+    racine = Path(dossier)
+    if not racine.is_dir():
+        return ""
+    lignes = sorted(f"{f.relative_to(racine).as_posix()}|{f.stat().st_size}"
+                    for f in racine.rglob("*") if f.is_file())
+    if not lignes:
+        return ""
+    return hashlib.sha1("\n".join(lignes).encode("utf-8")).hexdigest()
+
+
+def archiver_brief_existant(id_marche: str) -> Optional[Path]:
+    """Copie le brief actuel du marché (briefs_extraits) dans
+    REPERTOIRE_ARCHIVE_BRIEFS / "<id>_<horodatage>.json" avant qu'il ne soit écrasé.
+    Rend le chemin de la copie, ou None s'il n'y a pas de brief. La collection
+    briefs_extraits n'est pas touchée."""
+    brief = stockage.lire("briefs_extraits", id_marche)
+    if not brief:
+        return None
+    dossier = Path(REPERTOIRE_ARCHIVE_BRIEFS)
+    dossier.mkdir(parents=True, exist_ok=True)
+    horodatage = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S%fZ")
+    cible = dossier / f"{id_marche}_{horodatage}.json"
+    n = 1
+    while cible.exists():                       # deux archivages dans la même microseconde
+        n += 1
+        cible = dossier / f"{id_marche}_{horodatage}_{n}.json"
+    cible.write_text(json.dumps(brief, ensure_ascii=False, indent=2), encoding="utf-8")
+    return cible
 
 
 # ---------------------------------------------------------------------------
 # Identification des marchés à traiter
 # ---------------------------------------------------------------------------
 
-def _scanner_dossiers_dce(force: bool = False,
-                            verbose: bool = True) -> list:
+def _scanner_dossiers_document(force: bool = False) -> list:
+    """Mode document : tout dossier de DCE non vide et pas encore extrait (signature de
+    tous ses fichiers). Le dossier n'est que lu : aucun dézippage dans data/dce.
+    Un marché déjà extrait (quel que soit le mode) n'est repris que s'il a changé depuis
+    une extraction en mode document, ou avec --force.
+
+    Returns: [(id_marche, dossier, {}, raison), ...]
     """
-    Retourne la liste des marchés ayant des PDFs à traiter.
+    if not os.path.isdir(REPERTOIRE_DCE):
+        return []
+    etat = _charger_etat()
+    a_traiter = []
+    for nom_dossier in sorted(os.listdir(REPERTOIRE_DCE)):
+        dossier = os.path.join(REPERTOIRE_DCE, nom_dossier)
+        if not os.path.isdir(dossier):
+            continue
+        signature = signature_dossier(dossier)
+        if not signature:
+            continue
+        etat_marche = etat.get(nom_dossier) or {}
+        if not force and etat_marche:
+            # extrait en mode classique : on ne repaie pas un brief sans demande explicite
+            if etat_marche.get("mode") != "document" or etat_marche.get("signature_dossier") == signature:
+                continue
+        raison = ("re-traitement forcé" if force
+                  else ("nouvelle extraction" if not etat_marche else "dossier modifié"))
+        a_traiter.append((nom_dossier, dossier, {}, raison))
+    return a_traiter
+
+
+def _scanner_dossiers_dce(force: bool = False,
+                            verbose: bool = True,
+                            mode: str = "classique") -> list:
+    """
+    Marchés à traiter. Mode document : voir _scanner_dossiers_document (lecture seule).
+    Mode classique : retourne la liste des marchés ayant des PDFs à traiter.
 
     Pour chaque dossier marché :
     1. Détecte et décompresse les .zip présents (workflow PLACE)
@@ -196,6 +280,8 @@ def _scanner_dossiers_dce(force: bool = False,
     Returns:
         [(id_marche, dossier, pdfs_dict, raison), ...]
     """
+    if mode == "document":
+        return _scanner_dossiers_document(force=force)
     if not os.path.isdir(REPERTOIRE_DCE):
         return []
 
@@ -279,7 +365,20 @@ def _combiner_textes(pdfs: dict) -> str:
 def cout_du_resultat(resultat: dict) -> float:
     """Coût LLM (€) d'un résultat de traiter_marche, lu dans extraction._meta.cout_eur."""
     extraction = (resultat or {}).get("extraction") or {}
-    return float((extraction.get("_meta") or {}).get("cout_eur") or 0.0)
+    cout = float((extraction.get("_meta") or {}).get("cout_eur") or 0.0)
+    # mode document : une lecture payée qui n'aboutit pas à un brief compte dans la passe
+    return cout or float((resultat or {}).get("cout_eur_sans_brief") or 0.0)
+
+
+def etat_apres_extraction(mode: str, dossier: str, pdfs: dict = None) -> dict:
+    """Entrée de _etat.json après un brief réussi (suivi des marchés déjà extraits)."""
+    entree = {"extrait_le": datetime.now(timezone.utc).isoformat(), "mode": mode}
+    if mode == "document":
+        entree["signature_dossier"] = signature_dossier(dossier)
+    else:
+        entree["signature_pdfs"] = _signature_pdfs(pdfs or {})
+        entree["pdfs"] = list((pdfs or {}).keys())
+    return entree
 
 
 def plafond_atteint(cout_cumule: float, max_cout) -> bool:
@@ -289,11 +388,101 @@ def plafond_atteint(cout_cumule: float, max_cout) -> bool:
     return budget.plafond_atteint(cout_cumule, max_cout)
 
 
-def traiter_marche(id_marche: str, dossier: str, pdfs: dict,
+def traiter_marche(id_marche: str, dossier: str, pdfs: dict = None,
                      dry_run: bool = False,
-                     verbose: bool = True) -> dict:
+                     verbose: bool = True,
+                     mode: str = None,
+                     max_cout_par_dce: float = MAX_COUT_PAR_DCE_DEFAUT) -> dict:
+    """Traite un marché selon `mode` (défaut : MODE_DEFAUT, « document »).
+
+    Returns: {"ok", "extraction", "erreur", "raison", "mode", ...}. En mode document,
+    `pdfs` n'est pas utilisé (le dossier entier est lu) et le résultat porte aussi
+    "estimation" et "lecture" ; raison "cout_estime_depasse" : DCE sauté, rien d'écrit.
     """
-    Traite un marché : extraction texte → LLM → stockage.
+    mode = mode or MODE_DEFAUT
+    if mode not in MODES:
+        raise ValueError(f"mode inconnu : {mode!r} (attendu : {MODES})")
+    if mode == "document":
+        resultat = _traiter_marche_document(id_marche, dossier, dry_run=dry_run, verbose=verbose,
+                                            max_cout_par_dce=max_cout_par_dce)
+    else:
+        resultat = _traiter_marche_classique(id_marche, dossier, pdfs or {}, dry_run=dry_run,
+                                             verbose=verbose)
+    resultat["mode"] = mode
+    return resultat
+
+
+def _marche_de_la_base(id_marche: str, verbose: bool) -> dict:
+    marche = stockage.lire(COLLECTION_MARCHES, id_marche)
+    if not marche:
+        if verbose:
+            print(f"    ⚠ Marché absent de la base, on continue avec contexte minimal")
+        marche = {"id": id_marche}
+    return marche
+
+
+def _traiter_marche_document(id_marche: str, dossier: str, dry_run: bool = False,
+                             verbose: bool = True,
+                             max_cout_par_dce: float = MAX_COUT_PAR_DCE_DEFAUT) -> dict:
+    """Mode document : lecture exhaustive par mode_document.lire_dce, puis stockage."""
+    if verbose:
+        print(f"\n  [Marché {id_marche}] mode document")
+        print(f"    Dossier : {dossier}")
+    marche = _marche_de_la_base(id_marche, verbose)
+    contexte = _construire_contexte(marche)
+    contexte["id"] = contexte.get("id") or id_marche
+    codes_presets = llm_extract._resoudre_presets_pour_marche(id_marche)
+    lecture = mode_document.lire_dce(id_marche, dossier, contexte, codes_presets,
+                                     max_cout_par_dce=max_cout_par_dce, dry_run=dry_run,
+                                     verbose=verbose)
+    communs = {"estimation": lecture.get("estimation"), "lecture": lecture.get("lecture"),
+               "inventaire": lecture.get("inventaire")}
+    if dry_run:
+        return {"ok": True, "extraction": None, "erreur": None, "raison": None, "dry_run": True, **communs}
+    if not lecture.get("ok") or not lecture.get("brief"):
+        raison = lecture.get("raison") or "extraction_llm"
+        if verbose:
+            print(f"    ❌ Pas de brief : {raison}")
+        return {"ok": False, "extraction": None, "erreur": f"lecture du DCE : {raison}",
+                "raison": raison, "cout_eur_sans_brief": lecture.get("cout_eur") or 0.0, **communs}
+
+    extraction = lecture["brief"]
+    appels = lecture.get("appels") or {}
+    tableau = lecture.get("lecture") or {}
+    horodatage = datetime.now(timezone.utc).isoformat()
+    extraction["_meta"] = {
+        "id_marche": id_marche,
+        "type": "complet",
+        "mode": "document",
+        "date_generation": horodatage,
+        "extraction_le": horodatage,
+        "modele": lecture.get("modele"),
+        "modeles_appels": appels.get("modeles"),
+        "nb_appels": appels.get("nb_appels"),
+        "nb_replis": appels.get("nb_replis"),
+        "preset_utilise": codes_presets[0] if codes_presets else None,
+        "presets_matches": codes_presets,
+        "prompts_versions": preset.prompts_versions_pour_presets(codes_presets),
+        "prompt_mode_document": mode_document.version_prompts(),
+        "tokens_input": appels.get("tokens_in"),
+        "tokens_output": appels.get("tokens_out"),
+        "cout_eur": lecture.get("cout_eur"),
+        "cout_estime_eur": (lecture.get("estimation") or {}).get("cout_eur"),
+        "duree_sec": lecture.get("duree_s"),
+        "nb_pieces_texte": tableau.get("nb_pieces_texte"),
+        "nb_pieces_lues": tableau.get("nb_lues"),
+        "pct_non_lu": tableau.get("pct_non_lu"),
+        "signature_dossier": signature_dossier(dossier),
+    }
+    _persister_extraction(id_marche, marche, extraction, verbose)
+    return {"ok": True, "extraction": extraction, "erreur": None, "raison": None, **communs}
+
+
+def _traiter_marche_classique(id_marche: str, dossier: str, pdfs: dict,
+                              dry_run: bool = False,
+                              verbose: bool = True) -> dict:
+    """
+    Mode classique : extraction texte des PDF → LLM (llm_extract) → stockage.
 
     Returns:
         {"ok": bool, "extraction": dict | None, "erreur": str | None,
@@ -333,12 +522,7 @@ def traiter_marche(id_marche: str, dossier: str, pdfs: dict,
                 "raison": "pdfs_non_dce"}
 
     # Charger le marché en base pour le contexte
-    marches = stockage.charger(COLLECTION_MARCHES)
-    marche = marches.get(id_marche)
-    if not marche:
-        if verbose:
-            print(f"    ⚠ Marché absent de la base, on continue avec contexte minimal")
-        marche = {"id": id_marche}
+    marche = _marche_de_la_base(id_marche, verbose)
 
     contexte = _construire_contexte(marche)
     texte_combine = _combiner_textes(pdfs_valides)
@@ -370,6 +554,7 @@ def traiter_marche(id_marche: str, dossier: str, pdfs: dict,
     extraction["_meta"] = {
         "id_marche": id_marche,
         "type": "complet",
+        "mode": "classique",
         # Convention _meta harmonisée : `date_generation` est le champ canonique
         # (aligné sur les briefs light). `extraction_le` conservé en alias pour
         # rétro-compat (identifier_briefs_pollues.py).
@@ -389,6 +574,22 @@ def traiter_marche(id_marche: str, dossier: str, pdfs: dict,
             for n, p in pdfs.items()
         ],
     }
+
+    _persister_extraction(id_marche, marche, extraction, verbose)
+    return {"ok": True, "extraction": extraction, "erreur": None}
+
+
+def _persister_extraction(id_marche: str, marche: dict, extraction: dict, verbose: bool) -> None:
+    """Écrit un brief (les deux modes) : copie de l'ancien brief dans l'archive, JSON sur
+    disque, briefs_extraits (écriture unitaire), synchronisation de la classification,
+    brief markdown."""
+    # Avant d'écraser : copie du brief existant dans archive/data/briefs/
+    try:
+        copie = archiver_brief_existant(id_marche)
+        if copie and verbose:
+            print(f"    🗃  Ancien brief copié : {copie}")
+    except Exception as e:
+        raise RuntimeError(f"brief existant non archivé, écriture annulée : {e}") from e
 
     # Stocker en JSON (disque, compat historique Apptia)
     os.makedirs(REPERTOIRE_EXTRACTIONS, exist_ok=True)
@@ -442,8 +643,6 @@ def traiter_marche(id_marche: str, dossier: str, pdfs: dict,
         f.write(brief)
     if verbose:
         print(f"    📄 Brief : {chemin_brief}")
-
-    return {"ok": True, "extraction": extraction, "erreur": None}
 
 
 # ---------------------------------------------------------------------------
@@ -1230,6 +1429,12 @@ def main(argv=None):
                         help="Arrêt propre dès que le coût LLM cumulé de la passe "
                              "atteint ce montant (coûts lus dans _meta.cout_eur). "
                              "0 : aucun appel.")
+    parser.add_argument("--mode", choices=MODES, default=MODE_DEFAUT,
+                        help="document (défaut) : lecture exhaustive du dossier, sans "
+                             "troncature ; classique : PDF du premier niveau, Sonnet.")
+    parser.add_argument("--max-cout-par-dce", type=float, default=MAX_COUT_PAR_DCE_DEFAUT, metavar="EUR",
+                        help="Mode document : un DCE dont le coût estimé dépasse ce montant "
+                             f"est sauté et noté, jamais tronqué (défaut : {MAX_COUT_PAR_DCE_DEFAUT}).")
     args = parser.parse_args(argv)
 
     print()
@@ -1238,12 +1443,19 @@ def main(argv=None):
     print("=" * 78)
     print(f"  Dossier DCE         : {REPERTOIRE_DCE}")
     print(f"  Sortie extractions  : {REPERTOIRE_EXTRACTIONS}")
-    print(f"  Modèle Claude       : {llm_extract.MODELE}")
+    if args.mode == "document":
+        print(f"  Mode                : document (lecture exhaustive, plafond par DCE "
+              f"{args.max_cout_par_dce:.2f} €)")
+        print(f"  Modèle              : {mode_document.llm_router.resoudre_modele('analyse', None)} "
+              f"(repli {mode_document.llm_router.modele_repli('analyse')})")
+    else:
+        print(f"  Mode                : classique")
+        print(f"  Modèle Claude       : {llm_extract.MODELE}")
     if args.dry_run:
         print(f"  MODE DRY-RUN (pas d'appel API)")
 
-    # Vérif API key sauf en dry-run
-    if not args.dry_run:
+    # Vérif API key sauf en dry-run (mode classique : appel direct à Claude)
+    if not args.dry_run and args.mode == "classique":
         cle = llm_extract._obtenir_cle_api()
         if not cle:
             print()
@@ -1265,7 +1477,7 @@ def main(argv=None):
     print("─" * 78)
     print("  Scan des dossiers DCE...")
     print("─" * 78)
-    a_traiter = _scanner_dossiers_dce(force=args.force, verbose=True)
+    a_traiter = _scanner_dossiers_dce(force=args.force, verbose=True, mode=args.mode)
 
     if args.marche:
         a_traiter = [t for t in a_traiter if t[0] == args.marche]
@@ -1279,11 +1491,12 @@ def main(argv=None):
 
     print(f"  {len(a_traiter)} marché(s) à traiter :")
     for id_marche, _, pdfs, raison in a_traiter:
-        print(f"    - {id_marche} ({len(pdfs)} PDF(s)) — {raison}")
+        detail = "dossier entier" if args.mode == "document" else f"{len(pdfs)} PDF(s)"
+        print(f"    - {id_marche} ({detail}) — {raison}")
 
     # Traitement
     etat = _charger_etat()
-    stats = {"ok": 0, "echec": 0}
+    stats = {"ok": 0, "echec": 0, "saute": 0}
     cout_cumule = 0.0
 
     for id_marche, dossier, pdfs, raison in a_traiter:
@@ -1298,17 +1511,17 @@ def main(argv=None):
         resultat = traiter_marche(
             id_marche, dossier, pdfs,
             dry_run=args.dry_run, verbose=True,
+            mode=args.mode, max_cout_par_dce=args.max_cout_par_dce,
         )
         cout_cumule += cout_du_resultat(resultat)
         if resultat["ok"]:
             stats["ok"] += 1
             if not args.dry_run:
-                etat[id_marche] = {
-                    "signature_pdfs": _signature_pdfs(pdfs),
-                    "extrait_le": datetime.now(timezone.utc).isoformat(),
-                    "pdfs": [n for n in pdfs.keys()],
-                }
+                etat[id_marche] = etat_apres_extraction(args.mode, dossier, pdfs)
                 _sauver_etat(etat)
+        elif resultat.get("raison") == "cout_estime_depasse":
+            stats["saute"] += 1
+            print(f"    ⊘ DCE sauté (coût estimé au-delà de --max-cout-par-dce)")
         else:
             stats["echec"] += 1
             print(f"    ❌ {resultat.get('erreur')}")
@@ -1319,6 +1532,8 @@ def main(argv=None):
     print("─" * 78)
     print(f"  Succès : {stats['ok']}")
     print(f"  Échec  : {stats['echec']}")
+    if stats["saute"]:
+        print(f"  Sautés : {stats['saute']} (coût estimé au-delà du plafond par DCE)")
     print(f"  Coût LLM de la passe : {cout_cumule:.3f} €")
     print()
     if stats["ok"] > 0:

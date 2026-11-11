@@ -61,7 +61,8 @@ E.REPERTOIRE_EXTRACTIONS = str(dossier / "extractions")
 E.FICHIER_ETAT = os.path.join(E.REPERTOIRE_EXTRACTIONS, "_etat.json")
 os.makedirs(E.REPERTOIRE_EXTRACTIONS, exist_ok=True)
 A_TRAITER = [(f"M-{i}", str(dossier / "dce" / f"M-{i}"), {"rc.pdf": {"hash": f"h{i}", "texte": "texte"}}, "nouveau") for i in range(3)]
-E._scanner_dossiers_dce = lambda force=False, verbose=True: list(A_TRAITER)
+E.REPERTOIRE_DCE = str(dossier / "dce")     # jamais le vrai data/dce
+E._scanner_dossiers_dce = lambda *a, **k: list(A_TRAITER)
 E.llm_extract._obtenir_cle_api = lambda: "sk-ant-fausse-cle-de-test"
 TRAITES = []
 
@@ -113,7 +114,9 @@ a = args_de("classification.py")
 check("défaut : classification plafonnée à 5 €",
       a is not None and float(a[a.index("--max-cout") + 1]) == 5.0, str(a))
 a = args_de("extraire.py")
-check("défaut : extraire lancé sans --max-cout de passe", a is not None and "--max-cout" not in a, str(a))
+check("défaut : extraction plafonnée à 5 € elle aussi (étape 5 du chantier 2)",
+      a is not None and "--max-cout" in a and float(a[a.index("--max-cout") + 1]) == 5.0, str(a))
+check("le pipeline ne force pas le mode : extraire applique son défaut (document)", a is not None and "--mode" not in a, str(a))
 
 LANCES.clear()
 silencieux(P.main, ["--skip-recup", "--skip-download", "--skip-dedies", "--skip-llm",
