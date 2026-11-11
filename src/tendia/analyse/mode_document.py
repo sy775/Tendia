@@ -202,12 +202,23 @@ def version_prompts() -> str:
     return "doc-" + hashlib.sha256(base.encode("utf-8")).hexdigest()[:10]
 
 
-class Suivi:
-    """Cumul des appels LLM d'une lecture de DCE (partagé entre threads)."""
+class PlafondDceAtteint(RuntimeError):
+    """Le coût RÉEL de la lecture a atteint --max-cout-par-dce : plus aucun appel pour ce DCE."""
 
-    def __init__(self, marche_id: Optional[str] = None, modele: Optional[str] = None):
+
+class Suivi:
+    """Cumul des appels LLM d'une lecture de DCE (partagé entre threads).
+
+    `plafond_eur` : coût réel maximal de la lecture (--max-cout-par-dce). Vérifié avant
+    chaque appel : une fois atteint, plus aucun appel (PlafondDceAtteint). Les appels déjà
+    partis (pièces en parallèle, relance JSON ou repli internes à un appel) peuvent le
+    dépasser d'au plus leur propre coût."""
+
+    def __init__(self, marche_id: Optional[str] = None, modele: Optional[str] = None,
+                 plafond_eur: Optional[float] = None):
         self.marche_id = marche_id
         self.modele = modele          # None : modèle par défaut de la tâche analyse (+ repli)
+        self.plafond_eur = None if plafond_eur is None else float(plafond_eur)
         self.cout_eur = 0.0
         self.nb_appels = 0
         self.tokens_in = 0
@@ -226,6 +237,12 @@ class Suivi:
                 self.modeles[r.modele] = self.modeles.get(r.modele, 0) + 1
             if getattr(r, "repli", False):
                 self.nb_replis += 1
+
+    def verifier_plafond(self) -> None:
+        with self._verrou:
+            if self.plafond_eur is not None and self.cout_eur >= self.plafond_eur:
+                raise PlafondDceAtteint(f"coût réel de la lecture {self.cout_eur:.2f} € ≥ "
+                                        f"{self.plafond_eur:.2f} € (--max-cout-par-dce)")
 
     def bilan(self) -> dict:
         return {"cout_eur": round(self.cout_eur, 6), "nb_appels": self.nb_appels,
@@ -270,7 +287,9 @@ def decouper(texte: str, max_chars: int) -> list:
 def _appel_json(user, documents, suivi: Suivi, version, max_tokens, system=None):
     """Un appel d'analyse. Comme en expérimentation, une réponse qui n'est pas un JSON
     exploitable est relancée une fois avec un rappel du format : cette relance (et le
-    repli Sonnet si argon échoue) est faite par llm_router, qui journalise chaque tentative."""
+    repli Sonnet si argon échoue) est faite par llm_router, qui journalise chaque tentative.
+    Plafond par DCE vérifié avant l'appel (coût réel déjà dépensé par cette lecture)."""
+    suivi.verifier_plafond()
     r = llm_router.call_llm("analyse", user, documents=documents, model=suivi.modele,
                             type_appel="extraction", marche_id=suivi.marche_id,
                             system=system or SYSTEME_PIECE, prompt_version=version,
@@ -460,7 +479,11 @@ def analyser_document(inv: dict, contexte: dict, codes_presets: list, suivi: Sui
     # 2. Fusion dans le schéma de prod
     notes = f"{EN_TETE_NOTES}\n{_notes_compactes(analyses)}"
     systeme, user = _prompts_prod(contexte, notes, codes_presets)
-    r = _appel_json(user, [], suivi, version + ":fusion", None, system=systeme)
+    try:
+        r = _appel_json(user, [], suivi, version + ":fusion", None, system=systeme)
+    except PlafondDceAtteint as e:
+        e.trace_partielle = dict(trace, interrompue=True)    # pièces payées : reprises au prochain run
+        raise
     trace["fusion"] = r.to_dict()
     if not r.ok:
         return None, trace
@@ -478,7 +501,16 @@ def analyser_document(inv: dict, contexte: dict, codes_presets: list, suivi: Sui
             continue
         if verbose:
             print(f"      ↻ champ critique manquant : {champ} → recherche ciblée", flush=True)
-        res = _recherche_ciblee(champ, spec, inv, contexte, suivi, version)
+        try:
+            res = _recherche_ciblee(champ, spec, inv, contexte, suivi, version)
+        except PlafondDceAtteint as e:
+            # brief gardé, marqué incomplet : les champs restants ne sont pas recherchés
+            restants = [c for c in CHAMPS_CRITIQUES if c not in controle]
+            brief["_incomplet"] = {"raison": "plafond_dce_atteint", "detail": str(e),
+                                   "champs_non_recherches": restants}
+            for c in restants:
+                controle[c] = {"statut": "non_recherche_plafond"}
+            break
         controle[champ] = res
         if res["statut"] == "trouve_par_relance":
             _appliquer(brief, champ, res)
@@ -692,7 +724,7 @@ def lire_dce(marche_id: str, dossier_dce: str, contexte: dict, codes_presets: li
                   f"{float(max_cout_par_dce):.2f} € (--max-cout-par-dce). Rien n'est tronqué.")
         return resultat
 
-    suivi = Suivi(marche_id=marche_id, modele=modele)
+    suivi = Suivi(marche_id=marche_id, modele=modele, plafond_eur=max_cout_par_dce)
     version = version_prompts()
     fichier_trace = P.DIR_PIECES / marche_id / "_trace.json"
     trace_precedente = None
@@ -712,11 +744,23 @@ def lire_dce(marche_id: str, dossier_dce: str, contexte: dict, codes_presets: li
         brief, trace = analyser_document(inv, contexte, codes_presets, suivi=suivi, version=version,
                                          verbose=verbose, trace_precedente=trace_precedente)
     except BaseException as e:
-        # Lecture interrompue (kill switch, plafond mensuel, Ctrl+C) : les pièces déjà
-        # analysées sont tracées pour ne pas être repayées à la reprise.
+        # Lecture interrompue (kill switch, plafond mensuel, plafond par DCE, Ctrl+C) : les
+        # pièces déjà analysées sont tracées pour ne pas être repayées à la reprise.
         if getattr(e, "trace_partielle", None):
             _ecrire_trace(e.trace_partielle)
-        raise
+        if not isinstance(e, PlafondDceAtteint):
+            raise
+        analyses = (getattr(e, "trace_partielle", None) or {}).get("analyses_pieces") or []
+        resultat.update(raison="plafond_dce_atteint", lecture=tableau_lecture(inv, analyses),
+                        appels=suivi.bilan(), cout_eur=round(suivi.cout_eur, 6),
+                        cout_cumule_eur=round(suivi.cout_eur, 6), duree_s=round(time.time() - debut, 1))
+        tendia_logs.logger_evenement_marche(
+            "extraction", marche_id,
+            {"evenement": "dce_plafond_cout_reel", "cout_reel_eur": round(suivi.cout_eur, 4),
+             "max_cout_par_dce_eur": float(max_cout_par_dce)})
+        if verbose:
+            print(f"      ⊘ Lecture arrêtée : {e}. Pas de brief ; pièces lues gardées pour la reprise.")
+        return resultat
     _ecrire_trace(trace)
     analyses = trace.get("analyses_pieces") or []
     cout_repris = sum(float(a.get("cout_eur") or 0) for a in analyses if a.get("reprise"))

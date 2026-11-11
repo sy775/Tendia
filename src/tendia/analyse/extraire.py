@@ -31,6 +31,7 @@ import argparse
 import hashlib
 import json
 import os
+import shutil
 import sys
 import zipfile
 from datetime import datetime, timezone
@@ -123,8 +124,49 @@ def _est_pdf_non_dce(nom_fichier: str, taille_chars: int) -> tuple:
 # Auto-décompression des zips déposés par l'utilisateur
 # ---------------------------------------------------------------------------
 
+def dossiers_lecture_classique(dossier: str, verbose: bool = False) -> list:
+    """Dossiers à lire par l'ancien mode (PDF du 1er niveau) SANS écrire dans data/dce :
+    les .zip du 1er niveau sont extraits à plat dans data/pieces/<id>/_classique (rien
+    n'est déplacé dans le dossier source). Rend [dossier] ou [dossier, dossier de travail].
+    Un DCE déjà dézippé à plat par l'ancien code reste lu tel quel."""
+    if not os.path.isdir(dossier):
+        return [dossier]
+    from tendia.analyse import pieces as P
+    travail = P.dossier_travail(os.path.basename(os.path.normpath(dossier))) / "_classique"
+    for nom in sorted(os.listdir(dossier)):
+        if not nom.lower().endswith(".zip"):
+            continue
+        try:
+            with zipfile.ZipFile(os.path.join(dossier, nom), "r") as z:
+                for nom_interne in z.namelist():
+                    base = os.path.basename(nom_interne)
+                    if nom_interne.endswith("/") or not base or base.startswith("."):
+                        continue
+                    cible = travail / base
+                    if cible.exists() or os.path.exists(os.path.join(dossier, base)):
+                        continue
+                    travail.mkdir(parents=True, exist_ok=True)
+                    with z.open(nom_interne) as src, open(cible, "wb") as dst:
+                        shutil.copyfileobj(src, dst)
+        except Exception as e:
+            if verbose:
+                print(f"    ⚠ Erreur dézip {nom} : {e}")
+    return [dossier, str(travail)] if travail.is_dir() else [dossier]
+
+
+def extraire_dossiers(dossiers: list, verbose: bool = False) -> dict:
+    """pdf_extract.extraire_dossier sur plusieurs dossiers ; à nom égal, le premier gagne."""
+    resultats = {}
+    for d in dossiers:
+        for nom, info in pdf_extract.extraire_dossier(d, verbose=verbose).items():
+            resultats.setdefault(nom, info)
+    return resultats
+
+
 def _dezipper_dossier(dossier: str, verbose: bool = True) -> int:
     """
+    RÉSERVÉ AUX TÉLÉCHARGEURS (seuls à écrire dans data/dce) ; la lecture passe par
+    dossiers_lecture_classique.
     Si un .zip est présent dans le dossier, l'extrait à plat à côté
     (sans créer de sous-dossier). Déplace le zip dans un sous-dossier
     _zip_archives/ après extraction pour ne pas le re-traiter.
@@ -347,7 +389,7 @@ def _scanner_dossiers_document(force: bool = False, ids=None, max_cout_par_dce=N
             if echec:
                 signature = signature or signature_dossier(dossier)
                 if echec.get("signature_dossier") == signature:
-                    if echec.get("raison") == "cout_estime_depasse":
+                    if echec.get("raison") in ("cout_estime_depasse", "plafond_dce_atteint"):
                         if echec.get("max_cout_par_dce") == max_cout_par_dce:
                             continue
                     elif int(echec.get("nb_tentatives") or 0) >= MAX_TENTATIVES_ECHEC:
@@ -405,12 +447,8 @@ def _scanner_dossiers_dce(force: bool = False,
         if not os.path.isdir(dossier):
             continue
 
-        # Auto-décompression des zips déposés (workflow PLACE)
-        n_zips = _dezipper_dossier(dossier, verbose=verbose)
-        if n_zips and verbose:
-            print(f"  📦 {nom_dossier} : {n_zips} zip(s) décompressé(s)")
-
-        pdfs = pdf_extract.extraire_dossier(dossier, verbose=False)
+        # Zips déposés (workflow PLACE) : extraits dans data/pieces/<id>/_classique
+        pdfs = extraire_dossiers(dossiers_lecture_classique(dossier, verbose=verbose), verbose=False)
         if not pdfs:
             continue
         signature = _signature_pdfs(pdfs)

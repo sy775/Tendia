@@ -272,7 +272,7 @@ def cmd_dce(args):
 
 
 def cmd_briefs(args):
-    from tendia.analyse import extraire, pdf_extract
+    from tendia.analyse import extraire
 
     ids = lire_ids()
     marches = stockage.charger("marches") or {}
@@ -298,9 +298,8 @@ def cmd_briefs(args):
         dossier = os.path.join(extraire.REPERTOIRE_DCE, mid)
         pdfs = {}
         if args.mode == "classique":
-            # ancien mode : dézippage à plat dans le dossier du DCE, PDF seulement
-            extraire._dezipper_dossier(dossier, verbose=False)
-            pdfs = pdf_extract.extraire_dossier(dossier, verbose=False)
+            # ancien mode : zips extraits dans data/pieces/<id>/_classique, PDF seulement
+            pdfs = extraire.extraire_dossiers(extraire.dossiers_lecture_classique(dossier), verbose=False)
             if not pdfs:
                 lignes.append((mid, 0.0, "aucun PDF", "—"))
                 print(f"  {mid}  ⊘ aucun PDF exploitable")
