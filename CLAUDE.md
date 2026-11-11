@@ -48,6 +48,16 @@ Chemins vers `data/`, `logs/`, `presets/`, `rapports/`, `archive/` : toujours vi
 - Racine : fichiers de config et les deux shims `tendia_ui.py`, `tendia_pipeline.py`, rien d'autre en `.py`.
 - Avant de terminer : `python tests/lancer_tous.py` passe (échecs connus listés dans Pièges connus), l'UI démarre, puis sous-agent `audit-code`.
 
+## Sous-agents
+- `Explore` pour la lecture de début de chantier (résumé seulement).
+- `testeur` avant le code de chaque étape qui crée ou change un comportement.
+- `relecteur-etape` après chaque commit d'étape ; un bloquant se corrige avant l'étape suivante.
+- `verif-tests` pour lancer les tests.
+- `verificateur-brief` sur tout brief produit par un run.
+- Clôture par `audit-code`, plus `audit-design` en parallèle si `src/tendia/ui/` est touché.
+- Jamais deux sous-agents qui écrivent dans le dépôt en parallèle.
+- Modèles : Fable pour écrire et vérifier, Haiku pour `verif-tests`.
+
 ## Pièges connus
 - `stockage.charger` lit toute la collection ; cache mémoire par processus (UI et scripts peuvent diverger).
 - Lecture DCE prod : `.pdf/.docx/.xlsx` au 1er niveau seulement, troncature 400 000 caractères. Le code exhaustif est dans `exp_gemini/pieces.py` et `mode_document.py`.
